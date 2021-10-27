@@ -1,0 +1,25 @@
+syntax: glob
+
+*.obj
+*.exe
+*.o
+*.a
+*.lib
+*.so*
+*.log
+*.sdf
+*.VC.db
+*.VC.VC.opendb
+*.vcxproj.user
+*.idb 
+*.tlog
+*.suo
+*.orig
+*.tix
+.~*
+*.bak
+*.raw
+*.dll
+*.pdb
+*.err
+*.ai

@@ -1,0 +1,1437 @@
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @file       DIOCheckTCPIPConnections.cpp
+*
+* @class      DIOCHECKTCPIPCONNECTIONS
+* @brief       Data Input/Output Check connections TPC/IP class
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+*
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+
+#include "GEN_Defines.h"
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+
+#include "XFactory.h"
+#include "XSleep.h"
+#include "XTimer.h"
+#include "XDateTime.h"
+#include "XBuffer.h"
+#include "XTrace.h"
+#include "XThreadCollected.h"
+
+#include "DIOFactory.h"
+#include "DIOURL.h"
+#include "DIOPing.h"
+
+#include "DIOCheckTCPIPConnections.h"
+
+#include "XMemory_Control.h"
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOCHECKTCPIPCONNECTION_CUT::DIOCHECKTCPIPCONNECTION_CUT()
+* @brief      Constructor
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOCHECKTCPIPCONNECTION_CUT::DIOCHECKTCPIPCONNECTION_CUT()
+{
+  Clean();
+
+  startdatetime = GEN_XFACTORY.CreateDateTime();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOCHECKTCPIPCONNECTION_CUT::~DIOCHECKTCPIPCONNECTION_CUT()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOCHECKTCPIPCONNECTION_CUT::~DIOCHECKTCPIPCONNECTION_CUT()
+{
+  if(startdatetime) GEN_XFACTORY.DeleteDateTime(startdatetime);
+
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XDATETIME* DIOCHECKTCPIPCONNECTION_CUT::GetStartDateTime()
+* @brief      GetStartDateTime
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XDATETIME* :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XDATETIME* DIOCHECKTCPIPCONNECTION_CUT::GetStartDateTime()
+{
+  return startdatetime;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int DIOCHECKTCPIPCONNECTION_CUT::GetMeasureNSeconds()
+* @brief      GetMeasureNSeconds
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     int :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+int DIOCHECKTCPIPCONNECTION_CUT::GetMeasureNSeconds()
+{
+  return nseconds;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOCHECKTCPIPCONNECTION_CUT::SetMeasureNSeconds(XDWORD nseconds)
+* @brief      SetMeasureNSeconds
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  nseconds :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOCHECKTCPIPCONNECTION_CUT::SetMeasureNSeconds(XDWORD nseconds)
+{
+  this->nseconds = nseconds;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTION_CUT::GetMeasureTimeString(XSTRING& measuretime, bool large = false)
+* @brief      GetMeasureTimeString
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  measuretime :
+* @param[in]  large :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTION_CUT::GetMeasureTimeString(XSTRING& measuretime, bool large)
+{
+  XTIMER xtimer;
+
+  xtimer.Reset();
+  xtimer.AddSeconds(GetMeasureNSeconds());
+
+  xtimer.GetMeasureString(measuretime, large);
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTION_CUT::CopyFrom(DIOCHECKTCPIPCONNECTION_CUT* connectioncut)
+* @brief      CopyFrom
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  connectioncut :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTION_CUT::CopyFrom(DIOCHECKTCPIPCONNECTION_CUT* connectioncut)
+{
+  if(!connectioncut)   return false;
+
+  return connectioncut->CopyTo(this);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTION_CUT::CopyTo(DIOCHECKTCPIPCONNECTION_CUT* connectioncut)
+* @brief      CopyTo
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  connectioncut :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTION_CUT::CopyTo(DIOCHECKTCPIPCONNECTION_CUT* connectioncut)
+{
+  if(!connectioncut)   return false;
+
+  connectioncut->GetStartDateTime()->CopyFrom(startdatetime);
+  connectioncut->SetMeasureNSeconds(nseconds);
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOCHECKTCPIPCONNECTION_CUT::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOCHECKTCPIPCONNECTION_CUT::Clean()
+{
+  startdatetime   = NULL;
+  nseconds        = 0;
+}
+
+
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+/*DIOCHECKTCPIPCONNECTION                                                                                                   */
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOCHECKTCPIPCONNECTION::DIOCHECKTCPIPCONNECTION()
+* @brief      Constructor
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOCHECKTCPIPCONNECTION::DIOCHECKTCPIPCONNECTION()
+{
+  Clean();
+
+  url = new DIOURL();
+  timerconnexion = GEN_XFACTORY.CreateTimer();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOCHECKTCPIPCONNECTION::~DIOCHECKTCPIPCONNECTION()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOCHECKTCPIPCONNECTION::~DIOCHECKTCPIPCONNECTION()
+{
+  if(url) delete url;
+
+  if(timerconnexion) GEN_XFACTORY.DeleteTimer(timerconnexion);
+
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XDWORD DIOCHECKTCPIPCONNECTION::GetID()
+* @brief      GetID
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XDWORD :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCHECKTCPIPCONNECTION::GetID()
+{
+  return ID;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOURL* DIOCHECKTCPIPCONNECTION::GetURL()
+* @brief      GetURL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     DIOURL* :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOURL* DIOCHECKTCPIPCONNECTION::GetURL()
+{
+  return url;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTION::IsConnected()
+* @brief      IsConnected
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTION::IsConnected()
+{
+  return isconnected;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOCHECKTCPIPCONNECTION::SetIsConnected(bool isconnected)
+* @brief      SetIsConnected
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  isconnected :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOCHECKTCPIPCONNECTION::SetIsConnected(bool isconnected)
+{
+  this->isconnected = isconnected;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XDWORD DIOCHECKTCPIPCONNECTION::GetNChecks()
+* @brief      GetNChecks
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XDWORD :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCHECKTCPIPCONNECTION::GetNChecks()
+{
+  return nchecks;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOCHECKTCPIPCONNECTION::SetNChecks(XDWORD nchecks)
+* @brief      SetNChecks
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  nchecks :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOCHECKTCPIPCONNECTION::SetNChecks(XDWORD nchecks)
+{
+  this->nchecks = nchecks;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XDWORD DIOCHECKTCPIPCONNECTION::IncNChecks()
+* @brief      IncNChecks
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XDWORD :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCHECKTCPIPCONNECTION::IncNChecks()
+{
+  return ++nchecks;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTION::Set(XCHAR* url)
+* @brief      Set
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  url :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTION::Set(XCHAR* url)
+{
+  if(!this->url)  return 0;
+
+  (*this->url) = url;
+
+  this->url->Slash_Delete();
+
+  ID = CreateID();
+
+  return ID?true:false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XDWORD DIOCHECKTCPIPCONNECTION::GetElapsedTime()
+* @brief      GetElapsedTime
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XDWORD :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCHECKTCPIPCONNECTION::GetElapsedTime()
+{
+  return elapsedtime;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOCHECKTCPIPCONNECTION::SetElapsedTime(XDWORD elapsedtime)
+* @brief      SetElapsedTime
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  elapsedtime :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOCHECKTCPIPCONNECTION::SetElapsedTime(XDWORD elapsedtime)
+{
+  this->elapsedtime = elapsedtime;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTION::ResetTimeConnexionStatus()
+* @brief      ResetTimeConnexionStatus
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTION::ResetTimeConnexionStatus()
+{
+  if(!timerconnexion) return false;
+  timerconnexion->Reset();
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XDWORD DIOCHECKTCPIPCONNECTION::GetTimeConnexionStatus()
+* @brief      GetTimeConnexionStatus
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XDWORD :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCHECKTCPIPCONNECTION::GetTimeConnexionStatus()
+{
+  if(!timerconnexion) return 0;
+  return timerconnexion->GetMeasureSeconds();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XDWORD DIOCHECKTCPIPCONNECTION::CreateID()
+* @brief      CreateID
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XDWORD :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCHECKTCPIPCONNECTION::CreateID()
+{
+  HASHCRC32 hashcrc32;
+  XDWORD    _ID = 0;
+
+  XSTRING_CREATEOEM((*url), charstr)
+  if(hashcrc32.Do((XBYTE*)charstr, url->GetSize())) _ID += hashcrc32.GetResultCRC32();
+  XSTRING_DELETEOEM((*url), charstr)
+
+  return _ID;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOCHECKTCPIPCONNECTION::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOCHECKTCPIPCONNECTION::Clean()
+{
+  ID                    = 0;
+  url                   = NULL;
+  isconnected           = false;
+  nchecks               = 0;
+  elapsedtime           = 0;
+  timerconnexion        = NULL;
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+/* DIOCHECKTCPIPCONNECTIONS                                                                                                  */
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOCHECKTCPIPCONNECTIONS::DIOCHECKTCPIPCONNECTIONS()
+* @brief      Constructor
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOCHECKTCPIPCONNECTIONS::DIOCHECKTCPIPCONNECTIONS()
+{
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOCHECKTCPIPCONNECTIONS::~DIOCHECKTCPIPCONNECTIONS()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOCHECKTCPIPCONNECTIONS::~DIOCHECKTCPIPCONNECTIONS()
+{
+  End();
+
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Ini(int timeconnectionchecks, bool validsomeisconnected, bool dispersionmode)
+* @brief      Ini
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  timeconnectionchecks :
+* @param[in]  validsomeisconnected :
+* @param[in]  dispersionmode :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Ini(int timeconnectionchecks, bool validsomeisconnected, bool dispersionmode)
+{
+  Setup(timeconnectionchecks, validsomeisconnected, dispersionmode);
+
+  xtimerfortimeconnectionchecks = GEN_XFACTORY.CreateTimer();
+  if(!xtimerfortimeconnectionchecks) return false;
+
+  //ping  = new DIOPING;
+  ping = GEN_DIOFACTORY.CreatePing();
+  if(!ping) return false;
+
+  xmutexconnections = GEN_XFACTORY.Create_Mutex();
+  if(!xmutexconnections) return false;
+
+  threadcheckconnections = CREATEXTHREAD(XTHREADGROUPID_DIOCHECKTCPIPCONNECTIONS, __L("DIOCHECKTCPIPCONNECTIONS::Ini"), ThreadCheckConnections, (void*)this);
+  if(!threadcheckconnections)  return false;
+
+  SetIsCheckTimeConnections(true);
+
+  return threadcheckconnections->Ini();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Run(bool activate)
+* @brief      Run
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  activate :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Run(bool activate)
+{
+  if(!threadcheckconnections) return false;
+  return threadcheckconnections->Run(activate);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int DIOCHECKTCPIPCONNECTIONS::GetTimeConnectionChecks()
+* @brief      GetTimeConnectionChecks
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     int :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+int DIOCHECKTCPIPCONNECTIONS::GetTimeConnectionChecks()
+{
+  return timeconnectionchecks;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::IsCheckTimeConnections()
+* @brief      IsCheckTimeConnections
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::IsCheckTimeConnections()
+{
+  return ischecktimeconnections;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOCHECKTCPIPCONNECTIONS::SetIsCheckTimeConnections(bool ischecktimeconnections)
+* @brief      SetIsCheckTimeConnections
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  ischecktimeconnections :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOCHECKTCPIPCONNECTIONS::SetIsCheckTimeConnections(bool ischecktimeconnections)
+{
+  this->ischecktimeconnections = ischecktimeconnections;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOCHECKTCPIPCONNECTIONS::Setup(int timeconnectionchecks, bool validsomeisconnected, bool dispersionmode)
+* @brief      Setup
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  timeconnectionchecks :
+* @param[in]  validsomeisconnected :
+* @param[in]  dispersionmode :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOCHECKTCPIPCONNECTIONS::Setup(int timeconnectionchecks, bool validsomeisconnected, bool dispersionmode)
+{
+  this->timeconnectionchecks  = timeconnectionchecks;
+  this->validsomeisconnected  = validsomeisconnected;
+  this->dispersionmode        = dispersionmode;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XCHAR* url, XDWORD& ID)
+* @brief      Connection_Add
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  url :
+* @param[in]  ID :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XCHAR* url, XDWORD& ID)
+{
+  DIOCHECKTCPIPCONNECTION* connection = new DIOCHECKTCPIPCONNECTION();
+  if(!connection) return false;
+
+  if(connection->Set(url))
+    {
+      ID = connection->GetID();
+
+      if(ID)
+        {
+          if(xmutexconnections) xmutexconnections->Lock();
+
+          connections.Add(connection);
+
+          if(xmutexconnections) xmutexconnections->UnLock();
+
+          return true;
+        }
+    }
+
+  delete connection;
+
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XSTRING& url, XDWORD& ID)
+* @brief      Connection_Add
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  url :
+* @param[in]  ID :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XSTRING& url, XDWORD& ID)
+{
+  return Connection_Add(url.Get(), ID);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(DIOURL& url, XDWORD& ID)
+* @brief      Connection_Add
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  url :
+* @param[in]  ID :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(DIOURL& url, XDWORD& ID)
+{
+  return Connection_Add(url.Get(), ID);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn        DIOCHECKTCPIPCONNECTION* DIOCHECKTCPIPCONNECTIONS::Connection_GetByID(XDWORD ID)
+* @brief      Connection_GetByID
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  ID :
+*
+* @return    DIOCHECKTCPIPCONNECTION* :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOCHECKTCPIPCONNECTION* DIOCHECKTCPIPCONNECTIONS::Connection_GetByID(XDWORD ID)
+{
+  if(xmutexconnections) xmutexconnections->Lock();
+
+  for(XDWORD c=0; c<connections.GetSize(); c++)
+    {
+      DIOCHECKTCPIPCONNECTION* cc = connections.Get(c);
+      if(cc)
+        {
+          if(cc->GetID() == ID)
+            {
+              if(xmutexconnections) xmutexconnections->UnLock();
+              return cc;
+            }
+        }
+    }
+
+  if(xmutexconnections) xmutexconnections->UnLock();
+
+  return NULL;
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Connection_IsActive(XDWORD ID, bool& isactive)
+* @brief      Connection_IsActive
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  ID :
+* @param[in]  isactive :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Connection_IsActive(XDWORD ID, bool& isactive)
+{
+  isactive = false;
+
+  if(xmutexconnections) xmutexconnections->Lock();
+
+  for(XDWORD c=0; c<connections.GetSize(); c++)
+    {
+      DIOCHECKTCPIPCONNECTION* cc = connections.Get(c);
+      if(cc)
+        {
+          if(cc->GetID() == ID)
+            {
+              isactive = cc->IsConnected();
+              if(xmutexconnections) xmutexconnections->UnLock();
+
+              return true;
+            }
+        }
+    }
+
+  if(xmutexconnections) xmutexconnections->UnLock();
+
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Connection_DeleteByID(XDWORD ID)
+* @brief      Connection_DeleteByID
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  ID :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Connection_DeleteByID(XDWORD ID)
+{
+  DIOCHECKTCPIPCONNECTION* connection = Connection_GetByID(ID);
+  if(connection)
+    {
+      if(xmutexconnections) xmutexconnections->Lock();
+
+      connections.Delete(connection);
+      delete connection;
+
+      if(xmutexconnections) xmutexconnections->UnLock();
+
+      return true;
+    }
+
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Connections_IsAllChecked()
+* @brief      Connections_IsAllChecked
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Connections_IsAllChecked()
+{
+  bool ischeckallconnections = true;
+
+  if(xmutexconnections) xmutexconnections->Lock();
+
+  for(XDWORD c=0; c<connections.GetSize(); c++)
+    {
+      DIOCHECKTCPIPCONNECTION* cc = connections.Get(c);
+      if(cc)
+        {
+          if(!cc->GetNChecks()) ischeckallconnections = false;
+        }
+    }
+
+  if(xmutexconnections) xmutexconnections->UnLock();
+
+  return ischeckallconnections;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Connections_IsSomeChecked()
+* @brief      Connections_IsSomeChecked
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Connections_IsSomeChecked()
+{
+  bool ischecksomeconnections = false;
+
+  if(xmutexconnections) xmutexconnections->Lock();
+
+  for(XDWORD c=0; c<connections.GetSize(); c++)
+    {
+      DIOCHECKTCPIPCONNECTION* cc = connections.Get(c);
+      if(cc)
+        {
+          if(cc->GetNChecks())
+            {
+              ischecksomeconnections = true;
+              break;
+            }
+        }
+    }
+
+  if(xmutexconnections) xmutexconnections->UnLock();
+
+  return ischecksomeconnections;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToAllChecked(int timeout)
+* @brief      Connections_WaitToAllChecked
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  timeout :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToAllChecked(int timeout)
+{
+  if(!connections.GetSize()) return false;
+
+  XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
+  if(!xtimer) return false;
+
+  bool status = true;
+
+  xtimer->Reset();
+
+  SetIsCheckTimeConnections(false);
+
+  while(1)
+    {
+      if(timeout != XTIMER_INFINITE)
+        {
+          if(xtimer->GetMeasureSeconds() >= (XDWORD)timeout)
+            {
+              status = false;
+              break;
+            }
+        }
+
+      if(Connections_IsAllChecked()) break;
+
+      GEN_XSLEEP.MilliSeconds(100);
+    }
+
+  GEN_XFACTORY.DeleteTimer(xtimer);
+
+  SetIsCheckTimeConnections(true);
+
+  return status;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToSomeIsChecked(int timeout)
+* @brief      Connections_WaitToSomeIsChecked
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  timeout :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToSomeIsChecked(int timeout)
+{
+  if(!connections.GetSize()) return false;
+
+  XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
+  if(!xtimer) return false;
+
+  bool status = true;
+
+  xtimer->Reset();
+
+  SetIsCheckTimeConnections(false);
+
+  while(1)
+    {
+      if(timeout != XTIMER_INFINITE)
+        {
+          if(xtimer->GetMeasureSeconds() >= (XDWORD)timeout)
+            {
+              status = false;
+              break;
+            }
+        }
+
+      if(Connections_IsSomeChecked()) break;
+
+      GEN_XSLEEP.MilliSeconds(100);
+    }
+
+  GEN_XFACTORY.DeleteTimer(xtimer);
+
+  SetIsCheckTimeConnections(true);
+
+  return status;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Connections_SomeIsConnected()
+* @brief      Connections_SomeIsConnected
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Connections_SomeIsConnected()
+{
+  bool someisactive = false;
+
+  if(xmutexconnections) xmutexconnections->Lock();
+
+  for(XDWORD c=0; c<connections.GetSize(); c++)
+    {
+      DIOCHECKTCPIPCONNECTION* cc = connections.Get(c);
+      if(cc)
+        {
+          someisactive = cc->IsConnected();
+          if(someisactive) break;
+        }
+    }
+
+  if(xmutexconnections) xmutexconnections->UnLock();
+
+  return someisactive;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::Connections_DeleteAll()
+* @brief      Connections_DeleteAll
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::Connections_DeleteAll()
+{
+  if(xmutexconnections) xmutexconnections->Lock();
+
+  connections.DeleteContents();
+  connections.DeleteAll();
+
+  if(xmutexconnections) xmutexconnections->UnLock();
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::End()
+* @brief      End
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::End()
+{
+  if(threadcheckconnections)
+    {
+      threadcheckconnections->End();
+
+      DELETEXTHREAD(XTHREADGROUPID_DIOCHECKTCPIPCONNECTIONS, threadcheckconnections);
+      threadcheckconnections = NULL;
+    }
+
+  Connections_DeleteAll();
+
+  if(xmutexconnections)
+    {
+      GEN_XFACTORY.Delete_Mutex(xmutexconnections);
+      xmutexconnections = NULL;
+    }
+
+  if(ping)
+    {
+      GEN_DIOFACTORY.DeletePing(ping);
+      ping = NULL;
+    }
+
+  if(xtimerfortimeconnectionchecks)
+    {
+      GEN_XFACTORY.DeleteTimer(xtimerfortimeconnectionchecks);
+      xtimerfortimeconnectionchecks = NULL;
+    }
+
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
+* @brief      ThreadCheckConnections
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  param :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
+{
+  DIOCHECKTCPIPCONNECTIONS* checkconnections = (DIOCHECKTCPIPCONNECTIONS*)param;
+  if(!checkconnections) return;
+
+  if(!checkconnections->ping)                             return;
+  if(!checkconnections->xmutexconnections)                return;
+  if(!checkconnections->xtimerfortimeconnectionchecks)    return;
+
+  static int index = 0;
+
+  int nconnections = checkconnections->connections.GetSize();
+  if(!nconnections) return;
+
+  if(checkconnections->dispersionmode)
+    {
+      DIOCHECKTCPIPCONNECTION* checkconnection = checkconnections->connections.Get(index);
+      if(!checkconnection)
+        {
+          index = 0;
+          checkconnection = checkconnections->connections.Get(index);
+        }
+
+      if(checkconnection)
+        {
+          checkconnections->xmutexconnections->Lock();
+
+          checkconnections->ping->Set(checkconnection->GetURL()->Get());
+
+          bool connexionstatus = checkconnections->ping->Do(DIOCHECKTCPIPCONNECTIONS_DEFAULTNCHECKSFOREVERYCONNECTION, DIOCHECKTCPIPCONNECTIONS_DEFAULTTIMERCONNECTIONCHECK, checkconnections->validsomeisconnected);
+          if(connexionstatus != checkconnection->IsConnected()) checkconnection->ResetTimeConnexionStatus();
+
+          checkconnection->SetIsConnected(connexionstatus);
+          checkconnection->IncNChecks();
+
+          if(checkconnection->IsConnected())
+                 checkconnection->SetElapsedTime(checkconnections->ping->CalculateMeanTime());
+            else checkconnection->SetElapsedTime(0);
+
+          index++;
+
+          checkconnections->xmutexconnections->UnLock();
+
+          if(checkconnections->IsCheckTimeConnections())
+            {
+              for(int e=0; e<checkconnections->timeconnectionchecks; e++)
+                {
+                  if(!checkconnections->threadcheckconnections->IsRunning()) break;
+
+                  for(int d=0; d<10; d++)
+                    {
+                      if(!checkconnections->threadcheckconnections->IsRunning()) break;
+                      GEN_XSLEEP.MilliSeconds(100);
+                    }
+                }
+            }
+
+
+        }
+    }
+   else
+    {
+      checkconnections->xmutexconnections->Lock();
+
+      for(int c=0; c<nconnections; c++)
+        {
+          DIOCHECKTCPIPCONNECTION* checkconnection = checkconnections->connections.Get(c);
+          if(checkconnection)
+            {
+              checkconnections->ping->Set(checkconnection->GetURL()->Get());
+
+              bool connexionstatus = checkconnections->ping->Do(DIOCHECKTCPIPCONNECTIONS_DEFAULTNCHECKSFOREVERYCONNECTION, DIOCHECKTCPIPCONNECTIONS_DEFAULTTIMERCONNECTIONCHECK, checkconnections->validsomeisconnected);
+              if(connexionstatus != checkconnection->IsConnected()) checkconnection->ResetTimeConnexionStatus();
+
+              checkconnection->SetIsConnected(connexionstatus);
+              checkconnection->IncNChecks();
+
+              if(checkconnection->IsConnected())
+                      checkconnection->SetElapsedTime(checkconnections->ping->CalculateMeanTime());
+                else checkconnection->SetElapsedTime(0);
+
+              if((checkconnections->validsomeisconnected) && (checkconnection->IsConnected())) break;
+              if(!checkconnections->threadcheckconnections->IsRunning()) break;
+            }
+        }
+
+      checkconnections->xmutexconnections->UnLock();
+
+      if(checkconnections->IsCheckTimeConnections())
+        {
+          for(int e=0; e<checkconnections->timeconnectionchecks; e++)
+            {
+              if(!checkconnections->threadcheckconnections->IsRunning()) break;
+
+              for(int d=0; d<10; d++)
+                {
+                  if(!checkconnections->threadcheckconnections->IsRunning()) break;
+                  GEN_XSLEEP.MilliSeconds(100);
+                }
+            }
+        }
+    }
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOCHECKTCPIPCONNECTIONS::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOCHECKTCPIPCONNECTIONS::Clean()
+{
+  timeconnectionchecks                = DIOCHECKTCPIPCONNECTIONS_DEFAULTTIMECONNECTIONCHECKS;
+  validsomeisconnected                = false;
+  dispersionmode                      = false;
+
+  xtimerfortimeconnectionchecks       = NULL;
+  ischecktimeconnections              = false;
+  ping                                = NULL;
+  xmutexconnections                   = NULL;
+  threadcheckconnections              = NULL;
+}
+

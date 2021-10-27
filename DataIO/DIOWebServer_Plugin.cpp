@@ -1,0 +1,339 @@
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @file       DIOWebServer_Plugin.cpp
+*
+* @class      DIOWEBSERVER_PLUGIN
+* @brief      Data Input/Output Web Server Pluging class
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+*
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+
+#include "GEN_Defines.h"
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+
+#include "XPath.h"
+
+#include "DIOWebServer_Plugin.h"
+
+#include "XMemory_Control.h"
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOWEBSERVER_PLUGIN::DIOWEBSERVER_PLUGIN()
+* @brief      Constructor
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOWEBSERVER_PLUGIN::DIOWEBSERVER_PLUGIN()
+{
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOWEBSERVER_PLUGIN::~DIOWEBSERVER_PLUGIN()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOWEBSERVER_PLUGIN::~DIOWEBSERVER_PLUGIN()
+{
+  PageExtension_DeleteAll();
+
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* DIOWEBSERVER_PLUGIN::GetName()
+* @brief      GetName
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XSTRING* :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOWEBSERVER_PLUGIN::GetName()
+{
+  return &name;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XCHAR* ext)
+* @brief      PageExtension_Add
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  ext :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XCHAR* ext)
+{
+  XSTRING* _ext = new XSTRING();
+  if(!_ext) return false;
+
+  _ext->Set(ext);
+
+  pageextensions.Add(_ext);
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XSTRING& ext)
+* @brief      PageExtension_Add
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  ext :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XSTRING& ext)
+{
+  return PageExtension_Add(ext.Get());
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* DIOWEBSERVER_PLUGIN::PageExtension_Get(int index)
+* @brief      PageExtension_Get
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  index :
+*
+* @return     XSTRING* :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOWEBSERVER_PLUGIN::PageExtension_Get(int index)
+{
+  return pageextensions.Get(index);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XCHAR* ext)
+* @brief      PageExtension_IsContent
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  ext :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XCHAR* ext)
+{
+  if(pageextensions.IsEmpty()) return false;
+
+  for(XDWORD c=0; c<pageextensions.GetSize(); c++)
+    {
+      if(!pageextensions.Get(c)->Compare(ext, true))
+        {
+          return true;
+        }
+    }
+
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XSTRING& ext)
+* @brief      PageExtension_IsContent
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  ext :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XSTRING& ext)
+{
+  return PageExtension_IsContent(ext.Get());
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_DeleteAll()
+* @brief      PageExtension_DeleteAll
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOWEBSERVER_PLUGIN::PageExtension_DeleteAll()
+{
+  if(pageextensions.IsEmpty()) return false;
+
+  pageextensions.DeleteContents();
+  pageextensions.DeleteAll();
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOWEBSERVER_PLUGIN::ResolvedPageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
+* @brief      ResolvedPageExtension
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  pathfile :
+* @param[in]  request :
+* @param[in]  querystrings :
+* @param[in]  headerresult :
+* @param[in]  result :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOWEBSERVER_PLUGIN::ResolvedPageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
+{
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOWEBSERVER_PLUGIN::SeparedResult(XSTRING& result, XSTRING& head, XSTRING& data)
+* @brief      SeparedResult
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  result :
+* @param[in]  head :
+* @param[in]  data :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOWEBSERVER_PLUGIN::SeparedResult(XSTRING& result, XSTRING& head, XSTRING& data)
+{
+  XSTRING lineend;
+
+  head.Empty();
+
+  data = result;
+
+  if(!result.GetTypeOfLineEnd(lineend))  return false;
+
+  lineend+=lineend;
+
+  int index = result.Find(lineend, true);
+  if(index == XSTRING_NOTFOUND) return false;
+
+  result.Copy(0, index, head);
+  result.Copy((index + lineend.GetSize()), data);
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOWEBSERVER_PLUGIN::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOWEBSERVER_PLUGIN::Clean()
+{
+  name    = __L("Undefined");
+}
+

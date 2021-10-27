@@ -1,0 +1,353 @@
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @file       DIOProtocol_ConnectionsManager_XEvent.cpp
+*
+* @class      DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT
+* @brief      Data Input/Output  Protocol Connections Manager eXtended Event class
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+*
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+
+#include "GEN_Defines.h"
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+
+#include "DIOProtocol_ConnectionsManager_XEvent.h"
+
+#include "XMemory_Control.h"
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
+* @brief      Constructor
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  XSUBJECT* :
+* @param[in]   XDWORD type:
+* @param[in]   XDWORD family :
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
+{
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::~DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::~DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT()
+{
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOSTREAMENUMSERVERS* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOStreamEnumServers()
+* @brief      GetDIOStreamEnumServers
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     DIOSTREAMENUMSERVERS* :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMENUMSERVERS* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOStreamEnumServers()
+{
+  return diostreamenumservers;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOStreamEnumServers(DIOSTREAMENUMSERVERS* diostreamenumservers)
+* @brief      SetDIOStreamEnumServers
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  diostreamenumservers :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOStreamEnumServers(DIOSTREAMENUMSERVERS* diostreamenumservers)
+{
+  this->diostreamenumservers = diostreamenumservers;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOStreamConfig()
+* @brief      GetDIOStreamConfig
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     DIOSTREAMCONFIG* :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOStreamConfig()
+{
+  return diostreamcfg;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOStreamConfig(DIOSTREAMCONFIG* diostreamcfg)
+* @brief      SetDIOStreamConfig
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  diostreamcfg :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOStreamConfig(DIOSTREAMCONFIG* diostreamcfg)
+{
+  this->diostreamcfg = diostreamcfg;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOProtocol()
+* @brief      GetDIOProtocol
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     DIOPROTOCOL* :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOProtocol()
+{
+  return dioprotocol;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOProtocol(DIOPROTOCOL* dioprotocol)
+* @brief      SetDIOProtocol
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  dioprotocol :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOProtocol(DIOPROTOCOL* dioprotocol)
+{
+  this->dioprotocol = dioprotocol;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtocolConnection()
+* @brief      GetProtocolConnection
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     DIOPROTOCOL_CONNECTION* :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtocolConnection()
+{
+  return protocolconnection;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocolConnection(DIOPROTOCOL_CONNECTION* protocolconnection)
+* @brief      SetProtocolConnection
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  protocolconnection :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocolConnection(DIOPROTOCOL_CONNECTION* protocolconnection)
+{
+  this->protocolconnection = protocolconnection;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOPROTOCOL_CONNECTIONSMANAGER* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtocolConnectionsManager()
+* @brief      GetProtocolConnectionsManager
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     DIOPROTOCOL_CONNECTIONSMANAGER* :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOPROTOCOL_CONNECTIONSMANAGER* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtocolConnectionsManager()
+{
+  return protocolconnectionsmanager;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocolConnectionsManager(DIOPROTOCOL_CONNECTIONSMANAGER* protocolconnectionsmanager)
+* @brief      SetProtocolConnectionsManager
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  protocolconnectionsmanager :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocolConnectionsManager(DIOPROTOCOL_CONNECTIONSMANAGER* protocolconnectionsmanager)
+{
+  this->protocolconnectionsmanager = protocolconnectionsmanager;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::IsInitialized()
+* @brief      IsInitialized
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::IsInitialized()
+{
+  return isinitialized;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetIsInitialized(bool isinitialized)
+* @brief      SetIsInitialized
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  isinitialized :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetIsInitialized(bool isinitialized)
+{
+  this->isinitialized = isinitialized;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::Clean()
+{
+  diostreamenumservers       = NULL;
+  diostreamcfg               = NULL;
+  dioprotocol                = NULL;
+  protocolconnection         = NULL;
+  protocolconnectionsmanager = NULL;
+  isinitialized              = false;
+}
+

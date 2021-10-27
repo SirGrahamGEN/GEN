@@ -1,0 +1,694 @@
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @file       XThread.cpp
+*
+* @class      XTHREAD
+* @brief      eXtended Thread class
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+*
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+
+#include "GEN_Defines.h"
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <string.h>
+
+#include "XFactory.h"
+#include "XTimer.h"
+
+#include "XThread.h"
+
+#include "XMemory_Control.h"
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XMUTEX::XMUTEX()
+* @brief      Constructor
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XMUTEX::XMUTEX()
+{
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XMUTEX::~XMUTEX()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XMUTEX::~XMUTEX()
+{
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XMUTEX::IsLock()
+* @brief      IsLock
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool XMUTEX::IsLock()
+{
+  return islock;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XMUTEX::Lock()
+* @brief      Lock
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool XMUTEX::Lock()
+{
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XMUTEX::UnLock()
+* @brief      UnLock
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool XMUTEX::UnLock()
+{
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void XMUTEX::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void XMUTEX::Clean()
+{
+  islock = false;
+}
+
+
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+/* XTHREAD                                                                                                             */
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XTHREAD::XTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param)
+* @brief      Constructor
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  XTHREADGROUPID :
+* @param[in]  ID :
+* @param[in]  function :
+* @param[in]  param :
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XTHREAD::XTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param)
+{
+  Clean();
+
+  statusfunc = XTHREADSTATUS_NONE;
+
+  this->groupID     = groupID;
+  this->ID          = ID;
+  this->function    = function;
+  this->param       = param;
+
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XTHREAD::~XTHREAD()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XTHREAD::~XTHREAD()
+{
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XTHREAD::Ini(bool run)
+* @brief      Ini
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  run :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool XTHREAD::Ini(bool run)
+{
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XTHREAD::Wait(int miliseconds)
+* @brief      Wait
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  miliseconds :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool XTHREAD::Wait(int miliseconds)
+{
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XTHREAD::End()
+* @brief      End
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool XTHREAD::End()
+{
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XTHREAD::IsRunning()
+* @brief      IsRunning
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool XTHREAD::IsRunning()
+{
+  if(statusfunc == XTHREADSTATUS_RUN) return true;
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XTHREAD::Run(bool activate)
+* @brief      Run
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  activate :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool XTHREAD::Run(bool activate)
+{
+  if(activate)
+    {
+      if(IsRunning()) return false;
+      statusfunc = XTHREADSTATUS_RUN;
+    }
+    else
+    {
+      if(!IsRunning()) return false;
+      statusfunc = XTHREADSTATUS_STOP;
+    }
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XTHREAD::WaitToEnd(XDWORD timeout)
+* @brief      WaitToEnd
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  timeout :
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool XTHREAD::WaitToEnd(XDWORD timeout)
+{
+  if(!gotofunction)
+    {
+      statusfunc = XTHREADSTATUS_END;
+      return true;
+    }
+
+
+  bool statustimeout = false;
+
+  XTIMER* xtimerout = GEN_XFACTORY.CreateTimer();
+  if(!xtimerout) return false;
+
+  while(statusfunc != XTHREADSTATUS_END)
+    {
+      Wait();
+
+      if(xtimerout->GetMeasureSeconds() >= timeout)
+        {
+          statustimeout = true;
+          break;
+        }
+    }
+
+  GEN_XFACTORY.DeleteTimer(xtimerout);
+
+  return (!statustimeout);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XDWORD XTHREAD::GetWaitYield()
+* @brief      GetWaitYield
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XDWORD :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XDWORD XTHREAD::GetWaitYield()
+{
+  return waityield;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void XTHREAD::SetWaitYield(XDWORD waityield = XTHREAD_DEFAULTWAITYIELD)
+* @brief      SetWaitYield
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  waityield = XTHREAD_DEFAULTWAITYIELD :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void XTHREAD::SetWaitYield(XDWORD waityield)
+{
+  this->waityield = waityield;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XTHREAD::Exit()
+* @brief      Exit
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool XTHREAD::Exit()
+{
+  statusfunc = XTHREADSTATUS_EXIT;
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XTHREADGROUPID XTHREAD::GetGroupID()
+* @brief      GetGroupID
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XTHREADGROUPID :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XTHREADGROUPID XTHREAD::GetGroupID()
+{
+  return groupID;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void XTHREAD::SetGroupID(XTHREADGROUPID groupID)
+* @brief      SetGroupID
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+*
+* @param[in]  groupID : 
+*
+* @return     void : does not return anything. 
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void XTHREAD::SetGroupID(XTHREADGROUPID groupID)
+{
+  this->groupID = groupID;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* XTHREAD::GetID()
+* @brief      GetID
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XSTRING* :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XSTRING* XTHREAD::GetID()
+{
+  return &ID;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XTHREADFUNCTION XTHREAD::GetFunction()
+* @brief      GetFunction
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XTHREADFUNCTION :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XTHREADFUNCTION XTHREAD::GetFunction()
+{
+  return function;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void* XTHREAD::GetParam()
+* @brief      GetParam
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     void* :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void* XTHREAD::GetParam()
+{
+  return param;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XTHREADPRIORITY XTHREAD::GetPriority()
+* @brief      GetPriority
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XTHREADPRIORITY :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XTHREADPRIORITY XTHREAD::GetPriority()
+{
+  return priority;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void XTHREAD::SetPriority(XTHREADPRIORITY priority)
+* @brief      SetPriority
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  priority :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void XTHREAD::SetPriority(XTHREADPRIORITY priority)
+{
+  this->priority = priority;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XDWORD XTHREAD::GetStackSize()
+* @brief      GetStackSize
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XDWORD :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XDWORD XTHREAD::GetStackSize()
+{
+  return stacksize;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void XTHREAD::SetStackSize(XDWORD stacksize)
+* @brief      SetStackSize
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  stacksize :
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void XTHREAD::SetStackSize(XDWORD stacksize)
+{
+  this->stacksize = stacksize;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XTHREAD::IsInFunction()
+* @brief      IsInFunction
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool XTHREAD::IsInFunction()
+{
+  return isinfunction;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XTHREADSTATUS XTHREAD::GetStatusFunc()
+* @brief      GetStatusFunc
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     XTHREADSTATUS :
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+XTHREADSTATUS XTHREAD::GetStatusFunc()
+{
+  return statusfunc;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void XTHREAD::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void XTHREAD::Clean()
+{
+  groupID         = XTHREADGROUPID_UNKNOWN;
+  ID.Empty();
+  function        = NULL;
+  param           = NULL;
+
+  waityield       = XTHREAD_DEFAULTWAITYIELD;
+
+  priority        = XTHREADPRIORITY_UNKNOWN;
+  stacksize       = 0;
+
+  gotofunction    = false;
+  isinfunction    = false;
+  statusfunc      = XTHREADSTATUS_NONE;
+}
+
+

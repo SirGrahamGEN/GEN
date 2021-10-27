@@ -1,0 +1,19 @@
+
+# --------------------------------------------------------------------
+# CMakeLists_Warning.txt to GEN FrameWork
+# Warnings platforms
+# --------------------------------------------------------------------
+
+
+
+# --------------------------------------------------------------------
+# Windows
+
+if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+
+  add_compile_options(/wd4018)    # warning C4018:  '>': signed/unsigned mismatch
+  add_compile_options(/wd4091)    # warning C4091: 'typedef ': ignored on left of 'xxx' when no variable is declared
+  add_compile_options(/wd4595)    # warning C4595: 'xxx': non-member operator new or delete functions may not be declared inline
+  add_compile_options(/wd4996)    # warning C4996: 'xxx': was declared deprecated
+
+endif()

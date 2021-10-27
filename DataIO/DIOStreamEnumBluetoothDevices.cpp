@@ -1,0 +1,277 @@
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @file       DIOStreamEnumBluetoothDevices.cpp
+*
+* @class      DIOSTREAMENUMBLUETOOTHDEVICES
+* @brief      Data Input/Output Stream Enum Bluetooth Devices class
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+*
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+
+#include "GEN_Defines.h"
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+
+#include "DIOStreamDeviceBluetooth.h"
+
+#include "DIOStreamEnumBluetoothDevices.h"
+
+#include "XMemory_Control.h"
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOSTREAMENUMBLUETOOTHDEVICES::DIOSTREAMENUMBLUETOOTHDEVICES()
+* @brief      Constructor
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMENUMBLUETOOTHDEVICES::DIOSTREAMENUMBLUETOOTHDEVICES()
+{
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOSTREAMENUMBLUETOOTHDEVICES::~DIOSTREAMENUMBLUETOOTHDEVICES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     Does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMENUMBLUETOOTHDEVICES::~DIOSTREAMENUMBLUETOOTHDEVICES()
+{  
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOMAC* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceSelect()
+* @brief      GetDeviceSelect
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+*
+* @return     DIOMAC* : 
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOMAC* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceSelect()
+{
+  return &deviceselectMAC;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XBYTE* MAC)
+* @brief      SetDeviceSelect
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+*
+* @param[in]  MAC : 
+*
+* @return     bool : true if is succesful. 
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XBYTE* MAC)
+{
+  return deviceselectMAC.Set(MAC);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XCHAR* MAC)
+* @brief      SetDeviceSelect
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+*
+* @param[in]  MAC : 
+*
+* @return     bool : true if is succesful. 
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XCHAR* MAC)
+{
+  XSTRING _MAC;
+
+  _MAC = MAC;
+
+  return SetDeviceSelect(_MAC);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XSTRING& MAC)
+* @brief      SetDeviceSelect
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+*
+* @param[in]  MAC : 
+*
+* @return     bool : true if is succesful. 
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XSTRING& MAC)
+{
+  return deviceselectMAC.Set(MAC);
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(XCHAR* MAC)
+* @brief      GetDeviceByMAC
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+*
+* @param[in]  MAC : 
+*
+* @return     DIOSTREAMDEVICEBLUETOOTH* : 
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(XCHAR* MAC)
+{ 
+  if(devices.IsEmpty()) return NULL;
+
+  XSTRING MACstring;
+
+  MACstring = MAC;
+  if(MACstring.IsEmpty())  return NULL;
+
+  for(XDWORD c=0; c<devices.GetSize(); c++)
+    {      
+      DIOSTREAMDEVICEBLUETOOTH* device = (DIOSTREAMDEVICEBLUETOOTH*)devices.Get(c);
+      if(device)
+        {
+          DIOMAC* MAC = device->GetMAC();
+          if(MAC)
+            {
+              XSTRING MACdevicestr;
+  
+              MAC->GetXString(MACdevicestr);
+
+              if(!MACdevicestr.Compare(MACstring, true)) return device;
+            }
+        }      
+    }
+
+  return NULL;
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(DIOMAC* MAC)
+* @brief      GetDeviceByMAC
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+*
+* @param[in]  MAC : 
+*
+* @return     DIOSTREAMDEVICEBLUETOOTH* : 
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(DIOMAC* MAC)
+{
+  if(devices.IsEmpty()) return NULL;
+
+  if(!MAC) return NULL;
+
+  for(XDWORD c=0; c<devices.GetSize(); c++)
+    {      
+      DIOSTREAMDEVICEBLUETOOTH* device = (DIOSTREAMDEVICEBLUETOOTH*)devices.Get(c);
+      if(device)
+        {
+          DIOMAC* MACdev = device->GetMAC();
+          if(MACdev)
+            {
+              if(MACdev->IsEqual(MAC)) return device;
+            }
+        }      
+    }
+
+  return NULL;
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOSTREAMENUMBLUETOOTHDEVICES::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMENUMBLUETOOTHDEVICES::Clean()
+{
+  
+}

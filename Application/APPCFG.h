@@ -1,0 +1,508 @@
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @file       APPCFG.h
+*
+* @class      APPCFG
+* @brief      Application Config class
+* @ingroup    APPLICATION
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @note       if use defines to active for the blocks of the config.
+*
+*               APP_CFG_REMOTEFILE_ACTIVE        : Active the remote file CFG
+*
+*             Active the block of CFG
+*
+*               APP_CFG_GENERAL_ACTIVE           : Default general (debug trace, memory check, etc..
+*               APP_CFG_INTERNETSERVICES_ACTIVE  : Inter
+*               APP_CFG_LOCATION_ACTIVE          : Location info (street, postal code, etc..)
+*               APP_CFG_APPUPDATE_ACTIVE         : Application update
+*               APP_CFG_ALERTS_ACTIVE            : Alerts
+*               APP_CFG_LOG_ACTIVE               : Log
+*
+*
+* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+*
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+
+#ifndef _APP_CFG_H_
+#define _APP_CFG_H_
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+
+#include "XTrace.h"
+#include "XFileCFG.h"
+
+#ifdef APP_CFG_REMOTEFILE_ACTIVE
+#include "DIORemoteFileCFG.h"
+#endif
+
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+
+
+#ifdef APP_CFG_GENERAL_ACTIVE
+
+#define APP_CFG_SECTION_GENERAL                                                   __L("general")
+#define APP_CFG_SCRAPERWEBSCRIPTURLDOWNLOAD                                       __L("scraperwebscripturldownload")
+#define APP_CFG_SHOWDETAILINFO                                                    __L("showdetailinfo")
+#ifdef XTRACE_ACTIVE
+#define APP_CFG_TRACETARGET                                                       __L("trace_target")
+#endif
+
+#endif
+
+
+
+#ifdef APP_CFG_CHECKRESOURCESHARDWARE_ACTIVE
+
+#define APP_CFG_SECTION_CHECKRESOURCESHARDWARE                                    __L("check resources hardware")
+#define APP_CFG_CHECKRESOURCESHARDWARE_MEMSTATUSCHECKCADENCE                      __L("memstatuscheckcadenceseconds")
+#define APP_CFG_CHECKRESOURCESHARDWARE_MEMSTATUSLIMITPERCENT                      __L("memstatuslimitpercent")
+#define APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGECHECKCADENCE                       __L("cpuusagecheckcadenceseconds")
+#define APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGELIMITPERCENT                       __L("cpuusagelimitpercent")
+#define APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGEPROCESSNAME                        __L("cpuusageprocessname")
+#endif
+
+
+
+#ifdef APP_CFG_INTERNETSERVICES_ACTIVE
+
+#define APP_CFG_SECTION_INTERNETSERVICES                                          __L("internet services")
+#define APP_CFG_INTERNETSERVICES_CHECKINTERNETSTATUSCADENCE                       __L("checkinternetstatuscadenceseconds")
+#define APP_CFG_INTERNETSERVICES_CHECKIPPUBLICCHANGECADENCE                       __L("checkippublicchangecadenceminutes")
+#define APP_CFG_INTERNETSERVICES_UPDATETIMEBYNTPCADENCE                           __L("updatetimebyntpcadencehours")
+#define APP_CFG_INTERNETSERVICES_UPDATETIMENTPSERVER                              __L("updatetimentpserver")
+#define APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE                  __L("updatetimentpmeridiandifference")
+#define APP_CFG_INTERNETSERVICES_UPDATETIMENTPUSEDAYLIGHTSAVING                   __L("updatetimentpusedaylightsaving")
+
+#define APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS                          3
+#define APP_CFG_INTERNETSERVICES__UPDATETIMENTPMERIDIANDIFFERENCE_AUTO            25
+
+
+#ifdef APP_CFG_DNSRESOLVED_ACTIVE
+
+#define APP_CFG_SECTION_DNSRESOLVED                                               __L("dns resolved")
+#define APP_CFG_DNSRESOLVED_HOSTRESOLVED                                          __L("host_resolved")
+#define APP_CFG_DNSRESOLVED_MAXHOSTRESOLVED                                       10
+#define APP_CFG_DNSRESOLVED_DNSSERVER                                             __L("dns_server")
+#define APP_CFG_DNSRESOLVED_MAXDNSSERVERS                                         3
+
+#endif
+
+
+#ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+
+#define APP_CFG_SECTION_DYNDNSMANAGER                                             __L("dyndns manager")
+#define APP_CFG_DYNDNSMANAGER_URL                                                 __L("url")
+#define APP_CFG_DYNDNSMANAGER_MAXURL                                              15
+
+#endif
+
+#endif
+
+
+
+#ifdef APP_CFG_LOCATION_ACTIVE
+
+#define APP_CFG_SECTION_LOCATION                                                  __L("location")
+#define APP_CFG_CENTERNAME                                                        __L("name")
+#define APP_CFG_LOCATION_STREET                                                   __L("street")
+#define APP_CFG_LOCATION_TOWN                                                     __L("city")
+#define APP_CFG_LOCATION_STATE                                                    __L("state")
+#define APP_CFG_LOCATION_COUNTRY                                                  __L("country")
+#define APP_CFG_LOCATION_POSTALCODE                                               __L("postalcode")
+
+#endif
+
+
+
+#ifdef APP_CFG_APPUPDATE_ACTIVE
+
+#define APP_CFG_SECTION_APPLICATIONUPDATE                                         __L("applicationupdate")
+#define APP_CFG_APPLICATIONUPDATE_ISACTIVE                                        __L("isactive")
+#define APP_CFG_APPLICATIONUPDATE_URL                                             __L("url")
+#define APP_CFG_APPLICATIONUPDATE_PORT                                            __L("port")
+#define APP_CFG_APPLICATIONUPDATE_CHECKCADENCE                                    __L("checkcadenceminutes")
+#define APP_CFG_APPLICATIONUPDATE_CHECKTIME                                       __L("checktime")
+#define APP_CFG_APPLICATIONUPDATE_MAXRESTORATIONS                                 __L("maxrestorations")
+
+#endif
+
+
+
+#ifdef APP_CFG_WEBSERVER_ACTIVE
+
+#define APP_CFG_SECTION_WEBSERVER                                                 __L("webserver")
+#define APP_CFG_WEBSERVER_LOCALADDR                                               __L("localaddr")
+#define APP_CFG_WEBSERVER_PORT                                                    __L("port")
+#define APP_CFG_WEBSERVER_TIMEOUTTOSERVERPAGE                                     __L("timeouttoserverpage")
+#define APP_CFG_WEBSERVER_AUTHENTICATEDACCESS                                     __L("isauthenticatedaccess")
+#define APP_CFG_WEBSERVER_PASSWORD                                                __L("password")
+#define APP_CFG_WEBSERVER_PATH_RESOURCES                                          __L("path_resources")
+#define APP_CFG_WEBSERVER_PATH_PHP                                                __L("path_php")
+
+#endif
+
+
+
+#ifdef APP_CFG_ALERTS_ACTIVE
+
+#define APP_CFG_SECTION_ALERTS                                                    __L("alerts")
+#define APP_CFG_ALERTS_ISACTIVE                                                   __L("isactive")
+#define APP_CFG_ALERTS_CONDITION                                                  __L("condition")
+#define APP_CFG_ALERTS_SMTP_ISACTIVE                                              __L("smtp_isactive")
+#define APP_CFG_ALERTS_SMTP_URL                                                   __L("smtp_url")
+#define APP_CFG_ALERTS_SMTP_PORT                                                  __L("smtp_port")
+#define APP_CFG_ALERTS_SMTP_LOGIN                                                 __L("smtp_login")
+#define APP_CFG_ALERTS_SMTP_PASSWORD                                              __L("smtp_password")
+#define APP_CFG_ALERTS_SMTP_SENDER                                                __L("smtp_sender")
+#define APP_CFG_ALERTS_SMTP_RECIPIENT                                             __L("smtp_recipient")
+
+#define APP_CFG_ALERTS_SMS_ISACTIVE                                               __L("sms_isactive")
+#define APP_CFG_ALERTS_SMS_RECIPIENT                                              __L("sms_recipient")
+
+#define APP_CFG_ALERTS_WEB_ISACTIVE                                               __L("web_isactive")
+#define APP_CFG_ALERTS_WEB_UISUSEGET                                              __L("web_isuseget")
+#define APP_CFG_ALERTS_WEB_RECIPIENT                                              __L("web_recipient")
+
+#define APP_CFG_ALERTS_UDP_ISACTIVE                                               __L("udp_isactive")
+#define APP_CFG_ALERTS_UDP_PORT                                                   __L("udp_port")
+#define APP_CFG_ALERTS_UDP_RECIPIENT                                              __L("udp_recipient")
+
+#define APP_CFG_ALERTS_MAXCONDITIONS                                              10
+#define APP_CFG_ALERTS_MAXRECIPIENTS                                              5
+
+#endif
+
+
+
+#ifdef APP_CFG_LOG_ACTIVE
+
+#define APP_CFG_SECTION_LOG                                                       __L("log")
+#define APP_CFG_LOG_ISACTIVE                                                      __L("isactive")
+#define APP_CFG_LOG_BACKUPISACTIVE                                                __L("backupisactive")
+#define APP_CFG_LOG_BACKUPMAXFILES                                                __L("backupmaxfiles")
+#define APP_CFG_LOG_BACKUPISCOMPRESS                                              __L("backupiscompress")
+#define APP_CFG_LOG_ACTIVESECTIONSID                                              __L("activesectionsID")
+#define APP_CFG_LOG_LEVELMASK                                                     __L("levelmask")
+#define APP_CFG_LOG_MAXSIZE                                                       __L("maxsize")
+#define APP_CFG_LOG_REDUCTIONPERCENT                                              __L("reductionpercent")
+
+
+//---------------------------------------------------------------------------------------------------
+// ID Sections "generic" of LOG
+//
+#define APP_CFG_LOG_SECTIONID_INITIATION                                          __L("Ini")
+#define APP_CFG_LOG_SECTIONID_GENERIC                                             __L("General")
+#define APP_CFG_LOG_SECTIONID_STATUSAPP                                           __L("Status")
+#define APP_CFG_LOG_SECTIONID_ENDING                                              __L("End")
+
+#endif
+
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+
+class XFACTORY;
+class XPATHS;
+class XSYSTEM;
+class XLOG;
+
+
+class APPCFG
+#ifdef APP_CFG_REMOTEFILE_ACTIVE
+  : public DIOREMOTEFILECFG
+#else
+  : public XFILECFG
+#endif
+{
+  public:
+                         APPCFG                                                   (XCHAR* namefile);
+    virtual             ~APPCFG                                                   ();
+
+    virtual bool         Default                                                  ();
+
+
+    #ifdef APP_CFG_GENERAL_ACTIVE
+    XSTRING*             GetScraperWebScriptURLDownload                           ();
+    XWORD                GetShowDetailInfo                                        ();
+    void                 SetShowDetailInfo                                        (XWORD detail);
+    #ifdef XTRACE_ACTIVE
+    XSTRING*             GetTraceTarget                                           (int index);
+    bool                 SetTraceTarget                                           (int index, XSTRING& target);
+    bool                 SetAutomaticTraceTargets                                 ();
+    bool                 SetDefaultTraceTargets                                   ();
+    #endif
+    #endif
+
+
+    #ifdef APP_CFG_CHECKRESOURCESHARDWARE_ACTIVE
+
+    int                  CheckResourcesHardware_GetMemStatusCheckCadence          ();
+    int                  CheckResourcesHardware_GetMemStatusLimitPercent          ();
+
+    int                  CheckResourcesHardware_GetCPUUsageCheckCadence           ();
+    int                  CheckResourcesHardware_GetCPUUsageLimitPercent           ();
+    XSTRING*             CheckResourcesHardware_GetCPUUsageProcessName            ();
+
+    #endif
+
+
+    #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
+
+    int                  InternetServices_GetCheckInternetStatusCadence           ();
+    int                  InternetServices_GetCheckIPPublicChangeCadence           ();
+    int                  InternetServices_GetUpdateTimeByNTPCadence               ();
+    XSTRING*             InternetServices_GetUpdateTimeNTPServer                  (int index);
+    int                  InternetServices_GetUpdateTimeNTPMeridianDifference      ();
+    bool                 InternetServices_GetUpdateTimeNTPUseDayLightSaving       ();
+
+    #ifdef APP_CFG_DNSRESOLVED_ACTIVE
+    bool                 DNSResolved_GetHostResolved                              (int index, XSTRING& host, XSTRING& IPresolved);
+    XSTRING*             DNSResolved_GetDNSserver                                 (int index);
+    bool                 SetAutomaticDNSResolved                                  ();
+
+    #endif
+
+
+    #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+    XSTRING*             DNSManager_GetURL                                        (int index);
+    #endif
+
+    #endif
+
+
+    #ifdef APP_CFG_LOCATION_ACTIVE
+
+    XSTRING*             Location_GetStreet                                       ();
+    XSTRING*             Location_GetCity                                         ();
+    XSTRING*             Location_GetState                                        ();
+    XSTRING*             Location_GetCountry                                      ();
+    int                  Location_GetPostalCode                                   ();
+
+    #endif
+
+
+    #ifdef APP_CFG_APPUPDATE_ACTIVE
+
+    bool                 ApplicationUpdate_IsActive                               ();
+    int                  ApplicationUpdate_GetPort                                ();
+    XSTRING*             ApplicationUpdate_GetURL                                 ();
+    int                  ApplicationUpdate_GetCheckCadence                        ();
+    XSTRING*             ApplicationUpdate_GetCheckTime                           ();
+    int                  ApplicationUpdate_GetMaxRestorations                     ();
+
+    #endif
+
+
+    #ifdef APP_CFG_ALERTS_ACTIVE
+
+    bool                 Alerts_IsActive                                          ();
+    XSTRING*             Alerts_GetCondition                                      (int index);
+    bool                 Alerts_GetCondition                                      (int index, XDWORD& conditionID, int& timelimitforrepeat, int& numberoftimesrepeat);
+    bool                 Alerts_IsActiveSMTP                                      ();
+    XSTRING*             Alerts_GetSMTPURL                                        ();
+    int                  Alerts_GetSMTPPort                                       ();
+    XSTRING*             Alerts_GetSMTPLogin                                      ();
+    XSTRING*             Alerts_GetSMTPPassword                                   ();
+    XSTRING*             Alerts_GetSMTPSender                                     ();
+    XSTRING*             Alerts_GetSMTPRecipient                                  (int index);
+
+    bool                 Alerts_IsActiveSMS                                       ();
+    XSTRING*             Alerts_GetSMSRecipient                                   (int index);
+
+    bool                 Alerts_IsActiveWEB                                       ();
+    bool                 Alerts_GetWEBIsUseGet                                    ();
+    XSTRING*             Alerts_GetWEBRecipient                                   (int index);
+
+    bool                 Alerts_IsActiveUDP                                       ();
+    int                  Alerts_GetUDPPort                                        ();
+    XSTRING*             Alerts_GetUDPRecipient                                   (int index);
+
+    #endif
+
+
+
+    #ifdef APP_CFG_WEBSERVER_ACTIVE
+
+    XSTRING*             WebServer_GetLocalAddress                                ();
+    int                  WebServer_GetPort                                        ();
+    int                  WebServer_GetTimeoutToServerPage                         ();
+    bool                 WebServer_IsAuthenticatedAccess                          ();
+    XSTRING*             WebServer_GetPassword                                    ();
+    XPATH*               WebServer_PathResources                                  ();
+    XPATH*               WebServer_PathPHP                                        ();
+
+    #endif
+
+
+
+    #ifdef APP_CFG_LOG_ACTIVE
+
+    bool                 Log_IsActive                                             ();
+    bool                 Log_Backup_IsActive                                      ();
+    int                  Log_Backup_GetMaxFiles                                   ();
+    bool                 Log_Backup_IsCompress                                    ();
+    XSTRING*             Log_ActiveSectionsID                                     ();
+    XBYTE                Log_LevelMask                                            ();
+    int                  Log_MaxSize                                              ();
+    int                  Log_ReductionPercent                                     ();
+
+    #endif
+
+  protected:
+
+
+    #ifdef APP_CFG_GENERAL_ACTIVE
+
+    XSTRING              scraperwebscripturldownload;
+    XSTRING              showdetailinfo;
+    #ifdef XTRACE_ACTIVE
+    XSTRING              tracetarget[XTRACE_MAXNTARGETS];
+    #endif
+
+    #endif
+
+
+    #ifdef APP_CFG_CHECKRESOURCESHARDWARE_ACTIVE
+
+    int                  checkresourceshardware_memstatuscheckcadence;
+    int                  checkresourceshardware_memstatuslimitpercent;
+    int                  checkresourceshardware_cpuusagecheckcadence;
+    int                  checkresourceshardware_cpuusagelimitpercent;
+    XSTRING              checkresourceshardware_cpuusageprocessname; 
+
+    #endif
+
+
+    #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
+
+    int                  internetservices_checkinternetstatuscadence;
+    int                  internetservices_checkippublicchangecadence;
+    int                  internetservices_updatetimebyntpcadence;
+    XSTRING              internetservices_updatetimentpservers[APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS];
+    int                  internetservices_updatetimentpmeridiandifference;
+    bool                 internetservices_updatetimentpusedaylightsaving;
+
+
+
+    #ifdef APP_CFG_DNSRESOLVED_ACTIVE
+    XSTRING              hostresolved[APP_CFG_DNSRESOLVED_MAXHOSTRESOLVED];
+    XSTRING              DNSserver[APP_CFG_DNSRESOLVED_MAXDNSSERVERS];
+    #endif
+
+
+    #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+    XSTRING              dnsmanager_url[APP_CFG_DYNDNSMANAGER_MAXURL];
+    #endif
+
+    #endif
+
+
+    #ifdef APP_CFG_LOCATION_ACTIVE
+
+    XSTRING              location_street;
+    XSTRING              location_city;
+    XSTRING              location_state;
+    XSTRING              location_country;
+    int                  location_postalcode;
+
+    #endif
+
+
+    #ifdef APP_CFG_APPUPDATE_ACTIVE
+
+    bool                 applicationupdate_isactive;
+    XSTRING              applicationupdate_URL;
+    int                  applicationupdate_port;
+    int                  applicationupdate_checkcadence;
+    XSTRING              applicationupdate_checktime;
+    int                  applicationupdate_maxrestorations;
+
+    #endif
+
+
+
+    #ifdef APP_CFG_WEBSERVER_ACTIVE
+
+    XSTRING              webserver_localaddr;
+    int                  webserver_port;
+    int                  webserver_timeouttoserverpage;
+    bool                 webserver_isauthenticatedaccess;
+    XSTRING              webserver_password;
+    XPATH                webserver_path_resources;
+    XPATH                webserver_path_PHP;
+
+    #endif
+
+
+    #ifdef APP_CFG_ALERTS_ACTIVE
+
+    bool                 alerts_isactive;
+    XSTRING              alerts_conditions[APP_CFG_ALERTS_MAXCONDITIONS];
+    bool                 alerts_SMTP_isactive;
+    XSTRING              alerts_SMTP_URL;
+    int                  alerts_SMTP_port;
+    XSTRING              alerts_SMTP_login;
+    XSTRING              alerts_SMTP_password;
+    XSTRING              alerts_SMTP_sender;
+    XSTRING              alerts_SMTP_recipient[APP_CFG_ALERTS_MAXRECIPIENTS];
+
+    bool                 alerts_SMS_isactive;
+    XSTRING              alerts_SMS_recipient[APP_CFG_ALERTS_MAXRECIPIENTS];
+
+    bool                 alerts_WEB_isactive;
+    bool                 alerts_WEB_isuseget;
+    XSTRING              alerts_WEB_recipient[APP_CFG_ALERTS_MAXRECIPIENTS];
+
+    bool                 alerts_UDP_isactive;
+    int                  alerts_UDP_port;
+    XSTRING              alerts_UDP_recipient[APP_CFG_ALERTS_MAXRECIPIENTS];
+
+    #endif
+
+
+    #ifdef APP_CFG_LOG_ACTIVE
+
+    bool                 log_isactive;
+    bool                 log_backupisactive;
+    int                  log_backupmaxfiles;
+    bool                 log_backupiscompress;
+    XSTRING              log_activesectionsID;
+    int                  log_levelmask;
+    int                  log_maxsize;
+    int                  log_reductionpercent;
+
+    #endif
+
+
+  private:
+
+    void                 Clean                                                    ();
+
+};
+
+
+/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+
+#endif
+
+

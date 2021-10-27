@@ -1,0 +1,534 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOStreamSPIConfig.cpp
+* 
+* @class      DIOSTREAMSPICONFIG
+* @brief      Data Input/Output Stream SPI Config class
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+
+#include "GEN_Defines.h"
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+
+#include "XFactory.h"
+#include "XSystem.h"
+
+#include "DIOStreamSPIConfig.h"
+
+#include "XMemory_Control.h"
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMSPICONFIG::DIOSTREAMSPICONFIG()
+* @brief      DIOSTREAMSPICONFIG
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @param[in]  
+* 
+* @return      
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMSPICONFIG::DIOSTREAMSPICONFIG() : DIOSTREAMCONFIG()
+{
+  Clean();
+  type  = DIOSTREAMTYPE_SPI;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMSPICONFIG::~DIOSTREAMSPICONFIG()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMSPICONFIG::~DIOSTREAMSPICONFIG()
+{
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOSTREAMSPICONFIG::GetPort()
+* @brief      GetPort
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     int : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+int DIOSTREAMSPICONFIG::GetPort()
+{ 
+  return port;                                
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMSPICONFIG::SetPort(int port)
+* @brief      SetPort
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @param[in]  port : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMSPICONFIG::SetPort(int port)
+{ 
+  this->port = port;                          
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOSTREAMSPICONFIG::GetLocalDeviceName()
+* @brief      GetLocalDeviceName
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     XSTRING* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOSTREAMSPICONFIG::GetLocalDeviceName()
+{ 
+  return &localdevicename;                    
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSTREAMSPICONFIG::SetLocalDeviceNameByPort()
+* @brief      SetLocalDeviceNameByPort
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool DIOSTREAMSPICONFIG::SetLocalDeviceNameByPort()
+{
+  int revision = 0;
+
+  switch(GEN_XSYSTEM.GetTypeHardware(&revision))
+    {
+      case XSYSTEM_HARDWARETYPE_PC          :
+                                              #ifdef LINUX
+                                              localdevicename.Format(__L("/dev/spi%d"), port-1);
+                                              #endif
+
+                                              #ifdef WINDOWS
+                                              localdevicename.Format(__L("spi%d"), port-1);
+                                              #endif
+                                              break;
+
+      case XSYSTEM_HARDWARETYPE_RASPBERRYPI : localdevicename.Format(__L("/dev/spidev%d.%d"), port-1, chipselect);
+                                              break;
+
+                                   default  : break;
+    }
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOSTREAMSPICONFIG::GetChipSelect()
+* @brief      GetChipSelect
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     int : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+int DIOSTREAMSPICONFIG::GetChipSelect()
+{ 
+  return chipselect;                          
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMSPICONFIG::SetChipSelect(int chipselect)
+* @brief      SetChipSelect
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @param[in]  chipselect : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMSPICONFIG::SetChipSelect(int chipselect)                  
+{ 
+  this->chipselect = chipselect;              
+}    
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSTREAMSPICONFIG::IsDirectAccess()
+* @brief      IsDirectAccess
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool DIOSTREAMSPICONFIG::IsDirectAccess()
+{ 
+  return isdirectaccess;                      
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE DIOSTREAMSPICONFIG::GetSPIMode()
+* @brief      GetSPIMode
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     XBYTE : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XBYTE DIOSTREAMSPICONFIG::GetSPIMode()
+{ 
+  return SPImode;                             
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE DIOSTREAMSPICONFIG::GetNBitsWord()
+* @brief      GetNBitsWord
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     XBYTE : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XBYTE DIOSTREAMSPICONFIG::GetNBitsWord()
+{ 
+  return nbitsword;                           
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOSTREAMSPICONFIG::GetSpeed()
+* @brief      GetSpeed
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     XDWORD : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOSTREAMSPICONFIG::GetSpeed()
+{ 
+  return speed;                               
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XWORD DIOSTREAMSPICONFIG::GetDelay()
+* @brief      GetDelay
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     XWORD : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XWORD DIOSTREAMSPICONFIG::GetDelay()
+{ 
+  return delay;                               
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSTREAMSPICONFIG::IsOnlyWrite()
+* @brief      IsOnlyWrite
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool DIOSTREAMSPICONFIG::IsOnlyWrite()
+{
+  return isonlywrite;                         
+}
+
+
+  
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD* DIOSTREAMSPICONFIG::GetPinsDirectAccess()
+* @brief      GetPinsDirectAccess
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     XDWORD* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XDWORD* DIOSTREAMSPICONFIG::GetPinsDirectAccess()
+{ 
+  return GPIO_ID;                             
+}  
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSTREAMSPICONFIG::SetPinsDirectAccess(XDWORD GPIOID_CLK, XDWORD GPIOID_MISO, XDWORD GPIOID_MOSI, XDWORD GPIOID_CS)
+* @brief      SetPinsDirectAccess
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @param[in]  GPIOID_CLK : 
+* @param[in]  GPIOID_MISO : 
+* @param[in]  GPIOID_MOSI : 
+* @param[in]  GPIOID_CS : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool DIOSTREAMSPICONFIG::SetPinsDirectAccess(XDWORD GPIOID_CLK, XDWORD GPIOID_MISO, XDWORD GPIOID_MOSI, XDWORD GPIOID_CS)
+{                                 
+  GPIO_ID[DIOSTREAMSPI_GPIO_CLK]    = GPIOID_CLK;
+  GPIO_ID[DIOSTREAMSPI_GPIO_MISO]   = GPIOID_MISO;
+  GPIO_ID[DIOSTREAMSPI_GPIO_MOSI]   = GPIOID_MOSI;
+  GPIO_ID[DIOSTREAMSPI_GPIO_CS]     = GPIOID_CS;
+                                   
+  isdirectaccess  = true;
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMSPICONFIG::SetSPIMode(XBYTE modeSPI)
+* @brief      SetSPIMode
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @param[in]  modeSPI : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMSPICONFIG::SetSPIMode(XBYTE modeSPI)
+{ 
+  this->SPImode = SPImode;                     
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMSPICONFIG::SetNBitsWord(XBYTE nbitsword)
+* @brief      SetNBitsWord
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @param[in]  nbitsword : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMSPICONFIG::SetNBitsWord(XBYTE nbitsword)
+{ 
+  this->nbitsword = nbitsword;                 
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMSPICONFIG::SetSpeed(XDWORD speed)
+* @brief      SetSpeed
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @param[in]  speed : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMSPICONFIG::SetSpeed(XDWORD speed)
+{ 
+  this->speed = speed;                         
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMSPICONFIG::SetDelay(XWORD delay)
+* @brief      SetDelay
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @param[in]  delay : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMSPICONFIG::SetDelay(XWORD delay)
+{ 
+  this->delay = delay;                         
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMSPICONFIG::SetIsOnlyWrite(bool isonlywrite)
+* @brief      SetIsOnlyWrite
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @param[in]  isonlywrite : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMSPICONFIG::SetIsOnlyWrite(bool isonlywrite)
+{ 
+  this->isonlywrite = isonlywrite;             
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMSPICONFIG::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       01/03/2016 12:00
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMSPICONFIG::Clean()
+{
+  type              = DIOSTREAMTYPE_SPI;
+
+  port              = 0;
+  localdevicename.Empty();
+  chipselect        = 0;
+
+  isdirectaccess    = false;
+
+  for(int c=0; c<DIOSTREAMSPI_GPIO_MAX; c++)
+    {                                       
+      GPIO_ID[c]    = DIOGPIO_ID_NOTDEFINED;
+    }
+
+  SPImode           = 0;
+  nbitsword         = 0;
+  speed             = 0;
+  delay             = 0;
+  isonlywrite       = false;
+}

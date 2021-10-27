@@ -1,0 +1,123 @@
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @file       DIOFactory.h
+*
+* @class      DIOFACTORY
+* @brief      Data Input/Output factory class
+* @ingroup    DATAIO
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+*
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+
+#ifndef _DIOFACTORY_H_
+#define _DIOFACTORY_H_
+
+#ifdef DIO_ACTIVE
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#include "DIOStreamEnumDevices.h"
+#include "DIOStream.h"
+
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+
+#if (defined(DIOUART_ACTIVE) || defined(DIOUSB_ACTIVE) || defined(DIOICMP_ACTIVE) || defined(DIOUDP_ACTIVE) || defined(DIOTCPIP_ACTIVE)  || defined(DIOBLUETOOTH_ACTIVE) || defined(DIOBLUETOOTHLE_ACTIVE) || defined(DIOSPI_ACTIVE) || defined(DIOI2C_ACTIVE))
+#define ANYTYPEOFDIOSTREAMIO
+#endif
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+
+class CIPHER;
+class XFACTORY;
+class XPATHS;
+class XLOG;
+class DIOURL;
+class DIOSTREAM;
+class DIOWIFIMANAGERMODE;
+class DIOPING;
+class DIOPCAP;
+class DIOWEBSERVER;
+class DIOGPIO;
+class DIONOTIFICATIONSMANAGER;
+class DIOLEDNEOPIXELWS2812B;
+
+
+class DIOFACTORY
+{
+  public:
+
+                                          DIOFACTORY                  ();
+    virtual                              ~DIOFACTORY                  ();
+
+    static bool                           GetIsInstanced              ();
+    static DIOFACTORY&                    GetInstance                 ();
+    static bool                           SetInstance                 (DIOFACTORY* instance);
+    static bool                           DelInstance                 ();
+
+    #ifdef ANYTYPEOFDIOSTREAMIO
+    virtual DIOSTREAMENUMDEVICES*         CreateStreamEnumDevices     (DIOSTREAMENUMTYPE type);
+    virtual bool                          DeleteStreamEnumDevices     (DIOSTREAMENUMDEVICES* enumdevices);
+
+    virtual DIOSTREAM*                    CreateStreamIO              (DIOSTREAMCONFIG* config);
+    virtual bool                          DeleteStreamIO              (DIOSTREAM* streamio);
+    #endif
+
+    #ifdef DIOWIFIMANAGERMODE_ACTIVE
+    virtual DIOWIFIMANAGERMODE*           CreateWifiManagerMode       ();
+    virtual bool                          DeleteWifiManagerMode       (DIOWIFIMANAGERMODE* wifimanagermode);
+    #endif
+
+    #ifdef DIOPING_ACTIVE
+    virtual DIOPING*                      CreatePing                  ();
+    virtual bool                          DeletePing                  (DIOPING* ping);
+    #endif
+
+    #ifdef DIOPCAP_ACTIVE
+    virtual DIOPCAP*                      CreatePCap                  ();
+    virtual bool                          DeletePCap                  (DIOPCAP* pcap);
+    #endif
+  
+    virtual DIONOTIFICATIONSMANAGER*      CreateNotificationsManager  ();
+    virtual bool                          DeleteNotificationsManager  (DIONOTIFICATIONSMANAGER* notificationsmanager);
+
+    #ifdef DIOLEDNEOPIXELWS2812B_ACTIVE    
+    virtual DIOLEDNEOPIXELWS2812B*        CreateLedNeopixelWS2812B    ();
+    virtual bool                          DeleteLedNeopixelWS2812B    (DIOLEDNEOPIXELWS2812B* ledneopixelws2812b);
+    #endif
+    
+  private:
+
+    void                                  Clean                       ();
+
+    static DIOFACTORY*                    instance;
+
+};
+
+/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+
+#endif
+
+#endif
+
