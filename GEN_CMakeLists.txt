@@ -841,7 +841,9 @@ if(DIO_STREAMUSB_FEATURE)
 endif()
 
 if(DIO_STREAMBLUETOOTH_FEATURE)
-  add_definitions(-DDIOBLUETOOTH_ACTIVE)
+  add_definitions(-DDIOBLUETOOTH_ACTIVE)  
+  set(XUUID_FEATURE                                     true    CACHE BOOL "Activate UUID functions"                                    FORCE)
+
 endif()
 
 if(DIO_STREAMBLUETOOTHLE_FEATURE)
