@@ -447,7 +447,7 @@ bool XSTM32DIR::NextSearch(XDIRELEMENT* searchelement)
   XSTRING_CREATENORMALIZE((*searchelement->GetPatternSearch()) , bufferpattern, false); 
   searchinfo->dir.pat = bufferpattern;   
   fresult = f_findnext(&searchinfo->dir, &searchinfo->fileinfo);
-  XSTRING_DELETENORMALIZE(bufferpattern);
+  XSTRING_DELETENORMALIZE((*searchelement->GetPatternSearch()), bufferpattern);
   
   if(fresult != FR_OK || !searchinfo->fileinfo.fname[0]) 
     {

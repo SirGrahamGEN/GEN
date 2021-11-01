@@ -44,8 +44,8 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-#define DIOSPITFTDISPLAYST7789_DCHIGH                    GEN_DIOGPIO.SetValue(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_DC), true);
-#define DIOSPITFTDISPLAYST7789_DCLOW                     GEN_DIOGPIO.SetValue(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_DC), false);
+#define DIOSPITFTDISPLAYST7789_DC_DATA                   GEN_DIOGPIO.SetValue(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_DC), true);
+#define DIOSPITFTDISPLAYST7789_DC_CMD                    GEN_DIOGPIO.SetValue(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_DC), false);
 
 #define DIOSPITFTDISPLAYST7789_TFTWIDTH                  240
 #define DIOSPITFTDISPLAYST7789_TFTHEIGHT                 240
@@ -127,8 +127,7 @@ class DIOSPITFTDISPLAYST7789 : public DIODISPLAYDEVICE, public DIODEVICESPI
     bool                    TFT_SetWindow                   (int xs, int ys, int xe, int ye);
 
     bool                    SendCommand                     (XBYTE command);
-    bool                    SendCommand                     (XBYTE command, int ndata, ...);
-    bool                    SendData                        (XBYTE data);
+    bool                    SendCommandParams               (XBYTE command, int ndata, ...);
     bool                    SendData                        ();
 
     XBYTE                   _colstart;

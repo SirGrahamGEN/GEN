@@ -110,7 +110,7 @@ typedef struct
 #define XSTRING_CREATEOEM(xstring, variable)                          char* variable = NULL;                    \
                                                                       xstring.CreateOEM(variable);
 
-#define XSTRING_DELETEOEM(xstring, variable)                          xstring.CreateOEM(variable);              \
+#define XSTRING_DELETEOEM(xstring, variable)                          xstring.DeleteOEM(variable);              \
                                                                       variable = NULL;
 
 #define XSTRING_CREATENORMALIZE(xstring, buffernormalize, inverse)    XWORD* buffernormalize = NULL;            \
