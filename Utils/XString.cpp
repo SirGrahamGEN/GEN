@@ -3804,6 +3804,34 @@ bool XSTRING::ConvertToBoolean()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD size)
+* @brief      ConvertFromWide
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       03/11/2021 12:30:35
+* 
+* @param[in]  widechars : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD size)
+{
+  Empty();
+
+  for(XDWORD c=0; c<size; c++)
+    {
+      Add((XCHAR)widechars[c]);
+    }
+  
+  return true;
+}
+
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
