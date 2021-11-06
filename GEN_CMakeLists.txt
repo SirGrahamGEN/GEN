@@ -346,7 +346,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
     #-------------------------------------------------------------------------------------------
 
-    set(XFILE_FEATURE                                     true    CACHE BOOL "Activate XFile"                                             FORCE)
+    set(XTRANSLATION_FEATURE                              true    CACHE BOOL "Activate Translation"                                       FORCE)   
 
    endif()
   
@@ -364,8 +364,8 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   if(LINUX_X11_FEATURE)     
    add_definitions(-DLINUX_X11_ACTIVE)      
   endif()
-
-  set(XFILE_FEATURE                                     true    CACHE BOOL "Activate XFile"                                               FORCE)  
+  
+  set(XTRANSLATION_FEATURE                              true    CACHE BOOL "Activate Translation"                                       FORCE)   
 
 
   # ----------------------------------------
@@ -497,6 +497,8 @@ if(${TARGET} MATCHES "android")
 
   add_library(native_app_glue STATIC ${ANDROID_NDK_ROOT}/sources/android/native_app_glue/android_native_app_glue.c)
   target_include_directories(native_app_glue PUBLIC ${ANDROID_NDK_ROOT}/sources/android/native_app_glue)
+  
+  set(XTRANSLATION_FEATURE                              true    CACHE BOOL "Activate Translation"                                       FORCE)   
                               
 endif()   
 
@@ -600,24 +602,28 @@ endif()
 
 if(APP_CFG_REMOTEFILE_FEATURE)
   add_definitions(-DAPP_CFG_REMOTEFILE_ACTIVE)
+  set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIORemoteFileCFG.cpp")
   set(DIO_WEBCLIENT_FEATURE                               true    CACHE BOOL "Activate Web Client"                                        FORCE)
 endif()
 
 if(APP_CFG_GENERAL_FEATURE)
   add_definitions(-DAPP_CFG_GENERAL_ACTIVE)
+  set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
 endif()
 
 if(APP_CFG_LOG_FEATURE)
-  add_definitions(-DAPP_CFG_LOG_ACTIVE)
+  add_definitions(-DAPP_CFG_LOG_ACTIVE)  
   set(APP_LOG_FEATURE                                     true    CACHE BOOL "Activate Application Log"                                   FORCE)
   set(XLOG_FEATURE                                        true    CACHE BOOL "Activate LOG File"                                          FORCE)  
+  set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
 endif()
 
 if(APP_CFG_INTERNETSERVICES_FEATURE)
   add_definitions(-DAPP_CFG_INTERNETSERVICES_ACTIVE)
   set(HASH_FEATURE                                        true    CACHE BOOL "Activate HASH"                                              FORCE)
   set(APP_INTERNETSERVICES_FEATURE                        true    CACHE BOOL "Activate Application Internet Services"                     FORCE)
+  set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
 endif()
 
 if(APP_CFG_DYNDNSMANAGER_FEATURE)
@@ -626,29 +632,35 @@ endif()
 
 if(APP_CFG_WEBSERVER_FEATURE)
   add_definitions(-DAPP_CFG_WEBSERVER_ACTIVE)
+  set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
 endif()
 
 if(APP_CFG_CHECKRESOURCESHARDWARE_FEATURE)
   add_definitions(-DAPP_CFG_CHECKRESOURCESHARDWARE_ACTIVE)
   set(APP_CHECKRESOURCESHARDWARE_FEATURE                  true   CACHE BOOL "Activate Application Check Resources Hardwar"                FORCE)
+  set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
 endif()
 
 if(APP_CFG_LOCATION_FEATURE)
   add_definitions(-DAPP_CFG_LOCATION_ACTIVE)
+  set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
 endif()
 
 if(APP_CFG_DNSRESOLVED_FEATURE)
   add_definitions(-DAPP_CFG_DNSRESOLVED_ACTIVE)
+  set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
 endif()
 
 if(APP_CFG_ALERTS_FEATURE)
   add_definitions(-DAPP_CFG_ALERTS_ACTIVE)
   set(APP_ALERTS_FEATURE                                  true    CACHE BOOL "Activate Application Alerts"                                FORCE)
+  set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
 endif()
 
 if(APP_CFG_APPUPDATE_FEATURE)
   add_definitions(-DAPP_CFG_APPUPDATE_ACTIVE)
   set(APP_UPDATE_FEATURE                                  true    CACHE BOOL "Activate Application Update"                                FORCE)
+  set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
 endif()
 
 
@@ -750,8 +762,9 @@ if(DIO_SCRAPERWEB_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOScraperWebUserAgentID.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOScraperWebWeather.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOScraperWebGeolocationIP.cpp")
-  
-  set(DIO_WEBCLIENT_FEATURE                             true    CACHE BOOL "Activate Web Client"                                          FORCE)
+  set(XFILE_XML_FEATURE                                 true    CACHE BOOL "Activate XFile XML format"                                  FORCE)  
+  set(XFILE_JSON_FEATURE                                true    CACHE BOOL "Activate XFile JSON format"                                 FORCE)
+  set(DIO_WEBCLIENT_FEATURE                             true    CACHE BOOL "Activate Web Client"                                        FORCE)
 endif()
 
 if(DIO_CHECKCONNECTIONS_FEATURE)
@@ -786,6 +799,7 @@ if(DIO_WEBCLIENT_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOWebClient_XEvent.cpp")   
 
   set(DIO_STREAMTCPIP_FEATURE                           true     CACHE BOOL "Activate Data Input/Output TCPIP"                            FORCE)  
+  set(HASH_MD5_FEATURE                                  true     CACHE BOOL "Activate Hash MD5"                                           FORCE)
 endif()
 
 if(DIO_STREAMUART_FEATURE         OR 
@@ -818,7 +832,8 @@ if(DIO_WEBSERVER_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOWebServer_QueryStrings.cpp")
 
   set(DIO_STREAMTCPIP_FEATURE                           true    CACHE BOOL "Activate Data Input/Output TCPIP"                             FORCE)  
-  set(HASH_FEATURE                                      true    CACHE BOOL "Activate HASH"                                                FORCE)
+  set(HASH_FEATURE                                      true    CACHE BOOL "Activate HASH"                                                FORCE)  
+  set(HASH_SHA1_FEATURE                                 true    CACHE BOOL "Activate Hash SHA1"                                           FORCE)    
   set(XPROCESSMANAGER_FEATURE                           true    CACHE BOOL "Activate Process Manager"                                     FORCE)
 endif()
   
@@ -993,6 +1008,7 @@ endif()
 if(APP_CHECKRESOURCESHARDWARE_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPCheckResourcesHardware.cpp")  
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPCheckResourcesHardware_XEvent.cpp")    
+  set(XSCHEDULER_FEATURE                                  true    CACHE BOOL "Activate XScheduler"                                        FORCE)  
 endif()
 
 
@@ -1000,7 +1016,8 @@ endif()
 
 if(APP_INTERNETSERVICES_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPInternetServices.cpp")                         
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPInternetServices_XEvent.cpp")                         
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPInternetServices_XEvent.cpp")  
+  set(XSCHEDULER_FEATURE                                  true    CACHE BOOL "Activate XScheduler"                                        FORCE)  
 endif()
 
 if(APP_LOG_FEATURE)
@@ -1047,6 +1064,8 @@ if(GRP_FEATURE)
 
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPVideoFile.cpp")
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPVideoFileAVI.cpp")
+    
+    set(XFILE_RIFF_FEATURE                                  true    CACHE BOOL "Activate XFile RIFF format"                                 FORCE)  
     
   endif()
 
@@ -1237,7 +1256,7 @@ if(DIO_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOFactory.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOMAC.cpp")
 
-  set(DIO_ONOTIFICATIONS_MANAGER_FEATURE                true   CACHE BOOL "Activate Notifications Nanager"                                FORCE)
+  set(DIO_NOTIFICATIONS_MANAGER_FEATURE                 true   CACHE BOOL "Activate Notifications Nanager"                                FORCE)
 
 endif()
 
@@ -1249,7 +1268,7 @@ if(DIO_WIFIMANAGERMODE_FEATURE)
 endif()
 
 
-if(DIO_ONOTIFICATIONS_MANAGER_FEATURE)
+if(DIO_NOTIFICATIONS_MANAGER_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIONotificationsManager.cpp")
 endif()
 
@@ -1263,6 +1282,7 @@ if(DIO_PROTOCOL_FEATURE)
 
   set(DIO_STREAMCIPHER_FEATURE                          true   CACHE BOOL "Activate Data Input/Output Stream Cipher"                      FORCE)
   set(DIO_STREAMUDP_FEATURE                             true   CACHE BOOL "Activate Data Input/Output Stream UDP"                         FORCE)
+  set(CIPHER_SYMMETRIC_AES_FEATURE                      true   CACHE BOOL "Activate Cipher Symetric AES"                                  FORCE)
 endif()
 
 
@@ -1310,6 +1330,9 @@ if(DIO_STREAM_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamDevice.cpp")  
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamEnumDevices.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamEnumServers.cpp")
+  
+  set(XPUBLISHER_FEATURE                                  true    CACHE BOOL "Activate XPublisher"                                        FORCE)
+  set(XFSMACHINE_FEATURE                                  true    CACHE BOOL "Activate XFSMachine"                                        FORCE)
 endif()
 
 if(DIO_STREAMUART_FEATURE)
@@ -1450,6 +1473,7 @@ if(DIO_STREAMUDP_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamUDPAcknowledge.cpp")  
   
   set(HASH_FEATURE                                      true    CACHE BOOL "Activate HASH"                                                FORCE)
+  set(HASH_CRC32_FEATURE                                true    CACHE BOOL "Activate Hash CRC32"                                          FORCE)
 endif()
 
 if(DIO_STREAMTCPIP_FEATURE)
@@ -1515,11 +1539,11 @@ endif()
 # Utils
 
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XBase.cpp")
+list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XMemory_Control.cpp")
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XString.cpp")
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XBuffer.cpp")
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XVariant.cpp")
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XPath.cpp")
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XMemory_Control.cpp")
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XTrace.cpp")
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XRect.cpp")
 
@@ -1533,26 +1557,48 @@ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFactory.cpp")
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XSleep.cpp")
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XSystem.cpp")
 
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XPublisher.cpp")
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XSubject.cpp")
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XObserver.cpp")
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XEvent.cpp")
+if(XFSMACHINE_FEATURE)
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFSMachine.cpp")
+endif()  
+
+if(XSCHEDULER_FEATURE)
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XScheduler.cpp")
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XScheduler_XEvent.cpp")
+endif()
+
+if(XPUBLISHER_FEATURE)
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XPublisher.cpp")
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XSubject.cpp")
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XObserver.cpp")
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XEvent.cpp")
+endif()
+
 
 if(XUUID_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XUUID.cpp")
   set(HASH_FEATURE                                        true    CACHE BOOL "Activate Hash"                                              FORCE)
+  set(HASH_CRC32_FEATURE                                true    CACHE BOOL "Activate Hash CRC32"                                          FORCE)
 endif()
 
 if(XLOG_FEATURE)  
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XLog.cpp")
   add_definitions(-DXLOG_ACTIVE)
+  set(XFILE_ZIP_FEATURE                                   true    CACHE BOOL "Activate XFile Zip format"                                  FORCE)
 endif()
 
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XPathsManager.cpp")
 
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XTranslation.cpp")
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XLanguage_ISO_639_3.cpp")
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XTranslation_GEN.cpp")
+if(XTRANSLATION_FEATURE)
+  set(XFILE_JSON_FEATURE                                  true    CACHE BOOL "Activate XFile JSON format"                                 FORCE)
+  set(XTRANSLATION_GEN_FEATURE                            true    CACHE BOOL "Activate Translation"                                       FORCE)
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XTranslation.cpp")  
+endif()
+
+if(XTRANSLATION_GEN_FEATURE)  
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XLanguage_ISO_639_3.cpp")
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XTranslation_GEN.cpp")
+endif()
+
 
 if(XPROCESSMANAGER_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XProcessManager.cpp")
@@ -1575,30 +1621,59 @@ if(APP_CFG_LOCATION_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XLocationAddress.cpp")
 endif()
 
-
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XScheduler.cpp")
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XScheduler_XEvent.cpp")
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFSMachine.cpp")
-
-
-if(XFILE_FEATURE)
-
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFile.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileTXT.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileINI.cpp")
+if(XFILE_CFG_FEATURE) 
+  set(XFILE_INI_FEATURE                                   true    CACHE BOOL "Activate XFile INI format"                                  FORCE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileCFG.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileZIP.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileZIP_XEvent.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileXML.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileJSON.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileRIFF.cpp")
-
-  if(XFIRMWAREUPDATEUTILS_FEATURE)  
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileHEX.cpp")
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileDFU.cpp")  
-  endif()
-
 endif()
+
+if(XFILE_INI_FEATURE) 
+  set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileINI.cpp")
+endif()
+
+if(XFILE_ZIP_FEATURE) 
+  set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)     
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileZIP.cpp")
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileZIP_XEvent.cpp")  
+endif()  
+  
+if(XFILE_XML_FEATURE) 
+  set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileXML.cpp")
+endif()  
+  
+if(XFILE_JSON_FEATURE)  
+  set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileJSON.cpp")
+endif()
+
+if(XFILE_RIFF_FEATURE) 
+  set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)     
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileRIFF.cpp")
+endif()
+  
+  
+if(XFILE_HEX_FEATURE)  
+  set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileHEX.cpp")
+endif()
+  
+if(XFILE_DFU_FEATURE)  
+  set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)     
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileDFU.cpp")  
+endif()  
+
+if(XFILE_TXT_FEATURE)
+  set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)     
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileTXT.cpp")
+endif()    
+  
+if(XFILE_FEATURE)
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFile.cpp")
+  set(CIPHER_SYMMETRIC_FEATURE                            true    CACHE BOOL "Activate Cipher Symetric"                                   FORCE)
+  set(CIPHER_ASYMMETRIC_FEATURE                           true    CACHE BOOL "Activate Cipher Asymetric"                                  FORCE)
+endif()  
+
 
 
 if(XLICENSE_FEATURE)
@@ -1612,14 +1687,31 @@ endif()
 
 if(HASH_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/Hash.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHCRC16.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHCKS16.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHCRC32.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHMD5.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHSHA1.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHSHA2.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HashCOMP128v1.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHWhirlpool.cpp")
+    
+  if(HASH_CRC16_FEATURE)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHCRC16.cpp")
+  endif()
+  if(HASH_CKS16_FEATURE)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHCKS16.cpp")
+  endif()
+  if(HASH_CRC32_FEATURE)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHCRC32.cpp")
+  endif()
+  if(HASH_MD5_FEATURE)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHMD5.cpp")
+  endif()
+  if(HASH_SHA1_FEATURE)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHSHA1.cpp")
+  endif()
+  if(HASH_SHA2_FEATURE)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHSHA2.cpp")
+  endif()
+  if(HASH_COMP128V1_FEATURE)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HashCOMP128v1.cpp")
+  endif()
+  if(HASH_WHIRLPOOL_FEATURE)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHWhirlpool.cpp")
+  endif()   
 endif()
 
 
@@ -1628,18 +1720,26 @@ if(CIPHER_SYMMETRIC_FEATURE OR CIPHER_ASYMMETRIC_FEATURE)
 endif()
 
 if(CIPHER_SYMMETRIC_FEATURE)
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherDES.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/Cipher3DES.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherAES.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherBlowfish.cpp")
+  if(CIPHER_SYMMETRIC_DES_FEATURE)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherDES.cpp")
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/Cipher3DES.cpp")
+  endif()
+  if(CIPHER_SYMMETRIC_AES_FEATURE)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherAES.cpp")
+  endif()
+  if(CIPHER_SYMMETRIC_BLOWFISH_FEATURE)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherBlowfish.cpp")
+  endif()
 endif()
 
 
-if(CIPHER_SYMMETRIC_FEATURE)  
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherRSA.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherFileKeys.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XMPInteger.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XBER.cpp")
+if(CIPHER_ASYMMETRIC_FEATURE)  
+  if(CIPHER_ASYMMETRIC_RSA_FEATURE)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherRSA.cpp")
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherFileKeys.cpp")
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XMPInteger.cpp")
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XBER.cpp")
+  endif()
 endif()
 
 
@@ -1784,7 +1884,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSEEPROMMemoryManager.cpp")
   endif()
   
-  if(DIO_ONOTIFICATIONS_MANAGER_FEATURE)
+  if(DIO_NOTIFICATIONS_MANAGER_FEATURE)
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSNotificationsManager.cpp")
   endif()
 

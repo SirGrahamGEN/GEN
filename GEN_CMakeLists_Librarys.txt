@@ -50,11 +50,11 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
       target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
     endif()
 
-    if(DATABASES_SQL_MYSQL)    
+    if(DATABASES_SQL_MYSQL_FEATURE)    
       target_link_libraries(${CMAKE_PROJECT_NAME} libmysql.lib)
     endif()
 
-    if(DATABASES_SQL_POSTGRESQL)
+    if(DATABASES_SQL_POSTGRESQL_FEATURE)
       target_link_libraries(${CMAKE_PROJECT_NAME} libpq.lib)
     endif() 
 
@@ -97,11 +97,11 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     target_link_libraries(${CMAKE_PROJECT_NAME} openal)
   endif()  
 
-  if(DATABASES_SQL_MYSQL) 
+  if(DATABASES_SQL_MYSQL_FEATURE)
       target_link_libraries(${CMAKE_PROJECT_NAME} mysqlclient)
   endif()
 
-  if(DATABASES_SQL_POSTGRESQL)
+  if(DATABASES_SQL_POSTGRESQL_FEATURE)
     target_link_libraries(${CMAKE_PROJECT_NAME} pq)
   endif() 
 

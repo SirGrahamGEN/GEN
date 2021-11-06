@@ -62,7 +62,25 @@ set(XTRACE_FEATURE                                      false   CACHE BOOL "Acti
 set(XTRACE_NOINTERNET_FEATURE                           false   CACHE BOOL "Activate No need for trace dependencies with the Internet"  FORCE)                        
 set(XMEMORY_CONTROL_FEATURE                             false   CACHE BOOL "Activate XMemory Control"                                   FORCE)
 set(XLOG_FEATURE                                        false   CACHE BOOL "Activate LOG File"                                          FORCE)
+
+set(XFSMACHINE_FEATURE                                  false   CACHE BOOL "Activate XFSMachine"                                        FORCE)
+set(XSCHEDULER_FEATURE                                  false   CACHE BOOL "Activate XScheduler"                                        FORCE)
+set(XPUBLISHER_FEATURE                                  false   CACHE BOOL "Activate XPublisher"                                        FORCE)
+
+set(XTRANSLATION_FEATURE                                false   CACHE BOOL "Activate Translation"                                       FORCE)
+set(XTRANSLATION_GEN_FEATURE                            false   CACHE BOOL "Activate Translation"                                       FORCE)
+
+set(XFILE_CFG_FEATURE                                   false   CACHE BOOL "Activate XFile Config format"                               FORCE)
+set(XFILE_INI_FEATURE                                   false   CACHE BOOL "Activate XFile INI format"                                  FORCE)
+set(XFILE_ZIP_FEATURE                                   false   CACHE BOOL "Activate XFile Zip format"                                  FORCE)
+set(XFILE_XML_FEATURE                                   false   CACHE BOOL "Activate XFile XML format"                                  FORCE)
+set(XFILE_JSON_FEATURE                                  false   CACHE BOOL "Activate XFile JSON format"                                 FORCE)
+set(XFILE_RIFF_FEATURE                                  false   CACHE BOOL "Activate XFile RIFF format"                                 FORCE)  
+set(XFILE_HEX_FEATURE                                   false   CACHE BOOL "Activate XFile HEX format"                                  FORCE)  
+set(XFILE_DFU_FEATURE                                   false   CACHE BOOL "Activate XFile DFU format"                                  FORCE)  
+set(XFILE_TXT_FEATURE                                   false   CACHE BOOL "Activate XFile Text format"                                 FORCE)
 set(XFILE_FEATURE                                       false   CACHE BOOL "Activate XFile"                                             FORCE)
+
 set(XLICENSE_FEATURE                                    false   CACHE BOOL "Activate License functions"                                 FORCE)
 
 set(XUUID_FEATURE                                       false   CACHE BOOL "Activate UUID functions"                                    FORCE)
@@ -72,8 +90,6 @@ set(XDRIVEIMAGEMANAGER_FEATURE                          false   CACHE BOOL "Acti
 set(XEEPROMMEMORYMANAGER_FEATURE                        false   CACHE BOOL "Activate EEPROM Memory Manager"                             FORCE)
 set(XPROCESSMANAGER_FEATURE                             false   CACHE BOOL "Activate Process Manager"                                   FORCE)
 
-set(XFIRMWAREUPDATEUTILS_FEATURE                        false   CACHE BOOL "Activate Firmware Update Utils"                             FORCE)
-
 set(LINUX_X11_FEATURE                                   false   CACHE BOOL "Activate Linux X11"                                         FORCE)
 
 
@@ -81,9 +97,23 @@ set(LINUX_X11_FEATURE                                   false   CACHE BOOL "Acti
 # Hash / Cipher
 
 set(HASH_FEATURE                                        false   CACHE BOOL "Activate Hash"                                              FORCE)
+set(HASH_CRC16_FEATURE                                  false   CACHE BOOL "Activate Hash CRC16"                                        FORCE)  
+set(HASH_CKS16_FEATURE                                  false   CACHE BOOL "Activate Hash CKS16"                                        FORCE)  
+set(HASH_CRC32_FEATURE                                  false   CACHE BOOL "Activate Hash CRC32"                                        FORCE)
+set(HASH_MD5_FEATURE                                    false   CACHE BOOL "Activate Hash MD5"                                          FORCE)
+set(HASH_SHA1_FEATURE                                   false   CACHE BOOL "Activate Hash SHA1"                                         FORCE)    
+set(HASH_SHA2_FEATURE                                   false   CACHE BOOL "Activate Hash SHA2"                                         FORCE)
+set(HASH_COMP128V1_FEATURE                              false   CACHE BOOL "Activate Hash COMP128V1"                                    FORCE)
+set(HASH_WHIRLPOOL_FEATURE                              false   CACHE BOOL "Activate Hash Whirlpool"                                    FORCE)    
+
 set(CIPHER_SYMMETRIC_FEATURE                            false   CACHE BOOL "Activate Cipher Symetric"                                   FORCE)
 set(CIPHER_ASYMMETRIC_FEATURE                           false   CACHE BOOL "Activate Cipher Asymetric"                                  FORCE)
 
+set(CIPHER_SYMMETRIC_DES_FEATURE                        false   CACHE BOOL "Activate Cipher Symetric DES"                               FORCE)
+set(CIPHER_SYMMETRIC_AES_FEATURE                        false   CACHE BOOL "Activate Cipher Symetric AES"                               FORCE)
+set(CIPHER_SYMMETRIC_BLOWFISH_FEATURE                   false   CACHE BOOL "Activate Cipher Symetric BlowFish"                          FORCE)
+
+set(CIPHER_ASYMMETRIC_RSA_FEATURE                       false   CACHE BOOL "Activate Cipher ASymetric RSA"                              FORCE)
 
 
 # --------------------------------------------------------------------

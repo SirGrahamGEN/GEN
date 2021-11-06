@@ -252,9 +252,9 @@ bool MYSQL_DATABASE::Rollback(XCHAR* savepointname)
           DB_SQL_STRING text;
           text.Format(__L("ROLLBACK TO SAVEPOINT %s"),savepointname);
 
-          XSTRING_CREATEOEM(text,rollbacktext);
+          XSTRING_CREATEOEM(text, rollbacktext);
           int rc=mysql_query(conn, rollbacktext);
-          XSTRING_DELETEOEM(rollbacktext);
+          XSTRING_DELETEOEM(text, rollbacktext);
 
           if(rc != DB_SQL_MYSQL_OK)
             {
