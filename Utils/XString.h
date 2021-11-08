@@ -274,7 +274,7 @@ class GEN_API_LIB XSTRING
     bool                  ConvertToXBUFFER                (XBUFFER& buffer);
     bool                  ConvertToBoolean                ();
 
-    bool                  ConvertFromWide                 (XWORD* widechars, XDWORD size);
+    bool                  ConvertFromWide                 (XWORD* widechars, XDWORD maxsize);
 
     bool                  ConvertFromUTF8                 (XBYTE* data, XDWORD size);
     bool                  ConvertFromUTF8                 (XBUFFER& xbuffer);

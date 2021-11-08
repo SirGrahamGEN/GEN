@@ -3806,7 +3806,7 @@ bool XSTRING::ConvertToBoolean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD size)
+* @fn         bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD maxsize)
 * @brief      ConvertFromWide
 * @ingroup    UTILS
 * 
@@ -3814,17 +3814,19 @@ bool XSTRING::ConvertToBoolean()
 * @date       03/11/2021 12:30:35
 * 
 * @param[in]  widechars : 
-* @param[in]  size : 
+* @param[in]  maxsize : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD size)
+bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD maxsize)
 {
   Empty();
 
-  for(XDWORD c=0; c<size; c++)
+  for(XDWORD c=0; c<maxsize; c++)
     {
+      if(!(XCHAR)widechars[c]) break;
+
       Add((XCHAR)widechars[c]);
     }
   
@@ -4650,7 +4652,7 @@ bool XSTRING::FormatArg(const XCHAR* mask, va_list* arg, bool isspecialweb)
                                                                 }
                                                                else
                                                                 {
-                                                                  str.ConvertFromDouble((double)va_arg((*arg), double), param);
+                                                                  str.ConvertFromLongLong((long long)va_arg((*arg), long long), param);
                                                                 }
                                                               end  = true;
                                                             }
