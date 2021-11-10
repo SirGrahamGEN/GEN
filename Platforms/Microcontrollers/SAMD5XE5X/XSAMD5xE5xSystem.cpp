@@ -131,6 +131,29 @@ XSYSTEM_SO XSAMD5XE5XSYSTEM::GetTypeSO()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSYSTEM_PLATFORM XSAMD5XE5XSYSTEM::GetPlatform(XSTRING* namestring)
+* @brief      GetPlatform
+* @ingroup    
+* 
+* @author     Abraham J. Velez 
+* @date       09/11/2021 20:09:15
+* 
+* @param[in]  namestring : 
+* 
+* @return     XSYSTEM_PLATFORM : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XSYSTEM_PLATFORM XSAMD5XE5XSYSTEM::GetPlatform(XSTRING* namestring)
+{
+  if(namestring)  namestring->Set(__L("SAMD5xE5x"));
+
+  return XSYSTEM_PLATFORM_UNKNONW;  
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XSAMD5XE5XSYSTEM::GetLanguageSO()
 * @brief      GetLanguageSO

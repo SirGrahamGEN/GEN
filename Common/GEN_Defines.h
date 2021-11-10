@@ -72,6 +72,10 @@
 #define GEN_XSLEEP                XSLEEP::GetInstance()
 #endif
 
+#ifndef GEN_XRAND
+#define GEN_XRAND                 XRAND::GetInstance()
+#endif
+
 #ifndef GEN_XLOG
 #define GEN_XLOG                  XLOG::GetInstance()
 #endif

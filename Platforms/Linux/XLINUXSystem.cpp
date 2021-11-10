@@ -264,6 +264,67 @@ XSYSTEM_SO XLINUXSYSTEM::GetTypeSO()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSYSTEM_PLATFORM XLINUXSYSTEM::GetPlatform(XSTRING* namestring)
+* @brief      GetPlatform
+* @ingroup    PLATFORM_LINUX
+* 
+* @author     Abraham J. Velez 
+* @date       09/11/2021 19:57:29
+* 
+* @param[in]  namestring : 
+* 
+* @return     XSYSTEM_PLATFORM : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XSYSTEM_PLATFORM XLINUXSYSTEM::GetPlatform(XSTRING* namestring)
+{
+ 
+  #ifdef HW_PC
+  if(namestring)  namestring->Set(__L("Linux"));
+  return XSYSTEM_PLATFORM_LINUX;
+  #endif
+
+  #ifdef HW_LEX3V700A
+  if(namestring)  namestring->Set(__L("Linux"));
+  return XSYSTEM_PLATFORM_LINUX;
+  #endif
+
+  #ifdef HW_GUMSTIXCONNEX
+  if(namestring)  namestring->Set(__L("Linux Embedded"));
+  return XSYSTEM_PLATFORM_LINUX_EMBEDDED;
+  #endif
+
+  #ifdef HW_ARTILA500
+  if(namestring)  namestring->Set(__L("Linux Embedded"));
+  return XSYSTEM_PLATFORM_LINUX_EMBEDDED;
+  #endif
+
+  #ifdef HW_RASPBERRYPI
+  if(namestring)  namestring->Set(__L("Linux Embedded"));
+  return XSYSTEM_PLATFORM_LINUX_EMBEDDED;
+  #endif
+
+  #ifdef HW_BEAGLEBONE
+  if(namestring)  namestring->Set(__L("Linux Embedded"));
+  return XSYSTEM_PLATFORM_LINUX_EMBEDDED;
+  #endif
+
+  #if defined(HW_NXP_IMX6) || defined(HW_NXP_IMX8)
+  if(namestring)  namestring->Set(__L("Linux Embedded"));
+  return XSYSTEM_PLATFORM_LINUX_EMBEDDED;  
+  #endif
+
+  if(namestring)  namestring->Set(__L("Unknown"));  
+  return XSYSTEM_PLATFORM_UNKNOWN;
+}
+
+
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XLINUXSYSTEM::GetLanguageSO()
 * @brief      GetLanguageSO

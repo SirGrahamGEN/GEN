@@ -48,6 +48,7 @@
 
 #include "XWINDOWSFactory.h"
 #include "XWINDOWSTrace.h"
+#include "XWINDOWSRand.h"
 #include "XWINDOWSSleep.h"
 #include "XWINDOWSSystem.h"
 #include "XWINDOWSTrace.h"
@@ -105,6 +106,7 @@
 #endif
 
 
+#include "XRand.h"
 #include "XSleep.h"
 #include "XPath.h"
 #include "XString.h"
@@ -402,6 +404,8 @@ bool MAINPROCWINDOWS::Factorys_Ini()
   XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
 
   if(!XSLEEP::SetInstance(new XWINDOWSSLEEP())) return false;
+
+  if(!XRAND::SetInstance(new XWINDOWSRAND())) return false;
   
   #ifdef XPROCESSMANAGER_ACTIVE
   if(!XPROCESSMANAGER::SetInstance(new XWINDOWSPROCESSMANAGER())) return false;
@@ -535,6 +539,8 @@ bool MAINPROCWINDOWS::Factorys_End()
 
 
   XSLEEP::DelInstance();
+
+  XRAND::DelInstance();
 
   XSYSTEM::DelInstance();
 

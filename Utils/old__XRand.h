@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @file       XANDROIDSystem.h
+* @file       XRand.h
 *
-* @class      XANDROIDSYSTEM
-* @brief      ANDROID eXtended System class
-* @ingroup    PLATFORM_ANDROID
+* @class      XRAND
+* @brief      Random class
+* @ingroup    UTILS
 *
 * @author     Abraham J. Velez
 * @date       01/03/2016 12:00
@@ -29,36 +29,43 @@
 *
 *---------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XANDROIDSYSTEM_H_
-#define _XANDROIDSYSTEM_H_
+#ifndef _XRAND_H_
+#define _XRAND_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XLINUXSystem.h"
+#include <stdlib.h>
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+#define GETRANDOM(min,max)  ((rand()%(int)(((max)+1)-(min)))+(min))
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-
-class XANDROIDSYSTEM : public XLINUXSYSTEM
+class XRAND
 {
   public:
-                            XANDROIDSYSTEM              ();
-    virtual                ~XANDROIDSYSTEM              ();
+                    XRAND           ();
+    virtual        ~XRAND           ();
 
-    XSYSTEM_HARDWARETYPE    GetTypeHardware             (int* revision = NULL);
+    virtual bool    Ini             ();
+    virtual int     MaxElements     (int max);
+    virtual int     Max             (int max);
+    virtual int     Between         (int min, int max);
 
-    XSYSTEM_SO              GetSO                       ();
+    float           Between         (float  min,  float max);
+    bool            Percent         (int percent);
 
-    XSYSTEM_PLATFORM        GetPlatform                 (XSTRING* namestring = NULL);
+  private:
 
+    void            Clean           ();
 
+    int             initialvalue;
 };
-
-
 
 /*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
 
 #endif
+
+
 

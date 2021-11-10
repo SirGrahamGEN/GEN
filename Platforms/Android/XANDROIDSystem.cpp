@@ -123,3 +123,27 @@ XSYSTEM_SO XANDROIDSYSTEM::GetSO()
 }
 
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
+* @brief      GetPlatform
+* @ingroup    PLATFORM_ANDROID
+* 
+* @author     Abraham J. Velez 
+* @date       09/11/2021 20:01:43
+* 
+* @param[in]  namestring : 
+* 
+* @return     XSYSTEM_PLATFORM : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
+{
+  if(namestring)  namestring->Set(__L("Android"));
+
+  return XSYSTEM_PLATFORM_ANDROID;  
+}
+
+
+

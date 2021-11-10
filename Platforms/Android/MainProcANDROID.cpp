@@ -45,6 +45,7 @@
 #include <sys/ioctl.h>
 
 #include "XANDROIDFactory.h"
+#include "XANDROIDRand.h"
 #include "XANDROIDSleep.h"
 #include "XANDROIDSystem.h"
 
@@ -76,6 +77,7 @@
 
 #include "XPathsManager.h"
 #include "XThreadCollected.h"
+#include "XRand.h"
 #include "XString.h"
 #include "XLog.h"
 #include "XDateTime.h"
@@ -1233,6 +1235,9 @@ bool MAINPROCANDROID::Factorys_Ini()
   if(!XSYSTEM::GetIsInstanced()) return false;
   XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
 
+  XRAND::SetInstance(new XANDROIDRAND());
+  if(!XRAND::GetIsInstanced()) return false;
+
   XSLEEP::SetInstance(new XANDROIDSLEEP());
   if(!XSLEEP::GetIsInstanced()) return false;
 
@@ -1318,6 +1323,8 @@ bool MAINPROCANDROID::Factorys_End()
   if(XTRANSLATION_GEN::GetIsInstanced()) XTRANSLATION_GEN::DelInstance();
 
   if(XLOG::GetIsInstanced()) XLOG::DelInstance();
+
+  if(XRAND::GetIsInstanced()) XRAND::DelInstance();
 
   if(XSLEEP::GetIsInstanced()) XSLEEP::DelInstance();
 

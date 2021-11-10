@@ -43,6 +43,7 @@
 #include "XSTM32_HAL.h"
 #include "XSTM32Factory.h"
 #include "XSTM32System.h"
+#include "XSTM32Rand.h"
 #include "XSTM32Sleep.h"
 #include "XSTM32Trace.h"
 #include "XSTM32EEPROMMemoryManager.h"
@@ -269,6 +270,9 @@ bool MAINPROCSTM32::Factorys_Ini()
   XFACTORY::SetInstance(new XSTM32FACTORY());
   if(!XFACTORY::GetIsInstanced()) return false;
 
+  XRAND::SetInstance(new XSTM32RAND());
+  if(!XRAND::GetIsInstanced()) return false;
+
   XSLEEP::SetInstance(new XSTM32SLEEP());
   if(!XSLEEP::GetIsInstanced()) return false;
 
@@ -339,6 +343,8 @@ bool MAINPROCSTM32::Factorys_End()
   XTRANSLATION::DelInstance();
   XTRANSLATION_GEN::DelInstance();
   
+  XRAND::DelInstance();
+
   XSLEEP::DelInstance();
 
   XSYSTEM::DelInstance();

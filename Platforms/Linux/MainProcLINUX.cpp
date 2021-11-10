@@ -60,6 +60,7 @@
 #include <fenv.h>
 
 #include "XLINUXFactory.h"
+#include "XLINUXRand.h"
 #include "XLINUXSleep.h"
 #include "XLINUXSystem.h"
 #include "XLINUXTrace.h"
@@ -125,6 +126,7 @@
   #endif
 #endif
 
+#include "XRand.h"
 #include "XSleep.h"
 #include "XPath.h"
 #include "XString.h"
@@ -384,6 +386,8 @@ bool MAINPROCLINUX::Factorys_Ini()
   
   XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
 
+  if(!XRAND::SetInstance(new XLINUXRAND())) return false;
+
   if(!XSLEEP::SetInstance(new XLINUXSLEEP())) return false;
     
   #ifdef XPROCESSMANAGER_ACTIVE
@@ -530,6 +534,8 @@ bool MAINPROCLINUX::Factorys_End()
   #endif
 
   XSLEEP::DelInstance();
+
+  XRAND::DelInstance();
 
   XSYSTEM::DelInstance();
 

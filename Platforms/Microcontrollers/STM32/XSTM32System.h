@@ -44,18 +44,22 @@
 class XSTM32SYSTEM : public XSYSTEM
 {
   public:
-																		XSTM32SYSTEM                ();
-    virtual 				               ~XSTM32SYSTEM                ();
+													  XSTM32SYSTEM                ();
+    virtual 				       ~XSTM32SYSTEM                ();
 
-    virtual XSYSTEM_HARDWARETYPE    GetTypeHardware             (int* revision = NULL);
-    virtual XSYSTEM_SO              GetSO                       ();    
-    virtual bool                    GetMemoryInfo               (XDWORD& total,XDWORD& free);
+    XSYSTEM_HARDWARETYPE    GetTypeHardware             (int* revision = NULL);
+    
+    XSYSTEM_SO              GetSO                       ();    
 
-    virtual bool                    ShutDown                    (XSYSTEM_CHANGESTATUSTYPE type);
+    XSYSTEM_PLATFORM        GetPlatform                 (XSTRING* namestring = NULL);
+
+    bool                    GetMemoryInfo               (XDWORD& total,XDWORD& free);
+
+    bool                    ShutDown                    (XSYSTEM_CHANGESTATUSTYPE type);
 
   private:
 
-    virtual void                    Clean                       ();
+    void                    Clean                       ();
 };
 
 

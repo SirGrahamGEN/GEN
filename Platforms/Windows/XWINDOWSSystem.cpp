@@ -293,6 +293,29 @@ XSYSTEM_SO XWINDOWSSYSTEM::GetTypeSO()
 
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
+* @brief      GetPlatform
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       09/11/2021 19:58:15
+* 
+* @param[in]  namestring : 
+* 
+* @return     XSYSTEM_PLATFORM : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
+{
+  if(namestring)  namestring->Set(__L("Windows"));
+
+  return XSYSTEM_PLATFORM_WINDOWS;  
+}
+
+
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *

@@ -45,22 +45,29 @@
 class XRAND
 {
   public:
-                    XRAND           ();
-    virtual        ~XRAND           ();
+                          XRAND               ();
+    virtual              ~XRAND               ();
 
-    virtual bool    Ini             ();
-    virtual int     MaxElements     (int max);
-    virtual int     Max             (int max);
-    virtual int     Between         (int min, int max);
+    static bool           GetIsInstanced      ();
+    static XRAND&         GetInstance         ();
+    static bool           SetInstance         (XRAND* instance);
+    static bool           DelInstance         ();
 
-    float           Between         (float  min,  float max);
-    bool            Percent         (int percent);
+
+    virtual bool          Ini                 ();
+    virtual int           MaxElements         (int max);
+    virtual int           Max                 (int max);
+    virtual int           Between             (int min, int max);
+
+    float                 Between             (float  min,  float max);
+    bool                  Percent             (int percent);
 
   private:
 
-    void            Clean           ();
+    void                  Clean               ();
 
-    int             initialvalue;
+    static XRAND*         instance;
+    int                   initialvalue;
 };
 
 /*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/

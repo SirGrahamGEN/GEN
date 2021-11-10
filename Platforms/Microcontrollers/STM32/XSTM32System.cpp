@@ -131,6 +131,30 @@ XSYSTEM_SO XSTM32SYSTEM::GetSO()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSYSTEM_PLATFORM XSTM32SYSTEM::GetPlatform(XSTRING* namestring)
+* @brief      GetPlatform
+* @ingroup    PLATFORM_STM32
+* 
+* @author     Abraham J. Velez 
+* @date       09/11/2021 20:07:19
+* 
+* @param[in]  namestring : 
+* 
+* @return     XSYSTEM_PLATFORM : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XSYSTEM_PLATFORM XSTM32SYSTEM::GetPlatform(XSTRING* namestring)
+{
+  if(namestring)  namestring->Set(__L("STM32"));
+
+  return XSYSTEM_PLATFORM_STM32;  
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32SYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 * @brief      GetMemoryInfo

@@ -43,14 +43,14 @@
 class XSAMD5XE5XSYSTEM : public XSYSTEM
 {
   public:
-                            XSAMD5XE5XSYSTEM            ();
-    virtual                ~XSAMD5XE5XSYSTEM            ();
+                            XSAMD5XE5XSYSTEM                  ();
+    virtual                ~XSAMD5XE5XSYSTEM                  ();
 
     XSYSTEM_HARDWARETYPE    GetTypeHardware                   (int* revision = NULL);
 
-    XSYSTEM_SO              GetTypeSO                         ();
-
     XDWORD                  GetLanguageSO                     ();
+
+    XSYSTEM_PLATFORM        GetPlatform                        (XSTRING* namestring = NULL);
 
     XSTRING*                GetSerialNumber                   ();
 

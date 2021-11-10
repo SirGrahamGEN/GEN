@@ -401,6 +401,8 @@ class XWINDOWSSYSTEM : public XSYSTEM
 
     XSYSTEM_SO																	GetTypeSO																					();
 
+		XSYSTEM_PLATFORM														GetPlatform																				(XSTRING* namestring = NULL);	
+
     XDWORD																			GetLanguageSO																			();
 
     XSTRING*																		GetSerialNumber																		();

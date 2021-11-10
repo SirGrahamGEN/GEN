@@ -252,49 +252,48 @@ bool XSYSTEM::HardwareUseLittleEndian()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XSYSTEM_SO XSYSTEM::GetTypeSO()
-* @brief      Get Type of System Operative
-* @note       VIRTUAL
+* 
+* @fn         XSYSTEM_PLATFORM XSYSTEM::GetPlatform(XSTRING* namestring = NULL)
+* @brief      GetPlatform
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @return     XSYSTEM_SO : type SO
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-XSYSTEM_SO XSYSTEM::GetTypeSO()
+* 
+* @author     Abraham J. Velez 
+* @date       09/11/2021 19:49:02
+* 
+* @param[in]  namestring : 
+* 
+* @return     XSYSTEM_PLATFORM : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XSYSTEM_PLATFORM XSYSTEM::GetPlatform(XSTRING* namestring)
 {
-  return XSYSTEM_SO_UNKNOWN;
+  if(namestring)  namestring->Set(__L("Unknown"));
+
+  return XSYSTEM_PLATFORM_UNKNOWN;  
 }
 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSYSTEM::CheckTypeSO(XSYSTEM_SO typeSO)
-* @brief      Check Type System Operative
+* 
+* @fn         bool XSYSTEM::GetOperativeSystemID(XSTRING& ID)
+* @brief      GetOperativeSystemID
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @param[in]  typeSO : type SO to check
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-bool XSYSTEM::CheckTypeSO(XSYSTEM_SO typeSO)
+* 
+* @author     Abraham J. Velez 
+* @date       09/11/2021 21:36:29
+* 
+* @param[in]  ID : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XSYSTEM::GetOperativeSystemID(XSTRING& ID)
 {
-  XSYSTEM_SO _typeSO = GetTypeSO();
-
-  if((XWORD)typeSO &(XWORD)_typeSO) return true;
-
-  return false;
+  ID.Empty();
+  
+  return true;
 }
-
-
 
 
 

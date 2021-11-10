@@ -50,6 +50,8 @@ class XLINUXSYSTEM : public XSYSTEM
 
     XSYSTEM_SO                  GetTypeSO                     ();
 
+    XSYSTEM_PLATFORM            GetPlatform                   (XSTRING* namestring = NULL);  
+
     XDWORD                      GetLanguageSO                 ();
 
     bool                        GetMemoryInfo                 (XDWORD& total,XDWORD& free);

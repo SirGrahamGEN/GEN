@@ -44,8 +44,6 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
-XRAND* XRAND::instance = NULL;
-
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
@@ -85,101 +83,6 @@ XRAND::~XRAND()
 {
   Clean();
 }
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XRAND::GetIsInstanced()
-* @brief      GetIsInstanced
-* @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       10/11/2021 17:13:17
-* 
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool XRAND::GetIsInstanced()
-{
-  return instance!=NULL;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XRAND& XRAND::GetInstance()
-* @brief      Get Instance of XRAND
-* @note       STATIC
-* @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @return     XRAND& :
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-XRAND& XRAND::GetInstance()
-{
-  if(!instance) instance = new XRAND();
-
-  return (*instance);
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XRAND::SetInstance(XRAND* instance)
-* @brief      Set Instance of XRAND
-* @note       STATIC
-* @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @param[in]  _instance : new instance
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-bool XRAND::SetInstance(XRAND* _instance)
-{
-  if(!_instance) return false;
-
-  instance = _instance;
-
-  return (instance)?true:false;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XRAND::DelInstance()
-* @brief      Delete Instance of XRAND
-* @note       STATIC
-* @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-bool XRAND::DelInstance()
-{
-  if(instance)
-    {
-      delete instance;
-      instance = NULL;
-
-      return true;
-    }
-
-  return false;
-}
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
