@@ -106,25 +106,6 @@ XSYSTEM_HARDWARETYPE XANDROIDSYSTEM::GetTypeHardware(int* revision)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XSYSTEM_SO XANDROIDSYSTEM::GetSO()
-* @brief      GetSO
-* @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @return     XSYSTEM_SO :
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-XSYSTEM_SO XANDROIDSYSTEM::GetSO()
-{
-  return XSYSTEM_SO_ANDROID;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
 * @brief      GetPlatform

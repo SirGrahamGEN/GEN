@@ -111,24 +111,6 @@ XSYSTEM_HARDWARETYPE XSTM32SYSTEM::GetTypeHardware(int* revision)
 }
 
 
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XSYSTEM_SO XSTM32SYSTEM::GetSO()
-* @brief      GetSO
-* @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @return     XSYSTEM_SO :
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-XSYSTEM_SO XSTM32SYSTEM::GetSO()
-{
-  return XSYSTEM_SO_UNKNOWN;
-}
-
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -147,6 +129,42 @@ XSYSTEM_SO XSTM32SYSTEM::GetSO()
 XSYSTEM_PLATFORM XSTM32SYSTEM::GetPlatform(XSTRING* namestring)
 {
   if(namestring)  namestring->Set(__L("STM32"));
+    
+  #if defined(STM32F072xB)
+  if(namestring)  namestring->Set(__L("STM32F072xB"));
+  #endif
+
+  #if defined(STM32F303xC) 
+  if(namestring)  namestring->Set(__L("STM32F303xC"));
+  #endif
+  
+  #if defined(STM32F303xE)
+  if(namestring)  namestring->Set(__L("STM32F303xE"));
+  #endif
+
+  #if defined(STM32F407xx) 
+  if(namestring)  namestring->Set(__L("STM32F407xx"));
+  #endif
+  
+  #if defined(STM32F411xE)  
+  if(namestring)  namestring->Set(__L("STM32F411xE"));  
+  #endif
+      
+  #if defined(STM32F446xx)
+  if(namestring)  namestring->Set(__L("STM32F446xx"));
+  #endif
+
+  #if defined(STM32WB55xx)
+  if(namestring)  namestring->Set(__L("STM32WB55xx"));
+  #endif
+  
+  #if defined(STM32WB5Mxx)
+  if(namestring)  namestring->Set(__L("STM32WB5Mxx"));  
+  #endif
+    
+  #if defined(STM32WB35xx)
+  if(namestring)  namestring->Set(__L("STM32WB35xx"));
+  #endif
 
   return XSYSTEM_PLATFORM_STM32;  
 }

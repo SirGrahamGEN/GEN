@@ -47,6 +47,7 @@
 #include <sys/types.h>
 #include <sys/sysinfo.h>
 #include <sys/wait.h>
+#include <sys/utsname.h>
 #include <linux/reboot.h>
 
 #ifndef ANDROID
@@ -216,52 +217,6 @@ XSYSTEM_HARDWARETYPE XLINUXSYSTEM::GetTypeHardware(int* revision)
 
 
 
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XSYSTEM_SO XLINUXSYSTEM::GetTypeSO()
-* @brief      Get Type SO
-* @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @return     XSYSTEM_SO : type of SO (enum XSYSTEM_SO)
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-XSYSTEM_SO XLINUXSYSTEM::GetTypeSO()
-{
-  #ifdef HW_PC
-  return XSYSTEM_SO_LINUX;
-  #endif
-
-  #ifdef HW_LEX3V700A
-  return XSYSTEM_SO_LINUX;
-  #endif
-
-  #ifdef HW_GUMSTIXCONNEX
-  return XSYSTEM_SO_LINUX_EMBEDDED;
-  #endif
-
-  #ifdef HW_ARTILA500
-  return XSYSTEM_SO_LINUX_EMBEDDED;
-  #endif
-
-  #ifdef HW_RASPBERRYPI
-  return XSYSTEM_SO_LINUX_EMBEDDED;
-  #endif
-
-  #ifdef HW_BEAGLEBONE
-  return XSYSTEM_SO_LINUX_EMBEDDED;
-  #endif
-
-  #if defined(HW_NXP_IMX6) || defined(HW_NXP_IMX8)
-  return XSYSTEM_SO_LINUX_EMBEDDED;
-  #endif
-
-  return XSYSTEM_SO_UNKNOWN;
-}
-
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -321,6 +276,37 @@ XSYSTEM_PLATFORM XLINUXSYSTEM::GetPlatform(XSTRING* namestring)
 
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XLINUXSYSTEM::GetOperativeSystemID(XSTRING& ID)
+* @brief      GetOperativeSystemID
+* @ingroup    PLATFORM_LINUX
+* 
+* @author     Abraham J. Velez 
+* @date       11/11/2021 14:00:16
+* 
+* @param[in]  ID : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XLINUXSYSTEM::GetOperativeSystemID(XSTRING& ID)
+{
+  ID.Empty();
+
+  struct utsname details;
+    
+  int ret = uname(&details);    
+  if(ret != 0) return false;
+
+  ID += details.sysname;      ID += __L(" ");
+  // ID += details.nodename;     ID += __L(" ");
+  ID += details.release;      ID += __L(" ");
+  ID += details.version;      ID += __L(" ");
+  ID += details.machine;      ID += __L(" ");
+  
+  return true;
+}
 
 
 

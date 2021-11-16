@@ -155,6 +155,9 @@ int SCRIPT_JAVASCRIPT::Run(int* returnval)
   if(error) HaveError(DUK_ERR_ERROR);
   XSTRING_DELETEOEM(_script, charscript)
 
+  if(returnval) (*returnval) =  duk_require_int(context, 0);
+
+  duk_pop(context);
 
 
   /*

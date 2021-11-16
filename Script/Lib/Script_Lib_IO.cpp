@@ -121,7 +121,7 @@ bool SCRIPT_LIB_IO::AddLibraryFunctions(SCRIPT* script)
   script->AddLibraryFunction(this, __L("SPrintf")                  , Call_SPrintf);
   script->AddLibraryFunction(this, __L("Printf")                   , Call_Printf);
 
-  script->AddLibraryFunction(this, __L("XTRACE_PRINTCOLOR")   , Call_XTRACE_PRINTCOLOR);
+  script->AddLibraryFunction(this, __L("XTRACE_PRINTCOLOR")        , Call_XTRACE_PRINTCOLOR);
 
   return true;
 }

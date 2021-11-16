@@ -241,6 +241,7 @@ XSYSTEM_HARDWARETYPE XWINDOWSSYSTEM::GetTypeHardware(int* revision)
 * @return     XSYSTEM_SO : type of SO (enum XSYSTEM_SO)
 *
 *---------------------------------------------------------------------------------------------------------------------*/
+/*
 XSYSTEM_SO XWINDOWSSYSTEM::GetTypeSO()
 {
   #ifdef BUILDER
@@ -290,7 +291,7 @@ XSYSTEM_SO XWINDOWSSYSTEM::GetTypeSO()
 
   return XSYSTEM_SO_WINDOWS;
 }
-
+*/
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -314,6 +315,109 @@ XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
   return XSYSTEM_PLATFORM_WINDOWS;  
 }
 
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSSYSTEM::GetOperativeSystemID(XSTRING& ID)
+* @brief      GetOperativeSystemID
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/11/2021 11:16:11
+* 
+* @param[in]  ID : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XWINDOWSSYSTEM::GetOperativeSystemID(XSTRING& ID)
+{
+  ID.Empty();
+
+
+  /*
+  OSVERSIONINFOEXW osvi;
+  DWORDLONG        const dwlConditionMask = VerSetConditionMask(0, VER_PLATFORMID, VER_GREATER_EQUAL);
+
+  
+  memset((XBYTE*)&osvi, 0, sizeof(OSVERSIONINFOEXW));
+
+  osvi.dwOSVersionInfoSize = sizeof(osvi);
+  
+  #if(_MSC_PLATFORM_TOOLSET == 'v140')
+  osvi.dwPlatformId        = _WIN32_WINNT_WIN10;
+  #endif
+
+  VerifyVersionInfoW(&osvi, VER_PRODUCT_TYPE, dwlConditionMask);
+  */
+
+  /*
+  SYSTEM_INFO systeminfo;
+  GetNativeSystemInfo(&systeminfo);
+  */
+
+  /*
+  // ----------------------------------------------------------------------------
+  // 
+  //                         | dwVersionMajor | dwVersionMinor |
+  //  Windows 10             | 6              | 4              |
+  //  Windows 8.1            | 6              | 3              |
+  //  Windows Server 2012 R2 | 6              | 3              |
+  //  Windows 8              | 6              | 2              |
+  //  Windows Server 2012    | 6              | 2              |
+  //  Windows 7              | 6              | 1              |
+  //  Windows Server 2008 R2 | 6              | 1              |
+  //  Windows Server 2008    | 6              | 0              |
+  //  Windows Vista          | 6              | 0              |
+  //  Windows Server 2003 R2 | 5              | 2              |
+  //  Windows Server 2003    | 5              | 2              |
+  //  Windows XP 64-Bit      | 5              | 2              |
+  //  Windows XP             | 5              | 1              |
+  //  Windows 2000           | 5              | 0              |
+  // 
+  // -----------------------------------------------------------------------------
+
+
+  
+  OSVERSIONINFOW osinfo;
+  DWORD          product_type = 0;
+  double         version      = 0.0f;
+  
+  ZeroMemory(&osinfo, sizeof(OSVERSIONINFOEX));
+  osinfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+  
+  GetVersionEx(&osinfo);
+  
+  GetProductInfo(osinfo.dwMajorVersion, osinfo.dwMinorVersion, 0, 0, &product_type);
+   
+  version = osinfo.dwMajorVersion + (osinfo.dwMinorVersion / 10.0) - (product_type == VER_NT_WORKSTATION) ? 0.5 : 0.0;
+  */
+
+  XWINDOWSWMIINTERFACE*  wmiinterface;
+  XSTRING                wmianswer[4];
+
+  wmiinterface = new XWINDOWSWMIINTERFACE();
+  if(!wmiinterface)  return false;
+
+  wmiinterface->Ini();
+ 
+  wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("Caption")        , wmianswer[0]);  
+  wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("BuildNumber")    , wmianswer[1]);  
+  wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("CSDVersion")     , wmianswer[2]);
+  wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("OSArchitecture") , wmianswer[3]);
+
+  ID.Format(__L("%s Build(%s) %s %s"), wmianswer[0].Get(), wmianswer[1].Get(), wmianswer[2].Get(), wmianswer[3].Get());
+
+  if(wmiinterface)
+    {
+      wmiinterface->End();
+      delete wmiinterface;
+      wmiinterface = NULL;
+    }
+  
+  return true;
+}
 
 
 

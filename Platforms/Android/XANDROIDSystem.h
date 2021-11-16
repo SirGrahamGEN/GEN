@@ -49,8 +49,6 @@ class XANDROIDSYSTEM : public XLINUXSYSTEM
 
     XSYSTEM_HARDWARETYPE    GetTypeHardware             (int* revision = NULL);
 
-    XSYSTEM_SO              GetSO                       ();
-
     XSYSTEM_PLATFORM        GetPlatform                 (XSTRING* namestring = NULL);
 
 

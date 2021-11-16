@@ -48,9 +48,9 @@ class XLINUXSYSTEM : public XSYSTEM
 
     XSYSTEM_HARDWARETYPE        GetTypeHardware               (int* revision = NULL);
 
-    XSYSTEM_SO                  GetTypeSO                     ();
-
     XSYSTEM_PLATFORM            GetPlatform                   (XSTRING* namestring = NULL);  
+
+    bool                        GetOperativeSystemID          (XSTRING& ID);
 
     XDWORD                      GetLanguageSO                 ();
 

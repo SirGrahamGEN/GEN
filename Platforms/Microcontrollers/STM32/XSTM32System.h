@@ -49,8 +49,6 @@ class XSTM32SYSTEM : public XSYSTEM
 
     XSYSTEM_HARDWARETYPE    GetTypeHardware             (int* revision = NULL);
     
-    XSYSTEM_SO              GetSO                       ();    
-
     XSYSTEM_PLATFORM        GetPlatform                 (XSTRING* namestring = NULL);
 
     bool                    GetMemoryInfo               (XDWORD& total,XDWORD& free);

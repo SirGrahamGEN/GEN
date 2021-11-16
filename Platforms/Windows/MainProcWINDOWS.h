@@ -51,6 +51,7 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+/*
 #ifndef APPMODE_SERVICE_NAME
   #define APPMODE_SERVICE_NAME              __L("GEN Service")
 #endif
@@ -58,7 +59,7 @@
 #ifndef APPMODE_SERVICE_DISPLAYNAME
   #define APPMODE_SERVICE_DISPLAYNAME       __L("GEN Service")
 #endif
-
+*/
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 

@@ -108,6 +108,8 @@ bool SCRIPT_LIB_STRING::AddLibraryFunctions(SCRIPT* script)
   this->script = script;
 
   script->AddLibraryFunction(this, __L("AddString")                   , Call_AddString);
+  script->AddLibraryFunction(this, __L("FindString")                  , Call_FindString);
+  script->AddLibraryFunction(this, __L("CompareString")               , Call_CompareString);
 
   return true;
 }
@@ -139,24 +141,23 @@ void SCRIPT_LIB_STRING::Clean()
 
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void Call_StrCat(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_StrCat
+* 
+* @fn         void Call_AddString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_AddString
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @param[in]  library :
-* @param[in]  script :
-* @param[in]  params :
-* @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* 
+* @author     Abraham J. Velez 
+* @date       12/11/2021 20:54:35
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 void Call_AddString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
@@ -166,7 +167,7 @@ void Call_AddString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* par
 
   returnvalue->Set();
 
-  if(!params->GetSize())
+  if(params->GetSize() < 2)
     {
       script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
       return;
@@ -181,3 +182,99 @@ void Call_AddString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* par
 }
 
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_FindString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_FindString
+* @ingroup    SCRIPT
+* 
+* @author     Abraham J. Velez 
+* @date       12/11/2021 20:59:24
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void Call_FindString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize() < 3)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  XSTRING* string1    = (XSTRING*)params->Get(0)->GetData();
+  XSTRING* string2    = (XSTRING*)params->Get(1)->GetData();
+  bool     ignorecase = (bool)params->Get(2)->GetData(); 
+
+  if(string1 && string2) 
+    {
+      (*returnvalue) = string1->Find(string2->Get(), ignorecase);
+    }
+   else 
+    { 
+      (*returnvalue) = -1;
+    }
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_CompareString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_CompareString
+* @ingroup    SCRIPT
+* 
+* @author     Abraham J. Velez 
+* @date       13/11/2021 12:10:13
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void Call_CompareString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize() < 3)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  XSTRING* string1    = (XSTRING*)params->Get(0)->GetData();
+  XSTRING* string2    = (XSTRING*)params->Get(1)->GetData();
+  bool     ignorecase = (bool)params->Get(2)->GetData(); 
+
+  if(string1 && string2) 
+    {
+      (*returnvalue) = (bool)(string1->Compare(string2->Get(), ignorecase)==0?true:false);
+    }
+   else 
+    { 
+      (*returnvalue) = false;
+    }
+
+}
