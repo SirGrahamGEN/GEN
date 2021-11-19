@@ -728,6 +728,128 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceEnable(int ID, bool enable)
 
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int ID, int metric)
+* @brief      NetWorkInterfaceSetMetric
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       17/11/2021 18:54:02
+* 
+* @param[in]  ID : 
+* @param[in]  metric : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int ID, int metric)
+{
+  IWbemLocator*   ploc = NULL;
+  HRESULT         hres;
+  bool            status = true;
+  XSTRING         metricstr;
+
+  metricstr.ConvertFromInt(metric);
+  
+
+  hres = CoCreateInstance(CLSID_WbemLocator, 0, CLSCTX_INPROC_SERVER, IID_IWbemLocator, (LPVOID *) &ploc);
+  if(FAILED(hres)) return false;
+
+  // Connect to WMI through the IWbemLocator::ConnectServer method
+  IWbemServices* psvc = NULL;
+
+  // Connect to the root\\CIMV2 namespace
+  // and obtain pointer pSvc to make IWbemServices calls.
+  hres = ploc->ConnectServer( _bstr_t(L"ROOT\\CIMV2"),    // Object path of WMI namespace
+                              NULL,                       // User name. NULL = current user
+                              NULL,                       // User password. NULL = current
+                              0,                          // Locale. NULL indicates current
+                              NULL,                       // Security flags.
+                              0,                          // Authority (e.g. Kerberos)
+                              0,                          // Context object
+                              &psvc                       // pointer to IWbemServices proxy
+                              );
+  if(FAILED(hres))
+    {
+      ploc->Release();
+      return false;
+    }
+
+  hres = CoSetProxyBlanket( psvc,                         // Indicates the proxy to set
+                            RPC_C_AUTHN_WINNT,            // RPC_C_AUTHN_xxx
+                            RPC_C_AUTHZ_NONE,             // RPC_C_AUTHZ_xxx
+                            NULL,                         // Server principal name
+                            RPC_C_AUTHN_LEVEL_CALL,       // RPC_C_AUTHN_LEVEL_xxx
+                            RPC_C_IMP_LEVEL_IMPERSONATE,  // RPC_C_IMP_LEVEL_xxx
+                            NULL,                         // client identity
+                            EOAC_NONE                     // proxy capabilities
+                          );
+
+
+  if(FAILED(hres))
+    {
+      psvc->Release();
+      ploc->Release();
+      return false;
+    }
+
+  
+  // Execute Method
+
+  BSTR              methodname = SysAllocString(L"SetIPConnectionMetric");
+  BSTR              classname  = SysAllocString(L"Win32_NetWorkAdapterConfiguration"); 
+  XSTRING           devicename;
+  IWbemClassObject* poutparams  = NULL;
+  IWbemClassObject* pinparams   = NULL;
+
+
+  IWbemClassObject* pclass = NULL;
+  hres = psvc->GetObject(classname, 0, NULL, &pclass, NULL);
+
+  hres = pclass->GetMethod(methodname, 0, &pinparams, NULL);  
+ 
+  devicename.Format(__L("Win32_NetWorkAdapterConfiguration.Index=\"%d\""), ID);
+
+  hres = pclass->SpawnInstance(0, &pinparams);
+  if(FAILED(hres)) status = false;
+  	
+  if(status)
+    {
+      VARIANT vararg1;
+
+	    VariantInit(&vararg1);
+
+	    V_VT(&vararg1) = VT_BSTR;
+	    V_BSTR(&vararg1) = SysAllocString(metricstr.Get());
+
+	    hres = pinparams->Put(L"IPConnectionMetric", 0, &vararg1, CIM_UINT32);
+      if(FAILED(hres)) status = false;
+  	
+      if(status)
+        {
+          hres = psvc->ExecMethod(devicename.Get()  , methodname
+                                                    , 0
+                                                    , NULL
+                                                    , pinparams
+                                                    , &poutparams, NULL); 
+          if(FAILED(hres)) status = false;
+        }       
+    }
+
+  
+  SysFreeString(classname);
+  SysFreeString(methodname);
+
+  if(pclass)     pclass->Release();
+  if(pinparams)  pinparams->Release();
+  if(poutparams) poutparams->Release();
+  if(ploc)       ploc->Release();
+  if(psvc)       psvc->Release();
+
+  return status;
+}
+
 
 
 

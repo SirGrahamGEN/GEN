@@ -93,6 +93,7 @@ class XWINDOWSWMIINTERFACE
     bool                            DoQuery                           (XCHAR* _class, XCHAR* namedata,  XVECTOR<XSTRING*>* answers);
 
     bool                            NetWorkInterfaceEnable            (int ID, bool enabled);
+    bool                            NetWorkInterfaceSetMetric         (int ID, int metric);
 
     bool                            End                               ();
 
