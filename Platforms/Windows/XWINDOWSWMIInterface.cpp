@@ -41,7 +41,7 @@
 #include <comdef.h>
 using namespace std;
 #include <Wbemidl.h>
-
+#include <Propvarutil.h>
 #include "XTrace.h"
 
 #include "XWINDOWSRegistryManager.h"
@@ -332,12 +332,11 @@ XWINDOWSWMIINTERFACE_RESULT* XWINDOWSWMIINTERFACE::DoQuery(XCHAR* query, XCHAR* 
 
   ploc = NULL;
 
-  hres = CoCreateInstance( CLSID_WbemLocator,
-                            0,
-                            CLSCTX_INPROC_SERVER,
-                            IID_IWbemLocator,
-                            (LPVOID *)&ploc
-                          );
+  hres = CoCreateInstance(CLSID_WbemLocator,
+                          0,
+                          CLSCTX_INPROC_SERVER,
+                          IID_IWbemLocator,
+                          (LPVOID *)&ploc);
   if(FAILED(hres))
     {
       result->SetError(XWINDOWSWMIINTERFACE_ERROR_IWBEMLOCATORFAILURE);
@@ -355,10 +354,10 @@ XWINDOWSWMIINTERFACE_RESULT* XWINDOWSWMIINTERFACE::DoQuery(XCHAR* query, XCHAR* 
       hres = ploc->ConnectServer( _bstr_t(L"ROOT\\CIMV2"), // Object path of WMI namespace
                                   NULL,                    // User name. NULL = current user
                                   NULL,                    // User password. NULL = current
-                                  0,                       // Locale. NULL indicates current
-                                  NULL,                    // Security flags.
-                                  0,                       // Authority (for example, Kerberos)
-                                  0,                       // Context object
+                                  NULL,                    // Locale. NULL indicates current
+                                  0,                       // Security flags.
+                                  NULL,                    // Authority (for example, Kerberos)
+                                  NULL,                    // Context object
                                   &psvc                    // pointer to IWbemServices proxy
                                 );
 
@@ -748,9 +747,6 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int ID, int metric)
   IWbemLocator*   ploc = NULL;
   HRESULT         hres;
   bool            status = true;
-  XSTRING         metricstr;
-
-  metricstr.ConvertFromInt(metric);
   
 
   hres = CoCreateInstance(CLSID_WbemLocator, 0, CLSCTX_INPROC_SERVER, IID_IWbemLocator, (LPVOID *) &ploc);
@@ -816,14 +812,17 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int ID, int metric)
   	
   if(status)
     {
-      VARIANT vararg1;
+      VARIANT vararg;
 
-	    VariantInit(&vararg1);
+	    VariantInit(&vararg);
 
-	    V_VT(&vararg1) = VT_BSTR;
-	    V_BSTR(&vararg1) = SysAllocString(metricstr.Get());
+      //V_VT(&vararg)    = VT_BSTR;
+	    //V_BSTR(&vararg)  = SysAllocString(metricstr.Get());      
 
-	    hres = pinparams->Put(L"IPConnectionMetric", 0, &vararg1, CIM_UINT32);
+      vararg.vt   = VT_I4;
+      vararg.iVal = metric;
+
+	    hres = pinparams->Put(L"IPConnectionMetric", 0, &vararg, CIM_UINT32);
       if(FAILED(hres)) status = false;
   	
       if(status)
@@ -833,7 +832,10 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int ID, int metric)
                                                     , NULL
                                                     , pinparams
                                                     , &poutparams, NULL); 
-          if(FAILED(hres)) status = false;
+          if(FAILED(hres)) 
+            {
+              status = false;
+            }
         }       
     }
 
@@ -849,6 +851,287 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int ID, int metric)
 
   return status;
 }
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric()
+* @brief      NetWorkInterfaceSetMetric
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       19/11/2021 20:48:38
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int metric)
+{
+  HRESULT hr; 
+
+	// WMI connection
+
+  IWbemLocator *pLoc = 0;
+
+  hr = CoCreateInstance(CLSID_WbemLocator, 0, CLSCTX_INPROC_SERVER, IID_IWbemLocator, (LPVOID *) &pLoc); 
+  if(FAILED(hr)) 
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Failed to create IWbemLocator object. Error code [0x%08X]"), hr);
+      return false;
+    }
+
+	IWbemServices *pSvc = 0;
+
+  // Connect to the root\default namespace with the current user.
+
+  hr = pLoc->ConnectServer( BSTR(L"ROOT\\CIMV2"), NULL, NULL, 0, NULL, 0, 0, &pSvc);
+  if(FAILED(hr))
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Could not connect. Error code [0x%08X]"), hr);
+      return false;      
+    }
+
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Connected to WMI"));
+
+	// setting security for WMI
+  // Set the proxy so that impersonation of the client occurs.
+
+  hr = CoSetProxyBlanket(pSvc,  RPC_C_AUTHN_WINNT   ,
+                                RPC_C_AUTHZ_NONE,
+                                NULL,
+                                RPC_C_AUTHN_LEVEL_CALL,
+                                RPC_C_IMP_LEVEL_IMPERSONATE,
+                                NULL,
+                                EOAC_NONE);
+  if(FAILED(hr))
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Could not set proxy blanket. Error code [0x%08X]"), hr);
+      return false;      
+    }
+
+	// retreive all the interfaces.
+
+	BSTR                  Language = SysAllocString(L"WQL");
+  BSTR                  Query    = SysAllocString(L"Select * From Win32_NetworkAdapterConfiguration Where IPEnabled  = True");
+	IEnumWbemClassObject* pEnum    = 0;
+
+	hr = pSvc->ExecQuery(Language, Query, WBEM_FLAG_FORWARD_ONLY, 0, &pEnum);
+
+	SysFreeString(Query);
+  SysFreeString(Language);
+
+	if(SUCCEEDED(hr))
+    {
+		  ULONG uTotal = 0;
+
+		  // Retrieve the objects in the result set.
+
+		  for(;;)
+		    {
+			    IWbemClassObject* pObj      = 0;
+			    ULONG             uReturned = 0;
+
+			    // 0 - time out, 1 - One object
+
+			    hr = pEnum->Next(0, 1, &pObj, &uReturned);
+			    if(FAILED(hr))
+			      {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Get(IPConnectionMetric). Error code [0x%08X]"), hr);				      
+				      break;
+      			}
+
+			    uTotal += uReturned;
+
+			    if(uReturned == 0)  break;
+
+
+          // -------------------------------------------------------------------
+			    // read Index
+
+			    VARIANT vtPropIndex;
+
+			    VariantInit(&vtPropIndex);
+
+			    hr = pObj->Get(L"Index", 0, &vtPropIndex, 0, 0);
+
+			    if(FAILED(hr))
+			      {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Get(Index). Error code [0x%08X]"), hr);					      
+				      break;
+      			}
+
+			    unsigned int index = vtPropIndex.lVal;
+          
+    			VariantClear(&vtPropIndex);
+
+
+          // -------------------------------------------------------------------
+			    // read IPConnectionMetric
+
+			    VARIANT vtProp;
+
+			    VariantInit(&vtProp);
+
+			    hr = pObj->Get(L"IPConnectionMetric", 0, &vtProp, 0, 0);
+
+			    if(FAILED(hr))
+			      {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Get(IPConnectionMetric). Error code [0x%08X]"), hr);				      
+				      break;
+			      }
+
+			    unsigned int IPConnectionMetric = vtProp.lVal;
+          
+			    VariantClear(&vtProp);
+
+
+          // -------------------------------------------------------------------
+			    // read Description
+
+			    VARIANT vtPropDescription;
+
+			    VariantInit(&vtPropDescription);
+
+			    hr = pObj->Get(L"Description", 0, &vtPropDescription, 0, 0);
+
+			    if(FAILED(hr))
+			      {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Get(Description). Error code [0x%08X]"), hr);				      
+				      break;
+			      }
+
+          XSTRING description_str;
+
+          description_str = vtPropDescription.bstrVal;
+
+			    VariantClear(&vtProp);
+
+         
+
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Index [%2d] Metric [%2d] [%s] "), index, IPConnectionMetric, description_str.Get());			 
+
+
+          // -------------------------------------------------------------------
+			    // Execute SetIPConnectionMetric 
+
+			    IWbemClassObject* pClass    = NULL;
+			    IWbemClassObject* pOutInst  = NULL;
+			    IWbemClassObject* pInClass  = NULL;
+			    IWbemClassObject* pInInst   = NULL;
+
+			    // Get the class object
+
+    			hr = pSvc->GetObject(L"Win32_NetWorkAdapterConfiguration", 0, NULL, &pClass, NULL);
+			    if(hr != WBEM_S_NO_ERROR)
+			      {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("getting object Win32_NetWorkAdapterConfiguration. Error code [0x%08X]"), hr);					      
+				      break;
+			      }
+
+
+  	      // Get the input argument and set the property
+
+			    hr = pClass->GetMethod(L"SetIPConnectionMetric", 0, &pInClass, NULL); 
+
+			    if(hr != WBEM_S_NO_ERROR)
+			      {				      
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("getting method SetIPConnectionMetric. Error code [0x%08X]"), hr);	
+				      break;
+			      }
+
+			    hr = pInClass->SpawnInstance(0, &pInInst);
+			    if(hr != WBEM_S_NO_ERROR)
+			      {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("spawning instance. Error code [0x%08X]"), hr);					      
+				      break;
+			      }
+
+
+  
+			    // Set up the query string with the adapter index we obtained above.
+
+			    wchar_t dest[10];
+
+			    memset((char*)dest, 0, 20);
+			    _itow(index, dest, 10);
+
+			    wstring objPath = L"Win32_NetWorkAdapterConfiguration.Index='" + wstring(dest);
+
+			    objPath = objPath + L"'";
+
+			    BSTR bstrObjPath = SysAllocString(objPath.c_str());
+
+
+
+		      VARIANT varArg1;
+
+    			VariantInit(&varArg1);
+
+		    	//V_VT(&varArg1)    = VT_BSTR;
+			    //V_BSTR(&varArg1)  = SysAllocString(L"2");
+
+          varArg1.vt    = VT_I4;
+          varArg1.iVal = metric;
+
+          
+			    hr = pInInst->Put(L"IPConnectionMetric", 0, &varArg1, CIM_UINT32);
+			    if(FAILED(hr))
+			      {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Put(IPConnectionMetric). Error code [0x%08X]"), hr);							      
+      				break;
+			      }
+
+			    hr = pSvc->ExecMethod(bstrObjPath, L"SetIPConnectionMetric", 0, NULL, pInInst, &pOutInst, NULL);
+			    if(hr != WBEM_S_NO_ERROR)
+			      {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("executing SetIPConnectionMetric. Error code [0x%08X]"), hr);							      				      
+				      break;
+			      }
+    
+
+			    // Get the EnableStatic method return value 
+
+    			VARIANT ret_value;
+
+		    	hr = pOutInst->Get(L"ReturnValue", 0, &ret_value, 0, 0);
+			    if(FAILED(hr))
+			      {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Get(ReturnValue). Error code [0x%08X]"), hr);							      
+				      break;
+			      }
+
+			    long ret = V_I4(&ret_value);
+    			if(ret != 0)
+			      {
+				      hr = E_FAIL;           
+			      }
+
+			    // Free up BSTR and VARIANT objects
+
+			    VariantClear(&ret_value);
+		      VariantClear(&varArg1);
+
+			    pObj->Release();    // Release objects not owned.            
+		    }
+      
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Number of objects returned is %d"), uTotal);    
+	  }
+   else
+	  {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("querying WMI for network adapters. Error code [0x%08X]"), hr);	      
+	  }
+
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Done"));
+
+  pSvc->Release();
+  pLoc->Release();     
+     
+	return 0;   // Program successfully completed.
+}
+
+
 
 
 

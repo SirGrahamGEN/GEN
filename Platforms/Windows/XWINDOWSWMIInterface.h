@@ -95,6 +95,8 @@ class XWINDOWSWMIINTERFACE
     bool                            NetWorkInterfaceEnable            (int ID, bool enabled);
     bool                            NetWorkInterfaceSetMetric         (int ID, int metric);
 
+    bool                            NetWorkInterfaceSetMetric         (int metric);
+
     bool                            End                               ();
 
   private:
