@@ -68,14 +68,13 @@
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSPITFTDISPLAYST7789::DIOSPITFTDISPLAYST7789(XDWORD width, XDWORD height)
-
 {
   Clean();
 
   this->width   = width;
   this->height  = height;
 
-  sizebuffer    = ((width/8) * height);
+  sizebuffer    = (width * height)* sizeof(XWORD);
 }
 
 
@@ -134,7 +133,7 @@ bool DIOSPITFTDISPLAYST7789::IniDevice()
   diostreamcfg->SetSPIMode(DIOSTREAMSPI_MODE_3);
   diostreamcfg->SetNBitsWord(8);
   diostreamcfg->SetSpeed(16*1000*1000);
-  diostreamcfg->SetDelay(10);
+  diostreamcfg->SetDelay(0);
   diostreamcfg->SetIsOnlyWrite(false);
  
   if(diostream->Open())
@@ -426,8 +425,8 @@ bool DIOSPITFTDISPLAYST7789::TFT_Reset()
 bool DIOSPITFTDISPLAYST7789::TFT_SetWindow(int xs, int ys, int xe, int ye)
 {
   XWORD x_start = xs + _xstart;
-  XWORD x_end   = xe + _xstart;
   XWORD y_start = ys + _ystart;
+  XWORD x_end   = xe + _xstart;  
   XWORD y_end   = ye + _ystart;
 
   bool status = true;
