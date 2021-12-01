@@ -66,7 +66,8 @@ class XUUID
     
     bool                GenerateRandom  ();
 
-    bool                GetString       (XSTRING& string);
+    bool                GetToString     (XSTRING& string);
+    bool                SetFromString   (XSTRING& string);
 
   protected:
 
