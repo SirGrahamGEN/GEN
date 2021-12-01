@@ -394,15 +394,18 @@ bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* p
               (*out) = outbuf;
             }
 
-          if(WaitForSingleObject(processinfo.hProcess, INFINITE) == WAIT_OBJECT_0)
+          if(WaitForSingleObject(processinfo.hProcess, (out?INFINITE:500)) == WAIT_OBJECT_0)
             {
-              if(GetExitCodeProcess(processinfo.hProcess, &exitcode))
+              if(out)
                 {
-                  if(returncode) (*returncode) = exitcode;
-                }
+                  if(GetExitCodeProcess(processinfo.hProcess, &exitcode))
+                    {
+                      if(returncode) (*returncode) = exitcode;
+                    }
 
-              CloseHandle(processinfo.hProcess);
-              CloseHandle(processinfo.hThread);
+                  CloseHandle(processinfo.hProcess);
+                  CloseHandle(processinfo.hThread);
+                }
 
               status = true;
             }

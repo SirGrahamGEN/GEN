@@ -125,15 +125,20 @@ class DIOSPITFTDISPLAYST7789 : public DIODISPLAYDEVICE, public DIODEVICESPI
     bool                    TFT_Init                        ();
     bool                    TFT_Reset                       ();
     bool                    TFT_SetWindow                   (int xs, int ys, int xe, int ye);
+    void                    TFT_SetRotation                 (XBYTE mode);
 
     bool                    SendCommand                     (XBYTE command);
     bool                    SendCommandParams               (XBYTE command, int ndata, ...);
     bool                    SendData                        ();
+    bool                    SendData                        (XBYTE data);
+    bool                    SendData                        (XWORD data);
 
     XBYTE                   _colstart;
     XBYTE                   _rowstart;
     XBYTE                   _xstart;
     XBYTE                   _ystart;
+    
+    XBYTE                   rotation;
 };
 
 

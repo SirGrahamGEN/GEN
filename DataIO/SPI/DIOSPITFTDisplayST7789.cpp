@@ -259,11 +259,7 @@ bool DIOSPITFTDISPLAYST7789::PutPixel(XWORD x, XWORD y, XWORD color)
 
   SendCommand(DIOSPITFTDISPLAYST7789_CMD_ST7789_RAMWR);  // write to RAM
 
-  canvasbuffer.Delete();
-  canvasbuffer.Add((XBYTE)(color >> 8));
-  canvasbuffer.Add((XBYTE)(color &  0x00FF));
-
-  return SendData();
+  return SendData(SwapWORD(color));  
 }  
 
 
@@ -311,7 +307,6 @@ bool DIOSPITFTDISPLAYST7789::SetActiveBlackLight(bool active)
   
   return GEN_DIOGPIO.SetValue(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_BACKLIGHT), active);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -369,6 +364,8 @@ bool DIOSPITFTDISPLAYST7789::TFT_Init()
   if(!SendCommand(DIOSPITFTDISPLAYST7789_CMD_ST7789_DISPON)) return false;                          // Main display turn on, no args, w/delay
   GEN_XSLEEP.MilliSeconds(20);
 
+  TFT_SetRotation(1); 
+
   return true;
 }
 
@@ -398,7 +395,6 @@ bool DIOSPITFTDISPLAYST7789::TFT_Reset()
 
   GEN_DIOGPIO.SetValue(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_RESET), true);
   GEN_XSLEEP.MilliSeconds(50);
-
 
   return true;
 }
@@ -432,25 +428,85 @@ bool DIOSPITFTDISPLAYST7789::TFT_SetWindow(int xs, int ys, int xe, int ye)
   bool status = true;
 
   SendCommand(DIOSPITFTDISPLAYST7789_CMD_ST7789_CASET);  // Column addr set
+  
+  
+  SendData((XWORD)SwapWORD(x_start));  
+  SendData((XWORD)SwapWORD(x_end));  
 
+  /*
   canvasbuffer.Delete();
   canvasbuffer.Add((XBYTE)(x_start >> 8));
   canvasbuffer.Add((XBYTE)(x_start &  0xFF));             // X START
   canvasbuffer.Add((XBYTE)(x_end   >> 8));
   canvasbuffer.Add((XBYTE)(x_end   &  0xFF));             // X END
   SendData();
+  */
 
 
   SendCommand(DIOSPITFTDISPLAYST7789_CMD_ST7789_RASET);  // Row addr set
+  
+  SendData((XWORD)SwapWORD(y_start));  
+  SendData((XWORD)SwapWORD(y_end));  
 
+  /*
   canvasbuffer.Delete();
   canvasbuffer.Add((XBYTE)(y_start >> 8));
   canvasbuffer.Add((XBYTE)(y_start &  0xFF));             // Y START
   canvasbuffer.Add((XBYTE)(y_end   >> 8));
   canvasbuffer.Add((XBYTE)(y_end   &  0xFF));             // Y END
   SendData();
+  */
   
   return status;
+}
+
+
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSPITFTDISPLAYST7789::TFT_SetRotation(XBYTE mode)
+* @brief      TFT_SetRotation
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       25/11/2021 19:53:56
+* 
+* @param[in]  mode : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void DIOSPITFTDISPLAYST7789::TFT_SetRotation(XBYTE mode) 
+{
+  SendCommand(DIOSPITFTDISPLAYST7789_CMD_ST7789_MADCTL);
+  
+  rotation = (mode & 3);
+  
+  switch(rotation) 
+    {
+      case 0: SendData((XBYTE)(DIOSPITFTDISPLAYST7789_CMD_ST7789_MADCTL_MX | DIOSPITFTDISPLAYST7789_CMD_ST7789_MADCTL_MY | DIOSPITFTDISPLAYST7789_CMD_ST7789_MADCTL_RGB));
+              _xstart = _colstart;
+              _ystart = _rowstart;
+              break;
+
+      case 1: SendData((XBYTE)(DIOSPITFTDISPLAYST7789_CMD_ST7789_MADCTL_MY | DIOSPITFTDISPLAYST7789_CMD_ST7789_MADCTL_MV | DIOSPITFTDISPLAYST7789_CMD_ST7789_MADCTL_RGB));
+              _ystart = _colstart;
+              _xstart = _rowstart;
+              break;
+
+      case 2: SendData((XBYTE)(DIOSPITFTDISPLAYST7789_CMD_ST7789_MADCTL_RGB));
+              _xstart = 0;
+              _ystart = 0;
+              break;
+
+      case 3: SendData((XBYTE)(DIOSPITFTDISPLAYST7789_CMD_ST7789_MADCTL_MX | DIOSPITFTDISPLAYST7789_CMD_ST7789_MADCTL_MV | DIOSPITFTDISPLAYST7789_CMD_ST7789_MADCTL_RGB));
+              _xstart = 0;
+              _ystart = 0;
+              break;
+    }
 }
 
 
@@ -506,6 +562,49 @@ bool DIOSPITFTDISPLAYST7789::SendData()
 
   return status;
 }
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSPITFTDISPLAYST7789::SendData(XBYTE data)
+* @brief      SendData
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       25/11/2021 20:14:39
+* 
+* @param[in]  data : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool DIOSPITFTDISPLAYST7789::SendData(XBYTE data)
+{
+  bool status;
+
+  DIOSPITFTDISPLAYST7789_DC_DATA;  
+
+  status = diostream->Write(&data, 1)?true:false;
+  if(status) status = diostream->WaitToFlushOutXBuffer(timeout);
+
+  return status;
+}
+
+
+
+bool DIOSPITFTDISPLAYST7789::SendData(XWORD data)
+{
+  bool status;
+
+  DIOSPITFTDISPLAYST7789_DC_DATA;  
+
+  status = diostream->Write((XBYTE*)&data, 2)?true:false;
+  if(status) status = diostream->WaitToFlushOutXBuffer(timeout);
+
+  return status;
+}
+
 
 
 
@@ -569,4 +668,6 @@ bool DIOSPITFTDISPLAYST7789::SendCommandParams(XBYTE command, int ndata, ...)
 void DIOSPITFTDISPLAYST7789::Clean()
 {
   diostream = NULL;
+  
+  rotation  = 0;
 }
