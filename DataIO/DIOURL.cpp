@@ -567,8 +567,8 @@ bool DIOURL::Slash_Delete()
 
   if((Character_GetLast()==__C('\\')) || (Character_GetLast()==__C('/')))
     {
-      DeleteCharacter('\\' , XSTRINGCONTEXT_ATEND);
-      DeleteCharacter('/'  , XSTRINGCONTEXT_ATEND);
+      DeleteCharacter('\\' , XSTRINGCONTEXT_TO_END);
+      DeleteCharacter('/'  , XSTRINGCONTEXT_TO_END);
 
       status = true;
     }

@@ -863,8 +863,8 @@ bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini, XSTRING& searchend, XBUFFE
 
   html.Copy(indexini + searchini.GetSize(),indexend,result);
 
-  result.DeleteCharacter(__C(' '),XSTRINGCONTEXT_ATFIRST);
-  result.DeleteCharacter(__C(' '),XSTRINGCONTEXT_ATEND);
+  result.DeleteCharacter(__C(' '),XSTRINGCONTEXT_FROM_FIRST);
+  result.DeleteCharacter(__C(' '),XSTRINGCONTEXT_TO_END);
 
   if(result.IsEmpty()) return false;
 

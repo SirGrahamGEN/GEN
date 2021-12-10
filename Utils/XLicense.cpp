@@ -652,7 +652,7 @@ bool XLICENSE::CipherExpirationDate(bool cipher, XSTRING& applicationID, XSTRING
               expirationdate.Add((XCHAR)cipherAES.GetResult()->GetByte(c));
             }
 
-          expirationdate.DeleteCharacter(0x20, XSTRINGCONTEXT_ATEND);
+          expirationdate.DeleteCharacter(0x20, XSTRINGCONTEXT_TO_END);
 
           return true;
         }

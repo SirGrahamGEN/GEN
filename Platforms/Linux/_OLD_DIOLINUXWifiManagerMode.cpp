@@ -572,7 +572,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_GetListRemoteAP(XVECTOR<XSTRING*>& nameAPs)
           if(newstr)
             {
               output.Copy(indexstart+1, index, (*newstr));
-              newstr->DeleteCharacter(__C('\t'), XSTRINGCONTEXT_ATFIRST);
+              newstr->DeleteCharacter(__C('\t'), XSTRINGCONTEXT_FROM_FIRST);
 
               // XSTRING_CREATEOEM((*newstr), charstr);
               // printf(charstr, "\n");
@@ -823,8 +823,8 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_GetClientService(XCHAR* SSID, XSTRING& ser
       line.Copy(index_service , index_end     , _service);
       line.Copy(0             , index_service , _SSID);
 
-      _SSID.DeleteCharacter(__C(' '), XSTRINGCONTEXT_ATFIRST);
-      _SSID.DeleteCharacter(__C(' '), XSTRINGCONTEXT_ATEND);  
+      _SSID.DeleteCharacter(__C(' '), XSTRINGCONTEXT_FROM_FIRST);
+      _SSID.DeleteCharacter(__C(' '), XSTRINGCONTEXT_TO_END);  
 
       if((_SSID.Get()[0] == __C('*')) && (_SSID.Get()[3] == 0x20))  _SSID.DeleteCharacters(0, 4);
             

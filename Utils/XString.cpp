@@ -1608,9 +1608,44 @@ bool XSTRING::DeleteCharacters(XDWORD index, XDWORD ncharacteres)
   if(index >= size)  return false;
 
   int nchar = ncharacteres;
-  if((index+nchar) > size) nchar = (int)size-index;
+  if((index + nchar) > size) nchar = (int)size-index;
 
   int c = index;
+  while(text[c+nchar])
+    {
+      text[c] = text[c+nchar];
+      c++;
+    }
+  text[c] = text[c + nchar];
+
+  return ReAllocBuffer(size - nchar);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::DeleteCharactersToEnd(XDWORD index)
+* @brief      DeleteCharactersToEnd
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       08/12/2021 13:31:41
+* 
+* @param[in]  index : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::DeleteCharactersToEnd(XDWORD index)
+{
+  if(IsEmpty())      return false;
+
+  if(index >= size)  return false;
+
+  int nchar = (int)size-index;
+  int c     = index;
+
   while(text[c+nchar])
     {
       text[c] = text[c+nchar];
@@ -1644,46 +1679,46 @@ bool XSTRING::DeleteCharacter(XCHAR character,XSTRINGCONTEXT context)
 
   switch(context)
     {
-      case XSTRINGCONTEXT_ATFIRST   : { XDWORD n=0;
-                                        while(character == text[n] && n<size)
-                                          {
-                                            n++;
-                                          }
-                                        if(n) DeleteCharacters(0,n);
-                                      }
-                                      break;
+      case XSTRINGCONTEXT_FROM_FIRST  : { XDWORD n=0;
+                                          while(character == text[n] && n<size)
+                                            {
+                                              n++;
+                                            }
+                                          if(n) DeleteCharacters(0,n);
+                                        }
+                                        break;
 
-      case XSTRINGCONTEXT_ATEND     : { XDWORD n=size-1;
-                                        while(character == text[n] && n)
-                                          {
-                                            n--;
-                                          }
+      case XSTRINGCONTEXT_TO_END      : { XDWORD n=size-1;
+                                          while(character == text[n] && n)
+                                            {
+                                              n--;
+                                            }
 
-                                        if(size!=n+1)  ReAllocBuffer(n+1);
-                                      }
-                                      break;
+                                          if(size!=n+1)  ReAllocBuffer(n+1);
+                                        }
+                                        break;
 
-      case XSTRINGCONTEXT_ALLSTRING : { XDWORD c = 0;
-                                        XDWORD a = 0;
+      case XSTRINGCONTEXT_ALLSTRING   : { XDWORD c = 0;
+                                          XDWORD a = 0;
 
-                                        while (c < size)
-                                          {
-                                            while(text[c]==character)
-                                              {
-                                                c++;
-                                              }
+                                          while (c < size)
+                                            {
+                                              while(text[c]==character)
+                                                {
+                                                  c++;
+                                                }
 
-                                            text[a] = text[c];
-                                            c++;
+                                              text[a] = text[c];
+                                              c++;
 
-                                            if(!text[a]) break;
-                                            a++;
-                                          }
+                                              if(!text[a]) break;
+                                              a++;
+                                            }
 
-                                        ReAllocBuffer(a);
-                                        size = a;
-                                      }
-                                      break;
+                                          ReAllocBuffer(a);
+                                          size = a;
+                                        }
+                                        break;
     }
 
   return true;
@@ -1745,78 +1780,78 @@ int XSTRING::DeleteNoCharacters(XCHAR* n, int start, XSTRINGCONTEXT context)
 
   switch(context)
     {
-      case XSTRINGCONTEXT_ATFIRST   : { XDWORD n;
-                                        for(n=start; n<size; n++)
-                                          {
-                                            XCHAR character = text[n];
-                                            bool  found     = false;
-
-                                            for(XDWORD e=0; needle.Get()[e] != __C('\0'); e++)
+      case XSTRINGCONTEXT_FROM_FIRST    : { XDWORD n;
+                                            for(n=start; n<size; n++)
                                               {
-                                                if(character == needle.Get()[e])
+                                                XCHAR character = text[n];
+                                                bool  found     = false;
+
+                                                for(XDWORD e=0; needle.Get()[e] != __C('\0'); e++)
                                                   {
-                                                    found = true;
-                                                    break;
+                                                    if(character == needle.Get()[e])
+                                                      {
+                                                        found = true;
+                                                        break;
+                                                      }
                                                   }
+
+                                                if(!found) break;
                                               }
 
-                                            if(!found) break;
+                                            this->DeleteCharacters(0, n);
+                                            return n;
                                           }
+                                          //break;
 
-                                        this->DeleteCharacters(0, n);
-                                        return n;
-                                      }
-                                      //break;
-
-      case XSTRINGCONTEXT_ATEND     : { int n;
-                                        for(n = size- start-1; n >=0; n--)
-                                          {
-                                            XCHAR character = text[n];
-                                            bool found = false;
-
-                                            for(XDWORD e = 0;  needle.Get()[e] != __C('\0'); e++)
+      case XSTRINGCONTEXT_TO_END        : { int n;
+                                            for(n = size- start-1; n >=0; n--)
                                               {
-                                                if(character == needle.Get()[e])
+                                                XCHAR character = text[n];
+                                                bool found = false;
+
+                                                for(XDWORD e = 0;  needle.Get()[e] != __C('\0'); e++)
                                                   {
-                                                    found = true;
-                                                    break;
+                                                    if(character == needle.Get()[e])
+                                                      {
+                                                        found = true;
+                                                        break;
+                                                      }
                                                   }
+
+                                                if(!found) break;
+                                              }
+                                            this->DeleteCharacters(n+1, size -1 - n);
+                                            return n;
+                                          }
+                                          //break;
+
+      case XSTRINGCONTEXT_ALLSTRING     : { for(XDWORD n = start; n < size; n++)
+                                              {
+                                                XCHAR character = text[n];
+                                                bool found = false;
+
+                                                for(XDWORD e=0; needle.Get()[e] != __C('\0'); e++)
+                                                  {
+                                                    if(character == needle.Get()[e])
+                                                      {
+                                                        found = true;
+                                                        break;
+                                                      }
+                                                  }
+
+                                                if(found) continue;
+
+                                                text[a] = character;
+                                                a++;
                                               }
 
-                                            if(!found) break;
+                                            text[a] = __C('\0');
+
+                                            this->AdjustSize();
+
+                                            return 1;
                                           }
-                                        this->DeleteCharacters(n+1, size -1 - n);
-                                        return n;
-                                      }
-                                      //break;
-
-      case XSTRINGCONTEXT_ALLSTRING : { for(XDWORD n = start; n < size; n++)
-                                          {
-                                            XCHAR character = text[n];
-                                            bool found = false;
-
-                                            for(XDWORD e=0; needle.Get()[e] != __C('\0'); e++)
-                                              {
-                                                if(character == needle.Get()[e])
-                                                  {
-                                                    found = true;
-                                                    break;
-                                                  }
-                                              }
-
-                                            if(found) continue;
-
-                                            text[a] = character;
-                                            a++;
-                                          }
-
-                                        text[a] = __C('\0');
-
-                                        this->AdjustSize();
-
-                                        return 1;
-                                      }
-                                      //break;
+                                          //break;
 
     }
 

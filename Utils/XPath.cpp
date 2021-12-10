@@ -1386,8 +1386,8 @@ bool XPATH::Slash_Delete()
 
   if(Slash_HaveAtLast())
     {
-      DeleteCharacter('\\' , XSTRINGCONTEXT_ATEND);
-      DeleteCharacter('/'  , XSTRINGCONTEXT_ATEND);
+      DeleteCharacter('\\' , XSTRINGCONTEXT_TO_END);
+      DeleteCharacter('/'  , XSTRINGCONTEXT_TO_END);
 
       status = true;
     }

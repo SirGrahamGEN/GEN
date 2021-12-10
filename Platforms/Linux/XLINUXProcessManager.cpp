@@ -751,10 +751,10 @@ bool XLINUXPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* 
 
               nameall = first;
               nameall.SetOnlyNamefile();
-              nameall.DeleteCharacter(__C(' ') , XSTRINGCONTEXT_ATFIRST);
-              nameall.DeleteCharacter(__C('\t'), XSTRINGCONTEXT_ATFIRST);
-              nameall.DeleteCharacter(__C('\n'), XSTRINGCONTEXT_ATEND);
-              nameall.DeleteCharacter(__C('\r'), XSTRINGCONTEXT_ATEND);
+              nameall.DeleteCharacter(__C(' ') , XSTRINGCONTEXT_FROM_FIRST);
+              nameall.DeleteCharacter(__C('\t'), XSTRINGCONTEXT_FROM_FIRST);
+              nameall.DeleteCharacter(__C('\n'), XSTRINGCONTEXT_TO_END);
+              nameall.DeleteCharacter(__C('\r'), XSTRINGCONTEXT_TO_END);
 
               if(!nameall.Compare(applicationname, false))
                 {
