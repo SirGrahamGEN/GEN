@@ -1002,7 +1002,7 @@ bool XFILEINI::Close()
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILEINISECTION* XFILEINI::GetSection(XSTRING& section)
 {
-  if(sections.IsEmpty()) return false;
+  if(sections.IsEmpty()) return NULL;
 
   for(XDWORD c=0;c<sections.GetSize();c++)
     {

@@ -1,42 +1,57 @@
-/*------------------------------------------------------------------------------------------
-//  DIOWINDOWSPCAP.H
-*/
-/**
-// \class
-//
-//  Interface PCap Library (Capture Ethernet Packets)
-//
-//  @author  Abraham J. Velez
-//  @version 22/10/2012 13:25:51
-*/
-/*  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSPCap.h
+* 
+* @class      DIOWINDOWSPCAP
+* @brief      WINDOWS Interface PCap Library (Capture Ethernet Packets) class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:06:35
+* 
+* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* *---------------------------------------------------------------------------------------------------------------------*/
 
 #ifdef DIOPCAP_ACTIVE
 
 #ifndef _DIOWINDOWSPCAP_H_
 #define _DIOWINDOWSPCAP_H_
 
-
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <pcap.h>
 
 #include "DIOPCap.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-
-/*---- CLASS -----------------------------------------------------------------------------*/
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XFACTORY;
 class XTHREADCOLLECTED;
 class XTHREADCOLLECTED;
 
+
 class  DIOWINDOWSPCAP : public DIOPCAP
 {
   public:
-
                                   DIOWINDOWSPCAP                      ();
     virtual                      ~DIOWINDOWSPCAP                      ();
 
@@ -56,9 +71,9 @@ class  DIOWINDOWSPCAP : public DIOPCAP
     XTHREAD*                      threadcapture;
 };
 
+/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
 
-/*---- INLINE FUNCTIONS ------------------------------------------------------------------*/
+#endif
 
 #endif
 
-#endif

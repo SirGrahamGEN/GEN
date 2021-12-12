@@ -1,21 +1,40 @@
-/*------------------------------------------------------------------------------------------
-//  DIOWINDOWSPING.CPP
-//
-//  Data Input/Output WINDOWS Ping class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 30/08/2012 9:14:11
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSPing.cpp
+* 
+* @class      DIOWINDOWSPING
+* @brief      WINDOWS Data Input/Output WINDOWS Ping class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:10:09
+* 
+* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <winsock2.h>
 #include <windows.h>
@@ -37,25 +56,26 @@
 
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
 
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSPING::DIOWINDOWSPING
-*/
-/**
-//
-//  Class Constructor DIOWINDOWSPING
-//
-//  @author      Abraham J. Velez
-//  @version      30/03/2016 12:55:40
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSPING::DIOWINDOWSPING() : DIOPING()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:10:54
+* 
+* @param[in]  ) : 
+* 
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSPING::DIOWINDOWSPING() : DIOPING()
 {
   Clean();
@@ -63,19 +83,19 @@ DIOWINDOWSPING::DIOWINDOWSPING() : DIOPING()
 
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSPING::~DIOWINDOWSPING
-*/
-/**
-//
-//   Class Destructor DIOWINDOWSPING
-//
-//  @author      Abraham J. Velez
-//  @version      30/03/2016 12:55:33
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSPING::~DIOWINDOWSPING()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:11:01
+* 
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSPING::~DIOWINDOWSPING()
 {
   Clean();
@@ -83,24 +103,23 @@ DIOWINDOWSPING::~DIOWINDOWSPING()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSPING::Do
-*/
-/**
-//
-//
-//
-//  @author      Abraham J. Velez
-//  @version      30/03/2016 12:55:24
-//
-//  @return       bool :
-//
-//  @param        nretries :
-//  @param        timebetweenchecks :
-//  @param        exitfirstgoodreply :
-*/
-/*-----------------------------------------------------------------*/
 #ifdef DIOPING_USEWINDOWDLL
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodreply)
+* @brief      Do
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:11:17
+* 
+* @param[in]  nretries : 
+* @param[in]  timebetweenchecks : 
+* @param[in]  exitfirstgoodreply : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodreply)
 {
   typedef struct
@@ -249,4 +268,5 @@ bool DIOWINDOWSPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirs
 
   return status;
 }
+
 #endif
