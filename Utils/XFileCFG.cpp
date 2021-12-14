@@ -302,6 +302,8 @@ XFILECFG::~XFILECFG()
       if(fileini) delete fileini;
     }
 
+  DeleteAllRemarks();
+
   DeleteAllValues();
   
   Clean();
@@ -323,16 +325,13 @@ XFILECFG::~XFILECFG()
 *
 *---------------------------------------------------------------------------------------------------------------------*/
 bool XFILECFG::Ini()
-{
-  if(namefile.IsEmpty())   return false;
-  if(xpathfile.IsEmpty())  return false;
-
+{ 
   bool status[2];
 
-  status[0] = Load();
+  status[0] = Load();  
   status[1] = Save();
 
-  return (status[0] && status[1]);
+  return (status[0] && status[1]);  
 }
 
 
@@ -380,6 +379,8 @@ bool XFILECFG::Load(XPATH& xpath)
     {
       if(IniFile(xpath)) 
         {
+          AjustRemarks();
+
           for(int c=0;c<(int)values.GetSize();c++)
             {
               XFILECFGVALUE* cfgvalue = (XFILECFGVALUE*)values.Get(c);
@@ -423,7 +424,7 @@ bool XFILECFG::Load(XPATH& xpath)
                                                               value->DeleteCharacter(__C('\n'));
                                                               value->DeleteCharacter(__C('\r'));
 
-                                                              value->DeleteCharacter(__C(' '), XSTRINGCONTEXT_ATEND);
+                                                              value->DeleteCharacter(__C(' '), XSTRINGCONTEXT_TO_END);
                                                             }
                                                             break;
 
@@ -490,6 +491,8 @@ bool XFILECFG::Save(XPATH& xpath)
     {
       if(IniFile(xpath))
         {
+          AjustRemarks();    
+
           fileini->DeleteAllSections();
 
           for(int c=0;c<(int)values.GetSize();c++)
@@ -607,6 +610,108 @@ bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* 
 
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILECFG::AddRemark(XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relativeypos)
+* @brief      AddRemark
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       09/12/2021 21:32:37
+* 
+* @param[in]  group : 
+* @param[in]  text : 
+* @param[in]  xpos : 
+* @param[in]  relativeypos : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XFILECFG::AddRemark(XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relativeypos)
+{
+  if(!fileini) return false;
+
+  XFILEINIREMARK* remark =  new XFILEINIREMARK();
+  if(!remark) return false;
+  
+  remark->SetType(XFILEINI_TYPEREMARK_ALL_LINE);
+  remark->GetRelativeSection()->Set(group);
+  remark->GetRelativeKey()->Empty();
+  remark->SetXPos(xpos);
+  remark->SetRelativeYPos(relativeypos);
+  remark->GetTextRemark()->Set(text);
+
+  remarks.Add(remark);
+
+  return true;
+}
+
+
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILECFG::AddRemark(XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWORD relativeypos)
+* @brief      AddRemark
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       09/12/2021 21:33:18
+* 
+* @param[in]  group : 
+* @param[in]  ID : 
+* @param[in]  text : 
+* @param[in]  xpos : 
+* @param[in]  relativeypos : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XFILECFG::AddRemark(XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWORD relativeypos)
+{
+  if(!fileini) return false;
+
+  XFILEINIREMARK* remark =  new XFILEINIREMARK();
+  if(!remark) return false;
+  
+  remark->SetType(XFILEINI_TYPEREMARK_IN_KEY);
+  remark->GetRelativeSection()->Set(group);
+  remark->GetRelativeKey()->Set(ID);
+  remark->SetXPos(xpos);
+  remark->SetRelativeYPos(relativeypos);
+  remark->GetTextRemark()->Set(text);
+
+  remarks.Add(remark);
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILECFG::DeleteAllRemarks()
+* @brief      DeleteAllRemarks
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       09/12/2021 19:53:23
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XFILECFG::DeleteAllRemarks()
+{
+  if(remarks.IsEmpty()) return false;
+
+  remarks.DeleteContents();
+  remarks.DeleteAll();
+
+  return true;
+}
+
+
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -630,26 +735,6 @@ bool XFILECFG::DeleteAllValues()
   return true;
 }
 
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XFILECFG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @return     void : does not return anything.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-void XFILECFG::Clean()
-{
-  fileini     = NULL;
-  namefile.Empty();
-}
 
 
 
@@ -710,4 +795,80 @@ bool XFILECFG::EndFile()
   return fileini->Close();
 }
 
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILECFG::AjustRemarks()
+* @brief      AjustRemarks
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       09/12/2021 18:56:37
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XFILECFG::AjustRemarks()
+{
+  if(!fileini) return false;
+
+  XVECTOR<XFILEINIREMARK*>* ini_remarks = fileini->GetRemarks();
+  if(!ini_remarks) return false;
+  
+  for(XDWORD d=0; d<remarks.GetSize(); d++)
+    {
+      XFILEINIREMARK* remark = remarks.Get(d);
+      if(remark)
+        {
+          bool found  = false;
+
+          for(XDWORD c=0; c<ini_remarks->GetSize(); c++)
+            {
+              XFILEINIREMARK* ini_remark = ini_remarks->Get(c);
+              if(ini_remark)
+                {
+                  if(ini_remark->Compare(remark))  
+                    {
+                      found = true;
+                      break;
+                    }                    
+                }  
+            }
+
+          if(!found)
+            {
+              XFILEINIREMARK* add_remark = new XFILEINIREMARK();
+              if(add_remark)
+                {
+                  remark->CopyTo(add_remark);
+                  ini_remarks->Add(add_remark);  
+                }
+            }
+        }
+    }
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void XFILECFG::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @return     void : does not return anything.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+void XFILECFG::Clean()
+{
+  fileini     = NULL;
+  namefile.Empty();
+}
 

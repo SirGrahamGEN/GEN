@@ -2814,8 +2814,8 @@ bool XFILECOBOL::Eliminate_EmptyLines(XVECTOR<XSTRING*>* lines)
       XSTRING* line = lines->Get(c);
       if(line)
         {
-          line->DeleteCharacter(__C(' '), XSTRINGCONTEXT_ATFIRST);
-          line->DeleteCharacter(__C(' '), XSTRINGCONTEXT_ATEND);
+          line->DeleteCharacter(__C(' '), XSTRINGCONTEXT_FROM_FIRST);
+          line->DeleteCharacter(__C(' '), XSTRINGCONTEXT_TO_END);
           if(line->IsEmpty())
             {
               delete line;

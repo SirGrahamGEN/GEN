@@ -34,11 +34,10 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-
 #include "XString.h"
 #include "XPath.h"
 #include "XSubject.h"
-
+#include "XVector.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
@@ -58,6 +57,8 @@ enum XFILECFG_VALUETYPE
 
 class XPATHS;
 class XFILEINI;
+class XFILEINIREMARK;
+
 
 class XFILECFGVALUE
 {
@@ -103,8 +104,13 @@ class XFILECFG : public XSUBJECT
     virtual bool                        End                       ();
 
     bool                                AddValue                  (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value);
-    bool                                DeleteAllValues           ();
+    
+    bool                                AddRemark                 (XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
+    bool                                AddRemark                 (XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
+    bool                                DeleteAllRemarks          ();
 
+    bool                                DeleteAllValues           ();
+     
   protected:
 
     XPATH                               xpathfile;
@@ -112,14 +118,16 @@ class XFILECFG : public XSUBJECT
     XFILEINI*                           fileini;
 
   private:
-
-    void                                Clean                     ();
-
-
+    
     bool                                IniFile                   (XPATH& xpath);
     bool                                EndFile                   ();
 
+    bool                                AjustRemarks              (); 
+
+    void                                Clean                     ();
+ 
     XVECTOR<XFILECFGVALUE*>             values;
+    XVECTOR<XFILEINIREMARK*>            remarks;
 };
 
 

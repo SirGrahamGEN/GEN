@@ -1,14 +1,33 @@
-/*------------------------------------------------------------------------------------------
-//  DIOPCAP.CPP
-//
-//  Interface PCap Library class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 22/10/2012 13:30:11
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOPCap.cpp
+* 
+* @class      DIOPCAP
+* @brief      Interface PCap Library class
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:21:00
+* 
+* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -17,7 +36,7 @@
 
 #ifdef DIOPCAP_ACTIVE
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <string.h>
@@ -31,25 +50,23 @@
 
 #include "XMemory_Control.h"
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
-
-
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPNETINTERFACE::DIOPCAPNETINTERFACE
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:37:37
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOPCAPNETINTERFACE::DIOPCAPNETINTERFACE()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:21:31
+* 
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPNETINTERFACE::DIOPCAPNETINTERFACE()
 {
   Clean();
@@ -57,18 +74,19 @@ DIOPCAPNETINTERFACE::DIOPCAPNETINTERFACE()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPNETINTERFACE::~DIOPCAPNETINTERFACE
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:37:46
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOPCAPNETINTERFACE::~DIOPCAPNETINTERFACE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:21:40
+* 
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPNETINTERFACE::~DIOPCAPNETINTERFACE()
 {
   Clean();
@@ -76,18 +94,18 @@ DIOPCAPNETINTERFACE::~DIOPCAPNETINTERFACE()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPNETINTERFACE::GetName
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:43:16
-//
-//  @return       XSTRING* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOPCAPNETINTERFACE::GetName()
+* @brief      GetName
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:21:51
+* 
+* @return     XSTRING* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOPCAPNETINTERFACE::GetName()
 {
   return &name;
@@ -95,18 +113,18 @@ XSTRING* DIOPCAPNETINTERFACE::GetName()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPNETINTERFACE::GetDescription
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:44:21
-//
-//  @return       XSTRING* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOPCAPNETINTERFACE::GetDescription()
+* @brief      GetDescription
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:22:04
+* 
+* @return     XSTRING* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOPCAPNETINTERFACE::GetDescription()
 {
   return &description;
@@ -114,19 +132,20 @@ XSTRING* DIOPCAPNETINTERFACE::GetDescription()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPNETINTERFACE::SetName
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:45:03
-//
-//  @return       bool :
-//  @param        name :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAPNETINTERFACE::SetName(XCHAR* name)
+* @brief      SetName
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:22:10
+* 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPNETINTERFACE::SetName(XCHAR* name)
 {
   this->name = name;
@@ -136,19 +155,20 @@ bool DIOPCAPNETINTERFACE::SetName(XCHAR* name)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPNETINTERFACE::SetName
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:45:28
-//
-//  @return       bool :
-//  @param        name :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAPNETINTERFACE::SetName(XSTRING& name)
+* @brief      SetName
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:22:18
+* 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPNETINTERFACE::SetName(XSTRING& name)
 {
   this->name = name.Get();
@@ -158,19 +178,20 @@ bool DIOPCAPNETINTERFACE::SetName(XSTRING& name)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPNETINTERFACE::SetDescription
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:46:29
-//
-//  @return       bool :
-//  @param        description :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAPNETINTERFACE::SetDescription(XCHAR* description)
+* @brief      SetDescription
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:22:30
+* 
+* @param[in]  description : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPNETINTERFACE::SetDescription(XCHAR* description)
 {
   this->description  = description;
@@ -180,19 +201,20 @@ bool DIOPCAPNETINTERFACE::SetDescription(XCHAR* description)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPNETINTERFACE::SetDescription
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:47:00
-//
-//  @return       bool :
-//  @param        description :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAPNETINTERFACE::SetDescription(XSTRING& description)
+* @brief      SetDescription
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:22:39
+* 
+* @param[in]  description : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPNETINTERFACE::SetDescription(XSTRING& description)
 {
   this->description  = description.Get();
@@ -203,18 +225,19 @@ bool DIOPCAPNETINTERFACE::SetDescription(XSTRING& description)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPNETINTERFACE::Clean
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:38:12
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOPCAPNETINTERFACE::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:22:52
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAPNETINTERFACE::Clean()
 {
 
@@ -247,19 +270,21 @@ DIOPCAPFRAME::DIOPCAPFRAME(bool hardwareuselittleendian)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAME::~DIOPCAPFRAME
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 16:57:45
-//
-//  @return       virtual :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOPCAPFRAME::~DIOPCAPFRAME()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:23:20
+* 
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPFRAME::~DIOPCAPFRAME()
+
 {
   if(data)
     {
@@ -273,23 +298,23 @@ DIOPCAPFRAME::~DIOPCAPFRAME()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAME::GetHeaderEthernet
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      26/10/2012 14:44:20
-//
-//  @return       bool :
-//  @param        ethernetheader :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAPFRAME::GetHeaderEthernet(DIOPCAPETHERNETHEADER& ethernetheader)
+* @brief      GetHeaderEthernet
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:23:40
+* 
+* @param[in]  ethernetheader : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAME::GetHeaderEthernet(DIOPCAPETHERNETHEADER& ethernetheader)
 {
-  if(!xfactory) return false;
-  if(!data)     return false;
+  if(!data) return false;
 
   if(data->GetSize() < (sizeof(DIOPCAPETHERNETHEADER))) return false;
 
@@ -309,22 +334,22 @@ bool DIOPCAPFRAME::GetHeaderEthernet(DIOPCAPETHERNETHEADER& ethernetheader)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAME::GetHeaderIP
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      26/10/2012 14:46:11
-//
-//  @return       bool :
-//  @param        ipheader :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAPFRAME::GetHeaderIP(DIOPCAPIPHEADER& ipheader)
+* @brief      GetHeaderIP
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:23:51
+* 
+* @param[in]  ipheader : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAME::GetHeaderIP(DIOPCAPIPHEADER& ipheader)
 {
-  if(!xfactory) return false;
   if(!data) return false;
 
   if(data->GetSize() < (sizeof(DIOPCAPETHERNETHEADER) + sizeof(DIOPCAPIPHEADER))) return false;
@@ -347,19 +372,20 @@ bool DIOPCAPFRAME::GetHeaderIP(DIOPCAPIPHEADER& ipheader)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAME::GetHeaderUDP
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      26/10/2012 14:51:38
-//
-//  @return       bool :
-//  @param        udpheader :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAPFRAME::GetHeaderUDP(DIOPCAPUDPHEADER& udpheader)
+* @brief      GetHeaderUDP
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:24:04
+* 
+* @param[in]  udpheader : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAME::GetHeaderUDP(DIOPCAPUDPHEADER& udpheader)
 {
   DIOPCAPIPHEADER ipheader;
@@ -386,19 +412,20 @@ bool DIOPCAPFRAME::GetHeaderUDP(DIOPCAPUDPHEADER& udpheader)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAME::GetHeaderTCP
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      26/10/2012 14:55:05
-//
-//  @return       bool :
-//  @param        tcpheader :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAPFRAME::GetHeaderTCP(DIOPCAPTCPHEADER& tcpheader)
+* @brief      GetHeaderTCP
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:24:15
+* 
+* @param[in]  tcpheader : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAME::GetHeaderTCP(DIOPCAPTCPHEADER& tcpheader)
 {
   DIOPCAPTCPHEADER* _tcpheader = (DIOPCAPTCPHEADER*)(data->Get() + sizeof(DIOPCAPETHERNETHEADER) + sizeof(DIOPCAPIPHEADER));
@@ -423,19 +450,18 @@ bool DIOPCAPFRAME::GetHeaderTCP(DIOPCAPTCPHEADER& tcpheader)
 
 
 
-
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAME::UserData_Get
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      28/10/2012 20:29:35
-//
-//  @return       XBYTE* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE* DIOPCAPFRAME::UserData_Get()
+* @brief      UserData_Get
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:24:29
+* 
+* @return     XBYTE* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 XBYTE* DIOPCAPFRAME::UserData_Get()
 {
   XBYTE* userdata = data->Get();
@@ -468,18 +494,19 @@ XBYTE* DIOPCAPFRAME::UserData_Get()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAME::UserData_GetSize
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      28/10/2012 20:29:45
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOPCAPFRAME::UserData_GetSize()
+* @brief      UserData_GetSize
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:24:49
+* 
+* @return     int : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 int DIOPCAPFRAME::UserData_GetSize()
 {
   int userdatasize = data->GetSize();
@@ -513,18 +540,18 @@ int DIOPCAPFRAME::UserData_GetSize()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAME::GetData
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 17:01:53
-//
-//  @return       XBUFFER* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBUFFER* DIOPCAPFRAME::GetData()
+* @brief      GetData
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:25:02
+* 
+* @return     XBUFFER* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 XBUFFER* DIOPCAPFRAME::GetData()
 {
   return data;
@@ -532,21 +559,21 @@ XBUFFER* DIOPCAPFRAME::GetData()
 
 
 
-
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAME::SetData
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 17:01:58
-//
-//  @return       bool :
-//  @param        data :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAPFRAME::SetData(XBYTE* data, XDWORD size)
+* @brief      SetData
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:25:11
+* 
+* @param[in]  data : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAME::SetData(XBYTE* data, XDWORD size)
 {
   if(!this->data) return false;
@@ -561,19 +588,19 @@ bool DIOPCAPFRAME::SetData(XBYTE* data, XDWORD size)
 
 
 
-
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAME::Clean
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 16:58:49
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOPCAPFRAME::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:25:26
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAPFRAME::Clean()
 {
   data                    = NULL;
@@ -582,64 +609,59 @@ void DIOPCAPFRAME::Clean()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAP::DIOPCAP
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      26/10/2012 13:08:06
-//
-//  @return
-//  @param        xfactory :
-//  @param        uselittleendian :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOPCAP::DIOPCAP()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:25:33
+* 
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAP::DIOPCAP()
 {
   Clean();
-
-  xsystem = GEN_XFACTORY.CreateSystem();
 }
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAP::~DIOPCAP
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 15:18:36
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOPCAP::~DIOPCAP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:25:43
+* 
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAP::~DIOPCAP()
 {
   End();
 
-  if(xsystem) GEN_XFACTORY.DeleteSystem(xsystem);
-
   Clean();
 }
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAP::GetNetInterfaces
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:49:52
-//
-//  @return       XVECTOR<DIOPCAPNETINTERFACE*>* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<DIOPCAPNETINTERFACE*>* DIOPCAP::GetNetInterfaces()
+* @brief      GetNetInterfaces
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:25:51
+* 
+* @return     XVECTOR<DIOPCAPNETINTERFACE*>* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<DIOPCAPNETINTERFACE*>* DIOPCAP::GetNetInterfaces()
 {
   return &netinterfaces;
@@ -647,20 +669,20 @@ XVECTOR<DIOPCAPNETINTERFACE*>* DIOPCAP::GetNetInterfaces()
 
 
 
-
-/*-------------------------------------------------------------------
-//  DIOPCAP::GetNetInterface
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 17:26:15
-//
-//  @return       DIOPCAPNETINTERFACE* :
-//  @param        index :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOPCAPNETINTERFACE* DIOPCAP::GetNetInterface(int index)
+* @brief      GetNetInterface
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:26:03
+* 
+* @param[in]  index : 
+* 
+* @return     DIOPCAPNETINTERFACE* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPNETINTERFACE* DIOPCAP::GetNetInterface(int index)
 {
   return (DIOPCAPNETINTERFACE*)netinterfaces.Get(index);
@@ -668,18 +690,18 @@ DIOPCAPNETINTERFACE* DIOPCAP::GetNetInterface(int index)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAP::Ini
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:06:06
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAP::Ini()
+* @brief      Ini
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:26:10
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAP::Ini()
 {
   if(!CreateListNetInterfaces()) return false;
@@ -691,19 +713,23 @@ bool DIOPCAP::Ini()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAP::Capture_Start
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 17:29:20
-//
-//  @return       bool :
-//  @param        index :
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAP::Capture_Start(int index, bool promiscuousmode, int timeout)
+* @brief      Capture_Start
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:26:22
+* 
+* @param[in]  index : 
+* @param[in]  promiscuousmode : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAP::Capture_Start(int index, bool promiscuousmode, int timeout)
 {
   DIOPCAPNETINTERFACE* netinterface = GetNetInterface(index);
@@ -715,19 +741,20 @@ bool DIOPCAP::Capture_Start(int index, bool promiscuousmode, int timeout)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAP::Frames_Get
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 17:40:47
-//
-//  @return       DIOPCAPFRAME* :
-//  @param        index :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOPCAPFRAME* DIOPCAP::Frames_Get(int index)
+* @brief      Frames_Get
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:26:33
+* 
+* @param[in]  index : 
+* 
+* @return     DIOPCAPFRAME* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPFRAME* DIOPCAP::Frames_Get(int index)
 {
   if(index<0)                      return NULL;
@@ -744,20 +771,20 @@ DIOPCAPFRAME* DIOPCAP::Frames_Get(int index)
 
 
 
-
-/*-------------------------------------------------------------------
-//  DIOPCAP::Frames_Delete
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 17:42:09
-//
-//  @return       bool :
-//  @param        index :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAP::Frames_Delete(int index)
+* @brief      Frames_Delete
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:26:45
+* 
+* @param[in]  index : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAP::Frames_Delete(int index)
 {
   if(xmutexframes) xmutexframes->Lock();
@@ -779,18 +806,18 @@ bool DIOPCAP::Frames_Delete(int index)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAP::Frames_Get
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 17:57:20
-//
-//  @return       XVECTOR<DIOPCAPFRAME*>* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<DIOPCAPFRAME*>* DIOPCAP::Frames_Get()
+* @brief      Frames_Get
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:26:53
+* 
+* @return     XVECTOR<DIOPCAPFRAME*>* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<DIOPCAPFRAME*>* DIOPCAP::Frames_Get()
 {
   return &frames;
@@ -798,18 +825,18 @@ XVECTOR<DIOPCAPFRAME*>* DIOPCAP::Frames_Get()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAP::Frames_DeleteAll
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 17:44:37
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAP::Frames_DeleteAll()
+* @brief      Frames_DeleteAll
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:27:05
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAP::Frames_DeleteAll()
 {
   if(frames.IsEmpty())  return false;
@@ -828,18 +855,18 @@ bool DIOPCAP::Frames_DeleteAll()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAP::End
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:06:19
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAP::End()
+* @brief      End
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:27:12
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAP::End()
 {
   DeleteListNetInterfaces();
@@ -857,20 +884,21 @@ bool DIOPCAP::End()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAP::Frames_Add
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 17:37:57
-//
-//  @return       bool :
-//  @param        data :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size)
+* @brief      Frames_Add
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:27:24
+* 
+* @param[in]  data : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size)
 {
   if(!data) return false;
@@ -882,8 +910,7 @@ bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size)
 
   bool hardwareuselittleendian = true;
 
-  if(xsystem) hardwareuselittleendian = xsystem->HardwareUseLittleEndian();
-
+  hardwareuselittleendian = GEN_XSYSTEM.HardwareUseLittleEndian();
 
   DIOPCAPFRAME* frame = new DIOPCAPFRAME(hardwareuselittleendian);
   if(frame)
@@ -903,38 +930,38 @@ bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAP::Clean
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 15:18:56
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOPCAP::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:27:34
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAP::Clean()
 {
-  xmutexframes    = NULL;
-  xsystem         = NULL;
+  xmutexframes    = NULL;  
 }
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAP::DeleteListNetInterfaces
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 17:01:06
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAP::DeleteListNetInterfaces()
+* @brief      DeleteListNetInterfaces
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:27:45
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAP::DeleteListNetInterfaces()
 {
   if(netinterfaces.IsEmpty()) return false;

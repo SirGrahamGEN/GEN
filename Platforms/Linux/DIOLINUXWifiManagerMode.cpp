@@ -663,7 +663,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_GetListRemoteAP(XVECTOR<XSTRING*>& nameAPs)
           if(newstr)
             {
               output.Copy(indexstart+1, index, (*newstr));
-              newstr->DeleteCharacter(__C('\t'), XSTRINGCONTEXT_ATFIRST);
+              newstr->DeleteCharacter(__C('\t'), XSTRINGCONTEXT_FROM_FIRST);
 
               // XSTRING_CREATEOEM((*newstr), charstr);
               // printf(charstr, "\n");

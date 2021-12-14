@@ -1,50 +1,62 @@
-/*------------------------------------------------------------------------------------------
-//  DIOPCAP.H
-*/
-/**
-// \class
-//
-//  Interface PCap Library class
-//
-//  @author  Abraham J. Velez
-//  @version 22/10/2012 13:25:51
-*/
-/*  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOPCap.h
+* 
+* @class      DIOPCAP
+* @brief      Interface PCap Library class
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:18:53
+* 
+* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* *---------------------------------------------------------------------------------------------------------------------*/
 
 #ifdef DIOPCAP_ACTIVE
-
 
 #ifndef _DIOPCAP_H_
 #define _DIOPCAP_H_
 
-
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XVector.h"
 #include "XString.h"
 #include "XBuffer.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
-
-
-/*---- CLASS -----------------------------------------------------------------------------*/
-
-class XFACTORY;
-class XTHREADCOLLECTED;
-class XMUTEX;
-class XSYSTEM;
-
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define DIOPCAPETHERNETMACSIZE        6
 
-#define DIOPCAPETHERNETTYPE_PUP       0x0002    // Xerox PUP
-#define DIOPCAPETHERNETTYPE_IP        0x0800    // IP
-#define DIOPCAPETHERNETTYPE_ARP       0x0860    // Address resolution
-#define DIOPCAPETHERNETTYPE_REVARP    0x8035    // Reverse ARP
+#define DIOPCAPETHERNETTYPE_PUP       0x0002              // Xerox PUP
+#define DIOPCAPETHERNETTYPE_IP        0x0800              // IP
+#define DIOPCAPETHERNETTYPE_ARP       0x0860              // Address resolution
+#define DIOPCAPETHERNETTYPE_REVARP    0x8035              // Reverse ARP
 
-#define DIOPCAPIPPROTOCOLTYPE_TCP     6         // TCP
-#define DIOPCAPIPPROTOCOLTYPE_UDP     17        // UDP
+#define DIOPCAPIPPROTOCOLTYPE_TCP     6                   // TCP
+#define DIOPCAPIPPROTOCOLTYPE_UDP     17                  // UDP
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+
+class XTHREADCOLLECTED;
+class XMUTEX;
+
 
 
 typedef struct
@@ -68,30 +80,28 @@ typedef struct
 
 typedef struct
 {
-  XBYTE                               ver_ihl;           // Version (4 bits) + Internet header length (4 bits)
-  XBYTE                               typeservice;       // Type of service
-  XWORD                               len;               // Total length
-  XWORD                               identification;    // Identification
-  XWORD                               flags_fo;          // Flags (3 bits) + Fragment offset (13 bits)
-  XBYTE                               ttl;               // Time to live
-  XBYTE                               protocol;          // Protocol
-  XWORD                               CRC;               // Header checksum
-  DIOPCAPIPADDRESS                    sourceaddr;        // Source address
-  DIOPCAPIPADDRESS                    targetaddr;        // Target address
+  XBYTE                               ver_ihl;            // Version (4 bits) + Internet header length (4 bits)
+  XBYTE                               typeservice;        // Type of service
+  XWORD                               len;                // Total length
+  XWORD                               identification;     // Identification
+  XWORD                               flags_fo;           // Flags (3 bits) + Fragment offset (13 bits)
+  XBYTE                               ttl;                // Time to live
+  XBYTE                               protocol;           // Protocol
+  XWORD                               CRC;                // Header checksum
+  DIOPCAPIPADDRESS                    sourceaddr;         // Source address
+  DIOPCAPIPADDRESS                    targetaddr;         // Target address
 
 } DIOPCAPIPHEADER;
 
 
-
 typedef struct
 {
-  XWORD                               sourceport;        // Source port
-  XWORD                               targetport;        // Target port
-  XWORD                               len;               // Datagram length
-  XWORD                               CRC;               // Checksum
+  XWORD                               sourceport;         // Source port
+  XWORD                               targetport;         // Target port
+  XWORD                               len;                // Datagram length
+  XWORD                               CRC;                // Checksum
 
 } DIOPCAPUDPHEADER;
-
 
 
 typedef struct
@@ -106,7 +116,6 @@ typedef struct
   XWORD                               urg_ptr;
 
 } DIOPCAPTCPHEADER;
-
 
 
 class DIOPCAPNETINTERFACE
@@ -131,8 +140,6 @@ class DIOPCAPNETINTERFACE
     XSTRING                           name;
     XSTRING                           description;
 };
-
-
 
 
 class DIOPCAPFRAME
@@ -163,8 +170,6 @@ class DIOPCAPFRAME
     XBUFFER*                          data;
 
 };
-
-
 
 
 class DIOPCAP
@@ -199,19 +204,16 @@ class DIOPCAP
 
     XVECTOR<DIOPCAPNETINTERFACE*>     netinterfaces;
     XMUTEX*                           xmutexframes;
-    XVECTOR<DIOPCAPFRAME*>            frames;
-
-    XSYSTEM*                          xsystem;
+    XVECTOR<DIOPCAPFRAME*>            frames;    
 
   private:
 
     void                              Clean                         ();
 };
 
-
-
-/*---- INLINE FUNCTIONS ------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
 
 #endif
+
 
 #endif

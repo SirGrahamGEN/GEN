@@ -1,23 +1,41 @@
-/*------------------------------------------------------------------------------------------
-//  DIOCAPEX.CPP
-//
-//  Interface PCap Extended Library class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 22/10/2012 13:30:11
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOPCapEX.cpp
+* 
+* @class      DIOPCAPEX
+* @brief      Interface PCap Extended Library class
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:30:59
+* 
+* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
-
 #ifdef DIOPCAP_ACTIVE
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <string.h>
@@ -29,10 +47,10 @@
 
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -56,18 +74,19 @@ DIOPCAPFRAMEEX::DIOPCAPFRAMEEX(bool hardwareuselittleendian): DIOPCAPFRAME(hardw
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAMEEX::~DIOPCAPFRAMEEX
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 16:57:45
-//
-//  @return       virtual :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOPCAPFRAMEEX::~DIOPCAPFRAMEEX()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:31:35
+* 
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPFRAMEEX::~DIOPCAPFRAMEEX()
 {
   Clean();
@@ -75,21 +94,21 @@ DIOPCAPFRAMEEX::~DIOPCAPFRAMEEX()
 
 
 
-
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAMEEX::GetDNSAsk
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      29/10/2012 10:33:11
-//
-//  @return       bool :
-//  @param        header :
-//  @param        url :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAPFRAMEEX::GetDNSAsk(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSASK& ask)
+* @brief      GetDNSAsk
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:31:45
+* 
+* @param[in]  header : 
+* @param[in]  ask : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAMEEX::GetDNSAsk(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSASK& ask)
 {
   DIOPCAPEXDNSHEADER* _header = (DIOPCAPEXDNSHEADER*)UserData_Get();
@@ -124,20 +143,21 @@ bool DIOPCAPFRAMEEX::GetDNSAsk(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSASK& ask)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAMEEX::GetDNSRequest
-*/
-/**
-//  ONLY INTERPRETS ONE ANSWER.
-//
-//  @author      Abraham J. Velez
-//  @version      29/10/2012 14:52:00
-//
-//  @return       bool :
-//  @param        header :
-//  @param        request :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAPFRAMEEX::GetDNSRequest(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSREQUEST& request)
+* @brief      GetDNSRequest
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:32:08
+* 
+* @param[in]  header : 
+* @param[in]  request : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAMEEX::GetDNSRequest(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSREQUEST& request)
 {
   DIOPCAPEXDNSHEADER* _header = (DIOPCAPEXDNSHEADER*)UserData_Get();
@@ -185,21 +205,21 @@ bool DIOPCAPFRAMEEX::GetDNSRequest(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSREQUES
 
 
 
-
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAMEEX::DNSnameFormatToString
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      29/10/2012 11:47:34
-//
-//  @return       int :
-//  @param        urlDNS :
-//  @param        url :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOPCAPFRAMEEX::DNSnameFormatToString(XBYTE* urlDNS,DIOURL& url)
+* @brief      DNSnameFormatToString
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:32:19
+* 
+* @param[in]  urlDNS : 
+* @param[in]  url : 
+* 
+* @return     int : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 int DIOPCAPFRAMEEX::DNSnameFormatToString(XBYTE* urlDNS,DIOURL& url)
 {
   int c = 0;
@@ -224,20 +244,21 @@ int DIOPCAPFRAMEEX::DNSnameFormatToString(XBYTE* urlDNS,DIOURL& url)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAMEEX::StringToDNSNameFormat
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      29/10/2012 12:47:56
-//
-//  @return       bool :
-//  @param        name :
-//  @param        nameDNS :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPCAPFRAMEEX::StringToDNSNameFormat(XSTRING& name,XBUFFER& nameDNS)
+* @brief      StringToDNSNameFormat
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:32:35
+* 
+* @param[in]  name : 
+* @param[in]  nameDNS : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAMEEX::StringToDNSNameFormat(XSTRING& name,XBUFFER& nameDNS)
 {
   /*
@@ -252,18 +273,20 @@ bool DIOPCAPFRAMEEX::StringToDNSNameFormat(XSTRING& name,XBUFFER& nameDNS)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOPCAPFRAMEEX::Clean
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 16:58:49
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOPCAPFRAMEEX::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:32:47
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAPFRAMEEX::Clean()
 {
 

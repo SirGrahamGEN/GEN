@@ -1073,10 +1073,10 @@ void DIOWEBSERVER_REQUEST::SetIfNoneMatch(XSTRING& ifnonematch)
 
   special = ifnonematch;
 
-  special.DeleteCharacter(0x20    , XSTRINGCONTEXT_ATFIRST);
-  special.DeleteCharacter(0x20    , XSTRINGCONTEXT_ATEND);
-  special.DeleteCharacter(__C('"'), XSTRINGCONTEXT_ATFIRST);
-  special.DeleteCharacter(__C('"'), XSTRINGCONTEXT_ATEND);
+  special.DeleteCharacter(0x20    , XSTRINGCONTEXT_FROM_FIRST);
+  special.DeleteCharacter(0x20    , XSTRINGCONTEXT_TO_END);
+  special.DeleteCharacter(__C('"'), XSTRINGCONTEXT_FROM_FIRST);
+  special.DeleteCharacter(__C('"'), XSTRINGCONTEXT_TO_END);
 
   this->ifnonematch = special;
 }

@@ -1,30 +1,49 @@
-/*------------------------------------------------------------------------------------------
-//  DIOWINDOWSPCAP.CPP
-//
-//  Interface PCap Library (Capture Ethernet Packets)
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 22/10/2012 13:30:11
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSPCap.cpp
+* 
+* @class      DIOWINDOWSPCAP
+* @brief      WINDOWS Interface PCap Library (Capture Ethernet Packets) class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:01:50
+* 
+* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
-
 #ifdef DIOPCAP_ACTIVE
+                     
+#pragma comment(lib,"wpcap.lib")
 
-#pragma comment(lib,"libwpcap.a")
-
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <winsock2.h>
 #include <windows.h>
 
 #include "XTrace.h"
+#include "XThreadCollected.h"
 #include "XString.h"
 #include "XWINDOWSThread.h"
 
@@ -32,45 +51,44 @@
 
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
 
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSPCAP::DIOWINDOWSPCAP
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      26/10/2012 13:09:05
-//
-//  @return       void :
-//  @param        xfactory :
-//  @param        uselittleendian :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSPCAP::DIOWINDOWSPCAP() : DIOPCAP()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:04:03
+*  
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSPCAP::DIOWINDOWSPCAP() :  DIOPCAP()
 {
   Clean();
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSPCAP::~DIOWINDOWSPCAP
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 15:18:36
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSPCAP::~DIOWINDOWSPCAP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:04:32
+* 
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSPCAP::~DIOWINDOWSPCAP()
 {
   End();
@@ -81,21 +99,22 @@ DIOWINDOWSPCAP::~DIOWINDOWSPCAP()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSPCAP::Capture_Start
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 9:37:03
-//
-//  @return       bool :
-//  @param        netinterface :
-//  @param        promiscuousmode :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promiscuousmode, int timeout)
+* @brief      Capture_Start
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:04:57
+* 
+* @param[in]  netinterface : 
+* @param[in]  promiscuousmode : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promiscuousmode, int timeout)
 {
   if(!netinterface) return false;
@@ -116,7 +135,7 @@ bool DIOWINDOWSPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promi
   if(handle == NULL) return false;
 
 
-  threadcapture = CREATEXTHREAD(XTHREADGROUPID_DIOPCAP, XTHREADGROUPID_DIOPCAP, __L("DIOWINDOWSPCAP::Capture_Start"), ThreadCapture, (void*)this);
+  threadcapture = CREATEXTHREAD(XTHREADGROUPID_DIOPCAP, __L("DIOWINDOWSPCAP::Capture_Start"), ThreadCapture, (void*)this);
   if(!threadcapture) return false;
 
   return threadcapture->Ini();
@@ -124,18 +143,18 @@ bool DIOWINDOWSPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promi
 
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSPCAP::Capture_End
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 17:15:54
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSPCAP::Capture_End()
+* @brief      Capture_End
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:05:09
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSPCAP::Capture_End()
 {
   if(handle) pcap_breakloop(handle);
@@ -143,7 +162,7 @@ bool DIOWINDOWSPCAP::Capture_End()
   if(threadcapture)
     {
       threadcapture->End();
-      DELETEXTHREAD(XTHREADGROUPID_DIOPCAP, XTHREADGROUPID_DIOPCAP, threadcapture);
+      DELETEXTHREAD(XTHREADGROUPID_DIOPCAP, threadcapture);
       threadcapture = NULL;
     }
 
@@ -158,19 +177,19 @@ bool DIOWINDOWSPCAP::Capture_End()
 
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSPCAP::Clean
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 15:18:56
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSPCAP::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:05:24
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSPCAP::Clean()
 {
   handle        = NULL;
@@ -179,19 +198,18 @@ void DIOWINDOWSPCAP::Clean()
 
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSPCAP::CreateListNetInterfaces
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      22/10/2012 16:52:27
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSPCAP::CreateListNetInterfaces()
+* @brief      CreateListNetInterfaces
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:05:33
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSPCAP::CreateListNetInterfaces()
 {
   pcap_if_t* allnetinterfaces;
@@ -223,19 +241,20 @@ bool DIOWINDOWSPCAP::CreateListNetInterfaces()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSPCAP::ThreadCapture
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 9:03:44
-//
-//  @return       void :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSPCAP::ThreadCapture(void* data)
+* @brief      ThreadCapture
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:05:48
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSPCAP::ThreadCapture(void* data)
 {
   DIOWINDOWSPCAP* diopcap = (DIOWINDOWSPCAP*)data;
@@ -254,21 +273,22 @@ void DIOWINDOWSPCAP::ThreadCapture(void* data)
 
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSPCAP::PacketHandler
-*/
-/**
-//
-//
-//  @author      Abraham J. Velez
-//  @version      23/10/2012 9:42:38
-//
-//  @return       void :
-//  @param        param :
-//  @param        header :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header, const u_char* data)
+* @brief      PacketHandler
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       11/12/2021 12:06:02
+* 
+* @param[in]  param : 
+* @param[in]  struct pcap_pkthdr* header : 
+* @param[in]  u_char* data : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header, const u_char* data)
 {
   DIOWINDOWSPCAP* diopcap = (DIOWINDOWSPCAP*)param;
@@ -297,5 +317,6 @@ void DIOWINDOWSPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* head
   */
 
 }
+
 
 #endif

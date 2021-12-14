@@ -2132,8 +2132,8 @@ bool XFILEXML::DecodeElement(XSTRING& string, XFILEXMLELEMENTTYPELINE typeline)
                                                 name.DeleteCharacter(__C('>'),XSTRINGCONTEXT_ALLSTRING);
 
                                                 name.DeleteNoCharacters();
-                                                name.DeleteNoCharacters(__L("\20"),0, XSTRINGCONTEXT_ATFIRST);
-                                                name.DeleteNoCharacters(__L("\20"),0, XSTRINGCONTEXT_ATEND);
+                                                name.DeleteNoCharacters(__L("\20"),0, XSTRINGCONTEXT_FROM_FIRST);
+                                                name.DeleteNoCharacters(__L("\20"),0, XSTRINGCONTEXT_TO_END);
 
 
                                                 XFILEXMLELEMENT* element;

@@ -1350,9 +1350,9 @@ void MAINPROCWINDOWSSTACKWALKER::OnCallstackEntry(CallstackEntryType eType, Call
 
   if((eType != lastEntry) && (entry.offset != 0))
     {
-      if(entry.name[0] == 0)          strcpy_s(entry.name, "(function-name not available)");
-      if(entry.undName[0] != 0)       strcpy_s(entry.name, entry.undName);
-      if(entry.undFullName[0] != 0)   strcpy_s(entry.name, entry.undFullName);
+      if(entry.name[0]         == 0)  strcpy_s(entry.name, "(function-name not available)");
+      if(entry.undName[0]      != 0)  strcpy_s(entry.name, entry.undName);
+      if(entry.undFullName[0]  != 0)  strcpy_s(entry.name, entry.undFullName);
       if(entry.lineFileName[0] == 0)
         {
           strcpy_s(entry.lineFileName, "(filename not available)");

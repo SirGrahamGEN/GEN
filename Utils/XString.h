@@ -50,9 +50,9 @@ typedef wchar_t XCHAR;
 
 enum XSTRINGCONTEXT
 {
-  XSTRINGCONTEXT_ATFIRST    = 0 ,
-  XSTRINGCONTEXT_ATEND          ,
-  XSTRINGCONTEXT_ALLSTRING      ,
+  XSTRINGCONTEXT_FROM_FIRST    = 0 ,
+  XSTRINGCONTEXT_TO_END            ,
+  XSTRINGCONTEXT_ALLSTRING         ,
 };
 
 
@@ -207,6 +207,7 @@ class GEN_API_LIB XSTRING
     bool                  HaveOnlyNumbers                 ();
 
     bool                  DeleteCharacters                (XDWORD index, XDWORD ncharacteres);
+    bool                  DeleteCharactersToEnd           (XDWORD index);
     bool                  DeleteCharacter                 (XCHAR character, XSTRINGCONTEXT context = XSTRINGCONTEXT_ALLSTRING);
     bool                  DeleteNoCharacters              (XSTRINGCONTEXT context);
     int                   DeleteNoCharacters              (XCHAR* needle=__L("\t\r\n"), int start=0, XSTRINGCONTEXT context= XSTRINGCONTEXT_ALLSTRING);
