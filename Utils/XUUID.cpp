@@ -148,22 +148,59 @@ XWORD XUUID::GetData3()
 
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XBYTE* XUUID::GetData4()
+* 
+* @fn         XBYTE XUUID::GetData4()
 * @brief      GetData4
 * @ingroup    UTILS
-*
+* 
 * @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @return     XBYTE* : 
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-XBYTE* XUUID::GetData4()
+* @date       14/12/2021 8:38:08
+* 
+* @return     XBYTE : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XBYTE XUUID::GetData4()
 {
   return data4;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE XUUID::GetData4()
+* @brief      GetData4
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       14/12/2021 8:38:13
+* 
+* @return     XBYTE : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XBYTE XUUID::GetData5()
+{
+  return data5;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE* XUUID::GetData6()
+* @brief      GetData6
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       14/12/2021 8:36:22
+* 
+* @return     XBYTE* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XBYTE* XUUID::GetData6()
+{
+  return data6;
 }
 
 
@@ -238,12 +275,56 @@ bool XUUID::SetData3(XWORD data)
 
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XUUID::SetData4(XBYTE data)
+* @brief      SetData4
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       14/12/2021 8:39:45
+* 
+* @param[in]  data : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XUUID::SetData4(XBYTE data)
+{
+  this->data4 = data;
+   
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XUUID::SetData5(XBYTE data)
+* @brief      SetData5
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       14/12/2021 8:39:55
+* 
+* @param[in]  data : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XUUID::SetData5(XBYTE data)
+{
+  this->data5 = data;
+   
+  return true;
+}
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XUUID::SetData4(XBYTE* data)
-* @brief      SetData4
+* @fn         bool XUUID::SetData6(XBYTE* data)
+* @brief      SetData6
 * @ingroup    UTILS
 *
 * @author     Abraham J. Velez 
@@ -254,11 +335,11 @@ bool XUUID::SetData3(XWORD data)
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
-bool XUUID::SetData4(XBYTE* data)
+bool XUUID::SetData6(XBYTE* data)
 {
   for(int c=0; c<XUUIDMAXDATA4; c++)
     {
-      this->data4[c] = data[c];
+      this->data6[c] = data[c];
     }
 
   return true;
@@ -266,30 +347,33 @@ bool XUUID::SetData4(XBYTE* data)
 
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XUUID::Set(XDWORD data1, XWORD data2, XWORD data3, XBYTE* data4)
+* 
+* @fn         bool XUUID::Set(XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5, XBYTE* data6)
 * @brief      Set
 * @ingroup    UTILS
-*
+* 
 * @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
+* @date       14/12/2021 8:41:09
+* 
 * @param[in]  data1 : 
 * @param[in]  data2 : 
 * @param[in]  data3 : 
 * @param[in]  data4 : 
-*
+* @param[in]  data5 : 
+* @param[in]  data6 : 
+* 
 * @return     bool : true if is succesful. 
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-bool XUUID::Set(XDWORD data1, XWORD data2, XWORD data3, XBYTE* data4)
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XUUID::Set(XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5, XBYTE* data6)
 {
   SetData1(data1);
   SetData2(data2);
   SetData3(data3);
   SetData4(data4);
+  SetData5(data5);
+  SetData6(data6);
 
   return true;
 }
@@ -297,22 +381,22 @@ bool XUUID::Set(XDWORD data1, XWORD data2, XWORD data3, XBYTE* data4)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XUUID::CopyFrom(XUUID& uuid)
 * @brief      CopyFrom
 * @ingroup    UTILS
-*
+* 
 * @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
+* @date       14/12/2021 8:42:13
+* 
 * @param[in]  uuid : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool XUUID::CopyFrom(XUUID& uuid)
 {
-  return Set(uuid.GetData1(), uuid.GetData2(), uuid.GetData3(), uuid.GetData4());
+  return Set(uuid.GetData1(), uuid.GetData2(), uuid.GetData3(), uuid.GetData4(), uuid.GetData5(), uuid.GetData6());
 }
 
 
@@ -334,7 +418,7 @@ bool XUUID::CopyFrom(XUUID& uuid)
 *---------------------------------------------------------------------------------------------------------------------*/
 bool XUUID::CopyTo(XUUID& uuid)
 {
-  return uuid.Set(data1, data2, data3, data4);
+  return uuid.Set(data1, data2, data3, data4, data5, data6);
 }
 
 
@@ -384,9 +468,12 @@ bool XUUID::GenerateRandom()
           data2 = (XWORD)xrand->Between(0, 65535);
           data3 = (XWORD)xrand->Between(0, 65535);
 
+          data4 = (XBYTE)xrand->Between(0, 255);
+          data5 = (XBYTE)xrand->Between(0, 255);
+
           for(int c=0; c<XUUIDMAXDATA4; c++)
             {
-              data4[c] = (XBYTE)xrand->Max(255);
+              data6[c] = (XBYTE)xrand->Max(255);
             }
 
           GEN_XFACTORY.DeleteDateTime(datetime);
@@ -416,14 +503,11 @@ bool XUUID::GenerateRandom()
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool XUUID::GetToString(XSTRING& string)
 {
-  string.Format(__L("%08X-%04X-%04X-%02X%02X%02X%02X%02X%02X%02X%02X"), data1, data2, data3, data4[0]
-                                                                                           , data4[1]
-                                                                                           , data4[2]
-                                                                                           , data4[3]
-                                                                                           , data4[4]
-                                                                                           , data4[5]
-                                                                                           , data4[6]
-                                                                                           , data4[7]);
+  string.Format(__L("%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X"), data1
+                                                                       , data2
+                                                                       , data3
+                                                                       , data4, data5
+                                                                       , data6[0], data6[1], data6[2], data6[3], data6[4], data6[5]);
   return true;
 }
 
@@ -449,26 +533,32 @@ bool XUUID::SetFromString(XSTRING& string)
 
   memset(_data, 0, sizeof(int)*11);
 
-  string.UnFormat(__L("%08X-%04X-%04X-%02X%02X%02X%02X%02X%02X%02X%02X"), &_data[0], &_data[1], &_data[2],  &_data[3]
-                                                                                                          , &_data[4]
-                                                                                                          , &_data[5]
-                                                                                                          , &_data[6]
-                                                                                                          , &_data[7]
-                                                                                                          , &_data[8]
-                                                                                                          , &_data[9]
-                                                                                                          , &_data[10]);
+  string.UnFormat(__L("%08X-%04X-%04X-%02X%02-X%02X%02X%02X%02X%02X%02X") , &_data[0]
+                                                                          , &_data[1]
+                                                                          , &_data[2] 
+                                                                          , &_data[3]
+                                                                          , &_data[4]
+                                                                          , &_data[5]
+                                                                          , &_data[6]
+                                                                          , &_data[7]
+                                                                          , &_data[8]
+                                                                          , &_data[9]
+                                                                          , &_data[10]);
   data1     = _data[0];
+
   data2     = (XWORD)_data[1];
-  data3     = (XWORD)_data[2];
-  
-  data4[0]  = (XBYTE)_data[3];
-  data4[1]  = (XBYTE)_data[4];
-  data4[2]  = (XBYTE)_data[5];
-  data4[3]  = (XBYTE)_data[6];
-  data4[4]  = (XBYTE)_data[7];
-  data4[5]  = (XBYTE)_data[8];
-  data4[6]  = (XBYTE)_data[9];
-  data4[7]  = (XBYTE)_data[10];
+
+  data3     = (XWORD)_data[2];  
+
+  data4     = (XBYTE)_data[3];
+  data5     = (XBYTE)_data[4];
+
+  data6[0]  = (XBYTE)_data[5];
+  data6[1]  = (XBYTE)_data[6];
+  data6[2]  = (XBYTE)_data[7];
+  data6[3]  = (XBYTE)_data[8];
+  data6[4]  = (XBYTE)_data[9];
+  data6[5]  = (XBYTE)_data[10];
 
   return true;
 }
@@ -493,10 +583,12 @@ void XUUID::Clean()
   data1 = 0;
   data2 = 0;
   data3 = 0;
+  data4 = 0;
+  data5 = 0;
 
   for(int c=0; c<XUUIDMAXDATA4; c++)
     {
-      this->data4[c] = 0;
+      this->data6[c] = 0;
     }
 
 }

@@ -38,7 +38,7 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-#define XUUIDMAXDATA4   8
+#define XUUIDMAXDATA4   6
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -52,14 +52,18 @@ class XUUID
     XDWORD              GetData1        ();
     XWORD               GetData2        ();
     XWORD               GetData3        ();
-    XBYTE*              GetData4        ();
+    XBYTE               GetData4        ();
+    XBYTE               GetData5        ();
+    XBYTE*              GetData6        ();
 
     bool                SetData1        (XDWORD data);
     bool                SetData2        (XWORD data);
     bool                SetData3        (XWORD data);
-    bool                SetData4        (XBYTE* data);
-
-    bool                Set             (XDWORD data1, XWORD data2, XWORD data3, XBYTE* data4);
+    bool                SetData4        (XBYTE data);
+    bool                SetData5        (XBYTE data);
+    bool                SetData6        (XBYTE* data);
+    
+    bool                Set             (XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5, XBYTE* data6);
 
     bool                CopyFrom        (XUUID& uuid);
     bool                CopyTo          (XUUID& uuid);
@@ -74,7 +78,9 @@ class XUUID
     XDWORD              data1;
     XWORD               data2;
     XWORD               data3;
-    XBYTE               data4[XUUIDMAXDATA4];
+    XBYTE               data4;
+    XBYTE               data5;
+    XBYTE               data6[XUUIDMAXDATA4];
 
   private:
 
