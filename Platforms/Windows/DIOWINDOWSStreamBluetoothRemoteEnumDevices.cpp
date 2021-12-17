@@ -305,7 +305,9 @@ void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* data)
                                                             device->GetServiceClass()->Set( pwsaresults->lpServiceClassId->Data1 ,
                                                                                             pwsaresults->lpServiceClassId->Data2 ,
                                                                                             pwsaresults->lpServiceClassId->Data3 ,
-                                                                                            pwsaresults->lpServiceClassId->Data4 );
+                                                                                            pwsaresults->lpServiceClassId->Data4[0],
+                                                                                            pwsaresults->lpServiceClassId->Data4[1],
+                                                                                            &pwsaresults->lpServiceClassId->Data4[2]);
                                                             enumeration->devices.Add(device);
                                                           }
                                                           break;
