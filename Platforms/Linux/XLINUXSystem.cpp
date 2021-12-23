@@ -815,6 +815,8 @@ bool XLINUXSYSTEM::Sound_SetLevel(bool read, long* level)
 {
   #ifndef ANDROID
 
+  #ifdef SND_ACTIVE    
+
   snd_mixer_t*          handle;
   snd_mixer_elem_t*     elem;
   snd_mixer_selem_id_t* sid;
@@ -954,7 +956,13 @@ bool XLINUXSYSTEM::Sound_SetLevel(bool read, long* level)
 
   snd_mixer_close(handle);
 
-  #endif
-    
   return true;
+
+  #else
+
+  return false;
+
+  #endif   
+
+  #endif 
 }

@@ -82,8 +82,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   target_link_libraries(${CMAKE_PROJECT_NAME} pthread)  
   target_link_libraries(${CMAKE_PROJECT_NAME} rt)  
   target_link_libraries(${CMAKE_PROJECT_NAME} dl) 
-  target_link_libraries(${CMAKE_PROJECT_NAME} m) 
-  target_link_libraries(${CMAKE_PROJECT_NAME} asound)
+  target_link_libraries(${CMAKE_PROJECT_NAME} m)   
   
   if(DIO_STREAMUSB_FEATURE)
     target_link_libraries(${CMAKE_PROJECT_NAME} udev)  
@@ -102,6 +101,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   endif()
   
   if(SND_FEATURE)  
+    target_link_libraries(${CMAKE_PROJECT_NAME} asound)
     target_link_libraries(${CMAKE_PROJECT_NAME} openal)
   endif()  
 
