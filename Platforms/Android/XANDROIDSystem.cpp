@@ -107,19 +107,19 @@ XSYSTEM_HARDWARETYPE XANDROIDSYSTEM::GetTypeHardware(int* revision)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
+* @fn         XSYSTEM_PLATFORM XANDROIDSYSTEM::GetPlatform(XSTRING* namestring)
 * @brief      GetPlatform
 * @ingroup    PLATFORM_ANDROID
 * 
 * @author     Abraham J. Velez 
-* @date       09/11/2021 20:01:43
+* @date       29/12/2021 20:45:18
 * 
 * @param[in]  namestring : 
 * 
 * @return     XSYSTEM_PLATFORM : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
+XSYSTEM_PLATFORM XANDROIDSYSTEM::GetPlatform(XSTRING* namestring)
 {
   if(namestring)  namestring->Set(__L("Android"));
 

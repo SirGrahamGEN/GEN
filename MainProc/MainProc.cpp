@@ -94,20 +94,21 @@ MAINPROC::~MAINPROC()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool MAINPROC::Ini(APPMAIN* appmain)
+* 
+* @fn         bool MAINPROC::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode = APPBASE_APPLICATIONMODE_TYPE_UNKNOWN)
 * @brief      Ini
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
+* @date       30/12/2021 14:27:35
+* 
 * @param[in]  appmain : 
-*
+* @param[in]  applicationmode : 
+* 
 * @return     bool : true if is succesful. 
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-bool MAINPROC::Ini(APPMAIN* appmain)
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool MAINPROC::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
 {
   return false;
 }

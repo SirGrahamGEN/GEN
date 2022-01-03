@@ -70,23 +70,29 @@ INPDEVICE* INPWINDOWSFACTORYDEVICES::CreateDevice(INPDEVICE_TYPE type, void* par
 
   switch(type)
     {
-      case INPDEVICE_TYPE_KEYBOARD :  { INPWINDOWSDEVICEKEYBOARD* keyboard = new INPWINDOWSDEVICEKEYBOARD();
-                                        if(keyboard)
-                                          {
-                                            keyboard->SetScreen(param);
-                                            inpdevice = keyboard;
-                                          }
-                                      }
-                                      break;
+      case INPDEVICE_TYPE_NONE          :
 
-      case INPDEVICE_TYPE_MOUSE    :  { INPWINDOWSDEVICEMOUSE* mouse = new INPWINDOWSDEVICEMOUSE();
-                                        if(mouse)
-                                          {
-                                            mouse->SetScreen(param);
-                                            inpdevice = mouse;
+      case INPDEVICE_TYPE_JOSTICK       :
+      case INPDEVICE_TYPE_TOUCHSCREEN   :
+      case INPDEVICE_TYPE_WIIMOTE       : break;
+
+      case INPDEVICE_TYPE_KEYBOARD      : { INPWINDOWSDEVICEKEYBOARD* keyboard = new INPWINDOWSDEVICEKEYBOARD();
+                                            if(keyboard)
+                                              {
+                                                keyboard->SetScreen(param);
+                                                inpdevice = keyboard;
+                                              }
                                           }
-                                      }
-                                      break;
+                                          break;
+
+      case INPDEVICE_TYPE_MOUSE         : { INPWINDOWSDEVICEMOUSE* mouse = new INPWINDOWSDEVICEMOUSE();
+                                            if(mouse)
+                                              {
+                                                mouse->SetScreen(param);
+                                                inpdevice = mouse;
+                                              }
+                                          }
+                                          break;
 
     }
 

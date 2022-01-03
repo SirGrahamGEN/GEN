@@ -1,0 +1,72 @@
+# --------------------------------------------------------------------
+# CMakeLists_Compile.txt to GEN FrameWork
+# Librarys  
+# --------------------------------------------------------------------
+
+
+
+set(COMPILE_TO_WINDOWS                                  false   CACHE BOOL "Compile to Windows General"                                 FORCE)
+set(COMPILE_TO_WINDOWS_PC_32                            false   CACHE BOOL "Compile to Windows PC 32 Bits"                              FORCE)
+set(COMPILE_TO_WINDOWS_PC_64                            false   CACHE BOOL "Compile to Windows PC 64 Bits"                              FORCE)
+set(COMPILE_TO_LINUX                                    false   CACHE BOOL "Compile to Linux   General"                                 FORCE)
+set(COMPILE_TO_LINUX_PC_64                              false   CACHE BOOL "Compile to Linux   PC 64 Bits"                              FORCE)
+set(COMPILE_TO_LINUX_ARM_RASPBERRYPI                    false   CACHE BOOL "Compile to Linux   Rapsberry Pi"                            FORCE)
+set(COMPILE_TO_LINUX_ARM_NXP_IMX6                       false   CACHE BOOL "Compile to Linux   ARM NXP imx6"                            FORCE)
+set(COMPILE_TO_LINUX_ARM_NXP_IMX8                       false   CACHE BOOL "Compile to Linux   ARM NXP imx8"                            FORCE)
+set(COMPILE_TO_ANDROID                                  false   CACHE BOOL "Compile to Android General"                                 FORCE)
+set(COMPILE_TO_STM32                                    false   CACHE BOOL "Compile to STM32   Genral"                                  FORCE)
+
+
+
+#--- Compile in Windows Platform -------------------------------------
+
+if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+
+ set(COMPILE_TO_WINDOWS                                 true    CACHE BOOL "Compile to Windows General"                                 FORCE)
+
+ if(${TARGET} MATCHES "")   
+    set(COMPILE_TO_WINDOWS_PC_32                        true    CACHE BOOL "Compile to Windows PC 32 Bits"                              FORCE)
+ endif()
+
+ if(${TARGET} MATCHES "Android")   
+    set(COMPILE_TO_WINDOWS                              false   CACHE BOOL "Compile to Windows General"                                 FORCE)
+    set(COMPILE_TO_ANDROID                              true    CACHE BOOL "Compile to Android"                                         FORCE)
+ endif()
+
+
+ if(${TARGET} MATCHES "STM32")
+    set(COMPILE_TO_WINDOWS                              false   CACHE BOOL "Compile to Windows General"                                 FORCE)
+   set(COMPILE_TO_STM32_ARM                             true    CACHE BOOL "Compile to STM32"                                           FORCE)     
+ endif()
+
+endif()
+
+# --------------------------------------------------------------------
+
+
+
+#--- Compile in Linux Platform ---------------------------------------
+
+if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+
+  set(COMPILE_TO_LINUX                                  true    CACHE BOOL "Compile to Linux   General"                                 FORCE)  
+
+  if(${TARGET} MATCHES "")
+    set(COMPILE_TO_LINUX_PC_64                          true    CACHE BOOL "Compile to Linux   PC 64 Bits"                              FORCE)
+  endif()
+
+  if(${TARGET} MATCHES "raspberrypi")
+    set(COMPILE_TO_LINUX_ARM_RASPBERRYPI                true    CACHE BOOL "Compile to Linux   Rapsberry Pi"                            FORCE)
+  endif()
+
+  if(${TARGET} MATCHES "nxp_imx6")
+    set(COMPILE_TO_LINUX_ARM_NXP_IMX6                   true    CACHE BOOL "Compile to Linux   ARM NXP imx6"                            FORCE)
+  endif()
+
+  if(${TARGET} MATCHES "nxp_imx8")
+    set(COMPILE_TO_LINUX_ARM_NXP_IMX6                   true    CACHE BOOL "Compile to Linux   ARM NXP imx6"                            FORCE)
+  endif()
+
+endif()
+
+# --------------------------------------------------------------------

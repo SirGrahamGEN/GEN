@@ -39,6 +39,7 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include <stdio.h>
 #include <math.h>
 
 #include "agg_basics.h"
@@ -1333,7 +1334,7 @@ class GRPCANVASAGG: public GRPCANVAS
 
                                                                                   int     width       = (int)RasterFont_GetWidth(text.Get());
                                                                                   int     height      = (int)RasterFont_GetHeight();
-                                                                                  double  excessedge  = 10;
+                                                                                  //double  excessedge  = 10;
                                                                                 
                                                                                   
                                                                                   framerate_bitmap = GetBitmap(x-2, (y-height+2), width + 6 , height + 6);

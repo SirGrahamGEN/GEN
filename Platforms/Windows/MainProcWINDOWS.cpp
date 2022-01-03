@@ -833,7 +833,9 @@ void WINDOWSSERVICE::SetMustRestartService(bool mustrestartservice)
 *---------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_Start(DWORD argc, XCHAR** args)
 {
-  HANDLE hthread = CreateThread(NULL, 0, Service_WorkerThread, this, 0, NULL);
+  //HANDLE hthread = 
+
+  CreateThread(NULL, 0, Service_WorkerThread, this, 0, NULL);
 }
 
 
@@ -925,7 +927,7 @@ void WINDOWSSERVICE::On_Shutdown()
 void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
 {
   #ifdef APP_ACTIVE
-  XSYSTEM_CHANGESTATUSTYPE systemchangestatustype = XSYSTEM_CHANGESTATUSTYPE_UNKNOWN;
+  //XSYSTEM_CHANGESTATUSTYPE systemchangestatustype = XSYSTEM_CHANGESTATUSTYPE_UNKNOWN;
 
   if(mainprocwindows.GetAppMain())
     {
@@ -959,7 +961,7 @@ void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
 void WINDOWSSERVICE::On_SessionChange(DWORD eventtype)
 {
   #ifdef APP_ACTIVE
-  XSYSTEM_CHANGESTATUSTYPE systemchangestatustype = XSYSTEM_CHANGESTATUSTYPE_UNKNOWN;
+  //XSYSTEM_CHANGESTATUSTYPE systemchangestatustype = XSYSTEM_CHANGESTATUSTYPE_UNKNOWN;
 
   if(mainprocwindows.GetAppMain())
     {

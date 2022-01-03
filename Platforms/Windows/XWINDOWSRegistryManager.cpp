@@ -894,7 +894,9 @@ bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XCHAR* subkeystring)
         else return false;
     }
 
-  XPATH subkey = subkeystring;
+  XPATH subkey;
+
+  subkey = subkeystring;
   subkey.Slash_Add();
 
   size = _MAXPATH;

@@ -17,6 +17,7 @@ else()
 endif()
 
 
+
 # --------------------------------------------------------------------
 # Directorys of the Application
 
@@ -28,7 +29,7 @@ set(GEN_DIRECTORY_SOURCES_COMPRESS                            "${GEN_DIRECTORY_S
 set(GEN_DIRECTORY_SOURCES_DATAIO                              "${GEN_DIRECTORY_SOURCES}/DataIO")
 set(GEN_DIRECTORY_SOURCES_DATAIO_I2C                          "${GEN_DIRECTORY_SOURCES_DATAIO}/I2C")
 set(GEN_DIRECTORY_SOURCES_DATAIO_SPI                          "${GEN_DIRECTORY_SOURCES_DATAIO}/SPI")
-set(GEN_DIRECTORY_SOURCES_GRAPHIC                             "${GEN_DIRECTORY_SOURCES}/Graphic")
+set(GEN_DIRECTORY_SOURCES_GRAPHIC                            "${GEN_DIRECTORY_SOURCES}/Graphic")
 set(GEN_DIRECTORY_SOURCES_GRAPHIC_2D                          "${GEN_DIRECTORY_SOURCES_GRAPHIC}/2D")
 set(GEN_DIRECTORY_SOURCES_GRAPHIC_3D                          "${GEN_DIRECTORY_SOURCES_GRAPHIC}/3D")
 set(GEN_DIRECTORY_SOURCES_USERINTERFACE                       "${GEN_DIRECTORY_SOURCES}/UserInterface")
@@ -138,22 +139,31 @@ list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_DUKTAPE})
 list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_ZLIB})
 list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_ZLIB_MINIZIP})
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_LIB})
-  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_INCLUDE})
-endif()
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPCAP})
-endif()
-
-if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+if(COMPILE_TO_WINDOWS)
+  
   list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_TOAST})
   list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_STACKWALKER})
+  
+  if(DIO_PCAP_FEATURE)
+    list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_LIB})
+    list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_INCLUDE})
+  endif()
+  
+  if(COMPILE_TO_WINDOWS_PC_32)
+
+    list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/OpenAL/sdk/libs/Win32")
+
+    list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/mysql-connector-c/libmysql/mysql-connector-c-6.1.11-win32/lib")
+    list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/postgresql/Release/libpq/lib_32")
+  
+   endif()
+
 endif()
 
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+if(COMPILE_TO_LINUX)
+
   if(LINUX_X11_FEATURE)     
     #list(APPEND INCLUDES_DIR "../../../../../../usr/include")
     #message(${INCLUDES_DIR})
@@ -169,26 +179,21 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     list(APPEND INCLUDES_DIR "/usr/include/glib-2.0")
     list(APPEND INCLUDES_DIR "/usr/lib/x86_64-linux-gnu/glib-2.0/include")
   endif()
-
-
-endif()  
-
-if(${TARGET} MATCHES "android")
-  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_ANDROID_GLUE})
-endif()
-
-
-# --------------------------------------------------------------------
-# ThirdPartyLibraries Librarys DIR
-
-if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-
-  list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/OpenAL/sdk/libs/Win32")
-
-  list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/mysql-connector-c/libmysql/mysql-connector-c-6.1.11-win32/lib")
-  list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/postgresql/Release/libpq/lib_32")
   
+  if(DIO_PCAP_FEATURE)
+    list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPCAP})
+  endif()  
+
 endif()
+
+
+if(COMPILE_TO_ANDROID)
+
+  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_ANDROID_GLUE})
+
+endif()
+
+
 
 link_directories(${LIBRARIES_DIR})
 
@@ -309,57 +314,50 @@ add_definitions(-DUNICODE)
 # ----------------------------------------
 # Platform Windows 
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
- 
-  # ----------------------------------------
-  # PC 
+if(COMPILE_TO_WINDOWS)
+         
+  add_definitions(-DWINDOWS)
+  add_definitions(-DHW_PC)
+  add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 
-  if("${TARGET}" STREQUAL "")
-        
-    add_definitions(-DWINDOWS)
-    add_definitions(-DHW_PC)
-    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4091")    #  warning C4091: 'typedef ': ignored on left of 'xxx' when no variable is declared       
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4595")    #  warning C4595: 'xxx': non-member operator new or delete functions may not be declared inline
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4996")    #  warning C4996: 'xxx': was declared deprecated      
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4091")    #  warning C4091: 'typedef ': ignored on left of 'xxx' when no variable is declared       
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4595")    #  warning C4595: 'xxx': non-member operator new or delete functions may not be declared inline
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4996")    #  warning C4996: 'xxx': was declared deprecated      
     
-    if(APPMODE_WINDOWS_DINAMIC)
-      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251")  #  warning C4251: needs to have dll-interface to be used by clients of class 'xxxxxxxx'
-    endif()
+  if(APPMODE_WINDOWS_DINAMIC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251")  #  warning C4251: needs to have dll-interface to be used by clients of class 'xxxxxxxx'
+  endif()
     
-    #-------------------------------------------------------------------------------------------
-    # Set Static librarys
+  #-------------------------------------------------------------------------------------------
+  # Set Static librarys
 
-    set(CompilerFlags CMAKE_C_FLAGS 
-                      CMAKE_C_FLAGS_DEBUG 
-                      CMAKE_C_FLAGS_RELEASE 
-                      CMAKE_C_FLAGS_MINSIZEREL 
-                      CMAKE_C_FLAGS_RELWITHDEBINFO
+  set(CompilerFlags CMAKE_C_FLAGS 
+                    CMAKE_C_FLAGS_DEBUG 
+                    CMAKE_C_FLAGS_RELEASE 
+                    CMAKE_C_FLAGS_MINSIZEREL 
+                    CMAKE_C_FLAGS_RELWITHDEBINFO
 
-                      CMAKE_CXX_FLAGS 
-                      CMAKE_CXX_FLAGS_DEBUG 
-                      CMAKE_CXX_FLAGS_RELEASE 
-                      CMAKE_CXX_FLAGS_MINSIZEREL 
-                      CMAKE_CXX_FLAGS_RELWITHDEBINFO)
+                    CMAKE_CXX_FLAGS 
+                    CMAKE_CXX_FLAGS_DEBUG 
+                    CMAKE_CXX_FLAGS_RELEASE 
+                    CMAKE_CXX_FLAGS_MINSIZEREL 
+                    CMAKE_CXX_FLAGS_RELWITHDEBINFO)
         
-    foreach(CompilerFlag ${CompilerFlags})
-      if(APPMODE_WINDOWS_DINAMIC)  
-        string(REPLACE "/MT" "/MD" ${CompilerFlag} "${${CompilerFlag}}")
-       else()
-        string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
-      endif()  
+  foreach(CompilerFlag ${CompilerFlags})
+     if(APPMODE_WINDOWS_DINAMIC)  
+     string(REPLACE "/MT" "/MD" ${CompilerFlag} "${${CompilerFlag}}")
+     else()
+     string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
+     endif()  
       
-      set(${CompilerFlag} "${${CompilerFlag}}" CACHE STRING "msvc compiler flags" FORCE)
-      #message("MSVC flags: ${CompilerFlag}:${${CompilerFlag}}")
-    endforeach()
+     set(${CompilerFlag} "${${CompilerFlag}}" CACHE STRING "msvc compiler flags" FORCE)
+     #message("MSVC flags: ${CompilerFlag}:${${CompilerFlag}}")
+   endforeach()
 
-    #-------------------------------------------------------------------------------------------
+  #-------------------------------------------------------------------------------------------
 
-    set(XTRANSLATION_FEATURE                              true    CACHE BOOL "Activate Translation"                                       FORCE)   
-
-   endif()
-  
+  set(XTRANSLATION_FEATURE                              true    CACHE BOOL "Activate Translation"                                       FORCE)   
+    
 endif()
 
 
@@ -367,7 +365,7 @@ endif()
 # -------------------------------------------
 # Platform Linux 
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+if(COMPILE_TO_LINUX)
   
   add_definitions(-DLINUX)
 
@@ -385,7 +383,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   # ----------------------------------------
   # PC 
 
-  if("${TARGET}" STREQUAL "")
+  if(COMPILE_TO_LINUX_PC_64)
   
     add_definitions(-DHW_PC)
     
@@ -395,7 +393,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   # ----------------------------------------
   # Platform Raspberry Pi
   
-  if(${TARGET} MATCHES "raspberrypi")
+  if(COMPILE_TO_LINUX_ARM_RASPBERRYPI)
 
     # Define our host system
     set(CMAKE_SYSTEM_NAME Linux)
@@ -427,7 +425,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   # ----------------------------------------
   # Platform NXP iMX6
   
-  if(${TARGET} MATCHES "nxp_imx6")
+  if(COMPILE_TO_LINUX_ARM_NXP_IMX6)
     
     set(CMAKE_SYSTEM_NAME Linux)
     set(CMAKE_SYSTEM_PROCESSOR arm)  
@@ -455,7 +453,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
    # ----------------------------------------
    # Platform NXP iMX8
   
-   if(${TARGET} MATCHES "nxp_imx8")
+   if(COMPILE_TO_LINUX_ARM_NXP_IMX8)
     
     set(CMAKE_SYSTEM_NAME Linux)
     set(CMAKE_SYSTEM_PROCESSOR arm)  
@@ -488,30 +486,28 @@ endif()
 # ----------------------------------------
 # Platform Android
   
-if(${TARGET} MATCHES "android")
+if(COMPILE_TO_ANDROID)
     
+  set(ANDROID_NDK_ROOT "${GEN_DIRECTORY}/ThirdPartyLibraries/android-ndk-r23b")
+
   add_definitions(-DANDROID)    
   add_definitions(-DIOAPI_NO_64)
   add_definitions(-DFT_DEBUG_LEVEL_ERROR)
   add_definitions(-DFT_DEBUG_LEVEL_TRACE)
   add_definitions(-DFT2_BUILD_LIBRARY)
 
-  set(CMAKE_SYSTEM_NAME Android)
-  set(CMAKE_SYSTEM_VERSION 27) # API level
-  set(CMAKE_ANDROID_ARCH_ABI armeabi-v7a)
-  set(CMAKE_ANDROID_NDK ANDROID_NDK_ROOT)
-  set(CMAKE_ANDROID_NDK_TOOLCHAIN_VERSION "clang")
-  set(CMAKE_ANDROID_STL_TYPE gnustl_static)
-                                                
-  list(APPEND INCLUDES_DIR  "${ANDROID_NDK_ROOT}/sources/cxx-stl/llvm-libc++/include")
-  list(APPEND INCLUDES_DIR  "${ANDROID_NDK_ROOT}/sources/cxx-stl/llvm-libc++abi/include")
-  list(APPEND INCLUDES_DIR  "${ANDROID_NDK_ROOT}/sysroot/usr/include")
-  list(APPEND INCLUDES_DIR  "${ANDROID_NDK_ROOT}/sysroot/usr/include/aarch64-linux-android")
-  list(APPEND INCLUDES_DIR  "${ANDROID_NDK_ROOT}/sources/android/support/include")
+  set(ANDROID_ABI arm64-v8a)
+  set(ANDROID_PLATFORM android-23)  
+  set(ANDROID_NDK ANDROID_NDK_ROOT)
+  set(CMAKE_TOOLCHAIN_FILE  "${ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake")
+   
+  list(APPEND INCLUDES_DIR  "${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include")
+  list(APPEND INCLUDES_DIR  "${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/arm-linux-androideabi")
+  
 
   add_library(native_app_glue STATIC ${ANDROID_NDK_ROOT}/sources/android/native_app_glue/android_native_app_glue.c)
   target_include_directories(native_app_glue PUBLIC ${ANDROID_NDK_ROOT}/sources/android/native_app_glue)
-  
+
   set(XTRANSLATION_FEATURE                              true    CACHE BOOL "Activate Translation"                                       FORCE)   
                               
 endif()   
@@ -521,7 +517,7 @@ endif()
 # -------------------------------------------
 # Platform STM32
 
-if(${TARGET} MATCHES "stm32")
+if(COMPILE_TO_STM32)
 
   # Configure the project
   set(CMAKE_C_STANDARD 11)
@@ -681,7 +677,7 @@ endif()
 # -------------------------------------------------
 # Special XSYSTEM Linux
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+if(COMPILE_TO_LINUX)
   set(XPROCESSMANAGER_FEATURE                             true    CACHE BOOL "Activate Process Manager"                                   FORCE)
 endif()
 
@@ -691,19 +687,20 @@ endif()
 # Utils
           
 if(XTRACE_FEATURE)
+
   add_definitions(-DXTRACE_ACTIVE)
 
   if(XTRACE_NOINTERNET_FEATURE)
     add_definitions(-DXTRACE_NOINTERNET)  
   endif()
   
-  if((${CMAKE_SYSTEM_NAME} MATCHES "Windows")  OR  (${CMAKE_SYSTEM_NAME} MATCHES "Linux")  OR  (${TARGET} MATCHES "android")) 
+  if((COMPILE_TO_WINDOWS)  OR  (COMPILE_TO_LINUX)  OR  (COMPILE_TO_ANDROID))
     set(DIO_FEATURE                                       true    CACHE BOOL "Activate Data Input/Output"                                 FORCE)
-
     set(DIO_DNSRESOLVED_FEATURE                           true    CACHE BOOL "Activate DNS Resolved"                                      FORCE)
     set(DIO_WEBCLIENT_FEATURE                             true    CACHE BOOL "Activate Web Client"                                        FORCE)    
     set(DIO_SCRAPERWEB_FEATURE                            true    CACHE BOOL "Activate Scraper Web"                                       FORCE)       
   endif()
+
 endif()  
 
 if(XMEMORY_CONTROL_FEATURE)
@@ -1787,7 +1784,7 @@ endif()
 # -------------------------------------------------
 # Windows
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+if(COMPILE_TO_WINDOWS)
 
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/MainProcWINDOWS.cpp")
 
@@ -1925,7 +1922,7 @@ endif()
 # -------------------------------------------------
 # Linux
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+if(COMPILE_TO_LINUX)
   
   if(GRP_FEATURE)       
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/GRPLINUXFactory.cpp")    
@@ -2084,7 +2081,7 @@ endif()
 # ----------------------------------------
 # Platform Android
   
-if(${TARGET} MATCHES "android")
+if(COMPILE_TO_ANDROID)
 
   
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_ANDROID}/ANDROIDJNI.cpp")
@@ -2108,8 +2105,6 @@ if(${TARGET} MATCHES "android")
   if(XFILE_FEATURE)
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_ANDROID}/XANDROIDFile.cpp")
   endif()
-
-
 
 endif()
 
@@ -2295,12 +2290,12 @@ if(SOURCES MATCHES "GRPBitmapFilePNG.cpp")
 	list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/pngwtran.c")
 	list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/pngwutil.c")	 
   
-  if(${TARGET} MATCHES "raspberrypi")
+  if(COMPILE_TO_LINUX_ARM_RASPBERRYPI)
     list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/arm/arm_init.c")
     list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/arm/filter_neon_intrinsics.c")
   endif()
 
-  if(${TARGET} MATCHES "nxp_imx8")
+  if(COMPILE_TO_LINUX_ARM_NXP_IMX8)
     list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/arm/arm_init.c")
     list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/arm/filter_neon_intrinsics.c")
   endif()
@@ -2351,7 +2346,7 @@ if(SCRIPT_JAVASCRIPT_FEATURE)
 endif()
 
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+if(COMPILE_TO_WINDOWS)
   remove_definitions(-DUNICODE)
   list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_STACKWALKER}/StackWalker.cpp")
 endif()

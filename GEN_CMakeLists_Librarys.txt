@@ -1,10 +1,7 @@
 # --------------------------------------------------------------------
-# CMakeLists.txt to GEN FrameWork
+# CMakeLists_Librarys.txt to GEN FrameWork
 # Librarys  
 # --------------------------------------------------------------------
-
-
-
 
 
 # --------------------------------------------------------------------
@@ -13,9 +10,9 @@
 # --------------------------------------------------------------------
 # Windows
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-  
-  if("${TARGET}" STREQUAL "")
+if(COMPILE_TO_WINDOWS)
+        
+  #if(COMPILE_TO_WINDOWS_PC_32)
 
     if(APP_CONSOLE_FEATURE)
       set_target_properties(${CMAKE_PROJECT_NAME}  PROPERTIES LINK_FLAGS /SUBSYSTEM:CONSOLE)
@@ -62,7 +59,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
       target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_LIB})
     endif()
 
-  endif()
+  #endif()
 
 endif()
 
@@ -71,9 +68,9 @@ endif()
 # --------------------------------------------------------------------
 # Linux
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+if(COMPILE_TO_LINUX)
 
-  if(${TARGET} MATCHES "raspberrypi")
+  if(COMPILE_TO_LINUX_ARM_RASPBERRYPI)
     target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC /usr/local/pi/tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/lib/arm-linux-gnueabihf)
     target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC /usr/local/pi/tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/lib/arm-linux-gnueabihf)
   endif()
@@ -134,7 +131,7 @@ endif()
 # ----------------------------------------
 # Android
   
-if(${TARGET} MATCHES "android")
+if(COMPILE_TO_ANDROID)
 
   #target_link_libraries(${CMAKE_PROJECT_NAME}  android log)
 

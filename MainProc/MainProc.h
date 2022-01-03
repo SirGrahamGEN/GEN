@@ -39,6 +39,8 @@
 #include "XVector.h"
 #include "XPath.h"
 
+#include "APPBase.h"
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 class MAINPROC;
@@ -78,7 +80,7 @@ class MAINPROC
                                   MAINPROC                ();
     virtual                      ~MAINPROC                ();
 
-    virtual bool                  Ini                     (APPMAIN* appmain = NULL);
+    virtual bool                  Ini                     (APPMAIN* appmain = NULL, APPBASE_APPLICATIONMODE_TYPE applicationmode = APPBASE_APPLICATIONMODE_TYPE_UNKNOWN);
     virtual bool                  Update                  ();
     virtual bool                  End                     ();
 

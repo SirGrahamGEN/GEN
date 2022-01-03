@@ -251,7 +251,7 @@ bool XWINDOWSFILE::SetPosition(XQWORD position)
   if(_position == XFILE_SEEKEND) _position = cachesize;
   if(_position > cachesize) return false;
 
-  XQWORD mask1 = 0xFFFFFFFF00000000;
+  //XQWORD mask1 = 0xFFFFFFFF00000000;
 
   XDWORD high_position = High_QWORD(_position);
   XDWORD low_position  = Low_QWORD(_position);

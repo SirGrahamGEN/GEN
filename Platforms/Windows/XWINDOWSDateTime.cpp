@@ -260,7 +260,7 @@ bool XWINDOWSDATETIME::IsDayLigthSavingTime(int* bias)
 {
   TIME_ZONE_INFORMATION timezoneinfo = { 0 };
 
-  int ret = ::GetTimeZoneInformation(&timezoneinfo);
+  XDWORD ret = (XDWORD)::GetTimeZoneInformation(&timezoneinfo);
 
   switch(ret)
     {

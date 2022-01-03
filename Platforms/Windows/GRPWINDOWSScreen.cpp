@@ -730,19 +730,23 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  LRESULT CALLBACK BaseWndProc
-*/
-/**
-//
-//
-//  @author      Diego Martinez
-//  @version      13/03/2014 12:54:52
-//
-//  @return       LRESULT :
-//
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
+* @brief      BaseWndProc
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       30/12/2021 14:59:44
+* 
+* @param[in]  hwnd : 
+* @param[in]  msg : 
+* @param[in]  wparam : 
+* @param[in]  lparam : 
+* 
+* @return     LRESULT : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
   switch(msg)
