@@ -24,7 +24,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
  set(COMPILE_TO_WINDOWS                                 true    CACHE BOOL "Compile to Windows General"                                 FORCE)
 
- if(${TARGET} MATCHES "")   
+ if(${TARGET} MATCHES "pc")   
     set(COMPILE_TO_WINDOWS_PC_32                        true    CACHE BOOL "Compile to Windows PC 32 Bits"                              FORCE)
  endif()
 
@@ -51,7 +51,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
   set(COMPILE_TO_LINUX                                  true    CACHE BOOL "Compile to Linux   General"                                 FORCE)  
 
-  if(${TARGET} MATCHES "")
+  if(${TARGET} MATCHES "pc")
     set(COMPILE_TO_LINUX_PC_64                          true    CACHE BOOL "Compile to Linux   PC 64 Bits"                              FORCE)
   endif()
 

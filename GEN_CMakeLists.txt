@@ -383,10 +383,10 @@ if(COMPILE_TO_LINUX)
   # ----------------------------------------
   # PC 
 
-  if(COMPILE_TO_LINUX_PC_64)
+  if(COMPILE_TO_LINUX_PC_64) 
   
-    add_definitions(-DHW_PC)
-    
+    add_definitions(-DHW_PC)    
+
   endif()
 
 
