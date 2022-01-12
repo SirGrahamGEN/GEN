@@ -390,13 +390,13 @@ XBYTE* GRPVIDEOFILEAVI::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
   
   if(!fileRIFF->GetFileBase()->SetPosition(frame_list->GetPositionFileData()))
     {
-      delete data;
+      delete [] data;
       return NULL;
     }
 
   if(!fileRIFF->GetFileBase()->Read(data, datasize))
     {
-      delete data;
+      delete [] data;
       return NULL;
     }
 

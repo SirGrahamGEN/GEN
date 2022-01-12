@@ -187,21 +187,23 @@ bool GRPVIDEOFILE::Open(XCHAR* xpath)
 
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPVIDEOFILE::Create(XCHAR* xpath)
+* @fn         bool GRPVIDEOFILE::Create(XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys))
 * @brief      Create
 * @ingroup    GRAPHIC
 * 
 * @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
+* @date       04/01/2022 18:04:11
 * 
 * @param[in]  xpath : 
+* @param[in]  propertys : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool GRPVIDEOFILE::Create(XCHAR* xpath)
+bool GRPVIDEOFILE::Create(XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys)
 {
   return false;
 }

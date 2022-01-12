@@ -74,7 +74,7 @@ class GRPVIDEOFILE
     virtual                    ~GRPVIDEOFILE                ();
 
     virtual bool                Open                        (XCHAR* xpath);  
-    virtual bool                Create                      (XCHAR* xpath);
+    virtual bool                Create                      (XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys);
 
     GRPVIDEOFILE_PROPERTYS*     GetPropertys                ();
     
