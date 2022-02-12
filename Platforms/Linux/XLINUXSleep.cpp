@@ -181,8 +181,8 @@ void XLINUXSLEEP::MicroSeconds(int microseconds)
 *---------------------------------------------------------------------------------------------------------------------*/
 void XLINUXSLEEP::NanoSeconds(int nanoseconds)
 {
-  struct timespec time = { 0, nanoseconds };
-  struct timespec time2;
+  struct timespec time  = { 0, nanoseconds };
+  struct timespec time2 = { 0, 0           };
 
   nanosleep(&time , &time2);
 

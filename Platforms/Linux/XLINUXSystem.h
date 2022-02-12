@@ -38,6 +38,15 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+#define   _PATH_UMOUNT		  "/bin/umount"
+#define   _PATH_PASSWD      "/etc/passwd"
+#define   _PATH_MTAB		    "/etc/mtab"
+#define   UMOUNT_ARGS		    "umount", "-a"
+#define   SWAPOFF_ARGS      "swapoff", "-a"
+
+//#define   WR(s) write(fd, s, strlen(s))
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XLINUXSYSTEM : public XSYSTEM

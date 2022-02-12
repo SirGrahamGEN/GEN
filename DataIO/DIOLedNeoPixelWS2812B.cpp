@@ -189,6 +189,46 @@ bool DIOLEDNEOPIXELWS2812B::SendData(XBYTE* data, XDWORD size)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE DIOLEDNEOPIXELWS2812B::GetBrightnessLevel()
+* @brief      GetBrightnessLevel
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/02/2022 23:12:23
+* 
+* @return     XBYTE : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XBYTE DIOLEDNEOPIXELWS2812B::GetBrightnessLevel()
+{
+  return brightnessLevel;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnessLevel)
+* @brief      SetBrightnessLevel
+* @ingroup    DATAIO
+* 
+* @author     Abraham J. Velez 
+* @date       11/02/2022 23:12:29
+* 
+* @param[in]  brightnessLevel : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnessLevel)
+{
+  this->brightnessLevel = brightnessLevel;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLEDNEOPIXELWS2812B::SendData(XBUFFER* data)
 * @brief      SendData
@@ -303,6 +343,8 @@ bool DIOLEDNEOPIXELWS2812B::End()
 *---------------------------------------------------------------------------------------------------------------------*/
 void DIOLEDNEOPIXELWS2812B::Clean()
 {
-  nled            = 0;
-  GPIOentryID     = DIOGPIO_ID_NOTDEFINED;
+  nled              = 0;
+  GPIOentryID       = DIOGPIO_ID_NOTDEFINED;
+
+  brightnessLevel   = 255;
 }

@@ -43,12 +43,26 @@
 #include <string.h>
 #include <dirent.h>
 #include <locale.h>
+#include <fcntl.h>
+#include <utmp.h>
+#include <time.h>
+#include <string.h>
+#include <ctype.h>
+#include <signal.h>
+#include <termios.h>
+#include <mntent.h>
 #include <sys/reboot.h>
 #include <sys/types.h>
+#include <sys/param.h>
 #include <sys/sysinfo.h>
 #include <sys/wait.h>
 #include <sys/utsname.h>
+#include <sys/mount.h>
+#include <syslog.h>
+#include <sys/resource.h>
 #include <linux/reboot.h>
+
+
 
 #ifndef ANDROID
 #include <alsa/asoundlib.h>
@@ -70,8 +84,17 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
+char*   whom;	
+char	  message[90];
+int	    timeout    = 0;	
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
+
+void    int_handler                     (int code);
+void    swap_off                        ();
+void    unmount_disks                   ();
+void    unmount_disks_ourselves         ();
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -675,18 +698,68 @@ bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* variablename)
 *---------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 {
+  int	    opt_reboot = 0;
+  int     fd;
+
   switch(type)
     {
-      case XSYSTEM_CHANGESTATUSTYPE_REBOOT          : sync();
-                                                      reboot(LINUX_REBOOT_CMD_RESTART);
-                                                      break;
-
-      case XSYSTEM_CHANGESTATUSTYPE_SESSION_LOGOFF  : break;
-
-      case XSYSTEM_CHANGESTATUSTYPE_POWEROFF        : sync();
-                                                      reboot(LINUX_REBOOT_CMD_POWER_OFF);
-                                                      break;
+      case XSYSTEM_CHANGESTATUSTYPE_REBOOT          : opt_reboot = 1;   break;     
+      case XSYSTEM_CHANGESTATUSTYPE_POWEROFF        : opt_reboot = 0;   break;
+                                        default     : break;
     }
+
+  setpriority(PRIO_PROCESS, 0, PRIO_MIN);
+	                                                    
+  whom = getlogin();
+
+  setpriority(PRIO_PROCESS, 0, PRIO_MIN);
+	signal(SIGINT,  int_handler);
+	signal(SIGHUP,  int_handler);
+	signal(SIGQUIT, int_handler);
+	signal(SIGTERM, int_handler);
+
+	chdir("/");
+
+	signal(SIGPIPE, SIG_IGN);	
+	signal(SIGINT,  SIG_IGN);   // now there's no turning back... 
+
+	kill(1, SIGTSTP);	          // tell init not to spawn more getty's 
+		
+	sync();
+
+	signal(SIGTERM, SIG_IGN);
+
+	if(fork() > 0) sleep(1000); // the parent will die soon... 
+
+	setpgrp();		              // so the shell wont kill us in the fall 
+	
+  kill(-1, SIGTERM);          // a gentle kill of all other processes except init 
+	sleep(2);
+	
+	kill(-1, SIGKILL);          // now use brute force... 
+
+	acct(NULL);	                // turn off accounting 
+
+	sync();
+	sleep(2);
+
+	swap_off();	                // remove swap files and partitions using swapoff 
+
+	unmount_disks();	          // unmount disks... 
+
+	sync();
+	sleep(1);
+
+  if(opt_reboot) 
+    {
+		  reboot(LINUX_REBOOT_CMD_RESTART);
+	  } 
+   else 
+    {
+		  reboot(LINUX_REBOOT_CMD_POWER_OFF);
+    }		  
+
+  exit(0); // to quiet gcc 
 
   return true;
 }
@@ -793,6 +866,180 @@ void XLINUXSYSTEM::Clean()
 
 }
 
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void int_handler()
+* @brief      nt_handler
+* @ingroup    PLATFORM_LINUX
+* 
+* @author     Abraham J. Velez 
+* @date       23/01/2022 21:53:07
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void int_handler(int code)
+{
+	unlink(_PATH_NOLOGIN);
+	signal(SIGINT, SIG_DFL);
+
+	exit(1);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void swap_off()
+* @brief      wap_off
+* @ingroup    PLATFORM_LINUX
+* 
+* @author     Abraham J. Velez 
+* @date       25/01/2022 18:18:32
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void swap_off()
+{
+	/// swapoff esp. swap FILES so the underlying partition can be
+	//  unmounted. It you don't have swapoff(1) or use mount to
+	//  add swapspace, this may not be necessary, but I guess it
+	//  won't hurt 
+
+	int   pid;
+	int   result;
+	int   status;
+
+	sync();
+
+	if((pid = fork()) < 0) 
+    {
+		  // Cannot fork for swapoff. Shrug!
+		  return;
+	  }
+
+	if(!pid) 
+    {
+		  execl("/sbin/swapoff" , SWAPOFF_ARGS, NULL);
+		  execl("/etc/swapoff"  , SWAPOFF_ARGS, NULL);
+		  execl("/bin/swapoff"  , SWAPOFF_ARGS, NULL);
+
+		  execlp("swapoff"      , SWAPOFF_ARGS, NULL);
+
+		  // Cannot exec swapoff, hoping umount will do the trick.
+		  exit(0);
+	  }
+
+	while((result = wait(&status)) != -1 && result != pid);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void unmount_disks()
+* @brief      nmount_disks
+* @ingroup    PLATFORM_LINUX
+* 
+* @author     Abraham J. Velez 
+* @date       25/01/2022 18:18:39
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void unmount_disks()
+{
+	// better to use umount directly because it may be smarter than us 
+
+	int   pid;
+	int   result;
+	int   status;
+
+	sync();
+
+	if((pid = fork()) < 0) 
+    {
+		  // Cannot fork for umount, trying manually.
+		  unmount_disks_ourselves();
+		  return;
+	  }
+
+	if(!pid) 
+    {
+		  execl(_PATH_UMOUNT, UMOUNT_ARGS, NULL);
+
+  		// Cannot exec %s, trying umount. _PATH_UMOUNT
+
+  		execlp("umount", UMOUNT_ARGS, NULL);
+
+	  	// Cannot exec umount, giving up on umount.
+		  exit(0);
+	  }
+
+	while ((result = wait(&status)) != -1 && result != pid);
+
+	// Unmounting any remaining filesystems...
+
+	unmount_disks_ourselves();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void unmount_disks_ourselves()
+* @brief      nmount_disks_ourselves
+* @ingroup    PLATFORM_LINUX
+* 
+* @author     Abraham J. Velez 
+* @date       25/01/2022 18:18:25
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void unmount_disks_ourselves()
+{
+	// unmount all disks 
+
+	FILE*           mtab;
+	struct mntent*  mnt;
+	char*           mntlist[128];
+	int             i;
+	int             n;
+	char*           filesys;
+	
+	sync();
+
+	if(!(mtab = setmntent(_PATH_MTAB, "r"))) 
+    {
+		  // shutdown: Cannot open %s _PATH_MTAB;
+		  return;
+	  }
+
+	n = 0;
+	while (n < 100 && (mnt = getmntent(mtab))) 
+    {
+		  mntlist[n++] = strdup(mnt->mnt_fsname[0] == '/' ?
+			mnt->mnt_fsname : mnt->mnt_dir);
+	  }
+
+	endmntent(mtab);
+
+	// we are careful to do this in reverse order of the mtab file 
+
+	for(i = n - 1; i >= 0; i--) 
+    {
+		  filesys = mntlist[i];
+
+		  if(umount(mntlist[i]) < 0)
+        {
+			    // shutdown: Couldn't umount %s filesys
+        }
+	  }
+}
 
 
 

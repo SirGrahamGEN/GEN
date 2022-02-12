@@ -36,6 +36,27 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <getopt.h>
+
+#include "clk.h"
+#include "gpio.h"
+#include "dma.h"
+#include "pwm.h"
+#include "version.h"
+
 #include "XTrace.h"
 #include "XSleep.h"
 #include "XBuffer.h"
@@ -65,6 +86,24 @@
 DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
 {
   Clean();
+
+
+  memset(&config, 0, sizeof(config));
+
+  config.freq                  = NEOPIXELWS2812BRPI_DEFAULT_TARGET_FREQ;
+  config.dmanum                = NEOPIXELWS2812BRPI_DEFAULT_DMA;
+  
+  config.channel[0].gpionum    = NEOPIXELWS2812BRPI_DEFAULT_GPIO_PIN;
+  config.channel[0].count      = NEOPIXELWS2812BRPI_DEFAULT_LED_COUNT;
+  config.channel[0].invert     = 0;
+  config.channel[0].brightness = brightnessLevel;
+  config.channel[0].strip_type = NEOPIXELWS2812BRPI_DEFAULT_STRIP_TYPE;
+  
+  config.channel[1].gpionum    = 0;
+  config.channel[1].count      = 0;
+  config.channel[1].invert     = 0;
+  config.channel[1].brightness = 0;  
+  
 }
 
 
@@ -89,6 +128,34 @@ DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::~DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Ini(XDWORD nled)
+* @brief      Ini
+* @ingroup    PLATFORM_LINUX
+* 
+* @author     Abraham J. Velez 
+* @date       06/02/2022 12:02:53
+* 
+* @param[in]  nled : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Ini(XDWORD nled)
+{ 
+  config.channel[0].count = nled;
+
+  databuffer.Resize(nled * 3);
+
+  ws2811_return_t returnvalue = ws2811_init(&config);
+  if(returnvalue != WS2811_SUCCESS) return false;
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Send()
 * @brief      Send
@@ -102,6 +169,8 @@ DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::~DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
 *---------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Send()
 {   
+
+  /*
 	XBYTE* ptrdata  = databuffer.Get();
   int    sizedata = databuffer.GetSize();
       
@@ -109,6 +178,8 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Send()
   if(!entry) return false;
 
   GEN_DIOGPIO.SetValue(entry, false);
+
+  setpriority(PRIO_PROCESS, 0, -20);
 
   for(int c=0; c<sizedata; c++)
     {
@@ -138,10 +209,68 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Send()
         }
     }
 
+  setpriority(PRIO_PROCESS, 0, 0);
+  */
 
-  
+  XBYTE* ptrdata  = databuffer.Get();
+  XDWORD data     = 0;
+  int    index    = 0;
+
+  for(int c=0; c<config.channel[0].count; c++)
+    {
+
+      config.channel[0].leds[c] = 0;
+
+      data = ptrdata[index];      
+      config.channel[0].leds[c] |= data;           
+      index++;
+
+      data = ptrdata[index];      
+      data <<= 8;
+      config.channel[0].leds[c] |= data;           
+      index++;
+
+      data = ptrdata[index];      
+      data <<= 16;
+      config.channel[0].leds[c] |= data;           
+      index++;
+
+      data = 0xFF;      
+      data <<= 24;
+      config.channel[0].leds[c] |= data;           
+     
+    }
+
+  config.channel[0].brightness = brightnessLevel;
+
+  ws2811_return_t returnvalue = ws2811_render(&config);
+  if(returnvalue != WS2811_SUCCESS) return false;
+ 
   return true;
 }
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::End()
+* @brief      End
+* @ingroup    PLATFORM_LINUX
+* 
+* @author     Abraham J. Velez 
+* @date       06/02/2022 12:03:45
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::End()
+{
+  ws2811_fini(&config);
+
+  return true;
+}
+
 
 
 

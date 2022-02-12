@@ -34,9 +34,25 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "ws2811.h"
+
 #include "DIOLedNeoPixelWS2812B.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+
+
+// defaults 
+#define NEOPIXELWS2812BRPI_DEFAULT_TARGET_FREQ             WS2811_TARGET_FREQ
+#define NEOPIXELWS2812BRPI_DEFAULT_GPIO_PIN                18
+#define NEOPIXELWS2812BRPI_DEFAULT_DMA                     10
+//#define NEOPIXELWS2812BRPI_DEFAULT_STRIP_TYPE            WS2811_STRIP_RGB		// WS2812/SK6812RGB integrated chip+leds
+#define NEOPIXELWS2812BRPI_DEFAULT_STRIP_TYPE              WS2811_STRIP_GBR		// WS2812/SK6812RGB integrated chip+leds
+//#define NEOPIXELWS2812BRPI_DEFAULT_STRIP_TYPE            SK6812_STRIP_RGBW		// SK6812RGBW (NOT SK6812RGB)
+
+#define NEOPIXELWS2812BRPI_DEFAULT_WIDTH                   8
+#define NEOPIXELWS2812BRPI_DEFAULT_HEIGHT                  8
+#define NEOPIXELWS2812BRPI_DEFAULT_LED_COUNT               (NEOPIXELWS2812BRPI_DEFAULT_WIDTH * NEOPIXELWS2812BRPI_DEFAULT_HEIGHT)
+
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
@@ -46,12 +62,18 @@ class DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI : public DIOLEDNEOPIXELWS2812B
   public:
                               DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI     ();
     virtual                  ~DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI     ();
+
+    bool                      Ini                                       (XDWORD nled);
     
     bool                      Send                                      ();
+
+    bool                      End                                       ();
 
   private:
 
     void                      Clean                                     ();
+    
+    ws2811_t                  config;    
 };
 
 /*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/

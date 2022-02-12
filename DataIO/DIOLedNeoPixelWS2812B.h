@@ -51,22 +51,27 @@ class DIOLEDNEOPIXELWS2812B
     virtual                  ~DIOLEDNEOPIXELWS2812B     ();
 
 
-    bool                      Ini                       (XDWORD nled);
+    virtual bool              Ini                       (XDWORD nled);
     
     XDWORD                    GetDataGPIOEntryID        ();
     void                      SetDataGPIOEntryID        (XDWORD GPIOentryID);
+
+    XBYTE                     GetBrightnessLevel        ();
+    void                      SetBrightnessLevel        (XBYTE brightnessLevel = 255);
 
     bool                      SendData                  (XBUFFER* data);
     bool                      SendData                  (XBYTE* data, XDWORD size); 
 
     virtual bool              Send                      ();
     
-    bool                      End                       ();
+    virtual bool              End                       ();
     
   protected:     
     
     XDWORD                    nled;
     XDWORD                    GPIOentryID;
+
+    XBYTE                     brightnessLevel;
 
     XBUFFER                   databuffer;  
     
