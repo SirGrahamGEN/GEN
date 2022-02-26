@@ -1680,8 +1680,7 @@ if(XFILE_RIFF_FEATURE)
   set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)     
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileRIFF.cpp")
 endif()
-  
-  
+    
 if(XFILE_HEX_FEATURE)  
   set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileHEX.cpp")

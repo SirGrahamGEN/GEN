@@ -37,6 +37,8 @@
 
 #include <windows.h>
 #include <tlhelp32.h>
+#include <psapi.h> 
+#include <tchar.h>
 #include <process.h>
 
 #include "XFactory.h"
@@ -421,7 +423,6 @@ bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* p
 
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
@@ -439,6 +440,7 @@ bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* p
 *---------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
 {
+  /*
   PROCESSENTRY32 entry;
   HANDLE         snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
   bool           exists = false;
@@ -461,9 +463,210 @@ bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD
     }
 
   CloseHandle(snapshot);
+  */
+
+  XVECTOR<XPROCESS*>  applist;
+  bool                status = GEN_XPROCESSMANAGER.GetApplicationRunningList(applist);
+  bool                exists = false;
+
+  if(status)
+    {
+      for(XDWORD c=0; c<applist.GetSize(); c++)
+        {
+          XSTRING nameapp;
+          XSTRING _applicationname = applicationname;
+
+          nameapp  = applist.Get(c)->GetName()->Get();
+
+          if(_applicationname.Find(nameapp, true) != XSTRING_NOTFOUND)
+            {
+              if(ID) (*ID) = applist.Get(c)->GetID();
+              exists = true;
+            }
+
+        }
+    }
+    
+  applist.DeleteContents();
+  applist.DeleteAll();
+
 
   return exists;
 }
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*> applist)
+* @brief      GetApplicationRunningList
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       23/02/2022 21:19:54
+* 
+* @param[in]  applist : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XWINDOWSPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& applist)
+{
+  PROCESSENTRY32 processentry;
+  HANDLE         snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
+  
+  if(snapshot == INVALID_HANDLE_VALUE) return false;
+
+  //------------------------------------------------------------------------
+
+  memset(&processentry, 0, sizeof(PROCESSENTRY32));
+  processentry.dwSize = sizeof(PROCESSENTRY32);
+
+  if(Process32First(snapshot, &processentry))
+    {      
+      do{ XPROCESS* xprocess = new XPROCESS();
+          if(xprocess)
+            {
+              HANDLE  processhandle = NULL;
+              TCHAR   pathfilename[MAX_PATH];
+
+              xprocess->SetID((XDWORD)processentry.th32ProcessID); 
+              xprocess->GetName()->Set(processentry.szExeFile); 
+              
+              processhandle = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, processentry.th32ProcessID);
+              if(processhandle != NULL) 
+                {
+                  GetModuleFileNameEx(processhandle, NULL, pathfilename, MAX_PATH);
+
+                  xprocess->GetPath()->Set(pathfilename);
+
+                  CloseHandle(processhandle);  
+                }
+              
+              applist.Add(xprocess); 
+            }
+
+          memset(&processentry, 0, sizeof(PROCESSENTRY32));
+          processentry.dwSize = sizeof(PROCESSENTRY32);
+
+        } while(Process32Next(snapshot, &processentry));
+    }
+
+  EnumWindows(EnumWindowCallback, (LPARAM)&applist);
+
+
+  //------------------------------------------------------------------------
+  /* 
+  MODULEENTRY32  moduleentry;
+
+  memset(&moduleentry, 0, sizeof(MODULEENTRY32));
+  moduleentry.dwSize = sizeof(MODULEENTRY32);
+
+  if(Module32First(snapshot, &moduleentry))
+    {      
+      do{ XPROCESS* xprocess = new XPROCESS();
+          if(xprocess)
+            {
+              xprocess->SetID((XDWORD)moduleentry.th32ProcessID);
+              xprocess->GetPath()->Set(moduleentry.szExePath);
+              xprocess->GetName()->Set(moduleentry.szModule);  
+
+              applist.Add(xprocess);                             
+            }
+
+          memset(&moduleentry, 0, sizeof(MODULEENTRY32));
+          moduleentry.dwSize = sizeof(MODULEENTRY32);
+
+        } while(Module32Next(snapshot, &moduleentry));
+    }
+  */
+
+
+  CloseHandle(snapshot);
+
+  //------------------------------------------------------------------------
+
+  return true;
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowCallback(HWND hwnd, LPARAM lparam)
+* @brief      EnumWindowCallback
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       25/02/2022 17:37:35
+* 
+* @param[in]  hwnd : 
+* @param[in]  lparam : 
+* 
+* @return     BOOL : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowCallback(HWND hwnd, LPARAM lparam) 
+{ 
+  XSTRING*            newtitlewindow  = NULL;
+  int                 sizetitlewindow = GetWindowTextLength(hwnd);
+  XVECTOR<XPROCESS*>* applist         = (XVECTOR<XPROCESS*>*)lparam;
+//bool                foundtask       = false;
+
+  newtitlewindow = new XSTRING();
+  if(!newtitlewindow) return FALSE;
+
+  newtitlewindow->AdjustSize(sizetitlewindow+1);
+
+  GetWindowText(hwnd, newtitlewindow->Get(), sizetitlewindow + 1);
+
+  newtitlewindow->AdjustSize();
+ 
+  if(IsWindowVisible(hwnd) && newtitlewindow->GetSize()) 
+    {          
+      unsigned long windows_process_id = 0;
+      
+      GetWindowThreadProcessId(hwnd, &windows_process_id);
+
+      if(windows_process_id)
+        {
+          // foundtask = false; 
+
+          for(XDWORD c=0; c<applist->GetSize(); c++)
+            {
+              if(applist->Get(c)->GetID() == windows_process_id)            
+                {
+                  if(!applist->Get(c)->GetWindowTitle()->GetSize())
+                    {
+                      applist->Get(c)->GetWindowTitle()->Set(newtitlewindow->Get());
+                    }
+                   else
+                    {
+                      XPROCESS* xprocess = new XPROCESS();
+                      if(xprocess)
+                        {              
+                          xprocess->CopyFrom((*applist->Get(c)));              
+                          applist->Get(c)->GetWindowTitle()->Set(newtitlewindow->Get());
+
+                          applist->Add(xprocess); 
+                        }                                                      
+                    }
+                         
+                  // foundtask = true; 
+                  break;
+                }               
+            }
+        } 
+      
+      // XTRACE_PRINTCOLOR((foundtask?XTRACE_COLOR_BLUE:XTRACE_COLOR_PURPLE), __L(">>> %6d [%s] "), windows_process_id, newtitlewindow->Get());       
+    }
+
+  delete newtitlewindow;
+
+  return TRUE;
+}
+
 
 
 
@@ -484,3 +687,4 @@ void XWINDOWSPROCESSMANAGER::Clean()
 {
 
 }
+

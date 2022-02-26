@@ -56,7 +56,11 @@ class XWINDOWSPROCESSMANAGER : public XPROCESSMANAGER
 
     bool                    IsApplicationRunning              (XCHAR* command, XDWORD* ID = NULL);
 
+    bool                    GetApplicationRunningList         (XVECTOR<XPROCESS*>& applist);
+  
   private:
+
+    static BOOL CALLBACK    EnumWindowCallback                (HWND hwnd, LPARAM lparam);
 
     void                    Clean                             ();
 };

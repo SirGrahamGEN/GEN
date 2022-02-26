@@ -394,6 +394,8 @@ bool XWINDOWSSYSTEM::GetOperativeSystemID(XSTRING& ID)
   version = osinfo.dwMajorVersion + (osinfo.dwMinorVersion / 10.0) - (product_type == VER_NT_WORKSTATION) ? 0.5 : 0.0;
   */
 
+  #ifndef BUILDER
+
   XWINDOWSWMIINTERFACE*  wmiinterface;
   XSTRING                wmianswer[4];
 
@@ -401,9 +403,9 @@ bool XWINDOWSSYSTEM::GetOperativeSystemID(XSTRING& ID)
   if(!wmiinterface)  return false;
 
   wmiinterface->Ini();
- 
-  wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("Caption")        , wmianswer[0]);  
-  wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("BuildNumber")    , wmianswer[1]);  
+
+  wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("Caption")        , wmianswer[0]);
+  wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("BuildNumber")    , wmianswer[1]);
   wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("CSDVersion")     , wmianswer[2]);
   wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("OSArchitecture") , wmianswer[3]);
 
@@ -415,7 +417,8 @@ bool XWINDOWSSYSTEM::GetOperativeSystemID(XSTRING& ID)
       delete wmiinterface;
       wmiinterface = NULL;
     }
-  
+  #endif
+
   return true;
 }
 
