@@ -49,6 +49,228 @@ XPROCESSMANAGER* XPROCESSMANAGER::instance = NULL;
 
 
 
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*  XPROCESS                                                                                                          */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XPROCESS::XPROCESS()
+* @brief      Constructor
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       23/02/2022 21:07:24
+* 
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XPROCESS::XPROCESS()
+{
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XPROCESS::~XPROCESS()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       23/02/2022 21:07:31
+* 
+* @return     Does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XPROCESS::~XPROCESS()
+{
+
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD XPROCESS::GetID()
+* @brief      GetID
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       23/02/2022 21:22:09
+* 
+* @return     XDWORD : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XDWORD XPROCESS::GetID()
+{
+  return ID;
+}
+    
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XPROCESS::SetID(XDWORD ID)
+* @brief      SetID
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       23/02/2022 21:22:16
+* 
+* @param[in]  ID : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void XPROCESS::SetID(XDWORD ID)
+{
+  this->ID = ID;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XPATH* XPROCESS::GetPath()
+* @brief      GetPath
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       23/02/2022 21:13:33
+* 
+* @return     XPATH* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XPATH* XPROCESS::GetPath()
+{
+  return &path;
+}  
+    
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* XPROCESS::GetName()
+* @brief      GetName
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       23/02/2022 21:13:48
+* 
+* @return     XSTRING* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XSTRING* XPROCESS::GetName()
+{
+  return &name;
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* XPROCESS::GetWindowTitle()
+* @brief      GetWindowTitle
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       25/02/2022 18:18:47
+* 
+* @return     XSTRING* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XSTRING* XPROCESS::GetWindowTitle()
+{
+  return &windowtitle;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XPROCESS::CopyTo(XPROCESS& xprocess)
+* @brief      CopyTo
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       25/02/2022 19:54:42
+* 
+* @param[in]  xprocess : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XPROCESS::CopyTo(XPROCESS& xprocess)
+{
+  xprocess.SetID(ID);
+  xprocess.GetPath()->Set(path);  
+  xprocess.GetName()->Set(name);  
+  xprocess.GetWindowTitle()->Set(windowtitle); 
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XPROCESS::CopyFrom(XPROCESS& xprocess)
+* @brief      CopyFrom
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       25/02/2022 19:54:48
+* 
+* @param[in]  xprocess : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XPROCESS::CopyFrom(XPROCESS& xprocess)
+{
+  ID          = xprocess.GetID();
+  path        = xprocess.GetPath()->Get();  
+  name        = xprocess.GetName()->Get();  
+  windowtitle = xprocess.GetWindowTitle()->Get(); 
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XPROCESS::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       23/02/2022 21:08:39
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void XPROCESS::Clean()
+{
+  ID = 0xFFFFFFFF;
+}
+
+
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*  XPROCESSMANAGER                                                                                                   */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPROCESSMANAGER::XPROCESSMANAGER()
@@ -255,7 +477,6 @@ bool XPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, 
 
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
@@ -280,6 +501,27 @@ bool XPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*> applist)
+* @brief      GetApplicationRunningList
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       23/02/2022 21:17:56
+* 
+* @param[in]  applist : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& applist)
+{
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPROCESSMANAGER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
@@ -296,6 +538,8 @@ void XPROCESSMANAGER::Clean()
 {
 
 }
+
+
 
 
 

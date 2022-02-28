@@ -35,12 +35,42 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "XPath.h"
 #include "XString.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+
+
+class XPROCESS
+{
+  public:
+                                    XPROCESS                        ();
+    virtual                        ~XPROCESS                        ();
+
+    XDWORD                          GetID                           ();
+    void                            SetID                           (XDWORD handle);
+
+    XPATH*                          GetPath                         ();
+    XSTRING*                        GetName                         ();
+    XSTRING*                        GetWindowTitle                  ();  
+
+    bool                            CopyTo                          (XPROCESS& xprocess);    
+    bool                            CopyFrom                        (XPROCESS& xprocess);    
+    
+  private:
+
+    void                            Clean                           ();
+
+    XDWORD                          ID;
+    XPATH                           path;  
+    XSTRING                         name;  
+    XSTRING                         windowtitle;  
+};
+
+
 
 class XPROCESSMANAGER
 {
@@ -59,6 +89,8 @@ class XPROCESSMANAGER
     virtual bool                    ExecuteApplication              (XCHAR* applicationpath, XCHAR* params = NULL, XSTRING* in = NULL, XSTRING* out = NULL, int* returncode = NULL);
 
     virtual bool                    IsApplicationRunning            (XCHAR* command, XDWORD* ID = NULL);
+
+    virtual bool                    GetApplicationRunningList       (XVECTOR<XPROCESS*>& applist);
 
   private:
 
