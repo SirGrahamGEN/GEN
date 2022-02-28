@@ -77,15 +77,7 @@ typedef signed long long      XQWORDSIG;
 typedef void*                 POINTER;
 #endif
 
-/*
-#ifndef XCHAR
-  #ifdef MICROCONTROLLER
-  typedef unsigned short	XCHAR;
-  #else
-  typedef wchar_t         XCHAR;
-  #endif
-#endif
-*/
+
 
 #ifndef NULL
 #define NULL                  0

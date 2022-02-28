@@ -38,20 +38,6 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-/*
-#ifdef WINDOWS
-
-  #ifdef _MSC_VER  // Is Visual Studio 6.0 or .NET?
-
-  #pragma warning (disable : 4091)   // warning C4091: 'typedef ': ignored on left of '---' when no variable is declared
-//#pragma warning (disable : 4595)   // warning C4595: non-member operator new or delete functions may not be declared inline
-  #pragma warning (disable : 4996)   // warning C4996: was declared deprecated
-  #pragma warning (disable : 4067)   // warning LNK4067: ambiguous entry point; selected 'mainCRTStartup'
-  #endif
-
-#endif
-*/
-
 #ifndef UNICODE
 #define UNICODE
 #endif
@@ -60,9 +46,8 @@
 // ------------------------------------------------------------------------------------------------
 // Macros SINGLETON
 
+
 // --- eXtensions ---------------------------------------------------------------------------------
-
-
 
 #ifndef GEN_XFACTORY
 #define GEN_XFACTORY              XFACTORY::GetInstance()

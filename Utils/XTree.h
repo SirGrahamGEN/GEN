@@ -77,7 +77,7 @@ class XTREE_NODE
                                         this->parent   = parent;
                                       }
 
-                                     ~XTREE_NODE              ()
+    virtual                           ~XTREE_NODE              ()
                                       {
                                         DeleteContents();
 

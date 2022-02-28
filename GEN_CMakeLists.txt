@@ -384,9 +384,9 @@ if(COMPILE_TO_LINUX)
   if(LINUX_VISUALSTUDIOCODEPAGE_FEATURE)
     set(CMAKE_CXX_FLAGS "-finput-charset=CP1252")
   endif()
-  
-  set(XTRANSLATION_FEATURE                              true    CACHE BOOL "Activate Translation"                                       FORCE)   
 
+
+  set(XTRANSLATION_FEATURE                              true    CACHE BOOL "Activate Translation"                                       FORCE)   
 
   # ----------------------------------------
   # PC 
