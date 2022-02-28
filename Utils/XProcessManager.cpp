@@ -521,6 +521,121 @@ bool XPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& applist)
 
 
 
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
+* @brief      TerminateApplication
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       28/02/2022 19:36:55
+* 
+* @param[in]  processID : 
+* @param[in]  exitcode : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
+{
+  return false;
+}
+    
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XPROCESSMANAGER::TerminateApplication(XPROCESS& process, XDWORD exitcode)
+* @brief      TerminateApplication
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       28/02/2022 19:36:34
+* 
+* @param[in]  process : 
+* @param[in]  exitcode : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XPROCESSMANAGER::TerminateApplication(XPROCESS& process, XDWORD exitcode)
+{
+  return TerminateApplication(process.GetID(), exitcode);
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XPROCESSMANAGER::TerminateApplication(XCHAR* processname, XDWORD exitcode)
+* @brief      TerminateApplication
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       28/02/2022 19:52:22
+* 
+* @param[in]  processname : 
+* @param[in]  exitcode : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XPROCESSMANAGER::TerminateApplication(XCHAR* processname, XDWORD exitcode)
+{
+  XVECTOR<XPROCESS*> apprunning; 
+  bool               status;           
+
+  if(!GEN_XPROCESSMANAGER.GetApplicationRunningList(apprunning)) return false;
+
+  for(XDWORD c=0; c<apprunning.GetSize(); c++)
+    {
+      XPROCESS* xprocess = apprunning.Get(c);
+      if(xprocess)
+        {
+          if(!xprocess->GetName()->Compare(processname, true))
+            {
+              status = TerminateApplication((*xprocess), exitcode);
+              break;
+            }
+        }
+    }
+
+  apprunning.DeleteContents();
+  apprunning.DeleteAll();
+
+  return status;
+}
+    
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XPROCESSMANAGER::TerminateApplication(XSTRING& processname, XDWORD exitcode)
+* @brief      TerminateApplication
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       28/02/2022 19:52:07
+* 
+* @param[in]  processname : 
+* @param[in]  exitcode : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XPROCESSMANAGER::TerminateApplication(XSTRING& processname, XDWORD exitcode)
+{
+  return TerminateApplication(processname.Get(), exitcode);
+}
+
+
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPROCESSMANAGER::Clean()

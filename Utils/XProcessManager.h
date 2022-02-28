@@ -92,6 +92,11 @@ class XPROCESSMANAGER
 
     virtual bool                    GetApplicationRunningList       (XVECTOR<XPROCESS*>& applist);
 
+    virtual bool                    TerminateApplication            (XDWORD processID, XDWORD  exitcode = 0);
+    bool                            TerminateApplication            (XPROCESS& process, XDWORD exitcode = 0);
+    bool                            TerminateApplication            (XCHAR* processname, XDWORD exitcode = 0);
+    bool                            TerminateApplication            (XSTRING& processname, XDWORD exitcode = 0);
+
   private:
 
     void                            Clean                           ();

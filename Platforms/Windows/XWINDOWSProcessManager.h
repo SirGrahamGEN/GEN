@@ -57,6 +57,8 @@ class XWINDOWSPROCESSMANAGER : public XPROCESSMANAGER
     bool                    IsApplicationRunning              (XCHAR* command, XDWORD* ID = NULL);
 
     bool                    GetApplicationRunningList         (XVECTOR<XPROCESS*>& applist);
+
+    bool                    TerminateApplication              (XDWORD processID, XDWORD  exitcode = 0);
   
   private:
 

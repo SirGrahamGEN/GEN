@@ -163,135 +163,23 @@ bool XWINDOWSPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* retu
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 * @brief      ExecuteApplication
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
+* @date       28/02/2022 18:38:12
+* 
 * @param[in]  applicationpath : 
 * @param[in]  params : 
 * @param[in]  in : 
 * @param[in]  out : 
 * @param[in]  returncode : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-/*
-bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
-{
-  PROCESS_INFORMATION processinfo;
-  STARTUPINFOA        startupinfo;
-  SECURITY_ATTRIBUTES saattr;
-  char                cmdline[256];
-  char                outbuf[32768];
-  DWORD               bytes_read;
-  char                tBuf[257];
-  DWORD               exitcode;
-  HANDLE              stdhandle_out_read  = NULL;
-  HANDLE              stdhandle_out_write = NULL;
-  HANDLE              stdhandle_in_read   = NULL;
-  HANDLE              stdhandle_in_write  = NULL;
-  XSTRING             _command;
-  bool                status = false;
-
-  _command = applicationpath;
-  if(params) _command.AddFormat(__L(" %s"), params);
-    
-  XSTRING_CREATEOEM(_command, chrcommand)
-  memcpy(cmdline, chrcommand, strlen(chrcommand)+1);
-  XSTRING_DELETEOEM(_command, chrcommand)
-
-  memset(&saattr, 0, sizeof(saattr));
-  saattr.nLength              = sizeof(SECURITY_ATTRIBUTES);
-  saattr.bInheritHandle       = TRUE;
-  saattr.lpSecurityDescriptor = NULL;
-
-  // Create a pipe for the child process's STDOUT.
-  if(!CreatePipe(&stdhandle_out_read, &stdhandle_out_write, &saattr, 0))  return false;
-  // Ensure the read handle to the pipe for STDOUT is not inherited.
-  if(!SetHandleInformation(stdhandle_out_read, HANDLE_FLAG_INHERIT, 0))   return false;
-
-  // Create a pipe for the child process's STDIN.
-  if(!CreatePipe(&stdhandle_in_read, &stdhandle_in_write, &saattr, 0))    return false;
-  // Ensure the read handle to the pipe for STDIN is not inherited.
-  if(!SetHandleInformation(stdhandle_in_write, HANDLE_FLAG_INHERIT, 0))   return false;
-
-  ZeroMemory(&processinfo, sizeof(PROCESS_INFORMATION));
-
-  ZeroMemory(&startupinfo, sizeof(STARTUPINFO));
-  startupinfo.cb          = sizeof(startupinfo);
-  startupinfo.hStdError   = stdhandle_out_write;
-  startupinfo.hStdOutput  = stdhandle_out_write;
-  startupinfo.hStdInput   = stdhandle_in_read;    // GetStdHandle(STD_INPUT_HANDLE);
-  startupinfo.dwFlags    |= STARTF_USESTDHANDLES;
-
-  if(CreateProcessA(NULL, cmdline, NULL, NULL, TRUE, CREATE_NO_WINDOW, NULL, NULL, &startupinfo, &processinfo))
-    {
-      CloseHandle(stdhandle_out_write);
-
-      //-----------------------------------------------------------------------------
-
-      if(in)
-        {
-          if(in->GetSize())
-            {
-              DWORD bytes_write;
-
-              XSTRING_CREATEOEM((*in), chrin)
-              WriteFile(stdhandle_in_write, chrin, in->GetSize(), &bytes_write, NULL);
-              XSTRING_DELETEOEM((*in), chrin)
-
-              FlushFileBuffers(stdhandle_in_write);
-            }
-        }
-
-      CloseHandle(stdhandle_in_write);
-
-      //-----------------------------------------------------------------------------
-
-      if(out)
-        {
-          strcpy(outbuf, "");
-
-          for(;;)
-            {
-              if(!ReadFile(stdhandle_out_read, tBuf, 256, &bytes_read, NULL))
-                {
-                  break;
-                }
-
-              if(bytes_read > 0)
-                {
-                  tBuf[bytes_read] = '\0';
-                  strcat(outbuf, tBuf);
-                }
-            }
-
-          (*out) = outbuf;
-        }
-
-      if(WaitForSingleObject(processinfo.hProcess, INFINITE) == WAIT_OBJECT_0)
-        {
-          if(GetExitCodeProcess(processinfo.hProcess, &exitcode))
-            {
-              if(returncode) (*returncode) = exitcode;
-            }
-
-          CloseHandle(processinfo.hProcess);
-          CloseHandle(processinfo.hThread);
-
-          status = true;
-        }
-    }
-
-  return status;
-}
-*/
-
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 {
   #define CMDLINE_SIZE  (10*1024)
@@ -594,6 +482,42 @@ bool XWINDOWSPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& appli
   return true;
 }
 
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
+* @brief      TerminateApplication
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       28/02/2022 19:41:05
+* 
+* @param[in]  processID : 
+* @param[in]  exitcode : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XWINDOWSPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD  exitcode)
+{
+  DWORD   desiredaccess   = PROCESS_TERMINATE;
+  bool    inherithandle   = FALSE;
+  HANDLE  hprocess        = NULL;
+
+  hprocess = OpenProcess(desiredaccess, inherithandle, processID);
+  if(hprocess == NULL) return false;
+
+  BOOL result = TerminateProcess(hprocess, exitcode);
+
+  CloseHandle(hprocess);
+
+  return (result?true:false);
+
+  return true;
+}
+  
 
 
 
