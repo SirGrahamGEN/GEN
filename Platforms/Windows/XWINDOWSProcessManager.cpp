@@ -519,6 +519,11 @@ bool XWINDOWSPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& appli
 
   //------------------------------------------------------------------------
 
+  applist.DeleteContents();
+  applist.DeleteAll();
+
+  //------------------------------------------------------------------------
+
   memset(&processentry, 0, sizeof(PROCESSENTRY32));
   processentry.dwSize = sizeof(PROCESSENTRY32);
 
