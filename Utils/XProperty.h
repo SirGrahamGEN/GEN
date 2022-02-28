@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XProperty.h
+* @file       XXPROPERTY.h
 * 
-* @class      XPROPERTY
-* @brief      eXtended Property (Template to Getter and Setter)
+* @class      XXPROPERTY
+* @brief      eXtended XPROPERTY (Template to Getter and Setter)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
@@ -29,8 +29,8 @@
 * 
 * *---------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XPROPERTY_H_
-#define _XPROPERTY_H_
+#ifndef _XXPROPERTY_H_
+#define _XXPROPERTY_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -44,17 +44,17 @@
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-
+/*
 template<typename T>
-class XPROPERTY 
+class XXPROPERTY 
 {
   public:
-                                              XPROPERTY       () 
+                                              XXPROPERTY       () 
                                               {
                                               }
 
 
-                                             ~XPROPERTY       ()
+                                             ~XXPROPERTY       ()
                                               {
                                               }                                              
 
@@ -99,6 +99,111 @@ class XPROPERTY
 
     T                                         t;
 };
+*/
+
+
+/*
+template<typename C, typename T, T(C::* getter)(), void (C::* setter)(const T&)>
+struct XPROPERTY
+{
+public:
+  XPROPERTY(C* instance) : instance(instance)
+  {
+  }
+
+  operator T () const
+  {
+    return (instance->*getter)();
+  }
+
+  XPROPERTY& operator=(const T& value)
+  {
+    (instance->*setter)(value);
+    return *this;
+  }
+
+  template<typename C2, typename T2, T2(C2::* getter2)(), void (C2::* setter2)(const T2&)>
+  XPROPERTY& operator=                     (const XPROPERTY<C2, T2, getter2, setter2>& other)
+  {
+    return *this = (other.instance->*getter2)();
+  }
+
+
+  XPROPERTY& operator=                     (const XPROPERTY& other)
+  {
+    return *this = (other.instance->*getter)();
+  }
+
+  C* instance;
+};
+
+*/
+
+
+template<typename C, typename T, T(C::* getter)(), void (C::* setter)(T)>
+struct XPROPERTY
+{
+  public: 
+                            XPROPERTY(C* instance) : instance(instance)
+                            {
+                            }
+
+                            operator T () const
+                            {
+                              return (instance->*getter)();
+                            }
+
+    XPROPERTY&              operator=(T value)
+                            {
+                              (instance->*setter)(value);
+                              return *this;
+                            }
+
+    template<typename C2, typename T2, T2(C2::* getter2)(), void (C2::* setter2)(T2)>
+    XPROPERTY&              operator=                     (const XPROPERTY<C2, T2, getter2, setter2>& other)
+                            {
+                              return *this = (other.instance->*getter2)();
+                            }
+
+
+    XPROPERTY&              operator=                     (const XPROPERTY& other)
+                            {
+                              return *this = (other.instance->*getter)();
+                            }
+
+    C*                      instance;
+};
+
+
+
+template<typename C, typename T, T(C::* getter)()>
+struct XPROPERTYG
+{
+  public:
+                            XPROPERTYG                     (C* instance) : instance(instance)
+                            {
+                            }
+
+                            operator T () const
+                            {
+                              return (instance->*getter)();
+                            }
+
+    template<typename C2, typename T2, T2(C2::* getter2)()>
+    XPROPERTYG&             operator=                     (const XPROPERTYG<C2, T2, getter2>& other)
+                            {
+                              return *this = (other.instance->*getter2)();
+                            }
+
+/*
+    XPROPERTYG&             operator=                     (const XPROPERTYG& other)
+                            {
+                              return *this = (other.instance->*getter)();
+                            }
+*/
+    C*                      instance;
+};
+
 
 
 
