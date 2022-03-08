@@ -1705,6 +1705,8 @@ endif()
 
 
 if(XLICENSE_FEATURE)
+  set(CIPHER_SYMMETRIC_FEATURE                            true    CACHE BOOL "Activate Cipher Symetric"                                   FORCE)
+  set(CIPHER_SYMMETRIC_AES_FEATURE                        true    CACHE BOOL "Activate Cipher Symetric AES"                               FORCE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XLicense.cpp")
 endif()
 

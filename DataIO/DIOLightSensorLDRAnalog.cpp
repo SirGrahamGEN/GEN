@@ -58,6 +58,8 @@ DIOLIGHTSENSORLDRANALOG::DIOLIGHTSENSORLDRANALOG( DIOGPIO* diogpio, int pindata,
   this->pindata     = pindata;
 
   xtimer = GEN_XFACTORY.CreateTimer();
+  
+  XTIMER_MODULE(xtimer)
 
   if(activatecache)
     {

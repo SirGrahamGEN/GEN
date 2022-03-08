@@ -64,6 +64,7 @@ DIOSTREAMUART::DIOSTREAMUART(): DIOSTREAM()
   Clean();
 
   xtimer = GEN_XFACTORY.CreateTimer();
+  XTIMER_MODULE(xtimer)
 }
 
 

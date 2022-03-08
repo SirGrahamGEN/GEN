@@ -300,12 +300,16 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
           XTIMER* timeout = GEN_XFACTORY.CreateTimer();
           if(timeout)
             {
+              XTIMER_MODULE(timeout) 
+              
               do{ if(!publicIP.IsEmpty()) break;
 
                   GEN_XSLEEP.MilliSeconds(50);    
 
                 } while(timeout->GetMeasureSeconds() <= timeoutgetpublicip);
-            }      
+            } 
+
+          GEN_XFACTORY.DeleteTimer(timeout);    
         }         
     }
    

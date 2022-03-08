@@ -357,10 +357,10 @@ bool XMEMORY_CONTROL::DisplayAll(bool displaydata)
               XDWORD address = (XDWORD)ptr;
 
               XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("%08d %08X %07d %05d %s")   , c
-                                                                                            , address
-                                                                                            , assignlist[c].size
-                                                                                            , assignlist[c].linemodule
-                                                                                            , namemodule.Get());
+                                                                                  , address
+                                                                                  , assignlist[c].size
+                                                                                  , assignlist[c].linemodule
+                                                                                  , namemodule.Get());
 
               //-----------------------------------------------------------------
 

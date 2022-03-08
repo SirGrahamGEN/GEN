@@ -69,6 +69,8 @@ GRPFRAMERATE::GRPFRAMERATE()
   Clean(); 
 
   xtimertotal = GEN_XFACTORY.CreateTimer();  
+  
+  XTIMER_MODULE(xtimertotal)
 
   thread_framerate = CREATEXTHREAD((XTHREADGROUPID)(XTHREADGROUPID_GRPFRAMERATE), __L("GRPFRAMERATE::GRPFRAMERATE"), ThreadRunFunction_Framerate, this);    
   if(!thread_framerate)  return;

@@ -102,6 +102,7 @@ DIOSTREAMSPI::DIOSTREAMSPI() : DIOSTREAM(), XFSMACHINE(0)
   threadconnection->SetPriority(XTHREADPRIORITY_HIGH);
 
   xtimer = GEN_XFACTORY.CreateTimer();
+  XTIMER_MODULE(xtimer)
 }
 
 

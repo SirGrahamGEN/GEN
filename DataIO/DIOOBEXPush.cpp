@@ -459,6 +459,8 @@ bool DIOOBEXPUSH::Ini(int timeout)
   sendbuffer = new XBUFFER();
   xfile      = GEN_XFACTORY.Create_File();
   xtimer     = GEN_XFACTORY.CreateTimer();
+  
+  XTIMER_MODULE(xtimer)
 
   issending  = false;
 

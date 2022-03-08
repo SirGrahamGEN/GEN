@@ -121,6 +121,8 @@ bool  XLOADERTASK::Start()
   if (xtimer==NULL)
     xtimer=GEN_XFACTORY.CreateTimer();
 
+  XTIMER_MODULE(xtimer)
+
   if (xtimer==NULL) return false;
 
   xtimer->Reset();

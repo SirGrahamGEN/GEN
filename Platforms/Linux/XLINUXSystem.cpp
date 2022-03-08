@@ -423,9 +423,8 @@ bool XLINUXSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 *---------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSYSTEM::FreeCacheMemory()
 {
-  return GEN_XPROCESSMANAGER.MakeSystemCommand(__L("sync && sysctl -w vm.drop_caches=3 > /dev/null"));
-
   return true;
+  //return GEN_XPROCESSMANAGER.MakeSystemCommand(__L("sync && sysctl -w vm.drop_caches=3 > /dev/null"));  
 }
 
 

@@ -818,6 +818,8 @@ DIOIEC60870_5::DIOIEC60870_5(DIOSTREAM* diostream)
   RegisterEvent(DIOIEC60870_5XEVENT_TYPE_C_FS_NA_2_ENDSESSION);
 
   xtimer = GEN_XFACTORY.CreateTimer();
+  
+  XTIMER_MODULE(xtimer)
 }
 
 

@@ -43,6 +43,13 @@
 
 #define XTIMER_INFINITE                   -1
 
+
+#ifdef _DEBUG
+#define XTIMER_MODULE(variable)             variable->GetModule(__FILE__);
+#else
+#define XTIMER_MODULE(variable)
+#endif
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XDATETIME;
@@ -82,7 +89,7 @@ class XTIMER
   public:
 
                             XTIMER                            ();
-    virtual                ~XTIMER                            ();
+    virtual                ~XTIMER                            ();    
 
     void                    AddMilliSeconds                   (XQWORD milliseconds);
     void                    AddSeconds                        (XQWORD seconds);
@@ -103,10 +110,16 @@ class XTIMER
 
     virtual XQWORD          GetMicroSecondsTickCounter        ();
 
+    #ifdef _DEBUG
+    void                    GetModule                         (char* module = NULL);                  
+    #endif 
+
  protected:
 
     XQWORD                  last;
     XQWORD                  more;
+
+    XSTRING                 module;
 
  private:
 

@@ -792,6 +792,8 @@ bool DIOSNMP::Get(DIOSNMP_OPERATION operation, XCHAR* community, XCHAR* OIDstr, 
   XTIMER* timeout = GEN_XFACTORY.CreateTimer();
   if(!timeout) return false;
 
+  XTIMER_MODULE(timeout)
+
   do{ XDWORD sizeread  = diostreamudp->GetInXBuffer()->GetSize();
       if(sizeread)
         {
