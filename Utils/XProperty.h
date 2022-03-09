@@ -153,12 +153,19 @@ struct XPROPERTY
                               return (instance->*getter)();
                             }
 
-    XPROPERTY&              operator=(T value)
+    XPROPERTY&              operator= (T value)
                             {
                               (instance->*setter)(value);
                               return *this;
                             }
 
+    T&                      Get                            ()
+                            {
+                              T var = (instance->*getter)();
+                              return  var;
+                            }
+
+    
     template<typename C2, typename T2, T2(C2::* getter2)(), void (C2::* setter2)(T2)>
     XPROPERTY&              operator=                     (const XPROPERTY<C2, T2, getter2, setter2>& other)
                             {
@@ -189,18 +196,18 @@ struct XPROPERTYG
                               return (instance->*getter)();
                             }
 
+    T&                      Get                         ()
+                            {
+                              return (instance->*getter)();
+                            }
+
+
     template<typename C2, typename T2, T2(C2::* getter2)()>
     XPROPERTYG&             operator=                     (const XPROPERTYG<C2, T2, getter2>& other)
                             {
                               return *this = (other.instance->*getter2)();
                             }
 
-/*
-    XPROPERTYG&             operator=                     (const XPROPERTYG& other)
-                            {
-                              return *this = (other.instance->*getter)();
-                            }
-*/
     C*                      instance;
 };
 

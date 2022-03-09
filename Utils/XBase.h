@@ -78,7 +78,6 @@ typedef void*                 POINTER;
 #endif
 
 
-
 #ifndef NULL
 #define NULL                  0
 #endif
