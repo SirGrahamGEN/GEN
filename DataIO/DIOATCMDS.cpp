@@ -241,8 +241,9 @@ DIOATCMDS::DIOATCMDS(DIOSTREAM* diostream) : XFSMACHINE(0)
   this->diostream = diostream;
 
   xtimer                  = GEN_XFACTORY.CreateTimer();
-  mutexreadwriteprocess  = GEN_XFACTORY.Create_Mutex();
-  threadconnection         = CREATEXTHREAD(XTHREADGROUPID_DIOATCMS, __L("DIOATCMDS::DIOATCMDS"),ThreadConnection,(void*)this);
+  XTIMER_MODULE(xtimer) 
+  mutexreadwriteprocess   = GEN_XFACTORY.Create_Mutex();
+  threadconnection        = CREATEXTHREAD(XTHREADGROUPID_DIOATCMS, __L("DIOATCMDS::DIOATCMDS"),ThreadConnection,(void*)this);
 
   AddCommand(DIOATCMD_TYPE_BASIC      , __L(""));
   AddCommand(DIOATCMD_TYPE_CHARACTER  , __L("S"));

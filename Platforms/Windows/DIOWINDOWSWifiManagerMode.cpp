@@ -233,7 +233,9 @@ bool DIOWINDOWSWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, boo
     {
       XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
       if(xtimer)
-        {          
+        {       
+          XTIMER_MODULE(xtimer)
+          
           while(!IsConnected())
             {
               if(xtimer->GetMeasureSeconds() > 5) 

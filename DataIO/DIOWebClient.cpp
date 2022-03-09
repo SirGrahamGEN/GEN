@@ -395,6 +395,7 @@ DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)
   RegisterEvent(DIOWEBCLIENT_XEVENT_TYPE_CLOSEWEB);
 
   timerout = GEN_XFACTORY.CreateTimer();
+  XTIMER_MODULE(timerout)
 
   diostreamcfg = new DIOSTREAMTCPIPCONFIG();
   if(diostreamcfg) diostream = (DIOSTREAMTCPIP*)GEN_DIOFACTORY.CreateStreamIO(diostreamcfg);
@@ -1461,10 +1462,12 @@ bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFE
   XTIMER*  timerdownload = GEN_XFACTORY.CreateTimer();
 
   if(!timerdownload)
-    {
+    {     
       diostream->Close();
       return false;
     }
+    
+   XTIMER_MODULE(timerdownload) 
 
   if(istobuffer)
     {

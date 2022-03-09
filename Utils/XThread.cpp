@@ -367,6 +367,8 @@ bool XTHREAD::WaitToEnd(XDWORD timeout)
 
   XTIMER* xtimerout = GEN_XFACTORY.CreateTimer();
   if(!xtimerout) return false;
+  
+  XTIMER_MODULE(xtimerout)
 
   while(statusfunc != XTHREADSTATUS_END)
     {

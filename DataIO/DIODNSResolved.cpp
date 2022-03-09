@@ -396,6 +396,8 @@ bool DIODNSRESOLVED::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 
   XTIMER* xtimerout = GEN_XFACTORY.CreateTimer();
   if(!xtimerout) return false;
+  
+  XTIMER_MODULE(xtimerout)
 
   bool status;
 

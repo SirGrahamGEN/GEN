@@ -82,6 +82,7 @@ XSCHEDULERTASK::XSCHEDULERTASK(XSCHEDULER* xscheduler)
   this->xscheduler  = xscheduler;
 
   xtimer  = GEN_XFACTORY.CreateTimer();
+  XTIMER_MODULE(xtimer)
 }
 
 
@@ -652,6 +653,7 @@ XSCHEDULER::XSCHEDULER()
   RegisterEvent(XEVENT_TYPE_SCHEDULER);
 
   xtimerwait  = GEN_XFACTORY.CreateTimer();
+  XTIMER_MODULE(xtimerwait)
 }
 
 

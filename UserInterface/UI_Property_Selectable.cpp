@@ -37,6 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XFactory.h"
+#include "XTimer.h"
 
 #include "GRPBitmap.h"
 
@@ -67,6 +68,9 @@ UI_PROPERTY_SELECTABLE::UI_PROPERTY_SELECTABLE()
   Clean(); 
 
   xtimerselected = GEN_XFACTORY.CreateTimer();
+  
+  XTIMER_MODULE(xtimerselected)
+  
   timeselected   = UI_PROPERTY_SELECTABLE_DEFAULT_TIMESELECTED; 
 }
 

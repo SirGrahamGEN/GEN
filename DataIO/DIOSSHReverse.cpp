@@ -198,6 +198,9 @@ bool DIOSSHREVERSE::Activate()
   status = GEN_XPROCESSMANAGER.MakeCommand(command.Get(), output, &returncode);
 
   XTIMER* xtimerout =  GEN_XFACTORY.CreateTimer();
+  
+  XTIMER_MODULE(xtimerout)
+  
   if(xtimerout)
     {
       while(1)

@@ -37,6 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XFactory.h"
+#include "XTimer.h"
 
 #include "GRPBitmap.h"
 
@@ -70,6 +71,8 @@ UI_ELEMENT_PROGRESSBAR::UI_ELEMENT_PROGRESSBAR()
   GetTypeString()->Set(__L("progressbar")); 
 
   continuouscycle_xtimer = GEN_XFACTORY.CreateTimer();
+  
+  XTIMER_MODULE(continuouscycle_xtimer)
 }
 
 

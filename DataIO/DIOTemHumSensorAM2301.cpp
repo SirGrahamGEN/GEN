@@ -65,6 +65,7 @@ DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301(DIOGPIO* diogpio, int pindata, bool
   this->pindata     = pindata;
 
   xtimer = GEN_XFACTORY.CreateTimer();
+  XTIMER_MODULE(xtimer)
 
   if(activatecache)
     {

@@ -125,6 +125,8 @@ bool APPBASE::Ini(XVECTOR<XSTRING*>* execparams)
 
   xtimerglobal = GEN_XFACTORY.CreateTimer();
   if(!xtimerglobal) return false;
+  
+  XTIMER_MODULE(xtimerglobal) 
 
   xtimerglobal->Reset();
 
