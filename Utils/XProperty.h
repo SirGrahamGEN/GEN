@@ -159,7 +159,7 @@ struct XPROPERTY
                               return *this;
                             }
 
-    T&                      Get                            ()
+    T                       Get                            ()
                             {
                               T var = (instance->*getter)();
                               return  var;
@@ -196,9 +196,10 @@ struct XPROPERTYG
                               return (instance->*getter)();
                             }
 
-    T&                      Get                         ()
+    T                       Get                         ()
                             {
-                              return (instance->*getter)();
+                              T var = (instance->*getter)();
+                              return var;
                             }
 
 

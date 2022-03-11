@@ -43,12 +43,15 @@
 
 #define XTIMER_INFINITE                   -1
 
-
+/*
 #ifdef _DEBUG
 #define XTIMER_MODULE(variable)             variable->GetModule(__FILE__);
 #else
 #define XTIMER_MODULE(variable)
 #endif
+*/
+
+#define XTIMER_MODULE(variable)
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
