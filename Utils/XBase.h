@@ -37,8 +37,8 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define FRAMEWORKNAME         "GEN FrameWork"
-#define FRAMEWORKVERSION      "0.6.3"
-#define FRAMEWORKCODENAME     "Garada K7"
+#define FRAMEWORKVERSION      "0.7.0"
+#define FRAMEWORKCODENAME     "Doublas M2"
 
 #ifndef XBYTE
 typedef unsigned char         XBYTE;
