@@ -58,13 +58,8 @@ DIOWIIMOTE::DIOWIIMOTE()
 {
   Clean();
 
-
-  ;
-
   xtimerout = GEN_XFACTORY.CreateTimer();
-  
-  XTIMER_MODULE(xtimerout)
-
+ 
   enumremotedevices =  (DIOSTREAMBLUETOOTHREMOTEENUMDEVICES*)GEN_DIOFACTORY.CreateStreamEnumDevices(DIOSTREAMENUMTYPE_BLUETOOTH_REMOTE);
   if(enumremotedevices)
     {

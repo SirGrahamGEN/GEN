@@ -608,30 +608,6 @@ XQWORD XTIMER::GetMicroSecondsTickCounter()
 }
 
 
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void XTIMER::GetModule(char* module)
-* @brief      GetModule
-* @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       08/03/2022 20:21:09
-* 
-* @param[in]  module : 
-* 
-* @return     void : does not return anything. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-#ifdef _DEBUG
-void XTIMER::GetModule(char* module)
-{
-  this->module = module;
-}
-#endif
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTIMER::Clean()

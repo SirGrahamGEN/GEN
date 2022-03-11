@@ -72,9 +72,7 @@ DIONTP::DIONTP()
   Clean();
 
   xtimer = GEN_XFACTORY.CreateTimer();
-  
-  XTIMER_MODULE(xtimer)
-
+ 
   diostreamudpcfg = new DIOSTREAMUDPCONFIG();
   diostreamudp    = (DIOSTREAMUDP*)GEN_DIOFACTORY.CreateStreamIO(diostreamudpcfg);
 }

@@ -91,8 +91,6 @@ DIOALERT_CONDITION::DIOALERT_CONDITION()
   Clean();
 
   lasttimersend = GEN_XFACTORY.CreateTimer();
-
-  XTIMER_MODULE(lasttimersend)   
 }
           
 

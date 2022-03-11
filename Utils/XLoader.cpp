@@ -115,33 +115,25 @@ bool  XLOADERTASK::IsFinished()
 //
 */
 /*-----------------------------------------------------------------*/
-bool  XLOADERTASK::Start()
+bool XLOADERTASK::Start()
 {
   isfinished=false;
-  if (xtimer==NULL)
-    xtimer=GEN_XFACTORY.CreateTimer();
-
-  XTIMER_MODULE(xtimer)
-
-  if (xtimer==NULL) return false;
+  
+  xtimer=GEN_XFACTORY.CreateTimer();  
+  if(!xtimers) return false;
 
   xtimer->Reset();
 
-  if (lock==NULL)
-    lock=GEN_XFACTORY.Create_Mutex();
+  lock=GEN_XFACTORY.Create_Mutex();
+  if(!lock) return false;
 
-  if (lock==NULL) return false;
-
-  if (thread==NULL)
-  {
-    thread=GEN_XFACTORY.CreateThread(XTHREADGROUPID_GRPLOADER,name.Get(),XLOADERTASK::ThreadFunction,this);
-  }
-
-  if (thread!=NULL)
+  thread=GEN_XFACTORY.CreateThread(XTHREADGROUPID_GRPLOADER,name.Get(),XLOADERTASK::ThreadFunction,this);
+  if(thread)
   {
     thread->Ini();
     thread->Run(true);
   }
+  
   delete(xtimer);
   xtimer = NULL;
 

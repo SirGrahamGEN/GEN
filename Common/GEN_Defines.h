@@ -34,6 +34,7 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "FactoryBase.h"
 #include "APP_GEN_Defines.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
@@ -52,6 +53,14 @@
 #ifndef GEN_XFACTORY
 #define GEN_XFACTORY              XFACTORY::GetInstance()
 #endif
+
+
+#ifndef GEN_XFACTORY_CREATE
+#define GEN_XFACTORY_CREATE(var, func)  var = GEN_XFACTORY.func;   \
+                                        FACTORY_MODULE(var) 
+#endif
+
+
 
 #ifndef GEN_XSLEEP
 #define GEN_XSLEEP                XSLEEP::GetInstance()

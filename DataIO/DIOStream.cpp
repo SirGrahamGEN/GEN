@@ -78,10 +78,6 @@ DIOSTREAM::DIOSTREAM()
   xtimernotactivity = GEN_XFACTORY.CreateTimer();
   xtimerout         = GEN_XFACTORY.CreateTimer();
   
-  XTIMER_MODULE(xtimerconnection)
-  XTIMER_MODULE(xtimernotactivity)
-  XTIMER_MODULE(xtimerout)
-
   RegisterEvent(DIOSTREAMXEVENT_TYPE_GETTINGCONNECTION);
   RegisterEvent(DIOSTREAMXEVENT_TYPE_CONNECTED);
   RegisterEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED);

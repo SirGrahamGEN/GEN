@@ -66,8 +66,7 @@ DIOSTREAMENUMDEVICES::DIOSTREAMENUMDEVICES()
 {
   Clean();
 
-  xtimerout = GEN_XFACTORY.CreateTimer();
-  XTIMER_MODULE(xtimerout)
+  xtimerout = GEN_XFACTORY.CreateTimer();  
 }
 
 

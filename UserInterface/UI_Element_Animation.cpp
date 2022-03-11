@@ -69,8 +69,6 @@ UI_ELEMENT_ANIMATION::UI_ELEMENT_ANIMATION()
 
   xtimerplay = GEN_XFACTORY.CreateTimer();
   
-  XTIMER_MODULE(xtimerplay)
-
   SetMilliSecondsDelay();
 
   SetType(UI_ELEMENT_TYPE_ANIMATION);

@@ -1666,13 +1666,9 @@ bool DIOWEBSERVER_CONNECTION::Ini(DIOWEBSERVER* webserver, DIOSTREAMTCPIPCONFIG*
   xtimerconnection = GEN_XFACTORY.CreateTimer();
   if(!xtimerconnection)      return false;
   
-  XTIMER_MODULE(xtimerconnection)
-
   xtimerdisconnection = GEN_XFACTORY.CreateTimer();
   if(!xtimerdisconnection)   return false;
-  
-  XTIMER_MODULE(xtimerdisconnection)
-
+    
   nresourcesprocessed = 0;
 
   diostream = (DIOSTREAMTCPIP*)GEN_DIOFACTORY.CreateStreamIO(diostreamcfg);
@@ -1864,8 +1860,6 @@ bool DIOWEBSERVER_CONNECTION::Receiver(XBYTE* buffer, XDWORD& size, int timeout)
   XTIMER* xtimerout = GEN_XFACTORY.CreateTimer();
   if(!xtimerout)  return false;
   
-  XTIMER_MODULE(xtimerout)
-
   bool status = true;
 
   while(1)
@@ -3156,8 +3150,6 @@ bool DIOWEBSERVER::Ini(int port, bool doinitialconnectitivitytest, int timeoutse
   xtimercontrol = GEN_XFACTORY.CreateTimer();
   if(!xtimercontrol) return false;
   
-  XTIMER_MODULE(xtimercontrol)
-
   diostreamcfg->SetMode(DIOSTREAMMODE_SERVER);
   diostreamcfg->GetLocalIP()->Set(this->addrlocal);
   diostreamcfg->SetRemotePort(port);

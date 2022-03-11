@@ -76,8 +76,6 @@ UI_ELEMENT::UI_ELEMENT()
   blink_xtimer   = GEN_XFACTORY.CreateTimer();
   blink_state    = true; 
   
-  XTIMER_MODULE(blink_xtimer)
-
   z_level        = 1; 
 }
 

@@ -197,8 +197,6 @@ bool DIOLINUXSTREAMTCPIP::Disconnect()
 {
   XTIMER* timerout = GEN_XFACTORY.CreateTimer();
   if(!timerout) return false;
-  
-  XTIMER_MODULE(timerout)
 
   if((GetConnectStatus() == DIOSTREAMSTATUS_CONNECTED)           ||
      (GetConnectStatus() == DIOSTREAMSTATUS_GETTINGCONNECTION))

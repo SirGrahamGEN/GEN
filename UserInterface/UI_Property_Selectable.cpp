@@ -67,10 +67,7 @@ UI_PROPERTY_SELECTABLE::UI_PROPERTY_SELECTABLE()
 { 
   Clean(); 
 
-  xtimerselected = GEN_XFACTORY.CreateTimer();
-  
-  XTIMER_MODULE(xtimerselected)
-  
+  xtimerselected = GEN_XFACTORY.CreateTimer();  
   timeselected   = UI_PROPERTY_SELECTABLE_DEFAULT_TIMESELECTED; 
 }
 

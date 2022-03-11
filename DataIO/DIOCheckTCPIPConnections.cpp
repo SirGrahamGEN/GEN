@@ -281,8 +281,7 @@ DIOCHECKTCPIPCONNECTION::DIOCHECKTCPIPCONNECTION()
   Clean();
 
   url = new DIOURL();
-  timerconnexion = GEN_XFACTORY.CreateTimer();
-  XTIMER_MODULE(timerconnexion)
+  timerconnexion = GEN_XFACTORY.CreateTimer();  
 }
 
 
@@ -678,10 +677,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Ini(int timeconnectionchecks, bool validsomeiscon
 
   xtimerfortimeconnectionchecks = GEN_XFACTORY.CreateTimer();
   if(!xtimerfortimeconnectionchecks) return false;
-  
-  XTIMER_MODULE(xtimerfortimeconnectionchecks)
-
-  //ping  = new DIOPING;
+      
   ping = GEN_DIOFACTORY.CreatePing();
   if(!ping) return false;
 
@@ -1100,8 +1096,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToAllChecked(int timeout)
   XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
   if(!xtimer) return false;
 
-  XTIMER_MODULE(xtimer)
-
   bool status = true;
 
   xtimer->Reset();
@@ -1153,9 +1147,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToSomeIsChecked(int timeout)
 
   XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
   if(!xtimer) return false;
-  
-  XTIMER_MODULE(xtimer)
-
+    
   bool status = true;
 
   xtimer->Reset();

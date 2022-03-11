@@ -691,9 +691,7 @@ bool XCONSOLE::WaitKey(XCHAR* text, XDWORD margin, bool prelude, XDWORD timeout)
 {
   XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
   if(!xtimer) return false;
-
-  XTIMER_MODULE(xtimer)
-
+  
   xtimer->Reset();
 
   XSTRING string;

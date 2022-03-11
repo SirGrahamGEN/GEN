@@ -1108,13 +1108,9 @@ DIOPROTOCOL::DIOPROTOCOL(DIOSTREAM* diostream)
 
   xdatetime         = GEN_XFACTORY.CreateDateTime();
   xtimer            = GEN_XFACTORY.CreateTimer();
-  XTIMER_MODULE(xtimer)
   watchdog          = GEN_XFACTORY.CreateTimer();
-  XTIMER_MODULE(watchdog)
   xdir              = GEN_XFACTORY.Create_Dir();
   timerfileprogress = GEN_XFACTORY.CreateTimer();
-  XTIMER_MODULE(timerfileprogress)
-
 
   AddCommand(DIOPROTOCOL_CMDTYPE_SENDISINITSERVERPROTOCOL   , __L("O")                , __L("O")            , RCV_SendIsInitServerProtocol      , __L("SendIsInitServerProtocol")   );
   AddCommand(DIOPROTOCOL_CMDTYPE_GETPROTOCOLVERSION         , __L("")                 , __L("WWW")          , RCV_GetProtocolVersion            , __L("GetProtocolVersion")         );

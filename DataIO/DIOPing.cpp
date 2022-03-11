@@ -338,9 +338,7 @@ DIOPING::DIOPING()
 
   RegisterEvent(DIOPING_XEVENT_TYPE_DOPING);
 
-  xtimer            = GEN_XFACTORY.CreateTimer();
-  XTIMER_MODULE(xtimer)
-  
+  xtimer            = GEN_XFACTORY.CreateTimer();  
   xmutexreplys      = GEN_XFACTORY.Create_Mutex();
 
   urltarget = new DIOURL();

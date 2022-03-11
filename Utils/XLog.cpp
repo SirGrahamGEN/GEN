@@ -1481,8 +1481,6 @@ XLOG::XLOG()
   xtimer    = GEN_XFACTORY.CreateTimer();
   mutex     = GEN_XFACTORY.Create_Mutex();
   
-  XTIMER_MODULE(xtimer)
-
   filelog = new XFILETXT();
 }
 

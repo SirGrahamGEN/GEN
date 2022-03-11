@@ -183,9 +183,7 @@ bool DIOWINDOWSSTREAMUDP::Disconnect()
 
       XTIMER* timerout = GEN_XFACTORY.CreateTimer();
       if(timerout)
-        {  
-          XTIMER_MODULE(timerout)
-          
+        {            
           while(GetConnectStatus()!=DIOSTREAMSTATUS_DISCONNECTED)
             {
               if(timerout->GetMeasureSeconds() > 3) break;

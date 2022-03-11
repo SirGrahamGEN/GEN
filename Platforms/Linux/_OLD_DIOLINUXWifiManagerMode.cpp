@@ -1001,8 +1001,6 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_ExecuteApplication(XCHAR* applicationpath,
                       status = false;
                       break;
                     }
-
-                  XTIMER_MODULE(xtimerout)
                          
                   while(!exit_loop)
                     {    
