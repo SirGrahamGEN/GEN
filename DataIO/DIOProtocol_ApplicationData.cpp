@@ -64,7 +64,7 @@ DIOPROTOCOL_APPLICATIONDATA::DIOPROTOCOL_APPLICATIONDATA()
 {
   Clean();
 
-  xmutexalert = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexalert, Create_Mutex())
 
 }
 

@@ -891,7 +891,7 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_ExecuteApplication(XCHAR* applicationpath,
     }
 
 
-  XFILE* xfile = GEN_XFACTORY.Create_File();
+  XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
   if(xfile)
     {
       exist = xfile->Open(applicationpath);
@@ -995,7 +995,7 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_ExecuteApplication(XCHAR* applicationpath,
                   close(stdinpipe[PIPE_READ]);
                   close(stdoutpipe[PIPE_WRITE]);   
 
-                  XTIMER* xtimerout =  GEN_XFACTORY.CreateTimer();
+                  XTIMER* GEN_XFACTORY_CREATE(xtimerout, CreateTimer())
                   if(!xtimerout)
                     {
                       status = false;

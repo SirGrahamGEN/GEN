@@ -79,7 +79,7 @@ SNDFACTORY_OPENAL::SNDFACTORY_OPENAL()
 {
   Clean();
 
-  streammutex = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(streammutex, Create_Mutex())
 
   //const ALCchar *defaultDeviceName;
   //defaultDeviceName = alcGetString(NULL, ALC_DEFAULT_DEVICE_SPECIFIER);
@@ -113,7 +113,7 @@ SNDFACTORY_OPENAL::SNDFACTORY_OPENAL()
   mastervolume = 1.0f;
 
   // create the streaming thread
-  streamthread = GEN_XFACTORY.CreateThread(XTHREADGROUPID_UNGROUP, __L("SNDFACTORY_OPENAL::SNDFACTORY_OPENAL"), SNDFACTORY_OPENAL::ThreadStreaming, this);
+  GEN_XFACTORY_CREATE(streamthread, CreateThread(XTHREADGROUPID_UNGROUP, __L("SNDFACTORY_OPENAL::SNDFACTORY_OPENAL"), SNDFACTORY_OPENAL::ThreadStreaming, this));
   streamthread->Ini();
 }
 

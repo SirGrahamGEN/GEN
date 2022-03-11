@@ -371,7 +371,7 @@ CIPHERRSA::CIPHERRSA() : CIPHER()
 {
   Clean();
 
-  xrand = GEN_XFACTORY.CreateRand();
+  GEN_XFACTORY_CREATE(xrand, CreateRand())
 
   CIPHERRSA::instance = this;
 }

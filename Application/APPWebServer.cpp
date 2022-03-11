@@ -387,7 +387,7 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
   XBUFFER xbuffer;
   bool    status = false;
 
-  XFILE* xfile = GEN_XFACTORY.Create_File();
+  XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
   if(!xfile) return false;
 
   if(xfile->Open(xpathfile))

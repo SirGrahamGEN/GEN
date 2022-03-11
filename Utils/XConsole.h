@@ -36,6 +36,8 @@
 
 #include "XString.h"
 
+#include "FactoryBase.h"
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define XCONSOLE_MAXSIZEDATABLOCK             10240
@@ -44,7 +46,7 @@
 
 class XFACTORY;
 
-class XCONSOLE
+class XCONSOLE : public FACTORYBASE
 {
   public:
 

@@ -173,7 +173,7 @@ bool APPMAIN::Ini(MAINPROC* mainproc, APPBASE_APPLICATIONMODE_TYPE applicationmo
 
     if(mainproc->GetXPathExec()->IsEmpty())
       {
-        XDIR* xdir = GEN_XFACTORY.Create_Dir();
+        XDIR* GEN_XFACTORY_CREATE(xdir, Create_Dir())
         if(xdir)
           {
             XPATH xpathactual;

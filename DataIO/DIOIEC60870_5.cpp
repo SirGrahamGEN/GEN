@@ -121,7 +121,7 @@ DIO_C_CI_NU_2_RESULT::DIO_C_CI_NU_2_RESULT()
 {
   Clean();
 
-  xdatetime = GEN_XFACTORY.CreateDateTime();
+  GEN_XFACTORY_CREATE(xdatetime, CreateDateTime())
 }
 
 
@@ -241,7 +241,7 @@ DIO_C_TR_AA_RESULT::DIO_C_TR_AA_RESULT()
 {
   Clean();
 
-  xdatetime = GEN_XFACTORY.CreateDateTime();
+  GEN_XFACTORY_CREATE(xdatetime, CreateDateTime())
 }
 
 
@@ -817,7 +817,7 @@ DIOIEC60870_5::DIOIEC60870_5(DIOSTREAM* diostream)
   RegisterEvent(DIOIEC60870_5XEVENT_TYPE_C_CI_NU_2_READVALUE);
   RegisterEvent(DIOIEC60870_5XEVENT_TYPE_C_FS_NA_2_ENDSESSION);
 
-  xtimer = GEN_XFACTORY.CreateTimer();
+  GEN_XFACTORY_CREATE(xtimer, CreateTimer())
 }
 
 

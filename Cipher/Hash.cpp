@@ -140,7 +140,7 @@ bool HASH::Do(XPATH& xpath, XQWORD size, XQWORD pos)
   XFILE* xfile;
   bool   status = false;
 
-  xfile = GEN_XFACTORY.Create_File();
+  GEN_XFACTORY_CREATE(xfile, Create_File())
   if(!xfile) return false;
 
   ResetResult();

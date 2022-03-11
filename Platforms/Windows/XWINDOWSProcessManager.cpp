@@ -169,7 +169,7 @@ bool XWINDOWSPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* retu
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       28/02/2022 18:38:12
+* @date       01/03/2016 12:00
 * 
 * @param[in]  applicationpath : 
 * @param[in]  params : 
@@ -391,7 +391,7 @@ bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       23/02/2022 21:19:54
+* @date       01/03/2016 12:00
 * 
 * @param[in]  applist : 
 * 
@@ -492,7 +492,7 @@ bool XWINDOWSPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& appli
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       28/02/2022 19:41:05
+* @date       01/03/2016 12:00
 * 
 * @param[in]  processID : 
 * @param[in]  exitcode : 
@@ -528,7 +528,7 @@ bool XWINDOWSPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD  exit
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       25/02/2022 17:37:35
+* @date       01/03/2016 12:00
 * 
 * @param[in]  hwnd : 
 * @param[in]  lparam : 

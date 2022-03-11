@@ -295,7 +295,7 @@ bool CIPHERFILEKEYS::UpdateFile()
   node = noderoot->AddElement(CIPHERFILEKEYS_NODENAME_CREATOR);
   if(node)
     {
-      XDATETIME* xdatetime = GEN_XFACTORY.CreateDateTime();
+      GEN_XFACTORY_CREATE(datetime, CreateDateTime());
       if(xdatetime)
         {
           xdatetime->Read();
@@ -551,7 +551,7 @@ bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
 
   if(!ExportToPEMFile(key, publicPEM)) return false;
 
-  XFILE* xfile = GEN_XFACTORY.Create_File();
+  XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
   if(xfile)
     {
       if(xfile->Create(xpath))

@@ -134,7 +134,7 @@ DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::~DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
 * @ingroup    PLATFORM_LINUX
 * 
 * @author     Abraham J. Velez 
-* @date       06/02/2022 12:02:53
+* @date       01/03/2016 12:00
 * 
 * @param[in]  nled : 
 * 
@@ -259,7 +259,7 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Send()
 * @ingroup    PLATFORM_LINUX
 * 
 * @author     Abraham J. Velez 
-* @date       06/02/2022 12:03:45
+* @date       01/03/2016 12:00
 * 
 * @return     bool : true if is succesful. 
 * 

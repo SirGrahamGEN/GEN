@@ -38,6 +38,7 @@
 #include "XPath.h"
 #include "XBuffer.h"
 
+#include "FactoryBase.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
@@ -57,17 +58,17 @@ enum
 #endif
 
 
-#define XFILE_GETFILESIZE(xpathfile, size)    { size = -1;                                    \
-                                                XFILE* xfile = GEN_XFACTORY.Create_File();       \
-                                                if(xfile)                                     \
-                                                  {                                           \
-                                                    if(xfile->Open(xpathfile))                \
-                                                      {                                       \
-                                                        sizefile = xfile->GetSize();          \
-                                                        xfile->Close();                       \
-                                                      }                                       \
-                                                    GEN_XFACTORY.Delete_File(xfile);             \
-                                                  }                                           \
+#define XFILE_GETFILESIZE(xpathfile, size)    { size = -1;                                        \
+                                                XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())  \
+                                                if(xfile)                                         \
+                                                  {                                               \
+                                                    if(xfile->Open(xpathfile))                    \
+                                                      {                                           \
+                                                        sizefile = xfile->GetSize();              \
+                                                        xfile->Close();                           \
+                                                      }                                           \
+                                                    GEN_XFACTORY.Delete_File(xfile);              \
+                                                  }                                               \
                                               }
 
 
@@ -76,7 +77,7 @@ enum
 
 class CIPHER;
 
-class XFILE
+class XFILE : public FACTORYBASE
 {
   public:
                             XFILE                   ();

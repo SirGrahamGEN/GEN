@@ -248,7 +248,7 @@ XSYSTEM_HARDWARETYPE XLINUXSYSTEM::GetTypeHardware(int* revision)
 * @ingroup    PLATFORM_LINUX
 * 
 * @author     Abraham J. Velez 
-* @date       09/11/2021 19:57:29
+* @date       01/03/2016 12:00
 * 
 * @param[in]  namestring : 
 * 
@@ -306,7 +306,7 @@ XSYSTEM_PLATFORM XLINUXSYSTEM::GetPlatform(XSTRING* namestring)
 * @ingroup    PLATFORM_LINUX
 * 
 * @author     Abraham J. Velez 
-* @date       11/11/2021 14:00:16
+* @date       01/03/2016 12:00
 * 
 * @param[in]  ID : 
 * 
@@ -874,7 +874,7 @@ void XLINUXSYSTEM::Clean()
 * @ingroup    PLATFORM_LINUX
 * 
 * @author     Abraham J. Velez 
-* @date       23/01/2022 21:53:07
+* @date       01/03/2016 12:00
 * 
 * @return     void : does not return anything. 
 * 
@@ -896,7 +896,7 @@ void int_handler(int code)
 * @ingroup    PLATFORM_LINUX
 * 
 * @author     Abraham J. Velez 
-* @date       25/01/2022 18:18:32
+* @date       01/03/2016 12:00
 * 
 * @return     void : does not return anything. 
 * 
@@ -944,7 +944,7 @@ void swap_off()
 * @ingroup    PLATFORM_LINUX
 * 
 * @author     Abraham J. Velez 
-* @date       25/01/2022 18:18:39
+* @date       01/03/2016 12:00
 * 
 * @return     void : does not return anything. 
 * 
@@ -994,7 +994,7 @@ void unmount_disks()
 * @ingroup    PLATFORM_LINUX
 * 
 * @author     Abraham J. Velez 
-* @date       25/01/2022 18:18:25
+* @date       01/03/2016 12:00
 * 
 * @return     void : does not return anything. 
 * 

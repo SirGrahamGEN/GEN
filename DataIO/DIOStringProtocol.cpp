@@ -103,10 +103,10 @@ DIOSTRINGPROTOCOL::~DIOSTRINGPROTOCOL()
 /*-----------------------------------------------------------------*/
 bool DIOSTRINGPROTOCOL::Ini(int timeout)
 {
-  xtimerout = GEN_XFACTORY.CreateTimer();
+  GEN_XFACTORY_CREATE(xtimerout, CreateTimer())
   if(!xtimerout) return false;
 
-  xmutexanswers = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexanswers, Create_Mutex())
   if(!xmutexanswers) return false;
 
   if(!diostream)         return false;

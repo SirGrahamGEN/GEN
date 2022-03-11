@@ -394,7 +394,7 @@ DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)
   RegisterEvent(DIOWEBCLIENT_XEVENT_TYPE_READBODYBLOCK);
   RegisterEvent(DIOWEBCLIENT_XEVENT_TYPE_CLOSEWEB);
 
-  timerout = GEN_XFACTORY.CreateTimer();
+  GEN_XFACTORY_CREATE(timerout, CreateTimer())
   
   diostreamcfg = new DIOSTREAMTCPIPCONFIG();
   if(diostreamcfg) diostream = (DIOSTREAMTCPIP*)GEN_DIOFACTORY.CreateStreamIO(diostreamcfg);
@@ -780,7 +780,7 @@ bool DIOWEBCLIENT::Get(XCHAR* url, XBUFFER& tobuffer, XCHAR* addheader, int time
 *---------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Get(DIOURL& url, XPATH& pathfile, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
-  XFILE* file  = GEN_XFACTORY.Create_File();
+  XFILE* GEN_XFACTORY_CREATE(file, Create_File())
   if(!file) return false;
   
   bool status  = false;
@@ -911,7 +911,7 @@ bool DIOWEBCLIENT::Put(XCHAR* url, XBUFFER& tobuffer, XCHAR* addheader, int time
 *---------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Put(DIOURL& url, XPATH& pathfile, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
-  XFILE* file  = GEN_XFACTORY.Create_File();
+  XFILE* GEN_XFACTORY_CREATE(file, Create_File())
   if(!file) return false;
 
   XBUFFER buffer;
@@ -1047,8 +1047,8 @@ bool DIOWEBCLIENT::Post(XCHAR* url, XBUFFER& tobuffer, XBUFFER* postdata, XCHAR*
 *---------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Post(DIOURL& url, XPATH& pathfile, XBUFFER* postdata, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
-  XFILE* file  = GEN_XFACTORY.Create_File();
-  if(! file) return false;
+  XFILE* GEN_XFACTORY_CREATE(file, Create_File())
+  if(!file) return false;
 
   XBUFFER buffer;
   bool    status  = false;
@@ -1458,8 +1458,8 @@ bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFE
 
   XBUFFER* _tobuffer     = NULL;
   XFILE*   _tofile       = NULL;
-  XTIMER*  timerdownload = GEN_XFACTORY.CreateTimer();
-
+ 
+  XTIMER* GEN_XFACTORY_CREATE(timerdownload, CreateTimer())
   if(!timerdownload)
     {     
       diostream->Close();

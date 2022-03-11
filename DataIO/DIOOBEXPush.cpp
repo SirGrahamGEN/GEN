@@ -457,8 +457,8 @@ bool DIOOBEXPUSH::Ini(int timeout)
   if(!diostream->GetConfig()) return false;
 
   sendbuffer = new XBUFFER();
-  xfile      = GEN_XFACTORY.Create_File();
-  xtimer     = GEN_XFACTORY.CreateTimer();
+  GEN_XFACTORY_CREATE(xfile, Create_File())
+  GEN_XFACTORY_CREATE(xtimer, CreateTimer());
  
   issending  = false;
 

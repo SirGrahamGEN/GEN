@@ -89,16 +89,16 @@ APPINTERNETSERVICES::APPINTERNETSERVICES()
   RegisterEvent(APPINTERNETSERVICES_XEVENT_TYPE_CHANGEIP);  
   RegisterEvent(APPINTERNETSERVICES_XEVENT_TYPE_ADJUSTDATETIME);
   
-  xmutex_datetime_actual =  GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutex_datetime_actual, Create_Mutex())
   if(!xmutex_datetime_actual) return;
 
-  xmutex_datetime_utc = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutex_datetime_utc, Create_Mutex())
   if(!xmutex_datetime_utc) return;
 
-  xdatetime_actual = GEN_XFACTORY.CreateDateTime();
+  GEN_XFACTORY_CREATE(xdatetime_actual, CreateDateTime())
   if(xdatetime_actual) xdatetime_actual->Read();
 
-  xdatetime_utc = GEN_XFACTORY.CreateDateTime();
+  GEN_XFACTORY_CREATE(xdatetime_utc, CreateDateTime())
   if(xdatetime_utc) xdatetime_utc->Read();
 }
 
@@ -297,7 +297,7 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
     {
       if(cfg->InternetServices_GetCheckIPPublicChangeCadence() > 0)
         {
-          XTIMER* timeout = GEN_XFACTORY.CreateTimer();
+          XTIMER* GEN_XFACTORY_CREATE(timeout, CreateTimer())
           if(timeout)
             {              
               do{ if(!publicIP.IsEmpty()) break;

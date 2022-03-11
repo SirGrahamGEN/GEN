@@ -119,7 +119,7 @@ bool DIOWEBHEADER::Read(DIOSTREAMTCPIP* diostream, int timeout)
 
   DeleteAllLines();
 
-  XTIMER* xtimerout = GEN_XFACTORY.CreateTimer();
+  XTIMER* GEN_XFACTORY_CREATE(xtimerout, CreateTimer())
   if(!xtimerout) return false;
 
   do{ status =  diostream->ReadStr(line);

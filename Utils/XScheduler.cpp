@@ -81,7 +81,7 @@ XSCHEDULERTASK::XSCHEDULERTASK(XSCHEDULER* xscheduler)
 
   this->xscheduler  = xscheduler;
 
-  xtimer  = GEN_XFACTORY.CreateTimer();
+  GEN_XFACTORY_CREATE(xtimer, CreateTimer())
 }
 
 
@@ -651,7 +651,7 @@ XSCHEDULER::XSCHEDULER()
 
   RegisterEvent(XEVENT_TYPE_SCHEDULER);
 
-  xtimerwait  = GEN_XFACTORY.CreateTimer();
+  GEN_XFACTORY_CREATE(xtimerwait, CreateTimer())
 }
 
 
@@ -696,10 +696,10 @@ XSCHEDULER::~XSCHEDULER()
 *---------------------------------------------------------------------------------------------------------------------*/
 bool XSCHEDULER::Ini()
 {
-  xmutexscheduler = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexscheduler, Create_Mutex())
   if(!xmutexscheduler) return false;
 
-  xdatetimeactual = GEN_XFACTORY.CreateDateTime();
+  GEN_XFACTORY_CREATE(xdatetimeactual, CreateDateTime())
   if(!xdatetimeactual) return false;
 
   xthreadscheduler = CREATEXTHREAD(XTHREADGROUPID_SCHEDULER, __L("XSCHEDULER::Ini"),ThreadScheduler,(void*)this);

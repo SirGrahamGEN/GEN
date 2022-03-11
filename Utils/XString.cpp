@@ -407,7 +407,7 @@ bool XSTRING::CreateOEM(char*& _textOEM) const
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       25/10/2021 8:48:12
+* @date       01/03/2016 12:00
 * 
 * @param[in]  text : 
 * 
@@ -479,7 +479,7 @@ bool XSTRING::CreateNormalize(XWORD*& _textnormalize, bool inverse)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       25/10/2021 10:45:52
+* @date       01/03/2016 12:00
 * 
 * @param[in]  _textnormalize : 
 * 
@@ -1630,7 +1630,7 @@ bool XSTRING::DeleteCharacters(XDWORD index, XDWORD ncharacteres)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       08/12/2021 13:31:41
+* @date       01/03/2016 12:00
 * 
 * @param[in]  index : 
 * 
@@ -3846,7 +3846,7 @@ bool XSTRING::ConvertToBoolean()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       03/11/2021 12:30:35
+* @date       01/03/2016 12:00
 * 
 * @param[in]  widechars : 
 * @param[in]  maxsize : 

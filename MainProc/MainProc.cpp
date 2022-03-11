@@ -100,7 +100,7 @@ MAINPROC::~MAINPROC()
 * @ingroup    MAIN PROCEDURE
 * 
 * @author     Abraham J. Velez 
-* @date       30/12/2021 14:27:35
+* @date       01/03/2016 12:00
 * 
 * @param[in]  appmain : 
 * @param[in]  applicationmode : 

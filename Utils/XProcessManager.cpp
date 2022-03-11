@@ -62,7 +62,7 @@ XPROCESSMANAGER* XPROCESSMANAGER::instance = NULL;
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       23/02/2022 21:07:24
+* @date       01/03/2016 12:00
 * 
 * @return     Does not return anything. 
 * 
@@ -82,7 +82,7 @@ XPROCESS::XPROCESS()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       23/02/2022 21:07:31
+* @date       01/03/2016 12:00
 * 
 * @return     Does not return anything. 
 * 
@@ -101,7 +101,7 @@ XPROCESS::~XPROCESS()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       23/02/2022 21:22:09
+* @date       01/03/2016 12:00
 * 
 * @return     XDWORD : 
 * 
@@ -120,7 +120,7 @@ XDWORD XPROCESS::GetID()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       23/02/2022 21:22:16
+* @date       01/03/2016 12:00
 * 
 * @param[in]  ID : 
 * 
@@ -141,7 +141,7 @@ void XPROCESS::SetID(XDWORD ID)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       23/02/2022 21:13:33
+* @date       01/03/2016 12:00
 * 
 * @return     XPATH* : 
 * 
@@ -160,7 +160,7 @@ XPATH* XPROCESS::GetPath()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       23/02/2022 21:13:48
+* @date       01/03/2016 12:00
 * 
 * @return     XSTRING* : 
 * 
@@ -180,7 +180,7 @@ XSTRING* XPROCESS::GetName()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       25/02/2022 18:18:47
+* @date       01/03/2016 12:00
 * 
 * @return     XSTRING* : 
 * 
@@ -199,7 +199,7 @@ XSTRING* XPROCESS::GetWindowTitle()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       25/02/2022 19:54:42
+* @date       01/03/2016 12:00
 * 
 * @param[in]  xprocess : 
 * 
@@ -225,7 +225,7 @@ bool XPROCESS::CopyTo(XPROCESS& xprocess)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       25/02/2022 19:54:48
+* @date       01/03/2016 12:00
 * 
 * @param[in]  xprocess : 
 * 
@@ -252,7 +252,7 @@ bool XPROCESS::CopyFrom(XPROCESS& xprocess)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       23/02/2022 21:08:39
+* @date       01/03/2016 12:00
 * 
 * @return     void : does not return anything. 
 * 
@@ -507,7 +507,7 @@ bool XPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       23/02/2022 21:17:56
+* @date       01/03/2016 12:00
 * 
 * @param[in]  applist : 
 * 
@@ -530,7 +530,7 @@ bool XPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& applist)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       28/02/2022 19:36:55
+* @date       01/03/2016 12:00
 * 
 * @param[in]  processID : 
 * @param[in]  exitcode : 
@@ -553,7 +553,7 @@ bool XPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       28/02/2022 19:36:34
+* @date       01/03/2016 12:00
 * 
 * @param[in]  process : 
 * @param[in]  exitcode : 
@@ -576,7 +576,7 @@ bool XPROCESSMANAGER::TerminateApplication(XPROCESS& process, XDWORD exitcode)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       28/02/2022 19:52:22
+* @date       01/03/2016 12:00
 * 
 * @param[in]  processname : 
 * @param[in]  exitcode : 
@@ -620,7 +620,7 @@ bool XPROCESSMANAGER::TerminateApplication(XCHAR* processname, XDWORD exitcode)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       28/02/2022 19:52:07
+* @date       01/03/2016 12:00
 * 
 * @param[in]  processname : 
 * @param[in]  exitcode : 

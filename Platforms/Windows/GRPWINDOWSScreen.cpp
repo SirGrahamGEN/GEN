@@ -737,7 +737,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       30/12/2021 14:59:44
+* @date       01/03/2016 12:00
 * 
 * @param[in]  hwnd : 
 * @param[in]  msg : 

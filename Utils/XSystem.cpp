@@ -258,7 +258,7 @@ bool XSYSTEM::HardwareUseLittleEndian()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/11/2021 19:49:02
+* @date       01/03/2016 12:00
 * 
 * @param[in]  namestring : 
 * 
@@ -281,7 +281,7 @@ XSYSTEM_PLATFORM XSYSTEM::GetPlatform(XSTRING* namestring)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/11/2021 21:36:29
+* @date       01/03/2016 12:00
 * 
 * @param[in]  ID : 
 * 

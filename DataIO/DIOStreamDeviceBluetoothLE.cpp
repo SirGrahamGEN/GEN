@@ -68,7 +68,7 @@ DIOSTREAMDEVICEBLUETOOTHLE:: DIOSTREAMDEVICEBLUETOOTHLE()
 {
   Clean();
   
-  lastscantimer = GEN_XFACTORY.CreateTimer();  
+  GEN_XFACTORY_CREATE(lastscantimer, CreateTimer())
 }
 
 

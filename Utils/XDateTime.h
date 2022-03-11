@@ -39,6 +39,8 @@
 #include "XString.h"
 #include "XPath.h"
 
+#include "FactoryBase.h"
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum XDATETIME_DAYWEEK
@@ -119,18 +121,18 @@ enum XDATETIME_SENTENCES
 #define XDATETIME_SECONDSSECONDS(allseconds)    (XDWORD)((((allseconds % XDATETIME_SECONDSINYEAR) % XDATETIME_SECONDSINMONTH) % XDATETIME_SECONDSINDAY) % XDATETIME_SECONDSINHOUR) % 60
 
 
-#define XDATETIME_GETACTUALTOSTRING(modificator, string)    { XDATETIME* xdatetime = GEN_XFACTORY.CreateDateTime();                          \
+#define XDATETIME_GETACTUALTOSTRING(modificator, string)    { XDATETIME* GEN_XFACTORY_CREATE(xdatetime, CreateDateTime();                 \
                                                               if(xdatetime)                                                               \
                                                                 {                                                                         \
                                                                   xdatetime->Read();                                                      \
                                                                   xdatetime->GetDateTimeToString(modificator, string);                    \
-                                                                  GEN_XFACTORY.DeleteDateTime(xdatetime);                                    \
+                                                                  GEN_XFACTORY.DeleteDateTime(xdatetime);                                 \
                                                                 }                                                                         \
                                                              }
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class XDATETIME
+class XDATETIME : public FACTORYBASE
 {
   public:
 

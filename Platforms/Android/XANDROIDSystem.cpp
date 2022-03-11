@@ -112,7 +112,7 @@ XSYSTEM_HARDWARETYPE XANDROIDSYSTEM::GetTypeHardware(int* revision)
 * @ingroup    PLATFORM_ANDROID
 * 
 * @author     Abraham J. Velez 
-* @date       29/12/2021 20:45:18
+* @date       01/03/2016 12:00
 * 
 * @param[in]  namestring : 
 * 

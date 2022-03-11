@@ -419,7 +419,7 @@ bool DIOANDROIDSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACst
   //xpathfile.Format(__L("D:/Projects/pinprobe/%s"), local.Get());
   xpathfile.Slash_Add();
 
-  xdir = GEN_XFACTORY.Create_Dir();
+  GEN_XFACTORY_CREATE(xdir, Create_Dir())
   if(!xdir) return false;
 
   if(!xdir->Exist(xpathfile))

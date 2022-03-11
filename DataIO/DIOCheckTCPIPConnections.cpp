@@ -75,7 +75,7 @@ DIOCHECKTCPIPCONNECTION_CUT::DIOCHECKTCPIPCONNECTION_CUT()
 {
   Clean();
 
-  startdatetime = GEN_XFACTORY.CreateDateTime();
+  GEN_XFACTORY_CREATE(startdatetime, CreateDateTime())
 }
 
 
@@ -281,7 +281,8 @@ DIOCHECKTCPIPCONNECTION::DIOCHECKTCPIPCONNECTION()
   Clean();
 
   url = new DIOURL();
-  timerconnexion = GEN_XFACTORY.CreateTimer();  
+  
+  GEN_XFACTORY_CREATE(timerconnexion, CreateTimer()) 
 }
 
 
@@ -675,13 +676,13 @@ bool DIOCHECKTCPIPCONNECTIONS::Ini(int timeconnectionchecks, bool validsomeiscon
 {
   Setup(timeconnectionchecks, validsomeisconnected, dispersionmode);
 
-  xtimerfortimeconnectionchecks = GEN_XFACTORY.CreateTimer();
+  GEN_XFACTORY_CREATE(xtimerfortimeconnectionchecks, CreateTimer())
   if(!xtimerfortimeconnectionchecks) return false;
       
   ping = GEN_DIOFACTORY.CreatePing();
   if(!ping) return false;
 
-  xmutexconnections = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexconnections, Create_Mutex())
   if(!xmutexconnections) return false;
 
   threadcheckconnections = CREATEXTHREAD(XTHREADGROUPID_DIOCHECKTCPIPCONNECTIONS, __L("DIOCHECKTCPIPCONNECTIONS::Ini"), ThreadCheckConnections, (void*)this);
@@ -1093,7 +1094,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToAllChecked(int timeout)
 {
   if(!connections.GetSize()) return false;
 
-  XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
+  XTIMER* GEN_XFACTORY_CREATE(xtimer, CreateTimer())
   if(!xtimer) return false;
 
   bool status = true;
@@ -1145,7 +1146,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToSomeIsChecked(int timeout)
 {
   if(!connections.GetSize()) return false;
 
-  XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
+  XTIMER* GEN_XFACTORY_CREATE(xtimer, CreateTimer())
   if(!xtimer) return false;
     
   bool status = true;

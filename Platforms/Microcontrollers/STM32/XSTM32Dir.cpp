@@ -291,7 +291,7 @@ bool XSTM32DIR::Delete(XCHAR* path, bool all)
                 }
                else
                 {
-                  XFILE* xfile = GEN_XFACTORY.Create_File();
+                  XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
                   if(xfile) xfile->Erase(xpathname.Get());
                   GEN_XFACTORY.Delete_File(xfile);
                  }

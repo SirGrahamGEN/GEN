@@ -153,12 +153,12 @@ bool DIOLINUXPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstg
 
   while(nloop)
     {
-      HASHCRC32 crc32;
-      XRAND*    xrand        = GEN_XFACTORY.CreateRand();
+      HASHCRC32 crc32;      
       XDWORD    crc32result;
       XSTRING   address;
       XBUFFER   xbuffer;
-
+      
+      XRAND* GEN_XFACTORY_CREATE(xrand, CreateRand())
       if(!xrand) break;
 
       memset((XBYTE*)&echorequest, 0, sizeof(DIOPING_ECHOREQUEST));

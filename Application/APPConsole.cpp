@@ -111,7 +111,7 @@ APPCONSOLE::~APPCONSOLE()
 *---------------------------------------------------------------------------------------------------------------------*/
 bool APPCONSOLE::Ini(XVECTOR<XSTRING*>* execparams)
 {
-  console = GEN_XFACTORY.CreateConsole();
+  GEN_XFACTORY_CREATE(console, CreateConsole())
   if(!console) return false;
 
   //console->Clear();

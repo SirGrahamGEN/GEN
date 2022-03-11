@@ -156,7 +156,7 @@ bool DIOREMOTEFILECFG::Ini()
           status[0] = Load(xpathremotefile);
           if(status[0])
             {
-              XFILE* xfile = GEN_XFACTORY.Create_File();
+              XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
               if(xfile)
                 {
                   xfile->Erase(xpathremotefile, true);

@@ -1369,7 +1369,7 @@ bool MAINPROCANDROID::OverturnAssetsToExternalLocation(XPATH& origin, XPATH& dat
 
   assetsstring = __L("assets");
 
-  XDIR* xdir = GEN_XFACTORY.Create_Dir();
+  XDIR* GEN_XFACTORY_CREATE(xdir, Create_Dir())
   if(xdir)
     {
       status = unzip->Open(origin);
@@ -1409,7 +1409,7 @@ bool MAINPROCANDROID::OverturnAssetsToExternalLocation(XPATH& origin, XPATH& dat
                       targetfile  = targetpath;
                       targetfile += namefile.Get();
 
-                      XFILE* xfile = GEN_XFACTORY.Create_File();
+                      XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
                       if(xfile)
                         {
                           //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Android Resources] ZIP descompress File: %s"), targetfile.Get());

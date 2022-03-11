@@ -138,7 +138,7 @@ DIOCHECKINTERNETCONNECTION::DIOCHECKINTERNETCONNECTION(int timeconnectionchecks)
   checkconnections = new DIOCHECKTCPIPCONNECTIONS();
   if(!checkconnections) return;
 
-  xmutexconnectioncuts = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexconnectioncuts, Create_Mutex())
 
   checkconnections->Ini(checkconnections->GetTimeConnectionChecks(), true, true);
 
@@ -250,7 +250,7 @@ bool DIOCHECKINTERNETCONNECTION::Check()
                 {
                   if(connectioncut->GetMeasureNSeconds() == DIOCHECKTCPIPCONNECTIONS_INFINITECUT)
                     {
-                      XDATETIME* xdatetime = GEN_XFACTORY.CreateDateTime();
+                      XDATETIME* GEN_XFACTORY_CREATE(xdatetime, CreateDateTime())
                       if(xdatetime)
                         {
                           xdatetime->Read();

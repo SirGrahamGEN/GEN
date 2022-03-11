@@ -148,7 +148,7 @@ void SCRIPT_LIB_STRING::Clean()
 * @ingroup    SCRIPT
 * 
 * @author     Abraham J. Velez 
-* @date       12/11/2021 20:54:35
+* @date       01/03/2016 12:00
 * 
 * @param[in]  library : 
 * @param[in]  script : 
@@ -190,7 +190,7 @@ void Call_AddString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* par
 * @ingroup    SCRIPT
 * 
 * @author     Abraham J. Velez 
-* @date       12/11/2021 20:59:24
+* @date       01/03/2016 12:00
 * 
 * @param[in]  library : 
 * @param[in]  script : 
@@ -239,7 +239,7 @@ void Call_FindString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* pa
 * @ingroup    SCRIPT
 * 
 * @author     Abraham J. Velez 
-* @date       13/11/2021 12:10:13
+* @date       01/03/2016 12:00
 * 
 * @param[in]  library : 
 * @param[in]  script : 

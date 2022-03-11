@@ -760,7 +760,7 @@ bool DIOSNMP::Get(DIOSNMP_OPERATION operation, XCHAR* community, XCHAR* OIDstr, 
   xber.SetOID(OIDstr);                                        value.Sequence_AddTo(xber);          // OID
   xber.SetNULL();                                             value.Sequence_AddTo(xber);          // NULL  
 
-  XRAND* xrand = GEN_XFACTORY.CreateRand();
+  XRAND* GEN_XFACTORY_CREATE(xrand, CreateRand())
   if(xrand)
     {
       number = xrand->Max(65000);
@@ -789,7 +789,7 @@ bool DIOSNMP::Get(DIOSNMP_OPERATION operation, XCHAR* community, XCHAR* OIDstr, 
   xbuffer.Empty();
   xbuffer.Resize(MAX_READBUFFER);
 
-  XTIMER* timeout = GEN_XFACTORY.CreateTimer();
+  XTIMER* GEN_XFACTORY_CREATE(timeout, CreateTimer())
   if(!timeout) return false;
 
   do{ XDWORD sizeread  = diostreamudp->GetInXBuffer()->GetSize();

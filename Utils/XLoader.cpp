@@ -119,15 +119,15 @@ bool XLOADERTASK::Start()
 {
   isfinished=false;
   
-  xtimer=GEN_XFACTORY.CreateTimer();  
+  GEN_XFACTORY_CREATE(xtimer, CreateTimer())
   if(!xtimers) return false;
 
   xtimer->Reset();
 
-  lock=GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(lock, Create_Mutex())
   if(!lock) return false;
 
-  thread=GEN_XFACTORY.CreateThread(XTHREADGROUPID_GRPLOADER,name.Get(),XLOADERTASK::ThreadFunction,this);
+  GEN_XFACTORY_CREATE(thread, CreeateThread(XTHREADGROUPID_GRPLOADER,name.Get(),XLOADERTASK::ThreadFunction,this))
   if(thread)
   {
     thread->Ini();

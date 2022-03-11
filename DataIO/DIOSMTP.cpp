@@ -274,9 +274,10 @@ XPATH* DIOSMTPATTACHMENT::GetXPath()
 *
 *---------------------------------------------------------------------------------------------------------------------*/
 bool DIOSMTPATTACHMENT::FileExists(XQWORD* size)
-{
-  XFILE* xfile = GEN_XFACTORY.Create_File();
+{  
   bool   status = false;
+  
+  XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
   if(xfile)
     {
       if(xfile->Open(xpath))
@@ -1411,7 +1412,7 @@ bool DIOSMTP::Send()
                       return false;
                     }
 
-                  XFILE* xfile = GEN_XFACTORY.Create_File();
+                  XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
                   if(xfile)
                     {
                       XQWORD br  = filesize;
@@ -1707,7 +1708,7 @@ bool DIOSMTP::CreateHeader(XSTRING& header)
   string.Empty();
 
   /*
-  XDATETIME* datetime = GEN_XFACTORY.CreateTime();
+  XDATETIME* GEN_XFACTORY_CREATE(datetime, CreateTime())
   if(datetime)
     {
       datetime->Read();

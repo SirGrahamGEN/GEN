@@ -507,7 +507,7 @@ void XFILEINISECTION::Clean()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 11:25:12
+* @date       01/03/2016 12:00
 * 
 * @return     Does not return anything. 
 * 
@@ -527,7 +527,7 @@ XFILEINIREMARK::XFILEINIREMARK()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 11:25:20
+* @date       01/03/2016 12:00
 * 
 * @return     Does not return anything. 
 * 
@@ -547,7 +547,7 @@ XFILEINIREMARK::~XFILEINIREMARK()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 11:47:34
+* @date       01/03/2016 12:00
 * 
 * @return     XFILEINI_TYPEREMARK : 
 * 
@@ -566,7 +566,7 @@ XFILEINI_TYPEREMARK XFILEINIREMARK::GetType()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 11:47:40
+* @date       01/03/2016 12:00
 * 
 * @param[in]  type : 
 * 
@@ -587,7 +587,7 @@ void XFILEINIREMARK::SetType(XFILEINI_TYPEREMARK type)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 11:39:17
+* @date       01/03/2016 12:00
 * 
 * @return     XDWORD : 
 * 
@@ -606,7 +606,7 @@ XDWORD XFILEINIREMARK::GetXPos()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 11:40:50
+* @date       01/03/2016 12:00
 * 
 * @param[in]  xpos : 
 * 
@@ -627,7 +627,7 @@ void XFILEINIREMARK::SetXPos(XDWORD xpos)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 11:55:36
+* @date       01/03/2016 12:00
 * 
 * @return     int : 
 * 
@@ -646,7 +646,7 @@ int XFILEINIREMARK::GetRelativeYPos()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 11:55:47
+* @date       01/03/2016 12:00
 * 
 * @param[in]  relativeypos : 
 * 
@@ -668,7 +668,7 @@ void XFILEINIREMARK::SetRelativeYPos(int relativeypos)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/12/2021 8:19:44
+* @date       01/03/2016 12:00
 * 
 * @return     XSTRING* : 
 * 
@@ -688,7 +688,7 @@ XSTRING* XFILEINIREMARK::GetRelativeSection()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/12/2021 8:19:22
+* @date       01/03/2016 12:00
 * 
 * @return     XSTRING* : 
 * 
@@ -708,7 +708,7 @@ XSTRING* XFILEINIREMARK::GetRelativeKey()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 11:28:59
+* @date       01/03/2016 12:00
 * 
 * @return     XSTRING* : 
 * 
@@ -727,7 +727,7 @@ XSTRING* XFILEINIREMARK::GetTextRemark()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/12/2021 19:23:24
+* @date       01/03/2016 12:00
 * 
 * @param[in]  remake : 
 * 
@@ -755,7 +755,7 @@ bool XFILEINIREMARK::Compare(XFILEINIREMARK* remake)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/12/2021 21:08:19
+* @date       01/03/2016 12:00
 * 
 * @param[in]  remake : 
 * 
@@ -785,7 +785,7 @@ bool XFILEINIREMARK::CopyTo(XFILEINIREMARK* remake)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/12/2021 21:09:16
+* @date       01/03/2016 12:00
 * 
 * @param[in]  remake : 
 * 
@@ -816,7 +816,7 @@ bool XFILEINIREMARK::CopyFrom(XFILEINIREMARK* remake)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 11:25:27
+* @date       01/03/2016 12:00
 * 
 * @return     void : does not return anything. 
 * 
@@ -993,7 +993,7 @@ bool XFILEINI::Close()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 21:12:01
+* @date       01/03/2016 12:00
 * 
 * @param[in]  section : 
 * 
@@ -1031,7 +1031,7 @@ XFILEINISECTION* XFILEINI::GetSection(XSTRING& section)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 21:11:31
+* @date       01/03/2016 12:00
 * 
 * @param[in]  section : 
 * 
@@ -1241,7 +1241,7 @@ bool XFILEINI::DeleteSection(XCHAR* section)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 21:30:00
+* @date       01/03/2016 12:00
 * 
 * @param[in]  section : 
 * @param[in]  key : 
@@ -2144,7 +2144,7 @@ bool XFILEINI::DeleteAllSections()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/12/2021 14:41:43
+* @date       01/03/2016 12:00
 * 
 * @return     XVECTOR<XFILEINIREMARK*>* : 
 * 
@@ -2163,7 +2163,7 @@ XVECTOR<XFILEINIREMARK*>* XFILEINI::GetRemarks()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 12:41:49
+* @date       01/03/2016 12:00
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -2187,7 +2187,7 @@ bool XFILEINI::DeleteAllRemarks()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 22:05:37
+* @date       01/03/2016 12:00
 * 
 * @param[in]  line : 
 * @param[in]  section : 
@@ -2219,7 +2219,7 @@ bool XFILEINI::Line_IsSection(XSTRING& line, XSTRING& section)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       07/12/2021 22:05:19
+* @date       01/03/2016 12:00
 * 
 * @param[in]  line : 
 * @param[in]  key : 
@@ -2265,7 +2265,7 @@ bool XFILEINI::Line_IsKey(XSTRING& line, XSTRING& key, XSTRING& value)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/12/2021 13:03:24
+* @date       01/03/2016 12:00
 * 
 * @param[in]  line : 
 * @param[in]  remark : 

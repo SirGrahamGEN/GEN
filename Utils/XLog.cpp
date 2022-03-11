@@ -1144,7 +1144,7 @@ int XLOG::Backup_GetNFiles()
 
   xpathnamelog.GetPath(xpath);
 
-  XDIR* xdir = GEN_XFACTORY.Create_Dir();
+  XDIR* GEN_XFACTORY_CREATE(xdir, Create_Dir())
   if(!xdir) return 0;
 
   if(xdir->FirstSearch(xpath.Get(), XLOG_SEARCHMASKBACKUPFILE , &xdirelement))
@@ -1190,7 +1190,7 @@ bool XLOG::Backup_GetNameFileMoreOld(XPATH& xpathselect)
 
   xpathnamelog.GetPath(xpath);
 
-  XDIR* xdir = GEN_XFACTORY.Create_Dir();
+  XDIR* GEN_XFACTORY_CREATE(xdir, Create_Dir())
   if(!xdir) return false;
 
   if(xdir->FirstSearch(xpath.Get(), XLOG_SEARCHMASKBACKUPFILE, &xdirelement))
@@ -1317,7 +1317,7 @@ bool XLOG::Backup_AdjustNFilesInCompressed()
 *---------------------------------------------------------------------------------------------------------------------*/
 bool XLOG::Backup_AdjustNFiles(XCHAR* pathnamelog, bool iscompress)
 {
-  XFILE* xfilebackup = GEN_XFACTORY.Create_File();
+  XFILE* GEN_XFACTORY_CREATE(xfilebackup, Create_File())
   if(!xfilebackup)  return false;
 
   XPATH    xpathnamelog;
@@ -1425,7 +1425,7 @@ bool XLOG::Backup_ControlLimits()
 
       End(false);
 
-      XFILE* xfile = GEN_XFACTORY.Create_File();
+      XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
       if(xfile)
         {
           xfile->Rename(xpathnamelog, backupxpathnamelog);
@@ -1477,9 +1477,9 @@ XLOG::XLOG()
 {
   Clean();
 
-  xdatetime = GEN_XFACTORY.CreateDateTime();
-  xtimer    = GEN_XFACTORY.CreateTimer();
-  mutex     = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xdatetime, CreateDateTime())
+  GEN_XFACTORY_CREATE(xtimer, CreateTimer())
+  GEN_XFACTORY_CREATE(mutex, Create_Mutex())
   
   filelog = new XFILETXT();
 }

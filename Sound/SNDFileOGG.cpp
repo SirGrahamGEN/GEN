@@ -120,7 +120,7 @@ bool SNDFILEOGG::LoadFile(XCHAR* path, XCHAR* ID, bool instream)
 
   bool  status = false;
 
-  xfile = GEN_XFACTORY.Create_File();
+  GEN_XFACTORY_CREATE(xfile, Create_File())
   if(!xfile)
     {
       xbuffer->Delete();

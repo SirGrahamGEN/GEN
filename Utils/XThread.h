@@ -38,6 +38,8 @@
 
 #include "XString.h"
 
+#include "FactoryBase.h"
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum XTHREADSTATUS
@@ -106,7 +108,7 @@ typedef void (*XTHREADFUNCTION)(void* data);
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class XMUTEX
+class XMUTEX : public FACTORYBASE
 {
   public:
                                   XMUTEX            ();
@@ -129,7 +131,7 @@ class XMUTEX
 
 
 
-class XTHREAD
+class XTHREAD : public FACTORYBASE
 {
   public:
                                   XTHREAD           (XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function = NULL, void* data = NULL);

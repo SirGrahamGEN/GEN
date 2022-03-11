@@ -1020,8 +1020,8 @@ bool APPUPDATE::CreateTaskUpdate(bool doajust)
 
   bool toactive = false;
 
-  XDATETIME* start = GEN_XFACTORY.CreateDateTime();
-  XDATETIME* end   = GEN_XFACTORY.CreateDateTime();
+  XDATETIME* GEN_XFACTORY_CREATE(start, CreateDateTime())
+  XDATETIME* GEN_XFACTORY_CREATE(end, CreateDateTime())
   if(start && end)
     {
       if(!app_cfg->ApplicationUpdate_GetCheckTime()->IsEmpty())

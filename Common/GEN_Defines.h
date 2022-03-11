@@ -44,66 +44,63 @@
 #endif
 
 
-// ------------------------------------------------------------------------------------------------
-// Macros SINGLETON
-
 
 // --- eXtensions ---------------------------------------------------------------------------------
 
 #ifndef GEN_XFACTORY
-#define GEN_XFACTORY              XFACTORY::GetInstance()
+#define GEN_XFACTORY                      XFACTORY::GetInstance()
 #endif
 
 
 #ifndef GEN_XFACTORY_CREATE
-#define GEN_XFACTORY_CREATE(var, func)  var = GEN_XFACTORY.func;   \
-                                        FACTORY_MODULE(var) 
+#define GEN_XFACTORY_CREATE(var, func)    var = GEN_XFACTORY.func;   \
+                                          FACTORY_MODULE(var) 
 #endif
 
-
+// Macros SINGLETON
 
 #ifndef GEN_XSLEEP
-#define GEN_XSLEEP                XSLEEP::GetInstance()
+#define GEN_XSLEEP                        XSLEEP::GetInstance()
 #endif
 
 #ifndef GEN_XRAND
-#define GEN_XRAND                 XRAND::GetInstance()
+#define GEN_XRAND                         XRAND::GetInstance()
 #endif
 
 #ifndef GEN_XLOG
-#define GEN_XLOG                  XLOG::GetInstance()
+#define GEN_XLOG                          XLOG::GetInstance()
 #endif
 
 #ifndef GEN_XSYSTEM
-#define GEN_XSYSTEM               XSYSTEM::GetInstance()
+#define GEN_XSYSTEM                       XSYSTEM::GetInstance()
 #endif
 
 #ifndef GEN_XPROCESSMANAGER
-#define GEN_XPROCESSMANAGER       XPROCESSMANAGER::GetInstance()
+#define GEN_XPROCESSMANAGER               XPROCESSMANAGER::GetInstance()
 #endif
 
 #ifndef GEN_XPATHSMANAGER
-#define GEN_XPATHSMANAGER         XPATHSMANAGER::GetInstance()
+#define GEN_XPATHSMANAGER                 XPATHSMANAGER::GetInstance()
 #endif
 
 #ifndef GEN_XTRANSLATION
-#define GEN_XTRANSLATION          XTRANSLATION::GetInstance()
+#define GEN_XTRANSLATION                  XTRANSLATION::GetInstance()
 #endif
 
 #ifndef GEN_XPUBLISHER
-#define GEN_XPUBLISHER            XPUBLISHER::GetInstance()
+#define GEN_XPUBLISHER                    XPUBLISHER::GetInstance()
 #endif
 
 #ifndef GEN_XSHAREDMEMORYMANAGER
-#define GEN_XSHAREDMEMORYMANAGER  XSHAREDMEMORYMANAGER::GetInstance()
+#define GEN_XSHAREDMEMORYMANAGER          XSHAREDMEMORYMANAGER::GetInstance()
 #endif
 
 #ifndef GEN_XDRIVEIMAGEMANAGER
-#define GEN_XDRIVEIMAGEMANAGER    XDRIVEIMAGEMANAGER::GetInstance()
+#define GEN_XDRIVEIMAGEMANAGER            XDRIVEIMAGEMANAGER::GetInstance()
 #endif
 
 #ifndef GEN_XEEPROMMEMORYMANAGER
-#define GEN_XEEPROMMEMORYMANAGER  XEEPROMMEMORYMANAGER::GetInstance()
+#define GEN_XEEPROMMEMORYMANAGER          XEEPROMMEMORYMANAGER::GetInstance()
 #endif
 
 // --- Data Input/Output Manager ------------------------------------------------------------------
@@ -111,6 +108,8 @@
 #ifndef GEN_DIOFACTORY
 #define GEN_DIOFACTORY            DIOFACTORY::GetInstance()
 #endif
+
+// Macros SINGLETON
 
 #ifndef GEN_DIOGPIO
 #define GEN_DIOGPIO               DIOGPIO::GetInstance()
@@ -148,7 +147,7 @@
 #define GEN_USERINTERFACE         UI_MANAGER::GetInstance()
 #endif
 
-// ------------------------------------------------------------------------------------------------
+
 
 
 /*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/

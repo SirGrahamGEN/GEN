@@ -2092,7 +2092,7 @@ bool XFILECOBOL::Open(int nfiles, XCHAR* xpathcpyfiles, XCHAR* xpathdatfiles, ..
   xpathnamefile.Insert(this->xpathdatfiles.Get(), 0);
 
 
-  xfiledata = GEN_XFACTORY.Create_File();
+  GEN_XFACTORY_CREATE(xfiledata, Create_File())
   if(!xfiledata) return false;
 
   bool status = xfiledata->Open(xpathnamefile.Get());

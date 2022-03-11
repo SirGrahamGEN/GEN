@@ -197,7 +197,7 @@ bool DIOSSHREVERSE::Activate()
   command.AddFormat(__L("%s -p %s autossh -M 0 -o \"ServerAliveInterval 30\" -o \"ServerAliveCountMax 3\" -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ExitOnForwardFailure=yes -N -R %d:%s:%d %s@%s &"), DIOSSHREVERSE_DEFAULTAPPLICATION, password.Get(), port, localIP.Get() ,DIOSSHREVERSE_DEFAULTPORTSSH, login.Get(), URLtarget.Get());
   status = GEN_XPROCESSMANAGER.MakeCommand(command.Get(), output, &returncode);
 
-  XTIMER* xtimerout =  GEN_XFACTORY.CreateTimer();
+  XTIMER* GEN_XFACTORY_CREATE(xtimerout, CreateTimer())
   if(xtimerout)
     {
       while(1)

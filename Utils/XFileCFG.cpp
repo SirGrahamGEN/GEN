@@ -617,7 +617,7 @@ bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* 
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/12/2021 21:32:37
+* @date       01/03/2016 12:00
 * 
 * @param[in]  group : 
 * @param[in]  text : 
@@ -656,7 +656,7 @@ bool XFILECFG::AddRemark(XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relative
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/12/2021 21:33:18
+* @date       01/03/2016 12:00
 * 
 * @param[in]  group : 
 * @param[in]  ID : 
@@ -695,7 +695,7 @@ bool XFILECFG::AddRemark(XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWO
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/12/2021 19:53:23
+* @date       01/03/2016 12:00
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -804,7 +804,7 @@ bool XFILECFG::EndFile()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       09/12/2021 18:56:37
+* @date       01/03/2016 12:00
 * 
 * @return     bool : true if is succesful. 
 * 

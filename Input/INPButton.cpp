@@ -69,7 +69,7 @@ INPBUTTON::INPBUTTON()
 {
   Clean();
 
-  xtimerpress = GEN_XFACTORY.CreateTimer();  
+  GEN_XFACTORY_CREATE(xtimerpress, CreateTimer())
 }
 
 

@@ -178,7 +178,7 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
   //hci_le_set_scan_enable(hcisocket, 0x01, 0, 1000);
   
   
-  xmutexdevicesevent = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexdevicesevent, Create_Mutex())
   if(!xmutexdevicesevent) return false;
   
   threadenumdevices = CREATEXTHREAD(XTHREADGROUPID_DIOSTREAMBLUETOOTH, __L("DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES"), ThreadEnumDevices, (void*)this);
@@ -280,7 +280,7 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
   hci_le_set_scan_enable(hcisocket, 0x01, 0, 1000);
   
 
-  xmutexdevicesevent = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexdevicesevent, Create_Mutex())
   if(!xmutexdevicesevent) return false;
   
   threadenumdevices = CREATEXTHREAD(XTHREADGROUPID_DIOSTREAMBLUETOOTH, __L("DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES"), ThreadEnumDevices, (void*)this);

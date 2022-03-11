@@ -344,7 +344,7 @@ XFILERIFF::XFILERIFF()
 { 
   Clean();     
 
-  xfilebase = GEN_XFACTORY.Create_File();
+  GEN_XFACTORY_CREATE(xfilebase, Create_File())
 }
 
 

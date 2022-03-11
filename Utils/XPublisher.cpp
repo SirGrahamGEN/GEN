@@ -511,7 +511,7 @@ XPUBLISHER::XPUBLISHER()
 
   subjectsmap.SetIsMulti(true);
 
-  xmutexevents = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexevents, Create_Mutex())
 }
 
 

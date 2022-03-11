@@ -366,7 +366,7 @@ bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* par
   bool  exist  = false;
   bool  status = false;
 
-  XFILE* xfile = GEN_XFACTORY.Create_File();
+  XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
   if(xfile)
     {
       exist = xfile->Open(applicationpath);
@@ -522,7 +522,7 @@ bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* par
     }
 
 
-  XFILE* xfile = GEN_XFACTORY.Create_File();
+  XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
   if(xfile)
     {
       exist = xfile->Open(applicationpath);

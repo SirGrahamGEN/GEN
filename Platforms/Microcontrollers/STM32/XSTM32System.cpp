@@ -119,7 +119,7 @@ XSYSTEM_HARDWARETYPE XSTM32SYSTEM::GetTypeHardware(int* revision)
 * @ingroup    PLATFORM_STM32
 * 
 * @author     Abraham J. Velez 
-* @date       09/11/2021 20:07:19
+* @date       01/03/2016 12:00
 * 
 * @param[in]  namestring : 
 * 

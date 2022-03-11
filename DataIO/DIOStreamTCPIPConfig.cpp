@@ -67,7 +67,7 @@ DIOSTREAMTCPIPCONFIG ::DIOSTREAMTCPIPCONFIG(): DIOSTREAMCONFIG(), DIOSTREAMCONFI
 
   type  = DIOSTREAMTYPE_TCPIP;
 
-  xmutexmultiserver = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexmultiserver, Create_Mutex())
 }
 
 

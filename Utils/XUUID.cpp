@@ -155,7 +155,7 @@ XWORD XUUID::GetData3()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       14/12/2021 8:38:08
+* @date       01/03/2016 12:00
 * 
 * @return     XBYTE : 
 * 
@@ -174,7 +174,7 @@ XBYTE XUUID::GetData4()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       14/12/2021 8:38:13
+* @date       01/03/2016 12:00
 * 
 * @return     XBYTE : 
 * 
@@ -193,7 +193,7 @@ XBYTE XUUID::GetData5()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       14/12/2021 8:36:22
+* @date       01/03/2016 12:00
 * 
 * @return     XBYTE* : 
 * 
@@ -282,7 +282,7 @@ bool XUUID::SetData3(XWORD data)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       14/12/2021 8:39:45
+* @date       01/03/2016 12:00
 * 
 * @param[in]  data : 
 * 
@@ -305,7 +305,7 @@ bool XUUID::SetData4(XBYTE data)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       14/12/2021 8:39:55
+* @date       01/03/2016 12:00
 * 
 * @param[in]  data : 
 * 
@@ -354,7 +354,7 @@ bool XUUID::SetData6(XBYTE* data)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       14/12/2021 8:41:09
+* @date       01/03/2016 12:00
 * 
 * @param[in]  data1 : 
 * @param[in]  data2 : 
@@ -387,7 +387,7 @@ bool XUUID::Set(XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       14/12/2021 8:42:13
+* @date       01/03/2016 12:00
 * 
 * @param[in]  uuid : 
 * 
@@ -438,12 +438,12 @@ bool XUUID::CopyTo(XUUID& uuid)
 *---------------------------------------------------------------------------------------------------------------------*/
 bool XUUID::GenerateRandom()
 {
-  XRAND* xrand = GEN_XFACTORY.CreateRand();
+  XRAND* GEN_XFACTORY_CREATE(xrand, CreateRand())
   if(xrand) 
     { 
       xrand->Ini();
 
-      XDATETIME* datetime = GEN_XFACTORY.CreateDateTime();
+      XDATETIME* GEN_XFACTORY_CREATE(datetime, CreateDateTime())
       if(datetime)
         {
           XSTRING     datetimestr;
@@ -494,7 +494,7 @@ bool XUUID::GenerateRandom()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       30/11/2021 10:44:41
+* @date       01/03/2016 12:00
 * 
 * @param[in]  string : 
 * 
@@ -520,7 +520,7 @@ bool XUUID::GetToString(XSTRING& string)
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       30/11/2021 10:46:20
+* @date       01/03/2016 12:00
 * 
 * @param[in]  string : 
 * 

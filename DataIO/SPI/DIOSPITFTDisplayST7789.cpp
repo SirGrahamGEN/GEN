@@ -472,7 +472,7 @@ bool DIOSPITFTDISPLAYST7789::TFT_SetWindow(int xs, int ys, int xe, int ye)
 * @ingroup    DATAIO
 * 
 * @author     Abraham J. Velez 
-* @date       25/11/2021 19:53:56
+* @date       01/03/2016 12:00
 * 
 * @param[in]  mode : 
 * 
@@ -572,7 +572,7 @@ bool DIOSPITFTDISPLAYST7789::SendData()
 * @ingroup    DATAIO
 * 
 * @author     Abraham J. Velez 
-* @date       25/11/2021 20:14:39
+* @date       01/03/2016 12:00
 * 
 * @param[in]  data : 
 * 
@@ -615,7 +615,7 @@ bool DIOSPITFTDISPLAYST7789::SendData(XWORD data)
 * @ingroup    DATAIO
 * 
 * @author     Abraham J. Velez 
-* @date       31/10/2021 13:54:13
+* @date       01/03/2016 12:00
 * 
 * @param[in]  command : 
 * @param[in]  ndata : 

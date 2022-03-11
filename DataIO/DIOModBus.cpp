@@ -75,7 +75,7 @@ DIOMODBUS::DIOMODBUS(DIOSTREAM* diostream, DIOMODBUSMODE mode)
   this->diostream   = diostream;
   this->mode        = mode;
 
-  xtimer = GEN_XFACTORY.CreateTimer(); 
+  GEN_XFACTORY_CREATE(xtimer, CreateTimer()) 
 }
 
 

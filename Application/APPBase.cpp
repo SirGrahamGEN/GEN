@@ -123,7 +123,7 @@ bool APPBASE::Ini(XVECTOR<XSTRING*>* execparams)
 {
   this->execparams  = execparams;
 
-  xtimerglobal = GEN_XFACTORY.CreateTimer();
+  GEN_XFACTORY_CREATE(xtimerglobal, CreateTimer())
   if(!xtimerglobal) return false;
     
   xtimerglobal->Reset();

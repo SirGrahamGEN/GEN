@@ -69,7 +69,7 @@ DB_SQL_DATABASE::DB_SQL_DATABASE()
 {
   Clean();
 
-  mutex = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(mutex, Create_Mutex())
   if(mutex) isthreadsafe = true;
 }
 

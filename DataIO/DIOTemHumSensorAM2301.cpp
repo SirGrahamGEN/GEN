@@ -64,11 +64,11 @@ DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301(DIOGPIO* diogpio, int pindata, bool
   this->diogpio = diogpio;
   this->pindata     = pindata;
 
-  xtimer = GEN_XFACTORY.CreateTimer();
+  GEN_XFACTORY_CREATE(xtimer, CreateTimer())
   
   if(activatecache)
     {
-      xmutexread  = GEN_XFACTORY.Create_Mutex();
+      GEN_XFACTORY_CREATE(xmutexread, Create_Mutex())
       if(xmutexread)
         {
           threadcache  = CREATEXTHREAD(XTHREADGROUPID_DIOSTREAM, __L("DIOTEMHUMSENSORAM2301::DIOSENSORAOSONGAM2301"), ThreadRunFunction, (void*)this);

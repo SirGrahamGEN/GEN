@@ -68,7 +68,7 @@ SCRIPT_LIB_IO::SCRIPT_LIB_IO() : SCRIPT_LIB(SCRIPT_LIB_NAME_IO)
 {
   Clean();
 
-  console = GEN_XFACTORY.CreateConsole();
+  GEN_XFACTORY_CREATE(console, CreateConsole())
 }
 
 
@@ -142,7 +142,11 @@ bool SCRIPT_LIB_IO::AddLibraryFunctions(SCRIPT* script)
 *---------------------------------------------------------------------------------------------------------------------*/
 XCONSOLE* SCRIPT_LIB_IO::GetConsole()
 {
-  if(!console) console = GEN_XFACTORY.CreateConsole();
+  if(!console) 
+    {
+      GEN_XFACTORY_CREATE(console, CreateConsole())
+    }
+    
   if(!console) return NULL;
 
   return console;

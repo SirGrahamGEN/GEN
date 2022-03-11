@@ -66,7 +66,7 @@ XTHREADCOLLECTED::XTHREADCOLLECTED()
 {
   Clean();
 
-  xtimerout = GEN_XFACTORY.CreateTimer();
+  GEN_XFACTORY_CREATE(xtimerout, CreateTimer())
 }
 
 
@@ -92,7 +92,7 @@ XTHREADCOLLECTED::XTHREADCOLLECTED(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUN
 {
   Clean();
 
-  directxthread = GEN_XFACTORY.CreateThread(groupID, ID, function, param);
+  GEN_XFACTORY_CREATE(directxthread, CreateThread(groupID, ID, function, param))
   if(directxthread)
     {
       this->ID       = ID;
@@ -736,7 +736,7 @@ XTHREADSCOLLECTED::XTHREADSCOLLECTED(XTHREADGROUPID groupID)
 
   this->groupID = groupID;
 
-  xthreadsvectormutex = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xthreadsvectormutex, Create_Mutex())
 
   XSTRING stringID;
 
@@ -744,9 +744,9 @@ XTHREADSCOLLECTED::XTHREADSCOLLECTED(XTHREADGROUPID groupID)
 
   if(xthreadsvectormutex)
     {
-      xthread = GEN_XFACTORY.CreateThread(groupID, stringID.Get(), ThreadRunFunction, (void*)this);
+      GEN_XFACTORY_CREATE(xthread, CreateThread(groupID, stringID.Get(), ThreadRunFunction, (void*)this));
       if(xthread) xthread->Ini();
-    }
+    }s
 }
 
 
@@ -1459,7 +1459,7 @@ XTHREADSCOLLECTEDMANAGER::XTHREADSCOLLECTEDMANAGER()
 {
   Clean();
 
-  groupthreadsmutex = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(groupthreadsmutex, Create_Mutex())
 }
 
 

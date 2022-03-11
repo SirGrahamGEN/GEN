@@ -338,14 +338,15 @@ DIOPING::DIOPING()
 
   RegisterEvent(DIOPING_XEVENT_TYPE_DOPING);
 
-  xtimer            = GEN_XFACTORY.CreateTimer();  
-  xmutexreplys      = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xtimer, CreateTimer())
+  GEN_XFACTORY_CREATE(xmutexreplys, Create_Mutex())
 
   urltarget = new DIOURL();
 
-  HASHCRC32 crc32;
-  XRAND*    xrand   = GEN_XFACTORY.CreateRand();
+  HASHCRC32 crc32;  
   XBUFFER   xbuffer;
+  
+  XRAND* GEN_XFACTORY_CREATE(xrand, CreateRand())
   if(xrand)
     {
       for(int c=0; c<128; c++)
@@ -513,13 +514,13 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
 
   while(nloop)
     {
-      HASHCRC32 crc32;
-      XRAND*    xrand        = GEN_XFACTORY.CreateRand();
+      HASHCRC32 crc32;     
       XDWORD    crc32result;
       XSTRING   address;
       XBUFFER   xbuffer;
       bool      status       = false;
-
+      
+      XRAND* GEN_XFACTORY_CREATE(xrand, CreateRand())
       if(!xrand) break;
 
       memset((XBYTE*)&echorequest, 0, sizeof(DIOPING_ECHOREQUEST));

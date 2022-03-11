@@ -655,7 +655,7 @@ XFILECONTAINER::~XFILECONTAINER()
 //-------------------------------------------------------------------
 bool XFILECONTAINER::CreatePrimaryFile()
 {
-  file = GEN_XFACTORY.Create_File();
+  GEN_XFACTORY_CREATE(file, Create_File())
   if(!file) return false;
 
   eraseprimaryfile = true;

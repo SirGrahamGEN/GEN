@@ -195,7 +195,7 @@ bool GRPVIDEOFILE::Open(XCHAR* xpath)
 * @ingroup    GRAPHIC
 * 
 * @author     Abraham J. Velez 
-* @date       04/01/2022 18:04:11
+* @date       01/03/2016 12:00
 * 
 * @param[in]  xpath : 
 * @param[in]  propertys : 

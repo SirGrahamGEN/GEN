@@ -82,7 +82,7 @@ DIOSCRAPERWEB::DIOSCRAPERWEB()
   xml = new XFILEXML();
   if(!xml)  return;
 
-  xmutexdo = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexdo, Create_Mutex())
   if(!xmutexdo) return;
 
   webclient = new DIOWEBCLIENT;

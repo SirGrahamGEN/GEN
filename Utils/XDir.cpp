@@ -587,8 +587,8 @@ bool XDIR::Copy(XPATH& xpathsource,XPATH& xpathtarget)
 
   bool status = true;
 
-  XFILE* fsource = GEN_XFACTORY.Create_File();
-  XFILE* ftarget = GEN_XFACTORY.Create_File();
+  XFILE* GEN_XFACTORY_CREATE(fsource, Create_File())
+  XFILE* GEN_XFACTORY_CREATE(ftarget, Create_File());
 
   if(fsource && ftarget)
     {

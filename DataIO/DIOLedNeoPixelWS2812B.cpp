@@ -195,7 +195,7 @@ bool DIOLEDNEOPIXELWS2812B::SendData(XBYTE* data, XDWORD size)
 * @ingroup    DATAIO
 * 
 * @author     Abraham J. Velez 
-* @date       11/02/2022 23:12:23
+* @date       01/03/2016 12:00
 * 
 * @return     XBYTE : 
 * 
@@ -214,7 +214,7 @@ XBYTE DIOLEDNEOPIXELWS2812B::GetBrightnessLevel()
 * @ingroup    DATAIO
 * 
 * @author     Abraham J. Velez 
-* @date       11/02/2022 23:12:29
+* @date       01/03/2016 12:00
 * 
 * @param[in]  brightnessLevel : 
 * 

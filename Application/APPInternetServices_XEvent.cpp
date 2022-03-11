@@ -96,7 +96,7 @@ APPINTERNETSERVICES_XEVENT::~APPINTERNETSERVICES_XEVENT()
 * @ingroup    APPLICATION
 * 
 * @author     Abraham J. Velez 
-* @date       17/10/2021 18:31:43
+* @date       01/03/2016 12:00
 * 
 * @return     APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE : 
 * 
@@ -115,7 +115,7 @@ APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE APPINTERNETSERVICES_XEVENT::Get
 * @ingroup    APPLICATION
 * 
 * @author     Abraham J. Velez 
-* @date       17/10/2021 18:32:28
+* @date       01/03/2016 12:00
 * 
 * @param[in]  internetconnexionstate : 
 * 
@@ -137,7 +137,7 @@ void APPINTERNETSERVICES_XEVENT::SetInternetConnexionState(APPINTERNETSERVICES_C
 * @ingroup    APPLICATION
 * 
 * @author     Abraham J. Velez 
-* @date       17/10/2021 12:49:58
+* @date       01/03/2016 12:00
 * 
 * @return     DIOCHECKTCPIPCONNECTION_CUT* : 
 * 
@@ -156,7 +156,7 @@ DIOCHECKTCPIPCONNECTION_CUT* APPINTERNETSERVICES_XEVENT::GetInternetConnextionCu
 * @ingroup    APPLICATION
 * 
 * @author     Abraham J. Velez 
-* @date       17/10/2021 12:49:43
+* @date       01/03/2016 12:00
 * 
 * @param[in]  internetconnectioncut : 
 * 
@@ -177,7 +177,7 @@ void APPINTERNETSERVICES_XEVENT::SetInternetConnextionCut(DIOCHECKTCPIPCONNECTIO
 * @ingroup    APPLICATION
 * 
 * @author     Abraham J. Velez 
-* @date       17/10/2021 19:36:13
+* @date       01/03/2016 12:00
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -196,7 +196,7 @@ bool APPINTERNETSERVICES_XEVENT::IsChangeLocalIP()
 * @ingroup    APPLICATION
 * 
 * @author     Abraham J. Velez 
-* @date       17/10/2021 19:36:18
+* @date       01/03/2016 12:00
 * 
 * @param[in]  ischangelocalIP : 
 * 
@@ -217,7 +217,7 @@ void APPINTERNETSERVICES_XEVENT::SetIsChangeLocalIP(bool ischangelocalIP)
 * @ingroup    APPLICATION
 * 
 * @author     Abraham J. Velez 
-* @date       17/10/2021 19:36:27
+* @date       01/03/2016 12:00
 * 
 * @return     XSTRING* : 
 * 

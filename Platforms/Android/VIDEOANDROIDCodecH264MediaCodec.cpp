@@ -39,7 +39,7 @@
 /*---- CLASS MEMBERS ---------------------------------------------------------------------*/
 VIDEOANDROIDCODECH264MEDIACODEC::VIDEOANDROIDCODECH264MEDIACODEC(VIDEOPLAYER* videoplayer) : VIDEOCODECH264(videoplayer)
 {
-  xtimer = GEN_XFACTORY.CreateTimer();  
+  GEN_XFACTORY_CREATE(xtimer, CreateTimer())
 }
 
 VIDEOANDROIDCODECH264MEDIACODEC::~VIDEOANDROIDCODECH264MEDIACODEC()

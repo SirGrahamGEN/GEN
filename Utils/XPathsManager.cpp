@@ -443,7 +443,7 @@ bool XPATHSMANAGER::DeleteAllPathSections()
 *---------------------------------------------------------------------------------------------------------------------*/
 bool XPATHSMANAGER::CreateAllPathSectionOnDisk()
 {
-  XDIR* xdir = GEN_XFACTORY.Create_Dir();
+  XDIR* GEN_XFACTORY_CREATE(xdir, Create_Dir())
   if(!xdir) return false;
 
   bool status = true;
@@ -499,7 +499,7 @@ bool XPATHSMANAGER::CreateAllPathSectionOnDisk()
 /*
 bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* nameapp, XCHAR* recopilatedir)
 {
-  XDIR* xdir = GEN_XFACTORY.Create_Dir();
+  XDIR* GEN_XFACTORY_CREATE(xdir, Create_Dir())
   if(!xdir) return false;
 
   XPATH xpathroot;
@@ -606,7 +606,7 @@ bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* assetsdirname)
   int   indexfound  = 0;
   bool  status      = false;
 
-  xdir = GEN_XFACTORY.Create_Dir();
+  GEN_XFACTORY_CREATE(xdir, Create_Dir())
   if(!xdir) return false;
 
   GetPathOfSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathroot);

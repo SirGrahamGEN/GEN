@@ -594,7 +594,7 @@ bool XCONSOLE::TipicalHeader_Create(int yearorigin, XCHAR* nameapp,int version,i
   if(!nameapp)      return false;
   if(!enterprise)   return false;
 
-  XDATETIME* xdatetime = GEN_XFACTORY.CreateDateTime();
+  XDATETIME* GEN_XFACTORY_CREATE(xdatetime, CreateDateTime())
   if(!xdatetime) return false;
 
   xdatetime->Read();
@@ -689,7 +689,7 @@ bool XCONSOLE::TipicalHeader_Show(int yearorigin, XCHAR* nameapp,int version,int
 *---------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::WaitKey(XCHAR* text, XDWORD margin, bool prelude, XDWORD timeout)
 {
-  XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
+  XTIMER* GEN_XFACTORY_CREATE(xtimer, CreateTimer())
   if(!xtimer) return false;
   
   xtimer->Reset();

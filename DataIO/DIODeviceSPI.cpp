@@ -69,7 +69,7 @@ DIODEVICESPI::DIODEVICESPI()
 {
   Clean();
 
-  xtimerout = GEN_XFACTORY.CreateTimer();  
+  GEN_XFACTORY_CREATE(xtimerout, CreateTimer())  
 }
 
 

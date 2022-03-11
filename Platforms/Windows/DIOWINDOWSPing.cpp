@@ -7,7 +7,7 @@
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       11/12/2021 12:10:09
+* @date       01/03/2016 12:00
 * 
 * @copyright  Copyright(c) 2005 - 2021 GEN Group.
 * 
@@ -69,7 +69,7 @@
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       11/12/2021 12:10:54
+* @date       01/03/2016 12:00
 * 
 * @param[in]  ) : 
 * 
@@ -91,7 +91,7 @@ DIOWINDOWSPING::DIOWINDOWSPING() : DIOPING()
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       11/12/2021 12:11:01
+* @date       01/03/2016 12:00
 * 
 * @return     Does not return anything. 
 * 
@@ -111,7 +111,7 @@ DIOWINDOWSPING::~DIOWINDOWSPING()
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       11/12/2021 12:11:17
+* @date       01/03/2016 12:00
 * 
 * @param[in]  nretries : 
 * @param[in]  timebetweenchecks : 
@@ -155,12 +155,12 @@ bool DIOWINDOWSPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirs
 
   while(nloop)
     {
-      HASHCRC32 crc32;
-      XRAND*    xrand        = GEN_XFACTORY.CreateRand();
+      HASHCRC32 crc32;      
       XDWORD    crc32result;
       XSTRING   address;
       XBUFFER   xbuffer;
-
+      
+      XRAND* GEN_XFACTORY_CREATE(xrand, CreateRand())
       if(!xrand) break;
 
       memset((XBYTE*)&echorequest, 0, sizeof(DIOWINDOWSPING_ECHODATA));

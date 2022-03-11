@@ -94,7 +94,7 @@ XRAND::~XRAND()
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       10/11/2021 17:13:17
+* @date       01/03/2016 12:00
 * 
 * @return     bool : true if is succesful. 
 * 

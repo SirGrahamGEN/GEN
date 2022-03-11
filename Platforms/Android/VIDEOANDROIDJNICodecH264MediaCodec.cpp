@@ -49,7 +49,7 @@ VIDEOANDROIDJNICODECH264MEDIACODEC::~VIDEOANDROIDJNICODECH264MEDIACODEC()
 
 bool VIDEOANDROIDJNICODECH264MEDIACODEC::Ini()
 {
-  xtimer = GEN_XFACTORY.CreateTimer();
+  GEN_XFACTORY_CREATE(xtimer, CreateTimer())
 
   videoplayer->GetRenderer()->GetContext()->Destroy();
   xtimer->Reset();

@@ -301,7 +301,7 @@ XSYSTEM_SO XWINDOWSSYSTEM::GetTypeSO()
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       09/11/2021 19:58:15
+* @date       01/03/2016 12:00
 * 
 * @param[in]  namestring : 
 * 
@@ -324,7 +324,7 @@ XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       11/11/2021 11:16:11
+* @date       01/03/2016 12:00
 * 
 * @param[in]  ID : 
 * 

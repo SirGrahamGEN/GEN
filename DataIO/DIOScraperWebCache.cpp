@@ -157,7 +157,7 @@ DIOSCRAPERWEBCACHE::DIOSCRAPERWEBCACHE()
 {
   Clean();
 
-  xmutexlist = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexlist, Create_Mutex())
 }
 
 

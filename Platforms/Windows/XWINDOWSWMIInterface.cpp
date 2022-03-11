@@ -734,7 +734,7 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceEnable(int ID, bool enable)
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       17/11/2021 18:54:02
+* @date       01/03/2016 12:00
 * 
 * @param[in]  ID : 
 * @param[in]  metric : 
@@ -862,7 +862,7 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int ID, int metric)
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @author     Abraham J. Velez 
-* @date       19/11/2021 20:48:38
+* @date       01/03/2016 12:00
 * 
 * @return     bool : true if is succesful. 
 * 

@@ -270,7 +270,7 @@ bool SNDFILE::LoadFile(XPATH& xpath, XCHAR* ID, bool isstream)
 *---------------------------------------------------------------------------------------------------------------------*/
 bool SNDFILE::WriteRaw(XCHAR* path, XCHAR* ID)
 {
-  XFILE* xfile = GEN_XFACTORY.Create_File();
+  XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
   if(!xfile) return false;
     
   if(!xfile->Open(path, false))

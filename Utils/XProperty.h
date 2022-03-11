@@ -7,7 +7,7 @@
 * @ingroup    UTILS
 * 
 * @author     Abraham J. Velez 
-* @date       25/04/2016 10:56:34
+* @date       01/03/2016 12:00
 * 
 * @copyright  Copyright(c) 2005 - 2022 GEN Group.
 * 
@@ -34,110 +34,17 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+/*
 #include <functional>
 #include <iostream>
 #include <cassert>
+*/
 
 #include "XMemory_Control.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
-/*
-template<typename T>
-class XXPROPERTY 
-{
-  public:
-                                              XXPROPERTY       () 
-                                              {
-                                              }
-
-
-                                             ~XXPROPERTY       ()
-                                              {
-                                              }                                              
-
-    operator const T&                         ()              const 
-                                              {
-                                                // Call override getter if we have it
-                                                if (getter) return getter();
-
-                                                return Get();
-                                              }
-
-    const T& operator                         =               (const T& other) 
-                                              {
-                                                // Call override setter if we have it
-                                                if(setter) return setter(other);
-                                                return Set(other);
-                                              }
-
-    bool operator                             ==              (const T& other) const 
-                                              {
-                                                // Static cast makes sure our getter operator is called, so we could use overrides if those are in place
-                                                return static_cast<const T&>(*this) == other;
-                                              }
-
-                                              // Use this to always get without overrides, useful for use with overriding implementations
-    const T&                                  Get             () const 
-                                              {
-                                                return t;
-                                              }
-
-                                              // Use this to always set without overrides, useful for use with overriding implementations
-    const T&                                  Set             (const T& other) 
-                                              {
-                                                return t = other;
-                                              }
-  
-                                              // Assign getter and setter to these properties
-    std::function<const T& ()>                getter;
-    std::function<const T& (const T&)>        setter;
-
-  private:
-
-    T                                         t;
-};
-*/
-
-
-/*
-template<typename C, typename T, T(C::* getter)(), void (C::* setter)(const T&)>
-struct XPROPERTY
-{
-public:
-  XPROPERTY(C* instance) : instance(instance)
-  {
-  }
-
-  operator T () const
-  {
-    return (instance->*getter)();
-  }
-
-  XPROPERTY& operator=(const T& value)
-  {
-    (instance->*setter)(value);
-    return *this;
-  }
-
-  template<typename C2, typename T2, T2(C2::* getter2)(), void (C2::* setter2)(const T2&)>
-  XPROPERTY& operator=                     (const XPROPERTY<C2, T2, getter2, setter2>& other)
-  {
-    return *this = (other.instance->*getter2)();
-  }
-
-
-  XPROPERTY& operator=                     (const XPROPERTY& other)
-  {
-    return *this = (other.instance->*getter)();
-  }
-
-  C* instance;
-};
-
-*/
 
 
 template<typename C, typename T, T(C::* getter)(), void (C::* setter)(T)>
@@ -196,7 +103,7 @@ struct XPROPERTYG
                               return (instance->*getter)();
                             }
 
-    T                       Get                         ()
+    T                       Get                             ()
                             {
                               T var = (instance->*getter)();
                               return var;
@@ -204,7 +111,7 @@ struct XPROPERTYG
 
 
     template<typename C2, typename T2, T2(C2::* getter2)()>
-    XPROPERTYG&             operator=                     (const XPROPERTYG<C2, T2, getter2>& other)
+    XPROPERTYG&             operator=                       (const XPROPERTYG<C2, T2, getter2>& other)
                             {
                               return *this = (other.instance->*getter2)();
                             }

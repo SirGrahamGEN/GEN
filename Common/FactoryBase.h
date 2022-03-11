@@ -7,7 +7,7 @@
 * @ingroup    PLATFORM_COMMON
 * 
 * @author     Abraham J. Velez 
-* @date       10/03/2022 19:33:46
+* @date       01/03/2016 12:00
 * 
 * @copyright  Copyright(c) 2005 - 2022 GEN Group.
 * 
@@ -58,7 +58,7 @@ class FACTORYBASE
                                 Clean();                            
                               }
 
-    void                      SetModule           (char* _pathmodule)
+    void                      SetModule           (const char* _pathmodule)
                               {
                                 memcpy(pathmodule, _pathmodule, strlen(_pathmodule));
                               }  

@@ -2161,9 +2161,8 @@ UI_MANAGER::UI_MANAGER()
 { 
   Clean();   
 
-  xmutex_modal    = GEN_XFACTORY.Create_Mutex();
-
-  xmutex_UIevent  = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutex_modal, Create_Mutex())
+  GEN_XFACTORY_CREATE(xmutex_UIevent, Create_Mutex())
 
   RegisterEvents(true);                        
 }

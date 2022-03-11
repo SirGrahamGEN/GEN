@@ -39,6 +39,7 @@
 #include <string.h>
 
 #include "XFactory.h"
+#include "XRand.h"
 #include "XTimer.h"
 #include "XVariant.h"
 #include "XSystem.h"
@@ -72,7 +73,10 @@ XBUFFER::XBUFFER(bool threadsafe)
 {
   Clean();
 
-  if(threadsafe) xmutex = GEN_XFACTORY.Create_Mutex();
+  if(threadsafe) 
+    {
+      GEN_XFACTORY_CREATE(xmutex, Create_Mutex())
+    }
 }
 
 
@@ -96,7 +100,10 @@ XBUFFER::XBUFFER(XDWORD size, bool threadsafe)
 {
   Clean();
 
-  if(threadsafe) xmutex = GEN_XFACTORY.Create_Mutex();
+  if(threadsafe) 
+    {
+      GEN_XFACTORY_CREATE(xmutex, Create_Mutex())
+    }
 
   Resize(size);
   FillBuffer();
@@ -2759,7 +2766,7 @@ bool XBUFFER::Padding_Add(XBYTE bitsadjust, XBUFFER_PADDINGTYPE type)
                                               Add((XBYTE)paddingsize);
                                               break;
 
-      case XBUFFER_PADDINGTYPE_ISO10126     : { XRAND* xrand = GEN_XFACTORY.CreateRand();
+      case XBUFFER_PADDINGTYPE_ISO10126     : { XRAND* GEN_XFACTORY_CREATE(xrand, CreateRand())
                                                 if(!xrand) return false;
 
                                                 for(int c=0;c<paddingsize-1;c++)

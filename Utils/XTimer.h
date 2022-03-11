@@ -34,11 +34,14 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "FactoryBase.h"
+
 #include "XBase.h"
+
 #include "XVector.h"
 #include "XString.h"
 #include "XPath.h"
+
+#include "FactoryBase.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 

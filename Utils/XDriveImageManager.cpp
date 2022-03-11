@@ -781,7 +781,7 @@ bool XDRIVEIMAGEMANAGER::ReadToIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& p
 
   if(!drive.GetSize()) return status;
 
-  xfileIMG = GEN_XFACTORY.Create_File();
+  GEN_XFACTORY_CREATE(xfileIMG, Create_File())
   if(xfileIMG)
     {
       if(xfileIMG->Create(pathfileIMG))
@@ -861,7 +861,7 @@ bool XDRIVEIMAGEMANAGER::WriteFromIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH
 
   writebuffer.Resize((XDWORD)(nsectorstowrite * drive.GetSectorSize()));
 
-  xfileIMG = GEN_XFACTORY.Create_File();
+  GEN_XFACTORY_CREATE(xfileIMG, Create_File())
   if(xfileIMG)
     {
       if(xfileIMG->Open(pathfileIMG, true))
