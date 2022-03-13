@@ -217,6 +217,11 @@
 
 #endif
 
+#ifdef XTRACE_ACTIVE
+  #define   APP_CFG_SETAUTOMATICTRACETARGETS             APP_CFG.SetAutomaticTraceTargets();
+#else
+  #define   APP_CFG_SETAUTOMATICTRACETARGETS             
+#endif
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
