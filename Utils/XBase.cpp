@@ -129,6 +129,74 @@ double Truncate(double value)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         double Fraction(double value)
+* @brief      Return the fractional part of double
+* @ingroup    UTILS
+*
+* @author     Abraham J. Velez
+* @date       01/03/2016 12:00
+*
+* @param[in]  value : double value to obtain fractional part
+*
+* @return     double : fractional part of value
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+double Fraction(double value)
+{
+  double truncate = 0;
+
+  return modf(value, &truncate);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float RoundOff(float value, XBYTE prec)
+* @brief      oundOff
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       15/03/2022 9:51:11
+* 
+* @param[in]  value : 
+* @param[in]  prec : 
+* 
+* @return     float : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+float RoundOff(float value, XBYTE prec)
+{
+  double pow_10 = pow(10.0f, (double)prec);
+  return (float)(round(value * pow_10) / pow_10);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         double RoundOff(double value, XBYTE prec)
+* @brief      oundOff
+* @ingroup    UTILS
+* 
+* @author     Abraham J. Velez 
+* @date       15/03/2022 9:52:36
+* 
+* @param[in]  value : 
+* @param[in]  prec : 
+* 
+* @return     double : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+double RoundOff(double value, XBYTE prec)
+{
+  double pow_10 = pow(10.0f, (float)prec);
+  return round(value * pow_10) / pow_10;
+}
+
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -254,27 +322,6 @@ XDWORD Low_QWORD(XQWORD data)
 }
 
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         double Fraction(double value)
-* @brief      Return the fractional part of double
-* @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @param[in]  value : double value to obtain fractional part
-*
-* @return     double : fractional part of value
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-double Fraction(double value)
-{
-  double truncate = 0;
-
-  return modf(value, &truncate);
-}
 
 
 

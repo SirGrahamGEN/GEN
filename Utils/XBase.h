@@ -216,6 +216,9 @@ class XBASE
 double  Truncate          (double value);
 double  Fraction          (double value);
 
+float   RoundOff          (float value , XBYTE prec);
+double  RoundOff          (double value, XBYTE prec);
+
 XBYTE   High_WORD         (XWORD  data);
 XWORD   High_DWORD        (XDWORD data);
 XDWORD  High_QWORD        (XQWORD data);
