@@ -399,11 +399,14 @@ bool MAINPROCWINDOWS::Factorys_Ini()
 {
   if(!XFACTORY::SetInstance(new XWINDOWSFACTORY())) return false;
   
+  #ifdef XSYTEM_ACTIVE  
   if(!XSYSTEM::SetInstance(new XWINDOWSSYSTEM()))  return false;
-
   XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
+  #endif
 
+  #ifdef XSLEEP_ACTIVE
   if(!XSLEEP::SetInstance(new XWINDOWSSLEEP())) return false;
+  #endif
 
   if(!XRAND::SetInstance(new XWINDOWSRAND())) return false;
   
@@ -537,12 +540,15 @@ bool MAINPROCWINDOWS::Factorys_End()
   XTRANSLATION::DelInstance();
   XTRANSLATION_GEN::DelInstance();
 
-
+  #ifdef XSLEEP_ACTIVE
   XSLEEP::DelInstance();
+  #endif
 
   XRAND::DelInstance();
 
+  #ifdef XSYSTEM_ACTIVE
   XSYSTEM::DelInstance();
+  #endif
 
   #ifdef XPUBLISHER_ACTIVE
   XPUBLISHER::DelInstance();

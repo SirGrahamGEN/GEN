@@ -391,7 +391,7 @@ bool XFACTORY::Delete_Dir(XDIR* dir)
 }
 
 
-
+#ifdef XCONSOLE_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCONSOLE* XFACTORY::CreateConsole()
@@ -431,7 +431,7 @@ bool XFACTORY::DeleteConsole(XCONSOLE* xconsole)
 {
   return false;
 }
-
+#endif
 
 
 /**-------------------------------------------------------------------------------------------------------------------

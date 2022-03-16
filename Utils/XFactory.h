@@ -46,7 +46,9 @@ class XRAND;
 class XFILE;
 class XDIR;
 class XSYSTEM;
+#ifdef XCONSOLE_ACTIVE
 class XCONSOLE;
+#endif
 class XMUTEX;
 class XTHREAD;
 class XDRIVEIMAGE;
@@ -78,8 +80,10 @@ class XFACTORY
     virtual XDIR*               Create_Dir                  ();
     virtual bool                Delete_Dir                  (XDIR* dir);
 
+    #ifdef XCONSOLE_ACTIVE
     virtual XCONSOLE*           CreateConsole               ();
     virtual bool                DeleteConsole               (XCONSOLE* xconsole);
+    #endif
 
     virtual XMUTEX*             Create_Mutex                ();
     virtual bool                Delete_Mutex                (XMUTEX* mutex);

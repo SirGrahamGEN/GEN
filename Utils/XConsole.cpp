@@ -789,5 +789,3 @@ void XCONSOLE::Clean()
 
 }
 
-
-

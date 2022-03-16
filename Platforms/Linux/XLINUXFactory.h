@@ -59,8 +59,10 @@ class XLINUXFACTORY : public XFACTORY
     XDIR*               Create_Dir              ();
     bool                Delete_Dir              (XDIR* dir);
 
+    #ifdef XCONSOLE_ACTIVE
     XCONSOLE*           CreateConsole           ();
     bool                DeleteConsole           (XCONSOLE* xconsole);
+    #endif
 
     XMUTEX*             Create_Mutex            ();
     bool                Delete_Mutex            (XMUTEX* phone);

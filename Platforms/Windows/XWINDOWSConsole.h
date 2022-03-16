@@ -32,6 +32,7 @@
 #ifndef _XWINDOWSCONSOLE_H_
 #define _XWINDOWSCONSOLE_H_
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XConsole.h"
@@ -66,6 +67,7 @@ class XWINDOWSCONSOLE : public XCONSOLE
 };
 
 /*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+
 
 #endif
 

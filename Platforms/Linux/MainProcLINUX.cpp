@@ -382,7 +382,9 @@ bool MAINPROCLINUX::Factorys_Ini()
 {
   if(!XFACTORY::SetInstance(new XLINUXFACTORY())) return false;
   
+  #ifdef XSYTEM_ACTIVE  
   if(!XSYSTEM::SetInstance(new XLINUXSYSTEM())) return false;
+  #endif
   
   XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
 
@@ -537,7 +539,9 @@ bool MAINPROCLINUX::Factorys_End()
 
   XRAND::DelInstance();
 
+  #ifdef XSYTEM_ACTIVE  
   XSYSTEM::DelInstance();
+  #endif
 
   #ifdef XPUBLISHER_ACTIVE
   XPUBLISHER::DelInstance();
