@@ -1284,6 +1284,7 @@ bool MAINPROCANDROID::Factorys_Ini()
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
+/*
 bool MAINPROCANDROID::Factorys_End()
 {
   #ifdef GRP_ACTIVE
@@ -1340,6 +1341,104 @@ bool MAINPROCANDROID::Factorys_End()
 
   return true;
 }
+*/
+
+bool MAINPROCANDROID::Factorys_End()
+{
+  #ifdef GRP_ACTIVE
+  GRPFACTORY::DelInstance();
+  #endif
+
+  #ifdef SND_ACTIVE
+  SNDFACTORY::DelInstance();
+  #endif
+
+  #ifdef DIO_ACTIVE
+  #ifdef DIOGPIO_ACTIVE
+  if(DIOGPIO::GetIsInstanced())
+    {
+      DIOGPIO::GetInstance().End();
+      DIOGPIO::DelInstance();
+    }
+  #endif
+	
+	#ifdef DIOUDP_ACTIVE
+	DIODNSRESOLVED::DelInstance();
+	#endif 
+	
+  DIOFACTORY::DelInstance();
+  #endif
+
+  #ifdef INP_ACTIVE
+  INPMANAGER::DelInstance();
+  INPFACTORYDEVICES::DelInstance();
+  #endif
+
+  #ifdef XTRACE_VIRTUALCLOCKTICK
+  if(xtimerclock)
+    {
+      delete xtimerclock;
+      xtimerclock = NULL;
+    }
+  #endif
+
+  #ifdef DIOALERTS_ACTIVE
+  DIOALERTS::DelInstance();
+  #endif
+
+  #ifdef XLOG_ACTIVE
+  XLOG::DelInstance();
+  #endif
+
+  XPATHSMANAGER::DelInstance();
+
+  XTRANSLATION::DelInstance();
+  XTRANSLATION_GEN::DelInstance();
+
+  #ifdef XPROCESSMANAGER_ACTIVE
+  XPROCESSMANAGER::DelInstance();
+  #endif
+
+  #ifdef XEEPROMMEMORYMANAGER_ACTIVE
+  XEEPROMMEMORYMANAGER::DelInstance();
+  #endif
+
+  #ifdef XDRIVEIMAGE_ACTIVE
+  XDRIVEIMAGE::DelInstance();
+  #endif
+
+  #ifdef XSHAREDMEMORY_ACTIVE   
+  XSHAREDMEMORY::DelInstance();
+  #endif
+
+  XSLEEP::DelInstance();
+
+  XRAND::DelInstance();
+
+  XSYSTEM::DelInstance();
+
+  #ifdef XPUBLISHER_ACTIVE
+  XPUBLISHER::DelInstance();
+  #endif
+
+  #ifdef XTHREADCOLLECTION_ACTIVE
+  XTHREADSCOLLECTEDMANAGER::DelInstance();
+  #endif
+
+  XFACTORY::DelInstance();
+
+  return true;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -544,7 +544,9 @@ bool MAINPROCWINDOWS::Factorys_End()
 
   XSYSTEM::DelInstance();
 
+  #ifdef XPUBLISHER_ACTIVE
   XPUBLISHER::DelInstance();
+  #endif
 
   #ifdef XTHREADCOLLECTION_ACTIVE
   XTHREADSCOLLECTEDMANAGER::DelInstance();
