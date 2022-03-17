@@ -622,6 +622,7 @@ endif()
 
 if(APP_FEATURE)
   add_definitions(-DAPP_ACTIVE)
+  set(XSYSTEM_FEATURE                                     true    CACHE BOOL "Activate System functions"                                  FORCE)
 endif()
 
 if(APP_CFG_REMOTEFILE_FEATURE)
@@ -1018,6 +1019,7 @@ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_MAINPROC}/MainProc.cpp")
 
 
 if(APP_CONSOLE_FEATURE)
+  set(XCONSOLE_FEATURE                                   true    CACHE BOOL "Activate Cconsole functions"                                FORCE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPConsole.cpp")    
 endif()
            
@@ -1154,6 +1156,8 @@ endif()
 # Scripts
 
 if(SCRIPT_FEATURE)
+
+  set(XCONSOLE_FEATURE                                    true    CACHE BOOL "Activate Cconsole functions"                                FORCE)
 
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT}/Script.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT}/Script_XEvent.cpp")
@@ -1353,6 +1357,7 @@ if(DIO_STREAM_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamEnumDevices.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamEnumServers.cpp")
   
+  set(XSLEEP_FEATURE                                      true    CACHE BOOL "Activate Sleep functions"                                   FORCE)
   set(XPUBLISHER_FEATURE                                  true    CACHE BOOL "Activate XPublisher"                                        FORCE)
   set(XFSMACHINE_FEATURE                                  true    CACHE BOOL "Activate XFSMachine"                                        FORCE)
 endif()
