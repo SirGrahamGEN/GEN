@@ -1231,40 +1231,37 @@ bool MAINPROCANDROID::Factorys_Ini()
   XFACTORY::SetInstance(new XANDROIDFACTORY());
   if(!XFACTORY::GetIsInstanced()) return false;
 
-  XSYSTEM::SetInstance(new XANDROIDSYSTEM());
-  if(!XSYSTEM::GetIsInstanced()) return false;
+  #ifdef XSYTEM_ACTIVE  
+  if(!XSYSTEM::SetInstance(new XANDROIDSYSTEM())) return false;
   XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
-
-  XRAND::SetInstance(new XANDROIDRAND());
-  if(!XRAND::GetIsInstanced()) return false;
-
-  XSLEEP::SetInstance(new XANDROIDSLEEP());
-  if(!XSLEEP::GetIsInstanced()) return false;
+  #endif
+  
+  if(!XRAND::SetInstance(new XANDROIDRAND())) return false;
+  
+  #ifdef XSLEEP_ACTIVE
+  if(!XSLEEP::SetInstance(new XANDROIDSLEEP())) return false;
+  #endif
 
   #ifdef XTRACE_VIRTUALCLOCKTICK
   xtimerclock = new XTIMERCLOCK();
   if(!xtimerclock) return false;
   #endif
 
-  #ifdef INP_ACTIVE
-  INPFACTORYDEVICES::SetInstance(new INPANDROIDFACTORYDEVICES());
-  if(!INPFACTORYDEVICES::GetIsInstanced()) return false;
+  #ifdef INP_ACTIVE  
+  if(!INPFACTORYDEVICES::SetInstance(new INPANDROIDFACTORYDEVICES())) return false;
   #endif
 
   #ifdef DIO_ACTIVE
-  DIOFACTORY::SetInstance(new DIOANDROIDFACTORY());
-  if(!DIOFACTORY::GetIsInstanced()) return false;
+  if(!DIOFACTORY::SetInstance(new DIOANDROIDFACTORY())) return false;
   #endif
 
-  #ifdef SND_ACTIVE
-  SNDFACTORY::Instance=new SNDANDROIDFACTORY();
-  if (!SNDFACTORY::Instance) return false;
+  #ifdef SND_ACTIVE  
+  if (!SNDFACTORY::Instance=new SNDANDROIDFACTORY()) return false;
   SNDFACTORY::Get()->IniEvents();
   #endif
 
-  #ifdef GRP_ACTIVE
-  GRPFACTORY::SetInstance(new GRPANDROIDFACTORY());
-  if(!GRPFACTORY::GetIsInstanced()) return false;
+  #ifdef GRP_ACTIVE;
+  if(!GRPFACTORY::SetInstance(new GRPANDROIDFACTORY())) return false;
   #endif
 
   return true;
@@ -1284,65 +1281,6 @@ bool MAINPROCANDROID::Factorys_Ini()
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
-/*
-bool MAINPROCANDROID::Factorys_End()
-{
-  #ifdef GRP_ACTIVE
-  if(GRPFACTORY::GetIsInstanced()) GRPFACTORY::DelInstance();
-  #endif
-
-  #ifdef SND_ACTIVE
-  if (SNDFACTORY::Get())
-  SNDFACTORY::Get()->EndEvents();
-  #endif
-
-  #ifdef DIO_ACTIVE
-  if(DIODNSRESOLVED::GetIsInstanced()) DIODNSRESOLVED::DelInstance();
-  if(DIOFACTORY::GetIsInstanced()) DIOFACTORY::DelInstance();
-  #endif
-
-  #ifdef INP_ACTIVE
-  if(INPMANAGER::GetIsInstanced()) INPMANAGER::DelInstance();
-  if(INPFACTORYDEVICES::GetIsInstanced()) INPFACTORYDEVICES::DelInstance();
-  #endif
-
-  #ifdef XTRACE_VIRTUALCLOCKTICK
-  if(xtimerclock)
-    {
-      delete xtimerclock;
-      xtimerclock = NULL;
-    }
-  #endif
-
-  #ifdef DIOALERTS_ACTIVE
-  if(DIOALERTS::GetIsInstanced()) DIOALERTS::DelInstance();
-  #endif
-
-  if(XPATHSMANAGER::GetIsInstanced()) XPATHSMANAGER::DelInstance();
-
-  if(XTRANSLATION::GetIsInstanced())     XTRANSLATION::DelInstance();
-  if(XTRANSLATION_GEN::GetIsInstanced()) XTRANSLATION_GEN::DelInstance();
-
-  if(XLOG::GetIsInstanced()) XLOG::DelInstance();
-
-  if(XRAND::GetIsInstanced()) XRAND::DelInstance();
-
-  if(XSLEEP::GetIsInstanced()) XSLEEP::DelInstance();
-
-  if(XSYSTEM::GetIsInstanced()) XSYSTEM::DelInstance();
-
-  if(XPUBLISHER::GetIsInstanced()) XPUBLISHER::DelInstance();
-
-  if(XFACTORY::GetIsInstanced()) XFACTORY::DelInstance();
-
-  #ifdef XTHREADCOLLECTION_ACTIVE
-  XTHREADSCOLLECTEDMANAGER::DelInstance();
-  #endif
-
-  return true;
-}
-*/
-
 bool MAINPROCANDROID::Factorys_End()
 {
   #ifdef GRP_ACTIVE
@@ -1411,7 +1349,9 @@ bool MAINPROCANDROID::Factorys_End()
   XSHAREDMEMORY::DelInstance();
   #endif
 
+  #ifdef XSLEEP_ACTIVE
   XSLEEP::DelInstance();
+  #endif
 
   XRAND::DelInstance();
 

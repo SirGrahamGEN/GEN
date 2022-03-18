@@ -384,13 +384,14 @@ bool MAINPROCLINUX::Factorys_Ini()
   
   #ifdef XSYTEM_ACTIVE  
   if(!XSYSTEM::SetInstance(new XLINUXSYSTEM())) return false;
-  #endif
-  
   XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
-
+  #endif  
+  
   if(!XRAND::SetInstance(new XLINUXRAND())) return false;
 
+  #ifdef XSLEEP_ACTIVE
   if(!XSLEEP::SetInstance(new XLINUXSLEEP())) return false;
+  #endif
     
   #ifdef XPROCESSMANAGER_ACTIVE
   if(!XPROCESSMANAGER::SetInstance(new XLINUXPROCESSMANAGER())) return false;
@@ -535,7 +536,9 @@ bool MAINPROCLINUX::Factorys_End()
   XSHAREDMEMORY::DelInstance();
   #endif
 
+  #ifdef XSLEEP_ACTIVE
   XSLEEP::DelInstance();
+  #endif  
 
   XRAND::DelInstance();
 

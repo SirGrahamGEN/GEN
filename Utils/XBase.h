@@ -37,7 +37,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define FRAMEWORKNAME         "GEN FrameWork"
-#define FRAMEWORKVERSION      "0.7.0"
+#define FRAMEWORKVERSION      "0.7.1"
 #define FRAMEWORKCODENAME     "Doublas M2"
 
 #ifndef XBYTE
