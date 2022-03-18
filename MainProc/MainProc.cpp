@@ -43,11 +43,11 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
-MAIN_FUNCTION_TYPE  Main_Proc_PlatformIni   = MAIN_FUNCTION_INI;
+MAIN_FUNCTION_TYPE  Main_Proc_PlatformIni   = MAIN_FUNCTION_PLATFORMINI;
 MAIN_FUNCTION_TYPE  Main_Proc_Ini           = MAIN_FUNCTION_INI;
 MAIN_FUNCTION_TYPE  Main_Proc_Update        = MAIN_FUNCTION_UPDATE;
 MAIN_FUNCTION_TYPE  Main_Proc_End           = MAIN_FUNCTION_END;
-MAIN_FUNCTION_TYPE  Main_Proc_PlatformEnd   = MAIN_FUNCTION_END;
+MAIN_FUNCTION_TYPE  Main_Proc_PlatformEnd   = MAIN_FUNCTION_PLATFORMEND;
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
