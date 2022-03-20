@@ -964,6 +964,8 @@ endif()
 
 if(DATABASES_SQL_FEATURE)
   add_definitions(-DDB_SQL_ACTIVE)
+  set(XPUBLISHER_FEATURE                                true    CACHE BOOL "Activate XPublisher"                                          FORCE)
+  set(XFSMACHINE_FEATURE                                true    CACHE BOOL "Activate XFSMachine"                                          FORCE)
 endif()
 
 
@@ -1023,7 +1025,9 @@ if(APP_CONSOLE_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPConsole.cpp")    
 endif()
            
-if(APP_GRAPHICS_FEATURE)
+if(APP_GRAPHICS_FEATURE)  
+  set(XPUBLISHER_FEATURE                                 true    CACHE BOOL "Activate XPublisher"                                        FORCE)
+  set(XFSMACHINE_FEATURE                                 true    CACHE BOOL "Activate XFSMachine"                                        FORCE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPGraphics.cpp")    
 endif()
 
@@ -1114,6 +1118,10 @@ if(USERINTERFACE_FEATURE)
     add_definitions("-DUSERINTERFACE_DEBUG")
   endif()
 
+  set(XPUBLISHER_FEATURE                                 true    CACHE BOOL "Activate XPublisher"                                        FORCE)
+  set(XFSMACHINE_FEATURE                                 true    CACHE BOOL "Activate XFSMachine"                                        FORCE)
+  set(XFILE_XML_FEATURE                                  true    CACHE BOOL "Activate XFile XML format"                                  FORCE)
+
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_USERINTERFACE}/UI_Color.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_USERINTERFACE}/UI_Colors.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_USERINTERFACE}/UI_Text.cpp")
@@ -1157,7 +1165,10 @@ endif()
 
 if(SCRIPT_FEATURE)
 
-  set(XCONSOLE_FEATURE                                    true    CACHE BOOL "Activate Cconsole functions"                                FORCE)
+  set(XPUBLISHER_FEATURE                                  true    CACHE BOOL "Activate XPublisher"                                          FORCE)
+  set(XFSMACHINE_FEATURE                                  true    CACHE BOOL "Activate XFSMachine"                                          FORCE)
+  set(XCONSOLE_FEATURE                                    true    CACHE BOOL "Activate Console functions"                                   FORCE)
+
 
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT}/Script.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT}/Script_XEvent.cpp")
@@ -1587,13 +1598,9 @@ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XDir.cpp")
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XThread.cpp")
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFactory.cpp")
 
-if(XSLEEP_FEATURE)
-  add_definitions(-DXSLEEP_ACTIVE) 
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XSleep.cpp")
-endif()
-
 if(XCONSOLE_FEATURE)
   add_definitions(-DXCONSOLE_ACTIVE) 
+  set(XSLEEP_FEATURE                                    true    CACHE BOOL "Activate Sleep functions"                                   FORCE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XConsole.cpp")
 endif()
 
@@ -1643,6 +1650,11 @@ if(XTRANSLATION_GEN_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XTranslation_GEN.cpp")
 endif()
 
+if(XSLEEP_FEATURE)
+  add_definitions(-DXSLEEP_ACTIVE) 
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XSleep.cpp")
+endif()
+
 
 if(XPROCESSMANAGER_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XProcessManager.cpp")
@@ -1676,7 +1688,7 @@ if(XFILE_INI_FEATURE)
 endif()
 
 if(XFILE_ZIP_FEATURE) 
-  set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)     
+  set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)   
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileZIP.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileZIP_XEvent.cpp")  
 endif()  

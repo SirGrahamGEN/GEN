@@ -14,9 +14,8 @@ if(COMPILE_TO_WINDOWS)
         
   #if(COMPILE_TO_WINDOWS_PC_32)
 
-    if(APP_CONSOLE_FEATURE)
+    if(APP_CONSOLE_FEATURE)    
       set_target_properties(${CMAKE_PROJECT_NAME}  PROPERTIES LINK_FLAGS /SUBSYSTEM:CONSOLE)
-
     else()
 
       if(GRP_FEATURE)
@@ -26,20 +25,25 @@ if(COMPILE_TO_WINDOWS)
 
     endif()
 
-    target_link_libraries(${CMAKE_PROJECT_NAME} ws2_32)  
-    target_link_libraries(${CMAKE_PROJECT_NAME} iphlpapi)  
-    target_link_libraries(${CMAKE_PROJECT_NAME} setupapi)  
-    target_link_libraries(${CMAKE_PROJECT_NAME} dbghelp)  
-    target_link_libraries(${CMAKE_PROJECT_NAME}	secur32)
-    target_link_libraries(${CMAKE_PROJECT_NAME}	powrprof)
+    if(XTRACE_FEATURE OR DIO_FEATURE)    
+      target_link_libraries(${CMAKE_PROJECT_NAME} ws2_32) 
+      target_link_libraries(${CMAKE_PROJECT_NAME} iphlpapi)  
+      
+    endif()
 
-    #if(DEBUG_FEATURE)
-    #  set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES LINK_FLAGS /NODEFAULTLIB:library)
-    #  target_link_libraries(${CMAKE_PROJECT_NAME} msvcrtd.lib)
-    #endif()
+    if(XSYSTEM_FEATURE)          
+      target_link_libraries(${CMAKE_PROJECT_NAME} secur32)      
+      target_link_libraries(${CMAKE_PROJECT_NAME} powrprof)
+    endif()
+
+
+#   target_link_libraries(${CMAKE_PROJECT_NAME} dbghelp)  
+
+    if(DIO_STREAMUSB_FEATURE)      
+      target_link_libraries(${CMAKE_PROJECT_NAME} setupapi)
+    endif()  
   
-    if(DIO_STREAMBLUETOOTH_FEATURE OR DIO_STREAMBLUETOOTHLE_FEATURE)
-      #target_link_libraries(${CMAKE_PROJECT_NAME} irprops.lib)
+    if(DIO_STREAMBLUETOOTH_FEATURE OR DIO_STREAMBLUETOOTHLE_FEATURE)      
       target_link_libraries(${CMAKE_PROJECT_NAME} bthprops.lib)
     endif()  
   
@@ -57,7 +61,7 @@ if(COMPILE_TO_WINDOWS)
 
     if(DIO_PCAP_FEATURE)
       target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_LIB})
-    endif()
+    endif()  
 
   #endif()
 

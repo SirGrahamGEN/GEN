@@ -207,7 +207,7 @@ bool MAINPROCWINDOWS::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applica
 
   //---------------------------------------------------------------------------
 
-  #if defined(DIO_ACTIVE) || defined(DIOUDP_ACTIVE) || defined(DIOTCPIP_ACTIVE) || defined(DIOBLUETOOTH_ACTIVE)
+  #if  defined(XTRACE_ACTIVE) ||  defined(DIO_ACTIVE) || defined(DIOUDP_ACTIVE) || defined(DIOTCPIP_ACTIVE) || defined(DIOBLUETOOTH_ACTIVE)
   XWORD   versionrequested = WINSOCK_VERSION;
   WSADATA data;
   int     error = false;
@@ -374,7 +374,7 @@ bool MAINPROCWINDOWS::End()
   XFILE_DISPLAYNOTCLOSEFILES
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
 
-  #if defined(DIO_ACTIVE) || defined(DIOUDP_ACTIVE) || defined(DIOTCPIP_ACTIVE) || defined(DIOBLUETOOTH_ACTIVE)
+  #if defined(XTRACE_ACTIVE) || defined(DIO_ACTIVE) || defined(DIOUDP_ACTIVE) || defined(DIOTCPIP_ACTIVE) || defined(DIOBLUETOOTH_ACTIVE)
   WSACleanup();
   #endif
 

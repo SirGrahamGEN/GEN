@@ -87,7 +87,7 @@ set(XUUID_FEATURE                                       false   CACHE BOOL "Acti
 
 set(XSLEEP_FEATURE                                      false   CACHE BOOL "Activate Sleep functions"                                   FORCE)
 set(XSYSTEM_FEATURE                                     false   CACHE BOOL "Activate System functions"                                  FORCE)
-set(XCONSOLE_FEATURE                                    false   CACHE BOOL "Activate Cconsole functions"                                FORCE)
+set(XCONSOLE_FEATURE                                    false   CACHE BOOL "Activate Console functions"                                 FORCE)
 
 set(XSHAREDMEMORYMANAGER_FEATURE                        false   CACHE BOOL "Activate Shared Memory Manager"                             FORCE)
 set(XDRIVEIMAGEMANAGER_FEATURE                          false   CACHE BOOL "Activate Drive Image Manager"                               FORCE)
