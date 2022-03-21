@@ -37,7 +37,6 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <winsock2.h>
-#include <windows.h>
 #include <float.h>
 #include <tchar.h>
 

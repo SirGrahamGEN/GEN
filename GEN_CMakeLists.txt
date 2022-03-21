@@ -326,13 +326,13 @@ if(COMPILE_TO_WINDOWS)
   add_definitions(-DHW_PC)
   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4091")    #  warning C4091: 'typedef ': ignored on left of 'xxx' when no variable is declared       
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4595")    #  warning C4595: 'xxx': non-member operator new or delete functions may not be declared inline
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4996")    #  warning C4996: 'xxx': was declared deprecated      
+  #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4091")    #  warning C4091: 'typedef ': ignored on left of 'xxx' when no variable is declared       
+  #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4595")    #  warning C4595: 'xxx': non-member operator new or delete functions may not be declared inline
+  #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4996")    #  warning C4996: 'xxx': was declared deprecated      
     
-  if(APPMODE_WINDOWS_DINAMIC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251")  #  warning C4251: needs to have dll-interface to be used by clients of class 'xxxxxxxx'
-  endif()
+  #if(APPMODE_WINDOWS_DINAMIC)
+    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251")  #  warning C4251: needs to have dll-interface to be used by clients of class 'xxxxxxxx'
+  #endif()
     
   #-------------------------------------------------------------------------------------------
   # Set Static librarys
@@ -504,7 +504,6 @@ if(COMPILE_TO_ANDROID)
   set(ANDROID_PLATFORM android-23)  
   set(ANDROID_NDK ANDROID_NDK_ROOT)
   set(CMAKE_TOOLCHAIN_FILE  "${ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake")
-  
 
   #set(CMAKE_C_COMPILER   "D:/GENFrameWork/ThirdPartyLibraries/android-ndk-r23b/toolchains/llvm/prebuilt/windows-x86_64/bin/clang-cl.exe")
   #set(CMAKE_CXX_COMPILER "D:/GENFrameWork/ThirdPartyLibraries/android-ndk-r23b/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe")

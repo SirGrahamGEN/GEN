@@ -34,8 +34,6 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include <Windows.h>
-
 #include <StackWalker.h>
 
 #include "XWINDOWSServiceBase.h"
