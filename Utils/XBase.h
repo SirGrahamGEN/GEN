@@ -137,9 +137,7 @@ typedef void*                 POINTER;
 #ifdef APPMODE_API_LIB_ACTIVE
 
   #if defined(WINDOWS)
-    //  Microsoft 
-    #include "windows.h"
-    
+    //  Microsoft    
     #ifdef APPMODE_API_LIB_EXPORT_ACTIVE
       #define GEN_API_LIB __declspec(dllexport)  
     #else  
