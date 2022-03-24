@@ -355,6 +355,25 @@ XSTRING* APPINTERNETSERVICES::GetAutomaticLocalIP()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* APPINTERNETSERVICES::GetAlLLocalIP()
+* @brief      GetAlLLocalIP
+* @ingroup    APPLICATION
+* 
+* @author     Abraham J. Velez 
+* @date       24/03/2022 17:17:42
+* 
+* @return     XSTRING* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPINTERNETSERVICES::GetAlLLocalIP()
+{
+  return &alllocalIP;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* APPINTERNETSERVICES::GetPublicIP()
 * @brief      GetPublicIP
@@ -798,6 +817,27 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
                                                                       DIOSTREAMDEVICEIP* device = (DIOSTREAMDEVICEIP*)enumdevices->GetFirstActiveDevice();
                                                                       if(device)  device->GetIP()->GetXString(actualautomaticlocalIP);
 
+                                                                      for(XDWORD c=0; c<enumdevices->GetDevices()->GetSize(); c++)
+                                                                        {
+                                                                          device = (DIOSTREAMDEVICEIP*)enumdevices->GetDevices()->Get(c);
+                                                                          if(device)
+                                                                            {
+                                                                              if((!device->GetIP()->IsEmpty()) && 
+                                                                                 (!device->GetIP()->IsAPIPA()) &&
+                                                                                 ((device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_ETHERNET) ||
+                                                                                  (device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_WIFI)     ||
+                                                                                  (device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_PPP)))
+                                                                                  {
+                                                                                    XSTRING locaIPstring;
+
+                                                                                    if(!alllocalIP.IsEmpty()) alllocalIP.Add(",");                                                                                      
+
+                                                                                    device->GetIP()->GetXString(locaIPstring); 
+                                                                                    alllocalIP.Add(locaIPstring.Get());                                                                                      
+                                                                                  }
+                                                                            }  
+                                                                        }    
+
                                                                       GEN_DIOFACTORY.DeleteStreamEnumDevices(enumdevices);
                                                                     }
 
@@ -901,6 +941,7 @@ void APPINTERNETSERVICES::Clean()
   xscheduler              = NULL;
 
   automaticlocalIP.Empty();
+  alllocalIP.Empty();
 
   checkinternetconnection = NULL;
 

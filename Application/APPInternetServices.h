@@ -75,6 +75,7 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
 
     bool                            HaveInternetConnection          ();
     XSTRING*                        GetAutomaticLocalIP             ();
+    XSTRING*                        GetAlLLocalIP                   ();
     XSTRING*                        GetPublicIP                     ();
     XDATETIME*                      DateTime_GetActual              (bool active_daylightsave =  true, bool active_meridian = true);
     XDATETIME*                      DateTime_GetUTC                 ();
@@ -102,6 +103,7 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
     XSCHEDULER*                     xscheduler;
 
     XSTRING                         automaticlocalIP;
+    XSTRING                         alllocalIP;
     
     DIOCHECKINTERNETCONNECTION*     checkinternetconnection;
 
