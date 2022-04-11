@@ -184,8 +184,8 @@ bool APPLOG::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int appsub
 
       APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, XT_L(XTRANSLATION_GEN_ID_APPLOG_INITMSG) , appversion, appsubversion, appsubversionerror
                                                                                                                       , appstatusstring.Get());
-      XDWORD total;
-      XDWORD free;
+      XDWORD total = 0;
+      XDWORD free  = 0;
 
       GEN_XSYSTEM.GetMemoryInfo(total,free);
 

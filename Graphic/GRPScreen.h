@@ -86,6 +86,7 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     bool                          DeleteBuffers                 ();
     XBYTE*                        GetBuffer                     ();
 
+
     virtual bool                  Create                        (bool show);
     virtual bool                  Update                        ();
     virtual bool                  Update                        (GRPCANVAS* canvas);
@@ -118,6 +119,8 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
 
     XBYTE*                        buffer;
     XDWORD                        buffersize;
+
+    bool                          isblockclose;
 
     XVECTOR<GRPVIEWPORT*>         viewports;  
 

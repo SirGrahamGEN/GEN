@@ -1231,7 +1231,7 @@ bool MAINPROCANDROID::Factorys_Ini()
   XFACTORY::SetInstance(new XANDROIDFACTORY());
   if(!XFACTORY::GetIsInstanced()) return false;
 
-  #ifdef XSYTEM_ACTIVE  
+  #ifdef XSYSTEM_ACTIVE  
   if(!XSYSTEM::SetInstance(new XANDROIDSYSTEM())) return false;
   XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
   #endif

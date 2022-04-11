@@ -71,6 +71,7 @@
 
 
 #ifdef GRP_ACTIVE
+#include "GRPWINDOWSScreen.h"
 #include "GRPWINDOWSFactory.h"
 #endif
 
@@ -284,7 +285,7 @@ bool MAINPROCWINDOWS::Update()
       if(mainprocwindows.GetAppMain()) app = mainprocwindows.GetAppMain()->GetApplication();
 
       while(::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
-        {
+        {          
           switch(msg.message)
             {
               case WM_QUIT       : if(app) app->SetExitType(APPBASE_EXITTYPE_BY_USER);
@@ -293,7 +294,7 @@ bool MAINPROCWINDOWS::Update()
               case WM_CLOSE      : PostQuitMessage(APPBASE_EXITTYPE_BY_USER);
                                    break;
             }
-
+          
           TranslateMessage(&msg);
           DispatchMessage(&msg);
         }
@@ -398,7 +399,7 @@ bool MAINPROCWINDOWS::Factorys_Ini()
 {
   if(!XFACTORY::SetInstance(new XWINDOWSFACTORY())) return false;
   
-  #ifdef XSYTEM_ACTIVE  
+  #ifdef XSYSTEM_ACTIVE  
   if(!XSYSTEM::SetInstance(new XWINDOWSSYSTEM()))  return false;
   XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
   #endif
@@ -473,6 +474,7 @@ bool MAINPROCWINDOWS::Factorys_Ini()
 bool MAINPROCWINDOWS::Factorys_End()
 {
   #ifdef GRP_ACTIVE
+  GRPWINDOWSSCREEN::GetListScreens()->DeleteAll();
   GRPFACTORY::DelInstance();
   #endif
 

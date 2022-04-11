@@ -821,6 +821,8 @@ void GRPSCREEN::Clean()
   buffer              = NULL;
   buffersize          = 0;
 
+  isblockclose        = false;
+
   index_maincanvas    = 0;
   maincanvas          = NULL;
 

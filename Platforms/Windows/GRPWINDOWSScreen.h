@@ -76,6 +76,12 @@ class GRPWINDOWSSCREEN : public GRPSCREEN
     BITMAPINFO*                           GetHInfo                    ();
   
 //  int                                   GetScaleFactor              ();
+
+    bool                                  IsBlockClose                ();
+    void                                  SetIsBlockClose             (bool activated);
+
+    static XMAP<HWND, GRPWINDOWSSCREEN*>* GetListScreens              ();
+
   
   private:
 
@@ -96,6 +102,8 @@ class GRPWINDOWSSCREEN : public GRPSCREEN
     DEVMODE                               devmode;
 
     BITMAPINFO                            hinfo;
+
+    static XMAP<HWND, GRPWINDOWSSCREEN*>  listscreens;
 };
 
 /*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/

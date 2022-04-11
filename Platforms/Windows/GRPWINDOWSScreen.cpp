@@ -35,18 +35,10 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-
-
-
 #include "XTrace.h"
 #include "XSystem.h"
 
-//#ifdef GRP_MAINPROCCTRL_ACTIVE
 #include "MainProcWINDOWS.h"
-//#include "APPBase.h"
-//#endif
-
-
 
 #include "GRPXEvent.h"
 #include "GRPCanvas.h"
@@ -55,6 +47,8 @@
 #include "XMemory_Control.h"
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+
+XMAP<HWND, GRPWINDOWSSCREEN*>  GRPWINDOWSSCREEN::listscreens;
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
@@ -155,6 +149,8 @@ bool GRPWINDOWSSCREEN::Create(bool show)
   if(!Create_Window(show)) return false;
 
   CreateBuffers();
+
+  listscreens.Add(hwnd, this);
 
   return GRPSCREEN::Create(show);
 }
@@ -500,6 +496,66 @@ BITMAPINFO* GRPWINDOWSSCREEN::GetHInfo()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPWINDOWSSCREEN::IsBlockClose()
+* @brief      IsBlockClose
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       04/04/2022 17:10:14
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool GRPWINDOWSSCREEN::IsBlockClose()
+{
+  return isblockclose;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPWINDOWSSCREEN::SetIsBlockClose(bool activated)
+* @brief      SetIsBlockClose
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       04/04/2022 17:10:05
+* 
+* @param[in]  activated : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void GRPWINDOWSSCREEN::SetIsBlockClose(bool activated)
+{
+  isblockclose = activated;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XMAP<HWND, GRPWINDOWSSCREEN*>* GRPWINDOWSSCREEN::GetListScreens()
+* @brief      GetListScreens
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @author     Abraham J. Velez 
+* @date       04/04/2022 17:14:18
+* 
+* @return     XMAP<HWND, GRPWINDOWSSCREEN*>* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XMAP<HWND, GRPWINDOWSSCREEN*>* GRPWINDOWSSCREEN::GetListScreens()
+{
+  return &listscreens;
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPWINDOWSSCREEN::GetScaleFactor()
 * @brief      GetScaleFactor
@@ -565,7 +621,6 @@ void GRPWINDOWSSCREEN::Clean()
   hwnd            = NULL;
   hdc             = NULL;
 }
-
 
 
 
@@ -760,8 +815,22 @@ LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wpara
                                 break;
 
       case WM_ENDSESSION      : break;
-      case WM_CLOSE           : break;
-      case WM_DESTROY         : break;
+
+      case WM_CLOSE           : { GRPWINDOWSSCREEN* screen = GRPWINDOWSSCREEN::GetListScreens()->Get(hwnd);
+                                  if(screen)
+                                    {
+                                      if(screen->IsBlockClose())
+                                        {
+                                          return 0;
+                                        }
+                                    }              
+                                }  
+                                break;
+
+      case WM_DESTROY         : { int a=0;
+                                  a++;
+                                }
+                                break;
 
       case WM_POWERBROADCAST  : //Computer is suspending
                                 if(wparam == PBT_APMSUSPEND)

@@ -607,7 +607,7 @@ if(APP_CFG_REMOTEFILE_FEATURE               OR
 endif()
 
 if(APP_CFG_LOG_FEATURE)
-  set(XLOG_FEATURE                                        true    CACHE BOOL "Activate LOG File"                                          FORCE)
+  set(XLOG_FEATURE                                        true    CACHE BOOL "Activate LOG File"                                          FORCE)  
 endif()
 
 if(APP_FEATURE)
@@ -1011,19 +1011,20 @@ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_MAINPROC}/MainProc.cpp")
 
 
 if(APP_CONSOLE_FEATURE)
-  set(XCONSOLE_FEATURE                                   true    CACHE BOOL "Activate Cconsole functions"                                FORCE)
+  set(XCONSOLE_FEATURE                                    true    CACHE BOOL "Activate Cconsole functions"                                FORCE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPConsole.cpp")    
 endif()
            
 if(APP_GRAPHICS_FEATURE)  
-  set(XPUBLISHER_FEATURE                                 true    CACHE BOOL "Activate XPublisher"                                        FORCE)
-  set(XFSMACHINE_FEATURE                                 true    CACHE BOOL "Activate XFSMachine"                                        FORCE)
+  set(XPUBLISHER_FEATURE                                  true    CACHE BOOL "Activate XPublisher"                                        FORCE)
+  set(XFSMACHINE_FEATURE                                  true    CACHE BOOL "Activate XFSMachine"                                        FORCE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPGraphics.cpp")    
 endif()
 
 if(APP_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPBase.cpp")                         
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPMain.cpp")
+  set(XSYSTEM_FEATURE                                     true    CACHE BOOL "Activate System functions"                                  FORCE)
 endif()
                                  
 if(APP_CHECKRESOURCESHARDWARE_FEATURE)
@@ -1039,7 +1040,7 @@ if(APP_INTERNETSERVICES_FEATURE)
 endif()
 
 if(APP_LOG_FEATURE)
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPLog.cpp")                         
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPLog.cpp")     
 endif()
 
 if(APP_WEBSERVER_FEATURE)

@@ -164,36 +164,44 @@ double Fraction(double value)
 * @param[in]  value : 
 * @param[in]  prec : 
 * 
-* @return     float : 
+* @return     float :
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 float RoundOff(float value, XBYTE prec)
 {
+  #ifdef BUILDER
+  return 0.0f;
+  #else
   double pow_10 = pow(10.0f, (double)prec);
   return (float)(round(value * pow_10) / pow_10);
+  #endif
 }
 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
+*
 * @fn         double RoundOff(double value, XBYTE prec)
 * @brief      oundOff
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
+*
+* @author     Abraham J. Velez
 * @date       15/03/2022 9:52:36
-* 
-* @param[in]  value : 
-* @param[in]  prec : 
-* 
-* @return     double : 
-* 
+*
+* @param[in]  value :
+* @param[in]  prec :
+*
+* @return     double :
+*
 * ---------------------------------------------------------------------------------------------------------------------*/
 double RoundOff(double value, XBYTE prec)
 {
+  #ifdef BUILDER
+  return 0.0f;
+  #else
   double pow_10 = pow(10.0f, (float)prec);
   return round(value * pow_10) / pow_10;
+  #endif
 }
 
 
