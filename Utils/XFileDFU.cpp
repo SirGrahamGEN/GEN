@@ -6,10 +6,7 @@
 * @brief      eXtended (DFU Device Firmware Update) file class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -91,10 +88,7 @@
 * @fn         XFILEDFU_PREFIX::XFILEDFU_PREFIX()
 * @brief      Constructor
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -111,10 +105,7 @@ XFILEDFU_PREFIX::XFILEDFU_PREFIX()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -131,10 +122,7 @@ XFILEDFU_PREFIX::~XFILEDFU_PREFIX()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -157,10 +145,7 @@ void XFILEDFU_PREFIX::Clean()
 * @fn         XFILEDFU_IMAGE::XFILEDFU_IMAGE()
 * @brief      Constructor
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -176,10 +161,7 @@ XFILEDFU_IMAGE::XFILEDFU_IMAGE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -199,10 +181,7 @@ XFILEDFU_IMAGE::~XFILEDFU_IMAGE()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -231,10 +210,7 @@ void XFILEDFU_IMAGE::Clean()
 * @fn         XFILEDFU_ELEMENT::XFILEDFU_ELEMENT()
 * @brief      Constructor
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -252,10 +228,7 @@ XFILEDFU_ELEMENT::XFILEDFU_ELEMENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -273,10 +246,7 @@ XFILEDFU_ELEMENT::~XFILEDFU_ELEMENT()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -299,10 +269,7 @@ void XFILEDFU_ELEMENT::Clean()
 * @fn         XFILEDFU_SUFFIX::XFILEDFU_SUFFIX()
 * @brief      Constructor
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -319,10 +286,7 @@ XFILEDFU_SUFFIX::XFILEDFU_SUFFIX()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -338,10 +302,7 @@ XFILEDFU_SUFFIX::~XFILEDFU_SUFFIX()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -372,9 +333,6 @@ void XFILEDFU_SUFFIX::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -393,9 +351,6 @@ XFILEDFU::XFILEDFU()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -417,10 +372,7 @@ XFILEDFU::~XFILEDFU()
 * @fn         bool XFILEDFU::Open(XCHAR* xpath, bool isreadonly)
 * @brief      Open
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xpath : 
 * @param[in]  isreadonly : 
 * 
@@ -441,10 +393,7 @@ bool XFILEDFU::Open(XCHAR* xpath, bool isreadonly)
 * @fn         bool XFILEDFU::ReadAll()
 * @brief      ReadAll
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -503,10 +452,7 @@ bool XFILEDFU::ReadAll()
 * @fn         XFILEDFU_PREFIX* XFILEDFU::GetPrefix()
 * @brief      GetPrefix
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XFILEDFU_PREFIX* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -522,10 +468,7 @@ XFILEDFU_PREFIX* XFILEDFU::GetPrefix()
 * @fn         XVECTOR<XFILEDFU_IMAGE*>* XFILEDFU::GetImages()
 * @brief      GetImages
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XVECTOR<XFILEDFU_IMAGE*>* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -541,10 +484,7 @@ XVECTOR<XFILEDFU_IMAGE*>*  XFILEDFU::GetImages()
 * @fn         XFILEDFU_SUFFIX* XFILEDFU::GetSuffix()
 * @brief      GetSuffix
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XFILEDFU_SUFFIX* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -560,10 +500,7 @@ XFILEDFU_SUFFIX* XFILEDFU::GetSuffix()
 * @fn         bool XFILEDFU::Close()
 * @brief      Close
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -581,10 +518,7 @@ bool XFILEDFU::Close()
 * @fn         XFILEDFU_IMAGE* XFILEDFU::Read_Image()
 * @brief      Read_Image
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XFILEDFU_IMAGE* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -624,10 +558,7 @@ XFILEDFU_IMAGE* XFILEDFU::Read_Image()
 * @fn         XFILEDFU_ELEMENT* XFILEDFU::ReadElement()
 * @brief      ReadElement
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XFILEDFU_ELEMENT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -667,10 +598,7 @@ XFILEDFU_ELEMENT* XFILEDFU::Read_Element()
 * @fn         bool XFILEDFU::CheckCRC()
 * @brief      CheckCRC
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -703,9 +631,6 @@ bool XFILEDFU::CheckCRC()
 * @fn         void Clean()
 * @brief      lean
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Web Server Header class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ DIOWEBHEADER::DIOWEBHEADER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -99,9 +90,6 @@ DIOWEBHEADER::~DIOWEBHEADER()
 * @fn         bool DIOWEBHEADER::Read(DIOSTREAMTCPIP* diostream, XTIMER* xtimer, int timeout)
 * @brief      Read
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  diostream :
 * @param[in]  xtimer :
@@ -161,9 +149,6 @@ bool DIOWEBHEADER::Read(DIOSTREAMTCPIP* diostream, int timeout)
 * @brief      Write
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  diostream :
 * @param[in]  timeout :
 *
@@ -202,9 +187,6 @@ bool DIOWEBHEADER::Write(DIOSTREAMTCPIP* diostream, int timeout)
 * @brief      AddLine
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  line :
 *
 * @return     bool : true if is succesful.
@@ -232,9 +214,6 @@ bool DIOWEBHEADER::AddLine(XCHAR* line)
 * @brief      AddLine
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  line :
 *
 * @return     bool : true if is succesful.
@@ -253,9 +232,6 @@ bool DIOWEBHEADER::AddLine(XSTRING& line)
 * @brief      GetLines
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<XSTRING*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -271,9 +247,6 @@ XVECTOR<XSTRING*>* DIOWEBHEADER::GetLines()
 * @fn         bool DIOWEBHEADER::GetLines(XSTRING& result)
 * @brief      GetLines
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  result :
 *
@@ -306,9 +279,6 @@ bool DIOWEBHEADER::GetLines(XSTRING& result)
 * @fn         XCHAR* DIOWEBHEADER::GetFieldValue(XCHAR* field)
 * @brief      GetFieldValue
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  field :
 *
@@ -343,9 +313,6 @@ XCHAR* DIOWEBHEADER::GetFieldValue(XCHAR* field)
 * @brief      GetFieldValue
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  field :
 *
 * @return     XCHAR* :
@@ -363,9 +330,6 @@ XCHAR* DIOWEBHEADER::GetFieldValue(XSTRING& field)
 * @fn         bool DIOWEBHEADER::DeleteAllLines()
 * @brief      DeleteAllLines
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -388,9 +352,6 @@ bool DIOWEBHEADER::DeleteAllLines()
 * @fn         bool DIOWEBHEADER::GetFormat(bool isserver, int type, void* data)
 * @brief      GetFormat
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isserver :
 * @param[in]  type :
@@ -462,9 +423,6 @@ bool DIOWEBHEADER::GetFormat(bool isserver, int type, void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

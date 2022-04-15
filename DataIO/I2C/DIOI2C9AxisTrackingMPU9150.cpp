@@ -6,10 +6,7 @@
 * @brief
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -64,9 +61,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -86,9 +80,6 @@ DIOI2C9AXISTRACKINGMPU9150::DIOI2C9AXISTRACKINGMPU9150() : DIODEVICEI2C()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -105,9 +96,6 @@ DIOI2C9AXISTRACKINGMPU9150::~DIOI2C9AXISTRACKINGMPU9150()
 * @fn         bool DIOI2C9AXISTRACKINGMPU9150::End()
 * @brief      End
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -126,9 +114,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::End()
 * @fn         bool DIOI2C9AXISTRACKINGMPU9150::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -156,9 +141,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::IniDevice()
 * @brief      Initialize
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -178,9 +160,6 @@ void DIOI2C9AXISTRACKINGMPU9150::Initialize()
 * @brief      TestConnection
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -198,9 +177,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::TestConnection()
 *             When set to 1, the auxiliary I2C bus high logic level is VDD. When cleared to 0, the auxiliary I2C
 *             bus high logic level is VLOGIC. This does not apply to the MPU-6000, which does not have a VLOGIC pin.
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XBYTE :
 *
@@ -221,9 +197,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetAuxVDDIOLevel()
 *             the auxiliary I2C bus high logic level is VLOGIC. This does not apply to the MPU-6000,
 *             which does not have a VLOGIC pin.
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  level :
 *
@@ -259,9 +232,6 @@ void DIOI2C9AXISTRACKINGMPU9150::SetAuxVDDIOLevel(XBYTE level)
 *             of the MPU-6000/MPU-6050 Product Specification document.
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -278,9 +248,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetRate()
 * @fn         void DIOI2C9AXISTRACKINGMPU9150::SetRate(XBYTE rate)
 * @brief      Set gyroscope sample rate divider.
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  rate :
 *
@@ -299,9 +266,6 @@ void DIOI2C9AXISTRACKINGMPU9150::SetRate(XBYTE rate)
 * @fn         XBYTE DIOI2C9AXISTRACKINGMPU9150::CheckMagStatus()
 * @brief      CheckMagStatus
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XBYTE :
 *
@@ -341,9 +305,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::CheckMagStatus()
 *             7            | ACCEL_ZOUT_L[0]
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE : FSYNC configuration value
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -360,9 +321,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetExternalFrameSync()
 * @fn         void DIOI2C9AXISTRACKINGMPU9150::SetExternalFrameSync(XBYTE sync)
 * @brief       Set external FSYNC configuration.
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sync : New FSYNC configuration value
 *
@@ -402,7 +360,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetExternalFrameSync(XBYTE sync)
 //  6        | 5Hz       | 19.0ms | 5Hz       | 18.6ms | 1kHz
 //  7        |   -- Reserved --   |   -- Reserved --   | Reserved
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/07/2016 23:50:09
 //
 //  @return       XBYTE :
@@ -437,9 +395,6 @@ void DIOI2C9AXISTRACKINGMPU9150::SetExternalFrameSync(XBYTE sync)
 *             7        |   -- Reserved --   |   -- Reserved --   | Reserved
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :  DLFP configuration
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -456,9 +411,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetDLPFMode()
 * @fn         void DIOI2C9AXISTRACKINGMPU9150::SetDLPFMode(XBYTE mode)
 * @brief      Set digital low-pass filter configuration.
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mode : New DLFP configuration setting
 *
@@ -485,7 +437,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetDLPFMode(XBYTE mode)
 //  2 = +/- 1000 degrees/sec
 //  3 = +/- 2000 degrees/sec
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/07/2016 23:53:41
 //
 //  @return       XBYTE : Current full-scale gyroscope range setting
@@ -506,9 +458,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFullScaleGyroRange()
 * @brief      Set full-scale gyroscope range.
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  range : New full-scale gyroscope range value
 *
 * @return     void : does not return anything.
@@ -527,9 +476,6 @@ void DIOI2C9AXISTRACKINGMPU9150::SetFullScaleGyroRange(XBYTE range)
 * @brief      Get self-test enabled setting for accelerometer X axis.
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : Self-test enabled value.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -546,9 +492,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetAccelXSelfTest()
 * @fn         void DIOI2C9AXISTRACKINGMPU9150::SetAccelXSelfTest(bool enabled)
 * @brief      Get self-test enabled setting for accelerometer X axis.
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  enabled : Self-test enabled value
 *
@@ -568,9 +511,6 @@ void DIOI2C9AXISTRACKINGMPU9150::SetAccelXSelfTest(bool enabled)
 * @brief      Get self-test enabled value for accelerometer Y axis.
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : Self-test enabled value.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -587,9 +527,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetAccelYSelfTest()
 * @fn         void DIOI2C9AXISTRACKINGMPU9150::SetAccelYSelfTest(bool enabled)
 * @brief      Get self-test enabled value for accelerometer Y axis.
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  enabled :
 *
@@ -609,9 +546,6 @@ void DIOI2C9AXISTRACKINGMPU9150::SetAccelYSelfTest(bool enabled)
 * @brief      Get self-test enabled value for accelerometer Z axis.
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : Self-test enabled value
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -628,9 +562,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetAccelZSelfTest()
 * @fn         void DIOI2C9AXISTRACKINGMPU9150::SetAccelZSelfTest(bool enabled)
 * @brief      Set self-test enabled value for accelerometer Z axis.
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  enabled : Self-test enabled value
 *
@@ -650,7 +581,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetAccelZSelfTest(bool enabled)
 */
 /**
 /
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:01:03
 //
 //  @return       XBYTE : Current full-scale accelerometer range setting
@@ -675,9 +606,6 @@ void DIOI2C9AXISTRACKINGMPU9150::SetAccelZSelfTest(bool enabled)
 *
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -694,9 +622,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFullScaleAccelRange()
 * @fn         void DIOI2C9AXISTRACKINGMPU9150::SetFullScaleAccelRange(XBYTE range)
 * @brief      Set full-scale accelerometer range.
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  range : New full-scale accelerometer range setting
 *
@@ -741,7 +666,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetFullScaleAccelRange(XBYTE range)
 //  4         | On          | 0.63Hz
 //  7         | Hold        | None
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:23:12
 //
 //  @return       XBYTE : Current high-pass filter configuration
@@ -763,7 +688,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetDHPFMode()
 //  Set the high-pass filter configuration.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:25:32
 //
 //  @param        bandwidth : New high-pass filter configuration
@@ -788,7 +713,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetDHPFMode(XBYTE bandwidth)
 // duration counter (Register 30). The Free Fall interrupt is triggered when the
 // Free Fall duration counter reaches the time specified in FF_DUR.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:26:24
 //
 //  @return       XBYTE : Current free-fall acceleration threshold value (LSB = 2mg)
@@ -811,7 +736,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFreefallDetectionThreshold()
 //  Set free-fall event acceleration threshold.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:28:22
 //
 //  @param        threshold : New free-fall acceleration threshold value (LSB = 2mg)
@@ -840,7 +765,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetFreefallDetectionThreshold(XBYTE threshold)
 // duration counter reaches the time specified in this register.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:30:26
 //
 //  @return       XBYTE : Current free-fall duration threshold value (LSB = 1ms)
@@ -862,7 +787,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFreefallDetectionDuration()
 //  Get free-fall event duration threshold.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:32:24
 //
 //  @param        duration : New free-fall duration threshold value (LSB = 1ms)
@@ -891,7 +816,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetFreefallDetectionDuration(XBYTE duration)
 //  The Motion interrupt will indicate the axis and polarity of detected motion
 //  in MOT_DETECT_STATUS (Register 97).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:33:07
 //
 //  @return       XBYTE : Current motion detection acceleration threshold value (LSB = 2mg)
@@ -912,7 +837,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetMotionDetectionThreshold()
 //  Set free-fall event acceleration threshold.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:36:01
 //
 //  @param        threshold : New motion detection acceleration threshold value (LSB = 2mg)
@@ -940,7 +865,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetMotionDetectionThreshold(XBYTE threshold)
 //  in this register.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:36:45
 //
 //  @return       XBYTE : Current motion detection duration threshold value (LSB = 1ms)
@@ -961,7 +886,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetMotionDetectionDuration()
 //  Set motion detection event duration threshold.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:42:44
 //
 //  @param        duration : New motion detection duration threshold value (LSB = 1ms)
@@ -998,7 +923,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetMotionDetectionDuration(XBYTE duration)
 //  motion condition is detected, the status bit is set to 0.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:43:39
 //
 //  @return       XBYTE : Current zero motion detection acceleration threshold value (LSB = 2mg)
@@ -1020,7 +945,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetZeroMotionDetectionThreshold()
 //  Set zero motion detection event acceleration threshold.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:45:21
 //
 //  @param        threshold : New zero motion detection acceleration threshold value (LSB = 2mg)
@@ -1047,7 +972,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetZeroMotionDetectionThreshold(XBYTE threshold
 //  interrupt is triggered when the Zero Motion duration counter reaches the time
 //  count specified in this register.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:45:57
 //
 //  @return       XBYTE : Current zero motion detection duration threshold value (LSB = 64ms)
@@ -1070,7 +995,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetZeroMotionDetectionDuration()
 //  Set zero motion detection event duration threshold.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:47:50
 //
 //  @param        duration : New zero motion detection duration threshold value (LSB = 1ms)
@@ -1092,7 +1017,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetZeroMotionDetectionDuration(XBYTE duration)
 //  When set to 1, this bit enables TEMP_OUT_H and TEMP_OUT_L (Registers 65 and
 //  66) to be written into the FIFO buffer.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:48:31
 //
 //  @return       bool : Current temperature FIFO enabled value
@@ -1114,7 +1039,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetTempFIFOEnabled()
 //  Set temperature FIFO enabled value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:49:18
 //
 //  @param        enabled :New temperature FIFO enabled value
@@ -1136,7 +1061,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetTempFIFOEnabled(bool enabled)
 //  When set to 1, this bit enables GYRO_XOUT_H and GYRO_XOUT_L (Registers 67 and
 //  68) to be written into the FIFO buffer.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:50:14
 //
 //  @return       bool : Current gyroscope X-axis FIFO enabled value
@@ -1160,7 +1085,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetXGyroFIFOEnabled()
 //  Set gyroscope X-axis FIFO enabled value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:50:59
 //
 //  @param        enabled : New gyroscope X-axis FIFO enabled value
@@ -1181,7 +1106,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetXGyroFIFOEnabled(bool enabled)
 //  When set to 1, this bit enables GYRO_YOUT_H and GYRO_YOUT_L (Registers 69 and
 //  70) to be written into the FIFO buffer.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:51:34
 //
 //  @return       bool : Current gyroscope Y-axis FIFO enabled value
@@ -1203,7 +1128,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetYGyroFIFOEnabled()
 //  Set gyroscope Y-axis FIFO enabled value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:52:16
 //
 //  @param        enabled :New gyroscope Y-axis FIFO enabled value
@@ -1225,7 +1150,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetYGyroFIFOEnabled(bool enabled)
 //  When set to 1, this bit enables GYRO_ZOUT_H and GYRO_ZOUT_L (Registers 71 and
 //  72) to be written into the FIFO buffer.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:52:58
 //
 //  @return       bool : Current gyroscope Z-axis FIFO enabled value
@@ -1247,7 +1172,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetZGyroFIFOEnabled()
 //  Set gyroscope Z-axis FIFO enabled value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:53:43
 //
 //  @param        enabled : New gyroscope Z-axis FIFO enabled value
@@ -1269,7 +1194,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetZGyroFIFOEnabled(bool enabled)
 //  ACCEL_YOUT_L, ACCEL_ZOUT_H, and ACCEL_ZOUT_L (Registers 59 to 64) to be
 //  written into the FIFO buffer.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:54:26
 //
 //  @return       bool : Current accelerometer FIFO enabled value
@@ -1291,7 +1216,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetAccelFIFOEnabled()
 //  Set accelerometer FIFO enabled value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:55:20
 //
 //  @param        enabled : New accelerometer FIFO enabled value
@@ -1311,7 +1236,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetAccelFIFOEnabled(bool enabled)
 //  When set to 1, this bit enables EXT_SENS_DATA registers (Registers 73 to 96)
 //  associated with Slave 2 to be written into the FIFO buffer.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:55:53
 //
 //  @return       bool : Current Slave 2 FIFO enabled value
@@ -1334,7 +1259,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave2FIFOEnabled()
 //  Set Slave 2 FIFO enabled value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:56:34
 //
 //  @param        enabled : New Slave 2 FIFO enabled value
@@ -1355,7 +1280,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlave2FIFOEnabled(bool enabled)
 //  When set to 1, this bit enables EXT_SENS_DATA registers (Registers 73 to 96)
 //  associated with Slave 1 to be written into the FIFO buffer.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:57:14
 //
 //  @return       bool :
@@ -1378,7 +1303,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave1FIFOEnabled()
 //  Set Slave 1 FIFO enabled value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:57:57
 //
 //  @param        enabled : New Slave 1 FIFO enabled value
@@ -1399,7 +1324,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlave1FIFOEnabled(bool enabled)
 //  When set to 1, this bit enables EXT_SENS_DATA registers (Registers 73 to 96)
 //  associated with Slave 0 to be written into the FIFO buffer.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:58:30
 //
 //  @return       bool :
@@ -1421,7 +1346,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave0FIFOEnabled()
 //  Set Slave 0 FIFO enabled value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:59:16
 //
 //  @param        enabled : New Slave 0 FIFO enabled value
@@ -1450,7 +1375,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlave0FIFOEnabled(bool enabled)
 //  MPU-60X0's bus arbitration detection logic is turned on, enabling it to
 //  detect when the bus is available.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 0:59:50
 //
 //  @return       bool : Current multi-master enabled value
@@ -1473,7 +1398,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetMultiMasterEnabled()
 //  Set multi-master enabled value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:01:28
 //
 //  @param        enabled : New multi-master enabled value
@@ -1499,7 +1424,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetMultiMasterEnabled(bool enabled)
 //  their respective data registers (i.e. the data is synced) when the Data Ready
 //  interrupt is triggered.
 
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:01:58
 //
 //  @return       bool : Current wait-for-external-sensor-data enabled value
@@ -1522,7 +1447,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetWaitForExternalSensorEnabled()
 //  Set wait-for-external-sensor-data enabled value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:03:00
 //
 //  @param        enabled : New wait-for-external-sensor-data enabled value
@@ -1543,7 +1468,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetWaitForExternalSensorEnabled(bool enabled)
 //  When set to 1, this bit enables EXT_SENS_DATA registers (Registers 73 to 96)
 //  associated with Slave 3 to be written into the FIFO buffer.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:03:41
 //
 //  @return       bool :
@@ -1566,7 +1491,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave3FIFOEnabled()
 //  Set Slave 3 FIFO enabled value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:04:19
 //
 //  @param        enabled : New Slave 3 FIFO enabled value
@@ -1591,7 +1516,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlave3FIFOEnabled(bool enabled)
 //  of the following read. When a write transaction follows a read transaction,
 //  the stop followed by a start of the successive write will be always used.
 
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:05:14
 //
 //  @return       bool : Current slave read/write transition enabled value
@@ -1613,7 +1538,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlaveReadWriteTransitionEnabled()
 //  Set slave read/write transition enabled value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:08:02
 //
 //  @param        enabled : New slave read/write transition enabled value
@@ -1654,7 +1579,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlaveReadWriteTransitionEnabled(bool enabled
 //  14          | 381kHz                 | 21
 //  15          | 364kHz                 | 22
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:08:33
 //
 //  @return       XBYTE : Current I2C master clock speed
@@ -1676,7 +1601,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetMasterClockSpeed()
 //  Set I2C master clock speed.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:11:04
 //
 //  @param        speed : Current I2C master clock speed
@@ -1728,7 +1653,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetMasterClockSpeed(XBYTE speed)
 //  Sample Rate or at the reduced rate is determined by the Delay Enable bits in
 //  Register 103.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:11:52
 //
 //  @return       XBYTE : Current address for specified slave
@@ -1752,7 +1677,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetSlaveAddress(XBYTE num)
 //  Set the I2C address of the specified slave (0-3).
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:16:04
 //
 //  @param        num :  Slave number (0-3)
@@ -1779,7 +1704,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlaveAddress(XBYTE num, XBYTE address)
 //  The MPU-6050 supports a total of five slaves, but Slave 4 has unique
 //  characteristics, and so it has its own functions.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:17:04
 //
 //  @return       XBYTE : Current active register for specified slave
@@ -1804,7 +1729,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetSlaveRegister(XBYTE num)
 //  Set the active internal register for the specified slave (0-3).
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:18:33
 //
 //  @param        num : Slave number (0-3)
@@ -1828,7 +1753,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlaveRegister(XBYTE num, XBYTE reg)
 //  When set to 1, this bit enables Slave 0 for data transfer operations. When
 //  cleared to 0, this bit disables Slave 0 from data transfer operations.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:19:11
 //
 //  @return       bool : Current enabled value for specified slave
@@ -1853,7 +1778,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlaveEnabled(XBYTE num)
 //  Set the enabled value for the specified slave (0-3).
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:20:07
 //
 //  @param        num : Slave number (0-3)
@@ -1880,7 +1805,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlaveEnabled(XBYTE num, bool enabled)
 //  bytes transferred to and from Slave 0 will be written to EXT_SENS_DATA
 //  registers in the order they were transferred.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:20:52
 //
 //  @return       bool : Current word pair byte-swapping enabled value for specified slave
@@ -1905,7 +1830,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlaveWordByteSwap(XBYTE num)
 //  Set word pair byte-swapping enabled for the specified slave (0-3).
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:23:16
 //
 //  @param        num : Slave number (0-3)
@@ -1931,7 +1856,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlaveWordByteSwap(XBYTE num, bool enabled)
 //  data. This should equal 0 when specifying the register address within the
 //  Slave device to/from which the ensuing data transaction will take place.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:24:01
 //
 //  @return       bool : Current write mode for specified slave (0 = register address + data, 1 = data only)
@@ -1956,7 +1881,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlaveWriteMode(XBYTE num)
 //  Set write mode for the specified slave (0-3).
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:25:33
 //
 //  @param        num : Slave number (0-3)
@@ -1984,7 +1909,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlaveWriteMode(XBYTE num, bool mode)
 //  from register addresses are paired 1 and 2, 3 and 4, etc. (odd, then even
 //  register addresses) are paired to form a word.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:26:15
 //
 //  @return       bool : Current word pair grouping order offset for specified slave
@@ -2009,7 +1934,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlaveWordGroupOffset(XBYTE num)
 //  Set word pair grouping order offset for the specified slave (0-3).
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:27:29
 //
 //  @param        num : Slave number (0-3)
@@ -2034,7 +1959,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlaveWordGroupOffset(XBYTE num, bool enabled
 //  Specifies the number of bytes transferred to and from Slave 0. Clearing this
 //  bit to 0 is equivalent to disabling the register by writing 0 to I2C_SLV0_EN.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:28:14
 //
 //  @return       XBYTE :  Number of bytes to read for specified slave
@@ -2058,7 +1983,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetSlaveDataLength(XBYTE num)
 //  Set number of bytes to read for the specified slave (0-3).
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:29:22
 //
 //  @param        num : Slave number (0-3)
@@ -2082,7 +2007,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlaveDataLength(XBYTE num, XBYTE length)
 //  operation, and if it is cleared, then it's a write operation. The remaining
 //  bits (6-0) are the 7-bit device address of the slave device.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:30:00
 //
 //  @return       XBYTE : Current address for Slave 4
@@ -2104,7 +2029,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetSlave4Address()
 //  Set the I2C address of Slave 4.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:30:58
 //
 //  @param        address : New address for Slave 4
@@ -2126,7 +2051,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlave4Address(XBYTE address)
 //  Read/write operations for this slave will be done to whatever internal
 //  register address is stored in this MPU register.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:31:29
 //
 //  @return       XBYTE :
@@ -2148,7 +2073,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetSlave4Register()
 //  Set the active internal register for Slave 4.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:32:03
 //
 //  @param        reg : New active register for Slave 4
@@ -2170,7 +2095,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlave4Register(XBYTE reg)
 //  This register stores the data to be written into the Slave 4. If I2C_SLV4_RW
 //  is set 1 (set to read), this register has no effect.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:32:33
 //
 //  @param        data : New byte to write to Slave 4
@@ -2192,7 +2117,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlave4OutputByte(XBYTE data)
 //  When set to 1, this bit enables Slave 4 for data transfer operations. When
 //  cleared to 0, this bit disables Slave 4 from data transfer operations.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:33:23
 //
 //  @return       bool : Current enabled value for Slave 4
@@ -2214,7 +2139,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave4Enabled()
 //  Set the enabled value for Slave 4.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:34:12
 //
 //  @param        enabled : New enabled value for Slave 4
@@ -2238,7 +2163,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlave4Enabled(bool enabled)
 //  generation of an interrupt signal upon completion of a Slave 4 transaction.
 //  The interrupt status can be observed in Register 54.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:34:44
 //
 //  @return       bool :
@@ -2260,7 +2185,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave4InterruptEnabled()
 //  Set the enabled value for Slave 4 transaction interrupts.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:35:51
 //
 //  @param        enabled : New enabled value for Slave 4 transaction interrupts.
@@ -2283,7 +2208,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlave4InterruptEnabled(bool enabled)
 //  data. This should equal 0 when specifying the register address within the
 //  Slave device to/from which the ensuing data transaction will take place.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:36:26
 //
 //  @return       bool : Current write mode for Slave 4 (0 = register address + data, 1 = data only)
@@ -2305,7 +2230,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave4WriteMode()
 //  Set write mode for the Slave 4.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 1:37:45
 //
 //  @param        mode : New write mode for Slave 4 (0 = register address + data, 1 = data only)
@@ -2335,7 +2260,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlave4WriteMode(bool mode)
 //  the Sample Rate is determined by I2C_MST_DELAY_CTRL (register 103). For
 //  further information regarding the Sample Rate, please refer to register 25.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:12:42
 //
 //  @return       XBYTE : Current Slave 4 master delay value
@@ -2358,7 +2283,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetSlave4MasterDelay()
 //  Set Slave 4 master delay value.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:14:09
 //
 //  @param        delay : New Slave 4 master delay value
@@ -2379,7 +2304,7 @@ void DIOI2C9AXISTRACKINGMPU9150::GetSlave4MasterDelay(XBYTE delay)
 //  This register stores the data read from Slave 4. This field is populated
 //  after a read transaction.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:14:39
 //
 //  @return       XBYTE : Last available byte read from to Slave 4
@@ -2405,7 +2330,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetSlate4InputByte()
 //  bit will cause an interrupt if FSYNC_INT_EN is asserted in INT_PIN_CFG
 //  (Register 55).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:15:41
 //
 //  @return       bool : FSYNC interrupt status
@@ -2430,7 +2355,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetPassthroughStatus()
 //  (Register 56) is asserted and if the SLV_4_DONE_INT bit is asserted in the
 //  I2C_SLV4_CTRL register (Register 52).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:16:48
 //
 //  @return       bool :
@@ -2454,7 +2379,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave4IsDone()
 //  the auxiliary I2C bus (an error condition). This triggers an interrupt if the
 //  I2C_MST_INT_EN bit in the INT_ENABLE register (Register 56) is asserted.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:17:58
 //
 //  @return       bool : Master arbitration lost status
@@ -2478,7 +2403,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetLostArbitration()
 //  transaction with Slave 4. This triggers an interrupt if the I2C_MST_INT_EN
 //  bit in the INT_ENABLE register (Register 56) is asserted.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:18:44
 //
 //  @return       bool : Slave 4 NACK interrupt status
@@ -2503,7 +2428,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave4Nack()
 //  transaction with Slave 3. This triggers an interrupt if the I2C_MST_INT_EN
 //  bit in the INT_ENABLE register (Register 56) is asserted.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:20:06
 //
 //  @return       bool : Slave 3 NACK interrupt status
@@ -2527,7 +2452,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave3Nack()
 //  transaction with Slave 2. This triggers an interrupt if the I2C_MST_INT_EN
 //  bit in the INT_ENABLE register (Register 56) is asserted.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:20:55
 //
 //  @return       bool : Slave 2 NACK interrupt status
@@ -2551,7 +2476,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave2Nack()
 //  transaction with Slave 1. This triggers an interrupt if the I2C_MST_INT_EN
 //  bit in the INT_ENABLE register (Register 56) is asserted.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:21:48
 //
 //  @return       bool : Slave 1 NACK interrupt status
@@ -2575,7 +2500,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave1Nack()
 //  transaction with Slave 0. This triggers an interrupt if the I2C_MST_INT_EN
 //  bit in the INT_ENABLE register (Register 56) is asserted.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:22:36
 //
 //  @return       bool : Slave 0 NACK interrupt status
@@ -2597,7 +2522,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlave0Nack()
 //  Get interrupt logic level mode.
 //  Will be set 0 for active-high, 1 for active-low.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:23:39
 //
 //  @return       bool : Current interrupt mode (0=active-high, 1=active-low)
@@ -2619,7 +2544,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetInterruptMode()
 //  Set interrupt logic level mode.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:24:19
 //
 //  @param        mode : New interrupt mode (0=active-high, 1=active-low)
@@ -2639,7 +2564,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetInterruptMode(bool mode)
 //  Get interrupt drive mode.
 //  Will be set 0 for push-pull, 1 for open-drain.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:24:53
 //
 //  @return       bool : Current interrupt drive mode (0=push-pull, 1=open-drain)
@@ -2661,7 +2586,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetInterruptDrive()
 //  Set interrupt drive mode.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:25:30
 //
 //  @param        drive : New interrupt drive mode (0=push-pull, 1=open-drain)
@@ -2681,7 +2606,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetInterruptDrive(bool drive)
 //  Get interrupt latch mode.
 //  Will be set 0 for 50us-pulse, 1 for latch-until-int-cleared.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:26:14
 //
 //  @return       bool : Current latch mode (0=50us-pulse, 1=latch-until-int-cleared)
@@ -2703,7 +2628,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetInterruptLatch()
 //  Set interrupt latch mode.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:27:15
 //
 //  @param        latch : New latch mode (0=50us-pulse, 1=latch-until-int-cleared)
@@ -2723,7 +2648,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetInterruptLatch(bool latch)
 //  Get interrupt latch clear mode.
 //  Will be set 0 for status-read-only, 1 for any-register-read.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:27:51
 //
 //  @return       bool : Current latch clear mode (0=status-read-only, 1=any-register-read)
@@ -2745,7 +2670,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetInterruptLatchClear()
 //  Set interrupt latch clear mode.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:28:47
 //
 //  @param        clear : New latch clear mode (0=status-read-only, 1=any-register-read)
@@ -2765,7 +2690,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetInterruptLatchClear(bool clear)
 //  Get FSYNC interrupt logic level mode.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:29:25
 //
 //  @return       bool : Current FSYNC interrupt mode (0=active-high, 1=active-low)
@@ -2786,7 +2711,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetFSyncInterruptLevel()
 //  Set FSYNC interrupt logic level mode.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:31:03
 //
 //  @param        level : New FSYNC interrupt mode (0=active-high, 1=active-low)
@@ -2806,7 +2731,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetFSyncInterruptLevel(bool level)
 //  Get FSYNC pin interrupt enabled setting.
 //  Will be set 0 for disabled, 1 for enabled.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:31:43
 //
 //  @return       bool : Current interrupt enabled setting
@@ -2828,7 +2753,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetFSyncInterruptEnabled()
 //  Set FSYNC pin interrupt enabled setting.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:32:17
 //
 //  @param        enabled : New FSYNC pin interrupt enabled setting
@@ -2853,7 +2778,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetFSyncInterruptEnabled(bool enabled)
 //  bus of the MPU-60X0 regardless of the state of I2C_MST_EN (Register 106
 //  bit[5]).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:32:50
 //
 //  @return       bool : Current I2C bypass enabled status
@@ -2881,7 +2806,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetI2CBypassEnabled()
 //  bus of the MPU-60X0 regardless of the state of I2C_MST_EN (Register 106
 //  bit[5]).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 17:34:19
 //
 //  @param        enabled :
@@ -2904,7 +2829,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetI2CBypassEnabled(bool enabled)
 //  further information regarding CLKOUT, please refer to the MPU-60X0 Product
 //  Specification document.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:07:01
 //
 //  @return       bool : Current reference clock output enabled status
@@ -2930,7 +2855,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetClockOutputEnabled()
 //  further information regarding CLKOUT, please refer to the MPU-60X0 Product
 //  Specification document.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:09:23
 //
 //  @param        enabled :  New reference clock output enabled status
@@ -2951,7 +2876,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetClockOutputEnabled(bool enabled)
 //  Full register byte for all interrupts, for quick reading. Each bit will be
 //  set 0 for disabled, 1 for enabled.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:11:11
 //
 //  @return       XBYTE : Current interrupt enabled status
@@ -2974,7 +2899,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetIntEnabled()
 //  Full register byte for all interrupts, for quick reading. Each bit should be
 //  set 0 for disabled, 1 for enabled.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:13:14
 //
 //  @param        enabled : New interrupt enabled status
@@ -2995,7 +2920,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetIntEnabled(XBYTE enabled)
 //  Get Free Fall interrupt enabled status.
 //  Will be set 0 for disabled, 1 for enabled.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:13:56
 //
 //  @return       bool : Current interrupt enabled status
@@ -3018,7 +2943,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntFreefallEnabled()
 //  Set Free Fall interrupt enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:14:50
 //
 //  @param        enabled : New interrupt enabled status
@@ -3039,7 +2964,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetIntFreefallEnabled(bool enabled)
 //  Get Motion Detection interrupt enabled status.
 //  Will be set 0 for disabled, 1 for enabled.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:15:18
 //
 //  @return       bool : Current interrupt enabled status
@@ -3062,7 +2987,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntMotionEnabled()
 //  Set Motion Detection interrupt enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:16:42
 //
 //  @param        enabled : New interrupt enabled status
@@ -3083,7 +3008,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetIntMotionEnabled(bool enabled)
 //  Get Zero Motion Detection interrupt enabled status.
 //  Will be set 0 for disabled, 1 for enabled.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:17:18
 //
 //  @return       bool : Current interrupt enabled status
@@ -3105,7 +3030,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntZeroMotionEnabled()
 //  Set Zero Motion Detection interrupt enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:17:53
 //
 //  @param        enabled : New interrupt enabled status
@@ -3125,7 +3050,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetIntZeroMotionEnabled(bool enabled)
 //  Get FIFO Buffer Overflow interrupt enabled status.
 //  Will be set 0 for disabled, 1 for enabled.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:18:18
 //
 //  @return       bool : Current interrupt enabled status
@@ -3147,7 +3072,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntFIFOBufferOverflowEnabled()
 //  Set FIFO Buffer Overflow interrupt enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:18:49
 //
 //  @param        enabled : New interrupt enabled status
@@ -3168,7 +3093,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetIntFIFOBufferOverflowEnabled(bool enabled)
 //  This enables any of the I2C Master interrupt sources to generate an
 //  interrupt. Will be set 0 for disabled, 1 for enabled.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:19:17
 //
 //  @return       bool : Current interrupt enabled status
@@ -3191,7 +3116,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntI2CMasterEnabled()
 //  Set I2C Master interrupt enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:19:52
 //
 //  @param        enabled : New interrupt enabled status
@@ -3213,7 +3138,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetIntI2CMasterEnabled(bool enabled)
 //  This event occurs each time a write operation to all of the sensor registers
 //  has been completed. Will be set 0 for disabled, 1 for enabled.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:20:17
 //
 //  @return       bool : Current interrupt enabled status
@@ -3236,7 +3161,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntDataReadyEnabled()
 //  Set Data Ready interrupt enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:20:54
 //
 //  @param        enabled : New interrupt enabled status
@@ -3258,7 +3183,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetIntDataReadyEnabled(bool enabled)
 //  for getting multiple INT statuses, since each single bit read clears
 //  all of them because it has to read the whole byte.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:21:20
 //
 //  @return       XBYTE : Current interrupt status
@@ -3281,7 +3206,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetIntStatus()
 //  This bit automatically sets to 1 when a Free Fall interrupt has been
 //  generated. The bit clears to 0 after the register has been read.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:21:53
 //
 //  @return       bool : Current interrupt status
@@ -3304,7 +3229,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntFreefallStatus()
 //  This bit automatically sets to 1 when a Motion Detection interrupt has been
 //  generated. The bit clears to 0 after the register has been read.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:22:32
 //
 //  @return       bool :
@@ -3327,7 +3252,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntMotionStatus()
 //  This bit automatically sets to 1 when a Zero Motion Detection interrupt has
 //  been generated. The bit clears to 0 after the register has been read.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:23:21
 //
 //  @return       bool : Current interrupt status
@@ -3351,7 +3276,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntZeroMotionStatus()
 //  This bit automatically sets to 1 when a Free Fall interrupt has been
 //  generated. The bit clears to 0 after the register has been read.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:23:49
 //
 //  @return       bool : Current interrupt status
@@ -3376,7 +3301,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntFIFOBufferOverflowStatus()
 //  generated. For a list of I2C Master interrupts, please refer to Register 54.
 //  The bit clears to 0 after the register has been read.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:24:35
 //
 //  @return       bool : Current interrupt status
@@ -3399,7 +3324,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntI2CMasterStatus()
 //  This bit automatically sets to 1 when a Data Ready interrupt has been
 //  generated. The bit clears to 0 after the register has been read.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:25:29
 //
 //  @return       bool : Current interrupt status
@@ -3422,7 +3347,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntDataReadyStatus()
 //  Get raw 9-axis motion sensor readings (accel/gyro/compass).
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:26:05
 //
 //  @param        ax : 16-bit signed integer container for accelerometer X-axis value
@@ -3463,7 +3388,7 @@ void DIOI2C9AXISTRACKINGMPU9150::GetMotion9(XWORDSIG* ax, XWORDSIG* ay, XWORDSIG
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:27:48
 //
 //  @param        mx :
@@ -3496,7 +3421,7 @@ void DIOI2C9AXISTRACKINGMPU9150::GetMag(XWORDSIG* mx, XWORDSIG* my, XWORDSIG* mz
 //  Get raw 6-axis motion sensor readings (accel/gyro).
 //  Retrieves all currently available motion sensor values.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:28:21
 //
 //  @param        ax : 16-bit signed integer container for accelerometer X-axis value
@@ -3553,7 +3478,7 @@ void DIOI2C9AXISTRACKINGMPU9150::GetMotion6(XWORDSIG* ax, XWORDSIG* ay, XWORDSIG
 //  2       | +/- 8g           | 2048 LSB/mg
 //  3       | +/- 16g          | 1024 LSB/mg
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:29:15
 //
 //  @param        x : 16-bit signed integer container for X-axis acceleration
@@ -3578,7 +3503,7 @@ void DIOI2C9AXISTRACKINGMPU9150::GetAcceleration(XWORDSIG* x, XWORDSIG* y, XWORD
 //  Get X-axis accelerometer reading.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:31:35
 //
 //  @return       XWORDSIG : X-axis acceleration measurement in 16-bit 2's complement format
@@ -3600,7 +3525,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetAccelerationX()
 //  Get Y-axis accelerometer reading.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:31:57
 //
 //  @return       XWORDSIG : Y-axis acceleration measurement in 16-bit 2's complement format
@@ -3623,7 +3548,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetAccelerationY()
 //  Get Z-axis accelerometer reading.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:32:27
 //
 //  @return       XWORDSIG : Z-axis acceleration measurement in 16-bit 2's complement format
@@ -3645,7 +3570,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetAccelerationZ()
 //  Get current internal temperature.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:32:52
 //
 //  @return       XWORDSIG : Temperature reading in 16-bit 2's complement format
@@ -3689,7 +3614,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetTemperature()
 // 2      | +/- 1000 degrees/s | 32.8 LSB/deg/s
 // 3      | +/- 2000 degrees/s | 16.4 LSB/deg/s
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:33:12
 //
 //  @param        x : x 16-bit signed integer container for X-axis rotation
@@ -3714,7 +3639,7 @@ void DIOI2C9AXISTRACKINGMPU9150::GetRotation(XWORDSIG* x, XWORDSIG* y, XWORDSIG*
 //  Get X-axis gyroscope reading.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:35:35
 //
 //  @return       XWORDSIG : X-axis rotation measurement in 16-bit 2's complement format
@@ -3737,7 +3662,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetRotationX()
 //  Get Y-axis gyroscope reading.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:36:06
 //
 //  @return       XWORDSIG : Y-axis rotation measurement in 16-bit 2's complement format
@@ -3759,7 +3684,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetRotationY()
 //  Get Z-axis gyroscope reading.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:36:33
 //
 //  @return       XWORDSIG : Z-axis rotation measurement in 16-bit 2's complement format
@@ -3853,7 +3778,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetRotationZ()
 // functioning.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:37:03
 //
 //  @return       XBYTE : read from register
@@ -3876,7 +3801,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetExternalSensorByte(int position)
 //  Read word (2 bytes) from external sensor data registers.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:41:47
 //
 //  @return       XWORDSIG : Word read from register
@@ -3899,7 +3824,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetExternalSensorWord(int position)
 //  Read double word (4 bytes) from external sensor data registers.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:42:57
 //
 //  @return       XDWORD : Double word read from registers
@@ -3924,7 +3849,7 @@ XDWORD DIOI2C9AXISTRACKINGMPU9150::GetExternalSensorDWord(int position)
 //  Get X-axis negative motion detection interrupt status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:43:32
 //
 //  @return       bool : Motion detection status
@@ -3947,7 +3872,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetXNegMotionDetected()
 //  Get X-axis positive motion detection interrupt status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:43:59
 //
 //  @return       bool : Motion detection status
@@ -3969,7 +3894,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetXPosMotionDetected()
 //  Get Y-axis negative motion detection interrupt status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:44:21
 //
 //  @return       bool : Motion detection status
@@ -3992,7 +3917,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetYNegMotionDetected()
 //  Get Y-axis positive motion detection interrupt status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:44:42
 //
 //  @return       bool : Motion detection status
@@ -4014,7 +3939,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetYPosMotionDetected()
 //  Get Z-axis negative motion detection interrupt status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:45:00
 //
 //  @return       bool : Motion detection status
@@ -4036,7 +3961,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetZNegMotionDetected()
 //  Get Z-axis positive motion detection interrupt status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:45:30
 //
 //  @return       bool : Motion detection status
@@ -4059,7 +3984,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetZPosMotionDetected()
 //  Get zero motion detection interrupt status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:46:03
 //
 //  @return       bool : Motion detection status
@@ -4083,7 +4008,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetZeroMotionDetected()
 //  write mode. For further information regarding Slave control, please
 //  refer to Registers 37 to 39 and immediately following.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:46:24
 //
 //  @param        num : Slave number (0-3)
@@ -4109,7 +4034,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlaveOutputByte(XBYTE num, XBYTE data)
 //  shadowing. When DELAY_ES_SHADOW is set to 1, shadowing of external
 //  sensor data is delayed until all data has been received.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:47:12
 //
 //  @return       bool : Current external data shadow delay enabled status.
@@ -4131,7 +4056,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetExternalShadowDelayEnabled()
 //  Set external data shadow delay enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:48:14
 //
 //  @param        enabled : New external data shadow delay enabled status.
@@ -4163,7 +4088,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetExternalShadowDelayEnabled(bool enabled)
 // For further information regarding the Sample Rate, please refer to register 25.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:48:39
 //
 //  @return       bool : Current slave delay enabled status.
@@ -4188,7 +4113,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSlaveDelayEnabled(XBYTE num)
 //  Set slave delay enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:50:14
 //
 //  @param        num : Slave number (0-4)
@@ -4211,7 +4136,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSlaveDelayEnabled(XBYTE num, bool enabled)
 //  The reset will revert the signal path analog to digital converters and
 //  filters to their power up configurations.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:57:20
 //
 */
@@ -4232,7 +4157,7 @@ void DIOI2C9AXISTRACKINGMPU9150::ResetGyroscopePath()
 //  The reset will revert the signal path analog to digital converters and
 //  filters to their power up configurations.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:58:04
 //
 */
@@ -4253,7 +4178,7 @@ void DIOI2C9AXISTRACKINGMPU9150::ResetAccelerometerPath()
 //  filters to their power up configurations.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:58:43
 //
 */
@@ -4282,7 +4207,7 @@ void DIOI2C9AXISTRACKINGMPU9150::ResetTemperaturePath()
 //  further information regarding the detection modules.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 18:59:18
 //
 //  @return       XBYTE : Current accelerometer power-on delay
@@ -4305,7 +4230,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetAccelerometerPowerOnDelay()
 //  Set accelerometer power-on delay.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:00:36
 //
 //  @param        delay : New accelerometer power-on delay (0-3)
@@ -4343,7 +4268,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetAccelerometerPowerOnDelay(XBYTE delay)
 //  please refer to Registers 29 to 32.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:01:04
 //
 //  @return       XBYTE :
@@ -4365,7 +4290,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFreefallDetectionCounterDecrement()
 //  Set Free Fall detection counter decrement configuration.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:02:43
 //
 //  @param        decrement : New decrement configuration value
@@ -4402,7 +4327,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetFreefallDetectionCounterDecrement(XBYTE decr
 //  reset the counter to 0. For further information on Motion detection,
 //  please refer to Registers 29 to 32.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:05:20
 //
 //  @return       XBYTE :
@@ -4424,7 +4349,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetMotionDetectionCounterDecrement()
 //  Set Motion detection counter decrement configuration.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:05:43
 //
 //  @param        decrement : New decrement configuration value
@@ -4447,7 +4372,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetMotionDetectionCounterDecrement(XBYTE decrem
 //  cannot be written to or read from while disabled. The FIFO buffer's state
 //  does not change unless the MPU-60X0 is power cycled.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:06:04
 //
 //  @return       bool : Current FIFO enabled status
@@ -4469,7 +4394,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetFIFOEnabled()
 //  Set FIFO enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:06:40
 //
 //  @param        enabled : New FIFO enabled status
@@ -4495,7 +4420,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetFIFOEnabled(bool enabled)
 //  enabling Bypass Mode. For further information regarding Bypass Mode, please
 //  refer to Register 55.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:07:03
 //
 //  @return       bool :
@@ -4518,7 +4443,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetI2CMasterModeEnabled()
 //  Set I2C Master Mode enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:07:40
 //
 //  @param        enabled : New I2C Master Mode enabled status
@@ -4539,7 +4464,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetI2CMasterModeEnabled(bool enabled)
 //  If this is set, the primary SPI interface will be enabled in place of the
 //  disabled primary I2C interface.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:08:04
 //
 //  @param        enabled :
@@ -4560,7 +4485,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SwitchSPIEnabled(bool enabled)
 //  This bit resets the FIFO buffer when set to 1 while FIFO_EN equals 0. This
 //  bit automatically clears to 0 after the reset has been triggered.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:08:34
 //
 */
@@ -4580,7 +4505,7 @@ void DIOI2C9AXISTRACKINGMPU9150::ResetFIFO()
 //  This bit resets the I2C Master when set to 1 while I2C_MST_EN equals 0.
 //  This bit automatically clears to 0 after the reset has been triggered.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:08:57
 //
 */
@@ -4613,7 +4538,7 @@ void DIOI2C9AXISTRACKINGMPU9150::ResetI2CMaster()
 //  sensor registers. This bit automatically clears to 0 after the reset has been
 //  triggered.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:09:26
 //
 */
@@ -4633,7 +4558,7 @@ void DIOI2C9AXISTRACKINGMPU9150::ResetSensors()
 //  Trigger a full device reset.
 //  A small delay of ~50ms may be desirable after triggering a reset.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:10:30
 //
 */
@@ -4659,7 +4584,7 @@ void DIOI2C9AXISTRACKINGMPU9150::Reset()
 //  by the application.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:11:03
 //
 //  @return       bool : Current sleep mode enabled status
@@ -4681,7 +4606,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetSleepEnabled()
 //  Set sleep mode status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:11:54
 //
 //  @param        enabled : New sleep mode enabled status
@@ -4703,7 +4628,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetSleepEnabled(bool enabled)
 //  between sleep mode and waking up to take a single sample of data from active
 //  sensors at a rate determined by LP_WAKE_CTRL (register 108).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:12:23
 //
 //  @return       bool : Current sleep mode enabled status
@@ -4725,7 +4650,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetWakeCycleEnabled()
 //  Set wake cycle enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:13:00
 //
 //  @param        enabled : New sleep mode enabled status
@@ -4750,7 +4675,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetWakeCycleEnabled(bool enabled)
 //  rest of the code, the function is named and used with standard true/false
 //  values to indicate whether the sensor is enabled or disabled, respectively.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:13:19
 //
 //  @return       bool :
@@ -4774,7 +4699,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetTempSensorEnabled()
 //  rest of the code, the function is named and used with standard true/false
 //  values to indicate whether the sensor is enabled or disabled, respectively.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:13:59
 //
 //  @param        enabled : New temperature sensor enabled status
@@ -4796,7 +4721,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetTempSensorEnabled(bool enabled)
 //  Get clock source setting.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:14:31
 //
 //  @return       XBYTE :  Current clock source setting
@@ -4838,7 +4763,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetClockSource()
 // 6       | Reserved
 // 7       | Stops the clock and keeps the timing generator in reset
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:14:55
 //
 //  @param        source : New clock source setting
@@ -4873,7 +4798,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetClockSource(XBYTE source)
 //  For further information regarding the MPU-60X0's power modes, please refer to
 //  Register 107.
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:17:00
 //
 //  @return       XBYTE : Current wake frequency
@@ -4895,7 +4820,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetWakeFrequency()
 //  Set wake frequency in Accel-Only Low Power Mode.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:18:33
 //
 //  @param        frequency : New wake frequency
@@ -4916,7 +4841,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetWakeFrequency(XBYTE frequency)
 //  Get X-axis accelerometer standby enabled status.
 //  If enabled, the X-axis will not gather or report data (or use power).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:18:51
 //
 //  @return       bool : Current X-axis standby enabled status
@@ -4938,7 +4863,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetStandbyXAccelEnabled()
 //  Set X-axis accelerometer standby enabled status
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:19:13
 //
 //  @param        enabled : New X-axis standby enabled status
@@ -4959,7 +4884,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetStandbyXAccelEnabled(bool enabled)
 //  Get Y-axis accelerometer standby enabled status.
 //  If enabled, the Y-axis will not gather or report data (or use power).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:19:43
 //
 //  @return       bool : Current Y-axis standby enabled status
@@ -4982,7 +4907,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetStandbyYAccelEnabled()
 //  Set Y-axis accelerometer standby enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:20:13
 //
 //  @param        enabled : New Y-axis standby enabled status
@@ -5002,7 +4927,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetStandbyYAccelEnabled(bool enabled)
 //  Get Z-axis accelerometer standby enabled status.
 //  If enabled, the Z-axis will not gather or report data (or use power).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:20:36
 //
 //  @return       bool : Current Z-axis standby enabled status
@@ -5025,7 +4950,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetStandbyZAccelEnabled()
 //  Set Z-axis accelerometer standby enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:21:11
 //
 //  @param        enabled : New Z-axis standby enabled status
@@ -5046,7 +4971,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetStandbyZAccelEnabled(bool enabled)
 //  Get X-axis gyroscope standby enabled status
 //  If enabled, the X-axis will not gather or report data (or use power).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:21:39
 //
 //  @return       bool : Current X-axis standby enabled status
@@ -5068,7 +4993,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetStandbyXGyroEnabled()
 //  Set X-axis gyroscope standby enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:22:05
 //
 //  @param        enabled : New X-axis standby enabled status
@@ -5089,7 +5014,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetStandbyXGyroEnabled(bool enabled)
 //  Get Y-axis gyroscope standby enabled status.
 //  If enabled, the Y-axis will not gather or report data (or use power).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:22:27
 //
 //  @return       bool : Current Y-axis standby enabled status
@@ -5111,7 +5036,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetStandbyYGyroEnabled()
 //  Set Y-axis gyroscope standby enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      09/07/2016 16:24:33
 //
 //  @param        enabled : New Y-axis standby enabled status
@@ -5131,7 +5056,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetStandbyYGyroEnabled(bool enabled)
 //  Get Z-axis gyroscope standby enabled status.
 //   If enabled, the Z-axis will not gather or report data (or use power).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:22:50
 //
 //  @return       bool : Current Z-axis standby enabled status
@@ -5153,7 +5078,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetStandbyZGyroEnabled()
 //  Set Z-axis gyroscope standby enabled status.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:23:25
 //
 //  @param        enabled : New Z-axis standby enabled status
@@ -5177,7 +5102,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetStandbyZGyroEnabled(bool enabled)
 //  and it is directly proportional to the number of samples available given the
 //  set of sensor data bound to be stored in the FIFO (register 35 and 36).
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:23:43
 //
 //  @return       XWORDSIG :
@@ -5221,7 +5146,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetFIFOCount()
 //  empty.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:24:17
 //
 //  @return       XBYTE : Byte from FIFO buffer
@@ -5243,7 +5168,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFIFOByte()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:25:30
 //
 //  @param        *data :
@@ -5264,7 +5189,7 @@ void DIOI2C9AXISTRACKINGMPU9150::GetFIFOBytes(XBYTE* data, XBYTE length)
 //  Write byte to FIFO buffer.
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:25:37
 //
 //  @param        data :
@@ -5286,7 +5211,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetFIFOByte(XBYTE data)
 //  Get Device ID.
 //  This register is used to verify the identity of the device (0b110100, 0x34)
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:25:55
 //
 //  @return       XBYTE : Device ID (6 bits only! should be 0x34)
@@ -5308,7 +5233,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetDeviceID()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:26:22
 //
 //  @return       XBYTE :
@@ -5329,7 +5254,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetOTPBankValid()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:26:29
 //
 //  @param        enabled :
@@ -5348,7 +5273,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetOTPBankValid(bool enabled)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:26:44
 //
 //  @return       XBYTESIG :
@@ -5369,7 +5294,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::GetXGyroOffset()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:29:56
 //
 //  @param        offset :
@@ -5388,7 +5313,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetXGyroOffset(XBYTESIG offset)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:30:03
 //
 //  @return       XBYTESIG :
@@ -5409,7 +5334,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::GetYGyroOffset()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:30:09
 //
 //  @param        offset :
@@ -5428,7 +5353,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetYGyroOffset(XBYTESIG offset)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:30:15
 //
 //  @return       XBYTESIG :
@@ -5449,7 +5374,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::GetZGyroOffset()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:30:19
 //
 //  @param        offset :
@@ -5468,7 +5393,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetZGyroOffset(XBYTESIG offset)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:30:24
 //
 //  @return       XBYTESIG :
@@ -5489,7 +5414,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::GetXFineGain()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:30:33
 //
 //  @param        gain :
@@ -5508,7 +5433,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetXFineGain(XBYTESIG gain)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:30:36
 //
 //  @return       XBYTESIG :
@@ -5529,7 +5454,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::GetYFineGain()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:30:42
 //
 //  @param        gain :
@@ -5548,7 +5473,7 @@ void DIOI2C9AXISTRACKINGMPU9150::GetYFineGain(XBYTESIG gain)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:30:45
 //
 //  @return       XBYTESIG :
@@ -5569,7 +5494,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::GetZFineGain()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:30:51
 //
 //  @param        gain :
@@ -5588,7 +5513,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetZFineGain(XBYTESIG gain)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:30:55
 //
 //  @return       XWORDSIG :
@@ -5610,7 +5535,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetXAccelOffset()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:01
 //
 //  @param        offset :
@@ -5629,7 +5554,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetXAccelOffset(XWORDSIG offset)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:04
 //
 //  @return       XWORDSIG :
@@ -5651,7 +5576,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetYAccelOffset()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:09
 //
 //  @param        offset :
@@ -5670,7 +5595,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetYAccelOffset(XWORDSIG offset)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:13
 //
 //  @return       XWORDSIG :
@@ -5691,7 +5616,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetZAccelOffset()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:17
 //
 //  @param        offset :
@@ -5710,7 +5635,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetZAccelOffset(XWORDSIG offset)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:22
 //
 //  @return       XWORDSIG :
@@ -5731,7 +5656,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetXGyroOffsetUser()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:27
 //
 //  @param        offset :
@@ -5750,7 +5675,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetXGyroOffsetUser(XWORDSIG offset)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:30
 //
 //  @return       XWORDSIG :
@@ -5772,7 +5697,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetYGyroOffsetUser()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:35
 //
 //  @param        offset :
@@ -5792,7 +5717,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetYGyroOffsetUser(XWORDSIG offset)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:39
 //
 //  @return       XWORDSIG :
@@ -5814,7 +5739,7 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetZGyroOffsetUser()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:43
 //
 //  @param        offset :
@@ -5834,7 +5759,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetZGyroOffsetUser(XWORDSIG offset)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:47
 //
 //  @return       bool :
@@ -5855,7 +5780,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntPLLReadyEnabled()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:51
 //
 //  @param        enabled :
@@ -5874,7 +5799,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetIntPLLReadyEnabled(bool enabled)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:31:55
 //
 //  @return       bool :
@@ -5895,7 +5820,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntDMPEnabled()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:00
 //
 //  @param        enabled :
@@ -5914,7 +5839,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetIntDMPEnabled(bool enabled)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:04
 //
 //  @return       bool :
@@ -5935,7 +5860,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetDMPInt5Status()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:10
 //
 //  @return       bool :
@@ -5956,7 +5881,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetDMPInt4Status()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:14
 //
 //  @return       bool :
@@ -5977,7 +5902,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetDMPInt3Status()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:18
 //
 //  @return       bool :
@@ -5998,7 +5923,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetDMPInt2Status()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:22
 //
 //  @return       bool :
@@ -6019,7 +5944,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetDMPInt1Status()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:26
 //
 //  @return       bool :
@@ -6040,7 +5965,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetDMPInt0Status()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:30
 //
 //  @return       bool :
@@ -6061,7 +5986,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntPLLReadyStatus()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:34
 //
 //  @return       bool :
@@ -6083,7 +6008,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntDMPStatus()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:38
 //
 //  @return       bool :
@@ -6104,7 +6029,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetDMPEnabled()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:42
 //
 //  @param        enabled :
@@ -6123,7 +6048,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetDMPEnabled(bool enabled)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:46
 //
 */
@@ -6141,7 +6066,7 @@ void DIOI2C9AXISTRACKINGMPU9150::ResetDMP()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:50
 //
 //  @param        bank :
@@ -6167,7 +6092,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetMemoryBank(XBYTE bank, bool prefetchEnabled,
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:54
 //
 //  @param        address :
@@ -6186,7 +6111,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetMemoryStartAddress(XBYTE address)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:32:58
 //
 //  @return       XBYTE :
@@ -6207,7 +6132,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::ReadMemoryByte()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:33:31
 //
 //  @param        data :
@@ -6226,7 +6151,7 @@ void DIOI2C9AXISTRACKINGMPU9150::WriteMemoryByte(XBYTE data)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:34:01
 //
 //  @return       XBYTE :
@@ -6247,7 +6172,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetDMPConfig1()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:34:05
 //
 //  @param        config :
@@ -6267,7 +6192,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetDMPConfig1(XBYTE config)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:34:10
 //
 //  @return       XBYTE :
@@ -6288,7 +6213,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetDMPConfig2()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/07/2016 19:34:13
 //
 //  @param        config :
@@ -6307,9 +6232,6 @@ void DIOI2C9AXISTRACKINGMPU9150::SetDMPConfig2(XBYTE config)
 * @fn         XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBit(XBYTE deviceaddr, XBYTE regaddr, XBYTE bitnum, XBYTE* data, XWORD timeout)
 * @brief      ReadBit
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
@@ -6333,9 +6255,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBit(XBYTE deviceaddr, XBYTE regaddr, XB
 * @brief      ReadBitW
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
 * @param[in]  bitnum :
@@ -6357,9 +6276,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBitW(XBYTE deviceaddr, XBYTE regaddr, X
 * @fn         XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBits(XBYTE deviceaddr, XBYTE regaddr, XBYTE bitstart, XBYTE length, XBYTE* data, XWORD timeout)
 * @brief      ReadBits
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
@@ -6384,9 +6300,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBits(XBYTE deviceaddr, XBYTE regaddr, X
 * @brief      ReadBitsW
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
 * @param[in]  bitstart :
@@ -6410,9 +6323,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBitsW(XBYTE deviceaddr, XBYTE regaddr, 
 * @brief      ReadByte
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
 * @param[in]  data :
@@ -6434,9 +6344,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadByte(XBYTE deviceaddr, XBYTE regaddr, X
 * @brief      ReadWord
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
 * @param[in]  data :
@@ -6457,9 +6364,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadWord(XBYTE deviceaddr, XBYTE regaddr, X
 * @fn         XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBytes(XBYTE deviceaddr, XBYTE regaddr, XBYTE length, XBYTE* data, XWORD timeout)
 * @brief      ReadBytes
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
@@ -6483,9 +6387,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBytes(XBYTE deviceaddr, XBYTE regaddr, 
 * @brief      ReadWords
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
 * @param[in]  length :
@@ -6508,9 +6409,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadWords(XBYTE deviceaddr, XBYTE regaddr, 
 * @brief      WriteBit
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
 * @param[in]  bitnum :
@@ -6532,9 +6430,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteBit(XBYTE deviceaddr, XBYTE regaddr, XBYTE
 * @brief      WriteBitW
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
 * @param[in]  bitnum :
@@ -6555,9 +6450,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteBitW(XBYTE deviceaddr, XBYTE regaddr, XBYT
 * @fn         bool DIOI2C9AXISTRACKINGMPU9150::WriteBits(XBYTE deviceaddr, XBYTE regaddr, XBYTE bitstart, XBYTE length, XBYTE data)
 * @brief      WriteBits
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
@@ -6581,9 +6473,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteBits(XBYTE deviceaddr, XBYTE regaddr, XBYT
 * @brief      WriteBitsW
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
 * @param[in]  bitstart :
@@ -6606,9 +6495,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteBitsW(XBYTE deviceaddr, XBYTE regaddr, XBY
 * @brief      WriteByte
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
 * @param[in]  data :
@@ -6629,9 +6515,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteByte(XBYTE deviceaddr, XBYTE regaddr, XBYT
 * @brief      WriteWord
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
 * @param[in]  data :
@@ -6651,9 +6534,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteWord(XBYTE deviceaddr, XBYTE regaddr, XWOR
 * @fn         bool DIOI2C9AXISTRACKINGMPU9150::WriteBytes(XBYTE deviceaddr, XBYTE regaddr, XBYTE length, XBYTE* data)
 * @brief      WriteBytes
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
@@ -6676,9 +6556,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteBytes(XBYTE deviceaddr, XBYTE regaddr, XBY
 * @brief      WriteWords
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  deviceaddr :
 * @param[in]  regaddr :
 * @param[in]  length :
@@ -6700,9 +6577,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteWords(XBYTE deviceaddr, XBYTE regaddr, XBY
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

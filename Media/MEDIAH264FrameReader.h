@@ -6,7 +6,7 @@
 //   
 //  H264 frame reader
 //   
-//	@author	 Imanol Celaya Ruiz de Alegria
+//	""
 //
 //	Date Of Creation	: 11/04/2016 10:41:50
 //	Last Modification	:	

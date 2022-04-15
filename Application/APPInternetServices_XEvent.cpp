@@ -6,10 +6,7 @@
 * @brief      Application Internet Services eXtended Event class
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  subject :
 * @param[in]  type :
 * @param[in]  family :
@@ -76,9 +70,6 @@ APPINTERNETSERVICES_XEVENT::APPINTERNETSERVICES_XEVENT(XSUBJECT* subject, XDWORD
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -94,10 +85,7 @@ APPINTERNETSERVICES_XEVENT::~APPINTERNETSERVICES_XEVENT()
 * @fn         APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE APPINTERNETSERVICES_XEVENT::GetInternetConnexionState()
 * @brief      GetInternetConnexionState
 * @ingroup    APPLICATION
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -113,10 +101,7 @@ APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE APPINTERNETSERVICES_XEVENT::Get
 * @fn         void APPINTERNETSERVICES_XEVENT::SetInternetConnexionState(APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE internetconnexionstate)
 * @brief      SetInternetConnexionState
 * @ingroup    APPLICATION
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  internetconnexionstate : 
 * 
 * @return     void : does not return anything. 
@@ -135,10 +120,7 @@ void APPINTERNETSERVICES_XEVENT::SetInternetConnexionState(APPINTERNETSERVICES_C
 * @fn         DIOCHECKTCPIPCONNECTION_CUT* APPINTERNETSERVICES_XEVENT::GetInternetConnextionCut()
 * @brief      GetInternetConnextionCut
 * @ingroup    APPLICATION
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOCHECKTCPIPCONNECTION_CUT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -154,10 +136,7 @@ DIOCHECKTCPIPCONNECTION_CUT* APPINTERNETSERVICES_XEVENT::GetInternetConnextionCu
 * @fn         void APPINTERNETSERVICES_XEVENT::SetInternetConnextionCut(DIOCHECKTCPIPCONNECTION_CUT* internetconnectioncut)
 * @brief      SetInternetConnextionCut
 * @ingroup    APPLICATION
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  internetconnectioncut : 
 * 
 * @return     void : does not return anything. 
@@ -175,10 +154,7 @@ void APPINTERNETSERVICES_XEVENT::SetInternetConnextionCut(DIOCHECKTCPIPCONNECTIO
 * @fn         bool APPINTERNETSERVICES_XEVENT::IsChangeLocalIP()
 * @brief      IsChangeLocalIP
 * @ingroup    APPLICATION
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -194,10 +170,7 @@ bool APPINTERNETSERVICES_XEVENT::IsChangeLocalIP()
 * @fn         void APPINTERNETSERVICES_XEVENT::SetIsChangeLocalIP(bool ischangelocalIP)
 * @brief      SetIsChangeLocalIP
 * @ingroup    APPLICATION
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ischangelocalIP : 
 * 
 * @return     void : does not return anything. 
@@ -215,10 +188,7 @@ void APPINTERNETSERVICES_XEVENT::SetIsChangeLocalIP(bool ischangelocalIP)
 * @fn         XSTRING* APPINTERNETSERVICES_XEVENT::GetChangeIP()
 * @brief      GetChangeIP
 * @ingroup    APPLICATION
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -235,9 +205,6 @@ XSTRING* APPINTERNETSERVICES_XEVENT::GetChangeIP()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

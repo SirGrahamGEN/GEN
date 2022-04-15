@@ -8,7 +8,7 @@
 //
 //  Windows 32 Random Functions
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 22/04/2002
 */
 //  GEN  Copyright (C).  All right reserved.

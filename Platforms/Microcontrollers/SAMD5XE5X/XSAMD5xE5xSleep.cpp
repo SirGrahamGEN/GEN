@@ -6,10 +6,7 @@
 * @brief      SAMD5xE5x Sleep class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -74,9 +68,6 @@ XSAMD5XE5XSLEEP::XSAMD5XE5XSLEEP()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -92,9 +83,6 @@ XSAMD5XE5XSLEEP::~XSAMD5XE5XSLEEP()
 * @fn         void XSAMD5XE5XSLEEP::Seconds(int seconds)
 * @brief      Seconds
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  seconds :
 *
@@ -117,9 +105,6 @@ void XSAMD5XE5XSLEEP::Seconds(int seconds)
 * @brief      MilliSeconds
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  milliseconds :
 *
 * @return     void : does not return anything.
@@ -138,9 +123,6 @@ void XSAMD5XE5XSLEEP::MilliSeconds(int milliseconds)
 * @brief      MicroSeconds
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  microseconds :
 *
 * @return     void : does not return anything.
@@ -158,9 +140,6 @@ void XSAMD5XE5XSLEEP::MicroSeconds(int microseconds)
 * @fn         void XSAMD5XE5XSLEEP::NanoSeconds(int nanoseconds)
 * @brief      NanoSeconds
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nanoseconds :
 *

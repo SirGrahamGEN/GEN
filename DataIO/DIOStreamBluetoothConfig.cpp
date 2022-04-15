@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream Bluetooth Config class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ DIOSTREAMBLUETOOTHCONFIG::DIOSTREAMBLUETOOTHCONFIG(): DIOSTREAMCONFIG()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ DIOSTREAMBLUETOOTHCONFIG::~DIOSTREAMBLUETOOTHCONFIG()
 * @fn         int DIOSTREAMBLUETOOTHCONFIG::GetDeviceSelect()
 * @brief      GetDeviceSelect
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     int : 
 *
@@ -113,9 +101,6 @@ int DIOSTREAMBLUETOOTHCONFIG::GetDeviceSelect()
 * @fn         bool DIOSTREAMBLUETOOTHCONFIG::SetDeviceSelect(int deviceselect)
 * @brief      SetDeviceSelect
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  deviceselect : 
 *
@@ -138,9 +123,6 @@ bool DIOSTREAMBLUETOOTHCONFIG::SetDeviceSelect(int deviceselect)
 * @brief      GetLocalMAC
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     DIOMAC* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -158,9 +140,6 @@ DIOMAC* DIOSTREAMBLUETOOTHCONFIG::GetLocalMAC()
 * @brief      GetRemoteMAC
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     DIOMAC* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -177,9 +156,6 @@ DIOMAC* DIOSTREAMBLUETOOTHCONFIG::GetRemoteMAC()
 * @brief      GetRemoteChannel
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -195,9 +171,6 @@ int DIOSTREAMBLUETOOTHCONFIG::GetRemoteChannel()
 * @fn         bool DIOSTREAMBLUETOOTHCONFIG::SetRemoteChannel(int channel)
 * @brief      SetRemoteChannel
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  channel : 
 *
@@ -219,9 +192,6 @@ bool DIOSTREAMBLUETOOTHCONFIG::SetRemoteChannel(int channel)
 * @brief      GetPIN
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -238,9 +208,6 @@ XSTRING* DIOSTREAMBLUETOOTHCONFIG::GetPIN()
 * @fn         void* DIOSTREAMBLUETOOTHCONFIG::GetServerPropertys(int index)
 * @brief      GetServerPropertys
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  index : 
 *
@@ -264,9 +231,6 @@ void* DIOSTREAMBLUETOOTHCONFIG::GetServerPropertys(int index)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

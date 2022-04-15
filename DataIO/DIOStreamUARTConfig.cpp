@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream UART config class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -74,9 +68,6 @@ DIOSTREAMUARTCONFIG::DIOSTREAMUARTCONFIG(): DIOSTREAMCONFIG()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ DIOSTREAMUARTCONFIG::~DIOSTREAMUARTCONFIG()
 * @brief      GetPort
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -111,9 +99,6 @@ int DIOSTREAMUARTCONFIG::GetPort()
 * @fn         void DIOSTREAMUARTCONFIG::SetPort(int port)
 * @brief      SetPort
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  port :
 *
@@ -133,9 +118,6 @@ void DIOSTREAMUARTCONFIG::SetPort(int port)
 * @brief      GetLocalDeviceName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -152,9 +134,6 @@ XSTRING* DIOSTREAMUARTCONFIG::GetLocalDeviceName()
 * @brief      GetBaudRate
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -169,9 +148,6 @@ int DIOSTREAMUARTCONFIG::GetBaudRate()
 * @fn         void DIOSTREAMUARTCONFIG::SetBaudRate(int baudrate)
 * @brief      SetBaudRate
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  baudrate :
 *
@@ -191,9 +167,6 @@ void DIOSTREAMUARTCONFIG::SetBaudRate(int baudrate)
 * @brief      GetDataBits
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMUARTDATABITS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -208,9 +181,6 @@ DIOSTREAMUARTDATABITS DIOSTREAMUARTCONFIG::GetDataBits()
 * @fn         void DIOSTREAMUARTCONFIG::SetDataBits(DIOSTREAMUARTDATABITS databits)
 * @brief      SetDataBits
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  databits :
 *
@@ -230,9 +200,6 @@ void DIOSTREAMUARTCONFIG::SetDataBits(DIOSTREAMUARTDATABITS databits)
 * @brief      GetParity
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMUARTPARITY :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -248,9 +215,6 @@ DIOSTREAMUARTPARITY DIOSTREAMUARTCONFIG::GetParity()
 * @fn         void DIOSTREAMUARTCONFIG::SetParity(DIOSTREAMUARTPARITY parity)
 * @brief      SetParity
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  parity :
 *
@@ -270,9 +234,6 @@ void DIOSTREAMUARTCONFIG::SetParity(DIOSTREAMUARTPARITY parity)
 * @brief      GetStopBits
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMUARTSTOPBITS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -288,9 +249,6 @@ DIOSTREAMUARTSTOPBITS DIOSTREAMUARTCONFIG::GetStopBits()
 * @fn         void DIOSTREAMUARTCONFIG::SetStopBits(DIOSTREAMUARTSTOPBITS stopbits)
 * @brief      SetStopBits
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  stopbits :
 *
@@ -310,9 +268,6 @@ void DIOSTREAMUARTCONFIG::SetStopBits(DIOSTREAMUARTSTOPBITS stopbits)
 * @brief      GetFlowControl
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMUARTFLOWCONTROL :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -328,9 +283,6 @@ DIOSTREAMUARTFLOWCONTROL DIOSTREAMUARTCONFIG::GetFlowControl()
 * @fn         void DIOSTREAMUARTCONFIG::DIOSTREAMUARTCONFIG::SetFlowControl(DIOSTREAMUARTFLOWCONTROL flowcontrol)
 * @brief      DIOSTREAMUARTCONFIG::SetFlowControl
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  flowcontrol :
 *
@@ -350,9 +302,6 @@ void DIOSTREAMUARTCONFIG::SetFlowControl(DIOSTREAMUARTFLOWCONTROL flowcontrol)
 * @fn         bool DIOSTREAMUARTCONFIG::GetToString(XSTRING* string)
 * @brief      GetToString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -420,9 +369,6 @@ bool DIOSTREAMUARTCONFIG::GetToString(XSTRING* string)
 * @brief      GetToString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -440,9 +386,6 @@ bool DIOSTREAMUARTCONFIG::GetToString(XSTRING& string)
 * @fn         bool DIOSTREAMUARTCONFIG::SetFromString(XCHAR* string)
 * @brief      SetFromString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -552,9 +495,6 @@ bool DIOSTREAMUARTCONFIG::SetFromString(XCHAR* string)
 * @brief      SetFromString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -574,9 +514,6 @@ bool DIOSTREAMUARTCONFIG::SetFromString(XSTRING* string)
 * @brief      SetFromString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -595,9 +532,6 @@ bool DIOSTREAMUARTCONFIG::SetFromString(XSTRING& string)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

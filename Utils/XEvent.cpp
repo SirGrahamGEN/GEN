@@ -6,10 +6,7 @@
 * @brief      eXtended Event base class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,9 +48,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  subject :
 * @param[in]  type :
 * @param[in]  family :
@@ -78,9 +72,6 @@ XEVENT::XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  subject :
 * @param[in]   type :
 *
@@ -103,9 +94,6 @@ XEVENT::XEVENT(XSUBJECT* subject, XDWORD type)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -121,9 +109,6 @@ XEVENT::~XEVENT()
 * @fn         XSUBJECT* XEVENT::GetSubject()
 * @brief      GetSubject
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSUBJECT* :
 *
@@ -142,9 +127,6 @@ XSUBJECT* XEVENT::GetSubject()
 * @brief      SetSubject
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  subject :
 *
 * @return     void : does not return anything.
@@ -162,9 +144,6 @@ void XEVENT::SetSubject(XSUBJECT* subject)
 * @brief      GetEventFamily
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -179,9 +158,6 @@ XDWORD XEVENT::GetEventFamily()
 * @fn         void XEVENT::SetEventFamily(XDWORD family)
 * @brief      SetEventFamily
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  family :
 *
@@ -200,9 +176,6 @@ void XEVENT::SetEventFamily(XDWORD family)
 * @brief      GetEventType
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -218,9 +191,6 @@ XDWORD XEVENT::GetEventType()
 * @fn         void XEVENT::SetEventType(XDWORD type)
 * @brief      SetEventType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -240,9 +210,6 @@ void XEVENT::SetEventType(XDWORD type)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

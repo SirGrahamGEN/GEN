@@ -6,7 +6,7 @@
 //
 //  AOSONG AM2301 Sensor class (Temperature and humidity module)
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 25/11/2013 22:50:29
 */
 /*  GEN  Copyright (C).  All right reserved.

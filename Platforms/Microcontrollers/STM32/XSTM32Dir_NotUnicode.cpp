@@ -6,10 +6,7 @@
 * @brief      eXtended WINDOWS Directory class
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ XSTM32DIR::XSTM32DIR(): XDIR()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -100,9 +91,6 @@ XSTM32DIR::~XSTM32DIR()
 * @fn         bool XSTM32DIR::Exist(XCHAR* path)
 * @brief      Exist
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 *
@@ -132,10 +120,7 @@ bool XSTM32DIR::Exist(XCHAR* path)
 * @fn         bool XSTM32DIR::Make(XCHAR* path, bool recursive)
 * @brief      Make
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  path : 
 * @param[in]  recursive : 
 * 
@@ -208,9 +193,6 @@ bool XSTM32DIR::Make(XCHAR* path, bool recursive)
 * @brief      ChangeTo
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  path :
 *
 * @return     bool : true if is succesful.
@@ -245,9 +227,6 @@ bool XSTM32DIR::ChangeTo(XCHAR* path)
 * @fn         bool XSTM32DIR::Delete(XCHAR* path,bool all)
 * @brief      Delete
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 * @param[in]  all :
@@ -314,9 +293,6 @@ bool XSTM32DIR::Delete(XCHAR* path, bool all)
 * @brief      GetActual
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 *
 * @return     bool : true if is succesful.
@@ -343,9 +319,6 @@ bool XSTM32DIR::GetActual(XPATH& xpath)
 * @fn         bool XSTM32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* searchelement)
 * @brief      FirstSearch
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  patternsearch :
@@ -415,9 +388,6 @@ bool XSTM32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* sea
 * @brief      NextSearch
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  searchelement :
 *
 * @return     bool : true if is succesful.
@@ -461,10 +431,7 @@ bool XSTM32DIR::NextSearch(XDIRELEMENT* searchelement)
 * @fn         bool XSTM32DIR::ReconvertSearchData(XDIRELEMENT* searchelement)
 * @brief      ReconvertSearchData
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  searchelement : 
 * 
 * @return     bool : true if is succesful. 
@@ -492,9 +459,6 @@ bool XSTM32DIR::ReconvertSearchData(XDIRELEMENT* searchelement, FILINFO* fileinf
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

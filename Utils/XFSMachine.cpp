@@ -6,10 +6,7 @@
 * @brief      eXtended Finite state machine class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  int :
 * @param[in]   int ntransitions :
 *
@@ -99,9 +93,6 @@ XFSMACHINESTATE::XFSMACHINESTATE(int stateID, int ntransitions)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -121,9 +112,6 @@ XFSMACHINESTATE::~XFSMACHINESTATE()
 * @brief      GetID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -139,9 +127,6 @@ int XFSMACHINESTATE::GetID()
 * @fn         bool XFSMACHINESTATE::AddTransition(int input,int outputID)
 * @brief      AddTransition
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  input :
 * @param[in]  outputID :
@@ -177,9 +162,6 @@ bool XFSMACHINESTATE::AddTransition(int input,int outputID)
 * @brief      GetOutput
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  input :
 *
 * @return     int :
@@ -210,9 +192,6 @@ int XFSMACHINESTATE::GetOutput(int input)
 * @fn         bool XFSMACHINESTATE::DeleteTransition(int outputID)
 * @brief      DeleteTransition
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  outputID :
 *
@@ -256,9 +235,6 @@ bool XFSMACHINESTATE::DeleteTransition(int outputID)
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -284,9 +260,6 @@ void XFSMACHINESTATE::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  int :
 *
 * @return     Does not return anything.
@@ -308,9 +281,6 @@ XFSMACHINE::XFSMACHINE(int stateID)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -329,9 +299,6 @@ XFSMACHINE::~XFSMACHINE()
 * @brief      GetEvent
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -347,9 +314,6 @@ int XFSMACHINE::GetEvent()
 * @fn         bool XFSMACHINE::SetEvent(int event)
 * @brief      SetEvent
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  event :
 *
@@ -371,9 +335,6 @@ bool XFSMACHINE::SetEvent(int event)
 * @brief      GetCurrentState
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -389,9 +350,6 @@ int XFSMACHINE::GetCurrentState()
 * @fn         void XFSMACHINE::SetCurrentState(int stateID)
 * @brief      SetCurrentState
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  stateID :
 *
@@ -410,9 +368,6 @@ void XFSMACHINE::SetCurrentState(int stateID)
 * @fn         XFSMACHINESTATE* XFSMACHINE::GetState(int stateID)
 * @brief      GetState
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  stateID :
 *
@@ -440,9 +395,6 @@ XFSMACHINESTATE* XFSMACHINE::GetState(int stateID)
 * @brief      AddState
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  state :
 *
 * @return     bool : true if is succesful.
@@ -465,9 +417,6 @@ bool XFSMACHINE::AddState(XFSMACHINESTATE* state)
 * @fn         bool XFSMACHINE::AddState(int state, int event, int tostate,...)
 * @brief      AddState
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  state :
 * @param[in]  event :
@@ -533,9 +482,6 @@ bool XFSMACHINE::AddState(int state, int event, int tostate,...)
 * @brief      AddSecuencialStates
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  state :
 * @param[in]  maxsecuencialtransitions :
 *
@@ -571,9 +517,6 @@ bool XFSMACHINE::AddSecuencialStates(int state, int maxsecuencialtransitions)
 * @brief      DeleteState
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  stateID :
 *
 * @return     bool : true if is succesful.
@@ -600,9 +543,6 @@ bool XFSMACHINE::DeleteState(int stateID)
 * @brief      DeleteAllStates
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -623,9 +563,6 @@ bool XFSMACHINE::DeleteAllStates()
 * @fn         int XFSMACHINE::StateTransition(int input)
 * @brief      StateTransition
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  input :
 *
@@ -654,9 +591,6 @@ int XFSMACHINE::StateTransition(int input)
 * @fn         bool XFSMACHINE::CheckTransition(int& event)
 * @brief      CheckTransition
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  event :
 *
@@ -688,9 +622,6 @@ bool XFSMACHINE::CheckTransition(int& event)
 * @brief      CheckTransition
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -715,9 +646,6 @@ bool XFSMACHINE::CheckTransition()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

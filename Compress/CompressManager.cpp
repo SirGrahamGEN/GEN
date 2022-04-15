@@ -39,7 +39,7 @@ COMPRESSMANAGER* COMPRESSMANAGER::Instance=NULL;
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 14:59:01
 //
 //  @return
@@ -56,7 +56,7 @@ COMPRESSMANAGER::COMPRESSMANAGER()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 15:00:06
 //
 //  @return       void :
@@ -73,7 +73,7 @@ COMPRESSMANAGER::~COMPRESSMANAGER()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 15:00:27
 //
 //  @return       COMPRESS* :
@@ -105,7 +105,7 @@ COMPRESSBASE* COMPRESSMANAGER::Create(COMPRESSBASE_TYPE type)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 15:00:57
 //
 //  @return       void :

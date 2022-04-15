@@ -6,10 +6,7 @@
 * @brief      DataBase MySQL Query class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  DB_SQL_DATABASE* :
 *
 * @return     Does not return anything.
@@ -80,9 +74,6 @@ MYSQL_QUERY::MYSQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(database)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -103,9 +94,6 @@ MYSQL_QUERY::~MYSQL_QUERY()
 * @fn         bool MYSQL_QUERY::Execute()
 * @brief      Execute
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -164,9 +152,6 @@ bool MYSQL_QUERY::Execute()
 * @brief      UnbindAll
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -204,9 +189,6 @@ bool MYSQL_QUERY::UnbindAll()
 * @brief      Bind
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 * @param[in]  datetime :
 *
@@ -230,9 +212,6 @@ bool MYSQL_QUERY::Bind(XDWORD ID, DB_SQL_DATETIME& datetime)
 * @fn         bool MYSQL_QUERY::Exec(MYSQL* db,char* sql)
 * @brief      Exec
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  db :
 * @param[in]  sql :
@@ -380,9 +359,6 @@ bool MYSQL_QUERY::Exec(MYSQL* db,char* sql)
 * @brief      ConstructResult
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_RESULT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -403,9 +379,6 @@ DB_SQL_RESULT* MYSQL_QUERY::ConstructResult()
 * @fn         bool MYSQL_QUERY::BindParametersToQuery()
 * @brief      BindParametersToQuery
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -518,9 +491,6 @@ bool MYSQL_QUERY::BindParametersToQuery()
 * @brief      BindParametersToResult
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -597,9 +567,6 @@ bool MYSQL_QUERY::BindParametersToResult()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

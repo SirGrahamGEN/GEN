@@ -6,10 +6,7 @@
 * @brief      DataBase SQLite Database class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ SQLITE_DATABASE::SQLITE_DATABASE() : DB_SQL_DATABASE()
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -100,9 +91,6 @@ SQLITE_DATABASE::~SQLITE_DATABASE()
 * @fn         DB_SQL_DATABASE_TYPE SQLITE_DATABASE::GetType()
 * @brief      GetType
 * @ingroup    DATABASESSQL
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DB_SQL_DATABASE_TYPE :
 *
@@ -120,9 +108,6 @@ DB_SQL_DATABASE_TYPE SQLITE_DATABASE::GetType()
 * @brief      GetTypeName
 * @ingroup    DATABASESSQL
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -138,9 +123,6 @@ XCHAR* SQLITE_DATABASE::GetTypeName()
 * @fn         bool SQLITE_DATABASE::Transaction()
 * @brief      Transaction
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -161,9 +143,6 @@ bool SQLITE_DATABASE::Transaction()
 * @fn         bool SQLITE_DATABASE::Commit()
 * @brief      Commit
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -189,9 +168,6 @@ bool SQLITE_DATABASE::Commit()
 * @fn         bool SQLITE_DATABASE::Rollback(XCHAR* savepoint)
 * @brief      Rollback
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  savepoint :
 *
@@ -234,9 +210,6 @@ bool SQLITE_DATABASE::Rollback(XCHAR* savepoint)
 * @brief      Savepoint
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  savepoint :
 *
 * @return     bool : true if is succesful.
@@ -261,9 +234,6 @@ bool SQLITE_DATABASE::Savepoint(XCHAR* savepoint)
 * @fn         bool SQLITE_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 * @brief      ReleaseSavepoint
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  savepoint :
 *
@@ -291,9 +261,6 @@ bool SQLITE_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 * @brief      CreateQuery
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_QUERY* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -317,9 +284,6 @@ DB_SQL_QUERY* SQLITE_DATABASE::CreateQuery()
 * @brief      CreateConnection
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_CONNECTION* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -336,9 +300,6 @@ DB_SQL_CONNECTION* SQLITE_DATABASE::CreateConnection()
 * @fn         bool SQLITE_DATABASE::GetTables()
 * @brief      GetTables
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -401,9 +362,6 @@ bool SQLITE_DATABASE::GetTables()
 * @brief      GetDatabaseEncoding
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_DATABASE_ENCODING :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -419,9 +377,6 @@ DB_SQL_DATABASE_ENCODING SQLITE_DATABASE::GetDatabaseEncoding()
 * @fn         bool SQLITE_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
 * @brief      SetDatabaseEncoding
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  encodingtouse :
 *
@@ -501,9 +456,6 @@ bool SQLITE_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

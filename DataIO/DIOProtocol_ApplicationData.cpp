@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Application Data for Generic Binary Protocol class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ DIOPROTOCOL_APPLICATIONDATA::DIOPROTOCOL_APPLICATIONDATA()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -99,9 +90,6 @@ DIOPROTOCOL_APPLICATIONDATA::~DIOPROTOCOL_APPLICATIONDATA()
 * @fn         bool DIOPROTOCOL_APPLICATIONDATA::AddAlert(DIOALERT& alert)
 * @brief      AddAlert
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  alert :
 *
@@ -135,9 +123,6 @@ bool DIOPROTOCOL_APPLICATIONDATA::AddAlert(DIOALERT& alert)
 * @brief      ExtractAlert
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 * @param[in]  alert :
 *
@@ -168,9 +153,6 @@ bool DIOPROTOCOL_APPLICATIONDATA::ExtractAlert(int index, DIOALERT& alert)
 * @fn         bool DIOPROTOCOL_APPLICATIONDATA::DeleteAllAlerts()
 * @brief      DeleteAllAlerts
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -204,9 +186,6 @@ bool DIOPROTOCOL_APPLICATIONDATA::DeleteAllAlerts()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

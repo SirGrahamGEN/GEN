@@ -5,11 +5,8 @@
 * @class      DIOI2C6AXISTRACKINGBMI270
 * @brief      
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -553,10 +550,7 @@ const XBYTE bmi270_config_file[]                                                
 * @fn         DIOI2C6AXISTRACKINGBMI270::DIOI2C6AXISTRACKINGBMI270() : DIODEVICEI2C()
 * @brief      Constructor
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * 
 * @return     Does not return anything. 
 * 
@@ -573,10 +567,7 @@ DIOI2C6AXISTRACKINGBMI270::DIOI2C6AXISTRACKINGBMI270() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -594,10 +585,7 @@ DIOI2C6AXISTRACKINGBMI270::~DIOI2C6AXISTRACKINGBMI270()
 * @fn         XDWORD DIOI2C6AXISTRACKINGBMI270::GetGPIOInterruptEntryID()
 * @brief      GetGPIOInterruptEntryID
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -614,10 +602,7 @@ XDWORD DIOI2C6AXISTRACKINGBMI270::GetGPIOInterruptEntryID()
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::SetGPIOInterruptEntryID(XDWORD GPIOentryID)
 * @brief      SetGPIOInterruptEntryID
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  GPIOentryID : 
 * 
 * @return     bool : true if is succesful. 
@@ -637,10 +622,7 @@ bool DIOI2C6AXISTRACKINGBMI270::SetGPIOInterruptEntryID(XDWORD GPIOentryID)
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::IsNecessaryUpdate()
 * @brief      IsNecessaryUpdate
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -655,10 +637,7 @@ bool DIOI2C6AXISTRACKINGBMI270::IsNecessaryUpdate()
 * @fn         void DIOI2C6AXISTRACKINGBMI270::SetIsNecessaryUpdate(bool isnecessaryupdate)
 * @brief      SetIsNecessaryUpdate
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  isnecessaryupdate : 
 * 
 * @return     void : does not return anything. 
@@ -677,10 +656,7 @@ void DIOI2C6AXISTRACKINGBMI270::SetIsNecessaryUpdate(bool isnecessaryupdate)
 * @fn         void DIOI2C6AXISTRACKINGBMI270::Update()
 * @brief      UpdateDevice
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -767,10 +743,7 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetSetAnyMove()
 * @brief      GetSetAnyMove
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -793,10 +766,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetSetAnyMove()
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetSignificantMotion()
 * @brief      GetSignificantMotion
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -820,10 +790,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetSignificantMotion()
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetStep_AddOne()
 * @brief      GetStep_AddOne
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -848,10 +815,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetStep_AddOne()
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetTap_AddOne()
 * @brief      GetTap_AddOne
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -876,10 +840,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetTap_AddOne()
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetHighGMotion()
 * @brief      GetHighGMotion
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -907,10 +868,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetHighGMotion()
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetLowGMotion()
 * @brief      GetLowGMotion
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -936,10 +894,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetLowGMotion()
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetNotMove()
 * @brief      GetNotMove
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -962,9 +917,6 @@ bool DIOI2C6AXISTRACKINGBMI270::GetNotMove()
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -983,9 +935,6 @@ bool DIOI2C6AXISTRACKINGBMI270::End()
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1015,10 +964,7 @@ bool DIOI2C6AXISTRACKINGBMI270::IniDevice()
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::Inicializate()
 * @brief      Inicializate
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1098,10 +1044,7 @@ bool DIOI2C6AXISTRACKINGBMI270::Inicializate()
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      ReadRegister
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  offset : 
 * @param[in]  data : 
 * @param[in]  sizedata : 
@@ -1133,10 +1076,7 @@ bool DIOI2C6AXISTRACKINGBMI270::ReadRegister(XBYTE offset, XBYTE* data, XDWORD s
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      WriteRegister
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  offset : 
 * @param[in]  data : 
 * @param[in]  sizedata : 
@@ -1167,10 +1107,7 @@ bool DIOI2C6AXISTRACKINGBMI270::WriteRegister(XBYTE offset, XBYTE* data, XDWORD 
 * @fn         BMI2_INTF_RETURN_TYPE DIOI2C6AXISTRACKINGBMI270::bmi2_i2c_read(XBYTE reg_addr, XBYTE* reg_data, XDWORD len, void* intf_ptr)
 * @brief      bmi2_i2c_read
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  reg_addr : 
 * @param[in]  reg_data : 
 * @param[in]  len : 
@@ -1191,10 +1128,7 @@ BMI2_INTF_RETURN_TYPE DIOI2C6AXISTRACKINGBMI270::bmi2_i2c_read(XBYTE reg_addr, X
 * @fn         BMI2_INTF_RETURN_TYPE DIOI2C6AXISTRACKINGBMI270::bmi2_i2c_write(XBYTE reg_addr, const XBYTE* reg_data, XDWORD len, void* intf_ptr)
 * @brief      bmi2_i2c_write
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  reg_addr : 
 * @param[in]  XBYTE* reg_data : 
 * @param[in]  len : 
@@ -1222,9 +1156,7 @@ BMI2_INTF_RETURN_TYPE DIOI2C6AXISTRACKINGBMI270::bmi2_i2c_write(XBYTE reg_addr, 
  * @brief     SetFeatureConfig
  * @ingroup   DATAIO
  * 
- * @author    Abraham J. Velez 
- * @date       01/03/2016 12:00
- * 
+   * 
  * @param[in] bmi2_dev*bmi2_dev : 
  * 
  * @return    XBYTESIG : 
@@ -1380,10 +1312,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::SetFeatureConfig(struct bmi2_dev *bmi2_dev)
 * @fn         void DIOI2C6AXISTRACKINGBMI270::bmi2_delay_us(XDWORD period, void*intf_ptr)
 * @brief      bmi2_delay_us
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  period : 
 * @param[in]  void*intf_ptr : 
 * 
@@ -1409,10 +1338,7 @@ void DIOI2C6AXISTRACKINGBMI270::bmi2_delay_us(XDWORD period, void *intf_ptr)
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_interface_init(struct bmi2_dev*bmi, XBYTE intf)
 * @brief      bmi2_interface_init
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  bmi2_dev*bmi : 
 * @param[in]  intf : 
 * 
@@ -1472,10 +1398,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_interface_init(struct bmi2_dev *bmi, XB
 * @fn         void DIOI2C6AXISTRACKINGBMI270::bmi2_error_codes_print_result(XBYTESIG rslt)
 * @brief      bmi2_error_codes_print_result
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  rslt : 
 * 
 * @return     void : does not return anything. 
@@ -1644,10 +1567,7 @@ void DIOI2C6AXISTRACKINGBMI270::bmi2_error_codes_print_result(XBYTESIG rslt)
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sec_init(struct bmi2_dev*dev)
 * @brief      bmi2_sec_init
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  bmi2_dev*dev : 
 * 
 * @return     XBYTESIG : 
@@ -1723,10 +1643,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sec_init(struct bmi2_dev *dev)
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_regs(XBYTE reg_addr, XBYTE*data, XWORD len, struct bmi2_dev*dev)
 * @brief      bmi2_get_regs
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  reg_addr : 
 * @param[in]  XBYTE*data : 
 * @param[in]  len : 
@@ -1806,10 +1723,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_regs(XBYTE reg_addr, XBYTE *data, X
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_regs(XBYTE reg_addr, const XBYTE*data, XWORD len, struct bmi2_dev*dev)
 * @brief      bmi2_set_regs
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  reg_addr : 
 * @param[in]  XBYTE*data : 
 * @param[in]  len : 
@@ -1935,10 +1849,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_soft_reset(struct bmi2_dev *dev)
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_config_file_version(XBYTE*config_major, XBYTE*config_minor, struct bmi2_dev*dev)
 * @brief      bmi2_get_config_file_version
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  XBYTE*config_major : 
 * @param[in]  XBYTE*config_minor : 
 * @param[in]  bmi2_dev*dev : 
@@ -1975,10 +1886,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_config_file_version(XBYTE *config_m
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_adv_power_save(XBYTE enable, struct bmi2_dev*dev)
 * @brief      bmi2_set_adv_power_save
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  enable : 
 * @param[in]  bmi2_dev*dev : 
 * 
@@ -2028,10 +1936,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_adv_power_save(XBYTE enable, struct
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_adv_power_save(XBYTE*aps_status, struct bmi2_dev*dev)
 * @brief      bmi2_get_adv_power_save
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  XBYTE*aps_status : 
 * @param[in]  bmi2_dev*dev : 
 * 
@@ -2074,10 +1979,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_adv_power_save(XBYTE *aps_status, s
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_config_file(struct bmi2_dev*dev)
 * @brief      bmi2_write_config_file
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  bmi2_dev*dev : 
 * 
 * @return     XBYTESIG : 
@@ -2140,10 +2042,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_config_file(struct bmi2_dev *dev)
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_int_pin_config(const struct bmi2_int_pin_config*int_cfg, struct bmi2_dev*dev)
 * @brief      bmi2_set_int_pin_config
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  struct bmi2_int_pin_config*int_cfg : 
 * @param[in]  bmi2_dev*dev : 
 * 
@@ -2249,10 +2148,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_int_pin_config(const struct bmi2_in
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_pin_config(struct bmi2_int_pin_config*int_cfg, struct bmi2_dev*dev)
 * @brief      bmi2_get_int_pin_config
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  bmi2_int_pin_config*int_cfg : 
 * @param[in]  bmi2_dev*dev : 
 * 
@@ -2335,10 +2231,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_pin_config(struct bmi2_int_pin_
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_status(XWORD*int_status, struct bmi2_dev*dev)
 * @brief      bmi2_get_int_status
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  XWORD*int_status : 
 * @param[in]  bmi2_dev*dev : 
 * 
@@ -2381,10 +2274,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_status(XWORD *int_status, struc
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_enable(const XBYTE*sens_list, XBYTE n_sens, struct bmi2_dev*dev)
 * @brief      bmi2_sensor_enable
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  XBYTE*sens_list : 
 * @param[in]  n_sens : 
 * @param[in]  bmi2_dev*dev : 
@@ -2429,10 +2319,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_enable(const XBYTE *sens_list, X
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_disable(const XBYTE*sens_list, XBYTE n_sens, struct bmi2_dev*dev)
 * @brief      bmi2_sensor_disable
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  XBYTE*sens_list : 
 * @param[in]  n_sens : 
 * @param[in]  bmi2_dev*dev : 
@@ -2477,10 +2364,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_disable(const XBYTE *sens_list, 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_sensor_config(struct bmi2_sens_config*sens_cfg, XBYTE n_sens, struct bmi2_dev*dev)
 * @brief      bmi2_set_sensor_config
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  bmi2_sens_config*sens_cfg : 
 * @param[in]  n_sens : 
 * @param[in]  bmi2_dev*dev : 
@@ -2581,10 +2465,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_sensor_config(struct bmi2_sens_conf
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_config(struct bmi2_sens_config*sens_cfg, XBYTE n_sens, struct bmi2_dev*dev)
 * @brief      bmi2_get_sensor_config
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  bmi2_sens_config*sens_cfg : 
 * @param[in]  n_sens : 
 * @param[in]  bmi2_dev*dev : 
@@ -2690,10 +2571,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_config(struct bmi2_sens_conf
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_data(struct bmi2_sensor_data*sensor_data, XBYTE n_sens, struct bmi2_dev*dev)
 * @brief      bmi2_get_sensor_data
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  bmi2_sensor_data*sensor_data : 
 * @param[in]  n_sens : 
 * @param[in]  bmi2_dev*dev : 
@@ -2803,10 +2681,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_data(struct bmi2_sensor_data
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_config(XWORD config, XBYTE enable, struct bmi2_dev*dev)
 * @brief      bmi2_set_fifo_config
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  config : 
 * @param[in]  enable : 
 * @param[in]  bmi2_dev*dev : 
@@ -2888,10 +2763,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_config(XWORD config, XBYTE ena
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_config(XWORD*fifo_config, struct bmi2_dev*dev)
 * @brief      bmi2_get_fifo_config
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  XWORD*fifo_config : 
 * @param[in]  bmi2_dev*dev : 
 * 
@@ -2935,10 +2807,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_config(XWORD *fifo_config, str
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_fifo_data(struct bmi2_fifo_frame*fifo, struct bmi2_dev*dev)
 * @brief      bmi2_read_fifo_data
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  bmi2_fifo_frame*fifo : 
 * @param[in]  bmi2_dev*dev : 
 * 
@@ -3005,10 +2874,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_fifo_data(struct bmi2_fifo_frame *
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_accel(struct bmi2_sens_axes_data* accel_data, XWORD* accel_length, struct bmi2_fifo_frame* fifo, const struct bmi2_dev* dev)
 * @brief      bmi2_extract_accel
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  accel_data : 
 * @param[in]  accel_length : 
 * @param[in]  fifo : 
@@ -3090,10 +2956,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_accel(struct bmi2_sens_axes_dat
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_gyro(struct bmi2_sens_axes_data*gyro_data, XWORD*gyro_length, struct bmi2_fifo_frame*fifo, const struct bmi2_dev*dev)
 * @brief      bmi2_extract_gyro
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  bmi2_sens_axes_data*gyro_data : 
 * @param[in]  XWORD*gyro_length : 
 * @param[in]  bmi2_fifo_frame*fifo : 
@@ -3172,10 +3035,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_gyro(struct bmi2_sens_axes_data
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_aux(struct bmi2_aux_fifo_data*aux, XWORD*aux_length, struct bmi2_fifo_frame*fifo, const struct bmi2_dev*dev)
 * @brief      bmi2_extract_aux
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  bmi2_aux_fifo_data*aux : 
 * @param[in]  XWORD*aux_length : 
 * @param[in]  bmi2_fifo_frame*fifo : 
@@ -13808,10 +13668,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::enable_gyro_gain(XBYTE enable, struct bmi2_d
 * @fn         void DIOI2C6AXISTRACKINGBMI270::Handler_Interrupt(void* param)
 * @brief      Handler_Interrupt
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  param : 
 * 
 * @return     void : does not return anything. 
@@ -13831,10 +13688,7 @@ void DIOI2C6AXISTRACKINGBMI270::Handler_Interrupt(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

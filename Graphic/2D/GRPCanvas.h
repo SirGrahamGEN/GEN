@@ -6,7 +6,7 @@
 //
 //  Graphics Canvas Class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 14/08/2002
 */
 //  GEN (C) Copyright  (All right reserved)

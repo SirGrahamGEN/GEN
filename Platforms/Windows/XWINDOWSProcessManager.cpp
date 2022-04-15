@@ -6,10 +6,7 @@
 * @brief      eXtended WINDOWS process manager class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ) :
 *
 * @return     Does not return anything.
@@ -83,9 +77,6 @@ XWINDOWSPROCESSMANAGER::XWINDOWSPROCESSMANAGER() : XPROCESSMANAGER()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -101,9 +92,6 @@ XWINDOWSPROCESSMANAGER::~XWINDOWSPROCESSMANAGER()
 * @fn         bool XWINDOWSPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 * @brief      MakeSystemCommand
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  command : 
 *
@@ -122,9 +110,6 @@ bool XWINDOWSPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 * @fn         bool XWINDOWSPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING& out, int* returncode)
 * @brief      MakeCommand
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  command :
 * @param[in]  out :
@@ -167,10 +152,7 @@ bool XWINDOWSPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* retu
 * @fn         bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 * @brief      ExecuteApplication
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  applicationpath : 
 * @param[in]  params : 
 * @param[in]  in : 
@@ -317,9 +299,6 @@ bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* p
 * @brief      Is Application Running
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  applicationname : application name
 * @param[out] ID : ID of the application by SO
 *
@@ -389,10 +368,7 @@ bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD
 * @fn         bool XWINDOWSPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*> applist)
 * @brief      GetApplicationRunningList
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  applist : 
 * 
 * @return     bool : true if is succesful. 
@@ -490,10 +466,7 @@ bool XWINDOWSPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& appli
 * @fn         bool XWINDOWSPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
 * @brief      TerminateApplication
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  processID : 
 * @param[in]  exitcode : 
 * 
@@ -526,10 +499,7 @@ bool XWINDOWSPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD  exit
 * @fn         BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowCallback(HWND hwnd, LPARAM lparam)
 * @brief      EnumWindowCallback
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  hwnd : 
 * @param[in]  lparam : 
 * 
@@ -605,9 +575,6 @@ BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowCallback(HWND hwnd, LPARAM lpara
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

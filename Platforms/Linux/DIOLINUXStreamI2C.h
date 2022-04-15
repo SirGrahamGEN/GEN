@@ -6,7 +6,7 @@
 //
 //  Data Input/Output Stream I2C class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 20/09/2012 14:31:53
 */
 /*  GEN  Copyright (C).  All right reserved.

@@ -6,10 +6,7 @@
 * @brief      Sound instance of a playing sound class
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -62,9 +59,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  SNDSOURCE* : 
 * @param[in]   SNDELEMENT* element : 
 *
@@ -91,9 +85,6 @@ SNDINSTANCE::SNDINSTANCE(SNDSOURCE* source, SNDELEMENT* element)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything. 
 *
@@ -127,9 +118,6 @@ SNDELEMENT* SNDINSTANCE::GetElement()
 * @brief      IsPlaying
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -146,9 +134,6 @@ bool SNDINSTANCE::IsPlaying()
 * @brief      IsPaused
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -164,9 +149,6 @@ bool SNDINSTANCE::IsPaused()
 * @fn         bool SNDINSTANCE::Stop()
 * @brief      Stop
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -188,9 +170,6 @@ bool SNDINSTANCE::Stop()
 * @brief      Pause
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -211,9 +190,6 @@ bool SNDINSTANCE::Pause()
 * @brief      UnPause
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -233,9 +209,6 @@ bool SNDINSTANCE::UnPause()
 * @fn         float SNDINSTANCE::GetVolume()
 * @brief      GetVolume
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     float : 
 *
@@ -258,9 +231,6 @@ float SNDINSTANCE::GetVolume()
 * @brief      SetVolume
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  volume : 
 *
 * @return     void : does not return anything. 
@@ -281,9 +251,6 @@ void SNDINSTANCE::SetVolume(float volume)
 * @fn         float SNDINSTANCE::GetPitch()
 * @brief      GetPitch
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     float : 
 *
@@ -306,9 +273,6 @@ float SNDINSTANCE::GetPitch()
 * @brief      SetPitch
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  pitch : 
 *
 * @return     void : does not return anything. 
@@ -330,9 +294,6 @@ void SNDINSTANCE::SetPitch(float pitch)
 * @brief      GetIsManaged
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -348,9 +309,6 @@ bool SNDINSTANCE::GetIsManaged()
 * @fn         void SNDINSTANCE::SetIsManaged(bool ismanaged)
 * @brief      SetIsManaged
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  ismanaged : 
 *
@@ -371,9 +329,6 @@ void SNDINSTANCE::SetIsManaged(bool ismanaged)
 * @brief      Handle Event for the observer manager of this class
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  xevent : 
 *
@@ -413,9 +368,6 @@ void SNDINSTANCE::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

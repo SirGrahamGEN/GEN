@@ -6,7 +6,7 @@
 //
 //  DIO SSH reverse connections (only ssh/sshpass avaible [linux])
 //
-//  @author: Abraham J. Velez
+//  ""
 //
 //  Date of Creation : 27/03/2018 7:24:08
 //  Last Modification :
@@ -46,7 +46,7 @@ DIOSSHREVERSE* DIOSSHREVERSE::instance = NULL;
 /**
 //
 //
-//  @author   Abraham J. Velez
+//  ""
 //  @version  27/03/2018 7:38:29
 //
 //  @return   bool :
@@ -178,7 +178,7 @@ bool DIOSSHREVERSE::DownloadCFG(XCHAR* URL, XSTRING& publicIP, XSTRING& localIP)
 /**
 //
 //
-//  @author   Abraham J. Velez
+//  ""
 //  @version  14/04/2018 17:43:48
 //
 //  @return   bool :
@@ -228,7 +228,7 @@ bool DIOSSHREVERSE::Activate()
 /**
 //
 //
-//  @author   Abraham J. Velez
+//  ""
 //  @version  27/03/2018 7:41:33
 //
 //  @return   bool :
@@ -265,7 +265,7 @@ bool DIOSSHREVERSE::DeActivate()
 /**
 //
 //
-//  @author   Abraham J. Velez
+//  ""
 //  @version  27/03/2018 7:45:02
 //
 //  @return   bool :

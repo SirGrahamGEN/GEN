@@ -6,7 +6,7 @@
 //
 //  Computes the CRC16 of a buffer
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 17/02/2016 9:47:13
 //  Last Modification :

@@ -6,10 +6,7 @@
 * @brief      Main procedure LINUX class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -182,9 +179,6 @@ bool                  Signal_RunLevel           (XCHAR& previous, XCHAR& actual)
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -202,9 +196,6 @@ MAINPROCLINUX::MAINPROCLINUX()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -220,9 +211,6 @@ MAINPROCLINUX::~MAINPROCLINUX()
 * @fn         bool MAINPROCLINUX::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
 * @brief      Ini
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  appmain :
 * @param[in]  applicationmode :
@@ -277,9 +265,6 @@ bool MAINPROCLINUX::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicati
 * @brief      Update
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -320,9 +305,6 @@ bool MAINPROCLINUX::Update()
 * @fn         bool MAINPROCLINUX::End()
 * @brief      End
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -371,9 +353,6 @@ bool MAINPROCLINUX::End()
 * @fn         bool MAINPROCLINUX::Factorys_Ini()
 * @brief      Factorys Ini
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -461,9 +440,6 @@ bool MAINPROCLINUX::Factorys_Ini()
 * @fn         bool MAINPROCLINUX::Factorys_End()
 * @brief      Factorys End
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -566,7 +542,7 @@ bool MAINPROCLINUX::Factorys_End()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/08/2003 12:09:01
 //
 //  @return
@@ -598,9 +574,6 @@ void MAINPROCLINUX::Clean()
 * @fn         int main(int argc, char* argv[])
 * @brief      ain
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  argc :
 * @param[in]  argv[] :
@@ -680,9 +653,6 @@ __attribute__((constructor))
 * @brief      LIB Ini
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  void :
 *
 * @return     void : does not return anything.
@@ -720,9 +690,6 @@ __attribute__((destructor))
 * @fn         void LIBRARY_End(void)
 * @brief      LIB End
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  void :
 *
@@ -765,9 +732,6 @@ static void LIBRARY_End(void)
 * @brief      ignal_Ini
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  void :
 *
 * @return     void : does not return anything.
@@ -806,9 +770,6 @@ void Signal_Ini(void)
 * @fn         static void Signal_Handler(int sig)
 * @brief      oid Signal_Handler
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sig :
 *
@@ -1008,9 +969,6 @@ static void Signal_Handler(int sig)
 * @brief      ignal_Printf
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  iserror :
 * @param[in]  title :
 * @param[in]  mask :
@@ -1067,9 +1025,6 @@ bool Signal_Printf(bool iserror, XCHAR* title, XCHAR* mask, ...)
 * @fn         static inline void Signal_PrintfStackTrace(FILE*out, unsigned int max_frames)
 * @brief      nline void Signal_PrintfStackTrace
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  FILE*out :
 * @param[in]  int max_frames :
@@ -1187,9 +1142,6 @@ static inline void Signal_PrintfStackTrace(FILE *out, unsigned int max_frames)
 * @fn         bool Signal_RunLevel(XCHAR& previous, XCHAR& actual)
 * @brief      ignal_RunLevel
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  previous :
 * @param[in]  actual :

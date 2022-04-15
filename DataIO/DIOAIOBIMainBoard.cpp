@@ -6,10 +6,7 @@
 * @brief       Data IO AIOBI Main board class
 * @ingroup     DATAIO
 *
-* @author      Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright   Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,9 +48,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -72,9 +66,6 @@ DIOAIOBIMAINBOARD::DIOAIOBIMAINBOARD()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -90,9 +81,6 @@ DIOAIOBIMAINBOARD::~DIOAIOBIMAINBOARD()
 * @fn         bool DIOAIOBIMAINBOARD::Ini()
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -177,9 +165,6 @@ bool DIOAIOBIMAINBOARD::Ini()
 * @brief      IsIni
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -195,9 +180,6 @@ bool DIOAIOBIMAINBOARD::IsIni()
 * @fn         bool DIOAIOBIMAINBOARD::SetModeHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pin, bool isinput)
 * @brief      SetModeHeaderPin
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  header :
 * @param[in]  pin :
@@ -258,9 +240,6 @@ bool DIOAIOBIMAINBOARD::SetModeHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pi
 * @brief      GetStatusHeaderPin
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  header :
 * @param[in]  pin :
 *
@@ -318,9 +297,6 @@ bool DIOAIOBIMAINBOARD::GetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int 
 * @fn         bool DIOAIOBIMAINBOARD::SetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pin, bool active)
 * @brief      SetStatusHeaderPin
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  header :
 * @param[in]  pin :
@@ -381,9 +357,6 @@ bool DIOAIOBIMAINBOARD::SetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int 
 * @brief      SetP4HeaderForExternalButton
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  on :
 *
 * @return     bool : true if is succesful.
@@ -412,9 +385,6 @@ bool DIOAIOBIMAINBOARD::SetP4HeaderForExternalButton(bool on)
 * @brief      IsButtonAPressed
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -432,9 +402,6 @@ bool DIOAIOBIMAINBOARD::IsButtonAPressed()
 * @brief      IsButtonBPressed
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -451,9 +418,6 @@ bool DIOAIOBIMAINBOARD::IsButtonBPressed()
 * @fn         bool DIOAIOBIMAINBOARD::SetLedA(bool on)
 * @brief      SetLedA
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  on :
 *
@@ -474,9 +438,6 @@ bool DIOAIOBIMAINBOARD::SetLedA(bool on)
 * @brief      SetLedB
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  on :
 *
 * @return     bool : true if is succesful.
@@ -495,9 +456,6 @@ bool DIOAIOBIMAINBOARD::SetLedB(bool on)
 * @fn         bool DIOAIOBIMAINBOARD::GetDigitalInput(XBYTE& data)
 * @brief      GetDigitalInput
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 *
@@ -519,9 +477,6 @@ bool DIOAIOBIMAINBOARD::GetDigitalInput(XBYTE& data)
 * @fn         bool DIOAIOBIMAINBOARD::SetDigitalOutput(XBYTE bit, bool on)
 * @brief      SetDigitalOutput
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bit :
 * @param[in]  on :
@@ -556,9 +511,6 @@ bool DIOAIOBIMAINBOARD::SetDigitalOutput(XBYTE bit, bool on)
 * @brief      SwitchReleK1
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  on :
 *
 * @return     bool : true if is succesful.
@@ -583,9 +535,6 @@ bool DIOAIOBIMAINBOARD::SwitchReleK1(bool on)
 * @fn         bool DIOAIOBIMAINBOARD::SwitchReleK2(bool on)
 * @brief      SwitchReleK2
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  on :
 *
@@ -612,9 +561,6 @@ bool DIOAIOBIMAINBOARD::SwitchReleK2(bool on)
 * @brief      SwitchReleK3
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  on :
 *
 * @return     bool : true if is succesful.
@@ -639,9 +585,6 @@ bool DIOAIOBIMAINBOARD::SwitchReleK3(bool on)
 * @fn         bool DIOAIOBIMAINBOARD::EEProm(bool write, XBUFFER& xbuffer)
 * @brief      EEProm
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  write :
 * @param[in]  xbuffer :
@@ -671,9 +614,6 @@ bool DIOAIOBIMAINBOARD::EEProm(bool write, XBUFFER& xbuffer)
 * @brief      GetGPIO
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOGPIO* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -689,9 +629,6 @@ DIOGPIO* DIOAIOBIMAINBOARD::GetGPIO()
 * @fn         bool DIOAIOBIMAINBOARD::SetPWM(XBYTE channel, XWORD on, XWORD off, bool wait)
 * @brief      SetPWM
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  channel :
 * @param[in]  on :
@@ -714,9 +651,6 @@ bool DIOAIOBIMAINBOARD::SetPWM(XBYTE channel, XWORD on, XWORD off, bool wait)
 * @fn         bool DIOAIOBIMAINBOARD::ResetMicroControler()
 * @brief      ResetMicroControler
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -747,9 +681,6 @@ bool DIOAIOBIMAINBOARD::ResetMicroControler()
 * @fn         bool DIOAIOBIMAINBOARD::End()
 * @brief      End
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -804,9 +735,6 @@ bool DIOAIOBIMAINBOARD::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

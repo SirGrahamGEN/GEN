@@ -6,10 +6,7 @@
 * @brief      SAMD5xE5x Data IO Stream UART class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -63,9 +60,6 @@ DIOSAMD5XE5XSTREAMUART*   diostreamuartptrhandle[3] = { NULL, NULL, NULL };
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -105,9 +99,6 @@ DIOSAMD5XE5XSTREAMUART::DIOSAMD5XE5XSTREAMUART(): DIOSTREAMUART(), XFSMACHINE(0)
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -128,9 +119,6 @@ DIOSAMD5XE5XSTREAMUART::~DIOSAMD5XE5XSTREAMUART()
 * @brief      GetConnectStatus
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSTATUS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -149,9 +137,6 @@ DIOSTREAMSTATUS DIOSAMD5XE5XSTREAMUART::GetConnectStatus()
 * @fn         bool DIOSAMD5XE5XSTREAMUART::Open()
 * @brief      Open
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -229,9 +214,6 @@ bool DIOSAMD5XE5XSTREAMUART::Open()
 * @fn         bool DIOSAMD5XE5XSTREAMUART::Config(XWORD mask)
 * @brief      Config
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask :
 *
@@ -327,9 +309,6 @@ bool DIOSAMD5XE5XSTREAMUART::Config(XWORD mask)
 * @brief      ReadDirect
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -361,9 +340,6 @@ XDWORD DIOSAMD5XE5XSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 * @brief      WriteDirect
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -388,9 +364,6 @@ XDWORD DIOSAMD5XE5XSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 * @fn         XDWORD DIOSAMD5XE5XSTREAMUART::Write(XBYTE* buffer, XDWORD size)
 * @brief      Write
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -425,9 +398,6 @@ XDWORD DIOSAMD5XE5XSTREAMUART::Write(XBYTE* buffer, XDWORD size)
 * @brief      Disconnect
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -443,9 +413,6 @@ bool DIOSAMD5XE5XSTREAMUART::Disconnect()
 * @fn         bool DIOSAMD5XE5XSTREAMUART::Close()
 * @brief      Close
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -471,9 +438,6 @@ bool DIOSAMD5XE5XSTREAMUART::Close()
 * @brief      GetCTS
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -489,9 +453,6 @@ bool DIOSAMD5XE5XSTREAMUART::GetCTS()
 * @fn         bool DIOSAMD5XE5XSTREAMUART::GetDSR()
 * @brief      GetDSR
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -509,9 +470,6 @@ bool DIOSAMD5XE5XSTREAMUART::GetDSR()
 * @brief      GetRing
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -528,9 +486,6 @@ bool DIOSAMD5XE5XSTREAMUART::GetRing()
 * @brief      GetRLSD
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -546,9 +501,6 @@ bool DIOSAMD5XE5XSTREAMUART::GetRLSD()
 * @fn         bool DIOSAMD5XE5XSTREAMUART::SetRTS(bool on)
 * @brief      SetRTS
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  on :
 *
@@ -567,9 +519,6 @@ bool DIOSAMD5XE5XSTREAMUART::SetRTS(bool on)
 * @fn         bool DIOSAMD5XE5XSTREAMUART::SetDTR(bool on)
 * @brief      SetDTR
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  on :
 *
@@ -590,9 +539,6 @@ bool DIOSAMD5XE5XSTREAMUART::SetDTR(bool on)
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -609,9 +555,6 @@ bool DIOSAMD5XE5XSTREAMUART::CleanBuffers()
 * @fn         void HAL_UART_RxCpltCallback(UART_HandleTypeDef*huart)
 * @brief      AL_UART_RxCpltCallback
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  UART_HandleTypeDef*huart :
 *
@@ -663,9 +606,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 * @fn         void DIOSAMD5XE5XSTREAMUART::ThreadConnection(void* param)
 * @brief      ThreadConnection
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *
@@ -762,9 +702,6 @@ void DIOSAMD5XE5XSTREAMUART::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

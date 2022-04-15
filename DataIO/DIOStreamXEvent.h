@@ -6,7 +6,7 @@
 //
 //  Data IO Stream Event class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 23/05/2002
 */
 //  GEN  Copyright (C).  All right reserved.

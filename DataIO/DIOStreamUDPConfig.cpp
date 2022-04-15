@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream UDP Config class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -74,9 +68,6 @@ DIOSTREAMUDPCONFIG::DIOSTREAMUDPCONFIG() : DIOSTREAMCONFIG(), DIOSTREAMCONFIGSTR
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -92,9 +83,6 @@ DIOSTREAMUDPCONFIG::~DIOSTREAMUDPCONFIG()
 * @fn         DIOIP* DIOSTREAMUDPCONFIG ::GetLocalIP()
 * @brief      GetLocalIP
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOIP* :
 *
@@ -112,9 +100,6 @@ DIOIP* DIOSTREAMUDPCONFIG ::GetLocalIP()
 * @brief      GetRemoteURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOURL* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -131,9 +116,6 @@ DIOURL* DIOSTREAMUDPCONFIG ::GetRemoteURL()
 * @brief      GetRemotePort
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -148,9 +130,6 @@ int DIOSTREAMUDPCONFIG ::GetRemotePort()
 * @fn         bool DIOSTREAMUDPCONFIG::SetRemotePort(int port)
 * @brief      SetRemotePort
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  port :
 *
@@ -172,9 +151,6 @@ bool DIOSTREAMUDPCONFIG::SetRemotePort(int port)
 * @brief      IsUsedDatagrams
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -190,9 +166,6 @@ bool DIOSTREAMUDPCONFIG::IsUsedDatagrams()
 * @fn         void DIOSTREAMUDPCONFIG::SetIsUsedDatagrams(bool active)
 * @brief      SetIsUsedDatagrams
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  active :
 *
@@ -212,9 +185,6 @@ void DIOSTREAMUDPCONFIG::SetIsUsedDatagrams(bool active)
 * @brief      IsBroadcastModeActive
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -230,9 +200,6 @@ bool DIOSTREAMUDPCONFIG::IsBroadcastModeActive()
 * @fn         void DIOSTREAMUDPCONFIG::SetBroadcastModeActive(bool active)
 * @brief      SetBroadcastModeActive
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  active :
 *
@@ -251,9 +218,6 @@ void DIOSTREAMUDPCONFIG::SetBroadcastModeActive(bool active)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -5,11 +5,8 @@
 * @class      XWINDOWSEEPROMMEMORYMANAGER
 * @brief      eXtended WINDOWS EEPROM Memory Manager class
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ XWINDOWSEEPROMMEMORYMANAGER::XWINDOWSEEPROMMEMORYMANAGER()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ XWINDOWSEEPROMMEMORYMANAGER::~XWINDOWSEEPROMMEMORYMANAGER()
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Ini()
 * @brief      Ini
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -113,9 +101,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Ini()
 * @brief      End
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -131,9 +116,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::End()
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 * @brief      Read
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -154,9 +136,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 * @brief      Read
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -176,9 +155,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 * @brief      Read
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -197,9 +173,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Read
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -221,9 +194,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Write
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -243,9 +213,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 * @brief      Write
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -264,9 +231,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 * @brief      Write
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -288,9 +252,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 * @brief      Write
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 * @param[in]  size :
@@ -309,9 +270,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::EraseAll()
 * @brief      EraseAll
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *

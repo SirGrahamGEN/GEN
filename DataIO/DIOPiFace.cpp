@@ -41,7 +41,7 @@
 //
 //  Class Constructor DIOPIFACE
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2014 16:37:54
 //
 
@@ -63,7 +63,7 @@ DIOPIFACE::DIOPIFACE() : DIOSPIGPIOMCP23S17()
 //
 //   Class Destructor DIOPIFACE
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2014 16:25:15
 //
 */
@@ -83,7 +83,7 @@ DIOPIFACE::~DIOPIFACE()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2014 21:41:50
 //
 //  @return       bool :
@@ -110,7 +110,7 @@ bool DIOPIFACE::Configure()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2014 22:50:09
 //
 //  @return       bool :
@@ -144,7 +144,7 @@ bool DIOPIFACE::ReadInputs(XBYTE& value)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2014 22:49:35
 //
 //  @return       bool :
@@ -166,7 +166,7 @@ bool DIOPIFACE::WriteOutputs(XBYTE value)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2014 23:00:16
 //
 //  @return       bool :

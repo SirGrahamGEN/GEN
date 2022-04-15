@@ -5,11 +5,8 @@
 * @class      DIOLINUXNETWORKMANAGER
 * @brief      Data Input/Output LINUX Network Manager class
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,10 +54,7 @@
 * @fn         DIOLINUXNETWORKMANAGER::DIOLINUXNETWORKMANAGER()
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -80,10 +74,7 @@ DIOLINUXNETWORKMANAGER::DIOLINUXNETWORKMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -102,10 +93,7 @@ DIOLINUXNETWORKMANAGER::~DIOLINUXNETWORKMANAGER()
 * @fn         bool DIOLINUXNETWORKMANAGER::Ini()
 * @brief      Ini
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -132,10 +120,7 @@ bool DIOLINUXNETWORKMANAGER::Ini()
 * @fn         bool DIOLINUXNETWORKMANAGER::Enable(bool on)
 * @brief      Enable
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  on : 
 * 
 * @return     bool : true if is succesful. 
@@ -187,10 +172,7 @@ bool DIOLINUXNETWORKMANAGER::Enable(bool on)
 * @fn         DIOLINUXNETWORKMANAGER_STATE DIOLINUXNETWORKMANAGER::GetConnectionState()
 * @brief      GetConnectionState
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOLINUXNETWORKMANAGER_STATE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -251,10 +233,7 @@ DIOLINUXNETWORKMANAGER_STATE DIOLINUXNETWORKMANAGER::GetConnectionState()
 * @fn         bool DIOLINUXNETWORKMANAGER::GetDevices(XVECTOR<DIOSTREAMDEVICEIP*>& devices)
 * @brief      GetDevices
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  devices : 
 * 
 * @return     bool : true if is succesful. 
@@ -371,10 +350,7 @@ bool DIOLINUXNETWORKMANAGER::GetDevices(XVECTOR<DIOSTREAMDEVICEIP*>& devices)
 * @fn         bool DIOLINUXNETWORKMANAGER::Signal_Add(XCHAR* type, XCHAR* name)
 * @brief      Signal_Add
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  name : 
 * 
@@ -396,10 +372,7 @@ bool DIOLINUXNETWORKMANAGER::Signal_Add(XCHAR* type, XCHAR* name)
 * @fn         bool DIOLINUXNETWORKMANAGER::Signal_Add(XSTRING& type, XSTRING& name)
 * @brief      Signal_Add
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  name : 
 * 
@@ -418,10 +391,7 @@ bool DIOLINUXNETWORKMANAGER::Signal_Add(XSTRING& type, XSTRING& name)
 * @fn         bool DIOLINUXNETWORKMANAGER::End()
 * @brief      End
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -447,10 +417,7 @@ bool DIOLINUXNETWORKMANAGER::End()
 * @fn         bool DIOLINUXNETWORKMANAGER::GetDevicePathList(XVECTOR<XSTRING*>& pathdevices)
 * @brief      GetDevicePathList
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  pathdevices : 
 * 
 * @return     bool : true if is succesful. 
@@ -505,10 +472,7 @@ bool DIOLINUXNETWORKMANAGER::GetDevicePathList(XVECTOR<XSTRING*>& pathdevices)
 * @fn         bool DIOLINUXNETWORKMANAGER::GetProperty(XCHAR* iface, XCHAR* pathdevice, XCHAR* propertyname, XVARIANT& result)
 * @brief      GetProperty
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  iface : 
 * @param[in]  pathdevice : 
 * @param[in]  propertyname : 
@@ -595,10 +559,7 @@ bool DIOLINUXNETWORKMANAGER::GetProperty(XCHAR* iface, XCHAR* pathdevice, XCHAR*
 * @brief      Handle Event for the observer manager of this class
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  event : 
 * 
 * @return     void : does not return anything. 
@@ -626,10 +587,7 @@ void DIOLINUXNETWORKMANAGER::HandleEvent_Signal(DIOLINUXDBUS_XEVENT* event)
 * @brief      Handle Event for the observer manager of this class
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xevent : 
 * 
 * @return     void : does not return anything. 
@@ -659,10 +617,7 @@ void DIOLINUXNETWORKMANAGER::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

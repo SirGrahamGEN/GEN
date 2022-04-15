@@ -6,10 +6,7 @@
 * @brief      eXtended LINUX Date Time class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -68,9 +65,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -96,9 +90,6 @@ XLINUXDATETIME::XLINUXDATETIME()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +106,6 @@ XLINUXDATETIME::~XLINUXDATETIME()
 * @fn         bool XLINUXDATETIME::Read()
 * @brief      Read date time
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -137,9 +125,6 @@ bool XLINUXDATETIME::Read()
 * @brief      Write data time
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -157,10 +142,7 @@ bool XLINUXDATETIME::Write()
 * @fn         bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 * @brief      GetFileDateTime
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xpath : 
 * @param[in]  tmzip : 
 * @param[in]  dt : 
@@ -223,10 +205,7 @@ bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 * @fn         bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath)
 * @brief      GetFileDateTime
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xpath : 
 * 
 * @return     bool : true if is succesful. 
@@ -274,9 +253,6 @@ bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath)
 * @brief      GetMeridianDifference
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -321,9 +297,6 @@ int XLINUXDATETIME::GetMeridianDifference()
 * @brief      Is Day Ligth Saving Time
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[out] bias : difference hour
 *
 * @return     bool : true if is succesful.
@@ -358,8 +331,6 @@ bool XLINUXDATETIME::IsDayLigthSavingTime(int* bias)
 * @brief      GetActualDateTime
 * @ingroup    PLATFORM_LINUX
 * @note       INTERNAL
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out] timed : timed struct
 *
@@ -397,9 +368,6 @@ void XLINUXDATETIME::GetActualDateTime(XLINUXDATETIME* timed)
 * @brief      SetActualDateTime
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timed : timed struct
 *

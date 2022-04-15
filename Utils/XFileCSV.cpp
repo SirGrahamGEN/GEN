@@ -6,10 +6,7 @@
 * @brief      eXtended CSV file class (Comma Separate Value file)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -76,9 +70,6 @@ XFILECSV_RECORD::XFILECSV_RECORD()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -98,9 +89,6 @@ XFILECSV_RECORD::~XFILECSV_RECORD()
 * @brief      GetNElements
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -116,9 +104,6 @@ int XFILECSV_RECORD::GetNElements()
 * @fn         bool XFILECSV_RECORD::GetElement(int index, XSTRING& element)
 * @brief      GetElement
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  element :
@@ -146,9 +131,6 @@ bool XFILECSV_RECORD::GetElement(int index, XSTRING& element)
 * @brief      GetElement
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     XCHAR* :
@@ -171,9 +153,6 @@ XCHAR* XFILECSV_RECORD::GetElement(int index)
 * @fn         bool XFILECSV_RECORD::AddElement(XSTRING& element)
 * @brief      AddElement
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  element :
 *
@@ -202,9 +181,6 @@ bool XFILECSV_RECORD::AddElement(XSTRING& element)
 * @brief      AddElement
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  element :
 *
 * @return     bool : true if is succesful.
@@ -232,9 +208,6 @@ bool XFILECSV_RECORD::AddElement(XCHAR* element)
 * @fn         bool XFILECSV_RECORD::Copy(XFILECSV_RECORD* header)
 * @brief      Copy
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  header :
 *
@@ -272,9 +245,6 @@ bool XFILECSV_RECORD::Copy(XFILECSV_RECORD* header)
 * @brief      DeleteElement
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     bool : true if is succesful.
@@ -300,9 +270,6 @@ bool XFILECSV_RECORD::DeleteElement(int index)
 * @brief      DeleteAllElements
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -326,9 +293,6 @@ bool XFILECSV_RECORD::DeleteAllElements()
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -348,9 +312,6 @@ void XFILECSV_RECORD::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -367,9 +328,6 @@ XFILECSV::XFILECSV(): XFILETXT()
 * @fn         XFILECSV::XFILECSV(XPATH& xpath)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XPATH& :
 *
@@ -390,9 +348,6 @@ XFILECSV::XFILECSV(XPATH& xpath) : XFILETXT()
 * @fn         XFILECSV::XFILECSV(XFILE* file)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XFILE* :
 *
@@ -415,9 +370,6 @@ XFILECSV::XFILECSV(XFILE* file) : XFILETXT()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -436,9 +388,6 @@ XFILECSV::~XFILECSV()
 * @fn         bool XFILECSV::Open(XPATH& xpath, bool readonly)
 * @brief      Open
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath : 
 * @param[in]  readonly : 
@@ -463,9 +412,6 @@ bool XFILECSV::Open(XPATH& xpath, bool readonly)
 * @brief      Close
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -489,9 +435,6 @@ bool XFILECSV::Close()
 * @brief      GetSeparator
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -507,9 +450,6 @@ XCHAR XFILECSV::GetSeparator()
 * @fn         bool XFILECSV::SetSeparator(XCHAR separator)
 * @brief      SetSeparator
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  separator :
 *
@@ -533,9 +473,6 @@ bool XFILECSV::SetSeparator(XCHAR separator)
 * @brief      HaveHeader
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -554,9 +491,6 @@ bool XFILECSV::HaveHeader()
 * @brief      GetHeader
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILECSV_RECORD* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -572,9 +506,6 @@ XFILECSV_RECORD* XFILECSV::GetHeader()
 * @fn         bool XFILECSV::SetHeader(XFILECSV_RECORD* header)
 * @brief      SetHeader
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  header :
 *
@@ -596,9 +527,6 @@ bool XFILECSV::SetHeader(XFILECSV_RECORD* header)
 * @brief      GetNRecords
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -614,9 +542,6 @@ int XFILECSV::GetNRecords()
 * @fn         XFILECSV_RECORD* XFILECSV::ReadRecord(XDWORD nrecord)
 * @brief      ReadRecord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nrecord :
 *
@@ -641,9 +566,6 @@ XFILECSV_RECORD* XFILECSV::ReadRecord(XDWORD nrecord)
 * @fn         bool XFILECSV::WriteRecord(XDWORD nrecord,XFILECSV_RECORD* record)
 * @brief      WriteRecord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nrecord :
 * @param[in]  record :
@@ -674,9 +596,6 @@ bool XFILECSV::WriteRecord(XDWORD nrecord,XFILECSV_RECORD* record)
 * @brief      AddRecord
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  record :
 *
 * @return     bool : true if is succesful.
@@ -698,9 +617,6 @@ bool XFILECSV::AddRecord(XFILECSV_RECORD* record)
 * @fn         bool XFILECSV::DeleteRecord(XDWORD nrecord)
 * @brief      DeleteRecord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nrecord :
 *
@@ -727,9 +643,6 @@ bool XFILECSV::DeleteRecord(XDWORD nrecord)
 * @brief      DeleteAllRecords
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -750,9 +663,6 @@ bool XFILECSV::DeleteAllRecords()
 * @fn         bool XFILECSV::Serialization(bool read,bool haveheader)
 * @brief      Serialization
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  read :
 * @param[in]  haveheader :
@@ -851,9 +761,6 @@ bool XFILECSV::Serialization(bool read, bool haveheader)
 * @brief      CreateRecordOfLine
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  line :
 * @param[in]  record :
 *
@@ -906,9 +813,6 @@ bool XFILECSV::CreateRecordOfLine(XSTRING& line, XFILECSV_RECORD* record)
 * @brief      CreateLineOfRecord
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  record :
 * @param[in]  line :
 *
@@ -942,9 +846,6 @@ bool XFILECSV::CreateLineOfRecord(XFILECSV_RECORD* record,XSTRING& line)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

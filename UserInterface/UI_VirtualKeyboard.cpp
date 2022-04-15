@@ -5,11 +5,8 @@
 * @class      UI_VIRTUALKEYBOARD
 * @brief      User Interface Virtual Keyboard class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -72,10 +69,7 @@
 * @fn         UI_VIRTUALKEYBOARD_KEYINFO::UI_VIRTUALKEYBOARD_KEYINFO()
 * @brief      UI_VIRTUALKEYBOARD_KEYINFO
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -92,10 +86,7 @@ UI_VIRTUALKEYBOARD_KEYINFO::UI_VIRTUALKEYBOARD_KEYINFO()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -112,10 +103,7 @@ UI_VIRTUALKEYBOARD_KEYINFO::~UI_VIRTUALKEYBOARD_KEYINFO()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -142,10 +130,7 @@ void UI_VIRTUALKEYBOARD_KEYINFO::Clean()
 * @fn         UI_VIRTUALKEYBOARD::UI_VIRTUALKEYBOARD()
 * @brief      UI_VIRTUALKEYBOARD
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -160,10 +145,7 @@ UI_VIRTUALKEYBOARD::UI_VIRTUALKEYBOARD()
 * @fn          UI_VIRTUALKEYBOARD::~UI_VIRTUALKEYBOARD()
 * @brief      ~UI_VIRTUALKEYBOARD
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -179,10 +161,7 @@ UI_VIRTUALKEYBOARD::~UI_VIRTUALKEYBOARD()
 * @fn         bool UI_VIRTUALKEYBOARD::Ini(GRPSCREEN* screen, UI_LAYOUT* layout, UI_SKIN* skin)
 * @brief      Ini
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  screen : 
 * @param[in]  layout : 
 * @param[in]  skin : 
@@ -238,10 +217,7 @@ bool UI_VIRTUALKEYBOARD::Ini(GRPSCREEN* screen, UI_LAYOUT* layout, UI_SKIN* skin
 * @fn         bool UI_VIRTUALKEYBOARD::IsShow()
 * @brief      IsShow
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -257,10 +233,7 @@ bool UI_VIRTUALKEYBOARD::IsShow()
 * @fn         UI_ELEMENT* UI_VIRTUALKEYBOARD::GetElementEditable()
 * @brief      GetElementEditable
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -276,10 +249,7 @@ UI_ELEMENT* UI_VIRTUALKEYBOARD::GetElementEditable()
 * @fn         bool UI_VIRTUALKEYBOARD::Show(bool on, UI_ELEMENT* element_editable)
 * @brief      Show
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  on : 
 * @param[in]  element_editable : 
 * 
@@ -365,10 +335,7 @@ bool UI_VIRTUALKEYBOARD::Show(bool on, UI_ELEMENT* element_editable)
 * @fn         bool UI_VIRTUALKEYBOARD::SelectInput(UI_ELEMENT* key_select)
 * @brief      SelectInput
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  key_select : 
 * 
 * @return     bool : true if is succesful. 
@@ -542,10 +509,7 @@ bool UI_VIRTUALKEYBOARD::SelectInput(UI_ELEMENT* key_select)
 * @fn         bool UI_VIRTUALKEYBOARD::End()
 * @brief      End
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -563,10 +527,7 @@ bool UI_VIRTUALKEYBOARD::End()
 * @fn         UI_ANIMATION* UI_MANAGER::AddAnimationCache(XCHAR* name, XCHAR* resource)
 * @brief      AddAnimationCache
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  resource : 
 * 
@@ -627,10 +588,7 @@ UI_ANIMATION* UI_VIRTUALKEYBOARD::AddImageCache(XCHAR* name, XCHAR* resource)
 * @fn         GRPBITMAP* UI_VIRTUALKEYBOARD::LoadKeyImage(XCHAR* pathimage)
 * @brief      LoadKeyImage
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  pathimage : 
 * 
 * @return     GRPBITMAP* : 
@@ -683,10 +641,7 @@ GRPBITMAP* UI_VIRTUALKEYBOARD::LoadKeyImage(XCHAR* pathimage)
 * @fn         bool UI_VIRTUALKEYBOARD::AddKeyButton(XCHAR* leyend, XCHAR* text, XCHAR* xpathbitmap, UI_VIRTUALKEYBOARD_KEYINFO& keyinfo)
 * @brief      AddKeyButton
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  leyend : 
 * @param[in]  text : 
 * @param[in]  xpathbitmap : 
@@ -828,10 +783,7 @@ bool UI_VIRTUALKEYBOARD::AddKeyButton(XCHAR* leyend, XCHAR* text, XCHAR* xpathbi
 * @fn         bool UI_VIRTUALKEYBOARD::CreateAllKeys(double x, double y)
 * @brief      CreateAllKeys
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  x : 
 * @param[in]  y : 
 * 
@@ -973,10 +925,7 @@ bool UI_VIRTUALKEYBOARD::CreateAllKeys(double x, double y)
 * @fn         bool UI_VIRTUALKEYBOARD::DeleteAllKeys()
 * @brief      DeleteAllKeys
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -998,10 +947,7 @@ bool UI_VIRTUALKEYBOARD::DeleteAllKeys()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

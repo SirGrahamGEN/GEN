@@ -6,7 +6,7 @@
 //   
 //  base codec class
 //   
-//	@author	 Imanol Celaya Ruiz de Alegria
+//	""
 //
 //	Date Of Creation	: 29/11/2016 12:40:49
 //	Last Modification	:	

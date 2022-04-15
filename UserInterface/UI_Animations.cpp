@@ -6,11 +6,8 @@
 * 
 * @brief      User Interface Animations class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,10 +53,7 @@ UI_ANIMATIONS* UI_ANIMATIONS::instance = NULL;
 * @fn         bool UI_ANIMATIONS::GetIsInstanced()
 * @brief      GetIsInstanced
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -75,10 +69,7 @@ bool UI_ANIMATIONS::GetIsInstanced()
 * @fn         UI_ANIMATIONS& UI_ANIMATIONS::GetInstance()
 * @brief      GetInstance
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ANIMATIONS& : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -99,10 +90,7 @@ UI_ANIMATIONS& UI_ANIMATIONS::GetInstance()
 * @fn         bool UI_ANIMATIONS::DelInstance()
 * @brief      DelInstance
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -126,10 +114,7 @@ bool UI_ANIMATIONS::DelInstance()
 * @fn         bool UI_ANIMATIONS::Add(XCHAR* name, XCHAR* resource, UI_ANIMATION* animation)
 * @brief      Add
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  resource : 
 * @param[in]  animation : 
@@ -156,10 +141,7 @@ bool UI_ANIMATIONS::Add(UI_ANIMATION* animation)
 * @fn         UI_ANIMATION* UI_ANIMATIONS::Get(XCHAR* ID)
 * @brief      Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ID : 
 * 
 * @return     UI_ANIMATION* : 
@@ -194,10 +176,7 @@ UI_ANIMATION* UI_ANIMATIONS::Get(XCHAR* ID)
 * @fn         UI_ANIMATION* UI_ANIMATIONS::Get(XSTRING& ID)
 * @brief      Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ID : 
 * 
 * @return     UI_ANIMATION* : 
@@ -215,10 +194,7 @@ UI_ANIMATION* UI_ANIMATIONS::Get(XSTRING& ID)
 * @fn         bool UI_ANIMATIONS::DeleteAll()
 * @brief      DeleteAll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -236,10 +212,7 @@ bool UI_ANIMATIONS::DeleteAll()
 * @fn         UI_ANIMATIONS::UI_ANIMATIONS()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -256,10 +229,7 @@ UI_ANIMATIONS::UI_ANIMATIONS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -278,10 +248,7 @@ UI_ANIMATIONS::~UI_ANIMATIONS()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

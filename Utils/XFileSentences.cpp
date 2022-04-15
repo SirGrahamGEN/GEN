@@ -6,10 +6,7 @@
 * @brief      eXtended Sentences HASH file class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hash :
 * @param[in]  xpath:
 *
@@ -81,9 +75,6 @@ XFILESENTENCES::XFILESENTENCES(HASH* hash, XPATH& xpath) : XFILEXDB(hash, xpath)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -99,9 +90,6 @@ XFILESENTENCES::~XFILESENTENCES()
 * @fn         bool XFILESENTENCES::ConvertFileFromDBF(XPATH& xpath)
 * @brief      ConvertFileFromDBF
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -223,9 +211,6 @@ bool XFILESENTENCES::ConvertFileFromDBF(XPATH& xpath)
 * @brief      GetNumberSentences
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -242,9 +227,6 @@ int XFILESENTENCES::GetNumberSentences()
 * @fn         bool XFILESENTENCES::GetSentence(XDWORD index,XSTRING& sentence)
 * @brief      GetSentence
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  sentence :

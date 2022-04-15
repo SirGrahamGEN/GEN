@@ -6,10 +6,7 @@
 * @brief
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  DB_SQL_DATABASE* :
 *
 * @return     Does not return anything.
@@ -83,9 +77,6 @@ DB_SQL_QUERY::DB_SQL_QUERY(DB_SQL_DATABASE* database)
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -101,9 +92,6 @@ DB_SQL_QUERY::~DB_SQL_QUERY()
 * @fn         bool DB_SQL_QUERY::ClearCursor()
 * @brief      ClearCursor
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -121,9 +109,6 @@ bool DB_SQL_QUERY::ClearCursor()
 * @brief      IsWellConstructedQuery
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -139,9 +124,6 @@ bool DB_SQL_QUERY::IsWellConstructedQuery()
 * @fn         DB_SQL_RESULT* DB_SQL_QUERY::GetResult()
 * @brief      GetResult
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     DB_SQL_RESULT* :
 *
@@ -159,9 +141,6 @@ DB_SQL_RESULT* DB_SQL_QUERY::GetResult()
 * @brief      GetValue
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_STRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -177,9 +156,6 @@ DB_SQL_STRING* DB_SQL_QUERY::GetValue()
 * @fn         bool DB_SQL_QUERY::Set(XCHAR* query)
 * @brief      Set
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  query :
 *
@@ -203,9 +179,6 @@ bool DB_SQL_QUERY::Set(XCHAR* query)
 * @brief      UnbindAll
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -221,9 +194,6 @@ bool DB_SQL_QUERY::UnbindAll()
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, DB_SQL_VARIANT* variant)
 * @brief      Bind
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  variant :
@@ -243,9 +213,6 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, DB_SQL_VARIANT* variant)
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, int integer)
 * @brief      Bind
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  integer :
@@ -271,9 +238,6 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, int integer)
 * @brief      Bind
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 * @param[in]  string :
 *
@@ -297,9 +261,6 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, XCHAR* string)
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, float decimal)
 * @brief      Bind
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  decimal :
@@ -325,9 +286,6 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, float decimal)
 * @brief      Bind
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 * @param[in]  string :
 *
@@ -351,9 +309,6 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, char* string)
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD id, XDATETIME& datetime)
 * @brief      Bind
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  id :
 * @param[in]  datetime :
@@ -379,9 +334,6 @@ bool DB_SQL_QUERY::Bind(XDWORD id, XDATETIME& datetime)
 * @brief      ClearBuffers
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -403,9 +355,6 @@ void DB_SQL_QUERY::ClearBuffers()
 * @fn         bool DB_SQL_QUERY::UseCursor(XCHAR* cursorname)
 * @brief      UseCursor
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  cursorname :
 *
@@ -429,9 +378,6 @@ bool DB_SQL_QUERY::UseCursor(XCHAR* cursorname)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

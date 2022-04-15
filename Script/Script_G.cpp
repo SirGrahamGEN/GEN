@@ -6,10 +6,7 @@
 * @brief      Script G interpreter (G is mini cpp interpreter)
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -72,9 +69,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -90,9 +84,6 @@ SCRIPT_G_COMMAND::SCRIPT_G_COMMAND()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -110,9 +101,6 @@ SCRIPT_G_COMMAND::~SCRIPT_G_COMMAND()
 * @brief      GetCommand
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -127,9 +115,6 @@ XSTRING* SCRIPT_G_COMMAND::GetCommand()
 * @fn         SCRIPT_G_TOKENIREPS SCRIPT_G_COMMAND::GetToken()
 * @brief      GetToken
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     SCRIPT_G_TOKENIREPS :
 *
@@ -146,9 +131,6 @@ SCRIPT_G_TOKENIREPS SCRIPT_G_COMMAND::GetToken()
 * @fn         bool SCRIPT_G_COMMAND::Set(XCHAR* command, SCRIPT_G_TOKENIREPS token)
 * @brief      Set
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  command :
 * @param[in]  token :
@@ -174,9 +156,6 @@ bool SCRIPT_G_COMMAND::Set(XCHAR* command, SCRIPT_G_TOKENIREPS  token)
 * @brief      Set
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  command :
 * @param[in]  token :
 *
@@ -197,9 +176,6 @@ bool SCRIPT_G_COMMAND::Set(XSTRING& command,SCRIPT_G_TOKENIREPS token)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -222,9 +198,6 @@ void SCRIPT_G_COMMAND::Clean()
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -241,9 +214,6 @@ SCRIPT_G_VAR::SCRIPT_G_VAR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -274,9 +244,6 @@ SCRIPT_G_VAR::~SCRIPT_G_VAR()
 * @brief      GetName
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -292,9 +259,6 @@ XSTRING* SCRIPT_G_VAR::GetName()
 * @fn         SCRIPT_G_TOKENIREPS SCRIPT_G_VAR::GetType()
 * @brief      GetType
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     SCRIPT_G_TOKENIREPS :
 *
@@ -312,9 +276,6 @@ SCRIPT_G_TOKENIREPS SCRIPT_G_VAR::GetType()
 * @brief      GetValueInteger
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -330,9 +291,6 @@ int SCRIPT_G_VAR::GetValueInteger()
 * @fn         XCHAR SCRIPT_G_VAR::GetValueCharacter()
 * @brief      GetValueCharacter
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XCHAR :
 *
@@ -350,9 +308,6 @@ XCHAR SCRIPT_G_VAR::GetValueCharacter()
 * @brief      GetValueUInteger
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -368,9 +323,6 @@ XDWORD SCRIPT_G_VAR::GetValueUInteger()
 * @fn         XSTRING* SCRIPT_G_VAR::GetValueString()
 * @brief      GetValueString
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -388,9 +340,6 @@ XSTRING* SCRIPT_G_VAR::GetValueString()
 * @brief      NotHaveReservedSize
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -406,9 +355,6 @@ bool SCRIPT_G_VAR::NotHaveReservedSize()
 * @fn         bool SCRIPT_G_VAR::IsArg()
 * @brief      IsArg
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -426,9 +372,6 @@ bool SCRIPT_G_VAR::IsArg()
 * @brief      IsReturnValue
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -444,9 +387,6 @@ bool SCRIPT_G_VAR::IsReturnValue()
 * @fn         bool SCRIPT_G_VAR::Set(SCRIPT_G_VAR* var)
 * @brief      Set
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  var :
 *
@@ -473,9 +413,6 @@ bool SCRIPT_G_VAR::Set(SCRIPT_G_VAR* var)
 * @brief      SetName
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     bool : true if is succesful.
@@ -495,9 +432,6 @@ bool SCRIPT_G_VAR::SetName(XCHAR* name)
 * @fn         bool SCRIPT_G_VAR::SetType(SCRIPT_G_TOKENIREPS type)
 * @brief      SetType
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -519,9 +453,6 @@ bool SCRIPT_G_VAR::SetType(SCRIPT_G_TOKENIREPS type)
 * @brief      SetValueInteger
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     bool : true if is succesful.
@@ -540,9 +471,6 @@ bool SCRIPT_G_VAR::SetValueInteger(int value)
 * @fn         bool SCRIPT_G_VAR::SetValueCharacter(XCHAR value)
 * @brief      SetValueCharacter
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 *
@@ -564,9 +492,6 @@ bool SCRIPT_G_VAR::SetValueCharacter(XCHAR value)
 * @brief      SetValueUInteger
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     bool : true if is succesful.
@@ -586,9 +511,6 @@ bool SCRIPT_G_VAR::SetValueUInteger(XDWORD value)
 * @fn         bool SCRIPT_G_VAR::SetValueString(XSTRING* value)
 * @brief      SetValueString
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 *
@@ -610,9 +532,6 @@ bool SCRIPT_G_VAR::SetValueString(XSTRING* value)
 * @brief      SetValueString
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -629,9 +548,6 @@ bool SCRIPT_G_VAR::SetValueString()
 * @fn         bool SCRIPT_G_VAR::SetNotHaveReservedSize(bool nothavereservedsize)
 * @brief      SetNotHaveReservedSize
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nothavereservedsize :
 *
@@ -653,9 +569,6 @@ bool SCRIPT_G_VAR::SetNotHaveReservedSize(bool nothavereservedsize)
 * @brief      SetIsArg
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  isarg :
 *
 * @return     bool : true if is succesful.
@@ -675,9 +588,6 @@ bool SCRIPT_G_VAR::SetIsArg(bool isarg)
 * @fn         bool SCRIPT_G_VAR::SetIsReturnValue(bool isreturnvalue)
 * @brief      SetIsReturnValue
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isreturnvalue :
 *
@@ -699,9 +609,6 @@ bool SCRIPT_G_VAR::SetIsReturnValue(bool isreturnvalue)
 * @fn         bool SCRIPT_G_VAR::ConvertToXVariant(XVARIANT& variant)
 * @brief      ConvertToXVariant
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  variant :
 *
@@ -736,9 +643,6 @@ bool SCRIPT_G_VAR::ConvertToXVariant(XVARIANT& variant)
 * @fn         bool SCRIPT_G_VAR::ConvertFromXVariant(XVARIANT& variant)
 * @brief      ConvertFromXVariant
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  variant :
 *
@@ -800,9 +704,6 @@ bool SCRIPT_G_VAR::ConvertFromXVariant(XVARIANT& variant)
 * @brief      Clear
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -835,9 +736,6 @@ bool SCRIPT_G_VAR::Clear()
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -866,9 +764,6 @@ void SCRIPT_G_VAR::Clean()
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -886,9 +781,6 @@ SCRIPT_G_FUNCTIONTYPE::SCRIPT_G_FUNCTIONTYPE()
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -904,9 +796,6 @@ SCRIPT_G_FUNCTIONTYPE::~SCRIPT_G_FUNCTIONTYPE()
 * @fn         XSTRING* SCRIPT_G_FUNCTIONTYPE::GetName()
 * @brief      GetName
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -924,9 +813,6 @@ XSTRING* SCRIPT_G_FUNCTIONTYPE::GetName()
 * @brief      GetReturnType
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     SCRIPT_G_TOKENIREPS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -943,9 +829,6 @@ SCRIPT_G_TOKENIREPS SCRIPT_G_FUNCTIONTYPE::GetReturnType()
 * @brief      GetLocation
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -961,9 +844,6 @@ XCHAR* SCRIPT_G_FUNCTIONTYPE::GetLocation()
 * @fn         bool SCRIPT_G_FUNCTIONTYPE::SetName(XCHAR* name)
 * @brief      SetName
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 *
@@ -986,9 +866,6 @@ bool SCRIPT_G_FUNCTIONTYPE::SetName(XCHAR* name)
 * @brief      SetName
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     bool : true if is succesful.
@@ -1006,9 +883,6 @@ bool SCRIPT_G_FUNCTIONTYPE::SetName(XSTRING& name)
 * @fn         bool SCRIPT_G_FUNCTIONTYPE::SetReturnType(SCRIPT_G_TOKENIREPS returntype)
 * @brief      SetReturnType
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  returntype :
 *
@@ -1030,9 +904,6 @@ bool SCRIPT_G_FUNCTIONTYPE::SetReturnType(SCRIPT_G_TOKENIREPS returntype)
 * @brief      SetLocation
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  location :
 *
 * @return     bool : true if is succesful.
@@ -1053,9 +924,6 @@ bool SCRIPT_G_FUNCTIONTYPE::SetLocation(XCHAR* location)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -1081,9 +949,6 @@ void SCRIPT_G_FUNCTIONTYPE::Clean()
 * @fn         SCRIPT_G::SCRIPT_G()
 * @brief      Constructor
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -1120,9 +985,6 @@ SCRIPT_G::SCRIPT_G()
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1146,9 +1008,6 @@ SCRIPT_G::~SCRIPT_G()
 * @fn         SCRIPT_G_ERRORCODE SCRIPT_G::Run(int* returnval)
 * @brief      Run
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  returnval :
 *
@@ -1204,9 +1063,6 @@ int SCRIPT_G::Run(int* returnval)
 * @brief      AddCommand
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  command :
 * @param[in]  token :
 *
@@ -1233,9 +1089,6 @@ bool SCRIPT_G::AddCommand(XCHAR* command,SCRIPT_G_TOKENIREPS token)
 * @brief      DeleteCommands
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1256,9 +1109,6 @@ bool SCRIPT_G::DeleteCommands()
 * @fn         int SCRIPT_G::GetFuncParams(SCRIPT_G_VAR* params)
 * @brief      GetFuncParams
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  params :
 *
@@ -1311,9 +1161,6 @@ int SCRIPT_G::GetFuncParams(SCRIPT_G_VAR* params)
 * @brief      NotFuncParams
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1342,9 +1189,6 @@ void SCRIPT_G::NotFuncParams()
 * @brief      GetReturnValueScript
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1360,9 +1204,6 @@ int SCRIPT_G::GetReturnValueScript()
 * @fn         int SCRIPT_G::SetReturnValueScript(int returnvaluescript)
 * @brief      SetReturnValueScript
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  returnvaluescript :
 *
@@ -1383,9 +1224,6 @@ int SCRIPT_G::SetReturnValueScript(int returnvaluescript)
 * @fn         bool SCRIPT_G::HaveError(SCRIPT_G_ERRORCODE errorcode)
 * @brief      HaveError
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  errorcode :
 *
@@ -1459,9 +1297,6 @@ bool SCRIPT_G::HaveError(int errorcode)
 * @brief      DeleteVarsExec
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1500,9 +1335,6 @@ bool SCRIPT_G::DeleteVarsExec()
 * @brief      IsSpace
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     bool : true if is succesful.
@@ -1524,9 +1356,6 @@ bool SCRIPT_G::IsSpace(XCHAR character)
 * @brief      IsDigit
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     bool : true if is succesful.
@@ -1546,9 +1375,6 @@ bool SCRIPT_G::IsDigit(XCHAR character)
 * @fn         bool SCRIPT_G::IsAlpha(XCHAR character)
 * @brief      IsAlpha
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  character :
 *
@@ -1570,9 +1396,6 @@ bool SCRIPT_G::IsAlpha(XCHAR character)
 * @fn         bool SCRIPT_G::IsDelimiter(XCHAR c)
 * @brief      IsDelimiter
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  c :
 *
@@ -1597,9 +1420,6 @@ bool SCRIPT_G::IsDelimiter(XCHAR c)
 * @fn         SCRIPT_G_TOKENIREPS SCRIPT_G::LookUpToken(XCHAR* s)
 * @brief      LookUpToken
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  s :
 *
@@ -1628,9 +1448,6 @@ SCRIPT_G_TOKENIREPS SCRIPT_G::LookUpToken(XCHAR* s)
 * @brief      PutBackToken
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1653,9 +1470,6 @@ void SCRIPT_G::PutBackToken()
 * @fn         void SCRIPT_G::EvalExp(SCRIPT_G_VAR& value)
 * @brief      EvalExp
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 *
@@ -1712,9 +1526,6 @@ void SCRIPT_G::EvalExp(SCRIPT_G_VAR& value)
 * @fn         void SCRIPT_G::EvalExp0(SCRIPT_G_VAR& value)
 * @brief      EvalExp0
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 *
@@ -1797,9 +1608,6 @@ void SCRIPT_G::EvalExp0(SCRIPT_G_VAR& value)
 * @brief      EvalExp1
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     void : does not return anything.
@@ -1873,9 +1681,6 @@ void SCRIPT_G::EvalExp1(SCRIPT_G_VAR& value)
 * @brief      EvalExp2
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     void : does not return anything.
@@ -1939,9 +1744,6 @@ void SCRIPT_G::EvalExp2(SCRIPT_G_VAR& value)
 * @brief      EvalExp3
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     void : does not return anything.
@@ -1999,9 +1801,6 @@ void SCRIPT_G::EvalExp3(SCRIPT_G_VAR& value)
 * @brief      EvalExp4
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     void : does not return anything.
@@ -2050,9 +1849,6 @@ void SCRIPT_G::EvalExp4(SCRIPT_G_VAR& value)
 * @brief      EvalExp5
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     void : does not return anything.
@@ -2085,9 +1881,6 @@ void SCRIPT_G::EvalExp5(SCRIPT_G_VAR& value)
 * @fn         void SCRIPT_G::Atom(SCRIPT_G_VAR& value)
 * @brief      Atom
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 *
@@ -2265,9 +2058,6 @@ void SCRIPT_G::Atom(SCRIPT_G_VAR& value)
 * @brief      IsVariable
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  variablename :
 *
 * @return     SCRIPT_G_VAR* :
@@ -2307,9 +2097,6 @@ SCRIPT_G_VAR* SCRIPT_G::IsVariable(XCHAR* variablename)
 * @fn         void SCRIPT_G::AssignVariable(XCHAR* variablename, SCRIPT_G_VAR& value)
 * @brief      AssignVariable
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  variablename :
 * @param[in]  value :
@@ -2414,9 +2201,6 @@ void SCRIPT_G::AssignVariable(XCHAR* variablename, SCRIPT_G_VAR& value)
 * @brief      FindVariable
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  variablename :
 *
 * @return     SCRIPT_G_VAR* :
@@ -2458,9 +2242,6 @@ SCRIPT_G_VAR* SCRIPT_G::FindVariable(XCHAR* variablename)
 * @brief      FindVariableType
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  variablename :
 *
 * @return     SCRIPT_G_TOKENIREPS :
@@ -2500,9 +2281,6 @@ SCRIPT_G_TOKENIREPS SCRIPT_G::FindVariableType(XCHAR* variablename)
 * @brief      FindFunction
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     XCHAR* :
@@ -2534,9 +2312,6 @@ XCHAR* SCRIPT_G::FindFunction(XCHAR* name)
 * @brief      GetFunction
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     SCRIPT_G_FUNCTIONTYPE* :
@@ -2566,7 +2341,7 @@ SCRIPT_G_FUNCTIONTYPE* SCRIPT_G::GetFunction(XCHAR* name)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      19/07/2007 9:55:08
 //
 //  @return       void :
@@ -2612,9 +2387,6 @@ void SCRIPT_G::FindEndofBlock()
 * @fn         void SCRIPT_G::DeclareGlobalVariable()
 * @brief      DeclareGlobalVariable
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -2671,9 +2443,6 @@ void SCRIPT_G::DeclareGlobalVariable()
 * @fn         void SCRIPT_G::DeclareLocalVariable()
 * @brief      DeclareLocalVariable
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -2741,9 +2510,6 @@ void SCRIPT_G::DeclareLocalVariable()
 * @fn         SCRIPT_G_TOKENTYPES SCRIPT_G::GetToken()
 * @brief      GetToken
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     SCRIPT_G_TOKENTYPES :
 *
@@ -3057,9 +2823,6 @@ SCRIPT_G_TOKENTYPES SCRIPT_G::GetToken()
 * @brief      PreScan
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3167,9 +2930,6 @@ void SCRIPT_G::PreScan()
 * @brief      GetArgs
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3229,9 +2989,6 @@ void SCRIPT_G::GetArgs()
 * @brief      GetParams
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3287,9 +3044,6 @@ void SCRIPT_G::GetParams()
 * @brief      FunctionReturn
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3327,9 +3081,6 @@ void SCRIPT_G::FunctionReturn()
 * @fn         void SCRIPT_G::Exec_IF()
 * @brief      Exec_IF
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -3384,9 +3135,6 @@ void SCRIPT_G::Exec_IF()
 * @fn         void SCRIPT_G::Exec_SWITCH()
 * @brief      Exec_SWITCH
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -3473,9 +3221,6 @@ void SCRIPT_G::Exec_SWITCH()
 * @brief      Exec_WHILE
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3533,9 +3278,6 @@ void SCRIPT_G::Exec_WHILE()
 * @fn         void SCRIPT_G::Exec_DO()
 * @brief      Exec_DO
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -3608,9 +3350,6 @@ void SCRIPT_G::Exec_DO()
 * @fn         void SCRIPT_G::Exec_FOR()
 * @brief      Exec_FOR
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -3708,9 +3447,6 @@ void SCRIPT_G::Exec_FOR()
 * @fn         bool SCRIPT_G::Interpret()
 * @brief      Interpret
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -3834,9 +3570,6 @@ bool SCRIPT_G::Interpret()
 * @brief      Call
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3895,9 +3628,6 @@ void SCRIPT_G::Call()
 * @brief      ThreadFunction
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 *
 * @return     void : does not return anything.
@@ -3926,9 +3656,6 @@ void SCRIPT_G::ThreadFunction(void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

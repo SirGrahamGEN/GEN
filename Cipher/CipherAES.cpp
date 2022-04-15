@@ -120,7 +120,7 @@ XDWORD  CIPHERAES::RCON[10];
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/04/2006 19:42:40
 //
 //  @return
@@ -143,7 +143,7 @@ CIPHERAES::CIPHERAES() : CIPHER()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/04/2006 19:42:37
 //
 //  @return
@@ -161,7 +161,7 @@ CIPHERAES::~CIPHERAES()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/04/2002 10:22:59
 //
 //  @return       bool :
@@ -232,7 +232,7 @@ bool CIPHERAES::Cipher(XBYTE* input,XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:44:01
 //
 //  @return       bool :
@@ -298,7 +298,7 @@ bool CIPHERAES::Uncipher(XBYTE* input, XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/03/2013 23:51:12
 //
 //  @return       void :
@@ -318,7 +318,7 @@ void CIPHERAES::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/03/2013 19:16:21
 //
 //  @return       void :
@@ -412,7 +412,7 @@ void CIPHERAES::AESGenTables(void)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/03/2013 19:38:59
 //
 //  @return       bool :
@@ -512,7 +512,7 @@ bool CIPHERAES::AESSetKeyCipher(CIPHERAES_CONTEXT* ctx, XBYTE* key, XDWORD keysi
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/03/2013 19:39:08
 //
 //  @return       bool :
@@ -579,7 +579,7 @@ bool CIPHERAES::AESSetKeyUncipher(CIPHERAES_CONTEXT* ctx, XBYTE* key, XDWORD key
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/03/2013 20:08:32
 //
 //  @return       bool :
@@ -698,7 +698,7 @@ bool CIPHERAES::AESCipher_ECB_Block(CIPHERAES_CONTEXT* ctx, int mode, XBYTE inpu
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/04/2014 14:17:22
 //
 //  @return       bool :
@@ -737,7 +737,7 @@ bool CIPHERAES::AESCipher_ECB(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, XBY
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/03/2013 21:43:44
 //
 //  @return       bool :
@@ -805,7 +805,7 @@ bool CIPHERAES::AESCipher_CBC(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, XBY
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/03/2013 21:44:48
 //
 //  @return       bool :
@@ -868,7 +868,7 @@ bool CIPHERAES::AESCipher_CFB128(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, 
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/03/2013 21:47:07
 //
 //  @return       bool :

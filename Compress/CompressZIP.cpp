@@ -39,7 +39,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      08/08/2001 9:32:45
 //
 //  @return
@@ -59,7 +59,7 @@ COMPRESS_ZIP::COMPRESS_ZIP() : COMPRESSBASE()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      08/08/2001 9:33:11
 //
 //  @return
@@ -78,7 +78,7 @@ COMPRESS_ZIP::~COMPRESS_ZIP()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/02/2004 18:05:17
 //
 //  @return       bool :
@@ -111,7 +111,7 @@ bool COMPRESS_ZIP::Compress(XBYTE* source,XDWORD size,XBUFFER* xbuffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/02/2004 18:05:21
 //
 //  @return       bool :
@@ -144,7 +144,7 @@ bool COMPRESS_ZIP::Decompress(XBYTE* source,XDWORD size,XBUFFER* xbuffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/10/2003 16:40:47
 //
 //  @return       void :
@@ -163,7 +163,7 @@ void COMPRESS_ZIP::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/05/2009 06:41:35 p.m.
 //
 //  @return       int :
@@ -227,7 +227,7 @@ int COMPRESS_ZIP::ZCompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWOR
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/05/2009 06:41:43 p.m.
 //
 //  @return       int :

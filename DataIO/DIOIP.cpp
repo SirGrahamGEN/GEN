@@ -6,10 +6,7 @@
 * @brief      Data Input/Output IP class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      IOIPADDRESS
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOIPADDRESS:: :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -76,9 +70,6 @@ DIOIPADDRESS:: DIOIPADDRESS()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -95,9 +86,6 @@ DIOIPADDRESS::~DIOIPADDRESS()
 * @brief      Get
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -113,9 +101,6 @@ XBYTE* DIOIPADDRESS::Get()
 * @fn         bool DIOIPADDRESS::GetXString(XSTRING& IPstring)
 * @brief      GetXString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  IPstring :
 *
@@ -141,9 +126,6 @@ bool DIOIPADDRESS::GetXString(XSTRING& addressstring)
 * @brief      GetDIOURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 *
 * @return     bool : true if is succesful.
@@ -168,9 +150,6 @@ bool DIOIPADDRESS::GetDIOURL(DIOURL* url)
 * @brief      IsEmpty
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -188,9 +167,6 @@ bool DIOIPADDRESS::IsEmpty()
 * @fn         bool DIOIPADDRESS::IsLocal()
 * @brief      IsLocal
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -219,9 +195,6 @@ bool DIOIPADDRESS::IsLocal()
 * @brief      IsAPIPAAddress  APIPA (Automatic Private Internet Protocol Addressing)
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -240,9 +213,6 @@ bool DIOIPADDRESS::IsAPIPA()
 * @fn         bool DIOIPADDRESS::Set(XBYTE* IP)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  IP :
 *
@@ -266,9 +236,6 @@ bool DIOIPADDRESS::Set(XBYTE* address)
 * @fn         bool DIOIPADDRESS::Set(XBYTE byte1, XBYTE byte2, XBYTE byte3, XBYTE byte4)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  byte1 :
 * @param[in]  byte2 :
@@ -296,9 +263,6 @@ bool DIOIPADDRESS::Set(XBYTE byte1, XBYTE byte2, XBYTE byte3, XBYTE byte4)
 * @brief      Set
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  addresschar :
 *
 * @return     bool : true if is succesful.
@@ -320,9 +284,6 @@ bool DIOIPADDRESS::Set(XCHAR* addresschar)
 * @fn         bool DIOIPADDRESS::Set(XSTRING& IPstring)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  addressstring :
 *
@@ -361,9 +322,6 @@ bool DIOIPADDRESS::Set(XSTRING& addressstring)
 * @brief      Set
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  addresschar :
 *
 * @return     bool : true if is succesful.
@@ -385,9 +343,6 @@ bool DIOIPADDRESS::Set(char* addresschar)
 * @fn         bool DIOIPADDRESS::Compare(DIOIP& otherIP)
 * @brief      Compare
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  otheraddress :
 *
@@ -413,9 +368,6 @@ bool DIOIPADDRESS::Compare(DIOIP& otheraddress)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -440,9 +392,6 @@ void DIOIPADDRESS::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -460,9 +409,6 @@ DIOIP::DIOIP()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -478,9 +424,6 @@ DIOIP::~DIOIP()
 * @fn         DIOIPADDRESS* DIOIP::GetMask()
 * @brief      GetMask
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOIPADDRESS* :
 *
@@ -498,9 +441,6 @@ DIOIPADDRESS* DIOIP::GetMask()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

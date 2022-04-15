@@ -6,10 +6,7 @@
 * @brief       eXtended WINDOWS Data Time class
 * @ingroup     PLATFORM_WINDOWS
 *
-* @author      Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright   Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ XWINDOWSDATETIME::XWINDOWSDATETIME()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -97,9 +88,6 @@ XWINDOWSDATETIME::~XWINDOWSDATETIME()
 * @fn         bool XWINDOWSDATETIME::Read()
 * @brief      Read
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -119,9 +107,6 @@ bool XWINDOWSDATETIME::Read()
 * @brief      Write
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -139,9 +124,6 @@ bool XWINDOWSDATETIME::Write()
 * @fn         bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 * @brief      GetFileDateTime
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  tmzip :
@@ -176,9 +158,6 @@ bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 * @fn         bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath)
 * @brief      GetFileDateTime
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -222,9 +201,6 @@ bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath)
 * @brief      GetMeridianDifference
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -247,9 +223,6 @@ int XWINDOWSDATETIME::GetMeridianDifference()
 * @fn         bool XWINDOWSDATETIME::IsDayLigthSavingTime(int* bias)
 * @brief      IsDayLigthSavingTime
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bias :
 *
@@ -294,9 +267,6 @@ bool XWINDOWSDATETIME::IsDayLigthSavingTime(int* bias)
 * @brief      GetActualDateTime
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  time :
 *
 * @return     void : does not return anything.
@@ -325,9 +295,6 @@ void XWINDOWSDATETIME::GetActualDateTime(XWINDOWSDATETIME* time)
 * @fn         void XWINDOWSDATETIME::SetActualDateTime(XWINDOWSDATETIME* time)
 * @brief      SetActualDateTime
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  time :
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Led Neopixel WS2812B
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -74,9 +68,6 @@ DIOLEDNEOPIXELWS2812B::DIOLEDNEOPIXELWS2812B()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -92,9 +83,6 @@ DIOLEDNEOPIXELWS2812B::~DIOLEDNEOPIXELWS2812B()
 * @fn         bool DIOLEDNEOPIXELWS2812B::Ini(DIOGPIO* diogpio, int nled, int datapin, DIOGPIO_PINSGROUP datapingroup)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  diogpio :
 * @param[in]  nled :
@@ -122,10 +110,7 @@ bool DIOLEDNEOPIXELWS2812B::Ini(XDWORD nled)
 * @fn         XDWORD DIOLEDNEOPIXELWS2812B::GetDataGPIOEntryID()
 * @brief      GetDataGPIOEntryID
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -141,10 +126,7 @@ XDWORD DIOLEDNEOPIXELWS2812B::GetDataGPIOEntryID()
 * @fn         void DIOLEDNEOPIXELWS2812B::SetDataGPIOEntryID(XDWORD GPIOentryID)
 * @brief      SetDataGPIOEntryID
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  GPIOentryID : 
 * 
 * @return     void : does not return anything. 
@@ -162,9 +144,6 @@ void DIOLEDNEOPIXELWS2812B::SetDataGPIOEntryID(XDWORD GPIOentryID)
 * @fn         bool DIOLEDNEOPIXELWS2812B::SendData(XBYTE* data, XDWORD size)
 * @brief      SendData
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 * @param[in]  size :
@@ -193,10 +172,7 @@ bool DIOLEDNEOPIXELWS2812B::SendData(XBYTE* data, XDWORD size)
 * @fn         XBYTE DIOLEDNEOPIXELWS2812B::GetBrightnessLevel()
 * @brief      GetBrightnessLevel
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XBYTE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -212,10 +188,7 @@ XBYTE DIOLEDNEOPIXELWS2812B::GetBrightnessLevel()
 * @fn         void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnessLevel)
 * @brief      SetBrightnessLevel
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  brightnessLevel : 
 * 
 * @return     void : does not return anything. 
@@ -234,9 +207,6 @@ void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnessLevel)
 * @brief      SendData
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 *
 * @return     bool : true if is succesful.
@@ -254,9 +224,6 @@ bool DIOLEDNEOPIXELWS2812B::SendData(XBUFFER* data)
 * @fn         bool DIOLEDNEOPIXELWS2812B::Send()
 * @brief      Send
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -309,9 +276,6 @@ bool DIOLEDNEOPIXELWS2812B::Send()
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -334,9 +298,6 @@ bool DIOLEDNEOPIXELWS2812B::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -5,11 +5,8 @@
 * @class      DIOWINDOWSPCAP
 * @brief      WINDOWS Interface PCap Library (Capture Ethernet Packets) class
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -63,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *  
 * @return     Does not return anything. 
 * 
@@ -82,10 +77,7 @@ DIOWINDOWSPCAP::DIOWINDOWSPCAP() :  DIOPCAP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -104,10 +96,7 @@ DIOWINDOWSPCAP::~DIOWINDOWSPCAP()
 * @fn         bool DIOWINDOWSPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promiscuousmode, int timeout)
 * @brief      Capture_Start
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  netinterface : 
 * @param[in]  promiscuousmode : 
 * @param[in]  timeout : 
@@ -148,10 +137,7 @@ bool DIOWINDOWSPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promi
 * @fn         bool DIOWINDOWSPCAP::Capture_End()
 * @brief      Capture_End
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -183,10 +169,7 @@ bool DIOWINDOWSPCAP::Capture_End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -203,10 +186,7 @@ void DIOWINDOWSPCAP::Clean()
 * @fn         bool DIOWINDOWSPCAP::CreateListNetInterfaces()
 * @brief      CreateListNetInterfaces
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -246,10 +226,7 @@ bool DIOWINDOWSPCAP::CreateListNetInterfaces()
 * @fn         void DIOWINDOWSPCAP::ThreadCapture(void* data)
 * @brief      ThreadCapture
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  data : 
 * 
 * @return     void : does not return anything. 
@@ -278,10 +255,7 @@ void DIOWINDOWSPCAP::ThreadCapture(void* data)
 * @fn         void DIOWINDOWSPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header, const u_char* data)
 * @brief      PacketHandler
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  param : 
 * @param[in]  struct pcap_pkthdr* header : 
 * @param[in]  u_char* data : 

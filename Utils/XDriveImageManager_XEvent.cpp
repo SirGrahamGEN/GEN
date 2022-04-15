@@ -6,10 +6,7 @@
 * @brief      eXtended Drive Image Manager Event class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,9 +48,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  subject :
 * @param[in]  type :
 * @param[in]  family :
@@ -75,9 +69,6 @@ XDRIVEIMAGEMANAGER_XEVENT::XDRIVEIMAGEMANAGER_XEVENT(XSUBJECT* subject, XDWORD t
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -94,9 +85,6 @@ XDRIVEIMAGEMANAGER_XEVENT::~XDRIVEIMAGEMANAGER_XEVENT()
 * @brief      GetDrive
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDRIVEIMAGE_DRIVE* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +100,6 @@ XDRIVEIMAGEMANAGER_DRIVE* XDRIVEIMAGEMANAGER_XEVENT::GetDrive()
 * @fn         void XDRIVEIMAGEMANAGER_XEVENT::SetDrive(XDRIVEIMAGEMANAGER_DRIVE* drive)
 * @brief      SetDrive
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  drive :
 *
@@ -134,9 +119,6 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetDrive(XDRIVEIMAGEMANAGER_DRIVE* drive)
 * @brief      GetIndexSector
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -152,9 +134,6 @@ XQWORD XDRIVEIMAGEMANAGER_XEVENT::GetIndexSector()
 * @fn         void XDRIVEIMAGEMANAGER_XEVENT::SetIndexSector(XQWORD indexsector)
 * @brief      SetIndexSector
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  indexsector :
 *
@@ -174,9 +153,6 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetIndexSector(XQWORD indexsector)
 * @brief      GetNumberSectorsInOperation
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -192,9 +168,6 @@ XQWORD XDRIVEIMAGEMANAGER_XEVENT::GetNumberSectorsInOperation()
 * @fn         void XDRIVEIMAGEMANAGER_XEVENT::SetNumberSectorsInOperation(XQWORD numbersectorsinoperation)
 * @brief      SetNumberSectorsInOperation
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  numbersectorsinoperation :
 *
@@ -214,9 +187,6 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetNumberSectorsInOperation(XQWORD numbersectors
 * @brief      GetOperationPercent
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -231,9 +201,6 @@ float XDRIVEIMAGEMANAGER_XEVENT::GetOperationPercent()
 * @fn         void XDRIVEIMAGEMANAGER_XEVENT::SetOperationPercent(float operationpercent)
 * @brief      SetOperationPercent
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  operationpercent :
 *
@@ -253,9 +220,6 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetOperationPercent(float operationpercent)
 * @brief      GetError
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDRIVEIMAGE_ERROR :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -271,9 +235,6 @@ XDRIVEIMAGEMANAGER_ERROR XDRIVEIMAGEMANAGER_XEVENT::GetError()
 * @fn         void XDRIVEIMAGEMANAGER_XEVENT::SetError(XDRIVEIMAGE_ERROR error)
 * @brief      SetError
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  error :
 *
@@ -293,9 +254,6 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetError(XDRIVEIMAGEMANAGER_ERROR error)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

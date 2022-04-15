@@ -6,7 +6,7 @@
 //
 //  WINDOWS file class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 13/03/2002
 */
 //  GEN  Copyright (C).  All right reserved.

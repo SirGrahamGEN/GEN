@@ -6,7 +6,7 @@
 //
 //  base class for serializable data types
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 04/02/2016 10:23:38
 //  Last Modification :

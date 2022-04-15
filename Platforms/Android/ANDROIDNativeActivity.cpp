@@ -35,7 +35,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/09/2013 17:09:55
 //
 //  @return
@@ -62,7 +62,7 @@ ANDROIDNATIVEACTIVITY_EVENTLOOP::ANDROIDNATIVEACTIVITY_EVENTLOOP(android_app* ap
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/09/2013 17:10:10
 //
 //  @return
@@ -83,7 +83,7 @@ ANDROIDNATIVEACTIVITY_EVENTLOOP::~ANDROIDNATIVEACTIVITY_EVENTLOOP()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/10/2013 23:19:18
 //
 //  @return       void :
@@ -135,7 +135,7 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::Run(ANDROIDNATIVEACTIVITY_HANDLER* activit
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      29/09/2013 0:21:09
 //
 //  @return       void :
@@ -169,7 +169,7 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::Activate()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      29/09/2013 0:22:19
 //
 //  @return       void :
@@ -194,7 +194,7 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::Deactivate()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      27/10/2013 19:56:31
 //
 //  @return       int32_t :
@@ -231,7 +231,7 @@ int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessInputEvent(AInputEvent* event, a
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      27/10/2013 19:56:17
 //
 //  @return       void :
@@ -299,7 +299,7 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessApplicationEvent(int32_t command, a
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/09/2013 17:54:32
 //
 //  @return       void :
@@ -324,7 +324,7 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/10/2013 23:08:03
 //
 //  @return       int32_t :
@@ -347,7 +347,7 @@ int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackInput(android_app* application,
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      29/09/2013 0:25:00
 //
 //  @return       void :

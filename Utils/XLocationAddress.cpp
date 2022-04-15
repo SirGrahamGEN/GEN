@@ -6,10 +6,7 @@
 * @brief      eXtended Location Address class  (container)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,9 +48,6 @@
 * @brief      Constructor
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -71,9 +65,6 @@ XLOCATIONADDRESS::XLOCATIONADDRESS()
 * @note       VIRTUAL
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -89,9 +80,6 @@ XLOCATIONADDRESS::~XLOCATIONADDRESS()
 * @fn         XSTRING* XLOCATIONADDRESS::GetStreet()
 * @brief      GetStreet
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -109,9 +97,6 @@ XSTRING* XLOCATIONADDRESS::GetStreet()
 * @brief      GetCity
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -127,9 +112,6 @@ XSTRING* XLOCATIONADDRESS::GetCity()
 * @fn         XSTRING* XLOCATIONADDRESS::GetState()
 * @brief      GetState
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -147,9 +129,6 @@ XSTRING* XLOCATIONADDRESS::GetState()
 * @brief      GetCountry
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -166,9 +145,6 @@ XSTRING* XLOCATIONADDRESS::GetCountry()
 * @brief      GetPostalCode
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -184,9 +160,6 @@ XDWORD XLOCATIONADDRESS::GetPostalCode()
 * @fn         void XLOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
 * @brief      SetPostalCode
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  postalcode :
 *
@@ -206,9 +179,6 @@ void XLOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

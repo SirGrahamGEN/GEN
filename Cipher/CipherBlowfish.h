@@ -6,7 +6,7 @@
 //
 //  Cipher / Uncipher Blowfish Class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 25/04/2002
 */
 //  GEN  Copyright (C).  All right reserved.

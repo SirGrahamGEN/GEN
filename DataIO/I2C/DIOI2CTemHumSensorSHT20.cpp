@@ -6,10 +6,7 @@
 * @brief      Data Input/Output I2C Sensor Sensirion SHT20 class (Temperature and humidity module)
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ DIOI2CTEMHUMSENSORSHT20::DIOI2CTEMHUMSENSORSHT20(): DIODEVICEI2C()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -102,9 +93,6 @@ DIOI2CTEMHUMSENSORSHT20::~DIOI2CTEMHUMSENSORSHT20()
 * @fn         bool DIOI2CTEMHUMSENSORSHT20::Reset()
 * @brief      Reset
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -132,9 +120,6 @@ bool DIOI2CTEMHUMSENSORSHT20::Reset()
 * @brief      SetResolution
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  resolution :
 *
 * @return     bool : true if is succesful.
@@ -161,9 +146,6 @@ bool DIOI2CTEMHUMSENSORSHT20::SetResolution(XBYTE resolution)
 * @fn         bool DIOI2CTEMHUMSENSORSHT20::Read(float& temperature, float& humidity)
 * @brief      Read
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  temperature :
 * @param[in]  humidity :
@@ -203,9 +185,6 @@ bool DIOI2CTEMHUMSENSORSHT20::Read(float& temperature, float& humidity)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -223,9 +202,6 @@ bool DIOI2CTEMHUMSENSORSHT20::End()
 * @fn         bool DIOI2CTEMHUMSENSORSHT20::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -254,9 +230,6 @@ bool DIOI2CTEMHUMSENSORSHT20::IniDevice()
 * @fn         bool DIOI2CTEMHUMSENSORSHT20::ReadValue(XBYTE cmd, XWORD value)
 * @brief      ReadValue
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  cmd :
 * @param[in]  value :
@@ -332,9 +305,6 @@ bool DIOI2CTEMHUMSENSORSHT20::ReadValue(XBYTE cmd, XWORD& value)
 * @brief      ReadUserRegister
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  userregister :
 *
 * @return     bool : true if is succesful.
@@ -368,9 +338,6 @@ bool DIOI2CTEMHUMSENSORSHT20::ReadUserRegister(XBYTE& userregister)
 * @brief      WriteRegister
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  userregister :
 *
 * @return     bool : true if is succesful.
@@ -399,9 +366,6 @@ bool DIOI2CTEMHUMSENSORSHT20::WriteUserRegister(XBYTE userregister)
 * @fn         bool DIOI2CTEMHUMSENSORSHT20::CheckCRC(XWORD datasensor, XBYTE checkvalue)
 * @brief      CheckCRC
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  datasensor :
 * @param[in]  checkvalue :
@@ -438,9 +402,6 @@ bool DIOI2CTEMHUMSENSORSHT20::CheckCRC(XWORD datasensor, XBYTE checkvalue)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief       SAMD5xE5x platform factory class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -79,9 +76,6 @@ DELETEFUNC(XSAMD5XE5XFACTORY  , XMUTEX     , XSAMD5XE5XMUTEX      , Delete_Mutex
 * @brief      CreateThread
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  groupID :
 * @param[in]  ID :
 * @param[in]  function :
@@ -103,9 +97,6 @@ XTHREAD* XSAMD5XE5XFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHRE
 * @fn         bool XSAMD5XE5XFACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
 * @brief      DeleteThread
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  groupID :
 * @param[in]  xthread :

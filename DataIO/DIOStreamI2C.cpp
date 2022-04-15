@@ -5,11 +5,8 @@
 * @class      DIOSTREAMI2C
 * @brief      Data Input/Output Stream I2C class
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,10 +58,7 @@
 * @fn         void DIOSTREAMI2C::DIOSTREAMI2C()
 * @brief      DIOSTREAMI2C
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -105,10 +99,7 @@ DIOSTREAMI2C::DIOSTREAMI2C() : DIOSTREAM() , XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -126,10 +117,7 @@ DIOSTREAMI2C::~DIOSTREAMI2C()
 * @fn         DIOSTREAMCONFIG* DIOSTREAMI2C::GetConfig()
 * @brief      GetConfig
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOSTREAMCONFIG* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -145,10 +133,7 @@ DIOSTREAMCONFIG* DIOSTREAMI2C::GetConfig()
 * @fn         bool DIOSTREAMI2C::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      SetConfig
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  config : 
 * 
 * @return     bool : true if is succesful. 
@@ -169,10 +154,7 @@ bool DIOSTREAMI2C::SetConfig(DIOSTREAMCONFIG* config)
 * @fn         bool DIOSTREAMI2C::Open()
 * @brief      Open
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -195,10 +177,7 @@ bool DIOSTREAMI2C::Open()
 * @fn         XDWORD DIOSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 * @brief      ReadDirect
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  buffer : 
 * @param[in]  size : 
 * 
@@ -218,10 +197,7 @@ XDWORD DIOSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 * @fn         XDWORD DIOSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 * @brief      WriteDirect
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  buffer : 
 * @param[in]  size : 
 * 
@@ -240,10 +216,7 @@ XDWORD DIOSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 * @fn         bool DIOSTREAMI2C::Close()
 * @brief      Close
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -265,10 +238,7 @@ bool DIOSTREAMI2C::Close()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

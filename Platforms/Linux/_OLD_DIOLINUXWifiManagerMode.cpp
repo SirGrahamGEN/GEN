@@ -6,10 +6,7 @@
 * @brief      Data Input/Output LINUX Wifi Manager Mode
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -73,9 +70,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +87,6 @@ DIOLINUXWIFIMANAGERMODE::DIOLINUXWIFIMANAGERMODE()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -111,9 +102,6 @@ DIOLINUXWIFIMANAGERMODE::~DIOLINUXWIFIMANAGERMODE()
 * @fn         bool DIOLINUXWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password)
 * @brief      SetMode_AP
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  SSID : 
 * @param[in]  password : 
@@ -147,9 +135,6 @@ bool DIOLINUXWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password)
 * @brief      SetMode_Client
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  SSID : 
 * @param[in]  password : 
 *
@@ -181,8 +166,8 @@ bool DIOLINUXWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password)
  *  @brief      ReloadAPList
  *  @ingroup    PLATFORM_LINUX
  *
- *  @author     Abraham J. Velez 
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @return     bool : true if is succesful. 
  *
@@ -207,9 +192,6 @@ bool DIOLINUXWIFIMANAGERMODE::ReloadAPList()
 * @fn         bool DIOLINUXWIFIMANAGERMODE::DHCP_SetMode(bool active)
 * @brief      DHCP_SetMode
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  active : 
 *
@@ -302,9 +284,6 @@ bool DIOLINUXWIFIMANAGERMODE::DHCP_SetMode(bool active)
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password, int indexnetwork)
 * @brief      WPA_SetMode
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  mode : 
 * @param[in]  SSID : 
@@ -417,9 +396,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
 * @brief      WPA_RemoveAllNetworks
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -452,9 +428,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_RemoveAllNetworks()
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, XCHAR* value)
 * @brief      WPA_SetValue
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  indexnetwork : 
 * @param[in]  namevalue : 
@@ -489,9 +462,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, X
 * @brief      WPA_SetValue
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  indexnetwork : 
 * @param[in]  namevalue : 
 * @param[in]  value : 
@@ -512,9 +482,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XSTRING& namevalue,
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_GetListRemoteAP(XVECTOR<XSTRING*>& nameAPs)
 * @brief      WPA_GetListRemoteAP
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  nameAPs : 
 *
@@ -595,9 +562,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_GetListRemoteAP(XVECTOR<XSTRING*>& nameAPs)
 * @brief      WPA_CLI_Command
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  command : 
 * @param[in]  output : 
 *
@@ -632,9 +596,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_CLI_Command(XSTRING& command, XSTRING& output)
 * @fn         bool DIOLINUXWIFIMANAGERMODE::CONNMAN_SetModeClient(XCHAR* SSID, XCHAR* password)
 * @brief      CONNMAN_SetModeClient
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  SSID : 
 * @param[in]  password : 
@@ -675,9 +636,6 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_SetModeClient(XCHAR* SSID, XCHAR* password
 * @fn         bool DIOLINUXWIFIMANAGERMODE::CONNMAN_SetModeAP(XCHAR* SSID, XCHAR* password)
 * @brief      CONNMAN_SetModeAP
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  SSID : 
 * @param[in]  password : 
@@ -721,9 +679,6 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_SetModeAP(XCHAR* SSID, XCHAR* password)
 * @fn         bool DIOLINUXWIFIMANAGERMODE::CONNMAN_GetListRemoteAP(XVECTOR<XSTRING*>& nameAPs)
 * @brief      CONNMAN_GetListRemoteAP
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  nameAPs : 
 *
@@ -770,9 +725,6 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_GetListRemoteAP()
 * @fn         bool DIOLINUXWIFIMANAGERMODE::CONNMAN_GetClientService(XCHAR* SSID, XSTRING& service)
 * @brief      CONNMAN_GetClientService
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  SSID : 
 * @param[in]  service : 
@@ -851,9 +803,6 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_GetClientService(XCHAR* SSID, XSTRING& ser
 * @fn         bool DIOLINUXWIFIMANAGERMODE::CONNMAN_ExecuteApplication(XCHAR* applicationpath, XCHAR* service, XCHAR* password)
 * @brief      CONNMAN_ExecuteApplication
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationpath : 
 * @param[in]  service : 
@@ -1148,9 +1097,6 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_ExecuteApplication(XCHAR* applicationpath,
 * @brief      CONNMAN_Command
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  command : 
 * @param[in]  resultOK : 
 * @param[in]  output : 
@@ -1188,9 +1134,6 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_Command(XCHAR* command, XCHAR* resultOK, X
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

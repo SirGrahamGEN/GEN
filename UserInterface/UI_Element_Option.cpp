@@ -5,11 +5,8 @@
 * @class      UI_ELEMENT_OPTION
 * @brief      User Interface Element Option class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,10 +50,7 @@
 * @fn         UI_ELEMENT_OPTION::UI_ELEMENT_OPTION()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -76,10 +70,7 @@ UI_ELEMENT_OPTION::UI_ELEMENT_OPTION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -95,10 +86,7 @@ UI_ELEMENT_OPTION::~UI_ELEMENT_OPTION()
 * @fn         UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE UI_ELEMENT_OPTION::GetAllocationTextType()
 * @brief      GetAllocationTextType
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -114,10 +102,7 @@ UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE UI_ELEMENT_OPTION::GetAllocationTextType(
 * @fn         void UI_ELEMENT_OPTION::SetAllocationTextType(UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE allocationtexttype)
 * @brief      SetAllocationTextType
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  allocationtexttype : 
 * 
 * @return     void : does not return anything. 
@@ -136,10 +121,7 @@ void UI_ELEMENT_OPTION::SetAllocationTextType(UI_ELEMENT_OPTION_ALLOCATION_TEXT_
 * @fn         UI_ELEMENT_TEXT* UI_ELEMENT_OPTION::Get_UIText()
 * @brief      Get_UIText
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT_TEXT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -155,10 +137,7 @@ UI_ELEMENT_TEXT* UI_ELEMENT_OPTION::Get_UIText()
 * @fn         bool UI_ELEMENT_OPTION::Set_UIText(UI_ELEMENT_TEXT* elementtext)
 * @brief      Set_UIText
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  elementtext : 
 * 
 * @return     bool : true if is succesful. 
@@ -178,10 +157,7 @@ bool UI_ELEMENT_OPTION::Set_UIText(UI_ELEMENT_TEXT* elementtext)
 * @fn         UI_ELEMENT_ANIMATION* UI_ELEMENT_OPTION::Get_UIAnimation()
 * @brief      Get_UIAnimation
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT_ANIMATION* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -197,10 +173,7 @@ UI_ELEMENT_ANIMATION* UI_ELEMENT_OPTION::Get_UIAnimation()
 * @fn         bool UI_ELEMENT_OPTION::Set_UIAnimation(UI_ELEMENT_ANIMATION* elementanimation)
 * @brief      Set_UIAnimation
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  elementanimation : 
 * 
 * @return     bool : true if is succesful. 
@@ -221,10 +194,7 @@ bool UI_ELEMENT_OPTION::Set_UIAnimation(UI_ELEMENT_ANIMATION* elementanimation)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

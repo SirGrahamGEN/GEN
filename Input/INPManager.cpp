@@ -6,10 +6,7 @@
 * @brief      Input Manager class
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@ INPMANAGER* INPMANAGER::instance = NULL;
 * @brief      Get Is Instanced
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ bool INPMANAGER::GetIsInstanced()
 * @fn         INPMANAGER& INPMANAGER::GetInstance()
 * @brief      Get Instance
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     INPMANAGER& : inpmanager instance
 *
@@ -99,9 +90,6 @@ INPMANAGER& INPMANAGER::GetInstance()
 * @fn         bool INPMANAGER::DelInstance()
 * @brief      Delete Instance
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -123,9 +111,6 @@ bool INPMANAGER::DelInstance()
 * @fn         bool INPMANAGER::AddDevice(INPDEVICE* device)
 * @brief      Add Device
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  device : device to add
 *
@@ -149,9 +134,6 @@ bool INPMANAGER::AddDevice(INPDEVICE* device)
 * @fn         bool INPMANAGER::DelDevice(INPDEVICE* device)
 * @brief      Delete Device
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  device : device to delete
 *
@@ -178,9 +160,6 @@ bool INPMANAGER::DelDevice(INPDEVICE* device)
 * @brief      Delete All Devices
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -202,9 +181,6 @@ bool INPMANAGER::DeleteAllDevices()
 * @brief      Get Number of Devices
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : Number of Devices
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -220,9 +196,6 @@ int INPMANAGER::GetNDevices()
 * @fn         INPDEVICE* INPMANAGER::GetDevice(int index)
 * @brief      Get Device by index
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index : index of device
 *
@@ -246,9 +219,6 @@ INPDEVICE* INPMANAGER::GetDevice(int index)
 * @fn         INPDEVICE* INPMANAGER::GetDevice(INPDEVICE_TYPE type)
 * @brief      Get Device by type
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type : type of device
 *
@@ -276,9 +246,6 @@ INPDEVICE* INPMANAGER::GetDevice(INPDEVICE_TYPE type)
 * @brief      Update
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -303,9 +270,6 @@ bool INPMANAGER::Update()
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -322,9 +286,6 @@ INPMANAGER::INPMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -344,9 +305,6 @@ INPMANAGER::~INPMANAGER()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

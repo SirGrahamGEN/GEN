@@ -6,10 +6,7 @@
 * @brief      Data Input/Output  Protocol Connections Manager class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -73,9 +70,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  DIOSTREAMCONFIG* :
 *
 * @return     Does not return anything.
@@ -101,9 +95,6 @@ DIOPROTOCOL_CONNECTION::DIOPROTOCOL_CONNECTION(DIOSTREAMCONFIG* diostreamcfg)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -122,9 +113,6 @@ DIOPROTOCOL_CONNECTION::~DIOPROTOCOL_CONNECTION()
 * @brief      GetDIOStreamConfig
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMCONFIG* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -141,9 +129,6 @@ DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTION::GetDIOStreamConfig()
 * @brief      GetDIOProtocol
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOPROTOCOL* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -159,9 +144,6 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTION::GetDIOProtocol()
 * @fn         void DIOPROTOCOL_CONNECTION::SetDIOProtocol(DIOPROTOCOL* protocol)
 * @brief      SetDIOProtocol
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  protocol :
 *
@@ -181,9 +163,6 @@ void DIOPROTOCOL_CONNECTION::SetDIOProtocol(DIOPROTOCOL* protocol)
 * @brief      Connect
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -202,9 +181,6 @@ bool DIOPROTOCOL_CONNECTION::Connect()
 * @fn         bool DIOPROTOCOL_CONNECTION::Disconected()
 * @brief      Disconected
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -228,9 +204,6 @@ bool DIOPROTOCOL_CONNECTION::Disconected()
 * @fn         bool DIOPROTOCOL_CONNECTION::SetInUse(bool inuse, XDWORD ID)
 * @brief      SetInUse
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  inuse :
 * @param[in]  ID :
@@ -261,9 +234,6 @@ bool DIOPROTOCOL_CONNECTION::SetInUse(bool inuse, XDWORD ID)
 * @brief      IsInUse
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -288,9 +258,6 @@ bool DIOPROTOCOL_CONNECTION::IsInUse()
 * @brief      IsSendEventConnected
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -306,9 +273,6 @@ bool DIOPROTOCOL_CONNECTION::IsSendEventConnected()
 * @fn         void DIOPROTOCOL_CONNECTION::SetIsSendEventConnected(bool issendeventconnected)
 * @brief      SetIsSendEventConnected
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  issendeventconnected :
 *
@@ -328,9 +292,6 @@ void DIOPROTOCOL_CONNECTION::SetIsSendEventConnected(bool issendeventconnected)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -358,9 +319,6 @@ void DIOPROTOCOL_CONNECTION::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -384,9 +342,6 @@ DIOPROTOCOL_CONNECTIONSMANAGER::DIOPROTOCOL_CONNECTIONSMANAGER()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -406,9 +361,6 @@ DIOPROTOCOL_CONNECTIONSMANAGER::~DIOPROTOCOL_CONNECTIONSMANAGER()
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::Ini(bool isserver, DIOSTREAMCONFIG* diostreamcfg, DIOSTREAMENUMSERVERS* diostreamenumservers)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isserver :
 * @param[in]  diostreamcfg :
@@ -458,9 +410,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::Ini(bool isserver, DIOSTREAMCONFIG* diostre
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::End()
 * @brief      End
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -519,9 +468,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::End()
 * @brief      TargetURL_GetNTargets
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -537,9 +483,6 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_GetNTargets()
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XCHAR* URL)
 * @brief      TargetURL_Add
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  URL :
 *
@@ -568,9 +511,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XCHAR* URL)
 * @brief      TargetURL_Add
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  URL :
 *
 * @return     bool : true if is succesful.
@@ -588,9 +528,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XSTRING& URL)
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(DIOURL& URL)
 * @brief      TargetURL_Add
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  URL :
 *
@@ -610,9 +547,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(DIOURL& URL)
 * @brief      TargetURL_Get
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     XSTRING* :
@@ -630,9 +564,6 @@ XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Get(int index)
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Delete(int index)
 * @brief      TargetURL_Delete
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -659,9 +590,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Delete(int index)
 * @brief      TargetURL_DeleteAll
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -683,9 +611,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_DeleteAll()
 * @brief      ProtocolConnections_GetNLimit
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -701,9 +626,6 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNLimit()
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SetNLimit(int protocolconnectionsnlimit)
 * @brief      ProtocolConnections_SetNLimit
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  protocolconnectionsnlimit :
 *
@@ -723,9 +645,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SetNLimit(int protocolc
 * @brief      ProtocolConnections_GetNAvailable
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -741,9 +660,6 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNAvailable()
 * @fn         DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Get(int index)
 * @brief      ProtocolConnections_Get
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -778,9 +694,6 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Get(
 * @fn         DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetFirstConnected()
 * @brief      ProtocolConnections_GetFirstConnected
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOPROTOCOL_CONNECTION* :
 *
@@ -827,9 +740,6 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetF
 * @brief      ProtocolConnections_GetFirstOperative
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOPROTOCOL_CONNECTION* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -874,9 +784,6 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetF
 * @fn         DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetByDIOStream(DIOSTREAM* diostream)
 * @brief      ProtocolConnections_GetByDIOStream
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  diostream :
 *
@@ -923,9 +830,6 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetB
 * @brief      ProtocolConnections_GetProtocol
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     DIOPROTOCOL* :
@@ -967,9 +871,6 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetProtocol(int
 * @brief      ProtocolConnections_GetNConnected
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1007,9 +908,6 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNConnected()
 * @brief      ProtocolConnections_GetNFreeToConnect
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1046,9 +944,6 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNFreeToConnect()
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SendEventConnected()
 * @brief      ProtocolConnections_SendEventConnected
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1093,9 +988,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SendEventConnected()
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAllWaitConnections()
 * @brief      ProtocolConnections_DeleteAllWaitConnections
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1146,9 +1038,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAllWaitConnection
 * @brief      ProtocolConnections_DeleteDisconnected
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1197,9 +1086,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteDisconnected()
 * @brief      ProtocolConnections_Disconnect
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     bool : true if is succesful.
@@ -1244,9 +1130,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Disconnect(int index)
 * @brief      ProtocolConnections_DisconnectAll
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1289,9 +1172,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DisconnectAll()
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Delete(int index)
 * @brief      ProtocolConnections_Delete
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -1341,9 +1221,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Delete(int index)
 * @brief      ProtocolConnections_DeleteAll
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1386,9 +1263,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAll()
 * @brief      WaitToAnyConnectionIsConnected
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  timeout :
 *
 * @return     bool : true if is succesful.
@@ -1428,9 +1302,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAnyConnectionIsConnected(int timeout)
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAllConnectionsCanBeDeleted(int timeout)
 * @brief      WaitToAllConnectionsCanBeDeleted
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeout :
 *
@@ -1491,9 +1362,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAllConnectionsCanBeDeleted(int timeou
 * @brief      SendEvent
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 * @param[in]  protocolconnection :
 *
@@ -1523,9 +1391,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::SendEvent(DIOPROTOCOL_CONNECTIONSMANAGER_XE
 * @brief      GetApplicationVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  version :
 * @param[in]  subversion :
 * @param[in]  subversionerr :
@@ -1547,9 +1412,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationVersion(XDWORD& version, XDWO
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
 * @brief      SetApplicationVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  version :
 * @param[in]  subversion :
@@ -1573,9 +1435,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::SetApplicationVersion(XDWORD version, XDWOR
 * @brief      GetApplicationName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1591,9 +1450,6 @@ XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationName()
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsServer()
 * @brief      ManageProtocolConnectionsServer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -1664,9 +1520,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsServer()
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsClient()
 * @brief      ManageProtocolConnectionsClient
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -1833,9 +1686,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsClient()
 * @brief      ThreadProtocolConnections
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  param :
 *
 * @return     void : does not return anything.
@@ -1947,9 +1797,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ThreadProtocolConnections(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

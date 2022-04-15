@@ -6,10 +6,7 @@
 * @brief      ANDROID Graphics Screen class
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -84,9 +78,6 @@ GRPANDROIDSCREEN::GRPANDROIDSCREEN(): GRPSCREEN()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -103,9 +94,6 @@ GRPANDROIDSCREEN::~GRPANDROIDSCREEN()
 * @fn         bool GRPANDROIDSCREEN::Create(bool show)
 * @brief      Create
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  show :
 *
@@ -127,9 +115,6 @@ bool GRPANDROIDSCREEN::Create(bool show)
 * @brief      Update
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -145,9 +130,6 @@ bool GRPANDROIDSCREEN::Update()
 * @fn         bool GRPANDROIDSCREEN::Update(GRPCANVAS* canvas)
 * @brief      Update
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  canvas :
 *
@@ -202,9 +184,6 @@ bool GRPANDROIDSCREEN::Update(GRPCANVAS* canvas)
 * @brief      Delete
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -225,9 +204,6 @@ bool GRPANDROIDSCREEN::Delete()
 * @brief      Resize
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  width :
 * @param[in]  height :
 *
@@ -247,9 +223,6 @@ bool GRPANDROIDSCREEN::Resize(int width, int height)
 * @brief      GetHandle
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -266,9 +239,6 @@ void* GRPANDROIDSCREEN::GetHandle()
 * @brief      GetAndroidHandle
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     ANativeWindow* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -284,9 +254,6 @@ ANativeWindow* GRPANDROIDSCREEN::GetAndroidHandle()
 * @fn         void GRPANDROIDSCREEN::SetAndroidHandle(ANativeWindow* anativehandle)
 * @brief      SetAndroidHandle
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  anativehandle :
 *
@@ -305,9 +272,6 @@ void GRPANDROIDSCREEN::SetAndroidHandle(ANativeWindow* anativehandle)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

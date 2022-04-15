@@ -6,10 +6,7 @@
 * @brief      eXtended Error Message class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,9 +48,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -69,9 +63,6 @@ XERRORMSG::XERRORMSG()
 * @fn         XERRORMSG::XERRORMSG(int code, XCHAR* title, XCHAR* msg)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  int :
 * @param[in]   XCHAR* title :
@@ -96,9 +87,6 @@ XERRORMSG::XERRORMSG(int code, XCHAR* title, XCHAR* msg)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +103,6 @@ XERRORMSG::~XERRORMSG()
 * @brief      Get
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XERRORMSG* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -132,9 +117,6 @@ XERRORMSG* XERRORMSG::Get()
 * @fn         bool XERRORMSG::Set(int code,XCHAR* title,XCHAR* msg)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 * @param[in]  title :
@@ -159,9 +141,6 @@ bool XERRORMSG::Set(int code, XCHAR* title, XCHAR* msg)
 * @fn         bool XERRORMSG::Set(int code, int level, int image, int sound, XCHAR* title, XCHAR* msg)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 * @param[in]  level :
@@ -194,9 +173,6 @@ bool XERRORMSG::Set(int code, int level, int image, int sound, XCHAR* title, XCH
 * @brief      GetCode
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -212,9 +188,6 @@ int XERRORMSG::GetCode()
 * @fn         bool XERRORMSG::SetCode(int code)
 * @brief      SetCode
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 *
@@ -236,9 +209,6 @@ bool XERRORMSG::SetCode(int code)
 * @brief      GetLevel
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -254,9 +224,6 @@ int XERRORMSG::GetLevel()
 * @fn         bool XERRORMSG::SetLevel(int level)
 * @brief      SetLevel
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  level :
 *
@@ -277,9 +244,6 @@ bool XERRORMSG::SetLevel(int level)
 * @brief      GetImage
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -295,9 +259,6 @@ int XERRORMSG::GetImage()
 * @fn         bool XERRORMSG::SetImage(int image)
 * @brief      SetImage
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  image :
 *
@@ -319,9 +280,6 @@ bool XERRORMSG::SetImage(int image)
 * @brief      GetSound
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -337,9 +295,6 @@ int XERRORMSG::GetSound()
 * @fn         bool XERRORMSG::SetSound(int sound)
 * @brief      SetSound
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sound :
 *
@@ -361,9 +316,6 @@ bool XERRORMSG::SetSound(int sound)
 * @brief      GetTitle
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -378,9 +330,6 @@ XSTRING* XERRORMSG::GetTitle()
 * @fn         bool XERRORMSG::SetTitle(XCHAR* title)
 * @brief      SetTitle
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  title :
 *
@@ -404,9 +353,6 @@ bool XERRORMSG::SetTitle(XCHAR* title)
 * @brief      SetTitle
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  title :
 *
 * @return     bool : true if is succesful.
@@ -424,9 +370,6 @@ bool XERRORMSG::SetTitle(XSTRING& title)
 * @brief      GetMsg
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -442,9 +385,6 @@ XSTRING* XERRORMSG::GetMsg()
 * @fn         bool XERRORMSG::SetMsg(XCHAR* msg)
 * @brief      SetMsg
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  msg :
 *
@@ -468,9 +408,6 @@ bool XERRORMSG::SetMsg(XCHAR* msg)
 * @brief      SetMsg
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  msg :
 *
 * @return     bool : true if is succesful.
@@ -489,9 +426,6 @@ bool XERRORMSG::SetMsg(XSTRING& msg)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -521,9 +455,6 @@ bool XERRORMSG::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -539,9 +470,6 @@ XERRORSMSG::XERRORSMSG()
 * @fn         XERRORSMSG::XERRORSMSG(XCHAR* titleapp, XCHAR* version)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* :
 * @param[in]   XCHAR* version :
@@ -567,9 +495,6 @@ XERRORSMSG::XERRORSMSG(XCHAR* titleapp, XCHAR* version)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -588,9 +513,6 @@ XERRORSMSG::~XERRORSMSG()
 * @brief      GetTitleApplication
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -607,9 +529,6 @@ XSTRING* XERRORSMSG::GetTitleApplication()
 * @brief      GetVersion
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -625,9 +544,6 @@ XSTRING* XERRORSMSG::GetVersion()
 * @fn         bool XERRORSMSG::SetTitleApplication(XCHAR* titleapp)
 * @brief      SetTitleApplication
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  titleapp :
 *
@@ -652,9 +568,6 @@ bool XERRORSMSG::SetTitleApplication(XCHAR* titleapp)
 * @brief      SetTitleApplication
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  titleapp :
 *
 * @return     bool : true if is succesful.
@@ -672,9 +585,6 @@ bool XERRORSMSG::SetTitleApplication(XSTRING& titleapp)
 * @fn         bool XERRORSMSG::SetVersion(XCHAR* version)
 * @brief      SetVersion
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  version :
 *
@@ -698,9 +608,6 @@ bool XERRORSMSG::SetVersion(XCHAR* version)
 * @brief      SetVersion
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  version :
 *
 * @return     bool : true if is succesful.
@@ -718,9 +625,6 @@ bool XERRORSMSG::SetVersion(XSTRING& version)
 * @fn         XERRORMSG* XERRORSMSG::FindMsg(int code)
 * @brief      FindMsg
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 *
@@ -748,9 +652,6 @@ XERRORMSG* XERRORSMSG::FindMsg(int code)
 * @fn         bool XERRORSMSG::AddMsg(int code, int level, int image, int sound, XCHAR* title, XCHAR* msg)
 * @brief      AddMsg
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 * @param[in]  level :
@@ -787,9 +688,6 @@ bool XERRORSMSG::AddMsg(int code, int level, int image, int sound, XCHAR* title,
 * @fn         bool XERRORSMSG::EraseMsg(int code)
 * @brief      EraseMsg
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 *
@@ -828,9 +726,6 @@ bool XERRORSMSG::EraseMsg(int code)
 * @brief      EraseAllMsg
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -852,9 +747,6 @@ bool XERRORSMSG::EraseAllMsg()
 * @fn         XERRORMSG_RETURN XERRORSMSG::ShowMsg(int code,bool statusline,XBYTE returns,XCHAR* addstr,bool sound)
 * @brief      ShowMsg
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 * @param[in]  statusline :
@@ -878,9 +770,6 @@ XERRORMSG_RETURN XERRORSMSG::ShowMsg(int code,bool statusline,XBYTE returns,XCHA
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *

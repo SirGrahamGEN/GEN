@@ -48,7 +48,7 @@ CIPHERRSA* CIPHERRSA::instance = NULL;
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2014 17:48:04
 //
 
@@ -71,7 +71,7 @@ CIPHERKEYRSAPUBLIC::CIPHERKEYRSAPUBLIC() : CIPHERKEY()
 /**
 //  Destructor de la Clase CIPHERKEYRSAPUBLIC
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2014 17:48:27
 //
 */
@@ -92,7 +92,7 @@ CIPHERKEYRSAPUBLIC::CIPHERKEYRSAPUBLIC() : CIPHERKEY()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2014 17:49:44
 //
 //  @return       bool :
@@ -118,7 +118,7 @@ bool CIPHERKEYRSAPUBLIC::Get(XMPINTEGER& modulus, XMPINTEGER& exponent)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/03/2014 10:00:01
 //
 //  @return       bool :
@@ -147,7 +147,7 @@ bool CIPHERKEYRSAPUBLIC::Set(XMPINTEGER& modulus, XMPINTEGER& exponent)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 9:52:43
 //
 //  @return       bool :
@@ -175,7 +175,7 @@ bool CIPHERKEYRSAPUBLIC::Check()
 //
 //  Class Constructor CIPHERKEYRSAPRIVATE
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 9:14:42
 //
 */
@@ -200,7 +200,7 @@ CIPHERKEYRSAPRIVATE::CIPHERKEYRSAPRIVATE() : CIPHERKEY()
 //
 //  Class Destructor CIPHERKEYRSAPRIVATE
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 9:33:45
 //
 */
@@ -223,7 +223,7 @@ CIPHERKEYRSAPRIVATE::CIPHERKEYRSAPRIVATE() : CIPHERKEY()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 9:33:12
 //
 //  @return       bool :
@@ -251,7 +251,7 @@ bool CIPHERKEYRSAPRIVATE::Get(XMPINTEGER& prime1factor, XMPINTEGER& prime2factor
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 9:33:00
 //
 //  @return       bool :
@@ -279,7 +279,7 @@ bool CIPHERKEYRSAPRIVATE::Set(XMPINTEGER& prime1factor, XMPINTEGER& prime2factor
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 10:46:52
 //
 //  @return       bool :
@@ -361,7 +361,7 @@ bool CIPHERKEYRSAPRIVATE::Check(CIPHERKEYRSAPUBLIC& publickey)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/04/2006 19:42:40
 //
 //  @return
@@ -383,7 +383,7 @@ CIPHERRSA::CIPHERRSA() : CIPHER()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/04/2006 19:42:37
 //
 //  @return
@@ -405,7 +405,7 @@ CIPHERRSA::~CIPHERRSA()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/03/2014 13:49:26
 //
 //  @return       bool :
@@ -469,7 +469,7 @@ bool CIPHERRSA::SetKey(CIPHERKEY* key, bool integritycheck)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 16:00:26
 //
 //  @return       bool :
@@ -534,7 +534,7 @@ bool CIPHERRSA::Cipher(XBYTE* input, XDWORD size, CIPHERKEYTYPE keytouse, CIPHER
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 16:36:47
 //
 //  @return       bool :
@@ -558,7 +558,7 @@ bool CIPHERRSA::Cipher(XBUFFER& input, CIPHERKEYTYPE keytouse, CIPHERRSAPKCS1VER
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 16:00:32
 //
 //  @return       bool :
@@ -623,7 +623,7 @@ bool CIPHERRSA::Uncipher(XBYTE* input,XDWORD size, CIPHERKEYTYPE keytouse, CIPHE
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 16:06:03
 //
 //  @return       bool :
@@ -648,7 +648,7 @@ bool CIPHERRSA::Uncipher(XBUFFER& input, CIPHERKEYTYPE keytouse, CIPHERRSAPKCS1V
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/04/2014 10:20:19
 //
 //  @return       bool :
@@ -706,7 +706,7 @@ bool CIPHERRSA::Sign(XBYTE* input, XDWORD size, CIPHERKEYTYPE keytouse, HASH* ha
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/04/2014 10:20:13
 //
 //  @return       bool :
@@ -732,7 +732,7 @@ bool CIPHERRSA::Sign(XBUFFER& input, CIPHERKEYTYPE keytouse, HASH* hash, CIPHERR
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 10:57:22
 //
 //  @return       bool :
@@ -826,7 +826,7 @@ bool CIPHERRSA::GenerateKeys(XDWORD nbits, int exponent, CIPHERKEYRSAPUBLIC& pub
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 12:13:33
 //
 //  @return       bool :
@@ -853,7 +853,7 @@ bool CIPHERRSA::CheckContextPublicKey()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/03/2014 12:13:50
 //
 //  @return       bool :
@@ -942,7 +942,7 @@ bool CIPHERRSA::CheckContextPrivateKey()
 //
 //
 //
-//  @author
+//  ""
 //  @version      17/03/2014 13:55:30
 //
 //  @return       bool :
@@ -1024,7 +1024,7 @@ bool CIPHERRSA::Cipher_PKCS1_V15(XBYTE* buffer, XDWORD size, XBUFFER& output, CI
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/03/2014 12:04:57
 //
 //  @return       bool :
@@ -1102,7 +1102,7 @@ bool CIPHERRSA::Uncipher_PKCS1_V15(XBYTE* buffer, XDWORD size, XBUFFER& output, 
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/03/2014 13:22:39
 //
 //  @return       bool :
@@ -1140,7 +1140,7 @@ bool CIPHERRSA::DoRSAPublicOperation(XBUFFER& input, XBUFFER& output)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/03/2014 9:58:14
 //
 //  @return       bool :
@@ -1229,7 +1229,7 @@ bool CIPHERRSA::DoRSAPrivateOperation(XBUFFER& input, XBUFFER& output, XMPINTEGE
 //
 //
 //
-//  @author
+//  ""
 //  @version      18/03/2014 8:57:48
 //
 //  @return       bool :
@@ -1291,7 +1291,7 @@ bool CIPHERRSA::PrepareBlinding(XMPINTEGER* Vi, XMPINTEGER* Vf, XMPINTEGER_FUNCR
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/03/2014 16:27:58
 //
 //  @return       int :
@@ -1320,7 +1320,7 @@ int CIPHERRSA::GetKeySizeInBytes(CIPHERKEYTYPE keytouse)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/03/2014 18:03:07
 //
 //  @return       int :

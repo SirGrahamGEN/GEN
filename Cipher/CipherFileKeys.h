@@ -6,7 +6,7 @@
 //
 //  Cipher File Keys (Own keys cipher file for GEN)
 //
-//  @author  Abraham J. Velez
+//  ""
 //
 //  Date Of Creation  : 19/03/2014 13:09:53
 //  Last Modification :

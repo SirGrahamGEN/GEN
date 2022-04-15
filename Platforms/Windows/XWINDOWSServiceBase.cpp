@@ -6,10 +6,7 @@
 * @brief      eXtended WINDOWS Service Base class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -64,9 +61,6 @@ LPSERVICE_FAILURE_ACTIONS   XWINDOWSSERVICEBASE::service_failureactions   = NULL
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XCHAR* :
 * @param[in]   bool can_stop :
 * @param[in]   bool can_shutdown :
@@ -94,9 +88,6 @@ XWINDOWSSERVICEBASE::XWINDOWSSERVICEBASE(XCHAR* servicename, bool can_stop, bool
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +106,6 @@ XWINDOWSSERVICEBASE::~XWINDOWSSERVICEBASE()
 * @fn         void XWINDOWSSERVICEBASE::Setup(bool can_stop, bool can_shutdown, bool can_pause, bool can_powerevent, bool can_sessionchange)
 * @brief      Setup
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  can_stop : 
 * @param[in]  can_shutdown : 
@@ -155,9 +143,6 @@ void XWINDOWSSERVICEBASE::Setup(bool can_stop, bool can_shutdown, bool can_pause
 * @brief      Run
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  service :
 *
 * @return     bool : true if is succesful.
@@ -181,9 +166,6 @@ bool XWINDOWSSERVICEBASE::Run(XWINDOWSSERVICEBASE& t_service)
 * @fn         void XWINDOWSSERVICEBASE::Stop()
 * @brief      Stop
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -216,9 +198,6 @@ void XWINDOWSSERVICEBASE::Stop()
 * @fn         void XWINDOWSSERVICEBASE::Install(XCHAR* servicename, XCHAR* displayname, XDWORD starttype, XCHAR* dependencies, XCHAR* account, XCHAR* password)
 * @brief      Install
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  servicename :
 * @param[in]  displayname :
@@ -288,9 +267,6 @@ bool XWINDOWSSERVICEBASE::Install(XCHAR* servicename, XCHAR* displayname, XDWORD
 * @fn         bool XWINDOWSSERVICEBASE::Uninstall(XCHAR* servicename)
 * @brief      Uninstall
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  servicename :
 *
@@ -366,9 +342,6 @@ bool XWINDOWSSERVICEBASE::Uninstall(XCHAR* servicename)
 * @brief      StartService
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author
-* @date       01/03/2016 12:00
-*
 * @param[in]  servicename :
 *
 * @return     bool : true if is succesful.
@@ -410,9 +383,6 @@ bool XWINDOWSSERVICEBASE::Start(XCHAR* servicename)
 * @brief      Stopped
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  servicename :
 *
 * @return     bool : true if is succesful.
@@ -447,9 +417,6 @@ bool XWINDOWSSERVICEBASE::Stopped(XCHAR* servicename)
 * @brief      GetConfig
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  servicename : 
 *
 * @return     LPQUERY_SERVICE_CONFIG : 
@@ -469,9 +436,6 @@ LPQUERY_SERVICE_CONFIG  XWINDOWSSERVICEBASE::GetConfig(XCHAR* servicename)
 * @fn         LPSERVICE_DESCRIPTION XWINDOWSSERVICEBASE::GetDescription(XCHAR* servicename)
 * @brief      GetDescription
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  servicename : 
 *
@@ -494,9 +458,6 @@ LPSERVICE_DESCRIPTION  XWINDOWSSERVICEBASE::GetDescription(XCHAR* servicename)
 * @brief      GetFailureActions
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  servicename : 
 *
 * @return     LPSERVICE_FAILURE_ACTIONS : 
@@ -518,9 +479,6 @@ LPSERVICE_FAILURE_ACTIONS XWINDOWSSERVICEBASE::GetFailureActions(XCHAR* servicen
 * @brief      GetServiceName
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -536,9 +494,6 @@ XCHAR* XWINDOWSSERVICEBASE::GetServiceName()
 * @fn         void XWINDOWSSERVICEBASE::On_Start(DWORD argc, XCHAR** args)
 * @brief      On_Start
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  argc :
 * @param[in]  args :
@@ -559,9 +514,6 @@ void XWINDOWSSERVICEBASE::On_Start(DWORD argc, XCHAR** args)
 * @brief      On_Stop
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -577,9 +529,6 @@ void XWINDOWSSERVICEBASE::On_Stop()
 * @fn         void XWINDOWSSERVICEBASE::On_Pause()
 * @brief      On_Pause
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -597,9 +546,6 @@ void XWINDOWSSERVICEBASE::On_Pause()
 * @brief      On_Continue
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -616,9 +562,6 @@ void XWINDOWSSERVICEBASE::On_Continue()
 * @brief      On_Shutdown
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -633,9 +576,6 @@ void XWINDOWSSERVICEBASE::On_Shutdown()
 * @fn         void XWINDOWSSERVICEBASE::On_PowerEvent(DWORD eventtype)
 * @brief      On_PowerEvent
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  eventtype :
 *
@@ -655,9 +595,6 @@ void XWINDOWSSERVICEBASE::On_PowerEvent(DWORD eventtype)
 * @brief      On_SessionChange
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  eventtype :
 *
 * @return     void : does not return anything.
@@ -674,9 +611,6 @@ void XWINDOWSSERVICEBASE::On_SessionChange(DWORD eventtype)
 * @fn         void XWINDOWSSERVICEBASE::SetServiceStatus(XDWORD currentstate, XDWORD win32exitcode, XDWORD waithint)
 * @brief      SetServiceStatus
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  currentstate :
 * @param[in]  win32exitcode :
@@ -707,9 +641,6 @@ void XWINDOWSSERVICEBASE::SetServiceStatus(XDWORD currentstate, XDWORD win32exit
 * @fn         void XWINDOWSSERVICEBASE::WriteEventLogEntry(XCHAR* message, XWORD type)
 * @brief      WriteEventLogEntry
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  message :
 * @param[in]  type :
@@ -749,9 +680,6 @@ void XWINDOWSSERVICEBASE::WriteEventLogEntry(XCHAR* message, XWORD type)
 * @brief      WriteErrorLogEntry
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  function :
 * @param[in]  error :
 *
@@ -774,9 +702,6 @@ void XWINDOWSSERVICEBASE::WriteErrorLogEntry(XCHAR* function, XDWORD error)
 * @fn         bool XWINDOWSSERVICEBASE::GetServiceConfig(XCHAR* servicename)
 * @brief      GetServiceConfig
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  servicename : 
 *
@@ -834,9 +759,6 @@ bool XWINDOWSSERVICEBASE::GetServiceConfig(XCHAR* servicename)
 * @brief      SetConfig
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  servicename : 
 * @param[in]  type : 
 * @param[in]  starttype : 
@@ -880,9 +802,6 @@ bool XWINDOWSSERVICEBASE::SetConfig(XCHAR* servicename, XDWORD type, XDWORD star
 * @fn         bool XWINDOWSSERVICEBASE::GetServiceDescription(XCHAR* servicename)
 * @brief      GetServiceDescription
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  servicename : 
 *
@@ -940,9 +859,6 @@ bool XWINDOWSSERVICEBASE::GetServiceDescription(XCHAR* servicename)
 * @brief      SetDescription
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  servicename : 
 * @param[in]  description : 
 *
@@ -974,9 +890,6 @@ bool XWINDOWSSERVICEBASE::SetDescription(XCHAR* servicename, LPSERVICE_DESCRIPTI
 * @fn         bool XWINDOWSSERVICEBASE::GetServiceFaiilureActions(XCHAR* servicename)
 * @brief      GetServiceFaiilureActions
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  servicename : 
 *
@@ -1035,9 +948,6 @@ bool XWINDOWSSERVICEBASE::GetServiceFaiilureActions(XCHAR* servicename)
 * @brief      SetFailureActions
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  servicename : 
 * @param[in]  failureactions : 
 *
@@ -1071,9 +981,6 @@ bool XWINDOWSSERVICEBASE::SetFailureActions(XCHAR* servicename, LPSERVICE_FAILUR
 * @brief      ServiceMain
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  argc :
 * @param[in]  args :
 *
@@ -1102,9 +1009,6 @@ void WINAPI XWINDOWSSERVICEBASE::ServiceMain(DWORD argc, LPWSTR* argv)
 * @brief      ServiceCtrlHandler
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ctrl :
 *
 * @return     void : does not return anything.
@@ -1132,9 +1036,6 @@ void WINAPI XWINDOWSSERVICEBASE::ServiceCtrlHandler(DWORD control, DWORD eventty
 * @fn         void XWINDOWSSERVICEBASE::Start(XDWORD argc, XCHAR** args)
 * @brief      Start
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  argc :
 * @param[in]  args :
@@ -1174,9 +1075,6 @@ void XWINDOWSSERVICEBASE::Start(XDWORD argc,  XCHAR** args)
 * @brief      Pause
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1214,9 +1112,6 @@ void XWINDOWSSERVICEBASE::Pause()
 * @brief      Continue
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1253,9 +1148,6 @@ void XWINDOWSSERVICEBASE::Continue()
 * @brief      Shutdown
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1288,9 +1180,6 @@ void XWINDOWSSERVICEBASE::Shutdown()
 * @brief      PowerEvent
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  eventtype :
 *
 * @return     void : does not return anything.
@@ -1311,9 +1200,6 @@ void XWINDOWSSERVICEBASE::PowerEvent(DWORD eventtype)
 * @fn         void XWINDOWSSERVICEBASE::SessionChange(DWORD eventtype)
 * @brief      SessionChange
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  eventtype :
 *
@@ -1336,9 +1222,6 @@ void XWINDOWSSERVICEBASE::SessionChange(DWORD eventtype)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

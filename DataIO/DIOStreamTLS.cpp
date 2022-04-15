@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream TLS (Transport Layer Security) class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  DIOSTREAMCONFIG* : 
 *
 * @return     Does not return anything. 
@@ -83,9 +77,6 @@ DIOSTREAMTLS::DIOSTREAMTLS(DIOSTREAMTLSCONFIG* config)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -104,9 +95,6 @@ DIOSTREAMTLS::~DIOSTREAMTLS()
 * @brief      GetConfig
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMCONFIG* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -122,9 +110,6 @@ DIOSTREAMCONFIG* DIOSTREAMTLS::GetConfig()
 * @fn         bool DIOSTREAMTLS::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      SetConfig
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  config :
 *
@@ -148,9 +133,6 @@ bool DIOSTREAMTLS::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      GetConnectStatus
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSTATUS : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -170,9 +152,6 @@ DIOSTREAMSTATUS DIOSTREAMTLS::GetConnectStatus()
 * @brief      Open
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -190,9 +169,6 @@ bool DIOSTREAMTLS::Open()
 * @fn         bool DIOSTREAMTLS::HandShake_Client_Hello()
 * @brief      HandShake_Client_Hello
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -232,9 +208,6 @@ bool DIOSTREAMTLS::HandShake_Client_Hello()
 * @brief      Read
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer : 
 * @param[in]  size : 
 *
@@ -254,9 +227,6 @@ XDWORD DIOSTREAMTLS::Read(XBYTE* buffer, XDWORD size)
 * @fn         XDWORD DIOSTREAMTLS::Write(XBYTE* buffer, XDWORD size)
 * @brief      Write
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer : 
 * @param[in]  size : 
@@ -278,9 +248,6 @@ XDWORD DIOSTREAMTLS::Write(XBYTE* buffer, XDWORD size)
 * @brief      Disconnect
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -297,9 +264,6 @@ bool DIOSTREAMTLS::Disconnect()
 * @fn         bool DIOSTREAMTLS::Close()
 * @brief      Close
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -320,9 +284,6 @@ bool DIOSTREAMTLS::Close()
 * @brief      GetDIOStreamBase
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMTCPIP* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -339,9 +300,6 @@ DIOSTREAMTCPIP* DIOSTREAMTLS::GetDIOStreamBase()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

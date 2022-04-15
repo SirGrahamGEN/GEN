@@ -46,7 +46,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/01/2001 17:06:59
 //
 //  @return
@@ -65,7 +65,7 @@ XWINDOWSFILE::XWINDOWSFILE(): XFILE()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/01/2001 17:09:50
 //
 //  @return       void :
@@ -86,7 +86,7 @@ XWINDOWSFILE::~XWINDOWSFILE()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/06/2014 16:21:58
 //
 //  @return       bool :
@@ -111,7 +111,7 @@ bool XWINDOWSFILE::Exist(XCHAR* xpath)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/06/2014 16:27:07
 //
 //  @return       bool :
@@ -134,7 +134,7 @@ bool XWINDOWSFILE::Open(XCHAR* xpath, bool isreadonly)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/06/2014 16:39:47
 //
 //  @return       bool :
@@ -158,7 +158,7 @@ bool XWINDOWSFILE::Create(XCHAR* xpath)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/06/2014 16:21:28
 //
 //  @return       bool :
@@ -192,7 +192,7 @@ bool XWINDOWSFILE::SetSize(XQWORD size)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/06/2014 16:58:56
 //
 //  @return       bool :
@@ -222,7 +222,7 @@ bool XWINDOWSFILE::GetPosition(XQWORD& position)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/06/2014 17:11:15
 //
 //  @return       bool :
@@ -255,7 +255,7 @@ bool XWINDOWSFILE::SetPosition(XQWORD position)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/07/2002 13:15:07
 //
 //  @return       bool :
@@ -288,7 +288,7 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/07/2002 13:16:17
 //
 //  @return       bool :
@@ -332,7 +332,7 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/07/2002 13:16:40
 //
 //  @return       bool :
@@ -368,7 +368,7 @@ bool XWINDOWSFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/04/2000 12:25:42
 //
 //  @return       bool :
@@ -392,7 +392,7 @@ bool XWINDOWSFILE::Flush()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/01/2001 17:12:38
 //
 //  @return       bool :
@@ -427,7 +427,7 @@ bool XWINDOWSFILE::Close()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/01/2001 17:10:52
 //
 //  @return       bool :
@@ -458,7 +458,7 @@ bool XWINDOWSFILE::Erase(XCHAR* xpath,bool overwrite)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/04/2011 10:09:39
 //
 //  @return       bool :
@@ -482,7 +482,7 @@ bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/06/2014 17:59:09
 //
 //  @return       int :
@@ -516,7 +516,7 @@ bool XWINDOWSFILE::ActualizeSize()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/06/2014 16:55:39
 //
 //  @return       bool :

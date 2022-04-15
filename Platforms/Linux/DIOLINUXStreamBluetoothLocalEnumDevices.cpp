@@ -6,10 +6,7 @@
 * @brief      LINUX Data Input/Output Stream Bluetooth Local Enum Devices class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -80,9 +74,6 @@ DIOLINUXSTREAMBLUETOOTHLOCALENUMDEVICES::DIOLINUXSTREAMBLUETOOTHLOCALENUMDEVICES
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -98,9 +89,6 @@ DIOLINUXSTREAMBLUETOOTHLOCALENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHLOCALENUMDEVICE
 * @fn         bool DIOLINUXSTREAMBLUETOOTHLOCALENUMDEVICES::Search()
 * @brief      Search
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *

@@ -6,10 +6,7 @@
 * @brief      eXtended LINUX Sleep class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -67,9 +64,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -87,9 +81,6 @@ XLINUXSLEEP::XLINUXSLEEP()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -106,9 +97,6 @@ XLINUXSLEEP::~XLINUXSLEEP()
 * @fn         void XLINUXSLEEP::Seconds(int seconds)
 * @brief      Sleep n Seconds
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  seconds : n seconds to sleep
 *
@@ -128,9 +116,6 @@ void XLINUXSLEEP::Seconds(int seconds)
 * @brief      Sleep n MilliSeconds
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  milliseconds : n milliseconds to sleep
 *
 * @return     void : does not return anything.
@@ -148,9 +133,6 @@ void XLINUXSLEEP::MilliSeconds(int milliseconds)
 * @fn         void XLINUXSLEEP::MicroSeconds(int microseconds)
 * @brief      Sleep n MicroSeconds
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  microseconds : n microseconds to sleep
 *
@@ -170,9 +152,6 @@ void XLINUXSLEEP::MicroSeconds(int microseconds)
 * @fn         void XLINUXSLEEP::NanoSeconds(int nanoseconds)
 * @brief      Sleep n NanoSeconds
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nanoseconds : n nanoseconds to sleep
 *
@@ -203,9 +182,6 @@ void XLINUXSLEEP::NanoSeconds(int nanoseconds)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

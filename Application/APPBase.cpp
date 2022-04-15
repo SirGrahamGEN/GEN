@@ -6,10 +6,7 @@
 * @brief      Application Base class
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -70,9 +67,6 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -91,9 +85,6 @@ APPBASE::APPBASE()
 * @note       VIRTUAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -110,9 +101,6 @@ APPBASE::~APPBASE()
 * @fn         bool APPBASE::Ini(XVECTOR<XSTRING*>* execparams)
 * @brief      Ini
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  execparams :
 *
@@ -148,9 +136,6 @@ bool APPBASE::Ini(XVECTOR<XSTRING*>* execparams)
 * @brief      Update Step application
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -174,9 +159,6 @@ bool APPBASE::UpdateStep()
 * @fn         bool APPBASE::End()
 * @brief      End application function
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -211,9 +193,6 @@ bool APPBASE::End()
 * @brief      Obtain the parameters of the application in command line (all on strings)
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<XSTRING*>* : Vector of strings with the params
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -231,9 +210,6 @@ XVECTOR<XSTRING*>*  APPBASE::GetExecParams()
 * @brief      GetApplicationMode
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     APPBASE_APPLICATIONMODE_TYPE : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -250,9 +226,6 @@ APPBASE_APPLICATIONMODE_TYPE APPBASE::GetApplicationMode()
 * @fn         void APPBASE::SetApplicationMode(APPBASE_APPLICATIONMODE_TYPE applicationmode)
 * @brief      SetApplicationMode
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationmode : 
 *
@@ -272,9 +245,6 @@ void APPBASE::SetApplicationMode(APPBASE_APPLICATIONMODE_TYPE applicationmode)
 * @brief      GetApplicationHandle
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -291,9 +261,6 @@ void* APPBASE::GetApplicationHandle()
 * @fn         void APPBASE::SetApplicationHandle(void* handle)
 * @brief      SetApplicationHandle
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  handle : 
 *
@@ -313,9 +280,6 @@ void  APPBASE::SetApplicationHandle(void* handle)
 * @brief      Get Application name
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : String pointer with the name of the application
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -331,9 +295,6 @@ XSTRING* APPBASE::GetApplicationName()
 * @fn         void APPBASE::SetApplicationName(XCHAR* name)
 * @brief      Set name of the application
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name : name of the application
 *
@@ -353,9 +314,6 @@ void APPBASE::SetApplicationName(XCHAR* name)
 * @brief      GetApplicationExecutable
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -372,9 +330,6 @@ XSTRING* APPBASE::GetApplicationExecutable()
 * @fn         void APPBASE::SetApplicationExecutable(XCHAR* name)
 * @brief      SetApplicationExecutable
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  name : 
 *
@@ -394,9 +349,6 @@ void APPBASE::SetApplicationExecutable(XCHAR* name)
 * @brief      Get Application ID
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : String with the ID of the aplication
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -412,9 +364,6 @@ XSTRING* APPBASE::GetApplicationID()
 * @fn         XTIMER* APPBASE::GetTimerGlobal()
 * @brief      Get timer global for the application
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XTIMER* : XTIMER class global
 *
@@ -432,9 +381,6 @@ XTIMER* APPBASE::GetTimerGlobal()
 * @brief      Ge the exit type for the application
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     APPBASE_EXITTYPE : status of the exit
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -450,9 +396,6 @@ APPBASE_EXITTYPE APPBASE::GetExitType()
 * @fn         void APPBASE::SetExittype(APPBASEEXITTYPE exitstatus)
 * @brief      Set the exit type for the application
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  exitstatus : status of the exit (APPBASEEXITTYPE enum)
 *
@@ -473,9 +416,6 @@ void APPBASE::SetExitType(APPBASE_EXITTYPE exittype)
 * @fn         bool APPBASE::GetExitTypeString(XSTRING exittypestring)
 * @brief      GetExitTypeString
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  exittypestring :
 *
@@ -510,9 +450,6 @@ bool APPBASE::GetExitTypeString(XSTRING& exittypestring)
 * @brief      GetSystemChangeStatus
 * @ingroup    APPLICATION
 *
-* @author
-* @date       01/03/2016 12:00
-*
 * @return     XSYSTEM_CHANGESTATUSTYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -528,9 +465,6 @@ XSYSTEM_CHANGESTATUSTYPE APPBASE::GetSystemChangeStatus()
 * @fn         void APPBASE::SetSystemChangeStatus(XSYSTEM_CHANGESTATUSTYPE type)
 * @brief      SetSystemChangeStatus
 * @ingroup    APPLICATION
-*
-* @author
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -550,9 +484,6 @@ void APPBASE::SetSystemChangeStatus(XSYSTEM_CHANGESTATUSTYPE systemchangestatust
 * @brief      AppProc_PlatformIni
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -569,9 +500,6 @@ bool APPBASE::AppProc_PlatformIni()
 * @brief      Ini callback for this class to use for the application class real
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -590,9 +518,6 @@ bool APPBASE::AppProc_Ini()
 * @note       VIRTUAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -608,9 +533,6 @@ bool APPBASE::AppProc_FirstUpdate()
 * @brief      Update callback for this class to use for the application class real
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -629,9 +551,6 @@ bool APPBASE::AppProc_Update()
 * @note       VIRTUAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -647,9 +566,6 @@ bool APPBASE::AppProc_LastUpdate()
 * @fn         bool APPBASE::AppProc_EndBlockedResources()
 * @brief      AppProc_EndBlockedResources
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -667,9 +583,6 @@ bool APPBASE::AppProc_EndBlockedResources()
 * @note       VIRTUAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -685,9 +598,6 @@ bool APPBASE::AppProc_End()
 * @fn         bool APPBASE::AppProc_PlatformEnd()
 * @brief      AppProc_PlatformEnd
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -705,9 +615,6 @@ bool APPBASE::AppProc_PlatformEnd()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -42,7 +42,7 @@ bool MEDIAFRAMEREADERLIBAV::registered = false;
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:51:22
 //	
 //	@return 			int : 
@@ -65,7 +65,7 @@ static int interrupt_cb(void *unused)
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:51:22
 //	
 //	@return 			int : 
@@ -98,7 +98,7 @@ static int file_read(void *h, XBYTE* buf, int size)
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:51:22
 //	
 //	@return 			long long : 
@@ -142,7 +142,7 @@ static long long file_seek(void *h, long long pos, int whence)
 //	
 //	Class Constructor VIDEOH264FRAMEREADERLIBAV
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:51:10
 //	
 */
@@ -163,7 +163,7 @@ MEDIAFRAMEREADERLIBAV::MEDIAFRAMEREADERLIBAV()
 //	
 //	 Class Destructor VIDEOH264FRAMEREADERLIBAV
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:51:15
 //	
 */
@@ -191,7 +191,7 @@ MEDIAFRAMEREADERLIBAV::~MEDIAFRAMEREADERLIBAV()
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:51:22
 //	
 //	@return 			int : 
@@ -327,7 +327,7 @@ int MEDIAFRAMEREADERLIBAV::init_demuxer(XSTRING* filename)
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			16/01/2017 10:15:07
 //	
 */
@@ -367,7 +367,7 @@ void MEDIAFRAMEREADERLIBAV::finish_demuxer()
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:51:32
 //	
 //	@return 			bool : 
@@ -392,7 +392,7 @@ bool MEDIAFRAMEREADERLIBAV::OpenFile(XCHAR* filename)
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:51:38
 //	
 //	@return 			bool : 
@@ -428,7 +428,7 @@ bool MEDIAFRAMEREADERLIBAV::OpenFile(XSTRING* filename)
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:51:45
 //	
 //	@return 			bool : 
@@ -547,7 +547,7 @@ bool MEDIAFRAMEREADERLIBAV::ReadFrame(MEDIAPACKET* packet)
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:45:03
 //	
 //	@return 			bool : 
@@ -572,7 +572,7 @@ bool MEDIAFRAMEREADERLIBAV::ReadStream(XVECTOR<XBYTE> & xvector, XDWORD size)
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:44:57
 //	
 //	@return 			bool : 
@@ -595,7 +595,7 @@ bool MEDIAFRAMEREADERLIBAV::IsEndOfStream()
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:44:51
 //	
 */
@@ -617,7 +617,7 @@ void MEDIAFRAMEREADERLIBAV::ResetStream()
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:44:45
 //	
 //	@return 			XVECTOR<XBYTE>* : 
@@ -639,7 +639,7 @@ XVECTOR<XBYTE>* MEDIAFRAMEREADERLIBAV::GetSPS()
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			24/05/2016 11:44:39
 //	
 //	@return 			XVECTOR<XBYTE>* : 

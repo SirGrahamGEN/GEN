@@ -6,10 +6,7 @@
 * @brief      eXtended WINDOWS platform Factory
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -89,9 +86,6 @@ DELETEFUNC(XWINDOWSFACTORY, XMUTEX    , XWINDOWSMUTEX     , Delete_Mutex)
 * @brief      CreateThread
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  groupID : group ID of threads
 * @param[in]  ID : ID for thread
 * @param[in]  function : callback to thread
@@ -113,9 +107,6 @@ XTHREAD* XWINDOWSFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID, XTHREA
 * @fn         bool XWINDOWSFACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
 * @brief      DeleteThread
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  groupID : group ID of threads
 * @param[in]  xthread : thread to delete.

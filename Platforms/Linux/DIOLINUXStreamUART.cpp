@@ -61,7 +61,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2013 23:11:51
 //
 //  @return
@@ -105,7 +105,7 @@ DIOLINUXSTREAMUART::DIOLINUXSTREAMUART() : DIOSTREAMUART() , XFSMACHINE(0)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -129,7 +129,7 @@ DIOLINUXSTREAMUART::~DIOLINUXSTREAMUART()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       DIOSTREAMSTATUS :
@@ -149,7 +149,7 @@ DIOSTREAMSTATUS DIOLINUXSTREAMUART::GetConnectStatus()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -209,7 +209,7 @@ bool DIOLINUXSTREAMUART::Open()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/11/2014 12:37:49
 //
 //  @return       bool :
@@ -352,7 +352,7 @@ bool DIOLINUXSTREAMUART::Config(XWORD mask)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/06/2015 13:25:13
 //
 //  @return       XDWORD :
@@ -411,7 +411,7 @@ XDWORD DIOLINUXSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/06/2015 13:25:02
 //
 //  @return       XDWORD :
@@ -452,7 +452,7 @@ XDWORD DIOLINUXSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -478,7 +478,7 @@ bool DIOLINUXSTREAMUART::Close()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -502,7 +502,7 @@ bool DIOLINUXSTREAMUART::GetCTS()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -527,7 +527,7 @@ bool DIOLINUXSTREAMUART::GetDSR()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -554,7 +554,7 @@ bool DIOLINUXSTREAMUART::GetRing()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/11/2014 17:29:42
 //
 //  @return       bool :
@@ -576,7 +576,7 @@ bool DIOLINUXSTREAMUART::GetRLSD()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -606,7 +606,7 @@ bool DIOLINUXSTREAMUART::SetRTS(bool on)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -635,7 +635,7 @@ bool DIOLINUXSTREAMUART::SetDTR(bool on)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -657,7 +657,7 @@ bool DIOLINUXSTREAMUART::CleanBuffers()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -678,7 +678,7 @@ void DIOLINUXSTREAMUART::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/07/2012 13:56:19
 //
 //  @return       void :

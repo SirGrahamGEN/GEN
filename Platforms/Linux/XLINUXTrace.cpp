@@ -6,10 +6,7 @@
 * @brief      eXtended LINUX debug trace class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -72,9 +69,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -96,9 +90,6 @@ XLINUXTRACE::XLINUXTRACE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -131,9 +122,6 @@ XLINUXTRACE::~XLINUXTRACE()
 * @fn         void XLINUXTRACE::PrintSpecial(XDEBUGTRACETARGET* target, XBYTE level, XCHAR* string)
 * @brief      Print Special aim
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
@@ -202,9 +190,6 @@ void XLINUXTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string
 * @fn         void XLINUXTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @brief      Print File aim
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
@@ -291,9 +276,6 @@ void XLINUXTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @brief      Print Net aim
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
 * @param[in]  string : string with the line
@@ -337,9 +319,6 @@ void XLINUXTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @fn         bool XLINUXTRACE::GetHandleNet(XTRACE_TARGET* target)
 * @brief      Get Handle NET (LINUX)
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  target : target of debug
 *
@@ -394,9 +373,6 @@ bool XLINUXTRACE::GetHandleNet(XTRACE_TARGET* target)
 * @brief      Close Handle NET (LINUX)
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  target : target of debug
 *
 * @return     bool : true if is succesful.
@@ -425,9 +401,6 @@ bool XLINUXTRACE::CloseHandleNet(XTRACE_TARGET* target)
 * @brief      Lock (Mutex to print)
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -446,9 +419,6 @@ bool XLINUXTRACE::Lock()
 * @fn         bool XLINUXTRACE::UnLock()
 * @brief      Unlock (Mutex to print)
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *

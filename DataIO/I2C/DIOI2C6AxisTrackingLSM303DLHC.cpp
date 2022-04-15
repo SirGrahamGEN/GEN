@@ -6,10 +6,7 @@
 * @brief      Data Input/Output I2C 6 axis tracking LSM303DLHC
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -68,9 +65,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -88,9 +82,6 @@ DIOI2CLSM303DLHCVECTOR::DIOI2CLSM303DLHCVECTOR()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -106,9 +97,6 @@ DIOI2CLSM303DLHCVECTOR::~DIOI2CLSM303DLHCVECTOR()
 * @fn         void DIOI2CLSM303DLHCVECTOR::Cross(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2CLSM303DLHCVECTOR& b, DIOI2CLSM303DLHCVECTOR& out)
 * @brief      Cross
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  DIOI2CLSM303DLHCVECTOR& a :
 * @param[in]  DIOI2CLSM303DLHCVECTOR& b :
@@ -132,9 +120,6 @@ void DIOI2CLSM303DLHCVECTOR::Cross(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2C
 * @brief      Dot
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  DIOI2CLSM303DLHCVECTOR& a :
 * @param[in]  DIOI2CLSM303DLHCVECTOR& b :
 *
@@ -153,9 +138,6 @@ float DIOI2CLSM303DLHCVECTOR::Dot(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2CL
 * @fn         void DIOI2CLSM303DLHCVECTOR::Normalize(DIOI2CLSM303DLHCVECTOR& a)
 * @brief      Normalize
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  a :
 *
@@ -180,9 +162,6 @@ void DIOI2CLSM303DLHCVECTOR::Normalize(DIOI2CLSM303DLHCVECTOR& a)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -206,9 +185,6 @@ void DIOI2CLSM303DLHCVECTOR::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -225,9 +201,6 @@ DIOI2CLSM303DLHC::DIOI2CLSM303DLHC() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -247,9 +220,6 @@ DIOI2CLSM303DLHC::~DIOI2CLSM303DLHC()
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -267,9 +237,6 @@ bool DIOI2CLSM303DLHC::End()
 * @fn         bool DIOI2CLSM303DLHC::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -295,9 +262,6 @@ bool DIOI2CLSM303DLHC::IniDevice()
 * @fn         bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XBYTE& value)
 * @brief      ReadRegister
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  reg :
 * @param[in]  value :
@@ -331,9 +295,6 @@ bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XBYTE& value)
 * @brief      ReadRegister
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  reg :
 * @param[in]  value :
 *
@@ -366,9 +327,6 @@ bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XWORD& value)
 * @brief      WriteRegister
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  reg :
 * @param[in]  value :
 *
@@ -400,9 +358,6 @@ bool DIOI2CLSM303DLHC::WriteRegister(XBYTE reg, XBYTE value)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -426,9 +381,6 @@ void DIOI2CLSM303DLHC::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -446,9 +398,6 @@ DIOI2C3DCOMPASSLSM303DLHC::DIOI2C3DCOMPASSLSM303DLHC()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -465,9 +414,6 @@ DIOI2C3DCOMPASSLSM303DLHC::~DIOI2C3DCOMPASSLSM303DLHC()
 * @fn         bool DIOI2C3DACCELEROMETERLSM303DLHC::Configure()
 * @brief      Configure
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -500,9 +446,6 @@ bool DIOI2C3DACCELEROMETERLSM303DLHC::Configure()
 * @fn         bool DIOI2C3DACCELEROMETERLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z)
 * @brief      Read
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  a_x :
 * @param[in]  a_y :
@@ -542,9 +485,6 @@ bool DIOI2C3DACCELEROMETERLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -562,9 +502,6 @@ DIOI2C3DACCELEROMETERLSM303DLHC::DIOI2C3DACCELEROMETERLSM303DLHC()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -580,9 +517,6 @@ DIOI2C3DACCELEROMETERLSM303DLHC::~DIOI2C3DACCELEROMETERLSM303DLHC()
 * @fn         bool DIOI2C3DCOMPASSLSM303DLHC::Configure()
 * @brief      Configure
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -614,9 +548,6 @@ bool DIOI2C3DCOMPASSLSM303DLHC::Configure()
 * @fn         bool DIOI2C3DCOMPASSLSM303DLHC::Read(XWORD& c_x, XWORD& c_y, XWORD& c_z)
 * @brief      Read
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  c_x :
 * @param[in]  c_y :
@@ -654,9 +585,6 @@ bool DIOI2C3DCOMPASSLSM303DLHC::Read(XWORD& c_x, XWORD& c_y, XWORD& c_z)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -677,9 +605,6 @@ DIOI2C6AXISTRACKINGLSM303DLHC::DIOI2C6AXISTRACKINGLSM303DLHC()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -698,9 +623,6 @@ DIOI2C6AXISTRACKINGLSM303DLHC::~DIOI2C6AXISTRACKINGLSM303DLHC()
 * @fn         bool DIOI2C6AXISTRACKINGLSM303DLHC::Ini(XCHAR* localdevicename, int remotedeviceaddressaccelerometer, int remotedeviceaddresscompass, int timeout)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  localdevicename :
 * @param[in]  remotedeviceaddressaccelerometer :
@@ -731,9 +653,6 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Ini(XCHAR* localdevicename, int remotedevice
 * @fn         bool DIOI2C6AXISTRACKINGLSM303DLHC::Ini(int port, int remotedeviceaddressaccelerometer, int remotedeviceaddresscompass, int timeout)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  port :
 * @param[in]  remotedeviceaddressaccelerometer :
@@ -768,9 +687,6 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Ini(int port,  int remotedeviceaddressaccele
 * @brief      SetOffset
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x :
 * @param[in]  y :
 * @param[in]  z :
@@ -793,9 +709,6 @@ void DIOI2C6AXISTRACKINGLSM303DLHC::SetOffset(float x, float y, float z)
 * @brief      SetScale
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x :
 * @param[in]  y :
 * @param[in]  z :
@@ -817,9 +730,6 @@ void DIOI2C6AXISTRACKINGLSM303DLHC::SetScale(float x, float y, float z)
 * @fn         bool DIOI2C6AXISTRACKINGLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z, XWORD& c_x, XWORD& c_y, XWORD& c_z)
 * @brief      Read
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  a_x :
 * @param[in]  a_y :
@@ -851,9 +761,6 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z, XWO
 * @fn         bool DIOI2C6AXISTRACKINGLSM303DLHC::Read(DIOI2CLSM303DLHCVECTOR& a, DIOI2CLSM303DLHCVECTOR& c)
 * @brief      Read
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  a :
 * @param[in]  c :
@@ -899,9 +806,6 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Read(DIOI2CLSM303DLHCVECTOR& a, DIOI2CLSM303
 * @brief      Heading
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -923,9 +827,6 @@ float DIOI2C6AXISTRACKINGLSM303DLHC::Heading()
 * @fn         float DIOI2C6AXISTRACKINGLSM303DLHC::Heading(DIOI2CLSM303DLHCVECTOR& from)
 * @brief      Heading
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  from :
 *
@@ -973,9 +874,6 @@ float DIOI2C6AXISTRACKINGLSM303DLHC::Heading(DIOI2CLSM303DLHCVECTOR& from)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -998,9 +896,6 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

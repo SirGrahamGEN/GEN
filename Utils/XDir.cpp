@@ -6,10 +6,7 @@
 * @brief      eXtended dir class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ XDIRELEMENT::XDIRELEMENT()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -96,9 +87,6 @@ XDIRELEMENT::~XDIRELEMENT()
 * @brief      GetType
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDIRELEMENTTYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -114,9 +102,6 @@ XDIRELEMENTTYPE XDIRELEMENT::GetType()
 * @fn         void XDIRELEMENT::SetType(XDIRELEMENTTYPE type)
 * @brief      SetType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -136,9 +121,6 @@ void XDIRELEMENT::SetType(XDIRELEMENTTYPE type)
 * @brief      GetPathSearch
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -154,9 +136,6 @@ XPATH* XDIRELEMENT::GetPathSearch()
 * @fn         XSTRING* XDIRELEMENT::GetPatternSearch()
 * @brief      GetPatternSearch
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -174,9 +153,6 @@ XSTRING* XDIRELEMENT::GetPatternSearch()
 * @brief      GetNameFile
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -192,10 +168,7 @@ XPATH* XDIRELEMENT::GetNameFile()
 * @fn         XDATETIME* XDIRELEMENT::GetDateTimeFile_Created()
 * @brief      GetDateTimeFile_Created
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDATETIME* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -211,10 +184,7 @@ XDATETIME* XDIRELEMENT::GetDateTimeFile_Created()
 * @fn         XDATETIME* XDIRELEMENT::GetDateTimeFile_Modificated()
 * @brief      GetDateTimeFile_Modificated
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDATETIME* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -230,10 +200,7 @@ XDATETIME* XDIRELEMENT::GetDateTimeFile_Modificated()
 * @fn         XDATETIME* XDIRELEMENT::GetDateTimeFile_LastAccess()
 * @brief      GetDateTimeFile_LastAccess
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDATETIME* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -250,9 +217,6 @@ XDATETIME* XDIRELEMENT::GetDateTimeFile_LastAccess()
 * @brief      GetHandle
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -268,9 +232,6 @@ void* XDIRELEMENT::GetHandle()
 * @fn         void XDIRELEMENT::SetHandle(void* handle)
 * @brief      SetHandle
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  handle :
 *
@@ -290,9 +251,6 @@ void XDIRELEMENT::SetHandle(void* handle)
 * @brief      GetFindFileData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -308,9 +266,6 @@ void* XDIRELEMENT::GetFindFileData()
 * @fn         void XDIRELEMENT::SetFindFileData(void* findfiledata)
 * @brief      SetFindFileData
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  findfiledata :
 *
@@ -329,9 +284,6 @@ void XDIRELEMENT::SetFindFileData(void* findfiledata)
 * @fn         bool XDIRELEMENT::DeleteFindFileData()
 * @brief      DeleteFindFileData
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -356,9 +308,6 @@ bool XDIRELEMENT::DeleteFindFileData()
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -378,9 +327,6 @@ void XDIRELEMENT::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -398,9 +344,6 @@ XDIR::XDIR()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -416,9 +359,6 @@ XDIR::~XDIR()
 * @fn         bool XDIR::Exist(XPATH& xpath)
 * @brief      Exist
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -437,10 +377,7 @@ bool XDIR::Exist(XPATH& xpath)
 * @fn         bool XDIR::Make(XPATH& xpath, bool recursive)
 * @brief      Make
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xpath : 
 * @param[in]  recursive : 
 * 
@@ -460,9 +397,6 @@ bool XDIR::Make(XPATH& xpath, bool recursive)
 * @brief      ChangeTo
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 *
 * @return     bool : true if is succesful.
@@ -480,9 +414,6 @@ bool XDIR::ChangeTo(XPATH& xpath)
 * @fn         bool XDIR::Delete(XPATH& xpath,bool all)
 * @brief      Delete
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  all :
@@ -502,9 +433,6 @@ bool XDIR::Delete(XPATH& xpath,bool all)
 * @fn         bool XDIR::FirstSearch(XPATH& xpath,XSTRING& patternsearch,XDIRELEMENT* searchelement)
 * @brief      FirstSearch
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  patternsearch :
@@ -526,9 +454,6 @@ bool XDIR::FirstSearch(XPATH& xpath,XSTRING& patternsearch,XDIRELEMENT* searchel
 * @brief      FirstSearch
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 * @param[in]  patternsearch :
 * @param[in]  searchelement :
@@ -549,9 +474,6 @@ bool XDIR::FirstSearch(XPATH& xpath,XCHAR* patternsearch,XDIRELEMENT* searchelem
 * @brief      FirstSearch
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 * @param[in]  patternsearch :
 * @param[in]  searchelement :
@@ -571,9 +493,6 @@ bool XDIR::FirstSearch(XCHAR* xpath,XSTRING& patternsearch,XDIRELEMENT* searchel
 * @fn         bool XDIR::Copy(XPATH& xpathsource,XPATH& xpathtarget)
 * @brief      Copy
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpathsource :
 * @param[in]  xpathtarget :
@@ -638,9 +557,6 @@ bool XDIR::Copy(XPATH& xpathsource,XPATH& xpathtarget)
 * @brief      Copy
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpathsource :
 * @param[in]  xpathtarget :
 *
@@ -664,9 +580,6 @@ bool XDIR::Copy(XCHAR* xpathsource,XPATH& xpathtarget)
 * @brief      Copy
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpathsource :
 * @param[in]  xpathtarget :
 *
@@ -689,9 +602,6 @@ bool XDIR::Copy(XPATH& xpathsource,XCHAR* xpathtarget)
 * @fn         bool XDIR::Copy(XCHAR* xpathsource,XCHAR* xpathtarget)
 * @brief      Copy
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpathsource :
 * @param[in]  xpathtarget :
@@ -719,9 +629,6 @@ bool XDIR::Copy(XCHAR* xpathsource,XCHAR* xpathtarget)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

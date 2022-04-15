@@ -37,7 +37,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2014 17:16:36
 //
 
@@ -61,7 +61,7 @@ CIPHERKEYSYMMETRICAL::CIPHERKEYSYMMETRICAL() : CIPHERKEY()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2014 17:18:17
 //
 */
@@ -82,7 +82,7 @@ CIPHERKEYSYMMETRICAL::~CIPHERKEYSYMMETRICAL()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2014 17:20:53
 //
 //  @return       XBYTE* :
@@ -108,7 +108,7 @@ XBYTE* CIPHERKEYSYMMETRICAL::Get(int& size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2014 17:21:02
 //
 //  @return       XBUFFER* :
@@ -128,7 +128,7 @@ XBUFFER* CIPHERKEYSYMMETRICAL::Get()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2014 17:21:14
 //
 //  @return       bool :
@@ -156,7 +156,7 @@ bool CIPHERKEYSYMMETRICAL::Set(XBYTE* key, XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2014 17:21:25
 //
 //  @return       bool :
@@ -182,7 +182,7 @@ bool CIPHERKEYSYMMETRICAL::Set(XBUFFER& key)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/04/2002 14:50:01
 //
 //  @return       void :
@@ -206,7 +206,7 @@ CIPHER::CIPHER()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/04/2002 14:52:00
 //
 //  @return       void :
@@ -238,7 +238,7 @@ CIPHER::~CIPHER()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2014 16:51:14
 //
 //  @return       CIPHERKEY* :
@@ -269,7 +269,7 @@ CIPHERKEY* CIPHER::GetKey(CIPHERKEYTYPE type)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/03/2014 13:50:42
 //
 //  @return       bool :
@@ -304,7 +304,7 @@ bool CIPHER::SetKey(CIPHERKEY* key, bool integritycheck)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/03/2013 22:41:29
 //
 //  @return       XBYTE* :
@@ -327,7 +327,7 @@ XBYTE* CIPHER::GetInitVector()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/03/2013 22:50:04
 //
 //  @return       bool :
@@ -354,7 +354,7 @@ bool CIPHER::SetInitVector(XBYTE* vector, XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/03/2013 22:41:43
 //
 //  @return       bool :
@@ -377,7 +377,7 @@ bool CIPHER::SetInitVector(XBUFFER& vector)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/04/2002 15:14:48
 //
 //  @return       bool :
@@ -415,7 +415,7 @@ bool CIPHER::Cipher(XBYTE* input,XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/03/2013 19:35:53
 //
 //  @return       bool :
@@ -435,7 +435,7 @@ bool CIPHER::Cipher(XBUFFER& input)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/04/2002 15:16:47
 //
 //  @return       bool :
@@ -457,7 +457,7 @@ bool CIPHER::Uncipher(XBYTE* input,XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/03/2013 19:35:53
 //
 //  @return       bool :
@@ -478,7 +478,7 @@ bool CIPHER::Uncipher(XBUFFER& input)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/03/2013 19:37:30
 //
 //  @return       XBYTE* :
@@ -503,7 +503,7 @@ XBYTE* CIPHER::GetResult(int& resultsize)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/03/2013 19:37:34
 //
 //  @return       XBUFFER* :
@@ -523,7 +523,7 @@ XBUFFER* CIPHER::GetResult()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/03/2013 17:36:40
 //
 //  @return       bool :
@@ -558,7 +558,7 @@ bool CIPHER::GetResultString(XSTRING& stringhex)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/04/2002 15:16:47
 //
 //  @return
@@ -586,7 +586,7 @@ void CIPHER::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/03/2013 22:46:50
 //
 //  @return       CIPHERKEY* :
@@ -609,7 +609,7 @@ CIPHERKEY* CIPHER::GetKey(int index)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/03/2013 22:47:46
 //
 //  @return       bool :

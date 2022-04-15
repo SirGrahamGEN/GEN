@@ -6,7 +6,7 @@
 //
 //  Compression/Descompression LZW Class
 //
-//  @author  Diego Martinez
+//  ""
 //  @version 22/06/2016
 */
 //  GEN  Copyright (C).  All right reserved.

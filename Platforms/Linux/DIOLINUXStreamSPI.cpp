@@ -4,7 +4,7 @@
 //  Data Input/Output Stream SPI class
 //
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 12/3/2003
 //
 //  GEN  Copyright (C).  All right reserved.
@@ -47,7 +47,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2013 23:14:54
 //
 //  @return
@@ -68,7 +68,7 @@ DIOLINUXSTREAMSPI::DIOLINUXSTREAMSPI() : DIOSTREAMSPI()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/11/2003 10:19:33
 //
 //  @return
@@ -87,7 +87,7 @@ DIOLINUXSTREAMSPI::~DIOLINUXSTREAMSPI()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/09/2012 15:33:40
 //
 //  @return       bool :
@@ -133,7 +133,7 @@ bool DIOLINUXSTREAMSPI::Open()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/09/2012 15:33:45
 //
 //  @return       bool :
@@ -161,7 +161,7 @@ bool DIOLINUXSTREAMSPI::Close()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/12/2012 0:53:13
 //
 //  @return       bool :
@@ -210,7 +210,7 @@ bool DIOLINUXSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, XD
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/02/2013 19:09:26
 //
 //  @return       void :
@@ -234,7 +234,7 @@ void DIOLINUXSTREAMSPI::Sleep(int count)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/11/2003 10:19:50
 //
 //  @return       void :

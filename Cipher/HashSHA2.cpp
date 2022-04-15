@@ -205,7 +205,7 @@ XDWORD HASHSHA2::Sha256_k[64] = { 0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 18:16:26
 //
 //  @return
@@ -237,7 +237,7 @@ HASHSHA2::HASHSHA2(HASHSHA2TYPE type) : HASH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:01
 //
 //  @return
@@ -257,7 +257,7 @@ HASHSHA2::~HASHSHA2()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 16:28:42
 //
 //  @return       bool :
@@ -306,7 +306,7 @@ bool HASHSHA2::Do(XBYTE* input, XQWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/04/2013 1:01:29
 //
 //  @return       int :
@@ -334,7 +334,7 @@ int HASHSHA2::GetDefaultSize()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:56
 //
 //  @return       void :
@@ -354,7 +354,7 @@ void HASHSHA2::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 21:56:05
 //
 //  @return       void :
@@ -423,7 +423,7 @@ void HASHSHA2::Sha2_256_Transf(HASHSHA2_256_CTX* ctx, XBYTE* input, XDWORD block
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:03:03
 //
 //  @return       void :
@@ -449,7 +449,7 @@ void HASHSHA2::Sha2_256(XBYTE* input, XDWORD size, XBYTE* digest)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:05:27
 //
 //  @return       void :
@@ -477,7 +477,7 @@ void HASHSHA2::Sha2_256_Ini(HASHSHA2_256_CTX* ctx)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:09:48
 //
 //  @return       void :
@@ -527,7 +527,7 @@ void HASHSHA2::Sha2_256_Update(HASHSHA2_256_CTX* ctx, XBYTE* input, XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:16:54
 //
 //  @return       void :
@@ -568,7 +568,7 @@ void HASHSHA2::Sha2_256_End(HASHSHA2_256_CTX* ctx, XBYTE* digest)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:21:02
 //
 //  @return       void :
@@ -637,7 +637,7 @@ void HASHSHA2::Sha2_512_Transf(HASHSHA2_512_CTX* ctx, XBYTE* input, XDWORD block
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:29:39
 //
 //  @return       void :
@@ -663,7 +663,7 @@ void HASHSHA2::Sha2_512(XBYTE* input, XDWORD size, XBYTE* digest)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:31:55
 //
 //  @return       void :
@@ -692,7 +692,7 @@ void HASHSHA2::Sha2_512_Ini(HASHSHA2_512_CTX* ctx)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:35:44
 //
 //  @return       void :
@@ -743,7 +743,7 @@ void HASHSHA2::Sha2_512_Update(HASHSHA2_512_CTX* ctx, XBYTE* input, XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:37:39
 //
 //  @return       void :
@@ -785,7 +785,7 @@ void HASHSHA2::Sha2_512_End(HASHSHA2_512_CTX* ctx, XBYTE* digest)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:43:00
 //
 //  @return       void :
@@ -811,7 +811,7 @@ void HASHSHA2::Sha2_384(XBYTE* input, XDWORD size, XBYTE* digest)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:44:22
 //
 //  @return       void :
@@ -840,7 +840,7 @@ void HASHSHA2::Sha2_384_Ini(HASHSHA2_384_CTX* ctx)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:46:58
 //
 //  @return       void :
@@ -890,7 +890,7 @@ void HASHSHA2::Sha2_384_Update(HASHSHA2_384_CTX* ctx, XBYTE* input, XDWORD len)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:48:29
 //
 //  @return       void :
@@ -931,7 +931,7 @@ void HASHSHA2::Sha2_384_End(HASHSHA2_384_CTX* ctx, XBYTE* digest)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:50:05
 //
 //  @return       void :
@@ -957,7 +957,7 @@ void HASHSHA2::Sha2_224(XBYTE* input, XDWORD len, XBYTE* digest)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:50:57
 //
 //  @return       void :
@@ -985,7 +985,7 @@ void HASHSHA2::Sha2_224_Ini(HASHSHA2_224_CTX* ctx)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:53:51
 //
 //  @return       void :
@@ -1038,7 +1038,7 @@ void HASHSHA2::Sha2_224_Update(HASHSHA2_224_CTX* ctx, XBYTE* input, XDWORD len)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 22:55:35
 //
 //  @return       void :

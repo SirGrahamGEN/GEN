@@ -38,7 +38,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:01
 //
 //  @return
@@ -59,7 +59,7 @@ DIOWINDOWSSTREAMUARTLOCALENUMDEVICES::DIOWINDOWSSTREAMUARTLOCALENUMDEVICES() : D
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:12
 //
 //  @return
@@ -78,7 +78,7 @@ DIOWINDOWSSTREAMUARTLOCALENUMDEVICES::~DIOWINDOWSSTREAMUARTLOCALENUMDEVICES()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:27
 //
 //  @return       bool :

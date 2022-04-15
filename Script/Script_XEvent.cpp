@@ -6,10 +6,7 @@
 * @brief      Script XEvent
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,9 +48,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  subject :
 * @param[in]  type :
 * @param[in]  family :
@@ -75,9 +69,6 @@ SCRIPT_XEVENT::SCRIPT_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEV
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ SCRIPT_XEVENT::~SCRIPT_XEVENT()
 * @fn         XSTRING* SCRIPT_XEVENT::GetNameScript()
 * @brief      GetNameScript
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -113,9 +101,6 @@ XSTRING* SCRIPT_XEVENT::GetNameScript()
 * @brief      GetError
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -131,9 +116,6 @@ int SCRIPT_XEVENT::GetError()
 * @fn         void SCRIPT_XEVENT::SetError(SCRIPT_G_ERRORCODE error)
 * @brief      SetError
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  error :
 *
@@ -153,9 +135,6 @@ void SCRIPT_XEVENT::SetError(int error)
 * @brief      GetErrorText
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -172,9 +151,6 @@ XSTRING* SCRIPT_XEVENT::GetErrorText()
 * @brief      GetNLine
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -190,9 +166,6 @@ int SCRIPT_XEVENT::GetNLine()
 * @fn         void SCRIPT_XEVENT::SetNLine(int nline)
 * @brief      SetNLine
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nline :
 *
@@ -212,9 +185,6 @@ void SCRIPT_XEVENT::SetNLine(int nline)
 * @brief      GetCurrentToken
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -231,9 +201,6 @@ XSTRING* SCRIPT_XEVENT::GetCurrentToken()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

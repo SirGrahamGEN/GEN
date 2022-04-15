@@ -6,10 +6,7 @@
 * @brief      eXtended LINUX File class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -68,9 +65,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -87,9 +81,6 @@ XLINUXFILE::XLINUXFILE(): XFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -108,9 +99,6 @@ XLINUXFILE::~XLINUXFILE()
 * @fn         bool XLINUXFILE::Exist(XCHAR* xpath)
 * @brief      Check if Exist file
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath : path to file
 *
@@ -133,9 +121,6 @@ bool XLINUXFILE::Exist(XCHAR* xpath)
 * @brief      Open file
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath : path to file
 * @param[in]  isreadonly : is open with read only
 *
@@ -155,9 +140,6 @@ bool XLINUXFILE::Open(XCHAR* xpath, bool isreadonly)
 * @brief      Create file
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath : path to file
 *
 * @return     bool : true if is succesful.
@@ -175,9 +157,6 @@ bool XLINUXFILE::Create(XCHAR* xpath)
 * @fn         bool XLINUXFILE::SetSize(XDWORD size)
 * @brief      Set Size of File
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size : new size
 *
@@ -204,9 +183,6 @@ bool XLINUXFILE::SetSize(XQWORD size)
 * @brief      Get Position in file
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[out] position : position of the file
 *
 * @return     bool : true if is succesful.
@@ -230,9 +206,6 @@ bool XLINUXFILE::GetPosition(XQWORD& position)
 * @fn         bool XLINUXFILE::SetPosition(XDWORD position)
 * @brief      Set Position of file
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position : new position of file
 *
@@ -263,9 +236,6 @@ bool XLINUXFILE::SetPosition(XQWORD position)
 * @brief      Read buffer of file
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer : buffer where to read
 * @param[in]  size : size to read
 * @param[in]  cipher : cipher class uncipher buffer
@@ -295,9 +265,6 @@ bool XLINUXFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @fn         bool XLINUXFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 * @brief      Read buffer of file
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer : buffer where to read
 * @param[out] size : size to read
@@ -340,9 +307,6 @@ bool XLINUXFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 * @brief      Write buffer to file
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer : buffer where to read
 * @param[in]  size : size to read
 * @param[in]  cipher : cipher class to cipher buffer
@@ -378,9 +342,6 @@ bool XLINUXFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Flush
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -401,9 +362,6 @@ bool XLINUXFILE::Flush()
 * @fn         bool XLINUXFILE::Close()
 * @brief      Close
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -438,9 +396,6 @@ bool XLINUXFILE::Close()
 * @brief      Erase
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath : path of file
 * @param[in]  overwrite : overwrite file
 *
@@ -474,9 +429,6 @@ bool XLINUXFILE::Erase(XCHAR* xpath,bool overwrite)
 * @fn         bool XLINUXFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 * @brief      Rename file
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpathold : xpath origin
 * @param[in]  xpathnew : new xpath
@@ -518,9 +470,6 @@ bool XLINUXFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 * @brief      CreateStructHandle
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     FILE* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -537,9 +486,6 @@ FILE* XLINUXFILE::CreateStructHandle()
 * @brief      DeleteStructHandle
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -555,9 +501,6 @@ bool XLINUXFILE::DeleteStructHandle()
 * @fn         void XLINUXFILE::ChangeAttributes(XCHAR* attributes)
 * @brief      ChangeAttributes
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  attributes : new atributes
 *
@@ -585,9 +528,6 @@ void XLINUXFILE::ChangeAttributes(XCHAR* attributes)
 * @fn         bool XLINUXFILE::ActualizeSize()
 * @brief      Actualize Size
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -617,9 +557,6 @@ bool XLINUXFILE::ActualizeSize()
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -637,9 +574,6 @@ void XLINUXFILE::Clean()
 * @brief      Extended Open
 * @note       INTERN
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath : xpath of file
 * @param[in]  mode : mode attributes to open

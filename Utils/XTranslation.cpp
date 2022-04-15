@@ -6,10 +6,7 @@
 * @brief      eXtended Language class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -63,9 +60,6 @@ XTRANSLATION* XTRANSLATION::instance  = NULL;
 * @brief      Get Is Instanced
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -81,9 +75,6 @@ bool XTRANSLATION::GetIsInstanced()
 * @fn         XTRANSLATION& XTRANSLATION::GetInstance()
 * @brief      Get Instance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XTRANSLATION& : language instance
 *
@@ -102,9 +93,6 @@ XTRANSLATION& XTRANSLATION::GetInstance()
 * @fn         bool XTRANSLATION::DelInstance()
 * @brief      Del Instance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -129,9 +117,6 @@ bool XTRANSLATION::DelInstance()
 * @fn         bool XTRANSLATION::Ini(XPATH& xpath)
 * @brief      Ini language class
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath : path of the language file
 *
@@ -161,9 +146,6 @@ bool XTRANSLATION::Ini()
 * @brief      GetActual
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -178,9 +160,6 @@ XDWORD XTRANSLATION::GetActual()
 * @fn         bool XTRANSLATION::Language_ChangeCode(XTRANSLATION_CODE languagecode)
 * @brief      Language_ChangeCode
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  languagecode :
 *
@@ -209,9 +188,6 @@ bool XTRANSLATION::SetActual(XDWORD code)
 * @fn         bool XTRANSLATION::Translate_Add(XDWORD ID, XCHAR* sentence, XDWORD fixed)
 * @brief      Translate_Add
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  sentence :
@@ -251,8 +227,8 @@ bool XTRANSLATION::Translate_Add(XDWORD ID, XCHAR* sentence, XDWORD fixed)
  *  @brief      Translate_GetSentence
  *  @ingroup    UTILS
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @param[in]  ID) :
  *
@@ -275,9 +251,6 @@ XCHAR* XTRANSLATION::Translate_GetSentence(XDWORD ID)
 * @brief      End
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -298,9 +271,6 @@ bool XTRANSLATION::End()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -317,9 +287,6 @@ XTRANSLATION::XTRANSLATION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -338,9 +305,6 @@ XTRANSLATION::~XTRANSLATION()
 * @fn         bool XTRANSLATION::LoadLanguageAvailable()
 * @brief      LoadLanguageAvailable
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -418,9 +382,6 @@ bool XTRANSLATION::LoadLanguageAvailable()
 * @brief      IsLanguageAvailable
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  code :
 *
 * @return     bool : true if is succesful.
@@ -440,9 +401,6 @@ bool XTRANSLATION::IsLanguageAvailable(XDWORD code)
 * @fn         bool XTRANSLATION::AddLanguageAvailable(XDWORD code)
 * @brief      AddLanguageAvailable
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 *
@@ -466,9 +424,6 @@ bool XTRANSLATION::AddLanguageAvailable(XDWORD code)
 * @brief      GetIndexLanguageByCode
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  code :
 *
 * @return     int :
@@ -491,9 +446,6 @@ int XTRANSLATION::GetIndexLanguageByCode(XDWORD code)
 * @fn         bool XTRANSLATION::Translate_Load()
 * @brief      LoadTranslate
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -559,9 +511,6 @@ bool XTRANSLATION::Translate_Load()
 * @brief      DeleteTranslate
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -587,9 +536,6 @@ bool XTRANSLATION::Translate_Delete()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

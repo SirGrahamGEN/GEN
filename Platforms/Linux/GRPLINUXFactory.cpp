@@ -6,10 +6,7 @@
 * @brief      Linux Graphics factory class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -66,9 +63,6 @@
 * @brief      CreateScreen
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPSCREEN* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -92,9 +86,6 @@ GRPSCREEN* GRPLINUXFACTORY::CreateScreen()
 * @fn         bool GRPLINUXFACTORY::DeleteScreen(GRPSCREEN* screen)
 * @brief      DeleteScreen
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  screen :
 *
@@ -120,9 +111,6 @@ bool GRPLINUXFACTORY::DeleteScreen(GRPSCREEN* screen)
 * @brief      CreateContext
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPCONTEXT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -140,9 +128,6 @@ GRPCONTEXT* GRPLINUXFACTORY::CreateContext()
 * @fn         bool GRPLINUXFACTORY::DeleteContext(GRPCONTEXT* context)
 * @brief      Delete Context
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  context :
 *

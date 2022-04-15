@@ -6,10 +6,7 @@
 * @brief      Main Procedure class
 * @ingroup    MAIN PROCEDURE
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@ MAIN_FUNCTION_TYPE  Main_Proc_PlatformEnd   = MAIN_FUNCTION_PLATFORMEND;
 * @brief      Constructor
 * @ingroup    MAIN
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ MAINPROC::MAINPROC()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    MAIN
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything. 
 *
@@ -98,10 +89,7 @@ MAINPROC::~MAINPROC()
 * @fn         bool MAINPROC::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode = APPBASE_APPLICATIONMODE_TYPE_UNKNOWN)
 * @brief      Ini
 * @ingroup    MAIN PROCEDURE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  appmain : 
 * @param[in]  applicationmode : 
 * 
@@ -121,9 +109,6 @@ bool MAINPROC::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmod
 * @brief      Update
 * @ingroup    MAIN
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -140,9 +125,6 @@ bool MAINPROC::Update()
 * @fn         bool MAINPROC::End()
 * @brief      End
 * @ingroup    MAIN
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -164,9 +146,6 @@ bool MAINPROC::End()
 * @brief      GetHandle
 * @ingroup    MAIN
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -183,9 +162,6 @@ void* MAINPROC::GetHandle()
 * @fn         bool MAINPROC::CreateParams(int nparams, char* params[])
 * @brief      CreateParams
 * @ingroup    MAIN
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  nparams : 
 * @param[in]  params[] : 
@@ -216,9 +192,6 @@ bool MAINPROC::CreateParams(int nparams, char* params[])
 * @brief      CreateParams
 * @ingroup    MAIN
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  nparams : 
 * @param[in]  params[] : 
 *
@@ -247,9 +220,6 @@ bool MAINPROC::CreateParams(int nparams, XCHAR* params[])
 * @fn         bool MAINPROC::CreateParams(int nparams, XCHAR* params)
 * @brief      CreateParams
 * @ingroup    MAIN
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  nparams : 
 * @param[in]  params : 
@@ -280,9 +250,6 @@ bool MAINPROC::CreateParams(int nparams, XCHAR* params)
 * @fn         bool MAINPROC::CreateParams(XCHAR* commandline)
 * @brief      CreateParams
 * @ingroup    MAIN
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  commandline : 
 *
@@ -325,9 +292,6 @@ bool MAINPROC::CreateParams(XCHAR* commandline)
 * @brief      SetHandle
 * @ingroup    MAIN
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  handle : 
 *
 * @return     void : does not return anything. 
@@ -346,9 +310,6 @@ void MAINPROC::SetHandle(void* handle)
 * @brief      GetXPathExec
 * @ingroup    MAIN
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -366,9 +327,6 @@ XPATH* MAINPROC::GetXPathExec()
 * @brief      Factorys_Ini
 * @ingroup    MAIN
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -385,9 +343,6 @@ bool MAINPROC::Factorys_Ini()
 * @brief      Factorys_End
 * @ingroup    MAIN
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -403,9 +358,6 @@ bool MAINPROC::Factorys_End()
 * @fn         APPMAIN* MAINPROC::GetAppMain()
 * @brief      GetAppMain
 * @ingroup    MAIN
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     APPMAIN* : 
 *
@@ -425,9 +377,6 @@ APPMAIN* MAINPROC::GetAppMain()
 * @brief      GetExecParams
 * @ingroup    MAIN
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<XSTRING*>* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -443,9 +392,6 @@ XVECTOR<XSTRING*>* MAINPROC::GetExecParams()
 * @fn         bool MAINPROC::DeleteAllExecParams()
 * @brief      DeleteAllExecParams
 * @ingroup    MAIN
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -471,9 +417,6 @@ bool MAINPROC::DeleteAllExecParams()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    MAIN
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

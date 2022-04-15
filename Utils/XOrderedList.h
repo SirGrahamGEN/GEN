@@ -6,7 +6,7 @@
 //
 //  Ordered list
 //
-//  @author  Diego Martinez Ruiz de Gaona
+//  ""
 //
 //  Date Of Creation  : 29/10/2015 16:58:53
 //  Last Modification :

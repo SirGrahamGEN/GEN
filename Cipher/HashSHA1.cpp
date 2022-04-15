@@ -41,7 +41,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:43:10
 //
 //  @return
@@ -65,7 +65,7 @@ HASHSHA1::HASHSHA1() : HASH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:01
 //
 //  @return
@@ -85,7 +85,7 @@ HASHSHA1::~HASHSHA1()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 16:28:42
 //
 //  @return       bool :
@@ -119,7 +119,7 @@ bool HASHSHA1::Do(XBYTE* input, XQWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/04/2013 1:39:57
 //
 //  @return       int :
@@ -140,7 +140,7 @@ int HASHSHA1::GetDefaultSize()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:56
 //
 //  @return       void :
@@ -159,7 +159,7 @@ void HASHSHA1::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 11:22:06
 //
 //  @return       void :
@@ -191,7 +191,7 @@ void HASHSHA1::Reset()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 16:29:07
 //
 //  @return       void :
@@ -238,7 +238,7 @@ void HASHSHA1::Input(XBYTE* input, XQWORD length)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 11:28:44
 //
 //  @return       void :
@@ -341,7 +341,7 @@ void HASHSHA1::ProcessMessageBlock()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 11:39:42
 //
 //  @return       void :
@@ -405,7 +405,7 @@ void HASHSHA1::PadMessage()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 11:28:14
 //
 //  @return       XDWORD :
@@ -426,7 +426,7 @@ XDWORD HASHSHA1::CircularShift(int bits, XDWORD word)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 11:43:50
 //
 //  @return       bool :

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream IP Local Enum Devices class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ DIOSTREAMIPLOCALENUMDEVICES::DIOSTREAMIPLOCALENUMDEVICES(): DIOSTREAMENUMDEVICES
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -94,9 +85,6 @@ DIOSTREAMIPLOCALENUMDEVICES::~DIOSTREAMIPLOCALENUMDEVICES()
 * @brief      Search
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +100,6 @@ bool DIOSTREAMIPLOCALENUMDEVICES::Search()
 * @fn         bool DIOSTREAMIPLOCALENUMDEVICES::StopSearch(bool waitend)
 * @brief      StopSearch
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  waitend :
 *
@@ -134,9 +119,6 @@ bool DIOSTREAMIPLOCALENUMDEVICES::StopSearch(bool waitend)
 * @brief      IsSearching
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -152,9 +134,6 @@ bool DIOSTREAMIPLOCALENUMDEVICES::IsSearching()
 * @fn         bool DIOSTREAMIPLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 * @brief      IsDeviceAvailable
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  resource :
 *
@@ -173,9 +152,6 @@ bool DIOSTREAMIPLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 * @fn         DIOSTREAMDEVICE* DIOSTREAMIPLOCALENUMDEVICES::GetFirstActiveDevice()
 * @brief      GetFirstActiveDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOSTREAMDEVICE* :
 *
@@ -210,9 +186,6 @@ DIOSTREAMDEVICE* DIOSTREAMIPLOCALENUMDEVICES::GetFirstActiveDevice()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

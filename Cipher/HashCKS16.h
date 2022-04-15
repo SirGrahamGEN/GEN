@@ -6,7 +6,7 @@
 //
 //  implement the TCP header checksum algorithm
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 17/02/2016 11:18:07
 //  Last Modification :

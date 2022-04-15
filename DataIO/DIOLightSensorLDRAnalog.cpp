@@ -41,7 +41,7 @@
 //
 //  Class Constructor DIOLIGHTSENSORLDRANALOG
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/03/2014 17:33:55
 //
 
@@ -81,7 +81,7 @@ DIOLIGHTSENSORLDRANALOG::DIOLIGHTSENSORLDRANALOG( DIOGPIO* diogpio, int pindata,
 //
 //   Class Destructor DIOLIGHTSENSORLDRANALOG
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/03/2014 17:34:01
 //
 */
@@ -112,7 +112,7 @@ DIOLIGHTSENSORLDRANALOG::~DIOLIGHTSENSORLDRANALOG()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/09/2014 19:47:40
 //
 //  @return       bool :
@@ -136,7 +136,7 @@ bool DIOLIGHTSENSORLDRANALOG::Ini()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/03/2014 17:49:40
 //
 //  @return       bool :
@@ -171,7 +171,7 @@ bool DIOLIGHTSENSORLDRANALOG::ReadFromCache(XDWORD& level)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/03/2014 17:49:47
 //
 //  @return       bool :
@@ -218,7 +218,7 @@ bool DIOLIGHTSENSORLDRANALOG::ReadDirect(XDWORD& level)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/09/2014 19:48:25
 //
 //  @return       bool :
@@ -244,7 +244,7 @@ bool DIOLIGHTSENSORLDRANALOG::End()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/03/2014 17:34:09
 //
 //  @param        thread :

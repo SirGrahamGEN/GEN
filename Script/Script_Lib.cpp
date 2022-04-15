@@ -6,10 +6,7 @@
 * @brief      Script library class
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XCHAR* :
 *
 * @return     Does not return anything.
@@ -78,9 +72,6 @@ SCRIPT_LIB::SCRIPT_LIB(XCHAR* ID)
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -97,9 +88,6 @@ SCRIPT_LIB::~SCRIPT_LIB()
 * @brief      GetID
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +103,6 @@ XSTRING* SCRIPT_LIB::GetID()
 * @fn         bool SCRIPT_LIB::AddLibraryFunctions(SCRIPT* script)
 * @brief      AddLibraryFunctions
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  script :
 *
@@ -136,9 +121,6 @@ bool SCRIPT_LIB::AddLibraryFunctions(SCRIPT* script)
 * @fn         bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, int& value)
 * @brief      GetParamConverted
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  variant :
 * @param[in]  value :
@@ -190,9 +172,6 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, int& value)
 * @brief      GetParamConverted
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  variant :
 * @param[in]  value :
 *
@@ -216,9 +195,6 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, XDWORD& value)
 * @fn         bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, float& value)
 * @brief      GetParamConverted
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  variant :
 * @param[in]  value :
@@ -268,9 +244,6 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, float& value)
 * @fn         bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, double& value)
 * @brief      GetParamConverted
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  variant :
 * @param[in]  value :
@@ -323,9 +296,6 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, double& value)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

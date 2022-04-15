@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream Device Bluetooth LE class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@
 * @brief      IOSTREAMDEVICEBLUETOOTH
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMDEVICEBLUETOOTHLE:: :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ DIOSTREAMDEVICEBLUETOOTHLE:: DIOSTREAMDEVICEBLUETOOTHLE()
 * @fn         DIOSTREAMDEVICEBLUETOOTHLE::~ DIOSTREAMDEVICEBLUETOOTHLE()
 * @brief      IOSTREAMDEVICEBLUETOOTH
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOSTREAMDEVICEBLUETOOTHLE::~ :
 *
@@ -105,9 +96,6 @@ DIOSTREAMDEVICEBLUETOOTHLE::~ DIOSTREAMDEVICEBLUETOOTHLE()
 * @brief      GetAdvertisingData
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XBUFFER* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -123,9 +111,6 @@ XBUFFER* DIOSTREAMDEVICEBLUETOOTHLE::GetAdvertisingData()
 * @fn         XTIMER* DIOSTREAMDEVICEBLUETOOTHLE::GetLastScanTimer()
 * @brief      GetLastScanTimer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XTIMER* : 
 *
@@ -143,9 +128,6 @@ XTIMER* DIOSTREAMDEVICEBLUETOOTHLE::GetLastScanTimer()
 * @brief      IsReadLastScan
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -161,9 +143,6 @@ bool DIOSTREAMDEVICEBLUETOOTHLE::IsReadLastScan()
 * @fn         void DIOSTREAMDEVICEBLUETOOTHLE::SetIsReadLastScan(bool isreadlastscan)
 * @brief      SetIsReadLastScan
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  isreadlastscan : 
 *
@@ -183,9 +162,6 @@ void DIOSTREAMDEVICEBLUETOOTHLE::SetIsReadLastScan(bool isreadlastscan)
 * @fn         bool DIOSTREAMDEVICEBLUETOOTHLE::DebugPrintInfo()
 * @brief      DebugPrintInfo
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -213,9 +189,6 @@ bool DIOSTREAMDEVICEBLUETOOTHLE::DebugPrintInfo()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

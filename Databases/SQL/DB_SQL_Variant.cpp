@@ -6,10 +6,7 @@
 * @brief      DataBase SQL Variant class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -76,9 +70,6 @@ DB_SQL_VARIANT::DB_SQL_VARIANT(): XVARIANT()
 * @fn         DB_SQL_VARIANT::DB_SQL_VARIANT(const DB_SQL_VARIANT& variant)
 * @brief      Constructor
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  const :
 *
@@ -101,9 +92,6 @@ DB_SQL_VARIANT::DB_SQL_VARIANT(const DB_SQL_VARIANT& variant): XVARIANT()
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -122,9 +110,6 @@ DB_SQL_VARIANT::~DB_SQL_VARIANT()
 * @brief      GetFlags
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_VARIANT_FLAGS* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -140,9 +125,6 @@ DB_SQL_VARIANT_FLAGS* DB_SQL_VARIANT::GetFlags()
 * @fn         void DB_SQL_VARIANT::SetFlags(DB_SQL_VARIANT_FLAGS flags)
 * @brief      SetFlags
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  flags :
 *
@@ -162,9 +144,6 @@ void DB_SQL_VARIANT::SetFlags(DB_SQL_VARIANT_FLAGS flags)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -188,9 +167,6 @@ void DB_SQL_VARIANT::Clean()
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -208,9 +184,6 @@ DB_SQL_ROW::DB_SQL_ROW()
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -226,9 +199,6 @@ DB_SQL_ROW::~DB_SQL_ROW()
 * @fn         DB_SQL_VARIANT DB_SQL_ROW::Get(int index)
 * @brief      Get
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -256,9 +226,6 @@ DB_SQL_VARIANT DB_SQL_ROW::Get(int index)
 * @brief      Add
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  variant :
 *
 * @return     bool : true if is succesful.
@@ -277,9 +244,6 @@ bool DB_SQL_ROW::Add(DB_SQL_VARIANT* variant)
 * @fn         void DB_SQL_ROW::Clear()
 * @brief      Clear
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

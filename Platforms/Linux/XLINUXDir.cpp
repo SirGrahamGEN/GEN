@@ -6,10 +6,7 @@
 * @brief      LINUX Directory class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -69,9 +66,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -90,9 +84,6 @@ XLINUXDIR::XLINUXDIR(): XDIR()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -108,9 +99,6 @@ XLINUXDIR::~XLINUXDIR()
 * @fn         bool XLINUXDIR::Exist(XCHAR* path)
 * @brief      Exist this directory
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path : path to directory
 *
@@ -180,10 +168,7 @@ bool XLINUXDIR::Exist(XCHAR* path)
 * @fn         bool XLINUXDIR::Make(XCHAR* path, bool recursive)
 * @brief      Make
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  path : 
 * @param[in]  recursive : 
 * 
@@ -268,9 +253,6 @@ bool XLINUXDIR::Make(XCHAR* path, bool recursive)
 * @brief      Change To Dir
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  path : path to change
 *
 * @return     bool : true if is succesful.
@@ -298,9 +280,6 @@ bool XLINUXDIR::ChangeTo(XCHAR* path)
 * @fn         bool XLINUXDIR::Delete(XCHAR* path,bool all)
 * @brief      Delete directory
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path : directory to delete
 * @param[in]  all : delete all elements
@@ -355,9 +334,6 @@ bool XLINUXDIR::Delete(XCHAR* path,bool all)
 * @brief      GetActual
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  path :
 *
 * @return     bool : true if is succesful.
@@ -381,9 +357,6 @@ bool XLINUXDIR::GetActual(XPATH& path)
 * @fn         bool XLINUXDIR::FirstSearch(XCHAR* path, XCHAR* patternsearch, XDIRELEMENT* searchelement)
 * @brief      First Search (start search)
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path : path to do the search
 * @param[in]  patternsearch : pattern to search
@@ -434,9 +407,6 @@ bool XLINUXDIR::FirstSearch(XCHAR* path, XCHAR* patternsearch, XDIRELEMENT* sear
 * @fn         bool XLINUXDIR::NextSearch(XDIRELEMENT* searchelement)
 * @brief      Next Search (continue the search
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out] searchelement :  search element
 *
@@ -497,9 +467,6 @@ bool XLINUXDIR::NextSearch(XDIRELEMENT* searchelement)
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -517,9 +484,6 @@ void XLINUXDIR::Clean()
 * @brief      Type Of Entry of path
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path : path of element
 *

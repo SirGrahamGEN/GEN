@@ -6,10 +6,7 @@
 * @brief      Sound Open AL source class
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Stop
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ void SNDSOURCE_OPENAL::Stop()
 * @fn         void SNDSOURCE_OPENAL::Pause()
 * @brief      Pause
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *
@@ -99,9 +90,6 @@ void SNDSOURCE_OPENAL::Pause()
 * @brief      UnPause
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -117,9 +105,6 @@ void SNDSOURCE_OPENAL::UnPause()
 * @fn         void SNDSOURCE_OPENAL::SetLoop(bool loop)
 * @brief      SetLoop
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  loop : 
 *
@@ -138,9 +123,6 @@ void SNDSOURCE_OPENAL::SetLoop(bool loop)
 * @fn         bool SNDSOURCE_OPENAL::IsPLaying()
 * @brief      IsPLaying
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -185,9 +167,6 @@ bool SNDSOURCE_OPENAL::IsPLaying()
 * @brief      IsStopped
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -206,9 +185,6 @@ bool SNDSOURCE_OPENAL::IsStopped()
 * @fn         bool SNDSOURCE_OPENAL::IsPaused()
 * @brief      IsPaused
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -229,9 +205,6 @@ bool SNDSOURCE_OPENAL::IsPaused()
 * @fn         float SNDSOURCE_OPENAL::GetVolume()
 * @brief      GetVolume
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     float : 
 *
@@ -255,9 +228,6 @@ float SNDSOURCE_OPENAL::GetVolume()
 * @brief      SetVolume
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  volume : 
 *
 * @return     void : does not return anything. 
@@ -276,9 +246,6 @@ void SNDSOURCE_OPENAL::SetVolume(float volume)
 * @fn         float SNDSOURCE_OPENAL::GetPitch()
 * @brief      GetPitch
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     float : 
 *
@@ -300,9 +267,6 @@ float SNDSOURCE_OPENAL::GetPitch()
 * @brief      SetPitch
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  pitch : 
 *
 * @return     void : does not return anything. 
@@ -321,9 +285,6 @@ void SNDSOURCE_OPENAL::SetPitch(float pitch)
 * @brief      GetElement
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     SNDELEMENT* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -339,9 +300,6 @@ SNDELEMENT* SNDSOURCE_OPENAL::GetElement()
 * @fn         void SNDSOURCE_OPENAL::SetElement(SNDELEMENT* element)
 * @brief      SetElement
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  element : 
 *
@@ -360,9 +318,6 @@ void SNDSOURCE_OPENAL::SetElement(SNDELEMENT* element)
 * @fn         void SNDSOURCE_OPENAL::SetSecondsOffset(float seconds)
 * @brief      SetSecondsOffset
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  seconds : 
 *
@@ -387,9 +342,6 @@ void SNDSOURCE_OPENAL::SetSecondsOffset(float seconds)
 * @fn         void SNDSOURCE_OPENAL::SetSamplesOffset(int samples)
 * @brief      SetSamplesOffset
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  samples : 
 *
@@ -417,9 +369,6 @@ void SNDSOURCE_OPENAL::SetSamplesOffset(int samples)
 * @brief      SetAquired
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  aquired : 
 *
 * @return     void : does not return anything. 
@@ -438,9 +387,6 @@ void SNDSOURCE_OPENAL::SetAquired(bool aquired)
 * @brief      IsAquired
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -456,9 +402,6 @@ bool SNDSOURCE_OPENAL::IsAquired()
 * @fn         void SNDSOURCE_OPENAL::Aquire()
 * @brief      Aquire
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *
@@ -476,9 +419,6 @@ void SNDSOURCE_OPENAL::Aquire()
 * @brief      Release
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -494,9 +434,6 @@ void SNDSOURCE_OPENAL::Release()
 * @fn         SNDSOURCE_OPENAL::SNDSOURCE_OPENAL()
 * @brief      Constructor
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything. 
 *
@@ -524,9 +461,6 @@ SNDSOURCE_OPENAL::SNDSOURCE_OPENAL()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -544,9 +478,6 @@ SNDSOURCE_OPENAL::~SNDSOURCE_OPENAL()
 * @fn         void SNDSOURCE_OPENAL::Play()
 * @brief      Play
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *
@@ -567,9 +498,6 @@ void SNDSOURCE_OPENAL::Play()
 * @fn         void SNDSOURCE_OPENAL::Play(SNDBUFFER_OPENAL* buffer)
 * @brief      Play
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer : 
 *
@@ -597,9 +525,6 @@ void SNDSOURCE_OPENAL::Play(SNDBUFFER_OPENAL* buffer)
 * @brief      Queue
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer : 
 *
 * @return     void : does not return anything. 
@@ -625,9 +550,6 @@ void SNDSOURCE_OPENAL::Queue(SNDBUFFER_OPENAL* buffer)
 * @brief      UnQueue
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer : 
 *
 * @return     void : does not return anything. 
@@ -650,9 +572,6 @@ void SNDSOURCE_OPENAL::UnQueue(SNDBUFFER_OPENAL* buffer)
 * @brief      GetQueueLength
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -670,9 +589,6 @@ int SNDSOURCE_OPENAL::GetQueueLength()
 * @fn         int SNDSOURCE_OPENAL::GetProcessedBuffers()
 * @brief      GetProcessedBuffers
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     int : 
 *
@@ -693,9 +609,6 @@ int SNDSOURCE_OPENAL::GetProcessedBuffers()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

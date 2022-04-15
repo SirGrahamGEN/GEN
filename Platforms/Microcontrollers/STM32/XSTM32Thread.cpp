@@ -6,10 +6,7 @@
 * @brief      eXtended utils STM32 mutex & thread class
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -62,9 +59,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ XSTM32MUTEX::XSTM32MUTEX()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -100,9 +91,6 @@ XSTM32MUTEX::~XSTM32MUTEX()
 * @fn         bool XSTM32MUTEX::Lock()
 * @brief      Lock
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -122,9 +110,6 @@ bool XSTM32MUTEX::Lock()
 * @fn         bool XSTM32MUTEX::UnLock()
 * @brief      UnLock
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -148,9 +133,6 @@ bool XSTM32MUTEX::UnLock()
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -172,9 +154,6 @@ void XSTM32MUTEX::Clean()
 * @fn         XSTM32THREAD::XSTM32THREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* data)
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XTHREADGROUPID :
 * @param[in]   XCHAR* ID :
@@ -199,9 +178,6 @@ XSTM32THREAD::XSTM32THREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION fu
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -219,9 +195,6 @@ XSTM32THREAD::~XSTM32THREAD()
 * @fn         bool XSTM32THREAD::Ini(bool run)
 * @brief      Ini
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  run :
 *
@@ -247,9 +220,6 @@ bool XSTM32THREAD::Ini(bool run)
 * @brief      Wait
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  miliseconds :
 *
 * @return     bool : true if is succesful.
@@ -269,9 +239,6 @@ bool XSTM32THREAD::Wait(int miliseconds)
 * @fn         bool XSTM32THREAD::End()
 * @brief      End
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -295,9 +262,6 @@ bool XSTM32THREAD::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

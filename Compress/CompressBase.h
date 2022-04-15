@@ -6,7 +6,7 @@
 //
 //  Compress Class Base
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 28/10/2003
 */
 //  GEN  Copyright (C).  All right reserved.

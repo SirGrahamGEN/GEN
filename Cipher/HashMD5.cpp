@@ -59,7 +59,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:43:10
 //
 //  @return
@@ -82,7 +82,7 @@ HASHMD5::HASHMD5() : HASH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:01
 //
 //  @return
@@ -101,7 +101,7 @@ HASHMD5::~HASHMD5()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 16:26:19
 //
 //  @return       bool :
@@ -134,7 +134,7 @@ bool HASHMD5::Do(XBYTE* input, XQWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/04/2013 0:55:35
 //
 //  @return       int :
@@ -153,7 +153,7 @@ int HASHMD5::GetDefaultSize()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:56
 //
 //  @return       void :
@@ -182,7 +182,7 @@ void HASHMD5::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 17:03:10
 //
 //  @return       void :
@@ -211,7 +211,7 @@ void HASHMD5::Ini()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 20:37:01
 //
 //  @return       void :
@@ -265,7 +265,7 @@ void HASHMD5::Update(XBYTE* input, XQWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 20:56:30
 //
 //  @return       void :
@@ -371,7 +371,7 @@ void HASHMD5::Transform(XBYTE block[HASHMD5_BLOCKSIZE])
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 20:59:30
 //
 //  @return       void :
@@ -396,7 +396,7 @@ void HASHMD5::Decode(XDWORD* output, XBYTE* input, XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 20:59:26
 //
 //  @return       void :
@@ -425,7 +425,7 @@ void HASHMD5::Encode(XBYTE* output, XDWORD* input, XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 20:50:06
 //
 //  @return       void :
@@ -474,7 +474,7 @@ void HASHMD5::End()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 16:36:11
 //
 //  @return       inline :
@@ -496,7 +496,7 @@ inline XDWORD HASHMD5::F(XDWORD x, XDWORD y, XDWORD z)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 16:36:17
 //
 //  @return       inline :
@@ -518,7 +518,7 @@ inline XDWORD HASHMD5::G(XDWORD x, XDWORD y, XDWORD z)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 16:36:29
 //
 //  @return       inline :
@@ -541,7 +541,7 @@ inline XDWORD HASHMD5::H(XDWORD x, XDWORD y, XDWORD z)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 16:37:11
 //
 //  @return       inline :
@@ -563,7 +563,7 @@ inline XDWORD HASHMD5::I(XDWORD x, XDWORD y, XDWORD z)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 16:44:28
 //
 //  @return       inline :
@@ -584,7 +584,7 @@ inline XDWORD HASHMD5::RotateLeft(XDWORD x, int n)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 16:37:34
 //
 //  @return       inline :
@@ -610,7 +610,7 @@ inline void HASHMD5::FF(XDWORD &a, XDWORD b, XDWORD c, XDWORD d, XDWORD x, XDWOR
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 16:37:47
 //
 //  @return       inline :
@@ -636,7 +636,7 @@ inline void HASHMD5::GG(XDWORD &a, XDWORD b, XDWORD c, XDWORD d, XDWORD x, XDWOR
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 16:38:06
 //
 //  @return       inline :
@@ -662,7 +662,7 @@ inline void HASHMD5::HH(XDWORD &a, XDWORD b, XDWORD c, XDWORD d, XDWORD x, XDWOR
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 16:38:12
 //
 //  @return       inline :

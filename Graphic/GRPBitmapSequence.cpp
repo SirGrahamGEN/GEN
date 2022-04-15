@@ -6,10 +6,7 @@
 * @brief      Graphics Bitmap Sequence class
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ GRPBITMAPFRAME::GRPBITMAPFRAME()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -96,9 +87,6 @@ GRPBITMAPFRAME::~GRPBITMAPFRAME()
 * @brief      Get Bitmap
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPBITMAP* : Bitmap of frame class
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -114,9 +102,6 @@ GRPBITMAP* GRPBITMAPFRAME::GetBitmap()
 * @fn         int GRPBITMAPFRAME::GetAjustX()
 * @brief      Get Ajust X
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int : ajust x of frame
 *
@@ -134,9 +119,6 @@ int GRPBITMAPFRAME::GetAjustX()
 * @brief      Get Ajust Y
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : ajust y of frame
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -152,9 +134,6 @@ int GRPBITMAPFRAME::GetAjustY()
 * @fn         void GRPBITMAPFRAME::SetBitmap(GRPBITMAP* bitmap)
 * @brief      Set Bitmap
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bitmap : new bitmap of frame
 *
@@ -174,9 +153,6 @@ void GRPBITMAPFRAME::SetBitmap(GRPBITMAP* bitmap)
 * @brief      SetAjustX
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x : new ajust x
 *
 * @return     void : does not return anything.
@@ -194,9 +170,6 @@ void GRPBITMAPFRAME::SetAjustX(int ajustx)
 * @fn         void GRPBITMAPFRAME::SetAjustY(int y)
 * @brief      SetAjustY
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  y : new ajust y
 *
@@ -216,9 +189,6 @@ void GRPBITMAPFRAME::SetAjustY(int ajusty)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -245,9 +215,6 @@ void GRPBITMAPFRAME::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -270,9 +237,6 @@ GRPBITMAPSEQUENCE::GRPBITMAPSEQUENCE()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -292,9 +256,6 @@ GRPBITMAPSEQUENCE::~GRPBITMAPSEQUENCE()
 * @fn         bool GRPBITMAPSEQUENCE::AddFrame(GRPBITMAP* bitmap,int ajustx,int ajusty)
 * @brief      Add Frame
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bitmap : bitmap to add
 * @param[in]  ajustx : x ajust into sequence
@@ -325,9 +286,6 @@ bool GRPBITMAPSEQUENCE::AddFrame(GRPBITMAP* bitmap, int ajustx, int ajusty)
 * @brief      Del All Sequence
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  full : deletes content
 *
 * @return     bool : true if is succesful.
@@ -352,9 +310,6 @@ bool GRPBITMAPSEQUENCE::DelAllSequence(bool full)
 * @brief      Get Actual Frame
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPBITMAPFRAME* : Actual frame class
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -372,9 +327,6 @@ GRPBITMAPFRAME* GRPBITMAPSEQUENCE::GetActualFrame()
 * @brief      Get Actual Frame Index
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : actual frame index
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -390,9 +342,6 @@ int GRPBITMAPSEQUENCE::GetActualFrameIndex()
 * @fn         GRPBITMAPFRAME* GRPBITMAPSEQUENCE::GetFrame(XWORD nframe)
 * @brief      Get Frame
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nframe : index frame class
 *
@@ -413,9 +362,6 @@ GRPBITMAPFRAME* GRPBITMAPSEQUENCE::GetFrame(XWORD nframe)
 * @brief      Get Number Frames
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : number of frames
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -431,9 +377,6 @@ int GRPBITMAPSEQUENCE::GetNFrames()
 * @fn         int GRPBITMAPSEQUENCE::GetNLoops()
 * @brief      Get Number of Loops
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int : number of loops to made in the sequence
 *
@@ -451,9 +394,6 @@ int GRPBITMAPSEQUENCE::GetNLoops()
 * @brief      Get Number of Loops Made
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : Number of Loops Made
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -469,9 +409,6 @@ int GRPBITMAPSEQUENCE::GetNLoopsMade()
 * @fn         bool GRPBITMAPSEQUENCE::SetNLoops(int nloops)
 * @brief      Set Number of Loops to made
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nloops : number of loops
 *
@@ -493,9 +430,6 @@ bool GRPBITMAPSEQUENCE::SetNLoops(int nloops)
 * @brief      Set Number of Loops Made
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  nloopsmade : number of loops made
 *
 * @return     bool : true if is succesful.
@@ -515,9 +449,6 @@ bool GRPBITMAPSEQUENCE::SetNLoopsMade(int nloopsmade)
 * @fn         bool GRPBITMAPSEQUENCE::AjustAllSequence(int ajustx, int ajusty)
 * @brief      Ajust All Sequence offset
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ajustx : x ajust for all frames
 * @param[in]  ajusty : y ajust for all frames
@@ -551,9 +482,6 @@ bool GRPBITMAPSEQUENCE::AjustAllSequence(int ajustx, int ajusty)
 * @fn         GRPBITMAPFRAME* GRPBITMAPSEQUENCE::Play(int nloops, bool ajusttimeauto, bool reverse)
 * @brief      Play sequence
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nloops : nloops to made
 * @param[in]  ajusttimeauto : is time ajust automatic
@@ -592,9 +520,6 @@ GRPBITMAPFRAME* GRPBITMAPSEQUENCE::Play(int nloops, bool ajusttimeauto, bool rev
 * @brief      Stop sequence
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -622,9 +547,6 @@ bool GRPBITMAPSEQUENCE::Stop()
 * @brief      Pause sequence
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -645,9 +567,6 @@ bool GRPBITMAPSEQUENCE::Pause()
 * @fn         bool GRPBITMAPSEQUENCE::Finished()
 * @brief      Finished sequence
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -670,9 +589,6 @@ bool GRPBITMAPSEQUENCE::Finished()
 * @brief      Is Playing
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -689,9 +605,6 @@ bool GRPBITMAPSEQUENCE::IsPlaying()
 * @fn         bool GRPBITMAPSEQUENCE::IsEndSequence()
 * @brief      Is End Sequence
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -710,9 +623,6 @@ bool GRPBITMAPSEQUENCE::IsEndSequence()
 * @fn         GRPBITMAPFRAME* GRPBITMAPSEQUENCE::Update()
 * @brief      Update Sequence
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     GRPBITMAPFRAME* : frame to show
 *
@@ -763,9 +673,6 @@ GRPBITMAPFRAME* GRPBITMAPSEQUENCE::Update()
 * @brief      Ajust Time
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  framebysec : frame by sec to ajust
 *
 * @return     bool : true if is succesful.
@@ -790,9 +697,6 @@ bool GRPBITMAPSEQUENCE::AjustTime(int framebysec)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

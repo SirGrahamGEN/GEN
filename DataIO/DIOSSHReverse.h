@@ -8,7 +8,7 @@
 //
 //  DIO SSH reverse connections (only ssh/sshpass avaible mmand)
 //
-//  @author: No se ha podido abrir el fichero de author
+//  ""
 //
 //  Date of Creation : 06/12/2017 10:35:30
 //  Last Modification :

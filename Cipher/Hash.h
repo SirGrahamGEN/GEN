@@ -6,7 +6,7 @@
 //
 //  Hash Generic Class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 02/03/2013 12:02:40
 */
 /*  GEN  Copyright (C).  All right reserved.

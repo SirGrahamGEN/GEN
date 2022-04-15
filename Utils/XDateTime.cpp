@@ -6,10 +6,7 @@
 * @brief      eXtended date time class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ XDATETIME::XDATETIME()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -97,9 +88,6 @@ XDATETIME::~XDATETIME()
 * @fn         int XDATETIME::GetYear()
 * @brief      GetYear
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -117,9 +105,6 @@ int XDATETIME::GetYear()
 * @brief      GetMonth
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -135,9 +120,6 @@ int XDATETIME::GetMonth()
 * @fn         int XDATETIME::GetDay()
 * @brief      GetDay
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -155,9 +137,6 @@ int XDATETIME::GetDay()
 * @brief      GetHours
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -173,9 +152,6 @@ int XDATETIME::GetHours()
 * @fn         int XDATETIME::GetMinutes()
 * @brief      GetMinutes
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -193,9 +169,6 @@ int XDATETIME::GetMinutes()
 * @brief      GetSeconds
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -212,9 +185,6 @@ int XDATETIME::GetSeconds()
 * @brief      GetMilliSeconds
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -230,9 +200,6 @@ int XDATETIME::GetMilliSeconds()
 * @fn         bool XDATETIME::IsZero()
 * @brief      IsZero
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -252,9 +219,6 @@ bool XDATETIME::IsZero()
 * @brief      IsLeapYear
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -270,9 +234,6 @@ bool XDATETIME::IsLeapYear()
 * @fn         XDATETIME_DAYWEEK XDATETIME::GetDayOfWeek()
 * @brief      GetDayOfWeek
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDATETIME_DAYWEEK :
 *
@@ -301,9 +262,6 @@ XDATETIME_DAYWEEK XDATETIME::GetDayOfWeek()
 * @fn         int XDATETIME::GetDaysOfYear()
 * @brief      GetDaysOfYear
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -334,9 +292,6 @@ int XDATETIME::GetDaysOfYear()
 * @brief      GetNDaysInJulian
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     long :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -366,9 +321,6 @@ long XDATETIME::GetNDaysInJulian()
 * @brief      GetNDaysInGregorian
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     long :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -396,9 +348,6 @@ long XDATETIME::GetNDaysInGregorian()
 * @fn         void XDATETIME::GetDateFromNDays(long ndays, bool injulian)
 * @brief      GetDateFromNDays
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ndays :
 * @param[in]  injulian :
@@ -438,9 +387,6 @@ void XDATETIME::GetDateFromNDays(long ndays, bool injulian)
 * @brief      GetSeconsFromDate
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  injulian :
 *
 * @return     XQWORD :
@@ -463,9 +409,6 @@ XQWORD XDATETIME::GetSeconsFromDate(bool injulian)
 * @fn         bool XDATETIME::SetDateFromSeconds(XQWORD allseconds, bool injulian)
 * @brief      SetDateFromSeconds
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  allseconds :
 * @param[in]  injulian :
@@ -495,9 +438,6 @@ bool XDATETIME::SetDateFromSeconds(XQWORD allseconds, bool injulian)
 * @brief      GetSecondsFromADay
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -520,9 +460,6 @@ XDWORD XDATETIME::GetSecondsFromADay()
 * @brief      SetYear
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  year :
 *
 * @return     void : does not return anything.
@@ -540,9 +477,6 @@ void XDATETIME::SetYear(int year)
 * @fn         void XDATETIME::SetMonth(int month)
 * @brief      SetMonth
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  month :
 *
@@ -562,9 +496,6 @@ void XDATETIME::SetMonth(int month)
 * @brief      SetDay
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  day :
 *
 * @return     void : does not return anything.
@@ -582,9 +513,6 @@ void XDATETIME::SetDay(int day)
 * @fn         void XDATETIME::SetHours(int hours)
 * @brief      SetHours
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hours :
 *
@@ -604,9 +532,6 @@ void XDATETIME::SetHours(int hours)
 * @brief      SetMinutes
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  minutes :
 *
 * @return     void : does not return anything.
@@ -624,9 +549,6 @@ void XDATETIME::SetMinutes(int minutes)
 * @fn         void XDATETIME::SetSeconds(int seconds)
 * @brief      SetSeconds
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  seconds :
 *
@@ -646,9 +568,6 @@ void XDATETIME::SetSeconds(int seconds)
 * @brief      SetMilliSeconds
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  milliseconds :
 *
 * @return     void : does not return anything.
@@ -666,9 +585,6 @@ void XDATETIME::SetMilliSeconds(int milliseconds)
 * @fn         bool XDATETIME::IsValidDate()
 * @brief      IsValidDate
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -694,9 +610,6 @@ bool XDATETIME::IsValidDate()
 * @fn         bool XDATETIME::CopyFrom(XDATETIME* xtimesource)
 * @brief      CopyFrom
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xtimesource :
 *
@@ -727,9 +640,6 @@ bool XDATETIME::CopyFrom(XDATETIME* xtimesource)
 * @brief      CopyFrom
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xtimesource :
 *
 * @return     bool : true if is succesful.
@@ -747,9 +657,6 @@ bool XDATETIME::CopyFrom(XDATETIME& xtimesource)
 * @fn         bool XDATETIME::CopyTo(XDATETIME* xtimetarget)
 * @brief      CopyTo
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xtimetarget :
 *
@@ -779,9 +686,6 @@ bool XDATETIME::CopyTo(XDATETIME* xtimetarget)
 * @brief      CopyTo
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xtimetarget :
 *
 * @return     bool : true if is succesful.
@@ -799,9 +703,6 @@ bool XDATETIME::CopyTo(XDATETIME& xtimetarget)
 * @fn         bool XDATETIME::IsTheSameDay(XDATETIME* xtime)
 * @brief      IsTheSameDay
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xtime :
 *
@@ -825,9 +726,6 @@ bool XDATETIME::IsTheSameDay(XDATETIME* xtime)
 * @brief      IsTheSameDay
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xtime :
 *
 * @return     bool : true if is succesful.
@@ -845,9 +743,6 @@ bool XDATETIME::IsTheSameDay(XDATETIME& xtime)
 * @fn         bool XDATETIME::AddYears(int years)
 * @brief      AddYears
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  years :
 *
@@ -876,9 +771,6 @@ bool XDATETIME::AddYears(int years)
 * @fn         bool XDATETIME::AddMonths(int months)
 * @brief      AddMonths
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  months :
 *
@@ -924,9 +816,6 @@ bool XDATETIME::AddMonths(int months)
 * @brief      AddDays
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  days :
 *
 * @return     bool : true if is succesful.
@@ -951,9 +840,6 @@ bool XDATETIME::AddDays(int days)
 * @brief      AddHours
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hours :
 *
 * @return     bool : true if is succesful.
@@ -975,9 +861,6 @@ bool XDATETIME::AddHours(XQWORD hours)
 * @fn         bool XDATETIME::AddMinutes(XQWORD minutes)
 * @brief      AddMinutes
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  minutes :
 *
@@ -1001,9 +884,6 @@ bool XDATETIME::AddMinutes(XQWORD minutes)
 * @brief      AddSeconds
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  seconds :
 *
 * @return     bool : true if is succesful.
@@ -1025,9 +905,6 @@ bool XDATETIME::AddSeconds(XQWORD seconds)
 * @fn         bool XDATETIME::SubtractYears(int years)
 * @brief      SubtractYears
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  years :
 *
@@ -1056,9 +933,6 @@ bool XDATETIME::SubtractYears(int years)
 * @fn         bool XDATETIME::SubtractMonths(int months)
 * @brief      SubtractMonths
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  months :
 *
@@ -1104,9 +978,6 @@ bool XDATETIME::SubtractMonths(int months)
 * @brief      SubtractDays
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  days :
 *
 * @return     bool : true if is succesful.
@@ -1131,9 +1002,6 @@ bool XDATETIME::SubtractDays(int days)
 * @brief      SubtractHours
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hours :
 *
 * @return     bool : true if is succesful.
@@ -1155,9 +1023,6 @@ bool XDATETIME::SubtractHours(XQWORD hours)
 * @fn         bool XDATETIME::SubtractMinutes(XQWORD minutes)
 * @brief      SubtractMinutes
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  minutes :
 *
@@ -1181,9 +1046,6 @@ bool XDATETIME::SubtractMinutes(XQWORD minutes)
 * @brief      SubtractSeconds
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  seconds :
 *
 * @return     bool : true if is succesful.
@@ -1205,9 +1067,6 @@ bool XDATETIME::SubtractSeconds(XQWORD seconds)
 * @fn         bool XDATETIME::operator == (XDATETIME xtime)
 * @brief      operator ==
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xtime :
 *
@@ -1233,9 +1092,6 @@ bool XDATETIME::operator == (XDATETIME xtime)
 * @brief      operator !=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xtime :
 *
 * @return     bool : true if is succesful.
@@ -1258,9 +1114,6 @@ bool XDATETIME::operator != (XDATETIME xtime)
 * @fn         bool XDATETIME::operator > (XDATETIME xtime)
 * @brief      operator >
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xtime :
 *
@@ -1289,9 +1142,6 @@ bool XDATETIME::operator >  (XDATETIME xtime)
 * @brief      operator >=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xtime :
 *
 * @return     bool : true if is succesful.
@@ -1318,9 +1168,6 @@ bool XDATETIME::operator >= (XDATETIME xtime)
 * @fn         bool XDATETIME::operator < (XDATETIME xtime)
 * @brief      operator <
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xtime :
 *
@@ -1349,9 +1196,6 @@ bool XDATETIME::operator <  (XDATETIME xtime)
 * @brief      operator <=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xtime :
 *
 * @return     bool : true if is succesful.
@@ -1379,9 +1223,6 @@ bool XDATETIME::operator <= (XDATETIME xtime)
 * @brief      IsBetween
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  start :
 * @param[in]  end :
 *
@@ -1401,9 +1242,6 @@ bool XDATETIME::IsBetween(XDATETIME& start, XDATETIME& end)
 * @brief      Read
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1420,9 +1258,6 @@ bool XDATETIME::Read()
 * @brief      Write
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1438,9 +1273,6 @@ bool XDATETIME::Write()
 * @fn         bool XDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 * @brief      GetFileDateTime
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  tmzip :
@@ -1462,9 +1294,6 @@ bool XDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 * @brief      GetFileDateTime
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 *
 * @return     bool : true if is succesful.
@@ -1483,9 +1312,6 @@ bool XDATETIME::GetFileDateTime(XPATH& xpath)
 * @brief      GetMeridianDifference
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1501,9 +1327,6 @@ int XDATETIME::GetMeridianDifference()
 * @fn         bool XDATETIME::IsDayLigthSavingTime(int* bias)
 * @brief      IsDayLigthSavingTime
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bias :
 *
@@ -1522,9 +1345,6 @@ bool XDATETIME::IsDayLigthSavingTime(int* bias)
 * @fn         bool XDATETIME::GetDateTimeToString(XWORD modificator, XSTRING& string)
 * @brief      GetDateTimeToString
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  modificator :
 * @param[in]  string :
@@ -1639,9 +1459,6 @@ bool XDATETIME::GetDateTimeToString(XWORD modificator, XSTRING& string)
 * @brief      GetDateTimeToStringUTC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  modificator : 
 * @param[in]  string : 
 *
@@ -1674,9 +1491,6 @@ bool XDATETIME::GetDateTimeToStringUTC(XWORD modificator, XSTRING& string)
 * @fn         bool XDATETIME::GetDateTimeFromString(XSTRING& string, XWORD modificator)
 * @brief      GetDateTimeFromString
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 * @param[in]  modificator :
@@ -1778,9 +1592,6 @@ bool XDATETIME::GetDateTimeFromString(XSTRING& string, XWORD modificator)
 * @brief      GetMonthString
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -1824,9 +1635,6 @@ bool XDATETIME::GetMonthString(XSTRING& string)
 * @brief      GetDayOfWeekString
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -1859,10 +1667,7 @@ bool XDATETIME::GetDayOfWeekString(XSTRING& string)
 * @fn         XQWORD XDATETIME::GetEPOCHFormat()
 * @brief      GetEPOCHFormat
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XQWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1891,9 +1696,6 @@ XQWORD XDATETIME::GetEPOCHFormat()
 * @fn         int XDATETIME::GetWeekOfYear(int year, int month, int day, int hour, int minutes, int seconds)
 * @brief      GetWeekOfYear
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  year :
 * @param[in]  month :
@@ -1983,9 +1785,6 @@ int XDATETIME::GetWeekOfYear(int year, int month, int day, int hours, int minute
 * @brief      GetWeekOfYear
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2001,9 +1800,6 @@ int XDATETIME::GetWeekOfYear()
 * @fn         bool XDATETIME::SetToZero()
 * @brief      SetToZero
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -2022,9 +1818,6 @@ bool XDATETIME::SetToZero()
 * @fn         bool XDATETIME::SetDateToZero()
 * @brief      SetDateToZero
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -2046,9 +1839,6 @@ bool XDATETIME::SetDateToZero()
 * @brief      SetHourToZero
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2069,9 +1859,6 @@ bool XDATETIME::SetHourToZero()
 * @fn         bool XDATETIME::Set(XDATETIME* datetime)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  datetime :
 *
@@ -2102,9 +1889,6 @@ bool XDATETIME::Set(XDATETIME* datetime)
 * @brief      Set
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  datetime :
 *
 * @return     void : does not return anything.
@@ -2122,9 +1906,6 @@ void XDATETIME::Set(XDATETIME& datetime)
 * @fn         long XDATETIME::GetNDaysInJulian(int day, int month, int year)
 * @brief      GetNDaysInJulian
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  day :
 * @param[in]  month :
@@ -2150,9 +1931,6 @@ long XDATETIME::GetNDaysInJulian(int day, int month, int year)
 * @brief      GetNDaysInGregorian
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  day :
 * @param[in]  month :
 * @param[in]  year :
@@ -2177,9 +1955,6 @@ long XDATETIME::GetNDaysInGregorian(int day, int month, int year)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

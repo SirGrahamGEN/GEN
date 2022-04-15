@@ -6,10 +6,7 @@
 * @brief      Script Javascript interpreter class
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -80,9 +74,6 @@ SCRIPT_JAVASCRIPT::SCRIPT_JAVASCRIPT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -106,9 +97,6 @@ SCRIPT_JAVASCRIPT::~SCRIPT_JAVASCRIPT()
 * @brief      Load
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 *
 * @return     bool : true if is succesful.
@@ -128,9 +116,6 @@ bool SCRIPT_JAVASCRIPT::Load(XPATH& xpath)
 * @fn         SCRIPT_G_ERRORCODE SCRIPT_JAVASCRIPT::Run(int* returnval)
 * @brief      Run
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  returnval :
 *
@@ -235,9 +220,6 @@ int SCRIPT_JAVASCRIPT::Run(int* returnval)
 * @brief      AddLibraryFunction
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  library :
 * @param[in]  name :
 * @param[in]  ptrfunction :
@@ -272,9 +254,6 @@ bool SCRIPT_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCR
 * @fn         bool SCRIPT_JAVASCRIPT::HaveError(SCRIPT_G_ERRORCODE errorcode)
 * @brief      HaveError
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  errorcode :
 *
@@ -329,9 +308,6 @@ bool SCRIPT_JAVASCRIPT::HaveError(int _errorcode)
 * @fn         bool SCRIPT_JAVASCRIPT::HaveMainFunction()
 * @brief      HaveMainFunction
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -391,9 +367,6 @@ bool SCRIPT_JAVASCRIPT::HaveMainFunction()
 * @fn         duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
 * @brief      LibraryCallBack
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  context :
 *
@@ -526,9 +499,6 @@ duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
 * @brief      JS_FatalErrorHandler
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  udata :
 * @param[in]  msg :
 *
@@ -556,9 +526,6 @@ void SCRIPT_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -575,9 +542,6 @@ void SCRIPT_JAVASCRIPT::Clean()
 * @fn         double __builtin_inf (void)
 * @brief      _builtin_inf
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  void :
 *

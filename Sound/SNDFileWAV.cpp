@@ -6,10 +6,7 @@
 * @brief      Sound File WAV format class
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ SNDFILEWAV::SNDFILEWAV() : SNDFILEBASE()
 * @note       VIRTUAL
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -96,10 +87,7 @@ SNDFILEWAV::~SNDFILEWAV()
 * @fn         bool SNDFILEWAV::Open(XCHAR* path, XCHAR* ID)
 * @brief      Open
 * @ingroup    SOUND
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  path : 
 * @param[in]  ID : 
 * 
@@ -151,10 +139,7 @@ bool SNDFILEWAV::Open(XCHAR* path, XCHAR* ID)
 * @fn         bool SNDFILEWAV::ReadData(XBYTE* data, XDWORD& sizeread, bool isfinished)
 * @brief      ReadData
 * @ingroup    SOUND
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  data : 
 * @param[in]  sizeread : 
 * @param[in]  isfinished : 
@@ -202,10 +187,7 @@ bool SNDFILEWAV::ReadData(XBYTE* data, XDWORD& sizeread, bool& isfinished)
 * @fn         XDWORD SNDFILEWAV::GetDataSize()
 * @brief      GetDataSize
 * @ingroup    SOUND
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -221,10 +203,7 @@ XDWORD SNDFILEWAV::GetDataSize()
 * @fn         XDWORD SNDFILEWAV::GetReadSize()
 * @brief      GetReadSize
 * @ingroup    SOUND
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -240,10 +219,7 @@ XDWORD SNDFILEWAV::GetReadSize()
 * @fn         bool SNDFILEWAV::Close()
 * @brief      Close
 * @ingroup    SOUND
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -269,10 +245,7 @@ bool SNDFILEWAV::Close()
 * @fn         SNDFILEWAV_FORMAT* SNDFILEWAV::GetFormat()
 * @brief      GetFormat
 * @ingroup    SOUND
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     SNDFILEWAV_FORMAT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -289,9 +262,6 @@ SNDFILEWAV_FORMAT*  SNDFILEWAV::GetFormat()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

@@ -6,10 +6,7 @@
 * @brief      eXtended INI (Windows INItialization file) file class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -63,9 +60,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -83,9 +77,6 @@ XFILEINIKEY::XFILEINIKEY()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -102,9 +93,6 @@ XFILEINIKEY::~XFILEINIKEY()
 * @brief      GetKey
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -120,9 +108,6 @@ XSTRING* XFILEINIKEY::GetKey()
 * @fn         bool XFILEINIKEY::SetKey(XSTRING& key)
 * @brief      SetKey
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  key :
 *
@@ -144,9 +129,6 @@ bool XFILEINIKEY::SetKey(XSTRING& key)
 * @brief      GetValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -162,9 +144,6 @@ XSTRING* XFILEINIKEY::GetValue()
 * @fn         bool XFILEINIKEY::SetValue(XSTRING& value)
 * @brief      SetValue
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 *
@@ -186,9 +165,6 @@ bool XFILEINIKEY::SetValue(XSTRING& value)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -212,9 +188,6 @@ void XFILEINIKEY::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -232,9 +205,6 @@ XFILEINISECTION::XFILEINISECTION()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -251,9 +221,6 @@ XFILEINISECTION::~XFILEINISECTION()
 * @brief      GetName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -269,9 +236,6 @@ XSTRING* XFILEINISECTION::GetName()
 * @fn         bool XFILEINISECTION::SetName(XSTRING& section)
 * @brief      SetName
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  section :
 *
@@ -292,9 +256,6 @@ bool XFILEINISECTION::SetName(XSTRING& section)
 * @fn         XFILEINIKEY* XFILEINISECTION::FindKey(XSTRING& key)
 * @brief      FindKey
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  key :
 *
@@ -328,9 +289,6 @@ XFILEINIKEY* XFILEINISECTION::FindKey(XSTRING& key)
 * @brief      GetKey
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  key :
 * @param[in]  value :
 *
@@ -355,9 +313,6 @@ bool XFILEINISECTION::GetKey(XSTRING& key,XSTRING& value)
 * @fn         bool XFILEINISECTION::SetKey(XSTRING& key,XSTRING& value)
 * @brief      SetKey
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  key :
 * @param[in]  value :
@@ -394,9 +349,6 @@ bool XFILEINISECTION::SetKey(XSTRING& key,XSTRING& value)
 * @brief      DeleteKey
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  key :
 *
 * @return     bool : true if is succesful.
@@ -420,9 +372,6 @@ bool XFILEINISECTION::DeleteKey(XSTRING& key)
 * @fn         bool XFILEINISECTION::GetNextKey(XSTRING& key,XSTRING& value)
 * @brief      GetNextKey
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  key :
 * @param[in]  value :
@@ -453,9 +402,6 @@ bool XFILEINISECTION::GetNextKey(XSTRING& key,XSTRING& value)
 * @brief      ResetSelectionKey
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -474,9 +420,6 @@ bool XFILEINISECTION::ResetSelectionKey()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -505,10 +448,7 @@ void XFILEINISECTION::Clean()
 * @fn         XFILEINIREMARK::XFILEINIREMARK()
 * @brief      Constructor
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -525,10 +465,7 @@ XFILEINIREMARK::XFILEINIREMARK()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -545,10 +482,7 @@ XFILEINIREMARK::~XFILEINIREMARK()
 * @fn         XFILEINI_TYPEREMARK XFILEINIREMARK::GetType()
 * @brief      GetType
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XFILEINI_TYPEREMARK : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -564,10 +498,7 @@ XFILEINI_TYPEREMARK XFILEINIREMARK::GetType()
 * @fn         void XFILEINIREMARK::SetType(XFILEINI_TYPEREMARK type)
 * @brief      SetType
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     void : does not return anything. 
@@ -585,10 +516,7 @@ void XFILEINIREMARK::SetType(XFILEINI_TYPEREMARK type)
 * @fn         XDWORD XFILEINIREMARK::GetXPos()
 * @brief      GetXPos
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -604,10 +532,7 @@ XDWORD XFILEINIREMARK::GetXPos()
 * @fn         void XFILEINIREMARK::SetXPos(XDWORD xpos)
 * @brief      SetXPos
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xpos : 
 * 
 * @return     void : does not return anything. 
@@ -625,10 +550,7 @@ void XFILEINIREMARK::SetXPos(XDWORD xpos)
 * @fn         int XFILEINIREMARK::GetRelativeYPos()
 * @brief      GetRelativeYPos
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     int : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -644,10 +566,7 @@ int XFILEINIREMARK::GetRelativeYPos()
 * @fn         void XFILEINIREMARK::SetRelativeYPos(int relativeypos)
 * @brief      SetRelativeYPos
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  relativeypos : 
 * 
 * @return     void : does not return anything. 
@@ -666,10 +585,7 @@ void XFILEINIREMARK::SetRelativeYPos(int relativeypos)
 * @fn         XSTRING* XFILEINIREMARK::GetRelativeSection()
 * @brief      GetRelativeSection
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -686,10 +602,7 @@ XSTRING* XFILEINIREMARK::GetRelativeSection()
 * @fn         XSTRING* XFILEINIREMARK::GetRelativeKey()
 * @brief      GetRelativeKey
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -706,10 +619,7 @@ XSTRING* XFILEINIREMARK::GetRelativeKey()
 * @fn         XSTRING* XFILEINIREMARK::GetRemark()
 * @brief      GetRemark
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -725,10 +635,7 @@ XSTRING* XFILEINIREMARK::GetTextRemark()
 * @fn         bool XFILEINIREMARK::Compare(XFILEINIREMARK* remake)
 * @brief      Compare
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  remake : 
 * 
 * @return     bool : true if is succesful. 
@@ -753,10 +660,7 @@ bool XFILEINIREMARK::Compare(XFILEINIREMARK* remake)
 * @fn         bool XFILEINIREMARK::CopyTo(XFILEINIREMARK* remake)
 * @brief      CopyTo
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  remake : 
 * 
 * @return     bool : true if is succesful. 
@@ -783,10 +687,7 @@ bool XFILEINIREMARK::CopyTo(XFILEINIREMARK* remake)
 * @fn         bool XFILEINIREMARK::CopyFrom(XFILEINIREMARK* remake)
 * @brief      CopyFrom
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  remake : 
 * 
 * @return     bool : true if is succesful. 
@@ -814,10 +715,7 @@ bool XFILEINIREMARK::CopyFrom(XFILEINIREMARK* remake)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -849,9 +747,6 @@ void XFILEINIREMARK::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -867,9 +762,6 @@ XFILEINI::XFILEINI(): XFILETXT()
 * @fn         XFILEINI::XFILEINI(XPATH& xpath)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XPATH& :
 *
@@ -890,9 +782,6 @@ XFILEINI::XFILEINI(XPATH& xpath): XFILETXT()
 * @fn         XFILEINI::XFILEINI(XFILE* file)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XFILE* :
 *
@@ -915,9 +804,6 @@ XFILEINI::XFILEINI(XFILE* file): XFILETXT()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -935,9 +821,6 @@ XFILEINI::~XFILEINI()
 * @fn         bool XFILEINI::Open(XPATH& xpath,bool readonly)
 * @brief      Open
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  readonly :
@@ -961,9 +844,6 @@ bool XFILEINI::Open(XPATH& xpath,bool readonly)
 * @fn         bool XFILEINI::Close()
 * @brief      Close
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -991,10 +871,7 @@ bool XFILEINI::Close()
 * @fn         XFILEINISECTION* XFILEINI::GetSection(XSTRING& section)
 * @brief      GetSection
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  section : 
 * 
 * @return     XFILEINISECTION* : 
@@ -1029,10 +906,7 @@ XFILEINISECTION* XFILEINI::GetSection(XSTRING& section)
 * @fn         XFILEINISECTION* XFILEINI::GetSection(XCHAR* section)
 * @brief      GetSection
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  section : 
 * 
 * @return     XFILEINISECTION* : 
@@ -1052,9 +926,6 @@ XFILEINISECTION* XFILEINI::GetSection(XCHAR* section)
 * @fn         bool XFILEINI::SelectSection(XSTRING& section)
 * @brief      SelectSection
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  section :
 *
@@ -1094,9 +965,6 @@ bool XFILEINI::SelectSection(XSTRING& section)
 * @brief      SelectSection
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  section :
 *
 * @return     bool : true if is succesful.
@@ -1116,9 +984,6 @@ bool XFILEINI::SelectSection(XCHAR* section)
 * @fn         bool XFILEINI::CreateSection(XSTRING& section)
 * @brief      CreateSection
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  section :
 *
@@ -1150,9 +1015,6 @@ bool XFILEINI::CreateSection(XSTRING& section)
 * @brief      CreateSection
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  section :
 *
 * @return     bool : true if is succesful.
@@ -1172,9 +1034,6 @@ bool XFILEINI::CreateSection(XCHAR* section)
 * @fn         bool XFILEINI::DeleteSection(XSTRING& section)
 * @brief      DeleteSection
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  section :
 *
@@ -1217,9 +1076,6 @@ bool XFILEINI::DeleteSection(XSTRING& section)
 * @brief      DeleteSection
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  section :
 *
 * @return     bool : true if is succesful.
@@ -1239,10 +1095,7 @@ bool XFILEINI::DeleteSection(XCHAR* section)
 * @fn         XFILEINIKEY* XFILEINI::GetKey(XSTRING& section,XSTRING& key)
 * @brief      GetKey
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  section : 
 * @param[in]  key : 
 * 
@@ -1268,9 +1121,6 @@ XFILEINIKEY* XFILEINI::GetKey(XSTRING& section,XSTRING& key)
 * @brief      DeleteKey
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  section :
 * @param[in]  key :
 *
@@ -1295,9 +1145,6 @@ bool XFILEINI::DeleteKey(XSTRING& section,XSTRING& key)
 * @brief      DeleteKey
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  section :
 * @param[in]  key :
 *
@@ -1318,9 +1165,6 @@ bool XFILEINI::DeleteKey(XCHAR* section,XSTRING& key)
 * @fn         bool XFILEINI::DeleteKey(XSTRING& section,XCHAR* key)
 * @brief      DeleteKey
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  section :
 * @param[in]  key :
@@ -1345,9 +1189,6 @@ bool XFILEINI::DeleteKey(XSTRING& section,XCHAR* key)
 * @brief      DeleteKey
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  section :
 * @param[in]  key :
 *
@@ -1369,9 +1210,6 @@ bool XFILEINI::DeleteKey(XCHAR* section,XCHAR* key)
 * @fn         bool XFILEINI::ReadValue(XSTRING& section,XSTRING& key,XSTRING& value)
 * @brief      ReadValue
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  section :
 * @param[in]  key :
@@ -1405,9 +1243,6 @@ bool XFILEINI::ReadValue(XSTRING& section,XSTRING& key,XSTRING& value)
 * @brief      ReadValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  section :
 * @param[in]  key :
 * @param[in]  value :
@@ -1429,9 +1264,6 @@ bool XFILEINI::ReadValue(XCHAR* section,XSTRING& key,XSTRING& value)
 * @fn         bool XFILEINI::ReadValue(XSTRING& section,XCHAR* key,XSTRING& value)
 * @brief      ReadValue
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  section :
 * @param[in]  key :
@@ -1455,9 +1287,6 @@ bool XFILEINI::ReadValue(XSTRING& section,XCHAR* key,XSTRING& value)
 * @brief      ReadValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  section :
 * @param[in]  key :
 * @param[in]  value :
@@ -1480,9 +1309,6 @@ bool XFILEINI::ReadValue(XCHAR* section,XCHAR* key,XSTRING& value)
 * @fn         bool XFILEINI::ReadValue(XSTRING& key,XSTRING& value)
 * @brief      ReadValue
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  key :
 * @param[in]  value :
@@ -1513,9 +1339,6 @@ bool XFILEINI::ReadValue(XSTRING& key,XSTRING& value)
 * @brief      ReadValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  key :
 * @param[in]  value :
 *
@@ -1536,9 +1359,6 @@ bool XFILEINI::ReadValue(XCHAR* key,XSTRING& value)
 * @fn         bool XFILEINI::WriteValue(XSTRING& section,XSTRING& key,XSTRING& value)
 * @brief      WriteValue
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  section :
 * @param[in]  key :
@@ -1569,9 +1389,6 @@ bool XFILEINI::WriteValue(XSTRING& section,XSTRING& key,XSTRING& value)
 * @brief      WriteValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  section :
 * @param[in]  key :
 * @param[in]  value :
@@ -1593,9 +1410,6 @@ bool XFILEINI::WriteValue(XCHAR* section,XSTRING& key,XSTRING& value)
 * @fn         bool XFILEINI::WriteValue(XSTRING& section,XCHAR* key,XSTRING& value)
 * @brief      WriteValue
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  section :
 * @param[in]  key :
@@ -1619,9 +1433,6 @@ bool XFILEINI::WriteValue(XSTRING& section,XCHAR* key,XSTRING& value)
 * @brief      WriteValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  section :
 * @param[in]  key :
 * @param[in]  value :
@@ -1644,9 +1455,6 @@ bool XFILEINI::WriteValue(XCHAR* section,XCHAR* key,XSTRING& value)
 * @fn         bool XFILEINI::WriteValue(XSTRING& key,XSTRING& value)
 * @brief      WriteValue
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  key :
 * @param[in]  value :
@@ -1675,9 +1483,6 @@ bool XFILEINI::WriteValue(XSTRING& key,XSTRING& value)
 * @brief      WriteValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  key :
 * @param[in]  value :
 *
@@ -1698,9 +1503,6 @@ bool XFILEINI::WriteValue(XCHAR* key,XSTRING& value)
 * @fn         bool XFILEINI::GetNextKey(XSTRING& key,XSTRING& value)
 * @brief      GetNextKey
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  key :
 * @param[in]  value :
@@ -1727,9 +1529,6 @@ bool XFILEINI::GetNextKey(XSTRING& key,XSTRING& value)
 * @fn         bool XFILEINI::ReadKeyMap(XSTRING& section,XFILEINIKEYMAP* keymap,int nkeymap)
 * @brief      ReadKeyMap
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  section :
 * @param[in]  keymap :
@@ -1761,9 +1560,6 @@ bool XFILEINI::ReadKeyMap(XSTRING& section,XFILEINIKEYMAP* keymap,int nkeymap)
 * @brief      ReadKeyMap
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  section :
 * @param[in]  keymap :
 * @param[in]  nkeymap :
@@ -1785,9 +1581,6 @@ bool XFILEINI::ReadKeyMap(XCHAR* section,XFILEINIKEYMAP* keymap,int nkeymap)
 * @fn         bool XFILEINI::ConvertFromLines()
 * @brief      ConvertFromLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1926,9 +1719,6 @@ bool XFILEINI::ConvertFromLines()
 * @fn         bool XFILEINI::ConvertToLines()
 * @brief      ConvertToLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -2069,9 +1859,6 @@ bool XFILEINI::ConvertToLines()
 * @brief      Serialization
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  read :
 *
 * @return     bool : true if is succesful.
@@ -2117,9 +1904,6 @@ bool XFILEINI::Serialization(bool read)
 * @brief      DeleteAllSections
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2142,10 +1926,7 @@ bool XFILEINI::DeleteAllSections()
 * @fn         XVECTOR<XFILEINIREMARK*>* XFILEINI::GetRemarks()
 * @brief      GetRemarks
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XVECTOR<XFILEINIREMARK*>* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -2161,10 +1942,7 @@ XVECTOR<XFILEINIREMARK*>* XFILEINI::GetRemarks()
 * @fn         bool XFILEINI::DeleteAllRemarks()
 * @brief      DeleteAllRemarks
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -2185,10 +1963,7 @@ bool XFILEINI::DeleteAllRemarks()
 * @fn         bool XFILEINI::Line_IsSection(XSTRING& line, XSTRING& section)
 * @brief      Line_IsSection
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  line : 
 * @param[in]  section : 
 * 
@@ -2217,10 +1992,7 @@ bool XFILEINI::Line_IsSection(XSTRING& line, XSTRING& section)
 * @fn         bool XFILEINI::Line_IsKey(XSTRING& line, XSTRING& key, XSTRING& value)
 * @brief      Line_IsKey
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  line : 
 * @param[in]  key : 
 * @param[in]  value : 
@@ -2263,10 +2035,7 @@ bool XFILEINI::Line_IsKey(XSTRING& line, XSTRING& key, XSTRING& value)
 * @fn         bool XFILEINI::Line_GetRemark(XSTRING& line, XFILEINIREMARK& remark)
 * @brief      Line_GetRemark
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  line : 
 * @param[in]  remark : 
 * 
@@ -2305,9 +2074,6 @@ bool XFILEINI::Line_GetRemark(XSTRING& line, XFILEINIREMARK& remark)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

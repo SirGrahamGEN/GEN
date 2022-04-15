@@ -6,10 +6,7 @@
 * @brief      SAMD5xE5x system class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ XSAMD5XE5XSYSTEM::XSAMD5XE5XSYSTEM() : XSYSTEM()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -95,9 +86,6 @@ XSAMD5XE5XSYSTEM::~XSAMD5XE5XSYSTEM()
 * @fn         XSYSTEM_HARDWARETYPE XSAMD5XE5XSYSTEM::GetTypeHardware(int* revision)
 * @brief      GetTypeHardware
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  revision :
 *
@@ -117,9 +105,6 @@ XSYSTEM_HARDWARETYPE XSAMD5XE5XSYSTEM::GetTypeHardware(int* revision)
 * @brief      GetTypeSO
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSYSTEM_SO :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -135,10 +120,7 @@ XSYSTEM_SO XSAMD5XE5XSYSTEM::GetTypeSO()
 * @fn         XSYSTEM_PLATFORM XSAMD5XE5XSYSTEM::GetPlatform(XSTRING* namestring)
 * @brief      GetPlatform
 * @ingroup    
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  namestring : 
 * 
 * @return     XSYSTEM_PLATFORM : 
@@ -159,9 +141,6 @@ XSYSTEM_PLATFORM XSAMD5XE5XSYSTEM::GetPlatform(XSTRING* namestring)
 * @brief      GetLanguageSO
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -178,9 +157,6 @@ XDWORD XSAMD5XE5XSYSTEM::GetLanguageSO()
 * @brief      GetSerialNumber
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -196,9 +172,6 @@ XSTRING* XSAMD5XE5XSYSTEM::GetSerialNumber()
 * @fn         bool XSAMD5XE5XSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 * @brief      GetMemoryInfo
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  total :
 * @param[in]  free :
@@ -221,9 +194,6 @@ bool XSAMD5XE5XSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 * @fn         bool XSAMD5XE5XSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 * @brief      ShutDown
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -265,9 +235,6 @@ bool XSAMD5XE5XSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

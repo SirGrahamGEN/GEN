@@ -40,7 +40,7 @@
 //
 //  Class Constructor SNDLINUXFACTORY
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:57:23
 //
 
@@ -69,7 +69,7 @@ SNDLINUXFACTORY::SNDLINUXFACTORY() : SNDFACTORY()
 //
 //   Class Destructor SNDLINUXFACTORY
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:57:28
 //
 */
@@ -89,7 +89,7 @@ SNDLINUXFACTORY::~SNDLINUXFACTORY()
 /**
 //
 //
-//  @author   Abraham J. Velez
+//  ""
 //  @version  22/02/2018 9:29:51
 //
 //  @return   SNDELEMENT* :
@@ -115,7 +115,7 @@ SNDELEMENT* SNDLINUXFACTORY::AddFile(XPATH& xpath, XSTRING* namefile, bool strea
 //
 //  loads a file into the system
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:57:56
 //
 //  @return       SNDELEMENT* :
@@ -139,7 +139,7 @@ SNDELEMENT* SNDLINUXFACTORY::AddFile(XPATH& xpath, XCHAR* namefile, bool stream)
 //
 //  gets an already loaded file
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:58:08
 //
 //  @return       SNDELEMENT* :
@@ -163,7 +163,7 @@ SNDELEMENT* SNDLINUXFACTORY::GetFile(XSTRING* namefile, bool stream)
 //
 //  gets an already loaded file
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:58:18
 //
 //  @return       SNDELEMENT* :
@@ -186,7 +186,7 @@ SNDELEMENT* SNDLINUXFACTORY::GetFile(XCHAR* namefile, bool stream)
 //
 //
 //
-//  @author   Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version
 
 //  @return   bool :
@@ -207,7 +207,7 @@ bool SNDLINUXFACTORY::RemoveFile(SNDELEMENT* element)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      20/07/2016 11:56:06
 //
 //  @return       SNDSTREAMELEMENT* :
@@ -228,7 +228,7 @@ SNDSTREAMELEMENT* SNDLINUXFACTORY::GetStreamer()
 //
 //  plays a sund
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:58:27
 //
 //  @return       SNDSOURCE* :
@@ -251,7 +251,7 @@ SNDINSTANCE* SNDLINUXFACTORY::PlaySound(SNDELEMENT* element)
 //
 //  stops a sound
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:58:38
 //
 //  @param        element :
@@ -273,7 +273,7 @@ void SNDLINUXFACTORY::StopSound(SNDELEMENT* element)
 //
 //  pauses a sound
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:58:47
 //
 //  @return       SNDSOURCE* :
@@ -296,7 +296,7 @@ SNDINSTANCE* SNDLINUXFACTORY::PauseSound(SNDELEMENT* element)
 //
 //  system update
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:58:55
 //
 */
@@ -317,7 +317,7 @@ void SNDLINUXFACTORY::ImpUpdate()
 //
 //  checks if any sound is playing
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:59:06
 //
 //  @return       bool :
@@ -339,7 +339,7 @@ bool SNDLINUXFACTORY::IsAnyPlaying()
 //
 //  stops all sounds
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:59:15
 //
 */
@@ -359,7 +359,7 @@ void SNDLINUXFACTORY::StopAll()
 //
 //  sets the master volume
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:59:25
 //
 //  @param        mastervolume :
@@ -380,7 +380,7 @@ void SNDLINUXFACTORY::SetMasterVolume(float mastervolume)
 //
 //  gets the master volume
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:59:33
 //
 //  @return       float :
@@ -401,7 +401,7 @@ float SNDLINUXFACTORY::GetMasterVolume()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      25/11/2016 13:00:01
 //
 //  @return       SNDRESAMPLER* :
@@ -423,7 +423,7 @@ SNDRESAMPLER* SNDLINUXFACTORY::GetResampler()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      16/03/2017 16:36:27
 //
 //  @return       SNDFILE* :
@@ -445,7 +445,7 @@ SNDFILE* SNDLINUXFACTORY::CreateSNDFile()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      16/03/2017 16:36:34
 //
 //  @param        file :

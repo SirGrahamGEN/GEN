@@ -63,7 +63,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/01/2014 19:22:27
 //
 //  @return
@@ -100,7 +100,7 @@ DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES() :
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:12
 //
 //  @return
@@ -127,7 +127,7 @@ DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::~DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES()
 /**
 //
 //
-//  @author      Abraham J. Velezifconfig
+//  ""
 //  @version      28/04/2013 19:00:27
 //
 //  @return       bool :
@@ -156,7 +156,7 @@ bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::Search()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/05/2013 23:41:35
 //
 //  @return       bool :
@@ -194,7 +194,7 @@ bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/05/2013 23:41:40
 //
 //  @return       bool :
@@ -219,7 +219,7 @@ bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/05/2013 23:25:03
 //
 //  @return       void :
@@ -239,7 +239,7 @@ void DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/05/2013 17:02:14
 //
 //  @return       void :

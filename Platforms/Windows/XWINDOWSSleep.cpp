@@ -6,10 +6,7 @@
 * @brief      eXtended WINDOWS Sleep class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ XWINDOWSSLEEP::XWINDOWSSLEEP()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -97,9 +88,6 @@ XWINDOWSSLEEP::~XWINDOWSSLEEP()
 * @fn         void XWINDOWSSLEEP::Seconds(int seconds)
 * @brief      Sleep n Seconds
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  seconds : seconds to sleep
 *
@@ -119,9 +107,6 @@ void XWINDOWSSLEEP::Seconds(int seconds)
 * @brief      Sleep n MilliSeconds
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  milliseconds : milliseconds to sleep
 *
 * @return     void : does not return anything.
@@ -139,9 +124,6 @@ void XWINDOWSSLEEP::MilliSeconds(int milliseconds)
 * @fn         void XWINDOWSSLEEP::MicroSeconds(int microseconds)
 * @brief      Sleep n MicroSeconds
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  microseconds : microseconds to sleep
 *

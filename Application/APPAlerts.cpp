@@ -6,10 +6,7 @@
 * @brief      Application Alerts class
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -66,9 +63,6 @@ APPALERTS* APPALERTS::instance = NULL;
 * @brief      GetIsInstanced
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -84,9 +78,6 @@ bool APPALERTS::GetIsInstanced()
 * @fn         APPALERTS& APPALERTS::GetInstance()
 * @brief      GetInstance
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     APPALERTS& :
 *
@@ -105,9 +96,6 @@ APPALERTS& APPALERTS::GetInstance()
 * @fn         bool APPALERTS::DelInstance()
 * @brief      DelInstance
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -132,9 +120,6 @@ bool APPALERTS::DelInstance()
 * @fn         bool APPALERTS::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int appsubversion, int appsubversionerror, bool* status, DIOSTREAM* streamSMS)
 * @brief      Ini
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  cfg : 
 * @param[in]  applicationname : 
@@ -366,9 +351,6 @@ bool APPALERTS::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int app
 * @brief      Send
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  senders : 
 * @param[in]  condition : 
 * @param[in]  level : 
@@ -400,9 +382,6 @@ int APPALERTS::Send(XDWORD senders, XDWORD condition, DIOALERTLEVEL level, XCHAR
 * @brief      End
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -424,9 +403,6 @@ bool APPALERTS::End()
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -443,9 +419,6 @@ APPALERTS::APPALERTS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -465,9 +438,6 @@ APPALERTS::~APPALERTS()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

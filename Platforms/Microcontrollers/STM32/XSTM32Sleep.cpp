@@ -6,10 +6,7 @@
 * @brief      eXtended utils STM32 rand class
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -73,9 +67,6 @@ XSTM32SLEEP::XSTM32SLEEP()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -91,9 +82,6 @@ XSTM32SLEEP::~XSTM32SLEEP()
 * @fn         void XSTM32SLEEP::Seconds(int seconds)
 * @brief      Seconds
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  seconds :
 *
@@ -116,9 +104,6 @@ void XSTM32SLEEP::Seconds(int seconds)
 * @brief      MilliSeconds
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  milliseconds :
 *
 * @return     void : does not return anything.
@@ -137,9 +122,6 @@ void XSTM32SLEEP::MilliSeconds(int milliseconds)
 * @brief      MicroSeconds
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  microseconds :
 *
 * @return     void : does not return anything.
@@ -157,9 +139,6 @@ void XSTM32SLEEP::MicroSeconds(int microseconds)
 * @fn         void XSTM32SLEEP::NanoSeconds(int nanoseconds)
 * @brief      NanoSeconds
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nanoseconds :
 *

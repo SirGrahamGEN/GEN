@@ -52,7 +52,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:01
 //
 //  @return
@@ -73,7 +73,7 @@ DIOLINUXSTREAMUARTLOCALENUMDEVICES::DIOLINUXSTREAMUARTLOCALENUMDEVICES() : DIOST
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:12
 //
 //  @return
@@ -92,7 +92,7 @@ DIOLINUXSTREAMUARTLOCALENUMDEVICES::~DIOLINUXSTREAMUARTLOCALENUMDEVICES()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:27
 //
 //  @return       bool :
@@ -212,7 +212,7 @@ bool DIOLINUXSTREAMUARTLOCALENUMDEVICES::Search()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:32
 //
 //  @return       bool :

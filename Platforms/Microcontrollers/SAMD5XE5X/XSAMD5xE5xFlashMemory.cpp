@@ -6,10 +6,7 @@
 * @brief      SAMD5xE5x Flash Memory class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ XSAMD5XE5XFLASHMEMORY::XSAMD5XE5XFLASHMEMORY()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -94,9 +85,6 @@ XSAMD5XE5XFLASHMEMORY::~XSAMD5XE5XFLASHMEMORY()
 * @fn         bool XSAMD5XE5XFLASHMEMORY::Ini()
 * @brief      Ini
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -126,9 +114,6 @@ bool XSAMD5XE5XFLASHMEMORY::Ini()
 * @brief      End
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -155,9 +140,6 @@ bool XSAMD5XE5XFLASHMEMORY::End()
 * @fn         bool XSAMD5XE5XFLASHMEMORY::Read(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Read
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -190,9 +172,6 @@ bool XSAMD5XE5XFLASHMEMORY::Read(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Write
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 * @param[in]  size :
@@ -222,9 +201,6 @@ bool XSAMD5XE5XFLASHMEMORY::Write(XDWORD offset, XBYTE* data, XDWORD size)
 * @fn         bool XSAMD5XE5XFLASHMEMORY::EraseAll()
 * @brief      EraseAll
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *

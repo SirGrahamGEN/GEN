@@ -6,10 +6,7 @@
 * @brief      LINUX direct input device keyboard class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -73,9 +70,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -104,9 +98,6 @@ INPLINUXDEVICEKEYBOARDDIRECT::INPLINUXDEVICEKEYBOARDDIRECT(): INPDEVICE()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -133,9 +124,6 @@ INPLINUXDEVICEKEYBOARDDIRECT::~INPLINUXDEVICEKEYBOARDDIRECT()
 * @fn         bool INPLINUXDEVICEKEYBOARDDIRECT::Update()
 * @brief      Update
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -257,9 +245,6 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::Update()
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -276,9 +261,6 @@ void INPLINUXDEVICEKEYBOARDDIRECT::Clean()
 * @brief      Create All Buttons
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -394,9 +376,6 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::CreateAllButtons()
 * @brief      Get Handle Event
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -545,9 +524,6 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::CreateDevices()
 * @brief      Create Devices (Old Style)
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -596,9 +572,6 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::Old_CreateDevices()
 * @brief      Delete Terminal Config (Old Style)
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -623,9 +596,6 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::Old_DeleteTerminalConfig()
 * @brief      IsConsole
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  fd :
 *
 * @return     int :
@@ -648,9 +618,6 @@ int INPLINUXDEVICEKEYBOARDDIRECT::Old_IsConsole(int fd)
 * @fn         int INPLINUXDEVICEKEYBOARDDIRECT::OpenConsole(const char*fnam)
 * @brief      OpenConsole
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  char*fnam :
 *
@@ -686,9 +653,6 @@ int INPLINUXDEVICEKEYBOARDDIRECT::Old_OpenConsole(const char *fnam)
 * @fn         int INPLINUXDEVICEKEYBOARDDIRECT::Old_GetFD(const char*fnam)
 * @brief      GetFD
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  char*fnam :
 *

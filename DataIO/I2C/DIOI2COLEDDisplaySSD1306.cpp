@@ -6,10 +6,7 @@
 * @brief      Data Input/Output I2C OLED Display SSD1306 class 
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XDWORD width :
 * @param[in]  XDWORD height :
 *
@@ -87,9 +81,6 @@ DIOI2COLEDDISPLAYSSD1306::DIOI2COLEDDISPLAYSSD1306( XDWORD width, XDWORD height)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -107,9 +98,6 @@ DIOI2COLEDDISPLAYSSD1306::~DIOI2COLEDDISPLAYSSD1306()
 * @fn         bool DIOI2COLEDDISPLAYSSD1306::SetBuffer(XBYTE* buffer)
 * @brief      SetBuffer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 *
@@ -132,9 +120,6 @@ bool DIOI2COLEDDISPLAYSSD1306::SetBuffer(XBYTE* buffer)
 * @fn         bool DIOI2COLEDDISPLAYSSD1306::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -204,8 +189,8 @@ bool DIOI2COLEDDISPLAYSSD1306::IniDevice()
  *  @brief      Clear
  *  @ingroup    DATAIO
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @param[in]  color :
  *
@@ -249,9 +234,6 @@ bool DIOI2COLEDDISPLAYSSD1306::Clear(XBYTE color)
 * @brief      Update
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 *
 * @return     bool : true if is succesful.
@@ -290,9 +272,6 @@ bool DIOI2COLEDDISPLAYSSD1306::Update(XBYTE* buffer)
 * @fn         bool DIOI2COLEDDISPLAYSSD1306::PutPixel(XWORD x, XWORD y, bool color)
 * @brief      PutPixel
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x :
 * @param[in]  y :
@@ -334,9 +313,6 @@ bool DIOI2COLEDDISPLAYSSD1306::PutPixel(XWORD x, XWORD y, bool color)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -357,9 +333,6 @@ bool DIOI2COLEDDISPLAYSSD1306::End()
 * @brief      Activate
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  active :
 *
 * @return     bool : true if is succesful.
@@ -377,9 +350,6 @@ bool DIOI2COLEDDISPLAYSSD1306::Activate(bool active)
 * @fn         void DIOI2COLEDDISPLAYSSD1306::SetContrast(XBYTE contrast)
 * @brief      SetContrast
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  contrast :
 *
@@ -400,9 +370,6 @@ void DIOI2COLEDDISPLAYSSD1306::SetContrast(XBYTE contrast)
 * @brief      GetX
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -419,9 +386,6 @@ XBYTE DIOI2COLEDDISPLAYSSD1306::GetX()
 * @brief      GetY
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -437,9 +401,6 @@ XBYTE DIOI2COLEDDISPLAYSSD1306::GetY()
 * @fn         bool DIOI2COLEDDISPLAYSSD1306::SetX(XBYTE x)
 * @brief      SetX
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x :
 *
@@ -463,9 +424,6 @@ bool DIOI2COLEDDISPLAYSSD1306::SetX(XBYTE x)
 * @brief      SetY
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  y :
 *
 * @return     bool : true if is succesful.
@@ -487,9 +445,6 @@ bool DIOI2COLEDDISPLAYSSD1306::SetY(XBYTE y)
 * @fn         bool DIOI2COLEDDISPLAYSSD1306::SetXY(XBYTE x, XBYTE y)
 * @brief      SetXY
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x :
 * @param[in]  y :
@@ -513,9 +468,6 @@ bool DIOI2COLEDDISPLAYSSD1306::SetXY(XBYTE x, XBYTE y)
 * @brief      SendCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  command :
 *
 * @return     bool : true if is succesful.
@@ -533,9 +485,6 @@ bool DIOI2COLEDDISPLAYSSD1306::SendCommand(XBYTE command)
 * @fn         bool DIOI2COLEDDISPLAYSSD1306::SendData(XBYTE* data, int size)
 * @brief      SendData
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 * @param[in]  size :
@@ -555,9 +504,6 @@ bool DIOI2COLEDDISPLAYSSD1306::SendData(XBYTE* data, int size)
 * @fn         bool DIOI2COLEDDISPLAYSSD1306::Send(XBYTE control, XBYTE* data, int sizedata)
 * @brief      Send
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  control :
 * @param[in]  data :
@@ -589,9 +535,6 @@ bool DIOI2COLEDDISPLAYSSD1306::Send(XBYTE control, XBYTE* data, int sizedata)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

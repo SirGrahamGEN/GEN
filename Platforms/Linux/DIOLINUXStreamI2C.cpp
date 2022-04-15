@@ -4,7 +4,7 @@
 //  LINUX Data Input/Output Stream I2C class
 //
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 12/3/2003
 //
 //  GEN  Copyright (C).  All right reserved.
@@ -56,7 +56,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2013 7:51:23
 //
 //  @return
@@ -80,7 +80,7 @@ DIOLINUXSTREAMI2C::DIOLINUXSTREAMI2C() : DIOSTREAMI2C()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/11/2003 10:19:33
 //
 //  @return
@@ -108,7 +108,7 @@ DIOLINUXSTREAMI2C::~DIOLINUXSTREAMI2C()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/10/2012 10:03:42
 //
 //  @return       bool :
@@ -155,7 +155,7 @@ bool DIOLINUXSTREAMI2C::Open()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      09/06/2014 23:37:38
 //
 //  @return       bool :
@@ -183,7 +183,7 @@ bool DIOLINUXSTREAMI2C::WaitToFilledReadingBuffer(int filledto, int timeout)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/09/2016 13:23:30
 //
 //  @return       XDWORD :
@@ -228,7 +228,7 @@ XDWORD DIOLINUXSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/09/2016 13:23:44
 //
 //  @return       XDWORD :
@@ -272,7 +272,7 @@ XDWORD DIOLINUXSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/10/2012 10:03:47
 //
 //  @return       bool :
@@ -303,7 +303,7 @@ bool DIOLINUXSTREAMI2C::Close()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      26/04/2014 21:05:24
 //
 */
@@ -322,7 +322,7 @@ void DIOLINUXSTREAMI2C::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/09/2012 16:59:27
 //
 //  @return       void :

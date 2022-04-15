@@ -6,7 +6,7 @@
 //
 //  Defines for Platforms Factorys
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 13/08/2002
 */
 //  GEN  Copyright (C).  All right reserved.

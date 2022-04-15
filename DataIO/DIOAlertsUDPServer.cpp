@@ -6,10 +6,7 @@
 * @brief       Data IO Alerts UDP server class
 * @ingroup     DATAIO
 *
-* @author      Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright   Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ DIOALERTSUDPSERVER::DIOALERTSUDPSERVER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -100,9 +91,6 @@ DIOALERTSUDPSERVER::~DIOALERTSUDPSERVER()
 * @fn         bool DIOALERTSUDPSERVER::Ini(XCHAR* URL, int port)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  URL :
 * @param[in]  port :
@@ -147,9 +135,6 @@ bool DIOALERTSUDPSERVER::Ini(XCHAR* URL, int port)
 * @fn         bool DIOALERTSUDPSERVER::End()
 * @brief      End
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -196,9 +181,6 @@ bool DIOALERTSUDPSERVER::End()
 * @brief      GetNAlerts
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -220,9 +202,6 @@ int DIOALERTSUDPSERVER::GetNAlerts()
 * @fn         DIOALERT* DIOALERTSUDPSERVER::GetAlertByIndex(int index)
 * @brief      GetAlertByIndex
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -247,9 +226,6 @@ DIOALERT* DIOALERTSUDPSERVER::GetAlertByIndex(int index)
 * @fn         DIOALERT* DIOALERTSUDPSERVER::GetAlertByID(XDWORD ID)
 * @brief      GetAlertByID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -284,9 +260,6 @@ DIOALERT* DIOALERTSUDPSERVER::GetAlertByID(XDWORD ID)
 * @brief      DeleteAlertByIndex
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     bool : true if is succesful.
@@ -317,9 +290,6 @@ bool DIOALERTSUDPSERVER::DeleteAlertByIndex(int index)
 * @fn         bool DIOALERTSUDPSERVER::DeleteAlertByID(XDWORD ID)
 * @brief      DeleteAlertByID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -361,9 +331,6 @@ bool DIOALERTSUDPSERVER::DeleteAlertByID(XDWORD ID)
 * @brief      DeleteAllAlerts
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -388,9 +355,6 @@ bool DIOALERTSUDPSERVER::DeleteAllAlerts()
 * @fn         bool DIOALERTSUDPSERVER::ReceivedEvents()
 * @brief      ReceivedEvents
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -470,9 +434,6 @@ bool DIOALERTSUDPSERVER::ReceivedEvents()
 * @brief      ThreadReadFunction
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  param :
 *
 * @return     void : does not return anything.
@@ -494,9 +455,6 @@ void DIOALERTSUDPSERVER::ThreadReadFunction(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

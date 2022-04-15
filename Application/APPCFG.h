@@ -6,9 +6,6 @@
 * @brief      Application Config class
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @note       if use defines to active for the blocks of the config.
 *
 *               APP_CFG_REMOTEFILE_ACTIVE        : Active the remote file CFG
@@ -22,8 +19,7 @@
 *               APP_CFG_ALERTS_ACTIVE            : Alerts
 *               APP_CFG_LOG_ACTIVE               : Log
 *
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated

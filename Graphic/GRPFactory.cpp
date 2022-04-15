@@ -6,10 +6,7 @@
 * @brief      Graphics factory class
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@ GRPFACTORY* GRPFACTORY::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ GRPFACTORY::GRPFACTORY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -98,9 +89,6 @@ GRPFACTORY::~GRPFACTORY()
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -117,9 +105,6 @@ bool GRPFACTORY::GetIsInstanced()
 * @brief      Get Instance of GRPFACTORY
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     GRPFACTORY& :
 *
@@ -142,9 +127,6 @@ GRPFACTORY& GRPFACTORY::GetInstance()
 * @brief      Set Instance of GRPFACTORY
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  _instance : new instance
 *
@@ -169,9 +151,6 @@ bool GRPFACTORY::SetInstance(GRPFACTORY* _instance)
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -193,9 +172,6 @@ bool GRPFACTORY::DelInstance()
 * @brief      Create Screen
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPSCREEN* : screen class
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -211,9 +187,6 @@ GRPSCREEN* GRPFACTORY::CreateScreen()
 * @fn         bool GRPFACTORY::DeleteScreen(GRPSCREEN* screen)
 * @brief      Delete Screen
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  screen : screen class to delete
 *
@@ -236,9 +209,6 @@ bool GRPFACTORY::DeleteScreen(GRPSCREEN* screen)
 * @brief      CreateContext
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPCONTEXT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -254,9 +224,6 @@ GRPCONTEXT* GRPFACTORY::CreateContext()
 * @fn         bool GRPFACTORY::DeleteContext(GRPCONTEXT* context)
 * @brief      Delete Context
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  context :
 *
@@ -276,9 +243,6 @@ bool GRPFACTORY::DeleteContext(GRPCONTEXT* context)
 * @fn         GRPCANVAS* GRPFACTORY::CreateCanvas(GRPSCREEN* screen)
 * @brief      Create Canvas
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  properties : properties to generate canvas
 *
@@ -324,9 +288,6 @@ GRPCANVAS* GRPFACTORY::CreateCanvas(GRPPROPERTIES* properties)
 * @brief      DeleteCanvas
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  canvas : canvas to delete
 *
 * @return     bool : true if is succesful.
@@ -350,9 +311,6 @@ bool GRPFACTORY::DeleteCanvas(GRPCANVAS* canvas)
 * @fn         GRPBITMAP* GRPFACTORY::CreateBitmap(int width, int height, GRPPROPERTYMODE mode, bool isbufferinverse)
 * @brief      CreateBitmap
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  width :
 * @param[in]  height :
@@ -394,9 +352,6 @@ GRPBITMAP* GRPFACTORY::CreateBitmap(int width, int height, GRPPROPERTYMODE mode,
 * @brief      Delete Bitmap
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  bitmap : bitmap class to delete
 *
 * @return     bool : true if is succesful.
@@ -419,9 +374,6 @@ bool GRPFACTORY::DeleteBitmap(GRPBITMAP* bitmap)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

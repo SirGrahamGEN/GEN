@@ -6,10 +6,7 @@
 * @brief      eXtended LINUX Thread and Mutex class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -83,9 +77,6 @@ XLINUXMUTEX::XLINUXMUTEX()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -109,9 +100,6 @@ XLINUXMUTEX::~XLINUXMUTEX()
 * @brief      Lock
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -134,9 +122,6 @@ bool XLINUXMUTEX::Lock()
 * @brief      UnLock
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -157,9 +142,6 @@ bool XLINUXMUTEX::UnLock()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -185,9 +167,6 @@ void XLINUXMUTEX::Clean()
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  groupID : group ID
 * @param[in]  ID : thread ID
 * @param[in]  function : callbak fuction
@@ -211,9 +190,6 @@ XLINUXTHREAD::XLINUXTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION fu
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -231,9 +207,6 @@ XLINUXTHREAD::~XLINUXTHREAD()
 * @fn         bool XLINUXTHREAD::Ini(bool run)
 * @brief      Ini
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  run : if run the thread directly
 *
@@ -288,9 +261,6 @@ bool XLINUXTHREAD::Ini(bool run)
 * @brief      Wait
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  miliseconds :
 *
 * @return     bool : true if is succesful.
@@ -310,9 +280,6 @@ bool XLINUXTHREAD::Wait(int miliseconds)
 * @fn         bool XLINUXTHREAD::End()
 * @brief      End
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -343,9 +310,6 @@ bool XLINUXTHREAD::End()
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -361,9 +325,6 @@ void XLINUXTHREAD::Clean()
 * @fn         void* XLINUXTHREAD::Callback(void* thread)
 * @brief      Callback
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  thread : thread class
 *

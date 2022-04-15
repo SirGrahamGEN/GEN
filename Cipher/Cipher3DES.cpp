@@ -40,7 +40,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/04/2006 19:42:40
 //
 //  @return
@@ -60,7 +60,7 @@ CIPHER3DES::CIPHER3DES() : CIPHERDES()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/04/2006 19:42:37
 //
 //  @return
@@ -79,7 +79,7 @@ CIPHER3DES::~CIPHER3DES()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/04/2002 10:22:59
 //
 //  @return       bool :
@@ -132,7 +132,7 @@ bool CIPHER3DES::Cipher(XBYTE* input, XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:44:01
 //
 //  @return       bool :
@@ -182,7 +182,7 @@ bool CIPHER3DES::Uncipher(XBYTE* input, XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/03/2013 23:51:12
 //
 //  @return       void :
@@ -202,7 +202,7 @@ void CIPHER3DES::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:16:44
 //
 //  @return       void :
@@ -241,7 +241,7 @@ void CIPHER3DES::DES3Set2Key(XDWORD esk[96], XDWORD dsk[96], XBYTE key[CIPHERDES
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:16:50
 //
 //  @return       int :
@@ -268,7 +268,7 @@ int CIPHER3DES::DES3Set2KeyCipher(CIPHER3DES_CONTEXT* ctx, XBYTE key[CIPHERDES_K
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:16:55
 //
 //  @return       int :
@@ -296,7 +296,7 @@ int CIPHER3DES::DES3Set2KeyUncipher(CIPHER3DES_CONTEXT *ctx, XBYTE key[CIPHERDES
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:17:01
 //
 //  @return       void :
@@ -332,7 +332,7 @@ void CIPHER3DES::DES3Set3Key(XDWORD esk[96], XDWORD dsk[96], XBYTE key[24])
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:17:07
 //
 //  @return       int :
@@ -360,7 +360,7 @@ int CIPHER3DES::DES3Set3KeyCipher(CIPHER3DES_CONTEXT* ctx, XBYTE key[CIPHERDES_K
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:17:13
 //
 //  @return       int :
@@ -389,7 +389,7 @@ int CIPHER3DES::DES3Set3KeyUncipher(CIPHER3DES_CONTEXT* ctx, XBYTE key[CIPHERDES
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:17:47
 //
 //  @return       int :
@@ -446,7 +446,7 @@ int CIPHER3DES::DES3Cipher(CIPHER3DES_CONTEXT* ctx, XBYTE input[8], XBYTE output
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:17:57
 //
 //  @return       int :
@@ -504,7 +504,7 @@ bool CIPHER3DES::DES3Cipher_ECB(CIPHER3DES_CONTEXT* ctx, int mode, size_t length
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:17:57
 //
 //  @return       int :

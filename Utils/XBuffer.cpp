@@ -6,10 +6,7 @@
 * @brief      eXtended buffer functions class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@ bool XBUFFER::hardwareuselittleendian = true;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  bool : Is thread safe buffer functions
 *
 * @return     Does not return anything.
@@ -86,9 +80,6 @@ XBUFFER::XBUFFER(bool threadsafe)
 * @fn         XBUFFER::XBUFFER(XDWORD size, bool threadsafe)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size : initial size of the buffer
 * @param[in]  threadsafe : true is thread safe operative buffer
@@ -117,9 +108,6 @@ XBUFFER::XBUFFER(XDWORD size, bool threadsafe)
 * @brief      Destructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -139,9 +127,6 @@ XBUFFER::~XBUFFER()
 * @fn         XDWORD XBUFFER::GetSize()
 * @brief      Get actual size of buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD : size actual of buffer
 *
@@ -164,9 +149,6 @@ XDWORD XBUFFER::GetSize()
 * @fn         bool XBUFFER::SetSize(XDWORD size)
 * @brief      Set size of buffer (not allocated space)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size : new size of buffer
 *
@@ -192,9 +174,6 @@ bool XBUFFER::SetSize(XDWORD size)
 * @brief      Check If buffer is empty
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -210,9 +189,6 @@ bool XBUFFER::IsEmpty()
 * @fn         void XBUFFER::ResetPosition()
 * @brief      Set pointer position of buffer to zero.
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -230,9 +206,6 @@ void XBUFFER::ResetPosition()
 * @brief      Get Pointer position of buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : Pointer position of buffer
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -248,9 +221,6 @@ XDWORD XBUFFER::GetPosition()
 * @fn         bool XBUFFER::SetPosition(XDWORD position)
 * @brief      Set Pointer to position
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position : new position of pointer.
 *
@@ -272,9 +242,6 @@ bool XBUFFER::SetPosition(XDWORD position)
 * @brief      Get if this buffer is blocked
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -292,9 +259,6 @@ bool XBUFFER::IsBlocked()
 * @fn         bool XBUFFER::SetBlocked(bool blocked)
 * @brief      Set Blocked buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  blocked : true to blocked buffer.
 *
@@ -315,9 +279,6 @@ bool XBUFFER::SetBlocked(bool blocked)
 * @fn         bool XBUFFER::Add(XBYTE* pbuffer, XDWORD psize)
 * @brief      Add array of bytes to buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pbuffer : pointer of bytes to add
 * @param[in]  psize : size of array of bytes
@@ -358,9 +319,6 @@ bool XBUFFER::Add(XBYTE* pbuffer, XDWORD psize)
 * @brief      Add buffer to buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer : pointer of buffer to add
 *
 * @return     bool : true if is succesful.
@@ -378,9 +336,6 @@ bool XBUFFER::Add(XBUFFER* buffer)
 * @fn         bool XBUFFER::Add(XBUFFER& buffer)
 * @brief      Add buffer to buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer : buffer to add
 *
@@ -400,9 +355,6 @@ bool XBUFFER::Add(XBUFFER& buffer)
 * @brief      Add one byte to buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : byte to add
 *
 * @return     bool : true if is succesful.
@@ -420,9 +372,6 @@ bool XBUFFER::Add(XBYTE data)
 * @fn         bool XBUFFER::Add(bool data)
 * @brief      Add one boolean to buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data : boolean to add
 *
@@ -444,9 +393,6 @@ bool XBUFFER::Add(bool data)
 * @brief      Add one WORD to buffer (16 bits)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : WORD to add.
 *
 * @return     bool : true if is succesful.
@@ -467,9 +413,6 @@ bool XBUFFER::Add(XWORD data)
 * @brief      Add one Doble WORD to buffer (32 bits)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : DWORD to Add
 *
 * @return     bool : true if is succesful.
@@ -489,9 +432,6 @@ bool XBUFFER::Add(XDWORD data)
 * @fn         bool XBUFFER::Add(XQWORD data)
 * @brief      Add one Quad WORD to buffer (64 bits)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data : QWORD to add
 *
@@ -514,9 +454,6 @@ bool XBUFFER::Add(XQWORD data)
 * @brief      Add one float to buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : float to add
 *
 * @return     bool : true if is succesful.
@@ -535,9 +472,6 @@ bool XBUFFER::Add(float data)
 * @brief      Add one double to buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : double to add
 *
 * @return     bool : true if is succesful.
@@ -555,9 +489,6 @@ bool XBUFFER::Add(double data)
 * @fn         bool XBUFFER::Add(XSTRING& string, bool normalize)
 * @brief      Add
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 * @param[in]  normalize :
@@ -596,9 +527,6 @@ bool XBUFFER::Add(XSTRING& string, bool normalize)
 * @brief      AddWithMaskArg
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask :
 * @param[in]  arg :
 *
@@ -618,9 +546,6 @@ bool XBUFFER::AddWithMaskArg(XCHAR* mask, va_list& arg)
 * @brief      AddWithMask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask :
 * @param[in]  arg :
 *
@@ -639,9 +564,6 @@ bool XBUFFER::AddWithMaskArg(XSTRING* mask, va_list& arg)
 * @fn         bool XBUFFER::AddWithMask(XCHAR* mask, ...)
 * @brief      Add variant data with a mask
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask : pointer XCHAR with a mask to use in add
 * @param[in]  ... : params with a variant data
@@ -672,9 +594,6 @@ bool XBUFFER::AddWithMask(XCHAR* mask, ...)
 * @brief      Add variant data with a mask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask : string with a mask to use in add
 * @param[in]  ... : params with a variant data
 *
@@ -703,9 +622,6 @@ bool XBUFFER::AddWithMask(XSTRING* mask, ...)
 * @fn         bool XBUFFER::Insert(XBYTE* pbuffer, XDWORD psize, int frompos)
 * @brief      Insert array of bytes into buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pbuffer : pointer to bytes to add
 * @param[in]  psize : size of bytes to add
@@ -744,9 +660,6 @@ bool XBUFFER::Insert(XBYTE* pbuffer, XDWORD psize, int frompos)
 * @brief      Insert to buffer into buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer : pointer of buffer to insert into buffer
 * @param[in]  frompos : position to insert
 *
@@ -768,9 +681,6 @@ bool XBUFFER::Insert(XBUFFER* xbuffer, int frompos)
 * @brief      Insert to buffer into buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer : buffer to insert into buffer
 * @param[in]  frompos : position to insert
 *
@@ -790,9 +700,6 @@ bool XBUFFER::Insert(XBUFFER& xbuffer, int frompos)
 * @brief      Insert one byte into buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : byte to insert
 * @param[in]  frompos : position of insert
 *
@@ -811,9 +718,6 @@ bool XBUFFER::Insert(XBYTE data, int frompos)
 * @fn         bool XBUFFER::Insert(bool data, int frompos)
 * @brief      Insert one boolean into buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data : boolean to insert
 * @param[in]  frompos : position of insert
@@ -836,9 +740,6 @@ bool XBUFFER::Insert(bool data, int frompos)
 * @brief      Insert one WORD into buffer (16 bits)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : WORD to insert
 * @param[in]  frompos : position of insert
 *
@@ -859,9 +760,6 @@ bool XBUFFER::Insert(XWORD data, int frompos)
 * @fn         bool XBUFFER::Insert(XDWORD data, int frompos)
 * @brief      Insert one doble WORD into buffer (32 bits)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data : Double word to insert
 * @param[in]  frompos : position of insert
@@ -884,9 +782,6 @@ bool XBUFFER::Insert(XDWORD data, int frompos)
 * @brief      Insert quad WORD into buffer (64 bits)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : Quad word to insert
 * @param[in]  frompos : position of insert
 *
@@ -908,9 +803,6 @@ bool XBUFFER::Insert(XQWORD data, int frompos)
 * @brief      Insert float into buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : float to insert
 * @param[in]  frompos : position of insert
 *
@@ -930,9 +822,6 @@ bool XBUFFER::Insert(float data, int frompos)
 * @brief      Insert double into buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : double to insert
 * @param[in]  frompos : position of insert
 *
@@ -951,9 +840,6 @@ bool XBUFFER::Insert(double data, int frompos)
 * @fn         bool XBUFFER::Insert(XSTRING& string, int frompos)
 * @brief      Insert string into buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string : string to insert
 * @param[in]  frompos : position of insert
@@ -984,9 +870,6 @@ bool XBUFFER::Insert(XSTRING& string, int frompos)
 * @brief      InsertWithMaskArg
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask :
 * @param[in]  frompos :
 * @param[in]  arg :
@@ -1011,9 +894,6 @@ bool XBUFFER::InsertWithMaskArg(XCHAR* mask, int frompos, va_list& arg)
 * @brief      InsertWithMask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask :
 * @param[in]  frompos :
 * @param[in]  arg :
@@ -1033,9 +913,6 @@ bool XBUFFER::InsertWithMaskArg(XSTRING* mask, int frompos, va_list& arg)
 * @fn         bool XBUFFER::InsertWithMask(XCHAR* mask, int frompos, ...)
 * @brief      Add variant data with a mask
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask : pointer XCHAR with a mask to use in insert
 * @param[in]  frompos : position of insert
@@ -1067,9 +944,6 @@ bool XBUFFER::InsertWithMask(XCHAR* mask, int frompos, ...)
 * @brief      Add variant data with a mask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask : string with a mask to use in insert
 * @param[in]  frompos : position of insert
 * @param[in]  ... : params with a variant data
@@ -1099,9 +973,6 @@ bool XBUFFER::InsertWithMask(XSTRING* mask, int frompos, ...)
 * @fn         XDWORD XBUFFER::Extract(XBYTE* pbuffer, XDWORD ppos, XDWORD psize)
 * @brief      Extract to array of bytes from buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out] pbuffer : pointer to array of bytes.
 * @param[in]  ppos : position of buffer to extract
@@ -1146,9 +1017,6 @@ XDWORD XBUFFER::Extract(XBYTE* pbuffer, XDWORD ppos, XDWORD psize)
 * @brief      Extract one byte from buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[out] data : byte extracted
 * @param[in]  ppos : position of buffer to extract
 *
@@ -1170,9 +1038,6 @@ bool XBUFFER::Extract(XBYTE& data, XDWORD ppos)
 * @fn         bool XBUFFER::Extract(bool& data, XDWORD ppos)
 * @brief      Extract one boolean from buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out] data : boolean extracted
 * @param[in]  ppos : position of buffer to extract
@@ -1200,9 +1065,6 @@ bool XBUFFER::Extract(bool& data, XDWORD ppos)
 * @brief      Extract one WORD from buffer (16 bits)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[out] data : WORD extracted
 * @param[in]  ppos : position of buffer to extract
 *
@@ -1226,9 +1088,6 @@ bool XBUFFER::Extract(XWORD& data, XDWORD ppos)
 * @fn         bool XBUFFER::Extract(XDWORD& data, XDWORD ppos)
 * @brief      Extract one Double WORD from buffer (32 bits)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out] data : DWORD extracted
 * @param[in]  ppos : position of buffer to extract
@@ -1254,9 +1113,6 @@ bool XBUFFER::Extract(XDWORD& data, XDWORD ppos)
 * @brief      Extract one Quad WORD from buffer (64 bits)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[out] data : QWORD extracted
 * @param[in]  ppos : position of buffer to extract
 *
@@ -1281,9 +1137,6 @@ bool XBUFFER::Extract(XQWORD& data, XDWORD ppos)
 * @brief      Extract one float from buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[out] data : float extracted
 * @param[in]  ppos : position of buffer to extract
 *
@@ -1306,9 +1159,6 @@ bool XBUFFER::Extract(float& data,XDWORD ppos)
 * @brief      Extract one double from buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[out] data : double extracted
 * @param[in]  ppos : position of buffer to extract
 *
@@ -1330,9 +1180,6 @@ bool XBUFFER::Extract(double& data, XDWORD ppos)
 * @fn         bool XBUFFER::Extract(XSTRING& string, XDWORD ppos, XDWORD psize)
 * @brief      Extract one string from buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string : string extracted
 * @param[in]  ppos : position of buffer to extract
@@ -1372,9 +1219,6 @@ bool XBUFFER::Extract(XSTRING& string, XDWORD ppos, XDWORD psize)
 * @fn         bool XBUFFER::ExtractWithMaskArg(XCHAR* mask, int frompos, va_list& arg)
 * @brief      ExtractWithMaskArg
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask :
 * @param[in]  frompos :
@@ -1422,9 +1266,6 @@ bool XBUFFER::ExtractWithMaskArg(XCHAR* mask, int frompos, va_list& arg)
 * @brief      ExtractWithMaskArg
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask :
 * @param[in]  frompos :
 * @param[in]  arg :
@@ -1444,9 +1285,6 @@ bool XBUFFER::ExtractWithMaskArg(XSTRING* mask, int frompos, va_list& arg)
 * @fn         bool XBUFFER::ExtractWithMask(XCHAR* mask, int frompos, ...)
 * @brief      Extract variant data with a mask
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask : pointer XCHAR with a mask to use in extract
 * @param[in]  frompos : position of buffer to extract
@@ -1478,9 +1316,6 @@ bool XBUFFER::ExtractWithMask(XCHAR* mask, int frompos, ...)
 * @brief      Extract variant data with a mask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask : string with a mask to use in extract
 * @param[in]  frompos : position of buffer to extract
 * @param[in]  ... : params with a variant data
@@ -1511,9 +1346,6 @@ bool XBUFFER::ExtractWithMask(XSTRING* mask, int frompos, ...)
 * @brief      Get Pointer to array of bytes of buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE* : Array of bytes of buffer
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1531,9 +1363,6 @@ XBYTE* XBUFFER::Get()
 * @fn         XBYTE XBUFFER::GetByte(XDWORD index)
 * @brief      Get a byte from buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index : index of byte into buffer
 *
@@ -1569,9 +1398,6 @@ XBYTE XBUFFER::GetByte(XDWORD index)
 * @brief      GetLastByte
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1594,9 +1420,6 @@ XBYTE XBUFFER::GetLastByte()
 * @fn         bool XBUFFER::Get(XBYTE* pbuffer,int psize,int frompos)
 * @brief      Get array of bytes from buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out] pbuffer : byte array obtained
 * @param[in]  psize : size of array
@@ -1641,9 +1464,6 @@ bool XBUFFER::Get(XBYTE* pbuffer,int psize,int frompos)
 * @brief      Get byte from buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[out] data : byte obtained
 * @param[in]  frompos : position of buffer to get
 *
@@ -1680,9 +1500,6 @@ bool XBUFFER::Get(XBYTE& data, int frompos)
 * @brief      Get boolean from buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : boolean obtained
 * @param[in]  frompos : position of buffer to get
 *
@@ -1709,9 +1526,6 @@ bool XBUFFER::Get(bool& data, int frompos)
 * @brief      Get WORD from buffer. (16 bits)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : WORD obtained
 * @param[in]  frompos : position of buffer to get
 *
@@ -1734,9 +1548,6 @@ bool XBUFFER::Get(XWORD& data, int frompos)
 * @fn         bool XBUFFER::Get(XDWORD& data, int frompos)
 * @brief      Get doble WORD from buffer. (32 bits)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data : double WORD obtained
 * @param[in]  frompos : position of buffer to get
@@ -1761,9 +1572,6 @@ bool XBUFFER::Get(XDWORD& data, int frompos)
 * @brief      Get quad WORD from buffer. (64 bits)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : quad WORD obtained
 * @param[in]  frompos : position of buffer to get
 *
@@ -1787,9 +1595,6 @@ bool XBUFFER::Get(XQWORD& data, int frompos)
 * @brief      Get float from buffer.
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : float obtained
 * @param[in]  frompos : position of buffer to get
 *
@@ -1811,9 +1616,6 @@ bool XBUFFER::Get(float& data, int frompos)
 * @brief      Get double from buffer.
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : double obtained.
 * @param[in]  frompos : position of buffer to get
 *
@@ -1834,9 +1636,6 @@ bool XBUFFER::Get(double& data, int frompos)
 * @fn         bool XBUFFER::Get(XSTRING& data,  int psize, int frompos)
 * @brief      Get string from buffer.
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out] data : strint obtained
 * @param[in]  psize : size n bytes to obtain
@@ -1874,9 +1673,6 @@ bool XBUFFER::Get(XSTRING& data, int psize, int frompos)
 * @brief      GetWithMaskArg
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask :
 * @param[in]  frompos :
 * @param[in]  arg :
@@ -1907,9 +1703,6 @@ bool XBUFFER::GetWithMaskArg(XCHAR* mask, int frompos, va_list& arg)
 * @brief      GetWithMask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask :
 * @param[in]  frompos :
 * @param[in]  arg :
@@ -1931,9 +1724,6 @@ bool XBUFFER::GetWithMaskArg(XSTRING* mask, int frompos, va_list& arg)
 * @fn         bool XBUFFER::GetWithMask(XCHAR* mask, int frompos, ...)
 * @brief      Get variant data with a mask
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask : pointer to string with a mask to use in get
 * @param[in]  frompos : position of buffer to get
@@ -1965,9 +1755,6 @@ bool XBUFFER::GetWithMask(XCHAR* mask, int frompos, ...)
 * @brief      Get variant data with a mask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask : pointer to string with a mask to use in get
 * @param[in]  frompos : position of buffer to get
 * @param[in]  ... : params with a variant data
@@ -1997,9 +1784,6 @@ bool XBUFFER::GetWithMask(XSTRING* mask, int frompos, ...)
 * @fn         bool XBUFFER::Set(XBYTE* pbuffer, int psize, int topos)
 * @brief      Set array of bytes into buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pbuffer : pointer of buffer to set
 * @param[in]  psize : size of buffer to set.
@@ -2040,9 +1824,6 @@ bool XBUFFER::Set(XBYTE* pbuffer, int psize, int topos)
 * @brief      Set byte to buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : byte to set
 * @param[in]  topos : position of buffer to set
 *
@@ -2079,9 +1860,6 @@ bool XBUFFER::Set(XBYTE data, int topos)
 * @brief      Set boolean to buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : boolean to set
 * @param[in]  topos : position of buffer to set
 *
@@ -2104,9 +1882,6 @@ bool XBUFFER::Set(bool data, int topos)
 * @brief      Set WORD to buffer. (16 bits)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : WORD to set
 * @param[in]  topos : position of buffer to set
 *
@@ -2127,9 +1902,6 @@ bool XBUFFER::Set(XWORD data, int topos)
 * @fn         bool XBUFFER::Set(XDWORD data, int topos)
 * @brief      Set double WORD to buffer. (32 bits)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data : DWORD to set
 * @param[in]  topos : position of buffer to set
@@ -2152,9 +1924,6 @@ bool XBUFFER::Set(XDWORD data, int topos)
 * @brief      Set quad WORD to buffer. (64 bits)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : QWORD to set
 * @param[in]  topos : position of buffer to set
 *
@@ -2176,9 +1945,6 @@ bool XBUFFER::Set(XQWORD data, int topos)
 * @brief      Set float buffer.
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : float to set
 * @param[in]  topos : position of buffer to set
 *
@@ -2198,9 +1964,6 @@ bool XBUFFER::Set(float data, int topos)
 * @brief      Set double to set
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : double to set
 * @param[in]  topos : position of buffer to set
 *
@@ -2219,9 +1982,6 @@ bool XBUFFER::Set(double data, int topos)
 * @fn         bool XBUFFER::Set(XSTRING& data, int topos)
 * @brief      Set string to buffer (normalizes string before set)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data : string to set
 * @param[in]  topos : position of buffer to set
@@ -2259,9 +2019,6 @@ bool XBUFFER::Set(XSTRING& data, int topos)
 * @brief      SetWithMaskArg
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask :
 * @param[in]  topos :
 * @param[in]  arg :
@@ -2288,9 +2045,6 @@ XDWORD XBUFFER::SetWithMaskArg(XCHAR* mask, int topos, va_list& arg)
 * @brief      SetWithMask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask :
 * @param[in]  topos :
 * @param[in]  arg :
@@ -2312,9 +2066,6 @@ XDWORD XBUFFER::SetWithMaskArg(XSTRING* mask, int topos, va_list& arg)
 * @fn         XDWORD XBUFFER::SetWithMask(XCHAR* mask, int topos, ...)
 * @brief      Set variant data with a mask
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask : pointer XCHAR with a mask to use in extract
 * @param[in]  topos : position of buffer to set
@@ -2346,9 +2097,6 @@ XDWORD XBUFFER::SetWithMask(XCHAR* mask, int topos, ...)
 * @brief      Set variant data with a mask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask : string with a mask to use in extract
 * @param[in]  topos : position of buffer to set
 * @param[in]  ... : params with a variant data
@@ -2378,9 +2126,6 @@ XDWORD XBUFFER::SetWithMask(XSTRING* mask, int topos, ...)
 * @fn         bool XBUFFER::Resize(XDWORD newsize, bool setblocked)
 * @brief      Resize buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  newsize : new size of bufffer.
 * @param[in]  setblocked : blocked this operation.
@@ -2463,9 +2208,6 @@ bool XBUFFER::Resize(XDWORD newsize, bool setblocked)
 * @brief      Delete buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  setblocked : blocked this operation.
 *
 * @return     bool : true if is succesful.
@@ -2494,9 +2236,6 @@ bool XBUFFER::Delete(bool setblocked)
 * @fn         bool XBUFFER::FillBuffer(XBYTE fillchar)
 * @brief      Fill the buffer with a byte
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  fillchar : byte to fill buffer
 *
@@ -2528,8 +2267,8 @@ bool XBUFFER::FillBuffer(XBYTE fillchar)
  *  @brief      Delete Buffer (set blocked default)
  *  @ingroup    UTILS
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @return     bool : true if is succesful.
  *
@@ -2546,9 +2285,6 @@ bool XBUFFER::Empty()
 * @fn         bool XBUFFER::Swap()
 * @brief      Swap buffer (last to first byte and viceversa)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -2578,9 +2314,6 @@ bool XBUFFER::Swap()
 * @fn         bool XBUFFER::Compare(XBYTE* pbuffer,XDWORD psize)
 * @brief      Compare buffer to array of bytes
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pbuffer : pointer to buffer to compare
 * @param[in]  psize : size of buffer to compare
@@ -2618,9 +2351,6 @@ bool XBUFFER::Compare(XBYTE* pbuffer,XDWORD psize)
 * @brief      Compare buffer to buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer : pointer to buffer
 *
 * @return     bool : true if is succesful.
@@ -2640,9 +2370,6 @@ bool XBUFFER::Compare(XBUFFER* buffer)
 * @fn         int XBUFFER::Find(XBUFFER* buffer, int startindex)
 * @brief      Find
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  startindex :
@@ -2693,9 +2420,6 @@ int XBUFFER::Find(XBUFFER* buffer, int startindex)
 * @brief      Find
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 * @param[in]  normalize :
 * @param[in]  startindex :
@@ -2719,9 +2443,6 @@ int XBUFFER::Find(XSTRING& string, bool normalize, int startindex)
 * @fn         bool XBUFFER::Padding_Add(XBYTE bitsadjust, XBUFFER_PADDINGTYPE type)
 * @brief      Add Padding (bits) to buffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bitsadjust : n bits of padding
 * @param[in]  type : type of padding
@@ -2801,9 +2522,6 @@ bool XBUFFER::Padding_Add(XBYTE bitsadjust, XBUFFER_PADDINGTYPE type)
 * @brief      Check if buffer has padding
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2819,9 +2537,6 @@ bool XBUFFER::Padding_Has()
 * @fn         XBUFFER_PADDINGTYPE XBUFFER::Padding_GetType()
 * @brief      GetType of padding
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XBUFFER_PADDINGTYPE : type of padding
 *
@@ -2839,9 +2554,6 @@ XBUFFER_PADDINGTYPE XBUFFER::Padding_GetType()
 * @brief      Get size of padding
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE : size of padding
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2857,9 +2569,6 @@ XBYTE XBUFFER::Padding_GetSize()
 * @fn         bool XBUFFER::Padding_Delete()
 * @brief      Delete padding
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -2889,9 +2598,6 @@ bool XBUFFER::Padding_Delete()
 * @brief      Bit_GetNBits
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2907,9 +2613,6 @@ XBYTE XBUFFER::Bit_GetNBits()
 * @fn         bool XBUFFER::Bit_SetNBits(int nbits)
 * @brief      Bit_SetNBits
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nbits :
 *
@@ -2932,9 +2635,6 @@ bool XBUFFER::Bit_SetNBits(int nbits)
 * @fn         bool XBUFFER::Bit_AddData(XDWORD data, int nbits)
 * @brief      Bit_AddData
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 * @param[in]  nbits :
@@ -3020,9 +2720,6 @@ bool XBUFFER::Bit_AddData(XDWORD data, int nbits)
 * @brief      Bit_GetData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  indexbit :
 * @param[in]  nbits :
 *
@@ -3079,9 +2776,6 @@ XDWORD XBUFFER::Bit_GetData(int indexbit, int nbits)
 * @brief      Bit_SetData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 * @param[in]  indexbit :
 * @param[in]  nbits :
@@ -3131,9 +2825,6 @@ bool XBUFFER::Bit_SetData(XDWORD data, int indexbit, int nbits)
 * @brief      Bit_GetBitsFree
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3149,9 +2840,6 @@ XBYTE XBUFFER::Bit_GetBitsFree()
 * @fn         bool XBUFFER::Bit_SetBitsFree(XBYTE nbitsfree)
 * @brief      Bit_SetBitsFree
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nbitsfree :
 *
@@ -3172,9 +2860,6 @@ bool XBUFFER::Bit_SetBitsFree(XBYTE nbitsfree)
 * @fn         bool XBUFFER::ConvertFromBase64(XSTRING& stringbase64)
 * @brief      Convert from string in Base 64.
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  stringbase64 : string origin to convert.
 *
@@ -3249,9 +2934,6 @@ bool XBUFFER::ConvertFromBase64(XSTRING& stringbase64)
 * @brief      Set String to base 64 from buffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[out] stringbase64 : string in base 64.
 *
 * @return     bool : true if is succesful.
@@ -3276,9 +2958,6 @@ bool XBUFFER::ConvertToBase64(XSTRING& stringbase64)
 * @fn         XDWORD XBUFFER::DecodeBCD(XDWORD ppos, XDWORD psize)
 * @brief      Decode DWORD from buffer BCD
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ppos : position of DWORD
 * @param[in]  psize : size of decode
@@ -3314,9 +2993,6 @@ XDWORD XBUFFER::DecodeBCD(XDWORD ppos, XDWORD psize)
 * @fn         XQWORD XBUFFER::DecodeBCDLong(XDWORD ppos,XDWORD psize)
 * @brief      Decode long from buffer BCD
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ppos :
 * @param[in]  psize :
@@ -3355,9 +3031,6 @@ XQWORD XBUFFER::DecodeBCDLong(XDWORD ppos,XDWORD psize)
 * @brief      GetHardwareUseLittleEndian
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3374,9 +3047,6 @@ bool XBUFFER::GetHardwareUseLittleEndian()
 * @brief      Set Hardware Use Little Endian
               Use static solution to eliminate depends of XSYSTEM
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hardwareuselittleendian : true little endian
 *
@@ -3395,9 +3065,6 @@ void XBUFFER::SetHardwareUseLittleEndian(bool hardwareuselittleendian)
 * @fn         bool XBUFFER::AddXBufferWithMask(XBUFFER& xbuffer, XCHAR* mask, va_list& arg)
 * @brief      AddXBufferWithMask
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xbuffer :
 * @param[in]  mask :
@@ -3518,9 +3185,6 @@ bool XBUFFER::AddXBufferWithMask(XBUFFER& xbuffer, XCHAR* mask, va_list& arg)
 * @brief      AddXBufferWithMask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer :
 * @param[in]  mask :
 * @param[in]  arg :
@@ -3542,9 +3206,6 @@ bool XBUFFER::AddXBufferWithMask(XBUFFER& xbuffer, XSTRING* mask, va_list& arg)
 * @fn         XDWORD XBUFFER::CalculeExtractSizeArgWithMask(XBUFFER& xbuffer, int frompos, XCHAR* mask, va_list& arg)
 * @brief      CalculeExtractSizeArgWithMask
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xbuffer :
 * @param[in]  frompos :
@@ -3669,9 +3330,6 @@ XDWORD XBUFFER::CalculeExtractSizeArgWithMask(XBUFFER& xbuffer, int frompos, XCH
 * @brief      ExtractXBufferWithMask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer :
 * @param[in]  mask :
 * @param[in]  arg :
@@ -3793,9 +3451,6 @@ bool XBUFFER::ExtractXBufferWithMask(XBUFFER& xbuffer, XCHAR* mask, va_list& arg
 * @brief      ExtractXBufferWithMask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer :
 * @param[in]  mask :
 * @param[in]  arg :
@@ -3818,9 +3473,6 @@ bool XBUFFER::ExtractXBufferWithMask(XBUFFER& xbuffer, XSTRING* mask, va_list& a
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

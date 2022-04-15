@@ -6,10 +6,7 @@
 * @brief      DataBase SQLite Query class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -87,9 +81,6 @@ SQLITE_QUERY::~SQLITE_QUERY()
 * @fn         bool SQLITE_QUERY::Execute()
 * @brief      Execute
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -145,9 +136,6 @@ bool SQLITE_QUERY::Execute()
 * @brief      ClearCursor
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -163,9 +151,6 @@ bool SQLITE_QUERY::ClearCursor()
 * @fn         bool SQLITE_QUERY::Bind(XDWORD ID, int integer)
 * @brief      Bind
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  integer :
@@ -186,9 +171,6 @@ bool SQLITE_QUERY::Bind(XDWORD ID, int integer)
 * @brief      Bind
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 * @param[in]  string :
 *
@@ -207,9 +189,6 @@ bool SQLITE_QUERY::Bind(XDWORD ID, XCHAR* string)
 * @fn         bool SQLITE_QUERY::Bind(XDWORD ID, float decimal)
 * @brief      Bind
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  decimal :
@@ -230,9 +209,6 @@ bool SQLITE_QUERY::Bind(XDWORD ID, float decimal)
 * @brief      Bind
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 * @param[in]  datetime :
 *
@@ -252,9 +228,6 @@ bool SQLITE_QUERY::Bind(XDWORD ID, XDATETIME& datetime)
 * @brief      IsWellConstructedQuery
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -271,9 +244,6 @@ bool SQLITE_QUERY::IsWellConstructedQuery()
 * @fn         int SQLITE_QUERY::Exec(const char* sql,XDWORD size)
 * @brief      Exec
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  char* sql :
 * @param[in]  size :
@@ -420,9 +390,6 @@ int SQLITE_QUERY::Exec(const char* sql, XDWORD size)
 * @brief      BindParametersToQuery
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -519,9 +486,6 @@ bool SQLITE_QUERY::BindParametersToQuery()
 * @fn         DB_SQL_RESULT* SQLITE_QUERY::ConstructResult()
 * @brief      ConstructResult
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     DB_SQL_RESULT* :
 *

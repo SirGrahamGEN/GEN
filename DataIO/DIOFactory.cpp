@@ -6,10 +6,7 @@
 * @brief      Data Input/Output factory class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@ DIOFACTORY* DIOFACTORY::instance = NULL;
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -80,9 +74,6 @@ DIOFACTORY::DIOFACTORY()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -98,9 +89,6 @@ DIOFACTORY::~DIOFACTORY()
 * @brief      Get if Is Instanced
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -118,9 +106,6 @@ bool DIOFACTORY::GetIsInstanced()
 * @brief      Get Instance of DIOFACTORY
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOFACTORY& :
 *
@@ -140,9 +125,6 @@ DIOFACTORY& DIOFACTORY::GetInstance()
 * @brief      Set Instance of DIOFACTORY
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  _instance : new instance
 *
@@ -166,9 +148,6 @@ bool DIOFACTORY::SetInstance(DIOFACTORY* _instance)
 * @brief      Delete Instance of DIOFACTORY
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -194,9 +173,6 @@ bool DIOFACTORY::DelInstance()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type : type of enum devices (DIOSTREAMENUMTYPE)
 *
 * @return     DIOSTREAMENUMDEVICES* : enum created
@@ -215,9 +191,6 @@ DIOSTREAMENUMDEVICES* DIOFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE type
 * @brief      Delete Stream Enum Devices
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  enumdevices : enum to delete
 *
@@ -238,9 +211,6 @@ bool DIOFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  config : config to create stream IO
 *
 * @return     DIOSTREAM* : stream IO created
@@ -259,9 +229,6 @@ DIOSTREAM* DIOFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 * @brief      Delete Stream IO
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  streamio : stream IO to delete
 *
@@ -287,9 +254,6 @@ bool DIOFACTORY::DeleteStreamIO(DIOSTREAM* streamio)
 * @brief      CreateWifiManagerMode
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     DIOWIFIMANAGERMODE* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -305,9 +269,6 @@ DIOWIFIMANAGERMODE* DIOFACTORY::CreateWifiManagerMode()
 * @fn         bool DIOFACTORY::DeleteWifiManagerMode(DIOWIFIMANAGERMODE* wifimanagermode)
 * @brief      DeleteWifiManagerMode
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  wifimanagermode : 
 *
@@ -333,9 +294,6 @@ bool DIOFACTORY::DeleteWifiManagerMode(DIOWIFIMANAGERMODE* wifimanagermode)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOPING* : ping class created
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -351,9 +309,6 @@ DIOPING* DIOFACTORY::CreatePing()
 * @brief      Delete Ping
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ping : ping to delete
 *
@@ -379,9 +334,6 @@ bool DIOFACTORY::DeletePing(DIOPING* ping)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOPCAP* : PCap created
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -397,9 +349,6 @@ DIOPCAP* DIOFACTORY::CreatePCap()
 * @brief      DeletePCap
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pcap : pcap to delete
 *
@@ -421,9 +370,6 @@ bool DIOFACTORY::DeletePCap(DIOPCAP* pcap)
 * @brief      CreateNotificationsManager
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIONOTIFICATIONSMANAGER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -440,9 +386,6 @@ DIONOTIFICATIONSMANAGER* DIOFACTORY::CreateNotificationsManager()
 * @fn         bool DIOFACTORY::DeleteNotificationsManager(DIONOTIFICATIONSMANAGER* notificationsmanager)
 * @brief      DeleteNotificationsManager
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  notificationsmanager :
 *
@@ -463,10 +406,7 @@ bool DIOFACTORY::DeleteNotificationsManager(DIONOTIFICATIONSMANAGER* notificatio
 * @fn         DIOLEDNEOPIXELWS2812B* DIOFACTORY::CreateLedNeopixelWS2812B()
 * @brief      CreateLedNeopixelWS2812B
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOLEDNEOPIXELWS2812B* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -483,10 +423,7 @@ DIOLEDNEOPIXELWS2812B* DIOFACTORY::CreateLedNeopixelWS2812B()
 * @fn         bool DIOFACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixelws2812b)
 * @brief      DeleteLedNeopixelWS2812B
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ledneopixelws2812b : 
 * 
 * @return     bool : true if is succesful. 
@@ -513,9 +450,6 @@ bool DIOFACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixelws28
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

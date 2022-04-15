@@ -6,10 +6,7 @@
 * @brief      Main procedure WINDOWS class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -153,9 +150,6 @@ bool                    Exception_ShutDown            (XSYSTEM_CHANGESTATUSTYPE 
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -173,9 +167,6 @@ MAINPROCWINDOWS::MAINPROCWINDOWS()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -191,9 +182,6 @@ MAINPROCWINDOWS::~MAINPROCWINDOWS()
 * @fn         bool MAINPROCWINDOWS::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
 * @brief      Ini
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  appmain :
 * @param[in]  applicationmode :
@@ -268,9 +256,6 @@ bool MAINPROCWINDOWS::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applica
 * @brief      Update
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -333,9 +318,6 @@ bool MAINPROCWINDOWS::Update()
 * @brief      End
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -388,9 +370,6 @@ bool MAINPROCWINDOWS::End()
 * @fn         bool MAINPROCWINDOWS::Factorys_Ini()
 * @brief      Factorys Ini
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -464,9 +443,6 @@ bool MAINPROCWINDOWS::Factorys_Ini()
 * @fn         bool MAINPROCWINDOWS::Factorys_End()
 * @brief      Factorys End
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -571,9 +547,6 @@ bool MAINPROCWINDOWS::Factorys_End()
 * @brief      MainLoop
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -618,9 +591,6 @@ int MAINPROCWINDOWS::MainLoop()
 * @fn         bool MAINPROCWINDOWS::IsRunningAsService()
 * @brief      IsRunningAsService
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -689,9 +659,6 @@ bool MAINPROCWINDOWS::IsRunningAsService()
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -716,9 +683,6 @@ void MAINPROCWINDOWS::Clean()
 * @fn         WINDOWSSERVICE::WINDOWSSERVICE(XCHAR* servicename, bool can_stop, bool can_shutdown, bool can_pause)
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  servicename :
 * @param[in]  can_stop :
@@ -747,9 +711,6 @@ WINDOWSSERVICE::WINDOWSSERVICE(XCHAR* servicename, bool can_stop, bool can_shutd
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -772,9 +733,6 @@ WINDOWSSERVICE::~WINDOWSSERVICE()
 * @brief      GetHandleStoppedEvent
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     HANDLE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -791,9 +749,6 @@ HANDLE WINDOWSSERVICE::GetHandleStoppedEvent()
 * @brief      MustRestartService
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -809,9 +764,6 @@ bool WINDOWSSERVICE::MustRestartService()
 * @fn         void WINDOWSSERVICE::SetMustRestartService(bool mustrestartservice)
 * @brief      SetMustRestartService
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  mustrestartservice : 
 *
@@ -830,9 +782,6 @@ void WINDOWSSERVICE::SetMustRestartService(bool mustrestartservice)
 * @fn         void WINDOWSSERVICE::On_Start(DWORD argc, XCHAR** args)
 * @brief      On_Start
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  argc :
 * @param[in]  args :
@@ -854,9 +803,6 @@ void WINDOWSSERVICE::On_Start(DWORD argc, XCHAR** args)
 * @fn         void WINDOWSSERVICE::On_Stop()
 * @brief      On_Stop
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -898,8 +844,8 @@ void WINDOWSSERVICE::On_Stop()
  *  @brief      On_Shutdown
  *  @ingroup    PLATFORM_WINDOWS
  *
- *  @author
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @return     void : does not return anything.
  *
@@ -924,9 +870,6 @@ void WINDOWSSERVICE::On_Shutdown()
 * @fn         void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
 * @brief      On_PowerEvent
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  eventtype :
 *
@@ -958,9 +901,6 @@ void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
 * @fn         void WINDOWSSERVICE::On_SessionChange(DWORD eventtype)
 * @brief      On_SessionChange
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  eventtype :
 *
@@ -998,9 +938,6 @@ void WINDOWSSERVICE::On_SessionChange(DWORD eventtype)
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1017,9 +954,6 @@ void WINDOWSSERVICE::Clean()
 * @fn         DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
 * @brief      INAPI Service_WorkerThread
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  lpparam :
 *
@@ -1095,9 +1029,6 @@ DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
 * @fn         int wmain(int argc, wchar_t* argv[])
 * @brief      main
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  argc :
 * @param[in]  argv[] :
@@ -1191,9 +1122,6 @@ int wmain(int argc, wchar_t* argv[])
 * @brief      WinMain
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hinstance :
 * @param[in]  hprevinst :
 * @param[in]  cmdline :
@@ -1263,9 +1191,6 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinst, LPSTR cmdline, int 
 * @brief      Dll Main
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hinstDLL :
 * @param[in]  fdwReason :
 * @param[in]  lpvReserved :
@@ -1320,9 +1245,6 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  szSearchPath :
 * @param[in]  symOptions :
 * @param[in]  szUserName :
@@ -1343,9 +1265,6 @@ void MAINPROCWINDOWSSTACKWALKER::OnSymInit(LPCSTR szSearchPath, DWORD symOptions
 * @brief      On Call Stack Entry
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  eType :
 * @param[in]  entry :
@@ -1391,9 +1310,6 @@ void MAINPROCWINDOWSSTACKWALKER::OnCallstackEntry(CallstackEntryType eType, Call
 * @brief      Exception Console Handler
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  fdwctrltype :
 *
@@ -1458,9 +1374,6 @@ BOOL Exception_ConsoleHandler(DWORD fdwctrltype)
 * @brief      Exception Filter
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 * @param[in]  _EXCEPTION_POINTERS* ep :
@@ -1643,9 +1556,6 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
 * @brief      Exception Printf
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  iserror :
 * @param[in]  title :
 * @param[in]  mask :
@@ -1702,9 +1612,6 @@ bool Exception_Printf(bool iserror, XCHAR* title, XCHAR* mask, ...)
 * @brief      Exception Printf Stack Trace
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  CONTEXT* context :
 *
@@ -1771,9 +1678,6 @@ static bool Exception_PrintfStackTrace(const CONTEXT* context)
 * @brief      Exception ShutDown
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *

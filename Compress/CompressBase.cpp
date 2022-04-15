@@ -38,7 +38,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/11/2003 16:28:44
 //
 //  @return
@@ -55,7 +55,7 @@ COMPRESSBASE::COMPRESSBASE()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/11/2003 16:28:55
 //
 //  @return
@@ -74,7 +74,7 @@ COMPRESSBASE::COMPRESSBASE(COMPRESSBASE_TYPE type)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/11/2003 16:29:12
 //
 //  @return
@@ -92,7 +92,7 @@ COMPRESSBASE::~COMPRESSBASE()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/11/2003 16:28:34
 //
 //  @return       COMPRESSBASE_TYPE :
@@ -110,7 +110,7 @@ COMPRESSBASE_TYPE COMPRESSBASE::GetType()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/11/2003 16:28:27
 //
 //  @return
@@ -130,7 +130,7 @@ COMPRESSBASE_TYPE COMPRESSBASE::SetType(COMPRESSBASE_TYPE type)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/02/2004 18:00:06
 //
 //  @return       bool :
@@ -158,7 +158,7 @@ bool COMPRESSBASE::Compress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/02/2004 18:00:11
 //
 //  @return       bool :
@@ -185,7 +185,7 @@ bool COMPRESSBASE::Decompress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/11/2003 16:42:18
 //
 //  @return       bool :
@@ -214,7 +214,7 @@ bool COMPRESSBASE::Compress(XBYTE* origin,XDWORD size,void* param1)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/11/2003 16:43:39
 //
 //  @return       bool :
@@ -243,7 +243,7 @@ bool COMPRESSBASE::Decompress(XBYTE* origin,XDWORD size,void* param1)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/11/2003 16:44:04
 //
 //  @return       bool :

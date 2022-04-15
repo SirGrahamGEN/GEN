@@ -6,7 +6,7 @@
 //
 //  ANDROID Data IO Stream USB class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 02/01/2002
 */
 //  GEN  Copyright (C).  All right reserved.

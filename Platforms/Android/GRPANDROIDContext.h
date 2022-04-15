@@ -6,7 +6,7 @@
 //
 //  android graphics context
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 04/04/2016 16:04:41
 //  Last Modification :

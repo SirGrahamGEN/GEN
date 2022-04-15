@@ -6,10 +6,7 @@
 * @brief      eXtended utils STM32 timer class
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ XSTM32TRACE::XSTM32TRACE()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -103,9 +94,6 @@ XSTM32TRACE::~XSTM32TRACE()
 * @fn         void XSTM32TRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @brief      Print Special aim
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
@@ -159,9 +147,6 @@ void XSTM32TRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string
 * @brief      GetHuart
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     UART_HandleTypeDef* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -177,9 +162,6 @@ UART_HandleTypeDef* XSTM32TRACE::GetHuart()
 * @fn         void XSTM32TRACE::SetHuart(UART_HandleTypeDef* huart)
 * @brief      SetHuart
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  huart :
 *
@@ -199,9 +181,6 @@ void XSTM32TRACE::SetHuart(UART_HandleTypeDef* huart)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

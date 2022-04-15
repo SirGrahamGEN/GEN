@@ -7,10 +7,7 @@
 * @brief                                                   (TARGA: Truevision Advanced Raster Graphics Adapter)
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated

@@ -6,10 +6,7 @@
 * @brief      DataBase PostgreSQL Database class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ POSTGRESQL_DATABASE::POSTGRESQL_DATABASE(): DB_SQL_DATABASE()
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -99,9 +90,6 @@ POSTGRESQL_DATABASE::~POSTGRESQL_DATABASE()
 * @fn         DB_SQL_DATABASE_TYPE MYSQL_DATABASE::GetType()
 * @brief      GetType
 * @ingroup    DATABASESSQL
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DB_SQL_DATABASE_TYPE :
 *
@@ -119,9 +107,6 @@ DB_SQL_DATABASE_TYPE POSTGRESQL_DATABASE::GetType()
 * @brief      GetTypeName
 * @ingroup    DATABASESSQL
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -136,9 +121,6 @@ XCHAR* POSTGRESQL_DATABASE::GetTypeName()
 * @fn         bool POSTGRESQL_DATABASE::Transaction()
 * @brief      Transaction
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -169,9 +151,6 @@ bool POSTGRESQL_DATABASE::Transaction()
 * @brief      Commit
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -200,9 +179,6 @@ bool POSTGRESQL_DATABASE::Commit()
 * @fn         bool POSTGRESQL_DATABASE::Rollback(XCHAR* savepointname)
 * @brief      Rollback
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  savepointname :
 *
@@ -234,9 +210,6 @@ bool POSTGRESQL_DATABASE::Rollback(XCHAR* savepointname)
 * @fn         bool POSTGRESQL_DATABASE::Savepoint(XCHAR* savepoint)
 * @brief      Savepoint
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  savepoint :
 *
@@ -276,9 +249,6 @@ bool POSTGRESQL_DATABASE::Savepoint(XCHAR* savepoint)
 * @brief      ReleaseSavepoint
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  savepoint :
 *
 * @return     bool : true if is succesful.
@@ -317,9 +287,6 @@ bool POSTGRESQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 * @brief      CreateQuery
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_QUERY* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -338,9 +305,6 @@ DB_SQL_QUERY* POSTGRESQL_DATABASE::CreateQuery()
 * @brief      CreateConnection
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_CONNECTION* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -357,9 +321,6 @@ DB_SQL_CONNECTION* POSTGRESQL_DATABASE::CreateConnection()
 * @fn         bool POSTGRESQL_DATABASE::GetTables()
 * @brief      GetTables
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -419,9 +380,6 @@ bool POSTGRESQL_DATABASE::GetTables()
 * @brief      GetDatabaseEncoding
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_DATABASE_ENCODING :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -441,9 +399,6 @@ DB_SQL_DATABASE_ENCODING POSTGRESQL_DATABASE::GetDatabaseEncoding()
 * @fn         bool POSTGRESQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
 * @brief      SetDatabaseEncoding
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  encodingtouse :
 *
@@ -517,9 +472,6 @@ bool POSTGRESQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingt
 * @brief      OnConnection
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -539,9 +491,6 @@ bool POSTGRESQL_DATABASE::OnConnection()
 * @brief      OnDisconnection
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -556,9 +505,6 @@ bool POSTGRESQL_DATABASE::OnDisconnection()
 * @fn         bool POSTGRESQL_DATABASE::IsThreadSafe()
 * @brief      IsThreadSafe
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -576,9 +522,6 @@ bool POSTGRESQL_DATABASE::IsThreadSafe()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

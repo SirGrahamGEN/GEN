@@ -44,7 +44,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:43:10
 //
 //  @return
@@ -72,7 +72,7 @@ HASHCRC32::HASHCRC32() : HASH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:01
 //
 //  @return
@@ -99,7 +99,7 @@ HASHCRC32::~HASHCRC32()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 16:30:03
 //
 //  @return       bool :
@@ -134,7 +134,7 @@ bool HASHCRC32::Do(XBYTE* input, XQWORD size)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/11/2014 13:48:58
 //
 //  @return       bool :
@@ -160,7 +160,7 @@ bool HASHCRC32::ResetResult()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/04/2013 0:54:19
 //
 //  @return       int :
@@ -179,7 +179,7 @@ int HASHCRC32::GetDefaultSize()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 23:30:36
 //
 //  @return       XBUFFER* :
@@ -201,7 +201,7 @@ XBUFFER* HASHCRC32::GetResult()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 23:30:44
 //
 //  @return       XBYTE* :
@@ -225,7 +225,7 @@ XBYTE* HASHCRC32::GetResult(XDWORD& resultsize)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 14:04:01
 //
 //  @return       XDWORD :
@@ -255,7 +255,7 @@ XDWORD HASHCRC32::GetResultCRC32()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:56
 //
 //  @return       void :
@@ -276,7 +276,7 @@ void HASHCRC32::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 18:45:46
 //
 //  @return       void :
@@ -312,7 +312,7 @@ void HASHCRC32::Ini()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 18:45:51
 //
 //  @return       XDWORD :

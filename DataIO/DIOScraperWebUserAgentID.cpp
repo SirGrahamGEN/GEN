@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Scraper Web User Agent ID class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ DIOUSERAGENTID_RESULT::DIOUSERAGENTID_RESULT()
 * @fn         DIOUSERAGENTID_RESULT::~ DIOUSERAGENTID_RESULT()
 * @brief      IOUSERAGENTID_RESULT
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     DIOUSERAGENTID_RESULT::~ : 
 *
@@ -98,9 +89,6 @@ DIOUSERAGENTID_RESULT::~ DIOUSERAGENTID_RESULT()
 * @brief      GetBrowser
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -116,9 +104,6 @@ XSTRING* DIOUSERAGENTID_RESULT::GetBrowser()
 * @fn         XSTRING* DIOUSERAGENTID_RESULT::GetSO()
 * @brief      GetSO
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* : 
 *
@@ -137,9 +122,6 @@ XSTRING* DIOUSERAGENTID_RESULT::GetSO()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *
@@ -163,9 +145,6 @@ void DIOUSERAGENTID_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -183,9 +162,6 @@ DIOSCRAPERWEBUSERAGENTID::DIOSCRAPERWEBUSERAGENTID() : DIOSCRAPERWEB()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -202,9 +178,6 @@ DIOSCRAPERWEBUSERAGENTID::~DIOSCRAPERWEBUSERAGENTID()
 * @fn         bool DIOSCRAPERWEBUSERAGENTID::ChangeURL(XCHAR* maskurl, DIOURL& url)
 * @brief      ChangeURL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  maskurl : 
 * @param[in]  url : 
@@ -233,9 +206,6 @@ bool DIOSCRAPERWEBUSERAGENTID::ChangeURL(XCHAR* maskurl, DIOURL& url)
 * @fn         bool DIOSCRAPERWEBUSERAGENTID::Get(XCHAR* useragent, XSTRING& browser, XSTRING& systemoperative, int timeout, XSTRING* localIP, bool usecache)
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  useragent : 
 * @param[in]  browser : 
@@ -309,9 +279,6 @@ bool DIOSCRAPERWEBUSERAGENTID::Get(XCHAR* useragent, XSTRING& browser, XSTRING& 
 * @brief      Get
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  useragent : 
 * @param[in]  browser : 
 * @param[in]  systemoperative : 
@@ -335,9 +302,6 @@ bool DIOSCRAPERWEBUSERAGENTID::Get(XSTRING& useragent, XSTRING& browser, XSTRING
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

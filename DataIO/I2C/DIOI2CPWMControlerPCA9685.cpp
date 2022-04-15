@@ -6,10 +6,7 @@
 * @brief      Data Input/Output I2C PCA9685 (16-channel, 12-bit PWM controller) class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -62,9 +59,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ DIOI2CPWMCONTROLERPCA9685::DIOI2CPWMCONTROLERPCA9685(): DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -105,9 +96,6 @@ DIOI2CPWMCONTROLERPCA9685::~DIOI2CPWMCONTROLERPCA9685()
 * @brief      Reset
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -123,9 +111,6 @@ bool DIOI2CPWMCONTROLERPCA9685::Reset()
 * @fn         bool DIOI2CPWMCONTROLERPCA9685::SetPWMFrequency(float frequency)
 * @brief      SetPWMFrequency
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  frequency :
 *
@@ -177,9 +162,6 @@ bool DIOI2CPWMCONTROLERPCA9685::SetPWMFrequency(float frequency)
 * @brief      SetPWM
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  channel :
 * @param[in]  on :
 * @param[in]  off :
@@ -210,9 +192,6 @@ bool DIOI2CPWMCONTROLERPCA9685::SetPWM(XBYTE channel, XWORD on, XWORD off, bool 
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -232,9 +211,6 @@ bool DIOI2CPWMCONTROLERPCA9685::End()
 * @fn         bool DIOI2CPWMCONTROLERPCA9685::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -264,9 +240,6 @@ bool DIOI2CPWMCONTROLERPCA9685::IniDevice()
 * @fn         bool DIOI2CPWMCONTROLERPCA9685::ReadCommand(XBYTE cmd, XBYTE& value)
 * @brief      ReadCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  cmd :
 * @param[in]  value :
@@ -298,9 +271,6 @@ bool DIOI2CPWMCONTROLERPCA9685::ReadCommand(XBYTE cmd, XBYTE& value)
 * @fn         bool DIOI2CPWMCONTROLERPCA9685::SendCommand(XBYTE cmd, XBYTE value, bool wait)
 * @brief      SendCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  cmd :
 * @param[in]  value :
@@ -336,9 +306,6 @@ bool DIOI2CPWMCONTROLERPCA9685::SendCommand(XBYTE cmd, XBYTE value, bool wait)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

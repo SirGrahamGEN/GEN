@@ -73,7 +73,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2013 23:10:30
 //
 //  @return
@@ -129,7 +129,7 @@ DIOLINUXSTREAMUDP::DIOLINUXSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -152,7 +152,7 @@ DIOLINUXSTREAMUDP::~DIOLINUXSTREAMUDP()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -187,7 +187,7 @@ bool DIOLINUXSTREAMUDP::Open()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/12/2010 23:10:56
 //
 //  @return       bool :
@@ -223,7 +223,7 @@ bool DIOLINUXSTREAMUDP::Disconnect()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -252,7 +252,7 @@ bool DIOLINUXSTREAMUDP::Close()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      08/03/2006 15:36:59
 //
 //  @return       int :
@@ -308,7 +308,7 @@ int DIOLINUXSTREAMUDP::IsReadyConnect(int socket)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -328,7 +328,7 @@ void DIOLINUXSTREAMUDP::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/03/2006 15:44:00
 //
 //  @return       void :

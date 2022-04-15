@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Scraper Web Geolocation IP class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -80,9 +74,6 @@ DIOGEOLOCATIONIP_RESULT::DIOGEOLOCATIONIP_RESULT(): DIOSCRAPERWEBCACHE_RESULT()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -98,9 +89,6 @@ DIOGEOLOCATIONIP_RESULT::~DIOGEOLOCATIONIP_RESULT()
 * @fn         XCHAR* DIOGEOLOCATIONIP_RESULT::GetCountry()
 * @brief      GetCountry
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XCHAR* :
 *
@@ -118,9 +106,6 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetCountry()
 * @brief      GetState
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -137,9 +122,6 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetState()
 * @brief      GetCity
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -155,9 +137,6 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetCity()
 * @fn         XCHAR* DIOGEOLOCATIONIP_RESULT::GetISP()
 * @brief      GetISP
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XCHAR* :
 *
@@ -176,9 +155,6 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetISP()
 * @brief      GetOrganization
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -194,9 +170,6 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetOrganization()
 * @fn         float DIOGEOLOCATIONIP_RESULT::GetLatitude()
 * @brief      GetLatitude
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     float :
 *
@@ -214,9 +187,6 @@ float DIOGEOLOCATIONIP_RESULT::GetLatitude()
 * @brief      GetLongitude
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -232,9 +202,6 @@ float DIOGEOLOCATIONIP_RESULT::GetLongitude()
 * @fn         bool DIOGEOLOCATIONIP_RESULT::IsEmpty()
 * @brief      IsEmpty
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -253,9 +220,6 @@ bool DIOGEOLOCATIONIP_RESULT::IsEmpty()
 * @fn         bool DIOGEOLOCATIONIP_RESULT::CopyFrom(DIOSCRAPERWEBCACHE_RESULT* result)
 * @brief      CopyFrom
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  result :
 *
@@ -290,9 +254,6 @@ bool DIOGEOLOCATIONIP_RESULT::CopyFrom(DIOSCRAPERWEBCACHE_RESULT* result)
 * @brief      CopyTo
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  result :
 *
 * @return     bool : true if is succesful.
@@ -325,9 +286,6 @@ bool DIOGEOLOCATIONIP_RESULT::CopyTo(DIOSCRAPERWEBCACHE_RESULT* result)
 * @brief      Set
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  country :
 * @param[in]  state :
 * @param[in]  city :
@@ -350,9 +308,6 @@ bool DIOGEOLOCATIONIP_RESULT::Set(XSTRING& country, XSTRING& state, XSTRING& cit
 * @fn         bool DIOGEOLOCATIONIP_RESULT::Set(XCHAR* country, XCHAR* state, XCHAR* city, XCHAR* ISP, XCHAR* organization)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  country :
 * @param[in]  state :
@@ -393,9 +348,6 @@ bool DIOGEOLOCATIONIP_RESULT::Set(XCHAR* country, XCHAR* state, XCHAR* city, XCH
 * @brief      Set
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  latitude :
 * @param[in]  longitude :
 *
@@ -420,9 +372,6 @@ bool DIOGEOLOCATIONIP_RESULT::Set(float latitude, float longitude)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -446,9 +395,6 @@ void DIOGEOLOCATIONIP_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  webclient :
 *
 * @return     Does not return anything.
@@ -468,9 +414,6 @@ DIOSCRAPERWEBGEOLOCATIONIP::DIOSCRAPERWEBGEOLOCATIONIP(DIOWEBCLIENT* webclient):
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -486,9 +429,6 @@ DIOSCRAPERWEBGEOLOCATIONIP::~DIOSCRAPERWEBGEOLOCATIONIP()
 * @fn         bool DIOSCRAPERWEBGEOLOCATIONIP::ChangeURL(XCHAR* maskurl, DIOURL& url)
 * @brief      ChangeURL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  maskurl :
 * @param[in]  url :
@@ -514,9 +454,6 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::ChangeURL(XCHAR* maskurl, DIOURL& url)
 * @fn         bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XCHAR* IP, DIOGEOLOCATIONIP& geolocationIP, int timeoutforurl, XSTRING* localIP, bool usecache)
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  IP :
 * @param[in]  geolocationIPresult :
@@ -544,9 +481,6 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XCHAR* IP, DIOGEOLOCATIONIP_RESULT& geoloca
 * @brief      Get
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  IP :
 * @param[in]  geolocationIPresult :
 * @param[in]  timeoutforurl :
@@ -568,9 +502,6 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XSTRING& IP, DIOGEOLOCATIONIP_RESULT& geolo
 * @fn         bool DIOSCRAPERWEBGEOLOCATIONIP::Get(DIOIP& IP, DIOGEOLOCATIONIP& geolocationIP, int timeoutforurl, XSTRING* localIP, bool usecache)
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  IP :
 * @param[in]  geolocationIPresult :
@@ -667,9 +598,6 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(DIOIP& IP, DIOGEOLOCATIONIP_RESULT& geoloca
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -46,7 +46,7 @@
 //
 //  Class Constructor DIOWIIMOTE
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/02/2015 16:54:52
 //
 
@@ -81,7 +81,7 @@ DIOWIIMOTE::DIOWIIMOTE()
 //
 //   Class Destructor DIOWIIMOTE
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/02/2015 16:54:56
 //
 */
@@ -108,7 +108,7 @@ DIOWIIMOTE::~DIOWIIMOTE()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/02/2015 17:38:53
 //
 //  @return       bool :
@@ -192,7 +192,7 @@ bool DIOWIIMOTE::Ini(int timeout)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/02/2015 17:38:59
 //
 //  @return       bool :

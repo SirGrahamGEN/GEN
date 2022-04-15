@@ -53,7 +53,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:01
 //
 //  @return
@@ -74,7 +74,7 @@ DIOANDROIDSTREAMUARTLOCALENUMDEVICES::DIOANDROIDSTREAMUARTLOCALENUMDEVICES() : D
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:12
 //
 //  @return
@@ -93,7 +93,7 @@ DIOANDROIDSTREAMUARTLOCALENUMDEVICES::~DIOANDROIDSTREAMUARTLOCALENUMDEVICES()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:27
 //
 //  @return       bool :
@@ -213,7 +213,7 @@ bool DIOANDROIDSTREAMUARTLOCALENUMDEVICES::Search()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:32
 //
 //  @return       bool :

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream Device USB class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -62,9 +59,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -81,9 +75,6 @@ DIOSTREAMDEVICEUSB_DESCRIPTOR::DIOSTREAMDEVICEUSB_DESCRIPTOR()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -98,9 +89,6 @@ DIOSTREAMDEVICEUSB_DESCRIPTOR::~DIOSTREAMDEVICEUSB_DESCRIPTOR()
 * @fn         XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetBCDUSB()
 * @brief      GetBCDUSB
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XWORD :
 *
@@ -117,9 +105,6 @@ XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetBCDUSB()
 * @fn         void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetBCDUSB(XWORD BCDUSB)
 * @brief      SetBCDUSB
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  BCDUSB :
 *
@@ -139,9 +124,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetBCDUSB(XWORD BCDUSB)
 * @brief      GetDeviceClass
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -157,9 +139,6 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetDeviceClass()
 * @fn         void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetDeviceClass(XBYTE deviceclass)
 * @brief      SetDeviceClass
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  deviceclass :
 *
@@ -179,9 +158,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetDeviceClass(XBYTE deviceclass)
 * @brief      GetDeviceSubClass
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -197,9 +173,6 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetDeviceSubClass()
 * @fn         void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetDeviceSubClass(XBYTE devicesubclass)
 * @brief      SetDeviceSubClass
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  devicesubclass :
 *
@@ -219,9 +192,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetDeviceSubClass(XBYTE devicesubclass)
 * @brief      GetDeviceProtocol
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -237,9 +207,6 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetDeviceProtocol()
 * @fn         void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetDeviceProtocol(XBYTE deviceprotocol)
 * @brief      SetDeviceProtocol
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  deviceprotocol :
 *
@@ -259,9 +226,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetDeviceProtocol(XBYTE deviceprotocol)
 * @brief      GetMaxPacketSize
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -277,9 +241,6 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetMaxPacketSize()
 * @fn         void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetMaxPacketSize(XBYTE maxpacketsize)
 * @brief      SetMaxPacketSize
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  maxpacketsize :
 *
@@ -299,9 +260,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetMaxPacketSize(XBYTE maxpacketsize)
 * @brief      GetIDVendor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -317,9 +275,6 @@ XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetIDVendor()
 * @fn         void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetIDVendor(XWORD IDvendor)
 * @brief      SetIDVendor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  IDvendor :
 *
@@ -338,9 +293,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetIDVendor(XWORD IDvendor)
 * @brief      GetIDProduct
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -356,9 +308,6 @@ XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetIDProduct()
 * @fn         void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetIDProduct(XWORD IDproduct)
 * @brief      SetIDProduct
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  IDproduct :
 *
@@ -378,9 +327,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetIDProduct(XWORD IDproduct)
 * @brief      GetBCDDevice
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -396,9 +342,6 @@ XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetBCDDevice()
 * @fn         void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetBCDDevice(XWORD BCDdevice)
 * @brief      SetBCDDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  BCDdevice :
 *
@@ -418,9 +361,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetBCDDevice(XWORD BCDdevice)
 * @brief      GetManufacturer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -436,9 +376,6 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetManufacturer()
 * @fn         void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetManufacturer(XBYTE manufacturer)
 * @brief      SetManufacturer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  manufacturer :
 *
@@ -458,9 +395,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetManufacturer(XBYTE manufacturer)
 * @brief      GetProduct
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -476,9 +410,6 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetProduct()
 * @fn         void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetProduct(XBYTE product)
 * @brief      SetProduct
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  product :
 *
@@ -498,9 +429,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetProduct(XBYTE product)
 * @brief      GetSerialNumber
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -516,9 +444,6 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetSerialNumber()
 * @fn         void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetSerialNumber(XBYTE serialnumber)
 * @brief      SetSerialNumber
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  serialnumber :
 *
@@ -538,9 +463,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetSerialNumber(XBYTE serialnumber)
 * @brief      GetNumConfigurations
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -556,9 +478,6 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetNumConfigurations()
 * @fn         void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetNumConfigurations(XBYTE numconfigurations)
 * @brief      SetNumConfigurations
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  numconfigurations :
 *
@@ -578,9 +497,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetNumConfigurations(XBYTE numconfigurations
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -616,9 +532,6 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -636,9 +549,6 @@ DIOSTREAMDEVICEUSB::DIOSTREAMDEVICEUSB()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -655,9 +565,6 @@ DIOSTREAMDEVICEUSB::~DIOSTREAMDEVICEUSB()
 * @brief      IsHUB
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -673,9 +580,6 @@ bool DIOSTREAMDEVICEUSB::IsHUB()
 * @fn         void DIOSTREAMDEVICEUSB::SetIsHUB(bool isHUB)
 * @brief      SetIsHUB
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isHUB :
 *
@@ -695,9 +599,6 @@ void DIOSTREAMDEVICEUSB::SetIsHUB(bool isHUB)
 * @brief      GetLocation
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -713,9 +614,6 @@ XSTRING* DIOSTREAMDEVICEUSB::GetLocation()
 * @fn         XSTRING* DIOSTREAMDEVICEUSB::GetParentID()
 * @brief      GetParentID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -733,9 +631,6 @@ XSTRING* DIOSTREAMDEVICEUSB::GetParentID()
 * @brief      GetVendorID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -751,9 +646,6 @@ XWORD DIOSTREAMDEVICEUSB::GetVendorID()
 * @fn         void DIOSTREAMDEVICEUSB::SetVendorID(XDWORD vendorID)
 * @brief      SetVendorID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  vendorID :
 *
@@ -773,9 +665,6 @@ void DIOSTREAMDEVICEUSB::SetVendorID(XWORD vendorID)
 * @brief      GetProductID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -791,9 +680,6 @@ XWORD DIOSTREAMDEVICEUSB::GetProductID()
 * @fn         void DIOSTREAMDEVICEUSB::SetProductID(XWORD productID)
 * @brief      SetProductID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  productID :
 *
@@ -813,9 +699,6 @@ void DIOSTREAMDEVICEUSB::SetProductID(XWORD productID)
 * @brief      GetClass
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMDEVICEUSBCLASS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -831,9 +714,6 @@ DIOSTREAMDEVICEUSBCLASS DIOSTREAMDEVICEUSB::GetClass()
 * @fn         void DIOSTREAMDEVICEUSB::SetClass(DIOSTREAMDEVICEUSBCLASS classdev)
 * @brief      SetClass
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  classdev :
 *
@@ -853,9 +733,6 @@ void DIOSTREAMDEVICEUSB::SetClass(DIOSTREAMDEVICEUSBCLASS classdev)
 * @brief      GetSerialString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -871,9 +748,6 @@ XSTRING* DIOSTREAMDEVICEUSB::GetSerialString()
 * @fn         DIOSTREAMDEVICEUSB_DESCRIPTOR* DIOSTREAMDEVICEUSB::GetDescriptor()
 * @brief      GetDescriptor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOSTREAMDEVICEUSB_DESCRIPTOR* :
 *
@@ -891,9 +765,6 @@ DIOSTREAMDEVICEUSB_DESCRIPTOR* DIOSTREAMDEVICEUSB::GetDescriptor()
 * @fn         bool DIOSTREAMDEVICEUSB::DebugPrintInfo()
 * @brief      DebugPrintInfo
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -940,9 +811,6 @@ bool DIOSTREAMDEVICEUSB::DebugPrintInfo()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

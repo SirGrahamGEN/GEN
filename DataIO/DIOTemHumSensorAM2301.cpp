@@ -47,7 +47,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      09/03/2014 19:17:09
 //
 //  @return
@@ -88,7 +88,7 @@ DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301(DIOGPIO* diogpio, int pindata, bool
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/11/2013 23:13:13
 //
 //  @return
@@ -115,7 +115,7 @@ DIOTEMHUMSENSORAM2301::~DIOTEMHUMSENSORAM2301()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      29/09/2014 22:25:05
 //
 //  @return       bool :
@@ -143,7 +143,7 @@ bool DIOTEMHUMSENSORAM2301::Ini(int cadenceread)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/11/2013 23:26:38
 //
 //  @return       bool :
@@ -178,7 +178,7 @@ bool DIOTEMHUMSENSORAM2301::ReadFromCache(float& temperature, float& humidity)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/01/2014 16:57:11
 //
 //  @return       bool :
@@ -271,7 +271,7 @@ bool DIOTEMHUMSENSORAM2301::ReadDirect(float& temperature, float& humidity)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/09/2014 19:41:19
 //
 //  @return       bool :
@@ -296,7 +296,7 @@ bool DIOTEMHUMSENSORAM2301::End()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/01/2014 19:10:40
 //
 //  @return       bool :
@@ -349,7 +349,7 @@ bool DIOTEMHUMSENSORAM2301::WaitTo(bool tohigh, int timeout, int* timeelapsed)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      29/09/2014 22:41:16
 //
 //  @param        param :

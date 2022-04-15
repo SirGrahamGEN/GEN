@@ -6,10 +6,7 @@
 * @brief      DataBase PostgreSQL Result class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -86,9 +80,6 @@ POSTGRESQL_RESULT::~POSTGRESQL_RESULT()
 * @brief      GetNumRows
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -106,9 +97,6 @@ XQWORD POSTGRESQL_RESULT::GetNumRows()
 * @brief      GetNumColumns
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -124,9 +112,6 @@ XQWORD POSTGRESQL_RESULT::GetNumColumns()
 * @fn         bool POSTGRESQL_RESULT::Seek(int index)
 * @brief      Seek
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -145,9 +130,6 @@ bool POSTGRESQL_RESULT::Seek(int index)
 * @fn         bool POSTGRESQL_RESULT::First()
 * @brief      First
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -176,9 +158,6 @@ bool POSTGRESQL_RESULT::First()
 * @brief      Last
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -194,9 +173,6 @@ bool POSTGRESQL_RESULT::Last()
 * @fn         bool POSTGRESQL_RESULT::Next()
 * @brief      Next
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -214,9 +190,6 @@ bool POSTGRESQL_RESULT::Next()
 * @fn         bool POSTGRESQL_RESULT::ProcessRow()
 * @brief      ProcessRow
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -571,9 +544,6 @@ bool POSTGRESQL_RESULT::ProcessRow()
 * @brief      Abort
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -590,9 +560,6 @@ bool POSTGRESQL_RESULT::Abort()
 * @brief      HasNext
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -608,9 +575,6 @@ bool POSTGRESQL_RESULT::HasNext()
 * @fn         POSTGRESQL_RESULT::POSTGRESQL_RESULT() : DB_SQL_RESULT()
 * @brief      Constructor
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  ) :
 *
@@ -632,9 +596,6 @@ POSTGRESQL_RESULT::POSTGRESQL_RESULT() : DB_SQL_RESULT()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

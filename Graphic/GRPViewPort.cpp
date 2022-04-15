@@ -6,10 +6,7 @@
 * @brief      Graphics View Port class
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ GRPVIEWPORT::GRPVIEWPORT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -100,9 +91,6 @@ GRPVIEWPORT::~GRPVIEWPORT()
 * @brief      GetID
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -119,9 +107,6 @@ XSTRING* GRPVIEWPORT::GetID()
 * @brief      Is Active View Port
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -137,9 +122,6 @@ bool GRPVIEWPORT::IsActive()
 * @fn         void GRPVIEWPORT::SetIsActive(bool active)
 * @brief      Set Is Active View Port
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  active : true to active
 *
@@ -158,9 +140,6 @@ void GRPVIEWPORT::SetIsActive(bool active)
 * @brief      Get Projection Type
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPVIEWPORT_PROJECTIONTYPE : Type of Projection
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -176,9 +155,6 @@ GRPVIEWPORT_PROJECTIONTYPE GRPVIEWPORT::GetProjectionType()
 * @fn         void GRPVIEWPORT::SetProjectionType(GRPVIEWPORT_PROJECTIONTYPE projectiontype)
 * @brief      Set Projection Type
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  projectiontype : new projection type
 *
@@ -197,9 +173,6 @@ void GRPVIEWPORT::SetProjectionType(GRPVIEWPORT_PROJECTIONTYPE projectiontype)
 * @fn         bool GRPVIEWPORT::CreateCanvas(int canvasx, int canvasy, GRPPROPERTIES* canvasproperties)
 * @brief      Create
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  canvasx :
 * @param[in]  canvasy :
@@ -230,9 +203,6 @@ bool GRPVIEWPORT::CreateCanvas(GRPPROPERTIES& canvasproperties)
 * @brief      GetPositionX
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -249,9 +219,6 @@ float GRPVIEWPORT::GetPositionX()
 * @brief      GetPositionY
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -267,9 +234,6 @@ float  GRPVIEWPORT::GetPositionY()
 * @fn         void GRPVIEWPORT::SetPosition(float x, float y)
 * @brief      Set Position View Port
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x : Set X position
 * @param[in]  y : Set Y position
@@ -291,9 +255,6 @@ void GRPVIEWPORT::SetPosition(float x, float y)
 * @brief      GetWidth
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -311,9 +272,6 @@ float GRPVIEWPORT::GetWidth()
 * @brief      GetHeight
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -329,9 +287,6 @@ float GRPVIEWPORT::GetHeight()
 * @fn         void GRPVIEWPORT::SetSize(float width, float height)
 * @brief      SetSize
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  width : Set Width of View Port
 * @param[in]  height : Set Height of View Port
@@ -353,9 +308,6 @@ void GRPVIEWPORT::SetSize(float width, float height)
 * @brief      GetCanvas
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPCANVAS* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -373,9 +325,6 @@ GRPCANVAS*  GRPVIEWPORT::GetCanvas()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

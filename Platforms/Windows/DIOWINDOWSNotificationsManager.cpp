@@ -6,10 +6,7 @@
 * @brief      WINDOWS Data IO Notifications manager class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2018 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,8 +49,8 @@
 *  @brief      Constructor
 *  @ingroup    DATAIO
 *
-*  @author     Abraham J. Velez
-*  @date       01/03/2016 12:00
+*  ""
+*  ""
 *
 *  @return     Does not return anything.
 *
@@ -72,9 +69,6 @@ DIOWINDOWSNOTIFICATIONSMANAGER::DIOWINDOWSNOTIFICATIONSMANAGER()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -90,9 +84,6 @@ DIOWINDOWSNOTIFICATIONSMANAGER::~DIOWINDOWSNOTIFICATIONSMANAGER()
 * @fn         bool DIOWINDOWSNOTIFICATIONSMANAGER::Ini(XCHAR* titleowner, XCHAR* pathexec, XCHAR* genericapp)
 * @brief      Ini
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  titleowner :
 * @param[in]  genericapp :
@@ -139,9 +130,6 @@ bool DIOWINDOWSNOTIFICATIONSMANAGER::Ini(XCHAR* titleowner, XCHAR* genericapp)
 * @fn         bool DIOWINDOWSNOTIFICATIONSMANAGER::Do(DIOWINDOWSNOTIFICATION& notification)
 * @brief      Do
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  notification :
 *
@@ -197,9 +185,6 @@ bool DIOWINDOWSNOTIFICATIONSMANAGER::Do(DIONOTIFICATION* notification)
 * @brief      End
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -229,9 +214,6 @@ bool DIOWINDOWSNOTIFICATIONSMANAGER::End()
 * @fn         BOOL DIOWINDOWSNOTIFICATIONSMANAGER::ShowBaloon(LPCTSTR title, LPCTSTR text, HWND hwnd, HICON hicon)
 * @brief      ShowBaloon
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  title :
 * @param[in]  text :
@@ -277,9 +259,6 @@ BOOL DIOWINDOWSNOTIFICATIONSMANAGER::ShowBaloon(LPCTSTR title, LPCTSTR text, HWN
 * @brief      RegisterCOMServer
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  PCWSTR pszExePath :
 *
 * @return     HRESULT :
@@ -299,9 +278,6 @@ HRESULT  DIOWINDOWSNOTIFICATIONSMANAGER::RegisterCOMServer(_In_z_ PCWSTR pszExeP
 * @brief      UnRegisterCOMServer
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     HRESULT :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -320,9 +296,6 @@ HRESULT  DIOWINDOWSNOTIFICATIONSMANAGER::UnRegisterCOMServer()
 * @fn         HRESULT DIOWINDOWSNOTIFICATIONSMANAGER::RegisterActivator()
 * @brief      RegisterActivator
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     HRESULT :
 *
@@ -350,9 +323,6 @@ HRESULT  DIOWINDOWSNOTIFICATIONSMANAGER::RegisterActivator()
 * @brief      UnregisterActivator
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -369,9 +339,6 @@ void  DIOWINDOWSNOTIFICATIONSMANAGER::UnregisterActivator()
 * @fn         HRESULT CToastNotificationActivationCallback::Activate(__RPC__in_string LPCWSTR appUserModelId, __RPC__in_opt_string LPCWSTR invokedArgs, __RPC__in_ecount_full_opt(count) const NOTIFICATION_USER_INPUT_TICKET* data, ULONG count)
 * @brief      Activate
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  LPCWSTR appUserModelId :
 * @param[in]  LPCWSTR invokedArgs :
@@ -395,9 +362,6 @@ HRESULT CToastNotificationActivationCallback::Activate(__RPC__in_string LPCWSTR 
 * @brief      ReportToastNotification
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  LPCTSTR pszDetails :
 * @param[in]  BOOL bAppend :
 *
@@ -415,9 +379,6 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::ReportToastNotification(_In_z_ LPCTSTR pszD
 * @fn         void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastActivated(_In_opt_ ABI::Windows::UI::Notifications::IToastNotification* pSender, _In_opt_ IInspectable* pArgs)
 * @brief      OnToastActivated
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ABI::Windows::UI::Notifications::IToastNotification* pSender :
 * @param[in]  IInspectable* pArgs :
@@ -438,9 +399,6 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastActivated(_In_opt_ ABI::Windows::UI:
 * @brief      OnToastDismissed
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ABI::Windows::UI::Notifications::IToastNotification* pSender :
 * @param[in]  ABI::Windows::UI::Notifications::ToastDismissalReason reason :
 *
@@ -459,9 +417,6 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastDismissed(_In_opt_ ABI::Windows::UI:
 * @fn         void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastFailed(_In_opt_ ABI::Windows::UI::Notifications::IToastNotification* pSender, _In_ HRESULT errorCode)
 * @brief      OnToastFailed
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ABI::Windows::UI::Notifications::IToastNotification* pSender :
 * @param[in]  HRESULT errorCode :
@@ -484,9 +439,6 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastFailed(_In_opt_ ABI::Windows::UI::No
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

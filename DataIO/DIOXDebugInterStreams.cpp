@@ -35,7 +35,7 @@
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/05/2017 17:18:58
 //
 //  @return       bool :

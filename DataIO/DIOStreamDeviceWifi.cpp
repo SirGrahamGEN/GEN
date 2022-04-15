@@ -4,7 +4,7 @@
 //  Data IO Stream Device Wifi class
 //
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 12/3/2003
 //
 //  GEN  Copyright (C).  All right reserved.
@@ -37,9 +37,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -57,9 +54,6 @@ DIOSTREAMDEVICEWIFI::DIOSTREAMDEVICEWIFI()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -76,9 +70,6 @@ DIOSTREAMDEVICEWIFI::~DIOSTREAMDEVICEWIFI()
 * @brief      HasSecurity
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -94,9 +85,6 @@ bool DIOSTREAMDEVICEWIFI::HasSecurity()
 * @fn         void DIOSTREAMDEVICEWIFI::SetHasSecurity(bool hassecurity)
 * @brief      SetHasSecurity
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hassecurity :
 *
@@ -116,9 +104,6 @@ void DIOSTREAMDEVICEWIFI::SetHasSecurity(bool hassecurity)
 * @brief      GetTransmisionPower
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -134,9 +119,6 @@ int DIOSTREAMDEVICEWIFI::GetTransmisionPower()
 * @fn         void DIOSTREAMDEVICEWIFI::SetTransmisionPower(int transmisionpower)
 * @brief      SetTransmisionPower
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  transmisionpower :
 *
@@ -155,9 +137,6 @@ void DIOSTREAMDEVICEWIFI::SetTransmisionPower(int transmisionpower)
 * @fn         bool DIOSTREAMDEVICEWIFI::DebugPrintInfo()
 * @brief      DebugPrintInfo
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -182,9 +161,6 @@ bool DIOSTREAMDEVICEWIFI::DebugPrintInfo()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

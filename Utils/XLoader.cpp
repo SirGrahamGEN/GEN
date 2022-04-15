@@ -38,7 +38,7 @@
 //
 //  Class Constructor XLOADERTASK
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      15/09/2016 10:30:36
 //
 //  @param        pname :
@@ -56,7 +56,7 @@ XLOADERTASK::XLOADERTASK(XCHAR* pname) : name(pname),file (NULL)
 //
 //   Class Destructor XLOADERTASK
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      15/09/2016 10:32:01
 //
 */
@@ -89,7 +89,7 @@ XLOADERTASK::~XLOADERTASK()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      15/09/2016 10:30:59
 //
 //  @return       bool :
@@ -108,7 +108,7 @@ bool  XLOADERTASK::IsFinished()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      15/09/2016 10:31:16
 //
 //  @return       bool :
@@ -148,7 +148,7 @@ bool XLOADERTASK::Start()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      15/09/2016 11:46:32
 //
 //  @param        v :
@@ -168,7 +168,7 @@ void XLOADERTASK::ThreadFunction  (void* v)
 //
 //  Class Constructor XLOADER
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      14/09/2016 10:57:02
 //
 */
@@ -185,7 +185,7 @@ XLOADER::XLOADER()
 //
 //   Class Destructor XLOADER
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      14/09/2016 10:57:08
 //
 */
@@ -207,7 +207,7 @@ XLOADER::~XLOADER()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      14/09/2016 11:00:47
 //
 //  @param        name :
@@ -225,7 +225,7 @@ void XLOADER::SetName(XCHAR* name)
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      14/09/2016 10:57:18
 //
 */
@@ -254,7 +254,7 @@ void XLOADER::Start()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      14/09/2016 10:57:25
 //
 //  @param        path :
@@ -277,7 +277,7 @@ void XLOADER::AddFile(XCHAR* path)
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      14/09/2016 10:57:34
 //
 //  @param        task :
@@ -298,7 +298,7 @@ void XLOADER::AddTask(XLOADERTASK* task)
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      14/09/2016 10:57:53
 //
 //  @return       bool :
@@ -323,7 +323,7 @@ bool XLOADER::IsFinished()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      14/09/2016 11:03:11
 //
 */
@@ -357,7 +357,7 @@ void XLOADER::Update()
 //
 //
 //
-//  @author   Diego Martinez Ruiz de Gaona
+//  ""
 //  @version  29/11/2017 14:03:57
 //  @return   void :
 //
@@ -381,7 +381,7 @@ void XLOADER::Abort()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      14/09/2016 10:58:19
 //
 //  @param        event :
@@ -402,7 +402,7 @@ if(!event) return;
 //
 //  Gets current total percent
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      14/09/2016 10:58:51
 //
 //  @return       float :
@@ -422,7 +422,7 @@ float XLOADER::GetCurrentPercent()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      15/09/2016 11:40:32
 //
 //  @return       XLOADERTASK* :
@@ -445,7 +445,7 @@ XLOADERTASK*  XLOADER::CreateTask(XCHAR* pname)
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      21/09/2016 12:15:11
 //
 //  @param        file :
@@ -463,7 +463,7 @@ void XLOADERTASK::SetFile(XSTRING* file)
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      21/09/2016 12:15:26
 //
 //  @return       XCHAR* :
@@ -484,7 +484,7 @@ XCHAR*  XLOADERTASK::GetFile()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      21/09/2016 12:18:41
 //
 //  @param        total :
@@ -502,7 +502,7 @@ void XLOADERTASK::SetTotal(float total)
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      21/09/2016 12:18:52
 //
 //  @return       float :
@@ -521,7 +521,7 @@ float XLOADERTASK::GetTotal()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      21/09/2016 12:19:02
 //
 //  @param        current :
@@ -539,7 +539,7 @@ void XLOADERTASK::SetCurrent(float current)
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      21/09/2016 12:19:12
 //
 //  @return       float :
@@ -558,7 +558,7 @@ float XLOADERTASK::GetCurrent()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      21/09/2016 12:21:48
 //
 //  @param        current :
@@ -576,7 +576,7 @@ void XLOADERTASK::SetPercent(float percent)
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      21/09/2016 12:21:58
 //
 //  @return       float :
@@ -595,7 +595,7 @@ float XLOADERTASK::GetPercent()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      03/03/2017 17:11:47
 //
 */
@@ -615,7 +615,7 @@ void XLOADERTASK::Abort()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      21/09/2016 12:36:58
 //
 */
@@ -635,7 +635,7 @@ void XLOADERTASK::Update()
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      01/03/2017 11:43:38
 //
 //  @param        priority :
@@ -666,7 +666,7 @@ void XLOADERTASK::Output(XDWORD priority, XCHAR* mask,...)
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      01/03/2017 11:48:13
 //
 //  @param        priority :
@@ -686,7 +686,7 @@ void XLOADERTASK::Print(XDWORD priority,XCHAR* text)
 //
 //
 //
-//  @author      Diego Martinez Ruiz de Gaona
+//  ""
 //  @version      03/03/2017 16:50:24
 //
 */

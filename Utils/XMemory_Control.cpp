@@ -6,10 +6,7 @@
 * @brief      eXtended Memory Control class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -63,9 +60,6 @@ XMEMORY_CONTROL XMemory_Control;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -103,9 +97,6 @@ XMEMORY_CONTROL::XMEMORY_CONTROL()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -142,9 +133,6 @@ XMEMORY_CONTROL::~XMEMORY_CONTROL()
 * @brief      IsActive
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -160,9 +148,6 @@ bool XMEMORY_CONTROL::IsActive()
 * @fn         void* XMEMORY_CONTROL::Assign(size_t size,char* pathfile,int line)
 * @brief      Assign
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size :
 * @param[in]  pathfile :
@@ -209,9 +194,6 @@ void* XMEMORY_CONTROL::Assign(XDWORD size, char* pathfile, int line)
 * @brief      Free
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ptr :
 *
 * @return     void : does not return anything.
@@ -248,9 +230,6 @@ void XMEMORY_CONTROL::Free(void* ptr)
 * @brief      FreeAll
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -275,9 +254,6 @@ bool XMEMORY_CONTROL::FreeAll()
 * @brief      GetMemoryUsed
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -294,9 +270,6 @@ XDWORD XMEMORY_CONTROL::GetUsed()
 * @brief      GetMemoryNAssigns
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -312,9 +285,6 @@ XDWORD XMEMORY_CONTROL::GetNAssigns()
 * @fn         bool XMEMORY_CONTROL::DisplayAll(bool displaydata)
 * @brief      DisplayAll
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  displaydata :
 *
@@ -400,9 +370,6 @@ bool XMEMORY_CONTROL::DisplayAll(bool displaydata)
 * @brief      Lock
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -428,9 +395,6 @@ bool XMEMORY_CONTROL::Lock()
 * @fn         bool XMEMORY_CONTROL::UnLock()
 * @brief      UnLock
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -459,9 +423,6 @@ bool XMEMORY_CONTROL::UnLock()
 * @brief      CRC32ForByte
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ini :
 *
 * @return     XDWORD :
@@ -484,9 +445,6 @@ XDWORD XMEMORY_CONTROL::CRC32ForByte(XDWORD ini)
 * @fn         XDWORD XMEMORY_CONTROL::CRC32(XBYTE* data, XWORD size)
 * @brief      CRC32
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 * @param[in]  size :
@@ -522,9 +480,6 @@ XDWORD XMEMORY_CONTROL::CRC32(XBYTE* data, XWORD size)
 * @fn         bool XMEMORY_CONTROL::RegisterAssign(void* ptr, size_t size, char* pathfile, int line)
 * @brief      RegisterAssign
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ptr :
 * @param[in]  size :
@@ -574,9 +529,6 @@ bool XMEMORY_CONTROL::RegisterAssign(void* ptr, XDWORD size, char* pathfile, int
 * @brief      DeRegisterAssign
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ptr :
 * @param[in]  size :
 *
@@ -610,9 +562,6 @@ bool XMEMORY_CONTROL::DeRegisterAssign(void* ptr, XDWORD& size)
 * @brief      ResizeAssignList
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -642,9 +591,6 @@ bool XMEMORY_CONTROL::ResizeAssignList()
 * @fn         bool XMEMORY_CONTROL::SearchIndex(void* ptr, XDWORD& index)
 * @brief      SearchIndex
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ptr :
 * @param[in]  index :
@@ -717,9 +663,6 @@ bool XMEMORY_CONTROL::SearchAssignIndex(bool free, void* ptr, XDWORD& index)
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -751,9 +694,6 @@ void XMEMORY_CONTROL::Clean()
 * @brief      perator new
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  size :
 * @param[in]  const* namefile :
 * @param[in]  line :
@@ -779,9 +719,6 @@ void* operator new(size_t size, char const* namefile, int line)
 * @fn         void* operator new[](std::size_t size, char const* namefile, int line)
 * @brief      perator new[]
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size :
 * @param[in]  const* namefile :
@@ -809,9 +746,6 @@ void* operator new[](size_t size, char const* namefile, int line)
 * @brief      perator delete
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ptr) noexcep :
 *
 * @return     void : does not return anything.
@@ -836,9 +770,6 @@ void operator delete(void* ptr) throw ()
 * @fn         void operator delete[] (void* ptr) noexcept
 * @brief      perator delete[]
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ptr) noexcep :
 *

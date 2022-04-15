@@ -6,10 +6,7 @@
 * @brief      Data Input/Output LINUX Led Neopixel WS2812B Raspberry Pi
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -77,9 +74,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -114,9 +108,6 @@ DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -132,10 +123,7 @@ DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::~DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
 * @fn         bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Ini(XDWORD nled)
 * @brief      Ini
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  nled : 
 * 
 * @return     bool : true if is succesful. 
@@ -160,9 +148,6 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Ini(XDWORD nled)
 * @fn         bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Send()
 * @brief      Send
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -257,10 +242,7 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Send()
 * @fn         bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::End()
 * @brief      End
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -280,9 +262,6 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

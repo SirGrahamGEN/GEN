@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Check Connection Internet class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @fn         DIOCHECKINTERNETCONNECTION::DIOCHECKINTERNETCONNECTION(int timeconnectionchecks)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  int :
 *
@@ -159,9 +153,6 @@ DIOCHECKINTERNETCONNECTION::DIOCHECKINTERNETCONNECTION(int timeconnectionchecks)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -196,9 +187,6 @@ DIOCHECKINTERNETCONNECTION::~DIOCHECKINTERNETCONNECTION()
 * @brief      GetCheckConnections
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOCHECKTCPIPCONNECTIONS* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -214,9 +202,6 @@ DIOCHECKTCPIPCONNECTIONS* DIOCHECKINTERNETCONNECTION::GetCheckConnections()
 * @fn         bool DIOCHECKINTERNETCONNECTION::Check()
 * @brief      Check
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -282,9 +267,6 @@ bool DIOCHECKINTERNETCONNECTION::Check()
 * @brief      AddConnectionCut
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  connectioncut :
 *
 * @return     bool : true if is succesful.
@@ -311,9 +293,6 @@ bool DIOCHECKINTERNETCONNECTION::AddConnectionCut(DIOCHECKTCPIPCONNECTION_CUT& c
 * @fn         bool DIOCHECKINTERNETCONNECTION::DeleteAllConnectionCuts()
 * @brief      DeleteAllConnectionCuts
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -342,9 +321,6 @@ bool DIOCHECKINTERNETCONNECTION::DeleteAllConnectionCuts()
 * @brief      GetConnectionCuts
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<DIOCHECKTCPIPCONNECTION_CUT*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -360,9 +336,6 @@ XVECTOR<DIOCHECKTCPIPCONNECTION_CUT*>*   DIOCHECKINTERNETCONNECTION::GetConnecti
 * @fn         DIOCHECKTCPIPCONNECTION_CUT* DIOCHECKINTERNETCONNECTION::GetLastConnectionsCut()
 * @brief      GetLastConnectionsCut
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOCHECKTCPIPCONNECTION_CUT* :
 *
@@ -380,9 +353,6 @@ DIOCHECKTCPIPCONNECTION_CUT* DIOCHECKINTERNETCONNECTION::GetLastConnectionsCut()
 * @brief      IsChangeConnectionStatus
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -399,9 +369,6 @@ bool DIOCHECKINTERNETCONNECTION::IsChangeConnectionStatus()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

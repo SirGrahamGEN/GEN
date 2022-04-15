@@ -6,10 +6,7 @@
 * @brief      Random class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@ XRAND* XRAND::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ XRAND::XRAND()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -92,10 +83,7 @@ XRAND::~XRAND()
 * @fn         bool XRAND::GetIsInstanced()
 * @brief      GetIsInstanced
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +100,6 @@ bool XRAND::GetIsInstanced()
 * @brief      Get Instance of XRAND
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XRAND& :
 *
@@ -134,9 +119,6 @@ XRAND& XRAND::GetInstance()
 * @brief      Set Instance of XRAND
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  _instance : new instance
 *
@@ -161,9 +143,6 @@ bool XRAND::SetInstance(XRAND* _instance)
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -187,9 +166,6 @@ bool XRAND::DelInstance()
 * @fn         bool XRAND::Ini()
 * @brief      Ini
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -216,9 +192,6 @@ bool XRAND::Ini()
 * @brief      MaxElements
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  max :
 *
 * @return     int :
@@ -236,9 +209,6 @@ int XRAND::MaxElements(int max)
 * @fn         int XRAND::Max(int max)
 * @brief      Max
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  max :
 *
@@ -258,9 +228,6 @@ int XRAND::Max(int max)
 * @brief      Between
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  min :
 * @param[in]  max :
 *
@@ -279,9 +246,6 @@ int XRAND::Between(int min, int max)
 * @fn         float XRAND::Between(float min, float max)
 * @brief      Between
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  min :
 * @param[in]  max :
@@ -304,9 +268,6 @@ float XRAND::Between(float min, float max)
 * @brief      Percent
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  percent :
 *
 * @return     bool : true if is succesful.
@@ -328,9 +289,6 @@ bool XRAND::Percent(int percent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -41,7 +41,7 @@
 //	
 //	Class Constructor VIDEOH264FRAMEREADER
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			11/04/2016 11:25:47
 //	
 */
@@ -72,7 +72,7 @@ MEDIAH264FRAMEREADER::MEDIAH264FRAMEREADER()
 //	
 //	 Class Destructor VIDEOH264FRAMEREADER
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			11/04/2016 11:25:53
 //	
 */
@@ -92,7 +92,7 @@ MEDIAH264FRAMEREADER::~MEDIAH264FRAMEREADER()
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			11/04/2016 11:26:02
 //	
 //	@return 			bool : 
@@ -187,7 +187,7 @@ bool MEDIAH264FRAMEREADER::OpenFile(XCHAR* filename)
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			11/04/2016 11:26:10
 //	
 //	@return 			bool : 
@@ -211,7 +211,7 @@ bool MEDIAH264FRAMEREADER::OpenFile(XSTRING* filename)
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			11/04/2016 11:26:17
 //	
 //	@return 			bool : 
@@ -294,7 +294,7 @@ bool MEDIAH264FRAMEREADER::ReadFrame(XVECTOR<XBYTE> & xvector, long long* timest
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			13/04/2016 17:36:17
 //	
 //	@return 			bool : 
@@ -344,7 +344,7 @@ bool MEDIAH264FRAMEREADER::IsEndOfStream()
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			14/04/2016 14:23:12
 //	
 */
@@ -364,7 +364,7 @@ void MEDIAH264FRAMEREADER::ResetStream()
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			14/04/2016 13:10:00
 //	
 //	@return 			int : 
@@ -434,7 +434,7 @@ int MEDIAH264FRAMEREADER::NALToRBSP(XVECTOR<XBYTE> & NAL, XVECTOR<XBYTE>& RBSP)
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			11/04/2016 11:26:26
 //	
 //  @param				readbuffersize : 
@@ -455,7 +455,7 @@ void MEDIAH264FRAMEREADER::SetReadBufferSize(XDWORD readbuffersize)
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			11/04/2016 11:26:33
 //	
 //	@return 			XDWORD : 
@@ -478,7 +478,7 @@ XDWORD MEDIAH264FRAMEREADER::GetReadBufferSize()
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			11/04/2016 11:26:40
 //	
 */
@@ -500,7 +500,7 @@ void MEDIAH264FRAMEREADER::FillReadBuffer()
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			05/05/2016 11:54:14
 //	
 //	@return 			XVECTOR<XBYTE>* : 
@@ -524,7 +524,7 @@ XVECTOR<XBYTE>* MEDIAH264FRAMEREADER::GetSPS()
 //	
 //	
 //	
-//	@author				Imanol Celaya Ruiz de Alegria
+//	""
 //	@version			05/05/2016 11:54:20
 //	
 //	@return 			XVECTOR<XBYTE>* : 

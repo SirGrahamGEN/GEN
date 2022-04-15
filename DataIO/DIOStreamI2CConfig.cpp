@@ -5,11 +5,8 @@
 * @class      DIOSTREAMI2CCONFIG
 * @brief      Data Input/Output Stream I2C Config class
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,8 +52,8 @@
 @brief      DIOSTREAMI2CCONFIG
 @ingroup    DATAIO
 
-@author     Abraham J. Velez 
-@date       01/03/2016 12:00
+""
+""
 
 @return     does not return anything. 
 
@@ -76,10 +73,7 @@ DIOSTREAMI2CCONFIG::DIOSTREAMI2CCONFIG() : DIOSTREAMCONFIG()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -114,10 +108,7 @@ XSTRING* DIOSTREAMI2CCONFIG::GetLocalDeviceName()
 * @fn         bool DIOSTREAMI2CCONFIG::SetLocalDeviceNameByPort()
 * @brief      SetLocalDeviceNameByPort
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -148,10 +139,7 @@ bool DIOSTREAMI2CCONFIG::SetLocalDeviceNameByPort()
 * @fn         int DIOSTREAMI2CCONFIG::GetLocalAddress()
 * @brief      GetLocalAddress
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     int : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -167,10 +155,7 @@ int DIOSTREAMI2CCONFIG::GetLocalAddress()
 * @fn         void DIOSTREAMI2CCONFIG::SetLocalAddress(int localaddress)
 * @brief      SetLocalAddress
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  localaddress : 
 * 
 * @return     void : does not return anything. 
@@ -188,10 +173,7 @@ void DIOSTREAMI2CCONFIG::SetLocalAddress(int localaddress)
 * @fn         int DIOSTREAMI2CCONFIG::GetRemoteAddress()
 * @brief      GetRemoteAddress
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     int : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -207,10 +189,7 @@ int DIOSTREAMI2CCONFIG::GetRemoteAddress()
 * @fn         void DIOSTREAMI2CCONFIG::SetRemoteAddress(int remoteaddress)
 * @brief      SetRemoteAddress
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  remoteaddress : 
 * 
 * @return     void : does not return anything. 
@@ -228,10 +207,7 @@ void DIOSTREAMI2CCONFIG::SetRemoteAddress(int remoteaddress)
 * @fn         DIOSTREAMI2CCONFIG_ADDRESSSIZE DIOSTREAMI2CCONFIG::GetAddressSize()
 * @brief      GetAddressSize
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOSTREAMI2CCONFIG_ADDRESSSIZE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -247,10 +223,7 @@ DIOSTREAMI2CCONFIG_ADDRESSSIZE DIOSTREAMI2CCONFIG::GetAddressSize()
 * @fn         void DIOSTREAMI2CCONFIG::SetAddressSize(DIOSTREAMI2CCONFIG_ADDRESSSIZE addresssize)
 * @brief      SetAddressSize
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  addresssize : 
 * 
 * @return     void : does not return anything. 
@@ -268,10 +241,7 @@ void DIOSTREAMI2CCONFIG::SetAddressSize(DIOSTREAMI2CCONFIG_ADDRESSSIZE addresssi
 * @fn         bool DIOSTREAMI2CCONFIG::IsStretchActive()
 * @brief      IsStretchActive
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -287,10 +257,7 @@ bool DIOSTREAMI2CCONFIG::IsStretchActive()
 * @fn         void DIOSTREAMI2CCONFIG::SetIsStretchActive(bool isstretchactive)
 * @brief      SetIsStretchActive
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  isstretchactive : 
 * 
 * @return     void : does not return anything. 
@@ -309,10 +276,7 @@ void DIOSTREAMI2CCONFIG::SetIsStretchActive(bool isstretchactive)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

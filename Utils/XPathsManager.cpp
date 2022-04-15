@@ -6,10 +6,7 @@
 * @brief      eXtended Paths manager class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@ XPATHSMANAGER*  XPATHSMANAGER::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -80,9 +74,6 @@ XPATHSMANAGERSECTION::XPATHSMANAGERSECTION()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -101,9 +92,6 @@ XPATHSMANAGERSECTION::~XPATHSMANAGERSECTION()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -128,9 +116,6 @@ void XPATHSMANAGERSECTION::Clean()
 * @brief      GetIsInstanced
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -146,9 +131,6 @@ bool XPATHSMANAGER::GetIsInstanced()
 * @fn         XPATHSMANAGER& XPATHSMANAGER::GetInstance()
 * @brief      GetInstance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XPATHSMANAGER& :
 *
@@ -166,9 +148,6 @@ XPATHSMANAGER& XPATHSMANAGER::GetInstance()
 * @fn         bool XPATHSMANAGER::DelInstance()
 * @brief      DelInstance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -190,9 +169,6 @@ bool XPATHSMANAGER::DelInstance()
 * @fn         bool XPATHSMANAGER::GetPathOfSection(XPATHSMANAGERSECTIONTYPE sectiontype, XPATH& xpath, bool addroot)
 * @brief      GetPathOfSection
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sectiontype :
 * @param[in]  xpath :
@@ -246,9 +222,6 @@ bool XPATHSMANAGER::GetPathOfSection(XPATHSMANAGERSECTIONTYPE sectiontype, XPATH
 * @brief      GetAppExecPath
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -265,9 +238,6 @@ XPATH* XPATHSMANAGER::GetAppExecPath()
 * @fn         bool XPATHSMANAGER::GetAppExecPathWithoutAsset(XCHAR* assetlevel, XPATH& xpath);
 * @brief      GetAppExecPathWithoutAsset
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  assetlevel : 
 * @param[in]  xpath : 
@@ -305,9 +275,6 @@ bool XPATHSMANAGER::GetAppExecPathWithoutAsset(XCHAR* assetlevel, XPATH& xpath)
 * @brief      GetPathSection
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  sectiontype :
 *
 * @return     XPATHSMANAGERSECTION* :
@@ -339,9 +306,6 @@ XPATHSMANAGERSECTION* XPATHSMANAGER::GetPathSection(XPATHSMANAGERSECTIONTYPE sec
 * @fn         bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype, XSTRING& xpath)
 * @brief      AddPathSection
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sectiontype :
 * @param[in]  xpath :
@@ -386,9 +350,6 @@ bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype, XSTRING
 * @brief      AddPathSection
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  sectiontype :
 * @param[in]  XCHAR* string :
 *
@@ -409,9 +370,6 @@ bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype,const XC
 * @fn         bool XPATHSMANAGER::DeleteAllPathSections()
 * @brief      DeleteAllPathSections
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -434,9 +392,6 @@ bool XPATHSMANAGER::DeleteAllPathSections()
 * @fn         bool XPATHSMANAGER::CreateAllPathSectionOnDisk()
 * @brief      CreateAllPathSectionOnDisk
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -486,9 +441,6 @@ bool XPATHSMANAGER::CreateAllPathSectionOnDisk()
 * @fn         bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* nameapp, XCHAR* recopilatedir)
 * @brief      AdjustRootPathDefault
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nameapp :
 * @param[in]  recopilatedir :
@@ -589,9 +541,6 @@ bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* nameapp, XCHAR* recopilatedir)
 * @brief      AdjustRootPathDefault
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  assetsdirname : 
 *
 * @return     bool : true if is succesful. 
@@ -661,9 +610,6 @@ bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* assetsdirname)
 * @brief      Construct
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -682,9 +628,6 @@ XPATHSMANAGER::XPATHSMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -709,9 +652,6 @@ XPATHSMANAGER::~XPATHSMANAGER()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

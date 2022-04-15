@@ -5,11 +5,8 @@
 * @class      UI_ELEMENT_LISTBOX
 * @brief      User Interface Element List Box class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,10 +51,7 @@
 * @fn         UI_ELEMENT_LISTBOX::UI_ELEMENT_LISTBOX()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -77,10 +71,7 @@ UI_ELEMENT_LISTBOX::UI_ELEMENT_LISTBOX()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -96,10 +87,7 @@ UI_ELEMENT_LISTBOX::~UI_ELEMENT_LISTBOX()
 * @fn         UI_ELEMENT_MENU* UI_ELEMENT_LISTBOX::Get_UIMenu()
 * @brief      Get_UIMenu
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT_MENU* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -115,10 +103,7 @@ UI_ELEMENT_MENU* UI_ELEMENT_LISTBOX::Get_UIMenu()
 * @fn         bool UI_ELEMENT_LISTBOX::Set_UIMenu(UI_ELEMENT_MENU* element_menu)
 * @brief      Set_UIMenu
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element_menu : 
 * 
 * @return     bool : true if is succesful. 
@@ -139,10 +124,7 @@ bool UI_ELEMENT_LISTBOX::Set_UIMenu(UI_ELEMENT_MENU* element_menu)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

@@ -6,10 +6,7 @@
 * @brief      Sound Stream element class
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -73,9 +67,6 @@ SNDSTREAMELEMENT::SNDSTREAMELEMENT() : SNDELEMENT()
 * @note       VIRTUAL
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -91,9 +82,6 @@ SNDSTREAMELEMENT::~SNDSTREAMELEMENT()
 * @fn         void SNDSTREAMELEMENT::SetAttributes(XWORD channels, XWORD freq)
 * @brief      SetAttributes
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  channels : 
 * @param[in]  freq : 
@@ -115,9 +103,6 @@ void SNDSTREAMELEMENT::SetAttributes(XWORD channels, XWORD freq)
 * @brief      Play
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -133,9 +118,6 @@ void SNDSTREAMELEMENT::Play()
 * @fn         void SNDSTREAMELEMENT::SetFile(SNDFILE* file)
 * @brief      SetFile
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  file : 
 *
@@ -155,9 +137,6 @@ void SNDSTREAMELEMENT::SetFile(SNDFILE* file)
 * @brief      GetFile
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     SNDFILE* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -174,9 +153,6 @@ SNDFILE* SNDSTREAMELEMENT::GetFile()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

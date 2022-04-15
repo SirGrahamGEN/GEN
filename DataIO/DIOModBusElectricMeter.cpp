@@ -48,7 +48,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/06/2011 22:04:20
 //
 //  @return
@@ -69,7 +69,7 @@ DIOMODBUSELECTRICMETERXEVENT::DIOMODBUSELECTRICMETERXEVENT(XSUBJECT* subject,XDW
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/06/2011 22:05:33
 //
 //  @return
@@ -88,7 +88,7 @@ DIOMODBUSELECTRICMETERXEVENT::~DIOMODBUSELECTRICMETERXEVENT()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/06/2011 22:07:35
 //
 //  @return       void :
@@ -109,7 +109,7 @@ void DIOMODBUSELECTRICMETERXEVENT::Clean()
 //
 //  Class Constructor DIOMODBUSELECTRICMETER
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      26/12/2014 16:51:54
 //
 //  @param        diostream :
@@ -137,7 +137,7 @@ DIOMODBUSELECTRICMETER::DIOMODBUSELECTRICMETER(DIOSTREAM* diostream)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/12/2001 21:53:15
 //
 //  @return
@@ -166,7 +166,7 @@ DIOMODBUSELECTRICMETER::~DIOMODBUSELECTRICMETER()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/06/2013 23:03:45
 //
 //  @return       DIOMODBUS* :
@@ -185,7 +185,7 @@ DIOMODBUS* DIOMODBUSELECTRICMETER::GetModBusProtocol()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/06/2013 22:02:50
 //
 //  @return       bool :
@@ -220,7 +220,7 @@ bool DIOMODBUSELECTRICMETER::Connect(XBYTE unit, bool inlittleendian, int timeou
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/12/2012 21:24:12
 //
 //  @return       bool :
@@ -307,7 +307,7 @@ bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* time
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 11:22:05
 //
 //  @return       bool :
@@ -335,7 +335,7 @@ bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_DeleteResults(XVECTOR<DIO_C_CI_NU_2_R
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:35:09
 //
 //  @return       bool :
@@ -402,7 +402,7 @@ bool DIOMODBUSELECTRICMETER::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result, 
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      27/02/2013 18:41:53
 //
 //  @return       bool :
@@ -421,7 +421,7 @@ bool DIOMODBUSELECTRICMETER::CancelOperations()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/12/2001 15:59:02
 //
 //  @return       void :
@@ -441,7 +441,7 @@ void DIOMODBUSELECTRICMETER::Disconnect()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/12/2001 21:50:13
 //
 //  @return       void :
@@ -471,7 +471,7 @@ void DIOMODBUSELECTRICMETER::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/09/2013 16:34:04
 //
 //  @return       bool :
@@ -518,7 +518,7 @@ bool DIOMODBUSELECTRICMETER::ReadRegister(int registerID, int nwords, int diviso
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/09/2013 18:00:22
 //
 //  @return       bool :

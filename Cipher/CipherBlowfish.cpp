@@ -325,7 +325,7 @@ XDWORD CIPHERBLOWFISH::S[4][256]                     =  { { 0xD1310BA6L, 0x98DFB
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/04/2006 19:42:40
 //
 //  @return
@@ -347,7 +347,7 @@ CIPHERBLOWFISH::CIPHERBLOWFISH() : CIPHER()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/04/2006 19:42:37
 //
 //  @return
@@ -364,7 +364,7 @@ CIPHERBLOWFISH::~CIPHERBLOWFISH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/04/2002 10:22:59
 //
 //  @return       bool :
@@ -436,7 +436,7 @@ bool CIPHERBLOWFISH::Cipher(XBYTE* input,XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:44:01
 //
 //  @return       bool :
@@ -501,7 +501,7 @@ bool CIPHERBLOWFISH::Uncipher(XBYTE* input,XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/03/2013 23:51:12
 //
 //  @return       void :
@@ -522,7 +522,7 @@ void CIPHERBLOWFISH::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/03/2013 23:11:53
 //
 //  @return       XDWORD :
@@ -561,7 +561,7 @@ XDWORD CIPHERBLOWFISH::F(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD x)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/03/2013 23:14:00
 //
 //  @return       void :
@@ -609,7 +609,7 @@ void CIPHERBLOWFISH::BlowfishCipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, XDW
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/03/2013 23:15:11
 //
 //  @return       void :
@@ -658,7 +658,7 @@ void CIPHERBLOWFISH::BlowfishUncipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, X
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/03/2013 23:24:27
 //
 //  @return       bool :
@@ -732,7 +732,7 @@ bool CIPHERBLOWFISH::BlowfishSetKey(CIPHERBLOWFISH_CONTEXT* ctx, XBYTE* key, XDW
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/03/2013 23:24:50
 //
 //  @return       bool :
@@ -774,7 +774,7 @@ bool CIPHERBLOWFISH::BlowfishCipher_ECB(CIPHERBLOWFISH_CONTEXT* ctx, int mode, X
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/03/2013 23:39:03
 //
 //  @return       bool :
@@ -843,7 +843,7 @@ bool CIPHERBLOWFISH::BlowfishCipher_CBC(CIPHERBLOWFISH_CONTEXT* ctx, int mode, X
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/03/2013 23:38:46
 //
 //  @return       bool :
@@ -900,7 +900,7 @@ bool CIPHERBLOWFISH::BlowfishCipher_CFB64(CIPHERBLOWFISH_CONTEXT* ctx, int mode,
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/03/2013 23:38:30
 //
 //  @return       bool :

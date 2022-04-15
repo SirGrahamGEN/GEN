@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream USB config class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ DIOSTREAMUSBCONFIG::DIOSTREAMUSBCONFIG() : DIOSTREAMCONFIG()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -95,9 +86,6 @@ DIOSTREAMUSBCONFIG::~DIOSTREAMUSBCONFIG()
 * @fn         XSTRING* DIOSTREAMUSBCONFIG::GetLocation()
 * @brief      GetLocation
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -115,9 +103,6 @@ XSTRING* DIOSTREAMUSBCONFIG::GetLocation()
 * @brief      GetVendorID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -133,9 +118,6 @@ XDWORD DIOSTREAMUSBCONFIG::GetVendorID()
 * @fn         void DIOSTREAMUSBCONFIG::SetVendorID(XDWORD vendorID)
 * @brief      SetVendorID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  vendorID :
 *
@@ -155,9 +137,6 @@ void DIOSTREAMUSBCONFIG::SetVendorID(XDWORD vendorID)
 * @brief      GetProductID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -173,9 +152,6 @@ XDWORD DIOSTREAMUSBCONFIG::GetProductID()
 * @fn         void DIOSTREAMUSBCONFIG::SetProductID(XDWORD productID)
 * @brief      SetProductID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  productID :
 *
@@ -195,9 +171,6 @@ void DIOSTREAMUSBCONFIG::SetProductID(XDWORD productID)
 * @brief      GetClass
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMDEVICEUSBCLASS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -213,9 +186,6 @@ DIOSTREAMDEVICEUSBCLASS DIOSTREAMUSBCONFIG::GetClass()
 * @fn         void DIOSTREAMUSBCONFIG::SetClass(DIOSTREAMDEVICEUSBCLASS classdev)
 * @brief      SetClass
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  classdev :
 *
@@ -235,9 +205,6 @@ void DIOSTREAMUSBCONFIG::SetClass(DIOSTREAMDEVICEUSBCLASS classdev)
 * @brief      GetResource
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -253,9 +220,6 @@ XSTRING* DIOSTREAMUSBCONFIG::GetResource()
 * @fn         bool DIOSTREAMUSBCONFIG::GetToString(XSTRING* string)
 * @brief      GetToString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -291,9 +255,6 @@ bool DIOSTREAMUSBCONFIG::GetToString(XSTRING* string)
 * @brief      GetToString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -311,9 +272,6 @@ bool DIOSTREAMUSBCONFIG::GetToString(XSTRING& string)
 * @fn         bool DIOSTREAMUSBCONFIG::SetFromString(XCHAR* string)
 * @brief      SetFromString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -362,9 +320,6 @@ bool DIOSTREAMUSBCONFIG::SetFromString(XCHAR* string)
 * @brief      SetFromString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -385,9 +340,6 @@ bool DIOSTREAMUSBCONFIG::SetFromString(XSTRING* string)
 * @brief      SetFromString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -406,9 +358,6 @@ bool DIOSTREAMUSBCONFIG::SetFromString(XSTRING& string)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

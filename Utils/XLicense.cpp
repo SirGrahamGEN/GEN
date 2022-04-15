@@ -6,10 +6,7 @@
 * @brief      eXtended License generator and control class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -67,9 +64,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  subject :
 * @param[in]  type :
 * @param[in]  family :
@@ -90,9 +84,6 @@ XLICENSEXEVENT::XLICENSEXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): X
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -109,9 +100,6 @@ XLICENSEXEVENT::~XLICENSEXEVENT()
 * @brief      Get
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XLICENSE* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -127,9 +115,6 @@ XLICENSE* XLICENSEXEVENT::Get()
 * @fn         void XLICENSEXEVENT::Set(XLICENSE* xlicense)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xlicense :
 *
@@ -149,9 +134,6 @@ void XLICENSEXEVENT::Set(XLICENSE* xlicense)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -175,9 +157,6 @@ void XLICENSEXEVENT::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -195,9 +174,6 @@ XLICENSEID::XLICENSEID()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -213,9 +189,6 @@ XLICENSEID::~XLICENSEID()
 * @fn         bool XLICENSEID::GetPart(int npart, XDWORD part)
 * @brief      GetPart
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  npart :
 * @param[in]  part :
@@ -241,9 +214,6 @@ bool XLICENSEID::GetPart(int npart, XDWORD part)
 * @brief      SetPart
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  npart :
 * @param[in]  part :
 *
@@ -268,9 +238,6 @@ bool XLICENSEID::SetPart(int npart, XDWORD part)
 * @brief      GetParts
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -286,9 +253,6 @@ XDWORD* XLICENSEID::GetParts()
 * @fn         void XLICENSEID::GetXBuffer(XBUFFER& xbuffer)
 * @brief      GetXBuffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xbuffer :
 *
@@ -310,9 +274,6 @@ void XLICENSEID::GetXBuffer(XBUFFER& xbuffer)
 * @fn         void XLICENSEID::GetXString(XSTRING& IDstring)
 * @brief      GetXString
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  IDstring :
 *
@@ -342,9 +303,6 @@ void XLICENSEID::GetXString(XSTRING& IDstring)
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -370,9 +328,6 @@ void XLICENSEID::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -394,9 +349,6 @@ XLICENSE::XLICENSE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -420,9 +372,6 @@ XLICENSE::~XLICENSE()
 * @fn         bool XLICENSE::GenerateMachineID(XLICENSEID& licenseID)
 * @brief      GenerateMachineID
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  licenseID :
 *
@@ -506,9 +455,6 @@ bool XLICENSE::GenerateMachineID(XLICENSEID& licenseID)
 * @brief      Generate
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  licenseID :
 * @param[in]  applicationID :
 * @param[in]  license :
@@ -562,9 +508,6 @@ bool XLICENSE::Generate(XLICENSEID& licenseID, XSTRING* applicationID, XBUFFER* 
 * @brief      GetBufferKeyFromMachineID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  applicationID :
 * @param[in]  xbufferkey :
 *
@@ -598,9 +541,6 @@ bool XLICENSE::GetBufferKeyFromMachineID(XSTRING& applicationID, XBUFFER& xbuffe
 * @fn         bool XLICENSE::CipherExpirationDate(bool cipher, XSTRING& applicationID, XSTRING& expirationdate)
 * @brief      CipherExpirationDate
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  cipher :
 * @param[in]  applicationID :
@@ -669,9 +609,6 @@ bool XLICENSE::CipherExpirationDate(bool cipher, XSTRING& applicationID, XSTRING
 * @brief      GetApplicationID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -687,9 +624,6 @@ XSTRING* XLICENSE::GetApplicationID()
 * @fn         XDATETIME* XLICENSE::GetExpirationDateTime()
 * @brief      GetExpirationDateTime
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDATETIME* :
 *
@@ -707,9 +641,6 @@ XDATETIME* XLICENSE::GetExpirationDateTime()
 * @brief      Get
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBUFFER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -725,9 +656,6 @@ XBUFFER* XLICENSE::Get()
 * @fn         bool XLICENSE::Get(XSTRING& licensestring)
 * @brief      Get
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  licensestring :
 *
@@ -759,9 +687,6 @@ bool XLICENSE::Get(XSTRING& licensestring)
 * @fn         bool XLICENSE::LoadFromFile(XPATH& xpath, XSTRING& applicationID, XBUFFER* license, XSTRING* expirationdate)
 * @brief      LoadFromFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  applicationID :
@@ -805,9 +730,6 @@ bool XLICENSE::LoadFromFile(XPATH& xpath, XSTRING& applicationID, XBUFFER* licen
 * @brief      LoadFromURL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 * @param[in]  timeout :
 * @param[in]  IPlocal :
@@ -841,9 +763,6 @@ bool XLICENSE::LoadFromURL(DIOURL& url, int timeout, XSTRING* IPlocal, XSTRING& 
 * @fn         bool XLICENSE::LoadFromBuffer(XBUFFER& xbuffer, XSTRING& applicationID, XBUFFER* license, XSTRING* expirationdate)
 * @brief      LoadFromBuffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xbuffer :
 * @param[in]  applicationID :
@@ -897,9 +816,6 @@ bool XLICENSE::LoadFromBuffer(XBUFFER& xbuffer, XSTRING& applicationID, XBUFFER*
 * @fn         bool XLICENSE::CheckMasterCreation(XPATH& xpath, XLICENSEID& licenseID, XSTRING& applicationID, int expirationseconds)
 * @brief      CheckMasterCreation
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  licenseID :
@@ -970,9 +886,6 @@ bool XLICENSE::CheckMasterCreation(XPATH& xpath, XLICENSEID& licenseID, XSTRING&
 * @brief      SetEvent
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 *
 * @return     bool : true if is succesful.
@@ -996,9 +909,6 @@ bool XLICENSE::SetEvent(XLICENSEXEVENT_TYPE type)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

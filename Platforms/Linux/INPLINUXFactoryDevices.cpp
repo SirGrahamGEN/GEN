@@ -6,10 +6,7 @@
 * @brief      Linux Input Factory Devices class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -66,9 +63,6 @@
 * @fn         INPDEVICE* INPLINUXFACTORYDEVICES::CreateDevice(XCHAR* devicename, void* param)
 * @brief      CreateDevice
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type : device type of the input device
 * @param[in]  param : param to create device (in windows need handle to windows)
@@ -164,9 +158,6 @@ INPDEVICE* INPLINUXFACTORYDEVICES::CreateDevice(INPDEVICE_TYPE type, void* param
 * @brief      Delete Device
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  device : device to delete
 *
 * @return     bool : true if is succesful.
@@ -188,10 +179,7 @@ bool INPLINUXFACTORYDEVICES::DeleteDevice(INPDEVICE* device)
 * @fn         bool INPLINUXFACTORYDEVICES::GetDeviceHandlers(INPDEVICE_TYPE devicetype, XSTRING& handlers)
 * @brief      GetDeviceHandlers
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  devicetype : 
 * @param[in]  handlers : 
 * 

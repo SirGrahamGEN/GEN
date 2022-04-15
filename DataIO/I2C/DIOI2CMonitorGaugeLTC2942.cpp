@@ -6,10 +6,7 @@
 * @brief      Data Input\Output I2C Monitor Gauge LTC2942 
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -64,9 +61,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 *
 * @return     Does not return anything.
 *
@@ -84,9 +78,6 @@ DIOI2CMONITORGAUGELTC2942::DIOI2CMONITORGAUGELTC2942() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -106,10 +97,7 @@ DIOI2CMONITORGAUGELTC2942::~DIOI2CMONITORGAUGELTC2942()
 * @fn         XDWORD DIOI2CMONITORGAUGELTC2942::GetVoltage (XDWORD& voltage)
 * @brief      GetVoltage
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  voltage : 
 * 
 * @return     float :
@@ -143,10 +131,7 @@ float DIOI2CMONITORGAUGELTC2942::GetVoltage (void)
 * @fn         bool DIOI2CMONITORGAUGELTC2942::SetAC(XWORD ac)
 * @brief      SetAC
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ac : 
 * 
 * @return     bool : true if is succesful. 
@@ -181,10 +166,7 @@ bool DIOI2CMONITORGAUGELTC2942::SetAC(XWORD ac)
 * @fn         XWORD DIOI2CMONITORGAUGELTC2942::GetAC(void)
 * @brief      Get Acumulated Charge value
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  void : 
 * 
 * @return     XWORD : 
@@ -211,10 +193,7 @@ XWORD DIOI2CMONITORGAUGELTC2942::GetAC(void)
 * @fn         XWORD DIOI2CMONITORGAUGELTC2942::GetMaxAC(void)
 * @brief      GetMaxAC
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  void : 
 * 
 * @return     XWORD : 
@@ -234,9 +213,6 @@ XWORD DIOI2CMONITORGAUGELTC2942::GetMaxAC(void)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -255,9 +231,6 @@ bool DIOI2CMONITORGAUGELTC2942::End()
 * @fn         bool DIOI2CMONITORGAUGELTC2942::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -286,10 +259,7 @@ bool DIOI2CMONITORGAUGELTC2942::IniDevice()
 * @fn         bool DIOI2CMONITORGAUGELTC2942::Initialize()
 * @brief      Initialize
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -351,9 +321,6 @@ bool DIOI2CMONITORGAUGELTC2942::Initialize()
 * @brief      ReadRegister
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -373,9 +340,6 @@ bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE& data)
 * @fn         bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      ReadMultiRegister
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -410,9 +374,6 @@ bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE* data, XDWORD s
 * @brief      WriteRegister
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -431,9 +392,6 @@ bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE data)
 * @fn         bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      WriteMultiRegister
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -467,9 +425,6 @@ bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE* data, XDWORD 
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

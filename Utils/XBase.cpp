@@ -6,10 +6,7 @@
 * @brief      Basic functions and defines
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -71,9 +65,6 @@ XBASE::XBASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -92,9 +83,6 @@ XBASE::~XBASE()
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -110,9 +98,6 @@ void XBASE::Clean()
 * @fn         double Truncate(double value)
 * @brief      Trucate double
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value : double to truncate
 *
@@ -135,9 +120,6 @@ double Truncate(double value)
 * @brief      Return the fractional part of double
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value : double value to obtain fractional part
 *
 * @return     double : fractional part of value
@@ -157,10 +139,7 @@ double Fraction(double value)
 * @fn         float RoundOff(float value, XBYTE prec)
 * @brief      oundOff
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       15/03/2022 9:51:11
-* 
+*
 * @param[in]  value : 
 * @param[in]  prec : 
 * 
@@ -184,9 +163,6 @@ float RoundOff(float value, XBYTE prec)
 * @fn         double RoundOff(double value, XBYTE prec)
 * @brief      oundOff
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       15/03/2022 9:52:36
 *
 * @param[in]  value :
 * @param[in]  prec :
@@ -212,9 +188,6 @@ double RoundOff(double value, XBYTE prec)
 * @brief      igh_WORD
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 *
 * @return     XBYTE :
@@ -233,9 +206,6 @@ XBYTE High_WORD(XWORD data)
 * @brief      igh_DWORD
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 *
 * @return     XWORD :
@@ -252,9 +222,6 @@ XWORD High_DWORD(XDWORD data)
 * @fn         XDWORD High_QWORD(XQWORD data)
 * @brief      igh_QWORD
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 *
@@ -275,9 +242,6 @@ XDWORD High_QWORD(XQWORD data)
 * @brief      ow_WORD
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 *
 * @return     XBYTE :
@@ -294,9 +258,6 @@ XBYTE Low_WORD(XWORD  data)
 * @fn         XWORD Low_DWORD(XDWORD data)
 * @brief      ow_DWORD
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 *
@@ -315,9 +276,6 @@ XWORD Low_DWORD(XDWORD data)
 * @fn         XDWORD Low_QWORD(XQWORD data);
 * @brief      ow_QWORD
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data) :
 *
@@ -339,9 +297,6 @@ XDWORD Low_QWORD(XQWORD data)
 * @brief      Return the swap of word (2 bytes) hi-lo  > lo-hi
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : word to swap
 *
 * @return     XWORD : word swaped
@@ -362,9 +317,6 @@ XWORD SwapWORD(XWORD data)
 * @fn         XDWORD SwapDWORD(XDWORD data)
 * @brief      Swap double word (4 bytes) hi1 lo1 h2 lo2 >  lo2 hi2 lo1 hi1
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :  dword to swap
 *
@@ -388,9 +340,6 @@ XDWORD SwapDWORD(XDWORD data)
 * @fn         XQWORD SwapQWORD(XQWORD data)
 * @brief      Swap quad word (8 bytes) hi1 lo1 h2 lo2 hi3 lo3 h4 lo4  > lo3 hi3 lo4 hi4 lo2 hi2 lo1 hi1
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data : quad word to swap
 *
@@ -420,9 +369,6 @@ XQWORD SwapQWORD(XQWORD data)
 * @brief      Round float
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x : float to round
 *
 * @return     float : rounded float
@@ -440,9 +386,6 @@ float RoundFloat(float x)
 * @fn         XQWORD DWORDToBCD(XDWORD dword)
 * @brief      Convert double word to BCD
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  dword : double word to convert
 *
@@ -470,9 +413,6 @@ XQWORD DWORDToBCD(XDWORD dword)
 * @fn         XDWORD BCDToDWORD(XQWORD bcd)
 * @brief      Convert BCD to double word
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bcd : BCD to convert
 *
@@ -502,9 +442,6 @@ XDWORD BCDToDWORD(XQWORD bcd)
 * @brief      otateBitLeft
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  byte :
 *
 * @return     XBYTE :
@@ -523,9 +460,6 @@ XBYTE RotateBitLeft(XBYTE byte)
 * @brief      otateBitRight
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  byte :
 *
 * @return     XBYTE :
@@ -543,9 +477,6 @@ XBYTE RotateBitRight(XBYTE byte)
 * @fn         XBYTE RotateBitReverse(XBYTE byte)
 * @brief      otateBitReverse
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  byte :
 *

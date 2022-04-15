@@ -6,10 +6,7 @@
 * @brief      Data Input/Output AT command for GSM class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -62,9 +59,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ DIOATCMDGSM_ALPHABET_8859_1::DIOATCMDGSM_ALPHABET_8859_1()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -100,9 +91,6 @@ DIOATCMDGSM_ALPHABET_8859_1::~DIOATCMDGSM_ALPHABET_8859_1()
 * @fn         bool DIOATCMDGSM_ALPHABET_8859_1::CreateTable()
 * @brief      CreateTable
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -156,9 +144,6 @@ bool DIOATCMDGSM_ALPHABET_8859_1::CreateTable()
 * @brief      Traslate
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  from :
 * @param[in]  data :
 *
@@ -211,9 +196,6 @@ XWORD DIOATCMDGSM_ALPHABET_8859_1::Traslate(bool from, XWORD data)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -236,9 +218,6 @@ void DIOATCMDGSM_ALPHABET_8859_1::Clean()
 * @fn         DIOATCMDGSM::DIOATCMDGSM(DIOSTREAM* diostream)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  DIOSTREAM* :
 *
@@ -275,9 +254,6 @@ DIOATCMDGSM::DIOATCMDGSM(DIOSTREAM* diostream) : DIOATCMDS(diostream)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -294,9 +270,6 @@ DIOATCMDGSM::~DIOATCMDGSM()
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetManufactured(XSTRING& manufactured, int timeout)
 * @brief      GetManufactured
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  manufactured :
 * @param[in]  timeout :
@@ -318,9 +291,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetManufactured(XSTRING& manufactured, int timeout)
 * @brief      GetModel
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  model :
 * @param[in]  timeout :
 *
@@ -339,9 +309,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetModel(XSTRING& model, int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetIMEI(XSTRING& IMEI, int timeout)
 * @brief      GetIMEI
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  IMEI :
 * @param[in]  timeout :
@@ -362,9 +329,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetIMEI(XSTRING& IMEI, int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetVersion(XSTRING& version,int timeout)
 * @brief      GetVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  version :
 * @param[in]  timeout :
@@ -416,9 +380,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetVersion(XSTRING& version, int timeout)
 * @brief      GetSignalQuality
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  RSSI :
 * @param[in]  BER :
 * @param[in]  timeout :
@@ -462,9 +423,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSignalQuality(int& RSSI, int& BER, int timeout)
 * @brief      IsAvailableServiceGSM
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  available :
 * @param[in]  timeout :
 *
@@ -501,9 +459,6 @@ DIOATCMD_ERROR DIOATCMDGSM::IsAvailableServiceGSM(bool& available, int timeout)
 * @brief      GetIMSI
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  IMSI :
 * @param[in]  timeout :
 *
@@ -522,10 +477,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetIMSI(XSTRING& IMSI, int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::PIN_IsResolved(bool& isresolved, int timeout)
 * @brief      PIN_IsResolved
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  isresolved : 
 * @param[in]  timeout : 
 * 
@@ -561,10 +513,7 @@ DIOATCMD_ERROR DIOATCMDGSM::PIN_IsResolved(bool& isresolved, int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::PIN_Enter(XCHAR* PIN, bool& isenter, int timeout)
 * @brief      PIN_Enter
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  PIN : 
 * @param[in]  isenter : 
 * @param[in]  timeout : 
@@ -601,10 +550,7 @@ DIOATCMD_ERROR DIOATCMDGSM::PIN_Enter(XCHAR* PIN, bool& isenter, int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::PIN_Activate(XCHAR* PIN, bool activate, int timeout)
 * @brief      PIN_Activate
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  PIN : 
 * @param[in]  activate : 
 * @param[in]  timeout : 
@@ -637,9 +583,6 @@ DIOATCMD_ERROR DIOATCMDGSM::PIN_Activate(XCHAR* PIN, bool activate, int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetSMSSupport(XBYTE& support, int timeout)
 * @brief      GetSMSSupport
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  support :
 * @param[in]  timeout :
@@ -692,9 +635,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSMSSupport(XBYTE& support, int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetSMSFormat(XBYTE& format,bool support, int timeout)
 * @brief      GetSMSFormat
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  format :
 * @param[in]  support :
@@ -762,9 +702,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSMSFormat(XBYTE& format,bool support, int timeout
 * @brief      SetSMSFormat
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  format :
 * @param[in]  timeout :
 *
@@ -794,9 +731,6 @@ DIOATCMD_ERROR DIOATCMDGSM::SetSMSFormat(XBYTE format, int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetSMSCenter(XSTRING& SMScenter, int timeout)
 * @brief      GetSMSCenter
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  SMScenter :
 * @param[in]  timeout :
@@ -848,9 +782,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSMSCenter(XSTRING& SMScenter, int timeout)
 * @brief      SetSMSCenter
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  smscenter :
 * @param[in]  timeout :
 *
@@ -876,9 +807,6 @@ DIOATCMD_ERROR DIOATCMDGSM::SetSMSCenter(XCHAR* smscenter, int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::SendSMS(XCHAR* number, XCHAR* message, int* mrID, int timeout)
 * @brief      SendSMS
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  number :
 * @param[in]  message :
@@ -964,9 +892,6 @@ DIOATCMD_ERROR DIOATCMDGSM::SendSMS(XCHAR* number, XCHAR* message, int* mrID, in
 * @fn         bool DIOATCMDGSM::CodecPDUFormat(XCHAR* number, XCHAR* message, bool inoctets, int validperiod, XSTRING& length, XSTRING& result)
 * @brief      CodecPDUFormat
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  number :
 * @param[in]  message :
@@ -1105,9 +1030,6 @@ bool DIOATCMDGSM::CodecPDUFormat(XCHAR* number, XCHAR* message, bool inoctets, i
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

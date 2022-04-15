@@ -49,7 +49,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/12/2010 19:47:22
 //
 //  @return
@@ -67,7 +67,7 @@ DIOOBEXPUSHFILE::DIOOBEXPUSHFILE()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/12/2010 19:47:30
 //
 //  @return
@@ -85,7 +85,7 @@ DIOOBEXPUSHFILE::~DIOOBEXPUSHFILE()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/05/2011 13:29:49
 //
 //  @return       XDWORD :
@@ -103,7 +103,7 @@ XDWORD DIOOBEXPUSHFILE::GetID()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/05/2011 13:40:30
 //
 //  @return       XPATH* :
@@ -122,7 +122,7 @@ XPATH* DIOOBEXPUSHFILE::GetXPath()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/05/2011 13:40:42
 //
 //  @return       XSTRING* :
@@ -141,7 +141,7 @@ XSTRING* DIOOBEXPUSHFILE::GetNameSend()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2011 0:22:45
 //
 //  @return       bool :
@@ -160,7 +160,7 @@ bool DIOOBEXPUSHFILE::IsSend()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2011 11:13:51
 //
 //  @return       XBYTE :
@@ -179,7 +179,7 @@ XBYTE DIOOBEXPUSHFILE::GetSendPercent()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2011 10:07:37
 //
 //  @return       XQWORD :
@@ -198,7 +198,7 @@ XQWORD DIOOBEXPUSHFILE::GetSendTimeElapsed()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/05/2011 13:31:25
 //
 //  @return       DIOOBEXPUSHERROR :
@@ -216,7 +216,7 @@ DIOOBEXPUSHERROR DIOOBEXPUSHFILE::GetError()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/05/2011 13:31:50
 //
 //  @return       bool :
@@ -238,7 +238,7 @@ bool DIOOBEXPUSHFILE::SetID(XDWORD ID)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2011 0:23:47
 //
 //  @return       bool :
@@ -260,7 +260,7 @@ bool DIOOBEXPUSHFILE::SetIsSend(bool issend)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2011 11:14:59
 //
 //  @return       bool :
@@ -282,7 +282,7 @@ bool DIOOBEXPUSHFILE::SetSendPercent(XBYTE percent)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2011 10:08:58
 //
 //  @return       bool :
@@ -304,7 +304,7 @@ bool DIOOBEXPUSHFILE::SetSendTimeElapsed(XQWORD sendtimeelapsed)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/05/2011 13:32:10
 //
 //  @return       bool :
@@ -326,7 +326,7 @@ bool DIOOBEXPUSHFILE::SetError(DIOOBEXPUSHERROR error)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/12/2010 19:48:14
 //
 //  @return       void :
@@ -351,7 +351,7 @@ void DIOOBEXPUSHFILE::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/10/2004 15:03:37
 //
 //  @return
@@ -424,7 +424,7 @@ DIOOBEXPUSH::DIOOBEXPUSH(DIOSTREAM* diostream, bool inlittleendian) : XFSMACHINE
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/09/2004 11:58:01
 //
 //  @return       void :
@@ -444,7 +444,7 @@ DIOOBEXPUSH::~DIOOBEXPUSH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/09/2004 12:02:44
 //
 //  @return       bool :
@@ -499,7 +499,7 @@ bool DIOOBEXPUSH::Ini(int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/09/2004 12:02:09
 //
 //  @return       bool :
@@ -521,7 +521,7 @@ bool DIOOBEXPUSH::IsSending()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/06/2011 17:46:45
 //
 //  @return       bool :
@@ -544,7 +544,7 @@ bool DIOOBEXPUSH::SetIsSending(bool issending)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/06/2011 23:59:29
 //
 //  @return       bool :
@@ -570,7 +570,7 @@ bool DIOOBEXPUSH::SendFile(XPATH& xpath,XSTRING& namesend,XDWORD ID,int timeouta
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/06/2011 23:59:42
 //
 //  @return       bool :
@@ -603,7 +603,7 @@ bool DIOOBEXPUSH::SendFiles(int asktimeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      09/06/2011 16:23:54
 //
 //  @return       XTIMER* :
@@ -622,7 +622,7 @@ XTIMER* DIOOBEXPUSH::GetXTimer()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2011 10:04:34
 //
 //  @return       XQWORD :
@@ -641,7 +641,7 @@ XQWORD DIOOBEXPUSH::GetAskTimeElapsed()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/05/2011 13:38:59
 //
 //  @return       bool :
@@ -696,7 +696,7 @@ bool DIOOBEXPUSH::SendFileList_AddFile(XPATH& xpath,XSTRING& namesend,XDWORD ID)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/12/2010 9:48:13
 //
 //  @return       DIOOBEXPUSHFILE* :
@@ -719,7 +719,7 @@ DIOOBEXPUSHFILE* DIOOBEXPUSH::SendFileList_GetFile(int index)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2010 10:15:58
 //
 //  @return       DIOOBEXPUSHFILE* :
@@ -741,7 +741,7 @@ DIOOBEXPUSHFILE* DIOOBEXPUSH::SendFileList_GetActualFile()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/12/2010 10:29:41
 //
 //  @return       bool :
@@ -766,7 +766,7 @@ bool DIOOBEXPUSH::SendFileList_DeleteAll()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2010 10:10:16
 //
 //  @return       int :
@@ -787,7 +787,7 @@ int DIOOBEXPUSH::SendFileList_GetIndex()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2010 11:18:00
 //
 //  @return       int :
@@ -805,7 +805,7 @@ int DIOOBEXPUSH::SendFileList_GetSize()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/09/2004 12:04:09
 //
 //  @return       bool :
@@ -860,7 +860,7 @@ bool DIOOBEXPUSH::End()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/12/2009 08:22:22 a.m.
 //
 //  @return       DIOSTREAM* :
@@ -878,7 +878,7 @@ DIOSTREAM* DIOOBEXPUSH::GetDIOStream()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      27/04/2006 23:12:04
 //
 //  @return       char* :
@@ -896,7 +896,7 @@ XPATH* DIOOBEXPUSH::GetFileNameSend()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/09/2004 12:44:11
 //
 //  @return       bool :
@@ -921,7 +921,7 @@ XDWORD DIOOBEXPUSH::GenerateFileID(XPATH& xpath)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/09/2004 12:04:13
 //
 //  @return
@@ -963,7 +963,7 @@ void DIOOBEXPUSH::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      14/09/2004 12:12:24
 //
 //  @return       bool :
@@ -1274,7 +1274,7 @@ bool DIOOBEXPUSH::CheckSending()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/06/2013 7:13:41
 //
 //  @return       bool :
@@ -1304,7 +1304,7 @@ bool DIOOBEXPUSH::ReadAnswer(XBUFFER& xbuffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/06/2011 16:08:48
 //
 //  @return       void :

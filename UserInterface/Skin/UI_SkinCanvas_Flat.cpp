@@ -5,11 +5,8 @@
 * @class      UI_SKINCANVAS_FLAT
 * @brief      User Interface Skin Canvas FLAT class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -69,8 +66,8 @@
 @brief      Constructor
 @ingroup    USERINTERFACE
 
-@author     Abraham J. Velez 
-@date       01/03/2016 12:00
+""
+""
 
 @param[in]  GRPCANVAS* : 
 
@@ -92,10 +89,7 @@ UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen) : UI_SKINCANVAS(screen
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -111,10 +105,7 @@ UI_SKINCANVAS_FLAT::~UI_SKINCANVAS_FLAT()
 * @fn         bool UI_SKINCANVAS_FLAT::Draw_Form(UI_ELEMENT* element)
 * @brief      Draw_Form
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -181,10 +172,7 @@ bool UI_SKINCANVAS_FLAT::Draw_Form(UI_ELEMENT* element)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

@@ -6,7 +6,7 @@
 //
 //  ANDROID DIO factory class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 15/07/2002
 */
 //  GEN  Copyright (C).  All right reserved.

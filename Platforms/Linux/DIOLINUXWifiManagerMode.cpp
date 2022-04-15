@@ -6,10 +6,7 @@
 * @brief      Data Input/Output LINUX Wifi Manager Mode
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -73,9 +70,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +87,6 @@ DIOLINUXWIFIMANAGERMODE::DIOLINUXWIFIMANAGERMODE()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +103,6 @@ DIOLINUXWIFIMANAGERMODE::~DIOLINUXWIFIMANAGERMODE()
 * @fn         bool DIOLINUXWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password, bool serialize)
 * @brief      SetMode_AP
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  SSID : 
 * @param[in]  password : 
@@ -140,9 +128,6 @@ bool DIOLINUXWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password, bool seri
 * @fn         bool DIOLINUXWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool serialize)
 * @brief      SetMode_Client
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  SSID : 
 * @param[in]  password : 
@@ -176,10 +161,7 @@ bool DIOLINUXWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::IsDisconnected()
 * @brief      IsDisconnected
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -203,10 +185,7 @@ bool DIOLINUXWIFIMANAGERMODE::IsDisconnected()
 * @fn         bool DIOLINUXWIFIMANAGERMODE::Disconnect()
 * @brief      Disconnect
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -231,9 +210,6 @@ bool DIOLINUXWIFIMANAGERMODE::Disconnect()
 * @brief      APList_Reload
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -249,9 +225,6 @@ bool DIOLINUXWIFIMANAGERMODE::APList_Reload()
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password, int indexnetwork, bool serialize)
 * @brief      WPA_SetMode
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  mode : 
 * @param[in]  SSID : 
@@ -423,10 +396,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_IsDisconnected()
 * @brief      WPA_IsDisconnected
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -471,10 +441,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_IsDisconnected()
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_Disconnect()
 * @brief      WPA_Disconnected
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -502,9 +469,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_Disconnect()
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_RemoveAllNetworks()
 * @brief      WPA_RemoveAllNetworks
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -538,9 +502,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_RemoveAllNetworks()
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, XCHAR* value)
 * @brief      WPA_SetValue
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  indexnetwork : 
 * @param[in]  namevalue : 
@@ -580,9 +541,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, X
 * @brief      WPA_SetValue
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  indexnetwork : 
 * @param[in]  namevalue : 
 * @param[in]  value : 
@@ -603,9 +561,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XSTRING& namevalue,
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_GetListRemoteAP(XVECTOR<XSTRING*>& nameAPs)
 * @brief      WPA_GetListRemoteAP
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  nameAPs : 
 *
@@ -686,9 +641,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_GetListRemoteAP(XVECTOR<XSTRING*>& nameAPs)
 * @brief      WPA_CLI_Command
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  command : 
 * @param[in]  output : 
 *
@@ -723,10 +675,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_CLI_Command(XSTRING& command, XSTRING& output)
 * @fn         bool DIOLINUXWIFIMANAGERMODE::NM_SetMode(int mode, XCHAR* SSID, XCHAR* password, int indexnetwork, bool serialize)
 * @brief      NM_SetMode
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  mode : 
 * @param[in]  SSID : 
 * @param[in]  password : 
@@ -784,10 +733,7 @@ bool DIOLINUXWIFIMANAGERMODE::NM_SetMode(int mode, XCHAR* SSID, XCHAR* password,
 * @fn         bool DIOLINUXWIFIMANAGERMODE::NM_IsDisconnected()
 * @brief      NM_IsDisconnected
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -816,10 +762,7 @@ bool DIOLINUXWIFIMANAGERMODE::NM_IsDisconnected()
 * @fn         bool DIOLINUXWIFIMANAGERMODE::NM_Disconnect()
 * @brief      NM_Disconnected
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -875,10 +818,7 @@ bool DIOLINUXWIFIMANAGERMODE::NM_Disconnect()
 * @fn         bool DIOLINUXWIFIMANAGERMODE::NM_CLI_Command(XSTRING& command, XSTRING& output)
 * @brief      NM_CLI_Command
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  command : 
 * @param[in]  output : 
 * 
@@ -912,9 +852,6 @@ bool DIOLINUXWIFIMANAGERMODE::NM_CLI_Command(XSTRING& command, XSTRING& output)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream WINDOWS Wi-Fi remote Enum Devices class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -71,9 +68,6 @@ void    WLanCallback      (WLAN_NOTIFICATION_DATA *scannotificationdata, PVOID c
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -92,9 +86,6 @@ DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES() :
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +103,6 @@ DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::~DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES()
 * @fn         bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Search()
 * @brief      Search
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -527,9 +515,6 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Search()
 * @brief      SetAllConnectionInAutomaticMode
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  automaticmodeactive : 
 *
 * @return     bool : true if is succesful. 
@@ -644,9 +629,6 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::SetAllConnectionInAutomaticMode(bool
 * @fn         bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::SetAllConnectionStatus(bool activate)
 * @brief      SetAllConnectionStatus
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  activate : 
 *
@@ -929,9 +911,6 @@ VOID SetRadioState(__in int argc, __in_ecount(argc) LPWSTR argv[])
 * @brief      StopSearch
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  waitend :
 *
 * @return     bool : true if is succesful.
@@ -954,9 +933,6 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 * @brief      IsSearching
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -974,9 +950,6 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 * @fn         void DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::TriggerScan(HANDLE wlanhandle, WLAN_INTERFACE_INFO_LIST* interfaces)
 * @brief      TriggerScan
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  wlanhandle :
 * @param[in]  interfaces :
@@ -1049,9 +1022,6 @@ void DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::TriggerScan(HANDLE wlanhandle, WLAN_
 * @brief      LanCallback
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  WLAN_NOTIFICATION_DATA*scannotificationdata :
 * @param[in]  context :
 *
@@ -1096,9 +1066,6 @@ void WLanCallback(WLAN_NOTIFICATION_DATA *scannotificationdata, PVOID context)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

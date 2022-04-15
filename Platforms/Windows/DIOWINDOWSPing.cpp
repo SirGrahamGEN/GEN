@@ -5,11 +5,8 @@
 * @class      DIOWINDOWSPING
 * @brief      WINDOWS Data Input/Output WINDOWS Ping class
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -67,10 +64,7 @@
 * @fn         DIOWINDOWSPING::DIOWINDOWSPING() : DIOPING()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ) : 
 * 
 * @return     Does not return anything. 
@@ -89,10 +83,7 @@ DIOWINDOWSPING::DIOWINDOWSPING() : DIOPING()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -109,10 +100,7 @@ DIOWINDOWSPING::~DIOWINDOWSPING()
 * @fn         bool DIOWINDOWSPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodreply)
 * @brief      Do
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  nretries : 
 * @param[in]  timebetweenchecks : 
 * @param[in]  exitfirstgoodreply : 

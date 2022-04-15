@@ -46,7 +46,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 15:55:49
 //
 //  @return
@@ -85,7 +85,7 @@ DIOCLICLIENTBTMODULECSR::DIOCLICLIENTBTMODULECSR(DIOSTREAM* diostream) : DIOCLIC
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 15:57:52
 //
 //  @return
@@ -105,7 +105,7 @@ DIOCLICLIENTBTMODULECSR::~DIOCLICLIENTBTMODULECSR()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 15:58:16
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -132,7 +132,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::Version(int& version,int& subversion
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/10/2011 13:08:03
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -159,7 +159,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::RSSI(int& RSSI)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 10:48:32
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -189,7 +189,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::GetCFGIOD(int portio,bool& isoutput)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 11:30:20
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -215,7 +215,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::SetCFGIOD(int portio,bool isoutput)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 16:44:26
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -245,7 +245,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::GetIOD(int portio,bool& isactive)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 16:47:31
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -270,7 +270,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::SetIOD(int portio,bool isactive)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 16:52:15
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -295,7 +295,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::GetIOA1(XBYTE& value)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/11/2011 0:44:01
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -321,7 +321,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::IsBatteryCharging(bool& ischarging)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/11/2011 0:44:07
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -346,7 +346,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::BatteryCharge(int& mVolts)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 16:55:05
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -377,7 +377,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CMemRead(int address,int index,XBY
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 16:55:44
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -405,7 +405,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CMemWrite(int address,int index,XB
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 17:26:28
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -436,7 +436,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CADC(int address,int port,XBYTE& d
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 17:26:28
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -462,7 +462,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CDAC(int address,XBYTE data)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 15:58:34
 //
 //  @return       void :

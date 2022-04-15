@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Wifi Manager Mode
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ DIOWIFIMANAGERMODE::DIOWIFIMANAGERMODE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything. 
 *
@@ -101,9 +92,6 @@ DIOWIFIMANAGERMODE::~DIOWIFIMANAGERMODE()
 * @brief      GetSelectNetInterface
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  netinterface : 
 *
 * @return     bool : true if is succesful. 
@@ -121,9 +109,6 @@ bool DIOWIFIMANAGERMODE::GetSelectNetInterface(XSTRING& netinterface)
 * @fn         bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XCHAR* netinterface);
 * @brief      SetSelectNetInterface
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  netinterface) : 
 *
@@ -146,9 +131,6 @@ bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XCHAR* netinterface)
 * @brief      SetSelectNetInterface
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  netinterface : 
 *
 * @return     bool : true if is succesful. 
@@ -166,10 +148,7 @@ bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XSTRING& netinterface)
 * @fn         DIOWIFIMANAGER_MODETYPE DIOWIFIMANAGERMODE::GetModeType()
 * @brief      GetModeType
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOWIFIMANAGER_MODETYPE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -185,10 +164,7 @@ DIOWIFIMANAGER_MODETYPE DIOWIFIMANAGERMODE::GetModeType()
 * @fn         void DIOWIFIMANAGERMODE::SetModeType(DIOWIFIMANAGER_MODETYPE modetype)
 * @brief      SetModeType
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  modetype : 
 * 
 * @return     void : does not return anything. 
@@ -206,9 +182,6 @@ void DIOWIFIMANAGERMODE::SetModeType(DIOWIFIMANAGER_MODETYPE modetype)
 * @fn         bool DIOWIFIMANAGERMODE::CheckNetInterface(DIOIP* IP)
 * @brief      CheckNetInterface
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  IP : 
 *
@@ -275,9 +248,6 @@ bool DIOWIFIMANAGERMODE::CheckNetInterface(DIOIP* IP)
 * @brief      CheckNetInterface
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  IP : 
 *
 * @return     bool : true if is succesful. 
@@ -307,9 +277,6 @@ bool DIOWIFIMANAGERMODE::CheckNetInterface(XSTRING* IP)
 * @brief      SetMode_AP
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  SSID : 
 * @param[in]  password : 
 * @param[in]  serialize : 
@@ -332,9 +299,6 @@ bool DIOWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password,  bool serializ
 * @brief      SetMode_AP
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  SSID : 
 * @param[in]  password : 
 * @param[in]  serialize : 
@@ -354,10 +318,7 @@ bool DIOWIFIMANAGERMODE::SetMode_AP(XSTRING& SSID, XSTRING& password, bool seria
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_AP(XSTRING& SSID, XCHAR* password, bool serialize)
 * @brief      SetMode_AP
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  SSID : 
 * @param[in]  password : 
 * @param[in]  serialize : 
@@ -377,9 +338,6 @@ bool DIOWIFIMANAGERMODE::SetMode_AP(XSTRING& SSID, XCHAR* password, bool seriali
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool serialize)
 * @brief      SetMode_Client
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  SSID : 
 * @param[in]  password : 
@@ -401,9 +359,6 @@ bool DIOWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool seria
 * @brief      SetMode_Client
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  SSID : 
 * @param[in]  password : 
 * @param[in]  serialize : 
@@ -423,10 +378,7 @@ bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XSTRING& password, bool s
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XCHAR* password, bool serialize)
 * @brief      SetMode_Client
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  SSID : 
 * @param[in]  password : 
 * @param[in]  serialize : 
@@ -446,10 +398,7 @@ bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XCHAR* password, bool ser
 * @fn         bool DIOWIFIMANAGERMODE::IsDisconnected()
 * @brief      IsDisconnected
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -465,10 +414,7 @@ bool DIOWIFIMANAGERMODE::IsDisconnected()
 * @fn         bool DIOWIFIMANAGERMODE::Disconnect()
 * @brief      Disconnect
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -484,9 +430,6 @@ bool DIOWIFIMANAGERMODE::Disconnect()
 * @fn         bool DIOWIFIMANAGERMODE::APList_Reload()
 * @brief      APList_Reload
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -504,9 +447,6 @@ bool DIOWIFIMANAGERMODE::APList_Reload()
 * @brief      APList_Get
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<XSTRING*>* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -523,9 +463,6 @@ XVECTOR<XSTRING*>* DIOWIFIMANAGERMODE::APList_Get()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

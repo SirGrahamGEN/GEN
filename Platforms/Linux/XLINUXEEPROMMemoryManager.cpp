@@ -6,10 +6,7 @@
 * @brief      eXtended Windows EEPROM Memory Manager class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -74,9 +68,6 @@ XLINUXEEPROMMEMORYMANAGER::XLINUXEEPROMMEMORYMANAGER()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -92,9 +83,6 @@ XLINUXEEPROMMEMORYMANAGER::~XLINUXEEPROMMEMORYMANAGER()
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Ini()
 * @brief      Ini
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -112,9 +100,6 @@ bool XLINUXEEPROMMEMORYMANAGER::Ini()
 * @brief      End
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -130,9 +115,6 @@ bool XLINUXEEPROMMEMORYMANAGER::End()
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 * @brief      Read
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -153,9 +135,6 @@ bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 * @brief      Read
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -175,9 +154,6 @@ bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 * @brief      Read
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -196,9 +172,6 @@ bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Read
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -220,9 +193,6 @@ bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Write
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -242,9 +212,6 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 * @brief      Write
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -263,9 +230,6 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 * @brief      Write
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -287,9 +251,6 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 * @brief      Write
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 * @param[in]  size :
@@ -308,9 +269,6 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::EraseAll()
 * @brief      EraseAll
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *

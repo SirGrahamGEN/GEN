@@ -6,10 +6,7 @@
 * @brief      eXtended utils STM32 platform factory class
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -88,9 +85,6 @@ DELETEFUNC(XSTM32FACTORY  , XMUTEX          , XSTM32MUTEX            , Delete_Mu
 * @brief      CreateThread
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  groupID :
 * @param[in]  ID :
 * @param[in]  function :
@@ -112,9 +106,6 @@ XTHREAD* XSTM32FACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFU
 * @fn         bool XSTM32FACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
 * @brief      DeleteThread
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  groupID :
 * @param[in]  xthread :

@@ -74,7 +74,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2013 23:10:30
 //
 //  @return
@@ -130,7 +130,7 @@ DIOANDROIDSTREAMICMP::DIOANDROIDSTREAMICMP() : DIOSTREAMICMP() , XFSMACHINE(0)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -153,7 +153,7 @@ DIOANDROIDSTREAMICMP::~DIOANDROIDSTREAMICMP()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -184,7 +184,7 @@ bool DIOANDROIDSTREAMICMP::Open()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/12/2010 23:10:56
 //
 //  @return       bool :
@@ -212,7 +212,7 @@ bool DIOANDROIDSTREAMICMP::Disconnect()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -241,7 +241,7 @@ bool DIOANDROIDSTREAMICMP::Close()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      08/03/2006 15:36:59
 //
 //  @return       int :
@@ -297,7 +297,7 @@ int DIOANDROIDSTREAMICMP::IsReadyConnect(int socket)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -317,7 +317,7 @@ void DIOANDROIDSTREAMICMP::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/03/2006 15:44:00
 //
 //  @return       void :

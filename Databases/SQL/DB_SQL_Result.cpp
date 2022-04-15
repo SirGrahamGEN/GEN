@@ -6,10 +6,7 @@
 * @brief      Data Base SQL Holds Result class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -72,9 +66,6 @@ DB_SQL_RESULT::DB_SQL_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -97,9 +88,6 @@ DB_SQL_RESULT::~DB_SQL_RESULT()
 * @brief      GetRow
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_ROW* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +103,6 @@ DB_SQL_ROW* DB_SQL_RESULT::GetRow()
 * @fn         DB_SQL_ROWHEADER* DB_SQL_RESULT::GetHeader()
 * @brief      GetHeader
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     DB_SQL_ROWHEADER* :
 *
@@ -135,9 +120,6 @@ DB_SQL_ROWHEADER* DB_SQL_RESULT::GetHeader()
 * @brief      GetCurrentRowIndex
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -154,9 +136,6 @@ XDWORD DB_SQL_RESULT::GetCurrentRowIndex()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

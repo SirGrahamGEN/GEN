@@ -6,10 +6,7 @@
 * @brief      Sound Codec class
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -72,9 +66,6 @@ SNDCODEC::SNDCODEC()
 * @note       VIRTUAL
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -90,9 +81,6 @@ SNDCODEC::~SNDCODEC()
 * @fn         bool SNDCODEC::DecodePacket(XBUFFER* output, MEDIAPACKET* packet)
 * @brief      DecodePacket
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  output : 
 * @param[in]  packet : 
@@ -113,9 +101,6 @@ bool SNDCODEC::DecodePacket(XBUFFER* output, MEDIAPACKET* packet)
 * @brief      DecodeAll
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  output : 
 *
 * @return     bool : true if is succesful. 
@@ -134,9 +119,6 @@ bool SNDCODEC::DecodeAll(XBUFFER* output)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

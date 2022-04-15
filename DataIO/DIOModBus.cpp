@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Mod Bus protocol class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  DIOSTREAM* :
 * @param[in]   DIOMODBUSMODE mode :
 *
@@ -87,9 +81,6 @@ DIOMODBUS::DIOMODBUS(DIOSTREAM* diostream, DIOMODBUSMODE mode)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -110,9 +101,6 @@ DIOMODBUS::~DIOMODBUS()
 * @brief      GetDIOStream
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAM* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -130,9 +118,6 @@ DIOSTREAM* DIOMODBUS::GetDIOStream()
 * @brief      GetMode
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOMODBUSMODE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -149,9 +134,6 @@ DIOMODBUSMODE DIOMODBUS::GetMode()
 * @fn         bool DIOMODBUS::SetMode(DIOMODBUSMODE mode)
 * @brief      SetMode
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mode :
 *
@@ -172,9 +154,6 @@ bool DIOMODBUS::SetMode(DIOMODBUSMODE mode)
 * @fn         bool DIOMODBUS::Connect(XBYTE unit, int timeout)
 * @brief      Connect
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  unit :
 * @param[in]  timeout :
@@ -202,9 +181,6 @@ bool DIOMODBUS::Connect(XBYTE unit, int timeout)
 * @brief      GetUnit
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -220,9 +196,6 @@ XBYTE DIOMODBUS::GetUnit()
 * @fn         void DIOMODBUS::SetUnit(XBYTE unit)
 * @brief      SetUnit
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  unit :
 *
@@ -241,9 +214,6 @@ void DIOMODBUS::SetUnit(XBYTE unit)
 * @fn         bool DIOMODBUS::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBUFFER& answer, int timeout)
 * @brief      ReadHoldingRegisters
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  address :
 * @param[in]  nregisters :
@@ -324,9 +294,6 @@ bool DIOMODBUS::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBUFFER& a
 * @brief      ReadInputRegisters
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  address :
 * @param[in]  nregisters :
 * @param[in]  answer :
@@ -381,9 +348,6 @@ bool DIOMODBUS::ReadInputRegisters(XWORD address, XWORD nregisters, XMAP<XWORD, 
 * @brief      WriteSingleRegister
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  address :
 * @param[in]  value :
 * @param[in]  timeout :
@@ -426,9 +390,6 @@ bool DIOMODBUS::WriteSingleRegister(XWORD address, XWORD value, int timeout)
 * @brief      Disconnect
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -453,9 +414,6 @@ bool DIOMODBUS::Disconnect()
 * @fn         bool DIOMODBUS::MakeCommand(DIOMODBUS_FUNCTION function, XBUFFER& ask, XBUFFER& answer, int timeout)
 * @brief      MakeCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  function :
 * @param[in]  ask :
@@ -554,9 +512,6 @@ bool DIOMODBUS::MakeCommand(DIOMODBUS_FUNCTION function, XBUFFER& ask, XBUFFER& 
 * @brief      CRC16
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 *
 * @return     XWORD :
@@ -594,9 +549,6 @@ XWORD DIOMODBUS::CRC16(XBUFFER& data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

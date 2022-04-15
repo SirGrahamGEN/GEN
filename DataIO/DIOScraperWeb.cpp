@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Scraper Web class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -69,9 +66,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -102,9 +96,6 @@ DIOSCRAPERWEB::DIOSCRAPERWEB()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -144,9 +135,6 @@ DIOSCRAPERWEB::~DIOSCRAPERWEB()
 * @fn         bool DIOSCRAPERWEB::Load(XCHAR* namefile)
 * @brief      Load
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  namefile :
 *
@@ -196,9 +184,6 @@ bool DIOSCRAPERWEB::Load(XCHAR* namefile)
 * @brief      Load
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  namefile :
 *
 * @return     bool : true if is succesful.
@@ -217,9 +202,6 @@ bool DIOSCRAPERWEB::Load(XPATH& namefile)
 * @brief      GetURLDownload
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOURL* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -235,9 +217,6 @@ DIOURL* DIOSCRAPERWEB::GetURLDownload()
 * @fn         bool DIOSCRAPERWEB::Download(DIOURL& URL, XPATH& xpath)
 * @brief      Download
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  URL :
 * @param[in]  xpath :
@@ -273,9 +252,6 @@ bool DIOSCRAPERWEB::Download(DIOURL& URL, XPATH& xpath)
 * @fn         bool DIOSCRAPERWEB::Do(XCHAR* namewebservice, int timeoutforurl, XSTRING* localIP)
 * @brief      Do
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  namewebservice :
 * @param[in]  timeoutforurl :
@@ -471,9 +447,6 @@ bool DIOSCRAPERWEB::Do(XCHAR* namewebservice, int timeoutforurl, XSTRING* localI
 * @brief      Do
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  namewebservice :
 * @param[in]  timeoutforurl :
 * @param[in]  localIP :
@@ -493,9 +466,6 @@ bool DIOSCRAPERWEB::Do(XSTRING& namewebservice, int timeoutforurl, XSTRING* loca
 * @fn         bool DIOSCRAPERWEB::ChangeURL(XCHAR* maskurl, DIOURL& url)
 * @brief      ChangeURL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  maskurl :
 * @param[in]  url :
@@ -519,9 +489,6 @@ bool DIOSCRAPERWEB::ChangeURL(XCHAR* maskurl, DIOURL& url)
 * @fn         bool DIOSCRAPERWEB::AddValue(XCHAR* name, XCHAR* value)
 * @brief      AddValue
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  value :
@@ -558,9 +525,6 @@ bool DIOSCRAPERWEB::AddValue(XCHAR* name, XCHAR* value)
 * @brief      AddValue
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  value :
 *
@@ -579,9 +543,6 @@ bool DIOSCRAPERWEB::AddValue(XCHAR* name, XSTRING& value)
 * @fn         bool DIOSCRAPERWEB::AddValue(XSTRING& name,XCHAR* value)
 * @brief      AddValue
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  value :
@@ -602,9 +563,6 @@ bool DIOSCRAPERWEB::AddValue(XSTRING& name,XCHAR*  value)
 * @brief      AddValue
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  value :
 *
@@ -624,7 +582,7 @@ bool DIOSCRAPERWEB::AddValue(XSTRING& name, XSTRING& value)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/03/2013 12:36:07
 //
 //  @return       XCHAR* :
@@ -664,9 +622,6 @@ XCHAR* DIOSCRAPERWEB::GetValue(XCHAR* namevalue)
 * @brief      GetValue
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  namevalue :
 *
 * @return     XCHAR* :
@@ -684,9 +639,6 @@ XCHAR* DIOSCRAPERWEB::GetValue(XSTRING& namevalue)
 * @fn         bool DIOSCRAPERWEB::DeleteAllValues()
 * @brief      DeleteAllValues
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -710,9 +662,6 @@ bool DIOSCRAPERWEB::DeleteAllValues()
 * @brief      GetWebClient
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBCLIENT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -728,9 +677,6 @@ DIOWEBCLIENT* DIOSCRAPERWEB::GetWebClient()
 * @fn         bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini,XCHAR* searchend,XBUFFER* xbuffer,bool usebufferpos,XSTRING& result)
 * @brief      ExtractString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  searchini :
 * @param[in]  searchend :
@@ -762,9 +708,6 @@ bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini,XCHAR* searchend,XBUFFER* xbu
 * @brief      ExtractString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  searchini :
 * @param[in]  searchend :
 * @param[in]  xbuffer :
@@ -792,9 +735,6 @@ bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini, XSTRING& searchend, XBUFFER*
 * @fn         bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini,XCHAR* searchend,XBUFFER* xbuffer,bool usebufferpos,XSTRING& result)
 * @brief      ExtractString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  searchini :
 * @param[in]  searchend :
@@ -824,9 +764,6 @@ bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini,XCHAR* searchend,XBUFFER* x
 * @fn         bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini,XSTRING& searchend,XBUFFER* xbuffer,bool usebufferpos,XSTRING& result)
 * @brief      ExtractString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  searchini :
 * @param[in]  searchend :
@@ -880,9 +817,6 @@ bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini, XSTRING& searchend, XBUFFE
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xevent :
 *
 * @return     void : does not return anything.
@@ -901,9 +835,6 @@ void DIOSCRAPERWEB::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -33,7 +33,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 11:06:42
 //
 //  @return
@@ -50,7 +50,7 @@ COMPRESS_LZRW1KH::COMPRESS_LZRW1KH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 11:07:00
 //
 //  @return
@@ -67,7 +67,7 @@ COMPRESS_LZRW1KH::~COMPRESS_LZRW1KH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 11:07:29
 //
 //  @return       bool :
@@ -91,7 +91,7 @@ bool COMPRESS_LZRW1KH::Compress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 11:07:47
 //
 //  @return       bool :
@@ -115,7 +115,7 @@ bool COMPRESS_LZRW1KH::Decompress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 11:08:02
 //
 //  @return       bool :
@@ -139,7 +139,7 @@ bool COMPRESS_LZRW1KH::Compress(XBYTE* origin,XDWORD size,void* param1)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 11:08:26
 //
 //  @return       bool :
@@ -164,7 +164,7 @@ bool COMPRESS_LZRW1KH::Decompress(XBYTE* origin,XDWORD size,void* param1)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 11:04:35
 //
 //  @return       XBYTE :
@@ -204,7 +204,7 @@ XBYTE COMPRESS_LZRW1KH::GetMatch(XBYTE* source, XDWORD x, XDWORD sourcesize, XDW
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 11:04:59
 //
 //  @return       XWORD :
@@ -310,7 +310,7 @@ XDWORD COMPRESS_LZRW1KH::CompressionBuffer(XBYTE* source, XBYTE* target, XDWORD 
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/05/2004 11:04:52
 //
 //  @return       XWORD :

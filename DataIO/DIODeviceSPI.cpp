@@ -5,11 +5,8 @@
 * @class      DIODEVICESPI
 * @brief      Data Input/Output device SPI class
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,10 +55,7 @@
 * @fn         DIODEVICESPI::DIODEVICESPI()
 * @brief      Constructor
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -80,10 +74,7 @@ DIODEVICESPI::DIODEVICESPI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -103,10 +94,7 @@ DIODEVICESPI::~DIODEVICESPI()
 * @fn         bool DIODEVICESPI::Ini(XCHAR* localdevicename, int timeout)
 * @brief      Ini
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  localdevicename : 
 * @param[in]  timeout : 
 * 
@@ -132,10 +120,7 @@ bool DIODEVICESPI::Ini(XCHAR* localdevicename, int timeout)
 * @fn         bool DIODEVICESPI::Ini(int port, int chipselect, int timeout)
 * @brief      Ini
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  port : 
 * @param[in]  chipselect : 
 * @param[in]  timeout : 
@@ -162,10 +147,7 @@ bool DIODEVICESPI::Ini(int port, int chipselect, int timeout)
 * @fn         DIOSTREAMSPICONFIG* DIODEVICESPI::CreateConfig(XCHAR* localdevicename)
 * @brief      CreateConfig
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  localdevicename : 
 * 
 * @return     DIOSTREAMSPICONFIG* : 
@@ -194,10 +176,7 @@ DIOSTREAMSPICONFIG* DIODEVICESPI::CreateConfig(XCHAR* localdevicename)
 * @fn         DIOSTREAMSPICONFIG* DIODEVICESPI::CreateConfig(int port, int chipselect)
 * @brief      CreateConfig
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  port : 
 * @param[in]  chipselect : 
 * 
@@ -229,10 +208,7 @@ DIOSTREAMSPICONFIG* DIODEVICESPI::CreateConfig(int port, int chipselect)
 * @fn         bool DIODEVICESPI::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -253,10 +229,7 @@ bool DIODEVICESPI::IniDevice()
 * @fn         bool DIODEVICESPI::End()
 * @brief      End
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -295,10 +268,7 @@ bool DIODEVICESPI::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

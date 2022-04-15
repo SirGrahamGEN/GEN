@@ -6,7 +6,7 @@
 //
 //  ANDROID Native Activity class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 28/09/2013 16:57:29
 */
 /*  GEN  Copyright (C).  All right reserved.

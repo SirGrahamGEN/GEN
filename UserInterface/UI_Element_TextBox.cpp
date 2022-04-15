@@ -5,11 +5,8 @@
 * @class      UI_ELEMENT_TEXTBOX
 * @brief      User Interface Element Text Box class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,10 +48,7 @@
 * @fn         UI_ELEMENT_TEXTBOX::UI_ELEMENT_TEXTBOX()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -75,10 +69,7 @@ UI_ELEMENT_TEXTBOX::UI_ELEMENT_TEXTBOX()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -92,10 +83,7 @@ UI_ELEMENT_TEXTBOX::~UI_ELEMENT_TEXTBOX()
 * @fn         XDWORD UI_ELEMENT_TEXTBOX::GetSizeFont()
 * @brief      GetSizeFont
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -111,10 +99,7 @@ XDWORD UI_ELEMENT_TEXTBOX::GetSizeFont()
 * @fn         void UI_ELEMENT_TEXTBOX::SetSizeFont(XDWORD sizefont)
 * @brief      SetSizeFont
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  sizefont : 
 * 
 * @return     void : does not return anything. 
@@ -132,10 +117,7 @@ void UI_ELEMENT_TEXTBOX::SetSizeFont(XDWORD sizefont)
 * @fn         XDWORD UI_ELEMENT_TEXTBOX::GetLineSpacing()
 * @brief      GetLineSpacing
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -151,10 +133,7 @@ XDWORD UI_ELEMENT_TEXTBOX::GetLineSpacing()
 * @fn         void UI_ELEMENT_TEXTBOX::SetLineSpacing(XDWORD linespacing)
 * @brief      SetLineSpacing
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  linespacing : 
 * 
 * @return     void : does not return anything. 
@@ -172,10 +151,7 @@ void UI_ELEMENT_TEXTBOX::SetLineSpacing(XDWORD linespacing)
 * @fn         UI_ELEMENT_TYPE_ALIGN UI_ELEMENT_TEXTBOX::GetTextAlignment()
 * @brief      GetTextAlignment
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT_TYPE_ALIGN : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -191,10 +167,7 @@ UI_ELEMENT_TYPE_ALIGN UI_ELEMENT_TEXTBOX::GetTextAlignment()
 * @fn         void UI_ELEMENT_TEXTBOX::SetAlignText(UI_ELEMENT_TYPE_ALIGN aligntext)
 * @brief      SetAlignText
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  aligntext : 
 * 
 * @return     void : does not return anything. 
@@ -212,10 +185,7 @@ void UI_ELEMENT_TEXTBOX::SetTextAlignment(UI_ELEMENT_TYPE_ALIGN textalignment)
 * @fn         bool UI_ELEMENT_TEXTBOX::IsWordClipping()
 * @brief      IsWordClipping
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -231,10 +201,7 @@ bool UI_ELEMENT_TEXTBOX::IsWordClipping()
 * @fn         void UI_ELEMENT_TEXTBOX::SetIsWordClipping(bool iswordclipping)
 * @brief      SetIsWordClipping
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  iswordclipping : 
 * 
 * @return     void : does not return anything. 
@@ -252,10 +219,7 @@ void UI_ELEMENT_TEXTBOX::SetIsWordClipping(bool iswordclipping)
 * @fn         XSTRING* UI_ELEMENT_TEXTBOX::GetText()
 * @brief      GetText
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -271,10 +235,7 @@ XSTRING* UI_ELEMENT_TEXTBOX::GetText()
 * @fn         XSTRING* UI_ELEMENT_TEXTBOX::GetMaskText()
 * @brief      GetMaskText
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -290,10 +251,7 @@ XSTRING* UI_ELEMENT_TEXTBOX::GetMaskText()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

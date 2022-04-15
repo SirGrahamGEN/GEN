@@ -6,10 +6,7 @@
 * @brief      Data Input/Output AT commands class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -63,9 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -83,9 +77,6 @@ DIOATCMD::DIOATCMD()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -101,9 +92,6 @@ DIOATCMD::~DIOATCMD()
 * @fn         XDWORD DIOATCMD::GetType()
 * @brief      GetType
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -121,9 +109,6 @@ XDWORD DIOATCMD::GetType()
 * @brief      GetCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -140,9 +125,6 @@ XCHAR* DIOATCMD::GetCommand()
 * @brief      GetCommandString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -158,9 +140,6 @@ XSTRING* DIOATCMD::GetCommandString()
 * @fn         bool DIOATCMD::Set(XDWORD type, XCHAR* command, bool isunsolicited)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  command :
@@ -186,9 +165,6 @@ bool DIOATCMD::Set(XDWORD type, XCHAR* command, bool isunsolicited)
 * @brief      IsUnSolicited
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -206,9 +182,6 @@ bool DIOATCMD::IsUnSolicited()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -225,9 +198,6 @@ void DIOATCMD::Clean()
 * @fn         DIOATCMDS::DIOATCMDS(DIOSTREAM* diostream)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  DIOSTREAM* :
 *
@@ -261,9 +231,6 @@ DIOATCMDS::DIOATCMDS(DIOSTREAM* diostream) : XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -306,9 +273,6 @@ DIOATCMDS::~DIOATCMDS()
 * @brief      GetDIOStream
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAM* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -325,9 +289,6 @@ DIOSTREAM* DIOATCMDS::GetDIOStream()
 * @brief      GetXTimer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XTIMER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -343,9 +304,6 @@ XTIMER* DIOATCMDS::GetXTimer()
 * @fn         bool DIOATCMDS::Ini(int timeout, bool echomode, bool verbosemode, int minimumbaurate)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeout :
 * @param[in]  echomode :
@@ -423,9 +381,6 @@ bool DIOATCMDS::Ini(int timeout, bool echomode, bool verbosemode, int minimumbau
 * @brief      Basic
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  timeout :
 *
 * @return     DIOATCMD_ERROR :
@@ -443,9 +398,6 @@ DIOATCMD_ERROR DIOATCMDS::Basic(int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDS::GetCharacter(DIOATCMD_CODECHARACTER code,XBYTE& character,int timeout)
 * @brief      GetCharacter
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 * @param[in]  character :
@@ -488,9 +440,6 @@ DIOATCMD_ERROR DIOATCMDS::GetCharacter(DIOATCMD_CODECHARACTER code,XBYTE& charac
 * @brief      Reset
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  timeout :
 *
 * @return     DIOATCMD_ERROR :
@@ -508,9 +457,6 @@ DIOATCMD_ERROR DIOATCMDS::Reset(int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDS::SetEchoMode(bool echomode, int timeout)
 * @brief      SetEchoMode
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  echomode :
 * @param[in]  timeout :
@@ -536,9 +482,6 @@ DIOATCMD_ERROR DIOATCMDS::SetEchoMode(bool echomode, int timeout)
 * @brief      SetVerboseMode
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  verbosemode :
 * @param[in]  timeout :
 *
@@ -562,9 +505,6 @@ DIOATCMD_ERROR DIOATCMDS::SetVerboseMode(bool verbosemode  , int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDS::GetBaudRate(int& baudrate, int timeout)
 * @brief      GetBaudRate
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  baudrate :
 * @param[in]  timeout :
@@ -603,9 +543,6 @@ DIOATCMD_ERROR DIOATCMDS::GetBaudRate(int& baudrate, int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDS::SetBaudRate(int baudrate, int timeout)
 * @brief      SetBaudRate
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  baudrate :
 * @param[in]  timeout :
@@ -649,9 +586,6 @@ DIOATCMD_ERROR DIOATCMDS::SetBaudRate(int baudrate, int timeout)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -670,9 +604,6 @@ void DIOATCMDS::End()
 * @brief      AdditionalInitialization
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  timeout :
 *
 * @return     bool : true if is succesful.
@@ -690,9 +621,6 @@ bool DIOATCMDS::AdditionalInitialization(int timeout)
 * @fn         bool DIOATCMDS::UnsolicitedCommandAddtionalSize(XDWORD type, XSTRING& param, DIOATCMD_TYPEADDITIONALSIZE& typesize, int& size)
 * @brief      UnsolicitedCommandAddtionalSize
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  param :
@@ -715,9 +643,6 @@ bool DIOATCMDS::UnsolicitedCommandAddtionalSize(XDWORD type, XSTRING& param, DIO
 * @brief      UnsolicitedCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 * @param[in]  param :
 * @param[in]  additionalparamint :
@@ -737,9 +662,6 @@ bool DIOATCMDS::UnsolicitedCommand(XDWORD type, XSTRING& param, XBUFFER& additio
 * @fn         int DIOATCMDS::CalculeBaudRateStreamUART(int timeout)
 * @brief      CalculeBaudRateStreamUART
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeout :
 *
@@ -798,9 +720,6 @@ int DIOATCMDS::CalculeBaudRateStreamUART(int timeout)
 * @brief      AddCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 * @param[in]  command :
 * @param[in]  isunsolicited :
@@ -831,9 +750,6 @@ bool DIOATCMDS::AddCommand(XDWORD type, XCHAR* command,bool isunsolicited)
 * @brief      GetCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 *
 * @return     DIOATCMD* :
@@ -863,9 +779,6 @@ DIOATCMD* DIOATCMDS::GetCommand(XDWORD type)
 * @brief      GetCommandString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 *
 * @return     XCHAR* :
@@ -886,9 +799,6 @@ XCHAR* DIOATCMDS::GetCommandString(XDWORD type)
 * @fn         bool DIOATCMDS::DeleteAllCommand()
 * @brief      DeleteAllCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -911,9 +821,6 @@ bool DIOATCMDS::DeleteAllCommand()
 * @fn         DIOATCMD_ERROR DIOATCMDS::SendCommand(XDWORD type,XCHAR* param)
 * @brief      SendCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  param :
@@ -961,9 +868,6 @@ DIOATCMD_ERROR DIOATCMDS::SendCommand(XDWORD type,XCHAR* param)
 * @brief      SendCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 * @param[in]  param :
 *
@@ -983,9 +887,6 @@ DIOATCMD_ERROR DIOATCMDS::SendCommand(XDWORD type, XSTRING& param)
 * @fn         DIOATCMD_ERROR DIOATCMDS::SendParam(XCHAR* param)
 * @brief      SendParam
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *
@@ -1024,9 +925,6 @@ DIOATCMD_ERROR DIOATCMDS::SendParam(XCHAR* param)
 * @fn         DIOATCMD_ERROR DIOATCMDS::SendParam(XBUFFER& xbuffer)
 * @brief      SendParam
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xbuffer :
 *
@@ -1072,9 +970,6 @@ DIOATCMD_ERROR DIOATCMDS::SendParam(XBUFFER& xbuffer)
 * @brief      SendParam
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  param :
 *
 * @return     DIOATCMD_ERROR :
@@ -1092,9 +987,6 @@ DIOATCMD_ERROR DIOATCMDS::SendParam(XSTRING& param)
 * @fn         bool DIOATCMDS::AddSendCommand(XSTRING* sendcommand)
 * @brief      AddSendCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sendcommand :
 *
@@ -1128,9 +1020,6 @@ bool DIOATCMDS::AddSendCommand(XSTRING* sendcommand)
 * @brief      AddSendCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer :
 *
 * @return     bool : true if is succesful.
@@ -1153,9 +1042,6 @@ bool DIOATCMDS::AddSendCommand(XBUFFER& xbuffer)
 * @brief      GetSendCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     XSTRING* :
@@ -1176,9 +1062,6 @@ XSTRING* DIOATCMDS::GetSendCommand(int index)
 * @fn         int DIOATCMDS::SearchSendCommand(XSTRING* sendcommand)
 * @brief      SearchSendCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sendcommand :
 *
@@ -1209,9 +1092,6 @@ int DIOATCMDS::SearchSendCommand(XSTRING* sendcommand)
 * @brief      DeleteSendCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     bool : true if is succesful.
@@ -1235,9 +1115,6 @@ bool DIOATCMDS::DeleteSendCommand(int index)
 * @brief      DeleteAllSendCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1259,9 +1136,6 @@ bool DIOATCMDS::DeleteAllSendCommand()
 * @fn         bool DIOATCMDS::ReadAnswer(XSTRING& answer,int timeout)
 * @brief      ReadAnswer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  answer :
 * @param[in]  timeout :
@@ -1349,9 +1223,6 @@ bool DIOATCMDS::ReadAnswer(XSTRING& answer,int timeout)
 * @brief      ReadAnswerWithOutEndChar
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  answer :
 * @param[in]  timeout :
 *
@@ -1429,9 +1300,6 @@ bool DIOATCMDS::ReadAnswerWithOutEndChar(XSTRING& answer, int timeout)
 * @brief      ReadAnswerWithOutEndChar
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  answer :
 * @param[in]  timeout :
 *
@@ -1455,9 +1323,6 @@ bool DIOATCMDS::ReadAnswerWithOutEndChar(XCHAR* answer, int timeout)
 * @brief      GetAnswer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     XSTRING* :
@@ -1478,9 +1343,6 @@ XSTRING* DIOATCMDS::GetAnswer(int index)
 * @brief      GetLastAnswer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1497,9 +1359,6 @@ XSTRING* DIOATCMDS::GetLastAnswer()
 * @fn         bool DIOATCMDS::DeleteAnswer(int index)
 * @brief      DeleteAnswer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -1524,9 +1383,6 @@ bool DIOATCMDS::DeleteAnswer(int index)
 * @fn         bool DIOATCMDS::DeleteLastAnswer()
 * @brief      DeleteLastAnswer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1556,9 +1412,6 @@ bool DIOATCMDS::DeleteLastAnswer()
 * @brief      DeleteAllAnswers
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1580,9 +1433,6 @@ bool DIOATCMDS::DeleteAllAnswers()
 * @brief      GetAnswers
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<XSTRING*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1598,9 +1448,6 @@ XVECTOR<XSTRING*>* DIOATCMDS::GetAnswers()
 * @fn         int DIOATCMDS::SearchInAnswers(XCHAR* string, int timeout)
 * @brief      SearchInAnswers
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 * @param[in]  timeout :
@@ -1647,9 +1494,6 @@ int DIOATCMDS::SearchInAnswers(XCHAR* string, int timeout)
 * @brief      SearchInAnswers
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  typecommand :
 * @param[in]  timeout :
 *
@@ -1676,9 +1520,6 @@ int DIOATCMDS::SearchInAnswers(XDWORD typecommand,int timeout)
 * @fn         DIOATCMD_ERROR DIOATCMDS::WaitToProcessAnswer(int timeout, int* index)
 * @brief      WaitToProcessAnswer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeout :
 * @param[in]  index :
@@ -1733,9 +1574,6 @@ DIOATCMD_ERROR DIOATCMDS::WaitToProcessAnswer(int timeout, int* index)
 * @brief      WaitToOneAnswerMore
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  timeout :
 *
 * @return     DIOATCMD_ERROR :
@@ -1768,9 +1606,6 @@ DIOATCMD_ERROR DIOATCMDS::WaitToOneAnswerMore(int timeout)
 * @brief      MakeSimpleCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 * @param[in]  param :
 * @param[in]  timeout :
@@ -1793,9 +1628,6 @@ DIOATCMD_ERROR DIOATCMDS::MakeSimpleCommand(XDWORD type,XCHAR* param,int timeout
 * @fn         DIOATCMD_ERROR DIOATCMDS::MakeCommandWithSimpleAnswer(XDWORD type,XSTRING& answer,XCHAR* param,int timeout)
 * @brief      MakeCommandWithSimpleAnswer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  answer :
@@ -1832,9 +1664,6 @@ DIOATCMD_ERROR DIOATCMDS::MakeCommandWithSimpleAnswer(XDWORD type, XSTRING& answ
 * @fn         void DIOATCMDS::ThreadConnection(void* data)
 * @brief      ThreadConnection
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *
@@ -1899,9 +1728,6 @@ void DIOATCMDS::ThreadConnection(void* param)
 * @fn         bool DIOATCMDS::CheckUnsolicitedAnswer(XSTRING& answer)
 * @brief      CheckUnsolicitedAnswer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  answer :
 *
@@ -1981,9 +1807,6 @@ bool DIOATCMDS::CheckUnsolicitedAnswer(XSTRING& answer)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

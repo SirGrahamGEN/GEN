@@ -6,10 +6,7 @@
 * @brief       eXtended WINDOWS File class
 * @ingroup     PLATFORM_WINDOWS
 *
-* @author      Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright   Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -66,9 +63,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -85,9 +79,6 @@ XWINDOWSFILE::XWINDOWSFILE(): XFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -106,9 +97,6 @@ XWINDOWSFILE::~XWINDOWSFILE()
 * @fn         bool XWINDOWSFILE::Exist(XCHAR* xpath)
 * @brief      Exist
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -130,9 +118,6 @@ bool XWINDOWSFILE::Exist(XCHAR* xpath)
 * @fn         bool XWINDOWSFILE::Open(XCHAR* xpath, bool isreadonly)
 * @brief      Open
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  isreadonly :
@@ -156,9 +141,6 @@ bool XWINDOWSFILE::Open(XCHAR* xpath, bool isreadonly)
 * @brief      Create
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 *
 * @return     bool : true if is succesful.
@@ -178,9 +160,6 @@ bool XWINDOWSFILE::Create(XCHAR* xpath)
 * @fn         bool XWINDOWSFILE::SetSize(XQWORD size)
 * @brief      SetSize
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size :
 *
@@ -206,9 +185,6 @@ bool XWINDOWSFILE::SetSize(XQWORD size)
 * @brief      GetPosition
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  position :
 *
 * @return     bool : true if is succesful.
@@ -232,9 +208,6 @@ bool XWINDOWSFILE::GetPosition(XQWORD& position)
 * @fn         bool XWINDOWSFILE::SetPosition(XQWORD position)
 * @brief      SetPosition
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position :
 *
@@ -269,9 +242,6 @@ bool XWINDOWSFILE::SetPosition(XQWORD position)
 * @brief      Read
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 * @param[in]  cipher :
@@ -301,9 +271,6 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @fn         bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 * @brief      Read
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -350,9 +317,6 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 * @brief      Write
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 * @param[in]  cipher :
@@ -392,9 +356,6 @@ bool XWINDOWSFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Flush
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -415,9 +376,6 @@ bool XWINDOWSFILE::Flush()
 * @fn         bool XWINDOWSFILE::Close()
 * @brief      Close
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -456,9 +414,6 @@ bool XWINDOWSFILE::Close()
 * @brief      Erase
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 * @param[in]  overwrite :
 *
@@ -488,9 +443,6 @@ bool XWINDOWSFILE::Erase(XCHAR* xpath,bool overwrite)
 * @brief      Rename
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpathold :
 * @param[in]  xpathnew :
 *
@@ -513,9 +465,6 @@ bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 * @fn         FILE* XWINDOWSFILE::CreateStructHandle()
 * @brief      CreateStructHandle
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     FILE* : 
 *
@@ -554,9 +503,6 @@ FILE* XWINDOWSFILE::CreateStructHandle()
 * @brief      DeleteStructHandle
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -577,9 +523,6 @@ bool XWINDOWSFILE::DeleteStructHandle()
 * @fn         bool XWINDOWSFILE::ActualizeSize()
 * @brief      ActualizeSize
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -612,9 +555,6 @@ bool XWINDOWSFILE::ActualizeSize()
 * @fn         bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XWINDOWSFILEMODE mode)
 * @brief      ExtendedOpen
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  mode :
@@ -661,9 +601,6 @@ bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XWINDOWSFILEMODE mode)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output LINUX GPIO (General Purpose Input/Output) PC Parallel
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -67,9 +64,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -87,9 +81,6 @@ DIOLINUXGPIOPCPARALLEL::DIOLINUXGPIOPCPARALLEL() : DIOGPIO()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -105,10 +96,7 @@ DIOLINUXGPIOPCPARALLEL::~DIOLINUXGPIOPCPARALLEL()
 * @fn         XWORD DIOLINUXGPIOPCPARALLEL::GetParallelPort()
 * @brief      GetParallelPort
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -124,10 +112,7 @@ XWORD DIOLINUXGPIOPCPARALLEL::GetParallelPort()
 * @fn         void DIOLINUXGPIOPCPARALLEL::SetParallelPort(XWORD port)
 * @brief      SetParallelPort
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  port : 
 * 
 * @return     void : does not return anything. 
@@ -147,9 +132,6 @@ void DIOLINUXGPIOPCPARALLEL::SetParallelPort(XWORD port)
 * @brief      Ini
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -166,10 +148,7 @@ bool DIOLINUXGPIOPCPARALLEL::Ini()
 * @fn         bool DIOLINUXGPIOPCPARALLEL::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 * @brief      SetMode
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  entry : 
 * @param[in]  mode : 
 * 
@@ -190,10 +169,7 @@ bool DIOLINUXGPIOPCPARALLEL::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 * @fn         bool DIOLINUXGPIOPCPARALLEL::GetValue(DIOGPIO_ENTRY* entry)
 * @brief      GetValue
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  entry : 
 * 
 * @return     bool : true if is succesful. 
@@ -217,10 +193,7 @@ bool DIOLINUXGPIOPCPARALLEL::GetValue(DIOGPIO_ENTRY* entry)
 * @fn         bool DIOLINUXGPIOPCPARALLEL::SetValue(DIOGPIO_ENTRY* entry, bool value)
 * @brief      SetValue
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  entry : 
 * @param[in]  value : 
 * 
@@ -247,9 +220,6 @@ bool DIOLINUXGPIOPCPARALLEL::SetValue(DIOGPIO_ENTRY* entry, bool value)
 * @brief      End
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -265,9 +235,6 @@ bool DIOLINUXGPIOPCPARALLEL::End()
 * @fn         bool DIOLINUXGPIOPCPARALLEL::PC_Get(XDWORD nport,XBYTE& data)
 * @brief      PC_Get
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nport :
 * @param[in]  data :
@@ -298,9 +265,6 @@ bool DIOLINUXGPIOPCPARALLEL::PC_Get(XDWORD nport,XBYTE& data)
 * @brief      PC_Set
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  nport :
 * @param[in]  data :
 *
@@ -326,9 +290,6 @@ bool DIOLINUXGPIOPCPARALLEL::PC_Set(XDWORD nport,XBYTE data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

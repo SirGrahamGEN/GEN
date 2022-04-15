@@ -6,10 +6,7 @@
 * @brief       eXtended WINDOWS Console class
 * @ingroup     PLATFORM_WINDOWS
 *
-* @author      Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright   Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -87,9 +81,6 @@ XWINDOWSCONSOLE::XWINDOWSCONSOLE(): XCONSOLE()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -105,9 +96,6 @@ XWINDOWSCONSOLE::~XWINDOWSCONSOLE()
 * @fn         bool XWINDOWSCONSOLE::GetSize(int& width, int& height)
 * @brief      GetSize
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  width :
 * @param[in]  height :
@@ -138,9 +126,6 @@ bool XWINDOWSCONSOLE::GetSize(int& width, int& height)
 * @fn         bool XWINDOWSCONSOLE::SetSize(int width, int height)
 * @brief      SetSize
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  width :
 * @param[in]  height :
@@ -174,9 +159,6 @@ bool XWINDOWSCONSOLE::SetSize(int width, int height)
 * @brief      GetSizeText
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  columns :
 * @param[in]  rows :
 *
@@ -203,9 +185,6 @@ bool XWINDOWSCONSOLE::GetSizeText(int& columns, int& rows)
 * @fn         bool XWINDOWSCONSOLE::Maximize()
 * @brief      Maximize
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -239,9 +218,6 @@ bool XWINDOWSCONSOLE::Maximize()
 * @brief      Minimize
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -274,9 +250,6 @@ bool XWINDOWSCONSOLE::Minimize()
 * @brief      Hide
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -299,9 +272,6 @@ bool XWINDOWSCONSOLE::Hide()
 * @brief      IsHide
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -320,9 +290,6 @@ bool XWINDOWSCONSOLE::IsHide()
 * @fn         bool XWINDOWSCONSOLE::UnHide()
 * @brief      UnHide
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -345,9 +312,6 @@ bool XWINDOWSCONSOLE::UnHide()
 * @fn         bool XWINDOWSCONSOLE::Print(XCHAR* string)
 * @brief      Print
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -373,10 +337,7 @@ bool XWINDOWSCONSOLE::Print(XCHAR* string)
 * @fn         bool XWINDOWSCONSOLE::Clear(bool fill)
 * @brief      Clear
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  fill : 
 * 
 * @return     bool : true if is succesful. 
@@ -437,9 +398,6 @@ bool XWINDOWSCONSOLE::Clear(bool fill)
 * @brief      KBHit
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  void :
 *
 * @return     bool : true if is succesful.
@@ -461,9 +419,6 @@ bool XWINDOWSCONSOLE::KBHit(void)
 * @fn         int XWINDOWSCONSOLE::GetChar()
 * @brief      GetChar
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Multi-Protocol Synchronous Serial Engine (MPSSE) class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -81,9 +75,6 @@ DIOMPSSE::DIOMPSSE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -106,9 +97,6 @@ DIOMPSSE::~DIOMPSSE()
 * @brief      GetChipType
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOMPSSE_CHIP_TYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -124,9 +112,6 @@ DIOMPSSE_CHIP_TYPE DIOMPSSE::GetChipType()
 * @fn         XCHAR* DIOMPSSE::GetChipTypeName()
 * @brief      GetChipTypeName
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XCHAR* :
 *
@@ -155,9 +140,6 @@ XCHAR* DIOMPSSE::GetChipTypeName()
 * @fn         bool DIOMPSSE::Open()
 * @brief      Open
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -219,9 +201,6 @@ bool DIOMPSSE::Open(int index)
 * @fn         bool DIOMPSSE::IsOpen()
 * @brief      IsOpen
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -324,9 +303,6 @@ int API_EXPORTED libusb_control_transfer(libusb_device_handle *dev_handle, uint8
 * @brief      Reset
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -368,9 +344,6 @@ bool DIOMPSSE::Reset()
 * @brief      Close
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -396,9 +369,6 @@ bool DIOMPSSE::Close()
 * @fn         bool DIOMPSSE::EnumDevices()
 * @brief      EnumDevices
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -446,9 +416,6 @@ bool DIOMPSSE::EnumDevices()
 * @brief      SendCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  command :
 * @param[in]  buffer :
 *
@@ -487,9 +454,6 @@ bool DIOMPSSE::SendCommand(XBYTE command, XBUFFER& buffer)
 * @brief      ReadResponse
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer :
 * @param[in]  timeout :
 *
@@ -514,9 +478,6 @@ bool DIOMPSSE::ReadResponse(XBUFFER& xbuffer, int timeout)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

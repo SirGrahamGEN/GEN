@@ -6,10 +6,7 @@
 * @brief      Sound OpenAL factory class
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -69,9 +66,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -125,9 +119,6 @@ SNDFACTORY_OPENAL::SNDFACTORY_OPENAL()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything. 
 *
@@ -190,9 +181,6 @@ SNDFACTORY_OPENAL::~SNDFACTORY_OPENAL()
 * @brief      Beep
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  frecuency : 
 * @param[in]  duration : 
 *
@@ -242,9 +230,6 @@ bool SNDFACTORY_OPENAL::Beep(float frequency, float duration)
 * @fn         SNDELEMENT* SNDFACTORY_OPENAL::Element_Add(XPATH& xpath, XCHAR* ID, bool instream)
 * @brief      Element_Add
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath : 
 * @param[in]  ID : 
@@ -439,9 +424,6 @@ SNDELEMENT* SNDFACTORY_OPENAL::Element_Add(XPATH& xpath, XCHAR* ID, bool instrea
 * @brief      Element_Get
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID : 
 * @param[in]  instream : 
 *
@@ -507,9 +489,6 @@ SNDELEMENT* SNDFACTORY_OPENAL::Element_Get(XCHAR* ID, bool instream)
 * @brief      Element_Del
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  element : 
 *
 * @return     bool : true if is succesful. 
@@ -531,9 +510,6 @@ bool SNDFACTORY_OPENAL::Element_Del(SNDELEMENT* element)
 * @fn         SNDSTREAMELEMENT* SNDFACTORY_OPENAL::GetStreamer()
 * @brief      GetStreamer
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     SNDSTREAMELEMENT* : 
 *
@@ -591,9 +567,6 @@ SNDSTREAMELEMENT* SNDFACTORY_OPENAL::GetStreamer()
 * @fn         SNDINSTANCE* SNDFACTORY_OPENAL::PlaySound(SNDELEMENT* element)
 * @brief      PlaySound
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  element : 
 *
@@ -756,9 +729,6 @@ SNDINSTANCE* SNDFACTORY_OPENAL::PlaySound(SNDELEMENT* element)
 * @brief      StopSound
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  element : 
 *
 * @return     void : does not return anything. 
@@ -804,9 +774,6 @@ bool SNDFACTORY_OPENAL::StopSound(SNDELEMENT* element)
 * @brief      PauseSound
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  element : 
 *
 * @return     SNDINSTANCE* : 
@@ -842,9 +809,6 @@ SNDINSTANCE* SNDFACTORY_OPENAL::PauseSound(SNDELEMENT* element)
 * @brief      IsAnyPlaying
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -868,9 +832,6 @@ bool SNDFACTORY_OPENAL::IsAnyPlaying()
 * @fn         void SNDFACTORY_OPENAL::StopAll()
 * @brief      StopAll
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *
@@ -896,9 +857,6 @@ bool SNDFACTORY_OPENAL::StopAll()
 * @brief      GetMasterVolume
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     float : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -915,9 +873,6 @@ float SNDFACTORY_OPENAL::GetMasterVolume()
 * @fn         bool SNDFACTORY_OPENAL::SetMasterVolume(float mastervolume)
 * @brief      SetMasterVolume
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  mastervolume : 
 *
@@ -958,9 +913,6 @@ bool SNDFACTORY_OPENAL::SetMasterVolume(float mastervolume)
 * @fn         void SNDFACTORY_OPENAL::Update()
 * @brief      Update
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *
@@ -1188,9 +1140,6 @@ void SNDFACTORY_OPENAL::Update()
 * @brief      ThreadStreaming
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  param : 
 *
 * @return     void : does not return anything. 
@@ -1237,9 +1186,6 @@ void SNDFACTORY_OPENAL::ThreadStreaming(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

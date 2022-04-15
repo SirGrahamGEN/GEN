@@ -6,11 +6,8 @@
 * 
 * @brief      User Interface Colors class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,10 +52,7 @@ UI_COLORS* UI_COLORS::instance = NULL;
 * @fn         bool UI_COLORS::GetIsInstanced()
 * @brief      GetIsInstanced
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -74,10 +68,7 @@ bool UI_COLORS::GetIsInstanced()
 * @fn         UI_COLORS& UI_COLORS::GetInstance()
 * @brief      GetInstance
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_COLORS& : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -95,10 +86,7 @@ UI_COLORS& UI_COLORS::GetInstance()
 * @fn         bool UI_COLORS::DelInstance()
 * @brief      DelInstance
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -122,10 +110,7 @@ bool UI_COLORS::DelInstance()
 * @fn         bool UI_COLORS::Add(XCHAR* name, XCHAR* colorstr)
 * @brief      Add
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  colorstr : 
 * 
@@ -164,10 +149,7 @@ bool UI_COLORS::Add(XCHAR* name, XCHAR* colorstr)
 * @fn         bool UI_COLORS::Add(XSTRING& name, XSTRING& colorstr)
 * @brief      Add
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  colorstr : 
 * 
@@ -185,10 +167,7 @@ bool UI_COLORS::Add(XSTRING& name, XSTRING& colorstr)
 * @fn         XSTRING* UI_COLORS::Get(XCHAR* name)
 * @brief      Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * 
 * @return     XSTRING* : 
@@ -217,10 +196,7 @@ XSTRING* UI_COLORS::Get(XCHAR* name)
 * @fn         XSTRING* UI_COLORS::Get(XSTRING& name)
 * @brief      Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * 
 * @return     XSTRING* : 
@@ -238,10 +214,7 @@ XSTRING* UI_COLORS::Get(XSTRING& name)
 * @fn         bool UI_COLORS::DeleteAll()
 * @brief      DeleteAll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -260,10 +233,7 @@ bool UI_COLORS::DeleteAll()
 * @fn         UI_COLORS::UI_COLORS()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -290,10 +260,7 @@ UI_COLORS::UI_COLORS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -312,10 +279,7 @@ UI_COLORS::~UI_COLORS()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

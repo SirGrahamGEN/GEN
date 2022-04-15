@@ -5,11 +5,8 @@
 * @class      UI_PROPERTY_SCROLLEABLE
 * @brief      User Interface Property Scrolleable class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,10 +55,7 @@
 * @fn         UI_PROPERTY_SCROLLEABLE_STATUS::UI_PROPERTY_SCROLLEABLE_STATUS()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -78,10 +72,7 @@ UI_PROPERTY_SCROLLEABLE_STATUS::UI_PROPERTY_SCROLLEABLE_STATUS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -99,10 +90,7 @@ UI_PROPERTY_SCROLLEABLE_STATUS::~UI_PROPERTY_SCROLLEABLE_STATUS()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -129,10 +117,7 @@ void UI_PROPERTY_SCROLLEABLE_STATUS::Clean()
 * @fn         UI_PROPERTY_SCROLLEABLE::UI_PROPERTY_SCROLLEABLE()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -152,10 +137,7 @@ UI_PROPERTY_SCROLLEABLE::UI_PROPERTY_SCROLLEABLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -170,10 +152,7 @@ UI_PROPERTY_SCROLLEABLE::~UI_PROPERTY_SCROLLEABLE()
 * @fn         double UI_PROPERTY_SCROLLEABLE::H_GetLimit()
 * @brief      H_GetLimit
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -189,10 +168,7 @@ double UI_PROPERTY_SCROLLEABLE::H_GetLimit()
 * @fn         void UI_PROPERTY_SCROLLEABLE::H_SetLimit(double limit)
 * @brief      H_SetLimit
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  limit : 
 * 
 * @return     void : does not return anything. 
@@ -210,10 +186,7 @@ void UI_PROPERTY_SCROLLEABLE::H_SetLimit(double limit)
 * @fn         double UI_PROPERTY_SCROLLEABLE::V_GetLimit()
 * @brief      V_GetLimit
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -229,10 +202,7 @@ double UI_PROPERTY_SCROLLEABLE::V_GetLimit()
 * @fn         void UI_PROPERTY_SCROLLEABLE::V_SetLimit(double limit)
 * @brief      V_SetLimit
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  limit : 
 * 
 * @return     void : does not return anything. 
@@ -250,10 +220,7 @@ void UI_PROPERTY_SCROLLEABLE::V_SetLimit(double limit)
 * @fn         double UI_PROPERTY_SCROLLEABLE::H_GetDisplacement()
 * @brief      H_GetDisplacement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -269,10 +236,7 @@ double UI_PROPERTY_SCROLLEABLE::H_GetDisplacement()
 * @fn         double UI_PROPERTY_SCROLLEABLE::V_GetDisplacement()
 * @brief      V_GetDisplacement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -288,10 +252,7 @@ double UI_PROPERTY_SCROLLEABLE::V_GetDisplacement()
 * @fn         double UI_PROPERTY_SCROLLEABLE::H_GetStep()
 * @brief      H_GetStep
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -307,10 +268,7 @@ double UI_PROPERTY_SCROLLEABLE::H_GetStep()
 * @fn         void UI_PROPERTY_SCROLLEABLE::H_SetStep(double h_step)
 * @brief      H_SetStep
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  h_step : 
 * 
 * @return     void : does not return anything. 
@@ -344,10 +302,7 @@ void UI_PROPERTY_SCROLLEABLE::H_SetStep(double h_step)
 * @fn         double UI_PROPERTY_SCROLLEABLE::V_GetStep()
 * @brief      V_GetStep
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -363,10 +318,7 @@ double UI_PROPERTY_SCROLLEABLE::V_GetStep()
 * @fn         void UI_PROPERTY_SCROLLEABLE::SetVerticalStep(double verticalstep)
 * @brief      SetVerticalStep
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  verticalstep : 
 * 
 * @return     void : does not return anything. 
@@ -400,10 +352,7 @@ void UI_PROPERTY_SCROLLEABLE::V_SetStep(double v_step)
 * @fn         void UI_PROPERTY_SCROLLEABLE::ResetSteps()
 * @brief      ResetSteps
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -421,10 +370,7 @@ void  UI_PROPERTY_SCROLLEABLE::ResetSteps()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

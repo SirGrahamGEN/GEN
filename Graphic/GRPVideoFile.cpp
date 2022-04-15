@@ -6,10 +6,7 @@
 * @brief      Graphic Video File Class
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -63,10 +60,7 @@
 * @fn         GRPVIDEOFILE_PROPERTYS::GRPVIDEOFILE_PROPERTYS()
 * @brief      Constructor
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -82,10 +76,7 @@ GRPVIDEOFILE_PROPERTYS::GRPVIDEOFILE_PROPERTYS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -102,10 +93,7 @@ GRPVIDEOFILE_PROPERTYS::~GRPVIDEOFILE_PROPERTYS()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -134,9 +122,6 @@ void GRPVIDEOFILE_PROPERTYS::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -153,9 +138,6 @@ GRPVIDEOFILE::GRPVIDEOFILE()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -171,10 +153,7 @@ GRPVIDEOFILE::~GRPVIDEOFILE()
 * @fn         bool GRPVIDEOFILE::Open(XCHAR* xpath)
 * @brief      Open
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xpath : 
 * 
 * @return     bool : true if is succesful. 
@@ -193,10 +172,7 @@ bool GRPVIDEOFILE::Open(XCHAR* xpath)
 * @fn         bool GRPVIDEOFILE::Create(XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys))
 * @brief      Create
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xpath : 
 * @param[in]  propertys : 
 * 
@@ -215,10 +191,7 @@ bool GRPVIDEOFILE::Create(XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys)
 * @fn         GRPVIDEOFILE_PROPERTYS* GRPVIDEOFILE::GetPropertys()
 * @brief      GetPropertys
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     GRPVIDEOFILE_PROPERTYS* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -234,10 +207,7 @@ GRPVIDEOFILE_PROPERTYS*  GRPVIDEOFILE::GetPropertys()
 * @fn         XBYTE* GRPVIDEOFILE::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
 * @brief      GetDataFrame
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  index_frame : 
 * @param[in]  sizeframe : 
 * 
@@ -256,10 +226,7 @@ XBYTE* GRPVIDEOFILE::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
 * @fn         bool GRPVIDEOFILE::AddFrame(XBYTE* dataframe, XDWORD dataframesize)
 * @brief      AddFrame
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  dataframe : 
 * @param[in]  dataframesize : 
 * 
@@ -279,10 +246,7 @@ bool GRPVIDEOFILE::AddFrame(XBYTE* dataframe, XDWORD dataframesize)
 * @fn         bool GRPVIDEOFILE::Close()
 * @brief      Close
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -299,9 +263,6 @@ bool GRPVIDEOFILE::Close()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

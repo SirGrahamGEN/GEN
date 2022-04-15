@@ -6,10 +6,7 @@
 * @brief      eXtended WINDOWS Drive Image Manager class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -76,9 +70,6 @@ XWINDOWSDRIVEIMAGEMANAGER::XWINDOWSDRIVEIMAGEMANAGER()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -94,9 +85,6 @@ XWINDOWSDRIVEIMAGEMANAGER::~XWINDOWSDRIVEIMAGEMANAGER()
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::GetDrives(XVECTOR<XDRIVEIMAGEMANAGER_DRIVE*>& drives)
 * @brief      GetDrives
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  drives :
 *
@@ -158,9 +146,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetDrives(XVECTOR<XDRIVEIMAGEMANAGER_DRIVE*>& dr
 * @brief      Open
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  drive :
 *
 * @return     bool : true if is succesful.
@@ -204,9 +189,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::Open(XDRIVEIMAGEMANAGER_DRIVE& drive)
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::Read(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD startsector, XQWORD numbersectors, XBUFFER& buffer)
 * @brief      Read
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  drive :
 * @param[in]  startsector :
@@ -280,9 +262,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::Read(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD sta
 * @brief      Write
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  drive :
 * @param[in]  startsector :
 * @param[in]  numbersectors :
@@ -353,9 +332,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::Write(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD st
 * @brief      Close
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  drive :
 *
 * @return     bool : true if is succesful.
@@ -388,9 +364,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::Close(XDRIVEIMAGEMANAGER_DRIVE& drive)
 * @brief      GetHandleFromDevice
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  device :
 * @param[in]  access :
 *
@@ -412,9 +385,6 @@ HANDLE XWINDOWSDRIVEIMAGEMANAGER::GetHandleFromDevice(int device, XDWORD access)
 * @fn         HANDLE XWINDOWSDRIVEIMAGEMANAGER::GetHandleFromVolume(int volume, XDWORD access)
 * @brief      GetHandleFromVolume
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  volume :
 * @param[in]  access :
@@ -438,9 +408,6 @@ HANDLE XWINDOWSDRIVEIMAGEMANAGER::GetHandleFromVolume(int volume, XDWORD access)
 * @fn         XDWORD XWINDOWSDRIVEIMAGEMANAGER::GetDeviceID(HANDLE handlevolume);
 * @brief      GetDeviceID
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  handlevolume) :
 *
@@ -472,9 +439,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetDeviceID(HANDLE handlevolume, XDWORD& deviceI
 * @brief      LockVolume
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  handle :
 * @param[in]  islock :
 *
@@ -496,9 +460,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::LockVolume(HANDLE handle, bool islock)
 * @brief      UnMountVolume
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  handle :
 *
 * @return     bool : true if is succesful.
@@ -519,9 +480,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::UnMountVolume(HANDLE handle)
 * @brief      IsVolumeUnmounted
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  handle :
 *
 * @return     bool : true if is succesful.
@@ -541,9 +499,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::IsVolumeUnmounted(HANDLE handle)
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::GetNumberOfSectors(HANDLE handle, XQWORD& sectorsize, XQWORD& numbersectors)
 * @brief      GetNumberOfSectors
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  handle :
 * @param[in]  sectorsize :
@@ -579,9 +534,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetNumberOfSectors(HANDLE handle, XQWORD& sector
 * @brief      GetSpaceAvailable
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  location :
 * @param[in]  spaveavailable :
 *
@@ -611,9 +563,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetSpaceAvailable(XCHAR* location, XQWORD& spave
 * @brief      GetDriveLabel
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  location :
 * @param[in]  label :
 *
@@ -638,9 +587,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetDriveLabel(XCHAR* location, XSTRING& label)
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::CheckDriveType(XPATH& path, XQWORD& ID)
 * @brief      CheckDriveType
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 * @param[in]  ID :
@@ -772,9 +718,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::CheckDriveType(XPATH& path, XQWORD& ID)
 * @brief      GetMediaType
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hdevice :
 *
 * @return     bool : true if is succesful.
@@ -801,9 +744,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetMediaType(HANDLE hdevice)
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::ReadSectorDataFromHandle(HANDLE handle, XQWORD startsector, XQWORD sectorsize, XBYTE* buffer, XQWORD& size)
 * @brief      ReadSectorDataFromHandle
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  handle :
 * @param[in]  startsector :
@@ -842,9 +782,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::ReadSectorDataFromHandle(HANDLE handle, XQWORD s
 * @brief      WriteSectorDataToHandle
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  handle :
 * @param[in]  startsector :
 * @param[in]  sectorsize :
@@ -882,9 +819,6 @@ bool XWINDOWSDRIVEIMAGEMANAGER::WriteSectorDataToHandle(HANDLE handle, XQWORD st
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      ANDROID eXtended platform Factory
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -92,9 +89,6 @@ DELETEFUNC(XANDROIDFACTORY, XMUTEX     , XANDROIDMUTEX      , Delete_Mutex)
 * @brief      Create Thread
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  groupID : group ID of threads
 * @param[in]  ID : ID for thread
 * @param[in]  function : callback to thread
@@ -116,9 +110,6 @@ XTHREAD* XANDROIDFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREAD
 * @fn         bool XANDROIDFACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
 * @brief      Delete Thread
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  groupID : group ID of threads
 * @param[in]  xthread : thread to delete

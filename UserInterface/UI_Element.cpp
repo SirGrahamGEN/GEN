@@ -5,11 +5,8 @@
 * @class      UI_ELEMENT
 * @brief      User Interface Element Class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,10 +56,7 @@
 * @fn         UI_ELEMENT::UI_ELEMENT()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -88,10 +82,7 @@ UI_ELEMENT::UI_ELEMENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -115,10 +106,7 @@ UI_ELEMENT::~UI_ELEMENT()
 * @fn         XSTRING* UI_ELEMENT::GetName()
 * @brief      GetName
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -134,10 +122,7 @@ XSTRING* UI_ELEMENT::GetName()
 * @fn         UI_ELEMENT_TYPE UI_ELEMENT::GetType()
 * @brief      GetType
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT_TYPE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -153,10 +138,7 @@ UI_ELEMENT_TYPE UI_ELEMENT::GetType()
 * @fn         void UI_ELEMENT::SetType(UI_ELEMENT_TYPE type)
 * @brief      SetType
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     void : does not return anything. 
@@ -174,10 +156,7 @@ void UI_ELEMENT::SetType(UI_ELEMENT_TYPE type)
 * @fn         XSTRING* UI_ELEMENT::GetTypeString()
 * @brief      GetTypeString
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -193,10 +172,7 @@ XSTRING* UI_ELEMENT::GetTypeString()
 * @fn         UI_ELEMENT* UI_ELEMENT::GetFather()
 * @brief      GetFather
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -212,10 +188,7 @@ UI_ELEMENT* UI_ELEMENT::GetFather()
 * @fn         void UI_ELEMENT::SetFather(UI_ELEMENT* father)
 * @brief      SetFather
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  father : 
 * 
 * @return     void : does not return anything. 
@@ -233,10 +206,7 @@ void UI_ELEMENT::SetFather(UI_ELEMENT* father)
 * @fn         bool UI_ELEMENT::IsDetached()
 * @brief      IsDetached
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -252,10 +222,7 @@ bool UI_ELEMENT::IsDetached()
 * @fn         void UI_ELEMENT::SetIsDetached(bool hasfather)
 * @brief      SetIsDetached
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  hasfather : 
 * 
 * @return     void : does not return anything. 
@@ -273,10 +240,7 @@ void UI_ELEMENT::SetIsDetached(bool isdetached)
 * @fn         UI_COLOR* UI_ELEMENT::GetColor()
 * @brief      GetColor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_COLOR* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -292,10 +256,7 @@ UI_COLOR* UI_ELEMENT::GetColor()
 * @fn         UI_COLOR* UI_ELEMENT::GetBackgroundColor()
 * @brief      GetBackgroundColor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_COLOR* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -310,10 +271,7 @@ UI_COLOR* UI_ELEMENT::GetBackgroundColor()
 * @fn         double UI_ELEMENT::GetXPosition()
 * @brief      GetXPosition
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -329,10 +287,7 @@ double UI_ELEMENT::GetXPosition()
 * @fn         bool UI_ELEMENT::SetXPosition(double x_position)
 * @brief      SetXPosition
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  x_position : 
 * 
 * @return     bool : true if is succesful. 
@@ -352,10 +307,7 @@ bool UI_ELEMENT::SetXPosition(double x_position)
 * @fn         double UI_ELEMENT::GetYPosition()
 * @brief      GetYPosition
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -371,10 +323,7 @@ double UI_ELEMENT::GetYPosition()
 * @fn         bool UI_ELEMENT::SetYPosition(double y_position)
 * @brief      SetYPosition
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  y_position : 
 * 
 * @return     bool : true if is succesful. 
@@ -394,10 +343,7 @@ bool UI_ELEMENT::SetYPosition(double y_position)
 * @fn         XDWORD UI_ELEMENT::GetZLevel()
 * @brief      GetZLevel
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -413,10 +359,7 @@ XDWORD UI_ELEMENT::GetZLevel()
 * @fn         bool UI_ELEMENT::SetZLevel(XDWORD z_level)
 * @brief      SetZLevel
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  z_level : 
 * 
 * @return     bool : true if is succesful. 
@@ -436,10 +379,7 @@ bool UI_ELEMENT::SetZLevel(XDWORD z_level)
 * @fn         UI_ELEMENT_TYPE_DIRECTION UI_ELEMENT::GetDirection()
 * @brief      GetDirection
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT_TYPE_DIRECTION : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -455,10 +395,7 @@ UI_ELEMENT_TYPE_DIRECTION UI_ELEMENT::GetDirection()
 * @fn         bool UI_ELEMENT::SetDirection(UI_ELEMENT_TYPE_DIRECTION direction)
 * @brief      SetDirection
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  direction : 
 * 
 * @return     bool : true if is succesful. 
@@ -478,10 +415,7 @@ bool UI_ELEMENT::SetDirection(UI_ELEMENT_TYPE_DIRECTION direction)
 * @fn         double UI_ELEMENT::GetXPositionWithScroll()
 * @brief      GetXPositionWithScroll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -497,10 +431,7 @@ double UI_ELEMENT::GetXPositionWithScroll()
 * @fn         bool UI_ELEMENT::SetXPositionWithScroll(double x_positionwithscroll)
 * @brief      SetXPositionWithScroll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  x_positionwithscroll : 
 * 
 * @return     bool : true if is succesful. 
@@ -520,10 +451,7 @@ bool UI_ELEMENT::SetXPositionWithScroll(double x_positionwithscroll)
 * @fn         double UI_ELEMENT::GetYPositionWithScroll()
 * @brief      GetYPositionWithScroll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -539,10 +467,7 @@ double UI_ELEMENT::GetYPositionWithScroll()
 * @fn         bool UI_ELEMENT::SetYPositionWithScroll(double y_positionwithscroll)
 * @brief      SetYPositionWithScroll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  y_positionwithscroll : 
 * 
 * @return     bool : true if is succesful. 
@@ -562,10 +487,7 @@ bool UI_ELEMENT::SetYPositionWithScroll(double y_positionwithscroll)
 * @fn         UI_BOUNDARYLINE* UI_ELEMENT::GetBoundaryLine()
 * @brief      GetBoundaryLine
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_BOUNDARYLINE* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -581,10 +503,7 @@ UI_BOUNDARYLINE* UI_ELEMENT::GetBoundaryLine()
 * @fn         void UI_ELEMENT::SetBoundaryLine(XRECT& boundaryline)
 * @brief      SetBoundaryLine
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  boundaryline : 
 * 
 * @return     void : does not return anything. 
@@ -602,10 +521,7 @@ void UI_ELEMENT::SetBoundaryLine(UI_BOUNDARYLINE& boundaryline)
 * @fn         double UI_ELEMENT::GetMargin(UI_ELEMENT_TYPE_ALIGN position)
 * @brief      GetMargin
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  position : 
 * 
 * @return     double : 
@@ -631,10 +547,7 @@ double UI_ELEMENT::GetMargin(UI_ELEMENT_TYPE_ALIGN position)
 * @fn         void UI_ELEMENT::SetMargin(UI_ELEMENT_TYPE_ALIGN position, double value)
 * @brief      SetMargin
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  position : 
 * @param[in]  value : 
 * 
@@ -659,10 +572,7 @@ void UI_ELEMENT::SetMargin(UI_ELEMENT_TYPE_ALIGN position, double value)
 * @fn         bool UI_ELEMENT::IsActive()
 * @brief      IsActive
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -678,10 +588,7 @@ bool UI_ELEMENT::IsActive()
 * @fn         void UI_ELEMENT::SetActive(bool isactive)
 * @brief      SetActive
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  isactive : 
 * 
 * @return     void : does not return anything. 
@@ -699,10 +606,7 @@ void UI_ELEMENT::SetActive(bool isactive)
 * @fn         bool UI_ELEMENT::IsPreSelect()
 * @brief      IsPreSelect
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -718,10 +622,7 @@ bool UI_ELEMENT::IsPreSelect()
 * @fn         void UI_ELEMENT::SetPreSelect(bool ispreselect)
 * @brief      SetPreSelect
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ispreselect : 
 * 
 * @return     void : does not return anything. 
@@ -739,10 +640,7 @@ void UI_ELEMENT::SetPreSelect(bool ispreselect)
 * @fn         bool UI_ELEMENT::IsSelected()
 * @brief      IsSelected
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -758,10 +656,7 @@ bool UI_ELEMENT::IsSelected()
 * @fn         void UI_ELEMENT::SetSelected(bool isselected)
 * @brief      SetSelected
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  isselected : 
 * 
 * @return     void : does not return anything. 
@@ -779,10 +674,7 @@ void UI_ELEMENT::SetSelected(bool isselected)
 * @fn         bool UI_ELEMENT::IsVisible()
 * @brief      IsVisible
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -798,10 +690,7 @@ bool UI_ELEMENT::IsVisible()
 * @fn         void UI_ELEMENT::SetVisible(bool isvisible)
 * @brief      SetVisible
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  isvisible : 
 * 
 * @return     void : does not return anything. 
@@ -825,10 +714,7 @@ void UI_ELEMENT::SetVisible(bool isvisible)
 * @fn         XDWORD UI_ELEMENT::GetRoundRect()
 * @brief      GetRoundRect
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -844,10 +730,7 @@ XDWORD UI_ELEMENT::GetRoundRect()
 * @fn         void UI_ELEMENT::SetRoundRect(XDWORD roundrect)
 * @brief      SetRoundRect
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  roundrect : 
 * 
 * @return     void : does not return anything. 
@@ -866,10 +749,7 @@ void UI_ELEMENT::SetRoundRect(XDWORD roundrect)
 * @fn         XDWORD UI_ELEMENT::IsBlinking()
 * @brief      IsBlinking
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -885,10 +765,7 @@ XDWORD UI_ELEMENT::IsBlinking()
 * @fn         bool UI_ELEMENT::SetBlink(XDWORD blink_time)
 * @brief      SetBlink
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  blink_time : 
 * 
 * @return     bool : true if is succesful. 
@@ -914,10 +791,7 @@ bool UI_ELEMENT::SetBlink(XDWORD blink_time)
 * @fn         bool UI_ELEMENT::GetStateBlink()
 * @brief      GetStateBlink
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -933,10 +807,7 @@ bool UI_ELEMENT::GetStateBlink()
 * @fn         bool UI_ELEMENT::SwicthStateBlink()
 * @brief      SwicthStateBlink
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -966,10 +837,7 @@ bool UI_ELEMENT::SwicthStateBlink()
 * @fn         XTIMER* UI_ELEMENT::GetTimerBlink()
 * @brief      GetTimerBlink
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XTIMER* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -984,10 +852,7 @@ XTIMER* UI_ELEMENT::GetTimerBlink()
 * @fn         UI_ELEMENT_TRANSITION_STATE_SHOW UI_ELEMENT::GetTransitionStateShow()
 * @brief      GetTransitionStateShow
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT_TRANSITION_STATE_SHOW : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1003,10 +868,7 @@ UI_ELEMENT_TRANSITION_STATE_SHOW UI_ELEMENT::GetTransitionStateShow()
 * @fn         void UI_ELEMENT::SetTransitionStateShow(UI_ELEMENT_TRANSITION_STATE_SHOW transitionstateshow)
 * @brief      SetTransitionStateShow
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  transitionstateshow : 
 * 
 * @return     void : does not return anything. 
@@ -1024,10 +886,7 @@ void UI_ELEMENT::SetTransitionStateShow(UI_ELEMENT_TRANSITION_STATE_SHOW transit
 * @fn         bool UI_ELEMENT::HasScroll()
 * @brief      HasScroll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1043,10 +902,7 @@ bool UI_ELEMENT::HasScroll()
 * @fn         void UI_ELEMENT::SetHasScroll(bool hasscroll)
 * @brief      SetHasScroll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  hasscroll : 
 * 
 * @return     void : does not return anything. 
@@ -1064,10 +920,7 @@ void UI_ELEMENT::SetHasScroll(bool hasscroll)
 * @fn         XSTRING* UI_ELEMENT::GetExtra()
 * @brief      GetExtra
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1083,10 +936,7 @@ XSTRING* UI_ELEMENT::GetExtra()
 * @fn         bool UI_ELEMENT::MustReDraw()
 * @brief      MustReDraw
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1104,10 +954,7 @@ bool UI_ELEMENT::MustReDraw()
 * @fn         void UI_ELEMENT::SetMustReDraw(bool mustredraw)
 * @brief      SetMustReDraw
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  mustredraw : 
 * 
 * @return     void : does not return anything. 
@@ -1125,10 +972,7 @@ void UI_ELEMENT::SetMustReDraw(bool mustredraw)
 * @fn         XVECTOR<UI_ELEMENT*>* UI_ELEMENT::GetComposeElements()
 * @brief      GetComposeElements
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XVECTOR<UI_ELEMENT*>* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1144,10 +988,7 @@ XVECTOR<UI_ELEMENT*>* UI_ELEMENT::GetComposeElements()
 * @fn         bool UI_ELEMENT::DeleteAllComposeElements()
 * @brief      DeleteAllComposeElements
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1169,10 +1010,7 @@ bool UI_ELEMENT::DeleteAllComposeElements()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

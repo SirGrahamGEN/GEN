@@ -6,10 +6,7 @@
 * @brief      Data Input/Output SPI Display TFT ILI9341 (Ilitek)
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ DIOSPITFTDISPLAYILI9341::DIOSPITFTDISPLAYILI9341()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -98,9 +89,6 @@ DIOSPITFTDISPLAYILI9341::~DIOSPITFTDISPLAYILI9341()
 * @fn         bool DIOSPITFTDISPLAYILI9341::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -155,9 +143,6 @@ bool DIOSPITFTDISPLAYILI9341::IniDevice()
 * @brief      Clear
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  color :
 *
 * @return     bool : true if is succesful.
@@ -190,9 +175,6 @@ bool DIOSPITFTDISPLAYILI9341::Clear(XWORD color)
 * @brief      Update
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 *
 * @return     bool : true if is succesful.
@@ -218,9 +200,6 @@ bool DIOSPITFTDISPLAYILI9341::Update(XBYTE* buffer)
 * @fn         bool DIOSPITFTDISPLAYILI9341::PutPixel(XWORD x, XWORD y, XWORD color)
 * @brief      PutPixel
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x :
 * @param[in]  y :
@@ -251,9 +230,6 @@ bool DIOSPITFTDISPLAYILI9341::PutPixel(XWORD x, XWORD y, XWORD color)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -273,9 +249,6 @@ bool DIOSPITFTDISPLAYILI9341::End()
 * @fn         bool DIOSPITFTDISPLAYILI9341::TFT_Init()
 * @brief      TFT_Init
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -376,9 +349,6 @@ bool DIOSPITFTDISPLAYILI9341::TFT_Init()
 * @brief      TFT_Reset
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -402,9 +372,6 @@ bool DIOSPITFTDISPLAYILI9341::TFT_Reset()
 * @fn         bool DIOSPITFTDISPLAYILI9341::TFT_RotateRGB(int rotate, XBYTE bgr)
 * @brief      TFT_RotateRGB
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  rotate :
 * @param[in]  bgr :
@@ -443,9 +410,6 @@ bool DIOSPITFTDISPLAYILI9341::TFT_RotateRGB(int rotate, XBYTE bgr)
 * @brief      TFT_SetWindow
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xs :
 * @param[in]  ys :
 * @param[in]  xe :
@@ -475,9 +439,6 @@ bool DIOSPITFTDISPLAYILI9341::TFT_SetWindow(int xs, int ys, int xe, int ye)
 * @brief      SendCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  command :
 *
 * @return     bool : true if is succesful.
@@ -503,9 +464,6 @@ bool DIOSPITFTDISPLAYILI9341::SendCommand(XBYTE command)
 * @brief      SendData
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -530,9 +488,6 @@ bool DIOSPITFTDISPLAYILI9341::SendData()
 * @fn         bool DIOSPITFTDISPLAYILI9341::WriteRegister(XBYTE reg, int ndata, ...)
 * @brief      WriteRegister
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  reg :
 * @param[in]  ndata :
@@ -572,9 +527,6 @@ bool DIOSPITFTDISPLAYILI9341::WriteRegister(XBYTE reg, int ndata, ...)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

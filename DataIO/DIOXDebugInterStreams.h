@@ -6,7 +6,7 @@
 //
 //  DIO XDebug UART to Net
 //
-//  @author  Abraham J. Velez
+//  ""
 //
 //  Date Of Creation  : 16/05/2017 17:05:17
 //  Last Modification :

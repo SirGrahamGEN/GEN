@@ -6,10 +6,7 @@
 * @brief      Graphics Bitmap class
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  int :
 * @param[in]  int height :
 * @param[in]  GRPPROPERTYMODE mode :
@@ -83,9 +77,6 @@ GRPBITMAP::GRPBITMAP(int width, int height, GRPPROPERTYMODE mode, bool isbufferi
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -101,9 +92,6 @@ GRPBITMAP::~GRPBITMAP()
 * @fn         bool GRPBITMAP::IsValid()
 * @brief      Is Valid
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -121,9 +109,6 @@ bool GRPBITMAP::IsValid()
 * @brief      Get Buffer
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE* : pointer to array
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -139,9 +124,6 @@ XBYTE* GRPBITMAP::GetBuffer()
 * @fn         XBYTE** GRPBITMAP::GetBufferPointer()
 * @brief      Get Buffer Pointer
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XBYTE** : pointer to pointer array
 *
@@ -159,9 +141,6 @@ XBYTE** GRPBITMAP::GetBufferPointer()
 * @brief      Get Buffer Size
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : size of buffer
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -177,9 +156,6 @@ int GRPBITMAP::GetBufferSize()
 * @fn         GRPBITMAP* GRPBITMAP::GetSubBitmap(GRPRECTINT& rect)
 * @brief      Get Sub-Bitmap
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  rect : rect to get sub-bitmap
 *
@@ -199,9 +175,6 @@ GRPBITMAP* GRPBITMAP::GetSubBitmap(GRPRECTINT& rect)
 * @brief      Clone
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPBITMAP* : clone bitmap class
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -217,9 +190,6 @@ GRPBITMAP* GRPBITMAP::Clone()
 * @fn         bool GRPBITMAP::CopyFrom(GRPBITMAP* bitmap)
 * @brief      Copy From
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bitmap : bitmap origin to clone
 *
@@ -239,9 +209,6 @@ bool GRPBITMAP::CopyFrom(GRPBITMAP* bitmap)
 * @brief      ConvertToMode
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  newmode :
 *
 * @return     GRPBITMAP* :
@@ -260,9 +227,6 @@ GRPBITMAP* GRPBITMAP::ConvertToMode(GRPPROPERTYMODE newmode)
 * @brief      Flip Horizontal
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -279,9 +243,6 @@ bool GRPBITMAP::FlipHorizontal()
 * @brief      Flip Vertical
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -297,9 +258,6 @@ bool GRPBITMAP::FlipVertical()
 * @fn         bool GRPBITMAP::Rotate(float degrees)
 * @brief      Rotate bitmap
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  degrees : degrees to rotate
 *
@@ -318,9 +276,6 @@ bool GRPBITMAP::Rotate(float degrees)
 * @fn         bool GRPBITMAP::Scale(int nwidth, int nheight)
 * @brief      Scale
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nwidth : new width
 * @param[in]  nheight : new height
@@ -341,9 +296,6 @@ bool GRPBITMAP::Scale(int nwidth, int nheight)
 * @brief      Crop
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  rect : recto to crop
 *
 * @return     bool : true if is succesful.
@@ -362,9 +314,6 @@ bool GRPBITMAP::Crop(GRPRECTINT& rect)
 * @brief      Get handle
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -380,9 +329,6 @@ XDWORD GRPBITMAP::GetHandle()
 * @fn         void GRPBITMAP::SetHandle(XDWORD handle)
 * @brief      Set Handle
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  handle :
 *
@@ -402,9 +348,6 @@ void GRPBITMAP::SetHandle(XDWORD handle)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

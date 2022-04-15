@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream Config String class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -72,9 +66,6 @@ DIOSTREAMCONFIGSTRING::DIOSTREAMCONFIGSTRING()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -93,9 +84,6 @@ DIOSTREAMCONFIGSTRING::~DIOSTREAMCONFIGSTRING()
 * @fn         bool DIOSTREAMCONFIGSTRING::GetToString(XSTRING* string)
 * @brief      GetToString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -119,9 +107,6 @@ bool DIOSTREAMCONFIGSTRING::GetToString(XSTRING* string)
 * @brief      GetToString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -139,9 +124,6 @@ bool DIOSTREAMCONFIGSTRING::GetToString(XSTRING& string)
 * @fn         bool DIOSTREAMCONFIGSTRING::SetFromString(XCHAR* string)
 * @brief      SetFromString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -223,9 +205,6 @@ bool DIOSTREAMCONFIGSTRING::SetFromString(XCHAR* string)
 * @brief      SetFromString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -244,9 +223,6 @@ bool DIOSTREAMCONFIGSTRING::SetFromString(XSTRING* string)
 * @fn         bool DIOSTREAMCONFIGSTRING::SetFromString(XSTRING& string, bool addslash)
 * @brief      SetFromString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 * @param[in]  addslash :
@@ -268,9 +244,6 @@ bool DIOSTREAMCONFIGSTRING::SetFromString(XSTRING& string, bool addslash)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

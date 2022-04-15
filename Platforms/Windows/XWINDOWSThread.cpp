@@ -6,10 +6,7 @@
 * @brief       eXtended WINDOWS Thread class
 * @ingroup     PLATFORM_WINDOWS
 *
-* @author      Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright   Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -83,9 +77,6 @@ XWINDOWSMUTEX::XWINDOWSMUTEX()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -103,9 +94,6 @@ XWINDOWSMUTEX::~XWINDOWSMUTEX()
 * @fn         bool XWINDOWSMUTEX::Lock()
 * @brief      Lock
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -133,9 +121,6 @@ bool XWINDOWSMUTEX::Lock()
 * @brief      UnLock
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -158,9 +143,6 @@ bool XWINDOWSMUTEX::UnLock()
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -177,9 +159,6 @@ void XWINDOWSMUTEX::Clean()
 * @fn         XWINDOWSTHREAD::XWINDOWSTHREAD(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFUNCTION function,void* data)
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  groupID :
 * @param[in]  ID :
@@ -210,9 +189,6 @@ XWINDOWSTHREAD::XWINDOWSTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTIO
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -230,9 +206,6 @@ XWINDOWSTHREAD::~XWINDOWSTHREAD()
 * @fn         bool XWINDOWSTHREAD::Ini(bool run)
 * @brief      Ini
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  run :
 *
@@ -279,9 +252,6 @@ bool XWINDOWSTHREAD::Ini(bool run)
 * @brief      Wait
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  miliseconds :
 *
 * @return     bool : true if is succesful.
@@ -304,9 +274,6 @@ bool XWINDOWSTHREAD::Wait(int miliseconds)
 * @fn         bool XWINDOWSTHREAD::End()
 * @brief      End
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -336,9 +303,6 @@ bool XWINDOWSTHREAD::End()
 * @fn         DWORD WINAPI XWINDOWSTHREAD::Callback(LPVOID thread)
 * @brief      Callback
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  thread :
 *
@@ -420,9 +384,6 @@ DWORD WINAPI XWINDOWSTHREAD::Callback(LPVOID thread)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

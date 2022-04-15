@@ -6,10 +6,7 @@
 * @brief      eXtended Drive Image Manager class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -68,9 +65,6 @@ XDRIVEIMAGEMANAGER* XDRIVEIMAGEMANAGER::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -87,9 +81,6 @@ XDRIVEIMAGEMANAGER_DRIVE::XDRIVEIMAGEMANAGER_DRIVE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -110,9 +101,6 @@ XDRIVEIMAGEMANAGER_DRIVE::~XDRIVEIMAGEMANAGER_DRIVE()
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -129,9 +117,6 @@ bool XDRIVEIMAGEMANAGER::GetIsInstanced()
 * @brief      Get Instance of XDRIVEIMAGEMANAGER
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDRIVEIMAGE& :
 *
@@ -155,9 +140,6 @@ XDRIVEIMAGEMANAGER& XDRIVEIMAGEMANAGER::GetInstance()
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  _instance : new instance
 *
 * @return     bool : true if is succesful.
@@ -180,9 +162,6 @@ bool XDRIVEIMAGEMANAGER::SetInstance(XDRIVEIMAGEMANAGER* _instance)
 * @brief      Delete Instance of XDRIVEIMAGE
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -209,9 +188,6 @@ bool XDRIVEIMAGEMANAGER::DelInstance()
 * @brief      GetName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -227,9 +203,6 @@ XSTRING* XDRIVEIMAGEMANAGER_DRIVE::GetName()
 * @fn         XSTRING* XDRIVEIMAGEMANAGER_DRIVE::GetLabel()
 * @brief      GetLabel
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -247,8 +220,8 @@ XSTRING* XDRIVEIMAGEMANAGER_DRIVE::GetLabel()
  *  @brief      GetPath
  *  @ingroup    UTILS
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @return     XPATH* :
  *
@@ -266,9 +239,6 @@ XPATH* XDRIVEIMAGEMANAGER_DRIVE::GetPath()
 * @brief      GetVolume
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -284,9 +254,6 @@ int XDRIVEIMAGEMANAGER_DRIVE::GetVolume()
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetVolume(int volume)
 * @brief      SetVolume
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  volume :
 *
@@ -306,9 +273,6 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetVolume(int volume)
 * @brief      GetDeviceID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -324,9 +288,6 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetDeviceID()
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetDeviceID(XDWORD deviceID)
 * @brief      SetDeviceID
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  deviceID :
 *
@@ -346,9 +307,6 @@ void  XDRIVEIMAGEMANAGER_DRIVE::SetDeviceID(XDWORD deviceID)
 * @brief      GetID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -364,9 +322,6 @@ XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetID()
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetID(XQWORD ID)
 * @brief      SetID
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -386,9 +341,6 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetID(XQWORD ID)
 * @brief      GetSectorSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -404,9 +356,6 @@ XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetSectorSize()
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetSectorSize(XQWORD sectorsize)
 * @brief      SetSectorSize
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sectorsize :
 *
@@ -426,9 +375,6 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetSectorSize(XQWORD sectorsize)
 * @brief      GetNumberSectors
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -444,9 +390,6 @@ XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetNumberSectors()
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetNumberSectors(XQWORD numbersectors)
 * @brief      SetNumberSectors
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  numbersectors :
 *
@@ -466,9 +409,6 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetNumberSectors(XQWORD numbersectors)
 * @brief      GetSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -484,9 +424,6 @@ XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetSize()
 * @fn         XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetSizeInGB()
 * @brief      GetSizeInGB
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -510,9 +447,6 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetSizeInGB()
 * @brief      GetHandle
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -528,9 +462,6 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetHandle()
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetHandle(XDWORD handle)
 * @brief      SetHandle
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  handle :
 *
@@ -550,9 +481,6 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetHandle(XDWORD handle)
 * @brief      GetRawHandle
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -568,9 +496,6 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetRawHandle()
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetRawHandle(XDWORD handle)
 * @brief      SetRawHandle
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  rawhandle :
 *
@@ -590,9 +515,6 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetRawHandle(XDWORD rawhandle)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -620,9 +542,6 @@ void XDRIVEIMAGEMANAGER_DRIVE::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -645,9 +564,6 @@ XDRIVEIMAGEMANAGER::XDRIVEIMAGEMANAGER()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -669,9 +585,6 @@ XDRIVEIMAGEMANAGER::~XDRIVEIMAGEMANAGER()
 * @brief      GetLogicalDrives
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  drives :
 *
 * @return     bool : true if is succesful.
@@ -691,9 +604,6 @@ bool XDRIVEIMAGEMANAGER::GetDrives(XVECTOR<XDRIVEIMAGEMANAGER_DRIVE*>& drives)
 * @brief      Open
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  drive :
 *
 * @return     bool : true if is succesful.
@@ -711,9 +621,6 @@ bool XDRIVEIMAGEMANAGER::Open(XDRIVEIMAGEMANAGER_DRIVE& drive)
 * @fn         bool XDRIVEIMAGEMANAGER::Read(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD startsector, XQWORD numbersectors, XBUFFER& buffer)
 * @brief      Read
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  drive :
 * @param[in]  startsector :
@@ -737,9 +644,6 @@ bool XDRIVEIMAGEMANAGER::Read(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD startsecto
 * @brief      Write
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  drive :
 * @param[in]  startsector :
 * @param[in]  numbersectors :
@@ -760,9 +664,6 @@ bool XDRIVEIMAGEMANAGER::Write(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD startsect
 * @fn         bool XDRIVEIMAGEMANAGER::ReadToIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& pathfileIMG, XQWORD nsectorsperblock)
 * @brief      ReadToIMGFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  drive :
 * @param[in]  pathfileIMG :
@@ -838,9 +739,6 @@ bool XDRIVEIMAGEMANAGER::ReadToIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& p
 * @fn         bool XDRIVEIMAGEMANAGER::WritedFromIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& pathfileIMG, XQWORD nsectorsperblock)
 * @brief      WritedFromIMGFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  drive :
 * @param[in]  pathfileIMG :
@@ -918,9 +816,6 @@ bool XDRIVEIMAGEMANAGER::WriteFromIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH
 * @brief      GetLastOperationPercent
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -937,9 +832,6 @@ float XDRIVEIMAGEMANAGER::GetLastOperationPercent()
 * @brief      GetLastError
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDRIVEIMAGEMANAGER_ERROR :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -955,9 +847,6 @@ XDRIVEIMAGEMANAGER_ERROR XDRIVEIMAGEMANAGER::GetLastError()
 * @fn         bool XDRIVEIMAGEMANAGER::Close(XDRIVEIMAGEMANAGER_DRIVE& drive)
 * @brief      Close
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  drive :
 *
@@ -977,9 +866,6 @@ bool XDRIVEIMAGEMANAGER::Close(XDRIVEIMAGEMANAGER_DRIVE& drive)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

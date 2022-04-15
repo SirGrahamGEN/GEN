@@ -7,10 +7,7 @@
 * @note       Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,10 +57,7 @@ XPROCESSMANAGER* XPROCESSMANAGER::instance = NULL;
 * @fn         XPROCESS::XPROCESS()
 * @brief      Constructor
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -80,10 +74,7 @@ XPROCESS::XPROCESS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -99,10 +90,7 @@ XPROCESS::~XPROCESS()
 * @fn         XDWORD XPROCESS::GetID()
 * @brief      GetID
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -118,10 +106,7 @@ XDWORD XPROCESS::GetID()
 * @fn         void XPROCESS::SetID(XDWORD ID)
 * @brief      SetID
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ID : 
 * 
 * @return     void : does not return anything. 
@@ -139,10 +124,7 @@ void XPROCESS::SetID(XDWORD ID)
 * @fn         XPATH* XPROCESS::GetPath()
 * @brief      GetPath
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XPATH* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -158,10 +140,7 @@ XPATH* XPROCESS::GetPath()
 * @fn         XSTRING* XPROCESS::GetName()
 * @brief      GetName
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -178,10 +157,7 @@ XSTRING* XPROCESS::GetName()
 * @fn         XSTRING* XPROCESS::GetWindowTitle()
 * @brief      GetWindowTitle
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -197,10 +173,7 @@ XSTRING* XPROCESS::GetWindowTitle()
 * @fn         bool XPROCESS::CopyTo(XPROCESS& xprocess)
 * @brief      CopyTo
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xprocess : 
 * 
 * @return     bool : true if is succesful. 
@@ -223,10 +196,7 @@ bool XPROCESS::CopyTo(XPROCESS& xprocess)
 * @fn         bool XPROCESS::CopyFrom(XPROCESS& xprocess)
 * @brief      CopyFrom
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xprocess : 
 * 
 * @return     bool : true if is succesful. 
@@ -250,10 +220,7 @@ bool XPROCESS::CopyFrom(XPROCESS& xprocess)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -277,9 +244,6 @@ void XPROCESS::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -295,9 +259,6 @@ XPROCESSMANAGER::XPROCESSMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -316,9 +277,6 @@ XPROCESSMANAGER::~XPROCESSMANAGER()
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -335,9 +293,6 @@ bool XPROCESSMANAGER::GetIsInstanced()
 * @brief      GetInstance
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XPROCESSMANAGER& :
 *
@@ -358,9 +313,6 @@ XPROCESSMANAGER& XPROCESSMANAGER::GetInstance()
 * @brief      SetInstance
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  _instance : new instance
 *
@@ -384,9 +336,6 @@ bool XPROCESSMANAGER::SetInstance(XPROCESSMANAGER* _instance)
 * @brief      DelInstance
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -412,9 +361,6 @@ bool XPROCESSMANAGER::DelInstance()
 * @brief      MakeSystemCommand
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  command : 
 *
 * @return     bool : true if is succesful. 
@@ -433,9 +379,6 @@ bool XPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 * @fn         bool XPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING& out, int* returncode)
 * @brief      MakeCommand
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  command :
 * @param[in]  out :
@@ -457,9 +400,6 @@ bool XPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* returncode)
 * @fn         bool XPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 * @brief      ExecuteApplication
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationpath : 
 * @param[in]  params : 
@@ -484,9 +424,6 @@ bool XPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, 
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  applicationname : name of application
 * @param[out] ID : ID of this application of SO
 *
@@ -505,10 +442,7 @@ bool XPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
 * @fn         bool XPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*> applist)
 * @brief      GetApplicationRunningList
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  applist : 
 * 
 * @return     bool : true if is succesful. 
@@ -528,10 +462,7 @@ bool XPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& applist)
 * @fn         bool XPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
 * @brief      TerminateApplication
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  processID : 
 * @param[in]  exitcode : 
 * 
@@ -551,10 +482,7 @@ bool XPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
 * @fn         bool XPROCESSMANAGER::TerminateApplication(XPROCESS& process, XDWORD exitcode)
 * @brief      TerminateApplication
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  process : 
 * @param[in]  exitcode : 
 * 
@@ -574,10 +502,7 @@ bool XPROCESSMANAGER::TerminateApplication(XPROCESS& process, XDWORD exitcode)
 * @fn         bool XPROCESSMANAGER::TerminateApplication(XCHAR* processname, XDWORD exitcode)
 * @brief      TerminateApplication
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  processname : 
 * @param[in]  exitcode : 
 * 
@@ -618,10 +543,7 @@ bool XPROCESSMANAGER::TerminateApplication(XCHAR* processname, XDWORD exitcode)
 * @fn         bool XPROCESSMANAGER::TerminateApplication(XSTRING& processname, XDWORD exitcode)
 * @brief      TerminateApplication
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  processname : 
 * @param[in]  exitcode : 
 * 
@@ -642,9 +564,6 @@ bool XPROCESSMANAGER::TerminateApplication(XSTRING& processname, XDWORD exitcode
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

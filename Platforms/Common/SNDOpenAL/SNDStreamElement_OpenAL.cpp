@@ -6,10 +6,7 @@
 * @brief      Sound Open AL Stream Element class
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ SNDSTREAMELEMENT_OPENAL::SNDSTREAMELEMENT_OPENAL() : SNDSTREAMELEMENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything. 
 *
@@ -102,9 +93,6 @@ SNDSTREAMELEMENT_OPENAL::~SNDSTREAMELEMENT_OPENAL()
 * @brief      Play
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -120,9 +108,6 @@ void SNDSTREAMELEMENT_OPENAL::Play()
 * @fn         void SNDSTREAMELEMENT_OPENAL::AddData(XDWORD size, void* data)
 * @brief      AddData
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  size : 
 * @param[in]  data : 
@@ -159,9 +144,6 @@ void SNDSTREAMELEMENT_OPENAL::AddData(XDWORD size, void* data)
 * @brief      SetFile
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  file : 
 *
 * @return     void : does not return anything. 
@@ -184,9 +166,6 @@ void SNDSTREAMELEMENT_OPENAL::SetFile(SNDFILE* file)
 * @fn         void SNDSTREAMELEMENT_OPENAL::ClearBuffers()
 * @brief      ClearBuffers
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *
@@ -213,9 +192,6 @@ void SNDSTREAMELEMENT_OPENAL::ClearBuffers()
 * @brief      SetSource
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  source : 
 *
 * @return     void : does not return anything. 
@@ -235,9 +211,6 @@ void SNDSTREAMELEMENT_OPENAL::SetSource(SNDSOURCE_OPENAL* source)
 * @brief      GetSource
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     SNDSOURCE_OPENAL* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -254,9 +227,6 @@ SNDSOURCE_OPENAL* SNDSTREAMELEMENT_OPENAL::GetSource()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

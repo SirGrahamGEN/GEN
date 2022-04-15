@@ -6,10 +6,7 @@
 * @brief      eXtended Cobol file class (legacy OLD World)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -70,9 +67,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -90,9 +84,6 @@ XFILECOBOL_PIC::XFILECOBOL_PIC()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -108,9 +99,6 @@ XFILECOBOL_PIC::~XFILECOBOL_PIC()
 * @fn         XFILECOBOL_PIC_TYPE XFILECOBOL_PIC::GetType()
 * @brief      GetType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XFILECOBOL_PIC_TYPE :
 *
@@ -128,9 +116,6 @@ XFILECOBOL_PIC_TYPE XFILECOBOL_PIC::GetType()
 * @brief      GetDefinition
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -147,9 +132,6 @@ XSTRING* XFILECOBOL_PIC::GetMask()
 * @brief      GetMaskDecondensed
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -165,9 +147,6 @@ XSTRING* XFILECOBOL_PIC::GetMaskDecondensed()
 * @fn         bool XFILECOBOL_PIC::ResolveMask()
 * @brief      ResolveMask
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -323,9 +302,6 @@ bool XFILECOBOL_PIC::ResolveMask()
 * @brief      GetSizeData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -342,9 +318,6 @@ XDWORD XFILECOBOL_PIC::GetSizeData()
 * @brief      GetNDecimals
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -359,9 +332,6 @@ int XFILECOBOL_PIC::GetNDecimals()
 * @fn         bool XFILECOBOL_PIC::HasSign()
 * @brief      HasSign
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -378,9 +348,6 @@ bool XFILECOBOL_PIC::HasSign()
 * @brief      GetComputationalType
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -396,9 +363,6 @@ int XFILECOBOL_PIC::GetComputationalType()
 * @fn         void XFILECOBOL_PIC::SetComputationalType(int computationaltype)
 * @brief      SetComputationalType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  computationaltype :
 *
@@ -418,9 +382,6 @@ void XFILECOBOL_PIC::SetComputationalType(int computationaltype)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -448,9 +409,6 @@ void XFILECOBOL_PIC::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -468,9 +426,6 @@ XFILECOBOL_FIELD::XFILECOBOL_FIELD()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -487,9 +442,6 @@ XFILECOBOL_FIELD::~XFILECOBOL_FIELD()
 * @brief      GetType
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILECOBOL_FIELD_TYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -505,9 +457,6 @@ XFILECOBOL_FIELD_TYPE XFILECOBOL_FIELD::GetType()
 * @fn         void XFILECOBOL_FIELD::SetType(XFILECOBOL_FIELD_TYPE type)
 * @brief      SetType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -526,9 +475,6 @@ void XFILECOBOL_FIELD::SetType(XFILECOBOL_FIELD_TYPE type)
 * @brief      GetLevel
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -544,9 +490,6 @@ int XFILECOBOL_FIELD::GetLevel()
 * @fn         void XFILECOBOL_FIELD::SetLevel(int level)
 * @brief      SetLevel
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  level :
 *
@@ -566,9 +509,6 @@ void XFILECOBOL_FIELD::SetLevel(int level)
 * @brief      GetName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -584,9 +524,6 @@ XSTRING* XFILECOBOL_FIELD::GetName()
 * @fn         XSTRING* XFILECOBOL_FIELD::GetPIC()
 * @brief      GetPIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -604,9 +541,6 @@ XFILECOBOL_PIC* XFILECOBOL_FIELD::GetPIC()
 * @brief      GetNOccurs
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -622,9 +556,6 @@ int XFILECOBOL_FIELD::GetNOccurs()
 * @fn         void XFILECOBOL_FIELD::SetNOccurs(int noccurs)
 * @brief      SetNOccurs
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  noccurs :
 *
@@ -644,9 +575,6 @@ void XFILECOBOL_FIELD::SetNOccurs(int noccurs)
 * @brief      IsRedefine
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -662,9 +590,6 @@ bool XFILECOBOL_FIELD::IsRedefine()
 * @fn         void XFILECOBOL_FIELD::SetIsRedefine(bool isredefine)
 * @brief      SetIsRedefine
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isredefine :
 *
@@ -684,9 +609,6 @@ void XFILECOBOL_FIELD::SetIsRedefine(bool isredefine)
 * @brief      GetRedefineName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -703,9 +625,6 @@ XSTRING* XFILECOBOL_FIELD::GetRedefineName()
 * @brief      GetRedefineOffset
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -721,9 +640,6 @@ int XFILECOBOL_FIELD::GetRedefineOffset()
 * @fn         void XFILECOBOL_FIELD::SetRedefineOffset(int redefineoffset)
 * @brief      SetRedefineOffset
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  redefineoffset :
 *
@@ -743,9 +659,6 @@ void XFILECOBOL_FIELD::SetRedefineOffset(int redefineoffset)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -776,9 +689,6 @@ void XFILECOBOL_FIELD::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XVECTOR<XFILECOBOL_FIELD*>* :
 *
 * @return     Does not return anything.
@@ -803,9 +713,6 @@ XFILECOBOL_RECORD::XFILECOBOL_RECORD(XFILECOBOL_HANDLE* handle)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -821,9 +728,6 @@ XFILECOBOL_RECORD::~XFILECOBOL_RECORD()
 * @fn         XFILECOBOL_RECORD_TYPE XFILECOBOL_RECORD::GetType()
 * @brief      GetType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XFILECOBOL_RECORD_TYPE :
 *
@@ -842,9 +746,6 @@ XFILECOBOL_RECORD_TYPE XFILECOBOL_RECORD::GetType()
 * @fn         bool XFILECOBOL_RECORD::SetType(XFILECOBOL_RECORD_TYPE type)
 * @brief      SetType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -867,9 +768,6 @@ bool XFILECOBOL_RECORD::SetType(XFILECOBOL_RECORD_TYPE type)
 * @brief      GetNFields
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -891,9 +789,6 @@ XDWORD XFILECOBOL_RECORD::GetNFields()
 * @fn         XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(int index)
 * @brief      GetField
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -932,9 +827,6 @@ XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(int index)
 * @brief      GetField
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     XFILECOBOL_FIELD* :
@@ -968,9 +860,6 @@ XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XCHAR* name)
 * @brief      GetField
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  it :
 *
 * @return     XFILECOBOL_FIELD* :
@@ -990,9 +879,6 @@ XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XFILECOBOL_FD_TREENODEITERATOR& it
 * @fn         bool XFILECOBOL_RECORD::GetFieldData(int index, XVARIANT& variant)
 * @brief      GetFieldData
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  variant :
@@ -1019,9 +905,6 @@ bool XFILECOBOL_RECORD::GetFieldData(int index, XVARIANT& variant)
 * @brief      GetFieldData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  variant :
 *
@@ -1046,9 +929,6 @@ bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XVARIANT& variant)
 * @fn         XVARIANT* XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR it)
 * @brief      GetFieldData
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  it :
 *
@@ -1078,9 +958,6 @@ bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XVARIAN
 * @brief      GetFieldData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 * @param[in]  datastring :
 *
@@ -1106,9 +983,6 @@ bool XFILECOBOL_RECORD::GetFieldData(int index, XSTRING& datastring)
 * @brief      GetFieldData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  datastring :
 *
@@ -1133,9 +1007,6 @@ bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XSTRING& datastring)
 * @fn         bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XSTRING& datastring)
 * @brief      GetFieldData
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  it :
 * @param[in]  datastring :
@@ -1165,9 +1036,6 @@ bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XSTRING
 * @brief      GetFieldData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 * @param[in]  data :
 *
@@ -1193,9 +1061,6 @@ bool XFILECOBOL_RECORD::GetFieldData(int index, XBUFFER& data)
 * @brief      GetFieldData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  data :
 *
@@ -1220,9 +1085,6 @@ bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XBUFFER& data)
 * @fn         bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR it, XBUFFER& data)
 * @brief      GetFieldData
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  it :
 * @param[in]  data :
@@ -1257,9 +1119,6 @@ bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XBUFFER
 * @brief      GetData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBUFFER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1274,9 +1133,6 @@ XBUFFER* XFILECOBOL_RECORD::GetData()
 * @fn         bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferdata, XVARIANT& data)
 * @brief      ConvertDataTo
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  picture :
 * @param[in]  bufferdata :
@@ -1300,9 +1156,6 @@ bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferda
 * @fn         bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferdata, XSTRING& datastring)
 * @brief      ConvertDataTo
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  picture :
 * @param[in]  bufferdata :
@@ -1428,9 +1281,6 @@ bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferda
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1452,9 +1302,6 @@ void XFILECOBOL_RECORD::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1470,9 +1317,6 @@ XFILECOBOL_HANDLE::XFILECOBOL_HANDLE()
 * @fn         XFILECOBOL_HANDLE::~XFILECOBOL_HANDLE()
 * @brief      ~XFILECOBOL_HANDLE
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     virtual :
 *
@@ -1493,9 +1337,6 @@ XFILECOBOL_HANDLE::~XFILECOBOL_HANDLE()
 * @brief      GetName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1511,9 +1352,6 @@ XSTRING* XFILECOBOL_HANDLE::GetName()
 * @fn         XSTRING* XFILECOBOL_HANDLE::GetValueLabel()
 * @brief      GetValueLabel
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -1531,9 +1369,6 @@ XSTRING* XFILECOBOL_HANDLE::GetValueLabel()
 * @brief      GetDataRecord
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1550,9 +1385,6 @@ XSTRING* XFILECOBOL_HANDLE::GetDataRecord()
 * @brief      GetFDTree
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILECOBOL_FD_TREE* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1568,9 +1400,6 @@ XFILECOBOL_FD_TREE* XFILECOBOL_HANDLE::GetFDTree()
 * @fn         int XFILECOBOL_HANDLE::GetIndexNodeForName(XFILECOBOL_FD_TREENODE* node, XCHAR* name)
 * @brief      GetIndexNodeForName
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  node :
 * @param[in]  name :
@@ -1608,9 +1437,6 @@ int XFILECOBOL_HANDLE::GetIndexNodeForName(XFILECOBOL_FD_TREENODE* node, XCHAR* 
 * @brief      GetTypeRecord
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILECOBOL_RECORD_TYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1626,9 +1452,6 @@ XFILECOBOL_RECORD_TYPE  XFILECOBOL_HANDLE::GetTypeRecord()
 * @fn         void XFILECOBOL_HANDLE::SetTypeRecord(XFILECOBOL_RECORD_TYPE type)
 * @brief      SetTypeRecord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -1647,9 +1470,6 @@ void XFILECOBOL_HANDLE::SetTypeRecord(XFILECOBOL_RECORD_TYPE type)
 * @fn         bool XFILECOBOL_HANDLE::GetInterator(XDWORD index, XFILECOBOL_FD_TREENODEITERATOR& it);
 * @brief      GetInterator
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  it :
@@ -1692,9 +1512,6 @@ bool XFILECOBOL_HANDLE::GetInterator(XDWORD index, XFILECOBOL_FD_TREENODEITERATO
 * @brief      GetInterator
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  it :
 *
@@ -1734,9 +1551,6 @@ bool XFILECOBOL_HANDLE::GetInterator(XCHAR* name, XFILECOBOL_FD_TREENODEITERATOR
 * @fn         XDWORD XFILECOBOL_HANDLE::CalculateDataSizeNode(XFILECOBOL_FD_TREENODE* node)
 * @brief      CalculateDataSizeNode
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  node :
 *
@@ -1795,9 +1609,6 @@ XDWORD XFILECOBOL_HANDLE::CalculateDataSizeNode(XFILECOBOL_FD_TREENODE* node)
 * @brief      CalculateDataSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1824,9 +1635,6 @@ XDWORD XFILECOBOL_HANDLE::CalculateDataSize()
 * @fn         int XFILECOBOL_HANDLE::CalculatePositionData(XFILECOBOL_FD_TREENODEITERATOR it)
 * @brief      CalculatePositionData
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  it :
 *
@@ -1902,9 +1710,6 @@ int XFILECOBOL_HANDLE::CalculatePositionData(XFILECOBOL_FD_TREENODEITERATOR& it)
 * @brief      IsFieldRedefinedByAnother
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     XFILECOBOL_FIELD* :
@@ -1945,9 +1750,6 @@ XFILECOBOL_FIELD* XFILECOBOL_HANDLE::IsFieldRedefinedByAnother(XCHAR* name)
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ) :
 *
 * @return     void : does not return anything.
@@ -1972,9 +1774,6 @@ void XFILECOBOL_HANDLE::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1992,9 +1791,6 @@ XFILECOBOL::XFILECOBOL()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -2015,9 +1811,6 @@ XFILECOBOL::~XFILECOBOL()
 * @fn         bool XFILECOBOL::Open(int nfiles, XCHAR* xpathcpyfiles, XCHAR* xpathdatfiles, ...)
 * @brief      Open
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nfiles :
 * @param[in]  xpathcpyfiles :
@@ -2180,9 +1973,6 @@ bool XFILECOBOL::Open(int nfiles, XCHAR* xpathcpyfiles, XCHAR* xpathdatfiles, ..
 * @brief      IsOpen
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2200,9 +1990,6 @@ bool XFILECOBOL::IsOpen()
 * @brief      GetType
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILECOBOL_FILE_TYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2218,9 +2005,6 @@ XFILECOBOL_FILE_TYPE XFILECOBOL::GetType()
 * @fn         void XFILECOBOL::SetType(XFILECOBOL_FILE_TYPE type)
 * @brief      SetType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -2240,9 +2024,6 @@ void XFILECOBOL::SetType(XFILECOBOL_FILE_TYPE type)
 * @brief      HaveFileHeaders
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2258,9 +2039,6 @@ bool XFILECOBOL::HaveFileHeaders()
 * @fn         void XFILECOBOL::SetHaveFileHeaders(bool havefileheaders)
 * @brief      SetHaveFileHeaders
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  havefileheaders :
 *
@@ -2279,9 +2057,6 @@ void XFILECOBOL::SetHaveFileHeaders(bool havefileheaders)
 * @fn         XDWORD XFILECOBOL::GetNRecords()
 * @brief      GetNRecords
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -2309,9 +2084,6 @@ XDWORD XFILECOBOL::GetNRecords()
 * @fn         bool XFILECOBOL::ReadRecord(XDWORD index, XFILECOBOL_RECORD& record)
 * @brief      ReadRecord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  record :
@@ -2362,9 +2134,6 @@ bool XFILECOBOL::ReadRecord(XDWORD index, XFILECOBOL_RECORD& record)
 * @brief      ReadRecords
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  records :
 * @param[in]  startindex :
 *
@@ -2384,9 +2153,6 @@ bool XFILECOBOL::ReadRecords(XVECTOR<XFILECOBOL_RECORD*>& records, XDWORD starti
 * @fn         bool XFILECOBOL::Close()
 * @brief      Close
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -2417,9 +2183,6 @@ bool XFILECOBOL::Close()
 * @brief      GetHandle
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILECOBOL_HANDLE* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2436,9 +2199,6 @@ XFILECOBOL_HANDLE* XFILECOBOL::GetHandle()
 * @brief      GetPathDataFile
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2454,9 +2214,6 @@ XPATH* XFILECOBOL::GetPathDataFile()
 * @fn         bool XFILECOBOL:CapabilitiesFile_Load(XPATH& xpathcapabilitiesfile)
 * @brief      LoadCapabilitiesFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpathcapabilitiesfile :
 *
@@ -2534,9 +2291,6 @@ bool XFILECOBOL::CapabilitiesFile_Load(XPATH& xpathcapabilitiesfile)
 * @brief      UnLoadCapabilitiesFile
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2558,9 +2312,6 @@ bool XFILECOBOL::CapabilitiesFile_UnLoad()
 * @fn         bool XFILECOBOL::CapabilitiesFile_GetFile(XSTRING* fileID, XPATH& xpathfile)
 * @brief      CapabilitiesFile_GetFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  fileID :
 * @param[in]  xpathfile :
@@ -2600,9 +2351,6 @@ bool XFILECOBOL::CapabilitiesFile_GetFile(XSTRING* fileID, XPATH& xpathfile)
 * @brief      IsValidCharacter
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     bool : true if is succesful.
@@ -2627,9 +2375,6 @@ bool XFILECOBOL::IsValidCharacter(XCHAR character)
 * @fn         bool XFILECOBOL::Eliminate_InvalidCharacters(XSTRING& line)
 * @brief      Eliminate_InvalidCharacters
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  line :
 *
@@ -2660,9 +2405,6 @@ bool XFILECOBOL::Eliminate_InvalidCharacters(XSTRING& line)
 * @fn         bool XFILECOBOL::Eliminate_TabsForSpaces(XVECTOR<XSTRING*>* lines)
 * @brief      Eliminate_TabsForSpaces
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  lines :
 *
@@ -2706,9 +2448,6 @@ bool XFILECOBOL::Eliminate_TabsForSpaces(XVECTOR<XSTRING*>* lines)
 * @brief      Eliminate_InvalidCharacters
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  lines :
 *
 * @return     bool : true if is succesful.
@@ -2733,9 +2472,6 @@ bool XFILECOBOL::Eliminate_InvalidCharacters(XVECTOR<XSTRING*>* lines)
 * @fn         bool XFILECOBOL::Eliminate_Coments(XVECTOR<XSTRING*>* lines)
 * @brief      Eliminate_Coments
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  lines :
 *
@@ -2767,9 +2503,6 @@ bool XFILECOBOL::Eliminate_Comments(XVECTOR<XSTRING*>* lines)
 * @brief      Eliminate_NumberLines
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  lines :
 *
 * @return     bool : true if is succesful.
@@ -2795,9 +2528,6 @@ bool XFILECOBOL::Eliminate_NumberLines(XVECTOR<XSTRING*>* lines)
 * @fn         bool XFILECOBOL::Eliminate_EmptyLines(XVECTOR<XSTRING*>* lines)
 * @brief      Eliminate_EmptyLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  lines :
 *
@@ -2836,9 +2566,6 @@ bool XFILECOBOL::Eliminate_EmptyLines(XVECTOR<XSTRING*>* lines)
 * @brief      Eliminate_UnnecessarySpaces
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  lines :
 *
 * @return     bool : true if is succesful.
@@ -2876,9 +2603,6 @@ bool XFILECOBOL::Eliminate_UnnecessarySpaces(XVECTOR<XSTRING*>* lines)
 * @fn         bool XFILECOBOL::CreateUniqueLines(XVECTOR<XSTRING*>* lines)
 * @brief      CreateUniqueLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  lines :
 *
@@ -2919,9 +2643,6 @@ bool XFILECOBOL::CreateUniqueLines(XVECTOR<XSTRING*>* lines)
 * @brief      ExtractReservedToken
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  line :
 * @param[in]  token :
 * @param[in]  var :
@@ -2961,9 +2682,6 @@ bool XFILECOBOL::ExtractReservedToken(XSTRING& line, XCHAR* token, XSTRING& var)
 * @brief      ExtractReservedToken
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  line :
 * @param[in]  token :
 *
@@ -2994,9 +2712,6 @@ bool XFILECOBOL::ExtractReservedToken(XSTRING& line, XCHAR* token)
 * @fn         XFILECOBOL_LINE_TYPE XFILECOBOL::InterpreterLineForHandle(XSTRING& line, int& level, XFILECOBOL_FIELD_TYPE& fieldtype, XFILECOBOL_HANDLE& handle, XSTRING& name, XSTRING& param, XSTRING& param2, int& noccurs, int& PICcomputationaltype)
 * @brief      InterpreterLineForHandle
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  line :
 * @param[in]  level :
@@ -3117,8 +2832,8 @@ XFILECOBOL_LINE_TYPE XFILECOBOL::InterpreterLineForHandle(XSTRING& line, int& le
  *  @brief      GetParentNodeOfLevel
  *  @ingroup    UTILS
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @param[in]  level :
  *
@@ -3156,9 +2871,6 @@ XFILECOBOL_FD_TREENODE* XFILECOBOL::GetParentNodeOfLevel(int level)
 * @fn         bool XFILECOBOL::TraslateTextToHandle(XVECTOR<XSTRING*>* lines, XFILECOBOL_HANDLE& handle)
 * @brief      TraslateTextToHandle
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  lines :
 * @param[in]  handle :
@@ -3375,9 +3087,6 @@ bool XFILECOBOL::TraslateTextToHandle(XVECTOR<XSTRING*>* lines, XFILECOBOL_HANDL
 * @brief      ChangeNameNodeWithOccurs
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 * @param[in]  name :
 *
@@ -3415,9 +3124,6 @@ bool XFILECOBOL::ChangeNameNodeWithOccurs(int index, XSTRING* name)
 * @fn         XFILECOBOL_FD_TREENODE* XFILECOBOL::DuplicateNodeWithSubnodes(int index, XFILECOBOL_FD_TREENODE* node, XFILECOBOL_FD_TREENODE* cretednode)
 * @brief      DuplicateNodeWithSubnodes
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  node :
@@ -3485,9 +3191,6 @@ XFILECOBOL_FD_TREENODE* XFILECOBOL::DuplicateNodeWithSubnodes(int index, XFILECO
 * @brief      AjustNodeWithOccurs
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  node :
 *
 * @return     bool : true if is succesful.
@@ -3543,9 +3246,6 @@ bool XFILECOBOL::AjustNodeWithOccurs(XFILECOBOL_FD_TREENODE* node)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

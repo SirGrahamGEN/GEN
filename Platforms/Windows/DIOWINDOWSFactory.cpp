@@ -6,10 +6,7 @@
 * @brief      WINDOWS Data Input/Output Factory class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -155,9 +152,6 @@
 * @brief      CreateStreamEnumDevices
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type : enum type to created
 *
 * @return     DIOSTREAMENUMDEVICES* : enum created
@@ -214,9 +208,6 @@ DIOSTREAMENUMDEVICES* DIOWINDOWSFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTY
 * @brief      Delete Stream Enum Devices
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  enumdevices : enum to delete
 *
 * @return     bool : true if is succesful.
@@ -238,9 +229,6 @@ bool DIOWINDOWSFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevice
 * @fn         DIOSTREAM* DIOWINDOWSFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 * @brief      Create Stream IO
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  config : config to create the stream IO
 *
@@ -306,9 +294,6 @@ DIOSTREAM* DIOWINDOWSFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 * @fn         bool DIOWINDOWSFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 * @brief      Delete Stream IO
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  diostream : stream IO to delete
 *

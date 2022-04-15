@@ -4,7 +4,7 @@
 //  WINDOWS Data IO Stream I2C class
 //
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 12/3/2003
 //
 //  GEN  Copyright (C).  All right reserved.
@@ -40,7 +40,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2013 7:51:23
 //
 //  @return
@@ -61,7 +61,7 @@ DIOWINDOWSSTREAMI2C::DIOWINDOWSSTREAMI2C() : DIOSTREAMI2C()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/11/2003 10:19:33
 //
 //  @return
@@ -87,7 +87,7 @@ DIOWINDOWSSTREAMI2C::~DIOWINDOWSSTREAMI2C()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/10/2012 10:03:42
 //
 //  @return       bool :
@@ -115,7 +115,7 @@ bool DIOWINDOWSSTREAMI2C::Open()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/10/2012 10:03:47
 //
 //  @return       bool :
@@ -138,7 +138,7 @@ bool DIOWINDOWSSTREAMI2C::Close()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/09/2012 16:59:27
 //
 //  @return       void :

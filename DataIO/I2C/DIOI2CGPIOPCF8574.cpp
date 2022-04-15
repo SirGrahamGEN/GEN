@@ -6,10 +6,7 @@
 * @brief      Data Input/Output I2C PCF8574 (GPIO 8 Pins) class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ DIOI2CGPIOPCF8574::DIOI2CGPIOPCF8574(): DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -100,9 +91,6 @@ DIOI2CGPIOPCF8574::~DIOI2CGPIOPCF8574()
 * @fn         bool DIOI2CGPIOPCF8574::Read(XBYTE& value)
 * @brief      Read
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 *
@@ -131,9 +119,6 @@ bool DIOI2CGPIOPCF8574::Read(XBYTE& value)
 * @brief      Write
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     bool : true if is succesful.
@@ -159,9 +144,6 @@ bool DIOI2CGPIOPCF8574::Write(XBYTE value)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -179,9 +161,6 @@ bool DIOI2CGPIOPCF8574::End()
 * @fn         bool DIOI2CGPIOPCF8574::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -210,9 +189,6 @@ bool DIOI2CGPIOPCF8574::IniDevice()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

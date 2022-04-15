@@ -6,10 +6,7 @@
 * @brief      eXtended Scheduler class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -67,9 +64,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XSCHEDULER* :
 *
 * @return     Does not return anything.
@@ -93,9 +87,6 @@ XSCHEDULERTASK::XSCHEDULERTASK(XSCHEDULER* xscheduler)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -118,9 +109,6 @@ XSCHEDULERTASK::~XSCHEDULERTASK()
 * @brief      IsActive
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -136,9 +124,6 @@ bool XSCHEDULERTASK::IsActive()
 * @fn         bool XSCHEDULERTASK::SetIsActive(bool active)
 * @brief      SetIsActive
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  active :
 *
@@ -161,9 +146,6 @@ bool XSCHEDULERTASK::SetIsActive(bool active)
 * @brief      GetID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -179,9 +161,6 @@ XDWORD XSCHEDULERTASK::GetID()
 * @fn         void XSCHEDULERTASK::SetID(XDWORD ID)
 * @brief      SetID
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -201,9 +180,6 @@ void XSCHEDULERTASK::SetID(XDWORD ID)
 * @brief      GetXTimer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XTIMER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -219,9 +195,6 @@ XTIMER* XSCHEDULERTASK::GetXTimer()
 * @fn         bool XSCHEDULERTASK::IsInValidTimeLimit()
 * @brief      IsInValidTimeLimit
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -239,9 +212,6 @@ bool XSCHEDULERTASK::IsInValidTimeLimit()
 * @brief      GetTimeLimitStart
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDATETIME* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -257,9 +227,6 @@ XDATETIME* XSCHEDULERTASK::GetTimeLimitStart()
 * @fn         XDATETIME* XSCHEDULERTASK::GetTimeLimitEnd()
 * @brief      GetTimeLimitEnd
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDATETIME* :
 *
@@ -277,9 +244,6 @@ XDATETIME* XSCHEDULERTASK::GetTimeLimitEnd()
 * @brief      XSCHEDULERTASK::IsCyclic
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -296,9 +260,6 @@ bool XSCHEDULERTASK::IsCyclic()
 * @brief      XSCHEDULERTASK::GetNCyclesTodo
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -314,9 +275,6 @@ int XSCHEDULERTASK::GetNCyclesTodo()
 * @fn         bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, XDATETIME* xdatetimecadence)
 * @brief      SetNCycles
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ncyclestodo :
 * @param[in]  xdatetimecadence :
@@ -343,9 +301,6 @@ bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, XDATETIME* xdatetimecadence)
 * @fn         bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, XQWORD cadenceinseconds)
 * @brief      SetNCycles
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ncyclestodo :
 * @param[in]  cadenceinseconds :
@@ -376,9 +331,6 @@ bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, XQWORD cadenceinseconds)
 * @brief      SetNCycles
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ncyclestodo :
 * @param[in]  cadenceinseconds :
 *
@@ -398,9 +350,6 @@ bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, int cadenceinseconds)
 * @brief      IsStartImmediatelyCycles
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -416,9 +365,6 @@ bool XSCHEDULERTASK::IsStartImmediatelyCycles()
 * @fn         void XSCHEDULERTASK::SetIsStartImmediatelyCycles(bool isstartimmediatelycycles)
 * @brief      SetIsStartImmediatelyCycles
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isstartimmediatelycycles :
 *
@@ -437,9 +383,6 @@ void XSCHEDULERTASK::SetIsStartImmediatelyCycles(bool isstartimmediatelycycles)
 * @fn         bool XSCHEDULERTASK::SetTimeLimits(XDATETIME* xdatetimelimitstart, XDATETIME* xdatetimelimitend)
 * @brief      SetTimeLimits
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xdatetimelimitstart :
 * @param[in]  xdatetimelimitend :
@@ -462,9 +405,6 @@ bool XSCHEDULERTASK::SetTimeLimits(XDATETIME* xdatetimelimitstart, XDATETIME* xd
 * @brief      SetConditionDayWeek
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask :
 *
 * @return     void : does not return anything.
@@ -482,9 +422,6 @@ void XSCHEDULERTASK::SetConditionDayWeek(XBYTE mask)
 * @fn         bool XSCHEDULERTASK::CheckCondition(XDATETIME* xdatetimeactual, XTIMER* xtimeractual)
 * @brief      CheckCondition
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xdatetimeactual :
 * @param[in]  xtimeractual :
@@ -562,9 +499,6 @@ bool XSCHEDULERTASK::CheckCondition(XDATETIME* xdatetimeactual, XTIMER* xtimerac
 * @brief      GetDayOfWeekMask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xtimeactual :
 *
 * @return     XBYTE :
@@ -598,9 +532,6 @@ XBYTE XSCHEDULERTASK::GetDayOfWeekMask(XDATETIME* xtimeactual)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -639,9 +570,6 @@ void XSCHEDULERTASK::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -662,9 +590,6 @@ XSCHEDULER::XSCHEDULER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -687,9 +612,6 @@ XSCHEDULER::~XSCHEDULER()
 * @fn         bool XSCHEDULER::Ini()
 * @brief      Ini
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -720,9 +642,6 @@ bool XSCHEDULER::Ini()
 * @brief      IsActive
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -738,9 +657,6 @@ bool XSCHEDULER::IsActive()
 * @fn         void XSCHEDULER::Activate(bool on)
 * @brief      Activate
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  on :
 *
@@ -759,9 +675,6 @@ void XSCHEDULER::Activate(bool on)
 * @fn         bool XSCHEDULER::Task_Add(XSCHEDULERTASK* task)
 * @brief      Task_Add
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  task :
 *
@@ -791,9 +704,6 @@ bool XSCHEDULER::Task_Add(XSCHEDULERTASK* task)
 * @brief      Task_Get
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     XSCHEDULERTASK* :
@@ -813,9 +723,6 @@ XSCHEDULERTASK* XSCHEDULER::Task_Get(int index)
 * @fn         XSCHEDULERTASK* XSCHEDULER::Task_GetForID(XDWORD ID)
 * @brief      Task_GetForID
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -855,9 +762,6 @@ XSCHEDULERTASK* XSCHEDULER::Task_GetForID(XDWORD ID)
 * @brief      Task_Del
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     bool : true if is succesful.
@@ -891,9 +795,6 @@ bool XSCHEDULER::Task_Del(int index)
 * @fn         bool XSCHEDULER::Task_DelForID(XDWORD ID)
 * @brief      Task_DelForID
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -936,9 +837,6 @@ bool XSCHEDULER::Task_DelForID(XDWORD ID)
 * @brief      Task_DelAll
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -963,9 +861,6 @@ bool XSCHEDULER::Task_DelAll()
 * @fn         bool XSCHEDULER::End()
 * @brief      End
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1006,9 +901,6 @@ bool XSCHEDULER::End()
 * @fn         void XSCHEDULER::ThreadScheduler(void* data)
 * @brief      ThreadScheduler
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 *
@@ -1071,9 +963,6 @@ void XSCHEDULER::ThreadScheduler(void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

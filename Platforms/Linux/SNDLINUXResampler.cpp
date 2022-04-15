@@ -41,7 +41,7 @@ extern "C"
 //
 //  Class Constructor SNDRESAMPLERLIBAV
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      28/11/2016 10:45:24
 //
 */
@@ -60,7 +60,7 @@ SNDLINUXRESAMPLER::SNDLINUXRESAMPLER() : SNDRESAMPLER()
 //
 //   Class Destructor SNDRESAMPLERLIBAV
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      28/11/2016 10:45:18
 //
 */
@@ -80,7 +80,7 @@ SNDLINUXRESAMPLER::~SNDLINUXRESAMPLER()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      28/11/2016 10:45:11
 //
 //  @return       bool :
@@ -153,7 +153,7 @@ bool SNDLINUXRESAMPLER::Ini(XQWORD dstchannels, SND_RESAMPLER_FORMAT dstformat, 
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      28/11/2016 10:45:03
 //
 //  @return       int :
@@ -223,7 +223,7 @@ int SNDLINUXRESAMPLER::Allocate(XBYTE *** audiodata, int* linesize, void* extrad
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      28/11/2016 10:44:54
 //
 //  @param        audiodata :
@@ -247,7 +247,7 @@ void SNDLINUXRESAMPLER::Free(XBYTE ** audiodata)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      28/11/2016 10:44:48
 //
 //  @return       int :
@@ -272,7 +272,7 @@ int SNDLINUXRESAMPLER::Convert(XBYTE** buffer, int buffersize, XBYTE** extendedd
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      28/11/2016 10:44:40
 //
 //  @return       SND_RESAMPLER_FORMAT :

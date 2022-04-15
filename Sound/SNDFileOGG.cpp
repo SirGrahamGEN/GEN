@@ -6,10 +6,7 @@
 * @brief      Sound File OGG format class
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ SNDFILEOGG::SNDFILEOGG() : SNDFILE()
 * @note       VIRTUAL
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -97,9 +88,6 @@ SNDFILEOGG::~SNDFILEOGG()
 * @fn         bool SNDFILEOGG::LoadFile(XCHAR* path, XCHAR* ID, bool instream)
 * @brief      LoadFile
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  path : 
 * @param[in]  ID : 
@@ -195,9 +183,6 @@ bool SNDFILEOGG::LoadFile(XCHAR* path, XCHAR* ID, bool instream)
 * @brief      LoadFile
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath : 
 * @param[in]  ID : 
 * @param[in]  instream : 
@@ -218,9 +203,6 @@ bool SNDFILEOGG::LoadFile(XPATH& xpath, XCHAR* ID, bool instream)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

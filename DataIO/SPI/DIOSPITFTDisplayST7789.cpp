@@ -6,10 +6,7 @@
 * @brief      Data Input/Output SPI Display TFT ILI9341 (Ilitek)
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,10 +54,7 @@
 * @fn         DIOSPITFTDISPLAYST7789::DIOSPITFTDISPLAYST7789(XDWORD width, XDWORD height)
 * @brief      Constructor
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  XDWORD : 
 * @param[in]   XDWORD height : 
 * 
@@ -86,9 +80,6 @@ DIOSPITFTDISPLAYST7789::DIOSPITFTDISPLAYST7789(XDWORD width, XDWORD height)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -106,9 +97,6 @@ DIOSPITFTDISPLAYST7789::~DIOSPITFTDISPLAYST7789()
 * @fn         bool DIOSPITFTDISPLAYST7789::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -170,9 +158,6 @@ bool DIOSPITFTDISPLAYST7789::IniDevice()
 * @brief      Clear
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  color :
 *
 * @return     bool : true if is succesful.
@@ -211,9 +196,6 @@ bool DIOSPITFTDISPLAYST7789::Clear(XWORD color)
 * @brief      Update
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 *
 * @return     bool : true if is succesful.
@@ -241,9 +223,6 @@ bool DIOSPITFTDISPLAYST7789::Update(XBYTE* buffer)
 * @brief      PutPixel
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x :
 * @param[in]  y :
 * @param[in]  color :
@@ -270,9 +249,6 @@ bool DIOSPITFTDISPLAYST7789::PutPixel(XWORD x, XWORD y, XWORD color)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -293,9 +269,6 @@ bool DIOSPITFTDISPLAYST7789::End()
 * @brief      SetActiveBlackLight
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  active :
 *
 * @return     bool : true if is succesful.
@@ -314,9 +287,6 @@ bool DIOSPITFTDISPLAYST7789::SetActiveBlackLight(bool active)
 * @fn         bool DIOSPITFTDISPLAYST7789::TFT_Init()
 * @brief      TFT_Init
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -377,9 +347,6 @@ bool DIOSPITFTDISPLAYST7789::TFT_Init()
 * @brief      TFT_Reset
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -406,9 +373,6 @@ bool DIOSPITFTDISPLAYST7789::TFT_Reset()
 * @fn         bool DIOSPITFTDISPLAYST7789::TFT_SetWindow(int xs, int ys, int xe, int ye)
 * @brief      TFT_SetWindow
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xs :
 * @param[in]  ys :
@@ -470,10 +434,7 @@ bool DIOSPITFTDISPLAYST7789::TFT_SetWindow(int xs, int ys, int xe, int ye)
 * @fn         void DIOSPITFTDISPLAYST7789::TFT_SetRotation(XBYTE mode)
 * @brief      TFT_SetRotation
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  mode : 
 * 
 * @return     void : does not return anything. 
@@ -517,9 +478,6 @@ void DIOSPITFTDISPLAYST7789::TFT_SetRotation(XBYTE mode)
 * @brief      SendCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  command :
 *
 * @return     bool : true if is succesful.
@@ -545,9 +503,6 @@ bool DIOSPITFTDISPLAYST7789::SendCommand(XBYTE command)
 * @brief      SendData
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -570,10 +525,7 @@ bool DIOSPITFTDISPLAYST7789::SendData()
 * @fn         bool DIOSPITFTDISPLAYST7789::SendData(XBYTE data)
 * @brief      SendData
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  data : 
 * 
 * @return     bool : true if is succesful. 
@@ -613,10 +565,7 @@ bool DIOSPITFTDISPLAYST7789::SendData(XWORD data)
 * @fn         bool DIOSPITFTDISPLAYST7789::SendCommandParams(XBYTE command, int ndata, ...)
 * @brief      SendCommandParams
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  command : 
 * @param[in]  ndata : 
 * @param[in]  ... : 
@@ -658,9 +607,6 @@ bool DIOSPITFTDISPLAYST7789::SendCommandParams(XBYTE command, int ndata, ...)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

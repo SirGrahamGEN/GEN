@@ -6,10 +6,7 @@
 * @brief      eXtended Language ISO 639_3 class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -240,9 +237,6 @@ XLANGUAGE_ISO_639_3_ENTRY  iso_639_3_entry[] = {   {  XLANGUAGE_ISO_639_3_CODE_E
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -260,9 +254,6 @@ XLANGUAGE_ISO_639_3::XLANGUAGE_ISO_639_3()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -278,9 +269,6 @@ XLANGUAGE_ISO_639_3::~XLANGUAGE_ISO_639_3()
 * @fn         XDWORD XLANGUAGE_ISO_639_3::Code_GetByCodeAlpha3(XCHAR* codealpha3)
 * @brief      Code_GetByCodeAlpha3
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  codealpha3 :
 *
@@ -307,9 +295,6 @@ XDWORD XLANGUAGE_ISO_639_3::Code_GetByCodeAlpha3(XCHAR* codealpha3)
 * @brief      Code_GetByCodeAlpha2
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  codealpha2 :
 *
 * @return     XDWORD :
@@ -335,9 +320,6 @@ XDWORD XLANGUAGE_ISO_639_3::Code_GetByCodeAlpha2(XCHAR* codealpha2)
 * @brief      Code_GetByEnglishName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  englishname :
 *
 * @return     XDWORD :
@@ -362,9 +344,6 @@ XDWORD XLANGUAGE_ISO_639_3::Code_GetByEnglishName(XCHAR* englishname)
 * @fn         XDWORD XLANGUAGE_ISO_639_3::Code_GetByAlias(XCHAR* alias)
 * @brief      Code_GetByAlias
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  alias :
 *
@@ -395,9 +374,6 @@ XDWORD XLANGUAGE_ISO_639_3::Code_GetByAlias(XCHAR* alias)
 * @brief      CodeAlpha3_GetByCode
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  code :
 * @param[in]  codealpha3 :
 *
@@ -427,9 +403,6 @@ bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByCode(XDWORD code, XSTRING& codealpha3)
 * @fn         bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByCodeAlpha2(XCHAR* codealpha2, XSTRING& codealpha3)
 * @brief      CodeAlpha3_GetByCodeAlpha2
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  codealpha2 :
 * @param[in]  codealpha3 :
@@ -463,9 +436,6 @@ bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByCodeAlpha2(XCHAR* codealpha2, XSTRING&
 * @brief      CodeAlpha3_GetByEnglishName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  englishname :
 * @param[in]  codealpha3 :
 *
@@ -497,9 +467,6 @@ bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByEnglishName(XCHAR* englishname, XSTRIN
 * @fn         bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByAlias(XCHAR* alias, XSTRING& codealpha3)
 * @brief      CodeAlpha3_GetByAlias
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  alias :
 * @param[in]  codealpha3 :
@@ -541,9 +508,6 @@ bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByAlias(XCHAR* alias, XSTRING& codealpha
 * @brief      EnglishName_GetByCode
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  code :
 * @param[in]  englishname :
 *
@@ -573,9 +537,6 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByCode(XDWORD code, XSTRING& englishnam
 * @fn         bool XLANGUAGE_ISO_639_3::EnglishName_GetByCodeAlpha3(XCHAR* codealpha2, XSTRING& englishname)
 * @brief      EnglishName_GetByCodeAlpha3
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  codealpha2 :
 * @param[in]  englishname :
@@ -609,9 +570,6 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByCodeAlpha3(XCHAR* codealpha3, XSTRING
 * @brief      EnglishName_GetByCodeAlpha2
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  codealpha2 :
 * @param[in]  englishname :
 *
@@ -643,9 +601,6 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByCodeAlpha2(XCHAR* codealpha2, XSTRING
 * @fn         bool XLANGUAGE_ISO_639_3::EnglishName_GetByAlias(XCHAR* alias, XSTRING& englishname)
 * @brief      EnglishName_GetByAlias
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  alias :
 * @param[in]  englishname :
@@ -687,9 +642,6 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByAlias(XCHAR* alias, XSTRING& englishn
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

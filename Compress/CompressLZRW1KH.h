@@ -6,7 +6,7 @@
 //
 //  Compress LZRW1/KH class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 03/05/2004 10:25:39
 */
 //  GEN  Copyright (C).  All right reserved.

@@ -6,10 +6,7 @@
 * @brief      DataBase PostgreSQL Query class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  DB_SQL_DATABASE* :
 *
 * @return     Does not return anything.
@@ -83,9 +77,6 @@ POSTGRESQL_QUERY::POSTGRESQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(data
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -130,9 +121,6 @@ POSTGRESQL_QUERY::~POSTGRESQL_QUERY()
 * @fn         bool POSTGRESQL_QUERY::Execute()
 * @brief      Execute
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -286,9 +274,6 @@ bool POSTGRESQL_QUERY::Execute()
 * @brief      ClearCursor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -321,9 +306,6 @@ bool POSTGRESQL_QUERY::ClearCursor()
 * @brief      ConstructResult
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_RESULT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -342,9 +324,6 @@ DB_SQL_RESULT* POSTGRESQL_QUERY::ConstructResult()
 * @fn         bool POSTGRESQL_QUERY::BindParametersToQuery()
 * @brief      BindParametersToQuery
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -451,9 +430,6 @@ bool POSTGRESQL_QUERY::BindParametersToQuery()
 * @brief      BindParametersToResult
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -470,9 +446,6 @@ bool POSTGRESQL_QUERY::BindParametersToResult()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

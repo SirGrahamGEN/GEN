@@ -6,10 +6,7 @@
 * @brief      eXtended utils STM32 Flash Memory class
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -74,9 +68,6 @@ XSTM32EEPROMMEMORYMANAGER::XSTM32EEPROMMEMORYMANAGER()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -92,9 +83,6 @@ XSTM32EEPROMMEMORYMANAGER::~XSTM32EEPROMMEMORYMANAGER()
 * @fn         bool XSTM32EEPROMMEMORYMANAGER::Ini()
 * @brief      Ini
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -112,9 +100,6 @@ bool XSTM32EEPROMMEMORYMANAGER::Ini()
 * @brief      End
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -130,9 +115,6 @@ bool XSTM32EEPROMMEMORYMANAGER::End()
 * @fn         bool XSTM32EEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Read
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -165,9 +147,6 @@ bool XSTM32EEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Write
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 * @param[in]  size :
@@ -198,9 +177,6 @@ bool XSTM32EEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 * @fn         bool XSTM32EEPROMMEMORYMANAGER::EraseAll()
 * @brief      EraseAll
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *

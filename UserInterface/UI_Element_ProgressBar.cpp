@@ -5,11 +5,8 @@
 * @class      UI_ELEMENT_PROGRESSBAR
 * @brief      User Interface Element Progress Bar Class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,10 +53,7 @@
 * @fn         UI_ELEMENT_PROGRESSBAR::UI_ELEMENT_PROGRESSBAR()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -81,10 +75,7 @@ UI_ELEMENT_PROGRESSBAR::UI_ELEMENT_PROGRESSBAR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -106,10 +97,7 @@ UI_ELEMENT_PROGRESSBAR::~UI_ELEMENT_PROGRESSBAR()
 * @fn         float UI_ELEMENT_PROGRESSBAR::GetLevel()
 * @brief      GetLevel
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     float : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -125,10 +113,7 @@ float UI_ELEMENT_PROGRESSBAR::GetLevel()
 * @fn         void UI_ELEMENT_PROGRESSBAR::SetLevel(float level)
 * @brief      SetLevel
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  level : 
 * 
 * @return     void : does not return anything. 
@@ -149,10 +134,7 @@ void UI_ELEMENT_PROGRESSBAR::SetLevel(float level)
 * @fn         UI_COLOR* UI_ELEMENT_PROGRESSBAR::GetLineColor()
 * @brief      GetLineColor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_COLOR* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -168,10 +150,7 @@ UI_COLOR* UI_ELEMENT_PROGRESSBAR::GetLineColor()
 * @fn         UI_ELEMENT* UI_ELEMENT_PROGRESSBAR::GetProgressRect()
 * @brief      GetProgressRect
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -187,10 +166,7 @@ UI_ELEMENT* UI_ELEMENT_PROGRESSBAR::GetProgressRect()
 * @fn         void UI_ELEMENT_PROGRESSBAR::SetProgressRect(UI_ELEMENT* progressrect)
 * @brief      SetProgressRect
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  progressrect : 
 * 
 * @return     void : does not return anything. 
@@ -208,10 +184,7 @@ void UI_ELEMENT_PROGRESSBAR::SetProgressRect(UI_ELEMENT* progressrect)
 * @fn         bool UI_ELEMENT_PROGRESSBAR::ContinuousCycle_Is()
 * @brief      ContinuousCycle_Is
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -226,10 +199,7 @@ bool UI_ELEMENT_PROGRESSBAR::ContinuousCycle_Is()
 * @fn         void UI_ELEMENT_PROGRESSBAR::ContinuousCycle_Set(bool active, XDWORD sizesegment, XDWORD stepsegment, XDWORD timestep)
 * @brief      ContinuousCycle_Set
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  active : 
 * @param[in]  sizesegment : 
 * @param[in]  stepsegment : 
@@ -253,10 +223,7 @@ void UI_ELEMENT_PROGRESSBAR::ContinuousCycle_Set(bool active, XDWORD sizesegment
 * @fn         XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetSizeSegment()
 * @brief      ContinuousCycle_GetSizeSegment
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -272,10 +239,7 @@ XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetSizeSegment()
 * @fn         XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetStepSegment()
 * @brief      ContinuousCycle_GetStepSegment
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -291,10 +255,7 @@ XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetStepSegment()
 * @fn         XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetNSteps()
 * @brief      ContinuousCycle_GetNSteps
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -310,10 +271,7 @@ XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetNSteps()
 * @fn         void UI_ELEMENT_PROGRESSBAR::ContinuousCycle_SetNSteps(XDWORD nsteps)
 * @brief      ContinuousCycle_SetNSteps
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  nsteps : 
 * 
 * @return     void : does not return anything. 
@@ -331,10 +289,7 @@ void UI_ELEMENT_PROGRESSBAR::ContinuousCycle_SetNSteps(XDWORD nsteps)
 * @fn         XTIMER* UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetXTimer()
 * @brief      ContinuousCycle_GetXTimer
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XTIMER* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -350,10 +305,7 @@ XTIMER* UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetXTimer()
 * @fn         XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetTimeStep()
 * @brief      ContinuousCycle_GetTimeStep
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -370,10 +322,7 @@ XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetTimeStep()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

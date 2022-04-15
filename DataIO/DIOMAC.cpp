@@ -6,10 +6,7 @@
 * @brief      Data Input/Output MAC class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      IOMAC
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOMAC:: :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -73,9 +67,6 @@ DIOMAC:: DIOMAC()
 * @brief      IOMAC
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOMAC::~ :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -91,9 +82,6 @@ DIOMAC::~ DIOMAC()
 * @fn         bool DIOMAC::IsZero()
 * @brief      IsZero
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -116,9 +104,6 @@ bool DIOMAC::IsZero()
 * @brief      Get
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -133,9 +118,6 @@ XBYTE* DIOMAC::Get()
 * @fn         XDWORD DIOMAC::GetManufactured()
 * @brief      GetManufactured
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -159,9 +141,6 @@ XDWORD DIOMAC::GetManufactured()
 * @fn         bool DIOMAC::GetXString(XSTRING& MACstring, XCHAR separator)
 * @brief      GetXString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  MACstring : 
 * @param[in]  separator : 
@@ -197,9 +176,6 @@ bool DIOMAC::GetXString(XSTRING& MACstring, XCHAR separator)
 * @brief      GetLongNumber
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -226,9 +202,6 @@ XQWORD DIOMAC::GetLongNumber()
 * @brief      Set
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  MAC :
 *
 * @return     bool : true if is succesful.
@@ -252,9 +225,6 @@ bool DIOMAC::Set(XBYTE* MAC)
 * @fn         bool DIOMAC::Set(XSTRING& MAC)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  MAC :
 *
@@ -293,9 +263,6 @@ bool DIOMAC::Set(XSTRING& MAC)
 * @brief      Set
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  MAC :
 *
 * @return     bool : true if is succesful.
@@ -317,9 +284,6 @@ bool DIOMAC::Set(char* MAC)
 * @fn         bool DIOMAC::IsEqual(DIOMAC* MAC)
 * @brief      IsEqual
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  MAC : 
 *
@@ -346,9 +310,6 @@ bool DIOMAC::IsEqual(DIOMAC* MAC)
 * @brief      IsEqual
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  MAC : 
 *
 * @return     bool : true if is succesful. 
@@ -368,9 +329,6 @@ bool DIOMAC::IsEqual(DIOMAC& MAC)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

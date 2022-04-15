@@ -6,10 +6,7 @@
 * @brief      DataBase connection class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  DB_SQL_DATABASE* :
 *
 * @return     Does not return anything.
@@ -87,9 +81,6 @@ DB_SQL_CONNECTION::DB_SQL_CONNECTION(DB_SQL_DATABASE* database)
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -110,9 +101,6 @@ DB_SQL_CONNECTION::~DB_SQL_CONNECTION()
 * @fn         bool DB_SQL_CONNECTION::SetOption(XCHAR* key, XCHAR* value)
 * @brief      SetOption
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  key :
 * @param[in]  value :
@@ -148,9 +136,6 @@ bool DB_SQL_CONNECTION::SetOption(XCHAR* key, XCHAR* value)
 * @brief      FindOption
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  key :
 * @param[in]  result :
 *
@@ -180,9 +165,6 @@ bool DB_SQL_CONNECTION::FindOption(XCHAR* key, DB_SQL_STRING* result)
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -199,9 +181,6 @@ DB_SQL_CONNECTION::DB_SQL_CONNECTION()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

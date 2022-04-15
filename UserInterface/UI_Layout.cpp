@@ -5,11 +5,8 @@
 * @class      UI_LAYOUT
 * @brief      User Interface Layout Class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,10 +51,7 @@
 * @fn         UI_LAYOUT::UI_LAYOUT(UI_SKINCANVAS* skin)
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  UI_SKINCANVAS* : 
 * 
 * @return     Does not return anything. 
@@ -79,10 +73,7 @@ UI_LAYOUT::UI_LAYOUT(UI_SKIN* skin)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -100,10 +91,7 @@ UI_LAYOUT::~UI_LAYOUT()
 * @fn         UI_SKIN* UI_LAYOUT::GetSkin()
 * @brief      GetSkin
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_SKIN* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -119,10 +107,7 @@ UI_SKIN* UI_LAYOUT::GetSkin()
 * @fn         XSTRING* UI_LAYOUT::GetNameID()
 * @brief      GetNameID
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -138,10 +123,7 @@ XSTRING* UI_LAYOUT::GetNameID()
 * @fn         UI_COLOR* UI_LAYOUT::GetBackgroundColor()
 * @brief      GetBackgroundColor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_COLOR* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -157,10 +139,7 @@ UI_COLOR* UI_LAYOUT::GetBackgroundColor()
 * @fn         XSTRING* UI_LAYOUT::GetBackgroundFilename()
 * @brief      GetBackgroundFilename
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -176,10 +155,7 @@ XSTRING* UI_LAYOUT::GetBackgroundFilename()
 * @fn         bool UI_LAYOUT::Elements_Add(UI_ELEMENT* element)
 * @brief      Elements_Add
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -201,10 +177,7 @@ bool UI_LAYOUT::Elements_Add(UI_ELEMENT* element)
 * @fn         XVECTOR<UI_ELEMENT*>* UI_LAYOUT::Elements_Get()
 * @brief      Elements_Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XVECTOR<UI_ELEMENT*>* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -219,10 +192,7 @@ XVECTOR<UI_ELEMENT*>* UI_LAYOUT::Elements_Get()
 * @fn         UI_ELEMENT* UI_LAYOUT::Elements_Get(XCHAR* nameelement, UI_ELEMENT_TYPE type)
 * @brief      Elements_Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  nameelement : 
 * @param[in]  type : 
 * 
@@ -265,10 +235,7 @@ UI_ELEMENT* UI_LAYOUT::Elements_Get(XCHAR* nameelement, UI_ELEMENT_TYPE type)
 * @fn         bool UI_LAYOUT::Elements_DeleteAll()
 * @brief      Elements_DeleteAll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -289,10 +256,7 @@ bool UI_LAYOUT::Elements_DeleteAll()
 * @fn         bool UI_LAYOUT::Elements_SetToRedraw(bool recursive)
 * @brief      Elements_SetToRedraw
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  recursive : 
 * 
 * @return     bool : true if is succesful. 
@@ -321,10 +285,7 @@ bool UI_LAYOUT::Elements_SetToRedraw(bool recursive)
 * @fn         bool UI_LAYOUT::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
 * @brief      Elements_SetToRedraw
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  recursive : 
 * 
@@ -361,10 +322,7 @@ bool UI_LAYOUT::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
 * @fn         bool UI_LAYOUT::Update()
 * @brief      Update
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -386,10 +344,7 @@ bool UI_LAYOUT::Update()
 * @fn         UI_ELEMENT* UI_LAYOUT::Elements_Get(UI_ELEMENT* element, XCHAR* nameelement, UI_ELEMENT_TYPE type)
 * @brief      Elements_Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  nameelement : 
 * @param[in]  type : 
@@ -434,10 +389,7 @@ UI_ELEMENT* UI_LAYOUT::Elements_Get(UI_ELEMENT* element, XCHAR* nameelement, UI_
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

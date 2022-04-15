@@ -6,10 +6,7 @@
 * @brief      eXtended LINUX Console class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -81,9 +75,6 @@ XLINUXCONSOLE::XLINUXCONSOLE(): XCONSOLE()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -99,9 +90,6 @@ XLINUXCONSOLE::~XLINUXCONSOLE()
 * @fn         bool XLINUXCONSOLE::GetSizeText(int& columns, int& rows)
 * @brief      GetSizeText
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  columns :
 * @param[in]  rows :
@@ -130,9 +118,6 @@ bool XLINUXCONSOLE::GetSizeText(int& columns, int& rows)
 * @brief      Maximize
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -151,9 +136,6 @@ bool XLINUXCONSOLE::Maximize()
 * @brief      Minimize
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -169,9 +151,6 @@ bool XLINUXCONSOLE::Minimize()
 * @fn         bool XLINUXCONSOLE::Hide()
 * @brief      Hide
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -189,9 +168,6 @@ bool XLINUXCONSOLE::Hide()
 * @brief      IsHide
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -207,9 +183,6 @@ bool XLINUXCONSOLE::IsHide()
 * @fn         bool XLINUXCONSOLE::Print(XCHAR* string)
 * @brief      Print
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string : string to print
 *
@@ -242,10 +215,7 @@ bool XLINUXCONSOLE::Print(XCHAR* string)
 * @fn         bool XLINUXCONSOLE::Clear(bool fill)
 * @brief      Clear
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  fill : 
 * 
 * @return     bool : true if is succesful. 
@@ -274,9 +244,6 @@ bool XLINUXCONSOLE::Clear(bool fill)
 * @fn         bool XLINUXCONSOLE::KBHit(void)
 * @brief      KBHit
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  void :
 *
@@ -330,7 +297,7 @@ bool XLINUXCONSOLE::KBHit(void)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/12/2009 08:51:46 p.m.
 //
 //  @return       int :
@@ -365,9 +332,6 @@ int XLINUXCONSOLE::GetChar()
 * @brief      RawModeEnable
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -388,9 +352,6 @@ void XLINUXCONSOLE::RawModeEnable()
 * @fn         void XLINUXCONSOLE::RawModeDisable()
 * @brief      RawModeDisable
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

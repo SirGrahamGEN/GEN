@@ -6,10 +6,7 @@
 * @brief      Data Input/Output STM32 Stream USB class
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -65,9 +62,6 @@ DIOSTM32STREAMUSB*      diostreamusbptrhandle =  NULL;
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -107,9 +101,6 @@ DIOSTM32STREAMUSB::DIOSTM32STREAMUSB() : DIOSTREAMUSB(), XFSMACHINE(0)
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -130,9 +121,6 @@ DIOSTM32STREAMUSB::~DIOSTM32STREAMUSB()
 * @brief      GetConnectStatus
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSTATUS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -150,9 +138,6 @@ DIOSTREAMSTATUS DIOSTM32STREAMUSB::GetConnectStatus()
 * @fn         bool DIOSTM32STREAMUSB::Open()
 * @brief      Open
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -183,9 +168,6 @@ bool DIOSTM32STREAMUSB::Open()
 * @brief      WriteDirect
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -208,9 +190,6 @@ XDWORD DIOSTM32STREAMUSB::WriteDirect(XBYTE* buffer, XDWORD size)
 * @fn         XDWORD DIOSTM32STREAMUSB::Write(XBYTE* buffer, XDWORD size)
 * @brief      Write
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -245,9 +224,6 @@ XDWORD DIOSTM32STREAMUSB::Write(XBYTE* buffer, XDWORD size)
 * @brief      Disconnect
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -263,9 +239,6 @@ bool DIOSTM32STREAMUSB::Disconnect()
 * @fn         bool DIOSTM32STREAMUSB::Close()
 * @brief      Close
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -292,9 +265,6 @@ bool DIOSTM32STREAMUSB::Close()
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -311,9 +281,6 @@ bool DIOSTM32STREAMUSB::CleanBuffers()
 * @fn         void DIOSTM32STREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t*len)
 * @brief      HAL_USB_RxCpltCallback
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  uint32_t*len :
@@ -349,9 +316,6 @@ void DIOSTM32STREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t *len)
 * @fn         void DIOSTM32STREAMUSB::ThreadConnection(void* param)
 * @brief      ThreadConnection
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *
@@ -447,9 +411,6 @@ void DIOSTM32STREAMUSB::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

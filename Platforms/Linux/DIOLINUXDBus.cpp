@@ -6,10 +6,7 @@
 * @brief      Data Input/Output LINUX DBus class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,10 +56,7 @@
 * @fn         DIOLINUXDBUS_MESSAGE::DIOLINUXDBUS_MESSAGE()
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -79,10 +73,7 @@ DIOLINUXDBUS_MESSAGE::DIOLINUXDBUS_MESSAGE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -100,10 +91,7 @@ DIOLINUXDBUS_MESSAGE::~DIOLINUXDBUS_MESSAGE()
 * @fn         XSTRING* DIOLINUXDBUS_MESSAGE::GetDestination()
 * @brief      GetDestination
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -119,10 +107,7 @@ XSTRING* DIOLINUXDBUS_MESSAGE::GetDestination()
 * @fn         XSTRING* DIOLINUXDBUS_MESSAGE::GetPath()
 * @brief      GetPath
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -138,10 +123,7 @@ XSTRING* DIOLINUXDBUS_MESSAGE::GetPath()
 * @fn         XSTRING* DIOLINUXDBUS_MESSAGE::GetIFace()
 * @brief      GetIFace
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -157,10 +139,7 @@ XSTRING* DIOLINUXDBUS_MESSAGE::GetIFace()
 * @fn         XSTRING* DIOLINUXDBUS_MESSAGE::GetMethod()
 * @brief      GetMethod
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -175,10 +154,7 @@ XSTRING* DIOLINUXDBUS_MESSAGE::GetMethod()
 * @fn         bool DIOLINUXDBUS_MESSAGE::Create()
 * @brief      Create
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -216,10 +192,7 @@ bool DIOLINUXDBUS_MESSAGE::Create()
 * @fn         DBusMessage* DIOLINUXDBUS_MESSAGE::GetHandler()
 * @brief      GetHandler
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DBusMessage* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -235,10 +208,7 @@ DBusMessage* DIOLINUXDBUS_MESSAGE::GetHandler()
 * @fn         bool DIOLINUXDBUS_MESSAGE::SetHandler(DBusMessage* handler)
 * @brief      SetHandler
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  handler : 
 * 
 * @return     bool : true if is succesful. 
@@ -258,10 +228,7 @@ bool DIOLINUXDBUS_MESSAGE::SetHandler(DBusMessage* handler)
 * @fn         bool DIOLINUXDBUS_MESSAGE::Delete()
 * @brief      Delete
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -282,10 +249,7 @@ bool DIOLINUXDBUS_MESSAGE::Delete()
 * @fn         bool DIOLINUXDBUS_MESSAGE::GetResult(XDWORD& result)
 * @brief      GetResult
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  result : 
 * 
 * @return     bool : true if is succesful. 
@@ -321,10 +285,7 @@ bool DIOLINUXDBUS_MESSAGE::GetResult(XDWORD& result)
 * @fn         bool DIOLINUXDBUS_MESSAGE::GetResult(XSTRING& result)
 * @brief      GetResult
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  result : 
 * 
 * @return     bool : true if is succesful. 
@@ -362,10 +323,7 @@ bool DIOLINUXDBUS_MESSAGE::GetResult(XSTRING& result)
 * @fn         bool DIOLINUXDBUS_MESSAGE::GetResult(XVECTOR<XSTRING*>& result)
 * @brief      GetResult
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  result : 
 * 
 * @return     bool : true if is succesful. 
@@ -413,10 +371,7 @@ bool DIOLINUXDBUS_MESSAGE::GetResult(XVECTOR<XSTRING*>& result)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -442,10 +397,7 @@ void DIOLINUXDBUS_MESSAGE::Clean()
 * @fn         DIOLINUXDBUS_ARGUMENTS::DIOLINUXDBUS_ARGUMENTS()
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -478,10 +430,7 @@ DIOLINUXDBUS_ARGUMENTS::DIOLINUXDBUS_ARGUMENTS(bool in, DIOLINUXDBUS_MESSAGE* me
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -497,10 +446,7 @@ DIOLINUXDBUS_ARGUMENTS::~DIOLINUXDBUS_ARGUMENTS()
 * @fn         DBusMessageIter* DIOLINUXDBUS_ARGUMENTS::GetHandler()
 * @brief      GetHandler
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DBusMessageIter* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -516,10 +462,7 @@ DBusMessageIter* DIOLINUXDBUS_ARGUMENTS::GetHandler()
 * @fn         bool DIOLINUXDBUS_ARGUMENTS::Append(bool value)
 * @brief      Append
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  value : 
 * 
 * @return     bool : true if is succesful. 
@@ -547,10 +490,7 @@ bool DIOLINUXDBUS_ARGUMENTS::Append(bool value)
 * @fn         bool DIOLINUXDBUS_ARGUMENTS::Append(XCHAR* value)
 * @brief      Append
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  value : 
 * 
 * @return     bool : true if is succesful. 
@@ -580,10 +520,7 @@ bool DIOLINUXDBUS_ARGUMENTS::Append(XCHAR* value)
 * @fn         bool DIOLINUXDBUS_ARGUMENTS::AppendIterator(bool value)
 * @brief      AppendIterator
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  value : 
 * 
 * @return     bool : true if is succesful. 
@@ -611,10 +548,7 @@ bool DIOLINUXDBUS_ARGUMENTS::AppendIterator(bool value)
 * @fn         bool DIOLINUXDBUS_ARGUMENTS::AppendIterator(XCHAR* value)
 * @brief      AppendIterator
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  value : 
 * 
 * @return     bool : true if is succesful. 
@@ -644,10 +578,7 @@ bool DIOLINUXDBUS_ARGUMENTS::AppendIterator(XCHAR* value)
 * @fn         bool DIOLINUXDBUS_MESSAGE::GetResultInteractor(XVARIANT& result)
 * @brief      GetResultInteractor
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  result : 
 * 
 * @return     bool : true if is succesful. 
@@ -698,10 +629,7 @@ bool DIOLINUXDBUS_ARGUMENTS::GetResultInteractor(XVARIANT& result)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -723,10 +651,7 @@ void DIOLINUXDBUS_ARGUMENTS::Clean()
 * @fn         DIOLINUXDBUS_SIGNAL::DIOLINUXDBUS_SIGNAL()
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -742,10 +667,7 @@ DIOLINUXDBUS_SIGNAL::DIOLINUXDBUS_SIGNAL()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -761,10 +683,7 @@ DIOLINUXDBUS_SIGNAL::~DIOLINUXDBUS_SIGNAL()
 * @fn         XSTRING* DIOLINUXDBUS_SIGNAL::GetType()
 * @brief      GetType
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -780,10 +699,7 @@ XSTRING* DIOLINUXDBUS_SIGNAL::GetType()
 * @fn         XSTRING* DIOLINUXDBUS_SIGNAL::GetName()
 * @brief      GetName
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -800,10 +716,7 @@ XSTRING* DIOLINUXDBUS_SIGNAL::GetName()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -827,9 +740,6 @@ void DIOLINUXDBUS_SIGNAL::Clean()
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -848,9 +758,6 @@ DIOLINUXDBUS::DIOLINUXDBUS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything. 
 *
@@ -871,10 +778,7 @@ DIOLINUXDBUS::~DIOLINUXDBUS()
 * @fn         bool DIOLINUXDBUS::Ini(DBusBusType type)
 * @brief      Ini
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     bool : true if is succesful. 
@@ -911,10 +815,7 @@ bool DIOLINUXDBUS::Ini(DBusBusType type)
 * @fn         bool DIOLINUXDBUS::IsConnected()
 * @brief      IsConnected
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -932,10 +833,7 @@ bool DIOLINUXDBUS::IsConnected()
 * @fn         bool DIOLINUXDBUS::CallMethod(DIOLINUXDBUS_MESSAGE& message, DIOLINUXDBUS_MESSAGE& reply)
 * @brief      CallMethod
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  message : 
 * @param[in]  reply : 
 * 
@@ -979,10 +877,7 @@ bool DIOLINUXDBUS::CallMethod(DIOLINUXDBUS_MESSAGE& message, DIOLINUXDBUS_MESSAG
 * @fn         bool DIOLINUXDBUS::Signal_Add(XCHAR* type, XCHAR* name)
 * @brief      Signal_Add
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  name : 
 * 
@@ -1040,10 +935,7 @@ bool DIOLINUXDBUS::Signal_Add(XCHAR* type, XCHAR* name)
 * @fn         bool DIOLINUXDBUS::Signal_Add(XSTRING& type, XSTRING& name)
 * @brief      Signal_Add
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  name : 
 * 
@@ -1062,10 +954,7 @@ bool DIOLINUXDBUS::Signal_Add(XSTRING& type, XSTRING& name)
 * @fn         bool DIOLINUXDBUS::Signal_IsTypeAdd(XCHAR* type)
 * @brief      Signal_IsTypeAdd
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     bool : true if is succesful. 
@@ -1094,10 +983,7 @@ bool DIOLINUXDBUS::Signal_IsTypeAdd(XCHAR* type)
 * @fn         bool DIOLINUXDBUS::Signal_DeleteAll()
 * @brief      Signal_DeleteAll
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1118,9 +1004,6 @@ bool DIOLINUXDBUS::Signal_DeleteAll()
 * @fn         bool DIOLINUXDBUS::End()
 * @brief      End
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -1153,10 +1036,7 @@ bool DIOLINUXDBUS::End()
 * @fn         bool DIOLINUXDBUS::TraceError(DBusError error)
 * @brief      TraceError
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  error : 
 * 
 * @return     bool : true if is succesful. 
@@ -1184,10 +1064,7 @@ bool DIOLINUXDBUS::TraceError(DBusError& error)
 * @fn         void DIOLINUXDBUS::Thread_Signals(void* param)
 * @brief      Thread_Signals
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  param : 
 * 
 * @return     void : does not return anything. 
@@ -1277,9 +1154,6 @@ void DIOLINUXDBUS::Thread_Signals(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

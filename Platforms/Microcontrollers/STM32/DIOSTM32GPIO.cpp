@@ -6,10 +6,7 @@
 * @brief      Data Input/Output STM32 General Port Input/Ouput (GPIO)
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ DIOSTM32GPIO::DIOSTM32GPIO(): DIOGPIO()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -94,9 +85,6 @@ DIOSTM32GPIO::~DIOSTM32GPIO()
 * @brief      Ini
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,10 +100,7 @@ bool DIOSTM32GPIO::Ini()
 * @fn         bool DIOSTM32GPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 * @brief      SetMode
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  entry : 
 * @param[in]  mode : 
 * 
@@ -188,10 +173,7 @@ bool DIOSTM32GPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 * @fn         bool DIOSTM32GPIO::GetValue(DIOGPIO_ENTRY* entry)
 * @brief      GetValue
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  entry : 
 * 
 * @return     bool : true if is succesful. 
@@ -231,10 +213,7 @@ bool DIOSTM32GPIO::GetValue(DIOGPIO_ENTRY* entry)
 * @fn         bool DIOSTM32GPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
 * @brief      SetValue
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  entry : 
 * @param[in]  value : 
 * 
@@ -276,9 +255,6 @@ bool DIOSTM32GPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
 * @brief      End
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -295,9 +271,6 @@ bool DIOSTM32GPIO::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      SAMD5xE5x thread class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -62,9 +59,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ XSAMD5XE5XMUTEX::XSAMD5XE5XMUTEX()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -100,9 +91,6 @@ XSAMD5XE5XMUTEX::~XSAMD5XE5XMUTEX()
 * @fn         bool XSAMD5XE5XMUTEX::Lock()
 * @brief      Lock
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -122,9 +110,6 @@ bool XSAMD5XE5XMUTEX::Lock()
 * @fn         bool XSAMD5XE5XMUTEX::UnLock()
 * @brief      UnLock
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -148,9 +133,6 @@ bool XSAMD5XE5XMUTEX::UnLock()
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -172,9 +154,6 @@ void XSAMD5XE5XMUTEX::Clean()
 * @fn         XSAMD5XE5XTHREAD::XSAMD5XE5XTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* data)
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XTHREADGROUPID :
 * @param[in]   XCHAR* ID :
@@ -198,9 +177,6 @@ XSAMD5XE5XTHREAD::XSAMD5XE5XTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUN
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -219,9 +195,6 @@ XSAMD5XE5XTHREAD::~XSAMD5XE5XTHREAD()
 * @fn         bool XSAMD5XE5XTHREAD::Ini(bool run)
 * @brief      Ini
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  run :
 *
@@ -248,9 +221,6 @@ bool XSAMD5XE5XTHREAD::Ini(bool run)
 * @brief      Wait
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  miliseconds :
 *
 * @return     bool : true if is succesful.
@@ -270,9 +240,6 @@ bool XSAMD5XE5XTHREAD::Wait(int miliseconds)
 * @fn         bool XSAMD5XE5XTHREAD::End()
 * @brief      End
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -297,9 +264,6 @@ bool XSAMD5XE5XTHREAD::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

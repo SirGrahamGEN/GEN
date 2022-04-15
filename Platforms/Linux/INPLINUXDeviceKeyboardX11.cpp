@@ -6,10 +6,7 @@
 * @brief      LINUX X11 input device keyboard class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -72,9 +69,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -98,9 +92,6 @@ INPLINUXDEVICEKEYBOARDX11::INPLINUXDEVICEKEYBOARDX11(): INPDEVICE()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -122,9 +113,6 @@ INPLINUXDEVICEKEYBOARDX11::~INPLINUXDEVICEKEYBOARDX11()
 * @fn         bool INPLINUXDEVICEKEYBOARDX11::Update()
 * @brief      Update
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -207,9 +195,6 @@ bool INPLINUXDEVICEKEYBOARDX11::Update()
 * @brief      Set Screen
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  screenhandle : handle to screen
 *
 * @return     bool : true if is succesful.
@@ -234,9 +219,6 @@ bool INPLINUXDEVICEKEYBOARDX11::SetScreen(void* screenhandle)
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -253,9 +235,6 @@ void INPLINUXDEVICEKEYBOARDX11::Clean()
 * @brief      CreateAllButtons
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *

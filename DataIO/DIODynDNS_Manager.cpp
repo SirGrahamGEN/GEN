@@ -6,10 +6,7 @@
 * @brief      Data Input/Output DYNDNS Manager class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -72,9 +66,6 @@ DIODYNDNS_MANAGER::DIODYNDNS_MANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -93,9 +84,6 @@ DIODYNDNS_MANAGER::~DIODYNDNS_MANAGER()
 * @brief      GetLogin
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +100,6 @@ XSTRING* DIODYNDNS_MANAGER::GetLogin()
 * @brief      GetPassword
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -130,9 +115,6 @@ XSTRING* DIODYNDNS_MANAGER::GetPassword()
 * @fn         bool DIODYNDNS_MANAGER::AddDNS(XSTRING& DNS)
 * @brief      AddDNS
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  DNS :
 *
@@ -161,9 +143,6 @@ bool DIODYNDNS_MANAGER::AddDNS(XSTRING& DNS)
 * @brief      DeleteAllDNS
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -185,9 +164,6 @@ bool DIODYNDNS_MANAGER::DeleteAllDNS()
 * @brief      GetNDNS
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -203,9 +179,6 @@ XDWORD DIODYNDNS_MANAGER::GetNDNS()
 * @fn         bool DIODYNDNS_MANAGER::AssingAll()
 * @brief      AssingAll
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -263,9 +236,6 @@ bool DIODYNDNS_MANAGER::AssingAll()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

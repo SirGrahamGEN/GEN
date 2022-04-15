@@ -5,11 +5,8 @@
 * @class      UI_MANAGER
 * @brief      User Interface Manager class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -99,10 +96,7 @@ UI_MANAGER* UI_MANAGER::instance = NULL;
 * @fn         bool UI_MANAGER::GetIsInstanced()
 * @brief      GetIsInstanced
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -118,10 +112,7 @@ bool UI_MANAGER::GetIsInstanced()
 * @fn         UI_MANAGER& UI_MANAGER::GetInstance()
 * @brief      GetInstance
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_MANAGER& : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -139,10 +130,7 @@ UI_MANAGER& UI_MANAGER::GetInstance()
 * @fn         bool UI_MANAGER::DelInstance()
 * @brief      DelInstance
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -170,10 +158,7 @@ bool UI_MANAGER::DelInstance()
 * @fn         bool UI_MANAGER::Load(XPATH& pathfile)
 * @brief      Load
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  pathfile : 
 * 
 * @return     bool : true if is succesful. 
@@ -203,10 +188,7 @@ bool UI_MANAGER::Load(XPATH& pathfile)
 * @fn         bool UI_MANAGER::Layouts_Add(UI_LAYOUT* layout)
 * @brief      Layouts_Add
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  layout : 
 * 
 * @return     bool : true if is succesful. 
@@ -228,10 +210,7 @@ bool UI_MANAGER::Layouts_Add(UI_LAYOUT* layout)
 * @fn         XVECTOR<UI_LAYOUT*>* UI_MANAGER::Layouts_Get()
 * @brief      Layouts_Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XVECTOR<UI_LAYOUT*>* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -247,10 +226,7 @@ XVECTOR<UI_LAYOUT*>* UI_MANAGER::Layouts_Get()
 * @fn         UI_LAYOUT* UI_MANAGER::Layouts_Get(int index)
 * @brief      Layouts_Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  index : 
 * 
 * @return     UI_LAYOUT* : 
@@ -271,10 +247,7 @@ UI_LAYOUT* UI_MANAGER::Layouts_Get(int index)
 * @fn         UI_LAYOUT* UI_MANAGER::Layouts_Get(XCHAR* name)
 * @brief      Layouts_Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * 
 * @return     UI_LAYOUT* : 
@@ -303,10 +276,7 @@ UI_LAYOUT* UI_MANAGER::Layouts_Get(XCHAR* name)
 * @fn         UI_LAYOUT* UI_MANAGER::Layouts_Get(XSTRING& name)
 * @brief      Layouts_Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * 
 * @return     UI_LAYOUT* : 
@@ -325,10 +295,7 @@ UI_LAYOUT* UI_MANAGER::Layouts_Get(XSTRING& name)
 * @fn         int UI_MANAGER::Layouts_GetSelected()
 * @brief      Layouts_GetSelected
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     int : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -344,10 +311,7 @@ int UI_MANAGER::Layouts_GetSelected()
 * @fn         bool UI_MANAGER::Layouts_SetSelected(int index)
 * @brief      Layouts_Selected
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  index : 
 * 
 * @return     bool : true if is succesful. 
@@ -371,10 +335,7 @@ bool UI_MANAGER::Layouts_SetSelected(int index)
 * @fn         bool UI_MANAGER::Layouts_SetSelected(XCHAR* name)
 * @brief      Layouts_SetSelected
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
@@ -408,10 +369,7 @@ bool UI_MANAGER::Layouts_SetSelected(XCHAR* name)
 * @fn         bool UI_MANAGER::Layouts_SetSelected(XSTRING& name)
 * @brief      Layouts_SetSelected
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
@@ -429,10 +387,7 @@ bool UI_MANAGER::Layouts_SetSelected(XSTRING& name)
 * @fn         bool UI_MANAGER::Layouts_DeleteAll()
 * @brief      Layouts_DeleteAll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -453,10 +408,7 @@ bool UI_MANAGER::Layouts_DeleteAll()
 * @fn         UI_LAYOUT* UI_MANAGER::Layouts_GetSelectedLayout()
 * @brief      Layouts_GetSelectedLayout
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_LAYOUT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -475,10 +427,7 @@ UI_LAYOUT* UI_MANAGER::Layouts_GetSelectedLayout()
 * @fn         UI_LAYOUT* UI_MANAGER::Layouts_GetInAllLayout()
 * @brief      Layouts_GetInAllLayout
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_LAYOUT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -497,10 +446,7 @@ UI_LAYOUT* UI_MANAGER::Layouts_GetInAllLayout()
 * @fn         bool UI_MANAGER::Skin_CreateAll(GRPSCREEN* screen, GRPCONTEXT* context)
 * @brief      Skin_CreateAll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  screen : 
 * @param[in]  context : 
 * 
@@ -546,10 +492,7 @@ bool UI_MANAGER::Skin_CreateAll(GRPSCREEN* screen, GRPCONTEXT* context)
 * @fn         bool UI_MANAGER::Skin_Add(UI_SKIN* skin)
 * @brief      Skin_Add
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  skin : 
 * 
 * @return     bool : true if is succesful. 
@@ -569,10 +512,7 @@ bool UI_MANAGER::Skin_Add(UI_SKIN* skin)
 * @fn         UI_SKIN* UI_MANAGER::Skin_Get(XCHAR* name, UI_SKIN_DRAWMODE drawmode)
 * @brief      Skin_Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  drawmode : 
 * 
@@ -603,10 +543,7 @@ UI_SKIN* UI_MANAGER::Skin_Get(XCHAR* name, UI_SKIN_DRAWMODE drawmode)
 * @fn         UI_SKIN* UI_MANAGER::Skin_Get(XSTRING& name)
 * @brief      Skin_Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * 
 * @return     UI_SKIN* : 
@@ -624,10 +561,7 @@ UI_SKIN* UI_MANAGER::Skin_Get(XSTRING& name, UI_SKIN_DRAWMODE drawmode)
 * @fn         UI_SKIN* UI_MANAGER::Skin_Selected()
 * @brief      Skin_Selected
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_SKIN* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -644,10 +578,7 @@ UI_SKIN* UI_MANAGER::Skin_Selected()
 * @fn         bool UI_MANAGER::Skin_DeleteAll()
 * @brief      Skin_DeleteAll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -668,10 +599,7 @@ bool UI_MANAGER::Skin_DeleteAll()
 * @fn         bool UI_MANAGER::SetModalElement(UI_ELEMENT* element_modal)
 * @brief      SetModalElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element_modal : 
 * 
 * @return     bool : true if is succesful. 
@@ -697,10 +625,7 @@ bool UI_MANAGER::SetModalElement(UI_ELEMENT* element_modal)
 * @fn         bool UI_MANAGER::Update()
 * @brief      Update
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -755,10 +680,7 @@ bool UI_MANAGER::Update()
 * @fn         bool UI_MANAGER::Background_Put()
 * @brief      Background_Put
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -779,10 +701,7 @@ bool UI_MANAGER::Background_Put()
 * @fn         bool UI_MANAGER::Background_PutColor()
 * @brief      Background_PutColor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -831,10 +750,7 @@ bool UI_MANAGER::Background_PutColor()
 * @fn         bool UI_MANAGER::Background_PutBitmap()
 * @brief      PutBackgroundBitmap
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -879,10 +795,7 @@ bool UI_MANAGER::Background_PutBitmap()
 * @fn         UI_ELEMENT* UI_MANAGER::GetElement(XCHAR* name, UI_ELEMENT_TYPE type)
 * @brief      GetElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  type : 
 * 
@@ -918,10 +831,7 @@ UI_ELEMENT* UI_MANAGER::GetElement(XCHAR* name, UI_ELEMENT_TYPE type)
 * @fn         UI_ELEMENT* UI_MANAGER::GetElement(XSTRING& name, UI_ELEMENT_TYPE type)
 * @brief      GetElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  type : 
 * 
@@ -940,10 +850,7 @@ UI_ELEMENT* UI_MANAGER::GetElement(XSTRING& name, UI_ELEMENT_TYPE type)
 * @fn         UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XCHAR* name, UI_ELEMENT_TYPE type)
 * @brief      GetElementAllLayouts
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  type : 
 * 
@@ -976,10 +883,7 @@ UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XCHAR* name, UI_ELEMENT_TYPE type)
 * @fn         UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XSTRING& name, UI_ELEMENT_TYPE type)
 * @brief      GetElementAllLayouts
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  type : 
 * 
@@ -999,10 +903,7 @@ UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XSTRING& name, UI_ELEMENT_TYPE type
 * @fn         UI_LAYOUT* UI_MANAGER::GetElementLayout(UI_ELEMENT* element)
 * @brief      GetElementLayout
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     UI_LAYOUT* : 
@@ -1053,10 +954,7 @@ UI_LAYOUT* UI_MANAGER::GetElementLayout(UI_ELEMENT* element)
 * @fn         UI_LAYOUT* UI_MANAGER::GetElementLayout(XCHAR* name, UI_ELEMENT_TYPE type)
 * @brief      GetElementLayout
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  type : 
 * 
@@ -1089,10 +987,7 @@ UI_LAYOUT* UI_MANAGER::GetElementLayout(XCHAR* name, UI_ELEMENT_TYPE type)
 * @fn         UI_LAYOUT* UI_MANAGER::GetElementLayout(XSTRING& name, UI_ELEMENT_TYPE type)
 * @brief      GetElementLayout
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  type : 
 * 
@@ -1111,10 +1006,7 @@ UI_LAYOUT* UI_MANAGER::GetElementLayout(XSTRING& name, UI_ELEMENT_TYPE type)
 * @fn         bool UI_MANAGER::PutElementLastPositionLayout(UI_ELEMENT* element)
 * @brief      PutElementLastPositionLayout
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1165,10 +1057,7 @@ bool UI_MANAGER::PutElementLastPositionLayout(UI_ELEMENT* element)
 * @fn         bool UI_MANAGER::PutElementLastPositionLayout(XCHAR* name, UI_ELEMENT_TYPE type)
 * @brief      PutElementLastPositionLayout
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  type : 
 * 
@@ -1222,10 +1111,7 @@ bool UI_MANAGER::PutElementLastPositionLayout(XCHAR* name, UI_ELEMENT_TYPE type)
 * @fn         bool UI_MANAGER::PutElementLastPositionLayout(XSTRING& name, UI_ELEMENT_TYPE type)
 * @brief      PutElementLastPositionLayout
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  type : 
 * 
@@ -1244,10 +1130,7 @@ bool UI_MANAGER::PutElementLastPositionLayout(XSTRING& name, UI_ELEMENT_TYPE typ
 * @fn          bool UI_MANAGER::AddElementToLayout(XCHAR* layoutname, UI_ELEMENT* element)
 * @brief      AddElementToLayout
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  layoutname : 
 * @param[in]  element : 
 * 
@@ -1266,10 +1149,7 @@ bool UI_MANAGER::AddElementToLayout(XCHAR* layoutname, UI_ELEMENT* element)
 * @fn         bool UI_MANAGER::AddElementToLayout(XSTRING& layoutname, UI_ELEMENT* element)
 * @brief      AddElementToLayout
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  layoutname : 
 * @param[in]  element : 
 * 
@@ -1288,10 +1168,7 @@ bool UI_MANAGER::AddElementToLayout(XSTRING& layoutname, UI_ELEMENT* element)
 * @fn         bool UI_MANAGER::Elements_SetToRedraw()
 * @brief      Elements_SetToRedraw
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1324,10 +1201,7 @@ bool UI_MANAGER::Elements_SetToRedraw()
 * @fn         bool UI_MANAGER::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
 * @brief      Elements_SetToRedraw
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  recursive : 
 * 
@@ -1363,10 +1237,7 @@ bool UI_MANAGER::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
 * @fn         bool UI_MANAGER::Elements_RebuildDrawAreas()
 * @brief      Elements_RebuildDrawAreas
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1400,10 +1271,7 @@ bool UI_MANAGER::Elements_RebuildDrawAreas()
 * @fn         bool UI_MANAGER::Elements_RebuildDrawAreas(UI_ELEMENT* element)
 * @brief      Elements_RebuildDrawAreas
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1439,10 +1307,7 @@ bool UI_MANAGER::Elements_RebuildDrawAreas(UI_ELEMENT* element)
 * @fn         int UI_MANAGER::GetOutputTextChangeID(XSTRING* text, int start, XSTRING& value)
 * @brief      GetOutputTextChangeID
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  text : 
 * @param[in]  start : 
 * @param[in]  value : 
@@ -1478,10 +1343,7 @@ int UI_MANAGER::GetOutputTextChangeID(XSTRING* text, int start, XSTRING& value)
 * @fn         UI_ANIMATION* UI_MANAGER::GetOrAddAnimationCache(XCHAR* name, XCHAR* resource)
 * @brief      GetOrAddAnimationCache
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  resource : 
 * 
@@ -1540,10 +1402,7 @@ UI_ANIMATION* UI_MANAGER::GetOrAddAnimationCache(XCHAR* name, XCHAR* resource)
 * @fn         bool UI_MANAGER::SetLevelAuto(UI_ELEMENT* element, UI_ELEMENT* father, XDWORD addlevel)
 * @brief      SetLevelAuto
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  father : 
 * @param[in]  addlevel : 
@@ -1569,10 +1428,7 @@ bool UI_MANAGER::SetLevelAuto(UI_ELEMENT* element, UI_ELEMENT* father, XDWORD ad
 * @fn         bool UI_MANAGER::SetPreselectElement(UI_ELEMENT* element)
 * @brief      SetPreselectElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1592,10 +1448,7 @@ bool UI_MANAGER::SetPreselectElement(UI_ELEMENT* element)
 * @fn         bool UI_MANAGER::ResetPreselect()
 * @brief      ResetPreselect
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1617,10 +1470,7 @@ bool UI_MANAGER::ResetPreselect()
 * @fn         bool UI_MANAGER::SendEvent(UI_XEVENT_TYPE event, ...)
 * @brief      SendEvent
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  event : 
 * @param[in]  ... : 
 * 
@@ -1765,10 +1615,7 @@ bool UI_MANAGER::SendEvent(UI_XEVENT_TYPE event, ...)
 * @fn         bool UI_MANAGER::ChangeAutomaticTextElementValue(UI_ELEMENT_TEXT* element_text, XSTRING* maskvalue, XSTRING* maskresolved)
 * @brief      ChangeAutomaticTextElementValue
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element_text : 
 * @param[in]  maskvalue : 
 * @param[in]  maskresolved : 
@@ -1815,10 +1662,7 @@ bool UI_MANAGER::ChangeAutomaticTextElementValue(UI_ELEMENT* element, XSTRING* m
 * @fn         bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, XSTRING* text, XSTRING& value)
 * @brief      ChangeTextElementValue
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  text : 
 * @param[in]  value : 
@@ -1883,10 +1727,7 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, XSTRING* text, XSTR
 * @fn         bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
 * @brief      ChangeTextElementValue
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  skin : 
 * 
@@ -1993,10 +1834,7 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
 * @fn         bool UI_MANAGER::ChangeTextElementValue(UI_LAYOUT* layout)
 * @brief      ChangeTextElementValue
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  layout : 
 * 
 * @return     bool : true if is succesful. 
@@ -2022,10 +1860,7 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
 * @fn         bool UI_MANAGER::SubscribeInputsEvents(bool active)
 * @brief      SubscribeInputsEvents
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  active : 
 * 
 * @return     bool : true if is succesful. 
@@ -2055,10 +1890,7 @@ bool UI_MANAGER::SubscribeInputEvents(bool active)
 * @fn         bool UI_MANAGER::SubscribeOutputEvents(bool active, XOBSERVER* observer, XSUBJECT* subject)
 * @brief      SubscribeOutputEvents
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  active : 
 * @param[in]  observer : 
 * @param[in]  subject : 
@@ -2091,10 +1923,7 @@ bool UI_MANAGER::SubscribeOutputEvents(bool active, XOBSERVER* observer, XSUBJEC
 * @fn         bool UI_MANAGER::CreaterVirtualKeyboard(GRPSCREEN* screen, UI_LAYOUT* layout, UI_SKIN* skin)
 * @brief      CreaterVirtualKeyboard
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  screen : 
 * @param[in]  layout : 
 * @param[in]  skin : 
@@ -2122,10 +1951,7 @@ bool UI_MANAGER::CreaterVirtualKeyboard(GRPSCREEN* screen, UI_LAYOUT* layout, UI
 * @fn         bool UI_MANAGER::DeleteVirtualKeyboard()
 * @brief      DeleteVirtualKeyboard
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -2150,10 +1976,7 @@ bool UI_MANAGER::DeleteVirtualKeyboard()
 * @fn         UI_MANAGER::UI_MANAGER()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -2175,10 +1998,7 @@ UI_MANAGER::UI_MANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -2212,10 +2032,7 @@ UI_MANAGER::~UI_MANAGER()
 * @fn         bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, int& value)
 * @brief      GetLayoutElementValue
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  leyend : 
 * @param[in]  value : 
@@ -2247,10 +2064,7 @@ bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, dou
 * @fn         bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, XSTRING& value)
 * @brief      GetLayoutElementValue
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  leyend : 
 * @param[in]  value : 
@@ -2279,10 +2093,7 @@ bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, XST
 * @fn         bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, bool& isfatherlayout, UI_ELEMENT* element)
 * @brief      GetLayoutElement_Base
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  isfatherlayout : 
 * @param[in]  element : 
@@ -2412,10 +2223,7 @@ bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* elemen
 * @fn         bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element)
 * @brief      GetLayoutElement_CalculateBoundaryLine
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -2449,10 +2257,7 @@ bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element)
 * @fn         bool GetParentSizeFont(XFILEXMLELEMENT* node, double& sizefont)
 * @brief      etParentSizeFont
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  sizefont : 
 * 
@@ -2479,10 +2284,7 @@ bool UI_MANAGER::GetParentSizeFont(XFILEXMLELEMENT* node, double& sizefont)
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Text(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Text
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
@@ -2634,10 +2436,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Text(XFILEXMLELEMENT* node, UI_ELEMENT*
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_TextBox
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
@@ -2776,10 +2575,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_ELEME
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Image(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Image
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
@@ -2847,10 +2643,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Image(XFILEXMLELEMENT* node, UI_ELEMENT
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Animation
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
@@ -2989,10 +2782,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_ELE
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Option
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
@@ -3088,10 +2878,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_ELEMEN
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_MultiOption
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
@@ -3158,10 +2945,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_E
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Button(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Button
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
@@ -3187,10 +2971,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Button(XFILEXMLELEMENT* node, UI_ELEMEN
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_CheckBox(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_CheckBox
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
@@ -3215,10 +2996,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_CheckBox(XFILEXMLELEMENT* node, UI_ELEM
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_EditText(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_EditText
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
@@ -3243,10 +3021,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_EditText(XFILEXMLELEMENT* node, UI_ELEM
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Form
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
@@ -3360,10 +3135,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_ELEMENT*
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Menu(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Menu
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
@@ -3388,10 +3160,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Menu(XFILEXMLELEMENT* node,  UI_ELEMENT
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_ListBox(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_ListBox
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
@@ -3441,9 +3210,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ListBox(XFILEXMLELEMENT* node, UI_ELEME
  * @brief     GetLayoutElement_ProgressBar
  * @ingroup   USERINTERFACE
  * 
- * @author    Abraham J. Velez 
- * @date       01/03/2016 12:00
- * 
+   * 
  * @param[in] node : 
  * @param[in] father : 
  * @param[in] element_legacy : 
@@ -3610,10 +3377,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_E
 * @fn         UI_ELEMENT* UI_MANAGER::CreatePartialLayout(XFILEXMLELEMENT* nodeelement, UI_ELEMENT* father)
 * @brief      CreatePartialLayout
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  nodeelement : 
 * @param[in]  father : 
 * 
@@ -3654,10 +3418,7 @@ UI_ELEMENT* UI_MANAGER::CreatePartialLayout(XFILEXMLELEMENT* nodeelement, UI_ELE
 * @fn         bool UI_MANAGER::CreateLayouts(XFILEXML& xml)
 * @brief      CreateLayouts
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xml : 
 * 
 * @return     bool : true if is succesful. 
@@ -3797,10 +3558,7 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml)
 * @fn         bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, bool recursive)
 * @brief      CreateCacheElements
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  nodeelement : 
 * @param[in]  recursive : 
 * 
@@ -3859,10 +3617,7 @@ bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, bool recursiv
 * @fn         bool UI_MANAGER::RegisterEvents(bool active)
 * @brief      RegisterEvents
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  active : 
 * 
 * @return     bool : true if is succesful. 
@@ -3895,10 +3650,7 @@ bool UI_MANAGER::RegisterEvents(bool active)
 * @fn         UI_ELEMENT* UI_MANAGER::PreSelectElement(UI_ELEMENT* element, int x, int y)
 * @brief      PreSelectElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  x : 
 * @param[in]  y : 
@@ -3979,10 +3731,7 @@ UI_ELEMENT* UI_MANAGER::PreSelectElement(UI_ELEMENT* element, int x, int y)
 * @fn         bool UI_MANAGER::SelectElement(UI_ELEMENT* element)
 * @brief      SelectElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -4020,10 +3769,7 @@ bool UI_MANAGER::SelectElement(UI_ELEMENT* element)
 * @fn         bool UI_MANAGER::SelectedElement(UI_ELEMENT* element);
 * @brief      SelectElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element) : 
 * 
 * @return     bool : true if is succesful. 
@@ -4109,10 +3855,7 @@ bool UI_MANAGER::SelectedElement(UI_ELEMENT* element)
 * @fn         bool UI_MANAGER::UnSelectedElement(UI_ELEMENT* element)
 * @brief      UnSelectedElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -4162,10 +3905,7 @@ bool UI_MANAGER::UnSelectedElement(UI_ELEMENT* element)
 * @fn         bool UI_MANAGER::UnSelectedElement()
 * @brief      UnSelectedElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -4200,10 +3940,7 @@ bool UI_MANAGER::UnSelectedElement()
 * @fn         bool UI_MANAGER::UseMotionInElement(UI_ELEMENT* element, INPCURSORMOTION* cursormotion)
 * @brief      UseMotionInElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  cursormotion : 
 * 
@@ -4276,10 +4013,7 @@ bool UI_MANAGER::UseMotionInElement(UI_ELEMENT* element, INPCURSORMOTION* cursor
 * @fn         bool UI_MANAGER::UseMotion(INPCURSORMOTION* cursormotion)
 * @brief      UseMotion
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  cursormotion : 
 * 
 * @return     bool : true if is succesful. 
@@ -4322,10 +4056,7 @@ bool UI_MANAGER::UseMotion(INPCURSORMOTION* cursormotion)
 * @brief      Handle Event for the observer manager of this class
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  event : 
 * 
 * @return     void : does not return anything. 
@@ -4442,10 +4173,7 @@ void UI_MANAGER::HandleEvent_UI(UI_XEVENT* event)
 * @brief      Handle Event for the observer manager of this class
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xevent : 
 * 
 * @return     void : does not return anything. 
@@ -4474,10 +4202,7 @@ void UI_MANAGER::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

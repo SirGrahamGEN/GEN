@@ -6,10 +6,7 @@
 * @brief      Graphics Screen Class
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -85,9 +79,6 @@ GRPSCREEN::GRPSCREEN()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -123,9 +114,6 @@ GRPSCREEN::~GRPSCREEN()
 * @brief      Get Screen type
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPSCREENTYPE : Screen type
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -140,9 +128,6 @@ GRPSCREENTYPE GRPSCREEN::GetType()
 * @fn         bool GRPSCREEN::IsValid()
 * @brief      Is valid screen
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -159,9 +144,6 @@ bool GRPSCREEN::IsValid()
 * @brief      Is screen active
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -177,9 +159,6 @@ bool GRPSCREEN::IsActive()
 * @fn         bool GRPSCREEN::SetPropertys(int width, int height, int stride, GRPPROPERTYMODE mode)
 * @brief
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  width :
 * @param[in]  height :
@@ -211,9 +190,6 @@ bool GRPSCREEN::SetPropertys(int width, int height, float DPIs, int stride, GRPP
 * @brief
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -229,9 +205,6 @@ bool GRPSCREEN::IsFullScreen()
 * @fn         void GRPSCREEN::SetIsFullScreen(bool isfullscreen)
 * @brief
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isfullscreen :
 *
@@ -250,9 +223,6 @@ void GRPSCREEN::SetIsFullScreen(bool isfullscreen)
 * @fn         bool GRPSCREEN::CreateBuffers()
 * @brief      Create Buffers
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -273,9 +243,6 @@ bool GRPSCREEN::CreateBuffers()
 * @fn         bool GRPSCREEN::DeleteBuffers()
 * @brief      DeleteBuffers
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -300,9 +267,6 @@ bool GRPSCREEN::DeleteBuffers()
 * @brief      GetBuffer
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -318,9 +282,6 @@ XBYTE* GRPSCREEN::GetBuffer()
 * @fn         bool GRPSCREEN::Create(void* handle)
 * @brief      Create
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -344,9 +305,6 @@ bool GRPSCREEN::Create(bool show)
 * @brief      Update
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -362,9 +320,6 @@ bool GRPSCREEN::Update()
 * @fn         bool GRPSCREEN::Update(GRPCAVAS* canvas)
 * @brief      Update
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  canvas : canvas handle
 *
@@ -384,9 +339,6 @@ bool GRPSCREEN::Update(GRPCANVAS* canvas)
 * @brief      Delete
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -402,9 +354,6 @@ bool GRPSCREEN::Delete()
 * @fn         bool GRPSCREEN::Resize(int width, int height)
 * @brief
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  width :
 * @param[in]  height :
@@ -425,9 +374,6 @@ bool GRPSCREEN::Resize(int width, int height)
 * @brief      IsShow
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -443,9 +389,6 @@ bool GRPSCREEN::IsShow()
 * @fn         bool GRPSCREEN::Show(bool active)
 * @brief      Show
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  active :
 *
@@ -469,9 +412,6 @@ bool GRPSCREEN::Show(bool active)
 * @brief      ShowCursor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  active :
 *
 * @return     bool : true if is succesful.
@@ -489,9 +429,6 @@ bool GRPSCREEN::ShowCursor(bool active)
 * @fn         bool GRPSCREEN::ShowTopMost(bool active)
 * @brief      ShowTopMost
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  active :
 *
@@ -512,9 +449,6 @@ bool GRPSCREEN::ShowTopMost(bool active)
 * @brief
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -530,9 +464,6 @@ void* GRPSCREEN::GetHandle()
 * @fn         bool GRPSCREEN::UpdateSize(int width, int height)
 * @brief
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  width :
 * @param[in]  height :
@@ -558,9 +489,6 @@ bool GRPSCREEN::UpdateSize(int width, int height)
 * @brief
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<GRPVIEWPORT*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -576,9 +504,6 @@ XVECTOR<GRPVIEWPORT*>* GRPSCREEN::GetViewports()
 * @fn         GRPVIEWPORT* GRPSCREEN::GetViewport(int index)
 * @brief
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -597,10 +522,7 @@ GRPVIEWPORT* GRPSCREEN::GetViewport(int index)
 * @fn         GRPVIEWPORT* GRPSCREEN::GetViewport(XCHAR* ID)
 * @brief      GetViewport
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ID : 
 * 
 * @return     GRPVIEWPORT* : 
@@ -626,9 +548,6 @@ GRPVIEWPORT* GRPSCREEN::GetViewport(XCHAR* ID)
 * @fn         bool GRPSCREEN::CreateViewport(XCHAR* ID, float posx, float posy, float width, float height, XDWORD canvasposx, XDWORD canvasposy, XDWORD canvaswidth, XDWORD canvasheight)
 * @brief      CreateViewport
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  posx :
@@ -693,9 +612,6 @@ bool GRPSCREEN::CreateViewport(XCHAR* ID, float posx, float posy, float width, f
 * @brief
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -735,9 +651,6 @@ bool GRPSCREEN::UpdateViewports()
 * @brief      DeleteViewport
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  viewport :
 *
 * @return     bool : true if is succesful.
@@ -760,9 +673,6 @@ bool GRPSCREEN::DeleteViewport(GRPVIEWPORT* viewport)
 * @brief      DeleteAllViewports
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -783,10 +693,7 @@ bool GRPSCREEN::DeleteAllViewports()
 * @fn         GRPFRAMERATE* GRPSCREEN::GetFrameRate()
 * @brief      GetFrameRate
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     GRPFRAMERATE* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -803,9 +710,6 @@ GRPFRAMERATE* GRPSCREEN::GetFrameRate()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

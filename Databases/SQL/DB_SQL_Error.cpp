@@ -6,10 +6,7 @@
 * @brief       DataBase Error class
 * @ingroup     DATABASESSQL
 *
-* @author      Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright   Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -70,9 +64,6 @@ DB_SQL_ERROR::DB_SQL_ERROR()
 * @fn         DB_SQL_ERROR::DB_SQL_ERROR(DB_SQL_ERROR_TYPE type)
 * @brief      Constructor
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  DB_SQL_ERROR_TYPE :
 *
@@ -93,9 +84,6 @@ DB_SQL_ERROR::DB_SQL_ERROR(DB_SQL_ERROR_TYPE type)
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +100,6 @@ DB_SQL_ERROR::~DB_SQL_ERROR()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

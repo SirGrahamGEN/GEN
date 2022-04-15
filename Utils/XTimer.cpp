@@ -6,10 +6,7 @@
 * @brief
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -69,9 +66,6 @@ XTIMERCLOCK*  xtimerclock = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -96,9 +90,6 @@ XTIMERCLOCK::XTIMERCLOCK()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -126,9 +117,6 @@ XTIMERCLOCK::~XTIMERCLOCK()
 * @brief      GetClockTicks
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -155,9 +143,6 @@ XQWORD XTIMERCLOCK::GetClockTicks()
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -177,9 +162,6 @@ void XTIMERCLOCK::Clean()
 * @fn         void XTIMERCLOCK::ThreadClockFunction(void* data)
 * @brief      ThreadClockFunction
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 *
@@ -212,9 +194,6 @@ void XTIMERCLOCK::ThreadClockFunction(void* data)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -232,9 +211,6 @@ XTIMER::XTIMER()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -250,9 +226,6 @@ XTIMER::~XTIMER()
 * @fn         void XTIMER::AddMilliSeconds(XQWORD milliseconds)
 * @brief      AddMilliSeconds
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  milliseconds :
 *
@@ -272,9 +245,6 @@ void XTIMER::AddMilliSeconds(XQWORD milliseconds)
 * @brief      AddSeconds
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  seconds :
 *
 * @return     void : does not return anything.
@@ -292,9 +262,6 @@ void XTIMER::AddSeconds(XQWORD seconds)
 * @fn         void XTIMER::SetMilliSeconds(XQWORD milliseconds)
 * @brief      SetMilliSeconds
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  milliseconds :
 *
@@ -316,9 +283,6 @@ void XTIMER::SetMilliSeconds(XQWORD milliseconds)
 * @brief      Reset
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -335,9 +299,6 @@ void XTIMER::Reset()
 * @fn         XDWORD XTIMER::GetMeasureHours()
 * @brief      GetMeasureHours
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -361,9 +322,6 @@ XDWORD XTIMER::GetMeasureHours()
 * @brief      GetMeasureMinutes
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -385,9 +343,6 @@ XDWORD XTIMER::GetMeasureMinutes()
 * @brief      GetMeasureSeconds
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -407,9 +362,6 @@ XDWORD XTIMER::GetMeasureSeconds()
 * @fn         XQWORD XTIMER::GetMeasureMilliSeconds()
 * @brief      GetMeasureMilliSeconds
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XQWORD :
 *
@@ -431,9 +383,6 @@ XQWORD XTIMER::GetMeasureMilliSeconds()
 * @brief      GetMeasureMicroSeconds
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -454,9 +403,6 @@ XQWORD XTIMER::GetMeasureMicroSeconds()
 * @fn         bool XTIMER::GetMeasureToDate(XDATETIME* xdatetime)
 * @brief      GetMeasureToDate
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xdatetime :
 *
@@ -482,9 +428,6 @@ bool XTIMER::GetMeasureToDate(XDATETIME* xdatetime)
 * @fn         bool XTIMER::GetMeasureString(XSTRING& measure,bool large)
 * @brief      GetMeasureString
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  measure :
 * @param[in]  large :
@@ -596,9 +539,6 @@ bool XTIMER::GetMeasureString(XSTRING& measure,bool large)
 * @brief      GetMicroSecondsTickCounter
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -614,9 +554,6 @@ XQWORD XTIMER::GetMicroSecondsTickCounter()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      DataBase SQLite Result class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -76,9 +70,6 @@ SQLITE_RESULT::~SQLITE_RESULT()
 * @brief      GetNumRows
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -95,9 +86,6 @@ XQWORD SQLITE_RESULT::GetNumRows()
 * @brief      GetNumColumns
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -113,9 +101,6 @@ XQWORD SQLITE_RESULT::GetNumColumns()
 * @fn         bool SQLITE_RESULT::Seek(int index)
 * @brief      Seek
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -135,9 +120,6 @@ bool SQLITE_RESULT::Seek(int index)
 * @fn         bool SQLITE_RESULT::First()
 * @brief      First
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -167,9 +149,6 @@ bool SQLITE_RESULT::First()
 * @brief      Last
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -186,9 +165,6 @@ bool SQLITE_RESULT::Last()
 * @fn         bool SQLITE_RESULT::Next()
 * @brief      Next
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -213,9 +189,6 @@ bool SQLITE_RESULT::Next()
 * @fn         bool SQLITE_RESULT::ProcessRow()
 * @brief      ProcessRow
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -291,9 +264,6 @@ bool SQLITE_RESULT::ProcessRow()
 * @brief      Abort
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -309,9 +279,6 @@ bool SQLITE_RESULT::Abort()
 * @fn         bool SQLITE_RESULT::HasNext()
 * @brief      HasNext
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -329,9 +296,6 @@ bool SQLITE_RESULT::HasNext()
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -348,9 +312,6 @@ SQLITE_RESULT::SQLITE_RESULT(): DB_SQL_RESULT()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

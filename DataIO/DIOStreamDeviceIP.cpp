@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream Device IP class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -71,9 +65,6 @@ DIOSTREAMDEVICEIP::DIOSTREAMDEVICEIP()
 * @fn         DIOSTREAMDEVICEIP::~ DIOSTREAMDEVICEIP()
 * @brief      IOSTREAMDEVICEIP
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOSTREAMDEVICEIP::~ :
 *
@@ -91,9 +82,6 @@ DIOSTREAMDEVICEIP::~ DIOSTREAMDEVICEIP()
 * @brief      GetIP
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOIP* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -109,9 +97,6 @@ DIOIP* DIOSTREAMDEVICEIP::GetIP()
 * @fn         DIOMAC* DIOSTREAMDEVICEIP::GetMAC()
 * @brief      GetMAC
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOMAC* :
 *
@@ -129,9 +114,6 @@ DIOMAC* DIOSTREAMDEVICEIP::GetMAC()
 * @brief      GetIPType
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMIPDEVICE_TYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -147,9 +129,6 @@ DIOSTREAMIPDEVICE_TYPE DIOSTREAMDEVICEIP::GetIPType()
 * @fn         bool DIOSTREAMDEVICEIP::SetIPType(DIOSTREAMIPDEVICE_TYPE iptype)
 * @brief      SetIPType
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  iptype :
 *
@@ -170,9 +149,6 @@ bool DIOSTREAMDEVICEIP::SetIPType(DIOSTREAMIPDEVICE_TYPE iptype)
 * @fn         bool DIOSTREAMDEVICEIP::DebugPrintInfo()
 * @brief      DebugPrintInfo
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -215,9 +191,6 @@ bool DIOSTREAMDEVICEIP::DebugPrintInfo()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

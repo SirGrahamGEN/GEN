@@ -6,10 +6,7 @@
 * @brief      Data Input/Output I2C MCP23S17 (Microchip) (8+8 Digital I/O)
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ DIOI2CGPIOMCP2317::DIOI2CGPIOMCP2317() :  DIODEVICEI2C()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -102,10 +93,7 @@ DIOI2CGPIOMCP2317::~DIOI2CGPIOMCP2317()
 * @fn         bool DIOI2CGPIOMCP2317::Configure(XBYTE port_A, XBYTE port_B)
 * @brief      Configure
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  port_A : 
 * @param[in]  port_B : 
 * 
@@ -127,9 +115,6 @@ bool DIOI2CGPIOMCP2317::Configure(XBYTE port_A, XBYTE port_B)
 * @fn         bool DIOI2CGPIOMCP2317::ReadInputs(DIOI2CGPIOMCP2317PORT port, XBYTE& value)
 * @brief      ReadInputs
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  port :
 * @param[in]  value :
@@ -161,9 +146,6 @@ bool DIOI2CGPIOMCP2317::ReadInputs(DIOI2CGPIOMCP2317PORT port, XBYTE& value)
 * @brief      WriteOutputs
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  port :
 * @param[in]  value :
 *
@@ -184,9 +166,6 @@ bool DIOI2CGPIOMCP2317::WriteOutputs(DIOI2CGPIOMCP2317PORT port, XBYTE value)
 * @fn         bool DIOI2CGPIOMCP2317::SendCommand(XBYTE cmd, XBYTE value)
 * @brief      SendCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  cmd :
 * @param[in]  value :
@@ -219,9 +198,6 @@ bool DIOI2CGPIOMCP2317::SendCommand(XBYTE cmd, XBYTE value)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -239,9 +215,6 @@ bool DIOI2CGPIOMCP2317::End()
 * @fn         bool DIOI2CGPIOMCP2317::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -270,9 +243,6 @@ bool DIOI2CGPIOMCP2317::IniDevice()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output I2C Sensor CCS811 class (Air Quality)
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -64,9 +61,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 *
 * @return     Does not return anything.
 *
@@ -85,9 +79,6 @@ DIOI2CAIRQUALITYCCS811::DIOI2CAIRQUALITYCCS811() : DIODEVICEI2C()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -105,9 +96,6 @@ DIOI2CAIRQUALITYCCS811::~DIOI2CAIRQUALITYCCS811()
 * @fn         bool DIOI2CAIRQUALITYCCS811::GetHW_ID(XBYTE& ID)
 * @brief      GetHW_ID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -131,9 +119,6 @@ bool DIOI2CAIRQUALITYCCS811::GetHW_ID(XBYTE& ID)
 * @brief      GetHW_Version
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hwversion :
 *
 * @return     bool : true if is succesful.
@@ -156,9 +141,6 @@ bool DIOI2CAIRQUALITYCCS811::GetHW_Version(XBYTE& hwversion)
 * @fn         bool DIOI2CAIRQUALITYCCS811::GetBoot_Version(XWORD& bootversion)
 * @brief      GetBoot_Version
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bootversion :
 *
@@ -190,9 +172,6 @@ bool DIOI2CAIRQUALITYCCS811::GetBoot_Version(XWORD& bootversion)
 * @brief      GetApp_Version
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  appversion :
 *
 * @return     bool : true if is succesful.
@@ -223,9 +202,6 @@ bool DIOI2CAIRQUALITYCCS811::GetApp_Version(XWORD& appversion)
 * @brief      ResetDevice
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -251,9 +227,6 @@ bool DIOI2CAIRQUALITYCCS811::ResetDevice()
 * @brief      GetStatus
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -275,9 +248,6 @@ XBYTE DIOI2CAIRQUALITYCCS811::GetStatus(XBYTE& sensorstatus)
 * @brief      IsAppValid
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -297,9 +267,6 @@ bool DIOI2CAIRQUALITYCCS811::IsAppValid()
 * @fn         bool DIOI2CAIRQUALITYCCS811::IsDataAvailable(bool& error)
 * @brief      IsDataAvailable
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  error :
 *
@@ -323,9 +290,6 @@ bool DIOI2CAIRQUALITYCCS811::IsDataAvailable()
 * @brief      HaveStatusError
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -346,9 +310,6 @@ bool DIOI2CAIRQUALITYCCS811::HaveStatusError()
 * @fn         XBYTE DIOI2CAIRQUALITYCCS811::GetStatusErrorCode()
 * @brief      GetStatusErrorCode
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XBYTE :
 *
@@ -371,9 +332,6 @@ XBYTE DIOI2CAIRQUALITYCCS811::GetStatusErrorCode()
 * @fn         XWORD DIOI2CAIRQUALITYCCS811::GetBaseline()
 * @brief      GetBaseline
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XWORD :
 *
@@ -399,9 +357,6 @@ XWORD DIOI2CAIRQUALITYCCS811::GetBaseline()
 * @brief      SetBaseline
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  baseline :
 *
 * @return     bool : true if is succesful.
@@ -424,9 +379,6 @@ bool DIOI2CAIRQUALITYCCS811::SetBaseline(XWORD baseline)
 * @fn         bool DIOI2CAIRQUALITYCCS811::SetDriveMode(XBYTE mode)
 * @brief      SetDriveMode
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mode : Mode 0 = Idle
 *                    Mode 1 = read every 1s
@@ -461,9 +413,6 @@ bool DIOI2CAIRQUALITYCCS811::SetDriveMode(XBYTE mode)
 * @fn         bool DIOI2CAIRQUALITYCCS811::SetEnvironmentalData(float relativehumidity, float temperature)
 * @brief      SetEnvironmentalData
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  relativehumidity :
 * @param[in]  temperature :
@@ -520,9 +469,6 @@ bool DIOI2CAIRQUALITYCCS811::SetEnvironmentalData(float relativehumidity, float 
 * @brief      GetReferenceResistance
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -538,9 +484,6 @@ float DIOI2CAIRQUALITYCCS811::GetReferenceResistance()
 * @fn         void DIOI2CAIRQUALITYCCS811::SetReferenceResistance(float referenceresistance)
 * @brief      SetReferenceResistance
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  referenceresistance :
 *
@@ -559,9 +502,6 @@ void DIOI2CAIRQUALITYCCS811::SetReferenceResistance(float referenceresistance)
 * @fn         bool DIOI2CAIRQUALITYCCS811::ReadNTC(float& temperature, float& resistance)
 * @brief      ReadNTC
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out] temperature :
 * @param[out] resistance :
@@ -597,9 +537,6 @@ bool DIOI2CAIRQUALITYCCS811::ReadNTC(float& temperature, float& resistance)
 * @fn         bool DIOI2CAIRQUALITYCCS811::Read(XWORD& TVOC, XWORD& CO2)
 * @brief      Read
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  TVOC :
 * @param[in]  CO2 :
@@ -638,9 +575,6 @@ bool DIOI2CAIRQUALITYCCS811::ReadData(XWORD& TVOC, XWORD& CO2)
 * @brief      SetInterrupt
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  activated :
 *
 * @return     bool : true if is succesful.
@@ -675,9 +609,6 @@ bool DIOI2CAIRQUALITYCCS811::SetInterrupt(bool activated)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -696,9 +627,6 @@ bool DIOI2CAIRQUALITYCCS811::End()
 * @fn         bool DIOI2CAIRQUALITYCCS811::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -736,9 +664,6 @@ bool DIOI2CAIRQUALITYCCS811::IniDevice()
 * @brief      ReadRegister
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -757,9 +682,6 @@ bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE& data)
 * @fn         bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      ReadMultiRegister
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -794,9 +716,6 @@ bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE* data, XDWORD size
 * @brief      WriteRegister
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -815,9 +734,6 @@ bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE data)
 * @fn         bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      WriteMultiRegister
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -850,9 +766,6 @@ bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE* data, XDWORD siz
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      LINUX Frame Buffer Screen class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -67,9 +64,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -121,9 +115,6 @@ GRPLINUXSCREENFRAMEBUFFER::GRPLINUXSCREENFRAMEBUFFER(): GRPSCREEN()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -141,9 +132,6 @@ GRPLINUXSCREENFRAMEBUFFER::~GRPLINUXSCREENFRAMEBUFFER()
 * @fn         bool GRPLINUXSCREENFRAMEBUFFER::Create(bool show)
 * @brief      Create
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  show :
 *
@@ -195,9 +183,6 @@ bool GRPLINUXSCREENFRAMEBUFFER::Create(bool show)
 * @brief      Update
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -214,9 +199,6 @@ bool GRPLINUXSCREENFRAMEBUFFER::Update()
 * @fn         bool GRPLINUXSCREENFRAMEBUFFER::Update(GRPCANVAS* canvas)
 * @brief      Update
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  canvas :
 *
@@ -262,9 +244,6 @@ bool GRPLINUXSCREENFRAMEBUFFER::Update(GRPCANVAS* canvas)
 * @brief      Delete
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -292,9 +271,6 @@ bool GRPLINUXSCREENFRAMEBUFFER::Delete()
 * @brief      Resize
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  width : new width
 * @param[in]  height : new height
 *
@@ -313,9 +289,6 @@ bool GRPLINUXSCREENFRAMEBUFFER::Resize(int width, int height)
 * @fn         bool GRPLINUXSCREENFRAMEBUFFER::Show(bool active)
 * @brief      Show
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  active :
 *
@@ -337,9 +310,6 @@ bool GRPLINUXSCREENFRAMEBUFFER::Show(bool active)
 * @brief      ShowCursor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  active :
 *
 * @return     bool : true if is succesful.
@@ -357,9 +327,6 @@ bool GRPLINUXSCREENFRAMEBUFFER::ShowCursor(bool active)
 * @fn         void* GRPLINUXSCREENFRAMEBUFFER::GetHandle()
 * @brief      GetHandle
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void* :
 *
@@ -381,9 +348,6 @@ void* GRPLINUXSCREENFRAMEBUFFER::GetHandle()
 * @brief      GetHandleFB
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -399,9 +363,6 @@ int GRPLINUXSCREENFRAMEBUFFER::GetHandleFB()
 * @fn         bool GRPLINUXSCREENFRAMEBUFFER::ScreenResolution(int width, int height)
 * @brief      ScreenResolution
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  width :
 * @param[in]  height :
@@ -472,9 +433,6 @@ bool GRPLINUXSCREENFRAMEBUFFER::ScreenResolution(int width, int height)
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -500,9 +458,6 @@ bool GRPLINUXSCREENFRAMEBUFFER::ClearScreen()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

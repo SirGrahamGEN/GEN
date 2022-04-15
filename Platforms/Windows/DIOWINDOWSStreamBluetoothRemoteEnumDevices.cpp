@@ -53,7 +53,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:01
 //
 //  @return
@@ -96,7 +96,7 @@ DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMD
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:12
 //
 //  @return
@@ -124,7 +124,7 @@ DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOWINDOWSSTREAMBLUETOOTHREMOTEENUM
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:27
 //
 //  @return       bool :
@@ -165,7 +165,7 @@ bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/05/2013 23:41:35
 //
 //  @return       bool :
@@ -202,7 +202,7 @@ bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/05/2013 23:41:40
 //
 //  @return       bool :
@@ -228,7 +228,7 @@ bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/05/2013 23:25:03
 //
 //  @return       void :
@@ -249,7 +249,7 @@ void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/05/2013 23:31:49
 //
 //  @return       void :
@@ -381,7 +381,7 @@ void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* data)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      08/05/2013 23:16:48
 //
 //  @return       void :
@@ -482,7 +482,7 @@ void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::SearchServices()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      09/05/2013 22:17:25
 //
 //  @return       BOOL :

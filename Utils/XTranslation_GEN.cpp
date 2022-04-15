@@ -6,10 +6,7 @@
 * @brief      eXtension Translation GEN (sencences within the framework) fram class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -63,9 +60,6 @@ XTRANSLATION_GEN* XTRANSLATION_GEN::instance  = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ XTRANSLATION_GEN_SENTENCE::XTRANSLATION_GEN_SENTENCE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -104,9 +95,6 @@ XTRANSLATION_GEN_SENTENCE::~XTRANSLATION_GEN_SENTENCE()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -133,9 +121,6 @@ void XTRANSLATION_GEN_SENTENCE::Clean()
 * @brief      Get Is Instanced
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -151,9 +136,6 @@ bool XTRANSLATION_GEN::GetIsInstanced()
 * @fn         XTRANSLATION_GEN& XTRANSLATION_GEN::GetInstance()
 * @brief      Get Instance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XTRANSLATION_GEN& : language instance
 *
@@ -172,9 +154,6 @@ XTRANSLATION_GEN& XTRANSLATION_GEN::GetInstance()
 * @fn         bool XTRANSLATION_GEN::DelInstance()
 * @brief      Del Instance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -201,9 +180,6 @@ bool XTRANSLATION_GEN::DelInstance()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -223,9 +199,6 @@ XTRANSLATION_GEN::XTRANSLATION_GEN()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -243,9 +216,6 @@ XTRANSLATION_GEN::~XTRANSLATION_GEN()
 * @fn         bool XTRANSLATION_GEN::IsLanguageAvailable(XDWORD code)
 * @brief      IsLanguageAvailable
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 *
@@ -268,9 +238,6 @@ bool XTRANSLATION_GEN::IsLanguageAvailable(XDWORD code)
 * @fn         bool XTRANSLATION_GEN::Sentence_Add(XDWORD ID, XDWORD codelanguage, XCHAR* sentence, XDWORD fixed)
 * @brief      Sentence_Add
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  codelanguage :
@@ -319,9 +286,6 @@ bool XTRANSLATION_GEN::Sentence_Add(XDWORD ID, XDWORD codelanguage, XCHAR* sente
 * @brief      Sentence_Get
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 * @param[in]  codelanguage :
 *
@@ -349,9 +313,6 @@ XTRANSLATION_GEN_SENTENCE* XTRANSLATION_GEN::Sentence_Get(XDWORD ID, XDWORD code
 * @fn         bool XTRANSLATION_GEN::Sentences_AddAll()
 * @brief      Sentences_AddAll
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -452,9 +413,6 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
 * @brief      Sentences_DeleteAll
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -476,9 +434,6 @@ bool XTRANSLATION_GEN::Sentences_DeleteAll()
 * @fn         bool XTRANSLATION_GEN::Sentences_AddToTranslation(XDWORD codelanguage)
 * @brief      Sentences_AddToTranslation
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  codelanguage :
 *
@@ -513,9 +468,6 @@ bool XTRANSLATION_GEN::Sentences_AddToTranslation(XDWORD codelanguage)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

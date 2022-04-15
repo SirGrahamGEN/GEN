@@ -6,10 +6,7 @@
 * @brief      Sound File Base class
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -73,9 +67,6 @@ SNDFILEBASE::SNDFILEBASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything. 
 *
@@ -95,9 +86,6 @@ SNDFILEBASE::~SNDFILEBASE()
 * @brief      GetID
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +100,6 @@ XSTRING* SNDFILEBASE::GetID()
 * @fn         XWORD SNDFILEBASE::GetChannels()
 * @brief      GetChannels
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XWORD : 
 *
@@ -131,9 +116,6 @@ XWORD SNDFILEBASE::GetChannels()
 * @fn         XDWORD SNDFILEBASE::GetNSamples()
 * @brief      GetNSamples
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD : 
 *
@@ -152,9 +134,6 @@ XDWORD SNDFILEBASE::GetNSamples()
 * @brief      GetSampleRate
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -171,9 +150,6 @@ XDWORD SNDFILEBASE::GetSampleRate()
 * @brief      GetDuration
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     float : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -189,10 +165,7 @@ float SNDFILEBASE::GetDuration()
 * @fn         bool SNDFILEBASE::Open(XCHAR* path , XCHAR* ID)
 * @brief      Open
 * @ingroup    SOUND
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  path : 
 * @param[in]  ID : 
 * 
@@ -211,10 +184,7 @@ bool SNDFILEBASE::Open(XCHAR* path , XCHAR* ID)
 * @fn         bool SNDFILEBASE::Open(XPATH& xpath , XCHAR* ID)
 * @brief      Open
 * @ingroup    SOUND
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xpath : 
 * @param[in]  ID : 
 * 
@@ -233,10 +203,7 @@ bool SNDFILEBASE::Open(XPATH& xpath , XCHAR* ID)
 * @fn         bool SNDFILEBASE::ReadData(XBYTE* data, XDWORD& sizeread, bool& isfinished))
 * @brief      ReadData
 * @ingroup    SOUND
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  data : 
 * @param[in]  sizeread : 
 * @param[in]  isfinished) : 
@@ -256,10 +223,7 @@ bool SNDFILEBASE::ReadData(XBYTE* data, XDWORD& sizeread, bool& isfinished)
 * @fn         bool SNDFILEBASE::ReadData(XBUFFER& data, bool& isfinished)
 * @brief      ReadData
 * @ingroup    SOUND
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  data : 
 * @param[in]  isfinished) : 
 * 
@@ -284,9 +248,7 @@ bool SNDFILEBASE::ReadData(XBUFFER& data, bool& isfinished)
  * @brief     GetDataSize
  * @ingroup   SOUND
  * 
- * @author    Abraham J. Velez 
- * @date       01/03/2016 12:00
- * 
+   * 
  * @return      XDWORD : 
  * 
  * ---------------------------------------------------------------------------------------------------------------------*/
@@ -302,10 +264,7 @@ XDWORD SNDFILEBASE::GetDataSize()
 * @fn         XDWORD SNDFILEBASE::GetReadSize()
 * @brief      GetReadSize
 * @ingroup    SOUND
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -321,10 +280,7 @@ XDWORD SNDFILEBASE::GetReadSize()
 * @fn         bool SNDFILEBASE::Close()
 * @brief      Close
 * @ingroup    SOUND
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -341,9 +297,6 @@ bool SNDFILEBASE::Close()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

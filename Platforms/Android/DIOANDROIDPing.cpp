@@ -68,7 +68,7 @@
 //
 //  Class Constructor DIOANDROIDPING
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/03/2016 12:55:40
 //
 */
@@ -88,7 +88,7 @@ DIOANDROIDPING::DIOANDROIDPING()
 //
 //   Class Destructor DIOANDROIDPING
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/03/2016 12:55:33
 //
 */
@@ -107,7 +107,7 @@ DIOANDROIDPING::~DIOANDROIDPING()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/03/2016 10:38:44
 //
 //  @return       bool :

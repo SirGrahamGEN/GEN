@@ -6,7 +6,7 @@
 //
 //  WINDOWS Data IO Stream Bluetooth Local Enum Devices class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 02/01/2002
 */
 //  GEN  Copyright (C).  All right reserved.

@@ -6,10 +6,7 @@
 * @brief      eXtended Publisher class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@ XPUBLISHER*   XPUBLISHER::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ XPUBLISHERENTRY::XPUBLISHERENTRY()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -98,9 +89,6 @@ XPUBLISHERENTRY::~XPUBLISHERENTRY()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -126,9 +114,6 @@ void XPUBLISHERENTRY::Clean()
 * @brief      GetIsInstanced
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -144,9 +129,6 @@ bool XPUBLISHER::GetIsInstanced()
 * @fn         XPUBLISHER& GEN_XPUBLISHER.
 * @brief      GetInstance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XPUBLISHER& :
 *
@@ -165,9 +147,6 @@ XPUBLISHER& XPUBLISHER::GetInstance()
 * @fn         bool XPUBLISHER::DelInstance()
 * @brief      DelInstance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -192,9 +171,6 @@ bool XPUBLISHER::DelInstance()
 * @fn         bool XPUBLISHER::RegisterEvent(XDWORD type, XSUBJECT* subject)
 * @brief      RegisterEvent
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  subject :
@@ -236,9 +212,6 @@ bool XPUBLISHER::RegisterEvent(XDWORD type, XSUBJECT* subject)
 * @fn         bool XPUBLISHER::DeRegisterEvent(XDWORD type, XSUBJECT* subject)
 * @brief      DeRegisterEvent
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  subject :
@@ -295,9 +268,6 @@ bool XPUBLISHER::DeRegisterEvent(XDWORD type, XSUBJECT* subject)
 * @brief      DeRegisterAllEvents
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -322,9 +292,6 @@ bool XPUBLISHER::DeRegisterAllEvents()
 * @fn         bool XPUBLISHER::SubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* observer)
 * @brief      SubscribeEvent
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  subject :
@@ -398,9 +365,6 @@ bool XPUBLISHER::SubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* obser
 * @brief      UnSubscribeEvent
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 * @param[in]  subject :
 * @param[in]  observer :
@@ -442,9 +406,6 @@ bool XPUBLISHER::UnSubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* obs
 * @fn         bool XPUBLISHER::PostEvent(XEVENT* event, XSUBJECT* subject)
 * @brief      PostEvent
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  event :
 * @param[in]  subject :
@@ -498,9 +459,6 @@ bool XPUBLISHER::PostEvent(XEVENT* event, XSUBJECT* subject)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -523,9 +481,6 @@ XPUBLISHER::XPUBLISHER()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -547,9 +502,6 @@ XPUBLISHER::~XPUBLISHER()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

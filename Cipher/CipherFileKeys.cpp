@@ -43,7 +43,7 @@
 //
 //  Class Constructor CIPHERFILEKEYS
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/03/2014 9:27:46
 //
 
@@ -72,7 +72,7 @@ CIPHERFILEKEYS::CIPHERFILEKEYS(XPATH& xpath)
 //
 //   Class Destructor CIPHERFILEKEYS
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/03/2014 9:28:10
 //
 */
@@ -96,7 +96,7 @@ CIPHERFILEKEYS::~CIPHERFILEKEYS()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/03/2014 13:39:33
 //
 //  @return       bool :
@@ -127,7 +127,7 @@ bool CIPHERFILEKEYS::HaveKey(CIPHERKEYTYPE type)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/03/2014 9:33:51
 //
 //  @return       CIPHERKEY* :
@@ -158,7 +158,7 @@ CIPHERKEY* CIPHERFILEKEYS::GetKey(CIPHERKEYTYPE type)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/03/2014 9:30:08
 //
 //  @return       bool :
@@ -210,7 +210,7 @@ bool CIPHERFILEKEYS::AddKey(CIPHERKEY& key)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/03/2014 9:30:13
 //
 //  @return       bool :
@@ -245,7 +245,7 @@ bool CIPHERFILEKEYS::DeleteKey(CIPHERKEYTYPE type)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/03/2014 9:30:20
 //
 //  @return       bool :
@@ -272,7 +272,7 @@ bool CIPHERFILEKEYS::DeleteAllKeys()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/03/2014 9:30:25
 //
 //  @return       bool :
@@ -416,7 +416,7 @@ bool CIPHERFILEKEYS::UpdateFile()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      08/04/2014 12:13:06
 //
 //  @return       bool :
@@ -534,7 +534,7 @@ bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      08/04/2014 12:18:23
 //
 //  @return       bool :
@@ -578,7 +578,7 @@ bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/03/2014 9:30:30
 //
 //  @return       bool :

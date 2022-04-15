@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Web Server Query Strings Event class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -71,9 +65,6 @@ DIOWEBSERVER_QUERYSTRINGS::DIOWEBSERVER_QUERYSTRINGS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -93,9 +84,6 @@ DIOWEBSERVER_QUERYSTRINGS::~DIOWEBSERVER_QUERYSTRINGS()
 * @brief      GetNParams
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +100,6 @@ int DIOWEBSERVER_QUERYSTRINGS::GetNParams()
 * @brief      GetParams
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XMAP<XSTRING*, :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -130,9 +115,6 @@ XMAP<XSTRING*, XSTRING*>* DIOWEBSERVER_QUERYSTRINGS::GetParams()
 * @fn         bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XSTRING& ID, XSTRING& value)
 * @brief      AddParam
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  value :
@@ -153,9 +135,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XSTRING& ID, XSTRING& value)
 * @brief      AddParam
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 * @param[in]  value :
 *
@@ -175,9 +154,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID  , XSTRING& value)
 * @brief      AddParam
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 * @param[in]  value :
 *
@@ -196,9 +172,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XSTRING& ID, XCHAR* value)
 * @fn         bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID, XCHAR* value)
 * @brief      AddParam
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  value :
@@ -235,9 +208,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID, XCHAR* value)
 * @brief      AddParam
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 * @param[in]  value :
 *
@@ -273,9 +243,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID, int value)
 * @brief      GetParam
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 *
 * @return     XSTRING* :
@@ -293,9 +260,6 @@ XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParam(XSTRING& ID)
 * @fn         XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParam(XCHAR* ID)
 * @brief      GetParam
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -330,9 +294,6 @@ XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParam(XCHAR* ID)
 * @brief      GetParamID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     XSTRING* :
@@ -352,9 +313,6 @@ XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParamID(int index)
 * @fn         XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParamValue(int index)
 * @brief      GetParamValue
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -376,9 +334,6 @@ XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParamValue(int index)
 * @brief      DelParam
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 *
 * @return     bool : true if is succesful.
@@ -396,9 +351,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::DelParam(XSTRING& ID)
 * @fn         bool DIOWEBSERVER_QUERYSTRINGS::DelParam(XCHAR* ID)
 * @brief      DelParam
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -420,9 +372,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::DelParam(XCHAR* ID)
 * @fn         bool DIOWEBSERVER_QUERYSTRINGS::DelAllParam()
 * @brief      DelAllParam
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -446,9 +395,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::DelAllParam()
 * @fn         bool DIOWEBSERVER_QUERYSTRINGS::GetAllParam(XSTRING& allparam)
 * @brief      GetAllParam
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  allparam :
 *
@@ -481,9 +427,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::GetAllParam(XSTRING& allparam)
 * @brief      GetParamsFromURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 *
 * @return     int :
@@ -502,9 +445,6 @@ int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(DIOURL& url)
 * @brief      GetParamsFromURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 *
 * @return     int :
@@ -522,9 +462,6 @@ int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(XSTRING& url)
 * @fn         int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(XCHAR* url)
 * @brief      GetParamsFromURL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  url :
 *
@@ -588,9 +525,6 @@ int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(XCHAR* url)
 * @brief      DeleteParamsFromURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 *
 * @return     bool : true if is succesful.
@@ -621,9 +555,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::DeleteParamsFromURL(XSTRING& url)
 * @fn         bool DIOWEBSERVER_QUERYSTRINGS::CreateURLFromParams(XSTRING& urlpart)
 * @brief      CreateURLFromParams
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  urlpart :
 *
@@ -666,9 +597,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::CreateURLFromParams(XSTRING& urlpart)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

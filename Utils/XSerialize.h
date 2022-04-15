@@ -6,7 +6,7 @@
 //
 //  eXtended Serialize Data
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 24/11/2004 13:00:15
 */
 //  GEN  Copyright (C).  All right reserved.

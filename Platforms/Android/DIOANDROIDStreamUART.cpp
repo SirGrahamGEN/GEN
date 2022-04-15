@@ -60,7 +60,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2013 23:11:51
 //
 //  @return
@@ -104,7 +104,7 @@ DIOANDROIDSTREAMUART::DIOANDROIDSTREAMUART() : DIOSTREAMUART() , XFSMACHINE(0)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -128,7 +128,7 @@ DIOANDROIDSTREAMUART::~DIOANDROIDSTREAMUART()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       DIOSTREAMSTATUS :
@@ -148,7 +148,7 @@ DIOSTREAMSTATUS DIOANDROIDSTREAMUART::GetConnectStatus()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -204,7 +204,7 @@ bool DIOANDROIDSTREAMUART::Open()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/11/2014 12:37:49
 //
 //  @return       bool :
@@ -340,7 +340,7 @@ bool DIOANDROIDSTREAMUART::Config(XWORD mask)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/06/2015 13:25:13
 //
 //  @return       XDWORD :
@@ -399,7 +399,7 @@ XDWORD DIOANDROIDSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/06/2015 13:25:02
 //
 //  @return       XDWORD :
@@ -440,7 +440,7 @@ XDWORD DIOANDROIDSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -467,7 +467,7 @@ bool DIOANDROIDSTREAMUART::Close()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -491,7 +491,7 @@ bool DIOANDROIDSTREAMUART::GetCTS()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -516,7 +516,7 @@ bool DIOANDROIDSTREAMUART::GetDSR()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -543,7 +543,7 @@ bool DIOANDROIDSTREAMUART::GetRing()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/11/2014 17:29:42
 //
 //  @return       bool :
@@ -565,7 +565,7 @@ bool DIOANDROIDSTREAMUART::GetRLSD()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -595,7 +595,7 @@ bool DIOANDROIDSTREAMUART::SetRTS(bool on)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -624,7 +624,7 @@ bool DIOANDROIDSTREAMUART::SetDTR(bool on)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -646,7 +646,7 @@ bool DIOANDROIDSTREAMUART::CleanBuffers()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -667,7 +667,7 @@ void DIOANDROIDSTREAMUART::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/07/2012 13:56:19
 //
 //  @return       void :

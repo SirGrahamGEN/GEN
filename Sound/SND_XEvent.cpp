@@ -6,10 +6,7 @@
 * @brief      Sound eXtended event class
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  XSUBJECT* : 
 * @param[in]   XDWORD type : 
 * @param[in]   XDWORD family : 
@@ -76,9 +70,6 @@ SND_XEVENT::SND_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(s
 * @note       VIRTUAL
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -95,9 +86,6 @@ SND_XEVENT::~SND_XEVENT()
 * @brief      GetType
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     SND_XEVENT_TYPE : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -113,9 +101,6 @@ SND_XEVENT_TYPE SND_XEVENT::GetType()
 * @fn         void SND_XEVENT::SetType(SND_XEVENT_TYPE type)
 * @brief      SetType
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  type : 
 *
@@ -135,9 +120,6 @@ void SND_XEVENT::SetType(SND_XEVENT_TYPE type)
 * @brief      GetID
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -154,9 +136,6 @@ XSTRING* SND_XEVENT::GetID()
 * @brief      GetElement
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     SNDELEMENT* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -172,9 +151,6 @@ SNDELEMENT* SND_XEVENT::GetElement()
 * @fn         void SND_XEVENT::SetElement(SNDELEMENT* sndelement)
 * @brief      SetElement
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  sndelement : 
 *
@@ -194,9 +170,6 @@ void SND_XEVENT::SetElement(SNDELEMENT* sndelement)
 * @brief      GetSource
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     SNDSOURCE* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -212,9 +185,6 @@ SNDSOURCE* SND_XEVENT::GetSource()
 * @fn         void SND_XEVENT::SetSource(SNDSOURCE* source)
 * @brief      SetSource
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  source : 
 *
@@ -234,9 +204,6 @@ void SND_XEVENT::SetSource(SNDSOURCE* source)
 * @brief      GetInstance
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     SNDINSTANCE* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -252,9 +219,6 @@ SNDINSTANCE* SND_XEVENT::GetInstance()
 * @fn         void SND_XEVENT::SetInstance(SNDINSTANCE* instance)
 * @brief      SetInstance
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  instance : 
 *
@@ -274,9 +238,6 @@ void SND_XEVENT::SetInstance(SNDINSTANCE* instance)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

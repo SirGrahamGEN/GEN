@@ -6,10 +6,7 @@
 * @brief      Data Input/Output STM32 Stream UART class
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@ DIOSTM32STREAMUART*   diostreamuartptrhandle[DIOSTM32STREAMIUART_MAXHANDLES] = {
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -103,9 +97,6 @@ DIOSTM32STREAMUART::DIOSTM32STREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -126,9 +117,6 @@ DIOSTM32STREAMUART::~DIOSTM32STREAMUART()
 * @brief      GetConnectStatus
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSTATUS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -146,9 +134,6 @@ DIOSTREAMSTATUS DIOSTM32STREAMUART::GetConnectStatus()
 * @fn         bool DIOSTM32STREAMUART::Open()
 * @brief      Open
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -227,9 +212,6 @@ bool DIOSTM32STREAMUART::Open()
 * @fn         bool DIOSTM32STREAMUART::Config(XWORD mask)
 * @brief      Config
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask :
 *
@@ -319,9 +301,6 @@ bool DIOSTM32STREAMUART::Config(XWORD mask)
 * @brief      ReadDirect
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -350,9 +329,6 @@ XDWORD DIOSTM32STREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 * @brief      WriteDirect
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -375,9 +351,6 @@ XDWORD DIOSTM32STREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 * @fn         XDWORD DIOSTM32STREAMUART::Write(XBYTE* buffer, XDWORD size)
 * @brief      Write
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -412,9 +385,6 @@ XDWORD DIOSTM32STREAMUART::Write(XBYTE* buffer, XDWORD size)
 * @brief      Disconnect
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -430,9 +400,6 @@ bool DIOSTM32STREAMUART::Disconnect()
 * @fn         bool DIOSTM32STREAMUART::Close()
 * @brief      Close
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -458,9 +425,6 @@ bool DIOSTM32STREAMUART::Close()
 * @brief      GetCTS
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -476,9 +440,6 @@ bool DIOSTM32STREAMUART::GetCTS()
 * @fn         bool DIOSTM32STREAMUART::GetDSR()
 * @brief      GetDSR
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -496,9 +457,6 @@ bool DIOSTM32STREAMUART::GetDSR()
 * @brief      GetRing
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -515,9 +473,6 @@ bool DIOSTM32STREAMUART::GetRing()
 * @brief      GetRLSD
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -533,9 +488,6 @@ bool DIOSTM32STREAMUART::GetRLSD()
 * @fn         bool DIOSTM32STREAMUART::SetRTS(bool on)
 * @brief      SetRTS
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  on :
 *
@@ -554,9 +506,6 @@ bool DIOSTM32STREAMUART::SetRTS(bool on)
 * @fn         bool DIOSTM32STREAMUART::SetDTR(bool on)
 * @brief      SetDTR
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  on :
 *
@@ -577,9 +526,6 @@ bool DIOSTM32STREAMUART::SetDTR(bool on)
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -597,9 +543,6 @@ bool DIOSTM32STREAMUART::CleanBuffers()
 * @brief      GetHuart
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     UART_HandleTypeDef* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -615,9 +558,6 @@ UART_HandleTypeDef* DIOSTM32STREAMUART::GetHuart()
 * @fn         void DIOSTM32STREAMUART::SetHuart(UART_HandleTypeDef* huart)
 * @brief      SetHuart
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  huart :
 *
@@ -639,9 +579,6 @@ void DIOSTM32STREAMUART::SetHuart(UART_HandleTypeDef* huart)
 * @fn         void HAL_UART_RxCpltCallback(UART_HandleTypeDef*huart)
 * @brief      AL_UART_RxCpltCallback
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  UART_HandleTypeDef*huart :
 *
@@ -692,9 +629,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 * @fn         void DIOSTM32STREAMUART::ThreadConnection(void* param)
 * @brief      ThreadConnection
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *
@@ -791,9 +725,6 @@ void DIOSTM32STREAMUART::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -5,11 +5,8 @@
 * @class      DIOSTREAMSPI
 * @brief      Data Input/Output Stream SPI class
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -63,8 +60,8 @@
 @brief      DIOSTREAMSPI
 @ingroup    DATAIO
 
-@author     Abraham J. Velez 
-@date       01/03/2016 12:00
+""
+""
 
 @return     does not return anything. 
 
@@ -112,10 +109,7 @@ DIOSTREAMSPI::DIOSTREAMSPI() : DIOSTREAM(), XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -136,10 +130,7 @@ DIOSTREAMSPI::~DIOSTREAMSPI()
 * @fn         DIOSTREAMCONFIG* DIOSTREAMSPI::GetConfig()
 * @brief      GetConfig
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOSTREAMCONFIG* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -155,10 +146,7 @@ DIOSTREAMCONFIG* DIOSTREAMSPI::GetConfig()
 * @fn         bool DIOSTREAMSPI::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      SetConfig
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  config : 
 * 
 * @return     bool : true if is succesful. 
@@ -179,10 +167,7 @@ bool DIOSTREAMSPI::SetConfig(DIOSTREAMCONFIG* config)
 * @fn         bool DIOSTREAMSPI::Open()
 * @brief      Open
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -253,10 +238,7 @@ bool DIOSTREAMSPI::Open()
 * @fn         bool DIOSTREAMSPI::Close()
 * @brief      Close
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -284,10 +266,7 @@ bool DIOSTREAMSPI::Close()
 * @fn         bool DIOSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, XDWORD size)
 * @brief      TransferBuffer
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  bufferread : 
 * @param[in]  bufferwrite : 
 * @param[in]  size : 
@@ -343,10 +322,7 @@ bool DIOSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, XDWORD 
 * @fn         void DIOSTREAMSPI::Sleep(int count)
 * @brief      Sleep
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  count : 
 * 
 * @return     void : does not return anything. 
@@ -379,10 +355,7 @@ void DIOSTREAMSPI::Sleep(int count)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -415,10 +388,7 @@ void DIOSTREAMSPI::Clean()
 * @fn         bool DIOSTREAMSPI::TransferOneData(XWORD writedata,XWORD& readdata)
 * @brief      TransferOneData
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  writedata : 
 * @param[in]  readdata : 
 * 
@@ -480,10 +450,7 @@ bool DIOSTREAMSPI::TransferOneData(XWORD writedata,XWORD& readdata)
 * @fn         void DIOSTREAMSPI::ThreadConnection(void* data)
 * @brief      ThreadConnection
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  data : 
 * 
 * @return     void : does not return anything. 

@@ -6,10 +6,7 @@
 * @brief      eXtended XML (eXtensible Markup Language) file class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE()
 * @fn         XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XSTRING& :
 *
@@ -101,9 +92,6 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XCHAR* :
 *
 * @return     Does not return anything.
@@ -124,9 +112,6 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name)
 * @fn         XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name,XSTRING& value)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XSTRING& :
 * @param[in]  XSTRING& :
@@ -150,9 +135,6 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name, XSTRING& value)
 * @fn         XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name, XCHAR* value)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* :
 * @param[in]   XCHAR* value :
@@ -178,9 +160,6 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name, XCHAR* value)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -198,9 +177,6 @@ XFILEXMLATTRIBUTE::~XFILEXMLATTRIBUTE()
 * @brief      GetName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING& :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -217,9 +193,6 @@ XSTRING& XFILEXMLATTRIBUTE::GetName()
 * @fn         bool XFILEXMLATTRIBUTE::SetName(XSTRING& name)
 * @brief      SetName
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 *
@@ -241,9 +214,6 @@ bool XFILEXMLATTRIBUTE::SetName(XSTRING& name)
 * @brief      SetName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     bool : true if is succesful.
@@ -264,9 +234,6 @@ bool XFILEXMLATTRIBUTE::SetName(XCHAR* name)
 * @brief      GetValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING& :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -282,9 +249,6 @@ XSTRING& XFILEXMLATTRIBUTE::GetValue()
 * @fn         bool XFILEXMLATTRIBUTE::SetValue(XSTRING& value)
 * @brief      SetValue
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 *
@@ -306,9 +270,6 @@ bool XFILEXMLATTRIBUTE::SetValue(XSTRING& value)
 * @brief      SetValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     bool : true if is succesful.
@@ -329,9 +290,6 @@ bool XFILEXMLATTRIBUTE::SetValue(XCHAR* value)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -355,9 +313,6 @@ void XFILEXMLATTRIBUTE::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -373,7 +328,7 @@ XFILEXMLELEMENT::XFILEXMLELEMENT()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      09/02/2011 11:19:14
 //
 //  @return
@@ -396,9 +351,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name, XFILEXMLELEMENTTYPE type)
 * @fn         XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name, XFILEXMLELEMENTTYPE type)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* :
 * @param[in]   XFILEXMLELEMENTTYPE type :
@@ -423,9 +375,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name, XFILEXMLELEMENTTYPE type)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XSTRING& :
 * @param[in]  XSTRING& :
 * @param[in]   XFILEXMLELEMENTTYPE type :
@@ -449,9 +398,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name,XSTRING& value, XFILEXMLELEMENTTY
 * @fn         XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name,XCHAR* value, XFILEXMLELEMENTTYPE type)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* :
 * @param[in]  XCHAR* :
@@ -478,9 +424,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name,XCHAR* value, XFILEXMLELEMENTTYPE t
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -500,9 +443,6 @@ XFILEXMLELEMENT::~XFILEXMLELEMENT()
 * @brief      GetName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING& :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -519,9 +459,6 @@ XSTRING& XFILEXMLELEMENT::GetName()
 * @fn         bool XFILEXMLELEMENT::SetName(XSTRING& name)
 * @brief      SetName
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 *
@@ -543,9 +480,6 @@ bool XFILEXMLELEMENT::SetName(XSTRING& name)
 * @brief      SetName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     bool : true if is succesful.
@@ -565,9 +499,6 @@ bool XFILEXMLELEMENT::SetName(XCHAR* name)
 * @fn         XFILEXMLATTRIBUTE* XFILEXMLELEMENT::AddAtribute(XSTRING& name, XSTRING& value)
 * @brief      AddAtribute
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  value :
@@ -594,9 +525,6 @@ XFILEXMLATTRIBUTE* XFILEXMLELEMENT::AddAtribute(XSTRING& name, XSTRING& value)
 * @brief      AddAtribute
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  value :
 *
@@ -621,9 +549,6 @@ XFILEXMLATTRIBUTE* XFILEXMLELEMENT::AddAtribute(XCHAR* name, XCHAR* value)
 * @brief      GetNAttributes
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -639,9 +564,6 @@ int XFILEXMLELEMENT::GetNAttributes()
 * @fn         XFILEXMLATTRIBUTE* XFILEXMLELEMENT::GetAttribute(int index)
 * @brief      GetAttribute
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -664,9 +586,6 @@ XFILEXMLATTRIBUTE* XFILEXMLELEMENT::GetAttribute(int index)
 * @brief      GetValueAttribute
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     XCHAR* :
@@ -684,9 +603,6 @@ XCHAR* XFILEXMLELEMENT::GetValueAttribute(XSTRING& name)
 * @fn         XCHAR* XFILEXMLELEMENT::GetValueAttribute(XCHAR* name)
 * @brief      GetValueAttribute
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 *
@@ -720,9 +636,6 @@ XCHAR* XFILEXMLELEMENT::GetValueAttribute(XCHAR* name)
 * @brief      GetValueAttribute
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  value :
 *
@@ -741,9 +654,6 @@ bool XFILEXMLELEMENT::GetValueAttribute(XSTRING& name, XSTRING& value)
 * @fn         bool XFILEXMLELEMENT::GetValueAttribute(XCHAR* name,XSTRING& value)
 * @brief      GetValueAttribute
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  value :
@@ -778,9 +688,6 @@ bool XFILEXMLELEMENT::GetValueAttribute(XCHAR* name,XSTRING& value)
 * @brief      GetIntValueAttribute
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     int :
@@ -798,9 +705,6 @@ int XFILEXMLELEMENT::GetIntValueAttribute(XSTRING& name)
 * @fn         int XFILEXMLELEMENT::GetIntValueAttribute(XCHAR* name)
 * @brief      GetIntValueAttribute
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 *
@@ -823,9 +727,6 @@ int XFILEXMLELEMENT::GetIntValueAttribute(XCHAR* name)
 * @fn         bool XFILEXMLELEMENT::GetBoolValueAttribute(XCHAR* name)
 * @brief      GetBoolValueAttribute
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 *
@@ -850,9 +751,6 @@ bool XFILEXMLELEMENT::GetBoolValueAttribute(XCHAR* name)
 * @brief      GetFloatValueAttribute
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     double :
@@ -875,9 +773,6 @@ double XFILEXMLELEMENT::GetFloatValueAttribute(XCHAR* name)
 * @fn         bool XFILEXMLELEMENT::DeleteAtribute(int index)
 * @brief      DeleteAtribute
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -904,9 +799,6 @@ bool XFILEXMLELEMENT::DeleteAtribute(int index)
 * @brief      DeleteAllAtributes
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -929,9 +821,6 @@ bool XFILEXMLELEMENT::DeleteAllAtributes()
 * @brief      GetValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING& :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -947,9 +836,6 @@ XSTRING& XFILEXMLELEMENT::GetValue()
 * @fn         bool XFILEXMLELEMENT::SetValue(XSTRING& value)
 * @brief      SetValue
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 *
@@ -971,9 +857,6 @@ bool XFILEXMLELEMENT::SetValue(XSTRING& value)
 * @brief      SetValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     bool : true if is succesful.
@@ -993,9 +876,6 @@ bool XFILEXMLELEMENT::SetValue(XCHAR* value)
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement()
 * @brief      AddElement
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XFILEXMLELEMENT* :
 *
@@ -1019,9 +899,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement()
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XSTRING& name)
 * @brief      AddElement
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 *
@@ -1048,9 +925,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XSTRING& name)
 * @brief      AddElement
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     XFILEXMLELEMENT* :
@@ -1075,9 +949,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XCHAR* name)
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XSTRING& name,XSTRING& value)
 * @brief      AddElement
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  value :
@@ -1104,9 +975,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XSTRING& name,XSTRING& value)
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XCHAR* name,XCHAR* value)
 * @brief      AddElement
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  value :
@@ -1135,9 +1003,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XCHAR* name,XCHAR* value)
 * @brief      GetNElements
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1153,9 +1018,6 @@ int XFILEXMLELEMENT::GetNElements()
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::GetElement(int index)
 * @brief      GetElement
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -1177,9 +1039,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::GetElement(int index)
 * @fn         bool XFILEXMLELEMENT::DeleteElement(int index)
 * @brief      DeleteElement
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -1206,9 +1065,6 @@ bool XFILEXMLELEMENT::DeleteElement(int index)
 * @brief      DeleteAllElements
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1230,9 +1086,6 @@ bool XFILEXMLELEMENT::DeleteAllElements()
 * @brief      GetFather
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILEXMLELEMENT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1248,9 +1101,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::GetFather()
 * @fn         bool XFILEXMLELEMENT::SetFather(XFILEXMLELEMENT* father)
 * @brief      SetFather
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  father :
 *
@@ -1272,9 +1122,6 @@ bool XFILEXMLELEMENT::SetFather(XFILEXMLELEMENT* father)
 * @brief      GetType
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILEXMLELEMENTTYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1290,9 +1137,6 @@ XFILEXMLELEMENTTYPE XFILEXMLELEMENT::GetType()
 * @fn         bool XFILEXMLELEMENT::SetType(XFILEXMLELEMENTTYPE type)
 * @brief      SetType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -1314,9 +1158,6 @@ bool XFILEXMLELEMENT::SetType(XFILEXMLELEMENTTYPE type)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -1343,9 +1184,6 @@ void XFILEXMLELEMENT::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1362,9 +1200,6 @@ XFILEXML::XFILEXML() : XFILETXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -1386,9 +1221,6 @@ XFILEXML::~XFILEXML()
 * @brief      GetRoot
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILEXMLELEMENT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1404,9 +1236,6 @@ XFILEXMLELEMENT* XFILEXML::GetRoot()
 * @fn         bool XFILEXML::SetRoot(XFILEXMLELEMENT* root)
 * @brief      SetRoot
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  root :
 *
@@ -1429,9 +1258,6 @@ bool XFILEXML::SetRoot(XFILEXMLELEMENT* root)
 * @fn         bool XFILEXML::EncodeAllLines(bool istabulatedline)
 * @brief      EncodeAllLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  istabulatedline :
 *
@@ -1463,9 +1289,6 @@ bool XFILEXML::EncodeAllLines(bool istabulatedline)
 * @fn         bool XFILEXML::DecodeAllLines()
 * @brief      DecodeAllLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1539,9 +1362,6 @@ bool XFILEXML::DecodeAllLines()
 * @brief      ReadAndDecodeAllLines
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1563,9 +1383,6 @@ bool XFILEXML::ReadAndDecodeAllLines()
 * @fn         bool XFILEXML::WriteAndEncodeAllLines(bool istabulatedline,XFILETXTFORMATCHAR formatchar, XFILETXTTYPELF typeLF)
 * @brief      WriteAndEncodeAllLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  istabulatedline :
 * @param[in]  formatchar :
@@ -1589,9 +1406,6 @@ bool XFILEXML::WriteAndEncodeAllLines(bool istabulatedline, XFILETXTFORMATCHAR f
 * @fn         bool XFILEXML::WriteAndEncodeAllLines(bool istabulatedline)
 * @brief      WriteAndEncodeAllLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  istabulatedline :
 *
@@ -1618,9 +1432,6 @@ bool XFILEXML::WriteAndEncodeAllLines(bool istabulatedline)
 * @fn         XFILEXMLELEMENT* XFILEXML::SearchChild(XCHAR* name, XFILEXMLELEMENT* father)
 * @brief      SearchChild
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  father :
@@ -1654,9 +1465,6 @@ XFILEXMLELEMENT* XFILEXML::SearchChild(XCHAR* name, XFILEXMLELEMENT* father)
 * @brief      SearchElement
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  index :
 * @param[in]  father :
@@ -1676,9 +1484,6 @@ XFILEXMLELEMENT* XFILEXML::SearchElement(XSTRING& name, int& index, XFILEXMLELEM
 * @fn         XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XFILEXMLELEMENT* father)
 * @brief      SearchElement
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  index :
@@ -1726,9 +1531,6 @@ XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XFILEXMLELEMEN
 * @brief      SearchElement
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  index :
 * @param[in]  namefather :
@@ -1748,9 +1550,6 @@ XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XSTRING& namef
 * @fn         XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XCHAR* namefather)
 * @brief      SearchElement
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  index :
@@ -1776,9 +1575,6 @@ XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XCHAR* namefat
 * @brief      SearchAttributeValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  element :
 * @param[in]  nameattribute :
 * @param[in]  value :
@@ -1798,9 +1594,6 @@ bool XFILEXML::SearchAttributeValue(XFILEXMLELEMENT* element, XSTRING& nameattri
 * @fn         bool XFILEXML::SearchAttributeValue(XFILEXMLELEMENT* element,XCHAR* nameattribute,XSTRING& value)
 * @brief      SearchAttributeValue
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  element :
 * @param[in]  nameattribute :
@@ -1839,9 +1632,6 @@ bool XFILEXML::SearchAttributeValue(XFILEXMLELEMENT* element,XCHAR* nameattribut
 * @brief      GetCFGAtributes
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<XFILEXMLATTRIBUTE*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1857,9 +1647,6 @@ XVECTOR<XFILEXMLATTRIBUTE*>* XFILEXML::GetCFGAtributes()
 * @fn         bool XFILEXML::DeleteAllCFGAtributes()
 * @brief      DeleteAllCFGAtributes
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1881,9 +1668,6 @@ bool XFILEXML::DeleteAllCFGAtributes()
 * @fn         bool XFILEXML::DeleteAllElements()
 * @brief      DeleteAllElements
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1908,9 +1692,6 @@ bool XFILEXML::DeleteAllElements()
 * @fn         int XFILEXML::DecodeLine(XSTRING& string,bool iselement)
 * @brief      DecodeLine
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 * @param[in]  iselement :
@@ -1992,9 +1773,6 @@ int XFILEXML::DecodeLine(XSTRING& string,bool iselement)
 * @brief      DecodeConfig
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -2038,9 +1816,6 @@ bool XFILEXML::DecodeConfig(XSTRING& string)
 * @brief      DecodeComent
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -2072,9 +1847,6 @@ bool XFILEXML::DecodeComent(XSTRING& string)
 * @brief      DecodeCDATA
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -2104,9 +1876,6 @@ bool XFILEXML::DecodeCDATA(XSTRING& string)
 * @fn         bool XFILEXML::DecodeElement(XSTRING& string, XFILEXMLELEMENTTYPELINE typeline)
 * @brief      DecodeElement
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 * @param[in]  typeline :
@@ -2194,9 +1963,6 @@ bool XFILEXML::DecodeElement(XSTRING& string, XFILEXMLELEMENTTYPELINE typeline)
 * @brief      AddTabs
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  level :
 * @param[in]  spacetabs :
 * @param[in]  string :
@@ -2226,9 +1992,6 @@ bool XFILEXML::AddTabs(int level,int spacetabs,XSTRING& string)
 * @fn         bool XFILEXML::EncodeConfig(XSTRING& string)
 * @brief      EncodeConfig
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -2266,9 +2029,6 @@ bool XFILEXML::EncodeConfig(XSTRING& string)
 * @fn         bool XFILEXML::EncodeElements(bool istabulatedline, XFILEXMLELEMENT* element)
 * @brief      EncodeElements
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  istabulatedline :
 * @param[in]  element :
@@ -2391,9 +2151,6 @@ bool XFILEXML::EncodeElements(bool istabulatedline, XFILEXMLELEMENT* element)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

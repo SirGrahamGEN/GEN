@@ -6,10 +6,7 @@
 * @brief      SAMD5xE5x Data IO Stream SPI class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -68,9 +65,6 @@ DIOSAMD5XE5XSTREAMSPI*        DIOSAMD5XE5XSTREAMSPI::handles[DIOSAMD5XE5XSTREAMS
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -88,9 +82,6 @@ DIOSAMD5XE5XSTREAMSPIPORT::DIOSAMD5XE5XSTREAMSPIPORT()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -107,9 +98,6 @@ DIOSAMD5XE5XSTREAMSPIPORT::~DIOSAMD5XE5XSTREAMSPIPORT()
 * @brief      GetCounterRef
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -125,9 +113,6 @@ XDWORD DIOSAMD5XE5XSTREAMSPIPORT::GetCounterRef()
 * @fn         void DIOSAMD5XE5XSTREAMSPIPORT::SetCounterRef(XDWORD counterref)
 * @brief      SetCounterRef
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  counterref :
 *
@@ -148,9 +133,6 @@ void DIOSAMD5XE5XSTREAMSPIPORT::SetCounterRef(XDWORD counterref)
 * @brief      GetHandleSPI
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     SPI_HandleTypeDef* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -169,9 +151,6 @@ SPI_HandleTypeDef* DIOSAMD5XE5XSTREAMSPIPORT::GetHandleSPI()
 * @fn         void DIOSAMD5XE5XSTREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
 * @brief      SetHandleSPI
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hspi :
 *
@@ -195,9 +174,6 @@ void DIOSAMD5XE5XSTREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -220,9 +196,6 @@ void DIOSAMD5XE5XSTREAMSPIPORT::Clean()
 * @fn         DIOSAMD5XE5XSTREAMSPI::DIOSAMD5XE5XSTREAMSPI()
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -263,9 +236,6 @@ DIOSAMD5XE5XSTREAMSPI::DIOSAMD5XE5XSTREAMSPI()  : DIOSTREAMSPI()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -286,9 +256,6 @@ DIOSAMD5XE5XSTREAMSPI::~DIOSAMD5XE5XSTREAMSPI()
 * @brief      GetConnectStatus
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSTATUS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -307,9 +274,6 @@ DIOSTREAMSTATUS DIOSAMD5XE5XSTREAMSPI::GetConnectStatus()
 * @fn         bool DIOSAMD5XE5XSTREAMSPI::Open()
 * @brief      Open
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -422,9 +386,6 @@ bool DIOSAMD5XE5XSTREAMSPI::Open()
 * @brief      WaitToFilledReadingBuffer
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  filledto :
 * @param[in]  timeout :
 *
@@ -457,9 +418,6 @@ bool DIOSAMD5XE5XSTREAMSPI::WaitToFilledReadingBuffer(int filledto, int timeout)
 * @fn         XDWORD DIOSAMD5XE5XSTREAMSPI::ReadDirect(XBYTE* buffer, XDWORD size)
 * @brief      ReadDirect
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -498,9 +456,6 @@ XDWORD DIOSAMD5XE5XSTREAMSPI::ReadDirect(XBYTE* buffer, XDWORD size)
 * @brief      WriteDirect
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -538,9 +493,6 @@ XDWORD DIOSAMD5XE5XSTREAMSPI::WriteDirect(XBYTE* buffer, XDWORD size)
 * @brief      Write
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -574,8 +526,8 @@ XDWORD DIOSAMD5XE5XSTREAMSPI::Write(XBYTE* buffer, XDWORD size)
  *  @brief      Disconnect
  *  @ingroup    PLATFORM_SAMD5XE5X
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @return     bool : true if is succesful.
  *
@@ -591,9 +543,6 @@ bool DIOSAMD5XE5XSTREAMSPI::Disconnect()
 * @fn         bool DIOSAMD5XE5XSTREAMSPI::Close()
 * @brief      Close
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -640,9 +589,6 @@ bool DIOSAMD5XE5XSTREAMSPI::Close()
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -659,9 +605,6 @@ bool DIOSAMD5XE5XSTREAMSPI::CleanBuffers()
 * @fn         void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
 * @brief      AL_SPI_MasterRxCpltCallback
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hspi :
 *
@@ -704,9 +647,6 @@ void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
 * @brief      AL_SPI_SlaveRxCpltCallback
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hspi :
 *
 * @return     void : does not return anything.
@@ -727,9 +667,6 @@ void HAL_SPI_SlaveRxCpltCallback(SPI_HandleTypeDef* hspi)
 * @brief      AL_SPI_ErrorCallback
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  SPI_HandleTypeDef*hspi :
 *
 * @return     void : does not return anything.
@@ -749,9 +686,6 @@ void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
 * @fn         void DIOSAMD5XE5XSTREAMSPI::ThreadConnection(void* param)
 * @brief      ThreadConnection
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *
@@ -845,9 +779,6 @@ void DIOSAMD5XE5XSTREAMSPI::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

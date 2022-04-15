@@ -81,7 +81,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2013 7:48:15
 //
 //  @return
@@ -136,7 +136,7 @@ DIOLINUXSTREAMTCPIP::DIOLINUXSTREAMTCPIP() : DIOSTREAMTCPIP() , XFSMACHINE(0)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -158,7 +158,7 @@ DIOLINUXSTREAMTCPIP::~DIOLINUXSTREAMTCPIP()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -187,7 +187,7 @@ bool DIOLINUXSTREAMTCPIP::Open()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/12/2010 23:10:56
 //
 //  @return       bool :
@@ -233,7 +233,7 @@ bool DIOLINUXSTREAMTCPIP::Disconnect()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -287,7 +287,7 @@ bool DIOLINUXSTREAMTCPIP::Close()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      09/04/2007 11:31:55
 //
 //  @return       int :
@@ -326,7 +326,7 @@ int DIOLINUXSTREAMTCPIP::Accept(int socket, void* addr, void* addrlen, XDWORD us
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      08/03/2006 15:36:59
 //
 //  @return       int :
@@ -393,7 +393,7 @@ int DIOLINUXSTREAMTCPIP::IsReadyConnect(int socket)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/05/2016 16:35:02
 //
 //  @return       bool :
@@ -435,7 +435,7 @@ bool DIOLINUXSTREAMTCPIP::SetPropertysHandle(int socket)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      19/04/2016 13:36:53
 //
 //  @return       bool :
@@ -587,7 +587,7 @@ bool DIOLINUXSTREAMTCPIP::GetHandleServer()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      19/04/2016 13:35:33
 //
 //  @return       bool :
@@ -695,7 +695,7 @@ bool DIOLINUXSTREAMTCPIP::GetHandleClient()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/03/2006 15:44:00
 //
 //  @return       void :

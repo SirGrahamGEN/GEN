@@ -5,11 +5,8 @@
 * @class      UI_SKINCANVAS
 * @brief      User Interface Skin Canvas class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -87,10 +84,7 @@
 * @fn         UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen)
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  GRPSCREEN* : 
 * 
 * @return     Does not return anything. 
@@ -120,10 +114,7 @@ UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -139,10 +130,7 @@ UI_SKINCANVAS_REBUILDAREAS::~UI_SKINCANVAS_REBUILDAREAS()
 * @fn         bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas()
 * @brief      RebuildAllAreas
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -207,10 +195,7 @@ bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas()
 * @fn         bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas(UI_LAYOUT* layout)
 * @brief      RebuildAllAreas
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  layout : 
 * 
 * @return     bool : true if is succesful. 
@@ -236,10 +221,7 @@ bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas(UI_LAYOUT* layout)
 * @fn         bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas(UI_ELEMENT* element)
 * @brief      RebuildAllAreas
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -317,10 +299,7 @@ bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS_REBUILDAREAS::CreateRebuildArea(double x, double y, double width, double height, UI_ELEMENT* element)
 * @brief      CreateRebuildArea
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  x : 
 * @param[in]  y : 
 * @param[in]  width : 
@@ -342,10 +321,7 @@ bool UI_SKINCANVAS_REBUILDAREAS::CreateRebuildArea(double x, double y, double wi
 * @fn         GRPBITMAP* UI_SKINCANVAS_REBUILDAREAS::GetBitmap(double x, double y, double width, double height)
 * @brief      GetBitmap
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  x : 
 * @param[in]  y : 
 * @param[in]  width : 
@@ -368,10 +344,7 @@ GRPBITMAP* UI_SKINCANVAS_REBUILDAREAS::GetBitmap(double x, double y, double widt
 * @fn         void UI_SKINCANVAS_REBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 * @brief      PutBitmapNoAlpha
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  x : 
 * @param[in]  y : 
 * @param[in]  bitmap : 
@@ -393,10 +366,7 @@ void UI_SKINCANVAS_REBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP*
 * @fn         GRP2DREBUILDAREA* UI_SKINCANVAS_REBUILDAREAS::GetRebuildAreaByElement(UI_ELEMENT* element)
 * @brief      GetRebuildAreaByElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     GRP2DREBUILDAREA* : 
@@ -428,10 +398,7 @@ GRP2DREBUILDAREA* UI_SKINCANVAS_REBUILDAREAS::GetRebuildAreaByElement(UI_ELEMENT
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -454,10 +421,7 @@ void UI_SKINCANVAS_REBUILDAREAS::Clean()
 * @fn         UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen) : UI_SKIN()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  GRPSCREEN* : 
 * 
 * @return     Does not return anything. 
@@ -480,10 +444,7 @@ UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen) : UI_SKIN(),  UI_SKINCANVAS_REBU
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -501,10 +462,7 @@ UI_SKINCANVAS::~UI_SKINCANVAS()
 * @fn         GRPSCREEN* UI_SKINCANVAS::GetScreen()
 * @brief      GetScreen
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     GRPSCREEN* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -519,10 +477,7 @@ GRPSCREEN* UI_SKINCANVAS::GetScreen()
 * @fn         GRPCANVAS* UI_SKINCANVAS::GetCanvas()
 * @brief      GetCanvas
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     GRPCANVAS* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -541,10 +496,7 @@ GRPCANVAS* UI_SKINCANVAS::GetCanvas()
 * @fn         bool UI_SKINCANVAS::LoadFonts()
 * @brief      LoadFonts
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -585,10 +537,7 @@ bool UI_SKINCANVAS::LoadFonts()
 * @fn         bool UI_SKINCANVAS::Background_LoadBitmap()
 * @brief      Background_LoadBitmap
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -626,10 +575,7 @@ bool UI_SKINCANVAS::Background_LoadBitmap()
 * @fn         bool UI_SKINCANVAS::GetFatherSize(UI_ELEMENT* element, double& width, double& height)
 * @brief      GetFatherSize
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  width : 
 * @param[in]  height : 
@@ -666,10 +612,7 @@ bool UI_SKINCANVAS::GetFatherSize(UI_ELEMENT* element, double& width, double& he
 * @fn         double UI_SKINCANVAS::GetPositionWithoutDefine(double position)
 * @brief      GetPositionWithoutDefine
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  position : 
 * 
 * @return     double : 
@@ -697,10 +640,7 @@ double UI_SKINCANVAS::GetPositionWithoutDefine(double position)
 * @fn         bool UI_SKINCANVAS::SetAroundFromSubElements(UI_ELEMENT* element)
 * @brief      SetAroundFromSubElements
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -762,10 +702,7 @@ bool UI_SKINCANVAS::SetAroundFromSubElements(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::AddPositionSubElements(UI_ELEMENT* element)
 * @brief      AddPositionSubElements
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -794,10 +731,7 @@ bool UI_SKINCANVAS::AddPositionSubElements(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculePosition(UI_ELEMENT* element, double fatherwidth, double fatherheight)
 * @brief      CalculePosition
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  fatherwidth : 
 * @param[in]  fatherheight : 
@@ -864,10 +798,7 @@ bool UI_SKINCANVAS::CalculePosition(UI_ELEMENT* element, double fatherwidth, dou
 * @fn         double UI_SKINCANVAS::GetWithString(XCHAR* string, XDWORD sizefont)
 * @brief      GetWithString
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  string : 
 * @param[in]  sizefont : 
 * 
@@ -892,10 +823,7 @@ double UI_SKINCANVAS::GetWithString(XCHAR* string,  XDWORD sizefont)
 * @fn         double UI_SKINCANVAS::GetHeightString(XCHAR* string, XDWORD sizefont)
 * @brief      GetHeightString
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  string : 
 * @param[in]  sizefont : 
 * 
@@ -920,10 +848,7 @@ double  UI_SKINCANVAS::GetHeightString(XCHAR* string, XDWORD sizefont)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Scroll(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_Scroll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -941,10 +866,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Scroll(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Text(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_Text
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1016,10 +938,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Text(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_TextBox(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_TextInBox
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1061,10 +980,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_TextBox(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Image(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_Image
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1106,10 +1022,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Image(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Animation(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_Animation
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1184,10 +1097,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Animation(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Option(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_Option
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1297,10 +1207,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Option(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_MultiOption
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1366,10 +1273,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Button(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_Button
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1387,10 +1291,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Button(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_CheckBox
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1408,10 +1309,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_EditText(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_EditText
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1470,10 +1368,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_EditText(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Form(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_Form
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1541,10 +1436,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Form(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Menu(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_Menu
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1562,10 +1454,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Menu(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_ListBox(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_ListBox
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1624,10 +1513,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_ListBox(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element)
 * @brief      CalculateBoundaryLine_ProgressBar
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1762,10 +1648,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::SetElementPosition(UI_ELEMENT* element, double x_position, double y_position)
 * @brief      SetElementPosition
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  x_position : 
 * @param[in]  y_position : 
@@ -1800,10 +1683,7 @@ bool UI_SKINCANVAS::SetElementPosition(UI_ELEMENT* element, double x_position, d
 * @fn         bool UI_SKINCANVAS::Draw_Scroll(UI_ELEMENT* element)
 * @brief      Draw_Scroll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -1821,10 +1701,7 @@ bool UI_SKINCANVAS::Draw_Scroll(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_Text(UI_ELEMENT* element)
 * @brief      Draw_Text
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  scroll_legacy : 
 * 
@@ -1870,10 +1747,7 @@ bool UI_SKINCANVAS::Draw_Text(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_TextBox(UI_ELEMENT* element)
 * @brief      Draw_TextInBox
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  scroll_legacy : 
 * 
@@ -1981,10 +1855,7 @@ bool UI_SKINCANVAS::Draw_TextBox(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_Image(UI_ELEMENT* element)
 * @brief      Draw_Image
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  scroll_legacy : 
 * 
@@ -2025,10 +1896,7 @@ bool UI_SKINCANVAS::Draw_Image(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_Animation(UI_ELEMENT* element)
 * @brief      Draw_Animation
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  scroll_legacy : 
 * 
@@ -2098,10 +1966,7 @@ bool UI_SKINCANVAS::Draw_Animation(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_Option(UI_ELEMENT* element)
 * @brief      Draw_Option
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  scroll_legacy : 
 * 
@@ -2212,10 +2077,7 @@ bool UI_SKINCANVAS::Draw_Option(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_MultiOption(UI_ELEMENT* element)
 * @brief      Draw_MultiOption
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  scroll_legacy : 
 * 
@@ -2288,10 +2150,7 @@ bool UI_SKINCANVAS::Draw_MultiOption(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_Button(UI_ELEMENT* element)
 * @brief      Draw_Button
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  scroll_legacy : 
 * 
@@ -2310,10 +2169,7 @@ bool UI_SKINCANVAS::Draw_Button(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_CheckBox(UI_ELEMENT* element)
 * @brief      Draw_CheckBox
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  scroll_legacy : 
 * 
@@ -2340,10 +2196,7 @@ bool UI_SKINCANVAS::Draw_CheckBox(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_EditText(UI_ELEMENT* element)
 * @brief      Draw_EditText
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  scroll_legacy : 
 * 
@@ -2446,10 +2299,7 @@ bool UI_SKINCANVAS::Draw_EditText(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_Form(UI_ELEMENT* element)
 * @brief      Draw_Form
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  scroll_legacy : 
 * 
@@ -2524,10 +2374,7 @@ bool UI_SKINCANVAS::Draw_Form(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_Menu(UI_ELEMENT* element)
 * @brief      Draw_Menu
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  scroll_legacy : 
 * 
@@ -2546,10 +2393,7 @@ bool UI_SKINCANVAS::Draw_Menu(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_ListBox(UI_ELEMENT* element)
 * @brief      Draw_ListBox
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -2622,10 +2466,7 @@ bool UI_SKINCANVAS::Draw_ListBox(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_ProgressBar(UI_ELEMENT* element)
 * @brief      Draw_ProgressBar
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -2824,10 +2665,7 @@ bool UI_SKINCANVAS::Draw_ProgressBar(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::GetFontSize(XCHAR* text, XDWORD& width, XDWORD& height)
 * @brief      GetFontSize
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  text : 
 * @param[in]  width : 
 * @param[in]  height : 
@@ -2853,10 +2691,7 @@ bool UI_SKINCANVAS::GetFontSize(XCHAR* text, XDWORD& width, XDWORD& height)
 * @fn         bool UI_SKINCANVAS::SetFontSize(XDWORD size)
 * @brief      SetFontSize
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  size : 
 * 
 * @return     bool : true if is succesful. 
@@ -2879,10 +2714,7 @@ bool UI_SKINCANVAS::SetFontSize(XDWORD size)
 * @fn         bool UI_SKINCANVAS::DrawBackgroundColor(UI_ELEMENT* element, GRPCANVAS* canvas, double x_position, double y_position)
 * @brief      DrawBackgroundColor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  canvas : 
 * @param[in]  x_position : 
@@ -2920,10 +2752,7 @@ bool UI_SKINCANVAS::DrawBackgroundColor(UI_ELEMENT* element, GRPCANVAS* canvas, 
 * @fn         bool UI_SKINCANVAS::PreDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XRECT& clip_rect, double& x_position, double& y_position, XDWORD edge)
 * @brief      PreDrawFunction
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  canvas : 
 * @param[in]  clip_rect : 
@@ -2985,10 +2814,7 @@ bool UI_SKINCANVAS::PreDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XREC
 * @fn         bool UI_SKINCANVAS::PostDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XRECT& clip_rect, double x_position, double y_position)
 * @brief      PostDrawFunction
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  canvas : 
 * @param[in]  clip_rect : 
@@ -3024,10 +2850,7 @@ bool UI_SKINCANVAS::PostDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XRE
 * @fn         double UI_SKINCANVAS::TextBox_SizeLine(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, int nline, XSTRING& characterstr, XDWORD index_char, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts, XVECTOR<UI_SKIN_TEXTBOX_IMAGE*>& images)
 * @brief      TextBox_SizeLine
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element_textbox : 
 * @param[in]  canvas : 
 * @param[in]  x_position : 
@@ -3089,10 +2912,7 @@ double UI_SKINCANVAS::TextBox_SizeLine(UI_ELEMENT_TEXTBOX* element_textbox, GRPC
 * @fn         bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts, XVECTOR<UI_SKIN_TEXTBOX_IMAGE*>& images)
 * @brief      TextBox_GenerateLines
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element_textbox : 
 * @param[in]  canvas : 
 * @param[in]  x_position : 
@@ -3486,10 +3306,7 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
 * @fn         bool UI_SKINCANVAS::Debug_Draw(UI_ELEMENT* element, double x_position, double y_position)
 * @brief      Debug_Draw
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * @param[in]  x_position : 
 * @param[in]  y_position : 
@@ -3527,10 +3344,7 @@ bool UI_SKINCANVAS::Debug_Draw(UI_ELEMENT* element, double x_position, double y_
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

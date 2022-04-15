@@ -121,7 +121,7 @@ const XBYTE* HASHCOMP128V1::table[5]      =   {  table0,
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:43:10
 //
 //  @return
@@ -140,7 +140,7 @@ HASHCOMP128V1::HASHCOMP128V1() : HASH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:01
 //
 //  @return
@@ -159,7 +159,7 @@ HASHCOMP128V1::~HASHCOMP128V1()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 16:31:05
 //
 //  @return       bool :
@@ -185,7 +185,7 @@ bool HASHCOMP128V1::SetInput(XBYTE* rand, XBYTE* ki,XBUFFER& xbuffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:33:55
 //
 //  @return       bool :
@@ -217,7 +217,7 @@ bool HASHCOMP128V1::Do(XBYTE* input, XQWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/04/2013 0:49:18
 //
 //  @return       int :
@@ -236,7 +236,7 @@ int HASHCOMP128V1::GetDefaultSize()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 7:04:25
 //
 //  @return       bool :
@@ -263,7 +263,7 @@ bool HASHCOMP128V1::GetSRES(XBUFFER& SRES)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      04/03/2013 7:04:29
 //
 //  @return       bool :
@@ -288,7 +288,7 @@ bool HASHCOMP128V1::GetKc(XBUFFER& Kc)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:56
 //
 //  @return       void :
@@ -308,7 +308,7 @@ void HASHCOMP128V1::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 16:31:49
 //
 //  @return       void :

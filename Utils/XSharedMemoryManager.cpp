@@ -6,10 +6,7 @@
 * @brief      eXtended Shared memory manager (Exchange between applications)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@ XSHAREDMEMORYMANAGER* XSHAREDMEMORYMANAGER::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -73,9 +67,6 @@ XSHAREDMEMORYMANAGER::XSHAREDMEMORYMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -95,9 +86,6 @@ XSHAREDMEMORYMANAGER::~XSHAREDMEMORYMANAGER()
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -114,9 +102,6 @@ bool XSHAREDMEMORYMANAGER::GetIsInstanced()
 * @brief      Get Instance of XSHAREDMEMORYMANAGER
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSHAREDMEMORYMANAGER& :
 *
@@ -140,9 +125,6 @@ XSHAREDMEMORYMANAGER& XSHAREDMEMORYMANAGER::GetInstance()
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  _instance : new instance
 *
 * @return     bool : true if is succesful.
@@ -165,9 +147,6 @@ bool XSHAREDMEMORYMANAGER::SetInstance(XSHAREDMEMORYMANAGER* _instance)
 * @brief      Delete Instance of XSHAREDMEMORY
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -193,9 +172,6 @@ bool XSHAREDMEMORYMANAGER::DelInstance()
 * @brief      Create
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 * @param[in]  size :
 * @param[in]  ispublic :
@@ -215,9 +191,6 @@ XBYTE* XSHAREDMEMORYMANAGER::Create(XCHAR* ID, XDWORD size, bool ispublic)
 * @fn         XBYTE* XSHAREDMEMORYMANAGER::Create(XSTRING& ID, XDWORD size, bool ispublic)
 * @brief      Create
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  size :
@@ -239,9 +212,6 @@ XBYTE* XSHAREDMEMORYMANAGER::Create(XSTRING& ID, XDWORD size, bool ispublic)
 * @brief      Open Shared Memory (other task or application must create the shared memory)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID : ID of Shared memory
 * @param[in]  size : size of shared memory
 *
@@ -260,9 +230,6 @@ XBYTE* XSHAREDMEMORYMANAGER::Open(XCHAR* ID, XDWORD& size)
 * @fn         XBYTE* XSHAREDMEMORYMANAGER::Open(XSTRING& ID, XDWORD& size)
 * @brief      Open Shared Memory (other task or application must create the shared memory)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID : ID of Shared memory
 * @param[in]  size : size of shared memory
@@ -283,9 +250,6 @@ XBYTE* XSHAREDMEMORYMANAGER::Open(XSTRING& ID, XDWORD& size)
 * @brief      Get Pointer of Shared Memory
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE* : Pointer to shared memory
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -300,9 +264,6 @@ XBYTE* XSHAREDMEMORYMANAGER::GetPointer()
 * @fn         bool XSHAREDMEMORYMANAGER::Close()
 * @brief      Close Shared Memory (for create or open)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -320,9 +281,6 @@ bool XSHAREDMEMORYMANAGER::Close()
 * @brief      IsServer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -338,9 +296,6 @@ bool XSHAREDMEMORYMANAGER::IsServer()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

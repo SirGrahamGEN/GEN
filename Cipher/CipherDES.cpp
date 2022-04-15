@@ -235,7 +235,7 @@ XBYTE CIPHERDES::weakkeytable[CIPHERDES_WEAKKEYCOUNT][CIPHERDES_KEYSIZE] =    { 
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/04/2006 19:42:40
 //
 //  @return
@@ -258,7 +258,7 @@ CIPHERDES::CIPHERDES() : CIPHER()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/04/2006 19:42:37
 //
 //  @return
@@ -275,7 +275,7 @@ CIPHERDES::~CIPHERDES()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/04/2002 10:22:59
 //
 //  @return       bool :
@@ -325,7 +325,7 @@ bool CIPHERDES::Cipher(XBYTE* input,XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:44:01
 //
 //  @return       bool :
@@ -372,7 +372,7 @@ bool CIPHERDES::Uncipher(XBYTE* input,XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/03/2013 23:51:12
 //
 //  @return       void :
@@ -392,7 +392,7 @@ void CIPHERDES::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:16:00
 //
 //  @return       void :
@@ -416,7 +416,7 @@ void CIPHERDES::DESKeySetParity(XBYTE key[CIPHERDES_KEYSIZE])
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:16:04
 //
 //  @return       int :
@@ -441,7 +441,7 @@ int CIPHERDES::DESKeyCheckKeyParity(XBYTE key[CIPHERDES_KEYSIZE])
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:16:10
 //
 //  @return       int :
@@ -466,7 +466,7 @@ int CIPHERDES::DESKeyCheckWeak(XBYTE key[CIPHERDES_KEYSIZE])
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:16:17
 //
 //  @return       void :
@@ -546,7 +546,7 @@ void CIPHERDES::DESSetKey(XDWORD SK[32], XBYTE key[CIPHERDES_KEYSIZE])
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:16:33
 //
 //  @return       int :
@@ -569,7 +569,7 @@ int CIPHERDES::DESSetKeyCipher(CIPHERDES_CONTEXT* ctx, XBYTE key[CIPHERDES_KEYSI
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:16:38
 //
 //  @return       int :
@@ -598,7 +598,7 @@ int CIPHERDES::DESSetKeyUncipher(CIPHERDES_CONTEXT* ctx, XBYTE key[CIPHERDES_KEY
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:17:29
 //
 //  @return       int :
@@ -644,7 +644,7 @@ int CIPHERDES::DESCipher(CIPHERDES_CONTEXT* ctx, XBYTE input[8], XBYTE output[8]
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/03/2013 23:31:22
 //
 //  @return       bool :
@@ -704,7 +704,7 @@ bool CIPHERDES::DESCipher_ECB(CIPHERDES_CONTEXT* ctx, int mode, size_t length, X
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/03/2013 23:17:40
 //
 //  @return       int :

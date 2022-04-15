@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Web Client class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -74,9 +71,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +87,6 @@ DIOWEBCLIENT_HEADER::DIOWEBCLIENT_HEADER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -114,9 +105,6 @@ DIOWEBCLIENT_HEADER::~DIOWEBCLIENT_HEADER()
 * @fn         bool DIOWEBCLIENT_HEADER::GetMethod(XSTRING& method)
 * @brief      GetMethod
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  method :
 *
@@ -138,9 +126,6 @@ bool DIOWEBCLIENT_HEADER::GetMethod(XSTRING& method)
 * @brief      GetResource
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  resource :
 *
 * @return     bool : true if is succesful.
@@ -161,9 +146,6 @@ bool DIOWEBCLIENT_HEADER::GetResource(XSTRING& resource)
 * @brief      GetVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -183,9 +165,6 @@ int DIOWEBCLIENT_HEADER::GetVersion()
 * @fn         int DIOWEBCLIENT_HEADER::GetSubVersion()
 * @brief      GetSubVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -208,9 +187,6 @@ int DIOWEBCLIENT_HEADER::GetSubVersion()
 * @brief      GetResultServer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -230,9 +206,6 @@ int DIOWEBCLIENT_HEADER::GetResultServer()
 * @fn         XQWORD DIOWEBCLIENT_HEADER::GetContentLength()
 * @brief      GetContentLength
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XQWORD :
 *
@@ -272,9 +245,6 @@ XQWORD DIOWEBCLIENT_HEADER::GetContentLength()
 * @fn         bool DIOWEBCLIENT_HEADER::GetETag(XSTRING& etag)
 * @brief      GetETag
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  etag :
 *
@@ -318,9 +288,6 @@ bool DIOWEBCLIENT_HEADER::GetETag(XSTRING& etag)
 * @brief      GetAuthentication
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  authentication : 
 *
 * @return     bool : true if is succesful. 
@@ -346,9 +313,6 @@ bool DIOWEBCLIENT_HEADER::GetWWWAuthenticate(XSTRING& authenticate)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -371,9 +335,6 @@ void DIOWEBCLIENT_HEADER::Clean()
 * @fn         DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XDWORD :
 *
@@ -408,9 +369,6 @@ DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -453,9 +411,6 @@ DIOWEBCLIENT::~DIOWEBCLIENT()
 * @brief      Get_Port
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -471,9 +426,6 @@ int DIOWEBCLIENT::Get_Port()
 * @fn         void DIOWEBCLIENT::Set_Port(int port)
 * @brief      Set_Port
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  port :
 *
@@ -493,9 +445,6 @@ void DIOWEBCLIENT::Set_Port(int port)
 * @brief      GetProxyURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOURL* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -512,9 +461,6 @@ DIOURL* DIOWEBCLIENT::GetProxyURL()
 * @brief      GetProxyPort
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -530,9 +476,6 @@ int DIOWEBCLIENT::GetProxyPort()
 * @fn         void DIOWEBCLIENT::SetProxyPort(int port)
 * @brief      SetProxyPort
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  port :
 *
@@ -553,9 +496,6 @@ void DIOWEBCLIENT::SetProxyPort(int port)
 * @brief      GetAuthenticationMethod
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBCLIENT_AUTHENTICATION_METHOD : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -571,9 +511,6 @@ DIOWEBCLIENT_AUTHENTICATION_METHOD DIOWEBCLIENT::GetAuthenticationMethod()
 * @fn         void DIOWEBCLIENT::SetAuthenticationMethod(DIOWEBCLIENT_AUTHENTICATION_METHOD authenticationmethod)
 * @brief      SetAuthenticationMethod
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  authenticationmethod : 
 *
@@ -593,9 +530,6 @@ void DIOWEBCLIENT::SetAuthenticationMethod(DIOWEBCLIENT_AUTHENTICATION_METHOD au
 * @brief      GetLogin
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -611,9 +545,6 @@ XSTRING*  DIOWEBCLIENT::GetLogin()
 * @fn         XSTRING* DIOWEBCLIENT::GetPassword()
 * @brief      GetPassword
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* : 
 *
@@ -633,9 +564,6 @@ XSTRING*  DIOWEBCLIENT::GetPassword()
 * @brief      GetStreamCFG
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMTCPIPCONFIG* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -651,9 +579,6 @@ DIOSTREAMTCPIPCONFIG* DIOWEBCLIENT::GetStreamCFG()
 * @fn         DIOWEBCLIENT_HEADER* DIOWEBCLIENT::GetHeader()
 * @brief      GetHeader
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOWEBCLIENT_HEADER* :
 *
@@ -671,9 +596,6 @@ DIOWEBCLIENT_HEADER* DIOWEBCLIENT::GetHeader()
 * @brief      IsActiveDoNotStopHTTPError
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -690,9 +612,6 @@ bool DIOWEBCLIENT::IsActiveDoStopHTTPError()
 * @fn         void DIOWEBCLIENT::DoNotstopHTTPError(bool activate)
 * @brief      DoNotstopHTTPError
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  activate : 
 *
@@ -712,9 +631,6 @@ void DIOWEBCLIENT::DoStopHTTPError(bool activate)
 * @fn         bool DIOWEBCLIENT::Get(DIOURL& url, XBUFFER& tobuffer, XCHAR* addheader, int timeout, XSTRING* localIP)
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  url :
 * @param[in]  tobuffer :
@@ -737,9 +653,6 @@ bool DIOWEBCLIENT::Get(DIOURL& url, XBUFFER& tobuffer, XCHAR* addheader, int tim
 * @fn         bool DIOWEBCLIENT::Get(XCHAR* url, XBUFFER& tobuffer, XCHAR* addheader, int timeout, XSTRING* localIP)
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  url :
 * @param[in]  tobuffer :
@@ -765,9 +678,6 @@ bool DIOWEBCLIENT::Get(XCHAR* url, XBUFFER& tobuffer, XCHAR* addheader, int time
 * @fn         bool DIOWEBCLIENT::Get(DIOURL& url, XPATH& pathfile, XCHAR* addheader, int timeout, XSTRING* localIP)
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  url :
 * @param[in]  pathfile :
@@ -816,9 +726,6 @@ bool DIOWEBCLIENT::Get(DIOURL& url, XPATH& pathfile, XCHAR* addheader, int timeo
 * @brief      Get
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 * @param[in]  pathfile :
 * @param[in]  addheader :
@@ -844,9 +751,6 @@ bool DIOWEBCLIENT::Get(XCHAR* url, XPATH& pathfile, XCHAR* addheader, int timeou
 * @brief      Put
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 * @param[in]  tobuffer :
 * @param[in]  addheader :
@@ -868,9 +772,6 @@ bool DIOWEBCLIENT::Put(DIOURL& url, XBUFFER& tobuffer, XCHAR* addheader, int tim
 * @fn         bool DIOWEBCLIENT::Put(XCHAR* url, XBUFFER& tobuffer, XCHAR* addheader, int timeout, XSTRING* localIP)
 * @brief      Put
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  url :
 * @param[in]  tobuffer :
@@ -896,9 +797,6 @@ bool DIOWEBCLIENT::Put(XCHAR* url, XBUFFER& tobuffer, XCHAR* addheader, int time
 * @fn         bool DIOWEBCLIENT::Put(DIOURL& url, XPATH& pathfile, XCHAR* addheader, int timeout, XSTRING* localIP)
 * @brief      Put
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  url :
 * @param[in]  pathfile :
@@ -949,9 +847,6 @@ bool DIOWEBCLIENT::Put(DIOURL& url, XPATH& pathfile, XCHAR* addheader, int timeo
 * @brief      Put
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 * @param[in]  pathfile :
 * @param[in]  addheader :
@@ -977,9 +872,6 @@ bool DIOWEBCLIENT::Put(XCHAR* url, XPATH& pathfile, XCHAR* addheader, int timeou
 * @brief      Post
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 * @param[in]  tobuffer :
 * @param[in]  postdata :
@@ -1002,9 +894,6 @@ bool DIOWEBCLIENT::Post(DIOURL& url, XBUFFER& tobuffer, XBUFFER* postdata, XCHAR
 * @fn         bool DIOWEBCLIENT::Post(XCHAR* url, XBUFFER& tobuffer, XBUFFER* postdata, XCHAR* addheader, int timeout, XSTRING* localIP)
 * @brief      Post
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  url :
 * @param[in]  tobuffer :
@@ -1031,9 +920,6 @@ bool DIOWEBCLIENT::Post(XCHAR* url, XBUFFER& tobuffer, XBUFFER* postdata, XCHAR*
 * @fn         bool DIOWEBCLIENT::Post(DIOURL& url, XPATH& pathfile, XBUFFER* postdata, XCHAR* addheader, int timeout, XSTRING* localIP)
 * @brief      Post
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  url :
 * @param[in]  pathfile :
@@ -1077,9 +963,6 @@ bool DIOWEBCLIENT::Post(DIOURL& url, XPATH& pathfile, XBUFFER* postdata, XCHAR* 
 * @brief      Post
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 * @param[in]  pathfile :
 * @param[in]  postdata :
@@ -1105,9 +988,6 @@ bool DIOWEBCLIENT::Post(XCHAR* url, XPATH& pathfile, XBUFFER* postdata, XCHAR* a
 * @fn         bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFER* postdata, XCHAR* addhead, int timeout, XSTRING* localIP, bool istobuffer, void* to)
 * @brief      MakeOperation
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  method :
 * @param[in]  url :
@@ -1554,9 +1434,6 @@ bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFE
 * @brief      GetSubStringWWWWAuthenticate
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  www_authenticate : 
 * @param[in]  field : 
 * @param[in]  value : 
@@ -1610,9 +1487,6 @@ bool DIOWEBCLIENT::GetSubStringWWWWAuthenticate(XSTRING& www_authenticate, XCHAR
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

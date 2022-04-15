@@ -6,10 +6,7 @@
 * @brief      Android DIO General Port Input/Ouput
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -65,9 +62,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -85,9 +79,6 @@ DIOANDROIDGPIO::DIOANDROIDGPIO(): DIOGPIO()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -104,9 +95,6 @@ DIOANDROIDGPIO::~DIOANDROIDGPIO()
 * @brief      Ini
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -122,9 +110,6 @@ bool DIOANDROIDGPIO::Ini()
 * @fn         bool DIOANDROIDGPIO::SetMode(XBYTE pin, bool isinput)
 * @brief      SetMode
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pin :
 * @param[in]  isinput :
@@ -146,9 +131,6 @@ bool DIOANDROIDGPIO::SetMode(XBYTE pin, bool isinput)
 * @brief      Get
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  pin :
 *
 * @return     bool : true if is succesful.
@@ -167,9 +149,6 @@ bool DIOANDROIDGPIO::Get(XBYTE pin)
 * @fn         bool DIOANDROIDGPIO::Set(XBYTE pin, bool active)
 * @brief      Set
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pin :
 * @param[in]  active :
@@ -191,9 +170,6 @@ bool DIOANDROIDGPIO::Set(XBYTE pin, bool active)
 * @brief      End
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -211,9 +187,6 @@ bool DIOANDROIDGPIO::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

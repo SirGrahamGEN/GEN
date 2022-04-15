@@ -75,7 +75,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2013 7:48:15
 //
 //  @return
@@ -94,7 +94,7 @@ DIOANDROIDSTREAMTCPIP::DIOANDROIDSTREAMTCPIP() : DIOLINUXSTREAMTCPIP()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return

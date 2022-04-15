@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Scraper Web Translation class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -80,9 +74,6 @@ DIOTRANSLATION_RESULT::DIOTRANSLATION_RESULT()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -99,9 +90,6 @@ DIOTRANSLATION_RESULT::~DIOTRANSLATION_RESULT()
 * @brief      GetLanguageTextCode
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XLANGUAGE_CODE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -117,9 +105,6 @@ XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTextCode()
 * @fn         bool DIOTRANSLATION_RESULT::SetLanguageTextCode(XLANGUAGE_CODE code)
 * @brief      SetLanguageTextCode
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 *
@@ -141,9 +126,6 @@ bool DIOTRANSLATION_RESULT::SetLanguageTextCode(XLANGUAGE_CODE code)
 * @brief      GetLanguageTranslationCode
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XLANGUAGE_CODE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -159,9 +141,6 @@ XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTranslationCode()
 * @fn         bool DIOTRANSLATION_RESULT::SetLanguageTranslationCode(XLANGUAGE_CODE code)
 * @brief      SetLanguageTranslationCode
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code :
 *
@@ -184,9 +163,6 @@ bool DIOTRANSLATION_RESULT::SetLanguageTranslationCode(XLANGUAGE_CODE code)
 * @brief      GetTranslation
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -203,9 +179,6 @@ XSTRING* DIOTRANSLATION_RESULT::GetTranslation()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -230,9 +203,6 @@ void DIOTRANSLATION_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -250,9 +220,6 @@ DIOSCRAPERWEBTRANSLATION::DIOSCRAPERWEBTRANSLATION() : DIOSCRAPERWEB()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -268,9 +235,6 @@ DIOSCRAPERWEBTRANSLATION::~DIOSCRAPERWEBTRANSLATION()
 * @fn         bool DIOSCRAPERWEBTRANSLATION::ChangeURL(XCHAR* maskurl, DIOURL& url)
 * @brief      ChangeURL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  maskurl :
 * @param[in]  url :
@@ -316,9 +280,6 @@ bool DIOSCRAPERWEBTRANSLATION::ChangeURL(XCHAR* maskurl, DIOURL& url)
 * @fn         bool DIOSCRAPERWEBTRANSLATION::Get(XCHAR* text, XLANGUAGE_CODE languagetextcode, XLANGUAGE_CODE languagetranslationcode, XSTRING& translation, int timeoutforurl, XSTRING* localIP, bool usecache)
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  text :
 * @param[in]  languagetextcode :
@@ -394,9 +355,6 @@ bool DIOSCRAPERWEBTRANSLATION::Get(XCHAR* text, XLANGUAGE_CODE languagetextcode,
 * @brief      Get
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  text :
 * @param[in]  languagetextcode :
 * @param[in]  languagetranslationcode :
@@ -420,9 +378,6 @@ bool DIOSCRAPERWEBTRANSLATION::Get(XSTRING& text, XLANGUAGE_CODE languagetextcod
 * @fn         bool DIOSCRAPERWEBTRANSLATION::GoogleLanguageCode(XLANGUAGE_CODE languagecode, XSTRING& googlecode)
 * @brief      GoogleLanguageCode
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  languagecode :
 * @param[in]  googlecode :
@@ -634,9 +589,6 @@ bool DIOSCRAPERWEBTRANSLATION::GoogleLanguageCode(XLANGUAGE_CODE languagecode, X
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output I2C EEPROM 24XXX class.
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -80,9 +74,6 @@ DIOI2CEEPROM24XXX::DIOI2CEEPROM24XXX(): DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -101,10 +92,7 @@ DIOI2CEEPROM24XXX::~DIOI2CEEPROM24XXX()
 * @fn         DIOI2CEEPROM24XXXTYPE DIOI2CEEPROM24XXX::GetType()
 * @brief      GetType
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOI2CEEPROM24XXXTYPE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -120,10 +108,7 @@ DIOI2CEEPROM24XXXTYPE DIOI2CEEPROM24XXX::GetType()
 * @fn         void DIOI2CEEPROM24XXX::SetType(DIOI2CEEPROM24XXXTYPE type)
 * @brief      SetType
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     void : does not return anything. 
@@ -141,10 +126,7 @@ void DIOI2CEEPROM24XXX::SetType(DIOI2CEEPROM24XXXTYPE type)
 * @fn         XDWORD DIOI2CEEPROM24XXX::GetSize()
 * @brief      GetSize
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -160,9 +142,6 @@ XDWORD DIOI2CEEPROM24XXX::GetSize()
 * @fn         bool DIOI2CEEPROM24XXX::Read(XDWORD address, XBYTE* buffer, XDWORD size)
 * @brief      Read
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  address :
 * @param[in]  buffer :
@@ -208,9 +187,6 @@ bool DIOI2CEEPROM24XXX::Read(XDWORD address, XBYTE* buffer, XDWORD size)
 * @brief      Read
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  address :
 * @param[in]  size :
 * @param[in]  xbuffer :
@@ -233,9 +209,6 @@ bool DIOI2CEEPROM24XXX::Read(XDWORD address, XDWORD size, XBUFFER& xbuffer)
 * @fn         bool DIOI2CEEPROM24XXX::Write(XDWORD address, XBYTE* buffer, XDWORD size)
 * @brief      Write
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  address :
 * @param[in]  buffer :
@@ -272,9 +245,6 @@ bool DIOI2CEEPROM24XXX::Write(XDWORD address, XBYTE* buffer, XDWORD size)
 * @brief      Write
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  address :
 * @param[in]  xbuffer :
 *
@@ -294,9 +264,6 @@ bool DIOI2CEEPROM24XXX::Write(XDWORD address, XBUFFER& xbuffer)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -314,9 +281,6 @@ bool DIOI2CEEPROM24XXX::End()
 * @fn         bool DIOI2CEEPROM24XXX::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -381,7 +345,7 @@ bool DIOI2CEEPROM24XXX::IniDevice()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/05/2014 23:48:54
 //
 //  @return       bool :
@@ -446,9 +410,6 @@ bool DIOI2CEEPROM24XXX::ReadBYTE(XDWORD address, XBYTE& data)
 * @brief      WriteBYTE
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  address :
 * @param[in]  data :
 *
@@ -510,10 +471,7 @@ bool DIOI2CEEPROM24XXX::WriteBYTE(XDWORD address, XBYTE data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

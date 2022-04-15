@@ -6,7 +6,7 @@
 //
 //  Compres LWZ (Gif compression) class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 15/12/2009 10:29:20 p.m.
 */
 /*  GEN  Copyright (C).  All right reserved.

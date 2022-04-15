@@ -6,10 +6,7 @@
 * @brief      Input Device Class
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ INPDEVICE::INPDEVICE()
 * @note       VIRTUAL
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -97,9 +88,6 @@ INPDEVICE::~INPDEVICE()
 * @fn         bool INPDEVICE::IsCreated()
 * @brief      Is Created
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -117,9 +105,6 @@ bool INPDEVICE::IsCreated()
 * @brief      Is Enabled
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -135,9 +120,6 @@ bool INPDEVICE::IsEnabled()
 * @fn         void INPDEVICE::SetEnabled(bool ON)
 * @brief      Set Enabled
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ON : true enabled.
 *
@@ -157,9 +139,6 @@ void INPDEVICE::SetEnabled(bool enabled)
 * @brief      Get Type
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     INPDEVICE_TYPE : type of device
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -175,9 +154,6 @@ INPDEVICE_TYPE INPDEVICE::GetType()
 * @fn         void INPDEVICE::SetType(INPDEVICE_TYPE type)
 * @brief      Set Type
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type : type of device
 *
@@ -196,9 +172,6 @@ void INPDEVICE::SetType(INPDEVICE_TYPE type)
 * @fn         int INPDEVICE::GetNButtons()
 * @brief      Get Numbers Buttons
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int : Numbers Buttons
 *
@@ -219,9 +192,6 @@ int INPDEVICE::GetNButtons()
 * @brief      Get Buttons
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<INPBUTTON*>* : vector of buttons
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -238,9 +208,6 @@ XVECTOR<INPBUTTON*>* INPDEVICE::GetButtons()
 * @brief      Get Cursors
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<INPCURSOR*>* : vector of cursors
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -256,9 +223,6 @@ XVECTOR<INPCURSOR*>* INPDEVICE::GetCursors()
 * @fn         bool INPDEVICE::DeleteAllButtons()
 * @brief      Delete All Buttons
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -281,9 +245,6 @@ bool INPDEVICE::DeleteAllButtons()
 * @brief      Delete All Cursors
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -304,9 +265,6 @@ bool INPDEVICE::DeleteAllCursors()
 * @fn         INPBUTTON* INPDEVICE::GetButton(INPBUTTON_ID ID)
 * @brief      Get Button
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID : ID of button
 *
@@ -338,9 +296,6 @@ INPBUTTON* INPDEVICE::GetButton(INPBUTTON_ID ID)
 * @brief      Get Button
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index : index of button
 *
 * @return     INPBUTTON* : button class obtain
@@ -364,9 +319,6 @@ INPBUTTON* INPDEVICE::GetButton(int index)
 * @fn         INPBUTTON* INPDEVICE::GetButtonByCode(XWORD code)
 * @brief      Get Button By Code
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  code : code of button
 *
@@ -400,9 +352,6 @@ INPBUTTON* INPDEVICE::GetButtonByCode(XWORD code)
 * @brief      Get Button State
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID : ID of button
 *
 * @return     INPBUTTON_STATE : state of button obtain
@@ -435,9 +384,6 @@ INPBUTTON_STATE INPDEVICE::GetButtonState(INPBUTTON_ID ID)
 * @brief      Is Press Button
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     INPBUTTON* : button class obtain
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -466,9 +412,6 @@ INPBUTTON* INPDEVICE::IsPressButton()
 * @brief      Release All Buttons
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -495,9 +438,6 @@ bool INPDEVICE::ReleaseAllButtons()
 * @brief      Get Number of Cursors
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : Number of Cursors
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -516,9 +456,6 @@ int INPDEVICE::GetNCursors()
 * @fn         INPCURSOR* INPDEVICE::GetCursor(INPCURSOR_ID ID)
 * @brief      Get Cursor
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID : id of cursor
 *
@@ -552,9 +489,6 @@ INPCURSOR* INPDEVICE::GetCursor(INPCURSOR_ID ID)
 * @brief      Get Cursor
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index : index of cursor
 *
 * @return     INPCURSOR* : cursor class obtain
@@ -579,9 +513,6 @@ INPCURSOR* INPDEVICE::GetCursor(int index)
 * @fn         INPCURSOR* INPDEVICE::IsChangeCursor()
 * @brief      Is Change Cursor
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     INPCURSOR* : cursor class obtain
 *
@@ -611,9 +542,6 @@ INPCURSOR* INPDEVICE::IsChangeCursor()
 * @brief      Set Screen handle
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  param : screen handle (void*)
 *
 * @return     bool : true if is succesful.
@@ -634,9 +562,6 @@ bool INPDEVICE::SetScreen(void* param)
 * @brief      Release Device
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -653,9 +578,6 @@ bool INPDEVICE::Release()
 * @brief      Update Device
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -671,9 +593,6 @@ bool INPDEVICE::Update()
 * @fn         bool INPDEVICE::AddPosition(int index, float x, float y, bool ispressed)
 * @brief      AddPosition
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  x :
@@ -697,9 +616,6 @@ bool INPDEVICE::AddPosition(int index, float x, float y, bool ispressed)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

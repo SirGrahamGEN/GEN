@@ -6,10 +6,7 @@
 * @brief      eXtended HASH file class (file with HASH included)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hash :
 *
 * @return     Does not return anything.
@@ -81,9 +75,6 @@ XFILEHASH::XFILEHASH(HASH* hash): XFILECONTAINER()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -103,9 +94,6 @@ XFILEHASH::~XFILEHASH()
 * @fn         bool XFILEHASH::Open(XPATH& pathname, bool readonly, bool checkhash, bool checkversion)
 * @brief      Open
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pathname :
 * @param[in]  readonly :
@@ -205,9 +193,6 @@ bool XFILEHASH::Open(XPATH& pathname, bool readonly, bool checkhash, bool checkv
 * @brief      Create
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  pathname :
 * @param[in]  checkHASH :
 *
@@ -267,9 +252,6 @@ bool XFILEHASH::Create(XPATH& pathname, bool checkHASH)
 * @brief      Close
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -295,9 +277,6 @@ bool XFILEHASH::Close()
 * @brief      GetID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -313,9 +292,6 @@ XWORD XFILEHASH::GetID()
 * @fn         XWORD XFILEHASH::GetType()
 * @brief      GetType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XWORD :
 *
@@ -333,9 +309,6 @@ XWORD XFILEHASH::GetType()
 * @brief      GetVersion
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -351,9 +324,6 @@ XWORD XFILEHASH::GetVersion()
 * @fn         XSTRING* XFILEHASH::GetIDString()
 * @brief      GetIDString
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -371,9 +341,6 @@ XSTRING* XFILEHASH::GetIDString()
 * @fn         bool XFILEHASH::Set(XWORD ID, XWORD type, XWORD version, XCHAR* IDstring)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  type :
@@ -401,9 +368,6 @@ bool XFILEHASH::Set(XWORD ID, XWORD type, XWORD version, XCHAR* IDstring)
 * @brief      SetID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 *
 * @return     bool : true if is succesful.
@@ -423,9 +387,6 @@ bool XFILEHASH::SetID(XWORD ID)
 * @fn         bool XFILEHASH::SetType(XWORD type)
 * @brief      SetType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -447,9 +408,6 @@ bool XFILEHASH::SetType(XWORD type)
 * @brief      SetVersion
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  version :
 *
 * @return     bool : true if is succesful.
@@ -469,9 +427,6 @@ bool XFILEHASH::SetVersion(XWORD version)
 * @fn         bool XFILEHASH::SetIDString(XCHAR* IDstring)
 * @brief      SetIDString
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  IDstring :
 *
@@ -493,9 +448,6 @@ bool XFILEHASH::SetIDString(XCHAR* IDstring)
 * @brief      SetIDString
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  IDstring :
 *
 * @return     bool : true if is succesful.
@@ -516,9 +468,6 @@ bool XFILEHASH::SetIDString(XSTRING& IDstring)
 * @brief      GetDataPosition
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -534,9 +483,6 @@ XQWORD XFILEHASH::GetDataPosition()
 * @fn         bool XFILEHASH::UpdateHash()
 * @brief      UpdateHash
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -571,9 +517,6 @@ bool XFILEHASH::UpdateHash()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

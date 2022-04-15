@@ -6,10 +6,7 @@
 * @brief      eXtended Scheduler eXtended Event class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,9 +48,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  subject :
 * @param[in]  type :
 * @param[in]  family :
@@ -75,9 +69,6 @@ XSCHEDULER_XEVENT::XSCHEDULER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD fami
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -94,9 +85,6 @@ XSCHEDULER_XEVENT::~XSCHEDULER_XEVENT()
 * @brief      GetScheduler
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSCHEDULER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +100,6 @@ XSCHEDULER*  XSCHEDULER_XEVENT::GetScheduler()
 * @fn         void XSCHEDULER_XEVENT::SetScheduler(XSCHEDULER* xscheduler)
 * @brief      SetScheduler
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xscheduler :
 *
@@ -134,9 +119,6 @@ void XSCHEDULER_XEVENT::SetScheduler(XSCHEDULER* xscheduler)
 * @brief      GetTask
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSCHEDULERTASK* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -152,9 +134,6 @@ XSCHEDULERTASK* XSCHEDULER_XEVENT::GetTask()
 * @fn         void XSCHEDULER_XEVENT::SetTask(XSCHEDULERTASK* xtask)
 * @brief      SetTask
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xtask :
 *
@@ -174,9 +153,6 @@ void XSCHEDULER_XEVENT::SetTask(XSCHEDULERTASK* xtask)
 * @brief      GetDateTime
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDATETIME* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -192,9 +168,6 @@ XDATETIME* XSCHEDULER_XEVENT::GetDateTime()
 * @fn         void XSCHEDULER_XEVENT::SetDateTime(XDATETIME* xdatetime)
 * @brief      SetDateTime
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xdatetime :
 *
@@ -214,9 +187,6 @@ void XSCHEDULER_XEVENT::SetDateTime(XDATETIME* xdatetime)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

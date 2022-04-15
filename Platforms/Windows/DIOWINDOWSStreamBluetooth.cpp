@@ -55,7 +55,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/06/2011 16:38:21
 //
 //  @return
@@ -111,7 +111,7 @@ DIOWINDOWSSTREAMBLUETOOTH::DIOWINDOWSSTREAMBLUETOOTH() : DIOSTREAMBLUETOOTH() , 
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -134,7 +134,7 @@ DIOWINDOWSSTREAMBLUETOOTH::~DIOWINDOWSSTREAMBLUETOOTH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -159,7 +159,7 @@ bool DIOWINDOWSSTREAMBLUETOOTH::Open()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/12/2010 23:10:56
 //
 //  @return       bool :
@@ -189,7 +189,7 @@ bool DIOWINDOWSSTREAMBLUETOOTH::Disconnect()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -245,7 +245,7 @@ bool DIOWINDOWSSTREAMBLUETOOTH::Close()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/05/2013 11:40:25
 //
 //  @return       int :
@@ -295,7 +295,7 @@ int DIOWINDOWSSTREAMBLUETOOTH::IsReadyConnect(SOCKET socket)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/04/2006 12:40:43
 //
 //  @return       bool :
@@ -350,7 +350,7 @@ bool DIOWINDOWSSTREAMBLUETOOTH::SDP_RegisterService(bool reg,char* service_name,
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -376,7 +376,7 @@ void DIOWINDOWSSTREAMBLUETOOTH::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/05/2013 12:12:27
 //
 //  @return       void :

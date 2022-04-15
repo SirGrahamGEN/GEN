@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Email Address class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(): XSTRING()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ DIOEMAILADDRESS::~DIOEMAILADDRESS()
 * @fn         DIOEMAILADDRESS::DIOEMAILADDRESS(XDWORD size)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XDWORD :
 *
@@ -115,9 +103,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XDWORD size): XSTRING(size)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  const :
 *
 * @return     Does not return anything.
@@ -136,9 +121,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const char* url): XSTRING(url)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  const :
 *
 * @return     Does not return anything.
@@ -156,9 +138,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url): XSTRING(url)
 * @fn         DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url,XDWORD size)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  const :
 * @param[in]  XDWORD :
@@ -179,9 +158,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url,XDWORD size): XSTRING(url, siz
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  DIOEMAILADDRESS& :
 *
 * @return     Does not return anything.
@@ -199,9 +175,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(DIOEMAILADDRESS& url): XSTRING(url)
 * @fn         DIOEMAILADDRESS::DIOEMAILADDRESS(XSTRING& url)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XSTRING& :
 *
@@ -221,9 +194,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XSTRING& url): XSTRING(url)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XWORD* :
 *
 * @return     Does not return anything.
@@ -241,9 +211,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XWORD* url): XSTRING(url)
 * @fn         bool DIOEMAILADDRESS::GetUser(XSTRING& user)
 * @brief      GetUser
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  user :
 *
@@ -271,9 +238,6 @@ bool DIOEMAILADDRESS::GetUser(XSTRING& user)
 * @brief      GetDomain
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  domain :
 *
 * @return     bool : true if is succesful.
@@ -299,9 +263,6 @@ bool DIOEMAILADDRESS::GetDomain(XSTRING& domain)
 * @fn         bool DIOEMAILADDRESS::IsValid()
 * @brief      IsValid
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -336,9 +297,6 @@ bool DIOEMAILADDRESS::IsValid()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

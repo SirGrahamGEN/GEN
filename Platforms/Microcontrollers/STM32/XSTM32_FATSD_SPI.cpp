@@ -5,11 +5,8 @@
 * @class      XSTM32_FATSD_SPI
 * @brief      eXtended STM32 FAT SD cards by SPI class
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,10 +49,7 @@
 * @fn         XSTM32_FATSD_SPI::XSTM32_FATSD_SPI()
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -72,10 +66,7 @@ XSTM32_FATSD_SPI::XSTM32_FATSD_SPI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -91,10 +82,7 @@ XSTM32_FATSD_SPI::~XSTM32_FATSD_SPI()
 * @fn         bool XSTM32_FATSD_SPI::Ini(SPI_HandleTypeDef* handleSPI, XDWORD GPIOentryID_CS, XDWORD GPIOentryID_switch)
 * @brief      Ini
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  handleSPI : 
 * @param[in]  GPIOentryID_CS : 
 * @param[in]  GPIOentryID_switch : 
@@ -125,10 +113,7 @@ bool XSTM32_FATSD_SPI::Ini(SPI_HandleTypeDef* handleSPI, XDWORD GPIOentryID_CS, 
 * @fn         XDWORD XSTM32_FATSD_SPI::GetGPIOEntryID_CS()
 * @brief      GetGPIOEntryID_CS
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -144,10 +129,7 @@ XDWORD XSTM32_FATSD_SPI::GetGPIOEntryID_CS()
 * @fn         void XSTM32_FATSD_SPI::SetGPIOEntryID_CS(XDWORD GPIOentryID)
 * @brief      SetGPIOEntryID_CS
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  GPIOentryID : 
 * 
 * @return     void : does not return anything. 
@@ -165,10 +147,7 @@ void XSTM32_FATSD_SPI::SetGPIOEntryID_CS(XDWORD GPIOentryID)
 * @fn         XDWORD XSTM32_FATSD_SPI::GetGPIOEntryID_Switch()
 * @brief      GetGPIOEntryID_Switch
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -185,10 +164,7 @@ XDWORD XSTM32_FATSD_SPI::GetGPIOEntryID_Switch()
 * @fn         void XSTM32_FATSD_SPI::SetGPIOEntryID_Switch(XDWORD GPIOentryID)
 * @brief      SetGPIOEntryID_Switch
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  GPIOentryID : 
 * 
 * @return     void : does not return anything. 
@@ -206,10 +182,7 @@ void XSTM32_FATSD_SPI::SetGPIOEntryID_Switch(XDWORD GPIOentryID)
 * @fn         SPI_HandleTypeDef* XSTM32_FATSD_SPI::GetHandleSPI()
 * @brief      GetHandleSPI
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     SPI_HandleTypeDef* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -226,10 +199,7 @@ SPI_HandleTypeDef* XSTM32_FATSD_SPI::GetHandleSPI()
 * @fn         void XSTM32_FATSD_SPI::SetHandleSPI(SPI_HandleTypeDef* handleSPI)
 * @brief      SetHandleSPI
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  handleSPI : 
 * 
 * @return     void : does not return anything. 
@@ -247,10 +217,7 @@ void XSTM32_FATSD_SPI::SetHandleSPI(SPI_HandleTypeDef* handleSPI)
 * @fn         bool XSTM32_FATSD_SPI::Disk_IsInserted()
 * @brief      Disk_IsInserted
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -268,10 +235,7 @@ bool XSTM32_FATSD_SPI::Disk_IsInserted()
 * @fn         DSTATUS XSTM32_FATSD_SPI::Disk_Initialize(XBYTE drive)
 * @brief      Disk_Initialize
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  drive : 
 * 
 * @return     DSTATUS : 
@@ -377,10 +341,7 @@ DSTATUS XSTM32_FATSD_SPI::Disk_Initialize(XBYTE drive)
 * @fn         DSTATUS XSTM32_FATSD_SPI::Disk_Status(XBYTE drive)
 * @brief      Disk_Status
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  drive : 
 * 
 * @return     DSTATUS : 
@@ -400,10 +361,7 @@ DSTATUS XSTM32_FATSD_SPI::Disk_Status(XBYTE drive)
 * @fn         DRESULT XSTM32_FATSD_SPI::Disk_Read(XBYTE pdrive, XBYTE* buffer, XDWORD sector, XDWORD count)
 * @brief      Disk_Read
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  pdrive : 
 * @param[in]  buffer : 
 * @param[in]  sector : 
@@ -454,10 +412,7 @@ DRESULT XSTM32_FATSD_SPI::Disk_Read(XBYTE pdrive, XBYTE* buffer, XDWORD sector, 
 * @fn         DRESULT XSTM32_FATSD_SPI::Disk_Write(XBYTE pdrive, const XBYTE* buffer, XDWORD sector, XDWORD count)
 * @brief      Disk_Write
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  pdrive : 
 * @param[in]  buffer : 
 * @param[in]  sector : 
@@ -519,10 +474,7 @@ DRESULT XSTM32_FATSD_SPI::Disk_Write(XBYTE pdrive, const XBYTE* buffer, XDWORD s
 * @fn         DRESULT XSTM32_FATSD_SPI::Disk_IOTCL(XBYTE drive, XBYTE ctrl, void* buffer)
 * @brief      Disk_IOTCL
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  drive : 
 * @param[in]  ctrl : 
 * @param[in]  buffer : 
@@ -636,10 +588,7 @@ DRESULT XSTM32_FATSD_SPI::Disk_IOTCL(XBYTE drive, XBYTE ctrl, void* buffer)
 * @fn         bool XSTM32_FATSD_SPI::End()
 * @brief      End
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -655,10 +604,7 @@ bool XSTM32_FATSD_SPI::End()
 * @fn         void CS_Select(void)
 * @brief      S_Select
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  void : 
 * 
 * @return     void : does not return anything. 
@@ -678,10 +624,7 @@ void XSTM32_FATSD_SPI::CS_Select()
 * @fn         void CS_Deselect(void)
 * @brief      S_Deselect
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  void : 
 * 
 * @return     void : does not return anything. 
@@ -702,10 +645,7 @@ void XSTM32_FATSD_SPI::CS_Deselect()
 * @fn         XBYTE XSTM32_FATSD_SPI::SPI_ReadByte()
 * @brief      SPI_ReadByte
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XBYTE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -731,10 +671,7 @@ XBYTE XSTM32_FATSD_SPI::SPI_ReadByte()
 * @fn         void XSTM32_FATSD_SPI::SPI_WriteByte(XBYTE data)
 * @brief      SPI_WriteByte
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  data : 
 * 
 * @return     void : does not return anything. 
@@ -757,10 +694,7 @@ bool XSTM32_FATSD_SPI::SPI_WriteByte(XBYTE data)
 * @fn         void XSTM32_FATSD_SPI::SPI_ReadBytePtr(XBYTE* buffer)
 * @brief      SPI_ReadBytePtr
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  buffer : 
 * 
 * @return     void : does not return anything. 
@@ -779,10 +713,7 @@ void XSTM32_FATSD_SPI::SPI_ReadBytePtr(XBYTE* buffer)
 * @fn         XBYTE XSTM32_FATSD_SPI::SD_ReadyWait()
 * @brief      SD_ReadyWait
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XBYTE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -810,10 +741,7 @@ XBYTE XSTM32_FATSD_SPI::SD_ReadyWait()
 * @fn         void XSTM32_FATSD_SPI::SD_PowerOn()
 * @brief      SD_PowerOn
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -866,10 +794,7 @@ void XSTM32_FATSD_SPI::SD_PowerOn()
 * @fn         void XSTM32_FATSD_SPI::SD_PowerOff()
 * @brief      SD_PowerOff
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -885,10 +810,7 @@ void XSTM32_FATSD_SPI::SD_PowerOff()
 * @fn         bool XSTM32_FATSD_SPI::SD_CheckPower()
 * @brief      SD_CheckPower
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -905,10 +827,7 @@ bool XSTM32_FATSD_SPI::SD_CheckPower()
 * @fn         bool XSTM32_FATSD_SPI::SD_ReadDataBlock(XBYTE* buffer, XDWORD btr)
 * @brief      SD_ReadDataBlock
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  buffer : 
 * @param[in]  btr : 
 * 
@@ -948,10 +867,7 @@ bool XSTM32_FATSD_SPI::SD_ReadDataBlock(XBYTE* buffer, XDWORD btr)
 * @fn         bool XSTM32_FATSD_SPI::SD_WriteDataBlock(const XBYTE* buffer, XBYTE token)
 * @brief      SD_WriteDataBlock
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  buffer : 
 * @param[in]  token : 
 * 
@@ -1006,10 +922,7 @@ bool XSTM32_FATSD_SPI::SD_WriteDataBlock(const XBYTE* buffer, XBYTE token)
 * @fn         XBYTE XSTM32_FATSD_SPI::SD_SendCmd(XBYTE cmd, XDWORD arg)
 * @brief      SD_SendCmd
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  cmd : 
 * @param[in]  arg : 
 * 
@@ -1058,10 +971,7 @@ XBYTE XSTM32_FATSD_SPI::SD_SendCmd(XBYTE cmd, XDWORD arg)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

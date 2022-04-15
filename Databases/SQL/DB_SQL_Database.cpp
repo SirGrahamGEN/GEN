@@ -6,10 +6,7 @@
 * @brief      DataBase Holds database class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -81,9 +75,6 @@ DB_SQL_DATABASE::DB_SQL_DATABASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -109,9 +100,6 @@ DB_SQL_DATABASE::~DB_SQL_DATABASE()
 * @brief      GetCurrentEncoding
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_DATABASE_ENCODING :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -127,9 +115,6 @@ DB_SQL_DATABASE_ENCODING DB_SQL_DATABASE::GetCurrentEncoding()
 * @fn         DB_SQL_DATABASE_TYPE DB_SQL_DATABASE::GetType()
 * @brief      GetType
 * @ingroup    DATABASESSQL
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DB_SQL_DATABASE_TYPE :
 *
@@ -147,9 +132,6 @@ DB_SQL_DATABASE_TYPE DB_SQL_DATABASE::GetType()
 * @brief      GetTypeName
 * @ingroup    DATABASESSQL
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -166,9 +148,6 @@ XCHAR* DB_SQL_DATABASE::GetTypeName()
 * @brief      GetDefultPort
 * @ingroup    DATABASESSQL
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -184,9 +163,6 @@ XDWORD DB_SQL_DATABASE::GetDefaultPort()
 * @fn         XPATH* DB_SQL_DATABASE::GetDefaultPath()
 * @brief      GetDefaultPath
 * @ingroup    DATABASESSQL
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XPATH* :
 *
@@ -208,9 +184,6 @@ XPATH* DB_SQL_DATABASE::GetDefaultPath()
 * @brief      IsOpen
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -226,9 +199,6 @@ bool DB_SQL_DATABASE::IsOpen()
 * @fn         bool DB_SQL_DATABASE::SetConnection(DB_SQL_CONNECTION* connection)
 * @brief      SetConnection
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  connection :
 *
@@ -249,9 +219,6 @@ bool DB_SQL_DATABASE::SetConnection(DB_SQL_CONNECTION* connection)
 * @brief      IsTransactionStarted
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -267,9 +234,6 @@ bool DB_SQL_DATABASE::IsTransactionStarted()
 * @fn         DB_SQL_VECTOR<DB_SQL_STRING*>* DB_SQL_DATABASE::GetTableList()
 * @brief      GetTableList
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     DB_SQL_VECTOR<DB_SQL_STRING*>* :
 *
@@ -287,9 +251,6 @@ DB_SQL_VECTOR<DB_SQL_STRING*>* DB_SQL_DATABASE::GetTableList()
 * @brief      GetErrorList
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_VECTOR<DB_SQL_ERROR*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -306,9 +267,6 @@ DB_SQL_VECTOR<DB_SQL_ERROR*>* DB_SQL_DATABASE::GetErrorList()
 * @brief      CreateVariant
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     DB_SQL_VARIANT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -324,9 +282,6 @@ DB_SQL_VARIANT* DB_SQL_DATABASE::CreateVariant()
 * @fn         bool DB_SQL_DATABASE::OnConnection()
 * @brief      OnConnection
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -347,9 +302,6 @@ bool DB_SQL_DATABASE::OnConnection()
 * @brief      OnDisconnection
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -365,9 +317,6 @@ bool DB_SQL_DATABASE::OnDisconnection()
 * @fn         bool DB_SQL_DATABASE::Open()
 * @brief      Open
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -394,9 +343,6 @@ bool DB_SQL_DATABASE::Open()
 * @brief      Close
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -421,9 +367,6 @@ bool DB_SQL_DATABASE::Close()
 * @brief      GetLastError
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -439,9 +382,6 @@ XCHAR* DB_SQL_DATABASE::GetLastError()
 * @fn         bool DB_SQL_DATABASE::Execute(DB_SQL_QUERY* constructedquery)
 * @brief      Execute
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  constructedquery :
 *
@@ -467,9 +407,6 @@ bool DB_SQL_DATABASE::Execute(DB_SQL_QUERY* constructedquery)
 * @brief      Error
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  errorstring :
 *
 * @return     void : does not return anything.
@@ -494,9 +431,6 @@ void DB_SQL_DATABASE::Error(XCHAR* errorstring)
 * @brief      Error
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  errorstring :
 *
 * @return     void : does not return anything.
@@ -519,9 +453,6 @@ void DB_SQL_DATABASE::Error(char* errorstring)
 * @brief      ClearPreviousErrors
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -538,9 +469,6 @@ void DB_SQL_DATABASE::ClearPreviousErrors()
 * @fn         bool DB_SQL_DATABASE::Table_IsThere(XCHAR* nametable, XCHAR* constfield, bool& isexist)
 * @brief      Table_IsThere
 * @ingroup    DATABASESSQL
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nametable :
 * @param[in]  constfield :
@@ -601,9 +529,6 @@ bool DB_SQL_DATABASE::Table_IsThere(XCHAR* nametable, XCHAR* constfield, bool& i
 * @brief      Table_IsThere
 * @ingroup    DATABASESSQL
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  nametable :
 * @param[in]  constfield :
 * @param[in]  isexist :
@@ -623,9 +548,6 @@ bool DB_SQL_DATABASE::Table_IsThere(XSTRING& nametable, XCHAR* constfield, bool&
 * @fn         bool DB_SQL_DATABASE::Table_Create(XCHAR* nametable, XCHAR* fields[], int nfields)
 * @brief      Table_Create
 * @ingroup    DATABASESSQL
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nametable :
 * @param[in]  fields[] :
@@ -674,9 +596,6 @@ bool DB_SQL_DATABASE::Table_Create(XCHAR* nametable, XCHAR* fields[], int nfield
 * @brief      Table_Delete
 * @ingroup    DATABASESSQL
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  nametable :
 *
 * @return     bool : true if is succesful.
@@ -719,9 +638,6 @@ bool DB_SQL_DATABASE::Table_Delete(XCHAR* nametable)
 * @fn         bool DB_SQL_DATABASE::Table_GetNRecords(XCHAR* nametable, XQWORD& nrecords)
 * @brief      Table_GetNRecords
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nametable :
 * @param[in]  nrecords :
@@ -768,9 +684,6 @@ bool DB_SQL_DATABASE::Table_GetNRecords(XCHAR* nametable, XQWORD& nrecords)
 * @brief      IsThreadSafe
 * @ingroup    DATABASESSQL
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -785,9 +698,6 @@ bool DB_SQL_DATABASE::IsThreadSafe()
 * @fn         bool DB_SQL_DATABASE::Lock()
 * @brief      Lock
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -807,9 +717,6 @@ bool DB_SQL_DATABASE::Lock()
 * @brief      Unlock
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -827,9 +734,6 @@ bool DB_SQL_DATABASE::Unlock()
 * @fn         bool DB_SQL_DATABASE::ExecuteQuery(DB_SQL_QUERY* wellconstructedquery)
 * @brief      ExecuteQuery
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  wellconstructedquery :
 *
@@ -859,9 +763,6 @@ bool DB_SQL_DATABASE::ExecuteQuery(DB_SQL_QUERY* wellconstructedquery)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

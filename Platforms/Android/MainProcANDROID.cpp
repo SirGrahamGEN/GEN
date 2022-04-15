@@ -6,10 +6,7 @@
 * @brief      ANDROID Main Proc class
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -122,9 +119,6 @@ void*            java_vm;
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -141,9 +135,6 @@ MAINPROCANDROID::MAINPROCANDROID()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -159,9 +150,6 @@ MAINPROCANDROID::~MAINPROCANDROID()
 * @fn         bool MAINPROCANDROID::Ini(XSTRING* apkpath, APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
 * @brief      Ini
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  apkpath :
 * @param[in]  appmain :
@@ -224,9 +212,6 @@ bool MAINPROCANDROID::Ini(XSTRING* apkpath, XSTRING* datapath, APPMAIN* appmain,
 * @brief      Update
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -253,9 +238,6 @@ bool MAINPROCANDROID::Update()
 * @fn         bool MAINPROCANDROID::End()
 * @brief      End
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -290,9 +272,6 @@ bool MAINPROCANDROID::End()
 * @brief      GetAndroidApplication
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     android_app* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -308,9 +287,6 @@ android_app* MAINPROCANDROID::GetAndroidApplication()
 * @fn         void MAINPROCANDROID::SetAndroidApplication(android_app* application)
 * @brief      SetAndroidApplication
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  application :
 *
@@ -331,9 +307,6 @@ void MAINPROCANDROID::SetAndroidApplication(android_app* application)
 * @brief      GetKeyboard
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     INPDEVICE* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -349,9 +322,6 @@ INPDEVICE* MAINPROCANDROID::GetKeyboard()
 * @fn         INPDEVICE* MAINPROCANDROID::GetTouchscreen()
 * @brief      GetTouchscreen
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     INPDEVICE* :
 *
@@ -370,9 +340,6 @@ INPDEVICE* MAINPROCANDROID::GetTouchscreen()
 * @fn         bool MAINPROCANDROID::OnTouchEvent(AInputEvent* event)
 * @brief      OnTouchEvent
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  event :
 *
@@ -487,9 +454,6 @@ bool MAINPROCANDROID::OnTouchEvent(AInputEvent* event)
 * @brief      OnKeyboardEvent
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  event :
 *
 * @return     bool : true if is succesful.
@@ -530,9 +494,6 @@ bool MAINPROCANDROID::OnKeyboardEvent(AInputEvent* event)
 * @brief      OnTrackballEvent
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  event :
 *
 * @return     bool : true if is succesful.
@@ -553,9 +514,6 @@ bool MAINPROCANDROID::OnTrackballEvent(AInputEvent* event)
 * @brief      OnActivate
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     STATUS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -574,9 +532,6 @@ STATUS MAINPROCANDROID::OnActivate()
 * @brief      OnDeactivate
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -592,9 +547,6 @@ void MAINPROCANDROID::OnDeactivate()
 * @fn         STATUS MAINPROCANDROID::OnStep()
 * @brief      OnStep
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     STATUS :
 *
@@ -627,9 +579,6 @@ STATUS MAINPROCANDROID::OnStep()
 * @fn         void MAINPROCANDROID::OnStart()
 * @brief      OnStart
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -679,9 +628,6 @@ void MAINPROCANDROID::OnStart()
 * @brief      OnResume
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -699,9 +645,6 @@ void MAINPROCANDROID::OnResume()
 * @brief      OnPause
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -718,9 +661,6 @@ void MAINPROCANDROID::OnPause()
 * @brief      OnStop
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -736,9 +676,6 @@ void MAINPROCANDROID::OnStop()
 * @fn         void MAINPROCANDROID::OnDestroy()
 * @brief      OnDestroy
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -762,9 +699,6 @@ void MAINPROCANDROID::OnDestroy()
 * @brief      OnSaveState
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 * @param[in]  size :
 *
@@ -783,9 +717,6 @@ void MAINPROCANDROID::OnSaveState(void** data, size_t* size)
 * @fn         void MAINPROCANDROID::OnConfigurationChanged()
 * @brief      OnConfigurationChanged
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -826,9 +757,6 @@ void MAINPROCANDROID::OnConfigurationChanged()
 * @brief      OnLowMemory
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -844,9 +772,6 @@ void MAINPROCANDROID::OnLowMemory()
 * @fn         void MAINPROCANDROID::OnCreateWindow()
 * @brief      OnCreateWindow
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -973,9 +898,6 @@ void MAINPROCANDROID::OnCreateWindow()
 * @brief      OnDestroyWindow
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1015,9 +937,6 @@ void MAINPROCANDROID::OnDestroyWindow()
 * @brief      OnGainFocus
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1037,9 +956,6 @@ void MAINPROCANDROID::OnGainFocus()
 * @brief      OnLostFocus
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1058,9 +974,6 @@ void MAINPROCANDROID::OnLostFocus()
 * @fn         bool MAINPROCANDROID::GetPackageResourcePath(struct android_app* app, XSTRING& path)
 * @brief      GetPackageResourcePath
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  android_app* app :
 * @param[in]  path :
@@ -1101,9 +1014,6 @@ bool MAINPROCANDROID::GetPackageResourcePath(struct android_app* app, XSTRING& p
 * @fn         bool MAINPROCANDROID::GetAbsolutePath(struct android_app* app, XSTRING& path)
 * @brief      GetAbsolutePath
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  android_app* app :
 * @param[in]  path :
@@ -1149,9 +1059,6 @@ bool MAINPROCANDROID::GetAbsolutePath(struct android_app* app, XSTRING& path)
 * @brief      GetDPI
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  android_app* app :
 *
 * @return     bool : true if is succesful.
@@ -1196,9 +1103,6 @@ bool MAINPROCANDROID::GetDPI(struct android_app* app)
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1219,9 +1123,6 @@ void MAINPROCANDROID::Clean()
 * @fn         bool MAINPROCANDROID::Factorys_Ini()
 * @brief      Factorys_Ini
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1274,9 +1175,6 @@ bool MAINPROCANDROID::Factorys_Ini()
 * @fn         bool MAINPROCANDROID::Factorys_End()
 * @brief      Factorys_End
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1387,10 +1285,7 @@ bool MAINPROCANDROID::Factorys_End()
 * @fn         bool MAINPROCANDROID::OverturnAssetsToExternalLocation(XPATH& origin, XPATH& target, XPATH& addtarget)
 * @brief      OverturnAssetsToExternalLocation
 * @ingroup    PLATFORM_ANDROID
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  origin : 
 * @param[in]  target : 
 * @param[in]  addtarget : 
@@ -1490,10 +1385,7 @@ bool MAINPROCANDROID::OverturnAssetsToExternalLocation(XPATH& origin, XPATH& dat
 * @fn         bool MAINPROCANDROID::AssetsDir_CreateAll(XPATH& origin)
 * @brief      AssetsDir_CreateAll
 * @ingroup    PLATFORM_ANDROID
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  origin : 
 * 
 * @return     bool : true if is succesful. 
@@ -1579,10 +1471,7 @@ bool MAINPROCANDROID::AssetsDir_CreateAll(XPATH& origin)
 * @fn         bool MAINPROCANDROID::AssetsDir_Add(XPATH* assetsdir)
 * @brief      AssetsDir_Add
 * @ingroup    PLATFORM_ANDROID
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  assetsdir : 
 * 
 * @return     bool : true if is succesful. 
@@ -1609,10 +1498,7 @@ bool MAINPROCANDROID::AssetsDir_Add(XPATH* assetsdir)
 * @fn         XVECTOR<XPATH*>* MAINPROCANDROID::AssetsDir_GetAll()
 * @brief      AssetsDir_GetAll
 * @ingroup    PLATFORM_ANDROID
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XVECTOR<XPATH*>* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1628,10 +1514,7 @@ XVECTOR<XPATH*>* MAINPROCANDROID::AssetsDir_GetAll()
 * @fn         XPATH* MAINPROCANDROID::AssetsDir_Get(int index)
 * @brief      AssetsDir_Get
 * @ingroup    PLATFORM_ANDROID
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  index : 
 * 
 * @return     XPATH* : 
@@ -1651,10 +1534,7 @@ XPATH* MAINPROCANDROID::AssetsDir_Get(int index)
 * @fn         bool MAINPROCANDROID::AssetsDir_DeleteAll()
 * @brief      AssetsDir_DeleteAll
 * @ingroup    PLATFORM_ANDROID
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1680,9 +1560,6 @@ bool MAINPROCANDROID::AssetsDir_DeleteAll()
 * @brief      CreateInputDevices
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  inpmanager :
 * @param[in]  screen :
 *
@@ -1706,10 +1583,7 @@ bool MAINPROCANDROID::CreateInputDevices(INPMANAGER* inpmanager, GRPANDROIDSCREE
 * @fn         bool MAINPROCANDROID::DeleteInputDevices()
 * @brief      DeleteInputDevices
 * @ingroup    PLATFORM_ANDROID
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1740,9 +1614,6 @@ bool MAINPROCANDROID::DeleteInputDevices()
 * @brief      JNI_OnLoad
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  InJavaVM :
 * @param[in]  InReserved :
 *
@@ -1761,9 +1632,6 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* InJavaVM, void* InReserved)
 * @fn         void android_main(android_app* application)
 * @brief      android_main
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  application :
 *

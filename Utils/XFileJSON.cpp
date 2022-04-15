@@ -6,10 +6,7 @@
 * @brief      eXtended JSON (JavaScript Object Notation) file class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ XFILEJSONVALUE::XFILEJSONVALUE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -97,9 +88,6 @@ XFILEJSONVALUE::~XFILEJSONVALUE()
 * @brief      GetType
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILEJSONVALUETYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +103,6 @@ XFILEJSONVALUETYPE XFILEJSONVALUE::GetType()
 * @fn         void XFILEJSONVALUE::SetType(XFILEJSONVALUETYPE type)
 * @brief      SetType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  type : 
 *
@@ -137,9 +122,6 @@ void XFILEJSONVALUE::SetType(XFILEJSONVALUETYPE type)
 * @brief      GetName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -155,9 +137,6 @@ XSTRING* XFILEJSONVALUE::GetName()
 * @fn         bool XFILEJSONVALUE::SetName(XSTRING& name)
 * @brief      SetName
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 *
@@ -182,9 +161,6 @@ bool XFILEJSONVALUE::SetName(XSTRING& name)
 * @brief      SetName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     bool : true if is succesful.
@@ -208,9 +184,6 @@ bool XFILEJSONVALUE::SetName(XCHAR* name)
 * @brief      GetValuePointer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -226,9 +199,6 @@ void* XFILEJSONVALUE::GetValuePointer()
 * @fn         int XFILEJSONVALUE::GetValueInteger()
 * @brief      GetValueInteger
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -246,9 +216,6 @@ int XFILEJSONVALUE::GetValueInteger()
 * @brief      GetValueFloating
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -265,9 +232,6 @@ float XFILEJSONVALUE::GetValueFloating()
 * @brief      GetValueBoolean
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -283,10 +247,7 @@ bool XFILEJSONVALUE::GetValueBoolean()
 * @fn         XFILEJSONOBJECT* XFILEJSONVALUE::GetValueObject()
 * @brief      GetValueObject
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XFILEJSONOBJECT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -302,10 +263,7 @@ XFILEJSONOBJECT* XFILEJSONVALUE::GetValueObject()
 * @fn         XFILEJSONARRAY* XFILEJSONVALUE::GetValueArray()
 * @brief      GetValueArray
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XFILEJSONARRAY* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -321,9 +279,6 @@ XFILEJSONARRAY* XFILEJSONVALUE::GetValueArray()
 * @fn         bool XFILEJSONVALUE::Set(int number)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  number :
 *
@@ -346,9 +301,6 @@ bool XFILEJSONVALUE::Set(int number)
 * @fn         bool XFILEJSONVALUE::Set(float number)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  number :
 *
@@ -374,9 +326,6 @@ bool XFILEJSONVALUE::Set(float number)
 * @brief      Set
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -394,9 +343,6 @@ bool XFILEJSONVALUE::Set(XSTRING& string)
 * @fn         bool XFILEJSONVALUE::Set(XCHAR* string)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -423,9 +369,6 @@ bool XFILEJSONVALUE::Set(XCHAR* string)
 * @brief      Set
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  object :
 *
 * @return     bool : true if is succesful.
@@ -449,9 +392,6 @@ bool XFILEJSONVALUE::Set(XFILEJSONOBJECT* object)
 * @fn         bool XFILEJSONVALUE::Set(XFILEJSONARRAY* array)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  array :
 *
@@ -477,9 +417,6 @@ bool XFILEJSONVALUE::Set(XFILEJSONARRAY* array)
 * @brief      Set
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  boolean :
 *
 * @return     bool : true if is succesful.
@@ -502,9 +439,6 @@ bool XFILEJSONVALUE::Set(bool boolean)
 * @brief      Set
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  void :
 *
 * @return     bool : true if is succesful.
@@ -526,9 +460,6 @@ bool XFILEJSONVALUE::Set(void)
 * @fn         bool XFILEJSONVALUE::Delete()
 * @brief      Delete
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -579,9 +510,6 @@ bool XFILEJSONVALUE::Delete()
 * @fn         XFILEJSONVALUE* XFILEJSONVALUE::Clone()
 * @brief      Clone
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XFILEJSONVALUE* : 
 *
@@ -639,9 +567,6 @@ XFILEJSONVALUE* XFILEJSONVALUE::Clone()
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -671,9 +596,6 @@ void XFILEJSONVALUE::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -690,9 +612,6 @@ XFILEJSONOBJECT::XFILEJSONOBJECT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -711,8 +630,8 @@ XFILEJSONOBJECT::~XFILEJSONOBJECT()
  *  @brief      IsArray
  *  @ingroup    UTILS
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @return     bool : true if is succesful.
  *
@@ -729,9 +648,6 @@ bool XFILEJSONOBJECT::IsArray()
 * @fn         void XFILEJSONOBJECT::SetIsArray(bool isarray)
 * @brief      SetIsArray
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  isarray : 
 *
@@ -750,9 +666,6 @@ void XFILEJSONOBJECT::SetIsArray(bool isarray)
 * @fn         bool XFILEJSONOBJECT::Add(XFILEJSONVALUE* value)
 * @brief      Add
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 *
@@ -775,9 +688,6 @@ bool XFILEJSONOBJECT::Add(XFILEJSONVALUE* value)
 * @fn         bool XFILEJSONOBJECT::Add(XCHAR* name,XFILEJSONARRAY* array)
 * @brief      Add
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  array :
@@ -808,9 +718,6 @@ bool XFILEJSONOBJECT::Add(XCHAR* name, XFILEJSONARRAY* array)
 * @brief      Add
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  array :
 *
@@ -829,9 +736,6 @@ bool XFILEJSONOBJECT::Add(XSTRING& name, XFILEJSONARRAY* array)
 * @fn         bool XFILEJSONOBJECT::Add(XCHAR* name,XFILEJSONOBJECT* object)
 * @brief      Add
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  object :
@@ -862,9 +766,6 @@ bool XFILEJSONOBJECT::Add(XCHAR* name, XFILEJSONOBJECT* object)
 * @brief      Add
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  object :
 *
@@ -884,9 +785,6 @@ bool XFILEJSONOBJECT::Add(XSTRING& name, XFILEJSONOBJECT* object)
 * @brief      GetValues
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<XFILEJSONVALUE*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -902,9 +800,6 @@ XVECTOR<XFILEJSONVALUE*>* XFILEJSONOBJECT::GetValues()
 * @fn         bool XFILEJSONOBJECT::DeleteAllValues()
 * @brief      DeleteAllValues
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -926,9 +821,6 @@ bool XFILEJSONOBJECT::DeleteAllValues()
 * @fn         XFILEJSONOBJECT* XFILEJSONOBJECT::Clone()
 * @brief      Clone
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XFILEJSONOBJECT* : 
 *
@@ -965,9 +857,6 @@ XFILEJSONOBJECT* XFILEJSONOBJECT::Clone()
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -990,9 +879,6 @@ void XFILEJSONOBJECT::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ) :
 *
 * @return     Does not return anything.
@@ -1014,9 +900,6 @@ XFILEJSONARRAY::XFILEJSONARRAY() :  XFILEJSONOBJECT()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1035,9 +918,6 @@ XFILEJSONARRAY::~XFILEJSONARRAY()
 * @brief      GetName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1053,9 +933,6 @@ XSTRING* XFILEJSONARRAY::GetName()
 * @fn         bool XFILEJSONARRAY::SetName(XSTRING& name)
 * @brief      SetName
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 *
@@ -1077,9 +954,6 @@ bool XFILEJSONARRAY::SetName(XSTRING& name)
 * @brief      SetName
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     bool : true if is succesful.
@@ -1099,9 +973,6 @@ bool XFILEJSONARRAY::SetName(XCHAR* name)
 * @fn         XFILEJSONARRAY* XFILEJSONARRAY::Clone();
 * @brief      Clone
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  ) : 
 *
@@ -1127,9 +998,6 @@ XFILEJSONARRAY* XFILEJSONARRAY::Clone()
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1152,9 +1020,6 @@ void XFILEJSONARRAY::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1171,9 +1036,6 @@ XFILEJSON::XFILEJSON(): XFILETXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -1195,9 +1057,6 @@ XFILEJSON::~XFILEJSON()
 * @brief      GetRoot
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILEJSONOBJECT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1213,9 +1072,6 @@ XFILEJSONOBJECT* XFILEJSON::GetRoot()
 * @fn         bool XFILEJSON::SetRoot(XFILEJSONOBJECT* root)
 * @brief      SetRoot
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  root :
 *
@@ -1238,9 +1094,6 @@ bool XFILEJSON::SetRoot(XFILEJSONOBJECT* root)
 * @fn         bool XFILEJSON::DecodeAllLines()
 * @brief      DecodeAllLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1289,9 +1142,6 @@ bool XFILEJSON::DecodeAllLines()
 * @brief      EncodeAllLines
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  istabulatedline :
 *
 * @return     bool : true if is succesful.
@@ -1314,9 +1164,6 @@ bool XFILEJSON::EncodeAllLines(bool istabulatedline)
 * @brief      ReadAndDecodeAllLines
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1336,9 +1183,6 @@ bool XFILEJSON::ReadAndDecodeAllLines()
 * @fn         bool XFILEJSON::WriteAndEncodeAllLines(bool istabulatedline,XFILETXTFORMATCHAR formatchar, XFILETXTTYPELF typeLF)
 * @brief      WriteAndEncodeAllLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  istabulatedline :
 * @param[in]  formatchar :
@@ -1362,9 +1206,6 @@ bool XFILEJSON::WriteAndEncodeAllLines(bool istabulatedline,XFILETXTFORMATCHAR f
 * @fn         bool XFILEJSON::WriteAndEncodeAllLines(bool istabulatedline)
 * @brief      WriteAndEncodeAllLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  istabulatedline :
 *
@@ -1392,9 +1233,6 @@ bool XFILEJSON::WriteAndEncodeAllLines(bool istabulatedline)
 * @brief      DeleteAllObjects
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1417,9 +1255,6 @@ bool XFILEJSON::DeleteAllObjects()
 * @fn         XFILEJSONOBJECT* XFILEJSON::GetObject(XCHAR* name, XFILEJSONOBJECT* startobject)
 * @brief      GetObject
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  startobject :
@@ -1548,9 +1383,6 @@ XFILEJSONOBJECT* XFILEJSON::GetObject(XCHAR* name, XFILEJSONOBJECT* startobject)
 * @brief      GetObject
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     XFILEJSONOBJECT* :
@@ -1568,9 +1400,6 @@ XFILEJSONOBJECT* XFILEJSON::GetObject(XSTRING& name, XFILEJSONOBJECT* startobjec
 * @fn         XFILEJSONVALUE* XFILEJSON::GetValue(XCHAR* name, XFILEJSONOBJECT* startobject)
 * @brief      GetValue
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  startobject :
@@ -1617,9 +1446,6 @@ XFILEJSONVALUE* XFILEJSON::GetValue(XCHAR* name, XFILEJSONOBJECT* startobject)
 * @brief      GetValue
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  startobject :
 *
@@ -1640,9 +1466,7 @@ XFILEJSONVALUE* XFILEJSON::GetValue(XSTRING& name, XFILEJSONOBJECT* startobject)
 * * @brief      GetValue
 * * @ingroup    UTILS
 * *
-* * @author     Abraham J. Velez 
-* * @date       01/03/2016 12:00
-* *
+* * * *
 * * @param[in]  index : 
 * * @param[in]  startobject : 
 * *
@@ -1666,9 +1490,6 @@ XFILEJSONVALUE* XFILEJSON::GetValue(int index, XFILEJSONOBJECT* startobject)
 * @fn         XFILEJSONOBJECT* XFILEJSON::GetObjectSubValue(XCHAR* name, XFILEJSONVALUE* value)
 * @brief      GetObjectSubValue
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  value :
@@ -1730,9 +1551,6 @@ XFILEJSONOBJECT* XFILEJSON::GetObjectSubValue(XCHAR* name, XFILEJSONVALUE* value
 * @fn         bool XFILEJSON::DecodeObject(int& position, bool isobject, XFILEJSONOBJECT* object)
 * @brief      DecodeObject
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position :
 * @param[in]  isobject :
@@ -1983,9 +1801,6 @@ bool XFILEJSON::DecodeObject(int& position, bool isobject, XFILEJSONOBJECT* obje
 * @brief      CheckControlCharacter
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     XFILEJSONCONTROLCHAR :
@@ -2042,9 +1857,6 @@ XFILEJSONCONTROLCHAR XFILEJSON::CheckControlCharacter(XCHAR character)
 * @brief      GetControlCharacter
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ctrlchar :
 *
 * @return     XCHAR :
@@ -2076,9 +1888,6 @@ XCHAR XFILEJSON::GetControlCharacter(XFILEJSONCONTROLCHAR ctrlchar)
 * @brief      AddControlCharacter
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ctrlchar :
 * @param[in]  line :
 *
@@ -2104,9 +1913,6 @@ bool XFILEJSON::AddControlCharacter(XFILEJSONCONTROLCHAR ctrlchar, XSTRING& line
 * @fn         XFILEJSONCONTROLCHAR XFILEJSON::SearchNextControlCharacter(int& position)
 * @brief      SearchNextControlCharacter
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position :
 *
@@ -2140,9 +1946,6 @@ XFILEJSONCONTROLCHAR XFILEJSON::SearchNextControlCharacter(int& position)
 * @brief      SearchControlCharacter
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ctrlchar :
 * @param[in]  position :
 *
@@ -2174,9 +1977,6 @@ bool XFILEJSON::SearchControlCharacter(XFILEJSONCONTROLCHAR ctrlchar, int& posit
 * @fn         bool XFILEJSON::GetNumber(int& position,XSTRING& string,bool& special)
 * @brief      GetNumber
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position :
 * @param[in]  string :
@@ -2220,9 +2020,6 @@ bool XFILEJSON::GetNumber(int& position, XSTRING& string, bool& special)
 * @brief      GetText
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  position :
 * @param[in]  string :
 *
@@ -2259,9 +2056,6 @@ bool XFILEJSON::GetText(int& position, XSTRING& string)
 * @fn         bool XFILEJSON::GetString(int& position, XSTRING& string)
 * @brief      GetString
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position :
 * @param[in]  string :
@@ -2336,9 +2130,6 @@ bool XFILEJSON::GetString(int& position, XSTRING& string)
 * @brief      AddTabs
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  level :
 * @param[in]  spacetabs :
 * @param[in]  string :
@@ -2368,9 +2159,6 @@ bool XFILEJSON::AddTabs(int level, int spacetabs, XSTRING& string)
 * @fn         bool XFILEJSON::EncodeObject(bool isobject, XFILEJSONOBJECT* object, bool istabulatedline)
 * @brief      EncodeObject
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isobject :
 * @param[in]  object :
@@ -2522,9 +2310,6 @@ bool XFILEJSON::EncodeObject(bool isobject, XFILEJSONOBJECT* object, bool istabu
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

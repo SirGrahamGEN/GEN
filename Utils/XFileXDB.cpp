@@ -6,10 +6,7 @@
 * @brief      eXtended Dialog Sentence file class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hash :
 *
 * @return     Does not return anything.
@@ -84,9 +78,6 @@ XFILEXDB::XFILEXDB(HASH* hash) : XFILEHASH(hash)
 * @fn         XFILEXDB::XFILEXDB(HASH* hash, XPATH& xpath)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hash :
 * @param[in]  xpath :
@@ -115,9 +106,6 @@ XFILEXDB::XFILEXDB(HASH* hash, XPATH& xpath)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -135,9 +123,6 @@ XFILEXDB::~XFILEXDB()
 * @fn         bool XFILEXDB::SetPath(XPATH& xpath)
 * @brief      SetPath
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -161,9 +146,6 @@ bool XFILEXDB::SetPath(XPATH& xpath)
 * @brief      Ini
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -179,9 +161,6 @@ bool XFILEXDB::Ini()
 * @fn         bool XFILEXDB::End()
 * @brief      End
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -199,9 +178,6 @@ bool XFILEXDB::End()
 * @brief      GetIndexMap
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XMAP<XDWORD, :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -217,9 +193,6 @@ XMAP<XDWORD, XDWORD>* XFILEXDB::GetIndexMap()
 * @fn         bool XFILEXDB::OpenFile()
 * @brief      OpenFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -265,9 +238,6 @@ bool XFILEXDB::OpenFile()
 * @brief      GetNumberRecords
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -283,9 +253,6 @@ int XFILEXDB::GetNumberRecords()
 * @fn         XBUFFER* XFILEXDB::GetRecord(XDWORD ID)
 * @brief      GetRecord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -339,9 +306,6 @@ XBUFFER* XFILEXDB::GetRecord(XDWORD ID)
 * @brief      GetRecordIndex
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     XBUFFER* :
@@ -394,9 +358,6 @@ XBUFFER* XFILEXDB::GetRecordIndex(XDWORD index)
 * @brief      GetPosition
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 *
 * @return     XDWORD :
@@ -427,9 +388,6 @@ XDWORD XFILEXDB::GetPosition(XDWORD ID)
 * @brief      CloseFile
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -454,9 +412,6 @@ bool XFILEXDB::CloseFile()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Graphics XEvent class
 * @ingroup    GRAPHIC
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XSUBJECT* : subject origin
 * @param[in]  XDWORD type : type of event
 * @param[in]  XDWORD family : family of event
@@ -76,9 +70,6 @@ GRPXEVENT::GRPXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subj
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -95,9 +86,6 @@ GRPXEVENT::~GRPXEVENT()
 * @brief      Get Screen
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPSCREEN* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -113,9 +101,6 @@ GRPSCREEN* GRPXEVENT::GetScreen()
 * @fn         void GRPXEVENT::SetScreen(GRPSCREEN* screen)
 * @brief      Set Screen
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  screen :
 *
@@ -135,9 +120,6 @@ void GRPXEVENT::SetScreen(GRPSCREEN* screen)
 * @brief      Get Viewport
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPVIEWPORT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -153,9 +135,6 @@ GRPVIEWPORT* GRPXEVENT::GetViewport()
 * @fn         void GRPXEVENT::SetViewport(GRPVIEWPORT* viewport)
 * @brief      Set Viewport
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  viewport :
 *
@@ -175,9 +154,6 @@ void GRPXEVENT::SetViewport(GRPVIEWPORT* viewport)
 * @brief      GetError
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -193,9 +169,6 @@ bool GRPXEVENT::GetError()
 * @fn         void GRPXEVENT::SetError(bool error)
 * @brief      SetError
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  error :
 *
@@ -215,9 +188,6 @@ void GRPXEVENT::SetError(bool error)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

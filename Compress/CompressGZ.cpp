@@ -38,7 +38,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      08/08/2001 9:32:45
 //
 //  @return
@@ -58,7 +58,7 @@ COMPRESS_GZ::COMPRESS_GZ() : COMPRESSBASE()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      08/08/2001 9:33:11
 //
 //  @return
@@ -77,7 +77,7 @@ COMPRESS_GZ::~COMPRESS_GZ()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/02/2004 18:05:17
 //
 //  @return       bool :
@@ -110,7 +110,7 @@ bool COMPRESS_GZ::Compress(XBYTE* source, XDWORD size, XBUFFER* xbuffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/02/2004 18:05:21
 //
 //  @return       bool :
@@ -138,7 +138,7 @@ bool COMPRESS_GZ::Decompress(XBYTE* source, XDWORD size, XBUFFER* xbuffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/10/2003 16:40:47
 //
 //  @return       void :
@@ -157,7 +157,7 @@ void COMPRESS_GZ::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/05/2009 06:41:35 p.m.
 //
 //  @return       int :
@@ -209,7 +209,7 @@ int COMPRESS_GZ::ZCompress(XBYTE* target, XDWORD* targetsize, XBYTE* source, XDW
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/05/2009 06:41:43 p.m.
 //
 //  @return       int :

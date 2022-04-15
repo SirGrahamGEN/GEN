@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Domain Network System (DNS) protocol class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -66,9 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -88,9 +82,6 @@ DIODNSPROTOCOL::DIODNSPROTOCOL()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -120,9 +111,6 @@ DIODNSPROTOCOL::~DIODNSPROTOCOL()
 * @brief      SetServer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  serverIP :
 * @param[in]  serverport :
 *
@@ -147,9 +135,6 @@ bool DIODNSPROTOCOL::SetServer(DIOIP& serverIP, XWORD serverport)
 * @fn         bool DIODNSPROTOCOL::SetServer(XCHAR* serverIP, XWORD serverport)
 * @brief      SetServer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  serverIP :
 * @param[in]  serverport :
@@ -176,9 +161,6 @@ bool DIODNSPROTOCOL::SetServer(XCHAR* serverIP, XWORD serverport)
 * @brief      SetServer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  serverIP :
 * @param[in]  serverport :
 *
@@ -197,9 +179,6 @@ bool DIODNSPROTOCOL::SetServer(XSTRING& serverIP, XWORD serverport)
 * @fn         bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 * @brief      ResolveURL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  URL :
 * @param[in]  IPresolved :
@@ -408,9 +387,6 @@ bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 * @brief      ResolveURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  URL :
 * @param[in]  IPresolved :
 * @param[in]  querytype :
@@ -432,9 +408,6 @@ bool DIODNSPROTOCOL::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, X
 * @brief      ResolveURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  URL :
 * @param[in]  IPresolved :
 * @param[in]  querytype :
@@ -455,9 +428,6 @@ bool DIODNSPROTOCOL::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype, 
 * @fn         bool DIODNSPROTOCOL::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& target)
 * @brief      ChangetoDNSNameFormat
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  origin :
 * @param[in]  target :
@@ -505,9 +475,6 @@ bool DIODNSPROTOCOL::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& target)
 * @fn         XBYTE* DIODNSPROTOCOL::GetBufferName(XBYTE* reader,XBYTE* buffer,int* count)
 * @brief      GetBufferName
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  reader :
 * @param[in]  buffer :
@@ -585,9 +552,6 @@ XBYTE* DIODNSPROTOCOL::GetBufferName(XBYTE* reader, XBYTE* buffer,int* count)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

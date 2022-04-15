@@ -6,10 +6,7 @@
 * @brief      User Interface eXtended Event class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,9 +48,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  subject :
 * @param[in]  type :
 * @param[in]  family :
@@ -75,9 +69,6 @@ UI_XEVENT::UI_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(sub
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,10 +84,7 @@ UI_XEVENT::~UI_XEVENT()
 * @fn         XDWORD UI_XEVENT::GetXPos()
 * @brief      GetXPos
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -112,10 +100,7 @@ XDWORD UI_XEVENT::GetXPos()
 * @fn         void UI_XEVENT::SetXPos(XDWORD xpos)
 * @brief      SetXPos
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xpos : 
 * 
 * @return     void : does not return anything. 
@@ -133,10 +118,7 @@ void UI_XEVENT::SetXPos(XDWORD xpos)
 * @fn         XDWORD UI_XEVENT::GetYPos()
 * @brief      GetYPos
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -152,10 +134,7 @@ XDWORD UI_XEVENT::GetYPos()
 * @fn         void UI_XEVENT::SetYPos(XDWORD ypos)
 * @brief      SetYPos
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ypos : 
 * 
 * @return     void : does not return anything. 
@@ -173,10 +152,7 @@ void UI_XEVENT::SetYPos(XDWORD ypos)
 * @fn         UI_ELEMENT* UI_XEVENT::GetElement()
 * @brief      GetElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -192,10 +168,7 @@ UI_ELEMENT* UI_XEVENT::GetElement()
 * @fn         INPCURSORMOTION* UI_XEVENT::GetCursorMotion()
 * @brief      GetCursorMotion
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     INPCURSORMOTION* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -211,10 +184,7 @@ INPCURSORMOTION* UI_XEVENT::GetCursorMotion()
 * @fn         void UI_XEVENT::SetCursorMotion(INPCURSORMOTION* cursormotion)
 * @brief      SetCursorMotion
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  cursormotion : 
 * 
 * @return     void : does not return anything. 
@@ -232,10 +202,7 @@ void UI_XEVENT::SetCursorMotion(INPCURSORMOTION* cursormotion)
 * @fn         bool UI_XEVENT::SetElement(UI_ELEMENT* element)
 * @brief      SetElement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
@@ -257,10 +224,7 @@ bool UI_XEVENT::SetElement(UI_ELEMENT* element)
 * @fn         UI_SKIN* UI_XEVENT::GetSkin()
 * @brief      GetSkin
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_SKIN* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -276,10 +240,7 @@ UI_SKIN* UI_XEVENT::GetSkin()
 * @fn         bool UI_XEVENT::SetSkin(UI_SKIN* skin)
 * @brief      SetSkin
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  skin : 
 * 
 * @return     bool : true if is succesful. 
@@ -298,10 +259,7 @@ bool UI_XEVENT::SetSkin(UI_SKIN* skin)
 * @fn         XSTRING* UI_XEVENT::GetMaskTextValue()
 * @brief      GetMaskTextValue
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -317,10 +275,7 @@ XSTRING* UI_XEVENT::GetMaskTextValue()
 * @fn         XSTRING* UI_XEVENT::GetMaskTextResolved()
 * @brief      GetMaskTextResolved
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -337,9 +292,6 @@ XSTRING* UI_XEVENT::GetMaskTextResolved()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

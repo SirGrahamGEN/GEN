@@ -6,7 +6,7 @@
 //   
 //  h265 frame reader demuxing an mp4
 //   
-//	@author	 Imanol Celaya Ruiz de Alegria
+//	""
 //
 //	Date Of Creation	: 09/05/2016 11:59:14
 //	Last Modification	:	

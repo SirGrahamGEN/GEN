@@ -6,10 +6,7 @@
 * @brief      ANDROID input device mouse class
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  GRPANDROIDSCREEN* :
 *
 * @return     Does not return anything.
@@ -87,9 +81,6 @@ INPANDROIDDEVICEMOUSE::INPANDROIDDEVICEMOUSE(GRPANDROIDSCREEN* grpscreen)
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -111,9 +102,6 @@ INPANDROIDDEVICEMOUSE::~INPANDROIDDEVICEMOUSE()
 * @fn         bool INPANDROIDDEVICEMOUSE::Update()
 * @brief      Update
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -139,9 +127,6 @@ bool INPANDROIDDEVICEMOUSE::Update()
 * @brief      SetScreen
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  screenpointer :
 *
 * @return     bool : true if is succesful.
@@ -162,7 +147,7 @@ bool INPANDROIDDEVICEMOUSE::SetScreen(void* screenpointer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/04/2012 1:28:39
 //
 //  @return       bool :
@@ -207,9 +192,6 @@ bool INPANDROIDDEVICEMOUSE::AddPosition(int index, float x, float y, bool ispres
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -225,9 +207,6 @@ void INPANDROIDDEVICEMOUSE::Clean()
 * @fn         bool INPANDROIDDEVICEMOUSE::CreateAllButtons()
 * @brief      CreateAllButtons
 * @ingroup    PLATFORM_ANDROID
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -251,7 +230,7 @@ bool INPANDROIDDEVICEMOUSE::CreateAllButtons()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/12/2011 10:55:24
 //
 //  @return       bool :

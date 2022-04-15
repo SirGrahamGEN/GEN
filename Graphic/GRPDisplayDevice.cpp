@@ -6,10 +6,7 @@
 * @brief      Graphics Display Device (screen class for display devices)
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ GRPDISPLAYDEVICE::GRPDISPLAYDEVICE()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ GRPDISPLAYDEVICE::~GRPDISPLAYDEVICE()
 * @fn         bool GRPDISPLAYDEVICE::Create(void* handle)
 * @brief      Create
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -114,9 +102,6 @@ bool GRPDISPLAYDEVICE::Create(bool show)
 * @brief      Update
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -132,9 +117,6 @@ bool GRPDISPLAYDEVICE::Update()
 * @fn         bool GRPDISPLAYDEVICE::Update(GRPCAVAS* canvas)
 * @brief      Update
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  canvas : canvas handle
 *
@@ -154,9 +136,6 @@ bool GRPDISPLAYDEVICE::Update(GRPCANVAS* canvas)
 * @brief      Delete
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -172,9 +151,6 @@ bool GRPDISPLAYDEVICE::Delete()
 * @fn         bool GRPDISPLAYDEVICE::Resize(int width, int height)
 * @brief
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  width :
 * @param[in]  height :
@@ -195,9 +171,6 @@ bool GRPDISPLAYDEVICE::Resize(int width, int height)
 * @brief      IsShow
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -213,9 +186,6 @@ bool GRPDISPLAYDEVICE::IsShow()
 * @fn         bool GRPDISPLAYDEVICE::Show(bool active)
 * @brief      Show
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  active :
 *
@@ -239,9 +209,6 @@ bool GRPDISPLAYDEVICE::Show(bool active)
 * @brief      ShowCursor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  active :
 *
 * @return     bool : true if is succesful.
@@ -259,9 +226,6 @@ bool GRPDISPLAYDEVICE::ShowCursor(bool active)
 * @fn         bool GRPDISPLAYDEVICE::ShowTopMost(bool active)
 * @brief      ShowTopMost
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  active :
 *
@@ -282,9 +246,6 @@ bool GRPDISPLAYDEVICE::ShowTopMost(bool active)
 * @brief
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -301,9 +262,6 @@ void* GRPDISPLAYDEVICE::GetHandle()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

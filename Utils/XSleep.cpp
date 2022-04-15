@@ -6,10 +6,7 @@
 * @brief      Sleep class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@ XSLEEP* XSLEEP::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ XSLEEP::XSLEEP()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -97,9 +88,6 @@ XSLEEP::~XSLEEP()
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -116,9 +104,6 @@ bool XSLEEP::GetIsInstanced()
 * @brief      Get Instance of XSLEEP
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSLEEP& :
 *
@@ -138,9 +123,6 @@ XSLEEP& XSLEEP::GetInstance()
 * @brief      Set Instance of XSLEEP
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  _instance : new instance
 *
@@ -164,9 +146,6 @@ bool XSLEEP::SetInstance(XSLEEP* _instance)
 * @brief      Delete Instance of XSLEEP
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -193,9 +172,6 @@ bool XSLEEP::DelInstance()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  seconds :
 *
 * @return     void : does not return anything.
@@ -213,9 +189,6 @@ void XSLEEP::Seconds(int seconds)
 * @fn         void XSLEEP::MilliSeconds(int milliseconds)
 * @brief      MilliSeconds
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  milliseconds :
 *
@@ -235,9 +208,6 @@ void XSLEEP::MilliSeconds(int milliseconds)
 * @brief      MicroSeconds
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  microseconds :
 *
@@ -259,9 +229,6 @@ void XSLEEP::MicroSeconds(int microseconds)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  nanoseconds :
 *
 * @return     void : does not return anything.
@@ -280,9 +247,6 @@ void XSLEEP::NanoSeconds(int nanoseconds)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,7 +6,7 @@
 //
 //  Data IO MAC MANUFACTURED Device class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 30/08/2012 9:13:13
 */
 /*  GEN  Copyright (C).  All right reserved.

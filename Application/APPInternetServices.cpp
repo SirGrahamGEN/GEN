@@ -6,10 +6,7 @@
 * @brief      Application Internet Connection Services class
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -75,9 +72,6 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -110,9 +104,6 @@ APPINTERNETSERVICES::APPINTERNETSERVICES()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -161,10 +152,7 @@ APPINTERNETSERVICES::~APPINTERNETSERVICES()
 * @fn         bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip = 0)
 * @brief      Ini
 * @ingroup    APPLICATION
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  cfg : 
 * @param[in]  timeoutgetpublicip : 
 * 
@@ -322,9 +310,6 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
 * @brief      HaveInternetConnection
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -341,9 +326,6 @@ bool APPINTERNETSERVICES::HaveInternetConnection()
 * @brief      GetAutomaticLocalIP
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -359,10 +341,7 @@ XSTRING* APPINTERNETSERVICES::GetAutomaticLocalIP()
 * @fn         XSTRING* APPINTERNETSERVICES::GetAlLLocalIP()
 * @brief      GetAlLLocalIP
 * @ingroup    APPLICATION
-* 
-* @author     Abraham J. Velez 
-* @date       24/03/2022 17:17:42
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -378,9 +357,6 @@ XSTRING* APPINTERNETSERVICES::GetAlLLocalIP()
 * @fn         XSTRING* APPINTERNETSERVICES::GetPublicIP()
 * @brief      GetPublicIP
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -398,9 +374,6 @@ XSTRING* APPINTERNETSERVICES::GetPublicIP()
 * @fn         XDATETIME* APPINTERNETSERVICES::DateTime_GetActual(bool active_daylightsave, bool active_meridian)
 * @brief      DateTime_GetActual
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  active_daylightsave : 
 * @param[in]  active_meridian : 
@@ -451,9 +424,6 @@ XDATETIME* APPINTERNETSERVICES::DateTime_GetActual(bool active_daylightsave, boo
 * @fn         XDATETIME* APPINTERNETSERVICES::DateTime_GetUTC()
 * @brief      DateTime_GetUTC
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XDATETIME* : 
 *
@@ -507,9 +477,6 @@ XDATETIME* APPINTERNETSERVICES::DateTime_GetUTC()
 * @brief      DateTime_GetMeridian
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -538,9 +505,6 @@ int APPINTERNETSERVICES::DateTime_GetMeridian()
 * @brief      GetCheckTCPIPConnections
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOCHECKTCPIPCONNECTIONS* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -556,9 +520,6 @@ DIOCHECKTCPIPCONNECTIONS* APPINTERNETSERVICES::GetCheckTCPIPConnections()
 * @fn         DIOCHECKINTERNETCONNECTION* APPINTERNETSERVICES::GetCheckInternetConnection()
 * @brief      GetCheckInternetConnection
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOCHECKINTERNETCONNECTION* :
 *
@@ -576,9 +537,6 @@ DIOCHECKINTERNETCONNECTION* APPINTERNETSERVICES::GetCheckInternetConnection()
 * @brief      GetDynDNSManager
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIODYNDNS_MANAGER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -594,9 +552,6 @@ DIODYNDNS_MANAGER* APPINTERNETSERVICES::GetDynDNSManager()
 * @fn         bool APPINTERNETSERVICES::End()
 * @brief      End
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -640,9 +595,6 @@ bool APPINTERNETSERVICES::End()
 * @fn         bool APPINTERNETSERVICES::CheckInternetStatus()
 * @brief      CheckInternetStatus
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -697,9 +649,6 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
 * @fn         bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
 * @brief      AdjustTimerByNTP
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  servers :
 *
@@ -775,9 +724,6 @@ bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
 * @brief      Handle Event for the observer manager of this class
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  event : 
 *
@@ -896,9 +842,6 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 * @note       INTERNAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xevent :
 *
 * @return     void : does not return anything.
@@ -929,9 +872,6 @@ void APPINTERNETSERVICES::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

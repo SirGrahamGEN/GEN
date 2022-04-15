@@ -6,10 +6,7 @@
 * @brief      SAMD5xE5x Data IO Stream USB class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -68,9 +65,6 @@ DIOSAMD5XE5XSTREAMUSB* diostreamusbptrhandle =  NULL;
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -110,9 +104,6 @@ DIOSAMD5XE5XSTREAMUSB::DIOSAMD5XE5XSTREAMUSB(): DIOSTREAMUSB(), XFSMACHINE(0)
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -133,9 +124,6 @@ DIOSAMD5XE5XSTREAMUSB::~DIOSAMD5XE5XSTREAMUSB()
 * @brief      GetConnectStatus
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSTATUS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -153,9 +141,6 @@ DIOSTREAMSTATUS DIOSAMD5XE5XSTREAMUSB::GetConnectStatus()
 * @fn         bool DIOSAMD5XE5XSTREAMUSB::Open()
 * @brief      Open
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -187,9 +172,6 @@ bool DIOSAMD5XE5XSTREAMUSB::Open()
 * @brief      WriteDirect
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -213,9 +195,6 @@ XDWORD DIOSAMD5XE5XSTREAMUSB::WriteDirect(XBYTE* buffer, XDWORD size)
 * @fn         XDWORD DIOSAMD5XE5XSTREAMUSB::Write(XBYTE* buffer, XDWORD size)
 * @brief      Write
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -250,9 +229,6 @@ XDWORD DIOSAMD5XE5XSTREAMUSB::Write(XBYTE* buffer, XDWORD size)
 * @brief      Close
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -278,9 +254,6 @@ bool DIOSAMD5XE5XSTREAMUSB::Close()
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -296,9 +269,6 @@ bool DIOSAMD5XE5XSTREAMUSB::CleanBuffers()
 * @fn         void DIOSAMD5XE5XSTREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t*len)
 * @brief      HAL_USB_RxCpltCallback
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  uint32_t*len :
@@ -337,9 +307,6 @@ void DIOSAMD5XE5XSTREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t *le
 * @fn         void DIOSAMD5XE5XSTREAMUSB::ThreadConnection(void* param)
 * @brief      ThreadConnection
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *

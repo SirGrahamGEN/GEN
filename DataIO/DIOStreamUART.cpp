@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream UART class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ DIOSTREAMUART::DIOSTREAMUART(): DIOSTREAM()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -96,9 +87,6 @@ DIOSTREAMUART::~DIOSTREAMUART()
 * @brief      GetConfig
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMCONFIG* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +103,6 @@ DIOSTREAMCONFIG* DIOSTREAMUART::GetConfig()
 * @fn         bool DIOSTREAMUART::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      SetConfig
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  config :
 *
@@ -141,9 +126,6 @@ bool DIOSTREAMUART::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      GetConnectStatus
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSTATUS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -160,9 +142,6 @@ DIOSTREAMSTATUS DIOSTREAMUART::GetConnectStatus()
 * @brief      Open
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -178,9 +157,6 @@ bool DIOSTREAMUART::Open()
 * @fn         bool DIOSTREAMUART::Config(XWORD mask)
 * @brief      Config
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask :
 *
@@ -199,9 +175,6 @@ bool DIOSTREAMUART::Config(XWORD mask)
 * @fn         XDWORD DIOSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 * @brief      ReadDirect
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -222,9 +195,6 @@ XDWORD DIOSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 * @brief      WriteDirect
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -244,9 +214,6 @@ XDWORD DIOSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 * @brief      Close
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -262,9 +229,6 @@ bool DIOSTREAMUART::Close()
 * @fn         bool DIOSTREAMUART::GetCTS()
 * @brief      GetCTS
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -282,9 +246,6 @@ bool DIOSTREAMUART::GetCTS()
 * @brief      GetDSR
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -300,9 +261,6 @@ bool DIOSTREAMUART::GetDSR()
 * @fn         bool DIOSTREAMUART::GetRing()
 * @brief      GetRing
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -320,9 +278,6 @@ bool DIOSTREAMUART::GetRing()
 * @brief      GetRLSD
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -338,9 +293,6 @@ bool DIOSTREAMUART::GetRLSD()
 * @fn         bool DIOSTREAMUART::SetRTS(bool on)
 * @brief      SetRTS
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  on :
 *
@@ -359,9 +311,6 @@ bool DIOSTREAMUART::SetRTS(bool on)
 * @fn         bool DIOSTREAMUART::SetDTR(bool on)
 * @brief      SetDTR
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  on :
 *
@@ -382,9 +331,6 @@ bool DIOSTREAMUART::SetDTR(bool on)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -401,9 +347,6 @@ bool DIOSTREAMUART::CleanBuffers()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

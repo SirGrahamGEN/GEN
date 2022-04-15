@@ -6,10 +6,7 @@
 * @brief       Data Input/Output Check connections TPC/IP class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -65,9 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -87,9 +81,6 @@ DIOCHECKTCPIPCONNECTION_CUT::DIOCHECKTCPIPCONNECTION_CUT()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -108,9 +99,6 @@ DIOCHECKTCPIPCONNECTION_CUT::~DIOCHECKTCPIPCONNECTION_CUT()
 * @brief      GetStartDateTime
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDATETIME* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -125,9 +113,6 @@ XDATETIME* DIOCHECKTCPIPCONNECTION_CUT::GetStartDateTime()
 * @fn         int DIOCHECKTCPIPCONNECTION_CUT::GetMeasureNSeconds()
 * @brief      GetMeasureNSeconds
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -144,9 +129,6 @@ int DIOCHECKTCPIPCONNECTION_CUT::GetMeasureNSeconds()
 * @fn         void DIOCHECKTCPIPCONNECTION_CUT::SetMeasureNSeconds(XDWORD nseconds)
 * @brief      SetMeasureNSeconds
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nseconds :
 *
@@ -165,9 +147,6 @@ void DIOCHECKTCPIPCONNECTION_CUT::SetMeasureNSeconds(XDWORD nseconds)
 * @fn         bool DIOCHECKTCPIPCONNECTION_CUT::GetMeasureTimeString(XSTRING& measuretime, bool large = false)
 * @brief      GetMeasureTimeString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  measuretime :
 * @param[in]  large :
@@ -195,9 +174,6 @@ bool DIOCHECKTCPIPCONNECTION_CUT::GetMeasureTimeString(XSTRING& measuretime, boo
 * @brief      CopyFrom
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  connectioncut :
 *
 * @return     bool : true if is succesful.
@@ -217,9 +193,6 @@ bool DIOCHECKTCPIPCONNECTION_CUT::CopyFrom(DIOCHECKTCPIPCONNECTION_CUT* connecti
 * @fn         bool DIOCHECKTCPIPCONNECTION_CUT::CopyTo(DIOCHECKTCPIPCONNECTION_CUT* connectioncut)
 * @brief      CopyTo
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  connectioncut :
 *
@@ -245,9 +218,6 @@ bool DIOCHECKTCPIPCONNECTION_CUT::CopyTo(DIOCHECKTCPIPCONNECTION_CUT* connection
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -270,9 +240,6 @@ void DIOCHECKTCPIPCONNECTION_CUT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -294,9 +261,6 @@ DIOCHECKTCPIPCONNECTION::DIOCHECKTCPIPCONNECTION()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -317,9 +281,6 @@ DIOCHECKTCPIPCONNECTION::~DIOCHECKTCPIPCONNECTION()
 * @brief      GetID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -335,9 +296,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetID()
 * @fn         DIOURL* DIOCHECKTCPIPCONNECTION::GetURL()
 * @brief      GetURL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOURL* :
 *
@@ -355,9 +313,6 @@ DIOURL* DIOCHECKTCPIPCONNECTION::GetURL()
 * @brief      IsConnected
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -372,9 +327,6 @@ bool DIOCHECKTCPIPCONNECTION::IsConnected()
 * @fn         void DIOCHECKTCPIPCONNECTION::SetIsConnected(bool isconnected)
 * @brief      SetIsConnected
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isconnected :
 *
@@ -393,9 +345,6 @@ void DIOCHECKTCPIPCONNECTION::SetIsConnected(bool isconnected)
 * @brief      GetNChecks
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -411,9 +360,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetNChecks()
 * @fn         void DIOCHECKTCPIPCONNECTION::SetNChecks(XDWORD nchecks)
 * @brief      SetNChecks
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nchecks :
 *
@@ -433,9 +379,6 @@ void DIOCHECKTCPIPCONNECTION::SetNChecks(XDWORD nchecks)
 * @brief      IncNChecks
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -451,9 +394,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::IncNChecks()
 * @fn         bool DIOCHECKTCPIPCONNECTION::Set(XCHAR* url)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  url :
 *
@@ -481,9 +421,6 @@ bool DIOCHECKTCPIPCONNECTION::Set(XCHAR* url)
 * @brief      GetElapsedTime
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -499,9 +436,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetElapsedTime()
 * @fn         void DIOCHECKTCPIPCONNECTION::SetElapsedTime(XDWORD elapsedtime)
 * @brief      SetElapsedTime
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  elapsedtime :
 *
@@ -520,9 +454,6 @@ void DIOCHECKTCPIPCONNECTION::SetElapsedTime(XDWORD elapsedtime)
 * @fn         bool DIOCHECKTCPIPCONNECTION::ResetTimeConnexionStatus()
 * @brief      ResetTimeConnexionStatus
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -543,9 +474,6 @@ bool DIOCHECKTCPIPCONNECTION::ResetTimeConnexionStatus()
 * @brief      GetTimeConnexionStatus
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -562,9 +490,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetTimeConnexionStatus()
 * @fn         XDWORD DIOCHECKTCPIPCONNECTION::CreateID()
 * @brief      CreateID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -589,9 +514,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::CreateID()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -621,9 +543,6 @@ void DIOCHECKTCPIPCONNECTION::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -640,9 +559,6 @@ DIOCHECKTCPIPCONNECTIONS::DIOCHECKTCPIPCONNECTIONS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -661,9 +577,6 @@ DIOCHECKTCPIPCONNECTIONS::~DIOCHECKTCPIPCONNECTIONS()
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::Ini(int timeconnectionchecks, bool validsomeisconnected, bool dispersionmode)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeconnectionchecks :
 * @param[in]  validsomeisconnected :
@@ -701,9 +614,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Ini(int timeconnectionchecks, bool validsomeiscon
 * @brief      Run
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  activate :
 *
 * @return     bool : true if is succesful.
@@ -723,9 +633,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Run(bool activate)
 * @brief      GetTimeConnectionChecks
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -742,9 +649,6 @@ int DIOCHECKTCPIPCONNECTIONS::GetTimeConnectionChecks()
 * @brief      IsCheckTimeConnections
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -760,9 +664,6 @@ bool DIOCHECKTCPIPCONNECTIONS::IsCheckTimeConnections()
 * @fn         void DIOCHECKTCPIPCONNECTIONS::SetIsCheckTimeConnections(bool ischecktimeconnections)
 * @brief      SetIsCheckTimeConnections
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ischecktimeconnections :
 *
@@ -781,9 +682,6 @@ void DIOCHECKTCPIPCONNECTIONS::SetIsCheckTimeConnections(bool ischecktimeconnect
 * @fn         void DIOCHECKTCPIPCONNECTIONS::Setup(int timeconnectionchecks, bool validsomeisconnected, bool dispersionmode)
 * @brief      Setup
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeconnectionchecks :
 * @param[in]  validsomeisconnected :
@@ -806,9 +704,6 @@ void DIOCHECKTCPIPCONNECTIONS::Setup(int timeconnectionchecks, bool validsomeisc
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XCHAR* url, XDWORD& ID)
 * @brief      Connection_Add
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  url :
 * @param[in]  ID :
@@ -850,9 +745,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XCHAR* url, XDWORD& ID)
 * @brief      Connection_Add
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 * @param[in]  ID :
 *
@@ -872,9 +764,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XSTRING& url, XDWORD& ID)
 * @brief      Connection_Add
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 * @param[in]  ID :
 *
@@ -893,9 +782,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(DIOURL& url, XDWORD& ID)
 * @fn        DIOCHECKTCPIPCONNECTION* DIOCHECKTCPIPCONNECTIONS::Connection_GetByID(XDWORD ID)
 * @brief      Connection_GetByID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -932,9 +818,6 @@ DIOCHECKTCPIPCONNECTION* DIOCHECKTCPIPCONNECTIONS::Connection_GetByID(XDWORD ID)
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::Connection_IsActive(XDWORD ID, bool& isactive)
 * @brief      Connection_IsActive
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  isactive :
@@ -976,9 +859,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_IsActive(XDWORD ID, bool& isactive)
 * @brief      Connection_DeleteByID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ID :
 *
 * @return     bool : true if is succesful.
@@ -1010,9 +890,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_DeleteByID(XDWORD ID)
 * @brief      Connections_IsAllChecked
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1043,9 +920,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_IsAllChecked()
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::Connections_IsSomeChecked()
 * @brief      Connections_IsSomeChecked
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1081,9 +955,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_IsSomeChecked()
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToAllChecked(int timeout)
 * @brief      Connections_WaitToAllChecked
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeout :
 *
@@ -1134,9 +1005,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToAllChecked(int timeout)
 * @brief      Connections_WaitToSomeIsChecked
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  timeout :
 *
 * @return     bool : true if is succesful.
@@ -1186,9 +1054,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToSomeIsChecked(int timeout)
 * @brief      Connections_SomeIsConnected
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1221,9 +1086,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_SomeIsConnected()
 * @brief      Connections_DeleteAll
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1246,9 +1108,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_DeleteAll()
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::End()
 * @brief      End
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1294,9 +1153,6 @@ bool DIOCHECKTCPIPCONNECTIONS::End()
 * @fn         void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
 * @brief      ThreadCheckConnections
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *
@@ -1415,9 +1271,6 @@ void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

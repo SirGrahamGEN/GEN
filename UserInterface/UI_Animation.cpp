@@ -5,11 +5,8 @@
 * @class      UI_ANIMATION
 * @brief      User Interface Animation class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,10 +51,7 @@
 * @fn         UI_ANIMATION::UI_ANIMATION()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -74,10 +68,7 @@ UI_ANIMATION::UI_ANIMATION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -95,10 +86,7 @@ UI_ANIMATION::~UI_ANIMATION()
 * @fn         bool UI_ANIMATION::LoadFromFile(XSTRING& resourcename)
 * @brief      LoadFromFile
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  resourcename : 
 * 
 * @return     bool : true if is succesful. 
@@ -160,10 +148,7 @@ bool UI_ANIMATION::LoadFromFile(XSTRING& resourcename, GRPPROPERTYMODE mode)
 * @fn         XSTRING* UI_ANIMATION::GetName()
 * @brief      GetName
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -179,10 +164,7 @@ XSTRING* UI_ANIMATION::GetName()
 * @fn         XSTRING* UI_ANIMATION::GetResource()
 * @brief      GetResource
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -197,10 +179,7 @@ XSTRING* UI_ANIMATION::GetResource()
 * @fn         XVECTOR<GRPBITMAP*>* UI_ANIMATION::GetBitmaps()
 * @brief      GetBitmaps
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XVECTOR<GRPBITMAP*>* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -216,10 +195,7 @@ XVECTOR<GRPBITMAP*>* UI_ANIMATION::GetBitmaps()
 * @fn         GRPBITMAP* UI_ANIMATION::GetBitmap(int index)
 * @brief      GetBitmap
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  index : 
 * 
 * @return     GRPBITMAP* : 
@@ -237,10 +213,7 @@ GRPBITMAP* UI_ANIMATION::GetBitmap(int index)
 * @fn         bool UI_ANIMATION::DeleteAll()
 * @brief      DeleteAll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -263,10 +236,7 @@ bool UI_ANIMATION::DeleteAll()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

@@ -38,7 +38,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:43:10
 //
 //  @return
@@ -61,7 +61,7 @@ HASH::HASH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:01
 //
 //  @return
@@ -82,9 +82,6 @@ HASH::~HASH()
 * @brief      Do
 * @ingroup    CIPHER
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  input :
 * @param[in]  size :
 *
@@ -104,7 +101,7 @@ bool HASH::Do(XBYTE* input, XQWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 16:24:03
 //
 //  @return       bool :
@@ -124,9 +121,6 @@ bool HASH::Do(XBUFFER& input)
 * @fn         bool HASH::Do(XPATH& xpath, XQWORD size, XDWORD pos)
 * @brief      Do
 * @ingroup    CIPHER
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  size :
@@ -169,9 +163,6 @@ bool HASH::Do(XPATH& xpath, XQWORD size, XQWORD pos)
 * @fn         bool HASH::Do(XFILE* xfile, XQWORD size, XQWORD pos)
 * @brief      Do
 * @ingroup    CIPHER
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xfile :
 * @param[in]  size :
@@ -239,7 +230,7 @@ bool HASH::Do(XFILE* xfile, XQWORD size, XQWORD pos)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:35:35
 //
 //  @return       bool :
@@ -262,7 +253,7 @@ bool HASH::ResetResult()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/04/2013 0:46:03
 //
 //  @return       int :
@@ -281,7 +272,7 @@ int HASH::GetDefaultSize()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:35:39
 //
 //  @return       XBUFFER* :
@@ -301,7 +292,7 @@ XBUFFER* HASH::GetResult()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:38:50
 //
 //  @return       XBYTE* :
@@ -327,7 +318,7 @@ XBYTE* HASH::GetResult(XDWORD& resultsize)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 21:08:16
 //
 //  @return       bool :
@@ -363,7 +354,7 @@ bool HASH::GetResultString(XSTRING& stringhex)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:56
 //
 //  @return       void :

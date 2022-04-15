@@ -40,7 +40,7 @@
 //
 //  Class Constructor GRPANDROIDCONTEXT
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      06/04/2016 14:30:33
 //
 */
@@ -61,7 +61,7 @@ GRPANDROIDCONTEXT::GRPANDROIDCONTEXT() : GRPCONTEXT()
 //
 //   Class Destructor GRPANDROIDCONTEXT
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      06/04/2016 14:30:28
 //
 */
@@ -82,7 +82,7 @@ GRPANDROIDCONTEXT::~GRPANDROIDCONTEXT()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      06/04/2016 14:30:23
 //
 //  @return       bool :
@@ -224,7 +224,7 @@ bool GRPANDROIDCONTEXT::Create(void* handle)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      06/04/2016 14:30:15
 //
 //  @return       bool :
@@ -254,7 +254,7 @@ bool GRPANDROIDCONTEXT::Destroy()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      06/04/2016 14:30:08
 //
 //  @return       bool :
@@ -278,7 +278,7 @@ bool GRPANDROIDCONTEXT::IsLost()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      06/04/2016 16:33:54
 //
 //  @return       bool :

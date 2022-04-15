@@ -6,10 +6,7 @@
 * @brief      Data Input/Output eXtended event Generic Binary Protocol eXtended Event class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XSUBJECT* :
 * @param[in]   XDWORD type :
 * @param[in]   XDWORD family :
@@ -77,9 +71,6 @@ DIOPROTOCOL_XEVENT::DIOPROTOCOL_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD fa
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -96,9 +87,6 @@ DIOPROTOCOL_XEVENT::~DIOPROTOCOL_XEVENT()
 * @brief      GetProtocol
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOPROTOCOL* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -114,9 +102,6 @@ DIOPROTOCOL* DIOPROTOCOL_XEVENT::GetProtocol()
 * @fn         bool DIOPROTOCOL_XEVENT::SetProtocol(DIOPROTOCOL* protocol)
 * @brief      SetProtocol
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  protocol :
 *
@@ -139,9 +124,6 @@ bool DIOPROTOCOL_XEVENT::SetProtocol(DIOPROTOCOL* protocol)
 * @brief      GetDirection
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOPROTOCOL_DIRECTION :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -157,9 +139,6 @@ DIOPROTOCOL_DIRECTION  DIOPROTOCOL_XEVENT::GetDirection()
 * @fn         void DIOPROTOCOL_XEVENT::SetDirection(DIOPROTOCOL_DIRECTION direction)
 * @brief      SetDirection
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  direction :
 *
@@ -179,9 +158,6 @@ void DIOPROTOCOL_XEVENT::SetDirection(DIOPROTOCOL_DIRECTION direction)
 * @brief      GetType
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -197,9 +173,6 @@ XDWORD DIOPROTOCOL_XEVENT::GetType()
 * @fn         void DIOPROTOCOL_XEVENT::SetType(XDWORD type)
 * @brief      SetType
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -219,9 +192,6 @@ void DIOPROTOCOL_XEVENT::SetType(XDWORD type)
 * @brief      GetResult
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -237,9 +207,6 @@ bool DIOPROTOCOL_XEVENT::GetResult()
 * @fn         void DIOPROTOCOL_XEVENT::SetResult(bool result)
 * @brief      SetResult
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  result :
 *
@@ -259,9 +226,6 @@ void DIOPROTOCOL_XEVENT::SetResult(bool result)
 * @brief      GetFileStatus
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOPROTOCOL_FILESTATUS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -277,9 +241,6 @@ DIOPROTOCOL_FILESTATUS DIOPROTOCOL_XEVENT::GetFileStatus()
 * @fn         void DIOPROTOCOL_XEVENT::SetFileStatus(DIOPROTOCOL_FILESTATUS filestatus)
 * @brief      SetFileStatus
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  filestatus :
 *
@@ -299,9 +260,6 @@ void DIOPROTOCOL_XEVENT::SetFileStatus(DIOPROTOCOL_FILESTATUS filestatus)
 * @brief      FileIsSend
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -317,9 +275,6 @@ bool DIOPROTOCOL_XEVENT::FileIsSend()
 * @fn         void DIOPROTOCOL_XEVENT::SetFileIsSend(bool fileissend)
 * @brief      SetFileIsSend
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  fileissend :
 *
@@ -339,9 +294,6 @@ void DIOPROTOCOL_XEVENT::SetFileIsSend(bool fileissend)
 * @brief      GetFileSource
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -357,9 +309,6 @@ XPATH* DIOPROTOCOL_XEVENT::GetFileSource()
 * @fn         bool DIOPROTOCOL_XEVENT::SetFileSource(XCHAR* filesource)
 * @brief      SetFileSource
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  filesource :
 *
@@ -381,9 +330,6 @@ bool DIOPROTOCOL_XEVENT::SetFileSource(XCHAR* filesource)
 * @brief      GetFileTarget
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -399,9 +345,6 @@ XPATH* DIOPROTOCOL_XEVENT::GetFileTarget()
 * @fn         bool DIOPROTOCOL_XEVENT::SetFileTarget(XCHAR* filetarget)
 * @brief      SetFileTarget
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  filetarget :
 *
@@ -423,9 +366,6 @@ bool DIOPROTOCOL_XEVENT::SetFileTarget(XCHAR* filetarget)
 * @brief      GetFilePercent
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -441,9 +381,6 @@ int DIOPROTOCOL_XEVENT::GetFilePercent()
 * @fn         void DIOPROTOCOL_XEVENT::SetFilePercent(int filepercent)
 * @brief      SetFilePercent
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  filepercent :
 *
@@ -463,9 +400,6 @@ void DIOPROTOCOL_XEVENT::SetFilePercent(int filepercent)
 * @brief      GetParam1
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -481,9 +415,6 @@ void* DIOPROTOCOL_XEVENT::GetParam1()
 * @fn         void DIOPROTOCOL_XEVENT::SetParam1(void* param1)
 * @brief      SetParam1
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param1 :
 *
@@ -503,9 +434,6 @@ void DIOPROTOCOL_XEVENT::SetParam1(void* param1)
 * @brief      GetParam2
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -521,9 +449,6 @@ XDWORD DIOPROTOCOL_XEVENT::GetParam2()
 * @fn         void DIOPROTOCOL_XEVENT::SetParam2(XDWORD param2)
 * @brief      SetParam2
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param2 :
 *
@@ -543,9 +468,6 @@ void DIOPROTOCOL_XEVENT::SetParam2(XDWORD param2)
 * @brief      GetAlert
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOALERT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -561,9 +483,6 @@ DIOALERT* DIOPROTOCOL_XEVENT::GetAlert()
 * @fn         void DIOPROTOCOL_XEVENT::SetAlert(DIOALERT* alert)
 * @brief      SetAlert
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  alert :
 *
@@ -583,9 +502,6 @@ void DIOPROTOCOL_XEVENT::SetAlert(DIOALERT* alert)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

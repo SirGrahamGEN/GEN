@@ -6,10 +6,7 @@
 * @brief      eXtended WINDOWS System class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -97,9 +94,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -118,9 +112,6 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS::XWINDOWSSYSTEM_CPUUSAGESTATUS()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -137,9 +128,6 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS::~XWINDOWSSYSTEM_CPUUSAGESTATUS()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *
@@ -169,9 +157,6 @@ void XWINDOWSSYSTEM_CPUUSAGESTATUS::Clean()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ) :
 *
 * @return     Does not return anything.
@@ -191,9 +176,6 @@ XWINDOWSSYSTEM::XWINDOWSSYSTEM() : XSYSTEM()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -211,9 +193,6 @@ XWINDOWSSYSTEM::~XWINDOWSSYSTEM()
 * @fn         XSYSTEM_HARDWARETYPE XWINDOWSSYSTEM::GetTypeHardware(int* revision)
 * @brief      Get Type Hardware
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  revision : Type hardware
 *
@@ -234,9 +213,6 @@ XSYSTEM_HARDWARETYPE XWINDOWSSYSTEM::GetTypeHardware(int* revision)
 * @fn         XSYSTEM_SO XWINDOWSSYSTEM::GetTypeSO()
 * @brief      Get Type SO
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSYSTEM_SO : type of SO (enum XSYSTEM_SO)
 *
@@ -299,10 +275,7 @@ XSYSTEM_SO XWINDOWSSYSTEM::GetTypeSO()
 * @fn         XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
 * @brief      GetPlatform
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  namestring : 
 * 
 * @return     XSYSTEM_PLATFORM : 
@@ -322,10 +295,7 @@ XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
 * @fn         bool XWINDOWSSYSTEM::GetOperativeSystemID(XSTRING& ID)
 * @brief      GetOperativeSystemID
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ID : 
 * 
 * @return     bool : true if is succesful. 
@@ -430,9 +400,6 @@ bool XWINDOWSSYSTEM::GetOperativeSystemID(XSTRING& ID)
 * @brief      GetLanguageSO
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XLANGUAGE_CODE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -459,9 +426,6 @@ XDWORD XWINDOWSSYSTEM::GetLanguageSO()
 * @brief      GetSerialNumber
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -483,9 +447,6 @@ XSTRING* XWINDOWSSYSTEM::GetSerialNumber()
 * @fn         bool XWINDOWSSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 * @brief      Get Memory Info
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out]  total : total memory in bytes.
 * @param[out]  free : free memory in bytes.
@@ -512,9 +473,6 @@ bool XWINDOWSSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 * @fn         int XWINDOWSSYSTEM::GetCPUUsageTotal()
 * @brief      GetCPUUsageTotal
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     int : 
 *
@@ -581,9 +539,6 @@ int XWINDOWSSYSTEM::GetCPUUsageTotal()
 * @brief      GetCPUUsageForProcessName
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  processname : 
 *
 * @return     int : 
@@ -640,9 +595,6 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 * @fn         int XWINDOWSSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 * @brief      GetCPUUsageForProcessID
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  processID : 
 *
@@ -704,9 +656,6 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 * @brief      GetEnviromentVariable
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  variablename :
 *
 * @return     XCHAR* :
@@ -724,9 +673,6 @@ XCHAR* XWINDOWSSYSTEM::GetEnviromentVariable(XCHAR* variablename)
 * @fn         bool XWINDOWSSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 * @brief      SetEnviromentVariable
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  variablename :
 * @param[in]  value :
@@ -778,9 +724,6 @@ bool XWINDOWSSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 * @brief      DelEnviromentVariable
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  variablename :
 *
 * @return     bool : true if is succesful.
@@ -825,9 +768,6 @@ bool XWINDOWSSYSTEM::DelEnviromentVariable(XCHAR* variablename)
 * @fn         bool XWINDOWSSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
 * @brief      GetUserAndDomain
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  user : 
 * @param[in]  domain : 
@@ -907,9 +847,6 @@ bool XWINDOWSSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
 * @brief      ShutDown of the SO
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type : type of shutdown
 *
 * @return     bool : true if is succesful.
@@ -964,9 +901,6 @@ bool XWINDOWSSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 * @fn         int XWINDOWSSYSTEM::Sound_GetLevel()
 * @brief      Sound_GetLevel
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     int : 
 *
@@ -1030,9 +964,6 @@ int XWINDOWSSYSTEM::Sound_GetLevel()
 * @fn         bool XWINDOWSSYSTEM::Sound_SetLevel(int level)
 * @brief      Sound_SetLevel
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  level : 
 *
@@ -1103,9 +1034,6 @@ bool XWINDOWSSYSTEM::Sound_SetLevel(int level)
 * @brief      Sound_SetMutex
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  on : 
 *
 * @return     bool : true if is succesful. 
@@ -1171,10 +1099,7 @@ bool XWINDOWSSYSTEM::Sound_SetMutex(bool on)
 * @fn         bool XWINDOWSSYSTEM::GetBatteryLevel(bool& isincharge, XBYTE& levelpercent)
 * @brief      GetBatteryLevel
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  isincharge : 
 * @param[in]  levelpercent : 
 * 
@@ -1218,9 +1143,6 @@ bool XWINDOWSSYSTEM::GetBatteryLevel(bool& isincharge, XBYTE& levelpercent)
 * @brief      AddCPUUsageStatus
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  processname : 
 *
 * @return     XWINDOWSSYSTEM_CPUUSAGESTATUS* : 
@@ -1248,9 +1170,6 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XCHAR* processn
 * @fn         XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XCHAR* processname)
 * @brief      GetCPUUsageStatus
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  processname :
 *
@@ -1281,9 +1200,6 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XCHAR* processn
 * @brief      AddCPUUsageStatus
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  processID : 
 *
 * @return     XWINDOWSSYSTEM_CPUUSAGESTATUS* : 
@@ -1311,9 +1227,6 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XDWORD processI
 * @fn         XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XDWORD processID)
 * @brief      GetCPUUsageStatus
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  processID : 
 *
@@ -1344,9 +1257,6 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XDWORD processI
 * @brief      DeleteAllCPUUsageStatus
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1367,9 +1277,6 @@ bool XWINDOWSSYSTEM::DeleteAllCPUUsageStatus()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Script Library Function class
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,9 +48,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  SCRIPT_LIB* :
 * @param[in]   XCHAR* name :
 * @param[in]   SCRFUNCIONLIBRARY functionlibrary :
@@ -76,9 +70,6 @@ SCRIPT_LIBFUNCTION::SCRIPT_LIBFUNCTION(SCRIPT_LIB* library, XCHAR* name, SCRFUNC
 * @fn         SCRIPT_LIBFUNCTION::SCRIPT_LIBFUNCTION(SCRIPT_LIB* library, XSTRING& name, SCRFUNCIONLIBRARY functionlibrary)
 * @brief      Constructor
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  SCRIPT_LIB* :
 * @param[in]   XSTRING& name :
@@ -105,9 +96,6 @@ SCRIPT_LIBFUNCTION::SCRIPT_LIBFUNCTION(SCRIPT_LIB* library, XSTRING& name, SCRFU
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -124,9 +112,6 @@ SCRIPT_LIBFUNCTION::~SCRIPT_LIBFUNCTION()
 * @brief      GetLibrary
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     SCRIPT_LIB* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -142,9 +127,6 @@ SCRIPT_LIB* SCRIPT_LIBFUNCTION::GetLibrary()
 * @fn         bool SCRIPT_LIBFUNCTION::SetLibrary(SCRIPT_LIB* library)
 * @brief      SetLibrary
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  library :
 *
@@ -166,9 +148,6 @@ bool SCRIPT_LIBFUNCTION::SetLibrary(SCRIPT_LIB* library)
 * @brief      GetName
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -185,9 +164,6 @@ XSTRING* SCRIPT_LIBFUNCTION::GetName()
 * @brief      GetFunctionLibrary
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     SCRFUNCIONLIBRARY :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -203,9 +179,6 @@ SCRFUNCIONLIBRARY SCRIPT_LIBFUNCTION::GetFunctionLibrary()
 * @fn         bool SCRIPT_LIBFUNCTION::SetFunctionLibrary(SCRFUNCIONLIBRARY functionlibrary)
 * @brief      SetFunctionLibrary
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  functionlibrary :
 *
@@ -226,9 +199,6 @@ bool SCRIPT_LIBFUNCTION::SetFunctionLibrary(SCRFUNCIONLIBRARY functionlibrary)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

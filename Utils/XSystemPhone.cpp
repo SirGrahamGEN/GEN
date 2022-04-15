@@ -6,10 +6,7 @@
 * @brief
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@ XSYSTEMPHONE* XSYSTEMPHONE::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -74,9 +68,6 @@ XSYSTEMPHONELAC::XSYSTEMPHONELAC()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ XSYSTEMPHONELAC::~XSYSTEMPHONELAC()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -117,9 +105,6 @@ void XSYSTEMPHONELAC::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -136,9 +121,6 @@ XSYSTEMPHONE::XSYSTEMPHONE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -157,9 +139,6 @@ XSYSTEMPHONE::~XSYSTEMPHONE()
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -176,9 +155,6 @@ bool XSYSTEMPHONE::GetIsInstanced()
 * @brief      Get Instance of XSYSTEMPHONE
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSYSTEMPHONE& :
 *
@@ -198,9 +174,6 @@ XSYSTEMPHONE& XSYSTEMPHONE::GetInstance()
 * @brief      Set Instance of XSYSTEMPHONE
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  _instance : new instance
 *
@@ -224,9 +197,6 @@ bool XSYSTEMPHONE::SetInstance(XSYSTEMPHONE* _instance)
 * @brief      Delete Instance of XSYSTEMPHONE
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -253,9 +223,6 @@ bool XSYSTEMPHONE::DelInstance()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  IMEI :
 *
 * @return     bool : true if is succesful.
@@ -276,9 +243,6 @@ bool XSYSTEMPHONE::GetIMEI(XBYTE* IMEI)
 * @brief      GetGSMLAC
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  lac :
 *
@@ -301,9 +265,6 @@ bool XSYSTEMPHONE::GetGSMLAC(XSYSTEMPHONELAC* lac)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

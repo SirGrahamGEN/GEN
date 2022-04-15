@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Application Update class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -70,9 +67,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -90,9 +84,6 @@ DIOAPPLICATIONUPDATE_VERSIONDATA::DIOAPPLICATIONUPDATE_VERSIONDATA()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -109,9 +100,6 @@ DIOAPPLICATIONUPDATE_VERSIONDATA::~DIOAPPLICATIONUPDATE_VERSIONDATA()
 * @brief      GetVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -127,9 +115,6 @@ XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetVersion()
 * @fn         void DIOAPPLICATIONUPDATE_VERSIONDATA::SetVersion(XDWORD version)
 * @brief      SetVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  version :
 *
@@ -149,9 +134,6 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetVersion(XDWORD version)
 * @brief      GetSubVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -167,9 +149,6 @@ XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetSubVersion()
 * @fn         void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSubVersion(XDWORD subversion)
 * @brief      SetSubVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  subversion :
 *
@@ -189,9 +168,6 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSubVersion(XDWORD subversion)
 * @brief      GetErrorControl
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -207,9 +183,6 @@ XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetSubVersionError()
 * @fn         void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSubVersionError(XDWORD subversionerror)
 * @brief      SetErrorControl
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  subversionerror :
 *
@@ -229,9 +202,6 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSubVersionError(XDWORD subversionerror
 * @brief      SystemMustBeInit
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -247,9 +217,6 @@ bool DIOAPPLICATIONUPDATE_VERSIONDATA::SystemMustBeInit()
 * @fn         bool DIOAPPLICATIONUPDATE_VERSIONDATA::CopyTo(DIOAPPLICATIONUPDATE_VERSIONDATA& versiondata)
 * @brief      CopyTo
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  versiondata :
 *
@@ -273,9 +240,6 @@ bool DIOAPPLICATIONUPDATE_VERSIONDATA::CopyTo(DIOAPPLICATIONUPDATE_VERSIONDATA& 
 * @fn         bool DIOAPPLICATIONUPDATE_VERSIONDATA::CopyFrom(DIOAPPLICATIONUPDATE_VERSIONDATA* versiondata)
 * @brief      CopyFrom
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  versiondata :
 *
@@ -301,9 +265,6 @@ bool DIOAPPLICATIONUPDATE_VERSIONDATA::CopyFrom(DIOAPPLICATIONUPDATE_VERSIONDATA
 * @fn         int DIOAPPLICATIONUPDATE_VERSIONDATA::Compare(XDWORD version, XDWORD subversion, XDWORD subversionerror)
 * @brief      Compare
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  version :
 * @param[in]  subversion :
@@ -352,9 +313,6 @@ int DIOAPPLICATIONUPDATE_VERSIONDATA::Compare(XDWORD version, XDWORD subversion,
 * @brief      SetSystemMustBeInit
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  applicationmustbeinit :
 *
 * @return     void : does not return anything.
@@ -373,9 +331,6 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSystemMustBeInit(bool applicationmustb
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -404,9 +359,6 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XPATH& :
 * @param[in]   XDWORD CRC32 :
 * @param[in]   XDWORD size :
@@ -432,9 +384,6 @@ DIOAPPLICATIONUPDATE_FILE::DIOAPPLICATIONUPDATE_FILE(XPATH& xpathfile, XDWORD CR
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -450,9 +399,6 @@ DIOAPPLICATIONUPDATE_FILE::~DIOAPPLICATIONUPDATE_FILE()
 * @fn         XPATH* DIOAPPLICATIONUPDATE_FILE::GetXPathFile()
 * @brief      GetXPathFile
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XPATH* :
 *
@@ -470,9 +416,6 @@ XPATH* DIOAPPLICATIONUPDATE_FILE::GetXPathFile()
 * @brief      GetCRC32
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -488,9 +431,6 @@ XDWORD DIOAPPLICATIONUPDATE_FILE::GetCRC32()
 * @fn         int DIOAPPLICATIONUPDATE_FILE::GetSize()
 * @brief      GetSize
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XQWORD :
 *
@@ -508,9 +448,6 @@ XQWORD DIOAPPLICATIONUPDATE_FILE::GetSize()
 * @brief      HasSpecialControlUpdate
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -526,9 +463,6 @@ bool DIOAPPLICATIONUPDATE_FILE::HasSpecialControlUpdate()
 * @fn         void DIOAPPLICATIONUPDATE_FILE::SetHasSpecialControlUpdate(bool specialcontrolupdate)
 * @brief      SetHasSpecialControlUpdate
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  specialcontrolupdate :
 *
@@ -548,9 +482,6 @@ void DIOAPPLICATIONUPDATE_FILE::SetHasSpecialControlUpdate(bool specialcontrolup
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -575,9 +506,6 @@ void DIOAPPLICATIONUPDATE_FILE::Clean()
 * @fn         DIOAPPLICATIONUPDATE::DIOAPPLICATIONUPDATE(XDWORD applicationversion, XDWORD applicationsubversion, XDWORD applicationsubversionerror, XCHAR* applicationname, XPATH& xpathrootapp)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationversion :
 * @param[in]  applicationsubversion :
@@ -625,9 +553,6 @@ DIOAPPLICATIONUPDATE::DIOAPPLICATIONUPDATE(XDWORD applicationversion, XDWORD app
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -657,9 +582,6 @@ DIOAPPLICATIONUPDATE::~DIOAPPLICATIONUPDATE()
 * @fn         bool DIOAPPLICATIONUPDATE::GetVersionAvailable(DIOURL& url, int port, DIOAPPLICATIONUPDATE_VERSIONDATA& updateversiondata, int timeout, DIOAPPLICATIONUPDATE_ERROR& error)
 * @brief      GetVersionAvailable
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  url :
 * @param[in]  port :
@@ -793,9 +715,6 @@ bool DIOAPPLICATIONUPDATE::GetVersionAvailable(DIOURL& url, int port, DIOAPPLICA
 * @fn         bool DIOAPPLICATIONUPDATE::Download(DIOURL& url, int port, XCHAR* addtargetpath, DIOAPPLICATIONUPDATE_VERSIONDATA& updateversiondata, int timeout, DIOAPPLICATIONUPDATE_ERROR& error)
 * @brief      Download
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  url :
 * @param[in]  port :
@@ -1000,9 +919,6 @@ bool DIOAPPLICATIONUPDATE::Download(DIOURL& url, int port, XCHAR* addtargetpath,
 * @brief      Download
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  url :
 * @param[in]  port :
 * @param[in]  addtargetpath :
@@ -1025,9 +941,6 @@ bool DIOAPPLICATIONUPDATE::Download(DIOURL& url, int port, XPATH& addtargetpath,
 * @fn         bool DIOAPPLICATIONUPDATE::CopyOriginalFilesToBackup(XPATH& xpathbackup, DIOAPPLICATIONUPDATE_ERROR& error)
 * @brief      CopyOriginalFilesToBackup
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpathbackup :
 * @param[in]  error :
@@ -1115,9 +1028,6 @@ bool DIOAPPLICATIONUPDATE::CopyOriginalFilesToBackup(XPATH& xpathbackup, DIOAPPL
 * @fn         bool DIOAPPLICATIONUPDATE::CopyUpdateFilesToOriginal(XPATH& xpathupdate, DIOAPPLICATIONUPDATE_ERROR& error, bool restore)
 * @brief      CopyUpdateFilesToOriginal
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpathupdate :
 * @param[in]  error :
@@ -1245,9 +1155,6 @@ bool DIOAPPLICATIONUPDATE::CopyUpdateFilesToOriginal(XPATH& xpathupdate, DIOAPPL
 * @brief      DeleteFilesRenamed
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpathtocheck :
 *
 * @return     bool : true if is succesful.
@@ -1308,9 +1215,6 @@ bool DIOAPPLICATIONUPDATE::DeleteFilesRenamed(XPATH& xpathtocheck)
 * @brief      ChangeFilesFromDownload
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  updateversiondata :
 * @param[in]  xpathupdate :
 * @param[in]  xpathbackup :
@@ -1362,9 +1266,6 @@ bool DIOAPPLICATIONUPDATE::ChangeFilesFromDownload(DIOAPPLICATIONUPDATE_VERSIOND
 * @brief      RestartApplication
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  error :
 *
 * @return     bool : true if is succesful.
@@ -1399,9 +1300,6 @@ bool DIOAPPLICATIONUPDATE::RestartApplication(DIOAPPLICATIONUPDATE_ERROR& error)
 * @fn         bool DIOAPPLICATIONUPDATE::GetListOfVersionsToRestore(XVECTOR<DIOAPPLICATIONUPDATE_VERSIONDATA*> listversiontorestore)
 * @brief      GetListOfVersionsToRestore
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  listversiontorestore :
 *
@@ -1472,9 +1370,6 @@ bool DIOAPPLICATIONUPDATE::GetListOfVersionsToRestore(XVECTOR<DIOAPPLICATIONUPDA
 * @brief      GetBeforeVersionToRestore
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  listversionstorestore :
 * @param[in]  versiontorestore :
 *
@@ -1541,9 +1436,6 @@ bool DIOAPPLICATIONUPDATE::GetPreviousVersionToRestore(XVECTOR<DIOAPPLICATIONUPD
 * @brief      RestoreBeforeUpdate
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  error :
 *
 * @return     bool : true if is succesful.
@@ -1577,9 +1469,6 @@ bool DIOAPPLICATIONUPDATE::RestorePrevious(DIOAPPLICATIONUPDATE_ERROR& error)
 * @fn         bool DIOAPPLICATIONUPDATE::Restore(DIOAPPLICATIONUPDATE_VERSIONDATA& applicationversiondata, DIOAPPLICATIONUPDATE_ERROR& error)
 * @brief      RestoreUpdate
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationversiondata :
 * @param[in]  error :
@@ -1615,9 +1504,6 @@ bool DIOAPPLICATIONUPDATE::Restore(DIOAPPLICATIONUPDATE_VERSIONDATA& application
 * @brief      RestoreUpdate
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpathbackup :
 * @param[in]  error :
 *
@@ -1651,9 +1537,6 @@ bool DIOAPPLICATIONUPDATE::Restore(XPATH& xpathbackup, DIOAPPLICATIONUPDATE_ERRO
 * @fn         bool DIOAPPLICATIONUPDATE::EliminateOldRestorations(int maxrestorations)
 * @brief      EliminateOldRestorations
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  maxrestorations :
 *
@@ -1754,9 +1637,6 @@ bool DIOAPPLICATIONUPDATE::EliminateOldRestorations(int maxrestorations)
 * @brief      IsNewVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  updateversiondata :
 *
 * @return     bool : true if is succesful.
@@ -1790,9 +1670,6 @@ bool DIOAPPLICATIONUPDATE::IsNewVersion(DIOAPPLICATIONUPDATE_VERSIONDATA& update
 * @brief      GetApplicationVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1808,9 +1685,6 @@ XDWORD DIOAPPLICATIONUPDATE::GetApplicationVersion()
 * @fn         XDWORD DIOAPPLICATIONUPDATE::GetApplicationSubversion()
 * @brief      GetApplicationSubversion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -1828,9 +1702,6 @@ XDWORD DIOAPPLICATIONUPDATE::GetApplicationSubversion()
 * @brief      GetApplicationSubVersionError
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1847,9 +1718,6 @@ XDWORD DIOAPPLICATIONUPDATE::GetApplicationSubVersionError()
 * @fn         bool DIOAPPLICATIONUPDATE::FilesToUpdate_CreateList(XPATH& xpathupdate, bool checkaredifferent)
 * @brief      FilesToUpdate_CreateList
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpathupdate :
 * @param[in]  checkaredifferent :
@@ -1939,9 +1807,6 @@ bool DIOAPPLICATIONUPDATE::FilesToUpdate_CreateList(XPATH& xpathupdate)
 * @brief      FilesToUpdate_EliminateFixedDir
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 *
 * @return     bool : true if is succesful.
@@ -1972,9 +1837,6 @@ bool DIOAPPLICATIONUPDATE::FilesToUpdate_EliminateFixedDir(XPATH& xpath)
 * @fn         bool DIOAPPLICATIONUPDATE::FilesToUpdate_CheckListChangedFiles(XPATH& xpathupdate)
 * @brief      FilesToUpdate_CheckListChangedFiles
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpathupdate :
 *
@@ -2022,9 +1884,6 @@ bool DIOAPPLICATIONUPDATE::FilesToUpdate_CheckListChangedFiles(XPATH& xpathupdat
 * @brief      DeleteAllFilesToUpload
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2045,9 +1904,6 @@ bool DIOAPPLICATIONUPDATE::FilesToUpdate_DeleteList()
 * @fn         bool DIOAPPLICATIONUPDATE::CopyFile(XPATH& origin, XPATH& target)
 * @brief      CopyFile
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  origin :
 * @param[in]  target :
@@ -2128,9 +1984,6 @@ bool DIOAPPLICATIONUPDATE::CopyFile(XPATH& origin, XPATH& target)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

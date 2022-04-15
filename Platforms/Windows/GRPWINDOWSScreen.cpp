@@ -6,10 +6,7 @@
 * @brief      WINDOWS Graphics Screen class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@ XMAP<HWND, GRPWINDOWSSCREEN*>  GRPWINDOWSSCREEN::listscreens;
 * @fn         GRPWINDOWSSCREEN::GRPWINDOWSSCREEN()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -117,9 +111,6 @@ GRPWINDOWSSCREEN::GRPWINDOWSSCREEN(): GRPSCREEN()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -137,9 +128,6 @@ GRPWINDOWSSCREEN::~GRPWINDOWSSCREEN()
 * @fn         bool GRPWINDOWSSCREEN::Create(void* handle)
 * @brief      Create screen
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -162,9 +150,6 @@ bool GRPWINDOWSSCREEN::Create(bool show)
 * @fn         bool GRPWINDOWSSCREEN::Update()
 * @brief      Update Screen
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -189,9 +174,6 @@ bool GRPWINDOWSSCREEN::Update()
 * @fn         bool GRPWINDOWSSCREEN::Update(GRPCANVAS* canvas)
 * @brief      Update
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  canvas : handle of canvas
 *
@@ -250,9 +232,6 @@ bool GRPWINDOWSSCREEN::Update(GRPCANVAS* canvas)
 * @brief      Delete
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -291,9 +270,6 @@ bool GRPWINDOWSSCREEN::Delete()
 * @brief      Resize Windows
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  width : new width of the screen
 * @param[in]  height : new height of the screen
 *
@@ -327,9 +303,6 @@ bool GRPWINDOWSSCREEN::Resize(int width, int height)
 * @brief      Show
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  active :
 *
 * @return     bool : true if is succesful.
@@ -354,9 +327,6 @@ bool GRPWINDOWSSCREEN::Show(bool active)
 * @brief      ShowCursor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  active :
 *
 * @return     bool : true if is succesful.
@@ -376,9 +346,6 @@ bool GRPWINDOWSSCREEN::ShowCursor(bool active)
 * @fn         bool GRPWINDOWSSCREEN::ShowTopMost(bool active)
 * @brief      ShowTopMost
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  active :
 *
@@ -402,9 +369,6 @@ bool GRPWINDOWSSCREEN::ShowTopMost(bool active)
 * @brief      GetHandle
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -420,9 +384,6 @@ void* GRPWINDOWSSCREEN::GetHandle()
 * @fn         void GRPWINDOWSSCREEN::SetHandle(HWND hwnd)
 * @brief      SetHandle
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hwnd :
 *
@@ -442,9 +403,6 @@ void GRPWINDOWSSCREEN::SetHandle(HWND hwnd)
 * @brief      GetHDC
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -460,9 +418,6 @@ void* GRPWINDOWSSCREEN::GetHDC()
 * @fn         void GRPWINDOWSSCREEN::SetHDC(HDC hdc)
 * @brief      SetHDC
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hdc :
 *
@@ -482,9 +437,6 @@ void GRPWINDOWSSCREEN::SetHDC(HDC hdc)
 * @brief      GetHInfo
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     BITMAPINFO* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -500,10 +452,7 @@ BITMAPINFO* GRPWINDOWSSCREEN::GetHInfo()
 * @fn         bool GRPWINDOWSSCREEN::IsBlockClose()
 * @brief      IsBlockClose
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       04/04/2022 17:10:14
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -519,10 +468,7 @@ bool GRPWINDOWSSCREEN::IsBlockClose()
 * @fn         void GRPWINDOWSSCREEN::SetIsBlockClose(bool activated)
 * @brief      SetIsBlockClose
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       04/04/2022 17:10:05
-* 
+*
 * @param[in]  activated : 
 * 
 * @return     void : does not return anything. 
@@ -540,10 +486,7 @@ void GRPWINDOWSSCREEN::SetIsBlockClose(bool activated)
 * @fn         XMAP<HWND, GRPWINDOWSSCREEN*>* GRPWINDOWSSCREEN::GetListScreens()
 * @brief      GetListScreens
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       04/04/2022 17:14:18
-* 
+*
 * @return     XMAP<HWND, GRPWINDOWSSCREEN*>* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -560,9 +503,6 @@ XMAP<HWND, GRPWINDOWSSCREEN*>* GRPWINDOWSSCREEN::GetListScreens()
 * @fn         int GRPWINDOWSSCREEN::GetScaleFactor()
 * @brief      GetScaleFactor
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     int : 
 *
@@ -609,9 +549,6 @@ int GRPWINDOWSSCREEN::GetScaleFactor()
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -629,9 +566,6 @@ void GRPWINDOWSSCREEN::Clean()
 * @fn         bool GRPWINDOWSSCREEN::Create_Window(void* handle)
 * @brief      CreateWindow
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -790,10 +724,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 * @fn         LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 * @brief      BaseWndProc
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  hwnd : 
 * @param[in]  msg : 
 * @param[in]  wparam : 

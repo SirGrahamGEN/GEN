@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream Device class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -73,9 +67,6 @@ DIOSTREAMDEVICE::DIOSTREAMDEVICE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -94,9 +85,6 @@ DIOSTREAMDEVICE::~DIOSTREAMDEVICE()
 * @brief      GetIndex
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +100,6 @@ int DIOSTREAMDEVICE::GetIndex()
 * @fn         bool DIOSTREAMDEVICE::SetIndex(int index)
 * @brief      SetIndex
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -136,9 +121,6 @@ bool DIOSTREAMDEVICE::SetIndex(int index)
 * @brief      GetType
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMDEVICE_TYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -154,9 +136,6 @@ DIOSTREAMDEVICE_TYPE DIOSTREAMDEVICE::GetType()
 * @fn         void DIOSTREAMDEVICE::SetType(DIOSTREAMDEVICE_TYPE type)
 * @brief      SetType
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -176,9 +155,6 @@ void DIOSTREAMDEVICE::SetType(DIOSTREAMDEVICE_TYPE type)
 * @brief      GetName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -194,9 +170,6 @@ XSTRING* DIOSTREAMDEVICE::GetName()
 * @fn         XSTRING* DIOSTREAMDEVICE::GetDescription()
 * @brief      GetDescription
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -214,9 +187,6 @@ XSTRING* DIOSTREAMDEVICE::GetDescription()
 * @brief      GetResource
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -232,9 +202,6 @@ XSTRING* DIOSTREAMDEVICE::GetResource()
 * @fn         bool DIOSTREAMDEVICE::CopyFrom(DIOSTREAMDEVICE& device)
 * @brief      CopyFrom
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  device :
 *
@@ -253,9 +220,6 @@ bool DIOSTREAMDEVICE::CopyFrom(DIOSTREAMDEVICE& device)
 * @fn         bool DIOSTREAMDEVICE::CopyTo(DIOSTREAMDEVICE& device)
 * @brief      CopyTo
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  device :
 *
@@ -279,9 +243,6 @@ bool DIOSTREAMDEVICE::CopyTo(DIOSTREAMDEVICE& device)
 * @fn         bool DIOSTREAMDEVICE::DebugPrintInfo()
 * @brief      DebugPrintInfo
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -311,9 +272,6 @@ bool DIOSTREAMDEVICE::DebugPrintInfo()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,7 +6,7 @@
 //
 //  LINUX Data Input/Output Stream TCP/IP class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 02/01/2002
 */
 //  GEN  Copyright (C).  All right reserved.

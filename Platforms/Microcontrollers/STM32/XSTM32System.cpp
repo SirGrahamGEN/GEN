@@ -6,10 +6,7 @@
 * @brief      eXtended utils STM32 system class
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ XSTM32SYSTEM::XSTM32SYSTEM() : XSYSTEM()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -96,9 +87,6 @@ XSTM32SYSTEM::~XSTM32SYSTEM()
 * @fn         XSYSTEM_HARDWARETYPE XSTM32SYSTEM::GetTypeHardware(int* revision)
 * @brief      GetTypeHardware
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  revision :
 *
@@ -117,10 +105,7 @@ XSYSTEM_HARDWARETYPE XSTM32SYSTEM::GetTypeHardware(int* revision)
 * @fn         XSYSTEM_PLATFORM XSTM32SYSTEM::GetPlatform(XSTRING* namestring)
 * @brief      GetPlatform
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  namestring : 
 * 
 * @return     XSYSTEM_PLATFORM : 
@@ -178,9 +163,6 @@ XSYSTEM_PLATFORM XSTM32SYSTEM::GetPlatform(XSTRING* namestring)
 * @brief      GetMemoryInfo
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  total :
 * @param[in]  free :
 *
@@ -202,9 +184,6 @@ bool XSTM32SYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 * @fn         bool XSTM32SYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 * @brief      ShutDown
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -241,9 +220,6 @@ bool XSTM32SYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

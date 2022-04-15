@@ -6,7 +6,7 @@
 //
 //  windows graphics context
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 04/04/2016 17:12:25
 //  Last Modification :

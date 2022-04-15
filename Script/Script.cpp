@@ -6,10 +6,7 @@
 * @brief
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -65,9 +62,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -95,9 +89,6 @@ SCRIPT::SCRIPT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -134,9 +125,6 @@ SCRIPT::~SCRIPT()
 * @fn         bool SCRIPT::Load(XPATH& xpath)
 * @brief      Load
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -179,9 +167,6 @@ bool SCRIPT::Load(XPATH& xpath)
 * @brief      Save
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 *
 * @return     bool : true if is succesful.
@@ -212,9 +197,6 @@ bool SCRIPT::Save(XPATH& xpath)
 * @brief      IsScript
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 * @param[in]  extension :
 *
@@ -238,9 +220,6 @@ bool SCRIPT::IsScript(XPATH& xpath, XCHAR* extension)
 * @brief      GetNameScript
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -256,9 +235,6 @@ XSTRING* SCRIPT::GetNameScript()
 * @fn         XSTRING* SCRIPT::GetScript()
 * @brief      GetScript
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -276,9 +252,6 @@ XSTRING* SCRIPT::GetScript()
 * @brief      GetPath
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -294,9 +267,6 @@ XPATH* SCRIPT::GetPath()
 * @fn         SCRIPT_G_ERRORCODE SCRIPT::Run(int* returnval)
 * @brief      Run
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  returnval :
 *
@@ -325,9 +295,6 @@ int  SCRIPT::Run(int* returnval)
 * @brief      RunWithThread
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -346,9 +313,6 @@ bool SCRIPT::RunWithThread()
 * @brief      IsRunWithThread
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -364,9 +328,6 @@ bool SCRIPT::IsRunWithThread()
 * @fn         bool SCRIPT::IsRunThread(SCRIPT_G_ERRORCODE* error,int* returnvalue)
 * @brief      IsRunThread
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  error :
 * @param[in]  returnvalue :
@@ -403,9 +364,6 @@ bool SCRIPT::IsRunThread(int* error,int* returnvalue)
 * @brief      CancelExecution
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -426,9 +384,6 @@ bool SCRIPT::CancelExecution()
 * @brief      GetTimer
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XTIMER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -445,9 +400,6 @@ XTIMER* SCRIPT::GetTimer()
 * @brief      GetThread
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XTHREADCOLLECTED* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -463,9 +415,6 @@ XTHREADCOLLECTED* SCRIPT::GetThread()
 * @fn         SCRIPT_LIB* SCRIPT::GetLibrary(XCHAR* ID)
 * @brief      GetLibrary
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -501,9 +450,6 @@ SCRIPT_LIB* SCRIPT::GetLibrary(XCHAR* ID)
 * @brief      AddLibrary
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  scriptlib :
 *
 * @return     bool : true if is succesful.
@@ -526,9 +472,6 @@ bool SCRIPT::AddLibrary(SCRIPT_LIB* scriptlib)
 * @brief      DeleteAllLibrarys
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -550,9 +493,6 @@ bool SCRIPT::DeleteAllLibrarys()
 * @fn         SCRIPT_LIBFUNCTION* SCRIPT::GetLibraryFunction(XCHAR* name)
 * @brief      GetLibraryFunction
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 *
@@ -580,9 +520,6 @@ SCRIPT_LIBFUNCTION* SCRIPT::GetLibraryFunction(XCHAR* name)
 * @fn         SCRIPT_LIBFUNCTION* SCRIPT::GetLibraryFunction(void* ptrfunction)
 * @brief      GetLibraryFunction
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ptrfunction :
 *
@@ -612,9 +549,6 @@ SCRIPT_LIBFUNCTION* SCRIPT::GetLibraryFunction(void* ptrfunction)
 * @brief      AddLibraryFunction
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  library :
 * @param[in]  name :
 * @param[in]  libfunction :
@@ -640,9 +574,6 @@ bool SCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBR
 * @brief      DeleteLibraryFuncions
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -664,9 +595,6 @@ bool SCRIPT::DeleteLibraryFuncions()
 * @brief      GetErrorScript
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -683,9 +611,6 @@ int SCRIPT::GetErrorScript()
 * @fn         bool SCRIPT::SetErrorScript(int errorcode)
 * @brief      SetErrorScript
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  errorcode :
 *
@@ -707,9 +632,6 @@ bool SCRIPT::SetErrorScript(int errorcode)
 * @brief      HaveError
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  errorcode :
 *
 * @return     bool : true if is succesful.
@@ -727,9 +649,6 @@ bool SCRIPT::HaveError(int errorcode)
 * @fn         void SCRIPT::ThreadFunction(void* data)
 * @brief      ThreadFunction
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 *
@@ -758,9 +677,6 @@ void SCRIPT::ThreadFunction(void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

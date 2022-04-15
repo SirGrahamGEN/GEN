@@ -6,10 +6,7 @@
 * @brief      eXtended LOG class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -67,9 +64,6 @@ XLOG* XLOG::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -87,9 +81,6 @@ XLOGENTRY::XLOGENTRY()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -106,9 +97,6 @@ XLOGENTRY::~XLOGENTRY()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -133,9 +121,6 @@ void XLOGENTRY::Clean()
 * @brief      GetIsInstanced
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -151,9 +136,6 @@ bool XLOG::GetIsInstanced()
 * @fn         XLOG& XLOG::GetInstance()
 * @brief      GetInstance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XLOG& :
 *
@@ -171,9 +153,6 @@ XLOG& XLOG::GetInstance()
 * @fn         bool XLOG::DelInstance()
 * @brief      DelInstance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -198,9 +177,6 @@ bool XLOG::DelInstance()
 * @fn         bool XLOG::Ini(XCHAR* pathfile, XCHAR* nameapplication, bool isdumpintrace)
 * @brief      Ini
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pathfile :
 * @param[in]  nameapplication :
@@ -238,9 +214,6 @@ bool XLOG::Ini(XCHAR* pathfile, XCHAR* nameapplication, bool isdumpintrace)
 * @brief      Ini
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpathfile :
 * @param[in]  nameapplication :
 * @param[in]  isdumpintrace :
@@ -261,9 +234,6 @@ bool XLOG::Ini(XPATH& xpathfile, XCHAR* nameapplication, bool isdumpintrace)
 * @brief      Ini
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpathfile :
 * @param[in]  nameapplication :
 * @param[in]  isdumpintrace :
@@ -283,9 +253,6 @@ bool XLOG::Ini(XPATH& xpathfile, XSTRING& nameapplication, bool isdumpintrace)
 * @fn         bool XLOG::SetLimit(XLOGTYPELIMIT typelimit, int limit, int reductionpercent)
 * @brief      SetLimit
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  typelimit :
 * @param[in]  limit :
@@ -311,9 +278,6 @@ bool XLOG::SetLimit(XLOGTYPELIMIT typelimit, int limit, int reductionpercent)
 * @brief      SetBackup
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  isactive :
 * @param[in]  maxfiles :
 * @param[in]  iscompress :
@@ -338,9 +302,6 @@ bool XLOG::SetBackup(bool isactive, int maxfiles, bool iscompress)
 * @brief      SetFilters
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  sectionsID :
 * @param[in]  level :
 *
@@ -363,9 +324,6 @@ bool XLOG::SetFilters(XCHAR* sectionsID, XBYTE level)
 * @brief      GetPathFile
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -381,9 +339,6 @@ XCHAR* XLOG::GetPathFile()
 * @fn         XSTRING* XLOG::GetNameApplication()
 * @brief      GetNameApplication
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* : 
 *
@@ -401,9 +356,6 @@ XSTRING* XLOG::GetNameApplication()
 * @brief      GetPrevLabel
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -419,9 +371,6 @@ XSTRING* XLOG::GetPrevLabel()
 * @fn         bool XLOG::IsActive()
 * @brief      IsActive
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -443,9 +392,6 @@ bool XLOG::IsActive()
 * @brief      SetIsActive
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  isactive : 
 *
 * @return     void : does not return anything. 
@@ -464,9 +410,6 @@ void XLOG::SetIsActive(bool isactive)
 * @brief      GetNEntrys
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -482,9 +425,6 @@ XDWORD XLOG::GetNEntrys()
 * @fn         XDWORD XLOG::GetNLines()
 * @brief      GetNLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD : 
 *
@@ -502,9 +442,6 @@ XDWORD XLOG::GetNLines()
 * @brief      GetSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -520,9 +457,6 @@ XQWORD XLOG::GetSize()
 * @fn         bool XLOG::GetLevelString(XLOGLEVEL level, XSTRING& strlevel, XDWORD size)
 * @brief      GetLevelString
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  level :
 * @param[in]  strlevel :
@@ -558,9 +492,6 @@ bool XLOG::GetLevelString(XLOGLEVEL level, XSTRING& strlevel, XDWORD size)
 * @brief      GetSectionsIDFilter
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -576,9 +507,6 @@ XSTRING* XLOG::GetSectionsIDFilter()
 * @fn         bool XLOG::PassFilters(XLOGLEVEL level, XCHAR* sectionID)
 * @brief      PassFilters
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  level :
 * @param[in]  sectionID :
@@ -606,9 +534,6 @@ bool XLOG::PassFilters(XLOGLEVEL level, XCHAR* sectionID)
 * @fn         bool XLOG::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XCHAR* mask,...)
 * @brief      AddEntry
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  level :
 * @param[in]  sectionID :
@@ -765,9 +690,6 @@ bool XLOG::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XCHAR* mas
 * @brief      AddEntry
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  level :
 * @param[in]  sectionID :
 * @param[in]  inmemory :
@@ -868,9 +790,6 @@ bool XLOG::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XBYTE* dat
 * @brief      AddEntry
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  level :
 * @param[in]  sectionID :
 * @param[in]  inmemory :
@@ -896,9 +815,6 @@ bool XLOG::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XBUFFER& d
 * @brief      Flush
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -923,9 +839,6 @@ bool XLOG::Flush()
 * @fn         bool XLOG::End(bool doflush)
 * @brief      End
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  doflush :
 *
@@ -963,9 +876,6 @@ bool XLOG::End(bool doflush)
 * @fn         bool XLOG::CalculateInitialStatus()
 * @brief      CalculateInitialStatus
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1069,9 +979,6 @@ bool XLOG::CalculateInitialStatus()
 * @brief      FlushMemoryEntrys
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1127,9 +1034,6 @@ bool XLOG::FlushMemoryEntrys()
 * @brief      Backup_GetNFiles
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1166,9 +1070,6 @@ int XLOG::Backup_GetNFiles()
 * @fn         bool XLOG::Backup_GetNameFileMoreOld(XPATH& xpathselect)
 * @brief      Backup_GetNameFileMoreOld
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpathselect :
 *
@@ -1243,9 +1144,6 @@ bool XLOG::Backup_GetNameFileMoreOld(XPATH& xpathselect)
 * @brief      Backup_CreateNameZIP
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpathzipfile :
 *
 * @return     bool : true if is succesful.
@@ -1270,9 +1168,6 @@ bool XLOG::Backup_CreateNameZIP(XPATH& xpathzipfile)
 * @fn         bool XLOG::Backup_AdjustNFilesInCompressed()
 * @brief      Backup_AdjustNFilesInCompressed
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1305,9 +1200,6 @@ bool XLOG::Backup_AdjustNFilesInCompressed()
 * @fn         bool XLOG::Backup_AdjustNFiles(XCHAR* pathnamelog, bool iscompress)
 * @brief      Backup_AdjustNFiles
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pathnamelog :
 * @param[in]  iscompress :
@@ -1378,9 +1270,6 @@ bool XLOG::Backup_AdjustNFiles(XCHAR* pathnamelog, bool iscompress)
 * @fn         bool XLOG::Backup_ControlLimits()
 * @brief      Backup_ControlLimits
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1467,9 +1356,6 @@ bool XLOG::Backup_ControlLimits()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1491,9 +1377,6 @@ XLOG::XLOG()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -1520,9 +1403,6 @@ XLOG::~XLOG()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      eXtended Basic Encoding Rules (BER) encoding class (https://en.wikipedia.org/wiki/X.690)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ XBER::XBER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -102,9 +93,6 @@ XBER::~XBER()
 * @brief      Get type of BER
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE : Type of BER
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -120,9 +108,6 @@ XBYTE XBER::GetType()
 * @fn         XDWORD XBER::GetSize()
 * @brief      Get size of BER
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD : size of BER
 *
@@ -140,9 +125,6 @@ XDWORD XBER::GetSize()
 * @brief      Get data of BER
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBUFFER* : buffer of data
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -158,10 +140,7 @@ XBUFFER* XBER::GetData()
 * @fn         bool XBER::GetDump(XBUFFER& xbuffer, bool notheader)
 * @brief      GetDump
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xbuffer : 
 * @param[in]  notheader : 
 * 
@@ -198,10 +177,7 @@ bool XBER::GetDump(XBUFFER& xbuffer, bool notheader)
 * @fn         bool XBER::SetFromDump(XBUFFER& xbuffer)
 * @brief      SetFromDump
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xbuffer : 
 * 
 * @return     bool : true if is succesful. 
@@ -226,9 +202,6 @@ bool XBER::SetFromDump(XBUFFER& xbuffer)
 * @brief      Set Type of BER
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type : new type of BER
 *
 * @return     bool : true if is succesful.
@@ -248,10 +221,7 @@ bool XBER::SetType(XBYTE type)
 * @fn         bool XBER::SetSize(XDWORD size)
 * @brief      SetSize
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  size : 
 * 
 * @return     bool : true if is succesful. 
@@ -271,9 +241,6 @@ bool XBER::SetSize(XDWORD size)
 * @fn         bool XBER::SetNULL()
 * @brief      Set BER to NULL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -299,9 +266,6 @@ bool XBER::SetNULL()
 * @fn         bool XBER::SetINTEGER(XDWORD integer)
 * @brief      Set Integet to BER
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  integer : integer to assign
 *
@@ -362,9 +326,6 @@ bool XBER::SetINTEGER(XDWORD integer)
 * @brief      Set BER to integer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbufferdata : buffer to assign
 *
 * @return     bool : true if is succesful.
@@ -391,9 +352,6 @@ bool XBER::SetINTEGER(XBUFFER& xbufferdata)
 * @fn         bool XBER::SetBITSTRING(XBUFFER& xbuffer)
 * @brief      Set Bit String to BER
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xbuffer : buffer to assign
 *
@@ -422,9 +380,6 @@ bool XBER::SetBITSTRING(XBUFFER& xbuffer)
 * @fn         bool XBER::SetBITSTRING(XBYTE* buffer, XDWORD size)
 * @brief      Set Bit String to BER
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer : pointer to buffer bytes
 * @param[in]  size : size buffer
@@ -455,9 +410,6 @@ bool XBER::SetBITSTRING(XBYTE* buffer, XDWORD size)
 * @fn         bool XBER::SetOCTETSTRING(XCHAR* string)
 * @brief      Set Octet string to BER
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string : string with octets
 *
@@ -494,9 +446,6 @@ bool XBER::SetOCTETSTRING(XCHAR* string)
 * @brief      Set Octet string to BER
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer : buffer with octets
 *
 * @return     bool : true if is succesful.
@@ -524,9 +473,6 @@ bool XBER::SetOCTETSTRING(XBUFFER& xbuffer)
 * @fn         bool XBER::SetOCTETSTRING(XBYTE* buffer, XDWORD size)
 * @brief      Set Octet string to BER
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer : pointer buffer with octets
 * @param[in]  size : size of buffer
@@ -557,9 +503,6 @@ bool XBER::SetOCTETSTRING(XBYTE* buffer, XDWORD size)
 * @fn         bool XBER::SetOID(XCHAR* OIDstring)
 * @brief      Set OID
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  OIDstring : OID to assign
 *
@@ -644,9 +587,6 @@ bool XBER::SetOID(XCHAR* OIDstring)
 * @brief      Copy XBER from pointer *BER
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  newxber : pointer to new BER to assign
 *
 * @return     bool : true if is succesful.
@@ -686,9 +626,6 @@ bool XBER::Copy(XBER* newxber)
 * @fn         bool XBER::Sequence_AddTo(XBER& xber)
 * @brief      Add BER to secuence
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xber : XBER to add in secuence
 *
@@ -731,10 +668,7 @@ bool XBER::Sequence_AddTo(XBER& xber)
 * @fn         bool XBER::Sequence_AddCommandTo(XBYTE command, XBER& xber)
 * @brief      Sequence_AddCommandTo
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  command : 
 * @param[in]  xber : 
 * 
@@ -762,9 +696,6 @@ bool XBER::Sequence_AddCommandTo(XBYTE command, XBER& xber)
 * @fn         XDWORD XBER::Sequence_GetSize()
 * @brief      Get Secuence size
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD : size secuence
 *
@@ -801,9 +732,6 @@ XDWORD XBER::Sequence_GetSize()
 * @brief      Delete all secuence
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -825,9 +753,6 @@ bool XBER::Sequence_DeleteAll()
 * @fn         bool XBER::CodeBigNumber(XDWORD number, XBUFFER& data)
 * @brief      Code Big number
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  number : number to code
 * @param[in]  data : buffer big numer coded
@@ -899,9 +824,6 @@ bool XBER::CodeBigNumber(XDWORD number, XBUFFER& data)
 * @brief      Get Code size
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  integer : integer to code
 * @param[in]  data : buffer size coded
 *
@@ -959,9 +881,6 @@ bool XBER::CodeSize(XDWORD integer, XBUFFER& data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

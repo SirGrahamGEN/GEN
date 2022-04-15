@@ -6,10 +6,7 @@
 * @brief      Script Library System
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -62,9 +59,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ SCRIPT_LIB_SYSTEM::SCRIPT_LIB_SYSTEM() : SCRIPT_LIB(SCRIPT_LIB_SYSTEM_NAME)
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -100,9 +91,6 @@ SCRIPT_LIB_SYSTEM::~SCRIPT_LIB_SYSTEM()
 * @fn         bool SCRIPT_LIB_SYSTEM::AddLibraryFunctions(SCRIPT* script)
 * @brief      AddLibraryFunctions
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  script :
 *
@@ -131,9 +119,6 @@ bool SCRIPT_LIB_SYSTEM::AddLibraryFunctions(SCRIPT* script)
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -154,10 +139,7 @@ void SCRIPT_LIB_SYSTEM::Clean()
 * @fn         void Call_SystemReboot(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 * @brief      all_SystemReboot
 * @ingroup    SCRIPT
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  library : 
 * @param[in]  script : 
 * @param[in]  params : 
@@ -185,10 +167,7 @@ void Call_SystemReboot(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* 
 * @fn         void Call_SystemPowerOff(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 * @brief      all_SystemPowerOff
 * @ingroup    SCRIPT
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  library : 
 * @param[in]  script : 
 * @param[in]  params : 
@@ -216,10 +195,7 @@ void Call_SystemPowerOff(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
 * @fn         void Call_SystemLogout(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 * @brief      all_SystemLogout
 * @ingroup    SCRIPT
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  library : 
 * @param[in]  script : 
 * @param[in]  params : 

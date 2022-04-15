@@ -5,11 +5,8 @@
 * @class      UI_PROPERTY_EDITABLE
 * @brief      User Interface Property Editable class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,10 +50,7 @@
 * @fn         UI_PROPERTY_EDITABLE::UI_PROPERTY_EDITABLE()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -73,10 +67,7 @@ UI_PROPERTY_EDITABLE::UI_PROPERTY_EDITABLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -92,10 +83,7 @@ UI_PROPERTY_EDITABLE::~UI_PROPERTY_EDITABLE()
 * @fn         XDWORD UI_PROPERTY_EDITABLE::GetCursorPosition()
 * @brief      GetCursorPosition
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -111,10 +99,7 @@ XDWORD UI_PROPERTY_EDITABLE::Cursor_GetPosition()
 * @fn         void UI_PROPERTY_EDITABLE::SetCursorPosition(XDWORD cursorposition)
 * @brief      SetCursorPosition
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  cursorposition : 
 * 
 * @return     void : does not return anything. 
@@ -132,10 +117,7 @@ void UI_PROPERTY_EDITABLE::Cursor_SetPosition(XDWORD cursor_position)
 * @fn         XDWORD UI_PROPERTY_EDITABLE::GetMaxSize()
 * @brief      GetMaxSize
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -151,10 +133,7 @@ XDWORD UI_PROPERTY_EDITABLE::GetMaxSize()
 * @fn         void UI_PROPERTY_EDITABLE::SetMaxSizeText(XDWORD maxsize)
 * @brief      SetMaxSize
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  maxsizetext : 
 * 
 * @return     void : does not return anything. 
@@ -173,10 +152,7 @@ void UI_PROPERTY_EDITABLE::SetMaxSize(XDWORD maxsize)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

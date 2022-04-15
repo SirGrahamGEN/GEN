@@ -6,10 +6,7 @@
 * @brief      Script LUA interpreter class
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ SCRIPT_LUA::SCRIPT_LUA()
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -103,9 +94,6 @@ SCRIPT_LUA::~SCRIPT_LUA()
 * @fn         bool SCRIPT_LUA::Load(XPATH& xpath)
 * @brief      Load
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -136,9 +124,6 @@ bool SCRIPT_LUA::Load(XPATH& xpath)
 * @fn         SCRIPT_G_ERRORCODE SCRIPT_LUA::Run(int* returnval)
 * @brief      Run
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  returnval :
 *
@@ -201,9 +186,6 @@ int SCRIPT_LUA::Run(int* returnval)
 * @brief      AddLibraryFunction
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  library :
 * @param[in]  name :
 * @param[in]  ptrfunction :
@@ -231,9 +213,6 @@ bool SCRIPT_LUA::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCION
 * @fn         bool SCRIPT_LUA::HaveError(SCRIPT_G_ERRORCODE errorcode)
 * @brief      HaveError
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  errorcode :
 *
@@ -300,9 +279,6 @@ bool SCRIPT_LUA::HaveError(int errorcode)
 * @brief      HaveMainFunction
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -363,9 +339,6 @@ bool SCRIPT_LUA::HaveMainFunction()
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -381,9 +354,6 @@ void SCRIPT_LUA::Clean()
 * @fn         int LUA_LibraryCallBack(lua_State* state)
 * @brief      LUA_LibraryCallBack
 * @ingroup    SCRIPT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  state :
 *

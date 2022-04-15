@@ -76,7 +76,7 @@ extern "C"
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:01
 //
 //  @return
@@ -118,7 +118,7 @@ DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOANDROIDSTREAMBLUETOOTHREMOTEENUMD
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:12
 //
 //  @return
@@ -145,7 +145,7 @@ DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOANDROIDSTREAMBLUETOOTHREMOTEENUM
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:27
 //
 //  @return       bool :
@@ -187,7 +187,7 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/05/2013 23:41:35
 //
 //  @return       bool :
@@ -224,7 +224,7 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/05/2013 23:41:40
 //
 //  @return       bool :
@@ -250,7 +250,7 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/05/2013 23:25:03
 //
 //  @return       void :
@@ -269,7 +269,7 @@ void DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      19/05/2013 20:54:25
 //
 //  @return       bool :
@@ -303,7 +303,7 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::GetAddrFromLocalDevice(int loca
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      19/05/2013 2:41:57
 //
 //  @return       int :
@@ -353,7 +353,7 @@ int DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::IsReadyConnect(int socket)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/05/2013 17:36:53
 //
 //  @return       bool :
@@ -417,7 +417,7 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevices(XVECTOR<DIOSTREAMDE
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      19/05/2013 0:52:20
 //
 //  @return       bool :
@@ -469,7 +469,7 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName(DIOSTREAMDEVICE
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      19/05/2013 1:09:55
 //
 //  @return       bool :
@@ -519,7 +519,7 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices(XVECTOR<DIO
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      19/05/2013 1:10:54
 //
 //  @return       bool :
@@ -643,7 +643,7 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEV
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/05/2013 17:02:14
 //
 //  @return       void :
@@ -706,7 +706,7 @@ extern "C"
   /**
   //
   //
-  //  @author      Abraham J. Velez
+  //  ""
   //  @version      19/05/2013 2:29:21
   //
   //  @return       void :
@@ -737,7 +737,7 @@ extern "C"
   /**
   //
   //
-  //  @author      Abraham J. Velez
+  //  ""
   //  @version      19/05/2013 2:29:13
   //
   //  @return       void :
@@ -790,7 +790,7 @@ extern "C"
   /**
   //
   //
-  //  @author      Abraham J. Velez
+  //  ""
   //  @version      19/05/2013 2:29:07
   //
   //  @return       void :

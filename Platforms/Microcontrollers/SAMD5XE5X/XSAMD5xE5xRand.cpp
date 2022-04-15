@@ -6,10 +6,7 @@
 * @brief      SAMD5xE5x rand class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ XSAMD5XE5XRAND::XSAMD5XE5XRAND()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ XSAMD5XE5XRAND::~XSAMD5XE5XRAND()
 * @fn         bool XSAMD5XE5XRAND::Ini()
 * @brief      Ini
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -115,9 +103,6 @@ bool XSAMD5XE5XRAND::Ini()
 * @brief      MaxElements
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  max :
 *
 * @return     int :
@@ -136,9 +121,6 @@ int XSAMD5XE5XRAND::MaxElements(int max)
 * @brief      Max
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  max :
 *
 * @return     int :
@@ -156,9 +138,6 @@ int XSAMD5XE5XRAND::Max(int max)
 * @fn         int XSAMD5XE5XRAND::Between(int min,int max)
 * @brief      Between
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  min :
 * @param[in]  max :

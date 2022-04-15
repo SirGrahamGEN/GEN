@@ -6,10 +6,7 @@
 * @brief      WINDOWS INPUT Device Mouse class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -91,9 +85,6 @@ INPWINDOWSDEVICEMOUSE::INPWINDOWSDEVICEMOUSE(): INPDEVICE()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +106,6 @@ INPWINDOWSDEVICEMOUSE::~INPWINDOWSDEVICEMOUSE()
 * @fn         bool INPWINDOWSDEVICEMOUSE::Update()
 * @brief      Update
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -223,9 +211,6 @@ bool INPWINDOWSDEVICEMOUSE::Update()
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -243,9 +228,6 @@ void INPWINDOWSDEVICEMOUSE::Clean()
 * @brief      Get Window Position
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out]  screenx : x position of screen
 * @param[out]  screeny : y position of screen
@@ -281,9 +263,6 @@ bool INPWINDOWSDEVICEMOUSE::GetWindowPosition(int& screenx,int& screeny,int& scr
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -304,9 +283,6 @@ bool INPWINDOWSDEVICEMOUSE::CreateAllButtons()
 * @brief      Create All Cursors
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *

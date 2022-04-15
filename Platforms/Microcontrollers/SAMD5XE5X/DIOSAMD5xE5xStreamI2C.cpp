@@ -6,10 +6,7 @@
 * @brief      SAMD5xE5x Data IO Stream I2C class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -69,9 +66,6 @@ DIOSAMD5XE5XSTREAMI2C*        DIOSAMD5XE5XSTREAMI2C::handles[DIOSAMD5XE5XSTREAMI
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -89,9 +83,6 @@ DIOSAMD5XE5XSTREAMI2CPORT::DIOSAMD5XE5XSTREAMI2CPORT()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -108,9 +99,6 @@ DIOSAMD5XE5XSTREAMI2CPORT::~DIOSAMD5XE5XSTREAMI2CPORT()
 * @brief      GetCounterRef
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -126,9 +114,6 @@ XDWORD DIOSAMD5XE5XSTREAMI2CPORT::GetCounterRef()
 * @fn         void DIOSAMD5XE5XSTREAMI2CPORT::SetCounterRef(XDWORD counterref)
 * @brief      SetCounterRef
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  counterref :
 *
@@ -148,9 +133,6 @@ void DIOSAMD5XE5XSTREAMI2CPORT::SetCounterRef(XDWORD counterref)
 * @brief      GetHandleI2C
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     I2C_HandleTypeDef* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -168,9 +150,6 @@ I2C_HandleTypeDef* DIOSAMD5XE5XSTREAMI2CPORT::GetHandleI2C()
 * @fn         void DIOSAMD5XE5XSTREAMI2CPORT::SetHandleI2C(I2C_HandleTypeDef* hi2c)
 * @brief      SetHandleI2C
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hi2c :
 *
@@ -191,9 +170,6 @@ void DIOSAMD5XE5XSTREAMI2CPORT::SetHandleI2C(I2C_HandleTypeDef* hi2c)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -218,9 +194,6 @@ void DIOSAMD5XE5XSTREAMI2CPORT::Clean()
 * @fn         DIOSAMD5XE5XSTREAMI2C::DIOSAMD5XE5XSTREAMI2C()
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -261,9 +234,6 @@ DIOSAMD5XE5XSTREAMI2C::DIOSAMD5XE5XSTREAMI2C() : DIOSTREAMI2C()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -284,9 +254,6 @@ DIOSAMD5XE5XSTREAMI2C::~DIOSAMD5XE5XSTREAMI2C()
 * @brief      GetConnectStatus
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSTATUS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -304,9 +271,6 @@ DIOSTREAMSTATUS DIOSAMD5XE5XSTREAMI2C::GetConnectStatus()
 * @fn         bool DIOSAMD5XE5XSTREAMI2C::Open()
 * @brief      Open
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -436,9 +400,6 @@ bool DIOSAMD5XE5XSTREAMI2C::Open()
 * @brief      WaitToFilledReadingBuffer
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  filledto :
 * @param[in]  timeout :
 *
@@ -473,9 +434,6 @@ bool DIOSAMD5XE5XSTREAMI2C::WaitToFilledReadingBuffer(int filledto, int timeout)
 * @fn         XDWORD DIOSAMD5XE5XSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 * @brief      ReadDirect
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -514,9 +472,6 @@ XDWORD DIOSAMD5XE5XSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 * @fn         XDWORD DIOSAMD5XE5XSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 * @brief      WriteDirect
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -558,9 +513,6 @@ XDWORD DIOSAMD5XE5XSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 * @brief      Write
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -594,8 +546,8 @@ XDWORD DIOSAMD5XE5XSTREAMI2C::Write(XBYTE* buffer, XDWORD size)
  *  @brief      Disconnect
  *  @ingroup    PLATFORM_SAMD5XE5X
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @return     bool : true if is succesful.
  *
@@ -612,9 +564,6 @@ bool DIOSAMD5XE5XSTREAMI2C::Disconnect()
 * @fn         bool DIOSAMD5XE5XSTREAMI2C::Close()
 * @brief      Close
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -661,9 +610,6 @@ bool DIOSAMD5XE5XSTREAMI2C::Close()
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -680,9 +626,6 @@ bool DIOSAMD5XE5XSTREAMI2C::CleanBuffers()
 * @fn         void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef* hi2c)
 * @brief      AL_I2C_MasterRxCpltCallback
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hi2c :
 *
@@ -739,9 +682,6 @@ void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef* hi2c)
 * @brief      AL_I2C_SlaveRxCpltCallback
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hi2c :
 *
 * @return     void : does not return anything.
@@ -762,9 +702,6 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef* hi2c)
 * @brief      AL_I2C_ErrorCallback
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  I2C_HandleTypeDef*hi2c :
 *
 * @return     void : does not return anything.
@@ -783,9 +720,6 @@ void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c)
 * @fn         void DIOSAMD5XE5XSTREAMI2C::ThreadConnection(void* param)
 * @brief      ThreadConnection
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *
@@ -879,9 +813,6 @@ void DIOSAMD5XE5XSTREAMI2C::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream TCP/IP class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -74,9 +68,6 @@ DIOSTREAMTCPIP::DIOSTREAMTCPIP(): DIOSTREAM()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ DIOSTREAMTCPIP::~DIOSTREAMTCPIP()
 * @brief      GetConfig
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMCONFIG* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -111,9 +99,6 @@ DIOSTREAMCONFIG* DIOSTREAMTCPIP::GetConfig()
 * @fn         bool DIOSTREAMTCPIP::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      SetConfig
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  config :
 *
@@ -136,9 +121,6 @@ bool DIOSTREAMTCPIP::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      GetClientIP
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOIP* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -155,9 +137,6 @@ DIOIP* DIOSTREAMTCPIP::GetClientIP()
 * @brief      GetEnumServers
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMENUMSERVERS* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -173,9 +152,6 @@ DIOSTREAMENUMSERVERS* DIOSTREAMTCPIP::GetEnumServers()
 * @fn         bool DIOSTREAMTCPIP::SetEnumServers(DIOSTREAMENUMSERVERS* enumservers)
 * @brief      SetEnumServers
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  enumservers :
 *
@@ -197,9 +173,6 @@ bool DIOSTREAMTCPIP::SetEnumServers(DIOSTREAMENUMSERVERS* enumservers)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

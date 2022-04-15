@@ -6,10 +6,7 @@
 * @brief      Data Input/Output SPI STMPE610 (Touch Screen) class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -62,9 +59,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -86,9 +80,6 @@ DIOSPITOUCHSCREENSTMPE610::DIOSPITOUCHSCREENSTMPE610(): DIODEVICE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -120,9 +111,6 @@ DIOSPITOUCHSCREENSTMPE610::~DIOSPITOUCHSCREENSTMPE610()
 * @fn         bool DIOSPITOUCHSCREENSTMPE610::IniDevice(int chipselect, int timeout)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  chipselect :
 * @param[in]  timeout :
@@ -174,9 +162,6 @@ bool DIOSPITOUCHSCREENSTMPE610::IniDevice(int chipselect, int timeout)
 * @brief      GetVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -205,9 +190,6 @@ XWORD DIOSPITOUCHSCREENSTMPE610::GetVersion()
 * @brief      IsTouched
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -232,9 +214,6 @@ bool DIOSPITOUCHSCREENSTMPE610::IsTouched()
 * @fn         bool DIOSPITOUCHSCREENSTMPE610::IsBufferEmpty()
 * @brief      IsBufferEmpty
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -261,9 +240,6 @@ bool DIOSPITOUCHSCREENSTMPE610::IsBufferEmpty()
 * @brief      GetBufferSize
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -285,9 +261,6 @@ XBYTE DIOSPITOUCHSCREENSTMPE610::GetBufferSize()
 * @fn         bool DIOSPITOUCHSCREENSTMPE610::ReadPosition(XWORD& x, XWORD& y, XBYTE& z)
 * @brief      ReadPosition
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x :
 * @param[in]  y :
@@ -348,9 +321,6 @@ bool DIOSPITOUCHSCREENSTMPE610::ReadPosition(XWORD& x, XWORD& y, XBYTE& z)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -386,9 +356,6 @@ bool DIOSPITOUCHSCREENSTMPE610::End()
 * @brief      GetDIOStreamSPI
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSPI* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -405,9 +372,6 @@ DIOSTREAMSPI* DIOSPITOUCHSCREENSTMPE610::GetDIOStreamSPI()
 * @fn         void DIOSPITOUCHSCREENSTMPE610::SetDIOStreamSPI(DIOSTREAMSPI* diostreamSPI)
 * @brief      SetDIOStreamSPI
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  diostreamSPI :
 *
@@ -428,9 +392,6 @@ void DIOSPITOUCHSCREENSTMPE610::SetDIOStreamSPI(DIOSTREAMSPI* diostreamSPI)
 * @fn         bool DIOSPITOUCHSCREENSTMPE610::TouchScreen_Ini()
 * @brief      TouchScreen_Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -472,9 +433,6 @@ bool DIOSPITOUCHSCREENSTMPE610::TouchScreen_Ini()
 * @brief      ReadRegister
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  reg :
 * @param[in]  data :
 *
@@ -507,9 +465,6 @@ bool DIOSPITOUCHSCREENSTMPE610::ReadRegister(XBYTE reg, XBYTE& data)
 * @brief      WriteRegister
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  reg :
 * @param[in]  data :
 *
@@ -538,9 +493,6 @@ bool DIOSPITOUCHSCREENSTMPE610::WriteRegister(XBYTE reg, XBYTE data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

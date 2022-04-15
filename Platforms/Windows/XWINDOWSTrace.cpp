@@ -6,10 +6,7 @@
 * @brief      eXtended WINDOWS debug trace class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -70,9 +67,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -94,9 +88,6 @@ XWINDOWSTRACE::XWINDOWSTRACE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -129,9 +120,6 @@ XWINDOWSTRACE::~XWINDOWSTRACE()
 * @fn         void XWINDOWSTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @brief      Print Special aim
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
@@ -191,9 +179,6 @@ void XWINDOWSTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* stri
 * @fn         void XWINDOWSTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @brief      Print File aim
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
@@ -294,9 +279,6 @@ void XWINDOWSTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @brief      Print Net aim
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
 * @param[in]  string : string with the line
@@ -339,9 +321,6 @@ void XWINDOWSTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @fn         bool XWINDOWSTRACE::GetHandleNet(XTRACE_TARGET* target)
 * @brief      Get Handle NET (WINDOWS)
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  target : target of debug
 *
@@ -399,9 +378,6 @@ bool XWINDOWSTRACE::GetHandleNet(XTRACE_TARGET* target)
 * @brief      Close Handle NET (WINDOWS)
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  target : target of debug
 *
 * @return     bool : true if is succesful.
@@ -431,9 +407,6 @@ bool XWINDOWSTRACE::CloseHandleNet(XTRACE_TARGET* target)
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -454,9 +427,6 @@ bool XWINDOWSTRACE::Lock()
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -476,9 +446,6 @@ bool XWINDOWSTRACE::UnLock()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Linux DBus eXtended Event class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  subject :
 * @param[in]  type :
 *
@@ -78,9 +72,6 @@ DIOLINUXDBUS_XEVENT::DIOLINUXDBUS_XEVENT(XSUBJECT* subject, XDWORD type)  : XEVE
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -95,10 +86,7 @@ DIOLINUXDBUS_XEVENT::~DIOLINUXDBUS_XEVENT()
 * @fn         DIOLINUXDBUS_SIGNAL* DIOLINUXDBUS_XEVENT::GetSignal()
 * @brief      GetSignal
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOLINUXDBUS_SIGNAL* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -114,10 +102,7 @@ DIOLINUXDBUS_SIGNAL* DIOLINUXDBUS_XEVENT::GetSignal()
 * @fn         void DIOLINUXDBUS_XEVENT::SetSignal(DIOLINUXDBUS_SIGNAL* signal)
 * @brief      SetSignal
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  signal : 
 * 
 * @return     void : does not return anything. 
@@ -135,10 +120,7 @@ void DIOLINUXDBUS_XEVENT::SetSignal(DIOLINUXDBUS_SIGNAL* signal)
 * @fn         DIOLINUXDBUS_MESSAGE* DIOLINUXDBUS_XEVENT::GetMessage()
 * @brief      GetMessage
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOLINUXDBUS_MESSAGE* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -154,10 +136,7 @@ DIOLINUXDBUS_MESSAGE* DIOLINUXDBUS_XEVENT::GetMessage()
 * @fn         void DIOLINUXDBUS_XEVENT::SetMessage(DIOLINUXDBUS_MESSAGE* message)
 * @brief      SetMessage
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  message : 
 * 
 * @return     void : does not return anything. 
@@ -176,9 +155,6 @@ void DIOLINUXDBUS_XEVENT::SetMessage(DIOLINUXDBUS_MESSAGE* message)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

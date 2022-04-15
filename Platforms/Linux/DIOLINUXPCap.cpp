@@ -39,7 +39,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/10/2012 15:18:18
 //
 //  @return
@@ -58,7 +58,7 @@ DIOLINUXPCAP::DIOLINUXPCAP() : DIOPCAP()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/10/2012 15:18:36
 //
 //  @return
@@ -80,7 +80,7 @@ DIOLINUXPCAP::~DIOLINUXPCAP()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      23/10/2012 9:37:03
 //
 //  @return       bool :
@@ -123,7 +123,7 @@ bool DIOLINUXPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promisc
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/10/2012 17:15:54
 //
 //  @return       bool :
@@ -156,7 +156,7 @@ bool DIOLINUXPCAP::Capture_End()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/10/2012 15:18:56
 //
 //  @return       void :
@@ -177,7 +177,7 @@ void DIOLINUXPCAP::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/10/2012 16:52:27
 //
 //  @return       bool :
@@ -220,7 +220,7 @@ bool DIOLINUXPCAP::CreateListNetInterfaces()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      23/10/2012 9:03:44
 //
 //  @return       void :
@@ -251,7 +251,7 @@ void DIOLINUXPCAP::ThreadCapture(void* data)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      23/10/2012 9:42:38
 //
 //  @return       void :

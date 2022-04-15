@@ -6,7 +6,7 @@
 //
 //  android h264 player via JNI
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 27/04/2016 17:19:20
 //  Last Modification :

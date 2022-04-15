@@ -6,7 +6,7 @@
 //
 //  manages loads
 //
-//  @author  Diego Martinez Ruiz de Gaona
+//  ""
 //
 //  Date Of Creation  : 05/09/2016 10:32:39
 //  Last Modification :

@@ -6,7 +6,7 @@
 //
 //  DIO Mod Bus Electric Meter class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 13/05/2002
 */
 //  GEN (C) Copyright  (All right reserved)

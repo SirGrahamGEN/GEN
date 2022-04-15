@@ -6,10 +6,7 @@
 * @brief      Data Input/Output SPI Display OLED SSD 1306
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,10 +57,7 @@
 * @fn         DIOSPIOLEDDISPLAYSSD1306::DIOSPIOLEDDISPLAYSSD1306(XDWORD width, XDWORD height)
 * @brief      Constructor
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  XDWORD : 
 * @param[in]   XDWORD height : 
 * 
@@ -89,9 +83,6 @@ DIOSPIOLEDDISPLAYSSD1306::DIOSPIOLEDDISPLAYSSD1306(XDWORD width, XDWORD height)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -109,9 +100,6 @@ DIOSPIOLEDDISPLAYSSD1306::~DIOSPIOLEDDISPLAYSSD1306()
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -162,8 +150,8 @@ bool DIOSPIOLEDDISPLAYSSD1306::IniDevice()
  *  @brief      Clear
  *  @ingroup    DATAIO
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @param[in]  color :
  *
@@ -207,9 +195,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::Clear(XBYTE color)
 * @brief      Update
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 *
 * @return     bool : true if is succesful.
@@ -246,9 +231,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::Update(XBYTE* buffer)
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::PutPixel(XWORD x, XWORD y, bool color)
 * @brief      PutPixel
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x :
 * @param[in]  y :
@@ -290,9 +272,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::PutPixel(XWORD x, XWORD y, bool color)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -312,10 +291,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::End()
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::Initializate()
 * @brief      Initializate
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -385,9 +361,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::Initializate()
 * @brief      Reset
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -416,9 +389,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::Reset()
 * @brief      Activate
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  active :
 *
 * @return     bool : true if is succesful.
@@ -436,9 +406,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::Activate(bool active)
 * @fn         void DIOSPIOLEDDISPLAYSSD1306::SetContrast(XBYTE contrast)
 * @brief      SetContrast
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  contrast :
 *
@@ -459,9 +426,6 @@ void DIOSPIOLEDDISPLAYSSD1306::SetContrast(XBYTE contrast)
 * @brief      GetX
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -478,9 +442,6 @@ XBYTE DIOSPIOLEDDISPLAYSSD1306::GetX()
 * @brief      GetY
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -496,9 +457,6 @@ XBYTE DIOSPIOLEDDISPLAYSSD1306::GetY()
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::SetX(XBYTE x)
 * @brief      SetX
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x :
 *
@@ -522,9 +480,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::SetX(XBYTE x)
 * @brief      SetY
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  y :
 *
 * @return     bool : true if is succesful.
@@ -546,9 +501,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::SetY(XBYTE y)
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::SetXY(XBYTE x, XBYTE y)
 * @brief      SetXY
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x :
 * @param[in]  y :
@@ -572,9 +524,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::SetXY(XBYTE x, XBYTE y)
 * @brief      SendCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  command :
 *
 * @return     bool : true if is succesful.
@@ -594,9 +543,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::SendCommand(XBYTE command)
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::SendData(XBYTE* data, int size)
 * @brief      SendData
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 * @param[in]  size :
@@ -618,9 +564,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::SendData(XBYTE* data, int size)
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::Send(XBYTE* data, int sizedata)
 * @brief      Send
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 * @param[in]  sizedata :
@@ -644,9 +587,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::Send(XBYTE* data, int size)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

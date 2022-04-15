@@ -6,10 +6,7 @@
 * @brief      eXtended Path class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ XPATH::XPATH(): XSTRING()
 * @fn         XPATH::XPATH(XDWORD size)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XDWORD :
 *
@@ -100,9 +91,6 @@ XPATH::XPATH(XDWORD size): XSTRING(size)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  const :
 *
 * @return     Does not return anything.
@@ -121,9 +109,6 @@ XPATH::XPATH(const char* path) : XSTRING(path)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  const :
 *
 * @return     Does not return anything.
@@ -141,9 +126,6 @@ XPATH::XPATH(const XCHAR* path): XSTRING(path)
 * @fn         XPATH::XPATH(const XCHAR* path,XDWORD size)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  const :
 * @param[in]  XDWORD :
@@ -164,9 +146,6 @@ XPATH::XPATH(const XCHAR* path,XDWORD size): XSTRING(path,size)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XPATH& :
 *
 * @return     Does not return anything.
@@ -184,9 +163,6 @@ XPATH::XPATH(XPATH& path): XSTRING(path)
 * @fn         XPATH::XPATH(XSTRING& string)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XSTRING& :
 *
@@ -207,9 +183,6 @@ XPATH::XPATH(XSTRING& string)  : XSTRING(string)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XWORD* :
 *
 * @return     Does not return anything.
@@ -229,9 +202,6 @@ XPATH::XPATH(XWORD* path) : XSTRING(path)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -247,9 +217,6 @@ XPATH::~XPATH()
 * @fn         void XPATH::operator = (const char* path)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  char* path :
 *
@@ -269,9 +236,6 @@ void XPATH::operator = (const char* path)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XCHAR* path :
 *
 * @return     void : does not return anything.
@@ -289,9 +253,6 @@ void XPATH::operator = (const XCHAR* path)
 * @fn         void XPATH::operator = (XPATH& path)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 *
@@ -311,9 +272,6 @@ void XPATH::operator = (XPATH& path)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     void : does not return anything.
@@ -331,9 +289,6 @@ void XPATH::operator = (XSTRING& string)
 * @fn         void XPATH::operator = (XWORD* path)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 *
@@ -353,9 +308,6 @@ void XPATH::operator = (XWORD* path)
 * @brief      operator +=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  char* path :
 *
 * @return     void : does not return anything.
@@ -373,9 +325,6 @@ void XPATH::operator += (const char* path)
 * @fn         void XPATH::operator += (const XCHAR* path)
 * @brief      operator +=
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* path :
 *
@@ -395,9 +344,6 @@ void XPATH::operator += (const XCHAR* path)
 * @brief      operator +=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  path :
 *
 * @return     void : does not return anything.
@@ -415,9 +361,6 @@ void XPATH::operator += (XPATH& path)
 * @fn         void XPATH::operator += (XSTRING& string)
 * @brief      operator +=
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -437,9 +380,6 @@ void XPATH::operator += (XSTRING& string)
 * @brief      operator +=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  path :
 *
 * @return     void : does not return anything.
@@ -457,9 +397,6 @@ void XPATH::operator += (XCHAR path)
 * @fn         bool XPATH::operator < (XPATH& path)
 * @brief      operator <
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 *
@@ -479,9 +416,6 @@ bool XPATH::operator <  (XPATH& path)
 * @brief      operator >
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  path :
 *
 * @return     bool : true if is succesful.
@@ -499,9 +433,6 @@ bool XPATH::operator >  (XPATH& path)
 * @fn         bool XPATH::operator <= (XPATH& path)
 * @brief      operator <=
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 *
@@ -521,9 +452,6 @@ bool XPATH::operator <= (XPATH& path)
 * @brief      operator >=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  path :
 *
 * @return     bool : true if is succesful.
@@ -541,9 +469,6 @@ bool XPATH::operator >= (XPATH& path)
 * @fn         bool XPATH::operator == (XPATH& path)
 * @brief      operator ==
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 *
@@ -563,9 +488,6 @@ bool XPATH::operator == (XPATH& path)
 * @brief      operator !=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  path :
 *
 * @return     bool : true if is succesful.
@@ -583,9 +505,6 @@ bool XPATH::operator != (XPATH& path)
 * @fn         bool XPATH::operator < (XSTRING& string)
 * @brief      operator <
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -605,9 +524,6 @@ bool XPATH::operator <  (XSTRING& string)
 * @brief      operator >
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -625,9 +541,6 @@ bool XPATH::operator >  (XSTRING& string)
 * @fn         bool XPATH::operator <= (XSTRING& string)
 * @brief      operator <=
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -647,9 +560,6 @@ bool XPATH::operator <= (XSTRING& string)
 * @brief      operator >=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -667,9 +577,6 @@ bool XPATH::operator >= (XSTRING& string)
 * @fn         bool XPATH::operator == (XSTRING& string)
 * @brief      operator ==
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -689,9 +596,6 @@ bool XPATH::operator == (XSTRING& string)
 * @brief      operator !=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -709,9 +613,6 @@ bool XPATH::operator != (XSTRING& string)
 * @fn         XCHAR XPATH::operator [](int position)
 * @brief      operator []
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position :
 *
@@ -736,9 +637,6 @@ XCHAR XPATH::operator [](int position)
 * @brief      GetDrive
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  drive :
 *
 * @return     bool : true if is succesful.
@@ -760,9 +658,6 @@ bool XPATH::GetDrive(XSTRING& drive)
 * @fn         bool XPATH::GetPath(XSTRING& path)
 * @brief      GetPath
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 *
@@ -792,9 +687,6 @@ bool XPATH::GetPath(XSTRING& path)
 * @brief      GetDriveAndPath
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  drivepath :
 *
 * @return     bool : true if is succesful.
@@ -822,9 +714,6 @@ bool XPATH::GetDriveAndPath(XSTRING& drivepath)
 * @fn         bool XPATH::GetPathAndNamefile(XSTRING& pathnamefile)
 * @brief      GetPathAndNamefile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pathnamefile :
 *
@@ -855,9 +744,6 @@ bool XPATH::GetPathAndNamefile(XSTRING& pathnamefile)
 * @fn         bool XPATH::GetPathAndNamefileExt(XSTRING& pathnamefile)
 * @brief      GetPathAndNamefileExt
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pathnamefile :
 *
@@ -891,9 +777,6 @@ bool XPATH::GetPathAndNamefileExt(XSTRING& pathnamefile)
 * @brief      GetNamefile
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  namefile :
 *
 * @return     bool : true if is succesful.
@@ -915,9 +798,6 @@ bool XPATH::GetNamefile(XSTRING& namefile)
 * @fn         bool XPATH::GetNamefileExt(XSTRING& namefileext)
 * @brief      GetNamefileExt
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  namefileext :
 *
@@ -947,9 +827,6 @@ bool XPATH::GetNamefileExt(XSTRING& namefileext)
 * @brief      GetExt
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ext :
 *
 * @return     bool : true if is succesful.
@@ -971,9 +848,6 @@ bool XPATH::GetExt(XSTRING& ext)
 * @fn         bool XPATH::GetPathInSequence(int index, XSTRING& pathpart)
 * @brief      GetPathInSequence
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  pathpart :
@@ -1020,9 +894,6 @@ bool XPATH::GetPathInSequence(int index, XSTRING& pathpart)
 * @brief      SetOnlyDrive
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     const :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1046,9 +917,6 @@ const XCHAR* XPATH::SetOnlyDrive()
 * @fn         const XCHAR* XPATH::SetOnlyPath()
 * @brief      SetOnlyPath
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     const :
 *
@@ -1074,9 +942,6 @@ const XCHAR* XPATH::SetOnlyPath()
 * @brief      SetOnlyDriveAndPath
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     const :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1100,9 +965,6 @@ const XCHAR* XPATH::SetOnlyDriveAndPath()
 * @fn         const XCHAR* XPATH::SetOnlyPathAndNamefile()
 * @brief      SetOnlyPathAndNamefile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     const :
 *
@@ -1128,9 +990,6 @@ const XCHAR* XPATH::SetOnlyPathAndNamefile()
 * @brief      SetOnlyPathAndNamefileExt
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     const :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1154,9 +1013,6 @@ const XCHAR* XPATH::SetOnlyPathAndNamefileExt()
 * @fn         const XCHAR* XPATH::SetOnlyNamefile()
 * @brief      SetOnlyNamefile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     const :
 *
@@ -1182,9 +1038,6 @@ const XCHAR* XPATH::SetOnlyNamefile()
 * @brief      SetOnlyNamefileExt
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     const :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1209,9 +1062,6 @@ const XCHAR* XPATH::SetOnlyNamefileExt()
 * @brief      SetOnlyExt
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     const :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1235,9 +1085,6 @@ const XCHAR* XPATH::SetOnlyExt()
 * @fn         bool XPATH::DeleteDrive()
 * @brief      DeleteDrive
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1267,9 +1114,6 @@ bool XPATH::DeleteDrive()
 * @brief      Slash_HaveAtLast
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1289,9 +1133,6 @@ bool XPATH::Slash_HaveAtLast()
 * @fn         bool XPATH::Slash_Add()
 * @brief      Slash_Add
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1334,9 +1175,6 @@ bool XPATH::Slash_Add()
 * @brief      Slash_Normalize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  inverse :
 *
 * @return     bool : true if is succesful.
@@ -1374,9 +1212,6 @@ bool XPATH::Slash_Normalize(bool inverse)
 * @brief      Slash_Delete
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1403,9 +1238,6 @@ bool XPATH::Slash_Delete()
 * @fn         bool XPATH::AddToNameFile(bool isprefix, XCHAR* tag)
 * @brief      AddToNameFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isprefix :
 * @param[in]  tag :
@@ -1450,9 +1282,6 @@ bool XPATH::AddToNameFile(bool isprefix, XCHAR* tag)
 * @fn         bool XPATH::Create(int nelements,...)
 * @brief      Create
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nelements :
 * @param[in]  ... :
@@ -1502,9 +1331,6 @@ bool XPATH::Create(int nelements,...)
 * @fn         bool XPATH::Create(XPATHSMANAGERSECTIONTYPE sectiontype, int nelements, ...)
 * @brief      Create
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sectiontype :
 * @param[in]  nelements :
@@ -1561,9 +1387,6 @@ bool XPATH::Create(XPATHSMANAGERSECTIONTYPE sectiontype, int nelements, ...)
 * @fn         bool XPATH::Split(XSTRING* drive, XPATH* xpath, XSTRING* name, XSTRING* ext)
 * @brief      Split
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  drive :
 * @param[in]  xpath :

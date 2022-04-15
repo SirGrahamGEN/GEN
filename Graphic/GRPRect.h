@@ -6,7 +6,7 @@
 //
 //  Graphics Rect Class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 04/08/2013 16:46:46
 */
 /*  (C) Copyright Abraham J. Velez. All right reserved.

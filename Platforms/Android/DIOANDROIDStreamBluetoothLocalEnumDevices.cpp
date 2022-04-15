@@ -45,7 +45,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:01
 //
 //  @return
@@ -66,7 +66,7 @@ DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES::DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEV
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:12
 //
 //  @return
@@ -85,7 +85,7 @@ DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES::~DIOANDROIDSTREAMBLUETOOTHLOCALENUMDE
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:27
 //
 //  @return       bool :

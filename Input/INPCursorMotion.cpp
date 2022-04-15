@@ -6,10 +6,7 @@
 * @brief      Input Cursor Motion
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ INPCURSORMOTIONPOINT::INPCURSORMOTIONPOINT()
 * @note       VIRTUAL
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -97,9 +88,6 @@ INPCURSORMOTIONPOINT::~INPCURSORMOTIONPOINT()
 * @fn         float INPCURSORMOTIONPOINT::GetX()
 * @brief      Get X
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     float : X position
 *
@@ -117,9 +105,6 @@ float INPCURSORMOTIONPOINT::GetX()
 * @brief      Get Y
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float : Y position
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -136,9 +121,6 @@ float INPCURSORMOTIONPOINT::GetY()
 * @brief      Get Z
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float : Z position
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -154,9 +136,6 @@ float INPCURSORMOTIONPOINT::GetZ()
 * @fn         void INPCURSORMOTIONPOINT::Set(float x, float y, float z)
 * @brief      Set X Y Z positon
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x : new x position
 * @param[in]  y : new y position
@@ -181,9 +160,6 @@ void INPCURSORMOTIONPOINT::Set(float x, float y, float z)
 * @brief      Set X position
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x : new x position
 *
 * @return     void : does not return anything.
@@ -201,9 +177,6 @@ void INPCURSORMOTIONPOINT::SetX(float x)
 * @fn         void INPCURSORMOTIONPOINT::SetY(float y)
 * @brief      Set Y position
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  y : new y position
 *
@@ -224,9 +197,6 @@ void INPCURSORMOTIONPOINT::SetY(float y)
 * @brief      Set Z position
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  z : new z position
 *
 * @return     void : does not return anything.
@@ -245,9 +215,6 @@ void INPCURSORMOTIONPOINT::SetZ(float z)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -276,9 +243,6 @@ void INPCURSORMOTIONPOINT::Clean()
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -294,9 +258,6 @@ INPCURSORMOTION::INPCURSORMOTION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -316,9 +277,6 @@ INPCURSORMOTION::~INPCURSORMOTION()
 * @brief      Get Motion Poins
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<INPCURSORMOTIONPOINT*>* : vector with points
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -335,9 +293,6 @@ XVECTOR<INPCURSORMOTIONPOINT*>* INPCURSORMOTION::Get()
 * @brief      Get Number of Points
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : Number of Points
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -353,9 +308,6 @@ int INPCURSORMOTION::GetNPoints()
 * @fn         INPCURSORMOTIONPOINT* INPCURSORMOTION::GetFirstPoint()
 * @brief      Get First Point of vector of point
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     INPCURSORMOTIONPOINT* : first point
 *
@@ -377,9 +329,6 @@ INPCURSORMOTIONPOINT* INPCURSORMOTION::GetFirstPoint()
 * @brief      Get Last Point of vector of point
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     INPCURSORMOTIONPOINT* : last point
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -399,9 +348,6 @@ INPCURSORMOTIONPOINT* INPCURSORMOTION::GetLastPoint()
 * @fn         bool INPCURSORMOTION::AddPoint(float x, float y, float z)
 * @brief      Add Point to vector
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x : new x point
 * @param[in]  y : new y point
@@ -430,9 +376,6 @@ bool INPCURSORMOTION::AddPoint(float x, float y, float z)
 * @brief      Delete All Points
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -454,9 +397,6 @@ bool INPCURSORMOTION::DeleteAllPoints()
 * @fn         bool INPCURSORMOTION::AddFromLine(INPCURSORMOTION_REDUCEDMODE reducedmode, int reducedfactor, int x1, int y1, int x2, int y2)
 * @brief      Add Points From Line
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  reducedmode : reduced mode
 * @param[in]  reducedfactor : factor of reduction
@@ -567,9 +507,6 @@ bool INPCURSORMOTION::AddFromLine(INPCURSORMOTION_REDUCEDMODE reducedmode, int r
 * @brief      Add Points From Circle
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  reducedmode : reduced mode
 * @param[in]  reducedfactor : factor of reduction
 * @param[in]  xc : x center of circle
@@ -625,9 +562,6 @@ bool INPCURSORMOTION::AddFromCircle(INPCURSORMOTION_REDUCEDMODE reducedmode,int 
 * @fn         bool INPCURSORMOTION::AddFromElipse(INPCURSORMOTION_REDUCEDMODE reducedmode,int reducedfactor, int x, int y, int rx, int ry)
 * @brief      AddFromElipse
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  reducedmode : reduced mode
 * @param[in]  reducedfactor : factor of reduction
@@ -767,9 +701,6 @@ bool INPCURSORMOTION::AddFromElipse(INPCURSORMOTION_REDUCEDMODE reducedmode,int 
 * @brief      Get Angle of motion
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float : angle of motion
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -799,9 +730,6 @@ float INPCURSORMOTION::GetAngle()
 * @brief      Get Module of motion
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : module of motion
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -829,9 +757,6 @@ int INPCURSORMOTION::GetModule()
 * @fn         bool INPCURSORMOTION::IsInRect(int x, int y, int width, int height)
 * @brief      Is Motion In Rect
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x : x position of rect
 * @param[in]  y : y position of rect
@@ -870,9 +795,6 @@ bool INPCURSORMOTION::IsInRect(int x, int y, int width, int height)
 * @brief      Motion Is in curse
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -888,9 +810,6 @@ bool INPCURSORMOTION::IsInCurse()
 * @fn         bool INPCURSORMOTION::SetIsInCurse(bool isincurse)
 * @brief      Set motion in curse
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isincurse :
 *
@@ -911,10 +830,7 @@ bool INPCURSORMOTION::SetIsInCurse(bool isincurse)
 * @fn         bool INPCURSORMOTION::IsReadyToTest(int npoints_min)
 * @brief      IsReadyToTest
 * @ingroup    INPUT
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  npoints_min : 
 * 
 * @return     bool : true if is succesful. 
@@ -940,10 +856,7 @@ bool INPCURSORMOTION::IsReadyToTest(XDWORD npoints_min)
 * @fn         bool INPCURSORMOTION::InvertYAxis(XDWORD screen_height)
 * @brief      InvertYAxis
 * @ingroup    INPUT
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  screen_height : 
 * 
 * @return     bool : true if is succesful. 
@@ -971,9 +884,6 @@ bool INPCURSORMOTION::InvertYAxis(XDWORD screen_height)
 * @fn         INPCURSORMOTION_DIR INPCURSORMOTION::GetDirection(bool indetail)
 * @brief      Ge tDirection of motion
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  indetail :
 *
@@ -1015,10 +925,7 @@ INPCURSORMOTION_DIR INPCURSORMOTION::GetDirectionByAngle(bool indetail)
 * @fn         INPCURSORMOTION_DIR INPCURSORMOTION::GetDirectionByDifferential(int& differential)
 * @brief      GetDirectionByDifferential
 * @ingroup    INPUT
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  differential : 
 * 
 * @return     INPCURSORMOTION_DIR : 
@@ -1077,9 +984,6 @@ INPCURSORMOTION_DIR INPCURSORMOTION::GetDirectionByDifferential(XDWORD* differen
 * @brief      Get Time Elapsed
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD : time elapsed
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1095,9 +999,6 @@ XQWORD INPCURSORMOTION::GetTimeElapsed()
 * @fn         bool INPCURSORMOTION::SetTimeElapsed(XQWORD timeelapsed)
 * @brief      Set Time Elapsed
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeelapsed : new time elapsed
 *
@@ -1119,9 +1020,6 @@ bool INPCURSORMOTION::SetTimeElapsed(XQWORD timeelapsed)
 * @brief      Reset Motion
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1142,9 +1040,6 @@ bool INPCURSORMOTION::Reset()
 * @fn         int INPCURSORMOTION::CalculateReducedModeSteps(INPCURSORMOTION_REDUCEDMODE mode,int factor,int npixels)
 * @brief      Calculate Reduced Mode Steps
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mode : mode of reduction
 * @param[in]  factor : factor reduction
@@ -1176,9 +1071,6 @@ int INPCURSORMOTION::CalculateReducedModeSteps(INPCURSORMOTION_REDUCEDMODE mode,
 * @brief      Round value
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  a : value to round
 *
 * @return     int : value rounded
@@ -1197,9 +1089,6 @@ int INPCURSORMOTION::Round(double a)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

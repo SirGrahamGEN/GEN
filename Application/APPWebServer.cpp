@@ -6,10 +6,7 @@
 * @brief      Application Web Server class
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -64,9 +61,6 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -86,9 +80,6 @@ APPWEBSERVER::APPWEBSERVER()
 * @note       VIRTUAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -107,9 +98,6 @@ APPWEBSERVER::~APPWEBSERVER()
 * @fn         bool APPWEBSERVER::Ini(APPCFG* cfg, bool doinitialconnectitivitytest, bool isapirestonly, bool chekuseragentid)
 * @brief      Ini
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  cfg : 
 * @param[in]  doinitialconnectitivitytest : 
@@ -155,9 +143,6 @@ bool APPWEBSERVER::Ini(APPCFG* cfg, bool doinitialconnectitivitytest,  bool isap
 * @fn         bool APPWEBSERVER::Ini(XDWORD port, , bool doinitialconnectitivitytest, int timeoutserverpage, XSTRING* addrlocal)
 * @brief      Ini
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  port : 
 * @param[in]  doinitialconnectitivitytest : 
@@ -211,9 +196,6 @@ bool APPWEBSERVER::Ini(XDWORD port, bool doinitialconnectitivitytest, int timeou
 * @brief      GetWebServer
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBSERVER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -229,9 +211,6 @@ DIOWEBSERVER* APPWEBSERVER::GetWebServer()
 * @fn         bool APPWEBSERVER::GetIsAuthenticatedAccess()
 * @brief      GetIsAuthenticatedAccess
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -249,9 +228,6 @@ bool APPWEBSERVER::GetIsAuthenticatedAccess()
 * @brief      GetIsApiRestOnly
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -268,9 +244,6 @@ bool APPWEBSERVER::GetIsApiRestOnly()
 * @fn         bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBSERVER_REQUEST* request, XSTRING& resource, DIOWEBHEADER_RESULT headerresult, XBUFFER* data, int timeout, XSTRING* addhead)
 * @brief      SendRequest
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  connection :
 * @param[in]  request :
@@ -335,9 +308,6 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
 * @brief      SendRequest
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  connection :
 * @param[in]  headerresult :
 * @param[in]  data :
@@ -369,9 +339,6 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
 * @fn         bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XPATH& xpathfile, int timeout, XSTRING* addhead)
 * @brief      SendRequest
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  connection :
 * @param[in]  headerresult :
@@ -417,9 +384,6 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
 * @fn         bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION* connection, DIOWEBSERVER_REQUEST* request)
 * @brief      ResolveRequest
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  server :
 * @param[in]  connection :
@@ -688,9 +652,6 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
 * @brief      GenerateMessagePage
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  leyend :
 * @param[in]  webHTMLpage :
 *
@@ -714,9 +675,6 @@ bool APPWEBSERVER::GenerateMessagePage(XCHAR* leyend, DIOWEBPAGEHTMLCREATOR& web
 * @brief      GenerateMessagePage
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  leyend :
 * @param[in]  webHTMLpage :
 *
@@ -735,9 +693,6 @@ bool APPWEBSERVER::GenerateMessagePage(XSTRING& leyend, DIOWEBPAGEHTMLCREATOR& w
 * @fn         bool APPWEBSERVER::GenerateResponse_Error(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT result, XCHAR* leyend)
 * @brief      GenerateResponse_Error
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  connection :
 * @param[in]  result :
@@ -770,9 +725,6 @@ bool APPWEBSERVER::GenerateResponse_Error(DIOWEBSERVER_CONNECTION* connection,  
 * @brief      GenerateResponse_Error
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  connection :
 * @param[in]  result :
 * @param[in]  leyend :
@@ -793,9 +745,6 @@ bool APPWEBSERVER::GenerateResponse_Error(DIOWEBSERVER_CONNECTION* connection,  
 * @fn         bool APPWEBSERVER::End()
 * @brief      End
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -858,9 +807,6 @@ bool APPWEBSERVER::End()
 * @note       INTERNAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  event :
 *
 * @return     void : does not return anything.
@@ -898,9 +844,6 @@ void APPWEBSERVER::HandleEvent_WebServer(DIOWEBSERVER_XEVENT* event)
 * @note       INTERNAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xevent :
 *
 * @return     void : does not return anything.
@@ -929,9 +872,6 @@ void APPWEBSERVER::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

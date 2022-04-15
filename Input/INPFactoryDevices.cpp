@@ -6,10 +6,7 @@
 * @brief      INPUT factory
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@ INPFACTORYDEVICES* INPFACTORYDEVICES::instance = NULL;
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -72,9 +66,6 @@ INPFACTORYDEVICES::INPFACTORYDEVICES()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -93,9 +84,6 @@ INPFACTORYDEVICES::~INPFACTORYDEVICES()
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +100,6 @@ bool INPFACTORYDEVICES::GetIsInstanced()
 * @brief      Get Instance of INPFACTORYDEVICES
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     INPFACTORYDEVICES& :
 *
@@ -134,9 +119,6 @@ INPFACTORYDEVICES& INPFACTORYDEVICES::GetInstance()
 * @brief      Set Instance of INPFACTORYDEVICES
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  _instance : new instance
 *
@@ -161,9 +143,6 @@ bool INPFACTORYDEVICES::SetInstance(INPFACTORYDEVICES* _instance)
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -185,9 +164,6 @@ bool INPFACTORYDEVICES::DelInstance()
 * @brief      Create a input Device
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type  : device type of the input device
 * @param[in]  param : param to create device (if is necessary)
 *
@@ -207,9 +183,6 @@ INPDEVICE* INPFACTORYDEVICES::CreateDevice(INPDEVICE_TYPE type, void* param)
 * @brief      Delete Device
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  device : delete device
 *
 * @return     bool : true if is succesful.
@@ -228,9 +201,6 @@ bool INPFACTORYDEVICES::DeleteDevice(INPDEVICE* device)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

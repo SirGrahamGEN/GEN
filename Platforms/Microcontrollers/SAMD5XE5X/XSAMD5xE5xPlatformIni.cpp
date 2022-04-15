@@ -6,10 +6,7 @@
 * @brief      eXtended SAMD5xE5x Plataform Ini class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -63,9 +60,6 @@ XDWORD                              HAL_tick_count  = 0;
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -83,9 +77,6 @@ XSAMD5XE5XPLATFORMINI::XSAMD5XE5XPLATFORMINI()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -101,9 +92,6 @@ XSAMD5XE5XPLATFORMINI::~XSAMD5XE5XPLATFORMINI()
 * @fn         bool XSAMD5XE5XPLATFORMINI::Ini()
 * @brief      Ini
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -132,9 +120,6 @@ bool XSAMD5XE5XPLATFORMINI::Ini()
 * @brief      End
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -150,9 +135,6 @@ bool XSAMD5XE5XPLATFORMINI::End()
 * @fn         void XSAMD5XE5XPLATFORMINI::SysTick_Init(void)
 * @brief      SysTick_Init
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  void :
 *
@@ -180,9 +162,6 @@ void XSAMD5XE5XPLATFORMINI::SysTick_Init(void)
 * @brief      ysTick_Handler
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  void :
 *
 * @return     void : does not return anything.
@@ -203,9 +182,6 @@ void SysTick_Handler(void)
 * @fn         static void TIMER_0_task1_cb(const struct timer_task*const timer_task)
 * @brief      oid TIMER_0_task1_cb
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  struct timer_task*const timer_task :
 *
@@ -228,9 +204,6 @@ static void TIMER_0_task1_cb(const struct timer_task *const timer_task)
 * @fn         void XSAMD5XE5XPLATFORMINI::TIMER_0_init(void)
 * @brief      TIMER_0_init
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  void :
 *
@@ -261,9 +234,6 @@ void XSAMD5XE5XPLATFORMINI::TIMER_0_init(void)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

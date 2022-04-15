@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Web Page HTML Create class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -83,9 +77,6 @@ DIOWEBPAGEHTMLCREATOR::DIOWEBPAGEHTMLCREATOR()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -103,9 +94,6 @@ DIOWEBPAGEHTMLCREATOR::~DIOWEBPAGEHTMLCREATOR()
 * @fn         void DIOWEBPAGEHTMLCREATOR::operator = (const char* htlmpage)
 * @brief      operator =
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  char* htlmpage :
 *
@@ -125,9 +113,6 @@ void DIOWEBPAGEHTMLCREATOR::operator = (const char* htlmpage)
 * @brief      operator =
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XCHAR* htlmpage :
 *
 * @return     void : does not return anything.
@@ -145,9 +130,6 @@ void DIOWEBPAGEHTMLCREATOR::operator = (const XCHAR* htlmpage)
 * @fn         void DIOWEBPAGEHTMLCREATOR::operator = (DIOWEBPAGEHTMLCREATOR& htlmpage)
 * @brief      operator =
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  htlmpage :
 *
@@ -167,9 +149,6 @@ void DIOWEBPAGEHTMLCREATOR::operator = (DIOWEBPAGEHTMLCREATOR& htlmpage)
 * @brief      operator =
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     void : does not return anything.
@@ -187,9 +166,6 @@ void DIOWEBPAGEHTMLCREATOR::operator = (XSTRING& string)
 * @fn         void DIOWEBPAGEHTMLCREATOR::operator = (XWORD* htlmpage)
 * @brief      operator =
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  htlmpage :
 *
@@ -209,9 +185,6 @@ void DIOWEBPAGEHTMLCREATOR::operator = (XWORD* htlmpage)
 * @brief      operator +=
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  char* htlmpage :
 *
 * @return     void : does not return anything.
@@ -229,9 +202,6 @@ void DIOWEBPAGEHTMLCREATOR::operator += (const char* htlmpage)
 * @fn         void DIOWEBPAGEHTMLCREATOR::operator += (const XCHAR* htlmpage)
 * @brief      operator +=
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* htlmpage :
 *
@@ -251,9 +221,6 @@ void DIOWEBPAGEHTMLCREATOR::operator += (const XCHAR* htlmpage)
 * @brief      operator +=
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  htlmpage :
 *
 * @return     void : does not return anything.
@@ -271,9 +238,6 @@ void DIOWEBPAGEHTMLCREATOR::operator += (XPATH& htlmpage)
 * @fn         void DIOWEBPAGEHTMLCREATOR::operator += (XSTRING& string)
 * @brief      operator +=
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -293,9 +257,6 @@ void DIOWEBPAGEHTMLCREATOR::operator += (XSTRING& string)
 * @brief      operator +=
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  htlmpage :
 *
 * @return     void : does not return anything.
@@ -313,9 +274,6 @@ void DIOWEBPAGEHTMLCREATOR::operator += (XCHAR htlmpage)
 * @fn         bool DIOWEBPAGEHTMLCREATOR::operator < (DIOWEBPAGEHTMLCREATOR& htlmpage)
 * @brief      operator <
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  htlmpage :
 *
@@ -335,9 +293,6 @@ bool DIOWEBPAGEHTMLCREATOR::operator <  (DIOWEBPAGEHTMLCREATOR& htlmpage)
 * @brief      operator >
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  htlmpage :
 *
 * @return     bool : true if is succesful.
@@ -355,9 +310,6 @@ bool DIOWEBPAGEHTMLCREATOR::operator >  (DIOWEBPAGEHTMLCREATOR& htlmpage)
 * @fn         bool DIOWEBPAGEHTMLCREATOR::operator <= (DIOWEBPAGEHTMLCREATOR& htlmpage)
 * @brief      operator <=
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  htlmpage :
 *
@@ -377,9 +329,6 @@ bool DIOWEBPAGEHTMLCREATOR::operator <= (DIOWEBPAGEHTMLCREATOR& htlmpage)
 * @brief      operator >=
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  htlmpage :
 *
 * @return     bool : true if is succesful.
@@ -397,9 +346,6 @@ bool DIOWEBPAGEHTMLCREATOR::operator >= (DIOWEBPAGEHTMLCREATOR& htlmpage)
 * @fn         bool DIOWEBPAGEHTMLCREATOR::operator == (DIOWEBPAGEHTMLCREATOR& htlmpage)
 * @brief      operator ==
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  htlmpage :
 *
@@ -419,9 +365,6 @@ bool DIOWEBPAGEHTMLCREATOR::operator == (DIOWEBPAGEHTMLCREATOR& htlmpage)
 * @brief      operator !=
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  htlmpage :
 *
 * @return     bool : true if is succesful.
@@ -439,9 +382,6 @@ bool DIOWEBPAGEHTMLCREATOR::operator != (DIOWEBPAGEHTMLCREATOR& htlmpage)
 * @fn         bool DIOWEBPAGEHTMLCREATOR::operator < (XSTRING& string)
 * @brief      operator <
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -461,9 +401,6 @@ bool DIOWEBPAGEHTMLCREATOR::operator <  (XSTRING& string)
 * @brief      operator >
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -481,9 +418,6 @@ bool DIOWEBPAGEHTMLCREATOR::operator >  (XSTRING& string)
 * @fn         bool DIOWEBPAGEHTMLCREATOR::operator <= (XSTRING& string)
 * @brief      operator <=
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -503,9 +437,6 @@ bool DIOWEBPAGEHTMLCREATOR::operator <= (XSTRING& string)
 * @brief      operator >=
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -523,9 +454,6 @@ bool DIOWEBPAGEHTMLCREATOR::operator >= (XSTRING& string)
 * @fn         bool DIOWEBPAGEHTMLCREATOR::operator == (XSTRING& string)
 * @brief      operator ==
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -545,9 +473,6 @@ bool DIOWEBPAGEHTMLCREATOR::operator == (XSTRING& string)
 * @brief      operator !=
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -565,9 +490,6 @@ bool DIOWEBPAGEHTMLCREATOR::operator != (XSTRING& string)
 * @fn         XCHAR DIOWEBPAGEHTMLCREATOR::operator [] (int position)
 * @brief      operator []
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position :
 *
@@ -589,9 +511,6 @@ XCHAR DIOWEBPAGEHTMLCREATOR::operator [] (int position)
 * @fn         bool DIOWEBPAGEHTMLCREATOR::Printf(XCHAR* mask,...)
 * @brief      Printf
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask :
 * @param[in]  ... :
@@ -630,9 +549,6 @@ bool DIOWEBPAGEHTMLCREATOR::Printf(XCHAR* mask,...)
 * @brief      Print
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  text :
 *
 * @return     bool : true if is succesful.
@@ -658,9 +574,6 @@ bool DIOWEBPAGEHTMLCREATOR::Print(XCHAR* text)
 * @brief      Table_Ini
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  border :
 *
 * @return     bool : true if is succesful.
@@ -682,9 +595,6 @@ bool DIOWEBPAGEHTMLCREATOR::Table_Ini(int border)
 * @fn         bool DIOWEBPAGEHTMLCREATOR::Table_Line(int columns, ...)
 * @brief      Table_Line
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  columns :
 * @param[in]  ... :
@@ -738,9 +648,6 @@ bool DIOWEBPAGEHTMLCREATOR::Table_Line(int columns, ...)
 * @fn         bool DIOWEBPAGEHTMLCREATOR::Table_Line(XCHAR* colorbackground, int columns, ...)
 * @brief      Table_Line
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  colorbackground :
 * @param[in]  columns :
@@ -807,9 +714,6 @@ bool DIOWEBPAGEHTMLCREATOR::Table_Line(XCHAR* colorbackground, int columns, ...)
 * @brief      Table_LineColor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  columns :
 * @param[in]  ... :
 *
@@ -864,9 +768,6 @@ bool DIOWEBPAGEHTMLCREATOR::Table_LineColor(int columns, ...)
 * @brief      Table_End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -883,9 +784,6 @@ bool DIOWEBPAGEHTMLCREATOR::Table_End()
 * @fn         bool DIOWEBPAGEHTMLCREATOR::AddAutoRefresh(int refresh, XSTRING* url)
 * @brief      AddAutoRefresh
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  refresh :
 * @param[in]  url :
@@ -915,9 +813,6 @@ bool DIOWEBPAGEHTMLCREATOR::AddAutoRefresh(int refresh, XSTRING* url)
 * @fn         bool DIOWEBPAGEHTMLCREATOR::AddFile(XPATH& xpath)
 * @brief      AddFile
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -1006,9 +901,6 @@ bool DIOWEBPAGEHTMLCREATOR::AddFile(XPATH& xpath)
 * @fn         DIOWEBPAGEHTMLCREATORTAGXENGINESTATUS DIOWEBPAGEHTMLCREATOR::CheckXTAG(XSTRING* originalline,bool& intag, XSTRING& inioutputline,XSTRING& endoutputline)
 * @brief      CheckXTAG
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  originalline :
 * @param[in]  intag :

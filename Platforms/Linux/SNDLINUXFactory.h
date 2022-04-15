@@ -6,7 +6,7 @@
 //
 //  sound system for linux
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 11/11/2015 10:37:51
 //  Last Modification :

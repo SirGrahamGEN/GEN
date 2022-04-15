@@ -5,11 +5,8 @@
 * @class      UI_ELEMENT_IMAGE
 * @brief      User Interface Element Image class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,10 +50,7 @@
 * @fn         UI_ELEMENT_IMAGE::UI_ELEMENT_IMAGE()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -76,10 +70,7 @@ UI_ELEMENT_IMAGE::UI_ELEMENT_IMAGE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -105,10 +96,7 @@ UI_ELEMENT_IMAGE::~UI_ELEMENT_IMAGE()
 * @fn         GRPBITMAP* UI_ELEMENT_IMAGE::GetImage()
 * @brief      GetImage
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     GRPBITMAP* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -124,10 +112,7 @@ GRPBITMAP* UI_ELEMENT_IMAGE::GetImage()
 * @fn         bool UI_ELEMENT_IMAGE::SetImage(GRPBITMAP* image)
 * @brief      SetImage
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  image : 
 * 
 * @return     bool : true if is succesful. 
@@ -149,10 +134,7 @@ bool UI_ELEMENT_IMAGE::SetImage(GRPBITMAP* image)
 * @fn         XBYTE UI_ELEMENT_IMAGE::GetAlpha()
 * @brief      GetAlpha
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XBYTE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -168,10 +150,7 @@ XBYTE UI_ELEMENT_IMAGE::GetAlpha()
 * @fn         void UI_ELEMENT_IMAGE::SetAlpha(XBYTE alpha)
 * @brief      SetAlpha
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  alpha : 
 * 
 * @return     void : does not return anything. 
@@ -191,10 +170,7 @@ void UI_ELEMENT_IMAGE::SetAlpha(XBYTE alpha)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

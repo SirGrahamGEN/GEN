@@ -6,10 +6,7 @@
 * @brief      Sound Factory class
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@ SNDFACTORY* SNDFACTORY::instance = NULL;
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ SNDFACTORY::SNDFACTORY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything. 
 *
@@ -102,9 +93,6 @@ SNDFACTORY::~SNDFACTORY()
 * @brief      GetIsInstanced
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -120,9 +108,6 @@ bool SNDFACTORY::GetIsInstanced()
 * @fn         SNDFACTORY& SNDFACTORY::GetInstance()
 * @brief      GetInstance
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     SNDFACTORY& : 
 *
@@ -141,9 +126,6 @@ SNDFACTORY& SNDFACTORY::GetInstance()
 * @fn         bool SNDFACTORY::SetInstance(SNDFACTORY* _instance)
 * @brief      SetInstance
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  _instance : 
 *
@@ -167,9 +149,6 @@ bool SNDFACTORY::SetInstance(SNDFACTORY* _instance)
 * @brief      DelInstance
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -191,9 +170,6 @@ bool SNDFACTORY::DelInstance()
 * @brief      Beep
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  frecuency : 
 * @param[in]  duration : 
 *
@@ -212,9 +188,6 @@ bool SNDFACTORY::Beep(float frecuency, float duration)
 * @fn         SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XSTRING& ID, bool instream)
 * @brief      Element_Add
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpathfile : 
 * @param[in]  ID : 
@@ -235,9 +208,6 @@ SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XSTRING& ID, bool instream
 * @fn         SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XCHAR* ID, bool instream)
 * @brief      Element_Add
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpathfile : 
 * @param[in]  ID : 
@@ -260,9 +230,6 @@ SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XCHAR* ID, bool instream)
 * @brief      Element_Get
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  namefile : 
 * @param[in]  instream : 
 *
@@ -282,9 +249,6 @@ SNDELEMENT* SNDFACTORY::Element_Get(XSTRING& namefile, bool instream)
 * @fn         SNDELEMENT* SNDFACTORY::Element_Get(XCHAR* namefile, bool instream)
 * @brief      Element_Get
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  namefile : 
 * @param[in]  instream : 
@@ -306,9 +270,6 @@ SNDELEMENT* SNDFACTORY::Element_Get(XCHAR* namefile, bool instream)
 * @brief      Element_Del
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  element : 
 *
 * @return     bool : true if is succesful. 
@@ -328,9 +289,6 @@ bool SNDFACTORY::Element_Del(SNDELEMENT* element)
 * @brief      PlaySound
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  element : 
 *
 * @return     SNDINSTANCE* : 
@@ -348,9 +306,6 @@ SNDINSTANCE* SNDFACTORY::PlaySound(SNDELEMENT* element)
 * @fn         bool SNDFACTORY::StopSound(SNDELEMENT* element)
 * @brief      StopSound
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  element : 
 *
@@ -370,9 +325,6 @@ bool SNDFACTORY::StopSound(SNDELEMENT* element)
 * @brief      PauseSound
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  element : 
 *
 * @return     SNDINSTANCE* : 
@@ -391,9 +343,6 @@ SNDINSTANCE* SNDFACTORY::PauseSound(SNDELEMENT* element)
 * @brief      IsAnyPlaying
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -409,9 +358,6 @@ bool SNDFACTORY::IsAnyPlaying()
 * @fn         bool SNDFACTORY::StopAll()
 * @brief      StopAll
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -431,9 +377,6 @@ bool SNDFACTORY::StopAll()
 * @brief      GetMasterVolume
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     float : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -449,9 +392,6 @@ float SNDFACTORY::GetMasterVolume()
 * @fn         bool SNDFACTORY::SetMasterVolume(float mastervolume)
 * @brief      SetMasterVolume
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  mastervolume : 
 *
@@ -471,9 +411,6 @@ bool SNDFACTORY::SetMasterVolume(float mastervolume)
 * @brief      CreateSoundFile
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     SNDFILE* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -490,9 +427,6 @@ SNDFILE* SNDFACTORY::CreateSoundFile()
 * @fn         void SNDFACTORY::DeleteSoundFile(SNDFILE* file)
 * @brief      DeleteSoundFile
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  file : 
 *
@@ -513,9 +447,6 @@ bool SNDFACTORY::DeleteSoundFile(SNDFILE* file)
 * @brief      Update
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -533,9 +464,6 @@ void SNDFACTORY::Update()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

@@ -36,7 +36,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/11/2004 13:06:47
 //
 //  @return
@@ -54,7 +54,7 @@ XSERIALIZE::XSERIALIZE()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/11/2004 13:07:06
 //
 //  @return
@@ -72,7 +72,7 @@ XSERIALIZE::~XSERIALIZE()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/11/2004 13:07:40
 //
 //  @return       bool :

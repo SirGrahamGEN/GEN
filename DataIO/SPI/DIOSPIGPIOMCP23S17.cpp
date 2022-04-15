@@ -6,10 +6,7 @@
 * @brief      Data Input/Output SPI GPIO Extender MCP23S17 (Microchip)
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ) :
 *
 * @return     Does not return anything.
@@ -83,9 +77,6 @@ DIOSPIGPIOMCP23S17::DIOSPIGPIOMCP23S17() : DIODEVICESPI()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -104,9 +95,6 @@ DIOSPIGPIOMCP23S17::~DIOSPIGPIOMCP23S17()
 * @fn         bool DIOSPIGPIOMCP23S17::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -160,9 +148,6 @@ bool DIOSPIGPIOMCP23S17::IniDevice()
 * @brief      Configure
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -199,9 +184,6 @@ bool DIOSPIGPIOMCP23S17::Configure()
 * @brief      Read_Register
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  reg : 
 * @param[in]  addr : 
 * @param[in]  data : 
@@ -233,9 +215,6 @@ bool DIOSPIGPIOMCP23S17::Read_Register(XBYTE reg, XBYTE addr, XBYTE& data)
 * @brief      Write_Register
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  reg : 
 * @param[in]  addr : 
 * @param[in]  data : 
@@ -260,9 +239,6 @@ bool DIOSPIGPIOMCP23S17::Write_Register(XBYTE reg, XBYTE addr, XBYTE data)
 * @fn         bool DIOSPIGPIOMCP23S17::Read_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE& data)
 * @brief      Read_Bit
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  reg : 
 * @param[in]  addr : 
@@ -290,9 +266,6 @@ bool DIOSPIGPIOMCP23S17::Read_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE& da
 * @fn         bool DIOSPIGPIOMCP23S17::Write_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE data)
 * @brief      Write_Bit
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  reg : 
 * @param[in]  addr : 
@@ -329,9 +302,6 @@ bool DIOSPIGPIOMCP23S17::Write_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE da
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -367,9 +337,6 @@ bool DIOSPIGPIOMCP23S17::End()
 * @brief      GetDIOStreamSPI
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSPI* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -385,9 +352,6 @@ DIOSTREAMSPI* DIOSPIGPIOMCP23S17::GetDIOStreamSPI()
 * @fn         void DIOSPIGPIOMCP23S17::SetDIOStreamSPI(DIOSTREAMSPI* diostream)
 * @brief      SetDIOStreamSPI
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  diostream :
 *
@@ -407,9 +371,6 @@ void DIOSPIGPIOMCP23S17::SetDIOStreamSPI(DIOSTREAMSPI* diostream)
 * @fn         XBYTE DIOSPIGPIOMCP23S17::GetControlByte(XBYTE rw_cmd, XBYTE addr)
 * @brief      GetControlByte
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  rw_cmd : 
 * @param[in]  addr : 
@@ -432,9 +393,6 @@ XBYTE DIOSPIGPIOMCP23S17::GetControlByte(XBYTE rw_cmd, XBYTE addr)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

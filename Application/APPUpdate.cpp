@@ -6,10 +6,7 @@
 * @brief      Application Update class
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -70,9 +67,6 @@ APPUPDATE* APPUPDATE::instance = NULL;
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -88,9 +82,6 @@ APPUPDATE_CFG::APPUPDATE_CFG()
 * @fn         APPUPDATE_CFG::APPUPDATE_CFG()
 * @brief      Constructor
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -108,9 +99,6 @@ APPUPDATE_CFG::~APPUPDATE_CFG()
 * @brief      GetURL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOURL* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -125,9 +113,6 @@ DIOURL* APPUPDATE_CFG::GetURL()
 * @fn         XDWORD APPUPDATE_CFG::Get_Port()
 * @brief      GetPort
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -144,9 +129,6 @@ XDWORD APPUPDATE_CFG::Get_Port()
 * @fn         void APPUPDATE_CFG::Set_Port(XDWORD port)
 * @brief      SetPort
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  port :
 *
@@ -166,9 +148,6 @@ void APPUPDATE_CFG::Set_Port(XDWORD port)
 * @brief      GetAppVersion
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOAPPLICATIONUPDATE_VERSIONDATA* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -184,9 +163,6 @@ DIOAPPLICATIONUPDATE_VERSIONDATA* APPUPDATE_CFG::GetAppVersion()
 * @fn         XSTRING* APPUPDATE_CFG::GetAppName()
 * @brief      GetAppName
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -204,9 +180,6 @@ XSTRING* APPUPDATE_CFG::GetAppName()
 * @brief      GetPathRootApp
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -223,9 +196,6 @@ XPATH* APPUPDATE_CFG::GetPathRootApp()
 * @brief      GetDolog
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -241,9 +211,6 @@ bool APPUPDATE_CFG::GetDolog()
 * @fn         void APPUPDATE_CFG::SetDolog(bool dolog)
 * @brief      SetDolog
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  dolog :
 *
@@ -262,9 +229,6 @@ void APPUPDATE_CFG::SetDolog(bool dolog)
 * @fn         bool APPUPDATE_CFG::CopyFrom(APPUPDATE_CFG* updatecfg)
 * @brief      CopyFrom
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  updatecfg :
 *
@@ -299,9 +263,6 @@ bool APPUPDATE_CFG::CopyFrom(APPUPDATE_CFG* updatecfg)
 * @fn         bool APPUPDATE_CFG::CopyTo(APPUPDATE_CFG* updatecfg)
 * @brief      CopyTo
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  updatecfg :
 *
@@ -338,9 +299,6 @@ bool APPUPDATE_CFG::CopyTo(APPUPDATE_CFG* updatecfg)
 * @note       INTERNAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -365,9 +323,6 @@ void APPUPDATE_CFG::Clean()
 * @brief      GetIsInstanced
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -383,9 +338,6 @@ bool APPUPDATE::GetIsInstanced()
 * @fn         APPUPDATE& APPUPDATE::GetInstance()
 * @brief      GetInstance
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     APPUPDATE& : 
 *
@@ -405,9 +357,6 @@ APPUPDATE& APPUPDATE::GetInstance()
 * @fn         bool APPUPDATE::DelInstance()
 * @brief      DelInstance
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -432,9 +381,6 @@ bool APPUPDATE::DelInstance()
 * @fn         bool APPUPDATE::Ini(APPCFG* cfg, APPUPDATE_CFG* updatecfg)
 * @brief      Ini
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  cfg : 
 * @param[in]  updatecfg : 
@@ -489,9 +435,6 @@ bool APPUPDATE::Ini(APPCFG* cfg, APPUPDATE_CFG* updatecfg)
 * @brief      EventManager
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  eventoperation :
 * @param[in]  xsubject :
 * @param[in]  observer :
@@ -539,9 +482,6 @@ bool APPUPDATE::EventManager(APPUPDATE_EVENTOPERATION eventoperation, XSUBJECT* 
 * @fn         bool APPUPDATE::Do()
 * @brief      Do
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -679,9 +619,6 @@ bool APPUPDATE::Do()
 * @brief      RestorePrevious
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -736,9 +673,6 @@ bool APPUPDATE::RestorePrevious()
 * @brief      Restore
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -785,9 +719,6 @@ bool APPUPDATE::Restore(DIOAPPLICATIONUPDATE_VERSIONDATA& applicationversiondata
 * @brief      End
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -829,9 +760,6 @@ bool APPUPDATE::End()
 * @brief      GetDIOAPPUpdate
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOAPPLICATIONUPDATE* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -847,9 +775,6 @@ DIOAPPLICATIONUPDATE* APPUPDATE::GetDIOAPPUpdate()
 * @fn         bool APPUPDATE::LogOfEvent()
 * @brief      LogOfEvent
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -962,9 +887,6 @@ bool APPUPDATE::LogOfEvent(DIOAPPLICATIONUPDATE_XEVENT* event)
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -981,9 +903,6 @@ APPUPDATE::APPUPDATE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -1002,9 +921,6 @@ APPUPDATE::~APPUPDATE()
 * @fn         bool APPUPDATE::CreateTaskUpdate(bool doajust)
 * @brief      CreateTaskUpdate
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  doajust :
 *
@@ -1097,9 +1013,6 @@ bool APPUPDATE::CreateTaskUpdate(bool doajust)
 * @note       INTERNAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  event :
 *
 * @return     void : does not return anything.
@@ -1123,9 +1036,6 @@ void APPUPDATE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 * @note       INTERNAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  event :
 *
 * @return     void : does not return anything.
@@ -1144,9 +1054,6 @@ void APPUPDATE::HandleEvent_ApplicationUpdate(DIOAPPLICATIONUPDATE_XEVENT* event
 * @brief      Handle Event for the observer manager of this class
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xevent :
 *
@@ -1184,9 +1091,6 @@ void APPUPDATE::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

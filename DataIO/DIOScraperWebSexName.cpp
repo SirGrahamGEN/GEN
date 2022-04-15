@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Scraper Web Sex Name class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ DIOSEXNAME_RESULT::DIOSEXNAME_RESULT()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -98,9 +89,6 @@ DIOSEXNAME_RESULT::~DIOSEXNAME_RESULT()
 * @brief      Get
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSCRAPERWEBSEXNAMETYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -116,9 +104,6 @@ DIOSCRAPERWEBSEXNAMETYPE DIOSEXNAME_RESULT::Get()
 * @fn         bool DIOSEXNAME_RESULT::Set(DIOSCRAPERWEBSEXNAMETYPE sex)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sex :
 *
@@ -140,9 +125,6 @@ bool DIOSEXNAME_RESULT::Set(DIOSCRAPERWEBSEXNAMETYPE sex)
 * @brief      GetNameClear
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -159,9 +141,6 @@ XSTRING* DIOSEXNAME_RESULT::GetNameClear()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -185,9 +164,6 @@ void DIOSEXNAME_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -205,9 +181,6 @@ DIOSCRAPERWEBSEXNAME::DIOSCRAPERWEBSEXNAME(): DIOSCRAPERWEB()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -224,9 +197,6 @@ DIOSCRAPERWEBSEXNAME::~DIOSCRAPERWEBSEXNAME()
 * @fn         bool DIOSCRAPERWEBSEXNAME::ChangeURL(XCHAR* maskurl, DIOURL& url)
 * @brief      ChangeURL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  maskurl :
 * @param[in]  url :
@@ -248,9 +218,6 @@ bool DIOSCRAPERWEBSEXNAME::ChangeURL(XCHAR* maskurl, DIOURL& url)
 * @fn         bool DIOSCRAPERWEBSEXNAME::Get(XCHAR* name, DIOSCRAPERWEBSEXNAMETYPE& sexnametype, XSTRING* nameclear, int timeoutforurl, XSTRING* localIP, bool usecache)
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  sexnametype :
@@ -337,9 +304,6 @@ bool DIOSCRAPERWEBSEXNAME::Get(XCHAR* name, DIOSCRAPERWEBSEXNAMETYPE& sexnametyp
 * @brief      Get
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  sexnametype :
 * @param[in]  nameclear :
@@ -364,9 +328,6 @@ bool DIOSCRAPERWEBSEXNAME::Get(XSTRING& name, DIOSCRAPERWEBSEXNAMETYPE& sexnamet
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

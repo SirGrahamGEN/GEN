@@ -6,10 +6,7 @@
 * @brief      Grpahics 2D Vertex
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -72,9 +66,6 @@ GRP2DVERTEX::GRP2DVERTEX()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -91,9 +82,6 @@ GRP2DVERTEX::~GRP2DVERTEX()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -114,9 +102,6 @@ void GRP2DVERTEX::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -136,9 +121,6 @@ GRP2DVERTEXS::GRP2DVERTEXS()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -156,9 +138,6 @@ GRP2DVERTEXS::~GRP2DVERTEXS()
 * @fn         bool GRP2DVERTEXS::Add(double x, double y)
 * @brief      Add Vertex
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x : x pos
 * @param[in]  y : y pos
@@ -185,9 +164,6 @@ bool GRP2DVERTEXS::Add(double x, double y)
 * @brief      Get number of vertex
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : number of vertex
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -203,9 +179,6 @@ XDWORD GRP2DVERTEXS::GetSize()
 * @fn         GRP2DVERTEX* GRP2DVERTEXS::Get(int index)
 * @brief      Get Vertex
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index : index of vertex
 *
@@ -224,9 +197,6 @@ GRP2DVERTEX* GRP2DVERTEXS::Get(int index)
 * @fn         bool GRP2DVERTEXS::DeleteAll()
 * @brief      Delete All
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -249,9 +219,6 @@ bool GRP2DVERTEXS::DeleteAll()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

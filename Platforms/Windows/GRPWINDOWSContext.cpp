@@ -36,7 +36,7 @@
 //
 //  Class Constructor GRPWINDOWSCONTEXT
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/05/2016 6:52:43
 //
 */
@@ -55,7 +55,7 @@ GRPWINDOWSCONTEXT::GRPWINDOWSCONTEXT() : GRPCONTEXT()
 //
 //   Class Destructor GRPWINDOWSCONTEXT
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/05/2016 6:53:09
 //
 */
@@ -74,7 +74,7 @@ GRPWINDOWSCONTEXT::~GRPWINDOWSCONTEXT()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/05/2016 6:53:14
 //
 //  @return       bool :
@@ -179,7 +179,7 @@ bool GRPWINDOWSCONTEXT::Create(void* handle)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/05/2016 6:53:27
 //
 //  @return       bool :
@@ -208,7 +208,7 @@ bool GRPWINDOWSCONTEXT::IsLost()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/05/2016 6:53:21
 //
 //  @return       bool :
@@ -234,9 +234,6 @@ bool GRPWINDOWSCONTEXT::Destroy()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

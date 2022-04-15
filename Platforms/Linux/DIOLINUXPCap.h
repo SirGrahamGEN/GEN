@@ -6,7 +6,7 @@
 //
 //  Interface PCap Library (Capture Ethernet Packets)
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 22/10/2012 13:25:51
 */
 /*  GEN  Copyright (C).  All right reserved.

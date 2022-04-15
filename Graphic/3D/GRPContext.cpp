@@ -6,10 +6,7 @@
 * @brief      Graphics Context class
 * @ingroup    GRAPHIC
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -74,9 +68,6 @@ GRPCONTEXT::GRPCONTEXT()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ GRPCONTEXT::~GRPCONTEXT()
 * @brief      Get Screen Handle
 * @ingroup    GRAPHIC
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     GRPSCREEN* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -111,9 +99,6 @@ GRPSCREEN* GRPCONTEXT::GetScreen()
 * @fn         void GRPCONTEXT::SetScreen(GRPSCREEN* screen)
 * @brief      Set Screen Handle
 * @ingroup    GRAPHIC
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  screen : new screen class (handle)
 *
@@ -132,9 +117,6 @@ void GRPCONTEXT::SetScreen(GRPSCREEN* screen)
 * @fn         bool GRPCONTEXT::Create(void* handle)
 * @brief      Create context
 * @ingroup    GRAPHIC
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  handle : generic handle
 *
@@ -156,9 +138,6 @@ bool GRPCONTEXT::Create(void* handle)
 * @brief      Is Lost context
 * @ingroup    GRAPHIC
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -174,9 +153,6 @@ bool GRPCONTEXT::IsLost()
 * @fn         bool GRPCONTEXT::Update()
 * @brief      Update Context
 * @ingroup    GRAPHIC
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -194,9 +170,6 @@ bool GRPCONTEXT::Update()
 * @brief      Destroy context
 * @ingroup    GRAPHIC
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -213,9 +186,6 @@ bool GRPCONTEXT::Destroy()
 * @brief      Is Must Rebuild context
 * @ingroup    GRAPHIC
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -231,9 +201,6 @@ bool GRPCONTEXT::IsMustRebuild()
 * @fn         void GRPCONTEXT::SetMustRebuild(bool mustrebuild)
 * @brief      Set Must Rebuild
 * @ingroup    GRAPHIC
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  mustrebuild : true if Must Rebuild context
 *
@@ -253,9 +220,6 @@ void GRPCONTEXT::SetMustRebuild(bool mustrebuild)
 * @brief      Get Multi sampling
 * @ingroup    GRAPHIC
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -271,9 +235,6 @@ XDWORD GRPCONTEXT::GetMultisampling()
 * @fn         void GRPCONTEXT::SetMultiSampling(XDWORD multisampling)
 * @brief      Set Multi Sampling
 * @ingroup    GRAPHIC
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  multisampling : multisamplig factor
 *
@@ -293,9 +254,6 @@ void GRPCONTEXT::SetMultiSampling(XDWORD multisampling)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

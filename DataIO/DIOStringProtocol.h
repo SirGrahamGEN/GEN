@@ -6,7 +6,7 @@
 //
 //  Data IO CLI SERVER class
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 13/05/2002
 */
 //  GEN  Copyright (C).  All right reserved.

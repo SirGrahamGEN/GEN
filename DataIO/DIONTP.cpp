@@ -6,10 +6,7 @@
 * @brief      Data Input/Output NTP (Network Time Protocol) UTC class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -85,9 +79,6 @@ DIONTP::DIONTP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -122,9 +113,6 @@ DIONTP::~DIONTP()
 * @fn         bool DIONTP::GetTimeResponse(XCHAR* urlntpserver, int timeout, bool hardwareuselittleendian, DIONTPRESPONSE& response)
 * @brief      GetTimeResponse
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  urlntpserver :
 * @param[in]  timeout :
@@ -213,9 +201,6 @@ bool DIONTP::GetTimeResponse(XCHAR* urlntpserver, int timeout, bool hardwareusel
 * @brief      GetTimeResponse
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  urlntpserver :
 * @param[in]  timeout :
 * @param[in]  hardwareuselittleendian :
@@ -236,9 +221,6 @@ bool DIONTP::GetTimeResponse(DIOURL& urlntpserver, int timeout, bool hardwareuse
 * @fn         bool DIONTP::GetTimeSeconds(XCHAR* urlntpserver, int timeout, bool hardwareuselittleendian, XQWORD& timeseconds)
 * @brief      GetTimeSeconds
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  urlntpserver :
 * @param[in]  timeout :
@@ -271,9 +253,6 @@ bool DIONTP::GetTimeSeconds(XCHAR* urlntpserver, int timeout, bool hardwareuseli
 * @brief      GetTimeSeconds
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  urlntpserver :
 * @param[in]  timeout :
 * @param[in]  hardwareuselittleendian :
@@ -294,9 +273,6 @@ bool DIONTP::GetTimeSeconds(DIOURL& urlntpserver, int timeout, bool hardwareusel
 * @fn         bool DIONTP::GetTime(XCHAR* urlntpserver, int timeout, bool hardwareuselittleendian, XDATETIME& xdatetime)
 * @brief      GetTime
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  urlntpserver :
 * @param[in]  timeout :
@@ -338,9 +314,6 @@ bool DIONTP::GetTime(XCHAR* urlntpserver, int timeout, bool hardwareuselittleend
 * @brief      GetTime
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  urlntpserver :
 * @param[in]  timeout :
 * @param[in]  hardwareuselittleendian :
@@ -361,9 +334,6 @@ bool DIONTP::GetTime(DIOURL& urlntpserver, int timeout, bool hardwareuselittleen
 * @fn         XQWORD DIONTP::ConvertTimePacket(DIOTIMEPACKET& timepacket, bool hardwareuselittleendian)
 * @brief      ConvertTimePacket
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timepacket :
 * @param[in]  hardwareuselittleendian :
@@ -391,9 +361,6 @@ XQWORD DIONTP::ConvertTimePacket(DIOTIMEPACKET& timepacket, bool hardwareuselitt
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

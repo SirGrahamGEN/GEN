@@ -6,10 +6,7 @@
 * @brief      eXtended ZIP file class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @fn         XFILECMPZIP::XFILECMPZIP(bool compress, void* filehdl)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bool :
 * @param[in]  filehdl :
@@ -118,9 +112,6 @@ XFILECMPZIP::XFILECMPZIP(bool compress, void* filehdl)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -138,9 +129,6 @@ XFILECMPZIP::~XFILECMPZIP()
 * @fn         bool XFILECMPZIP::Open(XSTRING& password)
 * @brief      Open
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  password :
 *
@@ -181,9 +169,6 @@ bool XFILECMPZIP::Open(XSTRING& password)
 * @fn         bool XFILECMPZIP::Create(XDWORD crcfile,zip_fileinfo* zfinfo,XCHAR* password)
 * @brief      Create
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  crcfile :
 * @param[in]  zfinfo :
@@ -230,9 +215,6 @@ bool XFILECMPZIP::Create(XDWORD crcfile,zip_fileinfo* zfinfo,XCHAR* password)
 * @brief      IsActive
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -249,9 +231,6 @@ bool XFILECMPZIP::IsActive()
 * @fn         XCHAR* XFILECMPZIP::GetName()
 * @brief      GetName
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XCHAR* :
 *
@@ -270,9 +249,6 @@ XCHAR* XFILECMPZIP::GetName()
 * @fn         void XFILECMPZIP::SetName(XSTRING& name)
 * @brief      SetName
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 *
@@ -293,9 +269,6 @@ void XFILECMPZIP::SetName(XSTRING& name)
 * @fn         bool XFILECMPZIP::IsDirectory()
 * @brief      IsDirectory
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -319,9 +292,6 @@ bool XFILECMPZIP::IsDirectory()
 * @brief      Size
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -339,9 +309,6 @@ XQWORD XFILECMPZIP::Size()
 * @fn         XQWORD XFILECMPZIP::UnCompressSize()
 * @brief      UnCompressSize
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XQWORD :
 *
@@ -361,9 +328,6 @@ XQWORD XFILECMPZIP::UnCompressSize()
 * @brief      GetCRC32
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -381,9 +345,6 @@ XDWORD XFILECMPZIP::GetCRC32()
 * @fn         bool XFILECMPZIP::GetSeek(int*position)
 * @brief      GetSeek
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position :
 *
@@ -413,9 +374,6 @@ bool XFILECMPZIP::GetSeek(int* position)
 * @brief      Read
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -439,9 +397,6 @@ bool XFILECMPZIP::Read(XBYTE* buffer, XDWORD size)
 * @fn         bool XFILECMPZIP::Read(XBYTE* buffer, int* size)
 * @brief      Read
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -472,9 +427,6 @@ bool XFILECMPZIP::Read(XBYTE* buffer, int* size)
 * @brief      Write
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -499,9 +451,6 @@ bool XFILECMPZIP::Write(XBYTE* buffer, XDWORD size)
 * @brief      IsEOF
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -521,9 +470,6 @@ bool XFILECMPZIP::IsEOF()
 * @fn         bool XFILECMPZIP::Close()
 * @brief      Close
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -561,9 +507,6 @@ bool XFILECMPZIP::Close()
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -591,9 +534,6 @@ void XFILECMPZIP::Clean()
 * @fn         bool XFILECMPZIP::SelectCurrenFile()
 * @brief      SelectCurrenFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -624,9 +564,6 @@ bool XFILECMPZIP::SelectCurrenFile()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XDWORD :
 *
 * @return     Does not return anything.
@@ -650,9 +587,6 @@ XFILEZIP::XFILEZIP(XDWORD maxsizebuffer)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -673,9 +607,6 @@ XFILEZIP::~XFILEZIP()
 * @brief      GetMaxSizeBuffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -691,9 +622,6 @@ XDWORD XFILEZIP::GetMaxSizeBuffer()
 * @fn         void XFILEZIP::SetMaxSizeBuffer(XDWORD maxsizebuffer)
 * @brief      SetMaxSizeBuffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  maxsizebuffer : 
 *
@@ -712,9 +640,6 @@ void XFILEZIP::SetMaxSizeBuffer(XDWORD maxsizebuffer)
 * @fn         bool XFILEZIP::Open(XPATH& xpath)
 * @brief      Open
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -755,9 +680,6 @@ bool XFILEZIP::Open(XPATH& xpath)
 * @brief      CreateFileCmp
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 *
 * @return     XFILECMPZIP* :
@@ -778,9 +700,6 @@ XFILECMPZIP* XFILEZIP::CreateFileCmp(XPATH& xpath)
 * @fn         XDWORD XFILEZIP::GetFileCRC(XFILE* xfile)
 * @brief      GetFileCRC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xfile :
 *
@@ -823,9 +742,6 @@ XDWORD XFILEZIP::GetFileCRC(XFILE*  xfile)
 * @fn         bool XFILEZIP::AddFile(XPATH& xpath, XPATH& xpathnew, XCHAR* password)
 * @brief      AddFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  xpathnew :
@@ -916,9 +832,6 @@ bool XFILEZIP::AddFile(XPATH& xpath, XPATH& xpathnew, XCHAR* password)
 * @brief      Close
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -952,9 +865,6 @@ bool XFILEZIP::Close()
 * @brief      GetOperationPercent
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -970,9 +880,6 @@ float XFILEZIP::GetLastOperationPercent()
 * @fn         XFILEZIP_ERROR XFILEZIP::GetLastError()
 * @brief      GetLastError
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XFILEZIP_ERROR :
 *
@@ -990,9 +897,6 @@ XFILEZIP_ERROR XFILEZIP::GetLastError()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -1021,9 +925,6 @@ void XFILEZIP::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XDWORD :
 *
 * @return     Does not return anything.
@@ -1049,9 +950,6 @@ XFILEUNZIP::XFILEUNZIP(XDWORD maxsizebuffer)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1074,9 +972,6 @@ XFILEUNZIP::~XFILEUNZIP()
 * @brief      GetMaxSizeBuffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1092,9 +987,6 @@ XDWORD XFILEUNZIP::GetMaxSizeBuffer()
 * @fn         void XFILEUNZIP::SetMaxSizeBuffer(XDWORD maxsizebuffer)
 * @brief      SetMaxSizeBuffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  maxsizebuffer : 
 *
@@ -1113,9 +1005,6 @@ void XFILEUNZIP::SetMaxSizeBuffer(XDWORD maxsizebuffer)
 * @fn         bool XFILEUNZIP::Open(XPATH& xpath)
 * @brief      Open
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -1157,9 +1046,6 @@ bool XFILEUNZIP::Open(XPATH& xpath)
 * @brief      GetNFiles
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1188,9 +1074,6 @@ int XFILEUNZIP::GetNFiles()
 * @brief      GotoFile
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  first :
 *
 * @return     XFILECMPZIP* :
@@ -1213,9 +1096,6 @@ XFILECMPZIP* XFILEUNZIP::GotoFile(bool first)
 * @fn         XFILECMPZIP* XFILEUNZIP::GotoFile(XPATH& xpath)
 * @brief      GotoFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -1242,9 +1122,6 @@ XFILECMPZIP* XFILEUNZIP::GotoFile(XPATH& xpath)
 * @fn         XFILECMPZIP* XFILEUNZIP::GotoFile(int index)
 * @brief      GotoFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -1276,9 +1153,6 @@ XFILECMPZIP* XFILEUNZIP::GotoFile(int index)
 * @fn         bool XFILEUNZIP::DelFile(int index, XCHAR* password)
 * @brief      DelFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  password :
@@ -1402,9 +1276,6 @@ bool XFILEUNZIP::DelFile(int index, XCHAR* password)
 * @brief      DecompressFile
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  sourceindex :
 * @param[in]  xpathtarget :
 * @param[in]  nametarget :
@@ -1444,9 +1315,6 @@ bool XFILEUNZIP::DecompressFile(int sourceindex ,XPATH& xpathtarget, XCHAR* name
 * @brief      DecompressFile
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  namesource :
 * @param[in]  xpathtarget :
 * @param[in]  nametarget :
@@ -1477,9 +1345,6 @@ bool XFILEUNZIP::DecompressFile(XSTRING& namesource,XPATH& xpathtarget,XCHAR* na
 * @fn         bool XFILEUNZIP::DecompressFile(XFILECMPZIP* filecmp,XPATH& xpathtarget,XCHAR* nametarget,XCHAR* password)
 * @brief      DecompressFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  filecmp :
 * @param[in]  xpathtarget :
@@ -1587,9 +1452,6 @@ bool XFILEUNZIP::DecompressFile(XFILECMPZIP* filecmp, XPATH& xpathtarget, XCHAR*
 * @brief      Close
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1624,9 +1486,6 @@ bool XFILEUNZIP::Close()
 * @brief      GetLastOperationPercent
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1643,9 +1502,6 @@ float XFILEUNZIP::GetLastOperationPercent()
 * @brief      GetLastError
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILEZIP_ERROR :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1661,9 +1517,6 @@ XFILEZIP_ERROR XFILEUNZIP::GetLastError()
 * @fn         XFILECMPZIP* XFILEUNZIP::CreateCurrentFile()
 * @brief      CreateCurrentFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XFILECMPZIP* :
 *
@@ -1690,9 +1543,6 @@ XFILECMPZIP* XFILEUNZIP::CreateCurrentFile()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

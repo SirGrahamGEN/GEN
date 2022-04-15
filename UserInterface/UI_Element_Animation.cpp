@@ -5,11 +5,8 @@
 * @class      UI_ELEMENT_ANIMATION
 * @brief      User Interface Element Animation class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,10 +53,7 @@
 * @fn         UI_ELEMENT_ANIMATION::UI_ELEMENT_ANIMATION()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -83,10 +77,7 @@ UI_ELEMENT_ANIMATION::UI_ELEMENT_ANIMATION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -109,10 +100,7 @@ UI_ELEMENT_ANIMATION::~UI_ELEMENT_ANIMATION()
 * @fn         bool UI_ELEMENT_ANIMATION::Play()
 * @brief      Play
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -130,10 +118,7 @@ bool UI_ELEMENT_ANIMATION::Play()
 * @fn         bool UI_ELEMENT_ANIMATION::Play(int millisecdelay)
 * @brief      Play
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  millisecdelay : 
 * 
 * @return     bool : true if is succesful. 
@@ -153,10 +138,7 @@ bool UI_ELEMENT_ANIMATION::Play(int millisecdelay)
 * @fn         bool UI_ELEMENT_ANIMATION::Stop()
 * @brief      Stop
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -174,10 +156,7 @@ bool UI_ELEMENT_ANIMATION::Stop()
 * @fn         bool UI_ELEMENT_ANIMATION::Pause()
 * @brief      Pause
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -195,10 +174,7 @@ bool UI_ELEMENT_ANIMATION::Pause()
 * @fn         UI_ELEMENT_ANIMATION_STATE UI_ELEMENT_ANIMATION::GetState()
 * @brief      GetState
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_ELEMENT_ANIMATION_STATE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -214,10 +190,7 @@ UI_ELEMENT_ANIMATION_STATE UI_ELEMENT_ANIMATION::GetState()
 * @fn         XTIMER* UI_ELEMENT_ANIMATION::GetXTimerPlay()
 * @brief      GetXTimerPlay
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XTIMER* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -233,10 +206,7 @@ XTIMER* UI_ELEMENT_ANIMATION::GetXTimerPlay()
 * @fn         int UI_ELEMENT_ANIMATION::GetMilliSecondsDelay()
 * @brief      GetMilliSecondsDelay
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     int : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -252,10 +222,7 @@ int UI_ELEMENT_ANIMATION::GetMilliSecondsDelay()
 * @fn         void UI_ELEMENT_ANIMATION::SetMilliSecondsDelay(int millisecdelay)
 * @brief      SetMilliSecondsDelay
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  millisecdelay : 
 * 
 * @return     void : does not return anything. 
@@ -273,10 +240,7 @@ void UI_ELEMENT_ANIMATION::SetMilliSecondsDelay(int millisecdelay)
 * @fn         int UI_ELEMENT_ANIMATION::IndexImage_Get()
 * @brief      IndexImage_Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     int : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -292,10 +256,7 @@ int UI_ELEMENT_ANIMATION::IndexImage_Get()
 * @fn         bool UI_ELEMENT_ANIMATION::IndexImage_Set(int indeximage)
 * @brief      IndexImage_Set
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  indeximage : 
 * 
 * @return     bool : true if is succesful. 
@@ -322,10 +283,7 @@ bool UI_ELEMENT_ANIMATION::IndexImage_Set(int indeximage)
 * @fn         bool UI_ELEMENT_ANIMATION::IndexImage_Add(int inc)
 * @brief      IndexImage_Add
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  inc : 
 * 
 * @return     bool : true if is succesful. 
@@ -349,10 +307,7 @@ bool UI_ELEMENT_ANIMATION::IndexImage_Add(int inc)
 * @fn         bool UI_ELEMENT_ANIMATION::IndexImage_Reset()
 * @brief      IndexImage_Reset
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -370,10 +325,7 @@ bool UI_ELEMENT_ANIMATION::IndexImage_Reset()
 * @fn         XBYTE UI_ELEMENT_ANIMATION::GetAlpha()
 * @brief      GetAlpha
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XBYTE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -389,10 +341,7 @@ XBYTE UI_ELEMENT_ANIMATION::GetAlpha()
 * @fn         void UI_ELEMENT_ANIMATION::SetAlpha(XBYTE alpha)
 * @brief      SetAlpha
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  alpha : 
 * 
 * @return     void : does not return anything. 
@@ -413,10 +362,7 @@ void UI_ELEMENT_ANIMATION::SetAlpha(XBYTE alpha)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

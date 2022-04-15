@@ -41,7 +41,7 @@
 //
 //  Class Constructor HASHCKS16
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      17/02/2016 12:00:00
 //
 */
@@ -71,7 +71,7 @@ HASHCKS16::HASHCKS16() : HASH()
 //
 //   Class Destructor HASHCKS16
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      17/02/2016 11:59:54
 //
 */
@@ -98,7 +98,7 @@ HASHCKS16::~HASHCKS16()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      17/02/2016 11:59:48
 //
 //  @return       bool :
@@ -138,7 +138,7 @@ bool HASHCKS16::Do(XBYTE* input, XQWORD size)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      17/02/2016 11:59:40
 //
 //  @return       bool :
@@ -168,7 +168,7 @@ bool HASHCKS16::ResetResult()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      17/02/2016 11:59:33
 //
 //  @return       int :
@@ -190,7 +190,7 @@ int HASHCKS16::GetDefaultSize()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      17/02/2016 11:59:27
 //
 //  @return       XBUFFER* :
@@ -212,9 +212,6 @@ XBUFFER* HASHCKS16::GetResult()
 * @fn         XBYTE* HASHCKS16::GetResult(XDWORD& resultsize)
 * @brief      GetResult
 * @ingroup    CIPHER
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  resultsize : 
 *
@@ -240,7 +237,7 @@ XBYTE* HASHCKS16::GetResult(XDWORD& resultsize)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      17/02/2016 11:59:16
 //
 //  @return       XWORD :
@@ -271,7 +268,7 @@ XWORD HASHCKS16::GetResultCKS16()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      17/02/2016 11:59:10
 //
 */
@@ -289,7 +286,7 @@ void HASHCKS16::Ini(void)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      17/02/2016 11:59:04
 //
 //  @return       XWORD :

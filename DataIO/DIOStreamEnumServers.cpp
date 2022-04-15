@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream Enum Servers class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ DIOSTREAMENUMSERVERS::DIOSTREAMENUMSERVERS(): DIOSTREAMENUMDEVICES()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -98,9 +89,6 @@ DIOSTREAMENUMSERVERS::~DIOSTREAMENUMSERVERS()
 * @brief      GetSearchTimeout
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -116,9 +104,6 @@ XDWORD DIOSTREAMENUMSERVERS::GetSearchTimeout()
 * @fn         void DIOSTREAMENUMSERVERS::SetSearchTimeout(int searchtimeout)
 * @brief      SetSearchTimeout
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  searchtimeout :
 *
@@ -137,9 +122,6 @@ void DIOSTREAMENUMSERVERS::SetSearchTimeout(int searchtimeout)
 * @fn         bool DIOSTREAMENUMSERVERS::Search(int searchtimeout)
 * @brief      Search
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  searchtimeout :
 *
@@ -163,9 +145,6 @@ bool DIOSTREAMENUMSERVERS::Search(int searchtimeout)
 * @brief      Search
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -183,9 +162,6 @@ bool DIOSTREAMENUMSERVERS::Search()
 * @fn         bool DIOSTREAMENUMSERVERS::StopSearch(bool waitend)
 * @brief      StopSearch
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  waitend :
 *
@@ -206,9 +182,6 @@ bool DIOSTREAMENUMSERVERS::StopSearch(bool waitend)
 * @brief      IsSearching
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -224,9 +197,6 @@ bool DIOSTREAMENUMSERVERS::IsSearching()
 * @fn         bool DIOSTREAMENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
 * @brief      IsDeviceAvailable
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  resource :
 *
@@ -247,9 +217,6 @@ bool DIOSTREAMENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
 * @brief      GetXTimer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XTIMER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -265,9 +232,6 @@ XTIMER* DIOSTREAMENUMSERVERS::GetXTimer()
 * @fn         bool DIOSTREAMENUMSERVERS::SendSignal()
 * @brief      SendSignal
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -285,9 +249,6 @@ bool DIOSTREAMENUMSERVERS::SendSignal()
 * @brief      GetID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -303,9 +264,6 @@ XDWORD DIOSTREAMENUMSERVERS::GetID()
 * @fn         bool DIOSTREAMENUMSERVERS::SetID(XDWORD ID)
 * @brief      SetID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -327,9 +285,6 @@ bool DIOSTREAMENUMSERVERS::SetID(XDWORD ID)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

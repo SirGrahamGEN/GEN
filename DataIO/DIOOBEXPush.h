@@ -6,7 +6,7 @@
 //
 //  Send Method
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 14/09/2004 11:59:59
 */
 //  GEN  Copyright (C).  All right reserved.

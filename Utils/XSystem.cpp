@@ -7,10 +7,7 @@
 * @note        Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@ XSYSTEM* XSYSTEM::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ XSYSTEM::XSYSTEM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -96,9 +87,6 @@ XSYSTEM::~XSYSTEM()
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +103,6 @@ bool XSYSTEM::GetIsInstanced()
 * @brief      GetInstance
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSYSTEM& :
 *
@@ -138,9 +123,6 @@ XSYSTEM& XSYSTEM::GetInstance()
 * @brief      SetInstance
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  _instance : new instance
 *
@@ -164,9 +146,6 @@ bool XSYSTEM::SetInstance(XSYSTEM* _instance)
 * @brief      DelInstance
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -192,9 +171,6 @@ bool XSYSTEM::DelInstance()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  revision : revision (Pi rules)
 *
 * @return     XSYSTEM_HARDWARETYPE : Type Hardware (enum XSYSTEM_HARDWARETYPE)
@@ -216,9 +192,6 @@ XSYSTEM_HARDWARETYPE  XSYSTEM::GetTypeHardware(int* revision)
 * @brief      Hardware Use LittleEndian
 * @note       In ARM can be changed, can be used BIG ENDIAN or LITTLE ENDIAN
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -256,10 +229,7 @@ bool XSYSTEM::HardwareUseLittleEndian()
 * @fn         XSYSTEM_PLATFORM XSYSTEM::GetPlatform(XSTRING* namestring = NULL)
 * @brief      GetPlatform
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  namestring : 
 * 
 * @return     XSYSTEM_PLATFORM : 
@@ -279,10 +249,7 @@ XSYSTEM_PLATFORM XSYSTEM::GetPlatform(XSTRING* namestring)
 * @fn         bool XSYSTEM::GetOperativeSystemID(XSTRING& ID)
 * @brief      GetOperativeSystemID
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ID : 
 * 
 * @return     bool : true if is succesful. 
@@ -304,9 +271,6 @@ bool XSYSTEM::GetOperativeSystemID(XSTRING& ID)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XLANGUAGE_CODE : Language code (enum XLANGUAGE_CODE)
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -322,9 +286,6 @@ XDWORD XSYSTEM::GetLanguageSO()
 * @fn         XSTRING* XSYSTEM::GetSerialNumber()
 * @brief      GetSerialNumber
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -342,9 +303,6 @@ XSTRING* XSYSTEM::GetSerialNumber()
 * @brief      GetMemoryInfo
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out] total : total memory in bytes.
 * @param[out] free :  free  memory in bytes
@@ -367,9 +325,6 @@ bool XSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 * @fn         int XSYSTEM::GetFreeMemoryPercent()
 * @brief      Get Free Memory Percent
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -396,9 +351,6 @@ int XSYSTEM::GetFreeMemoryPercent()
 * @brief      FreeCacheMemory
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -415,9 +367,6 @@ bool XSYSTEM::FreeCacheMemory()
 * @brief      GetCPUUsageTotal
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -433,9 +382,6 @@ int XSYSTEM::GetCPUUsageTotal()
 * @fn         int XSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 * @brief      GetCPUUsageForProcessName
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  processname : 
 *
@@ -455,9 +401,6 @@ int XSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 * @brief      GetCPUUsageForProcessID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  processID : 
 *
 * @return     int : 
@@ -475,9 +418,6 @@ int XSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 * @fn         XCHAR* XSYSTEM::GetEnviromentVariable(XCHAR* variablename)
 * @brief      GetEnviromentVariable
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  variablename :
 *
@@ -497,9 +437,6 @@ XCHAR* XSYSTEM::GetEnviromentVariable(XCHAR* variablename)
 * @brief      GetEnviromentVariable
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  variablename :
 *
 * @return     XCHAR* :
@@ -517,9 +454,6 @@ XCHAR* XSYSTEM::GetEnviromentVariable(XSTRING& variablename)
 * @fn         bool XSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 * @brief      SetEnviromentVariable
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  variablename :
 * @param[in]  value :
@@ -540,9 +474,6 @@ bool XSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 * @brief      SetEnviromentVariable
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  variablename :
 * @param[in]  value :
 *
@@ -562,9 +493,6 @@ bool XSYSTEM::SetEnviromentVariable(XSTRING& variablename, XSTRING& value)
 * @brief      DelEnviromentVariable
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  namevariable :
 *
 * @return     bool : true if is succesful.
@@ -581,9 +509,6 @@ bool XSYSTEM::DelEnviromentVariable(XCHAR* namevariable)
 * @fn         bool XSYSTEM::DelEnviromentVariable(XSTRING& namevariable);
 * @brief      DelEnviromentVariable
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  namevariable) :
 *
@@ -604,9 +529,6 @@ bool XSYSTEM::DelEnviromentVariable(XSTRING& namevariable)
 * @brief      GetUserAndDomain
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  user : 
 * @param[in]  domain : 
 *
@@ -624,9 +546,6 @@ bool XSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
 * @fn         bool XSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 * @brief      ShutDown
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type : type of shutdown (enum XSYSTEM_CHANGESTATUSTYPE)
 *
@@ -646,9 +565,6 @@ bool XSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 * @brief      Sound_GetLevel
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -664,9 +580,6 @@ int XSYSTEM::Sound_GetLevel()
 * @fn         bool XSYSTEM::Sound_SetLevel(int level)
 * @brief      Sound_SetLevel
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  level : 
 *
@@ -686,9 +599,6 @@ bool XSYSTEM::Sound_SetLevel(int level)
 * @brief      Sound_SetMutex
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  on : 
 *
 * @return     bool : true if is succesful. 
@@ -706,10 +616,7 @@ bool XSYSTEM::Sound_SetMutex(bool on)
 * @fn         bool XSYSTEM::GetBatteryLevel (bool& isincharge, XBYTE& levelpercent)
 * @brief      GetBatteryLevel
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  isincharge : 
 * @param[in]  levelpercent : 
 * 
@@ -730,10 +637,7 @@ bool XSYSTEM::GetBatteryLevel (bool& isincharge, XBYTE& levelpercent)
 * @fn         bool XSYSTEM::HostFile(bool add, XCHAR* domain, XCHAR* IP)
 * @brief      HostFile
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  add : 
 * @param[in]  domain : 
 * @param[in]  IP : 
@@ -795,10 +699,7 @@ bool XSYSTEM::HostFile(bool add, XCHAR* domain, XCHAR* IP)
 * @fn         bool XSYSTEM::HostFile(bool add, XSTRING& domain, XSTRING& IP)
 * @brief      HostFile
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  add : 
 * @param[in]  domain : 
 * @param[in]  IP : 
@@ -818,10 +719,7 @@ bool XSYSTEM::HostFile(bool add, XSTRING& domain, XSTRING& IP)
 * @fn         int XSYSTEM::IsLineInHostFile(XFILETXT& xfileTXT, XCHAR* domain, XCHAR* IP)
 * @brief      IsLineInHostFile
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xfileTXT : 
 * @param[in]  domain : 
 * @param[in]  IP : 
@@ -881,9 +779,6 @@ int XSYSTEM::IsLineInHostFile(XFILETXT& xfileTXT, XCHAR* domain, XCHAR* IP)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

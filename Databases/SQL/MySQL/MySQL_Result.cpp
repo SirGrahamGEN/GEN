@@ -6,10 +6,7 @@
 * @brief      DataBase MySQL Result class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -118,9 +112,6 @@ MYSQL_RESULT::~MYSQL_RESULT()
 * @brief      GetNumRows
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -137,9 +128,6 @@ XQWORD MYSQL_RESULT::GetNumRows()
 * @brief      GetNumColumns
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -155,9 +143,6 @@ XQWORD MYSQL_RESULT::GetNumColumns()
 * @fn         bool MYSQL_RESULT::Seek(int index)
 * @brief      Seek
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -179,9 +164,6 @@ bool MYSQL_RESULT::Seek(int index)
 * @brief      First
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -198,9 +180,6 @@ bool MYSQL_RESULT::First()
 * @brief      Last
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -216,9 +195,6 @@ bool MYSQL_RESULT::Last()
 * @fn         bool MYSQL_RESULT::Next()
 * @brief      Next
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -240,9 +216,6 @@ bool MYSQL_RESULT::Next()
 * @fn         bool MYSQL_RESULT::ProcessRow()
 * @brief      ProcessRow
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -345,9 +318,6 @@ bool MYSQL_RESULT::ProcessRow()
 * @brief      Abort
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -365,9 +335,6 @@ bool MYSQL_RESULT::Abort()
 * @brief      HasNext
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -383,9 +350,6 @@ bool MYSQL_RESULT::HasNext()
 * @fn         MYSQL_RESULT::MYSQL_RESULT()
 * @brief      Constructor
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -403,9 +367,6 @@ MYSQL_RESULT::MYSQL_RESULT() : DB_SQL_RESULT()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

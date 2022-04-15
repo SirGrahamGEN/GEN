@@ -6,10 +6,7 @@
 * @brief      SAMD5xE5x platform factory class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -77,9 +74,6 @@
 * @brief      CreateStreamIO
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  config :
 *
 * @return     DIOSTREAM* :
@@ -133,9 +127,6 @@ DIOSTREAM* DIOSAMD5XE5XFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 * @brief      DeleteStreamIO
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  diostream :
 *
 * @return     bool : true if is succesful.
@@ -161,9 +152,6 @@ bool DIOSAMD5XE5XFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 * @brief      CreateGPIO
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOGPIO* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -182,9 +170,6 @@ DIOGPIO* DIOSAMD5XE5XFACTORY::CreateGPIO()
 * @fn         bool DIOSAMD5XE5XFACTORY::DeleteGPIO(DIOGPIO* port)
 * @brief      DeleteGPIO
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  port :
 *

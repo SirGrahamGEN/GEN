@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Web Server eXtended Event class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  subject :
 * @param[in]  type :
 * @param[in]  family :
@@ -78,9 +72,6 @@ DIOWEBSERVER_XEVENT::DIOWEBSERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD 
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -97,9 +88,6 @@ DIOWEBSERVER_XEVENT::~DIOWEBSERVER_XEVENT()
 * @brief      GetServer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBSERVER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +103,6 @@ DIOWEBSERVER* DIOWEBSERVER_XEVENT::GetServer()
 * @fn         void DIOWEBSERVER_XEVENT::SetServer(DIOWEBSERVER* server)
 * @brief      SetServer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  server :
 *
@@ -137,9 +122,6 @@ void DIOWEBSERVER_XEVENT::SetServer(DIOWEBSERVER* server)
 * @brief      GetConnection
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBSERVER_CONNECTION* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -155,9 +137,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER_XEVENT::GetConnection()
 * @fn         void DIOWEBSERVER_XEVENT::SetConnection(DIOWEBSERVER_CONNECTION* connection)
 * @brief      SetConnection
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  connection :
 *
@@ -177,9 +156,6 @@ void DIOWEBSERVER_XEVENT::SetConnection(DIOWEBSERVER_CONNECTION* connection)
 * @brief      GetRequest
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBSERVER_REQUEST* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -195,9 +171,6 @@ DIOWEBSERVER_REQUEST* DIOWEBSERVER_XEVENT::GetRequest()
 * @fn         void DIOWEBSERVER_XEVENT::SetRequest(DIOWEBSERVER_REQUEST* request)
 * @brief      SetRequest
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  request :
 *
@@ -217,9 +190,6 @@ void DIOWEBSERVER_XEVENT::SetRequest(DIOWEBSERVER_REQUEST* request)
 * @brief      GetTimeOut
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -235,9 +205,6 @@ int DIOWEBSERVER_XEVENT::GetTimeOut()
 * @fn         void DIOWEBSERVER_XEVENT::SetTimeOut(int timeout)
 * @brief      SetTimeOut
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeout :
 *
@@ -257,9 +224,6 @@ void DIOWEBSERVER_XEVENT::SetTimeOut(int timeout)
 * @brief      GetQueryString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBSERVER_QUERYSTRINGS* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -275,9 +239,6 @@ DIOWEBSERVER_QUERYSTRINGS*  DIOWEBSERVER_XEVENT::GetQueryString()
 * @fn         void DIOWEBSERVER_XEVENT::SetQueryString(DIOWEBSERVER_QUERYSTRINGS* querystring)
 * @brief      SetQueryString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  querystring :
 *
@@ -297,9 +258,6 @@ void DIOWEBSERVER_XEVENT::SetQueryString(DIOWEBSERVER_QUERYSTRINGS* querystring)
 * @brief      GetReadDataWebSocket
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBUFFER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -315,9 +273,6 @@ XBUFFER* DIOWEBSERVER_XEVENT::GetReadDataWebSocket()
 * @fn         XSTRING* DIOWEBSERVER_XEVENT::GetOutput()
 * @brief      GetOutput
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -335,9 +290,6 @@ XSTRING* DIOWEBSERVER_XEVENT::GetOutput()
 * @brief      IsRequestAuthenticate
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -353,9 +305,6 @@ bool DIOWEBSERVER_XEVENT::IsRequestAuthenticate()
 * @fn         void DIOWEBSERVER_XEVENT::SetIsRequestAuthenticate(bool isrequestauthenticate)
 * @brief      SetIsRequestAuthenticate
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isrequestauthenticate :
 *
@@ -375,9 +324,6 @@ void DIOWEBSERVER_XEVENT::SetIsRequestAuthenticate(bool isrequestauthenticate)
 * @brief      GetResult
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBHEADER_RESULT :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -393,9 +339,6 @@ DIOWEBHEADER_RESULT DIOWEBSERVER_XEVENT::GetResult()
 * @fn         void DIOWEBSERVER_XEVENT::SetResult(DIOWEBHEADER_RESULT result)
 * @brief      SetResult
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  result :
 *
@@ -415,9 +358,6 @@ void DIOWEBSERVER_XEVENT::SetResult(DIOWEBHEADER_RESULT result)
 * @brief      GetStatus
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -433,9 +373,6 @@ bool DIOWEBSERVER_XEVENT::GetStatus()
 * @fn         void DIOWEBSERVER_XEVENT::SetStatus(bool status)
 * @brief      SetStatus
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  status :
 *
@@ -455,9 +392,6 @@ void DIOWEBSERVER_XEVENT::SetStatus(bool status)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -5,11 +5,8 @@
 * @class      UI_ELEMENT_EDITTEXT
 * @brief      User Interface Element Edit Text class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,10 +52,7 @@
 * @fn         UI_ELEMENT_EDITTEXT::UI_ELEMENT_EDITTEXT()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -81,10 +75,7 @@ UI_ELEMENT_EDITTEXT::UI_ELEMENT_EDITTEXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -106,10 +97,7 @@ UI_ELEMENT_EDITTEXT::~UI_ELEMENT_EDITTEXT()
 * @fn         bool UI_ELEMENT_EDITTEXT::Cursor_IsVisible()
 * @brief      Cursor_IsVisible
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -125,10 +113,7 @@ bool UI_ELEMENT_EDITTEXT::Cursor_IsVisible()
 * @fn         bool UI_ELEMENT_EDITTEXT::Cursor_SetVisible(bool on)
 * @brief      Cursor_SetVisible
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  on : 
 * 
 * @return     bool : true if is succesful. 
@@ -148,10 +133,7 @@ bool UI_ELEMENT_EDITTEXT::Cursor_SetVisible(bool on)
 * @fn         XTIMER* UI_ELEMENT_EDITTEXT::Cursor_GetXTimerBlink()
 * @brief      Cursor_GetXTimerBlink
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XTIMER* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -168,10 +150,7 @@ XTIMER* UI_ELEMENT_EDITTEXT::Cursor_GetXTimerBlink()
 * @fn         XDWORD UI_ELEMENT_EDITTEXT::Cursor_GetTimeBlink()
 * @brief      Cursor_GetTimeBlink
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -187,10 +166,7 @@ XDWORD UI_ELEMENT_EDITTEXT::Cursor_GetTimeBlink()
 * @fn         void UI_ELEMENT_EDITTEXT::Cursor_SetTimeBlink(XDWORD timeblink)
 * @brief      Cursor_SetTimeBlink
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  timeblink : 
 * 
 * @return     void : does not return anything. 
@@ -207,10 +183,7 @@ void UI_ELEMENT_EDITTEXT::Cursor_SetTimeBlink(XDWORD timeblink)
 * @fn         bool UI_ELEMENT_EDITTEXT::Cursor_GetStateBlink()
 * @brief      Cursor_GetStateBlink
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -226,10 +199,7 @@ bool UI_ELEMENT_EDITTEXT::Cursor_GetStateBlink()
 * @fn         void UI_ELEMENT_EDITTEXT::Cursor_ChangeStateBlink()
 * @brief      Cursor_ChangeStateBlink
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -246,10 +216,7 @@ void  UI_ELEMENT_EDITTEXT::Cursor_ChangeStateBlink()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

@@ -5,11 +5,8 @@
 * @class      DIOI2CTOUCHSENSORAT42QT1060
 * @brief      Data Input/Output I2C Touch Sensor AT42QT1060 class
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -66,10 +63,7 @@
 * @fn         DIOI2CTOUCHSENSORAT42QT1060::DIOI2CTOUCHSENSORAT42QT1060() : DIODEVICEI2C()
 * @brief      Constructor
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * 
 * @return     Does not return anything. 
 * 
@@ -88,10 +82,7 @@ DIOI2CTOUCHSENSORAT42QT1060::DIOI2CTOUCHSENSORAT42QT1060() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -109,10 +100,7 @@ DIOI2CTOUCHSENSORAT42QT1060::~DIOI2CTOUCHSENSORAT42QT1060()
 * @fn         XDWORD DIOI2CTOUCHSENSORAT42QT1060::GetGPIOInterruptEntryID()
 * @brief      GetGPIOInterruptEntryID
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -129,10 +117,7 @@ XDWORD DIOI2CTOUCHSENSORAT42QT1060::GetGPIOInterruptEntryID()
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::SetGPIOInterruptEntryID(XDWORD GPIOentryID)
 * @brief      SetGPIOInterruptEntryID
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  GPIOentryID : 
 * 
 * @return     bool : true if is succesful. 
@@ -153,10 +138,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::SetGPIOInterruptEntryID(XDWORD GPIOentryID)
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::GetHW_ID(XBYTE& ID)
 * @brief      GetHW_ID
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ID : 
 * 
 * @return     bool : true if is succesful. 
@@ -184,10 +166,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::GetHW_ID(XBYTE& ID)
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::IsNecessaryUpdate()
 * @brief      IsNecessaryUpdate
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -203,10 +182,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::IsNecessaryUpdate()
 * @fn         void DIOI2CTOUCHSENSORAT42QT1060::SetIsNecessaryUpdate(bool isnecessaryupdate)
 * @brief      SetIsNecessaryUpdate
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  isnecessaryupdate : 
 * 
 * @return     void : does not return anything. 
@@ -224,10 +200,7 @@ void DIOI2CTOUCHSENSORAT42QT1060::SetIsNecessaryUpdate(bool isnecessaryupdate)
 * @fn         XBYTE DIOI2CTOUCHSENSORAT42QT1060::GetStatus()
 * @brief      GetStatus
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XBYTE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -255,9 +228,6 @@ XBYTE DIOI2CTOUCHSENSORAT42QT1060::GetStatus()
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -276,9 +246,6 @@ bool DIOI2CTOUCHSENSORAT42QT1060::End()
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -307,10 +274,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::IniDevice()
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::Initializate()
 * @brief      Initializate
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -369,10 +333,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::Initializate()
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE& data)
 * @brief      ReadRegister
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  offset : 
 * @param[in]  data : 
 * 
@@ -392,10 +353,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE& data)
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      ReadRegister
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  offset : 
 * @param[in]  data : 
 * @param[in]  sizedata : 
@@ -428,10 +386,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE* data, XDWORD
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE data)
 * @brief      WriteRegister
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  offset : 
 * @param[in]  data : 
 * 
@@ -451,10 +406,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE data)
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      WriteRegister
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  offset : 
 * @param[in]  data : 
 * @param[in]  sizedata : 
@@ -485,10 +437,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE* data, XDWOR
 * @fn         void DIOI2CTOUCHSENSORAT42QT1060::Handler_Interrupt(void* param)
 * @brief      Handler_Interrupt
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  param : 
 * 
 * @return     void : does not return anything. 
@@ -508,10 +457,7 @@ void DIOI2CTOUCHSENSORAT42QT1060::Handler_Interrupt(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

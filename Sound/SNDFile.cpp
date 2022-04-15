@@ -6,10 +6,7 @@
 * @brief      Sound File class
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -73,9 +67,6 @@ SNDFILE::SNDFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything. 
 *
@@ -96,9 +87,6 @@ SNDFILE::~SNDFILE()
 * @brief      GetID
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -114,9 +102,6 @@ XSTRING* SNDFILE::GetID()
 * @fn         XBUFFER* SNDFILE::GetData()
 * @brief      GetData
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XBUFFER* : 
 *
@@ -134,9 +119,6 @@ XBUFFER* SNDFILE::GetData()
 * @brief      GetChannels
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XWORD : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -152,9 +134,6 @@ XWORD SNDFILE::GetChannels()
 * @fn         XDWORD SNDFILE::GetNSamples()
 * @brief      GetNSamples
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD : 
 *
@@ -173,9 +152,6 @@ XDWORD SNDFILE::GetNSamples()
 * @brief      GetSampleRate
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -191,9 +167,6 @@ XDWORD SNDFILE::GetSampleRate()
 * @fn         float SNDFILE::GetDuration()
 * @brief      GetDuration
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     float : 
 *
@@ -211,9 +184,6 @@ float SNDFILE::GetDuration()
 * @fn         bool SNDFILE::LoadFile(XCHAR* path, XCHAR* name, bool isstream)
 * @brief      LoadFile
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  path : 
 * @param[in]  name : 
@@ -236,9 +206,6 @@ bool SNDFILE::LoadFile(XCHAR* path, XCHAR* name, bool isstream)
 * @brief      LoadFile
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath : 
 * @param[in]  name : 
 * @param[in]  isstream : 
@@ -258,9 +225,6 @@ bool SNDFILE::LoadFile(XPATH& xpath, XCHAR* ID, bool isstream)
 * @fn         bool SNDFILE::WriteRaw(XCHAR* path, XCHAR* name)
 * @brief      WriteRaw
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  path : 
 * @param[in]  name : 
@@ -297,9 +261,6 @@ bool SNDFILE::WriteRaw(XCHAR* path, XCHAR* ID)
 * @brief      WriteRaw
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath : 
 * @param[in]  ID : 
 *
@@ -321,9 +282,6 @@ bool SNDFILE::WriteRaw(XPATH& xpath, XCHAR* ID)
 * @brief      Reset
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -341,9 +299,6 @@ bool SNDFILE::Reset()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

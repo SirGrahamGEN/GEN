@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Web Client Event class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author
-* @date       01/03/2016 12:00
-*
 * @param[in]  XSUBJECT* :
 * @param[in]   XDWORD type :
 * @param[in]   XDWORD family :
@@ -79,9 +73,6 @@ DIOWEBCLIENT_XEVENT::DIOWEBCLIENT_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD 
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -97,9 +88,6 @@ DIOWEBCLIENT_XEVENT::~DIOWEBCLIENT_XEVENT()
 * @fn         DIOURL* DIOWEBCLIENT_XEVENT::GetURL()
 * @brief      GetURL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOURL* :
 *
@@ -117,9 +105,6 @@ DIOURL* DIOWEBCLIENT_XEVENT::GetURL()
 * @brief      GetMethod
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBHEADER_METHOD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -134,9 +119,6 @@ DIOWEBHEADER_METHOD DIOWEBCLIENT_XEVENT::GetMethod()
 * @fn         void DIOWEBCLIENT_XEVENT::SetMethod(DIOWEBHEADER_METHOD method)
 * @brief      SetMethod
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  method :
 *
@@ -156,9 +138,6 @@ void DIOWEBCLIENT_XEVENT::SetMethod(DIOWEBHEADER_METHOD method)
 * @brief      GetEtag
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRNG* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -175,9 +154,6 @@ XSTRING* DIOWEBCLIENT_XEVENT::GetEtag()
 * @brief      GetContentLenght
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -193,9 +169,6 @@ XQWORD DIOWEBCLIENT_XEVENT::GetContentLenght()
 * @fn         void DIOWEBCLIENT_XEVENT::SetContentLenght(XQWORD& contentlenght)
 * @brief      SetContentLenght
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  contentlenght :
 *
@@ -215,9 +188,6 @@ void DIOWEBCLIENT_XEVENT::SetContentLenght(XQWORD contentlenght)
 * @brief      GetOperationPercent
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -233,9 +203,6 @@ float DIOWEBCLIENT_XEVENT::GetOperationPercent()
 * @fn         void DIOWEBCLIENT_XEVENT::SetOperationPercent(float operationpercent)
 * @brief      SetOperationPercent
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  operationpercent :
 *
@@ -255,9 +222,6 @@ void DIOWEBCLIENT_XEVENT::SetOperationPercent(float operationpercent)
 * @brief      GetDownloadSize
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -273,9 +237,6 @@ XQWORD DIOWEBCLIENT_XEVENT::GetDownloadSize()
 * @fn         void DIOWEBCLIENT_XEVENT::SetDownloadSize(XQWORD downloadsize)
 * @brief      SetDownloadSize
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  downloadsize :
 *
@@ -295,9 +256,6 @@ void DIOWEBCLIENT_XEVENT::SetDownloadSize(XQWORD downloadsize)
 * @brief      GetMBPSSpeed
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -313,9 +271,6 @@ XDWORD DIOWEBCLIENT_XEVENT::GetMBPSSpeed()
 * @fn         void DIOWEBCLIENT_XEVENT::SetMBPSSpeed(XDWORD MBPSspeed)
 * @brief      SetMBPSSpeed
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  MBPSspeed :
 *
@@ -335,9 +290,6 @@ void DIOWEBCLIENT_XEVENT::SetMBPSSpeed(XDWORD MBPSspeed)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

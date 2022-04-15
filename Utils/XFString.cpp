@@ -6,10 +6,7 @@
 * @brief      Unicode Fast String class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -70,9 +64,6 @@ XFSTRING::XFSTRING(): XSTRING()
 * @fn         XFSTRING::XFSTRING(int n) : XSTRING(n)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -92,9 +83,6 @@ XFSTRING::XFSTRING(int n) : XSTRING(n)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     Does not return anything.
@@ -112,9 +100,6 @@ XFSTRING::XFSTRING(const XCHAR* string) : XSTRING(string)
 * @fn         XFSTRING::XFSTRING(XCHAR* string) : XSTRING(string)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -134,9 +119,6 @@ XFSTRING::XFSTRING(XCHAR* string) : XSTRING(string)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     Does not return anything.
@@ -155,9 +137,6 @@ XFSTRING::XFSTRING(const char* string) : XSTRING(string)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     Does not return anything.
@@ -175,9 +154,6 @@ XFSTRING::XFSTRING(XSTRING& string) : XSTRING(string)
 * @fn         int XFSTRING::Fast_ConvertToInt(int index)
 * @brief      Fast_ConvertToInt
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -199,9 +175,6 @@ int XFSTRING::Fast_ConvertToInt(int index)
 * @fn         XDWORD XFSTRING::Fast_ConvertToDWord(int index)
 * @brief      Fast_ConvertToDWord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -225,9 +198,6 @@ XDWORD XFSTRING::Fast_ConvertToDWord(int index)
 * @brief      Fast_ConvertToQWord
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     XQWORD :
@@ -249,9 +219,6 @@ XQWORD XFSTRING::Fast_ConvertToQWord(int index)
 * @fn         XQWORDSIG XFSTRING::Fast_ConvertToSQWord(int index)
 * @brief      Fast_ConvertToSQWord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -275,9 +242,6 @@ XQWORDSIG XFSTRING::Fast_ConvertToSQWord(int index)
 * @brief      Fast_ConvertToFloat
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     float :
@@ -299,9 +263,6 @@ float XFSTRING::Fast_ConvertToFloat(int index)
 * @fn         double XFSTRING::Fast_ConvertToDouble(int index)
 * @brief      Fast_ConvertToDouble
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -325,9 +286,6 @@ double XFSTRING::Fast_ConvertToDouble(int index)
 * @brief      Fast_AddCharacter
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     bool : true if is succesful.
@@ -350,9 +308,6 @@ bool XFSTRING::Fast_AddCharacter(XCHAR character)
 * @brief      Fast_Empty
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -374,9 +329,6 @@ bool XFSTRING::Fast_Empty()
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     void : does not return anything.
@@ -394,9 +346,6 @@ void XFSTRING::operator =  (const char* string)
 * @fn         void XFSTRING::operator = (const XCHAR* string)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -416,9 +365,6 @@ void XFSTRING::operator =  (const XCHAR* string)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     void : does not return anything.
@@ -436,9 +382,6 @@ void XFSTRING::operator =  (const XSTRING& string)
 * @fn         void XFSTRING::operator = (XWORD* string)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -458,9 +401,6 @@ void XFSTRING::operator =  (XWORD* string)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     void : does not return anything.
@@ -478,9 +418,6 @@ void XFSTRING::operator =  (XBUFFER& string)
 * @fn         void XFSTRING::operator += (const char* string)
 * @brief      operator +=
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -500,9 +437,6 @@ void XFSTRING::operator += (const char* string)
 * @brief      operator +=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     void : does not return anything.
@@ -520,9 +454,6 @@ void XFSTRING::operator += (const XCHAR* string)
 * @fn         void XFSTRING::operator += (XSTRING& string)
 * @brief      operator +=
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -542,9 +473,6 @@ void XFSTRING::operator += (XSTRING& string)
 * @brief      operator +=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     void : does not return anything.
@@ -562,9 +490,6 @@ void XFSTRING::operator += (XCHAR character)
 * @fn         bool XFSTRING::operator < (const XSTRING& string) const
 * @brief      operator <
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -584,9 +509,6 @@ bool XFSTRING::operator <  (const XSTRING& string) const
 * @brief      operator >
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -604,9 +526,6 @@ bool XFSTRING::operator >  (XSTRING& string)
 * @fn         bool XFSTRING::operator <= (XSTRING& string)
 * @brief      operator <=
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -626,9 +545,6 @@ bool XFSTRING::operator <= (XSTRING& string)
 * @brief      operator >=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -646,9 +562,6 @@ bool XFSTRING::operator >= (XSTRING& string)
 * @fn         bool XFSTRING::operator == (const XSTRING& string) const
 * @brief      operator ==
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -668,9 +581,6 @@ bool XFSTRING::operator == (const XSTRING& string) const
 * @brief      operator !=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -689,9 +599,6 @@ bool XFSTRING::operator != (XSTRING& string)
 * @brief      operator []
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  position :
 *
 * @return     XCHAR :
@@ -709,9 +616,6 @@ XCHAR XFSTRING::operator [] (int position)
 * @fn         int XFSTRING::Scan(const XCHAR* mask, ...)
 * @brief      Scan
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask :
 * @param[in]  ... :
@@ -737,9 +641,6 @@ int XFSTRING::Scan(const XCHAR* mask, ...)
 * @fn         bool XFSTRING::Explode(XCHAR token, XVECTOR<XFSTRING*>* receive)
 * @brief      Explode
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  token :
 * @param[in]  receive :

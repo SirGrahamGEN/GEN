@@ -6,10 +6,7 @@
 * @brief      Data Input/Output STM32 Stream I2C class
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -66,9 +63,6 @@ DIOSTM32STREAMI2C*        DIOSTM32STREAMI2C::handles[DIOSTM32STREAMI2C_MAXHANDLE
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -86,9 +80,6 @@ DIOSTM32STREAMI2CPORT::DIOSTM32STREAMI2CPORT()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -105,9 +96,6 @@ DIOSTM32STREAMI2CPORT::~DIOSTM32STREAMI2CPORT()
 * @brief      GetCounterRef
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -123,9 +111,6 @@ XDWORD DIOSTM32STREAMI2CPORT::GetCounterRef()
 * @fn         void DIOSTM32STREAMI2CPORT::SetCounterRef(XDWORD counterref)
 * @brief      SetCounterRef
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  counterref :
 *
@@ -145,9 +130,6 @@ void DIOSTM32STREAMI2CPORT::SetCounterRef(XDWORD counterref)
 * @brief      GetHandleI2C
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     I2C_HandleTypeDef* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -163,9 +145,6 @@ I2C_HandleTypeDef* DIOSTM32STREAMI2CPORT::GetHandleI2C()
 * @fn         void DIOSTM32STREAMI2CPORT::SetHandleI2C(I2C_HandleTypeDef* hi2c)
 * @brief      SetHandleI2C
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hi2c :
 *
@@ -185,9 +164,6 @@ void DIOSTM32STREAMI2CPORT::SetHandleI2C(I2C_HandleTypeDef* hi2c)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -211,9 +187,6 @@ void DIOSTM32STREAMI2CPORT::Clean()
 * @fn         DIOSTM32STREAMI2C::DIOSTM32STREAMI2C()
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -254,9 +227,6 @@ DIOSTM32STREAMI2C::DIOSTM32STREAMI2C() : DIOSTREAMI2C()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -277,9 +247,6 @@ DIOSTM32STREAMI2C::~DIOSTM32STREAMI2C()
 * @brief      GetConnectStatus
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSTATUS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -297,9 +264,6 @@ DIOSTREAMSTATUS DIOSTM32STREAMI2C::GetConnectStatus()
 * @fn         bool DIOSTM32STREAMI2C::Open()
 * @brief      Open
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -441,9 +405,6 @@ bool DIOSTM32STREAMI2C::Open()
 * @brief      WaitToFilledReadingBuffer
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  filledto :
 * @param[in]  timeout :
 *
@@ -475,9 +436,6 @@ bool DIOSTM32STREAMI2C::WaitToFilledReadingBuffer(int filledto, int timeout)
 * @fn         XDWORD DIOSTM32STREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 * @brief      ReadDirect
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -514,9 +472,6 @@ XDWORD DIOSTM32STREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 * @fn         XDWORD DIOSTM32STREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 * @brief      WriteDirect
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -558,9 +513,6 @@ XDWORD DIOSTM32STREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 * @brief      Write
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -596,9 +548,6 @@ XDWORD DIOSTM32STREAMI2C::Write(XBYTE* buffer, XDWORD size)
 * @brief      Disconnect
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -614,9 +563,6 @@ bool DIOSTM32STREAMI2C::Disconnect()
 * @fn         bool DIOSTM32STREAMI2C::Close()
 * @brief      Close
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -659,9 +605,6 @@ bool DIOSTM32STREAMI2C::Close()
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -677,9 +620,6 @@ bool DIOSTM32STREAMI2C::CleanBuffers()
 * @fn         void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef* hi2c)
 * @brief      AL_I2C_MasterRxCpltCallback
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hi2c :
 *
@@ -734,9 +674,6 @@ void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef* hi2c)
 * @brief      AL_I2C_SlaveRxCpltCallback
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hi2c :
 *
 * @return     void : does not return anything.
@@ -755,9 +692,6 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef* hi2c)
 * @brief      AL_I2C_ErrorCallback
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  I2C_HandleTypeDef*hi2c :
 *
 * @return     void : does not return anything.
@@ -775,9 +709,6 @@ void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c)
 * @fn         void DIOSTM32STREAMI2C::ThreadConnection(void* param)
 * @brief      ThreadConnection
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *
@@ -873,9 +804,6 @@ void DIOSTM32STREAMI2C::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream UDP Local Enum Servers class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -66,9 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -91,9 +85,6 @@ DIOSTREAMUDPLOCALENUMSERVERS::DIOSTREAMUDPLOCALENUMSERVERS(): DIOSTREAMENUMSERVE
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -120,9 +111,6 @@ DIOSTREAMUDPLOCALENUMSERVERS::~DIOSTREAMUDPLOCALENUMSERVERS()
 * @brief      Search
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -145,9 +133,6 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::Search()
 * @fn         bool DIOSTREAMUDPLOCALENUMSERVERS::StopSearch(bool waitend)
 * @brief      StopSearch
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  waitend :
 *
@@ -175,9 +160,6 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::StopSearch(bool waitend)
 * @fn         bool DIOSTREAMUDPLOCALENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
 * @brief      IsDeviceAvailable
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  resource :
 *
@@ -213,9 +195,6 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
 * @brief      GetDIOStreamUDPCFG
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMUDPCONFIG* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -232,9 +211,6 @@ DIOSTREAMUDPCONFIG* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDPCFG()
 * @brief      GetDIOStreamUDP
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMUDP* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -250,9 +226,6 @@ DIOSTREAMUDP* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDP()
 * @fn         bool DIOSTREAMUDPLOCALENUMSERVERS::SendSignal()
 * @brief      SendSignal
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -303,9 +276,6 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::SendSignal()
 * @brief      GetPort
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -321,9 +291,6 @@ int DIOSTREAMUDPLOCALENUMSERVERS::GetPort()
 * @fn         bool DIOSTREAMUDPLOCALENUMSERVERS::SetPort(int port)
 * @brief      SetPort
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  port :
 *
@@ -346,9 +313,6 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::SetPort(int port)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -373,9 +337,6 @@ void DIOSTREAMUDPLOCALENUMSERVERS::Clean()
 * @fn         void DIOSTREAMUDPLOCALENUMSERVERS::ThreadDiscoveryLocalServer(void* data)
 * @brief      ThreadDiscoveryLocalServer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 *

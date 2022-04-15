@@ -6,10 +6,7 @@
 * @brief      SAMD5xE5x Date Time class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,9 +49,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -71,9 +65,6 @@ XSAMD5XE5XDATETIME::XSAMD5XE5XDATETIME()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -89,9 +80,6 @@ XSAMD5XE5XDATETIME::~XSAMD5XE5XDATETIME()
 * @fn         bool XSAMD5XE5XDATETIME::Read()
 * @brief      Read
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -111,9 +99,6 @@ bool XSAMD5XE5XDATETIME::Read()
 * @brief      Write
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -131,9 +116,6 @@ bool XSAMD5XE5XDATETIME::Write()
 * @brief      GetMeridianDifference
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -149,9 +131,6 @@ int XSAMD5XE5XDATETIME::GetMeridianDifference()
 * @fn         bool XSAMD5XE5XDATETIME::IsDayLigthSavingTime(int* bias)
 * @brief      IsDayLigthSavingTime
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bias :
 *

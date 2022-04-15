@@ -6,10 +6,7 @@
 * @brief      Graphics Properties class
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -50,9 +47,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -72,9 +66,6 @@ GRPPROPERTIES::GRPPROPERTIES()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -91,9 +82,6 @@ GRPPROPERTIES::~GRPPROPERTIES()
 * @brief      Get Mode
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPPROPERTYMODE : Property mode
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -109,9 +97,6 @@ GRPPROPERTYMODE GRPPROPERTIES::GetMode()
 * @fn         void GRPPROPERTIES::SetMode(GRPPROPERTYMODE mode)
 * @brief      Set Mode
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mode : new mode of property
 *
@@ -131,9 +116,6 @@ void GRPPROPERTIES::SetMode(GRPPROPERTYMODE mode)
 * @brief      GetPositionX
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -150,9 +132,6 @@ XDWORD GRPPROPERTIES::GetPositionX()
 * @brief      GetPositionY
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -168,9 +147,6 @@ XDWORD GRPPROPERTIES::GetPositionY()
 * @fn         void GRPPROPERTIES::SetPosition(XDWORD x, XDWORD y)
 * @brief      Set Position
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x : new x position
 * @param[in]  y : new y position
@@ -192,9 +168,6 @@ void GRPPROPERTIES::SetPosition(XDWORD x, XDWORD y)
 * @brief      Get Width
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : Width of propertys
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -210,9 +183,6 @@ XDWORD GRPPROPERTIES::GetWidth()
 * @fn         void GRPPROPERTIES::SetWidth(XDWORD width)
 * @brief      Set Width
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  width : new width
 *
@@ -232,9 +202,6 @@ void GRPPROPERTIES::SetWidth(XDWORD width)
 * @brief      Get Height
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : height of properties
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -250,9 +217,6 @@ XDWORD GRPPROPERTIES::GetHeight()
 * @fn         void GRPPROPERTIES::SetHeight(XDWORD height)
 * @brief      Set Height
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  height : new height
 *
@@ -271,9 +235,6 @@ void GRPPROPERTIES::SetHeight(XDWORD height)
 * @fn         void GRPPROPERTIES::SetSize(XDWORD width, XDWORD height)
 * @brief      SetSize
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  width :
 * @param[in]  height :
@@ -295,9 +256,6 @@ void GRPPROPERTIES::SetSize(XDWORD width, XDWORD height)
 * @brief      Get Width
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : Max Width of propertys
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -313,9 +271,6 @@ XDWORD GRPPROPERTIES::GetMaxWidth()
 * @fn         void GRPPROPERTIES::SetMaxWidth(XDWORD width)
 * @brief      Set Width
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  maxwidth : new max width
 *
@@ -335,9 +290,6 @@ void GRPPROPERTIES::SetMaxWidth(XDWORD maxwidth)
 * @brief      Get Height
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : Max height of properties
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -353,9 +305,6 @@ XDWORD GRPPROPERTIES::GetMaxHeight()
 * @fn         void GRPPROPERTIES::SetMaxHeight(XDWORD maxheight)
 * @brief      Set Height
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  height : new max height
 *
@@ -374,9 +323,6 @@ void GRPPROPERTIES::SetMaxHeight(XDWORD maxheight)
 * @fn         void GRPPROPERTIES::SetMaxSize(XDWORD maxwidth, XDWORD maxheight)
 * @brief      SetSize
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  maxwidth :
 * @param[in]  maxheight :
@@ -398,9 +344,6 @@ void GRPPROPERTIES::SetMaxSize(XDWORD maxwidth, XDWORD maxheight)
 * @brief      Get DPI
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float : DPIs properties
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -416,9 +359,6 @@ float GRPPROPERTIES::GetDPI()
 * @fn         void GRPPROPERTIES::SetDPI(float DPI)
 * @brief      Set DPIs
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  DPI :
 *
@@ -438,9 +378,6 @@ void GRPPROPERTIES::SetDPI(float DPI)
 * @brief      Get Stride
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -456,9 +393,6 @@ XDWORD GRPPROPERTIES::GetStride()
 * @fn         void GRPPROPERTIES::SetStride(XDWORD stride)
 * @brief      Set Stride
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  stride : new stride
 *
@@ -478,9 +412,6 @@ void GRPPROPERTIES::SetStride(XDWORD stride)
 * @brief      Is Buffer Inverse
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -496,9 +427,6 @@ bool GRPPROPERTIES::IsBufferInverse()
 * @fn         void GRPPROPERTIES::SetIsBufferInverse(bool isbufferinverse)
 * @brief      Set Is Buffer Inverse
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isbufferinverse : true is buffer inverse
 *
@@ -518,9 +446,6 @@ void GRPPROPERTIES::SetIsBufferInverse(bool isbufferinverse)
 * @brief      HasTitle
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -536,9 +461,6 @@ bool GRPPROPERTIES::HasTitle()
 * @fn         void GRPPROPERTIES::SetHasTitle(bool hastitle)
 * @brief      SetHasTitle
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hastitle :
 *
@@ -558,9 +480,6 @@ void GRPPROPERTIES::SetHasTitle(bool hastitle)
 * @fn         XBYTE GRPPROPERTIES::GetBitsperPixel()
 * @brief      Get Bits per Pixel
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XBYTE : number of bits per pixel
 *
@@ -599,9 +518,6 @@ XBYTE GRPPROPERTIES::GetBitsperPixel()
 * @brief      Get Bytes per Pixel
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE : bytes per pixel
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -617,9 +533,6 @@ XBYTE GRPPROPERTIES::GetBytesperPixel()
 * @fn         void GRPPROPERTIES::CopyPropertysFrom(GRPPROPERTIES* properties)
 * @brief      Copy Propertys From
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  properties : new properties to assing
 *
@@ -649,9 +562,6 @@ void GRPPROPERTIES::CopyPropertysFrom(GRPPROPERTIES* properties)
 * @brief      Copy Propertys To
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[out] properties : Actual properties
 *
 * @return     void : does not return anything.
@@ -679,9 +589,6 @@ void GRPPROPERTIES::CopyPropertysTo(GRPPROPERTIES* properties)
 * @fn         int GRPPROPERTIES::IsEqualPropertysSizeTo(GRPPROPERTIES* properties)
 * @brief      IsEqualPropertysSizeTo
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  properties : properties to compare
 *
@@ -711,9 +618,6 @@ int GRPPROPERTIES::IsEqualSizeTo(GRPPROPERTIES* properties)
 * @brief      Default
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -740,9 +644,6 @@ void GRPPROPERTIES::Default()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

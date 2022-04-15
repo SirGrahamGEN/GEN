@@ -6,10 +6,7 @@
 * @brief      eXtended Thread class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ XMUTEX::XMUTEX()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -97,9 +88,6 @@ XMUTEX::~XMUTEX()
 * @fn         bool XMUTEX::IsLock()
 * @brief      IsLock
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -117,9 +105,6 @@ bool XMUTEX::IsLock()
 * @brief      Lock
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -135,9 +120,6 @@ bool XMUTEX::Lock()
 * @fn         bool XMUTEX::UnLock()
 * @brief      UnLock
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -155,9 +137,6 @@ bool XMUTEX::UnLock()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -181,9 +160,6 @@ void XMUTEX::Clean()
 * @fn         XTHREAD::XTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XTHREADGROUPID :
 * @param[in]  ID :
@@ -214,9 +190,6 @@ XTHREAD::XTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, vo
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -232,9 +205,6 @@ XTHREAD::~XTHREAD()
 * @fn         bool XTHREAD::Ini(bool run)
 * @brief      Ini
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  run :
 *
@@ -254,9 +224,6 @@ bool XTHREAD::Ini(bool run)
 * @brief      Wait
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  miliseconds :
 *
 * @return     bool : true if is succesful.
@@ -275,9 +242,6 @@ bool XTHREAD::Wait(int miliseconds)
 * @brief      End
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -293,9 +257,6 @@ bool XTHREAD::End()
 * @fn         bool XTHREAD::IsRunning()
 * @brief      IsRunning
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -313,9 +274,6 @@ bool XTHREAD::IsRunning()
 * @fn         bool XTHREAD::Run(bool activate)
 * @brief      Run
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  activate :
 *
@@ -345,9 +303,6 @@ bool XTHREAD::Run(bool activate)
 * @fn         bool XTHREAD::WaitToEnd(XDWORD timeout)
 * @brief      WaitToEnd
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeout :
 *
@@ -392,9 +347,6 @@ bool XTHREAD::WaitToEnd(XDWORD timeout)
 * @brief      GetWaitYield
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -410,9 +362,6 @@ XDWORD XTHREAD::GetWaitYield()
 * @fn         void XTHREAD::SetWaitYield(XDWORD waityield = XTHREAD_DEFAULTWAITYIELD)
 * @brief      SetWaitYield
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  waityield = XTHREAD_DEFAULTWAITYIELD :
 *
@@ -432,9 +381,6 @@ void XTHREAD::SetWaitYield(XDWORD waityield)
 * @brief      Exit
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -452,9 +398,6 @@ bool XTHREAD::Exit()
 * @brief      GetGroupID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XTHREADGROUPID :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -470,9 +413,6 @@ XTHREADGROUPID XTHREAD::GetGroupID()
 * @fn         void XTHREAD::SetGroupID(XTHREADGROUPID groupID)
 * @brief      SetGroupID
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  groupID : 
 *
@@ -492,9 +432,6 @@ void XTHREAD::SetGroupID(XTHREADGROUPID groupID)
 * @brief      GetID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -510,9 +447,6 @@ XSTRING* XTHREAD::GetID()
 * @fn         XTHREADFUNCTION XTHREAD::GetFunction()
 * @brief      GetFunction
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XTHREADFUNCTION :
 *
@@ -530,9 +464,6 @@ XTHREADFUNCTION XTHREAD::GetFunction()
 * @brief      GetParam
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -549,9 +480,6 @@ void* XTHREAD::GetParam()
 * @brief      GetPriority
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XTHREADPRIORITY :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -567,9 +495,6 @@ XTHREADPRIORITY XTHREAD::GetPriority()
 * @fn         void XTHREAD::SetPriority(XTHREADPRIORITY priority)
 * @brief      SetPriority
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  priority :
 *
@@ -589,9 +514,6 @@ void XTHREAD::SetPriority(XTHREADPRIORITY priority)
 * @brief      GetStackSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -607,9 +529,6 @@ XDWORD XTHREAD::GetStackSize()
 * @fn         void XTHREAD::SetStackSize(XDWORD stacksize)
 * @brief      SetStackSize
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  stacksize :
 *
@@ -629,9 +548,6 @@ void XTHREAD::SetStackSize(XDWORD stacksize)
 * @brief      IsInFunction
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -647,9 +563,6 @@ bool XTHREAD::IsInFunction()
 * @fn         XTHREADSTATUS XTHREAD::GetStatusFunc()
 * @brief      GetStatusFunc
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XTHREADSTATUS :
 *
@@ -667,9 +580,6 @@ XTHREADSTATUS XTHREAD::GetStatusFunc()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

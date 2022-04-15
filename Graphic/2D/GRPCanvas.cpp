@@ -6,10 +6,7 @@
 * @brief      Graphics Canvas class
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,10 +53,7 @@
 * @fn         GRPCANVAS_VECTORFONT_CONFIG::GRPCANVAS_VECTORFONT_CONFIG()
 * @brief      Constructor
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -77,10 +71,7 @@ GRPCANVAS_VECTORFONT_CONFIG::GRPCANVAS_VECTORFONT_CONFIG()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -102,10 +93,7 @@ GRPCANVAS_VECTORFONT_CONFIG::~GRPCANVAS_VECTORFONT_CONFIG()
 * @fn         bool GRPCANVAS_VECTORFONT_CONFIG::GetSize(double& width, double& height)
 * @brief      GetSize
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  width : 
 * @param[in]  height : 
 * 
@@ -127,10 +115,7 @@ bool GRPCANVAS_VECTORFONT_CONFIG::GetSize(double& width, double& height)
 * @fn         bool GRPCANVAS_VECTORFONT_CONFIG::SetSize(double width, double height)
 * @brief      SetSize
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  width : 
 * @param[in]  height : 
 * 
@@ -152,10 +137,7 @@ bool GRPCANVAS_VECTORFONT_CONFIG::SetSize(double width, double height)
 * @fn         double GRPCANVAS_VECTORFONT_CONFIG::GetSize()
 * @brief      GetSize
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -175,10 +157,7 @@ double GRPCANVAS_VECTORFONT_CONFIG::GetSize()
 * @fn         bool GRPCANVAS_VECTORFONT_CONFIG::SetSize(double size)
 * @brief      SetSize
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  size : 
 * 
 * @return     bool : true if is succesful. 
@@ -199,10 +178,7 @@ bool GRPCANVAS_VECTORFONT_CONFIG::SetSize(double size)
 * @fn         double GRPCANVAS_VECTORFONT_CONFIG::GetWidth()
 * @brief      GetWidth
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -218,10 +194,7 @@ double GRPCANVAS_VECTORFONT_CONFIG::GetWidth()
 * @fn         void GRPCANVAS_VECTORFONT_CONFIG::SetWidth(double width)
 * @brief      SetWidth
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  width : 
 * 
 * @return     void : does not return anything. 
@@ -239,10 +212,7 @@ void GRPCANVAS_VECTORFONT_CONFIG::SetWidth(double width)
 * @fn         double GRPCANVAS_VECTORFONT_CONFIG::GetHeight()
 * @brief      GetHeight
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -258,10 +228,7 @@ double GRPCANVAS_VECTORFONT_CONFIG::GetHeight()
 * @fn         void GRPCANVAS_VECTORFONT_CONFIG::SetHeight(double height)
 * @brief      SetHeight
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  height : 
 * 
 * @return     void : does not return anything. 
@@ -279,10 +246,7 @@ void GRPCANVAS_VECTORFONT_CONFIG::SetHeight(double height)
 * @fn         GRP2DCOLOR_RGBA8* GRPCANVAS_VECTORFONT_CONFIG::GetColor()
 * @brief      GetColor
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     GRP2DCOLOR_RGBA8* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -298,10 +262,7 @@ GRP2DCOLOR_RGBA8* GRPCANVAS_VECTORFONT_CONFIG::GetColor()
 * @fn         void GRPCANVAS_VECTORFONT_CONFIG::SetColor(GRP2DCOLOR_RGBA8* color)
 * @brief      SetColor
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  color : 
 * 
 * @return     void : does not return anything. 
@@ -325,10 +286,7 @@ void GRPCANVAS_VECTORFONT_CONFIG::SetColor(GRP2DCOLOR_RGBA8* color)
 * @fn         bool GRPCANVAS_VECTORFONT_CONFIG::IsKerning()
 * @brief      IsKerning
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -344,10 +302,7 @@ bool GRPCANVAS_VECTORFONT_CONFIG::IsKerning()
 * @fn         void GRPCANVAS_VECTORFONT_CONFIG::SetKerning(bool iskerning)
 * @brief      SetKerning
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  iskerning : 
 * 
 * @return     void : does not return anything. 
@@ -366,10 +321,7 @@ void GRPCANVAS_VECTORFONT_CONFIG::SetKerning(bool iskerning)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -394,9 +346,6 @@ void GRPCANVAS_VECTORFONT_CONFIG::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -413,9 +362,6 @@ GRPCANVAS::GRPCANVAS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -436,9 +382,6 @@ GRPCANVAS::~GRPCANVAS()
 * @brief      Get Screen Zone
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPRECTINT* : rect of screen zone
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -454,9 +397,6 @@ GRPRECTINT* GRPCANVAS::GetScreenZone()
 * @fn         bool GRPCANVAS::CreateBuffers()
 * @brief      Create Buffers
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -477,9 +417,6 @@ bool GRPCANVAS::CreateBuffers()
 * @brief      Delete Buffers
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -496,9 +433,6 @@ bool GRPCANVAS::DeleteBuffers()
 * @brief      Get Buffer
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE* : buffer with data
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -514,9 +448,6 @@ XBYTE* GRPCANVAS::GetBuffer()
 * @fn         void GRPCANVAS::Clear(const GRP2DCOLOR* color)
 * @brief      Clear
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  GRP2DCOLOR* color :
 *
@@ -535,10 +466,7 @@ void GRPCANVAS::Clear(const GRP2DCOLOR* color)
 * @fn         void GRPCANVAS::GetClipBox(double& x1, double& y1, double& x2, double& y2)
 * @brief      GetClipBox
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  x1 : 
 * @param[in]  y1 : 
 * @param[in]  x2 : 
@@ -562,10 +490,7 @@ void GRPCANVAS::GetClipBox(double& x1, double& y1, double& x2, double& y2)
 * @fn         void GRPCANVAS::GetClipBox(XRECT& rect)
 * @brief      GetClipBox
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  rect : 
 * 
 * @return     void : does not return anything. 
@@ -583,10 +508,7 @@ void GRPCANVAS::GetClipBox(XRECT& rect)
 * @fn         XRECT& GRPCANVAS::GetClipBox()
 * @brief      GetClipBox
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XRECT& : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -602,10 +524,7 @@ XRECT& GRPCANVAS::GetClipBox()
 * @fn         void GRPCANVAS::SetClipBox(double x1, double y1, double x2, double y2)
 * @brief      SetClipBox
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  x1 : 
 * @param[in]  y1 : 
 * @param[in]  x2 : 
@@ -629,10 +548,7 @@ void  GRPCANVAS::SetClipBox(double x1, double y1, double x2, double y2)
 * @fn         void GRPCANVAS::SetClipBox(XRECT& rect)
 * @brief      SetClipBox
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  rect : 
 * 
 * @return     void : does not return anything. 
@@ -650,9 +566,6 @@ void GRPCANVAS::SetClipBox(XRECT& rect)
 * @fn         GRP2DCOLOR* GRPCANVAS::GetPixel(double x, double y)
 * @brief      Get Pixel
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x : x pos of pixel
 * @param[in]  y : y pos of pixel
@@ -673,9 +586,6 @@ GRP2DCOLOR* GRPCANVAS::GetPixel(double x, double y)
 * @brief      PutPixel
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x : x pos to put pixel
 * @param[in]  y : y pos to put pixel
 * @param[in]  GRP2DCOLOR* color : color to put
@@ -695,9 +605,6 @@ void GRPCANVAS::PutPixel(double x, double y, const GRP2DCOLOR* color)
 * @fn         void GRPCANVAS::PutBlendPixel(double x, double y, const GRP2DCOLOR* color, double alpha)
 * @brief      PutBlendPixel
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x : x pos to put pixel
 * @param[in]  y : y pos to put pixel
@@ -720,9 +627,6 @@ void GRPCANVAS::PutBlendPixel(double x, double y, const GRP2DCOLOR* color, doubl
 * @brief      Get Fill Color
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRP2DCOLOR* : color of fill
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -738,9 +642,6 @@ GRP2DCOLOR* GRPCANVAS::GetFillColor()
 * @fn         void GRPCANVAS::SetFillColor(const GRP2DCOLOR* color)
 * @brief      Set Fill Color
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  GRP2DCOLOR* color : color to fill
 *
@@ -760,9 +661,6 @@ void GRPCANVAS::SetFillColor(const GRP2DCOLOR* color)
 * @brief      Get Line Color
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRP2DCOLOR* : color of line
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -778,9 +676,6 @@ GRP2DCOLOR* GRPCANVAS::GetLineColor()
 * @fn         void GRPCANVAS::SetLineColor(const GRP2DCOLOR* color)
 * @brief      Set Line Color
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  GRP2DCOLOR* color : color to lines
 *
@@ -800,9 +695,6 @@ void GRPCANVAS::SetLineColor(const GRP2DCOLOR* color)
 * @brief      GetLineWidth
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     double : line width
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -818,9 +710,6 @@ double GRPCANVAS::GetLineWidth()
 * @fn         void GRPCANVAS::SetLineWidth(double linewidth)
 * @brief      SetLineWidth
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  linewidth : new line width
 *
@@ -840,9 +729,6 @@ void GRPCANVAS::SetLineWidth(double linewidth)
 * @brief      GetDashLength
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     double : dash length
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -858,9 +744,6 @@ double GRPCANVAS::GetDashLength()
 * @fn         void GRPCANVAS::SetDashLenght(double dashlength)
 * @brief      SetDashLenght
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  dashlength : new dash lenght
 *
@@ -879,9 +762,6 @@ void GRPCANVAS::SetDashLenght(double dashlength)
 * @fn         void GRPCANVAS::Line(double x1, double y1, double x2, double y2)
 * @brief      Line
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x1 :
 * @param[in]  y1 :
@@ -903,9 +783,6 @@ void GRPCANVAS::SetDashLenght(double dashlength)
 * @fn         void GRPCANVAS::Rectangle(double x1, double y1, double x2, double y2, bool isfill)
 * @brief      Rectangle
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x1 :
 * @param[in]  y1 :
@@ -929,9 +806,6 @@ void GRPCANVAS::Rectangle(double x1, double y1, double x2, double y2, bool isfil
 * @brief      Circle
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x : x center position
 * @param[in]  y : y center position
 * @param[in]  radius : radius of circle
@@ -952,9 +826,6 @@ void GRPCANVAS::Circle(double x, double y, double radius, bool isfill)
 * @fn         void GRPCANVAS::Ellipse(double x, double y, double rx, double ry, bool isfill)
 * @brief      Ellipse
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x : x center position
 * @param[in]  y : y center position
@@ -979,9 +850,6 @@ void GRPCANVAS::Ellipse(double x, double y, double rx, double ry, bool isfill)
 * @brief      Polygon
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  vertexs : vector of vertex
 * @param[in]  isfill : is fill
 *
@@ -1001,9 +869,6 @@ void GRPCANVAS::Polygon(GRP2DVERTEXS& vertexs, bool isfill)
 * @fn         void GRPCANVAS::RoundRect(double x1, double y1, double x2, double y2, double radius, bool isfill)
 * @brief      RoundRect
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x1 :
 * @param[in]  y1 :
@@ -1028,9 +893,6 @@ void GRPCANVAS::RoundRect(double x1, double y1, double x2, double y2, double rad
 * @brief      GetBitmap
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x :
 * @param[in]  y :
 * @param[in]  width :
@@ -1052,9 +914,6 @@ GRPBITMAP* GRPCANVAS::GetBitmap(double x, double y, double width, double height)
 * @brief      PutBitmapNoAlpha
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x :
 * @param[in]  y :
 * @param[in]  bitmap :
@@ -1074,9 +933,6 @@ void GRPCANVAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 * @fn         void GRPCANVAS::PutBitmap(double x, double y, GRPBITMAP* bitmap)
 * @brief      Draw Bitmap
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x : x pos of bitmap
 * @param[in]  y : y pos of bitmap
@@ -1099,9 +955,6 @@ void GRPCANVAS::PutBitmap(double x, double y, GRPBITMAP* bitmap)
 * @brief      PutBitmapAlpha
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x :
 * @param[in]  y :
 * @param[in]  bitmap :
@@ -1123,9 +976,6 @@ void GRPCANVAS::PutBitmapAlpha(double x, double y, GRPBITMAP* bitmap, double alp
 * @fn         void GRPCANVAS::PutBitmapFrame(double x, double y, GRPBITMAPFRAME* bitmapframe)
 * @brief      Draw Bitmap Frame
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x : x pos of bitmap
 * @param[in]  y : y pos of bitmap
@@ -1152,9 +1002,6 @@ void GRPCANVAS::PutBitmapFrame(double x, double y, GRPBITMAPFRAME* bitmapframe, 
 * @brief      SelectRasterFont
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  fontname :
 *
 * @return     bool : true if is succesful.
@@ -1172,9 +1019,6 @@ bool GRPCANVAS::RasterFont_Select(XCHAR* fontname)
 * @fn         bool GRPCANVAS::RasterFont_Select(XSTRING& fontname)
 * @brief      SelectRasterFont
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  fontname :
 *
@@ -1194,9 +1038,6 @@ bool GRPCANVAS::RasterFont_Select(XSTRING* fontname)
 * @brief      RasterFont_GetColor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRP2DCOLOR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1212,9 +1053,6 @@ GRP2DCOLOR* GRPCANVAS::RasterFont_GetColor()
 * @fn         void GRPCANVAS::RasterFont_SetColor(const GRP2DCOLOR* c)
 * @brief      RasterFont_SetColor
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  GRP2DCOLOR* c :
 *
@@ -1234,9 +1072,6 @@ void GRPCANVAS::RasterFont_SetColor(const GRP2DCOLOR* c)
 * @brief      RasterFont_GetWidth
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     double :
@@ -1254,9 +1089,6 @@ double GRPCANVAS::RasterFont_GetWidth(XCHAR* string)
 * @brief      RasterFont_GetHeight
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     double :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1272,10 +1104,7 @@ double GRPCANVAS::RasterFont_GetHeight()
 * @fn         bool GRPCANVAS::RasterFont_Printf(double x, double y, XCHAR* mask, ...)
 * @brief      RasterFont_Printf
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  x : 
 * @param[in]  y : 
 * @param[in]  mask : 
@@ -1296,10 +1125,7 @@ bool GRPCANVAS::RasterFont_Printf(double x, double y, XCHAR* mask, ...)
 * @fn         bool GRPCANVAS::VectorFont_Load(XCHAR* fontnamefile)
 * @brief      VectorFont_Load
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  fontnamefile : 
 * 
 * @return     bool : true if is succesful. 
@@ -1321,10 +1147,7 @@ bool GRPCANVAS::VectorFont_Load(XCHAR* fontnamefile)
 * @fn         bool GRPCANVAS::VectorFont_Load(XPATH& fontnamefile)
 * @brief      VectorFont_Load
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  fontnamefile : 
 * 
 * @return     bool : true if is succesful. 
@@ -1342,10 +1165,7 @@ bool GRPCANVAS::VectorFont_Load(XPATH& fontnamefile)
 * @fn         GRPCANVAS_VECTORFONT_CONFIG* GRPCANVAS::Vectorfont_GetConfig()
 * @brief      Vectorfont_GetConfig
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     GRPCANVAS_VECTORFONT_CONFIG* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1361,10 +1181,7 @@ GRPCANVAS_VECTORFONT_CONFIG* GRPCANVAS::Vectorfont_GetConfig()
 * @fn         double GRPCANVAS::VectorFont_GetWidth(XCHAR*string)
 * @brief      VectorFont_GetWidth
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  XCHAR*string : 
 * 
 * @return     double : 
@@ -1382,10 +1199,7 @@ double GRPCANVAS::VectorFont_GetWidth(XCHAR*string)
 * @fn         double GRPCANVAS::VectorFont_GetHeight(XCHAR* string)
 * @brief      VectorFont_GetHeight
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  string : 
 * 
 * @return     double : 
@@ -1403,10 +1217,7 @@ double GRPCANVAS::VectorFont_GetHeight(XCHAR* string)
 * @fn         double GRPCANVAS::VectorFont_GetHeight()
 * @brief      VectorFont_GetHeight
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     double : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1422,10 +1233,7 @@ double GRPCANVAS::VectorFont_GetHeight()
 * @fn         bool GRPCANVAS::VectorFont_Print(double x, double y, XCHAR* outstring)
 * @brief      VectorFont_Print
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  x : 
 * @param[in]  y : 
 * @param[in]  outstring : 
@@ -1445,10 +1253,7 @@ bool GRPCANVAS::VectorFont_Print(double x, double y, XCHAR* outstring)
 * @fn         bool GRPCANVAS::VectorFont_Printf(double x, double y, XCHAR* mask, ...)
 * @brief      VectorFont_Printf
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  x : 
 * @param[in]  y : 
 * @param[in]  mask : 
@@ -1470,9 +1275,6 @@ bool GRPCANVAS::VectorFont_Printf(double x, double y, XCHAR* mask, ...)
 * @brief      Copy Buffer Render To Screen
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  screen : screen handle
 *
 * @return     bool : true if is succesful.
@@ -1490,9 +1292,6 @@ bool GRPCANVAS::CopyBufferRenderToScreen(GRPSCREEN* screen)
 * @fn         bool GRPCANVAS::CopyBufferRenderToBufferScreen(XBYTE* buffer, XDWORD width, XDWORD height, bool isinverse)
 * @brief      CopyBufferRenderToBufferScreen
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  width :
@@ -1514,9 +1313,6 @@ bool GRPCANVAS::CopyBufferRenderToBufferScreen(XBYTE* buffer, XDWORD width, XDWO
 * @brief      CopyBufferRenderFromViewport
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  viewport :
 *
 * @return     bool : true if is succesful.
@@ -1534,10 +1330,7 @@ bool GRPCANVAS::CopyBufferRenderFromViewport(GRPVIEWPORT* viewport)
 * @fn         bool GRPCANVAS::ReleaseDrawFramerate()
 * @brief      ReleaseDrawFramerate
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1553,10 +1346,7 @@ bool GRPCANVAS::ReleaseDrawFramerate()
 * @fn         bool GRPCANVAS::DrawFramerate(double x, double y, GRPSCREEN* screen)
 * @brief      DrawFramerate
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  x : 
 * @param[in]  y : 
 * @param[in]  screen : 
@@ -1577,9 +1367,6 @@ bool GRPCANVAS::DrawFramerate(double x, double y, GRPSCREEN* screen)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

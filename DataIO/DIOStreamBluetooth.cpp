@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream bluetooth class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ DIOSTREAMBLUETOOTH::DIOSTREAMBLUETOOTH() : DIOSTREAM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything. 
 *
@@ -96,9 +87,6 @@ DIOSTREAMBLUETOOTH::~DIOSTREAMBLUETOOTH()
 * @brief      GetConfig
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMCONFIG* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -114,9 +102,6 @@ DIOSTREAMCONFIG* DIOSTREAMBLUETOOTH::GetConfig()
 * @fn         bool DIOSTREAMBLUETOOTH::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      SetConfig
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  config : 
 *
@@ -140,9 +125,6 @@ bool DIOSTREAMBLUETOOTH::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      IsRefusedConnection
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -158,9 +140,6 @@ bool DIOSTREAMBLUETOOTH::IsRefusedConnection()
 * @fn         bool DIOSTREAMBLUETOOTH::SetIsRefusedConnection(bool isrefused)
 * @brief      SetIsRefusedConnection
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  isrefused : 
 *
@@ -182,9 +161,6 @@ bool DIOSTREAMBLUETOOTH::SetIsRefusedConnection(bool isrefused)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

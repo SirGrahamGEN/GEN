@@ -6,10 +6,7 @@
 * @brief      eXtended platform Factory
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@ XFACTORY* XFACTORY::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -72,9 +66,6 @@ XFACTORY::XFACTORY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -93,9 +84,6 @@ XFACTORY::~XFACTORY()
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +100,6 @@ bool XFACTORY::GetIsInstanced()
 * @brief      Get Instance of XFACTORY
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XFACTORY& :
 *
@@ -137,9 +122,6 @@ XFACTORY& XFACTORY::GetInstance()
 * @fn         bool XFACTORY::SetInstance(XFACTORY* _instance)
 * @brief      SetInstance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  _instance : 
 *
@@ -164,9 +146,6 @@ bool XFACTORY::SetInstance(XFACTORY* _instance)
 * @note       STATIC
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -189,9 +168,6 @@ bool XFACTORY::DelInstance()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XTIMER* : Timer Created
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -208,9 +184,6 @@ XTIMER* XFACTORY::CreateTimer()
 * @brief      Delete Timer
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timer : timer to delete
 *
@@ -231,9 +204,6 @@ bool XFACTORY::DeleteTimer(XTIMER* timer)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDATETIME* : datetime created
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -250,9 +220,6 @@ XDATETIME* XFACTORY::CreateDateTime()
 * @brief      Delete DateTime
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  datetime : datetime to delete
 *
@@ -273,9 +240,6 @@ bool XFACTORY::DeleteDateTime(XDATETIME* datetime)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XRAND* : Rand created
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -292,9 +256,6 @@ XRAND* XFACTORY::CreateRand()
 * @brief      Delete Rand
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  rand : rand to delete
 *
@@ -315,9 +276,6 @@ bool XFACTORY::DeleteRand(XRAND* rand)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILE* : File created
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -334,9 +292,6 @@ XFILE* XFACTORY::Create_File()
 * @brief      Delete_File
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  file : file to delete
 *
@@ -357,9 +312,6 @@ bool XFACTORY::Delete_File(XFILE* file)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDIR* : dir created
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -376,9 +328,6 @@ XDIR* XFACTORY::Create_Dir()
 * @brief      Delete_Dir
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  dir : dir to delete
 *
@@ -399,9 +348,6 @@ bool XFACTORY::Delete_Dir(XDIR* dir)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCONSOLE* : console created
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -418,9 +364,6 @@ XCONSOLE* XFACTORY::CreateConsole()
 * @brief      DeleteConsole
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xconsole : xconsole to delete
 *
@@ -441,9 +384,6 @@ bool XFACTORY::DeleteConsole(XCONSOLE* xconsole)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XMUTEX* : mutex created
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -460,9 +400,6 @@ XMUTEX* XFACTORY::Create_Mutex()
 * @brief      Delete Mutex
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mutex : mutex to delete
 *
@@ -482,9 +419,6 @@ bool XFACTORY::Delete_Mutex(XMUTEX* phone)
 * @fn         XTHREAD* XFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFUNCTION function, void* param)
 * @brief      CreateThread
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  groupID : 
 * @param[in]  ID : 
@@ -508,9 +442,6 @@ XTHREAD* XFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFUNCTIO
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  groupID : group ID of threads
 * @param[in]  xthread : thread to delete
 *
@@ -531,9 +462,6 @@ bool XFACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

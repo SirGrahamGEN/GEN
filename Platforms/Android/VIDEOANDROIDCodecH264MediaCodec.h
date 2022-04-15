@@ -6,7 +6,7 @@
 //
 //  android h264 decoder using mediacodec
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 14/04/2016 13:29:14
 //  Last Modification :

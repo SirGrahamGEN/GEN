@@ -6,10 +6,7 @@
 * @brief      eXtended STM32 File class (Use FatFs - Generic FAT file system module)
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -83,9 +77,6 @@ XSTM32FILE::XSTM32FILE(): XFILE()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -101,9 +92,6 @@ XSTM32FILE::~XSTM32FILE()
 * @fn         bool XSTM32FILE::Exist(XCHAR* path)
 * @brief      Exist
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 *
@@ -138,9 +126,6 @@ bool XSTM32FILE::Exist(XCHAR* path)
 * @fn         bool XSTM32FILE::Open(XCHAR* xpath, bool isreadonly)
 * @brief      Open
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  isreadonly :
@@ -186,9 +171,6 @@ bool XSTM32FILE::Open(XCHAR* path, bool isreadonly)
 * @brief      Create
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 *
 * @return     bool : true if is succesful.
@@ -229,9 +211,6 @@ bool XSTM32FILE::Create(XCHAR* path)
 * @brief      SetSize
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  size :
 *
 * @return     bool : true if is succesful.
@@ -259,9 +238,6 @@ bool XSTM32FILE::SetSize(XQWORD size)
 * @brief      GetPosition
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  position :
 *
 * @return     bool : true if is succesful.
@@ -288,9 +264,6 @@ bool XSTM32FILE::GetPosition(XQWORD& position)
 * @brief      SetPosition
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  position :
 *
 * @return     bool : true if is succesful.
@@ -316,9 +289,6 @@ bool XSTM32FILE::SetPosition(XQWORD position)
 * @fn         bool XSTM32FILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Read
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -350,9 +320,6 @@ bool XSTM32FILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Read
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 * @param[in]  cipher :
@@ -383,9 +350,6 @@ bool XSTM32FILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 * @fn         bool XSTM32FILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Write
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -422,9 +386,6 @@ bool XSTM32FILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Flush
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -449,9 +410,6 @@ bool XSTM32FILE::Flush()
 * @brief      Close
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -475,9 +433,6 @@ bool XSTM32FILE::Close()
 * @fn         bool XSTM32FILE::Erase(XCHAR* path,bool overwrite)
 * @brief      Erase
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 * @param[in]  overwrite :
@@ -511,9 +466,6 @@ bool XSTM32FILE::Erase(XCHAR* path, bool overwrite)
 * @fn         bool XSTM32FILE::Rename(XCHAR* pathold, XCHAR* pathnew)
 * @brief      Rename
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pathold :
 * @param[in]  pathnew :
@@ -552,10 +504,7 @@ bool XSTM32FILE::Rename(XCHAR* pathold, XCHAR* pathnew)
 * @fn         FILE* XSTM32FILE::CreateStructHandle()
 * @brief      CreateStructHandle
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     FILE* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -571,10 +520,7 @@ FILE* XSTM32FILE::CreateStructHandle()
 * @fn         bool XSTM32FILE::DeleteStructHandle()
 * @brief      DeleteStructHandle
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -590,10 +536,7 @@ bool XSTM32FILE::DeleteStructHandle()
 * @fn         bool XSTM32FILE::ActualizeSize()
 * @brief      ActualizeSize
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -610,9 +553,6 @@ bool XSTM32FILE::ActualizeSize()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

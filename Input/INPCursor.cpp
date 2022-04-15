@@ -6,10 +6,7 @@
 * @brief      Input Cursor Class
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ INPCURSOR::INPCURSOR(): INPCURSORMOTIONPOINT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -104,9 +95,6 @@ INPCURSOR::~INPCURSOR()
 * @brief      Get ID cursor
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     INPCURSOR_ID : cursor ID
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -122,9 +110,6 @@ INPCURSOR_ID INPCURSOR::GetID()
 * @fn         void INPCURSOR::SetID(INPCURSOR_ID ID)
 * @brief      Set ID cursor
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID : new ID of cursor
 *
@@ -144,9 +129,6 @@ void INPCURSOR::SetID(INPCURSOR_ID ID)
 * @brief      Get Timer of cursor
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XTIMER* : Timer of cursor
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -162,9 +144,6 @@ XTIMER* INPCURSOR::GetTimer()
 * @fn         bool INPCURSOR::HavePreSelect()
 * @brief      Have Pre-Select
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -182,9 +161,6 @@ bool INPCURSOR::HavePreSelect()
 * @fn         bool INPCURSOR::SetHavePreSelect(bool havepreselect)
 * @brief      Set Have Pre-Select
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  havepreselect : true active have pre-select
 *
@@ -206,9 +182,6 @@ bool INPCURSOR::SetHavePreSelect(bool havepreselect)
 * @brief      Is Changed cursor
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -224,9 +197,6 @@ bool INPCURSOR::IsChanged()
 * @fn         bool INPCURSOR::SetIsChanged(bool ischanged)
 * @brief      Set Is Changed cursor
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ischanged : true is changed
 *
@@ -247,9 +217,6 @@ bool INPCURSOR::SetIsChanged(bool ischanged)
 * @fn         bool INPCURSOR::IsPositionInRect(int x, int y, int width,int height)
 * @brief      Is Position In Rect
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x : x position of rect
 * @param[in]  y : y position of rect
@@ -275,9 +242,6 @@ bool INPCURSOR::IsPositionInRect(int x, int y, int width,int height)
 * @brief      Get Motion instance
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     INPCURSORMOTION* : Motion instance
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -294,9 +258,6 @@ INPCURSORMOTION* INPCURSOR::GetMotion()
 * @fn         bool INPCURSOR::AddPointToMotion(bool ispressed)
 * @brief      Add Point To Motion
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ispressed : is pressed
 *
@@ -337,9 +298,6 @@ bool INPCURSOR::AddPointToMotion(bool ispressed)
 * @brief      Set cursor
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x : new x position
 * @param[in]  y : new y position
 * @param[in]  z : new x position
@@ -370,9 +328,6 @@ void INPCURSOR::Set(float x , float y, float z)
 * @brief      Set X cursor position
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x : new x position
 *
 * @return     void : does not return anything.
@@ -394,9 +349,6 @@ void INPCURSOR::SetX(float x)
 * @fn         void INPCURSOR::SetY(float y)
 * @brief      Set Y cursor position
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  y : new y position
 *
@@ -420,9 +372,6 @@ void INPCURSOR::SetY(float y)
 * @brief      Set Z cursor position
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  z : new z position
 *
 * @return     void : does not return anything.
@@ -440,7 +389,7 @@ void INPCURSOR::SetZ(float z)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      11/02/2003 17:37:08
 //
 //  @return       void :

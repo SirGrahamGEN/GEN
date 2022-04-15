@@ -47,7 +47,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2013 23:17:35
 //
 //  @return       void :
@@ -101,7 +101,7 @@ DIOANDROIDSTREAMBLUETOOTH::DIOANDROIDSTREAMBLUETOOTH( ) : DIOSTREAMBLUETOOTH() ,
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -125,7 +125,7 @@ DIOANDROIDSTREAMBLUETOOTH::~DIOANDROIDSTREAMBLUETOOTH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -150,7 +150,7 @@ bool DIOANDROIDSTREAMBLUETOOTH::Open()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/12/2010 23:10:56
 //
 //  @return       bool :
@@ -178,7 +178,7 @@ bool DIOANDROIDSTREAMBLUETOOTH::Disconnect()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -222,7 +222,7 @@ bool DIOANDROIDSTREAMBLUETOOTH::Close()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/05/2013 12:09:04
 //
 //  @return       int :
@@ -272,7 +272,7 @@ int DIOANDROIDSTREAMBLUETOOTH::IsReadyConnect(int socket)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      08/03/2006 15:36:33
 //
 //  @return       sdp_session_t* :
@@ -359,7 +359,7 @@ sdp_session_t* DIOANDROIDSTREAMBLUETOOTH::SDP_RegisterService(char* service_name
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -387,7 +387,7 @@ void DIOANDROIDSTREAMBLUETOOTH::Clean()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      26/01/2015 9:37:22
 //
 //  @return       bool :
@@ -506,7 +506,7 @@ bool DIOANDROIDSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACst
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/05/2013 12:13:01
 //
 //  @return       void :

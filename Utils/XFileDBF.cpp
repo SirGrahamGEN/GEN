@@ -6,10 +6,7 @@
 * @brief      eXtended DBF file class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ XFILEDBF_FIELD::XFILEDBF_FIELD()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -96,9 +87,6 @@ XFILEDBF_FIELD::~XFILEDBF_FIELD()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -118,9 +106,6 @@ void XFILEDBF_FIELD::Clean()
 * @fn         XFILEDBF_RECORD::XFILEDBF_RECORD(XVECTOR<XFILEDBF_FIELD*>* fields)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XVECTOR<XFILEDBF_FIELD*>* :
 *
@@ -159,9 +144,6 @@ XFILEDBF_RECORD::XFILEDBF_RECORD(XVECTOR<XFILEDBF_FIELD*>* fields)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -178,9 +160,6 @@ XFILEDBF_RECORD::~XFILEDBF_RECORD()
 * @fn         bool XFILEDBF_RECORD::IsDelete()
 * @brief      IsDelete
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -201,9 +180,6 @@ bool XFILEDBF_RECORD::IsDelete()
 * @fn         bool XFILEDBF_RECORD::IsFieldEmpty(int indexfield)
 * @brief      IsFieldEmpty
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  indexfield :
 *
@@ -239,9 +215,6 @@ bool XFILEDBF_RECORD::IsFieldEmpty(int indexfield)
 * @brief      GetData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  indexfield :
 *
 * @return     XBYTE* :
@@ -272,9 +245,6 @@ XBYTE* XFILEDBF_RECORD::GetData(int indexfield)
 * @fn         bool XFILEDBF_RECORD::SetData(int indexfield, XBYTE* data, int limitsize)
 * @brief      SetData
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  indexfield :
 * @param[in]  data :
@@ -307,9 +277,6 @@ bool XFILEDBF_RECORD::SetData(int indexfield, XBYTE* data, int limitsize)
 * @fn         bool XFILEDBF_RECORD::GetDataString(int indexfield, XSTRING& string)
 * @brief      GetDataString
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  indexfield :
 * @param[in]  string :
@@ -356,9 +323,6 @@ bool XFILEDBF_RECORD::GetDataString(int indexfield, XSTRING& string)
 * @brief      SetDataString
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  indexfield :
 * @param[in]  string :
 *
@@ -402,9 +366,6 @@ bool XFILEDBF_RECORD::SetDataString(int indexfield, XSTRING& string)
 * @brief      SetCharacterType
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  indexfield :
 * @param[in]  data :
 *
@@ -440,9 +401,6 @@ bool XFILEDBF_RECORD::SetCharacterType(int indexfield,XCHAR* data)
 * @brief      SetData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 * @param[in]  size :
 *
@@ -464,9 +422,6 @@ bool XFILEDBF_RECORD::SetData(XBYTE* data,XDWORD size)
 * @brief      GetSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -482,9 +437,6 @@ int XFILEDBF_RECORD::GetSize()
 * @fn         int XFILEDBF_RECORD::GetSizeField(int indexfield)
 * @brief      GetSizeField
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  indexfield :
 *
@@ -512,9 +464,6 @@ int XFILEDBF_RECORD::GetSizeField(int indexfield)
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -531,9 +480,6 @@ void XFILEDBF_RECORD::Clean()
 * @fn         int XFILEDBF_RECORD::GetOffset(int indexfield)
 * @brief      GetOffset
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  indexfield :
 *
@@ -571,9 +517,6 @@ int XFILEDBF_RECORD::GetOffset(int indexfield)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -590,9 +533,6 @@ XFILEDBF_HEADER::XFILEDBF_HEADER()
 * @fn         XFILEDBF_HEADER::XFILEDBF_HEADER(XFILE* fileb)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XFILE* :
 *
@@ -614,9 +554,6 @@ XFILEDBF_HEADER::XFILEDBF_HEADER(XFILE* fileb)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -641,9 +578,6 @@ XFILEDBF_HEADER::~XFILEDBF_HEADER()
 * @fn         bool XFILEDBF_HEADER::Load(XFILE* xfile)
 * @brief      Load
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xfile :
 *
@@ -715,9 +649,6 @@ bool XFILEDBF_HEADER::Load(XFILE* xfile)
 * @fn         bool XFILEDBF_HEADER::Create(XFILE* fileb)
 * @brief      Create
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  fileb :
 *
@@ -817,9 +748,6 @@ bool XFILEDBF_HEADER::Create(XFILE* fileb)
 * @brief      Update
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  fileb :
 *
 * @return     bool : true if is succesful.
@@ -845,9 +773,6 @@ bool XFILEDBF_HEADER::Update(XFILE* fileb)
 * @fn         XFILEDBF_TYPE XFILEDBF_HEADER::GetType()
 * @brief      GetType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XFILEDBF_TYPE :
 *
@@ -879,9 +804,6 @@ XFILEDBF_TYPE XFILEDBF_HEADER::GetType()
 * @brief      GetHeaderSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -900,9 +822,6 @@ XWORD XFILEDBF_HEADER::GetHeaderSize()
 * @brief      GetHeaderData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -918,9 +837,6 @@ XBYTE* XFILEDBF_HEADER::GetHeaderData()
 * @fn         XDWORD XFILEDBF_HEADER::GetReservedData()
 * @brief      GetReservedData
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -941,9 +857,6 @@ XDWORD XFILEDBF_HEADER::GetReservedData()
 * @fn         bool XFILEDBF_HEADER::SetReservedData(XDWORD data)
 * @brief      SetReservedData
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 *
@@ -970,9 +883,6 @@ bool XFILEDBF_HEADER::SetReservedData(XDWORD data)
 * @brief      GetNFields
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -988,9 +898,6 @@ int XFILEDBF_HEADER::GetNFields()
 * @fn         XDWORD XFILEDBF_HEADER::GetNRecords()
 * @brief      GetNRecords
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -1011,9 +918,6 @@ XDWORD XFILEDBF_HEADER::GetNRecords()
 * @fn         bool XFILEDBF_HEADER::SetNRecords(XDWORD nrecords)
 * @brief      SetNRecords
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nrecords :
 *
@@ -1037,9 +941,6 @@ bool XFILEDBF_HEADER::SetNRecords(XDWORD nrecords)
 * @fn         int XFILEDBF_HEADER::GetSizeRecord()
 * @brief      GetSizeRecord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -1072,9 +973,6 @@ int XFILEDBF_HEADER::GetSizeRecord()
 * @brief      GetFields
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<XFILEDBF_FIELD*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1090,9 +988,6 @@ XVECTOR<XFILEDBF_FIELD*>* XFILEDBF_HEADER::GetFields()
 * @fn         XFILEDBF_FIELD* XFILEDBF_HEADER::GetField(int indexfield)
 * @brief      GetField
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  indexfield :
 *
@@ -1116,9 +1011,6 @@ XFILEDBF_FIELD* XFILEDBF_HEADER::GetField(int indexfield)
 * @fn         bool XFILEDBF_HEADER::CreateField(XFILEDBF_FIELDTYPE type,XCHAR* name,XBYTE size)
 * @brief      CreateField
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  name :
@@ -1172,9 +1064,6 @@ bool XFILEDBF_HEADER::CreateField(XFILEDBF_FIELDTYPE type,XCHAR* name,XBYTE size
 * @brief      CopyFrom
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  header :
 *
 * @return     bool : true if is succesful.
@@ -1215,9 +1104,6 @@ bool XFILEDBF_HEADER::CopyFrom(XFILEDBF_HEADER* header)
 * @brief      DeleteAllFields
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1240,9 +1126,6 @@ bool XFILEDBF_HEADER::DeleteAllFields()
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1260,9 +1143,6 @@ void XFILEDBF_HEADER::Clean()
 * @fn         XFILEDBF::XFILEDBF()
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -1283,9 +1163,6 @@ XFILEDBF::XFILEDBF()
 * @fn         XFILEDBF::XFILEDBF(XPATH& xpath)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XPATH& :
 *
@@ -1314,9 +1191,6 @@ XFILEDBF::XFILEDBF(XPATH& xpath)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XFILE* :
 *
 * @return     Does not return anything.
@@ -1343,9 +1217,6 @@ XFILEDBF::XFILEDBF(XFILE* fileb)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1369,9 +1240,6 @@ XFILEDBF::~XFILEDBF()
 * @fn         bool XFILEDBF::Open(XPATH& xpath,bool readonly)
 * @brief      Open
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  readonly :
@@ -1399,9 +1267,6 @@ bool XFILEDBF::Open(XPATH& xpath,bool readonly)
 * @fn         bool XFILEDBF::Create(XPATH& xpath)
 * @brief      Create
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -1432,9 +1297,6 @@ bool XFILEDBF::Create(XPATH& xpath)
 * @brief      IsOpen
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1452,9 +1314,6 @@ bool XFILEDBF::IsOpen()
 * @fn         bool XFILEDBF::Close()
 * @brief      Close
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1480,9 +1339,6 @@ bool XFILEDBF::Close()
 * @brief      GetXPath
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1499,9 +1355,6 @@ XPATH* XFILEDBF::GetXPath()
 * @brief      GetHeader
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILEDBF_HEADER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1517,9 +1370,6 @@ XFILEDBF_HEADER* XFILEDBF::GetHeader()
 * @fn         XFILEDBF_RECORD* XFILEDBF::ReadRecord(XDWORD nrecord)
 * @brief      ReadRecord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nrecord :
 *
@@ -1575,9 +1425,6 @@ XFILEDBF_RECORD* XFILEDBF::ReadRecord(XDWORD nrecord)
 * @brief      WriteRecord
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  nrecord :
 * @param[in]  record :
 *
@@ -1608,9 +1455,6 @@ bool XFILEDBF::WriteRecord(XDWORD nrecord,XFILEDBF_RECORD* record)
 * @fn         bool XFILEDBF::InsertRecord(XDWORD nrecord, XFILEDBF_RECORD* record)
 * @brief      InsertRecord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nrecord :
 * @param[in]  record :
@@ -1649,9 +1493,6 @@ bool XFILEDBF::InsertRecord(XDWORD nrecord, XFILEDBF_RECORD* record)
 * @fn         bool XFILEDBF::AddRecord(XFILEDBF_RECORD* record)
 * @brief      AddRecord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  record :
 *
@@ -1700,9 +1541,6 @@ bool XFILEDBF::AddRecord(XFILEDBF_RECORD* record)
 * @brief      DeleteRecord
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  nrecord :
 *
 * @return     bool : true if is succesful.
@@ -1742,9 +1580,6 @@ bool XFILEDBF::DeleteRecord(XDWORD nrecord)
 * @fn         bool XFILEDBF::Pack()
 * @brief      Pack
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1829,9 +1664,6 @@ bool XFILEDBF::Pack()
 * @brief      Reduction
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  maxrecords :
 * @param[in]  reductionpercent :
 *
@@ -1866,9 +1698,6 @@ bool XFILEDBF::Reduction(int maxrecords, int reductionpercent)
 * @brief      CreateHeader
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1888,9 +1717,6 @@ bool XFILEDBF::CreateHeader()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

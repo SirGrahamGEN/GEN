@@ -6,10 +6,7 @@
 * @brief       eXtended Trace class (for debug)
 * @ingroup     UTILS
 *
-* @author      Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright   Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -68,9 +65,6 @@ XTRACE* XTRACE::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -88,9 +82,6 @@ XTRACE_TARGET::XTRACE_TARGET()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -107,9 +98,6 @@ XTRACE_TARGET::~XTRACE_TARGET()
 * @brief      Get Type of debug trace (enum XTRACE_TYPE)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XTRACE_TYPE : type of debug trace (enum XTRACE_TYPE)
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -125,9 +113,6 @@ XTRACE_TYPE XTRACE_TARGET::GetType()
 * @fn         void XTRACE_TARGET::SetType(XTRACE_TYPE type)
 * @brief      Set debug trace type (enum XTRACE_TYPE)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type : type of debug trace (enum XTRACE_TYPE)
 *
@@ -147,9 +132,6 @@ void XTRACE_TARGET::SetType(XTRACE_TYPE type)
 * @brief      Get aim of target
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* : aim of target
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -165,9 +147,6 @@ XCHAR* XTRACE_TARGET::GetAim()
 * @fn         bool XTRACE_TARGET::GetAim(XSTRING& aim)
 * @brief      Get aim of target
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out] aim : Get aim of target
 *
@@ -190,9 +169,6 @@ bool XTRACE_TARGET::GetAim(XSTRING& aim)
 * @brief      Set aim of target
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  aim : new aim of target
 *
 * @return     void : does not return anything.
@@ -211,9 +187,6 @@ void XTRACE_TARGET::SetAim(XSTRING& aim)
 * @fn         void XTRACE_TARGET::SetAim(XCHAR* aim)
 * @brief      Set aim of target
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  aim : new aim of target
 *
@@ -235,9 +208,6 @@ void XTRACE_TARGET::SetAim(XCHAR* aim)
 * @brief      Get number of sendings
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : number of sendings
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -253,9 +223,6 @@ XDWORD XTRACE_TARGET::GetNSendings()
 * @fn         void XTRACE_TARGET::AddNSendings()
 * @brief      Add One to number of sendings
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -274,9 +241,6 @@ void XTRACE_TARGET::AddNSendings()
 * @brief      Get port of target
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWORD : port of target
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -291,9 +255,6 @@ XWORD XTRACE_TARGET::GetPort()
 * @fn         void XTRACE_TARGET::SetPort(XWORD port)
 * @brief      Set Port of target
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  port : port of target
 *
@@ -312,9 +273,6 @@ void XTRACE_TARGET::SetPort(XWORD port)
 * @fn         bool XTRACE_TARGET::ResolvedIPTarget()
 * @brief      Resolved IP of target aim = URL -> IP
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -362,9 +320,6 @@ bool XTRACE_TARGET::ResolvedIPTarget()
 * @brief      Get IP of target
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     char* : string with the IP
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -381,9 +336,6 @@ char* XTRACE_TARGET::GetIP()
 * @brief      Get net Handle of target
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD : Net Handle of target
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -399,9 +351,6 @@ XQWORD XTRACE_TARGET::GetNETHandle()
 * @fn         void XTRACE_TARGET:: SetNETHandle(XQWORD NEThandle)
 * @brief      Set Net Handle of target
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  NEThandle : new Net Handle of target
 *
@@ -423,9 +372,6 @@ void XTRACE_TARGET:: SetNETHandle(XQWORD NEThandle)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -459,10 +405,7 @@ void XTRACE_TARGET::Clean()
 * @fn         XTRACE_STATUS_MSG::XTRACE_STATUS_MSG()
 * @brief      Constructor
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -481,10 +424,7 @@ XTRACE_STATUS_MSG::XTRACE_STATUS_MSG()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -506,10 +446,7 @@ XTRACE_STATUS_MSG::~XTRACE_STATUS_MSG()
 * @fn         XTRACE_TYPE_STATUS_MSG XTRACE_STATUS_MSG::GetType()
 * @brief      GetType
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XTRACE_TYPE_STATUS_MSG : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -525,10 +462,7 @@ XTRACE_TYPE_STATUS_MSG XTRACE_STATUS_MSG::GetType()
 * @fn         void XTRACE_STATUS_MSG::SetType(XTRACE_TYPE_STATUS_MSG type)
 * @brief      SetType
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     void : does not return anything. 
@@ -546,10 +480,7 @@ void XTRACE_STATUS_MSG::SetType(XTRACE_TYPE_STATUS_MSG type)
 * @fn         XSTRING* XTRACE_STATUS_MSG::GetName()
 * @brief      GetName
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -565,10 +496,7 @@ XSTRING* XTRACE_STATUS_MSG::GetName()
 * @fn         XTIMER* XTRACE_STATUS_MSG::GetXTimerLastUpdate()
 * @brief      GetXTimerLastUpdate
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XTIMER* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -585,10 +513,7 @@ XTIMER* XTRACE_STATUS_MSG::GetXTimerLastUpdate()
 * @fn         bool XTRACE_STATUS_MSG::Value_GetBoolean()
 * @brief      Value_GetBoolean
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -604,10 +529,7 @@ bool XTRACE_STATUS_MSG::Value_GetBoolean()
 * @fn         void XTRACE_STATUS_MSG::Value_SetBoolean(bool value)
 * @brief      Value_SetBoolean
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  value : 
 * 
 * @return     void : does not return anything. 
@@ -625,10 +547,7 @@ void XTRACE_STATUS_MSG::Value_SetBoolean(bool value)
 * @fn         int XTRACE_STATUS_MSG::Value_GetInteger()
 * @brief      Value_GetInteger
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     int : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -644,10 +563,7 @@ int XTRACE_STATUS_MSG::Value_GetInteger()
 * @fn         void XTRACE_STATUS_MSG::Value_SetInteger(int value)
 * @brief      Value_SetInteger
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  value : 
 * 
 * @return     void : does not return anything. 
@@ -665,10 +581,7 @@ void XTRACE_STATUS_MSG::Value_SetInteger(int value)
 * @fn         XSTRING* XTRACE_STATUS_MSG::Value_GetString()
 * @brief      Value_GetString
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -684,10 +597,7 @@ XSTRING* XTRACE_STATUS_MSG::Value_GetString()
 * @fn         XDWORD XTRACE_STATUS_MSG::Value_GetDword()
 * @brief      Value_GetDword
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -703,10 +613,7 @@ XDWORD XTRACE_STATUS_MSG::Value_GetDword()
 * @fn         void XTRACE_STATUS_MSG::Value_SetDword(XDWORD value)
 * @brief      Value_SetDword
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  value : 
 * 
 * @return     void : does not return anything. 
@@ -723,10 +630,7 @@ void XTRACE_STATUS_MSG::Value_SetDword(XDWORD value)
 * @fn         float XTRACE_STATUS_MSG::Value_GetFloat()
 * @brief      Value_GetFloat
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     float : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -741,10 +645,7 @@ float XTRACE_STATUS_MSG::Value_GetFloat()
 * @fn         void XTRACE_STATUS_MSG::Value_SetFloat(float value)
 * @brief      Value_SetFloat
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  value : 
 * 
 * @return     void : does not return anything. 
@@ -761,10 +662,7 @@ void XTRACE_STATUS_MSG::Value_SetFloat(float value)
 * @fn         XBYTE* XTRACE_STATUS_MSG::Value_GetColor()
 * @brief      Value_GetColor
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XBYTE* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -779,10 +677,7 @@ XBYTE* XTRACE_STATUS_MSG::Value_GetColor()
 * @fn         void XTRACE_STATUS_MSG::Value_SetColor(XBYTE* value)
 * @brief      Value_SetColor
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  value : 
 * 
 * @return     void : does not return anything. 
@@ -805,10 +700,7 @@ void XTRACE_STATUS_MSG::Value_SetColor(XBYTE* value)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -843,10 +735,7 @@ void XTRACE_STATUS_MSG::Clean()
 * @fn         XTRACE_STATUS_MSGS::XTRACE_STATUS_MSGS()
 * @brief      Constructor
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -863,10 +752,7 @@ XTRACE_STATUS_MSGS::XTRACE_STATUS_MSGS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -885,10 +771,7 @@ XTRACE_STATUS_MSGS::~XTRACE_STATUS_MSGS()
 * @fn         XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Add(XSTRING* line)
 * @brief      StatusMsg_Add
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  line : 
 * 
 * @return     XTRACE_STATUS_MSG* : 
@@ -1005,10 +888,7 @@ XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Add(XSTRING* line)
 * @fn         XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Get(XCHAR* name)
 * @brief      StatusMsg_Get
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * 
 * @return     XTRACE_STATUS_MSG* : 
@@ -1037,10 +917,7 @@ XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Get(XCHAR* name)
 * @fn         XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Get(int index)
 * @brief      StatusMsg_Get
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  index : 
 * 
 * @return     XTRACE_STATUS_MSG* : 
@@ -1062,10 +939,7 @@ XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Get(int index)
 * @fn         XVECTOR<XTRACE_STATUS_MSG*>* XTRACE_STATUS_MSGS::StatusMsg_GetAll()
 * @brief      StatusMsg_GetAll
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XVECTOR<XTRACE_STATUS_MSG*>* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1082,10 +956,7 @@ XVECTOR<XTRACE_STATUS_MSG*>* XTRACE_STATUS_MSGS::StatusMsg_GetAll()
 * @fn         bool XTRACE_STATUS_MSGS::StatusMsg_DeleteAll()
 * @brief      StatusMsg_DeleteAll
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1107,10 +978,7 @@ bool XTRACE_STATUS_MSGS::StatusMsg_DeleteAll()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1133,9 +1001,6 @@ void XTRACE_STATUS_MSGS::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1153,9 +1018,6 @@ XTRACE::XTRACE()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1171,9 +1033,6 @@ XTRACE::~XTRACE()
 * @fn         bool XTRACE::SetTarget(int index, XTRACE_TYPE type, XCHAR* aim)
 * @brief      Set Target by index
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index : index to set target
 * @param[in]  type : type of the target
@@ -1234,9 +1093,6 @@ bool XTRACE::SetTarget(int index, XTRACE_TYPE type, XCHAR* aim)
 * @brief      Add target (first index free)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type : type of the target
 * @param[in]  aim : aim of the target
 *
@@ -1261,9 +1117,6 @@ bool XTRACE::AddTarget(XTRACE_TYPE type, XCHAR* aim)
 * @brief      Get size limit
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : size limit
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1279,9 +1132,6 @@ XDWORD XTRACE::GetSizeLimit()
 * @fn         bool XTRACE::SetSizeLimit(XDWORD sizelimit)
 * @brief      Set size limit
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sizelimit : new size limit
 *
@@ -1304,9 +1154,6 @@ bool XTRACE::SetSizeLimit(XDWORD sizelimit)
 * @brief      Get Application Name
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* : application name
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1323,9 +1170,6 @@ XCHAR* XTRACE::GetApplicationName()
 * @fn         void XTRACE::SetApplicationName(XCHAR* applicationname)
 * @brief      Set Application Name
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationname : new application name
 *
@@ -1349,9 +1193,6 @@ void XTRACE::SetApplicationName(XCHAR* applicationname)
 * @brief      Set Application Name
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  applicationname : new application name
 * @param[in]  size : size of application name
 *
@@ -1372,9 +1213,6 @@ void XTRACE::SetApplicationName(XCHAR* applicationname, XDWORD size)
 * @brief      Set Application name
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  applicationname : new application name
 *
 * @return     void : does not return anything.
@@ -1392,9 +1230,6 @@ void XTRACE::SetApplicationName(XSTRING& applicationname)
 * @fn         void XTRACE::GetApplicationVersion(int& applicationversion, int& applicationsubversion, int& applicationsubversionerr)
 * @brief      Get Application version (three data)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationversion : version number
 * @param[in]  applicationsubversion : subversion number
@@ -1418,9 +1253,6 @@ void XTRACE::GetApplicationVersion(int& applicationversion, int& applicationsubv
 * @brief      Set Application version
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  applicationversion : new version number
 * @param[in]  applicationsubversion : new subversion number
 * @param[in]  applicationsubversionerr : new subversion error number
@@ -1443,9 +1275,6 @@ void XTRACE::SetApplicationVersion(int applicationversion, int applicationsubver
 * @brief      Get Application ID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1461,9 +1290,6 @@ XCHAR* XTRACE::GetApplicationID()
 * @fn         void XTRACE::SetApplicationID(XCHAR* applicationID, XDWORD size)
 * @brief      Set Application ID
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationID : new string application ID
 * @param[in]  size : size application ID
@@ -1485,9 +1311,6 @@ void XTRACE::SetApplicationID(XCHAR* applicationID, XDWORD size)
 * @brief      Set Application ID
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  applicationID : new string application ID
 *
 * @return     void : does not return anything.
@@ -1506,10 +1329,7 @@ void XTRACE::SetApplicationID(XSTRING& applicationID)
 * @fn         bool XTRACE::ScreenClear(XBYTE level)
 * @brief      ScreenClear
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  level : 
 * 
 * @return     bool : true if is succesful. 
@@ -1531,9 +1351,6 @@ bool XTRACE::ScreenClear(XBYTE level)
 * @fn         void XTRACE::PrintHeader(XCHAR* header)
 * @brief      Print Header
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  header : header string
 *
@@ -1572,9 +1389,6 @@ void XTRACE::PrintHeader(XCHAR* header)
 * @fn         bool XTRACE::Print(XBYTE level, XCHAR* mask,...)
 * @brief      Print format line
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  level : level of line
 * @param[in]  mask : mask of format of print
@@ -1675,9 +1489,6 @@ bool XTRACE::Print(XBYTE level, XCHAR* mask,...)
 * @brief      Print data block
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  level : level of line
 * @param[in]  data : buffer of data to print
 * @param[in]  size : size of buffer
@@ -1767,9 +1578,6 @@ bool XTRACE::PrintDataBlock(XBYTE level, XBYTE* data, XDWORD size, XDWORD margin
 * @brief      Print data block
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  level : level of line
 * @param[in]  data : buffer of data to print
 * @param[in]  marginsize : size of margin
@@ -1793,10 +1601,7 @@ bool XTRACE::PrintDataBlock(XBYTE level, XBUFFER& data, XDWORD marginsize, XDWOR
 * @fn         bool XTRACE::StatusClear(XBYTE level)
 * @brief      StatusClear
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  level : 
 * 
 * @return     bool : true if is succesful. 
@@ -1821,9 +1626,6 @@ bool XTRACE::StatusClear(XBYTE level)
 * @brief      PrintStatus
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  level :
 * @param[in]  name :
 * @param[in]  value :
@@ -1847,10 +1649,7 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, bool value)
 * @fn         bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, int value)
 * @brief      PrintStatus
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  level : 
 * @param[in]  name : 
 * @param[in]  value : 
@@ -1876,9 +1675,6 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, int value)
 * @brief      PrintStatus
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  level :
 * @param[in]  name :
 * @param[in]  value :
@@ -1902,9 +1698,6 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XCHAR* value)
 * @fn         bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XDWORD value)
 * @brief      PrintStatus
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  level :
 * @param[in]  name :
@@ -1930,9 +1723,6 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XDWORD value)
 * @brief      PrintStatus
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  level :
 * @param[in]  name :
 * @param[in]  value :
@@ -1957,9 +1747,6 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, float value)
 * @fn         bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XBYTE value[3])
 * @brief      PrintStatus
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  level :
 * @param[in]  name :
@@ -1988,9 +1775,6 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XBYTE value[3])
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
 * @param[in]  string : string with the line
@@ -2011,9 +1795,6 @@ void XTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @brief      Print in file aim
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
@@ -2036,9 +1817,6 @@ void XTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
 * @param[in]  string : string with the line
@@ -2058,9 +1836,6 @@ void XTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @brief      Get Handle NET (depends of plataform)
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  target : target of debug
 *
@@ -2082,9 +1857,6 @@ bool XTRACE::GetHandleNet(XTRACE_TARGET* target)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  target : target of debug
 *
 * @return     bool : true if is succesful.
@@ -2102,10 +1874,7 @@ bool XTRACE::CloseHandleNet(XTRACE_TARGET* target)
 * @fn         XDWORD XTRACE::GetTraceFromXBuffer(XBUFFER& xbufferpacket, XDWORD& publicIP, XDWORD& localIP, XBYTE& level, XDWORD& sequence, XDATETIME* xtime, XBUFFER& data)
 * @brief      GetTraceFromXBuffer
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xbufferpacket : 
 * @param[in]  publicIP : 
 * @param[in]  localIP : 
@@ -2239,10 +2008,7 @@ XDWORD XTRACE::GetTraceFromXBuffer(XBUFFER& xbufferpacket, XDWORD& publicIP, XDW
 * @fn         bool XTRACE::SetTraceDataToText(XBUFFER& data, XSTRING& string)
 * @brief      SetTraceDataToText
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  data : 
 * @param[in]  string : 
 * 
@@ -2271,10 +2037,7 @@ bool XTRACE::SetTraceDataToText(XBUFFER& data, XSTRING& string)
 * @fn         bool XTRACE::SetTraceToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level, XDWORD sequence, XDATETIME* xtime, XDWORD& sizepacket, XBUFFER& xbufferpacket)
 * @brief      SetTraceToXBuffer
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  publicIP : 
 * @param[in]  localIP : 
 * @param[in]  level : 
@@ -2331,9 +2094,6 @@ bool XTRACE::SetTraceToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level, XDW
 * @brief      Set Trace Text pack to XBuffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  publicIP : Public IP (in DWORD format)
 * @param[in]  localIP : Local IP (in DWORD format)
 * @param[in]  level : Level of debug
@@ -2383,9 +2143,6 @@ bool XTRACE::SetTraceTextToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level,
 * @brief      SetLocalIPFilter
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  localIPfilter :
 *
 * @return     void : does not return anything.
@@ -2403,9 +2160,6 @@ void XTRACE::SetLocalIPFilter(XBYTE localIPfilter)
 * @fn         bool XTRACE::ObtainLocalIP()
 * @brief      Obtain Local IP
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -2473,9 +2227,6 @@ bool XTRACE::ObtainLocalIP()
 * @brief      Get Local IP (in string format)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : local ip in string format
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2491,9 +2242,6 @@ XSTRING* XTRACE::GetLocalIPString()
 * @fn         bool XTRACE::SetLocalIPString(XSTRING* localIPstring)
 * @brief      Set Local IP (in string format)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  localIPstring : new local ip in string format
 *
@@ -2521,9 +2269,6 @@ bool XTRACE::SetLocalIPString(XSTRING* localIPstring)
 * @brief      Get Local IP (in DWORD format)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : local IP in DWORD format
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2540,9 +2285,6 @@ XDWORD XTRACE::GetLocalIP()
 * @fn         bool XTRACE::ObtainPublicIP()
 * @brief      Obtain Public IP
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -2583,9 +2325,6 @@ bool XTRACE::ObtainPublicIP()
 * @brief      Get Web Scrapper Script URL download
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* : URL download
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2601,9 +2340,6 @@ XCHAR* XTRACE::GetScraperWebScriptURLDownload()
 * @fn         void XTRACE::SetScraperWebScriptURLDownload(XCHAR* scraperwebscripturldownload)
 * @brief      Get Web Scrapper Script URL download
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  scraperwebscripturldownload : URL download
 *
@@ -2627,9 +2363,6 @@ void XTRACE::SetScraperWebScriptURLDownload(XCHAR* scraperwebscripturldownload)
 * @brief      Get Public IP (in DWORD format)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : public IP in DWORD format
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2644,9 +2377,6 @@ XDWORD XTRACE::GetPublicIP()
 * @fn         XSTRING* XTRACE::GetPublicIPString()
 * @brief      Get Public IP (in string format)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* : string with public IP
 *
@@ -2663,9 +2393,6 @@ XSTRING* XTRACE::GetPublicIPString()
 * @fn         bool XTRACE::SetPublicIPString(XSTRING* publicIPstring)
 * @brief      Set public IP (in string format)
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  publicIPstring : public ip in string format
 *
@@ -2697,9 +2424,6 @@ bool XTRACE::SetPublicIPString(XSTRING* publicIPstring)
 * @brief      Obtain Resources IP (public + local)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2721,9 +2445,6 @@ bool XTRACE::ObtainResourcesIP()
 * @fn         bool XTRACE::ReConnectedAllNetTargets()
 * @brief      Re connect all Net Targets
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -2754,9 +2475,6 @@ bool XTRACE::ReConnectedAllNetTargets()
 * @fn         bool XTRACE::ResolveAllNetTargets(bool& changed)
 * @brief      Resolve All Net Targets
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out] changed : true if the target net changed IP
 *
@@ -2796,9 +2514,6 @@ bool XTRACE::ResolveAllNetTargets(bool& changed)
 * @brief      Resolve All Resources local + public: (if chnaged obtain and reconnect)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2823,9 +2538,6 @@ bool XTRACE::ResolveAllResources()
 * @fn         bool XTRACE::GenerateTab(int ntab, XSTRING& tab)
 * @brief      Generate Tab for the line
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ntab : number of tab
 * @param[out  tab : string with the tab generated
@@ -2854,9 +2566,6 @@ bool XTRACE::GenerateTab(int ntab, XSTRING& tab)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

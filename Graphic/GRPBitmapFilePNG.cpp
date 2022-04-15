@@ -6,10 +6,7 @@
 * @brief      Graphic bitmap file PNG format (PNG: Portable Network Graphics) class
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -74,9 +68,6 @@ GRPBITMAPFILEPNG::GRPBITMAPFILEPNG(): GRPBITMAPFILEBASE()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -92,9 +83,6 @@ GRPBITMAPFILEPNG::~GRPBITMAPFILEPNG()
 * @fn         GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
 * @brief      CreateBitmapFromFile
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  forcemode :
@@ -223,9 +211,6 @@ GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 * @fn         GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode)
 * @brief      CreateBitmapFromBuffer
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -361,9 +346,6 @@ GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 * @brief      CreateFileFromBitmap
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 * @param[in]  bitmap :
 * @param[in]  quality :
@@ -475,9 +457,6 @@ bool GRPBITMAPFILEPNG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 * @brief      BufferData_Get
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -494,9 +473,6 @@ XBYTE* GRPBITMAPFILEPNG::BufferData_Get()
 * @brief      BufferData_GetIndex
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -512,9 +488,6 @@ XDWORD GRPBITMAPFILEPNG::BufferData_GetIndex()
 * @fn         void GRPBITMAPFILEPNG::BufferData_SetIndex(XDWORD index)
 * @brief      BufferData_SetIndex
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -534,9 +507,6 @@ void GRPBITMAPFILEPNG::BufferData_SetIndex(XDWORD index)
 * @brief      BufferData_GetSize
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -553,9 +523,6 @@ XDWORD GRPBITMAPFILEPNG::BufferData_GetSize()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -574,9 +541,6 @@ void GRPBITMAPFILEPNG::Clean()
 * @fn         void GRPBITMAPFILEPNG::ReadFileData(png_structp png, png_bytep data, png_size_t length)
 * @brief      ReadData
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  png : struct png
 * @param[in]  data : data of PNG
@@ -600,9 +564,6 @@ void GRPBITMAPFILEPNG::ReadFileData(png_structp png, png_bytep data, png_size_t 
 * @fn         void GRPBITMAPFILEPNG::ReadBufferData(png_structp png, png_bytep data, png_size_t length)
 * @brief      ReadBufferData
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  png :
 * @param[in]  data :
@@ -633,9 +594,6 @@ void GRPBITMAPFILEPNG::ReadBufferData(png_structp png, png_bytep data, png_size_
 * @fn         void GRPBITMAPFILEPNG::WriteFileData(png_structp png, png_bytep data, png_size_t length)
 * @brief      WriteData
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  png : png struct
 * @param[in]  data : data of PNG

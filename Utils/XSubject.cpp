@@ -6,10 +6,7 @@
 * @brief      eXtended Subject class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -73,9 +67,6 @@ XSUBJECT::XSUBJECT()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -91,9 +82,6 @@ XSUBJECT::~XSUBJECT()
 * @fn         bool XSUBJECT::RegisterEvent(XDWORD type)
 * @brief      RegisterEvent
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -113,9 +101,6 @@ bool XSUBJECT::RegisterEvent(XDWORD type)
 * @brief      DeRegisterEvent
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 *
 * @return     bool : true if is succesful.
@@ -134,9 +119,6 @@ bool XSUBJECT::DeRegisterEvent(XDWORD type)
 * @brief      DeRegisterAllEvents
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -152,9 +134,6 @@ bool XSUBJECT::DeRegisterAllEvents()
 * @fn         bool XSUBJECT::PostEvent(XEVENT* event)
 * @brief      PostEvent
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  event :
 *
@@ -172,9 +151,6 @@ bool XSUBJECT::PostEvent(XEVENT* event)
 * @fn         bool XSUBJECT::PostEvent(XEVENT* event, XSUBJECT* xsubject)
 * @brief      PostEvent
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  event :
 * @param[in]  xsubject :
@@ -195,9 +171,6 @@ bool XSUBJECT::PostEvent(XEVENT* event, XSUBJECT* xsubject)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Web Server class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -79,9 +76,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -98,9 +92,6 @@ DIOWEBSERVER_HEADER::DIOWEBSERVER_HEADER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -119,9 +110,6 @@ DIOWEBSERVER_HEADER::~DIOWEBSERVER_HEADER()
 * @fn         int DIOWEBSERVER_HEADER::GetVersion()
 * @brief      GetVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -143,9 +131,6 @@ int DIOWEBSERVER_HEADER::GetVersion()
 * @brief      GetSubVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -165,9 +150,6 @@ int DIOWEBSERVER_HEADER::GetSubVersion()
 * @fn         int DIOWEBSERVER_HEADER::GetResult()
 * @brief      GetResult
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -189,9 +171,6 @@ int DIOWEBSERVER_HEADER::GetResult()
 * @brief      GetResultString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  resultstring :
 *
 * @return     bool : true if is succesful.
@@ -211,9 +190,6 @@ bool DIOWEBSERVER_HEADER::GetResultString(XSTRING& resultstring)
 * @fn         bool DIOWEBSERVER_HEADER::CreateContentType(XSTRING* resource, XSTRING& contenttype)
 * @brief      CreateContentType
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  resource :
 * @param[in]  contenttype :
@@ -258,9 +234,6 @@ bool DIOWEBSERVER_HEADER::CreateContentType(XSTRING* resource, XSTRING& contentt
 * @fn         bool DIOWEBSERVER_HEADER::Create(XSTRING* resource, int version, int subversion, DIOWEBHEADER_RESULT result, int size, XSTRING* entitytag, bool isplayable, bool password)
 * @brief      Create
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  resource :
 * @param[in]  version :
@@ -430,9 +403,6 @@ bool DIOWEBSERVER_HEADER::Create(XSTRING* resource, int version, int subversion,
 * @brief      AddWebSocketKey
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  websocketaccept :
 *
 * @return     bool : true if is succesful.
@@ -466,7 +436,7 @@ bool DIOWEBSERVER_HEADER::AddWebSocketKey(XSTRING& websocketaccept, XSTRING& web
 /**
 //
 //
-//  @author       Abraham J. Velez
+//  ""
 //  @version      13/04/2013 17:02:12
 //
 //  @return       bool :
@@ -554,9 +524,6 @@ bool DIOWEBSERVER_HEADER::GetDescriptionResult(DIOWEBHEADER_RESULT result, XSTRI
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -579,9 +546,6 @@ void DIOWEBSERVER_HEADER::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -599,9 +563,6 @@ DIOWEBSOCKET_HEADER::DIOWEBSOCKET_HEADER()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -618,9 +579,6 @@ DIOWEBSOCKET_HEADER::~DIOWEBSOCKET_HEADER()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -646,9 +604,6 @@ void DIOWEBSOCKET_HEADER::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -666,9 +621,6 @@ DIOWEBSERVER_AUTHENTICATION::DIOWEBSERVER_AUTHENTICATION()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -684,9 +636,6 @@ DIOWEBSERVER_AUTHENTICATION::~DIOWEBSERVER_AUTHENTICATION()
 * @fn         XSTRING* DIOWEBSERVER_AUTHENTICATION::GetGuest()
 * @brief      GetGuest
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -704,9 +653,6 @@ XSTRING* DIOWEBSERVER_AUTHENTICATION::GetGuest()
 * @brief      GetLogin
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -723,9 +669,6 @@ XSTRING* DIOWEBSERVER_AUTHENTICATION::GetLogin()
 * @brief      GetPassword
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -741,9 +684,6 @@ XSTRING* DIOWEBSERVER_AUTHENTICATION::GetPassword()
 * @fn         bool DIOWEBSERVER_AUTHENTICATION::Set(XSTRING& login, XSTRING& password)
 * @brief      DIOWEBSERVER_AUTHENTICATION::Set
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  login :
 * @param[in]  password :
@@ -766,9 +706,6 @@ bool DIOWEBSERVER_AUTHENTICATION::Set(XSTRING& login, XSTRING& password)
 * @fn         bool DIOWEBSERVER_AUTHENTICATION::Set(XSTRING& guest, XSTRING& login, XSTRING& password)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  guest :
 * @param[in]  login :
@@ -794,9 +731,6 @@ bool DIOWEBSERVER_AUTHENTICATION::Set(XSTRING& guest, XSTRING& login, XSTRING& p
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -819,9 +753,6 @@ void DIOWEBSERVER_AUTHENTICATION::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -841,9 +772,6 @@ DIOWEBSERVER_REQUEST::DIOWEBSERVER_REQUEST()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -862,9 +790,6 @@ DIOWEBSERVER_REQUEST::~DIOWEBSERVER_REQUEST()
 * @brief      GetType
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBSERVER_TYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -880,9 +805,6 @@ DIOWEBSERVER_TYPE DIOWEBSERVER_REQUEST::GetType()
 * @fn         void DIOWEBSERVER_REQUEST::SetType(DIOWEBSERVER_TYPE type)
 * @brief      SetType
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -902,9 +824,6 @@ void DIOWEBSERVER_REQUEST::SetType(DIOWEBSERVER_TYPE type)
 * @brief      GetMethod
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBHEADER_METHOD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -920,9 +839,6 @@ DIOWEBHEADER_METHOD DIOWEBSERVER_REQUEST::GetMethod()
 * @fn         void DIOWEBSERVER_REQUEST::SetMethod(DIOWEBHEADER_METHOD method)
 * @brief      SetMethod
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  method :
 *
@@ -942,9 +858,6 @@ void DIOWEBSERVER_REQUEST::SetMethod(DIOWEBHEADER_METHOD method)
 * @brief      GetResource
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -961,9 +874,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetResource()
 * @brief      GetGuest
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -979,9 +889,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetGuest()
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetUserAgent()
 * @brief      GetUserAgent
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -1000,9 +907,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetUserAgent()
 * @brief      GetSize
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1018,9 +922,6 @@ int DIOWEBSERVER_REQUEST::GetSize()
 * @fn         void DIOWEBSERVER_REQUEST::SetSize(XDWORD size)
 * @brief      SetSize
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size :
 *
@@ -1040,9 +941,6 @@ void DIOWEBSERVER_REQUEST::SetSize(XDWORD size)
 * @brief      GetIfNoneMatch
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1058,9 +956,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetIfNoneMatch()
 * @fn         void DIOWEBSERVER_REQUEST::SetIfNoneMatch(XSTRING& ifnonematch)
 * @brief      SetIfNoneMatch
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ifnonematch :
 *
@@ -1089,9 +984,6 @@ void DIOWEBSERVER_REQUEST::SetIfNoneMatch(XSTRING& ifnonematch)
 * @brief      GetAcceptedCharset
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1107,9 +999,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedCharset()
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedControlRequestMethod()
 * @brief      GetAcceptedControlRequestMethod
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -1127,9 +1016,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedControlRequestMethod()
 * @brief      GetAcceptedLanguage
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1146,9 +1032,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedLanguage()
 * @brief      GetAcceptedAllowHeaders
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1164,9 +1047,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedAllowHeaders()
 * @fn         void DIOWEBSERVER_REQUEST::ProcessAcceptedEncodingFlags(XSTRING& string)
 * @brief      ProcessAcceptedEncodingFlags
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -1193,9 +1073,6 @@ void DIOWEBSERVER_REQUEST::ProcessAcceptedEncodingFlags(XSTRING& string)
 * @brief      GetAccessControlAllowOrigin
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1211,9 +1088,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowOrigin()
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowMethods()
 * @brief      GetAccessControlAllowMethods
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -1231,9 +1105,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowMethods()
 * @brief      GetAccessControlAllowHeaders
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1249,9 +1120,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowHeaders()
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetOrigin()
 * @brief      GetOrigin
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -1269,9 +1137,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetOrigin()
 * @brief      GetConnection
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1287,9 +1152,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetConnection()
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetUpgrade()
 * @brief      GetUpgrade
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -1307,9 +1169,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetUpgrade()
 * @brief      GetData
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBUFFER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1326,9 +1185,6 @@ XBUFFER* DIOWEBSERVER_REQUEST::GetData()
 * @brief      HaveLoginPassword
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1344,9 +1200,6 @@ bool DIOWEBSERVER_REQUEST::HaveLoginPassword()
 * @fn         bool DIOWEBSERVER_REQUEST::GetLoginPassword(XSTRING& login, XSTRING& password)
 * @brief      GetLoginPassword
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  login :
 * @param[in]  password :
@@ -1379,9 +1232,6 @@ bool DIOWEBSERVER_REQUEST::GetLoginPassword(XSTRING& login, XSTRING& password)
 * @brief      SetLoginPassword
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  loginpassword :
 *
 * @return     void : does not return anything.
@@ -1399,9 +1249,6 @@ void DIOWEBSERVER_REQUEST::SetLoginPassword(XSTRING& loginpassword)
 * @fn         bool DIOWEBSERVER_REQUEST::ConvertFromWeb(XSTRING& string)
 * @brief      ConvertFromWeb
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -1445,9 +1292,6 @@ bool DIOWEBSERVER_REQUEST::ConvertFromWeb(XSTRING& string)
 * @brief      IsAcceptedEncodingFlag
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  flag :
 *
 * @return     bool : true if is succesful.
@@ -1465,9 +1309,6 @@ bool DIOWEBSERVER_REQUEST::IsAcceptedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS fla
 * @brief      WebSocket_GetKey
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1483,9 +1324,6 @@ XSTRING* DIOWEBSERVER_REQUEST::WebSocket_GetKey()
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::WebSocket_GetProtocol()
 * @brief      WebSocket_GetProtocol
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -1503,9 +1341,6 @@ XSTRING* DIOWEBSERVER_REQUEST::WebSocket_GetProtocol()
 * @brief      WebSocket_GetVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1521,9 +1356,6 @@ int DIOWEBSERVER_REQUEST::WebSocket_GetVersion()
 * @fn         void DIOWEBSERVER_REQUEST::WebSocket_SetVersion(int version)
 * @brief      WebSocket_SetVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  version :
 *
@@ -1544,9 +1376,6 @@ void DIOWEBSERVER_REQUEST::WebSocket_SetVersion(int version)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -1606,9 +1435,6 @@ void DIOWEBSERVER_REQUEST::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1625,9 +1451,6 @@ DIOWEBSERVER_CONNECTION::DIOWEBSERVER_CONNECTION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -1646,9 +1469,6 @@ DIOWEBSERVER_CONNECTION::~DIOWEBSERVER_CONNECTION()
 * @fn         bool DIOWEBSERVER_CONNECTION::Ini(DIOWEBSERVER* webserver, DIOSTREAMTCPIPCONFIG* diostreamcfg)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  webserver :
 * @param[in]  diostreamcfg :
@@ -1688,9 +1508,6 @@ bool DIOWEBSERVER_CONNECTION::Ini(DIOWEBSERVER* webserver, DIOSTREAMTCPIPCONFIG*
 * @brief      GetDIOStream
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMTCPIP* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1706,9 +1523,6 @@ DIOSTREAMTCPIP* DIOWEBSERVER_CONNECTION::GetDIOStream()
 * @fn         XTIMER* DIOWEBSERVER_CONNECTION::GetTimerConnection()
 * @brief      GetTimerConnection
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XTIMER* :
 *
@@ -1726,9 +1540,6 @@ XTIMER* DIOWEBSERVER_CONNECTION::GetTimerConnection()
 * @brief      IsActive
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1744,9 +1555,6 @@ bool DIOWEBSERVER_CONNECTION::IsActive()
 * @fn         bool DIOWEBSERVER_CONNECTION::Activate()
 * @brief      Activate
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1772,9 +1580,6 @@ bool DIOWEBSERVER_CONNECTION::Activate()
 * @brief      Deactivate
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1799,9 +1604,6 @@ bool DIOWEBSERVER_CONNECTION::Deactivate()
 * @brief      GetMode
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBSERVER_CONNECTION_MODE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1817,9 +1619,6 @@ DIOWEBSERVER_CONNECTION_MODE DIOWEBSERVER_CONNECTION::GetMode()
 * @fn         void DIOWEBSERVER_CONNECTION::SetMode(DIOWEBSERVER_CONNECTION_MODE mode)
 * @brief      SetMode
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mode :
 *
@@ -1838,9 +1637,6 @@ void DIOWEBSERVER_CONNECTION::SetMode(DIOWEBSERVER_CONNECTION_MODE mode)
 * @fn         bool DIOWEBSERVER_CONNECTION::Receiver(XBYTE* buffer, XDWORD& size, int timeout)
 * @brief      Receiver
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -1898,9 +1694,6 @@ bool DIOWEBSERVER_CONNECTION::Receiver(XBYTE* buffer, XDWORD& size, int timeout)
 * @brief      Send
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 * @param[in]  timeout :
@@ -1931,9 +1724,6 @@ bool DIOWEBSERVER_CONNECTION::Send(XBYTE* buffer, XDWORD& size, int timeout)
 * @brief      Send
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer :
 * @param[in]  timeout :
 *
@@ -1955,9 +1745,6 @@ bool DIOWEBSERVER_CONNECTION::Send(XBUFFER& xbuffer, int timeout)
 * @brief      IsRequestInProgress
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1974,9 +1761,6 @@ bool DIOWEBSERVER_CONNECTION::IsRequestInProgress()
 * @brief      GetServer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBSERVER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1991,9 +1775,6 @@ DIOWEBSERVER* DIOWEBSERVER_CONNECTION::GetServer()
 * @fn         DIOWEBCLIENT_HEADER* DIOWEBSERVER_CONNECTION::GetHeader()
 * @brief      GetHeader
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOWEBCLIENT_HEADER* :
 *
@@ -2011,9 +1792,6 @@ DIOWEBCLIENT_HEADER* DIOWEBSERVER_CONNECTION::GetHeader()
 * @brief      GetRequest
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBSERVER_REQUEST* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2030,9 +1808,6 @@ DIOWEBSERVER_REQUEST* DIOWEBSERVER_CONNECTION::GetRequest()
 * @brief      GetActualEncodingFlag
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBSERVER_ENCODINGFLAGS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2048,9 +1823,6 @@ DIOWEBSERVER_ENCODINGFLAGS DIOWEBSERVER_CONNECTION::GetActualEncodingFlag()
 * @fn         bool DIOWEBSERVER_CONNECTION::SetActualEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS actualencodingflag)
 * @brief      SetActualEncodingFlag
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  actualencodingflag :
 *
@@ -2079,9 +1851,6 @@ bool DIOWEBSERVER_CONNECTION::SetActualEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS a
 * @fn         bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XCHAR* string, int timeout)
 * @brief      WebSocket_Write
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 * @param[in]  timeout :
@@ -2113,9 +1882,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XCHAR* string, int timeout)
 * @brief      WebSocket_Write
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 * @param[in]  timeout :
 *
@@ -2134,9 +1900,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XSTRING& string, int timeout)
 * @fn         bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XBYTE* buffer, XDWORD size, int timeout)
 * @brief      WebSocket_Write
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -2164,9 +1927,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XBYTE* buffer, XDWORD size, int ti
 * @brief      WebSocket_Write
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  timeout :
 *
@@ -2185,9 +1945,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XBUFFER& buffer, int timeout)
 * @fn         bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XCHAR* string, int timeout)
 * @brief      WebSocket_WritePingPong
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isping :
 * @param[in]  string :
@@ -2220,9 +1977,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XCHAR* string
 * @brief      WebSocket_WritePingPong
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  isping :
 * @param[in]  string :
 * @param[in]  timeout :
@@ -2242,9 +1996,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XSTRING& stri
 * @fn         bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XBUFFER& data, int timeout)
 * @brief      WebSocket_WritePingPong
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isping :
 * @param[in]  data :
@@ -2272,9 +2023,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XBUFFER& data
 * @brief      GetTimerDisconnection
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XTIMER* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2290,9 +2038,6 @@ XTIMER* DIOWEBSERVER_CONNECTION::GetTimerDisconnection()
 * @fn         bool DIOWEBSERVER_CONNECTION::End()
 * @brief      End
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -2339,9 +2084,6 @@ bool DIOWEBSERVER_CONNECTION::End()
 * @fn         bool DIOWEBSERVER_CONNECTION::RequestRequest(DIOWEBSERVER_REQUEST& request, int timeout)
 * @brief      GetRequest
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  request :
 * @param[in]  timeout :
@@ -2493,9 +2235,6 @@ bool DIOWEBSERVER_CONNECTION::ReadRequest()
 * @brief      SendRequest
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2530,9 +2269,6 @@ bool DIOWEBSERVER_CONNECTION::SendRequest()
 * @fn         bool DIOWEBSERVER_CONNECTION::WebSocket_CreateAcceptKey(XSTRING* key, XSTRING* result)
 * @brief      CreateWebSocketAccept
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  key :
 * @param[in]  result :
@@ -2577,9 +2313,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_CreateAcceptKey(XSTRING& key, XSTRING& r
 * @fn         bool DIOWEBSERVER_CONNECTION::WebSocket_CreateHeader(DIOWEBSERVER_WEBSOCKET_OPCODE opcode, XDWORD size, XBUFFER& data)
 * @brief      WebSocket_CreateHeader
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  opcode :
 * @param[in]  size :
@@ -2632,9 +2365,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_CreateHeader(DIOWEBSERVER_WEBSOCKET_OPCO
 * @brief      Websocket_ResolveConnection
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  request :
 *
 * @return     bool : true if is succesful.
@@ -2663,9 +2393,6 @@ bool DIOWEBSERVER_CONNECTION::Websocket_ResolveConnection(DIOWEBSERVER_REQUEST* 
 * @fn         bool DIOWEBSERVER_CONNECTION::WebSocket_ReadRequest(DIOWEBSERVER_WEBSOCKET_OPCODE& opcode, XBUFFER& data)
 * @brief      WebSocket_ReadRequest
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  opcode :
 * @param[in]  data :
@@ -2785,9 +2512,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_ReadRequest(DIOWEBSERVER_WEBSOCKET_OPCOD
 * @brief      WebSocket_SendEvent_Connected
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2831,9 +2555,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Connected()
 * @brief      WebSocket_SendEvent_ReadData
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 *
 * @return     bool : true if is succesful.
@@ -2868,9 +2589,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_ReadData(XBUFFER& data)
 * @brief      WebSocket_SendEvent_Pong
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 *
 * @return     bool : true if is succesful.
@@ -2904,9 +2622,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Pong(XBUFFER& data)
 * @brief      WebSocket_SendEvent_Disconnected
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2937,9 +2652,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Disconnected()
 * @fn         void DIOWEBSERVER_CONNECTION::ThreadRunFunction(void* param)
 * @brief      ThreadRunFunction
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *
@@ -3035,9 +2747,6 @@ void DIOWEBSERVER_CONNECTION::ThreadRunFunction(void* param)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3074,9 +2783,6 @@ void DIOWEBSERVER_CONNECTION::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3093,9 +2799,6 @@ DIOWEBSERVER::DIOWEBSERVER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -3114,9 +2817,6 @@ DIOWEBSERVER::~DIOWEBSERVER()
 * @fn         bool DIOWEBSERVER::Ini(int port, bool doinitialconnectitivitytest, int timeoutserverpage, XSTRING* addrlocal)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  port : 
 * @param[in]  doinitialconnectitivitytest : 
@@ -3218,9 +2918,6 @@ bool DIOWEBSERVER::Ini(int port, bool doinitialconnectitivitytest, int timeoutse
 * @brief      GetPort
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3236,9 +2933,6 @@ int DIOWEBSERVER::GetPort()
 * @fn         int DIOWEBSERVER::GetTimeoutServerPage()
 * @brief      GetTimeoutServerPage
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -3256,9 +2950,6 @@ int DIOWEBSERVER::GetTimeoutServerPage()
 * @brief      GetDIOStreamCFG
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMTCPIPCONFIG* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3274,9 +2965,6 @@ DIOSTREAMTCPIPCONFIG* DIOWEBSERVER::GetDIOStreamCFG()
 * @fn         bool DIOWEBSERVER::IsSendingAnyPage()
 * @brief      IsSendingAnyPage
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -3312,9 +3000,6 @@ bool DIOWEBSERVER::IsSendingAnyPage()
 * @brief      UnSubscribeAllPages
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3343,9 +3028,6 @@ bool DIOWEBSERVER::UnSubscribeAllPages()
 * @fn         bool DIOWEBSERVER::AddAuthentication(XSTRING& guest,XSTRING& login,XSTRING& password)
 * @brief      AddAuthentication
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  guest :
 * @param[in]  login :
@@ -3381,9 +3063,6 @@ bool DIOWEBSERVER::AddAuthentication(XSTRING& guest, XSTRING& login, XSTRING& pa
 * @fn         DIOWEBSERVER_AUTHENTICATION* DIOWEBSERVER::GetAuthentication(XSTRING& guest)
 * @brief      GetAuthentication
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  guest :
 *
@@ -3427,9 +3106,6 @@ DIOWEBSERVER_AUTHENTICATION* DIOWEBSERVER::GetAuthentication(XSTRING& guest)
 * @brief      DelAuthentication
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  guest :
 *
 * @return     bool : true if is succesful.
@@ -3455,9 +3131,6 @@ bool DIOWEBSERVER::DelAuthentication(XSTRING& guest)
 * @brief      DelAllAuthentication
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3479,9 +3152,6 @@ bool DIOWEBSERVER::DelAllAuthentication()
 * @fn         bool DIOWEBSERVER::IsPlayablePage(XCHAR* extension)
 * @brief      IsPlayablePage
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  extension :
 *
@@ -3512,9 +3182,6 @@ bool DIOWEBSERVER::IsPlayablePage(XCHAR* extension)
 * @brief      IsPlayablePage
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  extension :
 *
 * @return     bool : true if is succesful.
@@ -3532,9 +3199,6 @@ bool DIOWEBSERVER::IsPlayablePage(XSTRING& extension)
 * @fn         bool DIOWEBSERVER::AddPlayablePageExtension(XCHAR* extension)
 * @brief      AddPlayablePageExtension
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  extension :
 *
@@ -3561,9 +3225,6 @@ bool DIOWEBSERVER::AddPlayablePageExtension(XCHAR* extension)
 * @brief      AddPlayablePageExtension
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  extension :
 *
 * @return     bool : true if is succesful.
@@ -3587,9 +3248,6 @@ bool DIOWEBSERVER::AddPlayablePageExtension(XSTRING& extension)
 * @brief      DeleteAllPlayablePageExtensions
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3611,9 +3269,6 @@ bool DIOWEBSERVER::DeleteAllPlayablePageExtensions()
 * @brief      AddIncludedEncodingFlag
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  flag :
 *
 * @return     void : does not return anything.
@@ -3631,9 +3286,6 @@ void DIOWEBSERVER::AddIncludedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
 * @fn         bool DIOWEBSERVER::IsIncludedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
 * @brief      IsIncludedEncodingFlag
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  flag :
 *
@@ -3653,9 +3305,6 @@ bool DIOWEBSERVER::IsIncludedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
 * @brief      GetMutextConnections
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XMUTEX* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3672,9 +3321,6 @@ XMUTEX* DIOWEBSERVER::GetMutextConnections()
 * @brief      GetConnections
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<DIOWEBSERVER_CONNECTION*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3690,9 +3336,6 @@ XVECTOR<DIOWEBSERVER_CONNECTION*>* DIOWEBSERVER::GetConnections()
 * @fn         DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection()
 * @brief      Websocket_GetConnection
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOWEBSERVER_CONNECTION* :
 *
@@ -3718,9 +3361,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection()
 * @fn         DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol)
 * @brief      Websocket_GetConnection
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  protocol :
 *
@@ -3748,9 +3388,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol)
 * @fn         DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, int version)
 * @brief      Websocket_GetConnection
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  protocol :
 * @param[in]  version :
@@ -3781,9 +3418,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, 
 * @brief      Websocket_GetConnection
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  protocol :
 * @param[in]  version :
 * @param[in]  resource :
@@ -3812,9 +3446,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, 
 * @fn         DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection()
 * @brief      Websocket_GetConnection
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOWEBSERVER_CONNECTION* :
 *
@@ -3872,9 +3503,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetNextConnection()
 * @brief      Websocket_Write
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 * @param[in]  timeout :
 * @param[in]  protocol :
@@ -3908,9 +3536,6 @@ bool DIOWEBSERVER::Websocket_Write(XCHAR* string, int timeout, XCHAR* protocol, 
 * @brief      Websocket_Write
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 * @param[in]  timeout :
 * @param[in]  protocol :
@@ -3932,9 +3557,6 @@ bool DIOWEBSERVER::Websocket_Write(XSTRING& string, int timeout, XCHAR* protocol
 * @fn         bool DIOWEBSERVER::Websocket_Write(XBUFFER& data, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 * @brief      Websocket_Write
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 * @param[in]  timeout :
@@ -3967,9 +3589,6 @@ bool DIOWEBSERVER::Websocket_Write(XBUFFER& data, int timeout, XCHAR* protocol, 
 * @fn         bool DIOWEBSERVER::Websocket_Ping(XCHAR* string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 * @brief      Websocket_Ping
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 * @param[in]  timeout :
@@ -4004,9 +3623,6 @@ bool DIOWEBSERVER::Websocket_Ping(XCHAR* string, int timeout, XCHAR* protocol, i
 * @brief      Websocket_Ping
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 * @param[in]  timeout :
 * @param[in]  protocol :
@@ -4030,9 +3646,6 @@ bool DIOWEBSERVER::Websocket_Ping(XSTRING& string, int timeout, XCHAR* protocol,
 * @brief      GetPluginsManager
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBSERVER_PLUGINSMANAGER :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -4049,9 +3662,6 @@ DIOWEBSERVER_PLUGINSMANAGER* DIOWEBSERVER::GetPluginsManager()
 * @brief      IsExit
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -4067,9 +3677,6 @@ bool DIOWEBSERVER::IsExit()
 * @fn         bool DIOWEBSERVER::End()
 * @brief      End
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -4150,9 +3757,6 @@ bool DIOWEBSERVER::End()
 * @brief      WaitToSentAllPages
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -4178,9 +3782,6 @@ bool DIOWEBSERVER::WaitToSentAllPages()
 * @fn         XDWORD DIOWEBSERVER::Connections_GetNWaiting()
 * @brief      Connections_GetNWaiting
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -4219,9 +3820,6 @@ XDWORD DIOWEBSERVER::Connections_GetNWaiting()
 * @brief      Connections_GetNConnectionsSendingPage
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -4254,9 +3852,6 @@ int DIOWEBSERVER::Connections_GetNConnectionsSendingPage()
 * @fn         bool DIOWEBSERVER::Connections_CreateNew()
 * @brief      Connections_CreateNew
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -4308,9 +3903,6 @@ bool DIOWEBSERVER::Connections_CreateNew()
 * @brief      Connections_DeleteUsed
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -4354,9 +3946,6 @@ bool DIOWEBSERVER::Connections_DeleteUsed()
 * @brief      Connections_DeleteWaiting
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -4395,9 +3984,6 @@ bool DIOWEBSERVER::Connections_DeleteWaiting()
 * @brief      Connections_DeleteAll
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -4424,9 +4010,6 @@ bool DIOWEBSERVER::Connections_DeleteAll()
 * @brief      Handle Event for the observer manager of this class
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  event :
 *
@@ -4490,9 +4073,6 @@ void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAMXEVENT* event)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xevent :
 *
 * @return     void : does not return anything.
@@ -4522,9 +4102,6 @@ void DIOWEBSERVER::HandleEvent(XEVENT* xevent)
 * @brief      ThreadRunFunction
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  param :
 *
 * @return     void : does not return anything.
@@ -4551,9 +4128,6 @@ void DIOWEBSERVER::ThreadRunFunction(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

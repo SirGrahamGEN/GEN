@@ -6,10 +6,7 @@
 * @brief      Sound Open AL Buffer class
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -73,9 +67,6 @@ SNDBUFFER_OPENAL::SNDBUFFER_OPENAL()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -91,9 +82,6 @@ SNDBUFFER_OPENAL::~SNDBUFFER_OPENAL()
 * @fn         ALuint SNDBUFFER_OPENAL::GetHandle()
 * @brief      GetHandle
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     ALuint : 
 *
@@ -111,9 +99,6 @@ ALuint SNDBUFFER_OPENAL::GetHandle()
 * @brief      Generate
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -130,9 +115,6 @@ void SNDBUFFER_OPENAL::Generate()
 * @brief      Destroy
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -148,9 +130,6 @@ void SNDBUFFER_OPENAL::Destroy()
 * @fn         void SNDBUFFER_OPENAL::Upload(XWORD channels, void* data, XDWORD size, XWORD freq)
 * @brief      Upload
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  channels : 
 * @param[in]  data : 
@@ -181,9 +160,6 @@ void SNDBUFFER_OPENAL::Upload(XWORD channels, void* data, XDWORD size, XWORD fre
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

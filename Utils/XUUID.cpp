@@ -6,10 +6,7 @@
 * @brief      eXtended UUID Universally Unique IDentifier 
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -76,9 +70,6 @@ XUUID::XUUID()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything. 
 *
@@ -97,9 +88,6 @@ XUUID::~XUUID()
 * @brief      GetData1
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +103,6 @@ XDWORD XUUID::GetData1()
 * @fn         XWORD XUUID::GetData2()
 * @brief      GetData2
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     XWORD : 
 *
@@ -135,9 +120,6 @@ XWORD XUUID::GetData2()
 * @brief      GetData3
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XWORD : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -153,10 +135,7 @@ XWORD XUUID::GetData3()
 * @fn         XBYTE XUUID::GetData4()
 * @brief      GetData4
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XBYTE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -172,10 +151,7 @@ XBYTE XUUID::GetData4()
 * @fn         XBYTE XUUID::GetData4()
 * @brief      GetData4
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XBYTE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -191,10 +167,7 @@ XBYTE XUUID::GetData5()
 * @fn         XBYTE* XUUID::GetData6()
 * @brief      GetData6
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XBYTE* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -210,9 +183,6 @@ XBYTE* XUUID::GetData6()
 * @fn         bool XUUID::SetData1(XDWORD data)
 * @brief      SetData1
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  data : 
 *
@@ -233,9 +203,6 @@ bool XUUID::SetData1(XDWORD data)
 * @fn         bool XUUID::SetData2(XWORD data)
 * @brief      SetData2
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  data : 
 *
@@ -258,9 +225,6 @@ bool XUUID::SetData2(XWORD data)
 * @brief      SetData3
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : 
 *
 * @return     bool : true if is succesful. 
@@ -280,10 +244,7 @@ bool XUUID::SetData3(XWORD data)
 * @fn         bool XUUID::SetData4(XBYTE data)
 * @brief      SetData4
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  data : 
 * 
 * @return     bool : true if is succesful. 
@@ -303,10 +264,7 @@ bool XUUID::SetData4(XBYTE data)
 * @fn         bool XUUID::SetData5(XBYTE data)
 * @brief      SetData5
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  data : 
 * 
 * @return     bool : true if is succesful. 
@@ -326,9 +284,6 @@ bool XUUID::SetData5(XBYTE data)
 * @fn         bool XUUID::SetData6(XBYTE* data)
 * @brief      SetData6
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  data : 
 *
@@ -352,10 +307,7 @@ bool XUUID::SetData6(XBYTE* data)
 * @fn         bool XUUID::Set(XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5, XBYTE* data6)
 * @brief      Set
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  data1 : 
 * @param[in]  data2 : 
 * @param[in]  data3 : 
@@ -385,10 +337,7 @@ bool XUUID::Set(XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5
 * @fn         bool XUUID::CopyFrom(XUUID& uuid)
 * @brief      CopyFrom
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  uuid : 
 * 
 * @return     bool : true if is succesful. 
@@ -408,9 +357,6 @@ bool XUUID::CopyFrom(XUUID& uuid)
 * @brief      CopyTo
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  uuid : 
 *
 * @return     bool : true if is succesful. 
@@ -429,9 +375,6 @@ bool XUUID::CopyTo(XUUID& uuid)
 * @fn         bool XUUID::GenerateRandom()
 * @brief      GenerateRandom
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -492,10 +435,7 @@ bool XUUID::GenerateRandom()
 * @fn         bool XUUID::GetToString(XSTRING& string)
 * @brief      GetToString
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  string : 
 * 
 * @return     bool : true if is succesful. 
@@ -518,10 +458,7 @@ bool XUUID::GetToString(XSTRING& string)
 * @fn         bool XUUID::SetFromString(XSTRING& string)
 * @brief      SetFromString
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  string : 
 * 
 * @return     bool : true if is succesful. 
@@ -571,9 +508,6 @@ bool XUUID::SetFromString(XSTRING& string)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

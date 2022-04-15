@@ -5,11 +5,8 @@
 * @class      DIOI2CBATTERYCHARGERBQ24295
 * @brief      Data Input/output Battery Charger BQ24295 class
 * @ingroup    DATAIO
-* 
-* @author     German Rodriguez
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -64,10 +61,7 @@
 * @fn         DIOI2CBATTERYCHARGERBQ24295::DIOI2CBATTERYCHARGERBQ24295() : DIODEVICEI2C()
 * @brief      Constructor
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ) : 
 * 
 * @return     Does not return anything. 
@@ -87,10 +81,7 @@ DIOI2CBATTERYCHARGERBQ24295::DIOI2CBATTERYCHARGERBQ24295() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -109,10 +100,7 @@ DIOI2CBATTERYCHARGERBQ24295::~DIOI2CBATTERYCHARGERBQ24295()
 * @fn         XDWORD DIOI2CBATTERYCHARGERBQ24295::GetGPIOEntryID(int indexentry)
 * @brief      GetGPIOEntryID
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  indexentry : 
 * 
 * @return     XDWORD : 
@@ -133,10 +121,7 @@ XDWORD DIOI2CBATTERYCHARGERBQ24295::GetGPIOEntryID(int indexentry)
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::SetGPIOEntryID(int indexentry, XDWORD GPIOentryID)
 * @brief      SetGPIOEntryID
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  indexentry : 
 * @param[in]  GPIOentryID : 
 * 
@@ -160,10 +145,7 @@ bool DIOI2CBATTERYCHARGERBQ24295::SetGPIOEntryID(int indexentry, XDWORD GPIOentr
 * @fn         void DIOI2CBATTERYCHARGERBQ24295::Update()
 * @brief      Update
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -192,10 +174,7 @@ void DIOI2CBATTERYCHARGERBQ24295::Update()
 * @fn         void DIOI2CBATTERYCHARGERBQ24295::SetChargerEnable(bool enable)
 * @brief      SetChargerEnable
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  enable : 
 * 
 * @return     void : does not return anything. 
@@ -225,10 +204,7 @@ void DIOI2CBATTERYCHARGERBQ24295::SetChargerEnable(bool enable)
 * @fn         void DIOI2CBATTERYCHARGERBQ24295::SetShippingModeEnable(bool enable)
 * @brief      SetShippingModeEnable
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  enable : 
 * 
 * @return     void : does not return anything. 
@@ -248,10 +224,7 @@ void DIOI2CBATTERYCHARGERBQ24295::SetShippingModeEnable(bool enable)
 * @fn         void DIOI2CBATTERYCHARGERBQ24295::SetIsCharging(bool enable)
 * @brief      SetIsCharging
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  enable : 
 * 
 * @return     void : does not return anything. 
@@ -281,10 +254,7 @@ void DIOI2CBATTERYCHARGERBQ24295::SetIsCharging(bool enable)
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::IsBatteryFullyCharged()
 * @brief      IsBatteryFullyCharged
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -301,10 +271,7 @@ bool DIOI2CBATTERYCHARGERBQ24295::IsBatteryFullyCharged()
 * @fn         XBYTE DIOI2CBATTERYCHARGERBQ24295::GetFaultDetection()
 * @brief      Detects a Fault during the charge
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XBYTE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -321,10 +288,7 @@ XBYTE DIOI2CBATTERYCHARGERBQ24295::GetFaultDetection()
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::End()
 * @brief      End
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -344,10 +308,7 @@ bool DIOI2CBATTERYCHARGERBQ24295::End()
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::IniDevice()
 * @brief      IniDevice
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -375,10 +336,7 @@ bool DIOI2CBATTERYCHARGERBQ24295::IniDevice()
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::Initialize()
 * @brief      Initialize
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -443,10 +401,7 @@ bool DIOI2CBATTERYCHARGERBQ24295::Initialize()
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::ReadRegister(XBYTE offset, XBYTE& data)
 * @brief      ReadRegister
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  offset : 
 * @param[in]  data : 
 * 
@@ -467,10 +422,7 @@ bool DIOI2CBATTERYCHARGERBQ24295::ReadRegister(XBYTE offset, XBYTE& data)
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      ReadRegister
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  offset : 
 * @param[in]  data : 
 * @param[in]  sizedata : 
@@ -504,10 +456,7 @@ bool DIOI2CBATTERYCHARGERBQ24295::ReadRegister(XBYTE offset, XBYTE* data, XDWORD
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE data)
 * @brief      WriteRegister
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  offset : 
 * @param[in]  data : 
 * 
@@ -527,10 +476,7 @@ bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE data)
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      WriteRegister
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  offset : 
 * @param[in]  data : 
 * @param[in]  sizedata : 
@@ -561,10 +507,7 @@ bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE* data, XDWOR
 * @fn         void DIOI2CBATTERYCHARGERBQ24295::Handler_Interrupt(void* param)
 * @brief      Handler_Interrupt
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  param : 
 * 
 * @return     void : does not return anything. 
@@ -583,10 +526,7 @@ void DIOI2CBATTERYCHARGERBQ24295::Handler_Interrupt(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    
-* 
-* @author     German Rodriguez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

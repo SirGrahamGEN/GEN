@@ -5,11 +5,8 @@
 * @class      UI_PROPERTY_SCROLLEABLE
 * @brief      User Interface Property Scrolleable class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,10 +55,7 @@
 * @fn         UI_PROPERTY_SCROLLEABLE_STATUS::UI_PROPERTY_SCROLLEABLE_STATUS()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -78,10 +72,7 @@ UI_PROPERTY_SCROLLEABLE_STATUS::UI_PROPERTY_SCROLLEABLE_STATUS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -99,10 +90,7 @@ UI_PROPERTY_SCROLLEABLE_STATUS::~UI_PROPERTY_SCROLLEABLE_STATUS()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -129,10 +117,7 @@ void UI_PROPERTY_SCROLLEABLE_STATUS::Clean()
 * @fn         UI_PROPERTY_SCROLLEABLE::UI_PROPERTY_SCROLLEABLE()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -152,10 +137,7 @@ UI_PROPERTY_SCROLLEABLE::UI_PROPERTY_SCROLLEABLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -172,10 +154,7 @@ UI_PROPERTY_SCROLLEABLE::~UI_PROPERTY_SCROLLEABLE()
 * @fn         bool UI_PROPERTY_SCROLLEABLE::Scroll_GetActive(UI_PROPERTY_SCROLLEABLE_TYPE type)
 * @brief      Scroll_GetActive
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     bool : true if is succesful. 
@@ -206,10 +185,7 @@ bool UI_PROPERTY_SCROLLEABLE::Scroll_GetActive(UI_PROPERTY_SCROLLEABLE_TYPE type
 * @fn         bool UI_PROPERTY_SCROLLEABLE::Scroll_SetActivate(UI_PROPERTY_SCROLLEABLE_TYPE type, bool on)
 * @brief      Scroll_SetActivate
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  on : 
 * 
@@ -241,10 +217,7 @@ bool UI_PROPERTY_SCROLLEABLE::Scroll_SetActivate(UI_PROPERTY_SCROLLEABLE_TYPE ty
 * @fn         bool UI_PROPERTY_SCROLLEABLE::GetVisibleScroll(UI_PROPERTY_SCROLLEABLE_TYPE type)
 * @brief      GetVisibleScroll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     bool : true if is succesful. 
@@ -275,10 +248,7 @@ bool UI_PROPERTY_SCROLLEABLE::Scroll_GetVisible(UI_PROPERTY_SCROLLEABLE_TYPE typ
 * @fn         bool UI_PROPERTY_SCROLLEABLE::Scroll_SetVisible(UI_PROPERTY_SCROLLEABLE_TYPE type, bool on)
 * @brief      Scroll_SetVisible
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  on : 
 * 
@@ -313,10 +283,7 @@ bool UI_PROPERTY_SCROLLEABLE::Scroll_SetVisible(UI_PROPERTY_SCROLLEABLE_TYPE typ
 * @fn         double UI_PROPERTY_SCROLLEABLE::Scroll_GetLimit(UI_PROPERTY_SCROLLEABLE_TYPE type)
 * @brief      Scroll_GetLimit
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     double : 
@@ -346,10 +313,7 @@ double UI_PROPERTY_SCROLLEABLE::Scroll_GetLimit(UI_PROPERTY_SCROLLEABLE_TYPE typ
 * @fn         void UI_PROPERTY_SCROLLEABLE::Scroll_SetLimit(UI_PROPERTY_SCROLLEABLE_TYPE type, double limit)
 * @brief      Scroll_SetLimit
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  limit : 
 * 
@@ -377,10 +341,7 @@ void UI_PROPERTY_SCROLLEABLE::Scroll_SetLimit(UI_PROPERTY_SCROLLEABLE_TYPE type,
 * @fn         double UI_PROPERTY_SCROLLEABLE::Scroll_GetDisplacement(UI_PROPERTY_SCROLLEABLE_TYPE type)
 * @brief      Scroll_GetDisplacement
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     double : 
@@ -410,10 +371,7 @@ double UI_PROPERTY_SCROLLEABLE::Scroll_GetDisplacement(UI_PROPERTY_SCROLLEABLE_T
 * @fn         double UI_PROPERTY_SCROLLEABLE::Scroll_GetStep(UI_PROPERTY_SCROLLEABLE_TYPE type)
 * @brief      Scroll_GetStep
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     double : 
@@ -443,10 +401,7 @@ double UI_PROPERTY_SCROLLEABLE::Scroll_GetStep(UI_PROPERTY_SCROLLEABLE_TYPE type
 * @fn         void UI_PROPERTY_SCROLLEABLE::Scroll_SetStep(UI_PROPERTY_SCROLLEABLE_TYPE type, double step)
 * @brief      Scroll_SetStep
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  step : 
 * 
@@ -512,10 +467,7 @@ void UI_PROPERTY_SCROLLEABLE::Scroll_SetStep(UI_PROPERTY_SCROLLEABLE_TYPE type, 
 * @fn         void UI_PROPERTY_SCROLLEABLE::Scroll_ResetStep(UI_PROPERTY_SCROLLEABLE_TYPE type)
 * @brief      Scroll_ResetStep
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     void : does not return anything. 
@@ -550,10 +502,7 @@ void UI_PROPERTY_SCROLLEABLE::Scroll_ResetStep(UI_PROPERTY_SCROLLEABLE_TYPE type
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

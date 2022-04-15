@@ -5,11 +5,8 @@
 * @class      DIODEVICEI2C
 * @brief      Data Input/Output device I2C class
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,10 +55,7 @@
 * @fn         DIODEVICEI2C::DIODEVICEI2C()
 * @brief      Constructor
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -79,10 +73,7 @@ DIODEVICEI2C::DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -99,10 +90,7 @@ DIODEVICEI2C::~DIODEVICEI2C()
 * @fn         bool DIODEVICEI2C::Ini(XCHAR* localdevicename, int remotedeviceaddress, int timeout)
 * @brief      Ini
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  localdevicename : 
 * @param[in]  remotedeviceaddress : 
 * @param[in]  timeout : 
@@ -130,10 +118,7 @@ bool DIODEVICEI2C::Ini(XCHAR* localdevicename, int remotedeviceaddress, int time
 * @fn         bool DIODEVICEI2C::Ini(int port, int remotedeviceaddress, int timeout)
 * @brief      Ini
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  port : 
 * @param[in]  remotedeviceaddress : 
 * @param[in]  timeout : 
@@ -160,10 +145,7 @@ bool DIODEVICEI2C::Ini(int port, int remotedeviceaddress, int timeout)
 * @fn         DIOSTREAMI2CCONFIG* DIODEVICEI2C::CreateConfig(XCHAR* localdevicename, int remotedeviceaddress)
 * @brief      CreateConfig
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  localdevicename : 
 * @param[in]  remotedeviceaddress : 
 * 
@@ -189,10 +171,7 @@ DIOSTREAMI2CCONFIG* DIODEVICEI2C::CreateConfig(XCHAR* localdevicename, int remot
 * @fn         DIOSTREAMI2CCONFIG* DIODEVICEI2C::CreateConfig(int port, int remotedeviceaddress)
 * @brief      CreateConfig
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  port : 
 * @param[in]  remotedeviceaddress : 
 * 
@@ -221,9 +200,7 @@ DIOSTREAMI2CCONFIG* DIODEVICEI2C::CreateConfig(int port, int remotedeviceaddress
  * @brief     IniDevice
  * @ingroup   DATAIO
  * 
- * @author    Abraham J. Velez 
- * @date       01/03/2016 12:00
- * 
+   * 
  * @return      bool : true if is succesful. 
  * 
  * ---------------------------------------------------------------------------------------------------------------------*/
@@ -245,10 +222,7 @@ bool DIODEVICEI2C::IniDevice()
 * @fn         bool DIODEVICEI2C::End()
 * @brief      End
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -287,10 +261,7 @@ bool DIODEVICEI2C::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

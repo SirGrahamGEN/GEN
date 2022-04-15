@@ -6,10 +6,7 @@
 * @brief      LINUX X11 Screen class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -107,9 +101,6 @@ GRPLINUXSCREENX11::GRPLINUXSCREENX11(): GRPSCREEN()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -131,9 +122,6 @@ GRPLINUXSCREENX11::~GRPLINUXSCREENX11()
 * @fn         bool GRPLINUXSCREENX11::Create(bool show)
 * @brief      Create
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  show :
 *
@@ -194,9 +182,6 @@ bool GRPLINUXSCREENX11::Create(bool show)
 * @brief      Update
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -212,9 +197,6 @@ bool GRPLINUXSCREENX11::Update()
 * @fn         bool GRPLINUXSCREENX11::Update(GRPCANVAS* canvas)
 * @brief      Update
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  canvas : canvas handle
 *
@@ -269,9 +251,6 @@ bool GRPLINUXSCREENX11::Update(GRPCANVAS* canvas)
 * @brief      Delete
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -298,9 +277,6 @@ bool GRPLINUXSCREENX11::Delete()
 * @brief      Resize
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  width :
 * @param[in]  height :
 *
@@ -323,9 +299,6 @@ bool GRPLINUXSCREENX11::Resize(int width, int height)
 * @brief      Show
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  active :
 *
 * @return     bool : true if is succesful.
@@ -345,9 +318,6 @@ bool GRPLINUXSCREENX11::Show(bool active)
 * @fn         bool GRPLINUXSCREENX11::ShowCursor(bool active)
 * @brief      ShowCursor
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  active :
 *
@@ -390,9 +360,6 @@ bool GRPLINUXSCREENX11::ShowCursor(bool active)
 * @brief      GetHandle
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -410,8 +377,8 @@ void* GRPLINUXSCREENX11::GetHandle()
  *  @brief      Is Desktop
  *  @ingroup    PLATFORM_LINUX
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @return     bool : true if is succesful.
  *
@@ -428,9 +395,6 @@ bool  GRPLINUXSCREENX11::IsDesktop()
 * @fn         void GRPLINUXSCREENX11::SetIsDesktop(bool isdesktop)
 * @brief      Set Is Desktop
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isdesktop : set is run in desktop
 *
@@ -449,9 +413,6 @@ void GRPLINUXSCREENX11::SetIsDesktop(bool isdesktop)
 * @fn         bool GRPLINUXSCREENX11::HasFocus()
 * @brief      HasFocus
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -478,9 +439,6 @@ bool GRPLINUXSCREENX11::HasFocus()
 * @brief      Get Display
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Display* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -496,9 +454,6 @@ Display* GRPLINUXSCREENX11::GetDisplay()
 * @fn         Window* GRPLINUXSCREENX11::GetWindow()
 * @brief      GetWindow
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Window* :
 *
@@ -516,9 +471,6 @@ Window* GRPLINUXSCREENX11::GetWindow()
 * @fn         int GRPLINUXSCREENX11::ScreenResolution(Display* display, Window root, int xsz, int ysz, int rate, int just_checking)
 * @brief      ScreenResolution
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  display :
 * @param[in]  root :
@@ -649,9 +601,6 @@ int GRPLINUXSCREENX11::ScreenResolution(Display* display, Window  root, int xsz,
 * @brief      CreateXImageFromBuffer
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  display :
 * @param[in]  screen :
 * @param[in]  buffer :
@@ -746,9 +695,6 @@ XImage* GRPLINUXSCREENX11::CreateXImageFromBuffer(Display* display, int screen, 
 * @brief      GetByteOrder
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -780,9 +726,6 @@ int GRPLINUXSCREENX11::GetByteOrder()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

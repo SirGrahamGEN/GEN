@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream Bluetooth Local Enum Devices class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  ) : 
 *
 * @return     Does not return anything. 
@@ -75,9 +69,6 @@ DIOSTREAMBLUETOOTHLOCALENUMDEVICES::DIOSTREAMBLUETOOTHLOCALENUMDEVICES() : DIOST
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ DIOSTREAMBLUETOOTHLOCALENUMDEVICES::~DIOSTREAMBLUETOOTHLOCALENUMDEVICES()
 * @fn         bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::Search()
 * @brief      Search
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -113,9 +101,6 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::Search()
 * @fn         bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::StopSearch(bool waitend)
 * @brief      StopSearch
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  waitend : 
 *
@@ -136,9 +121,6 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::StopSearch(bool waitend)
 * @brief      IsSearching
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -155,9 +137,6 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::IsSearching()
 * @fn         bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 * @brief      IsDeviceAvailable
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  resource : 
 *
@@ -178,9 +157,6 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

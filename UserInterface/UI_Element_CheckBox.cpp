@@ -5,11 +5,8 @@
 * @class      UI_ELEMENT_CHECKBOX
 * @brief      User Interface Element CheckBox class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,10 +50,7 @@
 * @fn         UI_ELEMENT_CHECKBOX::UI_ELEMENT_CHECKBOX()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -76,10 +70,7 @@ UI_ELEMENT_CHECKBOX::UI_ELEMENT_CHECKBOX()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -95,10 +86,7 @@ UI_ELEMENT_CHECKBOX::~UI_ELEMENT_CHECKBOX()
 * @fn         bool UI_ELEMENT_CHECKBOX::GetStatus()
 * @brief      GetStatus
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -114,10 +102,7 @@ bool  UI_ELEMENT_CHECKBOX::GetStatus()
 * @fn         bool UI_ELEMENT_CHECKBOX::SetStatus(bool status)
 * @brief      SetStatus
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  status : 
 * 
 * @return     bool : true if is succesful. 
@@ -140,10 +125,7 @@ bool  UI_ELEMENT_CHECKBOX::SetStatus(bool status)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

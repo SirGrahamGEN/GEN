@@ -6,10 +6,7 @@
 * @brief      LINUX Data Input/Output Stream Bluetooth Remote Enum Devices class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -102,9 +99,6 @@ extern "C"
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -144,9 +138,6 @@ DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVIC
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -170,9 +161,6 @@ DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVI
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 * @brief      Search
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -212,9 +200,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 * @brief      StopSearch
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  waitend : 
 *
 * @return     bool : true if is succesful. 
@@ -250,9 +235,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
 * @brief      IsSearching
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -275,9 +257,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::GetAddrFromLocalDevice(int localdeviceindex, char* btaddr)
 * @brief      GetAddrFromLocalDevice
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  localdeviceindex : 
 * @param[in]  btaddr : 
@@ -310,9 +289,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::GetAddrFromLocalDevice(int locald
 * @fn         int DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsReadyConnect(int socket)
 * @brief      IsReadyConnect
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  socket : 
 *
@@ -362,9 +338,6 @@ int DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsReadyConnect(int socket)
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevices(XVECTOR<DIOSTREAMDEVICE*>* devices)
 * @brief      ScanDevices
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  devices : 
 *
@@ -428,9 +401,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevices(XVECTOR<DIOSTREAMDEVI
 * @brief      ScanDevicesName
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  device : 
 *
 * @return     bool : true if is succesful. 
@@ -481,9 +451,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName(DIOSTREAMDEVICEBL
 * @brief      ScanDevicesServices
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  devices : 
 *
 * @return     bool : true if is succesful. 
@@ -531,9 +498,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices(XVECTOR<DIOST
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEVICEBLUETOOTH* device, struct search_context* context)
 * @brief      ScanDeviceServices
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  device : 
 * @param[in]  search_context* context : 
@@ -656,9 +620,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEVIC
 * @brief      ThreadEnumDevices
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  param : 
 *
 * @return     void : does not return anything. 
@@ -718,9 +679,6 @@ void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -743,9 +701,7 @@ extern "C"
   * @brief      rint_service_class
   * @ingroup    PLATFORM_LINUX
   *
-  * @author     Abraham J. Velez 
-  * @date       01/03/2016 12:00
-  *
+      *
   * @param[in]  value : 
   * @param[in]  userData : 
   *
@@ -775,9 +731,7 @@ extern "C"
   * @brief      rint_service_desc
   * @ingroup    PLATFORM_LINUX  
   *
-  * @author     Abraham J. Velez 
-  * @date       01/03/2016 12:00
-  *
+      *
   *  @param[in]  value : 
   * @param[in]  user : 
   *
@@ -829,9 +783,7 @@ extern "C"
   * @brief      oid print_access_protos
   * @ingroup    PLATFORM_LINUX
   *
-  * @author     Abraham J. Velez 
-  * @date       01/03/2016 12:00
-  *
+      *
   * @param[in]  value : 
   * @param[in]  userData :  
   *

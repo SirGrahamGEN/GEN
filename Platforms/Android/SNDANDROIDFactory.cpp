@@ -40,7 +40,7 @@
 //
 //  Class Constructor SNDANDROIDFACTORY
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:57:23
 //
 
@@ -68,7 +68,7 @@ SNDANDROIDFACTORY::SNDANDROIDFACTORY() : SNDFACTORY()
 //
 //   Class Destructor SNDANDROIDFACTORY
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:57:28
 //
 */
@@ -88,7 +88,7 @@ SNDANDROIDFACTORY::~SNDANDROIDFACTORY()
 /**
 //
 //
-//  @author   Abraham J. Velez
+//  ""
 //  @version  22/02/2018 9:59:02
 //
 //  @return   SNDELEMENT* :
@@ -112,7 +112,7 @@ SNDELEMENT* SNDANDROIDFACTORY::AddFile(XPATH& xpath, XSTRING* namefile, bool str
 /**
 //
 //
-//  @author   Abraham J. Velez
+//  ""
 //  @version  22/02/2018 9:59:35
 //
 //  @return   SNDELEMENT* :
@@ -137,7 +137,7 @@ SNDELEMENT* SNDANDROIDFACTORY::AddFile(XPATH& xpath, XCHAR* namefile, bool strea
 //
 //  gets an already loaded file
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:58:08
 //
 //  @return       SNDELEMENT* :
@@ -159,7 +159,7 @@ SNDELEMENT* SNDANDROIDFACTORY::GetFile(XSTRING* namefile, bool stream)
 //
 //  gets an already loaded file
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:58:18
 //
 //  @return       SNDELEMENT* :
@@ -181,7 +181,7 @@ SNDELEMENT* SNDANDROIDFACTORY::GetFile(XCHAR* namefile, bool stream)
 //
 //
 //
-//  @author   Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version
 
 //  @return   bool :
@@ -202,7 +202,7 @@ bool SNDANDROIDFACTORY::RemoveFile(SNDELEMENT* element)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      20/07/2016 11:56:58
 //
 //  @return       SNDSTREAMELEMENT* :
@@ -223,7 +223,7 @@ SNDSTREAMELEMENT* SNDANDROIDFACTORY::GetStreamer()
 //
 //  plays a sund
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:58:27
 //
 //  @return       SNDSOURCE* :
@@ -245,7 +245,7 @@ SNDINSTANCE* SNDANDROIDFACTORY::PlaySound(SNDELEMENT* element)
 //
 //  stops a sound
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:58:38
 //
 //  @param        element :
@@ -267,7 +267,7 @@ void SNDANDROIDFACTORY::StopSound(SNDELEMENT* element)
 //
 //  pauses a sound
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:58:47
 //
 //  @return       SNDSOURCE* :
@@ -290,7 +290,7 @@ SNDINSTANCE* SNDANDROIDFACTORY::PauseSound(SNDELEMENT* element)
 //
 //  system update
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:58:55
 //
 */
@@ -311,7 +311,7 @@ void SNDANDROIDFACTORY::ImpUpdate()
 //
 //  checks if any sound is playing
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:59:06
 //
 //  @return       bool :
@@ -333,7 +333,7 @@ bool SNDANDROIDFACTORY::IsAnyPlaying()
 //
 //  stops all sounds
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:59:15
 //
 */
@@ -353,7 +353,7 @@ void SNDANDROIDFACTORY::StopAll()
 //
 //  sets the master volume
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:59:25
 //
 //  @param        mastervolume :
@@ -374,7 +374,7 @@ void SNDANDROIDFACTORY::SetMasterVolume(float mastervolume)
 //
 //  gets the master volume
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      11/11/2015 10:59:33
 //
 //  @return       float :
@@ -395,7 +395,7 @@ float SNDANDROIDFACTORY::GetMasterVolume()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      16/03/2017 16:24:48
 //
 //  @return       SNDRESAMPLER* :
@@ -416,7 +416,7 @@ SNDRESAMPLER* SNDANDROIDFACTORY::GetResampler()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      16/03/2017 16:24:43
 //
 //  @return       SNDFILE* :
@@ -437,7 +437,7 @@ SNDFILE* SNDANDROIDFACTORY::CreateSNDFile()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      16/03/2017 16:24:36
 //
 //  @param        file :

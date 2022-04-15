@@ -6,10 +6,7 @@
 * @brief      eXtended Multi-Precision Integer class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -69,9 +66,6 @@ static const int SmallPrime[] = {   3,    5,    7,   11,   13,   17,   19,   23,
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -90,9 +84,6 @@ XMPINTEGER::XMPINTEGER()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -110,9 +101,6 @@ XMPINTEGER::~XMPINTEGER()
 * @brief      GetSign
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -128,9 +116,6 @@ int XMPINTEGER::GetSign()
 * @fn         XDWORD XMPINTEGER::GetNLimbs()
 * @brief      GetNLimbs
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -148,9 +133,6 @@ XDWORD XMPINTEGER::GetNLimbs()
 * @brief      GetLimbs
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XLIMB* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -166,9 +148,6 @@ XLIMB* XMPINTEGER::GetLimbs()
 * @fn         void XMPINTEGER::SetSign(int sign)
 * @brief      SetSign
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sign :
 *
@@ -188,9 +167,6 @@ void XMPINTEGER::SetSign(int sign)
 * @brief      SetNLimbs
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  nlimbs :
 *
 * @return     void : does not return anything.
@@ -209,9 +185,6 @@ void XMPINTEGER::SetNLimbs(XDWORD nlimbs)
 * @brief      SetLimbs
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  limbs :
 *
 * @return     void : does not return anything.
@@ -229,9 +202,6 @@ void XMPINTEGER::SetLimbs(XLIMB* limbs)
 * @fn         bool XMPINTEGER::Ini()
 * @brief      Ini
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -252,9 +222,6 @@ bool XMPINTEGER::Ini()
 * @fn         bool XMPINTEGER::Grow(XDWORD nblimbs)
 * @brief      Grow
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nblimbs :
 *
@@ -295,9 +262,6 @@ bool XMPINTEGER::Grow(XDWORD nblimbs)
 * @fn         bool XMPINTEGER::Shrink(XDWORD nblimbs)
 * @brief      Shrink
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nblimbs :
 *
@@ -347,9 +311,6 @@ bool XMPINTEGER::Shrink(XDWORD nblimbs)
 * @brief      CopyFrom
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xmpinteger :
 *
 * @return     bool : true if is succesful.
@@ -392,9 +353,6 @@ bool XMPINTEGER::CopyFrom(XMPINTEGER* xmpinteger)
 * @brief      Swap
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xmpinteger :
 *
 * @return     void : does not return anything.
@@ -421,9 +379,6 @@ void XMPINTEGER::Swap(XMPINTEGER* xmpinteger)
 * @brief      LeftSet
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  z :
 *
 * @return     bool : true if is succesful.
@@ -449,9 +404,6 @@ bool XMPINTEGER::LeftSet(int z)
 * @brief      GetBit
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  position :
 *
 * @return     int :
@@ -471,9 +423,6 @@ int XMPINTEGER::GetBit(XDWORD position)
 * @fn         bool XMPINTEGER::SetBit(XDWORD position, XBYTE value)
 * @brief      SetBit
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position :
 * @param[in]  value :
@@ -509,9 +458,6 @@ bool XMPINTEGER::SetBit(XDWORD position, XBYTE value)
 * @brief      GetLSB
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -539,9 +485,6 @@ int XMPINTEGER::GetLSB()
 * @fn         int XMPINTEGER::GetMSB()
 * @brief      GetMSB
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -572,9 +515,6 @@ int XMPINTEGER::GetMSB()
 * @brief      GetSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -590,9 +530,6 @@ XDWORD XMPINTEGER::GetSize()
 * @fn         int XMPINTEGER::ImportFromBinary(XBYTE* buffer, XDWORD size)
 * @brief      ImportFromBinary
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -633,9 +570,6 @@ int XMPINTEGER::ImportFromBinary(XBYTE* buffer, XDWORD size)
 * @brief      ExportToBinary
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -669,9 +603,6 @@ int XMPINTEGER::ExportToBinary(XBYTE* buffer, XDWORD size)
 * @fn         bool XMPINTEGER::LeftShift(XDWORD count)
 * @brief      LeftShift
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  count :
 *
@@ -734,9 +665,6 @@ bool XMPINTEGER::LeftShift(XDWORD count)
 * @brief      RightShift
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  count :
 *
 * @return     bool : true if is succesful.
@@ -793,9 +721,6 @@ bool XMPINTEGER::RightShift(XDWORD count)
 * @brief      CompareABSValues
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xmpinteger :
 *
 * @return     int :
@@ -837,9 +762,6 @@ int XMPINTEGER::CompareABSValues(XMPINTEGER& xmpinteger)
 * @fn         int XMPINTEGER::CompareSignedValues(XMPINTEGER& xmpinteger)
 * @brief      CompareSignedValues
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xmpinteger :
 *
@@ -886,9 +808,6 @@ int XMPINTEGER::CompareSignedValues(XMPINTEGER& xmpinteger)
 * @brief      CompareSignedValues
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  integer :
 *
 * @return     int :
@@ -917,9 +836,6 @@ int XMPINTEGER::CompareSignedValues(int integer)
 * @fn         bool XMPINTEGER::AdditionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
 * @brief      AdditionABS
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xmpinteger1 :
 * @param[in]  xmpinteger2 :
@@ -990,9 +906,6 @@ bool XMPINTEGER::AdditionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
 * @brief      SubtractionABS
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xmpinteger1 :
 * @param[in]  xmpinteger2 :
 *
@@ -1039,9 +952,6 @@ bool XMPINTEGER::SubtractionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2
 * @brief      AdditionSigned
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xmpinteger1 :
 * @param[in]  xmpinteger2 :
 *
@@ -1081,9 +991,6 @@ bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2
 * @fn         bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
 * @brief      SubtractionSigned
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xmpinteger1 :
 * @param[in]  xmpinteger2 :
@@ -1125,9 +1032,6 @@ bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteg
 * @brief      AdditionSigned
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xmpinteger :
 * @param[in]  integer :
 *
@@ -1156,9 +1060,6 @@ bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger, int integer)
 * @brief      SubtractionSigned
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xmpinteger :
 * @param[in]  integer :
 *
@@ -1186,9 +1087,6 @@ bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger, int integer)
 * @fn         bool XMPINTEGER::Multiplication(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
 * @brief      Multiplication
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xmpinteger1 :
 * @param[in]  xmpinteger2 :
@@ -1253,9 +1151,6 @@ bool XMPINTEGER::Multiplication(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2
 * @brief      Multiplication
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xmpinteger :
 * @param[in]  integer :
 *
@@ -1282,9 +1177,6 @@ bool XMPINTEGER::Multiplication(XMPINTEGER* xmpinteger, int integer)
 * @fn         bool XMPINTEGER::Division(XMPINTEGER* xmpintegerQ, XMPINTEGER* xmpintegerR, XMPINTEGER* xmpintegerA, XMPINTEGER* xmpintegerB)
 * @brief      Division
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xmpintegerQ :
 * @param[in]  xmpintegerR :
@@ -1452,9 +1344,6 @@ bool XMPINTEGER::Division(XMPINTEGER* xmpintegerQ, XMPINTEGER* xmpintegerR, XMPI
 * @brief      Division
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xmpintegerQ :
 * @param[in]  xmpintegerR :
 * @param[in]  xmpintegerA :
@@ -1483,9 +1372,6 @@ bool XMPINTEGER::Division(XMPINTEGER* xmpintegerQ, XMPINTEGER* xmpintegerR, XMPI
 * @fn         bool XMPINTEGER::Module(XMPINTEGER* xmpintegerR, XMPINTEGER* xmpintegerA, XMPINTEGER* xmpintegerB)
 * @brief      Module
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xmpintegerR :
 * @param[in]  xmpintegerA :
@@ -1520,9 +1406,6 @@ bool XMPINTEGER::Module(XMPINTEGER* xmpintegerR, XMPINTEGER* xmpintegerA, XMPINT
 * @fn         bool XMPINTEGER::Module(XLIMB* r, XMPINTEGER* xmpintegerA, int integerb)
 * @brief      Module
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  r :
 * @param[in]  xmpintegerA :
@@ -1584,9 +1467,6 @@ bool XMPINTEGER::Module(XLIMB* r, XMPINTEGER* xmpintegerA, int integerb)
 * @brief      MontgomeryIni
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XLIMB*mm :
 * @param[in]  N :
 *
@@ -1617,9 +1497,6 @@ void XMPINTEGER::MontgomeryIni(XLIMB *mm, XMPINTEGER* N)
 * @fn         void XMPINTEGER::MontgomeryMultiplication(XMPINTEGER* A, XMPINTEGER* B, XMPINTEGER* N, XLIMB mm, XMPINTEGER* T)
 * @brief      MontgomeryMultiplication
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  A :
 * @param[in]  B :
@@ -1670,9 +1547,6 @@ void XMPINTEGER::MontgomeryMultiplication(XMPINTEGER* A, XMPINTEGER* B, XMPINTEG
 * @brief      MontgomeryReduction
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  A :
 * @param[in]  N :
 * @param[in]  mm :
@@ -1702,9 +1576,6 @@ void XMPINTEGER::MontgomeryReduction(XMPINTEGER* A, XMPINTEGER* N, XLIMB mm, XMP
 * @fn         bool XMPINTEGER::SlidingWindowExponentiation(XMPINTEGER* A, XMPINTEGER* E, XMPINTEGER* N, XMPINTEGER* _RR)
 * @brief      SlidingWindowExponentiation
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  A :
 * @param[in]  E :
@@ -1909,9 +1780,6 @@ bool XMPINTEGER::SlidingWindowExponentiation(XMPINTEGER* A, XMPINTEGER* E, XMPIN
 * @brief      GreatestCommonDivisor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  G :
 * @param[in]  A :
 * @param[in]  B :
@@ -1980,9 +1848,6 @@ bool XMPINTEGER::GreatestCommonDivisor(XMPINTEGER* G, XMPINTEGER* A, XMPINTEGER*
 * @brief      FillRandom
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  size :
 * @param[in]  funcrandom :
 * @param[in]  paramrandom :
@@ -2008,9 +1873,6 @@ int XMPINTEGER::FillRandom(XDWORD size, XMPINTEGER_FUNCRANDOM funcrandom, void* 
 * @fn         int XMPINTEGER::ModularInverse(XMPINTEGER* A, XMPINTEGER* N)
 * @brief      ModularInverse
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  A :
 * @param[in]  N :
@@ -2132,9 +1994,6 @@ int XMPINTEGER::ModularInverse(XMPINTEGER* A, XMPINTEGER* N)
 * @brief      CheckSmallFactors
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2165,9 +2024,6 @@ int XMPINTEGER::CheckSmallFactors()
 * @fn         bool XMPINTEGER::MillerRabin(XMPINTEGER* X, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 * @brief      MillerRabin
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  X :
 * @param[in]  funcrandom :
@@ -2264,9 +2120,6 @@ bool XMPINTEGER::MillerRabin(XMPINTEGER* X, XMPINTEGER_FUNCRANDOM funcrandom, vo
 * @brief      IsPrime
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  funcrandom :
 * @param[in]  paramrandom :
 *
@@ -2304,9 +2157,6 @@ int XMPINTEGER::IsPrime(XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 * @fn         bool XMPINTEGER::GeneratePrime(int nbits, int dhflag, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 * @brief      GeneratePrime
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nbits :
 * @param[in]  dhflag :
@@ -2407,9 +2257,6 @@ bool XMPINTEGER::GeneratePrime(int nbits, int dhflag, XMPINTEGER_FUNCRANDOM func
 * @brief      SetFromString
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  radix :
 * @param[in]  string :
 *
@@ -2494,9 +2341,6 @@ bool XMPINTEGER::SetFromString(int radix, XCHAR* string)
 * @brief      SetFromString
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  radix :
 * @param[in]  string :
 *
@@ -2515,9 +2359,6 @@ bool XMPINTEGER::SetFromString(int radix, XSTRING& string)
 * @fn         bool XMPINTEGER::GetToString(int radix, XSTRING& string)
 * @brief      GetToString
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  radix :
 * @param[in]  string :
@@ -2592,9 +2433,6 @@ bool XMPINTEGER::GetToString(int radix, XSTRING& string)
 * @brief      SetFromXBuffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer :
 *
 * @return     bool : true if is succesful.
@@ -2630,9 +2468,6 @@ bool XMPINTEGER::SetFromXBuffer(XBUFFER& xbuffer)
 * @brief      GetToXBuffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer :
 * @param[in]  size :
 *
@@ -2667,9 +2502,6 @@ bool XMPINTEGER::GetToXBuffer(XBUFFER& xbuffer, XDWORD size)
 * @brief      End
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2694,9 +2526,6 @@ bool XMPINTEGER::End()
 * @fn         void XMPINTEGER::SubtractionHelper(XDWORD n, XLIMB*s, XLIMB*d)
 * @brief      SubtractionHelper
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  n :
 * @param[in]  XLIMB*s :
@@ -2731,9 +2560,6 @@ void XMPINTEGER::SubtractionHelper(XDWORD n, XLIMB *s, XLIMB *d)
 * @fn         void XMPINTEGER::MultiplicationHelper(XDWORD i, XLIMB* s, XLIMB* d, XLIMB b)
 * @brief      MultiplicationHelper
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  i :
 * @param[in]  s :
@@ -2803,9 +2629,6 @@ void XMPINTEGER::MultiplicationHelper(XDWORD i, XLIMB* s, XLIMB* d, XLIMB b)
 * @brief      GetDigit
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 * @param[in]  radix :
 * @param[in]  character :
@@ -2834,9 +2657,6 @@ bool XMPINTEGER::GetDigit(XDWORD* data, int radix, XCHAR character)
 * @fn         bool XMPINTEGER::SetToStringHelper(int radix, XSTRING& string)
 * @brief      SetToStringHelper
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  radix :
 * @param[in]  string :
@@ -2873,9 +2693,6 @@ bool XMPINTEGER::SetToStringHelper(int radix, XSTRING& string)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      eXtended WINDOWS Management Instrumentation Interface class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -64,9 +61,6 @@ using namespace std;
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -85,9 +79,6 @@ XWINDOWSWMIINTERFACE_RESULT::XWINDOWSWMIINTERFACE_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -108,9 +99,6 @@ XWINDOWSWMIINTERFACE_RESULT::~XWINDOWSWMIINTERFACE_RESULT()
 * @brief      GetResults
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<XSTRING*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -127,9 +115,6 @@ XVECTOR<XSTRING*>* XWINDOWSWMIINTERFACE_RESULT::GetResults()
 * @brief      GetError
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWINDOWSWMIINTERFACE_ERROR  :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -145,9 +130,6 @@ XWINDOWSWMIINTERFACE_ERROR XWINDOWSWMIINTERFACE_RESULT::GetError()
 * @fn         void XWINDOWSWMIINTERFACE_RESULT::SetError(XWINDOWSWMIINTERFACE_ERROR error)
 * @brief      SetError
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  error :
 *
@@ -166,9 +148,6 @@ void XWINDOWSWMIINTERFACE_RESULT::SetError(XWINDOWSWMIINTERFACE_ERROR error)
 * @brief      GetErrorDescription
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -185,9 +164,6 @@ XSTRING* XWINDOWSWMIINTERFACE_RESULT::GetErrorDescription()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -213,9 +189,6 @@ void XWINDOWSWMIINTERFACE_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -232,9 +205,6 @@ XWINDOWSWMIINTERFACE::XWINDOWSWMIINTERFACE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -254,9 +224,6 @@ XWINDOWSWMIINTERFACE::~XWINDOWSWMIINTERFACE()
 * @fn         bool XWINDOWSWMIINTERFACE::Ini()
 * @brief      Ini
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -303,9 +270,6 @@ bool XWINDOWSWMIINTERFACE::Ini()
 * @fn         XWINDOWSWMIINTERFACE_RESULT* XWINDOWSWMIINTERFACE::DoQuery(XCHAR* query, XCHAR* propertynameofresultobject, bool allowemptyitems)
 * @brief      DoQuery
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  query :
 * @param[in]  propertynameofresultobject :
@@ -536,9 +500,6 @@ XWINDOWSWMIINTERFACE_RESULT* XWINDOWSWMIINTERFACE::DoQuery(XCHAR* query, XCHAR* 
 * @brief      DoQuery
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  _class :
 * @param[in]  namedata :
 * @param[in]  answer :
@@ -582,9 +543,6 @@ bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XSTRING& ans
 * @fn         bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata, XVECTOR<XSTRING*>* answers)
 * @brief      DoQuery
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  _class :
 * @param[in]  namedata :
@@ -636,9 +594,6 @@ bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XVECTOR<XSTR
 * @fn         bool XWINDOWSWMIINTERFACE::NetWorkInterfaceEnable(int ID, bool enabled)
 * @brief      NetWorkInterfaceEnable
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 * @param[in]  enabled :
@@ -732,10 +687,7 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceEnable(int ID, bool enable)
 * @fn         bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int ID, int metric)
 * @brief      NetWorkInterfaceSetMetric
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ID : 
 * @param[in]  metric : 
 * 
@@ -860,10 +812,7 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int ID, int metric)
 * @fn         bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric()
 * @brief      NetWorkInterfaceSetMetric
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1142,9 +1091,6 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int metric)
 * @brief      End
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1162,9 +1108,6 @@ bool XWINDOWSWMIINTERFACE::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

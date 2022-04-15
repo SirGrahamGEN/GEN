@@ -46,7 +46,7 @@
 //
 //  Class Constructor DIOMACMANUFACTURED
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/02/2015 21:02:25
 //
 
@@ -68,7 +68,7 @@ DIOMACMANUFACTURED::DIOMACMANUFACTURED()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/04/2013 20:02:11
 //
 //  @return
@@ -88,7 +88,7 @@ DIOMACMANUFACTURED::~DIOMACMANUFACTURED()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      22/04/2013 22:13:30
 //
 //  @return       bool :
@@ -121,7 +121,7 @@ bool DIOMACMANUFACTURED::Web_GetManufactured(DIOMAC& MAC, XSTRING& manufactured)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/04/2013 22:30:28
 //
 //  @return       bool :
@@ -179,7 +179,7 @@ bool DIOMACMANUFACTURED::File_GetManufactured(XPATH& xpath, DIOMAC& MAC, XSTRING
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      26/04/2013 17:32:46
 //
 //  @return       bool :
@@ -253,7 +253,7 @@ bool DIOMACMANUFACTURED::File_GetManufacturedMACs(XPATH& xpath, XSTRING& manufac
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      26/04/2013 22:35:29
 //
 //  @return       bool :
@@ -289,7 +289,7 @@ bool DIOMACMANUFACTURED::File_Download(XBUFFER& xbuffer, int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      26/04/2013 22:38:41
 //
 //  @return       bool :

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Web Server Plugins Manager class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,8 +51,8 @@
  *  @brief      Constructor
  *  @ingroup    DATAIO
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @return     Does not return anything.
  *
@@ -73,9 +70,6 @@ DIOWEBSERVER_PLUGINSMANAGER::DIOWEBSERVER_PLUGINSMANAGER()
 * @brief      ~DIOWEBSERVER_PLUGINS
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -91,9 +85,6 @@ DIOWEBSERVER_PLUGINSMANAGER::~DIOWEBSERVER_PLUGINSMANAGER()
 * @fn         bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_Add(DIOWEBSERVER_PLUGIN* plugin)
 * @brief      Plugins_Add
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  plugin :
 *
@@ -116,9 +107,6 @@ bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_Add(DIOWEBSERVER_PLUGIN* plugin)
 * @brief      Plugins_GetNPlugins
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOWEBSERVER_PLUGIN* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -134,9 +122,6 @@ XDWORD DIOWEBSERVER_PLUGINSMANAGER::Plugins_GetNPlugins()
 * @fn         DIOWEBSERVER_PLUGIN* DIOWEBSERVER_PLUGINSMANAGER::Plugins_Get(int index)
 * @brief      Plugins_Get
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -156,9 +141,6 @@ DIOWEBSERVER_PLUGIN* DIOWEBSERVER_PLUGINSMANAGER::Plugins_Get(int index)
 * @brief      Plugins_Delete
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  plugin :
 *
 * @return     bool : true if is succesful.
@@ -176,9 +158,6 @@ bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_Delete(DIOWEBSERVER_PLUGIN* plugin)
 * @fn         bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_DeleteAll()
 * @brief      Plugins_DeleteAll
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -201,9 +180,6 @@ bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_DeleteAll()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

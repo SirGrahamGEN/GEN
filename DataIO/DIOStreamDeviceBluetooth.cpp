@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream Device Bluetooth class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -63,9 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -83,9 +77,6 @@ DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPR
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -102,9 +93,6 @@ DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::~DIOSTREAMDEVICEBLUETOOTHSDPSERVICEP
 * @brief      GetType
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -120,9 +108,6 @@ XDWORD DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::GetType()
 * @fn         void DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::SetType(XDWORD type)
 * @brief      SetType
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -142,9 +127,6 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::SetType(XDWORD type)
 * @brief      GetChannel
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -160,9 +142,6 @@ XWORD DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::GetChannel()
 * @fn         void DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::SetChannel(XWORD channel)
 * @brief      SetChannel
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  channel :
 *
@@ -182,9 +161,6 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::SetChannel(XWORD channel)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -209,8 +185,8 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::Clean()
  *  @brief      Constructor
  *  @ingroup    DATAIO
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @return     Does not return anything.
  *
@@ -229,9 +205,6 @@ DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::DIOSTREAMDEVICEBLUETOOTHSDPSERVICE()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -248,9 +221,6 @@ DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::~DIOSTREAMDEVICEBLUETOOTHSDPSERVICE()
 * @brief      GetID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -266,9 +236,6 @@ XDWORD DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetID()
 * @fn         void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetID(XDWORD ID)
 * @brief      SetID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -288,9 +255,6 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetID(XDWORD ID)
 * @brief      GetRecHandle
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -306,9 +270,6 @@ XDWORD DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetRecHandle()
 * @fn         void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetRecHandle(XDWORD rechandle)
 * @brief      SetRecHandle
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  rechandle :
 *
@@ -328,9 +289,6 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetRecHandle(XDWORD rechandle)
 * @brief      GetName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -346,9 +304,6 @@ XSTRING* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetName()
 * @fn         XSTRING* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetDescription()
 * @brief      GetDescription
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -366,9 +321,6 @@ XSTRING* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetDescription()
 * @brief      GetProvider
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -385,9 +337,6 @@ XSTRING* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetProvider()
 * @brief      GetNProtocols
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -403,9 +352,6 @@ int DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetNProtocols()
 * @fn         void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetNProtocols(int nprotocols)
 * @brief      SetNProtocols
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nprotocols :
 *
@@ -424,9 +370,6 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetNProtocols(int nprotocols)
 * @fn         DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetProtocol(int index)
 * @brief      GetProtocol
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -448,9 +391,6 @@ DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::
 * @fn         bool DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetProtocol(int index, DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL* protocol)
 * @brief      SetProtocol
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  protocol :
@@ -479,9 +419,6 @@ bool DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetProtocol(int index, DIOSTREAMDEVICEB
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -506,9 +443,6 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::Clean()
 * @brief      IOSTREAMDEVICEBLUETOOTH
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMDEVICEBLUETOOTH:: :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -524,9 +458,6 @@ DIOSTREAMDEVICEBLUETOOTH:: DIOSTREAMDEVICEBLUETOOTH()
 * @fn         DIOSTREAMDEVICEBLUETOOTH::~ DIOSTREAMDEVICEBLUETOOTH()
 * @brief      IOSTREAMDEVICEBLUETOOTH
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOSTREAMDEVICEBLUETOOTH::~ :
 *
@@ -546,9 +477,6 @@ DIOSTREAMDEVICEBLUETOOTH::~ DIOSTREAMDEVICEBLUETOOTH()
 * @brief      GetMAC
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOMAC* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -565,9 +493,6 @@ DIOMAC* DIOSTREAMDEVICEBLUETOOTH::GetMAC()
 * @brief      GetRSSI
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -583,9 +508,6 @@ int DIOSTREAMDEVICEBLUETOOTH::GetRSSI()
 * @fn         void DIOSTREAMDEVICEBLUETOOTH::SetRSSI(int rssi)
 * @brief      SetRSSI
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  rssi : 
 *
@@ -605,9 +527,6 @@ void DIOSTREAMDEVICEBLUETOOTH::SetRSSI(int rssi)
 * @brief      IsVisible
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -623,9 +542,6 @@ bool DIOSTREAMDEVICEBLUETOOTH::IsVisible()
 * @fn         bool DIOSTREAMDEVICEBLUETOOTH::SetIsVisible(bool isvisible)
 * @brief      SetIsVisible
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isvisible :
 *
@@ -646,9 +562,6 @@ bool DIOSTREAMDEVICEBLUETOOTH::SetIsVisible(bool isvisible)
 * @brief      GetServiceClass
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOGUID* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -664,9 +577,6 @@ DIOGUID* DIOSTREAMDEVICEBLUETOOTH::GetServiceClass()
 * @fn         bool DIOSTREAMDEVICEBLUETOOTH::Service_Add(DIOSTREAMDEVICEBLUETOOTHSDPSERVICE* service)
 * @brief      Service_Add
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  service :
 *
@@ -690,9 +600,6 @@ bool DIOSTREAMDEVICEBLUETOOTH::Service_Add(DIOSTREAMDEVICEBLUETOOTHSDPSERVICE* s
 * @brief      Service_GetAll
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<DIOSTREAMDEVICEBLUETOOTHSDPSERVICE*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -708,9 +615,6 @@ XVECTOR<DIOSTREAMDEVICEBLUETOOTHSDPSERVICE*>* DIOSTREAMDEVICEBLUETOOTH::Service_
 * @fn         bool DIOSTREAMDEVICEBLUETOOTH::Service_DeleteAll()
 * @brief      Service_DeleteAll
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -733,9 +637,6 @@ bool DIOSTREAMDEVICEBLUETOOTH::Service_DeleteAll()
 * @fn         int DIOSTREAMDEVICEBLUETOOTH::GetChannel(XWORD servicetype)
 * @brief      GetChannel
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  servicetype :
 *
@@ -775,9 +676,6 @@ int DIOSTREAMDEVICEBLUETOOTH::GetChannel(XWORD servicetype)
 * @brief      GetChannelSerialPort
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -793,9 +691,6 @@ int DIOSTREAMDEVICEBLUETOOTH::GetChannelSerialPort()
 * @fn         int DIOSTREAMDEVICEBLUETOOTH::GetChannelObexPush()
 * @brief      GetChannelObexPush
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -813,9 +708,6 @@ int DIOSTREAMDEVICEBLUETOOTH::GetChannelObexPush()
 * @brief      GetChannelDialUpNetworking
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -832,9 +724,6 @@ int DIOSTREAMDEVICEBLUETOOTH::GetChannelDialUpNetworking()
 * @brief      GetChannelHID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -850,9 +739,6 @@ int DIOSTREAMDEVICEBLUETOOTH::GetChannelHID()
 * @fn         bool DIOSTREAMDEVICEBLUETOOTH::DebugPrintInfo()
 * @brief      DebugPrintInfo
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -926,9 +812,6 @@ bool DIOSTREAMDEVICEBLUETOOTH::DebugPrintInfo()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

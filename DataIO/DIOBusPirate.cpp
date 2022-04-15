@@ -43,7 +43,7 @@
 //
 //  Class Constructor DIOBUSPIRATE
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/02/2015 17:03:49
 //
 
@@ -69,7 +69,7 @@ DIOBUSPIRATE::DIOBUSPIRATE(DIOSTREAM* diostream)
 //
 //   Class Destructor DIOBUSPIRATE
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/02/2015 17:02:11
 //
 */
@@ -92,7 +92,7 @@ DIOBUSPIRATE::~DIOBUSPIRATE()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/02/2015 16:59:14
 //
 //  @return       bool :
@@ -125,7 +125,7 @@ bool DIOBUSPIRATE::Ini(int timeout)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/02/2015 11:59:47
 //
 //  @return       DIOBUSPIRATETYPEPROCOTOL :
@@ -163,7 +163,7 @@ DIOBUSPIRATETYPEPROCOTOL DIOBUSPIRATE::GetActualProtocol(int timeout)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/02/2015 15:53:22
 //
 //  @return       bool :
@@ -226,7 +226,7 @@ bool DIOBUSPIRATE::SetMode(DIOBUSPIRATETYPEPROCOTOL protocol, bool issoftware, i
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      09/02/2015 11:40:35
 //
 //  @return       bool :
@@ -287,7 +287,7 @@ bool DIOBUSPIRATE::ReadI2CSnifferCommand(XBUFFER& in, XBUFFER& out)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/02/2015 16:59:17
 //
 //  @return       bool :
@@ -311,7 +311,7 @@ bool DIOBUSPIRATE::End()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/02/2015 10:49:59
 //
 //  @return       bool :
@@ -363,7 +363,7 @@ bool DIOBUSPIRATE::ReadPromptStatus(XSTRING& promptstatus, int timeout)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/02/2015 11:10:46
 //
 //  @return       bool :

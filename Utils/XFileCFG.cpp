@@ -6,10 +6,7 @@
 * @brief      eXtended CFG (Config) file class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ XFILECFGVALUE::XFILECFGVALUE()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -98,9 +89,6 @@ XFILECFGVALUE::~XFILECFGVALUE()
 * @brief      Get Type
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILECFG_VALUETYPE : Type of value
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -116,9 +104,6 @@ XFILECFG_VALUETYPE XFILECFGVALUE::GetType()
 * @fn         bool XFILECFGVALUE::SetType(XFILECFG_VALUETYPE type)
 * @brief      Set Type
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type : new type of value
 *
@@ -139,9 +124,6 @@ bool XFILECFGVALUE::SetType(XFILECFG_VALUETYPE type)
 * @brief      Get Group
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : group of value
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -157,9 +139,6 @@ XSTRING* XFILECFGVALUE::GetGroup()
 * @fn         XSTRING* XFILECFGVALUE::GetID()
 * @brief      Get ID
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* : ID df vlaue
 *
@@ -177,9 +156,6 @@ XSTRING* XFILECFGVALUE::GetID()
 * @brief      Get Value
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* : data of value
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -196,9 +172,6 @@ void* XFILECFGVALUE::GetValue()
 * @fn         bool XFILECFGVALUE::SetValue(void* value)
 * @brief      Set Value
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value : new data of value
 *
@@ -220,9 +193,6 @@ bool XFILECFGVALUE::SetValue(void* value)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -248,9 +218,6 @@ void XFILECFGVALUE::Clean()
 * @fn         XFILECFG::XFILECFG(XCHAR* namefile)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* : name file of config
 *
@@ -289,9 +256,6 @@ XFILECFG::XFILECFG(XCHAR* namefile)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -318,9 +282,6 @@ XFILECFG::~XFILECFG()
 * @brief      Ini xfile Config
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -342,9 +303,6 @@ bool XFILECFG::Ini()
 * @brief      Load xfile config
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -362,9 +320,6 @@ bool XFILECFG::Load()
 * @fn         bool XFILECFG::Load(XPATH& xpath)
 * @brief      Load xfile config
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath : path to file config
 *
@@ -455,9 +410,6 @@ bool XFILECFG::Load(XPATH& xpath)
 * @brief      Save xfile config
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -474,9 +426,6 @@ bool XFILECFG::Save()
 * @fn         bool XFILECFG::Save(XPATH& xpath)
 * @brief      Save file config
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath : path to file config
 *
@@ -563,9 +512,6 @@ bool XFILECFG::Save(XPATH& xpath)
 * @brief      End file config
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -581,9 +527,6 @@ bool XFILECFG::End()
 * @fn         bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value)
 * @brief      Add Value to file config
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type : type of value
 * @param[in]  group : group of value
@@ -615,10 +558,7 @@ bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* 
 * @fn         bool XFILECFG::AddRemark(XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relativeypos)
 * @brief      AddRemark
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  group : 
 * @param[in]  text : 
 * @param[in]  xpos : 
@@ -654,10 +594,7 @@ bool XFILECFG::AddRemark(XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relative
 * @fn         bool XFILECFG::AddRemark(XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWORD relativeypos)
 * @brief      AddRemark
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  group : 
 * @param[in]  ID : 
 * @param[in]  text : 
@@ -693,10 +630,7 @@ bool XFILECFG::AddRemark(XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWO
 * @fn         bool XFILECFG::DeleteAllRemarks()
 * @brief      DeleteAllRemarks
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -718,9 +652,6 @@ bool XFILECFG::DeleteAllRemarks()
 * @fn         bool XFILECFG::DeleteAllValues()
 * @brief      Delete All Values
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -744,9 +675,6 @@ bool XFILECFG::DeleteAllValues()
 * @brief      Ini File
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -782,9 +710,6 @@ bool XFILECFG::IniFile(XPATH& xpath)
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -802,10 +727,7 @@ bool XFILECFG::EndFile()
 * @fn         bool XFILECFG::AjustRemarks()
 * @brief      AjustRemarks
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -859,9 +781,6 @@ bool XFILECFG::AjustRemarks()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

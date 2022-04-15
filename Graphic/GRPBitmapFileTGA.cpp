@@ -6,10 +6,7 @@
 * @brief
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -73,9 +67,6 @@ GRPBITMAPFILETGAHEADER::GRPBITMAPFILETGAHEADER()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -91,9 +82,6 @@ GRPBITMAPFILETGAHEADER::~GRPBITMAPFILETGAHEADER()
 * @fn         bool GRPBITMAPFILETGAHEADER::Load(XFILE* file)
 * @brief      Load
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  file : file handle to load bitmap
 *
@@ -148,9 +136,6 @@ bool GRPBITMAPFILETGAHEADER::Load(XFILE* file)
 * @fn         bool GRPBITMAPFILETGAHEADER::Load(XBYTE* buffer, XDWORD size, XDWORD& indexbuffer)
 * @brief      Load
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -209,9 +194,6 @@ bool GRPBITMAPFILETGAHEADER::Load(XBYTE* buffer, XDWORD size, XDWORD& indexbuffe
 * @brief      Get Header Info
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPBITMAPFILETGAHEADERINFO* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -227,9 +209,6 @@ GRPBITMAPFILETGAHEADERINFO* GRPBITMAPFILETGAHEADER::GetHeaderInfo()
 * @fn         int GRPBITMAPFILETGAHEADER::GetWidth()
 * @brief      Get Width
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int : Width of TGA
 *
@@ -247,9 +226,6 @@ int GRPBITMAPFILETGAHEADER::GetWidth()
 * @brief      GetHeight
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : Height if TGA
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -265,9 +241,6 @@ int GRPBITMAPFILETGAHEADER::GetHeight()
 * @fn         int GRPBITMAPFILETGAHEADER::GetBitsPerPixel()
 * @brief      Get Bits Per Pixel
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int : Bits per pixel
 *
@@ -285,9 +258,6 @@ int GRPBITMAPFILETGAHEADER::GetBitsPerPixel()
 * @brief      Get Offset Data
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : Offset data
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -303,9 +273,6 @@ int GRPBITMAPFILETGAHEADER::GetOffsetData()
 * @fn         GRPPROPERTYMODE GRPBITMAPFILETGAHEADER::GetMode()
 * @brief      Get Mode
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     GRPPROPERTYMODE : property mode
 *
@@ -323,9 +290,6 @@ GRPPROPERTYMODE GRPBITMAPFILETGAHEADER::GetMode()
 * @brief      Get Type
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPBITMAPFILETGATYPE : type of TGA
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -342,9 +306,6 @@ GRPBITMAPFILETGATYPE GRPBITMAPFILETGAHEADER::GetType()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -366,9 +327,6 @@ void GRPBITMAPFILETGAHEADER::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -386,9 +344,6 @@ GRPBITMAPFILETGA::GRPBITMAPFILETGA(): GRPBITMAPFILEBASE()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -404,9 +359,6 @@ GRPBITMAPFILETGA::~GRPBITMAPFILETGA()
 * @fn         GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
 * @brief      CreateBitmapFromFile
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  forcemode :
@@ -556,9 +508,6 @@ GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 * @fn         GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode)
 * @brief      CreateBitmapFromBuffer
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -711,9 +660,6 @@ GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 * @brief      CreateFileFromBitmap
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 * @param[in]  bitmap :
 * @param[in]  quality :
@@ -794,9 +740,6 @@ bool GRPBITMAPFILETGA::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -813,9 +756,6 @@ void GRPBITMAPFILETGA::Clean()
 * @fn         bool GRPBITMAPFILETGA::ReadHeaderFile(GRPBITMAPFILETGAHEADER* header)
 * @brief      ReadHeaderFile
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  header :
 *
@@ -840,9 +780,6 @@ bool GRPBITMAPFILETGA::ReadHeaderFile(GRPBITMAPFILETGAHEADER* header)
 * @brief      ReadHeaderBuffer
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 * @param[in]  header :
@@ -866,9 +803,6 @@ bool GRPBITMAPFILETGA::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
 * @fn         bool GRPBITMAPFILETGA::CreateColor(GRPPROPERTYMODE mode, XBYTE* databuffer, GRP2DCOLOR_RGBA8& color)
 * @brief      CreateColor
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mode : mode of color
 * @param[in]  databuffer : data buffer color

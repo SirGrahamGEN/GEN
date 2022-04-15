@@ -6,10 +6,7 @@
 * @brief      Variant class (any type of data)
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -76,9 +70,6 @@ XVARIANT::XVARIANT()
 * @fn         XVARIANT::XVARIANT(const XVARIANT& variant)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  const :
 *
@@ -101,9 +92,6 @@ XVARIANT::XVARIANT(const XVARIANT& variant)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -122,9 +110,6 @@ XVARIANT::~XVARIANT()
 * @fn         const XVARIANT& XVARIANT::operator = (int integer)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  integer :
 *
@@ -156,9 +141,6 @@ const XVARIANT& XVARIANT::operator = (int integer)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  integer :
 *
 * @return     const :
@@ -187,9 +169,6 @@ const XVARIANT& XVARIANT::operator = (XDWORD integer)
 * @fn         const XVARIANT& XVARIANT::operator = (XQWORD integer)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  integer :
 *
@@ -220,9 +199,6 @@ const XVARIANT& XVARIANT::operator = (XQWORD integer)
 * @fn         const XVARIANT& XVARIANT::operator = (float value)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 *
@@ -255,9 +231,6 @@ const XVARIANT& XVARIANT::operator = (float value)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     const :
@@ -288,9 +261,6 @@ const XVARIANT& XVARIANT::operator = (double value)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     const :
@@ -320,9 +290,6 @@ const XVARIANT& XVARIANT::operator = (XCHAR value)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     const :
@@ -344,9 +311,6 @@ const XVARIANT& XVARIANT::operator = (XCHAR* string)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     const :
@@ -366,9 +330,6 @@ const XVARIANT& XVARIANT::operator = (XSTRING& string)
 * @fn         const XVARIANT& XVARIANT::operator = (char* string)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -399,9 +360,6 @@ const XVARIANT& XVARIANT::operator = (char* string)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     const :
@@ -430,9 +388,6 @@ const XVARIANT& XVARIANT::operator = (char character)
 * @fn         const XVARIANT& XVARIANT::operator = (const XVARIANT& origin)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XVARIANT& origin :
 *
@@ -489,9 +444,6 @@ const XVARIANT& XVARIANT::operator = (const XVARIANT& origin)
 * @brief      operator=
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  XSERIALIZABLE& serializable :
 *
 * @return     const :
@@ -527,9 +479,6 @@ const XVARIANT& XVARIANT::operator=(const XSERIALIZABLE& serializable)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  datetime :
 *
 * @return     const :
@@ -559,9 +508,6 @@ const XVARIANT& XVARIANT::operator = (XDATETIME datetime)
 * @brief      nt
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     XVARIANT::operator :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -578,9 +524,6 @@ XVARIANT::operator int()
 * @fn         XVARIANT::operator XDWORD()
 * @brief      DWORD
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     XVARIANT::operator :
 *
@@ -600,9 +543,6 @@ XVARIANT::operator XDWORD()
 * @brief      QWORD
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     XVARIANT::operator :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -620,9 +560,6 @@ XVARIANT::operator XQWORD()
 * @fn         XVARIANT::operator float()
 * @brief      loat
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     XVARIANT::operator :
 *
@@ -642,9 +579,6 @@ XVARIANT::operator float()
 * @brief      ouble
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVARIANT::operator :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -663,9 +597,6 @@ XVARIANT::operator double()
 * @brief      CHAR
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     XVARIANT::operator :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -683,9 +614,6 @@ XVARIANT::operator XCHAR()
 * @fn         XVARIANT::operator XCHAR*()
 * @brief      CHAR*
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     XVARIANT::operator :
 *
@@ -713,9 +641,6 @@ XVARIANT::operator XCHAR*()
 * @brief      har
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     XVARIANT::operator :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -733,9 +658,6 @@ XVARIANT::operator char()
 * @fn         XVARIANT::operator const XCHAR*()
 * @brief      onst XCHAR*
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     XVARIANT::operator :
 *
@@ -762,9 +684,6 @@ XVARIANT::operator const XCHAR*()
 * @brief      DATETIME
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     XVARIANT::operator :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -785,9 +704,6 @@ XVARIANT::operator XDATETIME()
 * @fn         void XVARIANT::GetSerializable(XSERIALIZABLE& serializable)
 * @brief      GetSerializable
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  serializable :
 *
@@ -813,9 +729,6 @@ void XVARIANT::GetSerializable(XSERIALIZABLE& serializable)
 * @brief      GetSerializable
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  serializable :
 *
 * @return     void : does not return anything.
@@ -839,9 +752,6 @@ void XVARIANT::GetSerializable(XSERIALIZABLE* serializable)
 * @fn         bool XVARIANT::GetDataFromString(XCHAR* string)
 * @brief      GetDataFromString
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -875,9 +785,6 @@ bool XVARIANT::GetDataFromString(XCHAR* string)
 * @brief      GetType
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVARIANT_TYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -892,9 +799,6 @@ XVARIANT_TYPE XVARIANT::GetType()
 * @fn         void XVARIANT::SetType(XVARIANT_TYPE type)
 * @brief      SetType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -913,9 +817,6 @@ void XVARIANT::SetType(XVARIANT_TYPE type)
 * @brief      GetSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -932,9 +833,6 @@ XDWORD XVARIANT::GetSize()
 * @brief      GetData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -950,9 +848,6 @@ void* XVARIANT::GetData()
 * @fn         bool XVARIANT::Set(XVARIANT_TYPE type, void* data, XDWORD size)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  data :
@@ -993,9 +888,6 @@ bool XVARIANT::Set(XVARIANT_TYPE type, void* data, XDWORD size)
 * @brief      ToString
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  to :
 *
 * @return     bool : true if is succesful.
@@ -1032,9 +924,6 @@ bool XVARIANT::ToString(XSTRING& to)
 * @brief      IsNull
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1051,9 +940,6 @@ bool XVARIANT::IsNull()
 * @fn         void XVARIANT::PrintDebug()
 * @brief      PrintDebug
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -1083,9 +969,6 @@ void XVARIANT::PrintDebug()
 * @fn         bool XVARIANT::Destroy()
 * @brief      Destroy
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1130,9 +1013,6 @@ bool XVARIANT::Destroy()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

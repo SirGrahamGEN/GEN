@@ -6,7 +6,7 @@
 //
 //  android video codecs factory
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 14/04/2016 16:42:46
 //  Last Modification :

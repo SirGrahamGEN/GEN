@@ -6,10 +6,7 @@
 * @brief      Sound Open AL element class
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  XPATH* : 
 *
 * @return     Does not return anything. 
@@ -85,9 +79,6 @@ SNDELEMENT_OPENAL::SNDELEMENT_OPENAL(XPATH* xpath)
 * @note       VIRTUAL
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -109,9 +100,6 @@ SNDELEMENT_OPENAL::~SNDELEMENT_OPENAL()
 * @brief      AddSource
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  source : 
 *
 * @return     void : does not return anything. 
@@ -129,9 +117,6 @@ void SNDELEMENT_OPENAL::AddSource(SNDSOURCE_OPENAL* source)
 * @fn         void SNDELEMENT_OPENAL::SetSource(SNDSOURCE_OPENAL* source)
 * @brief      SetSource
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  source : 
 *
@@ -167,9 +152,6 @@ void SNDELEMENT_OPENAL::SetSource(SNDSOURCE_OPENAL* source)
 * @brief      GetSource
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     SNDSOURCE_OPENAL* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -197,9 +179,6 @@ SNDSOURCE_OPENAL* SNDELEMENT_OPENAL::GetSource()
 * @brief      GetLoop
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -215,9 +194,6 @@ bool SNDELEMENT_OPENAL::GetLoop()
 * @fn         void SNDELEMENT_OPENAL::SetLoop(bool loop)
 * @brief      SetLoop
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  loop : 
 *
@@ -244,9 +220,6 @@ void SNDELEMENT_OPENAL::SetLoop(bool loop)
 * @brief      GetBuffer
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     SNDBUFFER_OPENAL* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -263,9 +236,6 @@ SNDBUFFER_OPENAL* SNDELEMENT_OPENAL::GetBuffer()
 * @brief      GetVolume
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     float : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -281,9 +251,6 @@ float SNDELEMENT_OPENAL::GetVolume()
 * @fn         void SNDELEMENT_OPENAL::SetVolume(float volume)
 * @brief      SetVolume
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  volume : 
 *
@@ -310,9 +277,6 @@ void SNDELEMENT_OPENAL::SetVolume(float volume)
 * @brief      GetPitch
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     float : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -328,9 +292,6 @@ float SNDELEMENT_OPENAL::GetPitch()
 * @fn         void SNDELEMENT_OPENAL::SetPitch(float pitch)
 * @brief      SetPitch
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  pitch : 
 *
@@ -357,9 +318,6 @@ void SNDELEMENT_OPENAL::SetPitch(float pitch)
 * @brief      SetFile
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  file : 
 *
 * @return     void : does not return anything. 
@@ -382,9 +340,6 @@ void SNDELEMENT_OPENAL::SetFile(SNDFILE* file)
 * @brief      Queue
 * @ingroup    PLATFORM_COMMON
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -402,9 +357,6 @@ void SNDELEMENT_OPENAL::Queue()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_COMMON
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

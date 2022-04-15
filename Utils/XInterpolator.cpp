@@ -6,10 +6,7 @@
 * @brief      eXtended Interpolator class
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 *
 * @return     Does not return anything.
@@ -78,9 +72,6 @@ XINTERPOLATOR::XINTERPOLATOR(XINTERPOLATOR_TYPE type)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -97,9 +88,6 @@ XINTERPOLATOR::~XINTERPOLATOR()
 * @brief      GetType
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XINTERPOLATOR_TYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +103,6 @@ XINTERPOLATOR_TYPE XINTERPOLATOR::GetType()
 * @fn         void XINTERPOLATOR::SetType(XINTERPOLATOR_TYPE type)
 * @brief      SetType
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -137,9 +122,6 @@ void XINTERPOLATOR::SetType(XINTERPOLATOR_TYPE type)
 * @brief      GetMode
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XINTERPOLATOR_LIMITMODE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -155,9 +137,6 @@ XINTERPOLATOR_LIMITMODE XINTERPOLATOR::GetMode()
 * @fn         void XINTERPOLATOR::SetMode(XINTERPOLATOR_LIMITMODE mode)
 * @brief      SetMode
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  mode :
 *
@@ -176,9 +155,6 @@ void XINTERPOLATOR::SetMode(XINTERPOLATOR_LIMITMODE mode)
 * @fn         void XINTERPOLATOR::Get(XDWORD& current, XDWORD& target, float& speed)
 * @brief      Get
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  current :
 * @param[in]  target :
@@ -202,9 +178,6 @@ void XINTERPOLATOR::Get(XDWORD& current, XDWORD& target, float& speed)
 * @brief      Set
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  current :
 * @param[in]  target :
 * @param[in]  speed :
@@ -227,9 +200,6 @@ void XINTERPOLATOR::Set(XDWORD current,  XDWORD target, float speed)
 * @brief      GetCurrent
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -245,9 +215,6 @@ XDWORD XINTERPOLATOR::GetCurrent()
 * @fn         void XINTERPOLATOR::SetCurrent(XDWORD current)
 * @brief      SetCurrent
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  current :
 *
@@ -283,9 +250,6 @@ void XINTERPOLATOR::SetCurrent(XDWORD current)
 * @brief      GetTarget
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -302,9 +266,6 @@ XDWORD XINTERPOLATOR::GetTarget()
 * @brief      GetSpeed
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -320,9 +281,6 @@ float XINTERPOLATOR::GetSpeed()
 * @fn         void XINTERPOLATOR::SetSpeed(float speed)
 * @brief      SetSpeed
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  speed :
 *
@@ -342,9 +300,6 @@ void XINTERPOLATOR::SetSpeed(float speed)
 * @brief      GetMaximun
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -360,9 +315,6 @@ XDWORD XINTERPOLATOR::GetMaximun()
 * @fn         void XINTERPOLATOR::SetMaximun(XDWORD max)
 * @brief      SetMaximun
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  max :
 *
@@ -382,9 +334,6 @@ void XINTERPOLATOR::SetMaximun(XDWORD max)
 * @brief      GetMinimun
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -399,9 +348,6 @@ XDWORD XINTERPOLATOR::GetMinimun()
 * @fn         void XINTERPOLATOR::SetMinimun(XDWORD min)
 * @brief      SetMinimun
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  min :
 *
@@ -421,9 +367,6 @@ void XINTERPOLATOR::SetMinimun(XDWORD min)
 * @brief      GetMultiplicator
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -439,9 +382,6 @@ XDWORD XINTERPOLATOR::GetMultiplicator()
 * @fn         void XINTERPOLATOR::SetMultiplicator(XDWORD m)
 * @brief      SetMultiplicator
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  multiplier :
 *
@@ -461,9 +401,6 @@ void XINTERPOLATOR::SetMultiplicator(XDWORD multiplier)
 * @brief      SetFactorType
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  factortype :
 *
 * @return     void : does not return anything.
@@ -482,9 +419,6 @@ void XINTERPOLATOR::SetFactorType(XINTERPOLATOR_FACTOR factortype)
 * @brief      GetFactorType
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XINTERPOLATOR_FACTOR :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -500,9 +434,6 @@ XINTERPOLATOR_FACTOR XINTERPOLATOR::GetFactorType()
 * @fn         void XINTERPOLATOR::SetLimitFlags(XINTERPOLATOR_LIMITS limits)
 * @brief      SetLimitFlags
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  limits :
 *
@@ -522,9 +453,6 @@ void XINTERPOLATOR::SetLimitFlags(XINTERPOLATOR_LIMITS limits)
 * @brief      GetLimitFlags
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XINTERPOLATOR_LIMITS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -540,9 +468,6 @@ XINTERPOLATOR_LIMITS  XINTERPOLATOR::GetLimitFlags()
 * @fn         bool XINTERPOLATOR::CopyFrom (XINTERPOLATOR& interpolator)
 * @brief      CopyFrom
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  interpolator :
 *
@@ -576,9 +501,6 @@ bool XINTERPOLATOR::CopyFrom(XINTERPOLATOR& interpolator)
 * @brief      CopyFrom
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  interpolator :
 *
 * @return     bool : true if is succesful.
@@ -599,9 +521,6 @@ bool XINTERPOLATOR::CopyFrom(XINTERPOLATOR* interpolator)
 * @fn         bool XINTERPOLATOR::CopyTo(XINTERPOLATOR& interpolator)
 * @brief      CopyTo
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  interpolator :
 *
@@ -635,9 +554,6 @@ bool XINTERPOLATOR::CopyTo(XINTERPOLATOR& interpolator)
 * @brief      CopyTo
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  interpolator :
 *
 * @return     bool : true if is succesful.
@@ -656,9 +572,6 @@ bool XINTERPOLATOR::CopyTo(XINTERPOLATOR* interpolator)
 * @fn         const XINTERPOLATOR XINTERPOLATOR::operator = (XINTERPOLATOR& interpolator)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  interpolator :
 *
@@ -679,9 +592,6 @@ const XINTERPOLATOR XINTERPOLATOR::operator = (XINTERPOLATOR& interpolator)
 * @fn         void XINTERPOLATOR::SetTarget(XDWORD target)
 * @brief      SetTarget
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  target :
 *
@@ -727,9 +637,6 @@ void XINTERPOLATOR::SetTarget(XDWORD target)
 * @brief      Update
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  delta :
 *
 * @return     bool : true if is succesful.
@@ -771,9 +678,6 @@ bool XINTERPOLATOR::Update(XQWORD delta)
 * @fn         bool XINTERPOLATOR::Interpolate(XQWORD delta)
 * @brief      Interpolate
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  delta :
 *
@@ -855,9 +759,6 @@ bool XINTERPOLATOR::InterpolateLinear(XQWORD delta)
 * @brief      InterpolateRelative
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  delta :
 *
 * @return     bool : true if is succesful.
@@ -925,9 +826,6 @@ bool XINTERPOLATOR::InterpolateRelative(XQWORD delta)
 * @brief      DeSerialize
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 *
 * @return     bool : true if is succesful.
@@ -959,9 +857,6 @@ bool XINTERPOLATOR::DeSerialize(XBUFFER* xbuffer) const
 * @fn         bool XINTERPOLATOR::Serialize(XBUFFER* buffer)
 * @brief      Serialize
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 *
@@ -1008,9 +903,6 @@ bool XINTERPOLATOR::Serialize(XBUFFER* buffer)
 * @brief      SetMask
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask :
 *
 * @return     bool : true if is succesful.
@@ -1031,9 +923,6 @@ bool XINTERPOLATOR::SetMask(XDWORD mask)
 * @brief      GetMask
 * @ingroup    UTILS
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1049,9 +938,6 @@ XDWORD XINTERPOLATOR::GetMask()
 * @fn         float XINTERPOLATOR::GetCarry()
 * @brief      GetCarry
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     float :
 *
@@ -1069,9 +955,6 @@ float XINTERPOLATOR::GetCarry()
 * @fn         void XINTERPOLATOR::SetCarry(float carry)
 * @brief      SetCarry
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  carry :
 *
@@ -1091,9 +974,6 @@ void XINTERPOLATOR::SetCarry(float carry)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

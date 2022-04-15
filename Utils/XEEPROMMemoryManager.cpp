@@ -6,10 +6,7 @@
 * @brief      eXtended EEPROM Memory Manager class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@ XEEPROMMEMORYMANAGER* XEEPROMMEMORYMANAGER::instance = NULL;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -76,9 +70,6 @@ XEEPROMMEMORYMANAGER::XEEPROMMEMORYMANAGER()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -94,9 +85,6 @@ XEEPROMMEMORYMANAGER::~XEEPROMMEMORYMANAGER()
 * @brief      Get if Is Instanced
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -114,9 +102,6 @@ bool XEEPROMMEMORYMANAGER::GetIsInstanced()
 * @brief      Get Instance of XEEPROMMEMORYMANAGER
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XEEPROMMEMORYMANAGER& :
 *
@@ -136,9 +121,6 @@ XEEPROMMEMORYMANAGER& XEEPROMMEMORYMANAGER::GetInstance()
 * @brief      Set Instance of XEEPROMMEMORYMANAGER
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  _instance : new instance
 *
@@ -162,9 +144,6 @@ bool XEEPROMMEMORYMANAGER::SetInstance(XEEPROMMEMORYMANAGER* _instance)
 * @brief      Delete Instance of XEEPROMMEMORYMANAGER
 * @note       STATIC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -192,9 +171,6 @@ bool XEEPROMMEMORYMANAGER::DelInstance()
 * @brief      Ini
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -211,9 +187,6 @@ bool XEEPROMMEMORYMANAGER::Ini()
 * @brief      End
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -229,9 +202,6 @@ bool XEEPROMMEMORYMANAGER::End()
 * @fn         bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 * @brief      Read
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -252,9 +222,6 @@ bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 * @brief      Read
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -274,9 +241,6 @@ bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 * @brief      Read
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -295,9 +259,6 @@ bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 * @fn         bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Read
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -319,9 +280,6 @@ bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Write
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -341,9 +299,6 @@ bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 * @brief      Write
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 *
@@ -362,9 +317,6 @@ bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 * @fn         bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 * @brief      Write
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -386,9 +338,6 @@ bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 * @brief      Write
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  offset :
 * @param[in]  data :
 * @param[in]  size :
@@ -407,9 +356,6 @@ bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 * @fn         bool XEEPROMMEMORYMANAGER::EraseAll()
 * @brief      EraseAll
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *

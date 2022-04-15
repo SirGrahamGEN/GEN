@@ -6,7 +6,7 @@
 //
 //  Data IO PiFace Shield (Raspberry Pi)
 //
-//  @author  Abraham J. Velez
+//  ""
 //
 //  Date Of Creation  : 03/05/2014 16:12:18
 //  Last Modification :

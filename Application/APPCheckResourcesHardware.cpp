@@ -6,10 +6,7 @@
 * @brief      Application Check Resources Hardware class
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -62,9 +59,6 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -86,9 +80,6 @@ APPCHECKRESOURCESHARDWARE::APPCHECKRESOURCESHARDWARE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -112,9 +103,6 @@ APPCHECKRESOURCESHARDWARE::~APPCHECKRESOURCESHARDWARE()
 * @fn         bool APPCHECKRESOURCESHARDWARE::Ini(APPCFG* cfg)
 * @brief      Ini
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  cfg :
 *
@@ -185,9 +173,6 @@ bool APPCHECKRESOURCESHARDWARE::Ini(APPCFG* cfg)
 * @brief      GetCPUAverangge
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -206,9 +191,6 @@ int APPCHECKRESOURCESHARDWARE::GetCPUAverangge()
 * @fn         bool APPCHECKRESOURCESHARDWARE::End()
 * @brief      End
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -239,9 +221,6 @@ bool APPCHECKRESOURCESHARDWARE::End()
 * @fn         bool APPCHECKRESOURCESHARDWARE::CheckMemoryStatus()
 * @brief      CheckMemoryStatus
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -279,9 +258,6 @@ bool APPCHECKRESOURCESHARDWARE::CheckMemoryStatus()
 * @fn         bool APPCHECKRESOURCESHARDWARE::CheckCPUUsageStatus()
 * @brief      CheckCPUUsageStatus
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -325,9 +301,6 @@ bool APPCHECKRESOURCESHARDWARE::CheckCPUUsageStatus()
 * @note       INTERNAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  event : 
 *
 * @return     void : does not return anything. 
@@ -351,9 +324,6 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 * @brief      Handle Event for the observer manager of this class
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xevent :
 *
@@ -389,9 +359,6 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

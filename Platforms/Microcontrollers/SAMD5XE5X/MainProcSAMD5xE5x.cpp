@@ -6,10 +6,7 @@
 * @brief      Main Procedure SAMD5xE5x class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -76,9 +73,6 @@ MAINPROCSAMD5XE5X        mainsamd5xe5x;
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -96,9 +90,6 @@ MAINPROCSAMD5XE5X::MAINPROCSAMD5XE5X()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -115,9 +106,6 @@ MAINPROCSAMD5XE5X::~MAINPROCSAMD5XE5X()
 * @fn         bool MAINPROCSAMD5XE5X::Ini()
 * @brief      Ini
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -173,9 +161,6 @@ bool MAINPROCSAMD5XE5X::Ini(APPMAIN* appmain)
 * @brief      Update
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -203,9 +188,6 @@ bool MAINPROCSAMD5XE5X::Update()
 * @fn         bool MAINPROCSAMD5XE5X::End()
 * @brief      End
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -254,9 +236,6 @@ bool MAINPROCSAMD5XE5X::End()
 * @brief      Factorys Ini
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath : always NULL in this platform
 *
 * @return     bool : true if is succesful.
@@ -290,9 +269,6 @@ bool MAINPROCSAMD5XE5X::Factorys_Ini(XSTRING* xpath)
 * @brief      Factorys End
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -321,9 +297,6 @@ bool MAINPROCSAMD5XE5X::Factorys_End()
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -339,9 +312,6 @@ void MAINPROCSAMD5XE5X::Clean()
 * @fn         void _read()
 * @brief      read
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -360,9 +330,6 @@ void _read()
 * @brief      write
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -379,9 +346,6 @@ void _write()
 * @fn         void _gettimeofday()
 * @brief      gettimeofday
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -407,9 +371,6 @@ void _gettimeofday()
 * @fn         int main()
 * @brief      main
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *

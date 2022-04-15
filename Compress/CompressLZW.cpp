@@ -40,7 +40,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 10:41:34 p.m.
 //
 //  @return
@@ -63,7 +63,7 @@ COMPRESS_LZW::COMPRESS_LZW()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 10:41:50 p.m.
 //
 //  @return       void :
@@ -80,7 +80,7 @@ COMPRESS_LZW::~COMPRESS_LZW()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/02/2004 18:05:17
 //
 //  @return       bool :
@@ -111,7 +111,7 @@ bool COMPRESS_LZW::Compress(XBYTE* source,XDWORD size,XBUFFER* xbuffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/02/2004 18:05:21
 //
 //  @return       bool :
@@ -139,7 +139,7 @@ bool COMPRESS_LZW::Decompress(XBYTE* source,XDWORD size,XBUFFER* xbuffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 10:43:00 p.m.
 //
 //  @return       XDWORD :
@@ -162,7 +162,7 @@ XDWORD COMPRESS_LZW::LZW_Encode(XBYTE* InBuffer,XDWORD dwLength,XBYTE* OutBuffer
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 10:44:14 p.m.
 //
 //  @return       void :
@@ -182,7 +182,7 @@ void COMPRESS_LZW::LZW_Decode(XBYTE* InBuffer,XBYTE* OutBuffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 10:47:56 p.m.
 //
 //  @return       XDWORD :
@@ -261,7 +261,7 @@ XDWORD COMPRESS_LZW::LZW_GIF_Encode(XBYTE* DibBuffer,XBYTE* OutBuffer,XDWORD dwD
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 10:52:05 p.m.
 //
 //  @return       void :
@@ -333,7 +333,7 @@ void COMPRESS_LZW::LZW_GIF_Decode(XBYTE* InBuffer,XBYTE* DibBuffer,XDWORD dwDibW
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 10:56:25 p.m.
 //
 //  @return       void :
@@ -358,7 +358,7 @@ void COMPRESS_LZW::Decode_InitStringTable()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 10:58:12 p.m.
 //
 //  @return       XWORD :
@@ -403,7 +403,7 @@ XWORD COMPRESS_LZW::Decode_GetNextCode()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 10:59:57 p.m.
 //
 //  @return       bool :
@@ -422,7 +422,7 @@ bool COMPRESS_LZW::Decode_IsInTable(XWORD Code)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 11:04:12 p.m.
 //
 //  @return       void :
@@ -450,7 +450,7 @@ void COMPRESS_LZW::Decode_AddStringToTable(XWORD wPrefix, XWORD wSuffix)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 11:04:37 p.m.
 //
 //  @return       XBYTE :
@@ -475,7 +475,7 @@ XBYTE COMPRESS_LZW::Decode_GetFirstChar(XWORD Code)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 11:04:58 p.m.
 //
 //  @return       void :
@@ -505,7 +505,7 @@ void COMPRESS_LZW::Decode_WriteString_to8(XWORD Code)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 11:05:46 p.m.
 //
 //  @return       void :
@@ -539,7 +539,7 @@ void COMPRESS_LZW::Decode_SwitchToFollowLine()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 11:06:07 p.m.
 //
 //  @return       void :
@@ -561,7 +561,7 @@ void COMPRESS_LZW::Encode_InitStringTable()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 11:06:31 p.m.
 //
 //  @return       XBYTE :
@@ -602,7 +602,7 @@ XBYTE COMPRESS_LZW::Encode_GetNextPixel()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 11:08:02 p.m.
 //
 //  @return       bool :
@@ -623,7 +623,7 @@ bool COMPRESS_LZW::Encode_IsInTable(XWORD Old, XWORD Pixel)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 11:08:16 p.m.
 //
 //  @return       void :
@@ -649,7 +649,7 @@ void COMPRESS_LZW::Encode_AddStringToTable(XWORD Old, XWORD Pixel)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/12/2009 11:08:45 p.m.
 //
 //  @return       void :

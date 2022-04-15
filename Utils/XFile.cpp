@@ -6,10 +6,7 @@
 * @brief      eXtended File class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -62,9 +59,6 @@ XFILEOPENLIST XFileOpenList;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -80,9 +74,6 @@ XFILE::XFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -103,9 +94,6 @@ XFILE::~XFILE()
 * @brief      GetSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -121,9 +109,6 @@ XQWORD XFILE::GetSize()
 * @fn         bool XFILE::Write(XBUFFER &xbuffer)
 * @brief      Write
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  &xbuffer :
 *
@@ -143,9 +128,6 @@ bool XFILE::Write(XBUFFER &xbuffer)
 * @brief      Close
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -161,9 +143,6 @@ bool XFILE::Close()
 * @fn         bool XFILE::Exist(XPATH& xpath)
 * @brief      Exist
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -182,9 +161,6 @@ bool XFILE::Exist(XPATH& xpath)
 * @fn         bool XFILE::Open(XPATH& xpath,bool readonly)
 * @brief      Open
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  readonly :
@@ -205,9 +181,6 @@ bool XFILE::Open(XPATH& xpath,bool readonly)
 * @brief      Create
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 *
 * @return     bool : true if is succesful.
@@ -225,9 +198,6 @@ bool XFILE::Create(XPATH& xpath)
 * @fn         bool XFILE::Erase(XPATH& xpath,bool overwrite)
 * @brief      Erase
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  overwrite :
@@ -248,9 +218,6 @@ bool XFILE::Erase(XPATH& xpath,bool overwrite)
 * @brief      Rename
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpathold :
 * @param[in]  xpathnew :
 *
@@ -269,9 +236,6 @@ bool XFILE::Rename(XPATH& xpathold,XPATH& xpathnew)
 * @fn         bool XFILE::Rename(XCHAR* xpathold,XPATH& xpathnew)
 * @brief      Rename
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpathold :
 * @param[in]  xpathnew :
@@ -292,9 +256,6 @@ bool XFILE::Rename(XCHAR* xpathold,XPATH& xpathnew)
 * @brief      Rename
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpathold :
 * @param[in]  xpathnew :
 *
@@ -314,9 +275,6 @@ bool XFILE::Rename(XPATH& xpathold,XCHAR* xpathnew)
 * @brief      IsOpen
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -332,9 +290,6 @@ bool XFILE::IsOpen()
 * @fn         bool XFILE::IsReadOnly()
 * @brief      IsReadOnly
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -352,9 +307,6 @@ bool XFILE::IsReadOnly()
 * @brief      GetPathNameFile
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -370,9 +322,6 @@ XCHAR* XFILE::GetPathNameFile()
 * @fn         bool XFILE::EraseBlock(XQWORD size)
 * @brief      EraseBlock
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size :
 *
@@ -431,9 +380,6 @@ bool XFILE::EraseBlock(XQWORD size)
 * @fn         bool XFILE::InsertBlock(XBYTE* buffer, XDWORD size)
 * @brief      InsertBlock
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -509,9 +455,6 @@ bool XFILE::InsertBlock(XBYTE* buffer, XDWORD size)
 * @brief      ChangeAttributes
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  attributes :
 *
 * @return     void : does not return anything.
@@ -531,7 +474,7 @@ void XFILE::ChangeAttributes(XCHAR* attributes)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/06/2014 16:54:32
 //
 //  @return       bool :
@@ -587,9 +530,6 @@ bool XFILE::OverwriteContent(XCHAR* xpath)
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -608,9 +548,6 @@ void XFILE::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -628,9 +565,6 @@ XFILECONTAINER::XFILECONTAINER()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -646,7 +580,7 @@ XFILECONTAINER::~XFILECONTAINER()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/12/2003 21:56:17
 //
 //  @return       bool :
@@ -669,7 +603,7 @@ bool XFILECONTAINER::CreatePrimaryFile()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/12/2003 21:56:23
 //
 //  @return       XFILE* :
@@ -686,7 +620,7 @@ XFILE* XFILECONTAINER::GetPrimaryFile()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/12/2003 21:56:31
 //
 //  @return       bool :
@@ -714,9 +648,6 @@ bool XFILECONTAINER::DeletePrimaryFile()
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -740,7 +671,7 @@ void XFILECONTAINER::Clean()
 //
 //   Class Destructor XFILEOPENLIST
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      12/06/2014 17:18:27
 //
 */
@@ -756,7 +687,7 @@ XFILEOPENLIST::~XFILEOPENLIST()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2002 18:54:20
 //
 //  @return       bool :
@@ -776,7 +707,7 @@ bool XFILEOPENLIST::Add(XFILE* xfile)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2002 18:54:26
 //
 //  @return       bool :
@@ -798,7 +729,7 @@ bool XFILEOPENLIST::Del(XFILE* xfile)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/03/2002 18:54:32
 //
 //  @return       bool :
@@ -828,7 +759,7 @@ bool XFILEOPENLIST::CloseAll()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      13/06/2014 11:26:07
 //
 //  @return       bool :

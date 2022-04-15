@@ -49,7 +49,7 @@
 //
 //  Class Constructor DIOIEC60870_5XEVENT
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/07/2015 17:32:25
 //
 //  @param        subject :
@@ -70,7 +70,7 @@ DIOIEC60870_5XEVENT::DIOIEC60870_5XEVENT(XSUBJECT* subject, XDWORD type, XDWORD 
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/06/2011 22:05:33
 //
 //  @return
@@ -89,7 +89,7 @@ DIOIEC60870_5XEVENT::~DIOIEC60870_5XEVENT()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/06/2011 22:07:35
 //
 //  @return       void :
@@ -111,7 +111,7 @@ void DIOIEC60870_5XEVENT::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/06/2012 18:24:30
 //
 //  @return
@@ -132,7 +132,7 @@ DIO_C_CI_NU_2_RESULT::DIO_C_CI_NU_2_RESULT()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/06/2012 18:24:49
 //
 //  @return
@@ -154,7 +154,7 @@ DIO_C_CI_NU_2_RESULT::~DIO_C_CI_NU_2_RESULT()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/09/2014 10:21:59
 //
 //  @return       XDATETIME* :
@@ -174,7 +174,7 @@ XDATETIME* DIO_C_CI_NU_2_RESULT::GetDateTime()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/06/2012 18:32:58
 //
 //  @return       XVECTOR<XDWORD>* :
@@ -193,7 +193,7 @@ XVECTOR<XDWORD>* DIO_C_CI_NU_2_RESULT::GetIndexValues()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/06/2012 18:33:05
 //
 //  @return       XVECTOR<XDWORD>* :
@@ -211,7 +211,7 @@ XVECTOR<XDWORD>* DIO_C_CI_NU_2_RESULT::GetValues()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/06/2012 18:28:36
 //
 //  @return       void :
@@ -230,7 +230,7 @@ void DIO_C_CI_NU_2_RESULT::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 18:40:21
 //
 //  @return
@@ -252,7 +252,7 @@ DIO_C_TR_AA_RESULT::DIO_C_TR_AA_RESULT()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 18:40:42
 //
 //  @return
@@ -274,7 +274,7 @@ DIO_C_TR_AA_RESULT::~DIO_C_TR_AA_RESULT()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/09/2014 10:22:32
 //
 //  @return       XDATETIME* :
@@ -293,7 +293,7 @@ XDATETIME* DIO_C_TR_AA_RESULT::GetDateTime()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 19:41:37
 //
 //  @return       int :
@@ -312,7 +312,7 @@ int DIO_C_TR_AA_RESULT::GetActiveImport()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 19:41:53
 //
 //  @return       bool :
@@ -332,7 +332,7 @@ bool DIO_C_TR_AA_RESULT::SetActiveImport(int activeimport)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 19:53:12
 //
 //  @return       int :
@@ -350,7 +350,7 @@ int DIO_C_TR_AA_RESULT::GetActiveExport()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 19:53:53
 //
 //  @return       bool :
@@ -370,7 +370,7 @@ bool DIO_C_TR_AA_RESULT::SetActiveExport(int activeexport)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 19:54:22
 //
 //  @return       int :
@@ -392,7 +392,7 @@ int DIO_C_TR_AA_RESULT::GetReactiveQ(int index)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:21:12
 //
 //  @return       bool :
@@ -415,7 +415,7 @@ bool DIO_C_TR_AA_RESULT::SetReactiveQ(int index,int reactiveQ)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:23:28
 //
 //  @return       int :
@@ -434,7 +434,7 @@ int DIO_C_TR_AA_RESULT::GetTotalActivePower()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:23:33
 //
 //  @return       bool :
@@ -455,7 +455,7 @@ bool DIO_C_TR_AA_RESULT::SetTotalActivePower(int totalactivepower)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:23:37
 //
 //  @return       int :
@@ -474,7 +474,7 @@ int DIO_C_TR_AA_RESULT::GetTotalReactivePower()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:23:43
 //
 //  @return       bool :
@@ -494,7 +494,7 @@ bool DIO_C_TR_AA_RESULT::SetTotalReactivePower(int totalreactivepower)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:23:51
 //
 //  @return       float :
@@ -513,7 +513,7 @@ float DIO_C_TR_AA_RESULT::GetTotalPowerFactor()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:24:13
 //
 //  @return       bool :
@@ -534,7 +534,7 @@ bool DIO_C_TR_AA_RESULT::SetTotalPowerFactor(float totalpowerfactor)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:25:55
 //
 //  @return       int :
@@ -555,7 +555,7 @@ int DIO_C_TR_AA_RESULT::GetActivePowerPhase(int phase)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:27:37
 //
 //  @return       bool :
@@ -578,7 +578,7 @@ bool DIO_C_TR_AA_RESULT::SetActivePowerPhase(int phase, int activepowerphase)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:28:55
 //
 //  @return       int :
@@ -599,7 +599,7 @@ int DIO_C_TR_AA_RESULT::GetReactivePowerPhase(int phase)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:29:28
 //
 //  @return       bool :
@@ -621,7 +621,7 @@ bool DIO_C_TR_AA_RESULT::SetReactivePowerPhase(int phase, int reactivepowerphase
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:31:36
 //
 //  @return       float :
@@ -642,7 +642,7 @@ float DIO_C_TR_AA_RESULT::GetPowerFactorPhase(int phase)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:31:43
 //
 //  @return       bool :
@@ -665,7 +665,7 @@ bool DIO_C_TR_AA_RESULT::SetPowerFactorPhase(int phase, float powerfactorphase)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:33:08
 //
 //  @return       float :
@@ -686,7 +686,7 @@ float DIO_C_TR_AA_RESULT::GetVoltagePhase(int phase)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:33:12
 //
 //  @return       float :
@@ -709,7 +709,7 @@ float DIO_C_TR_AA_RESULT::SetVoltagePhase(int phase, float voltagephase)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:33:16
 //
 //  @return       float :
@@ -730,7 +730,7 @@ float DIO_C_TR_AA_RESULT::GetCurrentPhase(int phase)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:33:23
 //
 //  @return       float :
@@ -754,7 +754,7 @@ float DIO_C_TR_AA_RESULT::SetCurrentPhase(int phase, float currentphase)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 19:37:40
 //
 //  @return       void :
@@ -798,7 +798,7 @@ void DIO_C_TR_AA_RESULT::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/04/2002 13:34:54
 //
 //  @return       void :
@@ -827,7 +827,7 @@ DIOIEC60870_5::DIOIEC60870_5(DIOSTREAM* diostream)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/12/2001 21:53:15
 //
 //  @return
@@ -856,7 +856,7 @@ DIOIEC60870_5::~DIOIEC60870_5()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/12/2012 21:11:50
 //
 //  @return       bool :
@@ -920,7 +920,7 @@ bool DIOIEC60870_5::Connect(XWORD addressfield,XBYTE addressPM, XDWORD keyPM, bo
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/05/2012 10:49:50
 //
 //  @return       bool :
@@ -948,7 +948,7 @@ bool DIOIEC60870_5::CMD_ResetRemoteLink(int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/05/2012 10:58:54
 //
 //  @return       bool :
@@ -976,7 +976,7 @@ bool DIOIEC60870_5::CMD_RequestStatusLink(int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/06/2012 10:10:09
 //
 //  @return       bool :
@@ -1011,7 +1011,7 @@ bool DIOIEC60870_5::CMD_RequestUserDataClass1(XBUFFER* asdu,int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/06/2012 10:09:24
 //
 //  @return       bool :
@@ -1055,7 +1055,7 @@ bool DIOIEC60870_5::CMD_RequestUserDataClass2(XBUFFER* asdu,int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 12:32:41
 //
 //  @return       bool :
@@ -1127,7 +1127,7 @@ bool DIOIEC60870_5::CMD_C_AC_NA_2_IniSession(int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 12:32:31
 //
 //  @return       bool :
@@ -1184,7 +1184,7 @@ bool DIOIEC60870_5::CMD_C_FS_NA_2_EndSession(int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      10/10/2012 21:17:24
 //
 //  @return       bool :
@@ -1239,7 +1239,7 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_Init(int TM,XDATETIME& timestart,XDATETIME& ti
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 11:22:22
 //
 //  @return       bool :
@@ -1293,7 +1293,7 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_Read(DIO_C_CI_NU_2_RESULT* result,int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      20/12/2012 21:24:12
 //
 //  @return       bool :
@@ -1350,7 +1350,7 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* timestart, XD
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 11:22:05
 //
 //  @return       bool :
@@ -1378,7 +1378,7 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_DeleteResults(XVECTOR<DIO_C_CI_NU_2_RESULT*>* 
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:35:09
 //
 //  @return       bool :
@@ -1520,7 +1520,7 @@ bool DIOIEC60870_5::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result,int timeou
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/06/2012 17:26:34
 //
 //  @return       bool :
@@ -1553,7 +1553,7 @@ bool DIOIEC60870_5::SetTimeLabelTypeA(XDATETIME& time, bool rate, bool VI, bool 
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/06/2012 17:01:54
 //
 //  @return       bool :
@@ -1590,7 +1590,7 @@ bool DIOIEC60870_5::SetTimeLabelTypeB(XDATETIME& time, bool rate, bool VI, bool 
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/06/2012 17:28:00
 //
 //  @return       bool :
@@ -1634,7 +1634,7 @@ bool DIOIEC60870_5::GetTimeLabelTypeA(XBYTE* result, bool& rate, bool& VI,bool& 
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/06/2012 17:28:07
 //
 //  @return       bool :
@@ -1683,7 +1683,7 @@ bool DIOIEC60870_5::GetTimeLabelTypeB(XBYTE* result, bool& rate, bool& VI,bool& 
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      27/02/2013 18:41:53
 //
 //  @return       bool :
@@ -1702,7 +1702,7 @@ bool DIOIEC60870_5::CancelOperations()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/12/2001 15:59:02
 //
 //  @return       void :
@@ -1729,7 +1729,7 @@ void DIOIEC60870_5::Disconnect()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/05/2012 16:34:49
 //
 //  @return       bool :
@@ -1761,7 +1761,7 @@ bool DIOIEC60870_5::IsValidFrameCount(XBYTE functioncode)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/05/2012 16:53:55
 //
 //  @return       bool :
@@ -1836,7 +1836,7 @@ bool DIOIEC60870_5::SendMsgVar(XBYTE functioncode, XBUFFER* dataASDU)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/05/2012 18:10:42
 //
 //  @return       bool :
@@ -1901,7 +1901,7 @@ bool DIOIEC60870_5::SendMsgFix(XBYTE functioncode)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/05/2012 21:42:24
 //
 //  @return       bool :
@@ -1946,7 +1946,7 @@ bool DIOIEC60870_5::WaitToReadMsg(XDWORD size,int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/05/2012 17:02:24
 //
 //  @return       bool :
@@ -2061,7 +2061,7 @@ bool DIOIEC60870_5::ReadMsg(XBYTE& retfunctioncode,bool& retisfixmsg,XBUFFER* re
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/05/2012 22:44:24
 //
 //  @return       XBYTE :
@@ -2117,7 +2117,7 @@ XBYTE DIOIEC60870_5::CalculateCheckSum(XBYTE* buffer,XDWORD sizebuffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/05/2012 22:19:13
 //
 //  @return       XBYTE :
@@ -2138,7 +2138,7 @@ XBYTE DIOIEC60870_5::CalculateCheckSum(XBUFFER& xbuffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      07/06/2012 20:39:27
 //
 //  @return       int :

@@ -6,10 +6,7 @@
 * @brief      Sound source class
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -74,9 +68,6 @@ SNDSOURCE::SNDSOURCE()
 * @note       VIRTUAL
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -92,9 +83,6 @@ SNDSOURCE::~SNDSOURCE()
 * @fn         void SNDSOURCE::SetInstance(SNDINSTANCE* instance)
 * @brief      SetInstance
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  instance : 
 *
@@ -114,9 +102,6 @@ void SNDSOURCE::SetInstance(SNDINSTANCE* instance)
 * @brief      GetInstance
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     SNDINSTANCE* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -132,9 +117,6 @@ SNDINSTANCE* SNDSOURCE::GetInstance()
 * @fn         bool SNDSOURCE::IsInstancePlaying()
 * @brief      IsInstancePlaying
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -157,9 +139,6 @@ bool SNDSOURCE::IsInstancePlaying()
 * @brief      SetElement
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  element : 
 *
 * @return     void : does not return anything. 
@@ -178,9 +157,6 @@ void SNDSOURCE::SetElement(SNDELEMENT* element)
 * @brief      GetElement
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     SNDELEMENT* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -196,9 +172,6 @@ SNDELEMENT* SNDSOURCE::GetElement()
 * @fn         void SNDSOURCE::Stop()
 * @brief      Stop
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *
@@ -216,9 +189,6 @@ void SNDSOURCE::Stop()
 * @brief      Pause
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -235,9 +205,6 @@ void SNDSOURCE::Pause()
 * @brief      UnPause
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -253,9 +220,6 @@ void SNDSOURCE::UnPause()
 * @fn         void SNDSOURCE::SetLoop(bool loop)
 * @brief      SetLoop
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  loop : 
 *
@@ -275,9 +239,6 @@ void SNDSOURCE::SetLoop(bool loop)
 * @brief      IsPLaying
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -293,9 +254,6 @@ bool SNDSOURCE::IsPLaying()
 * @fn         bool SNDSOURCE::IsStopped()
 * @brief      IsStopped
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -313,9 +271,6 @@ bool SNDSOURCE::IsStopped()
 * @brief      IsPaused
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -331,9 +286,6 @@ bool SNDSOURCE::IsPaused()
 * @fn         void SNDSOURCE::SetVolume(float volume)
 * @brief      SetVolume
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  volume : 
 *
@@ -353,9 +305,6 @@ void SNDSOURCE::SetVolume(float volume)
 * @brief      GetVolume
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     float : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -371,9 +320,6 @@ float SNDSOURCE::GetVolume()
 * @fn         void SNDSOURCE::SetPitch(float pitch)
 * @brief      SetPitch
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  pitch : 
 *
@@ -393,9 +339,6 @@ void SNDSOURCE::SetPitch(float pitch)
 * @brief      GetPitch
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     float : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -411,9 +354,6 @@ float SNDSOURCE::GetPitch()
 * @fn         void SNDSOURCE::SetSecondsOffset(float seconds)
 * @brief      SetSecondsOffset
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  seconds : 
 *
@@ -433,9 +373,6 @@ void SNDSOURCE::SetSecondsOffset(float seconds)
 * @brief      SetSamplesOffset
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  samples : 
 *
 * @return     void : does not return anything. 
@@ -454,9 +391,6 @@ void SNDSOURCE::SetSamplesOffset(int samples)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

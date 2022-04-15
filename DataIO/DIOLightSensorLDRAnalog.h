@@ -9,7 +9,7 @@
 //  Diagram:
 //  http://www.raspberrypi-spy.co.uk/2012/08/reading-analogue-sensors-with-one-gpio-pin/
 //
-//  @author  Abraham J. Velez
+//  ""
 //
 //  Date Of Creation  : 22/03/2014 17:11:08
 //  Last Modification :

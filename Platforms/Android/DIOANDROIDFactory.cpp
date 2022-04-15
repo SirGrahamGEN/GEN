@@ -100,7 +100,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/05/2013 1:20:06
 //
 //  @return       DIOSTREAMENUMDEVICES* :
@@ -150,7 +150,7 @@ DIOSTREAMENUMDEVICES* DIOANDROIDFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTY
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/05/2013 1:20:13
 //
 //  @return       bool :
@@ -175,7 +175,7 @@ bool DIOANDROIDFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevice
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2013 23:19:55
 //
 //  @return       DIOSTREAM* :
@@ -244,7 +244,7 @@ DIOSTREAM* DIOANDROIDFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -271,7 +271,7 @@ bool DIOANDROIDFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/03/2016 12:50:04
 //
 //  @return       DIOPING* :
@@ -293,7 +293,7 @@ DIOPING* DIOANDROIDFACTORY::CreatePing()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/03/2016 12:50:23
 //
 //  @return       bool :
@@ -322,7 +322,7 @@ bool DIOANDROIDFACTORY::DeletePing(DIOPING* ping)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/07/2009 07:27:51 p.m.
 //
 //  @return       DIOPCAP* :
@@ -344,7 +344,7 @@ DIOPCAP* DIOANDROIDFACTORY::CreatePCap()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/07/2009 07:27:55 p.m.
 //
 //  @return       bool :
@@ -373,7 +373,7 @@ bool DIOANDROIDFACTORY::DeletePCap(DIOPCAP* pcap)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/07/2009 07:27:51 p.m.
 //
 //  @return       DIOGPIO* :
@@ -395,7 +395,7 @@ DIOGPIO* DIOANDROIDFACTORY::CreateGPIO()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/07/2009 07:27:55 p.m.
 //
 //  @return       bool :

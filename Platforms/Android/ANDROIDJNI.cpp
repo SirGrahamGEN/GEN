@@ -43,7 +43,7 @@ jmethodID ANDROIDJNI::FindClassMethod;
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      27/04/2016 13:29:27
 //
 */
@@ -77,7 +77,7 @@ void ANDROIDJNI::InitializeJNI(android_app* application, jint javaversion)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      27/04/2016 13:42:49
 //
 //  @return       static :
@@ -98,7 +98,7 @@ static void JavaEnvDestructor(void*)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      27/04/2016 13:10:07
 //
 //  @return       JNIEnv* :
@@ -149,7 +149,7 @@ JNIEnv* ANDROIDJNI::GetJNIEnv()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      27/04/2016 13:29:33
 //
 */
@@ -168,7 +168,7 @@ void ANDROIDJNI::DetachJNIEnv()
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      27/04/2016 13:29:40
 //
 //  @return       jclass :
@@ -193,7 +193,7 @@ jclass ANDROIDJNI::FindJNIClass(const XSTRING & name)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      27/04/2016 13:29:49
 //
 //  @return       jclass :
@@ -216,7 +216,7 @@ jclass ANDROIDJNI::FindJNIClass(XSTRING * name)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      27/04/2016 13:29:56
 //
 //  @return       jclass :
@@ -239,7 +239,7 @@ jclass ANDROIDJNI::FindJNIClass(XCHAR * name)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      27/04/2016 13:30:03
 //
 //  @return       jclass :
@@ -274,7 +274,7 @@ jclass ANDROIDJNI::FindJNIClass(const char * name)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      27/04/2016 13:30:47
 //
 //  @return       jclass :
@@ -303,7 +303,7 @@ jclass ANDROIDJNI::FindJNIEnvClassWrapper(const char * name)
 //
 //
 //
-//  @author      Imanol Celaya Ruiz de Alegria
+//  ""
 //  @version      27/04/2016 16:11:54
 //
 //  @return       bool :

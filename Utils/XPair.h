@@ -6,7 +6,7 @@
 //
 //  reusable XPAIR class
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 18/07/2016 10:08:17
 //  Last Modification :

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output STM32 Stream SPI class
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -67,9 +64,6 @@ DIOSTM32STREAMSPI*        DIOSTM32STREAMSPI::handles[DIOSTM32STREAMSPI_MAXHANDLE
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -87,9 +81,6 @@ DIOSTM32STREAMSPIPORT::DIOSTM32STREAMSPIPORT()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -106,9 +97,6 @@ DIOSTM32STREAMSPIPORT::~DIOSTM32STREAMSPIPORT()
 * @brief      GetCounterRef
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -124,9 +112,6 @@ XDWORD DIOSTM32STREAMSPIPORT::GetCounterRef()
 * @fn         void DIOSTM32STREAMSPIPORT::SetCounterRef(XDWORD counterref)
 * @brief      SetCounterRef
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  counterref :
 *
@@ -146,9 +131,6 @@ void DIOSTM32STREAMSPIPORT::SetCounterRef(XDWORD counterref)
 * @brief      GetHandleSPI
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     SPI_HandleTypeDef* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -164,9 +146,6 @@ SPI_HandleTypeDef* DIOSTM32STREAMSPIPORT::GetHandleSPI()
 * @fn         void DIOSTM32STREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
 * @brief      SetHandleSPI
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hspi :
 *
@@ -186,9 +165,6 @@ void DIOSTM32STREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -213,9 +189,6 @@ void DIOSTM32STREAMSPIPORT::Clean()
 * @fn         DIOSTM32STREAMSPI::DIOSTM32STREAMSPI()
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -256,9 +229,6 @@ DIOSTM32STREAMSPI::DIOSTM32STREAMSPI() : DIOSTREAMSPI()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -279,9 +249,6 @@ DIOSTM32STREAMSPI::~DIOSTM32STREAMSPI()
 * @brief      GetConnectStatus
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSTATUS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -299,9 +266,6 @@ DIOSTREAMSTATUS DIOSTM32STREAMSPI::GetConnectStatus()
 * @fn         bool DIOSTM32STREAMSPI::Open()
 * @brief      Open
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -396,9 +360,6 @@ bool DIOSTM32STREAMSPI::Open()
 * @brief      WaitToFilledReadingBuffer
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  filledto :
 * @param[in]  timeout :
 *
@@ -428,9 +389,6 @@ bool DIOSTM32STREAMSPI::WaitToFilledReadingBuffer(int filledto, int timeout)
 * @fn         XDWORD DIOSTM32STREAMSPI::ReadDirect(XBYTE* buffer, XDWORD size)
 * @brief      ReadDirect
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -464,9 +422,6 @@ XDWORD DIOSTM32STREAMSPI::ReadDirect(XBYTE* buffer, XDWORD size)
 * @fn         XDWORD DIOSTM32STREAMSPI::WriteDirect(XBYTE* buffer, XDWORD size)
 * @brief      WriteDirect
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -503,9 +458,6 @@ XDWORD DIOSTM32STREAMSPI::WriteDirect(XBYTE* buffer, XDWORD size)
 * @brief      Write
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -539,9 +491,6 @@ XDWORD DIOSTM32STREAMSPI::Write(XBYTE* buffer, XDWORD size)
 * @brief      Disconnect
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -557,9 +506,6 @@ bool DIOSTM32STREAMSPI::Disconnect()
 * @fn         bool DIOSTM32STREAMSPI::Close()
 * @brief      Close
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -602,9 +548,6 @@ bool DIOSTM32STREAMSPI::Close()
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -619,9 +562,6 @@ bool DIOSTM32STREAMSPI::CleanBuffers()
 * @fn         void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
 * @brief      AL_SPI_MasterRxCpltCallback
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  hspi :
 *
@@ -662,9 +602,6 @@ void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
 * @brief      AL_SPI_SlaveRxCpltCallback
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  hspi :
 *
 * @return     void : does not return anything.
@@ -683,9 +620,6 @@ void HAL_SPI_SlaveRxCpltCallback(SPI_HandleTypeDef* hspi)
 * @brief      AL_SPI_ErrorCallback
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  SPI_HandleTypeDef*hspi :
 *
 * @return     void : does not return anything.
@@ -703,9 +637,6 @@ void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
 * @fn         void DIOSTM32STREAMSPI::ThreadConnection(void* param)
 * @brief      ThreadConnection
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *
@@ -801,9 +732,6 @@ void DIOSTM32STREAMSPI::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

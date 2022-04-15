@@ -5,9 +5,6 @@
 * @brief      eXtended AVL Tree class (https://en.wikipedia.org/wiki/AVL_tree)
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * Copyright(c) 2008 - 2016 GEN Group.
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated

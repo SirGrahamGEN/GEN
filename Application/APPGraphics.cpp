@@ -6,10 +6,7 @@
 * @brief      Application Graphics class
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -75,9 +72,6 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -95,9 +89,6 @@ APPGRAPHICS::APPGRAPHICS()
 * @note       VIRTUAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -113,9 +104,6 @@ APPGRAPHICS::~APPGRAPHICS()
 * @fn         bool APPGRAPHICS::Ini(XVECTOR<XSTRING*>* execparams, bool haveconsole)
 * @brief      Ini
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  execparams :
 *
@@ -149,9 +137,6 @@ bool APPGRAPHICS::Ini(XVECTOR<XSTRING*>* execparams)
 * @brief      End application console function
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -182,8 +167,8 @@ bool APPGRAPHICS::End()
  *  @brief      Get Init Options
  *  @ingroup
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @return     XDWORD :
  *
@@ -200,9 +185,6 @@ XDWORD APPGRAPHICS::GetInitOptions()
 * @fn         void APPGRAPHICS::SetInitOptions(XDWORD initoptions)
 * @brief      Set Init Options
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  initoptions :
 *
@@ -221,9 +203,6 @@ void APPGRAPHICS::SetInitOptions(XDWORD initoptions)
 * @fn         bool APPGRAPHICS::CreateMainScreenProcess()
 * @brief      CreateMainScreenProcess
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -334,9 +313,6 @@ bool APPGRAPHICS::CreateMainScreenProcess(bool show)
 * @brief      DeleteMainScreenProcess
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -375,9 +351,6 @@ bool APPGRAPHICS::DeleteMainScreenProcess()
 * @brief      Get Main Screen
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPSCREEN* : main screen
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -393,9 +366,6 @@ GRPSCREEN* APPGRAPHICS::GetMainScreen()
 * @fn         void APPGRAPHICS::SetMainScreen(GRPSCREEN* mainscreen)
 * @brief      SetMainScreen
 * @ingroup    APPLICATION
-*
-* @author
-* @date       01/03/2016 12:00
 *
 * @param[in]  mainscreen :
 *
@@ -416,9 +386,6 @@ void APPGRAPHICS::SetMainScreen(GRPSCREEN* mainscreen)
 * @brief      Get Input Keyboard
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     INPDEVICE* : keyboard device;
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -434,9 +401,6 @@ INPDEVICE* APPGRAPHICS::GetInputKeyboard()
 * @fn         INPDEVICE* APPGRAPHICS::GetInputMouse()
 * @brief      Get Input Mouse
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     INPDEVICE* : device mouse
 *
@@ -454,9 +418,6 @@ INPDEVICE* APPGRAPHICS::GetInputMouse()
 * @fn         bool APPGRAPHICS::AppProc_BeforeCreateMainScreen(GRPSCREEN* mainscreen)
 * @brief      Callback Before Create Main Screen
 * @ingroup
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mainscreen :  instance incomplete of main screen
 *
@@ -476,9 +437,6 @@ bool APPGRAPHICS::AppProc_BeforeCreateMainScreen(GRPSCREEN* mainscreen)
 * @brief      Callback Before Create Main Canvas
 * @ingroup
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  maincanvas : instance incomplete of main canvas
 *
 * @return     bool : true if is succesful.
@@ -497,9 +455,6 @@ bool APPGRAPHICS::AppProc_BeforeCreateMainCanvas(GRPCANVAS* maincanvas)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

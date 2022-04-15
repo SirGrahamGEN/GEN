@@ -6,10 +6,7 @@
 * @brief      Graphics 2D Rebuild Areas
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -72,9 +66,6 @@ GRP2DREBUILDAREA::GRP2DREBUILDAREA()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -98,9 +89,6 @@ GRP2DREBUILDAREA::~GRP2DREBUILDAREA()
 * @brief      GetXPos
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     double :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -117,9 +105,6 @@ double GRP2DREBUILDAREA::GetXPos()
 * @brief      GetYPos
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     double :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -135,9 +120,6 @@ double GRP2DREBUILDAREA::GetYPos()
 * @fn         void GRP2DREBUILDAREA::SetXPos(double xpos)
 * @brief      SetXPos
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpos :
 *
@@ -157,9 +139,6 @@ void GRP2DREBUILDAREA::SetXPos(double xpos)
 * @brief      SetYPos
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ypos :
 *
 * @return     void : does not return anything.
@@ -178,9 +157,6 @@ void GRP2DREBUILDAREA::SetYPos(double ypos)
 * @brief      GetBitmap
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPBITMAP* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -196,9 +172,6 @@ GRPBITMAP* GRP2DREBUILDAREA::GetBitmap()
 * @fn         void GRP2DREBUILDAREA::SetBitmap(GRPBITMAP* bitmap)
 * @brief      SetBitmap
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bitmap :
 *
@@ -217,10 +190,7 @@ void GRP2DREBUILDAREA::SetBitmap(GRPBITMAP* bitmap)
 * @fn         void* GRP2DREBUILDAREA::GetExtraData()
 * @brief      GetExtraData
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -236,10 +206,7 @@ void* GRP2DREBUILDAREA::GetExtraData()
 * @fn         void GRP2DREBUILDAREA::SetExtraData(void* extra_data)
 * @brief      SetExtraData
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  extra_data : 
 * 
 * @return     void : does not return anything. 
@@ -258,9 +225,6 @@ void GRP2DREBUILDAREA::SetExtraData(void* extra_data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -290,9 +254,6 @@ void GRP2DREBUILDAREA::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -309,9 +270,6 @@ GRP2DREBUILDAREAS::GRP2DREBUILDAREAS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -330,9 +288,6 @@ GRP2DREBUILDAREAS::~GRP2DREBUILDAREAS()
 * @brief      GetExcessEdge
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -348,9 +303,6 @@ XDWORD GRP2DREBUILDAREAS::GetExcessEdge()
 * @fn         bool GRP2DREBUILDAREAS::SetExcessEdge(XDWORD excessedge)
 * @brief      SetExcessEdge
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  excessedge :
 *
@@ -372,9 +324,6 @@ bool GRP2DREBUILDAREAS::SetExcessEdge(XDWORD excessedge)
 * @brief      GetRebuildAreas
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<GRP2DREBUILDAREA*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -390,9 +339,6 @@ XVECTOR<GRP2DREBUILDAREA*>* GRP2DREBUILDAREAS::GetRebuildAreas()
 * @fn         bool GRP2DREBUILDAREAS::RebuildAllAreas()
 * @brief      RebuildAllAreas
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -416,9 +362,6 @@ bool GRP2DREBUILDAREAS::RebuildAllAreas()
 * @brief      DeleteAllRebuildAreas
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -439,9 +382,6 @@ bool GRP2DREBUILDAREAS::DeleteAllRebuildAreas()
 * @fn         bool GRP2DREBUILDAREAS::CreateRebuildArea(double x, double y, double width, double height)
 * @brief      CreateRebuildArea
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x :
 * @param[in]  y :
@@ -487,9 +427,6 @@ bool GRP2DREBUILDAREAS::CreateRebuildArea(double x, double y, double width, doub
 * @brief      GetBitmap
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x :
 * @param[in]  y :
 * @param[in]  width :
@@ -511,9 +448,6 @@ GRPBITMAP* GRP2DREBUILDAREAS::GetBitmap(double x, double y, double width, double
 * @brief      PutBitmapNoAlpha
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x :
 * @param[in]  y :
 * @param[in]  bitmap :
@@ -534,9 +468,6 @@ void GRP2DREBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

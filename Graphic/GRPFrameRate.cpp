@@ -5,11 +5,8 @@
 * @class      GRPFRAMERATE
 * @brief      Graphic Frame Rate class
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,10 +54,7 @@
 * @fn         GRPFRAMERATE::GRPFRAMERATE()
 * @brief      Constructor
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -85,10 +79,7 @@ GRPFRAMERATE::GRPFRAMERATE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -114,10 +105,7 @@ GRPFRAMERATE::~GRPFRAMERATE()
 * @fn         XTIMER* GRPFRAMERATE::GetXTime()
 * @brief      GetXTime
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XTIMER* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -134,10 +122,7 @@ XTIMER* GRPFRAMERATE::GetXTimer()
 * @fn         void GRPFRAMERATE::AddNFrames()
 * @brief      AddNFrames
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -153,10 +138,7 @@ void GRPFRAMERATE::AddNFrames()
 * @fn         XDWORD GRPFRAMERATE::GetNFrames()
 * @brief      GetNFrames
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -172,10 +154,7 @@ XDWORD GRPFRAMERATE::GetNFrames()
 * @fn         void GRPFRAMERATE::Reset()
 * @brief      Reset
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -196,10 +175,7 @@ void GRPFRAMERATE::Reset()
 * @fn         float GRPFRAMERATE::Get()
 * @brief      Get
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     float : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -217,10 +193,7 @@ float GRPFRAMERATE::Get()
 * @fn         void GRPFRAMERATE::ThreadRunFunction_Framerate(void* param)
 * @brief      ThreadRunFunction_Framerate
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  param : 
 * 
 * @return     void : does not return anything. 
@@ -278,10 +251,7 @@ void GRPFRAMERATE::ThreadRunFunction_Framerate(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

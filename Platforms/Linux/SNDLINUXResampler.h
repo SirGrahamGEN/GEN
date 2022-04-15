@@ -6,7 +6,7 @@
 //
 //  libav resampler implementation
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 25/11/2016 11:19:53
 //  Last Modification :

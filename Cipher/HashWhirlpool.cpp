@@ -605,7 +605,7 @@ XQWORD HASHWHIRLPOOL::rc[HASHWHIRLPOOL_ROUNDS+1]  = { LL(0x0000000000000000),
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:43:10
 //
 //  @return
@@ -624,7 +624,7 @@ HASHWHIRLPOOL::HASHWHIRLPOOL() : HASH()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:01
 //
 //  @return
@@ -644,7 +644,7 @@ HASHWHIRLPOOL::~HASHWHIRLPOOL()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2013 16:28:42
 //
 //  @return       bool :
@@ -678,7 +678,7 @@ bool HASHWHIRLPOOL::Do(XBYTE* input, XQWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      21/04/2013 1:02:43
 //
 //  @return       int :
@@ -698,7 +698,7 @@ int HASHWHIRLPOOL::GetDefaultSize()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/03/2013 12:09:56
 //
 //  @return       void :
@@ -719,7 +719,7 @@ void HASHWHIRLPOOL::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/03/2013 20:22:07
 //
 //  @return       void :
@@ -961,7 +961,7 @@ void HASHWHIRLPOOL::ProcessBuffer(WHIRLPOOL* structpointer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/03/2013 20:22:14
 //
 //  @return       void :
@@ -991,7 +991,7 @@ void HASHWHIRLPOOL::Ini(WHIRLPOOL* structpointer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/03/2013 20:22:19
 //
 //  @return       void :
@@ -1118,7 +1118,7 @@ void HASHWHIRLPOOL::Add(XBYTE* source, XDWORD sourceBits, WHIRLPOOL* structpoint
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      05/03/2013 20:24:28
 //
 //  @return       void :

@@ -6,7 +6,7 @@
 //   
 //  base file for media
 //   
-//	@author	 Imanol Celaya Ruiz de Alegria
+//	""
 //
 //	Date Of Creation	: 29/11/2016 13:41:31
 //	Last Modification	:	

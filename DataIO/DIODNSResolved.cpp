@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Domain Network System (DNS) resolved class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -69,9 +66,6 @@ DIODNSRESOLVED* DIODNSRESOLVED::instance = NULL;
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -89,9 +83,6 @@ DIODNSRESOLVED_HOSTRESOLVED::DIODNSRESOLVED_HOSTRESOLVED()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -107,9 +98,6 @@ DIODNSRESOLVED_HOSTRESOLVED::~DIODNSRESOLVED_HOSTRESOLVED()
 * @fn         XSTRING* DIODNSRESOLVED_HOSTRESOLVED::GetHost()
 * @brief      GetHost
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -127,9 +115,6 @@ XSTRING* DIODNSRESOLVED_HOSTRESOLVED::GetHost()
 * @brief      GetIPResolved
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -146,9 +131,6 @@ XSTRING* DIODNSRESOLVED_HOSTRESOLVED::GetIPResolved()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -172,9 +154,6 @@ void DIODNSRESOLVED_HOSTRESOLVED::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -192,9 +171,6 @@ DIODNSRESOLVED_DNSSERVER::DIODNSRESOLVED_DNSSERVER()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -210,9 +186,6 @@ DIODNSRESOLVED_DNSSERVER::~DIODNSRESOLVED_DNSSERVER()
 * @fn         DIOIP* DIODNSRESOLVED_DNSSERVER::GetIP()
 * @brief      GetIP
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOIP* :
 *
@@ -230,9 +203,6 @@ DIOIP* DIODNSRESOLVED_DNSSERVER::GetIP()
 * @brief      GetPort
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -248,9 +218,6 @@ XWORD DIODNSRESOLVED_DNSSERVER::GetPort()
 * @fn         void DIODNSRESOLVED_DNSSERVER::SetPort(XWORD port)
 * @brief      SetPort
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  port :
 *
@@ -270,9 +237,6 @@ void DIODNSRESOLVED_DNSSERVER::SetPort(XWORD port)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -296,9 +260,6 @@ void DIODNSRESOLVED_DNSSERVER::Clean()
 * @brief      GetIsInstanced
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -314,9 +275,6 @@ bool DIODNSRESOLVED::GetIsInstanced()
 * @fn         DIODNSRESOLVED& DIODNSRESOLVED::GetInstance()
 * @brief      GetInstance
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIODNSRESOLVED& :
 *
@@ -335,9 +293,6 @@ DIODNSRESOLVED& DIODNSRESOLVED::GetInstance()
 * @fn         bool DIODNSRESOLVED::DelInstance()
 * @brief      DelInstance
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -362,9 +317,6 @@ bool DIODNSRESOLVED::DelInstance()
 * @fn         bool DIODNSRESOLVED::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 * @brief      ResolveURL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  URL :
 * @param[in]  IPresolved :
@@ -446,9 +398,6 @@ bool DIODNSRESOLVED::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 * @brief      ResolveURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  URL :
 * @param[in]  IPresolved :
 * @param[in]  querytype :
@@ -470,9 +419,6 @@ bool DIODNSRESOLVED::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, X
 * @brief      ResolveURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  URL :
 * @param[in]  IPresolved :
 * @param[in]  querytype :
@@ -493,9 +439,6 @@ bool DIODNSRESOLVED::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype, 
 * @fn         bool DIODNSRESOLVED::DNSServer_AddDNSServer(XCHAR* server)
 * @brief      DNSServer_AddDNSServer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  server :
 *
@@ -532,9 +475,6 @@ bool DIODNSRESOLVED::DNSServer_AddDNSServer(XCHAR* server)
 * @brief      DNSServer_AddDNSServer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  server :
 *
 * @return     bool : true if is succesful.
@@ -552,9 +492,6 @@ bool DIODNSRESOLVED::DNSServer_AddDNSServer(XSTRING& server)
 * @fn         bool DIODNSRESOLVED::DNSServer_AddDNSServer(XBYTE* serverIP, XWORD port)
 * @brief      DNSServer_AddDNSServer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  serverIP :
 * @param[in]  port :
@@ -581,9 +518,6 @@ bool DIODNSRESOLVED::DNSServer_AddDNSServer(XBYTE* serverIP, XWORD port)
 * @brief      DNSServer_AddDNSServer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  serverIP :
 * @param[in]  port :
 *
@@ -609,9 +543,6 @@ bool DIODNSRESOLVED::DNSServer_AddDNSServer(DIOIP& serverIP, XWORD port)
 * @brief      DNSServer_GetList
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<DIOIP*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -627,9 +558,6 @@ XVECTOR<DIODNSRESOLVED_DNSSERVER*>* DIODNSRESOLVED::DNSServer_GetList()
 * @fn         bool DIODNSRESOLVED::HostResolved_FindIP(XCHAR* host, DIOIP& IPresolved)
 * @brief      HostResolved_FindIP
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  host :
 * @param[in]  IPresolved :
@@ -666,9 +594,6 @@ bool DIODNSRESOLVED::HostResolved_FindIP(XCHAR* host, DIOIP& IPresolved)
 * @brief      HostResolved_FindIP
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  host :
 * @param[in]  IPresolved :
 *
@@ -688,9 +613,6 @@ bool DIODNSRESOLVED::HostResolved_FindIP(XSTRING& host, DIOIP& IPresolved)
 * @brief      DNSServer_DeleteAllList
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -709,9 +631,6 @@ bool DIODNSRESOLVED::DNSServer_DeleteAllList()
 * @fn         bool DIODNSRESOLVED::HostResolved_Add(XCHAR* host, XCHAR* IPresolved)
 * @brief      HostResolved_Add
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  host :
 * @param[in]  IPresolved :
@@ -738,9 +657,6 @@ bool DIODNSRESOLVED::HostResolved_Add(XCHAR* host, XCHAR* IPresolved)
 * @brief      HostResolved_Add
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  host :
 * @param[in]  IPresolved :
 *
@@ -760,9 +676,6 @@ bool DIODNSRESOLVED::HostResolved_Add(XSTRING& host, XSTRING& IPresolved)
 * @brief      HostResolved_GetList
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<DIODNSRESOLVED_HOSTRESOLVED*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -778,9 +691,6 @@ XVECTOR<DIODNSRESOLVED_HOSTRESOLVED*>*  DIODNSRESOLVED::HostResolved_GetList()
 * @fn         bool DIODNSRESOLVED::HostResolved_DeleteAllList()
 * @brief      HostResolved_DeleteAllList
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -801,9 +711,6 @@ bool DIODNSRESOLVED::HostResolved_DeleteAllList()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -820,9 +727,6 @@ DIODNSRESOLVED::DIODNSRESOLVED()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -843,9 +747,6 @@ DIODNSRESOLVED::~DIODNSRESOLVED()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

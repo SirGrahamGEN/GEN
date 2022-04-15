@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Alerts class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -80,9 +77,6 @@ DIOALERTS* DIOALERTS::instance = NULL;
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -102,9 +96,6 @@ DIOALERT_CONDITION::DIOALERT_CONDITION()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -123,9 +114,6 @@ DIOALERT_CONDITION::~DIOALERT_CONDITION()
 * @brief      GetTimeLimitForRepeat
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -141,9 +129,6 @@ int DIOALERT_CONDITION::GetTimeLimitForRepeat()
 * @fn         void DIOALERT_CONDITION::SetTimeLinitRepeat(int timelimitforrepeat)
 * @brief      SetTimeLinitRepeat
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  timelimitforrepeat : 
 *
@@ -163,9 +148,6 @@ void DIOALERT_CONDITION::SetTimeLinitRepeat(int timelimitforrepeat)
 * @brief      GetEveryNumberOfTimes
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -181,9 +163,6 @@ int DIOALERT_CONDITION::GetEveryNumberOfTimes()
 * @fn         void DIOALERT_CONDITION::SetEveryNumberOfTimes(int everynumberoftimes)
 * @brief      SetEveryNumberOfTimes
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  everynumberoftimes : 
 *
@@ -203,9 +182,6 @@ void DIOALERT_CONDITION::SetEveryNumberOfTimes(int everynumberoftimes)
 * @brief      GetLastTimerSend
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XTIMER* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -222,9 +198,6 @@ XTIMER* DIOALERT_CONDITION::GetLastTimerSend()
 * @brief      GetNSended
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -240,9 +213,6 @@ int DIOALERT_CONDITION::GetNSended()
 * @fn         void DIOALERT_CONDITION::SetNSended(int nsended)
 * @brief      SetNSended
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  nsended : 
 *
@@ -263,9 +233,6 @@ void DIOALERT_CONDITION::SetNSended(int nsended)
 * @brief      GetNTimesSended
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -281,9 +248,6 @@ int DIOALERT_CONDITION::GetNTimesSended()
 * @fn         void DIOALERT_CONDITION::SetNTimesSended(int ntimessended)
 * @brief      SetNTimesSended
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  ntimessended : 
 *
@@ -303,9 +267,6 @@ void DIOALERT_CONDITION::SetNTimesSended(int ntimessended)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *
@@ -336,9 +297,6 @@ void DIOALERT_CONDITION::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -358,9 +316,6 @@ DIOALERT::DIOALERT()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -379,9 +334,6 @@ DIOALERT::~DIOALERT()
 * @brief      GetDateTime
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDATETIME* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -398,9 +350,6 @@ XDATETIME* DIOALERT::GetDateTime()
 * @brief      GetApplicationID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -416,9 +365,6 @@ XSTRING* DIOALERT::GetApplicationID()
 * @fn         bool DIOALERT::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
 * @brief      GetApplicationVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  version :
 * @param[in]  subversion :
@@ -444,9 +390,6 @@ bool DIOALERT::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD
 * @brief      SetApplicationVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  version :
 * @param[in]  subversion :
 * @param[in]  subversionerr :
@@ -471,9 +414,6 @@ bool DIOALERT::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD s
 * @brief      GetID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -489,9 +429,6 @@ XDWORD DIOALERT::GetID()
 * @fn         void DIOALERT::SetID(XDWORD ID)
 * @brief      SetID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID :
 *
@@ -510,9 +447,6 @@ void DIOALERT::SetID(XDWORD ID)
 * @fn         XDWORD DIOALERT::CalculateID(bool withdatetime)
 * @brief      CalculateID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  withdatetime :
 *
@@ -568,9 +502,6 @@ XDWORD DIOALERT::CalculateID(bool withdatetime)
 * @brief      GetLevel
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOALERTLEVEL :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -586,9 +517,6 @@ DIOALERTLEVEL DIOALERT::GetLevel()
 * @fn         void DIOALERT::SetLevel(DIOALERTLEVEL level)
 * @brief      SetLevel
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  level :
 *
@@ -608,9 +536,6 @@ void DIOALERT::SetLevel(DIOALERTLEVEL level)
 * @brief      GetOrigin
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -626,9 +551,6 @@ XSTRING* DIOALERT::GetOrigin()
 * @fn         XSTRING* DIOALERT::GetTitle()
 * @brief      GetTitle
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -646,9 +568,6 @@ XSTRING* DIOALERT::GetTitle()
 * @brief      Get_Message
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -664,9 +583,6 @@ XSTRING* DIOALERT::Get_Message()
 * @fn         bool DIOALERT::CopyFrom(DIOALERT* alert)
 * @brief      CopyFrom
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  alert :
 *
@@ -701,9 +617,6 @@ bool DIOALERT::CopyFrom(DIOALERT* alert)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -732,9 +645,6 @@ void DIOALERT::Clean()
 * @brief      GetIsInstanced
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -750,9 +660,6 @@ bool DIOALERTS::GetIsInstanced()
 * @fn         DIOALERTS& DIOALERTS::GetInstance()
 * @brief      GetInstance
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOALERTS& :
 *
@@ -771,9 +678,6 @@ DIOALERTS& DIOALERTS::GetInstance()
 * @fn         bool DIOALERTS::DelInstance()
 * @brief      DelInstance
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -795,9 +699,6 @@ bool DIOALERTS::DelInstance()
 * @fn         bool DIOALERTS::Ini()
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -850,9 +751,6 @@ bool DIOALERTS::Ini()
 * @brief      GetApplicationID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -868,9 +766,6 @@ XSTRING* DIOALERTS::GetApplicationID()
 * @fn         bool DIOALERTS::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
 * @brief      GetApplicationVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  version :
 * @param[in]  subversion :
@@ -896,9 +791,6 @@ bool DIOALERTS::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWOR
 * @brief      SetApplicationVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  version :
 * @param[in]  subversion :
 * @param[in]  subversionerr :
@@ -923,9 +815,6 @@ bool DIOALERTS::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD 
 * @brief      GetOrigin
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -942,9 +831,6 @@ XSTRING* DIOALERTS::GetOrigin()
 * @brief      IsSending
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -960,9 +846,6 @@ bool DIOALERTS::IsSending()
 * @fn         DIOALERT* DIOALERTS::CreateAlert(XCHAR* applicationID, DIOALERTLEVEL level, XCHAR* origin, XCHAR* title, XCHAR* message)
 * @brief      CreateAlert
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationID : 
 * @param[in]  level : 
@@ -1014,9 +897,6 @@ DIOALERT* DIOALERTS::CreateAlert(XCHAR* applicationID, DIOALERTLEVEL level, XCHA
 * @brief      CreateAlert
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  applicationID : 
 * @param[in]  level : 
 * @param[in]  origin : 
@@ -1039,9 +919,6 @@ DIOALERT* DIOALERTS::CreateAlert(XSTRING& applicationID, DIOALERTLEVEL level, XS
 * @brief      CreateAlert
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  level : 
 * @param[in]  title : 
 * @param[in]  message : 
@@ -1062,9 +939,6 @@ DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XCHAR* title, XCHAR* messa
 * @brief      CreateAlert
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  level : 
 * @param[in]  title : 
 * @param[in]  message : 
@@ -1084,9 +958,6 @@ DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XSTRING& title, XSTRING& m
 * @fn         bool DIOALERTS::Sender_SMTPConfig(XCHAR* URL, int port, XCHAR* login, XCHAR* password, XCHAR* senderemail, int nrecipients,...)
 * @brief      Sender_SMTPConfig
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  URL :
 * @param[in]  port :
@@ -1164,9 +1035,6 @@ bool DIOALERTS::Sender_SMTPConfig(XCHAR* URL, int port, XCHAR* login, XCHAR* pas
 * @brief      Sender_SMSConfig
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  diostream :
 * @param[in]  nrecipients :
 * @param[in]  ... :
@@ -1217,9 +1085,6 @@ bool DIOALERTS::Sender_SMSConfig(DIOSTREAM* diostream, int nrecipients, ...)
 * @fn         bool DIOALERTS::Sender_WEBConfig(XCHAR* command, bool isuseget, int nrecipients, ...)
 * @brief      Sender_WEBConfig
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  command :
 * @param[in]  isuseget :
@@ -1301,9 +1166,6 @@ bool DIOALERTS::Sender_WEBConfig(XCHAR* command, bool isuseget, int nrecipients,
 * @brief      Sender_UDPConfig
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  port :
 * @param[in]  nrecipients :
 * @param[in]  ... :
@@ -1370,9 +1232,6 @@ bool DIOALERTS::Sender_UDPConfig(int port, int nrecipients, ...)
 * @brief      IsValidConditionToSend
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  conditionID : 
 *
 * @return     bool : true if is succesful. 
@@ -1421,9 +1280,6 @@ bool DIOALERTS::IsValidConditionToSend(XDWORD conditionID)
 * @fn         int DIOALERTS::Send(DIOALERTSENDER sender, DIOALERT* alert)
 * @brief      Send
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sender :
 * @param[in]  alert :
@@ -1478,9 +1334,6 @@ int DIOALERTS::Send(DIOALERTSENDER sender, XDWORD conditionID, DIOALERT* alert)
 * @brief      AddCondition
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  conditionID : 
 * @param[in]  timelimitforrepeat : 
 * @param[in]  everynumberoftimes : 
@@ -1515,9 +1368,6 @@ bool DIOALERTS::AddCondition(XDWORD conditionID, int timelimitforrepeat, int eve
 * @brief      GetConditionConfig
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  conditionID : 
 *
 * @return     DIOALERT_CONDITION_CFG* : 
@@ -1535,9 +1385,6 @@ DIOALERT_CONDITION* DIOALERTS::GetCondition(XDWORD conditionID)
 * @fn         bool DIOALERTS::DeleteAllConditionConfig()
 * @brief      DeleteAllConditionConfig
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -1561,9 +1408,6 @@ bool DIOALERTS::DeleteAllConditions()
 * @fn         bool DIOALERTS::End()
 * @brief      End
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1669,9 +1513,6 @@ bool DIOALERTS::End()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1688,9 +1529,6 @@ DIOALERTS::DIOALERTS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -1709,9 +1547,6 @@ DIOALERTS::~DIOALERTS()
 * @fn         bool DIOALERTS::Sender_SMTPSend(DIOALERT* alert)
 * @brief      Sender_SMTPSend
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  alert :
 *
@@ -1761,9 +1596,6 @@ bool DIOALERTS::Sender_SMTPSend(DIOALERT* alert)
 * @fn         bool DIOALERTS::Sender_SMSSend(DIOALERT* alert)
 * @brief      Sender_SMSSend
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  alert :
 *
@@ -1844,9 +1676,6 @@ bool DIOALERTS::Sender_SMSSend(DIOALERT* alert)
 * @fn         bool DIOALERTS::Sender_WEBSend(DIOALERT* alert)
 * @brief      Sender_WEBSend
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  alert :
 *
@@ -1974,9 +1803,6 @@ bool DIOALERTS::Sender_WEBSend(DIOALERT* alert)
 * @brief      Sender_UDPSend
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  alert :
 *
 * @return     bool : true if is succesful.
@@ -2057,9 +1883,6 @@ bool DIOALERTS::Sender_UDPSend(DIOALERT* alert)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -5,11 +5,8 @@
 * @class      DIOSNMP
 * @brief      Data Input/Output SNMP (Simple Network Management Protocol)
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -66,10 +63,7 @@
 * @fn         DIOSNMP_XBER::DIOSNMP_XBER(): XBER()
 * @brief      Constructor
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -86,10 +80,7 @@ DIOSNMP_XBER::DIOSNMP_XBER(): XBER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -105,10 +96,7 @@ DIOSNMP_XBER::~DIOSNMP_XBER()
 * @fn         bool DIOSNMP_XBER::SetIPADDRESS(XCHAR* IPstring)
 * @brief      SetIPADDRESS
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  IPstring : 
 * 
 * @return     bool : true if is succesful. 
@@ -172,10 +160,7 @@ bool DIOSNMP_XBER::SetIPADDRESS(XCHAR* IPstring)
 * @fn         bool DIOSNMP_XBER::SetTIMETICKS(XDWORD ticks)
 * @brief      SetTIMETICKS
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ticks : 
 * 
 * @return     bool : true if is succesful. 
@@ -198,10 +183,7 @@ bool DIOSNMP_XBER::SetTIMETICKS(XDWORD ticks)
 * @fn         bool DIOSNMP_XBER::Sequence_AddTo(XBER& xber)
 * @brief      Sequence_AddTo
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xber : 
 * 
 * @return     bool : true if is succesful. 
@@ -224,10 +206,7 @@ bool DIOSNMP_XBER::Sequence_AddTo(XBER& xber)
 * @fn         bool DIOSNMP_XBER::TrapData_AddTo(XBER& xber)
 * @brief      TrapData_AddTo
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xber : 
 * 
 * @return     bool : true if is succesful. 
@@ -254,10 +233,7 @@ bool DIOSNMP_XBER::TrapData_AddTo(XBER& xber)
 * @fn         DIOSNMP_BASE::DIOSNMP_BASE()
 * @brief      Constructor
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -274,10 +250,7 @@ DIOSNMP_BASE::DIOSNMP_BASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -293,10 +266,7 @@ DIOSNMP_BASE::~DIOSNMP_BASE()
 * @fn         DIOSTREAMUDPCONFIG* DIOSNMP_BASE::GetDIOStreamUDPCFG()
 * @brief      GetDIOStreamUDPCFG
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOSTREAMUDPCONFIG* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -312,10 +282,7 @@ DIOSTREAMUDPCONFIG* DIOSNMP_BASE::GetDIOStreamUDPCFG()
 * @fn         DIOSTREAMUDP* DIOSNMP_BASE::GetDIOStreamUDP()
 * @brief      GetDIOStreamUDP
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOSTREAMUDP* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -331,10 +298,7 @@ DIOSTREAMUDP* DIOSNMP_BASE::GetDIOStreamUDP()
 * @fn         DIOSNMP_VERSION DIOSNMP_BASE::GetVersion()
 * @brief      GetVersion
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOSNMP_VERSION : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -350,10 +314,7 @@ DIOSNMP_VERSION DIOSNMP_BASE::GetVersion()
 * @fn         void DIOSNMP_BASE::SetVersion(DIOSNMP_VERSION version)
 * @brief      SetVersion
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  version : 
 * 
 * @return     void : does not return anything. 
@@ -371,10 +332,7 @@ void DIOSNMP_BASE::SetVersion(DIOSNMP_VERSION version)
 * @fn         bool DIOSNMP_BASE::Open(XCHAR* IPtarget, int port, bool checkavailableNMS, XCHAR* localIP)
 * @brief      Open
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  IPtarget : 
 * @param[in]  port : 
 * @param[in]  checkavailableNMS : 
@@ -437,10 +395,7 @@ bool DIOSNMP_BASE::Open(XCHAR* IPtarget, int port, bool checkavailableNMS, XCHAR
 * @fn         bool DIOSNMP_BASE::Close()
 * @brief      Close
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -473,10 +428,7 @@ bool DIOSNMP_BASE::Close()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -502,10 +454,7 @@ void DIOSNMP_BASE::Clean()
 * @fn         DIOSNMP_TRAP::DIOSNMP_TRAP()
 * @brief      Constructor
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -522,10 +471,7 @@ DIOSNMP_TRAP::DIOSNMP_TRAP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -541,10 +487,7 @@ DIOSNMP_TRAP::~DIOSNMP_TRAP()
 * @fn         bool DIOSNMP_TRAP::SendTrap(XCHAR* community,XCHAR* enterprise,XCHAR* agentip,int generictrap,int specifictrap,XDWORD timestamp,int nvar,...)
 * @brief      Send
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  community : 
 * @param[in]  enterprise : 
 * @param[in]  agentip : 
@@ -660,10 +603,7 @@ bool DIOSNMP_TRAP::Send(XCHAR* community,XCHAR* enterprise,XCHAR* agentip,int ge
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -686,10 +626,7 @@ void DIOSNMP_TRAP::Clean()
 * @fn         DIOSNMP::DIOSNMP()
 * @brief      Constructor
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -706,10 +643,7 @@ DIOSNMP::DIOSNMP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -725,10 +659,7 @@ DIOSNMP::~DIOSNMP()
 * @fn         bool DIOSNMP::Get(DIOSNMP_OPERATION operation, XCHAR* community, XCHAR* OIDstr, DIOSNMP_XBER& xberout)
 * @brief      Get
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  operation : 
 * @param[in]  community : 
 * @param[in]  OIDstr : 
@@ -826,10 +757,7 @@ bool DIOSNMP::Get(DIOSNMP_OPERATION operation, XCHAR* community, XCHAR* OIDstr, 
 * @fn         bool DIOSNMP::Send(XCHAR* community,XCHAR* enterprise,XCHAR* agentip,int generictrap,int specifictrap,XDWORD timestamp,int nvar,...)
 * @brief      Send
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  community : 
 * @param[in]  enterprise : 
 * @param[in]  agentip : 
@@ -945,10 +873,7 @@ bool DIOSNMP::Send(XCHAR* community,XCHAR* enterprise,XCHAR* agentip,int generic
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

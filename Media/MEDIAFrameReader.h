@@ -6,7 +6,7 @@
 //   
 //  Supplies individual frames
 //   
-//	@author	 Imanol Celaya Ruiz de Alegria
+//	""
 //
 //	Date Of Creation	: 11/04/2016 17:33:39
 //	Last Modification	:	

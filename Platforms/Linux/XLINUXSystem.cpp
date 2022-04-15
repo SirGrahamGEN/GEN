@@ -6,10 +6,7 @@
 * @brief      eXtended LINUX System class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -103,9 +100,6 @@ void    unmount_disks_ourselves         ();
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -123,9 +117,6 @@ XLINUXSYSTEM::XLINUXSYSTEM(): XSYSTEM()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -142,9 +133,6 @@ XLINUXSYSTEM::~XLINUXSYSTEM()
 * @fn         XSYSTEM_HARDWARETYPE XLINUXSYSTEM::GetTypeHardware(int* revision)
 * @brief      Get Type Hardware
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out]  revision : revision of hardware
 *
@@ -246,10 +234,7 @@ XSYSTEM_HARDWARETYPE XLINUXSYSTEM::GetTypeHardware(int* revision)
 * @fn         XSYSTEM_PLATFORM XLINUXSYSTEM::GetPlatform(XSTRING* namestring)
 * @brief      GetPlatform
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  namestring : 
 * 
 * @return     XSYSTEM_PLATFORM : 
@@ -304,10 +289,7 @@ XSYSTEM_PLATFORM XLINUXSYSTEM::GetPlatform(XSTRING* namestring)
 * @fn         bool XLINUXSYSTEM::GetOperativeSystemID(XSTRING& ID)
 * @brief      GetOperativeSystemID
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ID : 
 * 
 * @return     bool : true if is succesful. 
@@ -338,9 +320,6 @@ bool XLINUXSYSTEM::GetOperativeSystemID(XSTRING& ID)
 * @fn         XDWORD XLINUXSYSTEM::GetLanguageSO()
 * @brief      GetLanguageSO
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -373,9 +352,6 @@ XDWORD XLINUXSYSTEM::GetLanguageSO()
 * @fn         bool XLINUXSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 * @brief      Get Memory Info
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out] total : total memory
 * @param[out] free : free memory
@@ -413,9 +389,6 @@ bool XLINUXSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 * @brief      FreeCacheMemory
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  ) : 
 *
 * @return     bool : true if is succesful. 
@@ -435,9 +408,6 @@ bool XLINUXSYSTEM::FreeCacheMemory()
 * @fn         int XLINUXSYSTEM::GetCPUUsageTotal()
 * @brief      GetCPUUsageTotal
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     int : 
 *
@@ -485,9 +455,6 @@ int XLINUXSYSTEM::GetCPUUsageTotal()
 * @fn         int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 * @brief      GetCPUUsageForProcessName
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  processname : 
 *
@@ -541,9 +508,6 @@ int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 * @brief      GetCPUUsageForProcessID
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  processID : 
 *
 * @return     int : 
@@ -596,9 +560,6 @@ int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 * @brief      GetEnviromentVariable
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  variablename :
 *
 * @return     XCHAR* :
@@ -623,9 +584,6 @@ XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* variablename)
 * @fn         bool XLINUXSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 * @brief      SetEnviromentVariable
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  variablename :
 * @param[in]  value :
@@ -658,9 +616,6 @@ bool XLINUXSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 * @brief      DelEnviromentVariable
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  variablename :
 *
 * @return     bool : true if is succesful.
@@ -686,9 +641,6 @@ bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* variablename)
 * @fn         bool XLINUXSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 * @brief      ShutDown of SO
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type : type of shutdown of SO
 *
@@ -771,9 +723,6 @@ bool XLINUXSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 * @brief      Sound_GetLevel
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     int : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -795,9 +744,6 @@ int XLINUXSYSTEM::Sound_GetLevel()
 * @brief      Sound_SetLevel
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  level : 
 *
 * @return     bool : true if is succesful. 
@@ -818,9 +764,6 @@ bool XLINUXSYSTEM::Sound_SetLevel(int level)
 * @fn         bool XLINUXSYSTEM::Sound_SetMutex(bool on)
 * @brief      Sound_SetMutex
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  on : 
 *
@@ -854,9 +797,6 @@ bool XLINUXSYSTEM::Sound_SetMutex(bool on)
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -872,10 +812,7 @@ void XLINUXSYSTEM::Clean()
 * @fn         void int_handler()
 * @brief      nt_handler
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -894,10 +831,7 @@ void int_handler(int code)
 * @fn         void swap_off()
 * @brief      wap_off
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -942,10 +876,7 @@ void swap_off()
 * @fn         void unmount_disks()
 * @brief      nmount_disks
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -992,10 +923,7 @@ void unmount_disks()
 * @fn         void unmount_disks_ourselves()
 * @brief      nmount_disks_ourselves
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1047,9 +975,6 @@ void unmount_disks_ourselves()
 * @fn         bool XLINUXSYSTEM::Sound_SetLevel(bool read, int level)
 * @brief      Sound_SetLevel
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  read : 
 * @param[in]  level : 

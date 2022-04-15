@@ -6,7 +6,7 @@
 //
 //  Data Input/Output Stream UDP with Acknowledge
 //
-//  @author  Abraham J. Velez
+//  ""
 //
 //  Date Of Creation  : 24/11/2014 10:26:28
 //  Last Modification :

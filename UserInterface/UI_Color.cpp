@@ -5,11 +5,8 @@
 * @class      UI_COLOR
 * @brief      User Interface Color class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -52,10 +49,7 @@
 * @fn         UI_COLOR::UI_COLOR()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -72,10 +66,7 @@ UI_COLOR::UI_COLOR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -91,10 +82,7 @@ UI_COLOR::~UI_COLOR()
 * @fn         int UI_COLOR::GetRed()
 * @brief      GetRed
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     int : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -110,10 +98,7 @@ int UI_COLOR::GetRed()
 * @fn         void UI_COLOR::SetRed(int red)
 * @brief      SetRed
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  red : 
 * 
 * @return     void : does not return anything. 
@@ -131,10 +116,7 @@ void UI_COLOR::SetRed(int red)
 * @fn         int UI_COLOR::GetGreen()
 * @brief      GetGreen
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     int : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -150,10 +132,7 @@ int UI_COLOR::GetGreen()
 * @fn         void UI_COLOR::SetGreen(int green)
 * @brief      SetGreen
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  green : 
 * 
 * @return     void : does not return anything. 
@@ -171,10 +150,7 @@ void UI_COLOR::SetGreen(int green)
 * @fn         int UI_COLOR::GetBlue()
 * @brief      GetBlue
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     int : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -190,10 +166,7 @@ int UI_COLOR::GetBlue()
 * @fn         void UI_COLOR::SetBlue(int blue)
 * @brief      SetBlue
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  blue : 
 * 
 * @return     void : does not return anything. 
@@ -211,10 +184,7 @@ void UI_COLOR::SetBlue(int blue)
 * @fn         int UI_COLOR::GetAlpha()
 * @brief      GetAlpha
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     int : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -230,10 +200,7 @@ int UI_COLOR::GetAlpha()
 * @fn         void UI_COLOR::SetAlpha(int alpha)
 * @brief      SetAlpha
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  alpha : 
 * 
 * @return     void : does not return anything. 
@@ -251,10 +218,7 @@ void UI_COLOR::SetAlpha(int alpha)
 * @fn         bool UI_COLOR::SetFromString(XCHAR* string)
 * @brief      SetFromString
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  string : 
 * 
 * @return     bool : true if is succesful. 
@@ -325,10 +289,7 @@ bool UI_COLOR::SetFromString(XCHAR* string)
 * @fn         bool UI_COLOR::SetFromString(XSTRING& string)
 * @brief      SetFromString
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  string : 
 * 
 * @return     bool : true if is succesful. 
@@ -346,10 +307,7 @@ bool UI_COLOR::SetFromString(XSTRING& string)
 * @fn         bool UI_COLOR::CopyFrom(UI_COLOR* color)
 * @brief      CopyFrom
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  color : 
 * 
 * @return     bool : true if is succesful. 
@@ -374,10 +332,7 @@ bool UI_COLOR::CopyFrom(UI_COLOR* color)
 * @fn         bool UI_COLOR::CopyTo(UI_COLOR* color)
 * @brief      CopyTo
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  color : 
 * 
 * @return     bool : true if is succesful. 
@@ -402,10 +357,7 @@ bool UI_COLOR::CopyTo(UI_COLOR* color)
 * @fn         int UI_COLOR::GetAlphaForPercent(int percent)
 * @brief      GetAlphaForPercent
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  percent : 
 * 
 * @return     int : 
@@ -429,10 +381,7 @@ int UI_COLOR::GetAlphaForPercent(int percent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

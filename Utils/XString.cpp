@@ -6,10 +6,7 @@
 * @brief      eXtended Unicode String class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -67,9 +64,6 @@ bool  XSTRING::istable64bitsinit = false;
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -85,9 +79,6 @@ XSTRING::XSTRING()
 * @fn         XSTRING::XSTRING(XDWORD size)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XDWORD :
 *
@@ -109,9 +100,6 @@ XSTRING::XSTRING(XDWORD size)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  :
 *
 * @return     Does not return anything.
@@ -132,9 +120,6 @@ XSTRING::XSTRING(const char* string)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  :
 *
 * @return     Does not return anything.
@@ -154,9 +139,6 @@ XSTRING::XSTRING(const XCHAR* string)
 * @fn         XSTRING::XSTRING(const XCHAR* string,XDWORD size)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  :
 * @param[in]  XDWORD :
@@ -179,9 +161,6 @@ XSTRING::XSTRING(const XCHAR* string,XDWORD size)
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  const :
 *
 * @return     Does not return anything.
@@ -201,9 +180,6 @@ XSTRING::XSTRING(const XSTRING& string)
 * @fn         XSTRING::XSTRING(XWORD* string)
 * @brief      Constructor
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XWORD* :
 *
@@ -226,9 +202,6 @@ XSTRING::XSTRING(XWORD* string)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -246,9 +219,6 @@ XSTRING::~XSTRING()
 * @fn         XCHAR* XSTRING::Get() const
 * @brief      Get
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  cons :
 *
@@ -270,9 +240,6 @@ XCHAR* XSTRING::Get() const
 * @brief      GetSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  cons :
 *
 * @return     XDWORD :
@@ -292,9 +259,6 @@ XDWORD XSTRING::GetSize() const
 * @fn         XDWORD XSTRING::GetSize(const XCHAR* string)
 * @brief      GetSize
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* string :
 *
@@ -321,9 +285,6 @@ XDWORD XSTRING::GetSize(const XCHAR* string)
 * @brief      GetSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     XDWORD :
@@ -349,9 +310,6 @@ XDWORD XSTRING::GetSize(XWORD* string)
 * @brief      IsOEM
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -372,9 +330,6 @@ bool XSTRING::IsOEM()
 * @fn         bool XSTRING::CreateOEM(char*& _textOEM) const
 * @brief      CreateOEM
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  _textOEM) cons :
 *
@@ -405,10 +360,7 @@ bool XSTRING::CreateOEM(char*& _textOEM) const
 * @fn         bool XSTRING::DeleteOEM(char* text)
 * @brief      DeleteOEM
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  text : 
 * 
 * @return     bool : true if is succesful. 
@@ -430,9 +382,6 @@ bool XSTRING::DeleteOEM(char* text)
 * @fn         bool XSTRING::CreateNormalize(XWORD*& _textnormalize, bool inverse)
 * @brief      CreateNormalize
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  _textnormalize :
 * @param[in]  inverse :
@@ -477,10 +426,7 @@ bool XSTRING::CreateNormalize(XWORD*& _textnormalize, bool inverse)
 * @fn         bool XSTRING::DeleteNormalize(XWORD*& _textnormalize)
 * @brief      DeleteNormalize
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  _textnormalize : 
 * 
 * @return     bool : true if is succesful. 
@@ -503,9 +449,6 @@ bool XSTRING::DeleteNormalize(XWORD*& _textnormalize)
 * @brief      Set
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  size :
 *
 * @return     bool : true if is succesful.
@@ -527,9 +470,6 @@ bool XSTRING::Set(XDWORD size)
 * @fn         bool XSTRING::Set(const char* string)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  char* string :
 *
@@ -563,9 +503,6 @@ bool XSTRING::Set(const char* string)
 * @fn         bool XSTRING::Set(const XCHAR* string)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* string :
 *
@@ -604,9 +541,6 @@ bool XSTRING::Set(const XCHAR* string)
 * @brief      Set
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XCHAR* string :
 * @param[in]  size :
 *
@@ -640,9 +574,6 @@ bool XSTRING::Set(const XCHAR* string, XDWORD size)
 * @brief      Set
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XSTRING& string :
 *
 * @return     bool : true if is succesful.
@@ -673,9 +604,6 @@ bool XSTRING::Set(const XSTRING& string)
 * @fn         bool XSTRING::Set(XWORD* string)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -714,9 +642,6 @@ bool XSTRING::Set(XWORD* string)
 * @brief      Set
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     bool : true if is succesful.
@@ -738,9 +663,6 @@ bool XSTRING::Set(XCHAR character)
 * @fn         bool XSTRING::Set(XCHAR* str1, const XCHAR* str2)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  str1 :
 * @param[in]  XCHAR* str2 :
@@ -772,9 +694,6 @@ bool XSTRING::Set(XCHAR* str1, const XCHAR* str2)
 * @fn         bool XSTRING::Set(const XBYTE* buffer, XDWORD size)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XBYTE* buffer :
 * @param[in]  size :
@@ -811,9 +730,6 @@ bool XSTRING::Set(const XBYTE* buffer, XDWORD size)
 * @fn         bool XSTRING::Set(const XDWORD* buffer, XDWORD size)
 * @brief      Set
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XDWORD* buffer :
 * @param[in]  size :
@@ -852,9 +768,6 @@ bool XSTRING::Set(const XDWORD* buffer, XDWORD size)
 * @brief      Set
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 *
 * @return     bool : true if is succesful.
@@ -872,9 +785,6 @@ bool XSTRING::Set(XBUFFER& buffer)
 * @fn         bool XSTRING::Add(const char* string)
 * @brief      Add
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  char* string :
 *
@@ -927,9 +837,6 @@ bool XSTRING::Add(const char* string)
 * @brief      Add
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XCHAR* string :
 *
 * @return     bool : true if is succesful.
@@ -957,9 +864,6 @@ bool XSTRING::Add(const XCHAR* string)
 * @fn         bool XSTRING::Add(XSTRING& string)
 * @brief      Add
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -1011,9 +915,6 @@ bool XSTRING::Add(XSTRING& string)
 * @brief      Add
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     bool : true if is succesful.
@@ -1035,9 +936,6 @@ bool XSTRING::Add(XCHAR character)
 * @fn         bool XSTRING::Add(XCHAR* str1, const XCHAR* str2)
 * @brief      Add
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  str1 :
 * @param[in]  XCHAR* str2 :
@@ -1072,9 +970,6 @@ bool XSTRING::Add(XCHAR* str1, const XCHAR* str2)
 * @brief      Add
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XBYTE* buffer :
 * @param[in]  size :
 *
@@ -1104,9 +999,6 @@ bool XSTRING::Add(const XBYTE* buffer, XDWORD size)
 * @brief      Add
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 *
 * @return     bool : true if is succesful.
@@ -1125,9 +1017,6 @@ bool XSTRING::Add(XBUFFER& buffer)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  char* string :
 *
 * @return     void : does not return anything.
@@ -1144,9 +1033,6 @@ void XSTRING::operator =  (const char* string)
 * @fn         void XSTRING::operator = (const XCHAR* string)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* string :
 *
@@ -1166,9 +1052,6 @@ void XSTRING::operator =  (const XCHAR* string)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XSTRING& string :
 *
 * @return     void : does not return anything.
@@ -1186,9 +1069,6 @@ void XSTRING::operator =  (const XSTRING& string)
 * @fn         void XSTRING::operator = (XWORD* string)
 * @brief      operator =
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -1208,9 +1088,6 @@ void XSTRING::operator =  (XWORD* string)
 * @brief      operator =
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     void : does not return anything.
@@ -1228,9 +1105,6 @@ void XSTRING::operator =  (XBUFFER& string)
 * @fn         void XSTRING::operator += (const char* string)
 * @brief      operator +=
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  char* string :
 *
@@ -1250,9 +1124,6 @@ void XSTRING::operator += (const char* string)
 * @brief      operator +=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XCHAR* string :
 *
 * @return     void : does not return anything.
@@ -1270,9 +1141,6 @@ void XSTRING::operator += (const XCHAR* string)
 * @fn         void XSTRING::operator += (XSTRING& string)
 * @brief      operator +=
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -1292,9 +1160,6 @@ void XSTRING::operator += (XSTRING& string)
 * @brief      operator +=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     void : does not return anything.
@@ -1312,9 +1177,6 @@ void XSTRING::operator += (XCHAR character)
 * @fn         bool XSTRING::operator < (XSTRING& string) const
 * @brief      operator <
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XSTRING& string) cons :
 *
@@ -1334,9 +1196,6 @@ bool XSTRING::operator <  (const XSTRING& string) const
 * @brief      operator >
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -1354,9 +1213,6 @@ bool XSTRING::operator >  (XSTRING& string)
 * @fn         bool XSTRING::operator <= (XSTRING& string)
 * @brief      operator <=
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -1376,9 +1232,6 @@ bool XSTRING::operator <= (XSTRING& string)
 * @brief      operator >=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -1396,9 +1249,6 @@ bool XSTRING::operator >= (XSTRING& string)
 * @fn         bool XSTRING::operator == (XSTRING& string)
 * @brief      operator ==
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XSTRING& string) cons :
 *
@@ -1418,9 +1268,6 @@ bool XSTRING::operator == (const XSTRING& string) const
 * @brief      operator !=
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -1438,9 +1285,6 @@ bool XSTRING::operator != (XSTRING& string)
 * @fn         XCHAR XSTRING::operator [] (int position)
 * @brief      operator []
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position :
 *
@@ -1463,9 +1307,6 @@ XCHAR XSTRING::operator [] (int position)
 * @fn         bool XSTRING::FillChar(XCHAR character)
 * @brief      FillChar
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  character :
 *
@@ -1492,9 +1333,6 @@ bool XSTRING::FillChar(XCHAR character)
 * @brief      Empty
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1515,9 +1353,6 @@ bool XSTRING::Empty()
 * @brief      IsEmpty
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1536,9 +1371,6 @@ bool XSTRING::IsEmpty()
 * @fn         bool XSTRING::HaveCharacters()
 * @brief      HaveCharacters
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1564,9 +1396,6 @@ bool XSTRING::HaveCharacters()
 * @brief      HaveOnlyNumbers
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1590,9 +1419,6 @@ bool XSTRING::HaveOnlyNumbers()
 * @fn         bool XSTRING::DeleteCharacters(XDWORD index, XDWORD ncharacteres)
 * @brief      DeleteCharacters
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  ncharacteres :
@@ -1628,10 +1454,7 @@ bool XSTRING::DeleteCharacters(XDWORD index, XDWORD ncharacteres)
 * @fn         bool XSTRING::DeleteCharactersToEnd(XDWORD index)
 * @brief      DeleteCharactersToEnd
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  index : 
 * 
 * @return     bool : true if is succesful. 
@@ -1663,9 +1486,6 @@ bool XSTRING::DeleteCharactersToEnd(XDWORD index)
 * @fn         bool XSTRING::DeleteCharacter(XCHAR character,XSTRINGCONTEXT context)
 * @brief      DeleteCharacter
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  character :
 * @param[in]  context :
@@ -1732,9 +1552,6 @@ bool XSTRING::DeleteCharacter(XCHAR character,XSTRINGCONTEXT context)
 * @brief      DeleteNoCharacters
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  context :
 *
 * @return     bool : true if is succesful.
@@ -1758,9 +1575,6 @@ bool XSTRING::DeleteNoCharacters(XSTRINGCONTEXT context)
 * @fn         int XSTRING::DeleteNoCharacters(XCHAR* n, int start, XSTRINGCONTEXT context)
 * @brief      DeleteNoCharacters
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  n :
 * @param[in]  start :
@@ -1865,10 +1679,7 @@ int XSTRING::DeleteNoCharacters(XCHAR* n, int start, XSTRINGCONTEXT context)
 * @fn         bool XSTRING::DeleteLastCharacter()
 * @brief      DeleteLastCharacter
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1884,9 +1695,6 @@ bool XSTRING::DeleteLastCharacter()
 * @fn         bool XSTRING::Character_IsAlpha(XCHAR character) const
 * @brief      Character_IsAlpha
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  character) cons :
 *
@@ -1911,9 +1719,6 @@ bool XSTRING::Character_IsAlpha(XCHAR character) const
 * @brief      Character_IsUpperCase
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     bool : true if is succesful.
@@ -1935,9 +1740,6 @@ bool XSTRING::Character_IsUpperCase(XCHAR character)
 * @fn         bool XSTRING::Character_IsLowerCase(XCHAR character)
 * @brief      Character_IsLowerCase
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  character :
 *
@@ -1961,9 +1763,6 @@ bool XSTRING::Character_IsLowerCase(XCHAR character)
 * @brief      Character_IsNumber
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     bool : true if is succesful.
@@ -1985,9 +1784,6 @@ bool XSTRING::Character_IsNumber(XCHAR character)
 * @fn         bool XSTRING::Character_IsNOT(XCHAR character)
 * @brief      Character_IsNOT
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  character :
 *
@@ -2015,9 +1811,6 @@ bool XSTRING::Character_IsNOT(XCHAR character)
 * @fn         XCHAR XSTRING::Character_ToUpper(XCHAR character) const
 * @brief      Character_ToUpper
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  character) cons :
 *
@@ -2047,9 +1840,6 @@ XCHAR XSTRING::Character_ToUpper(XCHAR character) const
 * @brief      Character_ToLower
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character) cons :
 *
 * @return     XCHAR :
@@ -2077,9 +1867,6 @@ XCHAR XSTRING::Character_ToLower(XCHAR character) const
 * @brief      Character_GetFirst
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2097,9 +1884,6 @@ XCHAR XSTRING::Character_GetFirst()
 * @fn         XCHAR XSTRING::Character_GetLast()
 * @brief      Character_GetLast
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XCHAR :
 *
@@ -2127,9 +1911,6 @@ XCHAR XSTRING::Character_GetLast()
 * @fn         bool XSTRING::Character_Change(XCHAR source,XCHAR target)
 * @brief      Character_Change
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  source :
 * @param[in]  target :
@@ -2163,9 +1944,6 @@ bool XSTRING::Character_Change(XCHAR source, XCHAR target)
 * @brief      ToUpperCase
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2193,9 +1971,6 @@ bool XSTRING::ToUpperCase()
 * @brief      ToLowerCase
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2222,9 +1997,6 @@ bool XSTRING::ToLowerCase()
 * @fn         int XSTRING::Compare(const XCHAR* string, int csize, bool ignorecase)
 * @brief      Compare
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* string :
 * @param[in]  csize :
@@ -2292,9 +2064,6 @@ int XSTRING::Compare(const XCHAR* string, int csize, bool ignorecase)
 * @brief      Compare
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XCHAR* string :
 * @param[in]  ignorecase :
 *
@@ -2360,9 +2129,6 @@ int XSTRING::Compare(const XCHAR* string, bool ignorecase)
 * @brief      Compare
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  char* string :
 * @param[in]  ignorecase :
 *
@@ -2383,9 +2149,6 @@ int XSTRING::Compare(const char* string, bool ignorecase)
 * @fn         int XSTRING::Compare(const XCHAR* string, const XCHAR* string2, bool ignorecase)
 * @brief      Compare
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* string :
 * @param[in]  XCHAR* string2 :
@@ -2410,9 +2173,6 @@ int XSTRING::Compare(const XCHAR* string, const XCHAR* string2, bool ignorecase)
 * @fn         int XSTRING::Compare(const XSTRING& string, bool ignorecase) const
 * @brief      Compare
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XSTRING& string :
 * @param[in]  ignorecase) cons :
@@ -2476,9 +2236,6 @@ int XSTRING::Compare(const XSTRING& string, bool ignorecase) const
 * @brief      Find
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XCHAR* string :
 * @param[in]  ignorecase :
 * @param[in]  startindex :
@@ -2500,9 +2257,6 @@ int XSTRING::Find(const XCHAR* string, bool ignorecase, int startindex)
 * @fn         int XSTRING::Find(XSTRING& string, bool ignorecase,int startindex)
 * @brief      Find
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 * @param[in]  ignorecase :
@@ -2566,9 +2320,6 @@ int XSTRING::Find(XSTRING& string, bool ignorecase,int startindex)
 * @brief      FindCharacter
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 * @param[in]  startindex :
 * @param[in]  endtostart :
@@ -2605,9 +2356,6 @@ int XSTRING::FindCharacter(XCHAR character, XDWORD startindex, bool endtostart)
 * @fn         XDWORD XSTRING::CountCharacter(XCHAR character, int startindex, bool endtostart)
 * @brief      CountCharacter
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  character :
 * @param[in]  startindex :
@@ -2650,9 +2398,6 @@ XDWORD XSTRING::CountCharacter(XCHAR character, int startindex, bool endtostart)
 * @brief      FindDiferentCharacter
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 * @param[in]  startindex :
 * @param[in]  endtostart :
@@ -2693,9 +2438,6 @@ int XSTRING::FindDiferentCharacter(XCHAR character, int startindex, bool endtost
 * @brief      GetNCharacters
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 *
 * @return     int :
@@ -2720,9 +2462,6 @@ int XSTRING::GetNCharacters(XCHAR character)
 * @fn         bool XSTRING::AreValidCharacters(XCHAR* validcharacterslist)
 * @brief      AreValidCharacters
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  validcharacterslist :
 *
@@ -2763,9 +2502,6 @@ bool XSTRING::AreValidCharacters(XCHAR* validcharacterslist)
 * @fn         int XSTRING::Copy(const XCHAR* startmark, const XCHAR* endmark, bool ignorecase, int addstartindex, XSTRING& string)
 * @brief      Copy
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* startmark :
 * @param[in]  XCHAR* endmark :
@@ -2828,9 +2564,6 @@ int XSTRING::Copy(const XCHAR* startmark, const XCHAR* endmark, bool ignorecase,
 * @brief      Copy
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  startindex :
 * @param[in]  XCHAR* endmark :
 * @param[in]  ignorecase :
@@ -2880,9 +2613,6 @@ int XSTRING::Copy(int startindex, const XCHAR* endmark, bool ignorecase, XSTRING
 * @fn         int XSTRING::Copy(const XCHAR* startmark, int endindex, bool ignorecase, int addstartindex, XSTRING& string)
 * @brief      Copy
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* startmark :
 * @param[in]  endindex :
@@ -2935,9 +2665,6 @@ int XSTRING::Copy(const XCHAR* startmark, int endindex, bool ignorecase, int add
 * @brief      Copy
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  startindex :
 * @param[in]  endindex :
 * @param[in]  string :
@@ -2963,9 +2690,6 @@ int XSTRING::Copy(int startindex, int endindex, XSTRING& string)
 * @brief      Copy
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  startindex :
 * @param[in]  string :
 *
@@ -2984,9 +2708,6 @@ int XSTRING::Copy(int startindex, XSTRING& string)
 * @fn         int XSTRING::Replace(XCHAR* findwhat, XCHAR* replaceby)
 * @brief      Replace
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  findwhat :
 * @param[in]  replaceby :
@@ -3025,9 +2746,6 @@ int XSTRING::Replace(XCHAR* findwhat, XCHAR* replaceby)
 * @brief      ReplaceFirst
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  findwhat :
 * @param[in]  replaceby :
 *
@@ -3062,9 +2780,6 @@ int XSTRING::ReplaceFirst(XCHAR* findwhat, XCHAR* replaceby)
 * @fn         bool XSTRING::Insert(XSTRING str,XDWORD position)
 * @brief      Insert
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  str :
 * @param[in]  position :
@@ -3103,9 +2818,6 @@ bool XSTRING::Insert(XSTRING str,XDWORD position)
 * @brief      ConvertFromInt
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 * @param[in]  mask :
 *
@@ -3142,9 +2854,6 @@ bool XSTRING::ConvertFromInt(int value, const XCHAR* mask)
 * @fn         bool XSTRING::ConvertFromDWord(XDWORD value, const XCHAR* mask)
 * @brief      ConvertFromDWord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 * @param[in]  mask :
@@ -3183,9 +2892,6 @@ bool XSTRING::ConvertFromDWord(XDWORD value, const XCHAR* mask)
 * @brief      ConvertFromQWord
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 * @param[in]  mask :
 *
@@ -3222,9 +2928,6 @@ bool XSTRING::ConvertFromQWord(XQWORD value, const XCHAR* mask)
 * @fn         bool XSTRING::ConvertFromLongLong(long long value, const XCHAR* mask)
 * @brief      ConvertFromLongLong
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 * @param[in]  mask :
@@ -3263,9 +2966,6 @@ bool XSTRING::ConvertFromLongLong(long long value, const XCHAR* mask)
 * @brief      ConvertFromFloat
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 * @param[in]  mask :
 *
@@ -3302,9 +3002,6 @@ bool XSTRING::ConvertFromFloat(float value, const XCHAR* mask)
 * @fn         bool XSTRING::ConvertFromDouble(double value, const XCHAR* mask)
 * @brief      ConvertFromDouble
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 * @param[in]  mask :
@@ -3343,9 +3040,6 @@ bool XSTRING::ConvertFromDouble(double value, const XCHAR* mask)
 * @brief      ConvertFromBoolean
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  boolean :
 * @param[in]  uppercase :
 *
@@ -3369,9 +3063,6 @@ bool XSTRING::ConvertFromBoolean(bool boolean, bool uppercase)
 * @brief      ConvertFromXBUFFER
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 *
 * @return     bool : true if is succesful.
@@ -3392,9 +3083,6 @@ bool XSTRING::ConvertFromXBUFFER(XBUFFER& buffer)
 * @fn         bool XSTRING::ConvertHexFormatChars()
 * @brief      ConvertHexFormatChars
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -3452,9 +3140,6 @@ bool XSTRING::ConvertHexFormatChars()
 * @brief      ConvertToHexString
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 * @param[in]  uppercase :
 *
@@ -3483,9 +3168,6 @@ bool XSTRING::ConvertToHexString(XSTRING& string, bool uppercase)
 * @fn         bool XSTRING::ConvertHexStringToBuffer(XBUFFER& xbuffer)
 * @brief      ConvertHexStringToBuffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xbuffer :
 *
@@ -3522,9 +3204,6 @@ bool XSTRING::ConvertHexStringToBuffer(XBUFFER& xbuffer)
 * @brief      ConvertHexStringFromBuffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer :
 * @param[in]  uppercase :
 *
@@ -3554,9 +3233,6 @@ bool XSTRING::ConvertHexStringFromBuffer(XBUFFER& xbuffer, bool uppercase)
 * @fn         int XSTRING::ConvertToInt(int index, const XCHAR* mask, bool checkvalidchars)
 * @brief      ConvertToInt
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  mask :
@@ -3603,9 +3279,6 @@ int XSTRING::ConvertToInt(int index, const XCHAR* mask, bool checkvalidchars)
 * @brief      ConvertToDWord
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 * @param[in]  mask :
 * @param[in]  checkvalidchars :
@@ -3647,9 +3320,6 @@ XDWORD XSTRING::ConvertToDWord(int index, const XCHAR* mask, bool checkvalidchar
 * @fn         XQWORD XSTRING::ConvertToQWord(int index, const XCHAR* mask, bool checkvalidchars)
 * @brief      ConvertToQWord
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  mask :
@@ -3693,9 +3363,6 @@ XQWORD XSTRING::ConvertToQWord(int index, const XCHAR* mask, bool checkvalidchar
 * @brief      ConvertToFloat
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 * @param[in]  mask :
 * @param[in]  checkvalidchars :
@@ -3737,9 +3404,6 @@ float XSTRING::ConvertToFloat(int index, const XCHAR* mask, bool checkvalidchars
 * @fn         double XSTRING::ConvertToDouble(int index, const XCHAR* mask, bool checkvalidchars)
 * @brief      ConvertToDouble
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 * @param[in]  mask :
@@ -3783,9 +3447,6 @@ double XSTRING::ConvertToDouble(int index, const XCHAR* mask, bool checkvalidcha
 * @brief      ConvertToXBUFFER
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 *
 * @return     bool : true if is succesful.
@@ -3808,9 +3469,6 @@ bool XSTRING::ConvertToXBUFFER(XBUFFER& buffer)
 * @fn         bool XSTRING::ConvertToBoolean()
 * @brief      ConvertToBoolean
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -3844,10 +3502,7 @@ bool XSTRING::ConvertToBoolean()
 * @fn         bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD maxsize)
 * @brief      ConvertFromWide
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  widechars : 
 * @param[in]  maxsize : 
 * 
@@ -3875,9 +3530,6 @@ bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD maxsize)
 * @fn         bool XSTRING::ConvertFromUTF8(XBYTE* data,XDWORD size)
 * @brief      ConvertFromUTF8
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 * @param[in]  size :
@@ -3972,9 +3624,6 @@ bool XSTRING::ConvertFromUTF8(XBYTE* data,XDWORD size)
 * @brief      ConvertFromUTF8
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer :
 *
 * @return     bool : true if is succesful.
@@ -3992,9 +3641,6 @@ bool XSTRING::ConvertFromUTF8(XBUFFER& xbuffer)
 * @fn         int XSTRING::GetSizeConvertToUTF8()
 * @brief      GetSizeConvertToUTF8
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -4063,9 +3709,6 @@ int XSTRING::GetSizeConvertToUTF8()
 * @fn         bool XSTRING::ConvertToUTF8(XBYTE* data, int& size)
 * @brief      ConvertToUTF8
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 * @param[in]  size :
@@ -4142,9 +3785,6 @@ bool XSTRING::ConvertToUTF8(XBYTE* data, int& size)
 * @brief      ConvertToUTF8
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer :
 *
 * @return     bool : true if is succesful.
@@ -4172,9 +3812,6 @@ bool XSTRING::ConvertToUTF8(XBUFFER& xbuffer)
 * @fn         bool XSTRING::ConvertToBase64(XSTRING& string)
 * @brief      ConvertToBase64
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -4218,9 +3855,6 @@ bool XSTRING::ConvertToBase64(XSTRING& string)
 * @fn         bool XSTRING::ConvertFromBase64(XSTRING& string)
 * @brief      ConvertFromBase64
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -4278,9 +3912,6 @@ bool XSTRING::ConvertFromBase64(XSTRING& string)
 * @brief      ConvertToPascal
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  pascalstring :
 *
 * @return     bool : true if is succesful.
@@ -4307,9 +3938,6 @@ bool XSTRING::ConvertToPascal(SHORTSTRING& pascalstring)
 * @brief      ConvertFromPascal
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  pascalstring :
 *
 * @return     bool : true if is succesful.
@@ -4331,9 +3959,6 @@ bool XSTRING::ConvertFromPascal(SHORTSTRING& pascalstring)
 * @fn         bool XSTRING::ConvertFromDoubleToSpanishText(double value, bool withintegerpart, bool withdecimalpart, double& integerpart, double& decimalpart)
 * @brief      ConvertFromDoubleToSpanishText
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  value :
 * @param[in]  withintegerpart :
@@ -4514,9 +4139,6 @@ bool XSTRING::ConvertFromDoubleToSpanishText(double value, bool withintegerpart,
 * @brief      Swab
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -4543,9 +4165,6 @@ bool XSTRING::Swab()
 * @fn         bool XSTRING::Split(XCHAR separator, XVECTOR<XSTRING*>& results, bool addsubstringempty)
 * @brief      Split
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  separator :
 * @param[in]  results :
@@ -4610,9 +4229,6 @@ bool XSTRING::Split(XCHAR separator, XVECTOR<XSTRING*>& results, bool addsubstri
 * @fn         bool XSTRING::FormatArg(const XCHAR* mask, va_list* arg, bool isspecialweb)
 * @brief      FormatArg
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask :
 * @param[in]  arg :
@@ -4824,9 +4440,6 @@ bool XSTRING::FormatArg(const XCHAR* mask, va_list* arg, bool isspecialweb)
 * @brief      Format
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  mask :
 * @param[in]  ... :
 *
@@ -4853,9 +4466,6 @@ bool XSTRING::Format(const XCHAR* mask, ...)
 * @fn         bool XSTRING::AddFormat(const XCHAR* mask, ...)
 * @brief      AddFormat
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask :
 * @param[in]  ... :
@@ -4886,9 +4496,6 @@ bool XSTRING::AddFormat(const XCHAR* mask, ...)
 * @fn         bool XSTRING::UnFormat(const XCHAR* mask,...)
 * @brief      UnFormat
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask :
 * @param[in]  ... :
@@ -5086,9 +4693,6 @@ bool XSTRING::UnFormat(const XCHAR* mask,...)
 * @brief      IsSpace
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xchar :
 *
 * @return     bool : true if is succesful.
@@ -5114,9 +4718,6 @@ bool XSTRING::IsSpace(XCHAR xchar)
 * @brief      IsDigit
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xchar :
 *
 * @return     bool : true if is succesful.
@@ -5134,9 +4735,6 @@ bool XSTRING::IsDigit(XCHAR xchar)
 * @fn         int XSTRING::FindCharacterFromSet(const XCHAR* chars)
 * @brief      FindCharacterFromSet
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* chars :
 *
@@ -5170,9 +4768,6 @@ int XSTRING::FindCharacterFromSet(const XCHAR* chars)
 * @fn         bool XSTRING::AdjustSize(XDWORD size,bool ahead, XCHAR* characters, bool addstring)
 * @brief      AdjustSize
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size :
 * @param[in]  ahead :
@@ -5247,9 +4842,6 @@ bool XSTRING::AdjustSize(XDWORD size, bool ahead, XCHAR* characters, bool addstr
 * @brief      AdjustSize
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -5278,9 +4870,6 @@ bool XSTRING::AdjustSize()
 * @brief      BinaryCompare
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -5303,9 +4892,6 @@ bool XSTRING::BinaryCompare(XSTRING& string)
 * @fn         bool XSTRING::Explode(XCHAR token, XVECTOR<XSTRING*>* receive)
 * @brief      Explode
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  token :
 * @param[in]  receive :
@@ -5347,9 +4933,6 @@ bool XSTRING::Explode(XCHAR token, XVECTOR<XSTRING*>* receive)
 * @fn         bool XSTRING::GetTypeOfLineEnd(XSTRING& lineend)
 * @brief      GetTypeOfLineEnd
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  lineend :
 *
@@ -5430,9 +5013,6 @@ bool XSTRING::GetTypeOfLineEnd(XSTRING& lineend)
 * @brief      ConvertXCHARToBase64
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  character : 
 *
 * @return     XBYTE : 
@@ -5456,9 +5036,6 @@ XBYTE XSTRING::ConvertXCHARToBase64(XCHAR character)
 * @fn         bool XSTRING::ReAllocBuffer(XDWORD size)
 * @brief      ReAllocBuffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size :
 *
@@ -5594,9 +5171,6 @@ bool XSTRING::ReAllocBuffer(XDWORD size)
 * @brief      FreeBuffer
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -5621,9 +5195,6 @@ bool XSTRING::FreeBuffer()
 * @brief      ConvertIndexBase64ToXCHAR
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     XCHAR :
@@ -5645,9 +5216,6 @@ XCHAR XSTRING::ConvertIndexBase64ToXCHAR(int index)
 * @fn         bool XSTRING::ConvertStringWithMask(XCHAR* mask, XCHAR* string, XCHAR* result)
 * @brief      ConvertStringWithMask
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask :
 * @param[in]  string :
@@ -5694,9 +5262,6 @@ bool XSTRING::ConvertStringWithMask(XCHAR* mask, XCHAR* string, XCHAR* result)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

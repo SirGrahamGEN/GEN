@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Web Server Pluging class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -73,9 +67,6 @@ DIOWEBSERVER_PLUGIN::DIOWEBSERVER_PLUGIN()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -95,9 +86,6 @@ DIOWEBSERVER_PLUGIN::~DIOWEBSERVER_PLUGIN()
 * @brief      GetName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -113,9 +101,6 @@ XSTRING* DIOWEBSERVER_PLUGIN::GetName()
 * @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XCHAR* ext)
 * @brief      PageExtension_Add
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ext :
 *
@@ -142,9 +127,6 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XCHAR* ext)
 * @brief      PageExtension_Add
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ext :
 *
 * @return     bool : true if is succesful.
@@ -164,9 +146,6 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XSTRING& ext)
 * @brief      PageExtension_Get
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     XSTRING* :
@@ -184,9 +163,6 @@ XSTRING* DIOWEBSERVER_PLUGIN::PageExtension_Get(int index)
 * @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XCHAR* ext)
 * @brief      PageExtension_IsContent
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ext :
 *
@@ -216,9 +192,6 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XCHAR* ext)
 * @brief      PageExtension_IsContent
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ext :
 *
 * @return     bool : true if is succesful.
@@ -236,9 +209,6 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XSTRING& ext)
 * @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_DeleteAll()
 * @brief      PageExtension_DeleteAll
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -261,9 +231,6 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_DeleteAll()
 * @brief      ResolvedPageExtension
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  pathfile :
 * @param[in]  request :
 * @param[in]  querystrings :
@@ -285,9 +252,6 @@ bool DIOWEBSERVER_PLUGIN::ResolvedPageExtension(XPATH& pathfile, DIOWEBSERVER_RE
 * @fn         bool DIOWEBSERVER_PLUGIN::SeparedResult(XSTRING& result, XSTRING& head, XSTRING& data)
 * @brief      SeparedResult
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  result :
 * @param[in]  head :
@@ -325,9 +289,6 @@ bool DIOWEBSERVER_PLUGIN::SeparedResult(XSTRING& result, XSTRING& head, XSTRING&
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

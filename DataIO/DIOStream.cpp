@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -90,9 +84,6 @@ DIOSTREAM::DIOSTREAM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -154,9 +145,6 @@ DIOSTREAM::~DIOSTREAM()
 * @brief      GetConnectStatus
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMSTATUS :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -172,9 +160,6 @@ DIOSTREAMSTATUS DIOSTREAM::GetConnectStatus()
 * @fn         bool DIOSTREAM::IsConnected()
 * @brief      IsConnected
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -194,9 +179,6 @@ bool DIOSTREAM::IsConnected()
 * @brief      IsDisconnected
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -214,9 +196,6 @@ bool DIOSTREAM::IsDisconnected()
 * @fn         bool DIOSTREAM::WaitToConnected(int timeout)
 * @brief      WaitToConnected
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeout :
 *
@@ -265,9 +244,6 @@ bool DIOSTREAM::WaitToConnected(int timeout)
 * @brief      WaitToDisconnected
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  timeout :
 *
 * @return     bool : true if is succesful.
@@ -305,9 +281,6 @@ bool DIOSTREAM::WaitToDisconnected(int timeout)
 * @brief      Read
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -337,9 +310,6 @@ XDWORD DIOSTREAM::Read(XBYTE* buffer, XDWORD size)
 * @brief      Write
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -364,9 +334,6 @@ XDWORD DIOSTREAM::Write(XBYTE* buffer, XDWORD size)
 * @fn         XDWORD DIOSTREAM::Read(XBUFFER& xbuffer)
 * @brief      Read
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xbuffer :
 *
@@ -398,9 +365,6 @@ XDWORD DIOSTREAM::Read(XBUFFER& xbuffer)
 * @brief      Write
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xbuffer :
 *
 * @return     XDWORD :
@@ -418,9 +382,6 @@ XDWORD DIOSTREAM::Write(XBUFFER& xbuffer)
 * @fn         bool DIOSTREAM::WaitToFilledReadingBuffer(int filledto, int timeout)
 * @brief      WaitToFilledReadingBuffer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  filledto :
 * @param[in]  timeout :
@@ -474,9 +435,6 @@ bool DIOSTREAM::WaitToFilledReadingBuffer(int filledto, int timeout)
 * @brief      ReadStr
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  str :
 *
 * @return     bool : true if is succesful.
@@ -503,9 +461,6 @@ bool DIOSTREAM::ReadStr(char* str)
 * @fn         bool DIOSTREAM::ReadStr(XSTRING& string)
 * @brief      ReadStr
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -573,9 +528,6 @@ bool DIOSTREAM::ReadStr(XSTRING& string)
 * @brief      ReadStr
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 * @param[in]  timeout :
 *
@@ -614,9 +566,6 @@ bool DIOSTREAM::ReadStr(XSTRING& string, int timeout)
 * @brief      WriteStr
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  char* str :
 *
 * @return     bool : true if is succesful.
@@ -638,9 +587,6 @@ bool DIOSTREAM::WriteStr(const char* str)
 * @fn         bool DIOSTREAM::WriteStr(XCHAR* string)
 * @brief      WriteStr
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -666,9 +612,6 @@ bool DIOSTREAM::WriteStr(XCHAR* string)
 * @brief      WriteStr
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -691,9 +634,6 @@ bool DIOSTREAM::WriteStr(XSTRING& string)
 * @brief      IsBlockRead
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -709,9 +649,6 @@ bool DIOSTREAM::IsBlockRead()
 * @fn         void DIOSTREAM::SetIsBlockRead(bool isblockread)
 * @brief      SetIsBlockRead
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isblockread :
 *
@@ -731,9 +668,6 @@ void DIOSTREAM::SetIsBlockRead(bool isblockread)
 * @brief      IsBlockWrite
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -749,9 +683,6 @@ bool DIOSTREAM::IsBlockWrite()
 * @fn         void DIOSTREAM::SetIsBlockWrite(bool isblockwrite)
 * @brief      SetIsBlockWrite
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isblockwrite :
 *
@@ -771,9 +702,6 @@ void DIOSTREAM::SetIsBlockWrite(bool isblockwrite)
 * @brief      Disconnect
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -790,9 +718,6 @@ bool DIOSTREAM::Disconnect()
 * @brief      GetType
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMTYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -808,9 +733,6 @@ DIOSTREAMTYPE DIOSTREAM::GetType()
 * @fn         void DIOSTREAM::SetType(DIOSTREAMTYPE type)
 * @brief      SetType
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -830,9 +752,6 @@ void DIOSTREAM::SetType(DIOSTREAMTYPE type)
 * @brief      GetInXBuffer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBUFFER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -849,9 +768,6 @@ XBUFFER* DIOSTREAM::GetInXBuffer()
 * @brief      GetOutXBuffer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBUFFER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -867,9 +783,6 @@ XBUFFER* DIOSTREAM::GetOutXBuffer()
 * @fn         bool DIOSTREAM::ResetXBuffers()
 * @brief      ResetXBuffers
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -892,9 +805,6 @@ bool DIOSTREAM::ResetXBuffers()
 * @brief      ResetInXBuffer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -914,9 +824,6 @@ bool DIOSTREAM::ResetInXBuffer()
 * @fn         bool DIOSTREAM::ResetOutXBuffer()
 * @brief      ResetOutXBuffer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -938,9 +845,6 @@ bool DIOSTREAM::ResetOutXBuffer()
 * @brief      IsFlushOutXBuffer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -960,9 +864,6 @@ bool DIOSTREAM::IsFlushOutXBuffer()
 * @fn         bool DIOSTREAM::IsFlushXBuffers()
 * @brief      IsFlushXBuffers
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -984,9 +885,6 @@ bool DIOSTREAM::IsFlushXBuffers()
 * @fn         bool DIOSTREAM::WaitToFlushOutXBuffer(int timeout)
 * @brief      WaitToFlushOutXBuffer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeout :
 *
@@ -1032,9 +930,6 @@ bool DIOSTREAM::WaitToFlushOutXBuffer(int timeout)
 * @brief      WaitToFlushXBuffers
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  timeout :
 *
 * @return     bool : true if is succesful.
@@ -1079,9 +974,6 @@ bool DIOSTREAM::WaitToFlushXBuffers(int timeout)
 * @brief      GetXTimerConnection
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XTIMER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1097,9 +989,6 @@ XTIMER* DIOSTREAM::GetXTimerConnection()
 * @fn         XTIMER* DIOSTREAM::GetXTimerNotActivity()
 * @brief      GetXTimerNotActivity
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XTIMER* :
 *
@@ -1117,9 +1006,6 @@ XTIMER* DIOSTREAM::GetXTimerNotActivity()
 * @brief      GetNBytesRead
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1136,9 +1022,6 @@ XDWORD DIOSTREAM::GetNBytesRead()
 * @brief      GetNBytesWrite
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1154,9 +1037,6 @@ XDWORD DIOSTREAM::GetNBytesWrite()
 * @fn         DIOSTREAMERROR DIOSTREAM::GetLastDIOError()
 * @brief      GetLastDIOError
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOSTREAMERROR :
 *
@@ -1177,9 +1057,6 @@ DIOSTREAMERROR DIOSTREAM::GetLastDIOError()
 * @brief      SetLastDIOError
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  error :
 *
 * @return     void : does not return anything.
@@ -1198,9 +1075,6 @@ void DIOSTREAM::SetLastDIOError(DIOSTREAMERROR error)
 * @brief      Wait
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  milliseconds :
 *
 * @return     void : does not return anything.
@@ -1218,9 +1092,6 @@ void DIOSTREAM::Wait(int milliseconds)
 * @fn         bool DIOSTREAM::ResetConnectionStatistics()
 * @brief      ResetConnectionStatistics
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1244,9 +1115,6 @@ bool DIOSTREAM::ResetConnectionStatistics()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

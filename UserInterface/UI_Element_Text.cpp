@@ -5,11 +5,8 @@
 * @class      UI_ELEMENT_TEXT
 * @brief      User Interface Element Text class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,10 +48,7 @@
 * @fn         UI_ELEMENT_TEXT::UI_ELEMENT_TEXT()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -74,10 +68,7 @@ UI_ELEMENT_TEXT::UI_ELEMENT_TEXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -93,10 +84,7 @@ UI_ELEMENT_TEXT::~UI_ELEMENT_TEXT()
 * @fn         XDWORD UI_ELEMENT_TEXT::GetSizeFont()
 * @brief      GetSizeFont
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -112,10 +100,7 @@ XDWORD UI_ELEMENT_TEXT::GetSizeFont()
 * @fn         void UI_ELEMENT_TEXT::SetSizeFont(XDWORD sizefont)
 * @brief      SetSizeFont
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  sizefont : 
 * 
 * @return     void : does not return anything. 
@@ -133,10 +118,7 @@ void UI_ELEMENT_TEXT::SetSizeFont(XDWORD sizefont)
 * @fn         XSTRING* UI_ELEMENT_TEXT::GetText()
 * @brief      GetText
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -152,10 +134,7 @@ XSTRING* UI_ELEMENT_TEXT::GetText()
 * @fn         XSTRING* UI_ELEMENT_TEXT::GetMaskText()
 * @brief      GetMaskText
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -171,10 +150,7 @@ XSTRING* UI_ELEMENT_TEXT::GetMaskText()
 * @fn         XDWORD UI_ELEMENT_TEXT::GetMaxSizeText()
 * @brief      GetMaxSizeText
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -190,10 +166,7 @@ XDWORD UI_ELEMENT_TEXT::GetMaxSizeText()
 * @fn         void UI_ELEMENT_TEXT::SetMaxSizeText(XDWORD maxsizetext)
 * @brief      SetMaxSizeText
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  maxsizetext : 
 * 
 * @return     void : does not return anything. 
@@ -212,10 +185,7 @@ void UI_ELEMENT_TEXT::SetMaxSizeText(XDWORD maxsizetext)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

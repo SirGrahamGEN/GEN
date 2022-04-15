@@ -6,7 +6,7 @@
 //
 //  wrapper around a java class accessed through JNI
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 27/04/2016 16:21:44
 //  Last Modification :

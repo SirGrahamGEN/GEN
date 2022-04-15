@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream ICMP class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -65,9 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -87,9 +81,6 @@ DIOSTREAMICMPDATAGRAM::DIOSTREAMICMPDATAGRAM()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -108,9 +99,6 @@ DIOSTREAMICMPDATAGRAM::~DIOSTREAMICMPDATAGRAM()
 * @brief      IsToSend
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -126,9 +114,6 @@ bool DIOSTREAMICMPDATAGRAM::IsToSend()
 * @fn         void DIOSTREAMICMPDATAGRAM::SetIsToSend(bool istosend)
 * @brief      SetIsToSend
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  istosend :
 *
@@ -148,9 +133,6 @@ void DIOSTREAMICMPDATAGRAM::SetIsToSend(bool istosend)
 * @brief      GetAddress
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -166,9 +148,6 @@ XSTRING* DIOSTREAMICMPDATAGRAM::GetAddress()
 * @fn         bool DIOSTREAMICMPDATAGRAM::SetAddress(XCHAR* address)
 * @brief      SetAddress
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  address :
 *
@@ -191,9 +170,6 @@ bool DIOSTREAMICMPDATAGRAM::SetAddress(XCHAR* address)
 * @brief      SetAddress
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  address :
 *
 * @return     bool : true if is succesful.
@@ -212,9 +188,6 @@ bool DIOSTREAMICMPDATAGRAM::SetAddress(XSTRING& address)
 * @brief      GetData
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBUFFER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -230,9 +203,6 @@ XBUFFER* DIOSTREAMICMPDATAGRAM::GetData()
 * @fn         bool DIOSTREAMICMPDATAGRAM::SetData(XBYTE* data,XDWORD size)
 * @brief      SetData
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 * @param[in]  size :
@@ -257,9 +227,6 @@ bool DIOSTREAMICMPDATAGRAM::SetData(XBYTE* data,XDWORD size)
 * @brief      SetData
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 *
 * @return     void : does not return anything.
@@ -278,9 +245,6 @@ void DIOSTREAMICMPDATAGRAM::SetData(XBUFFER& data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -307,9 +271,6 @@ void DIOSTREAMICMPDATAGRAM::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -329,9 +290,6 @@ DIOSTREAMICMP::DIOSTREAMICMP() : DIOSTREAM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -355,9 +313,6 @@ DIOSTREAMICMP::~DIOSTREAMICMP()
 * @brief      GetConfig
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMCONFIG* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -373,9 +328,6 @@ DIOSTREAMCONFIG* DIOSTREAMICMP::GetConfig()
 * @fn         bool DIOSTREAMICMP::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      SetConfig
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  config :
 *
@@ -398,9 +350,6 @@ bool DIOSTREAMICMP::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      Read
 * @ingroup    DATAIO
 * @note       NO VALID FUNCTION FOR THIS STREAM: USE WriteDatagram
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -447,9 +396,6 @@ XDWORD DIOSTREAMICMP::Read(XBYTE* buffer, XDWORD size)
 * @ingroup    DATAIO
 * @note       NO VALID FUNCTION FOR THIS STREAM: USE WriteDatagram
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 *
@@ -475,9 +421,6 @@ XDWORD DIOSTREAMICMP::Write(XBYTE* buffer, XDWORD size)
 * @fn         bool DIOSTREAMICMP::ReadDatagram(XSTRING& address, XBUFFER& xbuffer)
 * @brief      ReadDatagram
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  address :
 * @param[in]  xbuffer :
@@ -518,9 +461,6 @@ bool DIOSTREAMICMP::ReadDatagram(XSTRING& address, XBUFFER& xbuffer)
 * @brief      WriteDatagram
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  address :
 * @param[in]  buffer :
 * @param[in]  size :
@@ -545,9 +485,6 @@ bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBYTE* buffer, XDWORD size)
 * @brief      WriteDatagram
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  address :
 * @param[in]  xbuffer :
 *
@@ -567,9 +504,6 @@ bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBUFFER& xbuffer)
 * @brief      ResetXBuffers
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -587,9 +521,6 @@ bool DIOSTREAMICMP::ResetXBuffers()
 * @fn         bool DIOSTREAMICMP::ResetInXBuffer()
 * @brief      ResetInXBuffer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -624,9 +555,6 @@ bool DIOSTREAMICMP::ResetInXBuffer()
 * @brief      ResetOutXBuffer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -659,9 +587,6 @@ bool DIOSTREAMICMP::ResetOutXBuffer()
 * @brief      GetHost
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOURL* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -678,9 +603,6 @@ DIOURL* DIOSTREAMICMP::GetHost()
 * @brief      GetDatagramsVector
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<DIOSTREAMICMPDATAGRAM*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -696,9 +618,6 @@ XVECTOR<DIOSTREAMICMPDATAGRAM*>* DIOSTREAMICMP::GetDatagramsVector()
 * @fn         bool DIOSTREAMICMP::DeleteAllDatagrams()
 * @brief      DeleteAllDatagrams
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -725,9 +644,6 @@ bool DIOSTREAMICMP::DeleteAllDatagrams()
 * @fn         bool DIOSTREAMICMP::AddDatagram(bool istosend, XCHAR* address, XBYTE* data, XDWORD size)
 * @brief      AddDatagram
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  istosend :
 * @param[in]  address :
@@ -767,9 +683,6 @@ bool DIOSTREAMICMP::AddDatagram(bool istosend, XCHAR* address, XBYTE* data, XDWO
 * @brief      AddDatagram
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  istosend :
 * @param[in]  address :
 * @param[in]  data :
@@ -791,9 +704,6 @@ bool DIOSTREAMICMP::AddDatagram(bool istosend, XSTRING& address, XBYTE* data,XDW
 * @brief      GetDatagram
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     DIOSTREAMICMPDATAGRAM* :
@@ -811,9 +721,6 @@ DIOSTREAMICMPDATAGRAM* DIOSTREAMICMP::GetDatagram(int index)
 * @fn         int DIOSTREAMICMP::GetFirstDatagram(bool tosend)
 * @brief      GetFirstDatagram
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  tosend :
 *
@@ -852,9 +759,6 @@ int DIOSTREAMICMP::GetFirstDatagram(bool tosend)
 * @brief      DeleteDatagram
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     bool : true if is succesful.
@@ -884,9 +788,6 @@ bool DIOSTREAMICMP::DeleteDatagram(int index)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

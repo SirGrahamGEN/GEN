@@ -45,7 +45,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 11:27:15
 //
 //  @return
@@ -63,7 +63,7 @@ DIOCLICLIENTCOMMAND::DIOCLICLIENTCOMMAND()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 11:27:19
 //
 //  @return
@@ -84,7 +84,7 @@ DIOCLICLIENTCOMMAND::~DIOCLICLIENTCOMMAND()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 12:06:16
 //
 //  @return       DIOCLICLIENT_TYPECOMMAND :
@@ -102,7 +102,7 @@ int DIOCLICLIENTCOMMAND::GetType()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 11:43:56
 //
 //  @return       XCHAR* :
@@ -120,7 +120,7 @@ XCHAR* DIOCLICLIENTCOMMAND::GetCommand()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 11:48:06
 //
 //  @return       bool :
@@ -145,7 +145,7 @@ bool DIOCLICLIENTCOMMAND::Set(int type, XCHAR* command)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 22:57:54
 //
 //  @return       bool :
@@ -166,7 +166,7 @@ bool DIOCLICLIENTCOMMAND::AddParam(XSTRING* param)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 11:43:56
 //
 //  @return       XCHAR* :
@@ -187,7 +187,7 @@ XCHAR* DIOCLICLIENTCOMMAND::GetParam(int index)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 23:35:39
 //
 //  @return       int :
@@ -205,7 +205,7 @@ int DIOCLICLIENTCOMMAND::GetNParams()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 23:00:44
 //
 //  @return       bool :
@@ -230,7 +230,7 @@ bool DIOCLICLIENTCOMMAND::DeleteAllParams()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 22:57:54
 //
 //  @return       bool :
@@ -255,7 +255,7 @@ bool DIOCLICLIENTCOMMAND::AddAnswer(XCHAR* answer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 13:09:17
 //
 //  @return       bool :
@@ -279,7 +279,7 @@ bool DIOCLICLIENTCOMMAND::AddAnswer(XSTRING* answer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 23:35:39
 //
 //  @return       int :
@@ -299,7 +299,7 @@ int DIOCLICLIENTCOMMAND::GetNAnswers()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 13:20:44
 //
 //  @return       XSTRING* :
@@ -321,7 +321,7 @@ XSTRING* DIOCLICLIENTCOMMAND::GetAnswer(int index)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 23:00:44
 //
 //  @return       bool :
@@ -346,7 +346,7 @@ bool DIOCLICLIENTCOMMAND::DeleteAllAnswers()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 11:27:23
 //
 //  @return       void :
@@ -364,7 +364,7 @@ void DIOCLICLIENTCOMMAND::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/04/2002 13:34:54
 //
 //  @return       void :
@@ -417,7 +417,7 @@ DIOCLICLIENT::DIOCLICLIENT(DIOSTREAM* diostream) : XFSMACHINE(0)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/12/2001 21:53:15
 //
 //  @return
@@ -442,7 +442,7 @@ DIOCLICLIENT::~DIOCLICLIENT()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/06/2013 19:29:56
 //
 //  @return       bool :
@@ -495,7 +495,7 @@ bool DIOCLICLIENT::Ini(int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/12/2001 15:59:02
 //
 //  @return       void :
@@ -518,7 +518,7 @@ void DIOCLICLIENT::End()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 11:34:35
 //
 //  @return       bool :
@@ -549,7 +549,7 @@ bool DIOCLICLIENT::AddCommand(int type, XCHAR* command)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 11:57:19
 //
 //  @return       DIOCLICLIENTCOMMAND* :
@@ -580,7 +580,7 @@ DIOCLICLIENTCOMMAND* DIOCLICLIENT::GetCommand(int type)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 11:35:30
 //
 //  @return       bool :
@@ -604,7 +604,7 @@ bool DIOCLICLIENT::DeleteAllCommand()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/03/2011 11:56:23
 //
 //  @return       bool :
@@ -637,7 +637,7 @@ bool DIOCLICLIENT::GetAnswer(int type,int indexanswer,XSTRING& answerstring)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 23:53:40
 //
 //  @return       bool :
@@ -697,7 +697,7 @@ bool DIOCLICLIENT::ReadAnswerLF(XSTRING& answer,int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/03/2011 22:38:40
 //
 //  @return       bool :
@@ -748,7 +748,7 @@ bool DIOCLICLIENT::ReadAnswer(XSTRING& answer,XDWORD size,int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 22:50:20
 //
 //  @return       bool :
@@ -800,7 +800,7 @@ bool DIOCLICLIENT::SendCommand(int type, int nparams,...)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      26/03/2011 0:05:15
 //
 //  @return       bool :
@@ -826,7 +826,7 @@ bool DIOCLICLIENT::IsSendCommand(DIOCLICLIENT_ERROR& error)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 16:36:26
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -856,7 +856,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENT::SendCommandWithoutAnswer(int type,XCHAR* param)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 16:14:12
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -901,7 +901,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENT::SendCommandWithAnswer(int type,XSTRING& answer,
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      31/10/2011 16:28:21
 //
 //  @return       DIOCLICLIENT_ERROR :
@@ -952,7 +952,7 @@ DIOCLICLIENT_ERROR DIOCLICLIENT::SendCommandWithAnswers(int type,XVECTOR<XSTRING
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/03/2011 15:59:53
 //
 //  @return       void :
@@ -975,7 +975,7 @@ void DIOCLICLIENT::ProcessWait(DIOCLICLIENT_ERROR& error)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      26/03/2011 0:04:40
 //
 //  @return       bool :
@@ -1162,7 +1162,7 @@ bool DIOCLICLIENT::ProcessCommand(DIOCLICLIENT_ERROR& error)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/12/2001 21:50:13
 //
 //  @return       void :

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output SPI Display OLED SSD 1331
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -78,9 +72,6 @@ DIOSPIOLEDDISPLAYSSD1331::DIOSPIOLEDDISPLAYSSD1331(): DIODEVICESPI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -99,9 +90,6 @@ DIOSPIOLEDDISPLAYSSD1331::~DIOSPIOLEDDISPLAYSSD1331()
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -156,9 +144,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::IniDevice()
 * @brief      Clear
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  color :
 *
 * @return     bool : true if is succesful.
@@ -183,9 +168,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::Clear(XWORD color)
 * @brief      Update
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 *
 * @return     bool : true if is succesful.
@@ -208,9 +190,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::Update(XBYTE* buffer)
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::PutPixel(XWORD x, XWORD y, XWORD color)
 * @brief      PutPixel
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x :
 * @param[in]  y :
@@ -243,9 +222,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::PutPixel(XWORD x, XWORD y, XWORD color)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -267,10 +243,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::End()
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::Initializate()
 * @brief      Initializate
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -317,9 +290,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::Initializate()
 * @brief      Reset
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -348,9 +318,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::Reset()
 * @brief      Active
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  on :
 *
 * @return     bool : true if is succesful.
@@ -369,9 +336,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::Active(bool on)
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::EnableFillMode(bool on)
 * @brief      EnableFillMode
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  on :
 *
@@ -395,9 +359,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::EnableFillMode(bool on)
 * @brief      EnableLockMode
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  on :
 *
 * @return     bool : true if is succesful.
@@ -420,9 +381,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::EnableLockMode(bool on)
 * @brief      EnableScrollMode
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  on :
 *
 * @return     bool : true if is succesful.
@@ -440,9 +398,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::EnableScrollMode(bool on)
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::SetScrollMode(XWORD horizontal, XWORD vertical)
 * @brief      SetScrollMode
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  horizontal :
 * @param[in]  vertical :
@@ -468,9 +423,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::SetScrollMode(XWORD horizontal, XWORD vertical)
 * @brief      Clear
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -494,9 +446,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::ClearDisplay()
 * @brief      MaxWindow
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -514,9 +463,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::MaxWindow()
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::FillRect(XBYTE x0, XBYTE y0, XBYTE x1, XBYTE y1, XWORD color, XWORD background)
 * @brief      FillRect
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x0 :
 * @param[in]  y0 :
@@ -572,9 +518,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::FillRect(XBYTE x0, XBYTE y0, XBYTE x1, XBYTE y1, 
 * @brief      SendCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  command :
 * @param[in]  timeout :
 *
@@ -600,9 +543,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE command, int timeout)
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE* command, XDWORD size, int timeout)
 * @brief      SendCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  command :
 * @param[in]  size :
@@ -631,9 +571,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE* command, XDWORD size, int time
 * @brief      SendData
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data :
 * @param[in]  timeout :
 *
@@ -659,9 +596,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE data, int timeout)
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE* data, XDWORD size, int timeout)
 * @brief      SendData
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 * @param[in]  size :
@@ -690,9 +624,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE* data, XDWORD size, int timeout)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Notifications manager class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -57,9 +54,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ DIONOTIFICATION::DIONOTIFICATION()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -95,9 +86,6 @@ DIONOTIFICATION::~DIONOTIFICATION()
 * @fn         XSTRING* DIONOTIFICATION::Get_Title()
 * @brief      GetTitle
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -116,9 +104,6 @@ XSTRING* DIONOTIFICATION::Get_Title()
 * @brief      GetMessage
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -134,9 +119,6 @@ XSTRING* DIONOTIFICATION::Get_Message()
 * @fn         void* DIONOTIFICATION::GetApplicationHandle()
 * @brief      GetApplicationHandle
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void* :
 *
@@ -154,9 +136,6 @@ void* DIONOTIFICATION::GetApplicationHandle()
 * @fn         void DIONOTIFICATION::SetApplicationHandle(void* applicationhandle)
 * @brief      SetApplicationHandle
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationhandle :
 *
@@ -176,9 +155,6 @@ void DIONOTIFICATION::SetApplicationHandle(void* applicationhandle)
 * @brief      GetWindowHandle
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -195,9 +171,6 @@ void* DIONOTIFICATION::GetWindowHandle()
 * @fn         void DIONOTIFICATION::SetWindowHandle(void* windowhandle)
 * @brief      SetWindowHandle
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  windowhandle :
 *
@@ -218,9 +191,6 @@ void DIONOTIFICATION::SetWindowHandle(void* windowhandle)
 * @brief      GetApplicationIcon
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -236,9 +206,6 @@ void* DIONOTIFICATION::GetApplicationIcon()
 * @fn         void DIONOTIFICATION::SetApplicationIcon(void* applicationicon)
 * @brief      SetApplicationIcon
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationicon :
 *
@@ -258,9 +225,6 @@ void DIONOTIFICATION::SetApplicationIcon(void* applicationicon)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -286,8 +250,8 @@ void DIONOTIFICATION::Clean()
 *  @brief      Constructor
 *  @ingroup    DATAIO
 *
-*  @author     Abraham J. Velez
-*  @date       01/03/2016 12:00
+*  ""
+*  ""
 *
 *  @return     Does not return anything.
 *
@@ -306,9 +270,6 @@ DIONOTIFICATIONSMANAGER::DIONOTIFICATIONSMANAGER()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -324,9 +285,6 @@ DIONOTIFICATIONSMANAGER::~DIONOTIFICATIONSMANAGER()
 * @fn         bool DIONOTIFICATIONSMANAGER::Ini(XCHAR* pathexec, XCHAR* generictitle)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  generictitle :
 *
@@ -344,9 +302,6 @@ bool DIONOTIFICATIONSMANAGER::Ini(XCHAR* titleowner, XCHAR* genericapp)
 * @fn         bool DIONOTIFICATIONSMANAGER::Do(DIONOTIFICATION* notification)
 * @brief      Do
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  notification :
 *
@@ -366,9 +321,6 @@ bool DIONOTIFICATIONSMANAGER::Do(DIONOTIFICATION* notification)
 * @brief      Do
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  notification :
 *
 * @return     bool : true if is succesful.
@@ -387,9 +339,6 @@ bool DIONOTIFICATIONSMANAGER::Do(DIONOTIFICATION& notification)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -406,9 +355,6 @@ bool DIONOTIFICATIONSMANAGER::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output LINUX GPIO (General Purpose Input/Output) Raspberry Pi
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -72,9 +69,6 @@ static volatile uint32_t* RPI_gpio;
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -92,9 +86,6 @@ DIOLINUXGPIORASPBERRYPI::DIOLINUXGPIORASPBERRYPI(): DIOGPIO()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -110,9 +101,6 @@ DIOLINUXGPIORASPBERRYPI::~DIOLINUXGPIORASPBERRYPI()
 * @fn         bool DIOLINUXGPIORASPBERRYPI::Ini(XPATH* xpath)
 * @brief      Ini
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -188,10 +176,7 @@ bool DIOLINUXGPIORASPBERRYPI::Ini()
 * @fn         bool DIOLINUXGPIORASPBERRYPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 * @brief      SetMode
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  entry : 
 * @param[in]  mode : 
 * 
@@ -219,10 +204,7 @@ bool DIOLINUXGPIORASPBERRYPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 * @fn         bool DIOLINUXGPIORASPBERRYPI::GetValue(DIOGPIO_ENTRY* entry)
 * @brief      GetValue
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  entry : 
 * 
 * @return     bool : true if is succesful. 
@@ -243,10 +225,7 @@ bool DIOLINUXGPIORASPBERRYPI::GetValue(DIOGPIO_ENTRY* entry)
 * @fn         bool DIOLINUXGPIORASPBERRYPI::SetValue(DIOGPIO_ENTRY* entry, bool value)
 * @brief      SetValue
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  entry : 
 * @param[in]  value : 
 * 
@@ -269,9 +248,6 @@ bool DIOLINUXGPIORASPBERRYPI::SetValue(DIOGPIO_ENTRY* entry, bool value)
 * @brief      End
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -287,9 +263,6 @@ bool DIOLINUXGPIORASPBERRYPI::End()
 * @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_RevisionBoard(RASPBERRYPI_MODEL& model, int& megabytes, float& revision)
 * @brief      RPI_RevisionBoard
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  model :
 * @param[in]  megabytes :
@@ -399,9 +372,6 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_RevisionBoard(RASPBERRYPI_MODEL& model, int& m
 * @brief      RPI_Ini
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -425,9 +395,6 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
 * @brief      RPI_End
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -448,10 +415,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_End()
 * @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_IsGPIOValid(XQWORD GPIO)
 * @brief      RPI_IsGPIOValid
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  GPIO : 
 * 
 * @return     bool : true if is succesful. 
@@ -471,10 +435,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_IsGPIOValid(XQWORD GPIO)
 * @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
 * @brief      RPI_GPIOMode
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  GPIO : 
 * @param[in]  isinput : 
 * 
@@ -523,10 +484,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
 * @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_GPIORead(XQWORD GPIO)
 * @brief      RPI_GPIORead
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  GPIO : 
 * 
 * @return     bool : true if is succesful. 
@@ -558,10 +516,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIORead(XQWORD GPIO)
 * @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
 * @brief      RPI_GPIOWrite
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  GPIO : 
 * @param[in]  isactive : 
 * 
@@ -600,9 +555,6 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

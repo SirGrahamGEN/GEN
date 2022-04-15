@@ -6,10 +6,7 @@
 * @brief      Sound Stream instance class
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  SNDSOURCE* : 
 * @param[in]   SNDELEMENT* element) : SNDINSTANCE(source : 
 * @param[in]   element : 
@@ -87,9 +81,6 @@ SNDSTREAMINSTANCE::SNDSTREAMINSTANCE(SNDSOURCE* source, SNDELEMENT* element) : S
 * @note       VIRTUAL
 * @ingroup    SOUND
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -106,9 +97,6 @@ SNDSTREAMINSTANCE::~SNDSTREAMINSTANCE()
 * @fn         bool SNDSTREAMINSTANCE::Update()
 * @brief      Update
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -200,9 +188,6 @@ bool SNDSTREAMINSTANCE::Update()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything. 
 *

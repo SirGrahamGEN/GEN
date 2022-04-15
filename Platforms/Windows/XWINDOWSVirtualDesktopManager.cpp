@@ -6,10 +6,7 @@
 * @brief      eXtended WINDOWS Virtual Desktop Manager class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -62,9 +59,6 @@ XWINDOWSVIRTUALDESKTOPMANAGER* XWINDOWSVIRTUALDESKTOPMANAGER::instance = NULL;
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ XWINDOWSVIRTUALDESKTOP::XWINDOWSVIRTUALDESKTOP()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -100,9 +91,6 @@ XWINDOWSVIRTUALDESKTOP::~XWINDOWSVIRTUALDESKTOP()
 * @fn         XSTRING* XWINDOWSVIRTUALDESKTOP::GetName()
 * @brief      GetName
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -120,9 +108,6 @@ XSTRING* XWINDOWSVIRTUALDESKTOP::GetName()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -146,9 +131,6 @@ void XWINDOWSVIRTUALDESKTOP::Clean()
 * @brief      GetIsInstanced
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -164,9 +146,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::GetIsInstanced()
 * @fn         XWINDOWSVIRTUALDESKTOPMANAGER& XWINDOWSVIRTUALDESKTOPMANAGER::GetInstance()
 * @brief      GetInstance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XWINDOWSVIRTUALDESKTOPMANAGER& :
 *
@@ -185,9 +164,6 @@ XWINDOWSVIRTUALDESKTOPMANAGER& XWINDOWSVIRTUALDESKTOPMANAGER::GetInstance()
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::DelInstance()
 * @brief      DelInstance
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -212,9 +188,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::DelInstance()
 * @fn         XVECTOR<XWINDOWSVIRTUALDESKTOP*>* XWINDOWSVIRTUALDESKTOPMANAGER::EnumAllDesktops(HWINSTA handle)
 * @brief      EnumAllDesktops
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  handle :
 *
@@ -241,9 +214,6 @@ XVECTOR<XWINDOWSVIRTUALDESKTOP*>* XWINDOWSVIRTUALDESKTOPMANAGER::EnumAllDesktops
 * @brief      AddDesktopToList
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     bool : true if is succesful.
@@ -267,9 +237,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::AddDesktopToList(XSTRING& name)
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XCHAR* name, bool addexplorer)
 * @brief      CreateNewDesktop
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  addexplorer :
@@ -326,9 +293,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XCHAR* name, bool addexplor
 * @brief      CreateNewDesktop
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  addexplorer :
 *
@@ -347,9 +311,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XSTRING& name, bool addexpl
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XCHAR* desktopname, bool inherit)
 * @brief      SwitchDesktop
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  desktopname : 
 * @param[in]  inherit : 
@@ -385,9 +346,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XCHAR* desktopname, bool inher
 * @brief      SwitchDesktop
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  desktopname : 
 * @param[in]  inherit : 
 *
@@ -406,9 +364,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XSTRING& desktopname, bool inh
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XCHAR* desktopname)
 * @brief      IsCurrentDesktop
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  desktopname :
 *
@@ -436,9 +391,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XCHAR* desktopname)
 * @brief      IsCurrentDesktop
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  desktopname :
 *
 * @return     bool : true if is succesful.
@@ -457,9 +409,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XSTRING& desktopname)
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XCHAR* desktopname)
 * @brief      IsDesktopCreated
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  desktopname :
 *
@@ -489,9 +438,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XCHAR* desktopname)
 * @brief      IsDesktopCreated
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  desktopname :
 *
 * @return     bool : true if is succesful.
@@ -509,9 +455,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XSTRING& desktopname)
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XCHAR* desktopname)
 * @brief      SwitchProcessSpecifiedDesktop
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  desktopname :
 *
@@ -554,9 +497,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XCHAR* desktop
 * @brief      SwitchProcessSpecifiedDesktop
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  desktopname :
 *
 * @return     bool : true if is succesful.
@@ -574,9 +514,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XSTRING& deskt
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::IsUserInteractive()
 * @brief      IsUserInteractive
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -605,9 +542,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsUserInteractive()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -629,9 +563,6 @@ XWINDOWSVIRTUALDESKTOPMANAGER::XWINDOWSVIRTUALDESKTOPMANAGER()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -650,9 +581,6 @@ XWINDOWSVIRTUALDESKTOPMANAGER::~XWINDOWSVIRTUALDESKTOPMANAGER()
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::LaunchApplication(XCHAR* applicationfilepath, XCHAR* desktopname)
 * @brief      LaunchApplication
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationfilepath :
 * @param[in]  desktopname :
@@ -706,9 +634,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::LaunchApplication(XCHAR* applicationfilepath
 * @brief      EnumDesktopProc
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  desktop :
 * @param[in]  param :
 *
@@ -738,9 +663,6 @@ BOOL __stdcall XWINDOWSVIRTUALDESKTOPMANAGER::EnumDesktopProc(LPTSTR namedesktop
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

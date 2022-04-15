@@ -6,10 +6,7 @@
 * @brief      eXtended HEX file class (hex ASCII format)
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -80,9 +74,6 @@ XFILEHEX_ENTRY::XFILEHEX_ENTRY()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -99,9 +90,6 @@ XFILEHEX_ENTRY::~XFILEHEX_ENTRY()
 * @brief      GetSizeData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -117,9 +105,6 @@ XBYTE XFILEHEX_ENTRY::GetSizeData()
 * @fn         void XFILEHEX_ENTRY::SetSizeData(XBYTE size)
 * @brief      SetSizeData
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size :
 *
@@ -139,9 +124,6 @@ void XFILEHEX_ENTRY::SetSizeData(XBYTE sizedata)
 * @brief      GetAddress
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -157,9 +139,6 @@ XWORD XFILEHEX_ENTRY::GetAddress()
 * @fn         void XFILEHEX_ENTRY::SetAddress(XWORD address)
 * @brief      SetAddress
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  address :
 *
@@ -179,9 +158,6 @@ void XFILEHEX_ENTRY::SetAddress(XWORD address)
 * @brief      GetEntryType
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILEHEX_ENTRYTYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -197,9 +173,6 @@ XFILEHEX_ENTRYTYPE XFILEHEX_ENTRY::GetEntryType()
 * @fn         void XFILEHEX_ENTRY::SetEntryType(XFILEHEX_ENTRYTYPE entrytype)
 * @brief      SetEntryType
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  entrytype :
 *
@@ -219,9 +192,6 @@ void XFILEHEX_ENTRY::SetEntryType(XFILEHEX_ENTRYTYPE entrytype)
 * @brief      GetData
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBUFFER* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -237,9 +207,6 @@ XBUFFER* XFILEHEX_ENTRY::GetData()
 * @fn         XBYTE XFILEHEX_ENTRY::CalculeCRC(XBUFFER data)
 * @brief      CalculeCRC
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data :
 *
@@ -269,9 +236,6 @@ XBYTE XFILEHEX_ENTRY::CalculeCRC(XBUFFER& data)
 * @note       INTERNAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -298,9 +262,6 @@ void XFILEHEX_ENTRY::Clean()
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -317,9 +278,6 @@ XFILEHEX::XFILEHEX(): XFILETXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -338,9 +296,6 @@ XFILEHEX::~XFILEHEX()
 * @fn         bool XFILEHEX::DecodeAllLines()
 * @brief      DecodeAllLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -379,9 +334,6 @@ bool XFILEHEX::DecodeAllLines()
 * @brief      EncodeAllLines
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -414,9 +366,6 @@ bool XFILEHEX::EncodeAllLines()
 * @fn         bool XFILEHEX::DecodeLine(XSTRING* line, XFILEHEX_ENTRY& entry)
 * @brief      DecodeLine
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  line :
 * @param[in]  entry :
@@ -480,9 +429,6 @@ bool XFILEHEX::DecodeLine(XSTRING* line, XFILEHEX_ENTRY& entry)
 * @brief      EncodeLine
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  entry :
 * @param[in]  line :
 *
@@ -525,9 +471,6 @@ bool XFILEHEX::EncodeLine(XFILEHEX_ENTRY* entry, XSTRING& line)
 * @brief      GetNEntrys
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -543,9 +486,6 @@ XDWORD XFILEHEX::GetNEntrys()
 * @fn         bool XFILEHEX::Entry_Add(XSTRING* line)
 * @brief      Entry_Add
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  line :
 *
@@ -578,9 +518,6 @@ bool XFILEHEX::Entry_Add(XSTRING* line)
 * @fn         XFILEHEX_ENTRY* XFILEHEX::Entry_Get(XWORD address, XFILEHEX_ENTRYTYPE type)
 * @brief      Entry_Get
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  address :
 * @param[in]  type :
@@ -615,9 +552,6 @@ XFILEHEX_ENTRY* XFILEHEX::Entry_Get(XWORD address, XFILEHEX_ENTRYTYPE type)
 * @brief      Entry_Get
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     XFILEHEX_ENTRY* :
@@ -636,9 +570,6 @@ XFILEHEX_ENTRY* XFILEHEX::Entry_Get(int index)
 * @fn         bool XFILEHEX::Entry_Delete(XWORD address, XFILEHEX_ENTRYTYPE type)
 * @brief      Entry_Delete
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  address :
 * @param[in]  type :
@@ -666,9 +597,6 @@ bool XFILEHEX::Entry_Delete(XWORD address, XFILEHEX_ENTRYTYPE type)
 * @brief      Entry_Delete
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     bool : true if is succesful.
@@ -694,9 +622,6 @@ bool XFILEHEX::Entry_Delete(int index)
 * @brief      Entry_DeleteAll
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -718,9 +643,6 @@ bool XFILEHEX::Entry_DeleteAll()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

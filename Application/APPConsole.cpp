@@ -6,10 +6,7 @@
 * @brief      Application Console class
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -82,9 +76,6 @@ APPCONSOLE::APPCONSOLE()
 * @note       VIRTUAL
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -100,9 +91,6 @@ APPCONSOLE::~APPCONSOLE()
 * @fn         bool APPCONSOLE::Ini(XSYSTEM* xsystem, XVECTOR<XSTRING*>* execparams)
 * @brief      Ini Application console function
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  execparams : Params of command line (params of exec application)
 *
@@ -127,9 +115,6 @@ bool APPCONSOLE::Ini(XVECTOR<XSTRING*>* execparams)
 * @fn         bool APPCONSOLE::End()
 * @brief      End application console function
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -162,9 +147,6 @@ bool APPCONSOLE::End()
 * @brief      PrintExitMessage
 * @ingroup    APPLICATION
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  message :
 *
 * @return     bool : true if is succesful.
@@ -190,9 +172,6 @@ bool APPCONSOLE::PrintExitMessage(XSTRING& exitmessage)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output SMTP (Simple Mail Transfer Protocol) class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -64,9 +61,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -84,9 +78,6 @@ DIOSMTPRECIPIENT::DIOSMTPRECIPIENT()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -103,9 +94,6 @@ DIOSMTPRECIPIENT::~DIOSMTPRECIPIENT()
 * @brief      GetType
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSMTPRECIPIENTTYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -121,9 +109,6 @@ DIOSMTPRECIPIENTTYPE DIOSMTPRECIPIENT::GetType()
 * @fn         void DIOSMTPRECIPIENT::SetType(DIOSMTPRECIPIENTTYPE type)
 * @brief      SetType
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -143,9 +128,6 @@ void DIOSMTPRECIPIENT::SetType(DIOSMTPRECIPIENTTYPE type)
 * @brief      GetName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -161,9 +143,6 @@ XSTRING* DIOSMTPRECIPIENT::GetName()
 * @fn         DIOEMAILADDRESS* DIOSMTPRECIPIENT::GetEmail()
 * @brief      GetEmail
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOEMAILADDRESS* :
 *
@@ -181,9 +160,6 @@ DIOEMAILADDRESS* DIOSMTPRECIPIENT::GetEmail()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -207,9 +183,6 @@ void DIOSMTPRECIPIENT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -227,9 +200,6 @@ DIOSMTPATTACHMENT::DIOSMTPATTACHMENT()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -246,9 +216,6 @@ DIOSMTPATTACHMENT::~DIOSMTPATTACHMENT()
 * @brief      GetXPath
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -264,9 +231,6 @@ XPATH* DIOSMTPATTACHMENT::GetXPath()
 * @fn         bool DIOSMTPATTACHMENT::FileExists(XDWORD* size)
 * @brief      FileExists
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size :
 *
@@ -300,9 +264,6 @@ bool DIOSMTPATTACHMENT::FileExists(XQWORD* size)
 * @brief      GetSize
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -320,9 +281,6 @@ XQWORD DIOSMTPATTACHMENT::GetSize()
 * @brief      GetSizeLimit
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -338,9 +296,6 @@ XQWORD DIOSMTPATTACHMENT::GetSizeLimit()
 * @fn         void DIOSMTPATTACHMENT::SetSizeLimit(XDWORD sizelimit)
 * @brief      SetSizeLimit
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sizelimit :
 *
@@ -360,9 +315,6 @@ void DIOSMTPATTACHMENT::SetSizeLimit(XQWORD sizelimit)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -387,9 +339,6 @@ void DIOSMTPATTACHMENT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  DIOSTREAM* :
 *
 * @return     Does not return anything.
@@ -411,9 +360,6 @@ DIOSMTP::DIOSMTP(DIOSTREAM* diostream)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -432,7 +378,7 @@ DIOSMTP::~DIOSMTP()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      30/05/2014 17:15:23
 //
 //  @return       bool :
@@ -460,9 +406,6 @@ bool DIOSMTP::Ini()
 * @brief      Server_GetURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOURL* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -479,9 +422,6 @@ DIOURL* DIOSMTP::Server_GetURL()
 * @brief      Server_GetPort
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -497,9 +437,6 @@ int DIOSMTP::Server_GetPort()
 * @fn         void DIOSMTP::Server_SetPort(int port)
 * @brief      Server_SetPort
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  port :
 *
@@ -519,9 +456,6 @@ void DIOSMTP::Server_SetPort(int port)
 * @brief      Server_GetLogin
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -537,9 +471,6 @@ XSTRING* DIOSMTP::Server_GetLogin()
 * @fn         XSTRING* DIOSMTP::Server_GetPassword()
 * @brief      Server_GetPassword
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -557,9 +488,6 @@ XSTRING* DIOSMTP::Server_GetPassword()
 * @brief      Server_GetConnectionTimeout
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -575,9 +503,6 @@ int DIOSMTP::Server_GetConnectionTimeout()
 * @fn         void DIOSMTP::Server_SetConnectionTimeout(int timeout)
 * @brief      Server_SetConnectionTimeout
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeout :
 *
@@ -597,9 +522,6 @@ void DIOSMTP::Server_SetConnectionTimeout(int timeout)
 * @brief      Server_GetConnectionLocalIP
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -615,9 +537,6 @@ XSTRING* DIOSMTP::Server_GetConnectionLocalIP()
 * @fn         bool DIOSMTP::Server_IsAvailable()
 * @brief      Server_IsAvailable
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -652,9 +571,6 @@ bool DIOSMTP::Server_IsAvailable()
 * @brief      GetContentType
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSSMPTCONTENTTYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -670,9 +586,6 @@ DIOSSMPTCONTENTTYPE DIOSMTP::GetContentType()
 * @fn         void DIOSMTP::SetContentType(DIOSSMPTCONTENTTYPE contenttype)
 * @brief      SetContentType
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  contenttype :
 *
@@ -692,9 +605,6 @@ void DIOSMTP::SetContentType(DIOSSMPTCONTENTTYPE contenttype)
 * @brief      GetSenderName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -710,9 +620,6 @@ XSTRING* DIOSMTP::GetSenderName()
 * @fn         DIOEMAILADDRESS* DIOSMTP::GetSenderEmail()
 * @brief      GetSenderEmail
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOEMAILADDRESS* :
 *
@@ -730,9 +637,6 @@ DIOEMAILADDRESS* DIOSMTP::GetSenderEmail()
 * @brief      GetReplytoEmail
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOEMAILADDRESS* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -749,9 +653,6 @@ DIOEMAILADDRESS* DIOSMTP::GetReplytoEmail()
 * @brief      GetRecipients
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<DIOSMTPRECIPIENT*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -767,9 +668,6 @@ XVECTOR<DIOSMTPRECIPIENT*>* DIOSMTP::GetRecipients()
 * @fn         bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XCHAR* name, XCHAR* email, bool check)
 * @brief      AddRecipient
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  name :
@@ -808,9 +706,6 @@ bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XCHAR* name, XCHAR* email,
 * @brief      AddRecipient
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 * @param[in]  name :
 * @param[in]  email :
@@ -831,9 +726,6 @@ bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XSTRING& name, XSTRING& em
 * @fn         bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XCHAR* name, DIOEMAILADDRESS& email, bool check)
 * @brief      AddRecipient
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  name :
@@ -856,9 +748,6 @@ bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XCHAR* name, DIOEMAILADDRE
 * @brief      AddRecipient
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 * @param[in]  name :
 * @param[in]  email :
@@ -879,9 +768,6 @@ bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XSTRING& name, DIOEMAILADD
 * @fn         bool DIOSMTP::DelRecipient(DIOEMAILADDRESS& email)
 * @brief      DelRecipient
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  email :
 *
@@ -918,9 +804,6 @@ bool DIOSMTP::DelRecipient(DIOEMAILADDRESS& email)
 * @brief      DelAllRecipients
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -942,9 +825,6 @@ bool DIOSMTP::DelAllRecipients()
 * @brief      GetXMailer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -960,9 +840,6 @@ XSTRING* DIOSMTP::GetXMailer()
 * @fn         XSTRING* DIOSMTP::GetSubject()
 * @brief      GetSubject
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -980,9 +857,6 @@ XSTRING* DIOSMTP::GetSubject()
 * @brief      GetMessage
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILETXT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -999,9 +873,6 @@ XFILETXT* DIOSMTP::GetMessage()
 * @brief      GetXPriority
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSMTPXPRIORITY :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1017,9 +888,6 @@ DIOSMTPXPRIORITY DIOSMTP::GetXPriority()
 * @fn         void DIOSMTP::SetXPriority(DIOSMTPXPRIORITY xpriority)
 * @brief      SetXPriority
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpriority :
 *
@@ -1038,9 +906,6 @@ void DIOSMTP::SetXPriority(DIOSMTPXPRIORITY xpriority)
 * @fn         bool DIOSMTP::AddAttachment(XCHAR* path, bool check, XDWORD sizelimit)
 * @brief      AddAttachment
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 * @param[in]  check :
@@ -1086,9 +951,6 @@ bool DIOSMTP::AddAttachment(XCHAR* path, bool check, XDWORD sizelimit)
 * @brief      AddAttachment
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 * @param[in]  check :
 * @param[in]  sizelimit :
@@ -1108,9 +970,6 @@ bool DIOSMTP::AddAttachment(XPATH& xpath, bool check, XDWORD sizelimit)
 * @fn         bool DIOSMTP::DelAttachment(XCHAR* path)
 * @brief      DelAttachment
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  path :
 *
@@ -1147,9 +1006,6 @@ bool DIOSMTP::DelAttachment(XCHAR* path)
 * @brief      DelAttachment
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 *
 * @return     bool : true if is succesful.
@@ -1167,9 +1023,6 @@ bool DIOSMTP::DelAttachment(XPATH& xpath)
 * @fn         bool DIOSMTP::DelAllAttachments()
 * @brief      DelAllAttachments
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1189,9 +1042,6 @@ bool DIOSMTP::DelAllAttachments()
 * @fn         bool DIOSMTP::Send()
 * @brief      Send
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1493,9 +1343,6 @@ bool DIOSMTP::Send()
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1521,9 +1368,6 @@ bool DIOSMTP::End()
 * @fn         bool DIOSMTP::UpdateConnectionConfig()
 * @brief      UpdateConnectionConfig
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1551,9 +1395,6 @@ bool DIOSMTP::UpdateConnectionConfig()
 * @brief      GetCodeResult
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  answer :
 *
 * @return     int :
@@ -1578,9 +1419,6 @@ int DIOSMTP::GetCodeResult(XSTRING& answer)
 * @fn         bool DIOSMTP::SendResponse(XSTRING& response, int codevalid)
 * @brief      SendResponse
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  response :
 * @param[in]  codevalid :
@@ -1610,9 +1448,6 @@ bool DIOSMTP::SendResponse(XSTRING& response, int codevalid)
 * @fn         bool DIOSMTP::SendResponseAndWait(XSTRING& response, int codevalid, int codecontinue)
 * @brief      SendResponseAndWait
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  response :
 * @param[in]  codevalid :
@@ -1657,9 +1492,6 @@ bool DIOSMTP::SendResponseAndWait(XSTRING& response, int codevalid, int codecont
 * @fn         bool DIOSMTP::CreateHeader(XSTRING& header)
 * @brief      CreateHeader
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  header :
 *
@@ -1832,9 +1664,6 @@ bool DIOSMTP::CreateHeader(XSTRING& header)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

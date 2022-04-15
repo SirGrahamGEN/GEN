@@ -6,7 +6,7 @@
 //
 //  Compress Manager
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 03/05/2004 14:54:16
 */
 //  GEN  Copyright (C).  All right reserved.

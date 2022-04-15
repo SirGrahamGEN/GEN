@@ -6,10 +6,7 @@
 * @brief      SAMD5XE5X DIO General Port Input/Ouput
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,9 +52,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -75,9 +69,6 @@ DIOSAMD5XE5XGPIO::DIOSAMD5XE5XGPIO(): DIOGPIO()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ DIOSAMD5XE5XGPIO::~DIOSAMD5XE5XGPIO()
 * @fn         bool DIOSAMD5XE5XGPIO::Ini()
 * @brief      Ini
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -123,9 +111,6 @@ bool DIOSAMD5XE5XGPIO::Ini()
 * @fn         bool DIOSAMD5XE5XGPIO::SetMode(XBYTE pin, bool isinput, DIOGPIO_PINSGROUP block)
 * @brief      SetMode
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @PAram[in]  pin :
 * @PAram[in]  isinput :
@@ -166,9 +151,6 @@ bool DIOSAMD5XE5XGPIO::SetMode(XBYTE pin, bool isinput, DIOGPIO_PINSGROUP block,
 * @brief      Get
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @PAram[in]  pin :
 * @PAram[in]  block :
 *
@@ -189,9 +171,6 @@ bool DIOSAMD5XE5XGPIO::Get(XBYTE pin, DIOGPIO_PINSGROUP block)
 * @fn         bool DIOSAMD5XE5XGPIO::Set(XBYTE pin,bool active, DIOGPIO_PINSGROUP block)
 * @brief      Set
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @PAram[in]  pin :
 * @PAram[in]  active :
@@ -217,9 +196,6 @@ bool DIOSAMD5XE5XGPIO::Set(XBYTE pin, bool active, DIOGPIO_PINSGROUP block)
 * @brief      End
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -236,9 +212,6 @@ bool DIOSAMD5XE5XGPIO::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_SAMD5XE5X
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

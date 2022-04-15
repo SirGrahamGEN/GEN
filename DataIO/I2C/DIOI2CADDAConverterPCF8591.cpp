@@ -6,10 +6,7 @@
 * @brief      Data Input/Output I2C PCF8591 (AD/DA converter) class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -80,9 +74,6 @@ DIOI2CADDACONVERTERPCF8591::DIOI2CADDACONVERTERPCF8591() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -101,9 +92,6 @@ DIOI2CADDACONVERTERPCF8591::~DIOI2CADDACONVERTERPCF8591()
 * @fn         bool DIOI2CADDACONVERTERPCF8591::ReadADChannels(XBYTE values[4])
 * @brief      ReadADChannels
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  values[4] :
 *
@@ -152,9 +140,6 @@ bool DIOI2CADDACONVERTERPCF8591::ReadADChannels(XBYTE values[4])
 * @brief      WriteDAChannel
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  value :
 *
 * @return     bool : true if is succesful.
@@ -185,9 +170,6 @@ bool DIOI2CADDACONVERTERPCF8591::WriteDAChannel(XBYTE value)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -212,9 +194,6 @@ bool DIOI2CADDACONVERTERPCF8591::End()
 * @fn         bool DIOI2CADDACONVERTERPCF8591::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -247,9 +226,6 @@ bool DIOI2CADDACONVERTERPCF8591::IniDevice()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

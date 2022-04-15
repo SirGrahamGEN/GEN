@@ -6,10 +6,7 @@
 * @brief      Linux Data Input/Output eXtended class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -147,9 +144,6 @@
 * @brief      Create Stream Enum Devices
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type : type of enum to create
 *
 * @return     DIOSTREAMENUMDEVICES* : enum created
@@ -204,9 +198,6 @@ DIOSTREAMENUMDEVICES* DIOLINUXFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE
 * @brief      Delete Stream Enum Devices
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  enumdevices : enumdevices to delete
 *
 * @return     bool : true if is succesful.
@@ -228,9 +219,6 @@ bool DIOLINUXFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
 * @fn         DIOSTREAM* DIOLINUXFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 * @brief      Create Stream IO
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  config : config to create stream  IO
 *
@@ -297,9 +285,6 @@ DIOSTREAM* DIOLINUXFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 * @brief      Delete Stream IO
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  diostream : diostream to delete
 *
 * @return     bool : true if is succesful.
@@ -355,10 +340,7 @@ DELETEFUNC(DIOLINUXFACTORY, DIOPCAP   , DIOLINUXPCAP    , DeletePCap)
 * @fn         DIOLEDNEOPIXELWS2812B* DIOLINUXFACTORY::CreateLedNeopixelWS2812B()
 * @brief      CreateLedNeopixelWS2812B
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOLEDNEOPIXELWS2812B* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -381,10 +363,7 @@ DIOLEDNEOPIXELWS2812B* DIOLINUXFACTORY::CreateLedNeopixelWS2812B()
 * @fn         bool DIOLINUXFACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixelws2812b)
 * @brief      DeleteLedNeopixelWS2812B
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ledneopixelws2812b : 
 * 
 * @return     bool : true if is succesful. 

@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Stream Enum Devices class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -77,9 +71,6 @@ DIOSTREAMENUMDEVICES::DIOSTREAMENUMDEVICES()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -101,9 +92,6 @@ DIOSTREAMENUMDEVICES::~DIOSTREAMENUMDEVICES()
 * @brief      GetType
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAMENUMTYPE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -119,9 +107,6 @@ DIOSTREAMENUMTYPE DIOSTREAMENUMDEVICES::GetType()
 * @fn         bool DIOSTREAMENUMDEVICES::SetType(DIOSTREAMENUMTYPE type)
 * @brief      SetType
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -143,9 +128,6 @@ bool DIOSTREAMENUMDEVICES::SetType(DIOSTREAMENUMTYPE type)
 * @brief      Search
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -161,9 +143,6 @@ bool DIOSTREAMENUMDEVICES::Search()
 * @fn         bool DIOSTREAMENUMDEVICES::StopSearch(bool waitend)
 * @brief      StopSearch
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  waitend :
 *
@@ -183,9 +162,6 @@ bool DIOSTREAMENUMDEVICES::StopSearch(bool waitend)
 * @brief      IsSearching
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -201,9 +177,6 @@ bool DIOSTREAMENUMDEVICES::IsSearching()
 * @fn         bool DIOSTREAMENUMDEVICES::AddDevice(DIOSTREAMDEVICE* device)
 * @brief      AddDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  device :
 *
@@ -225,9 +198,6 @@ bool DIOSTREAMENUMDEVICES::AddDevice(DIOSTREAMDEVICE* device)
 * @brief      GetDevices
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<DIOSTREAMDEVICE*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -243,9 +213,6 @@ XVECTOR<DIOSTREAMDEVICE*>* DIOSTREAMENUMDEVICES::GetDevices()
 * @fn         bool DIOSTREAMENUMDEVICES::DelAllDevices()
 * @brief      DelAllDevices
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -268,9 +235,6 @@ bool DIOSTREAMENUMDEVICES::DelAllDevices()
 * @brief      IsDeviceAvailable
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  string :
 *
 * @return     bool : true if is succesful.
@@ -288,9 +252,6 @@ bool DIOSTREAMENUMDEVICES::IsDeviceAvailable(XCHAR* string)
 * @fn         bool DIOSTREAMENUMDEVICES::IsDeviceAvailable(XSTRING& string)
 * @brief      IsDeviceAvailable
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -310,9 +271,6 @@ bool DIOSTREAMENUMDEVICES::IsDeviceAvailable(XSTRING& string)
 * @brief      AreDevicesAvailable
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -328,9 +286,6 @@ bool DIOSTREAMENUMDEVICES::AreDevicesAvailable()
 * @fn         DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByName(XCHAR* name)
 * @brief      GetDeviceByName
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 *
@@ -361,9 +316,6 @@ DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByName(XCHAR* name)
 * @brief      GetDeviceByName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     DIOSTREAMDEVICE* :
@@ -382,9 +334,6 @@ DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByName(XSTRING& name)
 * @fn         DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByIndex(int index)
 * @brief      GetDeviceByIndex
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -413,9 +362,6 @@ DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByIndex(int index)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

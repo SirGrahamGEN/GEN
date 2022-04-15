@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Ping class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -74,9 +71,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +87,6 @@ DIOPINGREPLY::DIOPINGREPLY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -114,9 +105,6 @@ DIOPINGREPLY::~DIOPINGREPLY()
 * @brief      GetSequence
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -132,9 +120,6 @@ XDWORD DIOPINGREPLY::GetSequence()
 * @fn         void DIOPINGREPLY::SetSequence(XDWORD sequence)
 * @brief      SetSequence
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sequence :
 *
@@ -154,9 +139,6 @@ void DIOPINGREPLY::SetSequence(XDWORD sequence)
 * @brief      GetFromIP
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -174,9 +156,6 @@ XSTRING* DIOPINGREPLY::GetFromIP()
 * @brief      GetSizeRequest
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -192,9 +171,6 @@ XDWORD DIOPINGREPLY::GetSizeRequest()
 * @fn         void DIOPINGREPLY::SetSizeRequest(XDWORD sizerequest)
 * @brief      SetSizeRequest
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sizerequest :
 *
@@ -214,9 +190,6 @@ void DIOPINGREPLY::SetSizeRequest(XDWORD sizerequest)
 * @brief      GetTimeElapsed
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -232,9 +205,6 @@ XDWORD DIOPINGREPLY::GetTimeElapsed()
 * @fn         void DIOPINGREPLY::SetTimeElapsed(XDWORD timeelapsed)
 * @brief      SetTimeElapsed
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  timeelapsed :
 *
@@ -254,9 +224,6 @@ void DIOPINGREPLY::SetTimeElapsed(XDWORD timeelapsed)
 * @brief      GetTTL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -272,9 +239,6 @@ XBYTE DIOPINGREPLY::GetTTL()
 * @fn         void DIOPINGREPLY::SetTTL(XBYTE TTL)
 * @brief      SetTTL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  TTL :
 *
@@ -294,9 +258,6 @@ void DIOPINGREPLY::SetTTL(XBYTE TTL)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -325,9 +286,6 @@ void DIOPINGREPLY::Clean()
 * @fn         DIOPING::DIOPING()
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -371,9 +329,6 @@ DIOPING::DIOPING()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -400,9 +355,6 @@ DIOPING::~DIOPING()
 * @brief      GetTarget
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOURL* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -418,9 +370,6 @@ DIOURL* DIOPING::GetTarget()
 * @fn         bool DIOPING::Set(XCHAR* urltarget , XCHAR* IPLocal)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  urltarget :
 * @param[in]  IPLocal :
@@ -445,9 +394,6 @@ bool DIOPING::Set(XCHAR* urltarget , XCHAR* IPLocal)
 * @brief      Set
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  urltarget :
 * @param[in]  IPLocal :
 *
@@ -466,9 +412,6 @@ bool DIOPING::Set(DIOURL& urltarget, XCHAR* IPLocal)
 * @fn         bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodreply)
 * @brief      Do
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  nretries :
 * @param[in]  timebetweenchecks :
@@ -692,9 +635,6 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
 * @brief      WasConnected
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -719,9 +659,6 @@ bool DIOPING::WasConnected()
 * @brief      GetReplys
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<DIOPINGREPLY*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -737,9 +674,6 @@ XVECTOR<DIOPINGREPLY*>* DIOPING::GetReplys()
 * @fn         XDWORD DIOPING::CalculateMeanTime()
 * @brief      CalculateMeanTime
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -779,9 +713,6 @@ XDWORD DIOPING::CalculateMeanTime()
 * @brief      DeleteAllReplys
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -813,9 +744,6 @@ bool DIOPING::DeleteAllReplys()
 * @fn         bool DIOPING::AddReply(XWORD sequence, XCHAR* fromIP, XDWORD sizerequest, XDWORD timeelapsed, XBYTE TTL)
 * @brief      AddReply
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sequence :
 * @param[in]  fromIP :
@@ -860,9 +788,6 @@ bool DIOPING::AddReply(XWORD sequence, XCHAR* fromIP, XDWORD sizerequest, XDWORD
 * @fn         XWORD DIOPING::CalculeCheckSum(XWORD*addr, int len)
 * @brief      CalculeCheckSum
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  addr :
 * @param[in]  len :
@@ -916,9 +841,6 @@ XWORD DIOPING::CalculeCheckSum(XWORD* addr, int len)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

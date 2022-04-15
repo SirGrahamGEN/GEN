@@ -6,10 +6,7 @@
 * @brief      Main Proc STM32 class
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -87,9 +84,6 @@ MAINPROCSTM32    mainprocstm32;
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -107,9 +101,6 @@ MAINPROCSTM32::MAINPROCSTM32()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -125,9 +116,6 @@ MAINPROCSTM32::~MAINPROCSTM32()
 * @fn         bool MAINPROCSTM32::Ini(APPMAIN* appmain)
 * @brief      Ini
 * @ingroup    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  appmain :
 *
@@ -171,9 +159,6 @@ bool MAINPROCSTM32::Ini(APPMAIN* appmain)
 * @brief      Update
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -201,9 +186,6 @@ bool MAINPROCSTM32::Update()
 * @fn         bool MAINPROCSTM32::End()
 * @brief      End
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -257,9 +239,6 @@ bool MAINPROCSTM32::End()
 * @brief      Factorys Ini
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath : always NULL in this platform
 *
 * @return     bool : true if is succesful.
@@ -308,9 +287,6 @@ bool MAINPROCSTM32::Factorys_Ini()
 * @fn         bool MAINPROCSTM32::Factorys_End()
 * @brief      Factorys End
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -372,9 +348,6 @@ bool MAINPROCSTM32::Factorys_End()
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -401,9 +374,6 @@ void MAINPROCSTM32::Clean()
 * @fn         int main()
 * @brief      main
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *

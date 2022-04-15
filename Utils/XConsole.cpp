@@ -6,10 +6,7 @@
 * @brief      eXtended Console base class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -61,9 +58,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ XCONSOLE::XCONSOLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -100,9 +91,6 @@ XCONSOLE::~XCONSOLE()
 * @brief      Get size Of Console
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[out]  width : return width of console
 * @param[out]  height : return height of console
@@ -127,9 +115,6 @@ bool XCONSOLE::GetSize(int& width, int& height)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  width : set width of console
 * @param[in]  height : swet height of console
 *
@@ -148,9 +133,6 @@ bool XCONSOLE::SetSize(int width, int height)
 * @fn         bool XCONSOLE::GetSizeText(int& columns, int& rows)
 * @brief      GetSizeText
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  columns :
 * @param[in]  rows :
@@ -171,9 +153,6 @@ bool XCONSOLE::GetSizeText(int& columns, int& rows)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -189,9 +168,6 @@ bool XCONSOLE::Maximize()
 * @brief      Minimize console
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -210,9 +186,6 @@ bool XCONSOLE::Minimize()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -228,9 +201,6 @@ bool XCONSOLE::Hide()
 * @brief      Check if the console is hide
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -248,9 +218,6 @@ bool XCONSOLE::IsHide()
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -266,10 +233,7 @@ bool XCONSOLE::UnHide()
 * @fn         bool XCONSOLE::Clear(bool fill)
 * @brief      Clear
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  fill : 
 * 
 * @return     bool : true if is succesful. 
@@ -289,9 +253,6 @@ bool XCONSOLE::Clear(bool fill)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -308,9 +269,6 @@ bool XCONSOLE::KBHit()
 * @brief      GetChar Console
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int :
 *
@@ -329,9 +287,6 @@ int XCONSOLE::GetChar()
 * @fn         bool XCONSOLE::Print(XCHAR* string)
 * @brief      Print a string
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string : string to print
 *
@@ -352,9 +307,6 @@ bool XCONSOLE::Print(XCHAR* string)
 * @fn         bool XCONSOLE::Printf(XCHAR* mask,...)
 * @brief      Print variables with a mask
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  mask : mask to use
 * @param[in]  ... : variables
@@ -388,9 +340,6 @@ bool XCONSOLE::Printf(XCHAR* mask,...)
 * @fn         bool XCONSOLE::PrintDataBlock(XBYTE* data, XDWORD size, XDWORD marginsize, XDWORD sizeline, bool showoffset, bool showtext)
 * @brief      Print data block in HEX and Character
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  data : data to print
 * @param[in]  size : size of data
@@ -480,9 +429,6 @@ bool XCONSOLE::PrintDataBlock(XBYTE* data, XDWORD size, XDWORD marginsize, XDWOR
 * @brief      Print data block in HEX and Character
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  data : buffer data to print
 * @param[in]  marginsize : size of margin
 * @param[in]  sizeline :  size of line
@@ -505,9 +451,6 @@ bool XCONSOLE::PrintDataBlock(XBUFFER& data, XDWORD marginsize, XDWORD sizeline,
 * @fn         bool XCONSOLE::Format_Message(XCHAR* message, XDWORD margin, bool prelude, bool returnline, XSTRING& string)
 * @brief      Format a message to string.
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  message : Message to format.
 * @param[in]  margin : size margin
@@ -545,9 +488,6 @@ bool XCONSOLE::Format_Message(XCHAR* message, XDWORD margin, bool prelude, bool 
 * @brief      Print Message
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  message : Message to print
 * @param[in]  margin : size of margin
 * @param[in]  prelude : true if has prelude
@@ -574,9 +514,6 @@ bool XCONSOLE::PrintMessage(XCHAR* message, XDWORD margin, bool prelude, bool re
 * @fn         bool XCONSOLE::TipicalHeader_Create(int yearorigin, XCHAR* nameapp,int version,int subversion,int subversionerr,XCHAR* enterprise,XSTRING& header)
 * @brief      Create in string a tipical header in console
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  yearorigin : year of origin
 * @param[in]  nameapp : name of application
@@ -643,9 +580,6 @@ bool XCONSOLE::TipicalHeader_Create(int yearorigin, XCHAR* nameapp,int version,i
 * @brief      Print a tipical header in console
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  yearorigin : year of origin
 * @param[in]  nameapp : name of application
 * @param[in]  version : veraion of application
@@ -675,9 +609,6 @@ bool XCONSOLE::TipicalHeader_Show(int yearorigin, XCHAR* nameapp,int version,int
 * @fn         bool XCONSOLE::WaitKey(XCHAR* text, XDWORD margin, bool prelude, XDWORD timeout)
 * @brief      Prints a Wait menssage with timeout
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  text : Text of the wait
 * @param[in]  margin : size of margin
@@ -746,9 +677,6 @@ bool XCONSOLE::WaitKey(XCHAR* text, XDWORD margin, bool prelude, XDWORD timeout)
 * @brief      EraseToEndLine
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  actualpos :
 *
 * @return     void : does not return anything.
@@ -777,9 +705,6 @@ void XCONSOLE::EraseToEndLine(int actualpos)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

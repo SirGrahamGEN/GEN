@@ -57,7 +57,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2013 23:11:51
 //
 //  @return
@@ -102,7 +102,7 @@ DIOANDROIDSTREAMUSB::DIOANDROIDSTREAMUSB() : DIOSTREAMUSB(), XFSMACHINE(0)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -125,7 +125,7 @@ DIOANDROIDSTREAMUSB::~DIOANDROIDSTREAMUSB()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       DIOSTREAMSTATUS :
@@ -145,7 +145,7 @@ DIOSTREAMSTATUS DIOANDROIDSTREAMUSB::GetConnectStatus()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       bool :
@@ -183,7 +183,7 @@ bool DIOANDROIDSTREAMUSB::Open()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -215,7 +215,7 @@ bool DIOANDROIDSTREAMUSB::Close()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -235,7 +235,7 @@ bool DIOANDROIDSTREAMUSB::CleanBuffers()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return
@@ -256,7 +256,7 @@ void DIOANDROIDSTREAMUSB::Clean()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/07/2012 13:56:19
 //
 //  @return       void :
@@ -366,7 +366,7 @@ void DIOANDROIDSTREAMUSB::ThreadConnection(void* data)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       XDWORD :
@@ -410,7 +410,7 @@ XDWORD DIOANDROIDSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/09/2001 16:58:17
 //
 //  @return       XDWORD :

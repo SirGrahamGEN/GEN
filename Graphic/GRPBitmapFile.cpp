@@ -6,10 +6,7 @@
 * @brief      Graphic Bitmap File Class
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -64,9 +61,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -86,9 +80,6 @@ GRPBITMAPFILEBASE::GRPBITMAPFILEBASE(): XFILECONTAINER()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -106,9 +97,6 @@ GRPBITMAPFILEBASE::~GRPBITMAPFILEBASE()
 * @fn         GRPBITMAP* GRPBITMAPFILEBASE::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
 * @brief      CreateBitmapFromFile
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  forcemode :
@@ -128,9 +116,6 @@ GRPBITMAP* GRPBITMAPFILEBASE::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE
 * @fn         GRPBITMAP* GRPBITMAPFILEBASE::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode);
 * @brief      CreateBitmapFromBuffer
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -152,9 +137,6 @@ GRPBITMAP* GRPBITMAPFILEBASE::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size,
 * @brief      CreateFileFromBitmap
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 * @param[in]  bitmap :
 * @param[in]  quality :
@@ -175,9 +157,6 @@ bool GRPBITMAPFILEBASE::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, in
 * @brief      Read Image Buffer From File
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath : path to the Graphic file
 *
 * @return     XBYTE* : Pointer to buffer
@@ -195,9 +174,6 @@ XBYTE* GRPBITMAPFILEBASE::ReadImageBufferFromFile(XPATH& xpath)
 * @fn         GRPBITMAP* GRPBITMAPFILEBASE::ForceModeOfBitmap(GRPPROPERTYMODE forcemode, GRPBITMAP* bitmap)
 * @brief      ForceModeOfBitmap
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  forcemode :
 * @param[in]  bitmap :
@@ -229,9 +205,6 @@ GRPBITMAP* GRPBITMAPFILEBASE::ForceModeOfBitmap(GRPPROPERTYMODE forcemode, GRPBI
 * @brief      Open graphic file
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath : path to the Graphic file
 * @param[in]  readonly : is read only flag
 *
@@ -255,9 +228,6 @@ bool GRPBITMAPFILEBASE::Open(XPATH& xpath,bool readonly)
 * @brief      Create
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath : path to create the Graphic file
 *
 * @return     bool : true if is succesful.
@@ -279,9 +249,6 @@ bool GRPBITMAPFILEBASE::Create(XPATH& xpath)
 * @brief      Close
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -300,9 +267,6 @@ bool GRPBITMAPFILEBASE::Close()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -329,9 +293,6 @@ void GRPBITMAPFILEBASE::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -348,9 +309,6 @@ GRPBITMAPFILE::GRPBITMAPFILE()
 * @fn         GRPBITMAPFILE::GRPBITMAPFILE(XCHAR* xpath)
 * @brief      Constructor
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XCHAR* : initial path to file
 *
@@ -371,9 +329,6 @@ GRPBITMAPFILE::GRPBITMAPFILE(XCHAR* xpath)
 * @fn         GRPBITMAPFILE::GRPBITMAPFILE(XPATH& xpath)
 * @brief      Constructor
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XPATH& : initial path to file
 *
@@ -396,9 +351,6 @@ GRPBITMAPFILE::GRPBITMAPFILE(XPATH& xpath)
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -415,9 +367,6 @@ GRPBITMAPFILE::~GRPBITMAPFILE()
 * @brief      Get Path of file
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* : Path of file
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -433,9 +382,6 @@ XCHAR* GRPBITMAPFILE::GetPath()
 * @fn         void GRPBITMAPFILE::SetPath(XPATH& xpath)
 * @brief      Set Path of file
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath : Path of file
 *
@@ -455,9 +401,6 @@ void GRPBITMAPFILE::SetPath(XPATH& xpath)
 * @brief      SetPath
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath : Path of file
 *
 * @return     void : does not return anything.
@@ -475,9 +418,6 @@ void GRPBITMAPFILE::SetPath(XCHAR* xpath)
 * @fn         GRPBITMAP* GRPBITMAPFILE::Load(XCHAR* xpath, GRPPROPERTYMODE forcemode)
 * @brief      Load
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  forcemode :
@@ -524,9 +464,6 @@ GRPBITMAP* GRPBITMAPFILE::Load(XCHAR* xpath, GRPPROPERTYMODE forcemode)
 * @brief      Load
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 * @param[in]  forcemode :
 *
@@ -545,9 +482,6 @@ GRPBITMAP* GRPBITMAPFILE::Load(XPATH& xpath, GRPPROPERTYMODE forcemode)
 * @fn         GRPBITMAP* GRPBITMAPFILE::Load(GRPPROPERTYMODE forcemode)
 * @brief      Load
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  forcemode :
 *
@@ -568,9 +502,6 @@ GRPBITMAP* GRPBITMAPFILE::Load(GRPPROPERTYMODE forcemode)
 * @fn         bool GRPBITMAPFILE::Save(XCHAR* xpath, GRPBITMAP* bitmap, int quality)
 * @brief      Save
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  bitmap :
@@ -616,9 +547,6 @@ bool GRPBITMAPFILE::Save(XCHAR* xpath, GRPBITMAP* bitmap, int quality)
 * @brief      Save
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 * @param[in]  bitmap :
 * @param[in]  quality :
@@ -638,9 +566,6 @@ bool GRPBITMAPFILE::Save(XPATH& xpath, GRPBITMAP* bitmap, int quality)
 * @fn         bool GRPBITMAPFILE::Save(GRPBITMAP* bitmap, int quality)
 * @brief      Save
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  bitmap :
 * @param[in]  quality :
@@ -662,9 +587,6 @@ bool GRPBITMAPFILE::Save(GRPBITMAP* bitmap, int quality)
 * @fn         GRPBITMAPSEQUENCE* GRPBITMAPFILE::LoadSequence(XCHAR* namemask, int inisequence, int endsequence)
 * @brief      Load Sequence of bitmap
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  namemask : string to mask
 * @param[in]  inisequence : first ini of the sequence
@@ -724,9 +646,6 @@ GRPBITMAPSEQUENCE* GRPBITMAPFILE::LoadSequence(XCHAR* namemask, int inisequence,
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

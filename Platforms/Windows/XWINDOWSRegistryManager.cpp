@@ -6,10 +6,7 @@
 * @brief      eXtended WINDOWS Registry Manager class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,9 +56,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ XWINDOWSREGISTRYKEY::XWINDOWSREGISTRYKEY()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -98,9 +89,6 @@ XWINDOWSREGISTRYKEY::~XWINDOWSREGISTRYKEY()
 * @brief      GetHandleKey
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     HKEY :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -116,9 +104,6 @@ HKEY XWINDOWSREGISTRYKEY::GetHandle()
 * @fn         void XWINDOWSREGISTRYKEY::SetHandle(HKEY handlekey)
 * @brief      SetHandle
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  handlekey :
 *
@@ -138,9 +123,6 @@ void XWINDOWSREGISTRYKEY::SetHandle(HKEY handlekey)
 * @brief      GetType
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -156,9 +138,6 @@ XDWORD XWINDOWSREGISTRYKEY::GetType()
 * @fn         void XWINDOWSREGISTRYKEY::SetType(XDWORD type)
 * @brief      SetType
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 *
@@ -177,9 +156,6 @@ void XWINDOWSREGISTRYKEY::SetType(XDWORD type)
 * @fn         bool XWINDOWSREGISTRYKEY::ReadValue(XCHAR* name, XVARIANT& data)
 * @brief      ReadValue
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  data :
@@ -275,9 +251,6 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XCHAR* name, XVARIANT& data)
 * @brief      ReadValue
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  data :
 *
@@ -296,9 +269,6 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XSTRING& name, XVARIANT& data)
 * @fn         bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XDWORD type, XVARIANT& data)
 * @brief      WriteValue
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  type :
@@ -326,9 +296,6 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XDWORD type, XVARIANT& data)
 * @fn         bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
 * @brief      WriteValue
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  data :
@@ -392,9 +359,6 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
 * @brief      WriteValue
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 * @param[in]  data :
 *
@@ -413,9 +377,6 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XVARIANT& data)
 * @fn         bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XDWORD type, XVARIANT& data);
 * @brief      WriteValue
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  name :
 * @param[in]  type :
@@ -436,9 +397,6 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XDWORD type, XVARIANT& data)
 * @fn         bool XWINDOWSREGISTRYKEY::EnumValues(XVECTOR<XSTRING*>* valuelist)
 * @brief      EnumValues
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  valuelist :
 *
@@ -485,9 +443,6 @@ bool XWINDOWSREGISTRYKEY::EnumValues(XVECTOR<XSTRING*>* valuelist)
 * @brief      DeleteValue
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     bool : true if is succesful.
@@ -511,9 +466,6 @@ bool XWINDOWSREGISTRYKEY::DeleteValue(XCHAR* name)
 * @brief      DeleteValue
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  name :
 *
 * @return     bool : true if is succesful.
@@ -532,9 +484,6 @@ bool XWINDOWSREGISTRYKEY::DeleteValue(XSTRING& name)
 * @brief      Clear
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -552,9 +501,6 @@ void XWINDOWSREGISTRYKEY::Clear()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -581,9 +527,6 @@ void XWINDOWSREGISTRYKEY::Clean()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -601,9 +544,6 @@ XWINDOWSREGISTRYMANAGER::XWINDOWSREGISTRYMANAGER()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -619,9 +559,6 @@ XWINDOWSREGISTRYMANAGER::~XWINDOWSREGISTRYMANAGER()
 * @fn         bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XCHAR* subkeystring , XWINDOWSREGISTRYKEY& registrykey)
 * @brief      CreateKey
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  handlekey :
 * @param[in]  subkeystring :
@@ -707,9 +644,6 @@ bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XCHAR* subkeystring, XWI
 * @brief      CreateKey
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  handlekey :
 * @param[in]  subkeystring :
 * @param[in]  registrykey :
@@ -729,9 +663,6 @@ bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XSTRING& subkeystring, X
 * @fn         bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XCHAR* subkeystring, XWINDOWSREGISTRYKEY& registrykey)
 * @brief      OpenKey
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  handlekey :
 * @param[in]  subkeystring :
@@ -763,9 +694,6 @@ bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XCHAR* subkeystring, XWIND
 * @brief      OpenKey
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  handlekey :
 * @param[in]  subkeystring :
 * @param[in]  registrykey :
@@ -785,9 +713,6 @@ bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XSTRING& subkeystring, XWI
 * @fn         bool XWINDOWSREGISTRYMANAGER::EnumKeys(HKEY handlekey, XSTRING& subkeystring, XVECTOR<XSTRING*> keylist)
 * @brief      EnumKeys
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  handlekey :
 * @param[in]  subkeystring :
@@ -839,9 +764,6 @@ bool XWINDOWSREGISTRYMANAGER::EnumKeys(XWINDOWSREGISTRYKEY& registrykey, XVECTOR
 * @brief      CloseKey
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  registyrkey :
 *
 * @return     bool : true if is succesful.
@@ -865,9 +787,6 @@ bool XWINDOWSREGISTRYMANAGER::CloseKey(XWINDOWSREGISTRYKEY& registrykey)
 * @fn         bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XCHAR* subkeystring)
 * @brief      DeleteKey
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  handlekey :
 * @param[in]  subkeystring :
@@ -937,9 +856,6 @@ bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XCHAR* subkeystring)
 * @brief      DeleteKey
 * @ingroup    PLATFORM_WINDOWS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  handlekey :
 * @param[in]  subkeystring :
 *
@@ -959,9 +875,6 @@ bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XSTRING& subkeystring)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

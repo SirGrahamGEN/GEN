@@ -6,10 +6,7 @@
 * @brief      Data Input/Output URL class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,9 +53,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -76,9 +70,6 @@ DIOURL::DIOURL(): XSTRING()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -94,9 +85,6 @@ DIOURL::~DIOURL()
 * @fn         DIOURL::DIOURL(XDWORD size)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XDWORD :
 *
@@ -116,9 +104,6 @@ DIOURL::DIOURL(XDWORD size) : XSTRING(size)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  const :
 *
 * @return     Does not return anything.
@@ -137,9 +122,6 @@ DIOURL::DIOURL(const char* url) : XSTRING(url)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  const :
 *
 * @return     Does not return anything.
@@ -157,9 +139,6 @@ DIOURL::DIOURL(const XCHAR* url) : XSTRING(url)
 * @fn         DIOURL::DIOURL(const XCHAR* url,XDWORD size)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  const :
 * @param[in]  XDWORD :
@@ -180,9 +159,6 @@ DIOURL::DIOURL(const XCHAR* url,XDWORD size) : XSTRING(url, size)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  DIOURL& :
 *
 * @return     Does not return anything.
@@ -200,9 +176,6 @@ DIOURL::DIOURL(DIOURL& url) : XSTRING(url)
 * @fn         DIOURL::DIOURL(XSTRING& url)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  XSTRING& :
 *
@@ -222,9 +195,6 @@ DIOURL::DIOURL(XSTRING& url) : XSTRING(url)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XWORD* :
 *
 * @return     Does not return anything.
@@ -242,9 +212,6 @@ DIOURL::DIOURL(XWORD* url) : XSTRING(url)
 * @fn         bool DIOURL::GetHTTPServer(XSTRING& server, XSTRING& login, XSTRING& password)
 * @brief      GetHTTPServer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  server :
 * @param[in]  login :
@@ -301,9 +268,6 @@ bool DIOURL::GetHTTPServer(XSTRING& server, XSTRING& login, XSTRING& password)
 * @brief      GetHTTPResource
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  resource :
 *
 * @return     bool : true if is succesful.
@@ -343,9 +307,6 @@ bool DIOURL::GetHTTPResource(XSTRING& resource)
 * @brief      IsAURLResolved
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -372,9 +333,6 @@ bool DIOURL::IsAURLResolved()
 * @brief      ResolveURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -396,9 +354,6 @@ bool DIOURL::ResolveURL()
 * @fn         bool DIOURL::ResolveURL(XSTRING& IPstring)
 * @brief      ResolveURL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  IPstring :
 *
@@ -426,9 +381,6 @@ bool DIOURL::ResolveURL(XSTRING& IPstring)
 * @brief      ResolveURL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  IP :
 *
 * @return     bool : true if is succesful.
@@ -455,9 +407,6 @@ bool DIOURL::ResolveURL(DIOIP& IP)
 * @brief      IsLocalAddress
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -481,9 +430,6 @@ bool DIOURL::IsLocalAddress()
 * @fn         bool DIOURL::Slash_Add()
 * @brief      Slash_Add
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -525,9 +471,6 @@ bool DIOURL::Slash_Add()
 * @brief      Slash_Normalize
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -555,9 +498,6 @@ bool DIOURL::Slash_Normalize()
 * @brief      Slash_Delete
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -583,9 +523,6 @@ bool DIOURL::Slash_Delete()
 * @fn         bool DIOURL::IsUnsafeChar(XCHAR character)
 * @brief      IsUnsafeChar
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  character :
 *
@@ -613,9 +550,6 @@ bool DIOURL::IsUnsafeChar(XCHAR character)
 * @brief      EncodeUnsafeChar
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  character :
 * @param[in]  encodechar :
 *
@@ -642,9 +576,6 @@ bool DIOURL::EncodeUnsafeChar(XCHAR character, XSTRING& encodechar)
 * @fn         bool DIOURL::EncodeUnsafeCharsFromString(XSTRING& string)
 * @brief      EncodeUnsafeCharsFromString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -698,9 +629,6 @@ bool DIOURL::EncodeUnsafeCharsFromString(XSTRING& string)
 * @brief      EncodeUnsafeCharsFromString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  char* string :
 *
 * @return     bool : true if is succesful.
@@ -721,9 +649,6 @@ bool DIOURL::EncodeUnsafeCharsFromString(const char* string)
 * @brief      EncodeUnsafeCharsFromString
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XCHAR* string :
 *
 * @return     bool : true if is succesful.
@@ -743,9 +668,6 @@ bool DIOURL::EncodeUnsafeCharsFromString(const XCHAR* string)
 * @fn         bool DIOURL::EncodeUnsafeCharsFromBuffer(XBUFFER& xbuffer)
 * @brief      EncodeUnsafeCharsFromBuffer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xbuffer :
 *
@@ -799,9 +721,6 @@ bool DIOURL::EncodeUnsafeCharsFromBuffer(XBUFFER& xbuffer)
 * @brief      EncodeUnsafeChars
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -824,9 +743,6 @@ bool DIOURL::EncodeUnsafeChars()
 * @fn         bool DIOURL::DecodeUnsafeCharsToString(XSTRING& string)
 * @brief      DecodeUnsafeCharsToString
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  string :
 *
@@ -888,9 +804,6 @@ bool DIOURL::DecodeUnsafeCharsToString(XSTRING& string)
 * @brief      DecodeUnsafeChars
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -915,9 +828,6 @@ bool DIOURL::DecodeUnsafeChars()
 * @brief      Normalize
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -940,9 +850,6 @@ bool DIOURL::Normalize()
 * @brief      HaveHTTPID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -961,9 +868,6 @@ bool DIOURL::HaveHTTPID()
 * @fn         bool DIOURL::AddHTTPID()
 * @brief      AddHTTPID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -991,9 +895,6 @@ bool DIOURL::AddHTTPID()
 * @fn         bool DIOURL::DeleteHTTPID()
 * @brief      DeleteHTTPID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -1034,9 +935,6 @@ bool DIOURL::DeleteHTTPID()
 * @brief      GetExtension
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  extension :
 *
 * @return     bool : true if is succesful.
@@ -1074,10 +972,7 @@ bool DIOURL::GetExtension(XSTRING& extension)
 * @fn         bool DIOURL::GetFileName(XSTRING& filename)
 * @brief      GetFileName
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  filename : 
 * 
 * @return     bool : true if is succesful. 
@@ -1111,9 +1006,6 @@ bool DIOURL::GetFileName(XSTRING& filename)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

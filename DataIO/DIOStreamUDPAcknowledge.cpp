@@ -47,7 +47,7 @@
 //
 //  Class Constructor DIOSTREAMUDPACKNOWLEDGE
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/11/2014 16:20:05
 //
 
@@ -79,7 +79,7 @@ DIOSTREAMUDPACKNOWLEDGE::DIOSTREAMUDPACKNOWLEDGE(DIOSTREAMUDPCONFIG* config) : D
 //
 //   Class Destructor DIOSTREAMUDPACKNOWLEDGE
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      24/11/2014 13:34:46
 //
 */
@@ -103,7 +103,7 @@ DIOSTREAMUDPACKNOWLEDGE::~DIOSTREAMUDPACKNOWLEDGE()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/03/2015 12:23:23
 //
 //  @return       bool :
@@ -143,7 +143,7 @@ bool DIOSTREAMUDPACKNOWLEDGE::Open()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/03/2015 12:23:19
 //
 //  @return       bool :
@@ -180,7 +180,7 @@ bool DIOSTREAMUDPACKNOWLEDGE::Disconnect()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/03/2015 12:25:41
 //
 //  @return       bool :
@@ -218,7 +218,7 @@ bool DIOSTREAMUDPACKNOWLEDGE::Close()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/02/2015 12:31:00
 //
 //  @return       XDWORD :
@@ -298,7 +298,7 @@ XDWORD DIOSTREAMUDPACKNOWLEDGE::Write(XBYTE* buffer, XDWORD size)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/03/2015 13:27:19
 //
 //  @return       bool :
@@ -338,7 +338,7 @@ bool DIOSTREAMUDPACKNOWLEDGE::WriteDatagram(XSTRING& address, XWORD port, XBYTE*
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/03/2015 13:27:14
 //
 //  @return       bool :
@@ -364,7 +364,7 @@ bool DIOSTREAMUDPACKNOWLEDGE::WriteDatagram(XSTRING& address, XWORD port, XBUFFE
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/02/2015 8:34:17
 //
 //  @param        param :

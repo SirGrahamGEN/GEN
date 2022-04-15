@@ -6,7 +6,7 @@
 //
 //  Android JNI Interface
 //
-//  @author  Imanol Celaya Ruiz de Alegria
+//  ""
 //
 //  Date Of Creation  : 27/04/2016 16:03:52
 //  Last Modification :

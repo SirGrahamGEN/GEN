@@ -50,7 +50,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:01
 //
 //  @return
@@ -71,7 +71,7 @@ DIOANDROIDSTREAMIPLOCALENUMDEVICES::DIOANDROIDSTREAMIPLOCALENUMDEVICES() : DIOST
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:12
 //
 //  @return
@@ -90,7 +90,7 @@ DIOANDROIDSTREAMIPLOCALENUMDEVICES::~DIOANDROIDSTREAMIPLOCALENUMDEVICES()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/04/2013 19:00:27
 //
 //  @return       bool :

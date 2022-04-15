@@ -6,10 +6,7 @@
 * @brief      Data Input/Output Generic Binary Protocol class
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -83,9 +80,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  XDWORD :
 * @param[in]   XDWORD ID :
 * @param[in]   XBUFFER& xbuffer :
@@ -113,9 +107,6 @@ DIOPROTOCOL_ANSWER::DIOPROTOCOL_ANSWER(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -131,9 +122,6 @@ DIOPROTOCOL_ANSWER::DIOPROTOCOL_ANSWER::~DIOPROTOCOL_ANSWER()
 * @fn         XDWORD DIOPROTOCOL_ANSWER::GetType()
 * @brief      GetType
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -151,9 +139,6 @@ XDWORD DIOPROTOCOL_ANSWER::GetType()
 * @brief      GetID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -169,9 +154,6 @@ XDWORD DIOPROTOCOL_ANSWER::GetID()
 * @fn         XBUFFER& DIOPROTOCOL_ANSWER::GetBuffer()
 * @brief      GetBuffer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XBUFFER& :
 *
@@ -189,9 +171,6 @@ XBUFFER& DIOPROTOCOL_ANSWER::GetBuffer()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -218,9 +197,6 @@ void DIOPROTOCOL_ANSWER::Clean()
 * @fn         DIOPROTOCOL_COMMAND::DIOPROTOCOL_COMMAND(XDWORD type, XCHAR* inmask, XCHAR* outmask, DIOPROTOCOL_RECEIVEDFUNC receivedfunc, XCHAR* description)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  inmask :
@@ -252,8 +228,8 @@ DIOPROTOCOL_COMMAND::DIOPROTOCOL_COMMAND(XDWORD type, XCHAR* inmask, XCHAR* outm
 *  @note       VIRTUAL
 *  @ingroup    DATAIO
 *
-*  @author     Abraham J. Velez
-*  @date       01/03/2016 12:00
+*  ""
+*  ""
 *
 *  @return     Does not return anything.
 *
@@ -271,9 +247,6 @@ DIOPROTOCOL_COMMAND::~DIOPROTOCOL_COMMAND()
 * @brief      GetType
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -289,9 +262,6 @@ XDWORD DIOPROTOCOL_COMMAND::GetType()
 * @fn         XCHAR* DIOPROTOCOL_COMMAND::GetINMask()
 * @brief      GetINMask
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XCHAR* :
 *
@@ -309,9 +279,6 @@ XCHAR* DIOPROTOCOL_COMMAND::GetINMask()
 * @brief      GetOUTMask
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -327,9 +294,6 @@ XCHAR* DIOPROTOCOL_COMMAND::GetOUTMask()
 * @fn         DIOPROTOCOL_RECEIVEDFUNC DIOPROTOCOL_COMMAND::GetReceivedFunc()
 * @brief      GetReceivedFunc
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     DIOPROTOCOL_RECEIVEDFUNC :
 *
@@ -347,9 +311,6 @@ DIOPROTOCOL_RECEIVEDFUNC DIOPROTOCOL_COMMAND::GetReceivedFunc()
 * @brief      GetDescription
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -365,9 +326,6 @@ XCHAR* DIOPROTOCOL_COMMAND::GetDescription()
 * @brief      GetSINMask
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -382,9 +340,6 @@ XSTRING* DIOPROTOCOL_COMMAND::GetSINMask()
 * @fn         XSTRING* DIOPROTOCOL_COMMAND::GetSOUTMask()
 * @brief      GetSOUTMask
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XSTRING* :
 *
@@ -402,9 +357,6 @@ XSTRING* DIOPROTOCOL_COMMAND::GetSOUTMask()
 * @brief      GetSDescription
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -421,9 +373,6 @@ XSTRING* DIOPROTOCOL_COMMAND::GetSDescription()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -455,9 +404,6 @@ void DIOPROTOCOL_COMMAND::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -477,9 +423,6 @@ DIOPROTOCOL_FILE::DIOPROTOCOL_FILE()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -498,9 +441,6 @@ DIOPROTOCOL_FILE::~DIOPROTOCOL_FILE()
 * @brief      IsActive
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -516,9 +456,6 @@ bool DIOPROTOCOL_FILE::IsActive()
 * @fn         void DIOPROTOCOL_FILE::SetActive(bool isactive)
 * @brief      SetActive
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isactive :
 *
@@ -538,9 +475,6 @@ void DIOPROTOCOL_FILE::SetActive(bool isactive)
 * @brief      GetDirection
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOPROTOCOL_DIRECTION :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -556,9 +490,6 @@ DIOPROTOCOL_DIRECTION DIOPROTOCOL_FILE::GetDirection()
 * @fn         void DIOPROTOCOL_FILE::SetDirection(DIOPROTOCOL_DIRECTION direction)
 * @brief      SetDirection
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  direction :
 *
@@ -578,9 +509,6 @@ void DIOPROTOCOL_FILE::SetDirection(DIOPROTOCOL_DIRECTION direction)
 * @brief      GetSourceName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -596,9 +524,6 @@ XPATH* DIOPROTOCOL_FILE::GetSourceName()
 * @fn         bool DIOPROTOCOL_FILE::SetSourceName(XCHAR* sourcename)
 * @brief      SetSourceName
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sourcename :
 *
@@ -620,9 +545,6 @@ bool DIOPROTOCOL_FILE::SetSourceName(XCHAR* sourcename)
 * @brief      SetSourceName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  sourcename :
 *
 * @return     bool : true if is succesful.
@@ -641,9 +563,6 @@ bool DIOPROTOCOL_FILE::SetSourceName(XSTRING& sourcename)
 * @brief      GetTargetName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XPATH* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -659,9 +578,6 @@ XPATH* DIOPROTOCOL_FILE::GetTargetName()
 * @fn         bool DIOPROTOCOL_FILE::SetTargetName(XCHAR* targetname)
 * @brief      SetTargetName
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  targetname :
 *
@@ -683,9 +599,6 @@ bool DIOPROTOCOL_FILE::SetTargetName(XCHAR* targetname)
 * @brief      SetTargetName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  targetname :
 *
 * @return     bool : true if is succesful.
@@ -704,9 +617,6 @@ bool DIOPROTOCOL_FILE::SetTargetName(XSTRING& targetname)
 * @brief      GetSize
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -722,9 +632,6 @@ XQWORD DIOPROTOCOL_FILE::GetSize()
 * @fn         void DIOPROTOCOL_FILE::SetSize(XDWORD size)
 * @brief      SetSize
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  size :
 *
@@ -744,9 +651,6 @@ void DIOPROTOCOL_FILE::SetSize(XQWORD size)
 * @brief      GetCRC32
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -762,9 +666,6 @@ XDWORD DIOPROTOCOL_FILE::GetCRC32()
 * @fn         void DIOPROTOCOL_FILE::SetCRC32(XDWORD crc32)
 * @brief      SetCRC32
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  crc32 :
 *
@@ -784,9 +685,6 @@ void DIOPROTOCOL_FILE::SetCRC32(XDWORD crc32)
 * @brief      GetSizeBlock
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -802,9 +700,6 @@ int DIOPROTOCOL_FILE::GetSizeBlock()
 * @fn         void DIOPROTOCOL_FILE::SetSizeBlock(XDWORD sizeblock)
 * @brief      SetSizeBlock
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sizeblock :
 *
@@ -824,9 +719,6 @@ void DIOPROTOCOL_FILE::SetSizeBlock(XDWORD sizeblock)
 * @brief      GetPosition
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -842,9 +734,6 @@ XQWORD DIOPROTOCOL_FILE::GetPosition()
 * @fn         void DIOPROTOCOL_FILE::SetPosition(int position)
 * @brief      SetPosition
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  position :
 *
@@ -864,9 +753,6 @@ void DIOPROTOCOL_FILE::SetPosition(XQWORD position)
 * @brief      GetPercent
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XBYTE :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -882,9 +768,6 @@ XBYTE DIOPROTOCOL_FILE::GetPercent()
 * @fn         void DIOPROTOCOL_FILE::SetPercent(XBYTE percent)
 * @brief      SetPercent
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  percent :
 *
@@ -903,9 +786,6 @@ void DIOPROTOCOL_FILE::SetPercent(XBYTE percent)
 * @fn         bool DIOPROTOCOL_FILE::ReadBlock(XBYTE* buffer)
 * @brief      ReadBlock
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buffer :
 *
@@ -948,7 +828,7 @@ bool DIOPROTOCOL_FILE::ReadBlock(XBYTE* buffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      18/01/2008 17:52:23
 //
 //  @return       bool :
@@ -1001,7 +881,7 @@ bool DIOPROTOCOL_FILE::WriteBlock(XBYTE* buffer)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      19/01/2008 10:45:17
 //
 //  @return       void :
@@ -1025,9 +905,6 @@ bool DIOPROTOCOL_FILE::Erase()
 * @brief      Reset
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1049,9 +926,6 @@ void DIOPROTOCOL_FILE::Reset()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -1084,9 +958,6 @@ void DIOPROTOCOL_FILE::Clean()
 * @fn         DIOPROTOCOL::DIOPROTOCOL(DIOSTREAM* diostream)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  diostream :
 *
@@ -1174,9 +1045,6 @@ DIOPROTOCOL::DIOPROTOCOL(DIOSTREAM* diostream)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1233,8 +1101,8 @@ DIOPROTOCOL::~DIOPROTOCOL()
  *  @brief      GetDescription
  *  @ingroup    DATAIO
  *
- *  @author     Abraham J. Velez
- *  @date       01/03/2016 12:00
+ *  ""
+ *  ""
  *
  *  @return     XSTRING* :
  *
@@ -1252,7 +1120,7 @@ XSTRING* DIOPROTOCOL::GetDescription()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      28/01/2008 10:01:11
 //
 //  @return       bool :
@@ -1278,7 +1146,7 @@ bool DIOPROTOCOL::Connect()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      16/04/2006 12:53:44
 //
 //  @return       bool :
@@ -1301,7 +1169,7 @@ bool DIOPROTOCOL::Disconnect()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/02/2008 11:01:45
 //
 //  @return       bool :
@@ -1323,7 +1191,7 @@ bool DIOPROTOCOL::Reset()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/01/2008 19:49:37
 //
 //  @return       bool :
@@ -1345,7 +1213,7 @@ bool DIOPROTOCOL::IsConnected()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/01/2008 10:20:50
 //
 //  @return       bool :
@@ -1367,7 +1235,7 @@ bool DIOPROTOCOL::IsConnecting()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      15/02/2008 10:52:21
 //
 //  @return       bool :
@@ -1414,9 +1282,6 @@ bool DIOPROTOCOL::IsOperational()
 * @brief      GetMaskID
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1432,9 +1297,6 @@ XDWORD DIOPROTOCOL::GetMaskID()
 * @fn         bool DIOPROTOCOL::SetMaskID(XDWORD maskID)
 * @brief      SetMaskID
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  maskID :
 *
@@ -1455,9 +1317,6 @@ bool DIOPROTOCOL::SetMaskID(XDWORD maskID)
 * @brief      GetConnectionsManager
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1473,9 +1332,6 @@ void* DIOPROTOCOL::GetConnectionsManager()
 * @fn         void DIOPROTOCOL::SetConnectionsManager(void* connectionsmanager)
 * @brief      SetConnectionsManager
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  connectionsmanager :
 *
@@ -1495,9 +1351,6 @@ void DIOPROTOCOL::SetConnectionsManager(void* connectionsmanager)
 * @brief      GetConnection
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1513,9 +1366,6 @@ void* DIOPROTOCOL::GetConnection()
 * @fn         void DIOPROTOCOL::SetConnection(void* connection)
 * @brief      SetConnection
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  connection :
 *
@@ -1535,9 +1385,6 @@ void DIOPROTOCOL::SetConnection(void* connection)
 * @brief      GetApplicationData
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1553,9 +1400,6 @@ void* DIOPROTOCOL::GetApplicationData()
 * @fn         void DIOPROTOCOL::SetApplicationData(void* applicationdata)
 * @brief      SetApplicationData
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationdata :
 *
@@ -1575,9 +1419,6 @@ void DIOPROTOCOL::SetApplicationData(void* applicationdata)
 * @brief      IsOwnApplicationData
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1593,9 +1434,6 @@ bool DIOPROTOCOL::IsOwnApplicationData()
 * @fn         void DIOPROTOCOL::SetIsOwnApplicationData(bool isownapplicationdata)
 * @brief      SetIsOwnApplicationData
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isownapplicationdata :
 *
@@ -1615,9 +1453,6 @@ void DIOPROTOCOL::SetIsOwnApplicationData(bool isownapplicationdata)
 * @brief      GetDIOStream
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOSTREAM* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1634,9 +1469,6 @@ DIOSTREAM* DIOPROTOCOL::GetDIOStream()
 * @brief      GetDateTime
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDATETIME* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1652,9 +1484,6 @@ XDATETIME* DIOPROTOCOL::GetDateTime()
 * @fn         bool DIOPROTOCOL::AddCommand(XDWORD type,XCHAR* inmask,XCHAR* outmask,DIOPROTOCOL_RECEIVEDFUNC receivedfunc,XCHAR* description)
 * @brief      AddCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  inmask :
@@ -1683,9 +1512,6 @@ bool DIOPROTOCOL::AddCommand(XDWORD type, XCHAR* inmask, XCHAR* outmask, DIOPROT
 * @brief      GetCommand
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 *
 * @return     DIOPROTOCOL_COMMAND* :
@@ -1713,9 +1539,6 @@ DIOPROTOCOL_COMMAND* DIOPROTOCOL::GetCommand(XDWORD type)
 * @brief      AddAnswer
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 * @param[in]  ID :
 * @param[in]  xbuffer :
@@ -1742,9 +1565,6 @@ DIOPROTOCOL_ANSWER* DIOPROTOCOL::AddAnswer(XDWORD type, XDWORD ID, XBUFFER& xbuf
 * @fn         DIOPROTOCOL_ANSWER* DIOPROTOCOL::GetAnswer(XDWORD type, XDWORD ID)
 * @brief      GetAnswer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  ID :
@@ -1779,9 +1599,6 @@ DIOPROTOCOL_ANSWER* DIOPROTOCOL::GetAnswer(XDWORD type, XDWORD ID)
 * @fn         bool DIOPROTOCOL::DeleteAnswer(XDWORD type, XDWORD ID)
 * @brief      DeleteAnswer
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  ID :
@@ -1821,9 +1638,6 @@ bool DIOPROTOCOL::DeleteAnswer(XDWORD type, XDWORD ID)
 * @brief      DeleteAllAnswers
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1854,9 +1668,6 @@ bool DIOPROTOCOL::DeleteAllAnswers()
 * @brief      AddAsk
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 * @param[in]  ID :
 * @param[in]  xbuffer :
@@ -1884,9 +1695,6 @@ DIOPROTOCOL_ANSWER* DIOPROTOCOL::AddAsk(XDWORD type, XDWORD ID, XBUFFER& xbuffer
 * @brief      GetAsk
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     DIOPROTOCOL_ANSWER* :
@@ -1910,9 +1718,6 @@ DIOPROTOCOL_ANSWER* DIOPROTOCOL::GetAsk(XDWORD index)
 * @fn         bool DIOPROTOCOL::DeleteAsk(XDWORD index)
 * @brief      DeleteAsk
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -1943,9 +1748,6 @@ bool DIOPROTOCOL::DeleteAsk(XDWORD index)
 * @brief      DeleteAllAsks
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1975,9 +1777,6 @@ bool DIOPROTOCOL::DeleteAllAsks()
 * @fn         int DIOPROTOCOL::ReadCommand(XDWORD& type, XDWORD& ID, XBUFFER& xbuffer)
 * @brief      ReadCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  ID :
@@ -2069,9 +1868,6 @@ int DIOPROTOCOL::ReadCommand(XDWORD& type, XDWORD& ID, XBUFFER& xbuffer)
 * @brief      Received
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOPROTOCOL_RESULT :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2132,9 +1928,6 @@ DIOPROTOCOL_RESULT DIOPROTOCOL::Received()
 * @brief      ReceivedHandle
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 * @param[in]  ID :
 * @param[in]  xbuffer :
@@ -2187,9 +1980,6 @@ DIOPROTOCOL_RESULT DIOPROTOCOL::ReceivedHandle(XDWORD type, XDWORD ID, XBUFFER& 
 * @fn         bool DIOPROTOCOL::SendCommand(XDWORD type, XDWORD& ID, XBUFFER& xbuffer)
 * @brief      SendCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  ID :
@@ -2274,9 +2064,6 @@ bool DIOPROTOCOL::SendCommand(XDWORD type, XDWORD& ID, XBUFFER& xbuffer)
 * @fn         bool DIOPROTOCOL::Command(XDWORD type, XBUFFER& xbuffer, int timeout)
 * @brief      Command
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  type :
 * @param[in]  xbuffer :
@@ -2378,9 +2165,6 @@ bool DIOPROTOCOL::Command(XDWORD type, XBUFFER& xbuffer, int timeout)
 * @brief      SendEvent
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  type :
 * @param[in]  protocol :
 *
@@ -2404,9 +2188,6 @@ bool DIOPROTOCOL::SendEvent(DIOPROTOCOL_XEVENT_TYPE type, DIOPROTOCOL* protocol)
 * @fn         bool DIOPROTOCOL::SendEventCommand(DIOPROTOCOL* protocol, DIOPROTOCOL_DIRECTION direction, XDWORD type, bool result, void* param1, XDWORD param2)
 * @brief      SendEventCommand
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  protocol :
 * @param[in]  direction :
@@ -2443,9 +2224,6 @@ bool DIOPROTOCOL::SendEventCommand(DIOPROTOCOL* protocol, DIOPROTOCOL_DIRECTION 
 * @brief      SendEventFileBlock
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  filestatus :
 * @param[in]  fileissend :
 * @param[in]  filesource :
@@ -2481,9 +2259,6 @@ bool DIOPROTOCOL::SendEventFileBlock(DIOPROTOCOL_FILESTATUS filestatus, bool fil
 * @brief      GetProtocolVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  version :
 * @param[in]  subversion :
 * @param[in]  subversionerr :
@@ -2505,9 +2280,6 @@ void DIOPROTOCOL::GetProtocolVersion(XDWORD& version, XDWORD& subversion, XDWORD
 * @fn         void DIOPROTOCOL::SetProtocolVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
 * @brief      SetProtocolVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  version :
 * @param[in]  subversion :
@@ -2531,9 +2303,6 @@ void DIOPROTOCOL::SetProtocolVersion(XDWORD version, XDWORD subversion, XDWORD s
 * @brief      GetApplicationVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  version :
 * @param[in]  subversion :
 * @param[in]  subversionerr :
@@ -2555,9 +2324,6 @@ void DIOPROTOCOL::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDW
 * @fn         void DIOPROTOCOL::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
 * @brief      SetApplicationVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  version :
 * @param[in]  subversion :
@@ -2581,9 +2347,6 @@ void DIOPROTOCOL::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWOR
 * @brief      GetApplicationName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2599,9 +2362,6 @@ XSTRING* DIOPROTOCOL::GetApplicationName()
 * @fn         bool DIOPROTOCOL::SetFileProgress(DIOPROTOCOL_DIRECTION direction, XPATH& sourcename, XPATH& targetname, XDWORD CRC32)
 * @brief      SetFileProgress
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  direction :
 * @param[in]  sourcename :
@@ -2642,9 +2402,6 @@ bool DIOPROTOCOL::SetFileProgress(DIOPROTOCOL_DIRECTION direction, XPATH& source
 * @brief      GetFileProgress
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     DIOPROTOCOL_FILE* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2660,9 +2417,6 @@ DIOPROTOCOL_FILE* DIOPROTOCOL::GetFileProgress()
 * @fn         XPATH* DIOPROTOCOL::GetPathSearch()
 * @brief      GetPathSearch
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XPATH* :
 *
@@ -2680,9 +2434,6 @@ XPATH* DIOPROTOCOL::GetPathSearch()
 * @brief      GetSearchElement
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDIRELEMENT* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2699,9 +2450,6 @@ XDIRELEMENT* DIOPROTOCOL::GetSearchElement()
 * @brief      GetXDir
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XDIR* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -2717,9 +2465,6 @@ XDIR* DIOPROTOCOL::GetXDir()
 * @fn         bool DIOPROTOCOL::CMD_GetProtocolVersion(XWORD& version, XWORD& subversion, XWORD& subversionerr)
 * @brief      CMD_GetProtocolVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  version :
 * @param[in]  subversion :
@@ -2758,9 +2503,6 @@ bool DIOPROTOCOL::CMD_GetProtocolVersion(XWORD& version, XWORD& subversion, XWOR
 * @brief      RCV_GetProtocolVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  protocol :
 * @param[in]  cmd :
 * @param[in]  xbuffer :
@@ -2784,9 +2526,6 @@ int DIOPROTOCOL::RCV_GetProtocolVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMA
 * @fn         bool DIOPROTOCOL::CMD_GetApplicationVersion(XWORD& version, XWORD& subversion, XWORD& subversionerr)
 * @brief      CMD_GetApplicationVersion
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  version :
 * @param[in]  subversion :
@@ -2825,9 +2564,6 @@ bool DIOPROTOCOL::CMD_GetApplicationVersion(XWORD& version, XWORD& subversion, X
 * @brief      RCV_GetApplicationVersion
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  protocol :
 * @param[in]  cmd :
 * @param[in]  xbuffer :
@@ -2851,9 +2587,6 @@ int DIOPROTOCOL::RCV_GetApplicationVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_CO
 * @fn         bool DIOPROTOCOL::CMD_GetApplicationName(XSTRING& applicationname)
 * @brief      CMD_GetApplicationName
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  applicationname :
 *
@@ -2887,9 +2620,6 @@ bool DIOPROTOCOL::CMD_GetApplicationName(XSTRING& applicationname)
 * @brief      RCV_GetApplicationName
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  protocol :
 * @param[in]  cmd :
 * @param[in]  xbuffer :
@@ -2912,9 +2642,6 @@ int DIOPROTOCOL::RCV_GetApplicationName(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMA
 * @fn         bool DIOPROTOCOL::CMD_Ping(XDWORD& milliseconds, int timeout)
 * @brief      CMD_Ping
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  milliseconds :
 * @param[in]  timeout :
@@ -2954,9 +2681,6 @@ bool DIOPROTOCOL::CMD_Ping(XDWORD& milliseconds, int timeout)
 * @brief      RCV_Ping
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  protocol :
 * @param[in]  cmd :
 * @param[in]  xbuffer :
@@ -2982,9 +2706,6 @@ int DIOPROTOCOL::RCV_Ping(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFF
 * @fn         bool DIOPROTOCOL::CMD_SendIsInitServerProtocol(bool isinit)
 * @brief      CMD_SendIsInitServerProtocol
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  isinit :
 *
@@ -3019,9 +2740,6 @@ bool DIOPROTOCOL::CMD_SendIsInitServerProtocol(bool isinit)
 * @fn         int DIOPROTOCOL::RCV_SendIsInitServerProtocol(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
 * @brief      RCV_SendIsInitServerProtocol
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  protocol :
 * @param[in]  cmd :
@@ -3058,9 +2776,6 @@ int DIOPROTOCOL::RCV_SendIsInitServerProtocol(DIOPROTOCOL* protocol, DIOPROTOCOL
 * @brief      CMD_GetDateTime
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  datestring :
 *
 * @return     bool : true if is succesful.
@@ -3094,9 +2809,6 @@ bool DIOPROTOCOL::CMD_GetDateTime(XSTRING& datestring)
 * @brief      RCV_GetDateTime
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  protocol :
 * @param[in]  cmd :
 * @param[in]  xbuffer :
@@ -3124,9 +2836,6 @@ int DIOPROTOCOL::RCV_GetDateTime(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd
 * @fn         bool DIOPROTOCOL::CMD_SetDateTime(XCHAR* datestring)
 * @brief      CMD_SetDateTime
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  datestring :
 *
@@ -3166,9 +2875,6 @@ bool DIOPROTOCOL::CMD_SetDateTime(XCHAR* datestring)
 * @brief      RCV_SetDateTime
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  protocol :
 * @param[in]  cmd :
 * @param[in]  xbuffer :
@@ -3202,9 +2908,6 @@ int DIOPROTOCOL::RCV_SetDateTime(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd
 * @fn         bool DIOPROTOCOL::CMD_File(DIOPROTOCOL_DIRECTION direction, XCHAR* sourcename, XCHAR* targetname, int timeout, void* param)
 * @brief      CMD_File
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  direction :
 * @param[in]  sourcename :
@@ -3290,9 +2993,6 @@ bool DIOPROTOCOL::CMD_File(DIOPROTOCOL_DIRECTION direction, XCHAR* sourcename, X
 * @brief      CMD_DeleteFile
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  namefile :
 * @param[in]  overwrite :
 *
@@ -3333,9 +3033,6 @@ bool DIOPROTOCOL::CMD_DeleteFile(XCHAR* namefile, bool overwrite)
 * @brief      RCV_DeleteFile
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  protocol :
 * @param[in]  cmd :
 * @param[in]  xbuffer :
@@ -3372,9 +3069,6 @@ int DIOPROTOCOL::RCV_DeleteFile(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd,
 * @fn         bool DIOPROTOCOL::CMD_MakeDir(XCHAR* namedir)
 * @brief      CMD_MakeDir
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  namedir :
 *
@@ -3415,9 +3109,6 @@ bool DIOPROTOCOL::CMD_MakeDir(XCHAR* namedir)
 * @brief      RCV_MakeDir
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  protocol :
 * @param[in]  cmd :
 * @param[in]  xbuffer :
@@ -3448,9 +3139,6 @@ int DIOPROTOCOL::RCV_MakeDir(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XB
 * @fn         bool DIOPROTOCOL::CMD_DeleteDir(XCHAR* namedir, bool all)
 * @brief      CMD_DeleteDir
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  namedir :
 * @param[in]  all :
@@ -3492,9 +3180,6 @@ bool DIOPROTOCOL::CMD_DeleteDir(XCHAR* namedir, bool all)
 * @brief      RCV_DeleteDir
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  protocol :
 * @param[in]  cmd :
 * @param[in]  xbuffer :
@@ -3525,9 +3210,6 @@ int DIOPROTOCOL::RCV_DeleteDir(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, 
 * @fn         bool DIOPROTOCOL::CMD_GetDirElement(XCHAR* pathsearch, XCHAR* mask, XPATH& namefile, XBYTE& type, int& sizefile, XDWORD& CRC32)
 * @brief      CMD_GetDirElement
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pathsearch :
 * @param[in]  mask :
@@ -3580,9 +3262,6 @@ bool DIOPROTOCOL::CMD_GetDirElement(XCHAR* pathsearch, XCHAR* mask, XPATH& namef
 * @fn         int DIOPROTOCOL::RCV_GetDirElement(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
 * @brief      RCV_GetDirElement
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  protocol :
 * @param[in]  cmd :
@@ -3647,9 +3326,6 @@ int DIOPROTOCOL::RCV_GetDirElement(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* c
 * @brief      DeleteAllCommands
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -3670,9 +3346,6 @@ bool DIOPROTOCOL::DeleteAllCommands()
 * @fn         XDWORD DIOPROTOCOL::CRC32OfFile(XPATH& xpath)
 * @brief      CRC32OfFile
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 *
@@ -3713,9 +3386,6 @@ XDWORD DIOPROTOCOL::CRC32OfFile(XPATH& xpath)
 * @fn         bool DIOPROTOCOL::CMD_InitFileBlock(DIOPROTOCOL_FILE* fp)
 * @brief      CMD_InitFileBlock
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  fp :
 *
@@ -3759,9 +3429,6 @@ bool DIOPROTOCOL::CMD_InitFileBlock(DIOPROTOCOL_FILE* fp)
 * @brief      RCV_InitFileBlock
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  protocol :
 * @param[in]  cmd :
 * @param[in]  xbuffer :
@@ -3801,9 +3468,6 @@ int DIOPROTOCOL::RCV_InitFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* c
 * @fn         bool DIOPROTOCOL::CMD_GetFileBlock(DIOPROTOCOL_FILE* fp)
 * @brief      CMD_GetFileBlock
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  fp :
 *
@@ -3876,9 +3540,6 @@ bool DIOPROTOCOL::CMD_GetFileBlock(DIOPROTOCOL_FILE* fp)
 * @brief      RCV_GetFileBlock
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  protocol :
 * @param[in]  cmd :
 * @param[in]  xbuffer :
@@ -3946,9 +3607,6 @@ int DIOPROTOCOL::RCV_GetFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cm
 * @fn         bool DIOPROTOCOL::CMD_SendFileBlock(DIOPROTOCOL_FILE* fp)
 * @brief      CMD_SendFileBlock
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  fp :
 *
@@ -4020,9 +3678,6 @@ bool DIOPROTOCOL::CMD_SendFileBlock(DIOPROTOCOL_FILE* fp)
 * @fn         int DIOPROTOCOL::RCV_SendFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
 * @brief      RCV_SendFileBlock
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  protocol :
 * @param[in]  cmd :
@@ -4103,9 +3758,6 @@ int DIOPROTOCOL::RCV_SendFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* c
 * @brief      CMD_SendAlert
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  alert :
 *
 * @return     bool : true if is succesful.
@@ -4156,9 +3808,6 @@ bool DIOPROTOCOL::CMD_SendAlert(DIOALERT* alert)
 * @fn         int DIOPROTOCOL::RCV_SendAlert(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
 * @brief      RCV_SendAlert
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  protocol :
 * @param[in]  cmd :
@@ -4253,9 +3902,6 @@ int DIOPROTOCOL::RCV_SendAlert(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, 
 * @brief      ThreadReceived
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  param :
 *
 * @return     void : does not return anything.
@@ -4287,9 +3933,6 @@ void DIOPROTOCOL::ThreadReceived(void* param)
 * @fn         void DIOPROTOCOL::ThreadAsks(void* param)
 * @brief      ThreadAsks
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  param :
 *
@@ -4334,9 +3977,6 @@ void DIOPROTOCOL::ThreadAsks(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

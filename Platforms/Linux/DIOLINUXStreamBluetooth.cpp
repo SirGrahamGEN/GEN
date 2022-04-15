@@ -6,10 +6,7 @@
 * @brief      LINUX Data Input/Output Stream Bluetooth class
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -63,9 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -118,9 +112,6 @@ DIOLINUXSTREAMBLUETOOTH::DIOLINUXSTREAMBLUETOOTH() : DIOSTREAMBLUETOOTH() , XFSM
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -142,9 +133,6 @@ DIOLINUXSTREAMBLUETOOTH::~DIOLINUXSTREAMBLUETOOTH()
 * @fn         bool DIOLINUXSTREAMBLUETOOTH::Open()
 * @brief      Open
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -168,9 +156,6 @@ bool DIOLINUXSTREAMBLUETOOTH::Open()
 * @fn         bool DIOLINUXSTREAMBLUETOOTH::Disconnect()
 * @brief      Disconnect
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -198,9 +183,6 @@ bool DIOLINUXSTREAMBLUETOOTH::Disconnect()
 * @fn         bool DIOLINUXSTREAMBLUETOOTH::Close()
 * @brief      Close
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -242,9 +224,6 @@ bool DIOLINUXSTREAMBLUETOOTH::Close()
 * @fn         int DIOLINUXSTREAMBLUETOOTH::IsReadyConnect(int socket)
 * @brief      IsReadyConnect
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  socket : 
 *
@@ -294,9 +273,6 @@ int DIOLINUXSTREAMBLUETOOTH::IsReadyConnect(int socket)
 * @fn         sdp_session_t* DIOLINUXSTREAMBLUETOOTH::SDP_RegisterService(char* service_name,char* service_dsc,char* service_prov,int rfcomm_channel)
 * @brief      SDP_RegisterService
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  service_name : 
 * @param[in]  service_dsc : 
@@ -385,9 +361,6 @@ sdp_session_t* DIOLINUXSTREAMBLUETOOTH::SDP_RegisterService(char* service_name,c
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     void : does not return anything. 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -409,9 +382,6 @@ void DIOLINUXSTREAMBLUETOOTH::Clean()
 * @fn         bool DIOLINUXSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACstring, XSTRING &remoteMACstring, XSTRING& PIN)
 * @brief      ManagementOfPIN
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  active : 
 * @param[in]  &localMACstring : 
@@ -526,9 +496,6 @@ bool DIOLINUXSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACstri
 * @fn         void DIOLINUXSTREAMBLUETOOTH::ThreadRunFunction(void* param)
 * @brief      ThreadRunFunction
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  param : 
 *

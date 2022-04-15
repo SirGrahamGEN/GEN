@@ -6,10 +6,7 @@
 * @brief      Data Input/Output SPI Display LCD Philips PCF8833
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ) :
 *
 * @return     Does not return anything.
@@ -84,9 +78,6 @@ DIOSPILCDDISPLAYPCF8833::DIOSPILCDDISPLAYPCF8833(DIOSPILCDDISPLAYPCF8833_TYPE ty
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -104,9 +95,6 @@ DIOSPILCDDISPLAYPCF8833::~DIOSPILCDDISPLAYPCF8833()
 * @fn         bool DIOSPILCDDISPLAYPCF8833::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -160,9 +148,6 @@ bool DIOSPILCDDISPLAYPCF8833::IniDevice()
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Clear(XWORD color)
 * @brief      Clear
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  color :
 *
@@ -221,9 +206,6 @@ bool DIOSPILCDDISPLAYPCF8833::Clear(XWORD color)
 * @brief      Update
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 *
 * @return     bool : true if is succesful.
@@ -259,9 +241,6 @@ bool DIOSPILCDDISPLAYPCF8833::Update(XBYTE* buffer)
 * @brief      PutPixel
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x :
 * @param[in]  y :
 * @param[in]  color :
@@ -293,9 +272,6 @@ bool DIOSPILCDDISPLAYPCF8833::PutPixel(XWORD x, XWORD y, XWORD color)
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -315,10 +291,7 @@ bool DIOSPILCDDISPLAYPCF8833::End()
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Initializate()
 * @brief      Initializate
 * @ingroup    DATAIO
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -463,9 +436,6 @@ bool DIOSPILCDDISPLAYPCF8833::Initializate()
 * @brief      Reset
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -489,9 +459,6 @@ bool DIOSPILCDDISPLAYPCF8833::Reset()
 * @fn         bool DIOSPILCDDISPLAYPCF8833::SetWindow(XWORD x0, XWORD y0, XWORD x1, XWORD y1)
 * @brief      SetWindow
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x0 :
 * @param[in]  y0 :
@@ -552,9 +519,6 @@ bool DIOSPILCDDISPLAYPCF8833::SetWindow(XWORD x0, XWORD y0, XWORD x1, XWORD y1)
 * @brief      Draw_HLine
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  x :
 * @param[in]  y :
 * @param[in]  width :
@@ -593,9 +557,6 @@ bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD co
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD* buffer)
 * @brief      Draw_HLine
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  x :
 * @param[in]  y :
@@ -638,9 +599,6 @@ bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD* b
 * @brief      Buffer_AjustWithNOP
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  databuffer :
 *
 * @return     bool : true if is succesful.
@@ -662,9 +620,6 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_AjustWithNOP(XBUFFER& databuffer)
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Buffer_Send(XBUFFER& databuffer)
 * @brief      Buffer_Send
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  databuffer :
 *
@@ -691,9 +646,6 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_Send(XBUFFER& databuffer)
 * @brief      Buffer_Delete
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -715,9 +667,6 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_Delete(XBUFFER& databuffer)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

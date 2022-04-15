@@ -6,7 +6,7 @@
 //
 //  DIO Wii Mote  (Wii controler)
 //
-//  @author  Abraham J. Velez
+//  ""
 //
 //  Date Of Creation  : 15/02/2015 16:34:59
 //  Last Modification :

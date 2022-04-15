@@ -6,10 +6,7 @@
 * @brief      DataBase MySQL Variant class
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -53,9 +50,6 @@
 * @brief      Constructor
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -74,9 +68,6 @@ MYSQL_VARIANT::MYSQL_VARIANT()  : DB_SQL_VARIANT()
 * @note       VIRTUAL
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -92,9 +83,6 @@ MYSQL_VARIANT::~MYSQL_VARIANT()
 * @fn         DB_SQL_VARIANT& MYSQL_VARIANT::operator =(DB_SQL_DATETIME& datetime)
 * @brief      operator =
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @param[in]  datetime :
 *
@@ -127,9 +115,6 @@ DB_SQL_VARIANT& MYSQL_VARIANT::operator =(DB_SQL_DATETIME& datetime)
 * @brief      BSQLDATETIME
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     MYSQL_VARIANT::operator :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -156,9 +141,6 @@ MYSQL_VARIANT::operator DB_SQL_DATETIME()
 * @brief      GetSize
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -178,9 +160,6 @@ XDWORD MYSQL_VARIANT::GetSize()
 * @brief      GetData
 * @ingroup    DATABASESSQL
 *
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
-*
 * @return     void* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -197,9 +176,6 @@ void* MYSQL_VARIANT::GetData()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASESSQL
-*
-* @author     Diego Martinez Ruiz de Gaona
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

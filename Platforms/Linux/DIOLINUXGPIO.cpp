@@ -6,10 +6,7 @@
 * @brief      Data Input/Output LINUX GPIO (General Purpose Input/Output) 
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -67,9 +64,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -87,9 +81,6 @@ DIOLINUXGPIO::DIOLINUXGPIO() : DIOGPIO()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -105,9 +96,6 @@ DIOLINUXGPIO::~DIOLINUXGPIO()
 * @fn         bool DIOLINUXGPIO::Ini(XPATH* xpath)
 * @brief      Ini
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -125,10 +113,7 @@ bool DIOLINUXGPIO::Ini()
 * @fn         bool DIOLINUXGPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 * @brief      SetMode
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  entry : 
 * @param[in]  mode : 
 * 
@@ -159,10 +144,7 @@ bool DIOLINUXGPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 * @fn         bool DIOLINUXGPIO::GetValue(DIOGPIO_ENTRY* entry)
 * @brief      GetValue
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  entry : 
 * 
 * @return     bool : true if is succesful. 
@@ -184,10 +166,7 @@ bool DIOLINUXGPIO::GetValue(DIOGPIO_ENTRY* entry)
 * @fn         bool DIOLINUXGPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
 * @brief      SetValue
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  entry : 
 * @param[in]  value : 
 * 
@@ -210,9 +189,6 @@ bool DIOLINUXGPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
 * @fn         bool DIOLINUXGPIO::End()
 * @brief      End
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -242,9 +218,6 @@ bool DIOLINUXGPIO::End()
 * @brief      GPIOExport_Add
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  GPIO : 
 *
 * @return     bool : true if is succesful. 
@@ -264,9 +237,6 @@ bool DIOLINUXGPIO::GPIOExport_Add(XDWORD GPIO)
 * @fn         bool DIOLINUXGPIO::GPIOExport_IsExport(XDWORD GPIO)
 * @brief      GPIOExport_IsExport
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  GPIO : 
 *
@@ -292,9 +262,6 @@ bool DIOLINUXGPIO::GPIOExport_IsExport(XDWORD GPIO)
 * @brief      GPIOexport_Get
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<XDWORD>* : 
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -310,9 +277,6 @@ XVECTOR<XDWORD>* DIOLINUXGPIO::GPIOExport_Get()
 * @fn         bool DIOLINUXGPIO::GPIOExport_DeleteAll()
 * @brief      GPIOExport_DeleteAll
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful. 
 *
@@ -333,9 +297,6 @@ bool DIOLINUXGPIO::GPIOExport_DeleteAll()
 * @fn         bool DIOLINUXGPIO::GPIO_Export(XDWORD GPIO, bool isexport)
 * @brief      GPIO_Export
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  GPIO : 
 * @param[in]  isexport : 
@@ -382,9 +343,6 @@ bool DIOLINUXGPIO::GPIO_Export(XDWORD GPIO, bool isexport)
 * @brief      GPIO_SetDirection
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  GPIO : 
 * @param[in]  isinput : 
 *
@@ -430,9 +388,6 @@ bool DIOLINUXGPIO::GPIO_SetDirection(XDWORD GPIO, bool isinput)
 * @brief      GPIO_GetData
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-*
 * @param[in]  GPIO : 
 *
 * @return     bool : true if is succesful. 
@@ -477,9 +432,6 @@ bool DIOLINUXGPIO::GPIO_GetData(XDWORD GPIO)
 * @fn         bool DIOLINUXGPIO::GPIO_SetData(XDWORD GPIO, bool on)
 * @brief      GPIO_SetData
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
 *
 * @param[in]  GPIO : 
 * @param[in]  on : 
@@ -527,9 +479,6 @@ bool DIOLINUXGPIO::GPIO_SetData(XDWORD GPIO, bool on)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

@@ -6,10 +6,7 @@
 * @brief      eXtended TXT (Text) file class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -81,9 +75,6 @@ XFILETXT::XFILETXT(): XFILECONTAINER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -106,9 +97,6 @@ XFILETXT::~XFILETXT()
 * @fn         bool XFILETXT::Open(XPATH& xpath,bool readonly)
 * @brief      Open
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  readonly :
@@ -138,9 +126,6 @@ bool XFILETXT::Open(XPATH& xpath, bool readonly)
 * @brief      Create
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 * @param[in]  formatchar :
 * @param[in]  typeLF :
@@ -168,9 +153,6 @@ bool XFILETXT::Create(XPATH& xpath, XFILETXTFORMATCHAR formatchar, XFILETXTTYPEL
 * @brief      IsOpen
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -188,9 +170,6 @@ bool XFILETXT::IsOpen()
 * @fn         bool XFILETXT::Close()
 * @brief      Close
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -211,9 +190,6 @@ bool XFILETXT::Close()
 * @brief      GetFormatChar
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILETXTFORMATCHAR :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -229,9 +205,6 @@ XFILETXTFORMATCHAR XFILETXT::GetFormatChar()
 * @fn         bool XFILETXT::SetFormatChar(XFILETXTFORMATCHAR formatchar)
 * @brief      SetFormatChar
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  formatchar :
 *
@@ -252,9 +225,6 @@ bool XFILETXT::SetFormatChar(XFILETXTFORMATCHAR formatchar)
 * @fn         XFILETXTFORMATCHAR XFILETXT::GetFormatCharFromFile(XDWORD* sizeBOM)
 * @brief      GetFormatCharFromFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  sizeBOM :
 *
@@ -313,9 +283,6 @@ XFILETXTFORMATCHAR XFILETXT::GetFormatCharFromFile(XDWORD* sizeBOM)
 * @brief      CreateBOMFormatChar
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  formatchar :
 * @param[in]  BOM :
 * @param[in]  sizeBOM :
@@ -361,9 +328,6 @@ bool XFILETXT::CreateBOMFormatChar(XFILETXTFORMATCHAR formatchar, XBYTE* BOM, XD
 * @brief      SizeOfCharacter
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  formatchar :
 *
 * @return     int :
@@ -393,9 +357,6 @@ int XFILETXT::SizeOfCharacter(XFILETXTFORMATCHAR formatchar)
 * @brief      GetTypeLF
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILETXTTYPELF :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -411,9 +372,6 @@ XFILETXTTYPELF XFILETXT::GetTypeLF()
 * @fn         bool XFILETXT::SetTypeLF(XFILETXTTYPELF typeLF)
 * @brief      SetTypeLF
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  typeLF :
 *
@@ -434,9 +392,6 @@ bool XFILETXT::SetTypeLF(XFILETXTTYPELF typeLF)
 * @fn         bool XFILETXT::CreateTypeLF(XFILETXTFORMATCHAR formatchar, XFILETXTTYPELF typeLF, XBYTE* LF, XDWORD& sizeLF)
 * @brief      CreateTypeLF
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  formatchar :
 * @param[in]  typeLF :
@@ -552,9 +507,6 @@ bool XFILETXT::CreateTypeLF(XFILETXTFORMATCHAR formatchar, XFILETXTTYPELF typeLF
 * @brief      GetLF
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  lfdata :
 *
 * @return     bool : true if is succesful.
@@ -593,9 +545,6 @@ bool XFILETXT::GetLF(XBUFFER& lfdata)
 * @brief      GetLF
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -623,9 +572,6 @@ XSTRING* XFILETXT::GetLF()
 * @brief      GetNLines
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -640,9 +586,6 @@ int XFILETXT::GetNLines()
 * @fn         XSTRING* XFILETXT::GetLine(int index)
 * @brief      GetLine
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -669,9 +612,6 @@ XSTRING* XFILETXT::GetLine(int index)
 * @brief      GetLineText
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 *
 * @return     XCHAR* :
@@ -692,9 +632,6 @@ XCHAR* XFILETXT::GetLineText(int index)
 * @fn         bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end)
 * @brief      GetAllInOneLine
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  alllines :
 * @param[in]  start :
@@ -728,9 +665,6 @@ bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end)
 * @fn         bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XDWORD start, XDWORD end)
 * @brief      GetAllInBuffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xbuffer :
 * @param[in]  start :
@@ -766,9 +700,6 @@ bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XDWORD start, XDWORD end)
 * @fn         bool XFILETXT::ReadAllFile()
 * @brief      ReadAllFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -864,9 +795,6 @@ bool XFILETXT::ReadAllFile()
 * @fn         bool XFILETXT::WriteAllFile()
 * @brief      WriteAllFile
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -980,9 +908,6 @@ bool XFILETXT::WriteAllFile()
 * @brief      DeleteFormatFile
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1001,9 +926,6 @@ bool XFILETXT::DeleteFormatFile()
 * @fn         bool XFILETXT::AddLine(XCHAR* line)
 * @brief      AddLine
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  line :
 *
@@ -1027,9 +949,6 @@ bool XFILETXT::AddLine(XCHAR* line)
 * @brief      AddLine
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  line :
 *
 * @return     bool : true if is succesful.
@@ -1052,9 +971,6 @@ bool XFILETXT::AddLine(XSTRING& line)
 * @fn         bool XFILETXT::GenerateLineFromBuffer(XFILETXTFORMATCHAR formatchar, XBYTE* line, XDWORD sizeline, XSTRING& string)
 * @brief      GenerateLineFromBuffer
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  formatchar :
 * @param[in]  line :
@@ -1124,9 +1040,6 @@ bool XFILETXT::GenerateLineFromBuffer(XFILETXTFORMATCHAR formatchar, XBYTE* line
 * @brief      AddLine
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  formatchar :
 * @param[in]  line :
 * @param[in]  sizeline :
@@ -1160,9 +1073,6 @@ bool XFILETXT::AddLine(XFILETXTFORMATCHAR formatchar, XBYTE* line, XDWORD sizeli
 * @brief      AddLineAlready
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  line :
 * @param[in]  resultsizeline :
 * @param[in]  resultsizeLF :
@@ -1186,9 +1096,6 @@ bool XFILETXT::AddLineAlready(XCHAR* line, XDWORD* resultsizeline, XDWORD* resul
 * @fn         bool XFILETXT::AddLineAlready(XSTRING& line, XDWORD* resultsizeline, XDWORD* resultsizeLF)
 * @brief      AddLineAlready
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  line :
 * @param[in]  resultsizeline :
@@ -1284,9 +1191,6 @@ bool XFILETXT::AddLineAlready(XSTRING& line, XDWORD* resultsizeline, XDWORD* res
 * @brief      InsertLine
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 * @param[in]  line :
 *
@@ -1310,9 +1214,6 @@ bool XFILETXT::InsertLine(int index, XCHAR* line)
 * @brief      InsertLine
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  index :
 * @param[in]  line :
 *
@@ -1334,9 +1235,6 @@ bool XFILETXT::InsertLine(int index, XSTRING& line)
 * @fn         bool XFILETXT::DeleteLine(int index)
 * @brief      DeleteLine
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index :
 *
@@ -1366,9 +1264,6 @@ bool XFILETXT::DeleteLine(int index)
 * @brief      DeleteAllLines
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1389,9 +1284,6 @@ bool XFILETXT::DeleteAllLines()
 * @fn         bool XFILETXT::AddBufferLines(XFILETXTFORMATCHAR formatchar, XBUFFER& xbuffer)
 * @brief      AddBufferLines
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  formatchar :
 * @param[in]  xbuffer :
@@ -1447,9 +1339,6 @@ bool XFILETXT::AddBufferLines(XFILETXTFORMATCHAR formatchar, XBUFFER& xbuffer)
 * @fn         bool XFILETXT::GetSizeOfLine(XFILETXTFORMATCHAR formatchar, XBYTE* buffer, XFILETXTTYPELF& typeLF, XDWORD& sizeLF, XDWORD& size, XDWORD maxsize)
 * @brief      GetSizeOfLine
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  formatchar :
 * @param[in]  buffer :
@@ -1584,9 +1473,6 @@ bool XFILETXT::GetSizeOfLine(XFILETXTFORMATCHAR formatchar, XBYTE* buffer, XFILE
 * @brief      GetLines
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XVECTOR<XSTRING*>* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -1602,9 +1488,6 @@ XVECTOR<XSTRING*>* XFILETXT::GetLines()
 * @fn         bool XFILETXT::CopyFrom(XFILETXT* filetxt)
 * @brief      CopyFrom
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  filetxt :
 *
@@ -1625,9 +1508,6 @@ bool XFILETXT::CopyFrom(XFILETXT* filetxt)
 * @fn         bool XFILETXT::CopyTo(XFILETXT* filetxt)
 * @brief      CopyTo
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  filetxt :
 *
@@ -1666,9 +1546,6 @@ bool XFILETXT::CopyTo(XFILETXT* filetxt)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

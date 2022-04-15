@@ -6,10 +6,7 @@
 * @brief      Graphic bitmap file BMP (Windows bitmap Format) class
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -72,9 +66,6 @@ GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE()
 * @fn         GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE(XBYTE red, XBYTE green, XBYTE blue, XBYTE alpha)
 * @brief      Constructor
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]   XBYTE red : initial red component
 * @param[in]   XBYTE green : initial green component
@@ -103,9 +94,6 @@ GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE(XBYTE red, XBYTE green,
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -122,9 +110,6 @@ GRPBITMAPFILEBMPCOLORPALETE::~GRPBITMAPFILEBMPCOLORPALETE()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -154,9 +139,6 @@ void GRPBITMAPFILEBMPCOLORPALETE::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -173,9 +155,6 @@ GRPBITMAPFILEBMPHEADER::GRPBITMAPFILEBMPHEADER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -194,9 +173,6 @@ GRPBITMAPFILEBMPHEADER::~GRPBITMAPFILEBMPHEADER()
 * @fn         bool GRPBITMAPFILEBMPHEADER::Load(XFILE* file)
 * @brief      Load
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  file :
 *
@@ -285,9 +261,6 @@ bool GRPBITMAPFILEBMPHEADER::Load(XFILE* file)
 * @brief      Load
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 * @param[out] indexbuffer :
@@ -375,9 +348,6 @@ bool GRPBITMAPFILEBMPHEADER::Load(XBYTE* buffer, XDWORD size, XDWORD& indexbuffe
 * @brief      Get Header Info
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPBITMAPFILEBMPHEADERINFO* : header info class
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -393,9 +363,6 @@ GRPBITMAPFILEBMPHEADERINFO* GRPBITMAPFILEBMPHEADER::GetHeaderInfo()
 * @fn         int GRPBITMAPFILEBMPHEADER::GetWidth()
 * @brief      Get Width
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int : width of bmp
 *
@@ -413,9 +380,6 @@ int GRPBITMAPFILEBMPHEADER::GetWidth()
 * @brief      Get Height
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : height of bmp
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -431,9 +395,6 @@ int GRPBITMAPFILEBMPHEADER::GetHeight()
 * @fn         int GRPBITMAPFILEBMPHEADER::GetBitsPerPixel()
 * @brief      Get Bits Per Pixel
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     int : bits por pixel
 *
@@ -451,9 +412,6 @@ int GRPBITMAPFILEBMPHEADER::GetBitsPerPixel()
 * @brief      Get Offset Data
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : offset data
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -470,9 +428,6 @@ int GRPBITMAPFILEBMPHEADER::GetOffsetData()
 * @brief      Get Mode
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     GRPPROPERTYMODE : propertys mode
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -488,9 +443,6 @@ GRPPROPERTYMODE GRPBITMAPFILEBMPHEADER::GetMode()
 * @fn         bool GRPBITMAPFILEBMPHEADER::GetColorPalette(XBYTE index, GRP2DCOLOR_RGBA8& color)
 * @brief      Get Color Palette
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  index : index into palette
 * @param[in]  color : color of palette
@@ -519,9 +471,6 @@ bool GRPBITMAPFILEBMPHEADER::GetColorPalette(XBYTE index, GRP2DCOLOR_RGBA8& colo
 * @brief      Delete All Palette
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -544,9 +493,6 @@ bool GRPBITMAPFILEBMPHEADER::DeleteAllPalette()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -573,9 +519,6 @@ void GRPBITMAPFILEBMPHEADER::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -593,9 +536,6 @@ GRPBITMAPFILEBMP::GRPBITMAPFILEBMP(): GRPBITMAPFILEBASE()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -611,9 +551,6 @@ GRPBITMAPFILEBMP::~GRPBITMAPFILEBMP()
 * @fn         GRPBITMAP* GRPBITMAPFILEBMP::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
 * @brief      CreateBitmapFromFile
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  xpath :
 * @param[in]  forcemode :
@@ -744,9 +681,6 @@ GRPBITMAP* GRPBITMAPFILEBMP::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 * @brief      CreateBitmapFromBuffer
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 * @param[in]  forcemode :
@@ -873,9 +807,6 @@ GRPBITMAP* GRPBITMAPFILEBMP::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 * @brief      CreateFileFromBitmap
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  xpath :
 * @param[in]  bitmap :
 * @param[in]  quality :
@@ -962,9 +893,6 @@ bool GRPBITMAPFILEBMP::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 * @brief      ReadHeader
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  header :
 *
 * @return     bool : true if is succesful.
@@ -988,9 +916,6 @@ bool GRPBITMAPFILEBMP::ReadHeaderFile(GRPBITMAPFILEBMPHEADER* header)
 * @brief      ReadHeaderBuffer
 * @ingroup    GRAPHIC
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  buffer :
 * @param[in]  size :
 * @param[in]  header :
@@ -1013,9 +938,6 @@ bool GRPBITMAPFILEBMP::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

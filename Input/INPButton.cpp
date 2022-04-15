@@ -6,10 +6,7 @@
 * @brief      Input Button Class
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -58,9 +55,6 @@
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -81,9 +75,6 @@ INPBUTTON::INPBUTTON()
 * @note       VIRTUAL
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -102,9 +93,6 @@ INPBUTTON::~INPBUTTON()
 * @brief      Get ID of button
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     INPBUTTON_ID : ID of button
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -120,9 +108,6 @@ INPBUTTON_ID INPBUTTON::GetID()
 * @fn         void INPBUTTON::SetID(INPBUTTON_ID ID)
 * @brief      Set ID of button
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  ID : new ID to Set
 *
@@ -142,9 +127,6 @@ void INPBUTTON::SetID(INPBUTTON_ID ID)
 * @brief      Get Key Code
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XWORD : Key Code of button
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -160,9 +142,6 @@ XWORD INPBUTTON::GetKeyCode()
 * @fn         void INPBUTTON::SetKeyCode(XWORD keycode)
 * @brief      Set Key Code
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  keycode : new Key Code of button
 *
@@ -182,9 +161,6 @@ void INPBUTTON::SetKeyCode(XWORD keycode)
 * @brief      Get Symbol
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XCHAR : Symbol of key
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -200,9 +176,6 @@ XCHAR INPBUTTON::GetSymbol()
 * @fn         void INPBUTTON::SetSymbol(XCHAR symbol)
 * @brief      Set Symbol
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  symbol : new Symbol of key
 *
@@ -222,9 +195,6 @@ void INPBUTTON::SetSymbol(XCHAR symbol)
 * @brief      GetState
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     INPBUTTON_STATE : statue of button
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -240,9 +210,6 @@ INPBUTTON_STATE INPBUTTON::GetState()
 * @fn         void INPBUTTON::SetState(INPBUTTON_STATE state)
 * @brief      SetState
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  state : new state
 *
@@ -262,9 +229,6 @@ void INPBUTTON::SetState(INPBUTTON_STATE state)
 * @brief      GetPressure
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -280,9 +244,6 @@ float INPBUTTON::GetPressure()
 * @fn         void INPBUTTON::SetPressure(float pressure)
 * @brief      Set Pressure button
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  pressure : new pressure
 *
@@ -303,9 +264,6 @@ void INPBUTTON::SetPressure(float pressure)
 * @brief      Is Pressed button
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -321,9 +279,6 @@ bool INPBUTTON::IsPressed()
 * @fn         bool INPBUTTON::IsPressedWithRelease()
 * @brief      Is Pressed With Release
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -353,9 +308,6 @@ bool INPBUTTON::IsPressedWithRelease()
 * @brief      Set Pressed
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  ispressed :
 *
 * @return     void : does not return anything.
@@ -381,9 +333,6 @@ void INPBUTTON::SetPressed(bool ispressed)
 * @brief      Get Time Pressed
 * @ingroup    INPUT
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XQWORD : Millisecond pressed
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -403,9 +352,6 @@ XQWORD INPBUTTON::GetTimePressed()
 * @fn         bool INPBUTTON::CreateButton(XVECTOR<INPBUTTON*>* buttons, int keycode, INPBUTTON_ID ID, XCHAR symbol)
 * @brief      CreateButton
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  buttons : vector to add new button
 * @param[in]  keycode : key code of new button
@@ -441,9 +387,6 @@ bool INPBUTTON::CreateButton(XVECTOR<INPBUTTON*>* buttons, int keycode, INPBUTTO
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

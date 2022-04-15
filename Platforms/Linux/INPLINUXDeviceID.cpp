@@ -6,10 +6,7 @@
 * @brief      Linux Input device ID
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,9 +48,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -71,9 +65,6 @@ INPLINUXDEVICEID::INPLINUXDEVICEID()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -89,10 +80,7 @@ INPLINUXDEVICEID::~INPLINUXDEVICEID()
 * @fn         INPDEVICE_TYPE INPLINUXDEVICEID::GetType()
 * @brief      GetType
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     INPDEVICE_TYPE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -108,10 +96,7 @@ INPDEVICE_TYPE INPLINUXDEVICEID::GetType()
 * @fn         void INPLINUXDEVICEID::INPLINUXDEVICEID::SetType(INPDEVICE_TYPE type)
 * @brief      INPLINUXDEVICEID::SetType
 * @ingroup    PLATFORM_LINUX
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     void : does not return anything. 
@@ -129,9 +114,6 @@ void INPLINUXDEVICEID::INPLINUXDEVICEID::SetType(INPDEVICE_TYPE type)
 * @brief      Get Name
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XSTRING* : name of device ID
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -147,10 +129,7 @@ XSTRING* INPLINUXDEVICEID::GetName()
 * @fn         int INPLINUXDEVICEID::GetEventIndex()
 * @brief      GetEventIndex
 * @ingroup    APPLICATION
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     int : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -166,10 +145,7 @@ int INPLINUXDEVICEID::GetEventIndex()
 * @fn         void INPLINUXDEVICEID::SetEventIndex(int eventindex)
 * @brief      SetEventIndex
 * @ingroup    APPLICATION
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  eventindex : 
 * 
 * @return     void : does not return anything. 
@@ -188,9 +164,6 @@ void INPLINUXDEVICEID::SetEventIndex(int eventindex)
 * @brief      GetFileDescriptor
 * @ingroup    PLATFORM_LINUX
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     int : file descriptor
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -206,9 +179,6 @@ int INPLINUXDEVICEID::GetFileDescriptor()
 * @fn         void INPLINUXDEVICEID::SetFileDescriptor(int filedescriptor)
 * @brief      SetFileDescriptor
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  filedescriptor : new file descriptor
 *
@@ -230,9 +200,6 @@ void INPLINUXDEVICEID::SetFileDescriptor(int filedescriptor)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

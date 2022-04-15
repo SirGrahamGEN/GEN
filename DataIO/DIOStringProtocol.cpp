@@ -47,7 +47,7 @@
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/04/2002 13:34:54
 //
 //  @return       void :
@@ -69,7 +69,7 @@ DIOSTRINGPROTOCOL::DIOSTRINGPROTOCOL(DIOSTREAM* diostream)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/12/2001 21:53:15
 //
 //  @return
@@ -94,7 +94,7 @@ DIOSTRINGPROTOCOL::~DIOSTRINGPROTOCOL()
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      17/06/2013 19:29:56
 //
 //  @return       bool :
@@ -127,7 +127,7 @@ bool DIOSTRINGPROTOCOL::Ini(int timeout)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      02/12/2001 15:59:02
 //
 //  @return       void :
@@ -163,7 +163,7 @@ void DIOSTRINGPROTOCOL::End()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      01/03/2017 14:31:30
 //
 //  @return       bool :
@@ -196,7 +196,7 @@ bool DIOSTRINGPROTOCOL::SendCommand(XCHAR* command, XSTRING* answer, int timeout
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      23/06/2017 11:05:27
 //
 //  @return       bool :
@@ -284,7 +284,7 @@ bool DIOSTRINGPROTOCOL::SendCommand(XCHAR* command, XSTRING* answer, int timeout
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/02/2017 11:11:08
 //
 */
@@ -413,7 +413,7 @@ void DIOSTRINGPROTOCOL::ReceivedCommandManager()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/03/2017 8:44:11
 //
 //  @return       bool :
@@ -448,7 +448,7 @@ bool DIOSTRINGPROTOCOL::AddAnswer(XCHAR*command, XSTRING& answer)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2017 9:57:17
 //
 //  @return       XSTRING* :
@@ -490,7 +490,7 @@ XSTRING* DIOSTRINGPROTOCOL::GetFirstAnswer(XCHAR* command)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2017 9:58:04
 //
 //  @return       bool :
@@ -537,7 +537,7 @@ bool DIOSTRINGPROTOCOL::DeleteFirstAnswer(XCHAR* command)
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/03/2017 9:58:10
 //
 //  @return       bool :
@@ -569,7 +569,7 @@ bool DIOSTRINGPROTOCOL::DeleteAllAnswers()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      06/02/2017 16:14:51
 //
 //  @return       bool :
@@ -605,7 +605,7 @@ bool DIOSTRINGPROTOCOL::AddCommand(XCHAR* command, int nparams)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 11:57:19
 //
 //  @return       DIOSTRINGPROTOCOLCOMMAND* :
@@ -644,7 +644,7 @@ DIOSTRINGPROTOCOLCOMMAND* DIOSTRINGPROTOCOL::GetCommand(XCHAR* command)
 /**
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      25/03/2011 11:35:30
 //
 //  @return       bool :
@@ -670,7 +670,7 @@ bool DIOSTRINGPROTOCOL::DeleteAllCommand()
 //
 //
 //
-//  @author      Abraham J. Velez
+//  ""
 //  @version      03/02/2017 13:12:30
 //
 //  @return       ool :

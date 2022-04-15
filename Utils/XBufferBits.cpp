@@ -6,10 +6,7 @@
 * @brief      eXtended Reads bits from an xbuffer
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,9 +51,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  XBUFFER* : buffer of origin
 *
 * @return     Does not return anything.
@@ -81,9 +75,6 @@ XBUFFERBITS::XBUFFERBITS(XBUFFER* xbuffer)
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -99,9 +90,6 @@ XBUFFERBITS::~XBUFFERBITS()
 * @fn         bool XBUFFERBITS::IsByteAligned()
 * @brief      Is buffer byte aligned
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -119,9 +107,6 @@ bool XBUFFERBITS::IsByteAligned()
 * @brief      Is EOF of buffer stream
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -137,9 +122,6 @@ bool XBUFFERBITS::IsEOF()
 * @fn         bool XBUFFERBITS::IsOverrun()
 * @brief      Check Is buffer overrun
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -157,9 +139,6 @@ bool XBUFFERBITS::IsOverrun()
 * @brief      Get Byte position into buffer
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : position byte into buffer
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -176,9 +155,6 @@ XDWORD XBUFFERBITS::GetBytePosition()
 * @brief      Get bit position into buffer
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     XDWORD : position bit into buffer
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -194,9 +170,6 @@ XDWORD XBUFFERBITS::GetBitPosition()
 * @fn         void XBUFFERBITS::SetPosition(XDWORD index, XDWORD bitindex)
 * @brief      Set Position into buffer
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  index : index into buffer
 * @param[in]  bitindex : bit index into buffer
@@ -217,9 +190,6 @@ void XBUFFERBITS::SetPosition(XDWORD index, XDWORD bitindex)
 * @fn         void XBUFFERBITS::SkipU1()
 * @brief      Skip one bit
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
@@ -242,9 +212,6 @@ void XBUFFERBITS::SkipU1()
 * @fn         XDWORD XBUFFERBITS::PeekU1()
 * @brief      Peek one bit
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD : bit peek.
 *
@@ -269,9 +236,6 @@ XDWORD XBUFFERBITS::PeekU1()
 * @fn         XDWORD XBUFFERBITS::ReadU1()
 * @brief      Read one bit
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD : Read U1
 *
@@ -304,9 +268,6 @@ XDWORD XBUFFERBITS::ReadU1()
 * @brief      Skip n bits
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  n : n bits
 *
 * @return     void : does not return anything.
@@ -328,9 +289,6 @@ void XBUFFERBITS::SkipU(XDWORD n)
 * @fn         XDWORD XBUFFERBITS::PeekU(XDWORD n)
 * @brief      Peek n bits (max 32 bits)
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  n : n bits
 *
@@ -360,9 +318,6 @@ XDWORD XBUFFERBITS::PeekU(XDWORD n)
 * @brief      Read n bits (max 32 bits)
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  n : n bits
 *
 * @return     XDWORD : n bits read (max 32 bits)
@@ -387,9 +342,6 @@ XDWORD XBUFFERBITS::ReadU(XDWORD n)
 * @fn         XDWORD XBUFFERBITS::ReadUE()
 * @brief
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     XDWORD :
 *
@@ -418,9 +370,6 @@ XDWORD XBUFFERBITS::ReadUE()
 * @brief      Read SE
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @return     int :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -446,9 +395,6 @@ int XBUFFERBITS::ReadSE()
 * @fn         void XBUFFERBITS::WriteU1(XDWORD v)
 * @brief      Write one bit
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  v : bit to write
 *
@@ -484,9 +430,6 @@ void XBUFFERBITS::WriteU1(XDWORD v)
 * @brief      Write n bits
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  n : n bits
 * @param[in]  v : bits to write
 *
@@ -509,9 +452,6 @@ void XBUFFERBITS::WriteU(XDWORD n, XDWORD v)
 * @fn         void XBUFFERBITS::WriteUE(XDWORD v)
 * @brief
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @param[in]  v :
 *
@@ -584,9 +524,6 @@ void XBUFFERBITS::WriteUE(XDWORD v)
 * @brief
 * @ingroup    UTILS
 *
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
-*
 * @param[in]  v :
 *
 * @return     void : does not return anything.
@@ -612,9 +549,6 @@ void XBUFFERBITS::WriteSE(int v)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Imanol Celaya Ruiz de Alegria
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

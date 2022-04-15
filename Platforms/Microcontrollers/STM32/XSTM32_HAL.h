@@ -6,7 +6,7 @@
 //
 //  STM32_HAL includes
 //
-//  @author  Abraham J. Velez
+//  ""
 //  @version 05/04/2002
 */
 //  GEN  Copyright (C).  All right reserved.

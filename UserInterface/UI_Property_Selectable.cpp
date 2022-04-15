@@ -5,11 +5,8 @@
 * @class      UI_PROPERTY_SELECTABLE
 * @brief      User Interface Property Selectable class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2020 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -56,10 +53,7 @@
 * @fn         UI_PROPERTY_SELECTABLE::UI_PROPERTY_SELECTABLE()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -79,10 +73,7 @@ UI_PROPERTY_SELECTABLE::UI_PROPERTY_SELECTABLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -104,10 +95,7 @@ UI_PROPERTY_SELECTABLE::~UI_PROPERTY_SELECTABLE()
 * @fn         XDWORD UI_PROPERTY_SELECTABLE::GetTimeSelected()
 * @brief      GetTimeSelected
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -123,10 +111,7 @@ XDWORD UI_PROPERTY_SELECTABLE::GetTimeSelected()
 * @fn         void UI_PROPERTY_SELECTABLE::SetTimeSelected(XDWORD timeselected)
 * @brief      SetTimeSelected
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  timeselected : 
 * 
 * @return     void : does not return anything. 
@@ -144,10 +129,7 @@ void UI_PROPERTY_SELECTABLE::SetTimeSelected(XDWORD timeselected)
 * @fn         XTIMER* UI_PROPERTY_SELECTABLE::GetXTimerSelected()
 * @brief      GetXTimerSelected
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XTIMER* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -163,10 +145,7 @@ XTIMER* UI_PROPERTY_SELECTABLE::GetXTimerSelected()
 * @fn         UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::GetSelectableState()
 * @brief      GetSelectableState
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_PROPERTY_SELECTABLE_STATE : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -182,10 +161,7 @@ UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::GetSelectableState()
 * @fn         bool UI_PROPERTY_SELECTABLE::SetSelectableState(UI_PROPERTY_SELECTABLE_STATE state)
 * @brief      SetSelectableState
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  state : 
 * 
 * @return     bool : true if is succesful. 
@@ -205,10 +181,7 @@ bool UI_PROPERTY_SELECTABLE::SetSelectableState(UI_PROPERTY_SELECTABLE_STATE sta
 * @fn         UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::SetSelectableStateFromString(XCHAR* selectablestr)
 * @brief      SetSelectableStateFromString
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  selectablestr : 
 * 
 * @return     UI_PROPERTY_SELECTABLE_STATE : 
@@ -239,10 +212,7 @@ UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::SetSelectableStateFromStrin
 * @fn         UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::SetSelectableStateFromString(XSTRING& selectablestr)
 * @brief      SetSelectableStateFromString
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  selectablestr : 
 * 
 * @return     UI_PROPERTY_SELECTABLE_STATE : 
@@ -262,10 +232,7 @@ UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::SetSelectableStateFromStrin
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

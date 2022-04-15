@@ -6,11 +6,8 @@
 * 
 * @brief      User Interface Colors class
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -55,10 +52,7 @@ UI_TEXTS* UI_TEXTS::instance = NULL;
 * @fn         bool UI_TEXTS::GetIsInstanced()
 * @brief      GetIsInstanced
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -74,10 +68,7 @@ bool UI_TEXTS::GetIsInstanced()
 * @fn         UI_TEXTS& UI_TEXTS::GetInstance()
 * @brief      GetInstance
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     UI_TEXTS& : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -95,10 +86,7 @@ UI_TEXTS& UI_TEXTS::GetInstance()
 * @fn         bool UI_TEXTS::DelInstance()
 * @brief      DelInstance
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -122,10 +110,7 @@ bool UI_TEXTS::DelInstance()
 * @fn         bool UI_TEXTS::Add(XCHAR* name, XCHAR* texts)
 * @brief      Add
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  texts : 
 * 
@@ -164,10 +149,7 @@ bool UI_TEXTS::Add(XCHAR* name, XCHAR* text)
 * @fn         bool UI_TEXTS::Add(XSTRING& name, XSTRING& text)
 * @brief      Add
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * @param[in]  text : 
 * 
@@ -186,10 +168,7 @@ bool UI_TEXTS::Add(XSTRING& name, XSTRING& text)
 * @fn         XSTRING* UI_TEXTS::Get(XCHAR* name)
 * @brief      Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * 
 * @return     XSTRING* : 
@@ -218,10 +197,7 @@ XSTRING* UI_TEXTS::Get(XCHAR* name)
 * @fn         XSTRING* UI_TEXTS::Get(XSTRING& name)
 * @brief      Get
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  name : 
 * 
 * @return     XSTRING* : 
@@ -239,10 +215,7 @@ XSTRING* UI_TEXTS::Get(XSTRING& name)
 * @fn         bool UI_TEXTS::DeleteAll()
 * @brief      DeleteAll
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -261,10 +234,7 @@ bool UI_TEXTS::DeleteAll()
 * @fn         UI_TEXTS::UI_TEXTS()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -281,10 +251,7 @@ UI_TEXTS::UI_TEXTS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -303,10 +270,7 @@ UI_TEXTS::~UI_TEXTS()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

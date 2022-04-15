@@ -6,10 +6,7 @@
 * @brief      eXtended File ZIP eXtended Event class
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -51,9 +48,6 @@
 * @brief      Constructor
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  subject :
 * @param[in]  type :
 * @param[in]  family :
@@ -75,9 +69,6 @@ XFILEZIP_XEVENT::XFILEZIP_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) 
 * @note       VIRTUAL
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -93,9 +84,6 @@ XFILEZIP_XEVENT::~XFILEZIP_XEVENT()
 * @fn         XPATH* XFILEZIP_XEVENT::GetFileName()
 * @brief      GetFileName
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     XPATH* :
 *
@@ -113,9 +101,6 @@ XPATH* XFILEZIP_XEVENT::GetFileName()
 * @brief      GetFileCompress
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILECMPZIP* :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -131,9 +116,6 @@ XFILECMPZIP* XFILEZIP_XEVENT::GetFileCompress()
 * @fn         void XFILEZIP_XEVENT::SetFileCompressZIP(XFILECMPZIP* filecmp)
 * @brief      SetFileCompress
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  filecmpzip :
 *
@@ -153,9 +135,6 @@ void XFILEZIP_XEVENT::SetFileCompress(XFILECMPZIP* filecmp)
 * @brief      GetOperationPercent
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     float :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -170,9 +149,6 @@ float XFILEZIP_XEVENT::GetOperationPercent()
 * @fn         void XFILEZIP_XEVENT::SetOperationPercent(float operationpercent)
 * @brief      SetOperationPercent
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  operationpercent :
 *
@@ -192,9 +168,6 @@ void XFILEZIP_XEVENT::SetOperationPercent(float operationpercent)
 * @brief      GetError
 * @ingroup    UTILS
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     XFILEZIP_ERROR :
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -210,9 +183,6 @@ XFILEZIP_ERROR XFILEZIP_XEVENT::GetError()
 * @fn         void XFILEZIP_XEVENT::SetError(XFILEZIP_ERROR error)
 * @brief      SetError
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  error :
 *
@@ -233,9 +203,6 @@ void XFILEZIP_XEVENT::SetError(XFILEZIP_ERROR error)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *

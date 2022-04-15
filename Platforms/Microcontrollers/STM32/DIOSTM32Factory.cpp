@@ -6,10 +6,7 @@
 * @brief      Data Input/Output STM32 class
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -80,9 +77,6 @@
 * @brief      CreateStreamIO
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  config :
 *
 * @return     DIOSTREAM* :
@@ -134,9 +128,6 @@ DIOSTREAM* DIOSTM32FACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 * @brief      DeleteStreamIO
 * @ingroup    PLATFORM_STM32
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  diostream :
 *
 * @return     bool : true if is succesful.
@@ -159,10 +150,7 @@ bool DIOSTM32FACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 * @fn         DIOLEDNEOPIXELWS2812B* DIOSTM32FACTORY::CreateLedNeopixelWS2812B()
 * @brief      CreateLedNeopixelWS2812B
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     DIOLEDNEOPIXELWS2812B* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -180,10 +168,7 @@ DIOLEDNEOPIXELWS2812B* DIOSTM32FACTORY::CreateLedNeopixelWS2812B()
 * @fn         bool DIOSTM32FACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixelws2812b)
 * @brief      DeleteLedNeopixelWS2812B
 * @ingroup    PLATFORM_STM32
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ledneopixelws2812b : 
 * 
 * @return     bool : true if is succesful. 

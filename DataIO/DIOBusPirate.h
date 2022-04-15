@@ -6,7 +6,7 @@
 //
 //  DIO Interface to Bus Pirate 4.0
 //
-//  @author  Abraham J. Velez
+//  ""
 //
 //  Date Of Creation  : 05/02/2015 10:56:44
 //  Last Modification :

@@ -5,11 +5,8 @@
 * @class      XFILERIFF
 * @brief      
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
-* @copyright  Copyright(c) 2005 - 2021 GEN Group.
+*
+* @copyright  GEN Group. All right reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -59,10 +56,7 @@
 * @fn         XFILERIFF_LIST::XFILERIFF_LIST()
 * @brief      Constructor
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -78,10 +72,7 @@ XFILERIFF_LIST::XFILERIFF_LIST()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -97,10 +88,7 @@ XFILERIFF_LIST::~XFILERIFF_LIST()
 * @fn         XDWORD XFILERIFF_LIST::GetType()
 * @brief      GetType
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -116,10 +104,7 @@ XDWORD XFILERIFF_LIST::GetType()
 * @fn         void XFILERIFF_LIST::SetType(XDWORD type)
 * @brief      SetType
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * 
 * @return     void : does not return anything. 
@@ -146,10 +131,7 @@ void XFILERIFF_LIST::SetType(XDWORD type)
 * @fn         bool XFILERIFF_LIST::IsTypeList()
 * @brief      IsTypeList
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -167,10 +149,7 @@ bool XFILERIFF_LIST::IsTypeList()
 * @fn         XDWORD XFILERIFF_LIST::GetSize()
 * @brief      GetSize
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XDWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -186,10 +165,7 @@ XDWORD XFILERIFF_LIST::GetSize()
 * @fn         void XFILERIFF_LIST::SetSize(XDWORD size)
 * @brief      SetSize
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  size : 
 * 
 * @return     void : does not return anything. 
@@ -207,10 +183,7 @@ void XFILERIFF_LIST::SetSize(XDWORD size)
 * @fn         XDWORD XFILERIFF_LIST::GetTypeList();
 * @brief      GetTypeList
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  ) : 
 * 
 * @return     XDWORD : 
@@ -228,10 +201,7 @@ XDWORD XFILERIFF_LIST::GetTypeList()
 * @fn         void XFILERIFF_LIST::SetTypeList(XDWORD typelist)
 * @brief      SetTypeList
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  typelist : 
 * 
 * @return     void : does not return anything. 
@@ -256,10 +226,7 @@ void XFILERIFF_LIST::SetTypeList(XDWORD typelist)
 * @fn         XQWORD XFILERIFF_LIST::GetPositionFileData()
 * @brief      GetPositionFileData
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XQWORD : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -275,10 +242,7 @@ XQWORD XFILERIFF_LIST::GetPositionFileData()
 * @fn         void XFILERIFF_LIST::SetPositionFileData(XQWORD positionfiledata)
 * @brief      SetPositionFileData
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  positionfiledata : 
 * 
 * @return     void : does not return anything. 
@@ -298,10 +262,7 @@ void XFILERIFF_LIST::SetPositionFileData(XQWORD positionfiledata)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -333,10 +294,7 @@ void XFILERIFF_LIST::Clean()
 * @fn         XFILERIFF::XFILERIFF()
 * @brief      Constructor
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -355,10 +313,7 @@ XFILERIFF::XFILERIFF()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     Does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -375,10 +330,7 @@ XFILERIFF::~XFILERIFF()
 * @fn         bool XFILERIFF::Open(XCHAR* xpath, bool isreadonly)
 * @brief      Open
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xpath : 
 * @param[in]  isreadonly : 
 * 
@@ -400,10 +352,7 @@ bool XFILERIFF::Open(XCHAR* xpath, bool isreadonly)
 * @fn         bool XFILERIFF::Create(XCHAR* xpath)
 * @brief      Create
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  xpath : 
 * 
 * @return     bool : true if is succesful. 
@@ -432,10 +381,7 @@ bool XFILERIFF::Create(XCHAR* xpath)
 * @fn         bool XFILERIFF::ReadAllLists()
 * @brief      ReadAllLists
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -499,10 +445,7 @@ bool XFILERIFF::ReadAllLists()
 * @fn         XQWORD XFILERIFF::ReadNodeLists(XFILERIFF_LIST_NODE* node)
 * @brief      ReadNodeLists
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * 
 * @return     XQWORD : 
@@ -597,10 +540,7 @@ XQWORD XFILERIFF::ReadNodeLists(XFILERIFF_LIST_NODE* node)
 * @fn         XDWORD XFILERIFF::GetTypeFromString(XCHAR* string)
 * @brief      GetTypeFromString
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  string : 
 * 
 * @return     XDWORD : 
@@ -629,10 +569,7 @@ XDWORD XFILERIFF::GetTypeFromString(XCHAR* string)
 * @fn         XFILERIFF_LIST* XFILERIFF::GetList(XDWORD type, XDWORD fathertypelist)
 * @brief      GetList
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  fathertypelist : 
 * 
@@ -651,10 +588,7 @@ XFILERIFF_LIST* XFILERIFF::GetList(XDWORD type, XDWORD fathertypelist)
 * @fn         XFILERIFF_LIST* XFILERIFF::GetList(XCHAR* typestr, XCHAR* fathertypeliststr)
 * @brief      GetList
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  typestr : 
 * @param[in]  fathertypeliststr : 
 * 
@@ -680,10 +614,7 @@ XFILERIFF_LIST* XFILERIFF::GetList(XCHAR* typestr, XCHAR* fathertypeliststr)
 * @fn         XFILERIFF_LIST* XFILERIFF::GetChunk(XDWORD type, XDWORD fathertypelist)
 * @brief      GetChunk
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  fathertypelist : 
 * 
@@ -702,10 +633,7 @@ XFILERIFF_LIST* XFILERIFF::GetChunk(XDWORD type, XDWORD fathertypelist)
 * @fn         XFILERIFF_LIST* XFILERIFF::GetList(XCHAR* typestr, XCHAR* fathertypeliststr)
 * @brief      GetList
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  typestr : 
 * @param[in]  fathertypeliststr : 
 * 
@@ -732,10 +660,7 @@ XFILERIFF_LIST* XFILERIFF::GetChunk(XCHAR* typestr, XCHAR* fathertypeliststr)
 * @fn         bool XFILERIFF::GetChunkData(XFILERIFF_LIST* chunkinfo, XBYTE* data, XDWORD& datasize)
 * @brief      GetChunkData
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  chunkinfo : 
 * @param[in]  data : 
 * @param[in]  datasize : 
@@ -765,10 +690,7 @@ bool XFILERIFF::GetChunkData(XFILERIFF_LIST* chunkinfo, XBYTE* data, XDWORD& dat
 * @fn         bool XFILERIFF::GetChunkData(XFILERIFF_LIST* chunkinfo, XBUFFER& data)
 * @brief      GetChunkData
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  chunkinfo : 
 * @param[in]  data : 
 * 
@@ -795,10 +717,7 @@ bool XFILERIFF::GetChunkData(XFILERIFF_LIST* chunkinfo, XBUFFER& data)
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(XDWORD type, XDWORD fathertypelist)
 * @brief      GetListNode
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  fathertypelist : 
 * 
@@ -817,10 +736,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(XDWORD type, XDWORD fathertypelist)
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(XCHAR* typestr, XCHAR* fathertypeliststr)
 * @brief      GetListNode
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  typestr : 
 * @param[in]  fathertypeliststr : 
 * 
@@ -847,10 +763,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(XCHAR* typestr, XCHAR* fathertypelis
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::GetChunkNode(XDWORD type, XDWORD fathertypelist)
 * @brief      GetChunkNode
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  fathertypelist : 
 * 
@@ -870,10 +783,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(XCHAR* typestr, XCHAR* fathertypelis
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::GetChunkNode(XCHAR* typestr, XCHAR* fathertypeliststr)
 * @brief      GetChunkNode
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  typestr : 
 * @param[in]  fathertypeliststr : 
 * 
@@ -900,10 +810,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::GetChunkNode(XCHAR* typestr, XCHAR* fathertypeli
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::CreateListNode(XDWORD type, XDWORD typelist)
 * @brief      CreateListNode
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  typelist : 
 * 
@@ -936,10 +843,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::CreateListNode(XDWORD type, XDWORD typelist)
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::CreateListNode(XCHAR* typestr, XCHAR* typeliststr)
 * @brief      CreateListNode
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  typestr : 
 * @param[in]  typeliststr : 
 * 
@@ -966,10 +870,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::CreateListNode(XCHAR* typestr, XCHAR* typelistst
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XDWORD type, XDWORD size, XDWORD typelist, XBYTE* data, XDWORD datasize)
 * @brief      CreateChunkNode
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  type : 
 * @param[in]  size : 
 * @param[in]  typelist : 
@@ -1005,10 +906,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XDWORD type, XDWORD datasize)
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XCHAR* typestr, XDWORD datasize)
 * @brief      CreateChunkNode
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  typestr : 
 * @param[in]  datasize : 
 * 
@@ -1034,10 +932,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XCHAR* typestr, XDWORD datasize)
 * @fn         bool XFILERIFF::UpdateFilePosition(XFILERIFF_LIST_NODE* node)
 * @brief      UpdateFilePosition
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * 
 * @return     bool : true if is succesful. 
@@ -1061,10 +956,7 @@ bool XFILERIFF::UpdateFilePosition(XFILERIFF_LIST_NODE* node)
 * @fn         bool XFILERIFF::WriteListToFile(XFILERIFF_LIST* list, XBYTE* data, XDWORD datasize)
 * @brief      WriteListToFile
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  list : 
 * @param[in]  data : 
 * @param[in]  datasize : 
@@ -1112,10 +1004,7 @@ bool XFILERIFF::WriteListToFile(XFILERIFF_LIST* list, XBYTE* data, XDWORD datasi
 * @fn         XFILERIFF_XTREE* XFILERIFF::GetXTreeList()
 * @brief      GetXTreeList
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XFILERIFF_XTREE* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1131,10 +1020,7 @@ XFILERIFF_XTREE* XFILERIFF::GetXTreeList()
 * @fn         XFILE* XFILERIFF::GetFileBase()
 * @brief      GetFileBase
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     XFILE* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1150,10 +1036,7 @@ XFILE* XFILERIFF::GetFileBase()
 * @fn         bool XFILERIFF::Close()
 * @brief      Close
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -1171,10 +1054,7 @@ bool XFILERIFF::Close()
 * @fn         XDWORD XFILERIFF::AdjustSizeOfLists(XFILERIFF_LIST_NODE* node)
 * @brief      AdjustSizeOfLists
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  node : 
 * 
 * @return     XDWORD : 
@@ -1224,10 +1104,7 @@ XDWORD XFILERIFF::AdjustSizeOfLists(XFILERIFF_LIST_NODE* node)
 * @fn         bool XFILERIFF::ConvertDWORDtoString(XDWORD data, XSTRING& string);
 * @brief      ConvertDWORDtoString
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  data : 
 * @param[in]  string) : 
 * 
@@ -1257,10 +1134,7 @@ bool XFILERIFF::ConvertDWORDtoString(XDWORD data, XSTRING& string)
 * @fn         XFILERIFF_LIST* XFILERIFF::GetList(bool search_chunk, XFILERIFF_LIST_NODE* listnode, XDWORD type, XDWORD fathertypelist)
 * @brief      GetList
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  search_chunk : 
 * @param[in]  listnode : 
 * @param[in]  type : 
@@ -1346,10 +1220,7 @@ XFILERIFF_LIST* XFILERIFF::GetList(bool search_chunk, XFILERIFF_LIST_NODE* listn
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(bool search_chunk, XFILERIFF_LIST_NODE* listnode, XDWORD type, XDWORD fathertypelist)
 * @brief      GetListNode
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @param[in]  search_chunk : 
 * @param[in]  listnode : 
 * @param[in]  type : 
@@ -1436,10 +1307,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(bool search_chunk, XFILERIFF_LIST_NO
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    UTILS
-* 
-* @author     Abraham J. Velez 
-* @date       01/03/2016 12:00
-* 
+*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/

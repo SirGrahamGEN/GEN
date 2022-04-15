@@ -6,10 +6,7 @@
 * @brief       Data IO I2C Sensor AOSONG AM2315  class (Temperature and humidity module)
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
-* @copyright  Copyright(c) 2008 - 2016 GEN Group.
+* @copyright  GEN Group. All right reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -60,9 +57,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     Does not return anything.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +73,6 @@ DIOI2CLIGHTSENSORTSL2561::DIOI2CLIGHTSENSORTSL2561(): DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     Does not return anything.
 *
@@ -100,9 +91,6 @@ DIOI2CLIGHTSENSORTSL2561::~DIOI2CLIGHTSENSORTSL2561()
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::SetIntegrationTime(DIOI2CLIGHTSENSORTSL2561INTEGRATIONTIME integrationtime)
 * @brief      SetIntegrationTime
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  integrationtime :
 *
@@ -134,9 +122,6 @@ bool DIOI2CLIGHTSENSORTSL2561::SetIntegrationTime(DIOI2CLIGHTSENSORTSL2561INTEGR
 * @brief      SetGain
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  gain :
 *
 * @return     bool : true if is succesful.
@@ -165,9 +150,6 @@ bool DIOI2CLIGHTSENSORTSL2561::SetGain(DIOI2CLIGHTSENSORTSL2561GAIN gain)
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::Get(XWORD& fullspectrum, XWORD& infrared, XDWORD& lux, bool autogain)
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  fullspectrum :
 * @param[in]  infrared :
@@ -276,9 +258,6 @@ bool DIOI2CLIGHTSENSORTSL2561::Get(XWORD& fullspectrum, XWORD& infrared, XDWORD&
 * @brief      End
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -296,9 +275,6 @@ bool DIOI2CLIGHTSENSORTSL2561::End()
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::IniDevice()
 * @brief      IniDevice
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     bool : true if is succesful.
 *
@@ -334,9 +310,6 @@ bool DIOI2CLIGHTSENSORTSL2561::IniDevice()
 * @brief      WriteReg
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  reg :
 * @param[in]  value :
 * @param[in]  timeout :
@@ -366,9 +339,6 @@ bool DIOI2CLIGHTSENSORTSL2561::WriteReg(XBYTE reg, XBYTE value, int timeout)
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::ReadData16(XBYTE reg, XWORD& value, int timeout)
 * @brief      ReadData16
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  reg :
 * @param[in]  value :
@@ -409,9 +379,6 @@ bool DIOI2CLIGHTSENSORTSL2561::ReadData16(XBYTE reg, XWORD& value, int timeout)
 * @brief      GetData
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @param[in]  fullspectrum :
 * @param[in]  infrared :
 *
@@ -451,9 +418,6 @@ bool DIOI2CLIGHTSENSORTSL2561::GetData(XWORD& fullspectrum, XWORD& infrared)
 * @brief      Activate
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -470,9 +434,6 @@ bool DIOI2CLIGHTSENSORTSL2561::Activate()
 * @brief      Deactivate
 * @ingroup    DATAIO
 *
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
-*
 * @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
@@ -488,9 +449,6 @@ bool DIOI2CLIGHTSENSORTSL2561::Deactivate()
 * @fn         XDWORD DIOI2CLIGHTSENSORTSL2561::CalculateLux(XWORD broadband, XWORD inflared)
 * @brief      CalculateLux
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @param[in]  broadband :
 * @param[in]  inflared :
@@ -604,9 +562,6 @@ XDWORD DIOI2CLIGHTSENSORTSL2561::CalculateLux(XWORD broadband, XWORD inflared)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @author     Abraham J. Velez
-* @date       01/03/2016 12:00
 *
 * @return     void : does not return anything.
 *
