@@ -94,7 +94,7 @@ if(COMPILE_TO_LINUX)
   endif()  
 
   if(DIO_STREAMWIFI_FEATURE)
-    target_link_libraries(${CMAKE_PROJECT_NAME} iw)
+    target_link_libraries(${CMAKE_PROJECT_NAME} iw)    
   endif()
 
   if(DIO_PCAP_FEATURE)   

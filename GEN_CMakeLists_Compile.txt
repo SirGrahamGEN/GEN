@@ -25,7 +25,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
  set(COMPILE_TO_WINDOWS                                 true    CACHE BOOL "Compile to Windows General"                                 FORCE)
 
  if(${TARGET} MATCHES "pc")   
-    set(COMPILE_TO_WINDOWS_PC_32                        true    CACHE BOOL "Compile to Windows PC 32 Bits"                              FORCE)
+   set(COMPILE_TO_WINDOWS_PC_32                         true    CACHE BOOL "Compile to Windows PC 32 Bits"                              FORCE)
  endif()
 
  if(${TARGET} MATCHES "Android")   
@@ -35,7 +35,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
 
  if(${TARGET} MATCHES "STM32")
-    set(COMPILE_TO_WINDOWS                              false   CACHE BOOL "Compile to Windows General"                                 FORCE)
+   set(COMPILE_TO_WINDOWS                               false   CACHE BOOL "Compile to Windows General"                                 FORCE)
    set(COMPILE_TO_STM32_ARM                             true    CACHE BOOL "Compile to STM32"                                           FORCE)     
  endif()
 

@@ -3048,7 +3048,7 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
                                         {    
                                           text.DeleteCharacters(index_char, (keyword.GetSize() + 3));                                         
                                           
-                                          /*              
+                                                        
                                           if(type == 1 && (indexstart > 1))
                                             {
                                               indexstart = -2;
@@ -3058,7 +3058,7 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
                                                   text.Insert(__L(" "), indexstart);                                                                                                  
                                                 }
                                             }
-                                          */  
+                                            
                                           break;
                                         }
                                     }
@@ -3228,7 +3228,24 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
         {  
           switch(element_textbox->GetTextAlignment())
             {
-                                        default : break;
+              /*                                      
+                                      default   :
+              case UI_ELEMENT_TYPE_ALIGN_LEFT	  : textbox_part->SetXPos((XDWORD)x_text_position);
+                                                  break;										
+
+              case UI_ELEMENT_TYPE_ALIGN_RIGHT	:	{ XDWORD shift = (XDWORD)(element_textbox->GetBoundaryLine()->width - canvas->VectorFont_GetWidth(characterstr.Get()));
+                                                    textbox_part->SetXPos((XDWORD)(x_text_position) + shift);
+                                                  }
+                                                  break;																				                  
+
+              case UI_ELEMENT_TYPE_ALIGN_CENTER	: { XDWORD shift = (XDWORD)(element_textbox->GetBoundaryLine()->width - canvas->VectorFont_GetWidth(characterstr.Get()))/2;
+                                                    textbox_part->SetXPos((XDWORD)(x_text_position) + shift);
+                                                  }
+                                                  break;								
+              */  
+
+
+                                      default   : break;
 
               case UI_ELEMENT_TYPE_ALIGN_LEFT	  : break;										
 
@@ -3263,7 +3280,7 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
                                                                 {
                                                                   if((textbox_part->GetXPos() + textbox_part->GetWidth()) <= first_image->GetBoundaryLine()->x)
                                                                     {
-                                                                      //textbox_part->SetXPos(textbox_part->GetXPos() + first_size);
+                                                                      textbox_part->SetXPos(textbox_part->GetXPos() + first_size);
                                                                     }
                                                                 }  
                                                             }
@@ -3287,8 +3304,9 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
                                                            if(textbox_part) textbox_part->SetXPos(textbox_part->GetXPos()+shift); 
                                                         }                                                             
                                                     }       
-                                                  break;										
+                                                  break;										           
             }
+            
   
         }
 

@@ -1040,8 +1040,9 @@ int wmain(int argc, wchar_t* argv[])
  {
   //wprintf(L"%s\n" , argv[0]);
 
-  mainprocwindows.GetXPathExec()->Set(argv[0]);
+  mainprocwindows.SetHandle((void*)GetModuleHandle(NULL));
 
+  mainprocwindows.GetXPathExec()->Set(argv[0]);
   mainprocwindows.CreateParams(argc, argv);
 
   if(!mainprocwindows.IsRunningAsService())

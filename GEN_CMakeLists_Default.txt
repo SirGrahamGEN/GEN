@@ -268,7 +268,7 @@ set(DB_SQLITE_FEATURE                                   false   CACHE BOOL "Acti
 # Windows 
 
 set(X_WINDOWS_VIRTUALDESKTOPMANAGER_FEATURE             false   CACHE BOOL "Activate Windows Virtual Desktop Manager"                   FORCE)                   
-
+set(INP_WINDOWS_KEYBOARDHOOK_FEATURE                    false   CACHE BOOL "Activate Windows Keyboard Hook"                             FORCE)                   
 
 
 # --------------------------------------------------------------------

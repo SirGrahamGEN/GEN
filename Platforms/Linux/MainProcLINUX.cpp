@@ -151,7 +151,7 @@ XLINUXTRACE           linuxdebugtrace;
 
 MAINPROCLINUX*        linuxmain         = NULL;
 bool                  liblinuxmain      = false;
-struct sigaction      signalaction;
+//struct sigaction      signalaction;
 XSTRING               allexceptiontext;
 
 
@@ -679,7 +679,6 @@ static void LIBRARY_Ini(void)
   linuxmain->Ini();
 
   liblinuxmain = true;
-
 }
 
 
@@ -710,9 +709,9 @@ static void LIBRARY_End(void)
     }
 
   XFILE_DISPLAYNOTCLOSEFILES
-  XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
-   
+  XMEMORY_CONTROL_DISPLAYMEMORYLEAKS 
 }
+
 
 }
 
@@ -739,10 +738,11 @@ static void LIBRARY_End(void)
 *---------------------------------------------------------------------------------------------------------------------*/
 void Signal_Ini(void)
 {
+  /*
   signalaction.sa_handler = Signal_Handler;
   sigemptyset(&signalaction.sa_mask);
-  signalaction.sa_flags = 0;
-  signalaction.sa_mask = signalaction.sa_mask;
+  signalaction.sa_flags   = SA_SIGINFO | SA_UNSUPPORTED | SA_EXPOSE_TAGBITS;
+  signalaction.sa_mask    = signalaction.sa_mask;
 
   sigaddset(&signalaction.sa_mask, SIGHUP);       sigaction(SIGHUP    , &signalaction , (struct sigaction*)NULL);
   sigaddset(&signalaction.sa_mask, SIGINT);       sigaction(SIGINT    , &signalaction , (struct sigaction*)NULL);
@@ -760,6 +760,27 @@ void Signal_Ini(void)
 
   sigaddset(&signalaction.sa_mask, SIGUSR1);      sigaction(SIGUSR1   , &signalaction , (struct sigaction*)NULL);
   sigaddset(&signalaction.sa_mask, SIGUSR2);      sigaction(SIGUSR2   , &signalaction , (struct sigaction*)NULL);
+  */
+
+
+  struct sigaction  act;
+  int               i = 0;
+
+  memset(&act, 0, sizeof act);
+
+  sigemptyset(&act.sa_mask);
+  act.sa_handler = Signal_Handler;
+  act.sa_flags = 0;
+
+  for(i = SIGRTMIN; i <= SIGRTMAX; i++)
+    {
+      if(sigaction(i, &act, NULL)) 
+        {
+          fprintf(stderr, "Cannot install realtime signal %d handler: %s.\n", i, strerror(errno));
+          exit(EXIT_FAILURE);
+        }
+    }
+  
 }
 
 
