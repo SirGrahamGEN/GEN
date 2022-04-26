@@ -48,7 +48,7 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
-bool INPWINDOWSKEYBOARDHOOK::stopkbd = false;
+bool INPWINDOWSKEYBOARDHOOK::isstopkbd = false;
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
@@ -146,7 +146,7 @@ bool INPWINDOWSKEYBOARDHOOK::Activate()
 *---------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSKEYBOARDHOOK::IsKBDStopped()
 {
-  return INPWINDOWSKEYBOARDHOOK::stopkbd;
+  return INPWINDOWSKEYBOARDHOOK::isstopkbd;
 }
 
 
@@ -167,9 +167,9 @@ bool INPWINDOWSKEYBOARDHOOK::IsKBDStopped()
 *---------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSKEYBOARDHOOK::SetKBDStopped(bool stopped)
 {
-  if(INPWINDOWSKEYBOARDHOOK::stopkbd == stopped) return false;
+  if(INPWINDOWSKEYBOARDHOOK::isstopkbd == stopped) return false;
 
-  INPWINDOWSKEYBOARDHOOK::stopkbd = stopped;
+  INPWINDOWSKEYBOARDHOOK::isstopkbd = stopped;
 
   return true;
 }
@@ -255,14 +255,14 @@ LRESULT CALLBACK INPWINDOWSKEYBOARDHOOK::LowLevelKeyboardProc(int ncode, WPARAM 
     }
 
   //Stop this key
-  if(INPWINDOWSKEYBOARDHOOK::stopkbd)
+  if(INPWINDOWSKEYBOARDHOOK::isstopkbd)
     {
       return 1;
     }
 
   KBDLLHOOKSTRUCT* keydata = (KBDLLHOOKSTRUCT*)lparam;
 
-  XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("Key vkCode %04X, scanCode %04X, flags %04X"), keydata->vkCode, keydata->scanCode, keydata->flags);
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("Hook keyboard: vkCode %04X, scanCode %08X, flags %08X"), keydata->vkCode, keydata->scanCode, keydata->flags);
 
   /*
   if(keydata->vkCode == 0xA4) 
