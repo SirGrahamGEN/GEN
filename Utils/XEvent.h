@@ -65,7 +65,8 @@ enum XEVENT_TYPE
   XEVENT_TYPE_FILEZIP                           = 0x00018000 ,
   XEVENT_TYPE_FILECFG                           = 0x00019000 ,  
   XEVENT_TYPE_BLUETOOTH                         = 0x00020000 ,
-  XEVENT_TYPE_LINUX_DBUS                        = 0x00021000 ,
+  XEVENT_TYPE_WINDOWS_KBDHOOK                   = 0x00021000 ,
+  XEVENT_TYPE_LINUX_DBUS                        = 0x00022000 ,
 
   XEVENT_TYPE_OWNAPPLICATION                    = 0x80000000 
 };
@@ -78,10 +79,8 @@ class  XSUBJECT;
 class XEVENT
 {
   public:
-
                       XEVENT            (XSUBJECT* subject, XDWORD type, XDWORD family);
                       XEVENT            (XSUBJECT* subject, XDWORD type);
-
 
     virtual          ~XEVENT            ();
 
@@ -92,7 +91,7 @@ class XEVENT
     void              SetEventFamily    (XDWORD family);
 
     XDWORD            GetEventType      ();
-    void              SetEventType      (XDWORD type);
+    void              SetEventType      (XDWORD type);        
 
   protected:
 

@@ -36,6 +36,7 @@
 
 #include "XBase.h"
 #include "XString.h"
+#include "XSubject.h"
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
@@ -44,30 +45,34 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 
-class INPWINDOWSKEYBOARDHOOK
+class INPWINDOWSKEYBOARDHOOK : public XSUBJECT
 {
   public:
-                               INPWINDOWSKEYBOARDHOOK      (void* applicationhandle);
-    virtual                   ~INPWINDOWSKEYBOARDHOOK      ();
 
-    bool                       Activate                    ();
+    static bool                       GetIsInstanced              ();
+    static INPWINDOWSKEYBOARDHOOK&    GetInstance                 ();
+    static bool                       DelInstance                 ();
 
-    bool                       IsKBDStopped                ();
-    bool                       SetKBDStopped               (bool stopped);
+    void                              SetApplicationHandle        (void* applicationhandle);
 
-    bool                       Deactivate                  ();
-
-  protected:
+    bool                              Activate                    ();
+    bool                              Deactivate                  ();
 
   private:
+                                      INPWINDOWSKEYBOARDHOOK      ();
+                                      INPWINDOWSKEYBOARDHOOK      (INPWINDOWSKEYBOARDHOOK const&);        // Don't implement
+    virtual                          ~INPWINDOWSKEYBOARDHOOK      ();
 
-    void                       Clean                       ();
+    void                              operator =                  (INPWINDOWSKEYBOARDHOOK const&);        // Don't implement    
 
-    static LRESULT CALLBACK    LowLevelKeyboardProc        (int ncode, WPARAM wparam, LPARAM lparam);
+    void                              Clean                       ();
 
-    void*                      applicationhandle;
-    HHOOK                      keyhook;
-    static bool                isstopkbd;
+    static LRESULT CALLBACK           LowLevelKeyboardProc        (int ncode, WPARAM wparam, LPARAM lparam);
+
+    void*                             applicationhandle;
+    HHOOK                             keyhook;
+
+    static INPWINDOWSKEYBOARDHOOK*    instance;
 };
 
 /*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/

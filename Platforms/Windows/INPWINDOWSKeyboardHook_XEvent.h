@@ -33,13 +33,16 @@
 
 #include "XEvent.h"
 #include "XSubject.h"
-#include "INPWINDOWSKeyboardHook.h"
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+
 enum INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE
 {
-  INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_UNKNOWN          = XEVENT_TYPE_DRIVEIMAGEMANAGER ,
+  INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_UNKNOWN          = XEVENT_TYPE_WINDOWS_KBDHOOK ,
+  INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_PRESSKEY                                       ,
+  INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_UNPRESSKEY
 };
 
 
@@ -52,14 +55,29 @@ class XPUBLISHER;
 class INPWINDOWSKEYBOARDHOOK_XEVENT : public XEVENT
 {
   public:
-                                INPWINDOWSKEYBOARDHOOK_XEVENT   (XSUBJECT* subject, XDWORD type = INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_INPUT);
+                                INPWINDOWSKEYBOARDHOOK_XEVENT   (XSUBJECT* subject, XDWORD type = INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_WINDOWS_KBDHOOK);
     virtual                    ~INPWINDOWSKEYBOARDHOOK_XEVENT   ();
 
+    XDWORD                      GetVKCode                       (); 
+    void                        SetVKCode                       (XDWORD vkcode); 
+   
+    XWORD                       GetScanCode                     ();
+    void                        SetScanCode                     (XWORD scancode);
+
+    XDWORD                      GetFlags                        ();
+    void                        SetFlags                        (XWORD flags);
+
+    bool                        IsKeyLocked                     ();           
+    void                        SetIsKeyLocked                  (bool iskeylocked);
    
   private:
 
     void                        Clean                           ();
 
+    XDWORD                      vkcode;
+    XWORD                       scancode;
+    XDWORD                      flags;
+    bool                        iskeylocked;
 };
 
 

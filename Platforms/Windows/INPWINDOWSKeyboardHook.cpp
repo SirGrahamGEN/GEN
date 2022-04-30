@@ -42,36 +42,177 @@
 #include "XSystem.h"
 #include "XTrace.h"
 
+#include "INPWINDOWSKeyboardHook_XEvent.h"
+
 #include "INPWINDOWSKeyboardHook.h"
 
 #include "XMemory_Control.h"
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
-bool INPWINDOWSKEYBOARDHOOK::isstopkbd = false;
+INPWINDOWSKEYBOARDHOOK* INPWINDOWSKEYBOARDHOOK::instance = NULL;
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSKEYBOARDHOOK::GetIsInstanced()
+* @brief      GetIsInstanced
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSKEYBOARDHOOK::GetIsInstanced()
+{
+  return instance!=NULL;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         INPWINDOWSKEYBOARDHOOK& INPWINDOWSKEYBOARDHOOK::GetInstance()
+* @brief      GetInstance
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     INPWINDOWSKEYBOARDHOOK& : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+INPWINDOWSKEYBOARDHOOK& INPWINDOWSKEYBOARDHOOK::GetInstance()
+{
+  if(!instance) instance = new INPWINDOWSKEYBOARDHOOK();
+
+  return (*instance);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSKEYBOARDHOOK::DelInstance()
+* @brief      DelInstance
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSKEYBOARDHOOK::DelInstance()
+{
+  if(instance)
+    {
+      delete instance;
+      instance = NULL;
+
+      return true;
+    }
+
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPWINDOWSKEYBOARDHOOK::SetApplicationHandle(void* applicationhandle)
+* @brief      SetApplicationHandle
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  applicationhandle : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void INPWINDOWSKEYBOARDHOOK::SetApplicationHandle(void* applicationhandle)
+{
+  this->applicationhandle = applicationhandle;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn          INPWINDOWSKEYBOARDHOOK:: INPWINDOWSKEYBOARDHOOK(void* applicationhandle)
-* @brief       INPWINDOWSKEYBOARDHOOK
+* @fn         bool INPWINDOWSKEYBOARDHOOK::Activate()
+* @brief      Activate
 * @ingroup
 *
 * @author     Abraham J. Velez
-* @date       30/09/2018 17:53:28
+* @date       30/09/2018 12:36:22
 *
-* @param[in]  applicationhandle :
-*
-* @return     Does not return anything.
+* @return     bool : true if is succesful.
 *
 *---------------------------------------------------------------------------------------------------------------------*/
-INPWINDOWSKEYBOARDHOOK:: INPWINDOWSKEYBOARDHOOK(void* applicationhandle)
+bool INPWINDOWSKEYBOARDHOOK::Activate()
+{
+  if(keyhook) return false;
+  
+  RegisterEvent(INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_PRESSKEY);
+  RegisterEvent(INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_UNPRESSKEY); 
+
+  // Set up the hook
+
+  HINSTANCE hinst = (HINSTANCE)applicationhandle;
+  if(!hinst) return false;
+
+  keyhook = SetWindowsHookEx(WH_KEYBOARD_LL, LowLevelKeyboardProc, hinst, 0);
+  if(keyhook == NULL)
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Windows Hook Keyboard] Error: Could not hook keyboard. Another program might be interfering."));
+      return false;
+    }
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool INPWINDOWSKEYBOARDHOOK::Deactivate()
+* @brief      Deactivate
+* @ingroup
+*
+* @author     Abraham J. Velez
+* @date       30/09/2018 12:36:26
+*
+* @return     bool : true if is succesful.
+*
+*---------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSKEYBOARDHOOK::Deactivate()
+{
+  if(!keyhook) return false;
+
+  DeRegisterEvent(INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_PRESSKEY);
+  DeRegisterEvent(INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_UNPRESSKEY); 
+
+  //Remove keyboard hook
+  if(UnhookWindowsHookEx(keyhook) == 0)
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Windows Hook Keyboard] Error: Could not unhook keyboard."));
+      return false;
+    }
+
+  //Success
+  keyhook = NULL;
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         INPWINDOWSKEYBOARDHOOK:: INPWINDOWSKEYBOARDHOOK()
+* @brief      NPWINDOWSKEYBOARDHOOK
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     INPWINDOWSKEYBOARDHOOK:: : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+INPWINDOWSKEYBOARDHOOK:: INPWINDOWSKEYBOARDHOOK()
 {
   Clean();
-
-  this->applicationhandle = applicationhandle;
 }
 
 
@@ -95,118 +236,6 @@ INPWINDOWSKEYBOARDHOOK::~ INPWINDOWSKEYBOARDHOOK()
 
   Clean();
 }
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool INPWINDOWSKEYBOARDHOOK::Activate()
-* @brief      Activate
-* @ingroup
-*
-* @author     Abraham J. Velez
-* @date       30/09/2018 12:36:22
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSKEYBOARDHOOK::Activate()
-{
-  if(keyhook) return false;
-
-  //Set up the hook
-
-  HINSTANCE hinst = (HINSTANCE)applicationhandle;
-
-  if(!hinst) return false;
-
-  keyhook = SetWindowsHookEx(WH_KEYBOARD_LL, LowLevelKeyboardProc, hinst, 0);
-  if(keyhook == NULL)
-    {
-      XTRACE_PRINTCOLOR(4, __L("Keyhook Error: Could not hook keyboard. Another program might be interfering."));
-      return false;
-    }
-
-  return true;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool INPWINDOWSKEYBOARDHOOK::IsKBDStopped()
-* @brief      IsKBDStopped
-* @ingroup
-*
-* @author     Abraham J. Velez
-* @date       30/09/2018 18:10:24
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSKEYBOARDHOOK::IsKBDStopped()
-{
-  return INPWINDOWSKEYBOARDHOOK::isstopkbd;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool INPWINDOWSKEYBOARDHOOK::SetKBDStopped(bool stopped)
-* @brief      SetKBDStopped
-* @ingroup
-*
-* @author     Abraham J. Velez
-* @date       30/09/2018 18:10:08
-*
-* @param[in]  stopped :
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSKEYBOARDHOOK::SetKBDStopped(bool stopped)
-{
-  if(INPWINDOWSKEYBOARDHOOK::isstopkbd == stopped) return false;
-
-  INPWINDOWSKEYBOARDHOOK::isstopkbd = stopped;
-
-  return true;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool INPWINDOWSKEYBOARDHOOK::Deactivate()
-* @brief      Deactivate
-* @ingroup
-*
-* @author     Abraham J. Velez
-* @date       30/09/2018 12:36:26
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSKEYBOARDHOOK::Deactivate()
-{
-  if(!keyhook) return false;
-
-  SetKBDStopped(false);
-
-  //Remove keyboard hook
-  if(UnhookWindowsHookEx(keyhook) == 0)
-    {
-      XTRACE_PRINTCOLOR(4, __L("Keyhook Error: Could not unhook keyboard."));
-      return false;
-    }
-
-  //Success
-  keyhook = NULL;
-
-  return true;
-}
-
 
 
 
@@ -249,20 +278,35 @@ void INPWINDOWSKEYBOARDHOOK::Clean()
 *---------------------------------------------------------------------------------------------------------------------*/
 LRESULT CALLBACK INPWINDOWSKEYBOARDHOOK::LowLevelKeyboardProc(int ncode, WPARAM wparam, LPARAM lparam)
 {
-  if(ncode == HC_ACTION && (wparam == WM_KEYDOWN || wparam == WM_SYSKEYDOWN))
-    {
-      int vkey = ((PKBDLLHOOKSTRUCT)lparam)->vkCode;
-    }
+  bool keydown = false;
 
-  //Stop this key
-  if(INPWINDOWSKEYBOARDHOOK::isstopkbd)
+  if(ncode == HC_ACTION) 
     {
-      return 1;
+      if(wparam == WM_KEYDOWN || wparam == WM_SYSKEYDOWN) keydown = true;
+      if(wparam == WM_KEYUP   || wparam == WM_SYSKEYUP)   keydown = false;
     }
 
   KBDLLHOOKSTRUCT* keydata = (KBDLLHOOKSTRUCT*)lparam;
 
-  XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("Hook keyboard: vkCode %04X, scanCode %08X, flags %08X"), keydata->vkCode, keydata->scanCode, keydata->flags);
+  //XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("Hook keyboard: vkCode %04X, scanCode %08X, flags %08X"), keydata->vkCode, keydata->scanCode, keydata->flags);
+  
+  INPWINDOWSKEYBOARDHOOK_XEVENT xevent(&INPWINDOWSKEYBOARDHOOK::GetInstance(), (keydown?INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_PRESSKEY:INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_UNPRESSKEY));
+
+  xevent.SetVKCode((XDWORD)keydata->vkCode); 
+  xevent.SetScanCode((XWORD)keydata->scanCode);
+  xevent.SetFlags((XDWORD)keydata->flags);
+
+  INPWINDOWSKEYBOARDHOOK::GetInstance().PostEvent(&xevent);
+  if(xevent.IsKeyLocked())
+    {
+      return 1;
+    }
+   else
+    {
+      return 0;
+    }
+  
+
 
   /*
   if(keydata->vkCode == 0xA4) 

@@ -78,6 +78,143 @@ INPWINDOWSKEYBOARDHOOK_XEVENT::~INPWINDOWSKEYBOARDHOOK_XEVENT()
 }
 
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD INPWINDOWSKEYBOARDHOOK_XEVENT::GetVKCode()
+* @brief      GetVKCode
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     XDWORD : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XDWORD INPWINDOWSKEYBOARDHOOK_XEVENT::GetVKCode()
+{
+  return vkcode;
+}
+
+
+ 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPWINDOWSKEYBOARDHOOK_XEVENT::SetVKCode(XDWORD vkcode)
+* @brief      SetVKCode
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  vkcode : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void INPWINDOWSKEYBOARDHOOK_XEVENT::SetVKCode(XDWORD vkcode)
+{
+  this->vkcode = vkcode;
+}
+ 
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XWORD INPWINDOWSKEYBOARDHOOK_XEVENT::GetScanCode()
+* @brief      GetScanCode
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     XWORD : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XWORD INPWINDOWSKEYBOARDHOOK_XEVENT::GetScanCode()
+{
+  return scancode;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPWINDOWSKEYBOARDHOOK_XEVENT::SetScanCode(XWORD scancode)
+* @brief      SetScanCode
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  scancode : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void INPWINDOWSKEYBOARDHOOK_XEVENT::SetScanCode(XWORD scancode)
+{
+  this->scancode = scancode;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD INPWINDOWSKEYBOARDHOOK_XEVENT::GetFlags()
+* @brief      GetFlags
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     XDWORD : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XDWORD INPWINDOWSKEYBOARDHOOK_XEVENT::GetFlags()
+{
+  return flags;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPWINDOWSKEYBOARDHOOK_XEVENT::SetFlags(XWORD flags)
+* @brief      SetFlags
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  flags : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void INPWINDOWSKEYBOARDHOOK_XEVENT::SetFlags(XWORD flags)
+{
+  this->flags = flags;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSKEYBOARDHOOK_XEVENT::IsKeyPressed()
+* @brief      IsKeyPressed
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSKEYBOARDHOOK_XEVENT::IsKeyLocked()
+{
+  return iskeylocked;
+}
+    
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPWINDOWSKEYBOARDHOOK_XEVENT::SetIsKeyLocked(bool iskeylocked)
+* @brief      SetIsKeyLocked
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  iskeylocked : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void INPWINDOWSKEYBOARDHOOK_XEVENT::SetIsKeyLocked(bool iskeylocked)
+{
+  this->iskeylocked = iskeylocked;
+}
+
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPWINDOWSKEYBOARDHOOK_XEVENT::Clean()
@@ -90,7 +227,10 @@ INPWINDOWSKEYBOARDHOOK_XEVENT::~INPWINDOWSKEYBOARDHOOK_XEVENT()
 *---------------------------------------------------------------------------------------------------------------------*/
 void INPWINDOWSKEYBOARDHOOK_XEVENT::Clean()
 {
-  
+  vkcode        = 0; 
+  scancode      = 0;
+  flags         = 0;
+  iskeylocked   = false;
 }
 
 
