@@ -26,6 +26,7 @@
 
 
 /*---- CLASS -----------------------------------------------------------------------------*/
+
 class HASHCKS16 : public HASH
 {
 public:
@@ -48,13 +49,15 @@ public:
 protected:
 
 private:
-    void              Clean                   ()
+   
+
+  void                Ini                     (void);
+  XWORD               Update                  (XWORD CKS16, XWORD c); 
+
+  void                Clean                   ()
                       {
                         resulttmp = NULL;
                       }
-
-  void                Ini                     (void);
-  XWORD               Update                  (XWORD CKS16, XWORD c);
 
   XBUFFER*            resulttmp;
 };

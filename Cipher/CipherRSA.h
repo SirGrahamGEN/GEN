@@ -52,29 +52,20 @@ class CIPHERKEYRSAPUBLIC : public CIPHERKEY
     bool                            Get                               (XMPINTEGER& modulus, XMPINTEGER& exponent);
     bool                            Set                               (XMPINTEGER& modulus, XMPINTEGER& exponent);
 
-    int                             GetSizeInBytes                    ()                                                { return this->modulus.GetSize();         }
+    int                             GetSizeInBytes                    ();
 
-    bool                            CopyFrom                          (CIPHERKEYRSAPUBLIC* key)
-                                    {
-                                      if(!key) return false;
-
-                                      if(!CIPHERKEY::CopyFrom((CIPHERKEY*)key)) return false;
-
-                                      return key->Get(modulus, exponent);
-                                    }
-
+    bool                            CopyFrom                          (CIPHERKEYRSAPUBLIC* key);
+    
     bool                            Check                             ();
 
 
   private:
 
-    void                            Clean                             ()                                                {                                         }
+    void                            Clean                             ();
 
     XMPINTEGER                      modulus;
     XMPINTEGER                      exponent;
 };
-
-
 
 
 class CIPHERKEYRSAPRIVATE : public CIPHERKEY
@@ -86,24 +77,15 @@ class CIPHERKEYRSAPRIVATE : public CIPHERKEY
     bool                            Get                               (XMPINTEGER& prime1factor, XMPINTEGER& prime2factor, XMPINTEGER& exponent);
     bool                            Set                               (XMPINTEGER& prime1factor, XMPINTEGER& prime2factor, XMPINTEGER& exponent);
 
-    int                             GetSizeInBytes                    ()                                                  { return this->exponent.GetSize();      }
+    int                             GetSizeInBytes                    ();
 
-    bool                            CopyFrom                          (CIPHERKEYRSAPRIVATE* key)
-                                    {
-                                      if(!key) return false;
-
-                                      if(!CIPHERKEY::CopyFrom((CIPHERKEY*)key)) return false;
-
-                                      return key->Get(prime1factor, prime2factor, exponent);
-                                    }
-
-
-
+    bool                            CopyFrom                          (CIPHERKEYRSAPRIVATE* key);
+    
     bool                            Check                             (CIPHERKEYRSAPUBLIC& publickey);
 
   private:
 
-    void                            Clean                             ()                                                  {            }
+    void                            Clean                             ();
 
     XMPINTEGER                      prime1factor;
     XMPINTEGER                      prime2factor;
@@ -111,71 +93,19 @@ class CIPHERKEYRSAPRIVATE : public CIPHERKEY
 };
 
 
-
-
-
 class CIPHERRSA_CONTEXT
 {
   public:
-                                    CIPHERRSA_CONTEXT                 ()
-                                    {
-                                      Ini();
-                                      Clean();
-                                    };
+                                    CIPHERRSA_CONTEXT                 ();  
+    virtual                        ~CIPHERRSA_CONTEXT                 ();
+                                    
+    void                            Ini                               ();
+    
+    void                            End                               ();
+    
 
-    virtual                        ~CIPHERRSA_CONTEXT                 ()
-                                    {
-                                      End();
-                                      Clean();
-                                    };
-
-    void                            Ini                               ()
-                                    {
-                                      N.Ini();
-                                      E.Ini();
-                                      D.Ini();
-                                      P.Ini();
-                                      Q.Ini();
-                                      DP.Ini();
-                                      DQ.Ini();
-                                      QP.Ini();
-                                      RN.Ini();
-                                      RP.Ini();
-                                      RQ.Ini();
-                                      #if !defined(CIPHERRSA_RSANOCRT)
-                                      Vi.Ini();
-                                      Vf.Ini();
-                                      #endif
-                                    }
-
-    void                            End                               ()
-                                    {
-                                      N.End();
-                                      E.End();
-                                      D.End();
-                                      P.End();
-                                      Q.End();
-                                      DP.End();
-                                      DQ.End();
-                                      QP.End();
-                                      RN.End();
-                                      RP.End();
-                                      RQ.End();
-                                      #if !defined(CIPHERRSA_RSANOCRT)
-                                      Vi.End();
-                                      Vf.End();
-                                      #endif
-                                    }
-
-
-    void                            Clean                             ()
-                                    {
-                                      len     = 0;
-                                      padding = 0;
-                                      hashID  = 0;
-                                    }
-
-
+    void                            Clean                             ();
+                                    
     size_t                          len;                              // size(N) in chars
 
     XMPINTEGER                      N;                                // public modulus
@@ -227,24 +157,16 @@ class CIPHERRSA : public CIPHER
     bool                            Sign                              (XBUFFER& input, CIPHERKEYTYPE keytouse, HASH* hash, CIPHERRSAPKCS1VERSION pkcs1version = CIPHERRSAPKCS1VERSIONV15);
 
 
-    static CIPHERRSA*               GetInstance                       ()                                  { return instance; };
-    XRAND*                          GetXRand                          ()                                  { return xrand;    };
+    static CIPHERRSA*               GetInstance                       ();
+    XRAND*                          GetXRand                          ();
     bool                            GenerateKeys                      (XDWORD nbits, int exponent, CIPHERKEYRSAPUBLIC& publickey, CIPHERKEYRSAPRIVATE& privatekey, XMPINTEGER_FUNCRANDOM funcrandom = NULL, void* paramrandom = NULL);
-
-  protected:
-
 
   private:
 
-    void                            Clean                             ()
-                                    {
-                                      xrand = NULL;
-                                    }
 
     bool                            CheckContextPublicKey             ();
     bool                            CheckContextPrivateKey            ();
 
-    bool                            Cipher_PKCS1                      (XBYTE* buffer, XDWORD size, CIPHERKEYTYPE keytouse, CIPHERRSAPKCS1VERSION pkcs1version,  XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom);
     bool                            Cipher_PKCS1_V15                  (XBYTE* buffer, XDWORD size, XBUFFER& output, CIPHERKEYTYPE keytypetouse, CIPHERRSAPKCS1VERSION pkcs1version,  XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom);
     bool                            Uncipher_PKCS1_V15                (XBYTE* buffer, XDWORD size, XBUFFER& output, CIPHERKEYTYPE keytypetouse, CIPHERRSAPKCS1VERSION pkcs1version,  XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom);
 
@@ -257,7 +179,10 @@ class CIPHERRSA : public CIPHER
 
     int                             GetKeySizeInBytes                 (CIPHERKEYTYPE keytouse);
 
-    static bool                     GenerateRandom                    (XBYTE* buffer, XDWORD size, void* param);
+    static bool                     GenerateRandom                    (XBYTE* buffer, XDWORD size, void* param);    
+
+    void                            Clean                             ();
+
 
     static CIPHERRSA*               instance;
     CIPHERRSA_CONTEXT               context;

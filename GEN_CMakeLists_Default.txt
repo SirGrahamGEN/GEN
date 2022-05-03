@@ -54,7 +54,6 @@ set(APP_CFG_APPUPDATE_FEATURE                           false   CACHE BOOL "Acti
 set(APP_CFG_ALERTS_FEATURE                              false   CACHE BOOL "Activate Application CFG Alerts"                            FORCE)  
 
 
-
 # --------------------------------------------------------------------
 # Utils
 
@@ -96,6 +95,7 @@ set(XPROCESSMANAGER_FEATURE                             false   CACHE BOOL "Acti
 
 set(LINUX_X11_FEATURE                                   false   CACHE BOOL "Activate Linux X11"                                         FORCE)
 set(LINUX_VISUALSTUDIOCODEPAGE_FEATURE                  false   CACHE BOOL "Activate Linux CodePage Editor Visual Studio CP1252"        FORCE)                        
+
 
 # --------------------------------------------------------------------
 # Hash / Cipher

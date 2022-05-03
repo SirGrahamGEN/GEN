@@ -1,21 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  CIPHERDES.CPP
-//
-//  Cipher / Uncipher DES
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 25/04/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CipherDES.cpp
+* 
+* @class      CIPHERDES
+* @brief      Cipher DES class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <string.h>
 
@@ -26,11 +42,10 @@
 #include "XMemory_Control.h"
 
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
-/*
- * Expanded DES S-boxes
- */
+// Expanded DES S-boxes
+
 XDWORD CIPHERDES::SB1[64] =     { 0x01010400, 0x00000000, 0x00010000, 0x01010404,
                                   0x01010004, 0x00010404, 0x00000004, 0x00010000,
                                   0x00000400, 0x01010400, 0x01010404, 0x00000400,
@@ -175,9 +190,9 @@ XDWORD CIPHERDES::SB8[64] =     { 0x10001040, 0x00001000, 0x00040000, 0x10041040
                                   0x00001040, 0x00040040, 0x10000000, 0x10041000
                                 };
 
-/*
- * PC1: left and right halves bit-swap
- */
+
+// PC1: left and right halves bit-swap
+
 XDWORD CIPHERDES::LHs[16] =     { 0x00000000, 0x00000001, 0x00000100, 0x00000101,
                                   0x00010000, 0x00010001, 0x00010100, 0x00010101,
                                   0x01000000, 0x01000001, 0x01000100, 0x01000101,
@@ -225,23 +240,19 @@ XBYTE CIPHERDES::weakkeytable[CIPHERDES_WEAKKEYCOUNT][CIPHERDES_KEYSIZE] =    { 
 
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-
-//-------------------------------------------------------------------
-//  CIPHERDES::CIPHERDES
-/**
-//
-//
-//  ""
-//  @version      30/04/2006 19:42:40
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
-CIPHERDES::CIPHERDES() : CIPHER()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERDES::CIPHERDES()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+CIPHERDES::CIPHERDES()
 {
   Clean();
 
@@ -252,37 +263,34 @@ CIPHERDES::CIPHERDES() : CIPHER()
 }
 
 
-
-//-------------------------------------------------------------------
-//  CIPHERDES::~CIPHERDES
-/**
-//
-//
-//  ""
-//  @version      30/04/2006 19:42:37
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERDES::~CIPHERDES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 CIPHERDES::~CIPHERDES()
 {
   Clean();
 }
 
 
-//-------------------------------------------------------------------
-//  CIPHERDES::Cipher
-/**
-//
-//
-//  ""
-//  @version      25/04/2002 10:22:59
-//
-//  @return       bool :
-//  @param        buffer :
-//  @param        size :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERDES::Cipher(XBYTE* input,XDWORD size)
+* @brief      Cipher
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERDES::Cipher(XBYTE* input,XDWORD size)
 {
   if(!size) return false;
@@ -317,22 +325,18 @@ bool CIPHERDES::Cipher(XBYTE* input,XDWORD size)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERDES::Uncipher
-*/
-/**
-//
-//
-//  ""
-//  @version      11/03/2013 23:44:01
-//
-//  @return       bool :
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERDES::Uncipher(XBYTE* input,XDWORD size)
+* @brief      Uncipher
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERDES::Uncipher(XBYTE* input,XDWORD size)
 {
   if(!size) return false;
@@ -364,41 +368,17 @@ bool CIPHERDES::Uncipher(XBYTE* input,XDWORD size)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERDES::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      10/03/2013 23:51:12
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
-void CIPHERDES::Clean()
-{
-
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  CIPHERDES::DESKeySetParity
-*/
-/**
-//
-//
-//  ""
-//  @version      11/03/2013 23:16:00
-//
-//  @return       void :
-//  @param        key[CIPHERDES_KEYSIZE] :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERDES::DESKeySetParity(XBYTE key[CIPHERDES_KEYSIZE])
+* @brief      DESKeySetParity
+* @ingroup    CIPHER
+* 
+* @param[in]  key[CIPHERDES_KEYSIZE] : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERDES::DESKeySetParity(XBYTE key[CIPHERDES_KEYSIZE])
 {
   for(int c = 0; c<CIPHERDES_KEYSIZE; c++)
@@ -408,21 +388,17 @@ void CIPHERDES::DESKeySetParity(XBYTE key[CIPHERDES_KEYSIZE])
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERDES::DESKeyCheckKeyParity
-*/
-/**
-//
-//
-//  ""
-//  @version      11/03/2013 23:16:04
-//
-//  @return       int :
-//  @param        key[CIPHERDES_KEYSIZE] :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int CIPHERDES::DESKeyCheckKeyParity(XBYTE key[CIPHERDES_KEYSIZE])
+* @brief      DESKeyCheckKeyParity
+* @ingroup    CIPHER
+* 
+* @param[in]  key[CIPHERDES_KEYSIZE] : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int CIPHERDES::DESKeyCheckKeyParity(XBYTE key[CIPHERDES_KEYSIZE])
 {
   for(int c=0; c<CIPHERDES_KEYSIZE; c++)
@@ -434,20 +410,17 @@ int CIPHERDES::DESKeyCheckKeyParity(XBYTE key[CIPHERDES_KEYSIZE])
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERDES::DESKeyCheckWeak
-*/
-/**
-//
-//
-//  ""
-//  @version      11/03/2013 23:16:10
-//
-//  @return       int :
-//  @param        key[CIPHERDES_KEYSIZE] :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int CIPHERDES::DESKeyCheckWeak(XBYTE key[CIPHERDES_KEYSIZE])
+* @brief      DESKeyCheckWeak
+* @ingroup    CIPHER
+* 
+* @param[in]  key[CIPHERDES_KEYSIZE] : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int CIPHERDES::DESKeyCheckWeak(XBYTE key[CIPHERDES_KEYSIZE])
 {
   for(int c=0; c<CIPHERDES_WEAKKEYCOUNT; c++)
@@ -459,21 +432,18 @@ int CIPHERDES::DESKeyCheckWeak(XBYTE key[CIPHERDES_KEYSIZE])
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERDES::DESSetKey
-*/
-/**
-//
-//
-//  ""
-//  @version      11/03/2013 23:16:17
-//
-//  @return       void :
-//  @param        SK[32] :
-//  @param        key[CIPHERDES_KEYSIZE] :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERDES::DESSetKey(XDWORD SK[32], XBYTE key[CIPHERDES_KEYSIZE])
+* @brief      DESSetKey
+* @ingroup    CIPHER
+* 
+* @param[in]  SK[32] : 
+* @param[in]  key[CIPHERDES_KEYSIZE] : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERDES::DESSetKey(XDWORD SK[32], XBYTE key[CIPHERDES_KEYSIZE])
 {
   XDWORD X;
@@ -539,21 +509,18 @@ void CIPHERDES::DESSetKey(XDWORD SK[32], XBYTE key[CIPHERDES_KEYSIZE])
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERDES::DESSetKeyCipher
-*/
-/**
-//
-//
-//  ""
-//  @version      11/03/2013 23:16:33
-//
-//  @return       int :
-//  @param        ctx :
-//  @param        key[CIPHERDES_KEYSIZE] :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int CIPHERDES::DESSetKeyCipher(CIPHERDES_CONTEXT* ctx, XBYTE key[CIPHERDES_KEYSIZE])
+* @brief      DESSetKeyCipher
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  key[CIPHERDES_KEYSIZE] : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int CIPHERDES::DESSetKeyCipher(CIPHERDES_CONTEXT* ctx, XBYTE key[CIPHERDES_KEYSIZE])
 {
   DESSetKey(ctx->sk, key);
@@ -562,21 +529,18 @@ int CIPHERDES::DESSetKeyCipher(CIPHERDES_CONTEXT* ctx, XBYTE key[CIPHERDES_KEYSI
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERDES::DESSetKeyUncipher
-*/
-/**
-//
-//
-//  ""
-//  @version      11/03/2013 23:16:38
-//
-//  @return       int :
-//  @param        ctx :
-//  @param        key[CIPHERDES_KEYSIZE] :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int CIPHERDES::DESSetKeyUncipher(CIPHERDES_CONTEXT* ctx, XBYTE key[CIPHERDES_KEYSIZE])
+* @brief      DESSetKeyUncipher
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  key[CIPHERDES_KEYSIZE] : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int CIPHERDES::DESSetKeyUncipher(CIPHERDES_CONTEXT* ctx, XBYTE key[CIPHERDES_KEYSIZE])
 {
   DESSetKey(ctx->sk, key);
@@ -591,22 +555,19 @@ int CIPHERDES::DESSetKeyUncipher(CIPHERDES_CONTEXT* ctx, XBYTE key[CIPHERDES_KEY
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERDES::DESCipher
-*/
-/**
-//
-//
-//  ""
-//  @version      11/03/2013 23:17:29
-//
-//  @return       int :
-//  @param        ctx :
-//  @param        input[8] :
-//  @param        output[8] :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int CIPHERDES::DESCipher(CIPHERDES_CONTEXT* ctx, XBYTE input[8], XBYTE output[8])
+* @brief      DESCipher
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  input[8] : 
+* @param[in]  output[8] : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int CIPHERDES::DESCipher(CIPHERDES_CONTEXT* ctx, XBYTE input[8], XBYTE output[8])
 {
   XDWORD  X;
@@ -636,26 +597,22 @@ int CIPHERDES::DESCipher(CIPHERDES_CONTEXT* ctx, XBYTE input[8], XBYTE output[8]
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERDES::DESCipher_EBC
-*/
-/**
-//
-//
-//  ""
-//  @version      12/03/2013 23:31:22
-//
-//  @return       bool :
-//  @param        ctx :
-//  @param        mode :
-//  @param        length :
-//  @param        iv[8] :
-//  @param        input :
-//  @param        output :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERDES::DESCipher_ECB(CIPHERDES_CONTEXT* ctx, int mode, size_t length, XBYTE iv[8], XBYTE* input, XBYTE* output)
+* @brief      DESCipher_ECB
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  mode : 
+* @param[in]  length : 
+* @param[in]  iv[8] : 
+* @param[in]  input : 
+* @param[in]  output : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERDES::DESCipher_ECB(CIPHERDES_CONTEXT* ctx, int mode, size_t length, XBYTE iv[8], XBYTE* input, XBYTE* output)
 {
   XBYTE temp[8];
@@ -675,7 +632,7 @@ bool CIPHERDES::DESCipher_ECB(CIPHERDES_CONTEXT* ctx, int mode, size_t length, X
           length -= 8;
         }
     }
-   else /* CIPHERDES_DECRYPT */
+   else // CIPHERDES_DECRYPT 
     {
       while(length > 0)
         {
@@ -695,27 +652,22 @@ bool CIPHERDES::DESCipher_ECB(CIPHERDES_CONTEXT* ctx, int mode, size_t length, X
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  CIPHERDES::DESCipher_CBC
-*/
-/**
-//
-//
-//  ""
-//  @version      11/03/2013 23:17:40
-//
-//  @return       int :
-//  @param        ctx :
-//  @param        mode :
-//  @param        length :
-//  @param        iv[8] :
-//  @param        input :
-//  @param        output :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERDES::DESCipher_CBC(CIPHERDES_CONTEXT* ctx, int mode, size_t length, XBYTE iv[8], XBYTE* input, XBYTE* output)
+* @brief      DESCipher_CBC
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  mode : 
+* @param[in]  length : 
+* @param[in]  iv[8] : 
+* @param[in]  input : 
+* @param[in]  output : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERDES::DESCipher_CBC(CIPHERDES_CONTEXT* ctx, int mode, size_t length, XBYTE iv[8], XBYTE* input, XBYTE* output)
 {
   XBYTE temp[8];
@@ -741,7 +693,7 @@ bool CIPHERDES::DESCipher_CBC(CIPHERDES_CONTEXT* ctx, int mode, size_t length, X
           length -= 8;
         }
     }
-   else /* CIPHERDES_DECRYPT */
+   else // CIPHERDES_DECRYPT 
     {
       while(length > 0)
         {
@@ -765,3 +717,18 @@ bool CIPHERDES::DESCipher_CBC(CIPHERDES_CONTEXT* ctx, int mode, size_t length, X
   return true;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERDES::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERDES::Clean()
+{
+
+}

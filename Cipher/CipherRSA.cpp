@@ -1,23 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  CIPHERRSA.CPP
-//
-//  Cipher / Uncipher RSA
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 25/04/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CipherRSA.cpp
+* 
+* @class      CIPHERRSA
+* @brief      Cipher RSA class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
- /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
-
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdlib.h>
 #include <stdarg.h>
@@ -34,26 +48,25 @@
 #include "XMemory_Control.h"
 
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 CIPHERRSA* CIPHERRSA::instance = NULL;
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
+#pragma region CIPHERKEYRSAPUBLIC
 
-/*-------------------------------------------------------------------
-// CIPHERKEYRSAPUBLIC::CIPHERKEYRSAPUBLIC
-*/
-/**
-//
-//
-//  ""
-//  @version      13/03/2014 17:48:04
-//
 
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERKEYRSAPUBLIC::CIPHERKEYRSAPUBLIC()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYRSAPUBLIC::CIPHERKEYRSAPUBLIC() : CIPHERKEY()
 {
   Clean();
@@ -65,18 +78,17 @@ CIPHERKEYRSAPUBLIC::CIPHERKEYRSAPUBLIC() : CIPHERKEY()
 }
 
 
-/*-------------------------------------------------------------------
-// CIPHERKEYRSAPUBLIC::~CIPHERKEYRSAPUBLIC
-*/
-/**
-//  Destructor de la Clase CIPHERKEYRSAPUBLIC
-//
-//  ""
-//  @version      13/03/2014 17:48:27
-//
-*/
-/*-----------------------------------------------------------------*/
- CIPHERKEYRSAPUBLIC::~CIPHERKEYRSAPUBLIC()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERKEYRSAPUBLIC::~CIPHERKEYRSAPUBLIC()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+CIPHERKEYRSAPUBLIC::~CIPHERKEYRSAPUBLIC()
 {
   modulus.End();
   exponent.End();
@@ -85,21 +97,18 @@ CIPHERKEYRSAPUBLIC::CIPHERKEYRSAPUBLIC() : CIPHERKEY()
 }
 
 
-
-/*-------------------------------------------------------------------
-// CIPHERKEYRSAPUBLIC::Get
-*/
-/**
-//
-//
-//  ""
-//  @version      13/03/2014 17:49:44
-//
-//  @return       bool :
-//  @param        modulus :
-//  @param        exponent :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYRSAPUBLIC::Get(XMPINTEGER& modulus, XMPINTEGER& exponent)
+* @brief      Get
+* @ingroup    CIPHER
+* 
+* @param[in]  modulus : 
+* @param[in]  exponent : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERKEYRSAPUBLIC::Get(XMPINTEGER& modulus, XMPINTEGER& exponent)
 {
   modulus.CopyFrom(&this->modulus);
@@ -109,24 +118,18 @@ bool CIPHERKEYRSAPUBLIC::Get(XMPINTEGER& modulus, XMPINTEGER& exponent)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERKEYRSAPUBLIC::Set
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/03/2014 10:00:01
-//
-//  @return       bool :
-//
-//  @param        modulus :
-//  @param        exponent :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYRSAPUBLIC::Set(XMPINTEGER& modulus, XMPINTEGER& exponent)
+* @brief      Set
+* @ingroup    CIPHER
+* 
+* @param[in]  modulus : 
+* @param[in]  exponent : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERKEYRSAPUBLIC::Set(XMPINTEGER& modulus, XMPINTEGER& exponent)
 {
   this->modulus.CopyFrom(&modulus);
@@ -136,24 +139,51 @@ bool CIPHERKEYRSAPUBLIC::Set(XMPINTEGER& modulus, XMPINTEGER& exponent)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int CIPHERKEYRSAPUBLIC::GetSizeInBytes()
+* @brief      GetSizeInBytes
+* @ingroup    CIPHER
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int CIPHERKEYRSAPUBLIC::GetSizeInBytes()
+{ 
+  return this->modulus.GetSize();         
+}
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYRSAPUBLIC::CopyFrom(CIPHERKEYRSAPUBLIC* key)
+* @brief      CopyFrom
+* @ingroup    CIPHER
+* 
+* @param[in]  key : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool CIPHERKEYRSAPUBLIC::CopyFrom(CIPHERKEYRSAPUBLIC* key)
+{
+  if(!key) return false;
+
+  if(!CIPHERKEY::CopyFrom((CIPHERKEY*)key)) return false;
+
+  return key->Get(modulus, exponent);
+}
 
 
-/*-------------------------------------------------------------------
-//  CIPHERKEYRSAPUBLIC::Check
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      14/03/2014 9:52:43
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYRSAPUBLIC::Check()
+* @brief      Check
+* @ingroup    CIPHER
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERKEYRSAPUBLIC::Check()
 {
   if(!modulus.GetLimbs()              || !exponent.GetLimbs())                      return false;
@@ -165,21 +195,37 @@ bool CIPHERKEYRSAPUBLIC::Check()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERKEYRSAPUBLIC::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERKEYRSAPUBLIC::Clean()
+{                                         
+
+}
 
 
+#pragma endregion
 
-/*-------------------------------------------------------------------
-//  CIPHERKEYRSAPRIVATE::CIPHERKEYRSAPRIVATE
-*/
-/**
-//
-//  Class Constructor CIPHERKEYRSAPRIVATE
-//
-//  ""
-//  @version      14/03/2014 9:14:42
-//
-*/
-/*-----------------------------------------------------------------*/
+
+#pragma region CIPHERKEYRSAPRIVATE
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERKEYRSAPRIVATE::CIPHERKEYRSAPRIVATE()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYRSAPRIVATE::CIPHERKEYRSAPRIVATE() : CIPHERKEY()
 {
   Clean();
@@ -192,20 +238,17 @@ CIPHERKEYRSAPRIVATE::CIPHERKEYRSAPRIVATE() : CIPHERKEY()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERKEYRSAPRIVATE::~CIPHERKEYRSAPRIVATE
-*/
-/**
-//
-//  Class Destructor CIPHERKEYRSAPRIVATE
-//
-//  ""
-//  @version      14/03/2014 9:33:45
-//
-*/
-/*-----------------------------------------------------------------*/
- CIPHERKEYRSAPRIVATE::~CIPHERKEYRSAPRIVATE()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERKEYRSAPRIVATE::~CIPHERKEYRSAPRIVATE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+CIPHERKEYRSAPRIVATE::~CIPHERKEYRSAPRIVATE()
 {
   prime1factor.End();
   prime2factor.End();
@@ -215,24 +258,19 @@ CIPHERKEYRSAPRIVATE::CIPHERKEYRSAPRIVATE() : CIPHERKEY()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERKEYRSAPRIVATE::Get
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      14/03/2014 9:33:12
-//
-//  @return       bool :
-//
-//  @param        prime1factor :
-//  @param        prime2factor :
-//  @param        exponent :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYRSAPRIVATE::Get(XMPINTEGER& prime1factor, XMPINTEGER& prime2factor, XMPINTEGER& exponent)
+* @brief      Get
+* @ingroup    CIPHER
+* 
+* @param[in]  prime1factor : 
+* @param[in]  prime2factor : 
+* @param[in]  exponent : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERKEYRSAPRIVATE::Get(XMPINTEGER& prime1factor, XMPINTEGER& prime2factor, XMPINTEGER& exponent)
 {
   prime1factor.CopyFrom(&this->prime1factor);
@@ -243,24 +281,19 @@ bool CIPHERKEYRSAPRIVATE::Get(XMPINTEGER& prime1factor, XMPINTEGER& prime2factor
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERKEYRSAPRIVATE::Set
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      14/03/2014 9:33:00
-//
-//  @return       bool :
-//
-//  @param        prime1factor :
-//  @param        prime2factor :
-//  @param        exponent :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYRSAPRIVATE::Set(XMPINTEGER& prime1factor, XMPINTEGER& prime2factor, XMPINTEGER& exponent)
+* @brief      Set
+* @ingroup    CIPHER
+* 
+* @param[in]  prime1factor : 
+* @param[in]  prime2factor : 
+* @param[in]  exponent : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERKEYRSAPRIVATE::Set(XMPINTEGER& prime1factor, XMPINTEGER& prime2factor, XMPINTEGER& exponent)
 {
   this->prime1factor.CopyFrom(&prime1factor);
@@ -271,22 +304,53 @@ bool CIPHERKEYRSAPRIVATE::Set(XMPINTEGER& prime1factor, XMPINTEGER& prime2factor
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int CIPHERKEYRSAPRIVATE::GetSizeInBytes()
+* @brief      GetSizeInBytes
+* @ingroup    CIPHER
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int CIPHERKEYRSAPRIVATE::GetSizeInBytes()
+{ 
+  return this->exponent.GetSize();      
+}
 
-/*-------------------------------------------------------------------
-//  CIPHERKEYRSAPRIVATE::Check
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      14/03/2014 10:46:52
-//
-//  @return       bool :
-//
-//  @param        publickey :
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYRSAPRIVATE::CopyFrom(CIPHERKEYRSAPRIVATE* key)
+* @brief      CopyFrom
+* @ingroup    CIPHER
+* 
+* @param[in]  key : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool CIPHERKEYRSAPRIVATE::CopyFrom(CIPHERKEYRSAPRIVATE* key)
+{
+  if(!key) return false;
+
+  if(!CIPHERKEY::CopyFrom((CIPHERKEY*)key)) return false;
+
+  return key->Get(prime1factor, prime2factor, exponent);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYRSAPRIVATE::Check(CIPHERKEYRSAPUBLIC& publickey)
+* @brief      Check
+* @ingroup    CIPHER
+* 
+* @param[in]  publickey : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERKEYRSAPRIVATE::Check(CIPHERKEYRSAPUBLIC& publickey)
 {
   XMPINTEGER PQ;
@@ -350,23 +414,153 @@ bool CIPHERKEYRSAPRIVATE::Check(CIPHERKEYRSAPUBLIC& publickey)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERKEYRSAPRIVATE::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERKEYRSAPRIVATE::Clean()
+{            
+
+}
 
 
+#pragma endregion
 
 
+#pragma region CIPHERRSA_CONTEXT
 
 
-//-------------------------------------------------------------------
-//  CIPHERRSA::CIPHERRSA
-/**
-//
-//
-//  ""
-//  @version      30/04/2006 19:42:40
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERRSA_CONTEXT::CIPHERRSA_CONTEXT()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+CIPHERRSA_CONTEXT::CIPHERRSA_CONTEXT()
+
+{
+  Ini();
+  Clean();
+};
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERRSA_CONTEXT::~CIPHERRSA_CONTEXT()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+CIPHERRSA_CONTEXT::~CIPHERRSA_CONTEXT()
+{
+  End();
+  Clean();
+};
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERRSA_CONTEXT::Ini()
+* @brief      Ini
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERRSA_CONTEXT::Ini()
+{
+  N.Ini();
+  E.Ini();
+  D.Ini();
+  P.Ini();
+  Q.Ini();
+  DP.Ini();
+  DQ.Ini();
+  QP.Ini();
+  RN.Ini();
+  RP.Ini();
+  RQ.Ini();
+  #if !defined(CIPHERRSA_RSANOCRT)
+  Vi.Ini();
+  Vf.Ini();
+  #endif
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERRSA_CONTEXT::End()
+* @brief      End
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERRSA_CONTEXT::End()
+{
+  N.End();
+  E.End();
+  D.End();
+  P.End();
+  Q.End();
+  DP.End();
+  DQ.End();
+  QP.End();
+  RN.End();
+  RP.End();
+  RQ.End();
+  #if !defined(CIPHERRSA_RSANOCRT)
+  Vi.End();
+  Vf.End();
+  #endif
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERRSA_CONTEXT::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERRSA_CONTEXT::Clean()
+{
+  len     = 0;
+  padding = 0;
+  hashID  = 0;
+}
+
+
+#pragma endregion 
+
+
+#pragma region CIPHERRSA
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERRSA::CIPHERRSA()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 CIPHERRSA::CIPHERRSA() : CIPHER()
 {
   Clean();
@@ -377,18 +571,16 @@ CIPHERRSA::CIPHERRSA() : CIPHER()
 }
 
 
-
-//-------------------------------------------------------------------
-//  CIPHERRSA::~CIPHERRSA
-/**
-//
-//
-//  ""
-//  @version      30/04/2006 19:42:37
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERRSA::~CIPHERRSA()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 CIPHERRSA::~CIPHERRSA()
 {
   GEN_XFACTORY.DeleteRand(xrand);
@@ -397,23 +589,18 @@ CIPHERRSA::~CIPHERRSA()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::SetKey
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/03/2014 13:49:26
-//
-//  @return       bool :
-//
-//  @param        key :
-//  @param        integritycheck :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::SetKey(CIPHERKEY* key, bool integritycheck)
+* @brief      SetKey
+* @ingroup    CIPHER
+* 
+* @param[in]  key : 
+* @param[in]  integritycheck : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::SetKey(CIPHERKEY* key, bool integritycheck)
 {
   if(!key) return false;
@@ -460,26 +647,20 @@ bool CIPHERRSA::SetKey(CIPHERKEY* key, bool integritycheck)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::Cipher
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      14/03/2014 16:00:26
-//
-//  @return       bool :
-//
-//  @param        input :
-//  @param        size :
-//  @param        keytouse :
-//  @param        pkcs1version :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::Cipher(XBYTE* input, XDWORD size, CIPHERKEYTYPE keytouse, CIPHERRSAPKCS1VERSION pkcs1version)
+* @brief      Cipher
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* @param[in]  keytouse : 
+* @param[in]  pkcs1version : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::Cipher(XBYTE* input, XDWORD size, CIPHERKEYTYPE keytouse, CIPHERRSAPKCS1VERSION pkcs1version)
 {
   if(!size) return false;
@@ -525,50 +706,39 @@ bool CIPHERRSA::Cipher(XBYTE* input, XDWORD size, CIPHERKEYTYPE keytouse, CIPHER
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::Cipher
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      14/03/2014 16:36:47
-//
-//  @return       bool :
-//
-//  @param        input :
-//  @param        keytouse :
-//  @param        pkcs1version :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::Cipher(XBUFFER& input, CIPHERKEYTYPE keytouse, CIPHERRSAPKCS1VERSION pkcs1version)
+* @brief      Cipher
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  keytouse : 
+* @param[in]  pkcs1version : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::Cipher(XBUFFER& input, CIPHERKEYTYPE keytouse, CIPHERRSAPKCS1VERSION pkcs1version)
 {
   return Cipher(input.Get(), input.GetSize(), keytouse, pkcs1version);
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::Uncipher
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      14/03/2014 16:00:32
-//
-//  @return       bool :
-//
-//  @param        input :
-//  @param        size :
-//  @param        keytouse :
-//  @param        pkcs1version :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::Uncipher(XBYTE* input,XDWORD size, CIPHERKEYTYPE keytouse, CIPHERRSAPKCS1VERSION pkcs1version)
+* @brief      Uncipher
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* @param[in]  keytouse : 
+* @param[in]  pkcs1version : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::Uncipher(XBYTE* input,XDWORD size, CIPHERKEYTYPE keytouse, CIPHERRSAPKCS1VERSION pkcs1version)
 {
   if(!size) return false;
@@ -614,52 +784,40 @@ bool CIPHERRSA::Uncipher(XBYTE* input,XDWORD size, CIPHERKEYTYPE keytouse, CIPHE
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::Uncipher
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      14/03/2014 16:06:03
-//
-//  @return       bool :
-//
-//  @param        input :
-//  @param        keytouse :
-//  @param        pkcs1version :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::Uncipher(XBUFFER& input, CIPHERKEYTYPE keytouse, CIPHERRSAPKCS1VERSION pkcs1version)
+* @brief      Uncipher
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  keytouse : 
+* @param[in]  pkcs1version : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::Uncipher(XBUFFER& input, CIPHERKEYTYPE keytouse, CIPHERRSAPKCS1VERSION pkcs1version)
 {
   return Uncipher(input.Get(), input.GetSize(), keytouse, pkcs1version);
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::Signed
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      04/04/2014 10:20:19
-//
-//  @return       bool :
-//
-//  @param        input :
-//  @param        size :
-//  @param        keytouse :
-//  @param        hash :
-//  @param        pkcs1version :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::Sign(XBYTE* input, XDWORD size, CIPHERKEYTYPE keytouse, HASH* hash, CIPHERRSAPKCS1VERSION pkcs1version)
+* @brief      Sign
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* @param[in]  keytouse : 
+* @param[in]  hash : 
+* @param[in]  pkcs1version : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::Sign(XBYTE* input, XDWORD size, CIPHERKEYTYPE keytouse, HASH* hash, CIPHERRSAPKCS1VERSION pkcs1version)
 {
   if(!hash) return false;
@@ -698,53 +856,72 @@ bool CIPHERRSA::Sign(XBYTE* input, XDWORD size, CIPHERKEYTYPE keytouse, HASH* ha
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::Sign
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      04/04/2014 10:20:13
-//
-//  @return       bool :
-//
-//  @param        input :
-//  @param        keytouse :
-//  @param        hash :
-//  @param        pkcs1version :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::Sign(XBUFFER& input, CIPHERKEYTYPE keytouse, HASH* hash, CIPHERRSAPKCS1VERSION pkcs1version)
+* @brief      Sign
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  keytouse : 
+* @param[in]  hash : 
+* @param[in]  pkcs1version : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::Sign(XBUFFER& input, CIPHERKEYTYPE keytouse, HASH* hash, CIPHERRSAPKCS1VERSION pkcs1version)
 {
   return Sign(input.Get(), input.GetSize(), keytouse, hash, pkcs1version);
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERRSA* CIPHERRSA::GetInstance()
+* @brief      GetInstance
+* @ingroup    CIPHER
+* 
+* @return     CIPHERRSA* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+CIPHERRSA* CIPHERRSA::GetInstance()
+{ 
+  return instance; 
+}
 
 
-/*-------------------------------------------------------------------
-//  CIPHERRSA::GenerateKeys
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      14/03/2014 10:57:22
-//
-//  @return       bool :
-//
-//  @param        nbits :
-//  @param        exponent :
-//  @param        publickey :
-//  @param        privatekey :
-//  @param        funcrandom :
-//  @param        paramrandom :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XRAND* CIPHERRSA::GetXRand()
+* @brief      GetXRand
+* @ingroup    CIPHER
+* 
+* @return     XRAND* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XRAND* CIPHERRSA::GetXRand()
+{ 
+  return xrand;    
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::GenerateKeys(XDWORD nbits, int exponent, CIPHERKEYRSAPUBLIC& publickey, CIPHERKEYRSAPRIVATE& privatekey, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
+* @brief      GenerateKeys
+* @ingroup    CIPHER
+* 
+* @param[in]  nbits : 
+* @param[in]  exponent : 
+* @param[in]  publickey : 
+* @param[in]  privatekey : 
+* @param[in]  funcrandom : 
+* @param[in]  paramrandom : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::GenerateKeys(XDWORD nbits, int exponent, CIPHERKEYRSAPUBLIC& publickey, CIPHERKEYRSAPRIVATE& privatekey, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 {
   XMPINTEGER P1;
@@ -817,22 +994,15 @@ bool CIPHERRSA::GenerateKeys(XDWORD nbits, int exponent, CIPHERKEYRSAPUBLIC& pub
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::CheckContextPublicKey
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      14/03/2014 12:13:33
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::CheckContextPublicKey()
+* @brief      CheckContextPublicKey
+* @ingroup    CIPHER
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::CheckContextPublicKey()
 {
   if(!context.N.GetLimbs()      || !context.E.GetLimbs())                       return false;
@@ -844,22 +1014,15 @@ bool CIPHERRSA::CheckContextPublicKey()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::CheckContextPrivateKey
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      14/03/2014 12:13:50
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::CheckContextPrivateKey()
+* @brief      CheckContextPrivateKey
+* @ingroup    CIPHER
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::CheckContextPrivateKey()
 {
   XMPINTEGER PQ;
@@ -932,30 +1095,23 @@ bool CIPHERRSA::CheckContextPrivateKey()
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::Cipher_PKCS1_V15
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      17/03/2014 13:55:30
-//
-//  @return       bool :
-//
-//  @param        buffer :
-//  @param        size :
-//  @param        output :
-//  @param        keytypetouse :
-//  @param        pkcs1version :
-//  @param        funcrandom :
-//  @param        paramrandom :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::Cipher_PKCS1_V15(XBYTE* buffer, XDWORD size, XBUFFER& output, CIPHERKEYTYPE keytypetouse, CIPHERRSAPKCS1VERSION pkcs1version, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
+* @brief      Cipher_PKCS1_V15
+* @ingroup    CIPHER
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* @param[in]  output : 
+* @param[in]  keytypetouse : 
+* @param[in]  pkcs1version : 
+* @param[in]  funcrandom : 
+* @param[in]  paramrandom : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::Cipher_PKCS1_V15(XBYTE* buffer, XDWORD size, XBUFFER& output, CIPHERKEYTYPE keytypetouse, CIPHERRSAPKCS1VERSION pkcs1version,  XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 {
   XBUFFER input;
@@ -1015,29 +1171,23 @@ bool CIPHERRSA::Cipher_PKCS1_V15(XBYTE* buffer, XDWORD size, XBUFFER& output, CI
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::Uncipher_PKCS1_V15
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/03/2014 12:04:57
-//
-//  @return       bool :
-//
-//  @param        buffer :
-//  @param        size :
-//  @param        output :
-//  @param        keytypetouse :
-//  @param        pkcs1version :
-//  @param        funcrandom :
-//  @param        paramrandom :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::Uncipher_PKCS1_V15(XBYTE* buffer, XDWORD size, XBUFFER& output, CIPHERKEYTYPE keytypetouse, CIPHERRSAPKCS1VERSION pkcs1version, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
+* @brief      Uncipher_PKCS1_V15
+* @ingroup    CIPHER
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* @param[in]  output : 
+* @param[in]  keytypetouse : 
+* @param[in]  pkcs1version : 
+* @param[in]  funcrandom : 
+* @param[in]  paramrandom : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::Uncipher_PKCS1_V15(XBYTE* buffer, XDWORD size, XBUFFER& output, CIPHERKEYTYPE keytypetouse, CIPHERRSAPKCS1VERSION pkcs1version,  XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 {
   XBUFFER   input;
@@ -1092,25 +1242,18 @@ bool CIPHERRSA::Uncipher_PKCS1_V15(XBYTE* buffer, XDWORD size, XBUFFER& output, 
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::DoRSAPublicOperation
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      17/03/2014 13:22:39
-//
-//  @return       bool :
-//
-//  @param        input :
-//  @param        output :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::DoRSAPublicOperation(XBUFFER& input, XBUFFER& output)
+* @brief      DoRSAPublicOperation
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  output : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::DoRSAPublicOperation(XBUFFER& input, XBUFFER& output)
 {
   int keysize = GetKeySizeInBytes(CIPHERKEYTYPE_PUBLIC);
@@ -1221,26 +1364,21 @@ bool CIPHERRSA::DoRSAPrivateOperation(XBUFFER& input, XBUFFER& output, XMPINTEGE
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::PrepareBlinding
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/03/2014 8:57:48
-//
-//  @return       bool :
-//
-//  @param        Vi :
-//  @param        Vf :
-//  @param        funcrandom :
-//  @param        paramrandom :
-*/
-/*-----------------------------------------------------------------*/
 #if !defined(CIPHERRSA_RSANOCRT)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::PrepareBlinding(XMPINTEGER* Vi, XMPINTEGER* Vf, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
+* @brief      PrepareBlinding
+* @ingroup    CIPHER
+* 
+* @param[in]  Vi : 
+* @param[in]  Vf : 
+* @param[in]  funcrandom : 
+* @param[in]  paramrandom : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::PrepareBlinding(XMPINTEGER* Vi, XMPINTEGER* Vf, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 {
   int count = 0;
@@ -1282,23 +1420,17 @@ bool CIPHERRSA::PrepareBlinding(XMPINTEGER* Vi, XMPINTEGER* Vf, XMPINTEGER_FUNCR
 #endif
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::GetKeySizeInBytes
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/03/2014 16:27:58
-//
-//  @return       int :
-//
-//  @param        keytouse :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int CIPHERRSA::GetKeySizeInBytes(CIPHERKEYTYPE keytouse)
+* @brief      GetKeySizeInBytes
+* @ingroup    CIPHER
+* 
+* @param[in]  keytouse : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int CIPHERRSA::GetKeySizeInBytes(CIPHERKEYTYPE keytouse)
 {
   int keysize = 0;
@@ -1312,23 +1444,19 @@ int CIPHERRSA::GetKeySizeInBytes(CIPHERKEYTYPE keytouse)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::GenerateRandom
-*/
-/**
-//
-//
-//  ""
-//  @version      10/03/2014 18:03:07
-//
-//  @return       int :
-//  @param        buffer :
-//  @param        size :
-//  @param        param :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::GenerateRandom(XBYTE* buffer, XDWORD size, void* param)
+* @brief      GenerateRandom
+* @ingroup    CIPHER
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* @param[in]  param : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::GenerateRandom(XBYTE* buffer, XDWORD size, void* param)
 {
   if(!GetInstance()) return false;
@@ -1346,3 +1474,22 @@ bool CIPHERRSA::GenerateRandom(XBYTE* buffer, XDWORD size, void* param)
 
   return true;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERRSA::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERRSA::Clean()
+{
+  xrand = NULL;
+}
+
+
+#pragma endregion

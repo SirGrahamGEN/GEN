@@ -1,26 +1,39 @@
-//------------------------------------------------------------------------------------------
-//  CIPHERDES.H
-//
-/**
-// \class
-//
-//  Cipher / Uncipher DES Class
-//
-//  ""
-//  @version 25/04/2002
-*/
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CipherDES.h
+* 
+* @class      CIPHERDES
+* @brief      Cipher DES class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* *-------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _CIPHERDES_H_
 #define _CIPHERDES_H_
 
-
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "Cipher.h"
 
-//---- DEFINES & ENUMS  --------------------------------------------------------------------
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 
 #define CIPHERDES_ENCRYPT           1
@@ -42,9 +55,8 @@
                                  (b)[(i) + 3] = (XBYTE) ( (n)       );               \
                               }
 
-/*
- * Initial Permutation macro
- */
+
+// Initial Permutation macro
 #define DES_IP(X,Y)           {  T = ((X >>  4) ^ Y) & 0x0F0F0F0F; Y ^= T; X ^= (T <<  4);   \
                                  T = ((X >> 16) ^ Y) & 0x0000FFFF; Y ^= T; X ^= (T << 16);   \
                                  T = ((Y >>  2) ^ X) & 0x33333333; X ^= T; Y ^= (T <<  2);   \
@@ -53,10 +65,8 @@
                                  T = (X ^ Y) & 0xAAAAAAAA; Y ^= T; X ^= T;                   \
                                  X = ((X << 1) | (X >> 31)) & 0xFFFFFFFF;                    \
                               }
+// Final Permutation macro
 
-/*
- * Final Permutation macro
- */
 #define DES_FP(X,Y)           {  X = ((X << 31) | (X >> 1)) & 0xFFFFFFFF;                    \
                                  T = (X ^ Y) & 0xAAAAAAAA; X ^= T; Y ^= T;                   \
                                  Y = ((Y << 31) | (Y >> 1)) & 0xFFFFFFFF;                    \
@@ -66,9 +76,8 @@
                                  T = ((X >>  4) ^ Y) & 0x0F0F0F0F; Y ^= T; X ^= (T <<  4);   \
                               }
 
-/*
- * DES round macro
- */
+
+// DES round macro
 #define DES_ROUND(X,Y)        {  T = *SK++ ^ X;                                              \
                                  Y ^= SB8[ (T      ) & 0x3F ] ^                              \
                                       SB6[ (T >>  8) & 0x3F ] ^                              \
@@ -85,17 +94,15 @@
 #define SWAP(a,b)             { XDWORD t = a; a = b; b = t; t = 0; }
 
 
+typedef struct  
+{ 
+  int     mode;
+  XDWORD  sk[32];
+
+} CIPHERDES_CONTEXT;
 
 
-typedef struct  { int     mode;
-                  XDWORD  sk[32];
-
-                } CIPHERDES_CONTEXT;
-
-
-
-//---- CLASS -------------------------------------------------------------------------------
-
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class CIPHERDES : public CIPHER
 {
@@ -144,7 +151,6 @@ class CIPHERDES : public CIPHER
     void                  Clean                   ();
 };
 
-//---- INLINE FUNCTIONS --------------------------------------------------------------------
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-

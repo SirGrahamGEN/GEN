@@ -1,21 +1,37 @@
-/*------------------------------------------------------------------------------------------
-//  HASHWHIRLPOOL.CPP
-//
-//  Hash Whirlpool class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/03/2013 12:07:38
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
-
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       HashWhirlpool.cpp
+* 
+* @class      HASHWHIRLPOOL
+* @brief      Cipher Hash Whirlpool class
+* @ingroup    CIPHER
+* 
+* @copyright  Copyright(c) 2005 - 2022 GEN Group.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 
 #include <string.h>
@@ -24,9 +40,11 @@
 
 #include "HashWhirlpool.h"
 
+
 #include "XMemory_Control.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
+
+/*---- LOCAL DEFINES -------------------------------------------------------------------------------------------------*/
 
 #define LL(v)                   (v##ULL)
 
@@ -49,7 +67,8 @@
 #define ROTL32(v, n)            (T32((v) << (n)) | ((v) >> (32 - (n))))
 
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+
 
 XQWORD HASHWHIRLPOOL::C0[256] = { LL(0x18186018c07830d8), LL(0x23238c2305af4626), LL(0xc6c63fc67ef991b8), LL(0xe8e887e8136fcdfb),
                                     LL(0x878726874ca113cb), LL(0xb8b8dab8a9626d11), LL(0x0101040108050209), LL(0x4f4f214f426e9e0d),
@@ -593,25 +612,22 @@ XQWORD HASHWHIRLPOOL::rc[HASHWHIRLPOOL_ROUNDS+1]  = { LL(0x0000000000000000),
                                                       LL(0xca2dbf07ad5a8333),
                                                     };
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
 
 
-
-/*-------------------------------------------------------------------
-//  HASHWHIRLPOOL::HASHWHIRLPOOL
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:43:10
-//
-//  @return
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         HASHWHIRLPOOL::HASHWHIRLPOOL() : HASH()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 HASHWHIRLPOOL::HASHWHIRLPOOL() : HASH()
+
 {
   Clean();
 }

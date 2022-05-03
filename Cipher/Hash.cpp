@@ -1,21 +1,37 @@
-/*------------------------------------------------------------------------------------------
-//  HASH.CPP
-//
-//  Hash Generic Class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/03/2013 12:07:38
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       Hash.cpp
+* 
+* @class      HASH
+* @brief      Hash interface class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XFactory.h"
 #include "XFile.h"
@@ -24,27 +40,21 @@
 
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASH::HASH
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:43:10
-//
-//  @return
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         HASH::HASH()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 HASH::HASH()
 {
   Clean();
@@ -53,20 +63,16 @@ HASH::HASH()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASH::~HASH
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:09:01
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         HASH::~HASH()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 HASH::~HASH()
 {
   delete result;
@@ -75,60 +81,84 @@ HASH::~HASH()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         HASHTYPE HASH::GetType()
+* @brief      GetType
+* @ingroup    CIPHER
+* 
+* @return     HASHTYPE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+HASHTYPE HASH::GetType()
+{ 
+  return type;                  
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
+* @fn         XSTRING* HASH::GetOUINoSign()
+* @brief      GetOUINoSign
+* @ingroup    CIPHER
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* HASH::GetOUINoSign()
+{ 
+  return &OUInosignstring;      
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool HASH::Do(XBYTE* input, XQWORD size)
 * @brief      Do
 * @ingroup    CIPHER
-*
-* @param[in]  input :
-* @param[in]  size :
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASH::Do(XBYTE* input, XQWORD size)
 {
   return false;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASH::Do
-*/
-/**
-//
-//
-//  ""
-//  @version      03/03/2013 16:24:03
-//
-//  @return       bool :
-//  @param        input :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool HASH::Do(XBUFFER& input)
+* @brief      Do
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASH::Do(XBUFFER& input)
 {
   return Do(input.Get(), input.GetSize());
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool HASH::Do(XPATH& xpath, XQWORD size, XDWORD pos)
+* 
+* @fn         bool HASH::Do(XPATH& xpath, XQWORD size, XQWORD pos)
 * @brief      Do
 * @ingroup    CIPHER
-*
-* @param[in]  xpath :
-* @param[in]  size :
-* @param[in]  pos :
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* 
+* @param[in]  xpath : 
+* @param[in]  size : 
+* @param[in]  pos : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASH::Do(XPATH& xpath, XQWORD size, XQWORD pos)
 {
   XFILE* xfile;
@@ -156,21 +186,19 @@ bool HASH::Do(XPATH& xpath, XQWORD size, XQWORD pos)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool HASH::Do(XFILE* xfile, XQWORD size, XQWORD pos)
 * @brief      Do
 * @ingroup    CIPHER
-*
-* @param[in]  xfile :
-* @param[in]  size :
-* @param[in]  pos :
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* 
+* @param[in]  xfile : 
+* @param[in]  size : 
+* @param[in]  pos : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASH::Do(XFILE* xfile, XQWORD size, XQWORD pos)
 {
   if(!xfile)           return false;
@@ -222,20 +250,15 @@ bool HASH::Do(XFILE* xfile, XQWORD size, XQWORD pos)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASH::ResetResult
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:35:35
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool HASH::ResetResult()
+* @brief      ResetResult
+* @ingroup    CIPHER
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASH::ResetResult()
 {
   if(!result) return false;
@@ -246,59 +269,47 @@ bool HASH::ResetResult()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASH::GetDefaultSize
-*/
-/**
-//
-//
-//  ""
-//  @version      21/04/2013 0:46:03
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int HASH::GetDefaultSize()
+* @brief      GetDefaultSize
+* @ingroup    CIPHER
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int HASH::GetDefaultSize()
 {
   return 0;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASH::GetResult
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:35:39
-//
-//  @return       XBUFFER* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBUFFER* HASH::GetResult()
+* @brief      GetResult
+* @ingroup    CIPHER
+* 
+* @return     XBUFFER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER* HASH::GetResult()
 {
   return result;
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASH::GetResult
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:38:50
-//
-//  @return       XBYTE* :
-//  @param        resultsize :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE* HASH::GetResult(XDWORD& resultsize)
+* @brief      GetResult
+* @ingroup    CIPHER
+* 
+* @param[in]  resultsize : 
+* 
+* @return     XBYTE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* HASH::GetResult(XDWORD& resultsize)
 {
   resultsize = 0;
@@ -311,20 +322,17 @@ XBYTE* HASH::GetResult(XDWORD& resultsize)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASH::GetResult
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 21:08:16
-//
-//  @return       bool :
-//  @param        stringhex :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool HASH::GetResultString(XSTRING& stringhex)
+* @brief      GetResultString
+* @ingroup    CIPHER
+* 
+* @param[in]  stringhex : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASH::GetResultString(XSTRING& stringhex)
 {
   stringhex.Empty();
@@ -347,19 +355,16 @@ bool HASH::GetResultString(XSTRING& stringhex)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASH::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:09:56
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASH::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASH::Clean()
 {
   type     = HASHTYPE_NONE;

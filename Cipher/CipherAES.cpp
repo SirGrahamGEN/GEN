@@ -1,23 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  CIPHERAES.CPP
-//
-//  Cipher / Uncipher AES
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 25/04/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
-
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CipherAES.cpp
+* 
+* @class      CIPHERAES
+* @brief      Cipher AES class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
-
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <string.h>
 
@@ -27,8 +41,7 @@
 
 #include "XMemory_Control.h"
 
-
-//---- DEFINES & ENUMS  --------------------------------------------------------------------
+/*---- DEFINES & ENUMS ----------------------------------------------------------------------------------------------*/
 
 
 #define GET_UINT32_LE(n,b,i)                  {   (n) =   ( (XDWORD) (b)[(i)    ]       )     \
@@ -91,9 +104,7 @@
 #define XTIME(x)  (( x << 1 ) ^ ( ( x & 0x80 ) ? 0x1B : 0x00 ))
 #define MUL(x,y)  (( x && y ) ? pow[(log[x]+log[y]) % 255] : 0)
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 XBYTE   CIPHERAES::FSb[256];
 XDWORD  CIPHERAES::FT0[256];
@@ -109,24 +120,20 @@ XDWORD  CIPHERAES::RT3[256];
 
 XDWORD  CIPHERAES::RCON[10];
 
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
-
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERAES::CIPHERAES()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+CIPHERAES::CIPHERAES()
 
-//-------------------------------------------------------------------
-//  CIPHERAES::CIPHERAES
-/**
-//
-//
-//  ""
-//  @version      30/04/2006 19:42:40
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
-CIPHERAES::CIPHERAES() : CIPHER()
 {
   Clean();
 
@@ -137,38 +144,34 @@ CIPHERAES::CIPHERAES() : CIPHER()
 }
 
 
-
-//-------------------------------------------------------------------
-//  CIPHERAES::~CIPHERAES
-/**
-//
-//
-//  ""
-//  @version      30/04/2006 19:42:37
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERAES::~CIPHERAES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 CIPHERAES::~CIPHERAES()
 {
   Clean();
 }
 
 
-
-//-------------------------------------------------------------------
-//  CIPHERAES::Cipher
-/**
-//
-//
-//  ""
-//  @version      25/04/2002 10:22:59
-//
-//  @return       bool :
-//  @param        input :
-//  @param        size :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERAES::Cipher(XBYTE* input,XDWORD size)
+* @brief      Cipher
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERAES::Cipher(XBYTE* input,XDWORD size)
 {
   if(!size) return false;
@@ -224,22 +227,18 @@ bool CIPHERAES::Cipher(XBYTE* input,XDWORD size)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERAES::Uncipher
-*/
-/**
-//
-//
-//  ""
-//  @version      11/03/2013 23:44:01
-//
-//  @return       bool :
-//  @param        input :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERAES::Uncipher(XBYTE* input, XDWORD size)
+* @brief      Uncipher
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERAES::Uncipher(XBYTE* input, XDWORD size)
 {
   if(!size) return false;
@@ -290,41 +289,17 @@ bool CIPHERAES::Uncipher(XBYTE* input, XDWORD size)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERAES::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      10/03/2013 23:51:12
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
-void CIPHERAES::Clean()
-{
-
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  CIPHERAES::AESGenTables
-*/
-/**
-//
-//
-//  ""
-//  @version      15/03/2013 19:16:21
-//
-//  @return       void :
-//  @param        void :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERAES::AESGenTables(void)
+* @brief      AESGenTables
+* @ingroup    CIPHER
+* 
+* @param[in]  void : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERAES::AESGenTables(void)
 {
   int pow[256];
@@ -404,23 +379,19 @@ void CIPHERAES::AESGenTables(void)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERAES::AESSetKeyCipher
-*/
-/**
-//
-//
-//  ""
-//  @version      15/03/2013 19:38:59
-//
-//  @return       bool :
-//  @param        ctx :
-//  @param        key :
-//  @param        keysize :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERAES::AESSetKeyCipher(CIPHERAES_CONTEXT* ctx, XBYTE* key, XDWORD keysize)
+* @brief      AESSetKeyCipher
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  key : 
+* @param[in]  keysize : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERAES::AESSetKeyCipher(CIPHERAES_CONTEXT* ctx, XBYTE* key, XDWORD keysize)
 {
   XDWORD* RK;
@@ -503,24 +474,19 @@ bool CIPHERAES::AESSetKeyCipher(CIPHERAES_CONTEXT* ctx, XBYTE* key, XDWORD keysi
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  CIPHERAES::AESSetKeyUncipher
-*/
-/**
-//
-//
-//  ""
-//  @version      15/03/2013 19:39:08
-//
-//  @return       bool :
-//  @param        ctx :
-//  @param        key :
-//  @param        keysize :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERAES::AESSetKeyUncipher(CIPHERAES_CONTEXT* ctx, XBYTE* key, XDWORD keysize)
+* @brief      AESSetKeyUncipher
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  key : 
+* @param[in]  keysize : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERAES::AESSetKeyUncipher(CIPHERAES_CONTEXT* ctx, XBYTE* key, XDWORD keysize)
 {
   CIPHERAES_CONTEXT cty;
@@ -571,24 +537,20 @@ bool CIPHERAES::AESSetKeyUncipher(CIPHERAES_CONTEXT* ctx, XBYTE* key, XDWORD key
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERAES::AESCipher_ECB_Block
-*/
-/**
-//
-//
-//  ""
-//  @version      15/03/2013 20:08:32
-//
-//  @return       bool :
-//  @param        ctx :
-//  @param        mode :
-//  @param        input[16] :
-//  @param        output[16] :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERAES::AESCipher_ECB_Block(CIPHERAES_CONTEXT* ctx, int mode, XBYTE input[16], XBYTE output[16])
+* @brief      AESCipher_ECB_Block
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  mode : 
+* @param[in]  input[16] : 
+* @param[in]  output[16] : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERAES::AESCipher_ECB_Block(CIPHERAES_CONTEXT* ctx, int mode, XBYTE input[16], XBYTE output[16])
 {
   if(!ctx) return false;
@@ -689,27 +651,21 @@ bool CIPHERAES::AESCipher_ECB_Block(CIPHERAES_CONTEXT* ctx, int mode, XBYTE inpu
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERAES::AESCipher_ECB
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      30/04/2014 14:17:22
-//
-//  @return       bool :
-//
-//  @param        ctx :
-//  @param        mode :
-//  @param        size :
-//  @param        input :
-//  @param        output :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERAES::AESCipher_ECB(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, XBYTE* input, XBYTE* output)
+* @brief      AESCipher_ECB
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  mode : 
+* @param[in]  size : 
+* @param[in]  input : 
+* @param[in]  output : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERAES::AESCipher_ECB(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, XBYTE* input, XBYTE* output)
 {
   if(size % 16) return false;
@@ -727,28 +683,22 @@ bool CIPHERAES::AESCipher_ECB(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, XBY
 }
 
 
-
-
-
-
-/*-------------------------------------------------------------------
-//  CIPHERAES::AESCipher_CBC
-*/
-/**
-//
-//
-//  ""
-//  @version      15/03/2013 21:43:44
-//
-//  @return       bool :
-//  @param        ctx :
-//  @param        mode :
-//  @param        size :
-//  @param        iv :
-//  @param        input :
-//  @param        output :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERAES::AESCipher_CBC(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, XBYTE iv[16], XBYTE* input, XBYTE* output)
+* @brief      AESCipher_CBC
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  mode : 
+* @param[in]  size : 
+* @param[in]  iv[16] : 
+* @param[in]  input : 
+* @param[in]  output : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERAES::AESCipher_CBC(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, XBYTE iv[16], XBYTE* input, XBYTE* output)
 {
   XBYTE temp[16];
@@ -797,27 +747,23 @@ bool CIPHERAES::AESCipher_CBC(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, XBY
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERAES::AESCipher_CFB128
-*/
-/**
-//
-//
-//  ""
-//  @version      15/03/2013 21:44:48
-//
-//  @return       bool :
-//  @param        ctx :
-//  @param        mode :
-//  @param        size :
-//  @param        iv_off :
-//  @param        iv[16] :
-//  @param        input :
-//  @param        output :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERAES::AESCipher_CFB128(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, int* iv_off, XBYTE iv[16], XBYTE* input, XBYTE* output)
+* @brief      AESCipher_CFB128
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  mode : 
+* @param[in]  size : 
+* @param[in]  iv_off : 
+* @param[in]  iv[16] : 
+* @param[in]  input : 
+* @param[in]  output : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERAES::AESCipher_CFB128(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, int* iv_off, XBYTE iv[16], XBYTE* input, XBYTE* output)
 {
   int c;
@@ -860,27 +806,23 @@ bool CIPHERAES::AESCipher_CFB128(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, 
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERAES::AESCipher_CTR
-*/
-/**
-//
-//
-//  ""
-//  @version      15/03/2013 21:47:07
-//
-//  @return       bool :
-//  @param        ctx :
-//  @param        size :
-//  @param        nc_off :
-//  @param        nonce_counter[16] :
-//  @param        stream_block[16] :
-//  @param        input :
-//  @param        output :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERAES::AESCipher_CTR(CIPHERAES_CONTEXT* ctx, XDWORD size, int* nc_off, XBYTE nonce_counter[16], XBYTE stream_block[16], XBYTE* input, XBYTE* output)
+* @brief      AESCipher_CTR
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  size : 
+* @param[in]  nc_off : 
+* @param[in]  nonce_counter[16] : 
+* @param[in]  stream_block[16] : 
+* @param[in]  input : 
+* @param[in]  output : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERAES::AESCipher_CTR(CIPHERAES_CONTEXT* ctx, XDWORD size, int* nc_off, XBYTE nonce_counter[16], XBYTE stream_block[16], XBYTE* input, XBYTE* output)
 {
   int c;
@@ -910,4 +852,17 @@ bool CIPHERAES::AESCipher_CTR(CIPHERAES_CONTEXT* ctx, XDWORD size, int* nc_off, 
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERAES::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERAES::Clean()
+{
 
+}

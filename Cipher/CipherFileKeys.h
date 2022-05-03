@@ -1,31 +1,43 @@
-/*------------------------------------------------------------------------------------------
-//  CIPHERFILEKEYS.H
-*/
-/**
-// \class
-//
-//  Cipher File Keys (Own keys cipher file for GEN)
-//
-//  ""
-//
-//  Date Of Creation  : 19/03/2014 13:09:53
-//  Last Modification :
-*/
-/*  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CipherFileKeys.h
+* 
+* @class      CIPHERFILEKEYS
+* @brief      Cipher File Keys class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* *-------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _CIPHERFILEKEYS_H_
 #define _CIPHERFILEKEYS_H_
 
-
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XVector.h"
 #include "XDateTime.h"
 
 #include "Cipher.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
+
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define CIPHERFILEKEYS_EXT                            __L(".key")
 
@@ -45,8 +57,7 @@
 #define CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_FACTOR1     __L("1STPRIMEFACTOR")
 #define CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_FACTOR2     __L("2NDPRIMEFACTOR")
 
-
-/*---- CLASS -----------------------------------------------------------------------------*/
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XFACTORY;
 class CIPHERKEY;
@@ -58,9 +69,9 @@ class CIPHERFILEKEYS
                            CIPHERFILEKEYS                 (XPATH& xpath);
     virtual               ~CIPHERFILEKEYS                 ();
 
-    XSTRING*               GetCreatorName                 ()                                      { return &creatorname;                    }
-    XDATETIME*             GetCreatorDateTime             ()                                      { return &creatordatetime;                }
-    XDATETIME*             GetCreatorLastModifiedDateTime ()                                      { return &creatorlastmodifieddatetime;    }
+    XSTRING*               GetCreatorName                 ();
+    XDATETIME*             GetCreatorDateTime             ();
+    XDATETIME*             GetCreatorLastModifiedDateTime ();
 
     bool                   HaveKey                        (CIPHERKEYTYPE type);
     CIPHERKEY*             GetKey                         (CIPHERKEYTYPE type);
@@ -73,19 +84,16 @@ class CIPHERFILEKEYS
     bool                   ExportToPEMFile                (CIPHERKEY* key, XSTRING& publicPEM);
     bool                   ExportToPEMFile                (CIPHERKEY* key, XPATH& xpath);
 
-    XPATH                  GetXPath                       ()                                      { return xpath;                           }
-    XFILEXML*              GetXFileXML                    ()                                      { return xfilexml;                        }
+    XPATH&                 GetXPath                       ();
+    XFILEXML*              GetXFileXML                    ();
 
 
   private:
 
     bool                   ReadAllFile                    ();
 
-    void                   Clean                          ()
-                           {
-                              xfilexml  = NULL;
-                           }
-
+    void                   Clean                          ();
+                           
     XPATH                  xpath;
     XFILEXML*              xfilexml;
 
@@ -96,7 +104,6 @@ class CIPHERFILEKEYS
 };
 
 
-/*---- INLINE FUNCTIONS ------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-

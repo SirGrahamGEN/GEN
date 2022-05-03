@@ -1,21 +1,37 @@
-/*------------------------------------------------------------------------------------------
-//  CIPHERFILEKEYS.CPP
-//
-//  Cipher File Keys (Own keys cipher file for GEN)
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 19/03/2014 13:13:28
-//  Last Modification :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CipherFileKeys.cpp
+* 
+* @class      CIPHERFILEKEYS
+* @brief      Cipher File Keys class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XFactory.h"
 #include "XMPInteger.h"
@@ -30,26 +46,23 @@
 
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-/*-------------------------------------------------------------------
-//  CIPHERFILEKEYS::CIPHERFILEKEYS
-*/
-/**
-//
-//  Class Constructor CIPHERFILEKEYS
-//
-//  ""
-//  @version      20/03/2014 9:27:46
-//
-
-//  @param        xpath :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERFILEKEYS::CIPHERFILEKEYS(XPATH& xpath)
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @param[in]  XPATH& : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 CIPHERFILEKEYS::CIPHERFILEKEYS(XPATH& xpath)
 {
   Clean();
@@ -63,20 +76,16 @@ CIPHERFILEKEYS::CIPHERFILEKEYS(XPATH& xpath)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERFILEKEYS::~CIPHERFILEKEYS
-*/
-/**
-//
-//   Class Destructor CIPHERFILEKEYS
-//
-//  ""
-//  @version      20/03/2014 9:28:10
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERFILEKEYS::~CIPHERFILEKEYS()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 CIPHERFILEKEYS::~CIPHERFILEKEYS()
 {
   DeleteAllKeys();
@@ -87,23 +96,62 @@ CIPHERFILEKEYS::~CIPHERFILEKEYS()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* CIPHERFILEKEYS::GetCreatorName()
+* @brief      GetCreatorName
+* @ingroup    CIPHER
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* CIPHERFILEKEYS::GetCreatorName()
+{ 
+  return &creatorname;                    
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDATETIME* CIPHERFILEKEYS::GetCreatorDateTime()
+* @brief      GetCreatorDateTime
+* @ingroup    CIPHER
+* 
+* @return     XDATETIME* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDATETIME* CIPHERFILEKEYS::GetCreatorDateTime()
+{ 
+  return &creatordatetime;                
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDATETIME* CIPHERFILEKEYS::GetCreatorLastModifiedDateTime()
+* @brief      GetCreatorLastModifiedDateTime
+* @ingroup    CIPHER
+* 
+* @return     XDATETIME* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDATETIME* CIPHERFILEKEYS::GetCreatorLastModifiedDateTime()
+{ 
+  return &creatorlastmodifieddatetime;    
+}
 
 
-/*-------------------------------------------------------------------
-//  CIPHERFILEKEYS::HaveKey
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      20/03/2014 13:39:33
-//
-//  @return       bool :
-//
-//  @param        type :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERFILEKEYS::HaveKey(CIPHERKEYTYPE type)
+* @brief      HaveKey
+* @ingroup    CIPHER
+* 
+* @param[in]  type : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERFILEKEYS::HaveKey(CIPHERKEYTYPE type)
 {
   for(int c=0; c<(int)keys.GetSize(); c++)
@@ -119,22 +167,17 @@ bool CIPHERFILEKEYS::HaveKey(CIPHERKEYTYPE type)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERFILEKEYS::GetKey
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      20/03/2014 9:33:51
-//
-//  @return       CIPHERKEY* :
-//
-//  @param        type :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERKEY* CIPHERFILEKEYS::GetKey(CIPHERKEYTYPE type)
+* @brief      GetKey
+* @ingroup    CIPHER
+* 
+* @param[in]  type : 
+* 
+* @return     CIPHERKEY* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEY* CIPHERFILEKEYS::GetKey(CIPHERKEYTYPE type)
 {
   for(int c=0; c<(int)keys.GetSize(); c++)
@@ -150,22 +193,17 @@ CIPHERKEY* CIPHERFILEKEYS::GetKey(CIPHERKEYTYPE type)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERFILEKEYS::AddKey
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      20/03/2014 9:30:08
-//
-//  @return       bool :
-//
-//  @param        key :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERFILEKEYS::AddKey(CIPHERKEY& key)
+* @brief      AddKey
+* @ingroup    CIPHER
+* 
+* @param[in]  key : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERFILEKEYS::AddKey(CIPHERKEY& key)
 {
   if(HaveKey(key.GetType())) return false;
@@ -197,27 +235,21 @@ bool CIPHERFILEKEYS::AddKey(CIPHERKEY& key)
                                         break;
     }
 
-
   return true;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERFILEKEYS::DeleteKey
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      20/03/2014 9:30:13
-//
-//  @return       bool :
-//
-//  @param        type :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERFILEKEYS::DeleteKey(CIPHERKEYTYPE type)
+* @brief      DeleteKey
+* @ingroup    CIPHER
+* 
+* @param[in]  type : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERFILEKEYS::DeleteKey(CIPHERKEYTYPE type)
 {
   for(int c=0; c<(int)keys.GetSize(); c++)
@@ -237,21 +269,15 @@ bool CIPHERFILEKEYS::DeleteKey(CIPHERKEYTYPE type)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERFILEKEYS::DeleteAllKeys
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      20/03/2014 9:30:20
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERFILEKEYS::DeleteAllKeys()
+* @brief      DeleteAllKeys
+* @ingroup    CIPHER
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERFILEKEYS::DeleteAllKeys()
 {
   if(keys.IsEmpty()) return false;
@@ -264,21 +290,15 @@ bool CIPHERFILEKEYS::DeleteAllKeys()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERFILEKEYS::UpdateFile
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      20/03/2014 9:30:25
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERFILEKEYS::UpdateFile()
+* @brief      UpdateFile
+* @ingroup    CIPHER
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERFILEKEYS::UpdateFile()
 {
   if(!xfilexml) return false;
@@ -290,12 +310,11 @@ bool CIPHERFILEKEYS::UpdateFile()
 
   XFILEXMLELEMENT* node   = NULL;
   XSTRING          string;
-//int              index  = 0;
 
   node = noderoot->AddElement(CIPHERFILEKEYS_NODENAME_CREATOR);
   if(node)
     {
-      GEN_XFACTORY_CREATE(datetime, CreateDateTime());
+      XDATETIME* xdatetime = GEN_XFACTORY.CreateDateTime();
       if(xdatetime)
         {
           xdatetime->Read();
@@ -390,10 +409,7 @@ bool CIPHERFILEKEYS::UpdateFile()
       XFILEXMLATTRIBUTE* attribute;
 
       attribute = new XFILEXMLATTRIBUTE(__L("version"),__L("1.0"));
-      if(attribute) CFGatributes->Add(attribute);
-
-      //attribute = new XFILEXMLATTRIBUTE(__L("encoding"),__L("UTF-8"));
-      //if(attribute) CFGatributes->Add(attribute);
+      if(attribute) CFGatributes->Add(attribute);      
     }
 
   status = xfilexml->EncodeAllLines();
@@ -407,24 +423,18 @@ bool CIPHERFILEKEYS::UpdateFile()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERFILEKEYS::ExportToPEMFile
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      08/04/2014 12:13:06
-//
-//  @return       bool :
-//
-//  @param        key :
-//  @param        publicPEM :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
+* @brief      ExportToPEMFile
+* @ingroup    CIPHER
+* 
+* @param[in]  key : 
+* @param[in]  publicPEM : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
 {
   if(!key) return false;
@@ -524,25 +534,18 @@ bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  CIPHERFILEKEYS::ExportToPEMFile
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      08/04/2014 12:18:23
-//
-//  @return       bool :
-//
-//  @param        key :
-//  @param        xpath :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
+* @brief      ExportToPEMFile
+* @ingroup    CIPHER
+* 
+* @param[in]  key : 
+* @param[in]  xpath : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
 {
   if(!key) return false;
@@ -569,22 +572,45 @@ bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XPATH& CIPHERFILEKEYS::GetXPath()
+* @brief      GetXPath
+* @ingroup    CIPHER
+* 
+* @return     XPATH& : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XPATH& CIPHERFILEKEYS::GetXPath()
+{ 
+  return xpath;                           
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XFILEXML* CIPHERFILEKEYS::GetXFileXML()
+* @brief      GetXFileXML
+* @ingroup    CIPHER
+* 
+* @return     XFILEXML* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XFILEXML* CIPHERFILEKEYS::GetXFileXML()
+{ 
+  return xfilexml;                        
+}
 
 
-/*-------------------------------------------------------------------
-//  CIPHERFILEKEYS::ReadAllFile
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      20/03/2014 9:30:30
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERFILEKEYS::ReadAllFile()
+* @brief      ReadAllFile
+* @ingroup    CIPHER
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERFILEKEYS::ReadAllFile()
 {
   if(!xfilexml) return false;
@@ -723,4 +749,20 @@ bool CIPHERFILEKEYS::ReadAllFile()
   xfilexml->Close();
 
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERFILEKEYS::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERFILEKEYS::Clean()
+{
+  xfilexml  = NULL;
 }

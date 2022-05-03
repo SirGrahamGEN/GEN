@@ -1,22 +1,35 @@
-//------------------------------------------------------------------------------------------
-//  CIPHER.H
-//
-/**
-// \class
-//
-//  Cipher Interface
-//
-//  ""
-//  @version 22/04/2002
-*/
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       Cipher.h
+* 
+* @class      CIPHER
+* @brief      Cipher interface class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* *-------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _CIPHERH_
-#define _CIPHERH_
+#ifndef _CIPHER_H_
+#define _CIPHER_H_
 
-
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <string.h>
@@ -25,7 +38,7 @@
 #include "XBuffer.h"
 #include "XString.h"
 
-//---- DEFINES & ENUMS  --------------------------------------------------------------------
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define CIPHERMAXKEYS 2
 
@@ -59,29 +72,21 @@ enum CIPHERCHAININGMODE
   CIPHERCHAININGMODE_CTR            ,
 };
 
-
-//---- CLASS -------------------------------------------------------------------------------
-
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class CIPHERKEY
 {
   public:
-                          CIPHERKEY                 ()                                        { Clean();                                          }
-    virtual              ~CIPHERKEY                 ()                                        { Clean();                                          }
+                          CIPHERKEY                 ();
+    virtual              ~CIPHERKEY                 ();
 
-    CIPHERKEYTYPE         GetType                   ()                                        { return type;                                      }
-    void                  SetType                   (CIPHERKEYTYPE type)                      { this->type = type;                                }
+    CIPHERKEYTYPE         GetType                   ();
+    void                  SetType                   (CIPHERKEYTYPE type);
 
-    virtual int           GetSizeInBytes            ()                                        { return 0;                                         }
-    int                   GetSizeInBits             ()                                        { return (GetSizeInBytes()*8);                      }
+    virtual int           GetSizeInBytes            ();
+    int                   GetSizeInBits             ();
 
-    bool                  CopyFrom                  (CIPHERKEY* key)
-                          {
-                            if(!key) return false;
-                            type = key->GetType();
-
-                            return true;
-                          }
+    bool                  CopyFrom                  (CIPHERKEY* key);
 
   protected:
 
@@ -89,12 +94,8 @@ class CIPHERKEY
 
 private:
 
-    void                  Clean                     ()
-                          {
-                            type = CIPHERKEYTYPE_UNKNOWN;
-                          }
+    void                  Clean                     ();
 };
-
 
 
 
@@ -110,31 +111,16 @@ class CIPHERKEYSYMMETRICAL : public CIPHERKEY
     bool                  Set                       (XBYTE* key, XDWORD size);
     bool                  Set                       (XBUFFER& key);
 
-    int                   GetSizeInBytes            ()                                        { return xbufferkey->GetSize();                     }
+    int                   GetSizeInBytes            ();
 
-    bool                  CopyFrom                  (CIPHERKEYSYMMETRICAL* key)
-                          {
-                            if(!key) return false;
-
-                            if(!CIPHERKEY::CopyFrom((CIPHERKEY*)key)) return false;
-
-                            xbufferkey->Delete();
-                            xbufferkey->Add(key->Get()->Get(), key->Get()->GetSize());
-
-                            return true;
-                          }
+    bool                  CopyFrom                  (CIPHERKEYSYMMETRICAL* key);                          
 
   private:
 
-    void                  Clean                     ()
-                          {
-                            xbufferkey = NULL;
-                          }
-
+    void                  Clean                     ();
+    
     XBUFFER*              xbufferkey;
 };
-
-
 
 
 
@@ -144,17 +130,17 @@ class CIPHER
                           CIPHER                    ();
     virtual              ~CIPHER                    ();
 
-    CIPHERTYPE            GetType                   ()                                        { return type;                                      }
-    void                  SetType                   (CIPHERTYPE type)                         { this->type = type;                                }
+    CIPHERTYPE            GetType                   ();
+    void                  SetType                   (CIPHERTYPE type);
 
-    CIPHERCHAININGMODE    GetChainingMode           ()                                        { return chainingmode;                              }
-    void                  SetChainingMode           (CIPHERCHAININGMODE chainingmode)         { this->chainingmode = chainingmode;                }
+    CIPHERCHAININGMODE    GetChainingMode           ();
+    void                  SetChainingMode           (CIPHERCHAININGMODE chainingmode);
 
-    XBUFFER_PADDINGTYPE   GetPaddingType            ()                                        { return paddingtype;                               }
-    void                  SetPaddingType            (XBUFFER_PADDINGTYPE paddingtype)         { this->paddingtype = paddingtype;                  }
+    XBUFFER_PADDINGTYPE   GetPaddingType            ();
+    void                  SetPaddingType            (XBUFFER_PADDINGTYPE paddingtype);
 
-    int                   GetPaddingAdjustSize      ()                                        { return paddingadjustsize;                         }
-    void                  SetPaddingAdjustSize      (int paddingadjustsize)                   { this->paddingadjustsize = paddingadjustsize;      }
+    int                   GetPaddingAdjustSize      ();
+    void                  SetPaddingAdjustSize      (int paddingadjustsize);
 
     CIPHERKEY*            GetKey                    (CIPHERKEYTYPE type = CIPHERKEYTYPE_SYMMETRICAL);
     virtual bool          SetKey                    (CIPHERKEY* key, bool integritycheck = false);
@@ -185,17 +171,15 @@ class CIPHER
     XBUFFER*              result;
 
   private:
+    
+    CIPHERKEY*            GetKey                    (int index);
+    bool                  SetKey                    (int index, CIPHERKEY* key);
 
     void                  Clean                     ();
 
-    CIPHERKEY*            GetKey                    (int index);
-    bool                  SetKey                    (int index, CIPHERKEY* key);
 };
 
 
-
-//---- INLINE FUNCTIONS --------------------------------------------------------------------
-
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-
