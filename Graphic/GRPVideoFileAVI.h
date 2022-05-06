@@ -6,7 +6,7 @@
 * @brief      GRP Video File Class
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _GRPVIDEOFILEAVI_H_
 #define _GRPVIDEOFILEAVI_H_
@@ -165,7 +165,7 @@ class GRPVIDEOFILEAVI : public GRPVIDEOFILE
 
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

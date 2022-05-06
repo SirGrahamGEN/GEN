@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C Sensor Sensirion SHT20 class (Temperature and humidity module)
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CTEMHUMSENSORSHT20::DIOI2CTEMHUMSENSORSHT20(): DIODEVICEI2C()
 {
   Clean();
@@ -78,7 +78,7 @@ DIOI2CTEMHUMSENSORSHT20::DIOI2CTEMHUMSENSORSHT20(): DIODEVICEI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CTEMHUMSENSORSHT20::~DIOI2CTEMHUMSENSORSHT20()
 {
   End();
@@ -96,7 +96,7 @@ DIOI2CTEMHUMSENSORSHT20::~DIOI2CTEMHUMSENSORSHT20()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORSHT20::Reset()
 {
   if(!diostream) return false;
@@ -124,7 +124,7 @@ bool DIOI2CTEMHUMSENSORSHT20::Reset()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORSHT20::SetResolution(XBYTE resolution)
 {
   XBYTE userregister = 0;
@@ -152,7 +152,7 @@ bool DIOI2CTEMHUMSENSORSHT20::SetResolution(XBYTE resolution)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORSHT20::Read(float& temperature, float& humidity)
 {
   if(!diostream)        return false;
@@ -187,7 +187,7 @@ bool DIOI2CTEMHUMSENSORSHT20::Read(float& temperature, float& humidity)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORSHT20::End()
 {
   if(!DIODEVICEI2C::End()) return false;
@@ -205,7 +205,7 @@ bool DIOI2CTEMHUMSENSORSHT20::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORSHT20::IniDevice()
 {
   if(!DIODEVICEI2C::IniDevice()) return false;
@@ -236,7 +236,7 @@ bool DIOI2CTEMHUMSENSORSHT20::IniDevice()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORSHT20::ReadValue(XBYTE cmd, XWORD& value)
 {
   if(!diostream)
@@ -309,7 +309,7 @@ bool DIOI2CTEMHUMSENSORSHT20::ReadValue(XBYTE cmd, XWORD& value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORSHT20::ReadUserRegister(XBYTE& userregister)
 {
   if(!diostream) return false;
@@ -342,7 +342,7 @@ bool DIOI2CTEMHUMSENSORSHT20::ReadUserRegister(XBYTE& userregister)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORSHT20::WriteUserRegister(XBYTE userregister)
 {
   if(!diostream) return false;
@@ -372,7 +372,7 @@ bool DIOI2CTEMHUMSENSORSHT20::WriteUserRegister(XBYTE userregister)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORSHT20::CheckCRC(XWORD datasensor, XBYTE checkvalue)
 {
   XDWORD remainder = (XDWORD)datasensor << 8;
@@ -405,7 +405,7 @@ bool DIOI2CTEMHUMSENSORSHT20::CheckCRC(XWORD datasensor, XBYTE checkvalue)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CTEMHUMSENSORSHT20::Clean()
 {
 

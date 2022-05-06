@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream TCP/IP Config class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSTREAMTCPIPCONFIG_H_
 #define _DIOSTREAMTCPIPCONFIG_H_
@@ -81,7 +81,7 @@ class DIOSTREAMTCPIPCONFIG  : public DIOSTREAMCONFIG, public DIOSTREAMCONFIGSTRI
 
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

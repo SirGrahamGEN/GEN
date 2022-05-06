@@ -6,7 +6,7 @@
 * @brief      Graphics Properties class
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -49,7 +49,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPPROPERTIES::GRPPROPERTIES()
 {
   Clean();
@@ -68,7 +68,7 @@ GRPPROPERTIES::GRPPROPERTIES()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPPROPERTIES::~GRPPROPERTIES()
 {
   Clean();
@@ -84,7 +84,7 @@ GRPPROPERTIES::~GRPPROPERTIES()
 *
 * @return     GRPPROPERTYMODE : Property mode
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPPROPERTYMODE GRPPROPERTIES::GetMode()
 {
   return mode;
@@ -102,7 +102,7 @@ GRPPROPERTYMODE GRPPROPERTIES::GetMode()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetMode(GRPPROPERTYMODE mode)
 {
   this->mode = mode;
@@ -118,7 +118,7 @@ void GRPPROPERTIES::SetMode(GRPPROPERTYMODE mode)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD GRPPROPERTIES::GetPositionX()
 {
   return positionx;
@@ -134,7 +134,7 @@ XDWORD GRPPROPERTIES::GetPositionX()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD GRPPROPERTIES::GetPositionY()
 {
   return positiony;
@@ -153,7 +153,7 @@ XDWORD GRPPROPERTIES::GetPositionY()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetPosition(XDWORD x, XDWORD y)
 {
   positionx = x;
@@ -170,7 +170,7 @@ void GRPPROPERTIES::SetPosition(XDWORD x, XDWORD y)
 *
 * @return     XDWORD : Width of propertys
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD GRPPROPERTIES::GetWidth()
 {
   return width;
@@ -188,7 +188,7 @@ XDWORD GRPPROPERTIES::GetWidth()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetWidth(XDWORD width)
 {
   this->width = width;
@@ -204,7 +204,7 @@ void GRPPROPERTIES::SetWidth(XDWORD width)
 *
 * @return     XDWORD : height of properties
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD GRPPROPERTIES::GetHeight()
 {
   return height;
@@ -222,7 +222,7 @@ XDWORD GRPPROPERTIES::GetHeight()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetHeight(XDWORD height)
 {
   this->height = height;
@@ -241,7 +241,7 @@ void GRPPROPERTIES::SetHeight(XDWORD height)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetSize(XDWORD width, XDWORD height)
 {
   this->width  = width;
@@ -258,7 +258,7 @@ void GRPPROPERTIES::SetSize(XDWORD width, XDWORD height)
 *
 * @return     XDWORD : Max Width of propertys
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD GRPPROPERTIES::GetMaxWidth()
 {
   return maxwidth;
@@ -276,7 +276,7 @@ XDWORD GRPPROPERTIES::GetMaxWidth()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetMaxWidth(XDWORD maxwidth)
 {
   this->maxwidth = maxwidth;
@@ -292,7 +292,7 @@ void GRPPROPERTIES::SetMaxWidth(XDWORD maxwidth)
 *
 * @return     XDWORD : Max height of properties
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD GRPPROPERTIES::GetMaxHeight()
 {
   return maxheight;
@@ -310,7 +310,7 @@ XDWORD GRPPROPERTIES::GetMaxHeight()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetMaxHeight(XDWORD maxheight)
 {
   this->maxheight = maxheight;
@@ -329,7 +329,7 @@ void GRPPROPERTIES::SetMaxHeight(XDWORD maxheight)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetMaxSize(XDWORD maxwidth, XDWORD maxheight)
 {
   this->maxwidth  = maxwidth;
@@ -346,7 +346,7 @@ void GRPPROPERTIES::SetMaxSize(XDWORD maxwidth, XDWORD maxheight)
 *
 * @return     float : DPIs properties
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float GRPPROPERTIES::GetDPI()
 {
   return DPIs;
@@ -364,7 +364,7 @@ float GRPPROPERTIES::GetDPI()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetDPI(float DPI)
 {
   this->DPIs = DPI;
@@ -380,7 +380,7 @@ void GRPPROPERTIES::SetDPI(float DPI)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD GRPPROPERTIES::GetStride()
 {
   return stride;
@@ -398,7 +398,7 @@ XDWORD GRPPROPERTIES::GetStride()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetStride(XDWORD stride)
 {
   this->stride = stride;
@@ -414,7 +414,7 @@ void GRPPROPERTIES::SetStride(XDWORD stride)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPPROPERTIES::IsBufferInverse()
 {
   return isbufferinverse;
@@ -432,7 +432,7 @@ bool GRPPROPERTIES::IsBufferInverse()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetIsBufferInverse(bool isbufferinverse)
 {
   this->isbufferinverse = isbufferinverse;
@@ -448,7 +448,7 @@ void GRPPROPERTIES::SetIsBufferInverse(bool isbufferinverse)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPPROPERTIES::HasTitle()
 {
   return hastitle;
@@ -466,7 +466,7 @@ bool GRPPROPERTIES::HasTitle()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetHasTitle(bool hastitle)
 {
   this->hastitle = hastitle;
@@ -483,7 +483,7 @@ void GRPPROPERTIES::SetHasTitle(bool hastitle)
 *
 * @return     XBYTE : number of bits per pixel
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE GRPPROPERTIES::GetBitsperPixel()
 {
   XBYTE bitsppixel = 0;
@@ -520,7 +520,7 @@ XBYTE GRPPROPERTIES::GetBitsperPixel()
 *
 * @return     XBYTE : bytes per pixel
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE GRPPROPERTIES::GetBytesperPixel()
 {
   return (GetBitsperPixel()/8);
@@ -538,7 +538,7 @@ XBYTE GRPPROPERTIES::GetBytesperPixel()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::CopyPropertysFrom(GRPPROPERTIES* properties)
 {
   if(!properties) return;
@@ -566,7 +566,7 @@ void GRPPROPERTIES::CopyPropertysFrom(GRPPROPERTIES* properties)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::CopyPropertysTo(GRPPROPERTIES* properties)
 {
   if(!properties) return;
@@ -594,7 +594,7 @@ void GRPPROPERTIES::CopyPropertysTo(GRPPROPERTIES* properties)
 *
 * @return     int : ISLESS, ISGREATER, ISEQUAL
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPPROPERTIES::IsEqualSizeTo(GRPPROPERTIES* properties)
 {
   if(!properties) return ISLESS;
@@ -620,7 +620,7 @@ int GRPPROPERTIES::IsEqualSizeTo(GRPPROPERTIES* properties)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::Default()
 {
   mode            = GRPPROPERTYMODE_24_BGR_888;
@@ -647,7 +647,7 @@ void GRPPROPERTIES::Default()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::Clean()
 {
   mode            = GRPPROPERTYMODE_XX_UNKNOWN;

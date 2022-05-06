@@ -6,7 +6,7 @@
 * @brief      Sound File class
 * @ingroup    SOUND
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _SNDFILE_H_
 #define _SNDFILE_H_
@@ -86,7 +86,7 @@ class SNDFILE
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

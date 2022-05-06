@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream TLS (Transport Layer Security) class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTLS::DIOSTREAMTLS(DIOSTREAMTLSCONFIG* config) 
 {
   Clean();
@@ -79,7 +79,7 @@ DIOSTREAMTLS::DIOSTREAMTLS(DIOSTREAMTLSCONFIG* config)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTLS::~DIOSTREAMTLS()
 {
   if(diostream) GEN_DIOFACTORY.DeleteStreamIO(diostream);
@@ -97,7 +97,7 @@ DIOSTREAMTLS::~DIOSTREAMTLS()
 *
 * @return     DIOSTREAMCONFIG* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIG* DIOSTREAMTLS::GetConfig()
 {
   return (DIOSTREAMCONFIG*)config;
@@ -115,7 +115,7 @@ DIOSTREAMCONFIG* DIOSTREAMTLS::GetConfig()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMTLS::SetConfig(DIOSTREAMCONFIG* config)
 {
   if(!config) return false;
@@ -135,7 +135,7 @@ bool DIOSTREAMTLS::SetConfig(DIOSTREAMCONFIG* config)
 *
 * @return     DIOSTREAMSTATUS : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOSTREAMTLS::GetConnectStatus()
 {
   if(!diostream) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -154,7 +154,7 @@ DIOSTREAMSTATUS DIOSTREAMTLS::GetConnectStatus()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMTLS::Open()
 {
   if(!diostream) return false;
@@ -172,7 +172,7 @@ bool DIOSTREAMTLS::Open()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMTLS::HandShake_Client_Hello()
 {
   XBUFFER   xbuffer;
@@ -213,7 +213,7 @@ bool DIOSTREAMTLS::HandShake_Client_Hello()
 *
 * @return     XDWORD : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMTLS::Read(XBYTE* buffer, XDWORD size)
 {
   if(!diostream) return false;
@@ -233,7 +233,7 @@ XDWORD DIOSTREAMTLS::Read(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMTLS::Write(XBYTE* buffer, XDWORD size)
 {
   if(!diostream) return false;
@@ -250,7 +250,7 @@ XDWORD DIOSTREAMTLS::Write(XBYTE* buffer, XDWORD size)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMTLS::Disconnect()
 {
   if(!diostream) return false;
@@ -267,7 +267,7 @@ bool DIOSTREAMTLS::Disconnect()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMTLS::Close()
 {
   if(!diostream) return false;
@@ -286,7 +286,7 @@ bool DIOSTREAMTLS::Close()
 *
 * @return     DIOSTREAMTCPIP* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTCPIP* DIOSTREAMTLS::GetDIOStreamBase()
 {
   return diostream;
@@ -303,7 +303,7 @@ DIOSTREAMTCPIP* DIOSTREAMTLS::GetDIOStreamBase()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMTLS::Clean()
 {
   config      = NULL;  

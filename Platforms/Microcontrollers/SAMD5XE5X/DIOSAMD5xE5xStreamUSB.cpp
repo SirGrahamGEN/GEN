@@ -6,7 +6,7 @@
 * @brief      SAMD5xE5x Data IO Stream USB class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
@@ -67,7 +67,7 @@ DIOSAMD5XE5XSTREAMUSB* diostreamusbptrhandle =  NULL;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XSTREAMUSB::DIOSAMD5XE5XSTREAMUSB(): DIOSTREAMUSB(), XFSMACHINE(0)
 {
   Clean();
@@ -106,7 +106,7 @@ DIOSAMD5XE5XSTREAMUSB::DIOSAMD5XE5XSTREAMUSB(): DIOSTREAMUSB(), XFSMACHINE(0)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XSTREAMUSB::~DIOSAMD5XE5XSTREAMUSB()
 {
   Close();
@@ -126,7 +126,7 @@ DIOSAMD5XE5XSTREAMUSB::~DIOSAMD5XE5XSTREAMUSB()
 *
 * @return     DIOSTREAMSTATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOSAMD5XE5XSTREAMUSB::GetConnectStatus()
 {
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -144,7 +144,7 @@ DIOSTREAMSTATUS DIOSAMD5XE5XSTREAMUSB::GetConnectStatus()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUSB::Open()
 {
   if(!threadconnection)  return false;
@@ -177,7 +177,7 @@ bool DIOSAMD5XE5XSTREAMUSB::Open()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMUSB::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
@@ -201,7 +201,7 @@ XDWORD DIOSAMD5XE5XSTREAMUSB::WriteDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMUSB::Write(XBYTE* buffer, XDWORD size)
 {
   if(!outbuffer) return 0;
@@ -231,7 +231,7 @@ XDWORD DIOSAMD5XE5XSTREAMUSB::Write(XBYTE* buffer, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUSB::Close()
 {
   if(!threadconnection) return false;
@@ -256,7 +256,7 @@ bool DIOSAMD5XE5XSTREAMUSB::Close()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUSB::CleanBuffers()
 {
   return false;
@@ -275,7 +275,7 @@ bool DIOSAMD5XE5XSTREAMUSB::CleanBuffers()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 //--- ABRHAMD5XE5X ------------------
 /*
 void DIOSAMD5XE5XSTREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t *len)
@@ -312,7 +312,7 @@ void DIOSAMD5XE5XSTREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t *le
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSAMD5XE5XSTREAMUSB::ThreadConnection(void* param)
 {
   DIOSAMD5XE5XSTREAMUSB* diostream = (DIOSAMD5XE5XSTREAMUSB*)param;

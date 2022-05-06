@@ -6,7 +6,7 @@
 * @brief      Basic functions and defines
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XBASE_H_
 #define _XBASE_H_
@@ -206,7 +206,7 @@ class XBASE
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 double  Truncate          (double value);
 double  Fraction          (double value);

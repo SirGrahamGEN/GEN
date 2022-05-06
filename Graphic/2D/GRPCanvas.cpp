@@ -6,7 +6,7 @@
 * @brief      Graphics Canvas class
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -348,7 +348,7 @@ void GRPCANVAS_VECTORFONT_CONFIG::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPCANVAS::GRPCANVAS()
 {
   Clean();
@@ -365,7 +365,7 @@ GRPCANVAS::GRPCANVAS()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPCANVAS::~GRPCANVAS()
 {
   RebuildAllAreas();
@@ -384,7 +384,7 @@ GRPCANVAS::~GRPCANVAS()
 *
 * @return     GRPRECTINT* : rect of screen zone
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPRECTINT* GRPCANVAS::GetScreenZone()
 {
   return &screenzone;
@@ -400,7 +400,7 @@ GRPRECTINT* GRPCANVAS::GetScreenZone()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPCANVAS::CreateBuffers()
 {
   buffer = new XBYTE[width * height * GetBytesperPixel()];
@@ -419,7 +419,7 @@ bool GRPCANVAS::CreateBuffers()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPCANVAS::DeleteBuffers()
 {
   return false;
@@ -435,7 +435,7 @@ bool GRPCANVAS::DeleteBuffers()
 *
 * @return     XBYTE* : buffer with data
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* GRPCANVAS::GetBuffer()
 {
   return buffer;
@@ -453,7 +453,7 @@ XBYTE* GRPCANVAS::GetBuffer()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Clear(const GRP2DCOLOR* color)
 {
 
@@ -572,7 +572,7 @@ void GRPCANVAS::SetClipBox(XRECT& rect)
 *
 * @return     GRP2DCOLOR* : color of pixel
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRP2DCOLOR* GRPCANVAS::GetPixel(double x, double y)
 {
   return NULL;
@@ -592,7 +592,7 @@ GRP2DCOLOR* GRPCANVAS::GetPixel(double x, double y)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutPixel(double x, double y, const GRP2DCOLOR* color)
 {
 
@@ -613,7 +613,7 @@ void GRPCANVAS::PutPixel(double x, double y, const GRP2DCOLOR* color)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutBlendPixel(double x, double y, const GRP2DCOLOR* color, double alpha)
 {
 
@@ -629,7 +629,7 @@ void GRPCANVAS::PutBlendPixel(double x, double y, const GRP2DCOLOR* color, doubl
 *
 * @return     GRP2DCOLOR* : color of fill
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRP2DCOLOR* GRPCANVAS::GetFillColor()
 {
   return NULL;
@@ -647,7 +647,7 @@ GRP2DCOLOR* GRPCANVAS::GetFillColor()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::SetFillColor(const GRP2DCOLOR* color)
 {
 
@@ -663,7 +663,7 @@ void GRPCANVAS::SetFillColor(const GRP2DCOLOR* color)
 *
 * @return     GRP2DCOLOR* : color of line
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRP2DCOLOR* GRPCANVAS::GetLineColor()
 {
   return NULL;
@@ -681,7 +681,7 @@ GRP2DCOLOR* GRPCANVAS::GetLineColor()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::SetLineColor(const GRP2DCOLOR* color)
 {
 
@@ -697,7 +697,7 @@ void GRPCANVAS::SetLineColor(const GRP2DCOLOR* color)
 *
 * @return     double : line width
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 double GRPCANVAS::GetLineWidth()
 {
   return linewidth;
@@ -715,7 +715,7 @@ double GRPCANVAS::GetLineWidth()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::SetLineWidth(double linewidth)
 {
   this->linewidth = linewidth;
@@ -731,7 +731,7 @@ void GRPCANVAS::SetLineWidth(double linewidth)
 *
 * @return     double : dash length
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 double GRPCANVAS::GetDashLength()
 {
   return dashlength;
@@ -749,7 +749,7 @@ double GRPCANVAS::GetDashLength()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::SetDashLenght(double dashlength)
 {
   this->dashlength = dashlength;
@@ -770,7 +770,7 @@ void GRPCANVAS::SetDashLenght(double dashlength)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
  void GRPCANVAS::Line(double x1, double y1, double x2, double y2)
  {
 
@@ -792,7 +792,7 @@ void GRPCANVAS::SetDashLenght(double dashlength)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Rectangle(double x1, double y1, double x2, double y2, bool isfill)
 {
 
@@ -813,7 +813,7 @@ void GRPCANVAS::Rectangle(double x1, double y1, double x2, double y2, bool isfil
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Circle(double x, double y, double radius, bool isfill)
 {
   Ellipse(x, y, radius, radius, isfill);
@@ -835,7 +835,7 @@ void GRPCANVAS::Circle(double x, double y, double radius, bool isfill)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Ellipse(double x, double y, double rx, double ry, bool isfill)
 {
 
@@ -855,7 +855,7 @@ void GRPCANVAS::Ellipse(double x, double y, double rx, double ry, bool isfill)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Polygon(GRP2DVERTEXS& vertexs, bool isfill)
 {
 
@@ -879,7 +879,7 @@ void GRPCANVAS::Polygon(GRP2DVERTEXS& vertexs, bool isfill)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::RoundRect(double x1, double y1, double x2, double y2, double radius, bool isfill)
 {
 
@@ -900,7 +900,7 @@ void GRPCANVAS::RoundRect(double x1, double y1, double x2, double y2, double rad
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPCANVAS::GetBitmap(double x, double y, double width, double height)
 {
   return NULL;
@@ -920,7 +920,7 @@ GRPBITMAP* GRPCANVAS::GetBitmap(double x, double y, double width, double height)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 {
 
@@ -940,7 +940,7 @@ void GRPCANVAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutBitmap(double x, double y, GRPBITMAP* bitmap)
 {
 
@@ -962,7 +962,7 @@ void GRPCANVAS::PutBitmap(double x, double y, GRPBITMAP* bitmap)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutBitmapAlpha(double x, double y, GRPBITMAP* bitmap, double alpha)
 {
 
@@ -983,7 +983,7 @@ void GRPCANVAS::PutBitmapAlpha(double x, double y, GRPBITMAP* bitmap, double alp
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutBitmapFrame(double x, double y, GRPBITMAPFRAME* bitmapframe, double alpha)
 {
   if(!bitmapframe)              return;
@@ -1006,7 +1006,7 @@ void GRPCANVAS::PutBitmapFrame(double x, double y, GRPBITMAPFRAME* bitmapframe, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPCANVAS::RasterFont_Select(XCHAR* fontname)
 {
   return false;
@@ -1024,7 +1024,7 @@ bool GRPCANVAS::RasterFont_Select(XCHAR* fontname)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPCANVAS::RasterFont_Select(XSTRING* fontname)
 {
   return RasterFont_Select(fontname->Get());
@@ -1040,7 +1040,7 @@ bool GRPCANVAS::RasterFont_Select(XSTRING* fontname)
 *
 * @return     GRP2DCOLOR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRP2DCOLOR* GRPCANVAS::RasterFont_GetColor()
 {
   return NULL;
@@ -1058,7 +1058,7 @@ GRP2DCOLOR* GRPCANVAS::RasterFont_GetColor()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::RasterFont_SetColor(const GRP2DCOLOR* c)
 {
 
@@ -1076,7 +1076,7 @@ void GRPCANVAS::RasterFont_SetColor(const GRP2DCOLOR* c)
 *
 * @return     double :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 double GRPCANVAS::RasterFont_GetWidth(XCHAR* string)
 {
   return 0.0f;
@@ -1091,7 +1091,7 @@ double GRPCANVAS::RasterFont_GetWidth(XCHAR* string)
 *
 * @return     double :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 double GRPCANVAS::RasterFont_GetHeight()
 {
   return 0.0f;
@@ -1279,7 +1279,7 @@ bool GRPCANVAS::VectorFont_Printf(double x, double y, XCHAR* mask, ...)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPCANVAS::CopyBufferRenderToScreen(GRPSCREEN* screen)
 {
   return false;
@@ -1300,7 +1300,7 @@ bool GRPCANVAS::CopyBufferRenderToScreen(GRPSCREEN* screen)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPCANVAS::CopyBufferRenderToBufferScreen(XBYTE* buffer, XDWORD width, XDWORD height, bool isinverse)
 {
   return false;
@@ -1317,7 +1317,7 @@ bool GRPCANVAS::CopyBufferRenderToBufferScreen(XBYTE* buffer, XDWORD width, XDWO
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPCANVAS::CopyBufferRenderFromViewport(GRPVIEWPORT* viewport)
 {
   return false;
@@ -1370,7 +1370,7 @@ bool GRPCANVAS::DrawFramerate(double x, double y, GRPSCREEN* screen)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Clean()
 {
   linewidth     = 1.0f;

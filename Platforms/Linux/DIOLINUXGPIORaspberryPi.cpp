@@ -6,7 +6,7 @@
 * @brief      Data Input/Output LINUX GPIO (General Purpose Input/Output) Raspberry Pi
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -71,7 +71,7 @@ static volatile uint32_t* RPI_gpio;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXGPIORASPBERRYPI::DIOLINUXGPIORASPBERRYPI(): DIOGPIO()
 {
   Clean();
@@ -88,7 +88,7 @@ DIOLINUXGPIORASPBERRYPI::DIOLINUXGPIORASPBERRYPI(): DIOGPIO()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXGPIORASPBERRYPI::~DIOLINUXGPIORASPBERRYPI()
 {
   Clean();
@@ -104,7 +104,7 @@ DIOLINUXGPIORASPBERRYPI::~DIOLINUXGPIORASPBERRYPI()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIORASPBERRYPI::Ini()
 {
   if(!RPI_RevisionBoard(RPI_model, RPI_megabytes, RPI_revision)) return false;
@@ -250,7 +250,7 @@ bool DIOLINUXGPIORASPBERRYPI::SetValue(DIOGPIO_ENTRY* entry, bool value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIORASPBERRYPI::End()
 {
   return RPI_End();
@@ -270,7 +270,7 @@ bool DIOLINUXGPIORASPBERRYPI::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIORASPBERRYPI::RPI_RevisionBoard(RASPBERRYPI_MODEL& model, int& megabytes, float& revision)
 {
   XPATH     xpath;
@@ -374,7 +374,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_RevisionBoard(RASPBERRYPI_MODEL& model, int& m
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
 {
   int fd;
@@ -397,7 +397,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIORASPBERRYPI::RPI_End()
 {
   if ((int32_t)RPI_gpio == -1) return false;
@@ -558,7 +558,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXGPIORASPBERRYPI::Clean()
 {
   RPI_model           = RASPBERRYPI_MODEL_UNKNOWN;

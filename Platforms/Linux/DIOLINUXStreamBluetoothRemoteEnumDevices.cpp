@@ -6,7 +6,7 @@
 * @brief      LINUX Data Input/Output Stream Bluetooth Remote Enum Devices class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -101,7 +101,7 @@ extern "C"
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES() : DIOSTREAMBLUETOOTHREMOTEENUMDEVICES() , XFSMACHINE(0)
 {
   Clean();
@@ -140,7 +140,7 @@ DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVIC
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES()
 {
   StopSearch(true);
@@ -164,7 +164,7 @@ DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVI
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 {
   if(!threadenumdevices)       return false;
@@ -204,7 +204,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
 {
   if(!IsSearching()) return false;
@@ -237,7 +237,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
 {
   if(!threadenumdevices) return false;
@@ -263,7 +263,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::GetAddrFromLocalDevice(int localdeviceindex, char* btaddr)
 {
   struct hci_dev_info* di;
@@ -294,7 +294,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::GetAddrFromLocalDevice(int locald
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsReadyConnect(int socket)
 {
   struct timeval  tv;
@@ -343,7 +343,7 @@ int DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsReadyConnect(int socket)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevices(XVECTOR<DIOSTREAMDEVICE*>* devices)
 {
   inquiry_info* info = NULL;
@@ -405,7 +405,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevices(XVECTOR<DIOSTREAMDEVI
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName(DIOSTREAMDEVICEBLUETOOTH* device)
 {
   if(!device) return false;
@@ -455,7 +455,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName(DIOSTREAMDEVICEBL
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices(XVECTOR<DIOSTREAMDEVICE*>* devices)
 {
   DIOSTREAMDEVICEBLUETOOTH* device;
@@ -504,7 +504,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices(XVECTOR<DIOST
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEVICEBLUETOOTH* device, struct search_context* context)
 {
   if(!device) return false;
@@ -624,7 +624,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEVIC
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 {
   DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES* enumeration = (DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES*)param;
@@ -681,7 +681,7 @@ void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
 {
   threadenumdevices = NULL;
@@ -707,7 +707,7 @@ extern "C"
   *
   * @return     void : does not return anything. 
   *
-  *---------------------------------------------------------------------------------------------------------------------*/
+  * --------------------------------------------------------------------------------------------------------------------*/
   void print_service_class(void* value, void* userData)
   {
     if(!SDP_lastservice) return;
@@ -737,7 +737,7 @@ extern "C"
   *
   *  @return     void : does not return anything. 
   *
-  *---------------------------------------------------------------------------------------------------------------------*/
+  * --------------------------------------------------------------------------------------------------------------------*/
   void print_service_desc(void* value, void* user)
   {
     if(!SDP_lastservice) return;
@@ -789,7 +789,7 @@ extern "C"
   *
   * @return     Does not return anything. 
   *
-  *---------------------------------------------------------------------------------------------------------------------*/
+  * --------------------------------------------------------------------------------------------------------------------*/
   void print_access_protos(void* value, void* userData)
   {
     //XTRACE_PRINTCOLOR(4, __L("print_access_protos"));

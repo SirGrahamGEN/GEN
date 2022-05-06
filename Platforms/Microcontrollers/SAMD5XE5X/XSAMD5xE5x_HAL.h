@@ -6,7 +6,7 @@
 * @brief      SAMD5xE5x HAL includes
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XSAMD5XE5X_HAL_H_
 #define _XSAMD5XE5X_HAL_H_
@@ -71,7 +71,7 @@ extern "C"
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

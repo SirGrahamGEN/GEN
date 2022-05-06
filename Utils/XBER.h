@@ -6,7 +6,7 @@
 * @brief      eXtended Basic Encoding Rules (BER) encoding class (https://en.wikipedia.org/wiki/X.690)
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XBER_H_
 #define _XBER_H_
@@ -116,7 +116,7 @@ class XBER
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

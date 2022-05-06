@@ -6,7 +6,7 @@
 * @brief      LINUX direct input device mouse class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
@@ -66,7 +66,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEMOUSEDIRECT::INPLINUXDEVICEMOUSEDIRECT(): INPDEVICE()
 {
   Clean();
@@ -99,7 +99,7 @@ INPLINUXDEVICEMOUSEDIRECT::INPLINUXDEVICEMOUSEDIRECT(): INPDEVICE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEMOUSEDIRECT::~INPLINUXDEVICEMOUSEDIRECT()
 {
   CloseAllDevicesID();
@@ -126,7 +126,7 @@ INPLINUXDEVICEMOUSEDIRECT::~INPLINUXDEVICEMOUSEDIRECT()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEMOUSEDIRECT::Update()
 {
   if((!created)||(!enabled)) return false;
@@ -289,7 +289,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::Update()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEMOUSEDIRECT::CreateAllButtons()
 {
   INPBUTTON::CreateButton( &buttons, BTN_RIGHT    , INPBUTTON_ID_MOUSE_RIGHT        , __C('\x0'));
@@ -311,7 +311,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::CreateAllButtons()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEMOUSEDIRECT::CreateAllCursors()
 {
   INPCURSOR* cursor = new INPCURSOR();
@@ -336,7 +336,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::CreateAllCursors()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEMOUSEDIRECT::OpenAllDevicesID()
 {
   INPLINUXFACTORYDEVICES*     inpdevices = (INPLINUXFACTORYDEVICES*)(&INPFACTORYDEVICES::GetInstance());
@@ -503,7 +503,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::OpenAllDevicesID()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEMOUSEDIRECT::CloseAllDevicesID()
 {
   if(mice.IsEmpty()) return false;
@@ -530,7 +530,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::CloseAllDevicesID()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEMOUSEDIRECT::UpdateMouseData()
 {
   if(!grpscreen) return false;
@@ -569,7 +569,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::UpdateMouseData()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEMOUSEDIRECT::Clean()
 {
   mousex    = 0;

@@ -6,7 +6,7 @@
 * @brief      eXtended File ZIP eXtended Event class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XFILEZIP_XEVENT_H_
 #define _XFILEZIP_XEVENT_H_
@@ -91,7 +91,7 @@ class XFILEZIP_XEVENT : public XEVENT
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

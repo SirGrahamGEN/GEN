@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Device USB class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -61,7 +61,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSB_DESCRIPTOR::DIOSTREAMDEVICEUSB_DESCRIPTOR()
 {
   Clean();
@@ -77,7 +77,7 @@ DIOSTREAMDEVICEUSB_DESCRIPTOR::DIOSTREAMDEVICEUSB_DESCRIPTOR()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSB_DESCRIPTOR::~DIOSTREAMDEVICEUSB_DESCRIPTOR()
 {
   Clean();
@@ -92,7 +92,7 @@ DIOSTREAMDEVICEUSB_DESCRIPTOR::~DIOSTREAMDEVICEUSB_DESCRIPTOR()
 *
 * @return     XWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetBCDUSB()
 {
   return BCDUSB;
@@ -110,7 +110,7 @@ XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetBCDUSB()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetBCDUSB(XWORD BCDUSB)
 {
   this->BCDUSB = BCDUSB;
@@ -126,7 +126,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetBCDUSB(XWORD BCDUSB)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetDeviceClass()
 {
   return deviceclass;
@@ -144,7 +144,7 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetDeviceClass()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetDeviceClass(XBYTE deviceclass)
 {
   this->deviceclass = deviceclass;
@@ -160,7 +160,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetDeviceClass(XBYTE deviceclass)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetDeviceSubClass()
 {
   return devicesubclass;
@@ -178,7 +178,7 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetDeviceSubClass()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetDeviceSubClass(XBYTE devicesubclass)
 {
   this->devicesubclass = devicesubclass;
@@ -194,7 +194,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetDeviceSubClass(XBYTE devicesubclass)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetDeviceProtocol()
 {
   return deviceprotocol;
@@ -212,7 +212,7 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetDeviceProtocol()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetDeviceProtocol(XBYTE deviceprotocol)
 {
   this->deviceprotocol = deviceprotocol;
@@ -228,7 +228,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetDeviceProtocol(XBYTE deviceprotocol)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetMaxPacketSize()
 {
   return maxpacketsize;
@@ -246,7 +246,7 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetMaxPacketSize()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetMaxPacketSize(XBYTE maxpacketsize)
 {
   this->maxpacketsize = maxpacketsize;
@@ -262,7 +262,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetMaxPacketSize(XBYTE maxpacketsize)
 *
 * @return     XWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetIDVendor()
 {
   return IDvendor;
@@ -280,7 +280,7 @@ XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetIDVendor()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetIDVendor(XWORD IDvendor)
 {
   this->IDvendor = IDvendor;
@@ -295,7 +295,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetIDVendor(XWORD IDvendor)
 *
 * @return     XWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetIDProduct()
 {
   return IDproduct;
@@ -313,7 +313,7 @@ XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetIDProduct()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetIDProduct(XWORD IDproduct)
 {
   this->IDproduct = IDproduct;
@@ -329,7 +329,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetIDProduct(XWORD IDproduct)
 *
 * @return     XWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetBCDDevice()
 {
   return BCDdevice;
@@ -347,7 +347,7 @@ XWORD DIOSTREAMDEVICEUSB_DESCRIPTOR::GetBCDDevice()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetBCDDevice(XWORD BCDdevice)
 {
   this->BCDdevice = BCDdevice;
@@ -363,7 +363,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetBCDDevice(XWORD BCDdevice)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetManufacturer()
 {
   return manufacturer;
@@ -381,7 +381,7 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetManufacturer()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetManufacturer(XBYTE manufacturer)
 {
   this->manufacturer = manufacturer;
@@ -397,7 +397,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetManufacturer(XBYTE manufacturer)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetProduct()
 {
   return product;
@@ -415,7 +415,7 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetProduct()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetProduct(XBYTE product)
 {
   this->product = product;
@@ -431,7 +431,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetProduct(XBYTE product)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetSerialNumber()
 {
   return serialnumber;
@@ -449,7 +449,7 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetSerialNumber()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetSerialNumber(XBYTE serialnumber)
 {
   this->serialnumber = serialnumber;
@@ -465,7 +465,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetSerialNumber(XBYTE serialnumber)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetNumConfigurations()
 {
   return numconfigurations;
@@ -483,7 +483,7 @@ XBYTE DIOSTREAMDEVICEUSB_DESCRIPTOR::GetNumConfigurations()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetNumConfigurations(XBYTE numconfigurations)
 {
   this->numconfigurations = numconfigurations;
@@ -500,7 +500,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::SetNumConfigurations(XBYTE numconfigurations
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB_DESCRIPTOR::Clean()
 {
   BCDUSB            = 0;
@@ -534,7 +534,7 @@ void DIOSTREAMDEVICEUSB_DESCRIPTOR::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSB::DIOSTREAMDEVICEUSB()
 {
   Clean();
@@ -551,7 +551,7 @@ DIOSTREAMDEVICEUSB::DIOSTREAMDEVICEUSB()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSB::~DIOSTREAMDEVICEUSB()
 {
   Clean();
@@ -567,7 +567,7 @@ DIOSTREAMDEVICEUSB::~DIOSTREAMDEVICEUSB()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMDEVICEUSB::IsHUB()
 {
   return isHUB;
@@ -585,7 +585,7 @@ bool DIOSTREAMDEVICEUSB::IsHUB()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB::SetIsHUB(bool isHUB)
 {
   this->isHUB = isHUB;
@@ -601,7 +601,7 @@ void DIOSTREAMDEVICEUSB::SetIsHUB(bool isHUB)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOSTREAMDEVICEUSB::GetLocation()
 {
   return &location;
@@ -617,7 +617,7 @@ XSTRING* DIOSTREAMDEVICEUSB::GetLocation()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOSTREAMDEVICEUSB::GetParentID()
 {
   return &parentID;
@@ -633,7 +633,7 @@ XSTRING* DIOSTREAMDEVICEUSB::GetParentID()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOSTREAMDEVICEUSB::GetVendorID()
 {
   return vendorID;
@@ -651,7 +651,7 @@ XWORD DIOSTREAMDEVICEUSB::GetVendorID()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB::SetVendorID(XWORD vendorID)
 {
   this->vendorID = vendorID;
@@ -667,7 +667,7 @@ void DIOSTREAMDEVICEUSB::SetVendorID(XWORD vendorID)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOSTREAMDEVICEUSB::GetProductID()
 {
   return productID;
@@ -685,7 +685,7 @@ XWORD DIOSTREAMDEVICEUSB::GetProductID()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB::SetProductID(XWORD productID)
 {
   this->productID = productID;
@@ -701,7 +701,7 @@ void DIOSTREAMDEVICEUSB::SetProductID(XWORD productID)
 *
 * @return     DIOSTREAMDEVICEUSBCLASS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSBCLASS DIOSTREAMDEVICEUSB::GetClass()
 {
   return classdev;
@@ -719,7 +719,7 @@ DIOSTREAMDEVICEUSBCLASS DIOSTREAMDEVICEUSB::GetClass()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB::SetClass(DIOSTREAMDEVICEUSBCLASS classdev)
 {
   this->classdev = classdev;
@@ -735,7 +735,7 @@ void DIOSTREAMDEVICEUSB::SetClass(DIOSTREAMDEVICEUSBCLASS classdev)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOSTREAMDEVICEUSB::GetSerialString()
 {
   return &serialstring;
@@ -751,7 +751,7 @@ XSTRING* DIOSTREAMDEVICEUSB::GetSerialString()
 *
 * @return     DIOSTREAMDEVICEUSB_DESCRIPTOR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSB_DESCRIPTOR* DIOSTREAMDEVICEUSB::GetDescriptor()
 {
   return &descriptor;
@@ -768,7 +768,7 @@ DIOSTREAMDEVICEUSB_DESCRIPTOR* DIOSTREAMDEVICEUSB::GetDescriptor()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMDEVICEUSB::DebugPrintInfo()
 {
   #ifdef XTRACE_ACTIVE
@@ -814,7 +814,7 @@ bool DIOSTREAMDEVICEUSB::DebugPrintInfo()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEUSB::Clean()
 {
   isHUB           = false;

@@ -6,7 +6,7 @@
 * @brief       Data IO Alerts UDP server class
 * @ingroup     DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -59,7 +59,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERTSUDPSERVER::DIOALERTSUDPSERVER()
 {
   Clean();
@@ -76,7 +76,7 @@ DIOALERTSUDPSERVER::DIOALERTSUDPSERVER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERTSUDPSERVER::~DIOALERTSUDPSERVER()
 {
   End();
@@ -97,7 +97,7 @@ DIOALERTSUDPSERVER::~DIOALERTSUDPSERVER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTSUDPSERVER::Ini(XCHAR* URL, int port)
 {
   bool status = false;
@@ -138,7 +138,7 @@ bool DIOALERTSUDPSERVER::Ini(XCHAR* URL, int port)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTSUDPSERVER::End()
 {
   if(threadread)
@@ -183,7 +183,7 @@ bool DIOALERTSUDPSERVER::End()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOALERTSUDPSERVER::GetNAlerts()
 {
   if(xmutexalert) xmutexalert->Lock();
@@ -207,7 +207,7 @@ int DIOALERTSUDPSERVER::GetNAlerts()
 *
 * @return     DIOALERT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT* DIOALERTSUDPSERVER::GetAlertByIndex(int index)
 {
   if(xmutexalert) xmutexalert->Lock();
@@ -231,7 +231,7 @@ DIOALERT* DIOALERTSUDPSERVER::GetAlertByIndex(int index)
 *
 * @return     DIOALERT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT* DIOALERTSUDPSERVER::GetAlertByID(XDWORD ID)
 {
   DIOALERT* alert = NULL;
@@ -264,7 +264,7 @@ DIOALERT* DIOALERTSUDPSERVER::GetAlertByID(XDWORD ID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTSUDPSERVER::DeleteAlertByIndex(int index)
 {
   DIOALERT* alert = alerts.Get(index);
@@ -295,7 +295,7 @@ bool DIOALERTSUDPSERVER::DeleteAlertByIndex(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTSUDPSERVER::DeleteAlertByID(XDWORD ID)
 {
   DIOALERT* alert  = NULL;
@@ -333,7 +333,7 @@ bool DIOALERTSUDPSERVER::DeleteAlertByID(XDWORD ID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTSUDPSERVER::DeleteAllAlerts()
 {
   if(alerts.IsEmpty()) return false;
@@ -358,7 +358,7 @@ bool DIOALERTSUDPSERVER::DeleteAllAlerts()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTSUDPSERVER::ReceivedEvents()
 {
   if(!UDPdiostream) return false;
@@ -438,7 +438,7 @@ bool DIOALERTSUDPSERVER::ReceivedEvents()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERTSUDPSERVER::ThreadReadFunction(void* param)
 {
   DIOALERTSUDPSERVER* alertUDPserver = ( DIOALERTSUDPSERVER*)param;
@@ -458,7 +458,7 @@ void DIOALERTSUDPSERVER::ThreadReadFunction(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERTSUDPSERVER::Clean()
 {
   UDPdiostreamcfg     = NULL;

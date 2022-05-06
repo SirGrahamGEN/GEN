@@ -6,7 +6,7 @@
 * @brief      eXtended Observerd class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
  *
  *  @return     Does not return anything.
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 XOBSERVER::XOBSERVER()
 {
   Clean();
@@ -71,7 +71,7 @@ XOBSERVER::XOBSERVER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XOBSERVER::~XOBSERVER()
 {
   Clean();
@@ -91,7 +91,7 @@ XOBSERVER::~XOBSERVER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XOBSERVER::SubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* observer)
 {
   return GEN_XPUBLISHER.SubscribeEvent(type, subject, (observer?observer:this));
@@ -111,7 +111,7 @@ bool XOBSERVER::SubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* observ
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XOBSERVER::UnSubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* observer)
 {
   return GEN_XPUBLISHER.UnSubscribeEvent(type, subject, (observer?observer:this));
@@ -128,7 +128,7 @@ bool XOBSERVER::UnSubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* obse
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XOBSERVER::Clean()
 {
 

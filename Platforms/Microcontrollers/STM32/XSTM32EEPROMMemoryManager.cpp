@@ -6,7 +6,7 @@
 * @brief      eXtended utils STM32 Flash Memory class
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTM32EEPROMMEMORYMANAGER::XSTM32EEPROMMEMORYMANAGER()
 {
 
@@ -70,7 +70,7 @@ XSTM32EEPROMMEMORYMANAGER::XSTM32EEPROMMEMORYMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTM32EEPROMMEMORYMANAGER::~XSTM32EEPROMMEMORYMANAGER()
 {
 
@@ -86,7 +86,7 @@ XSTM32EEPROMMEMORYMANAGER::~XSTM32EEPROMMEMORYMANAGER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XSTM32EEPROMMEMORYMANAGER::Ini()
 {
   return false;
@@ -102,7 +102,7 @@ bool XSTM32EEPROMMEMORYMANAGER::Ini()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XSTM32EEPROMMEMORYMANAGER::End()
 {
   return false;
@@ -122,7 +122,7 @@ bool XSTM32EEPROMMEMORYMANAGER::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XSTM32EEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 {
   if((offset + size) > XSTM32EEPROMMEMORYMANAGER_MAXSIZE) return false;
@@ -153,7 +153,7 @@ bool XSTM32EEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XSTM32EEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 {
   if((offset + size) > XSTM32EEPROMMEMORYMANAGER_MAXSIZE) return false;
@@ -180,7 +180,7 @@ bool XSTM32EEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XSTM32EEPROMMEMORYMANAGER::EraseAll()
 {
   #if defined(STM32F407xx) || defined(STM32F446xx)

@@ -6,7 +6,7 @@
 * @brief      Graphic bitmap file PNG format (PNG: Portable Network Graphics) class
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEPNG::GRPBITMAPFILEPNG(): GRPBITMAPFILEBASE()
 {
   Clean();
@@ -70,7 +70,7 @@ GRPBITMAPFILEPNG::GRPBITMAPFILEPNG(): GRPBITMAPFILEBASE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEPNG::~GRPBITMAPFILEPNG()
 {
   Clean();
@@ -89,7 +89,7 @@ GRPBITMAPFILEPNG::~GRPBITMAPFILEPNG()
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
 {
   if(!Open(xpath))  return NULL;
@@ -218,7 +218,7 @@ GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode)
 {
   if(!buffer)                            return NULL;
@@ -352,7 +352,7 @@ GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEPNG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
 {
   if(!bitmap)     return false;
@@ -459,7 +459,7 @@ bool GRPBITMAPFILEPNG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 *
 * @return     XBYTE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* GRPBITMAPFILEPNG::BufferData_Get()
 {
   return bufferdata;
@@ -475,7 +475,7 @@ XBYTE* GRPBITMAPFILEPNG::BufferData_Get()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD GRPBITMAPFILEPNG::BufferData_GetIndex()
 {
   return bufferdataindex;
@@ -493,7 +493,7 @@ XDWORD GRPBITMAPFILEPNG::BufferData_GetIndex()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEPNG::BufferData_SetIndex(XDWORD index)
 {
   this->bufferdataindex = index;
@@ -509,7 +509,7 @@ void GRPBITMAPFILEPNG::BufferData_SetIndex(XDWORD index)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD GRPBITMAPFILEPNG::BufferData_GetSize()
 {
   return bufferdatasize;
@@ -526,7 +526,7 @@ XDWORD GRPBITMAPFILEPNG::BufferData_GetSize()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEPNG::Clean()
 {
   bufferdata        = NULL;
@@ -548,7 +548,7 @@ void GRPBITMAPFILEPNG::Clean()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEPNG::ReadFileData(png_structp png, png_bytep data, png_size_t length)
 {
   GRPBITMAPFILEPNG* xfilepng = (GRPBITMAPFILEPNG*)png_get_io_ptr(png);
@@ -571,7 +571,7 @@ void GRPBITMAPFILEPNG::ReadFileData(png_structp png, png_bytep data, png_size_t 
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEPNG::ReadBufferData(png_structp png, png_bytep data, png_size_t length)
 {
   GRPBITMAPFILEPNG* xfilepng = (GRPBITMAPFILEPNG*)png_get_io_ptr(png);
@@ -601,7 +601,7 @@ void GRPBITMAPFILEPNG::ReadBufferData(png_structp png, png_bytep data, png_size_
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEPNG::WriteFileData(png_structp png, png_bytep data, png_size_t length)
 {
   GRPBITMAPFILEPNG* xfilepng = (GRPBITMAPFILEPNG*)png_get_io_ptr(png);

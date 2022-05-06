@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Email Address class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(): XSTRING()
 {
   Clean();
@@ -71,7 +71,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(): XSTRING()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::~DIOEMAILADDRESS()
 {
   Clean();
@@ -89,7 +89,7 @@ DIOEMAILADDRESS::~DIOEMAILADDRESS()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(XDWORD size): XSTRING(size)
 {
   Clean();
@@ -107,7 +107,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XDWORD size): XSTRING(size)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(const char* url): XSTRING(url)
 {
   Clean();
@@ -125,7 +125,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const char* url): XSTRING(url)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url): XSTRING(url)
 {
   Clean();
@@ -144,7 +144,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url): XSTRING(url)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url,XDWORD size): XSTRING(url, size)
 {
   Clean();
@@ -162,7 +162,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url,XDWORD size): XSTRING(url, siz
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(DIOEMAILADDRESS& url): XSTRING(url)
 {
   Clean();
@@ -180,7 +180,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(DIOEMAILADDRESS& url): XSTRING(url)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(XSTRING& url): XSTRING(url)
 {
   Clean();
@@ -198,7 +198,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XSTRING& url): XSTRING(url)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(XWORD* url): XSTRING(url)
 {
   Clean();
@@ -216,7 +216,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XWORD* url): XSTRING(url)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOEMAILADDRESS::GetUser(XSTRING& user)
 {
   user.Empty();
@@ -242,7 +242,7 @@ bool DIOEMAILADDRESS::GetUser(XSTRING& user)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOEMAILADDRESS::GetDomain(XSTRING& domain)
 {
   domain.Empty();
@@ -266,7 +266,7 @@ bool DIOEMAILADDRESS::GetDomain(XSTRING& domain)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOEMAILADDRESS::IsValid()
 {
   XSTRING  user;
@@ -300,7 +300,7 @@ bool DIOEMAILADDRESS::IsValid()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOEMAILADDRESS::Clean()
 {
 

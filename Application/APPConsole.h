@@ -6,7 +6,7 @@
 * @brief      Application Console class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _APPCONSOLE_H_
 #define _APPCONSOLE_H_
@@ -45,7 +45,6 @@
 
 class XTIMER;
 class XCONSOLE;
-
 
 class APPCONSOLE : public APPBASE, public XOBSERVER, public XSUBJECT
 {
@@ -69,8 +68,7 @@ class APPCONSOLE : public APPBASE, public XOBSERVER, public XSUBJECT
 
 };
 
-
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

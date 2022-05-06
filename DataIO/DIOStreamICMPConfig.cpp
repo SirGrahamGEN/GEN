@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream ICMP Config class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -52,7 +52,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMICMPCONFIG::DIOSTREAMICMPCONFIG()  : DIOSTREAMCONFIG()
 {
   Clean();
@@ -73,7 +73,7 @@ DIOSTREAMICMPCONFIG::DIOSTREAMICMPCONFIG()  : DIOSTREAMCONFIG()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMICMPCONFIG::~DIOSTREAMICMPCONFIG()
 {
   if(remoteURL) delete remoteURL;
@@ -91,7 +91,7 @@ DIOSTREAMICMPCONFIG::~DIOSTREAMICMPCONFIG()
 *
 * @return     DIOIP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOIP* DIOSTREAMICMPCONFIG ::GetLocalIP()
 {
   return &localIP;
@@ -107,7 +107,7 @@ DIOIP* DIOSTREAMICMPCONFIG ::GetLocalIP()
 *
 * @return     DIOURL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOURL* DIOSTREAMICMPCONFIG ::GetRemoteURL()
 {
   return remoteURL;
@@ -124,7 +124,7 @@ DIOURL* DIOSTREAMICMPCONFIG ::GetRemoteURL()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMICMPCONFIG ::Clean()
 {
   type                    = DIOSTREAMTYPE_UDP;

@@ -6,7 +6,7 @@
 * @brief      ANDROID input device keyboard class
 * @ingroup    PLATFORM_ANDROID
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -51,7 +51,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPANDROIDDEVICEKEYBOARD::INPANDROIDDEVICEKEYBOARD(): INPDEVICE()
 {
   Clean();
@@ -75,7 +75,7 @@ INPANDROIDDEVICEKEYBOARD::INPANDROIDDEVICEKEYBOARD(): INPDEVICE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPANDROIDDEVICEKEYBOARD::~INPANDROIDDEVICEKEYBOARD()
 {
   DeleteAllButtons();
@@ -96,7 +96,7 @@ INPANDROIDDEVICEKEYBOARD::~INPANDROIDDEVICEKEYBOARD()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPANDROIDDEVICEKEYBOARD::Update()
 {
   if((!created)||(!enabled)) return false;
@@ -116,7 +116,7 @@ bool INPANDROIDDEVICEKEYBOARD::Update()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPANDROIDDEVICEKEYBOARD::SetScreen(void* screenpointer)
 {
     return true;
@@ -133,7 +133,7 @@ bool INPANDROIDDEVICEKEYBOARD::SetScreen(void* screenpointer)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPANDROIDDEVICEKEYBOARD::Clean()
 {
 
@@ -149,7 +149,7 @@ void INPANDROIDDEVICEKEYBOARD::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPANDROIDDEVICEKEYBOARD::CreateAllButtons()
 {
   INPBUTTON::CreateButton( &buttons, KEYCODE_BACKSPACE          , INPBUTTON_ID_BACK_SPACE         , __C('\b'));

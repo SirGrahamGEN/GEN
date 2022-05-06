@@ -6,7 +6,7 @@
 * @brief      eXtended LINUX platform Factory
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -90,7 +90,7 @@ DELETEFUNC(XLINUXFACTORY, XMUTEX     , XLINUXMUTEX      , Delete_Mutex)
 *
 * @return     XTHREAD* : thread created
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREAD* XLINUXFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFUNCTION function,void* param)
 {
   XLINUXTHREAD* _class =  new XLINUXTHREAD(groupID, ID, function, param);
@@ -110,7 +110,7 @@ XTHREAD* XLINUXFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFU
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXFACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
 {
   if(!xthread) return false;

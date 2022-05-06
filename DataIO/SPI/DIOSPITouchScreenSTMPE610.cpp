@@ -6,7 +6,7 @@
 * @brief      Data Input/Output SPI STMPE610 (Touch Screen) class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -61,7 +61,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSPITOUCHSCREENSTMPE610::DIOSPITOUCHSCREENSTMPE610(): DIODEVICE()
 {
   Clean();
@@ -83,7 +83,7 @@ DIOSPITOUCHSCREENSTMPE610::DIOSPITOUCHSCREENSTMPE610(): DIODEVICE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSPITOUCHSCREENSTMPE610::~DIOSPITOUCHSCREENSTMPE610()
 {
   End();
@@ -117,7 +117,7 @@ DIOSPITOUCHSCREENSTMPE610::~DIOSPITOUCHSCREENSTMPE610()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITOUCHSCREENSTMPE610::IniDevice(int chipselect, int timeout)
 {
   if(!isdiostreamSPIexternal)
@@ -164,7 +164,7 @@ bool DIOSPITOUCHSCREENSTMPE610::IniDevice(int chipselect, int timeout)
 *
 * @return     XWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOSPITOUCHSCREENSTMPE610::GetVersion()
 {
   if(!IsInitialized()) return false;
@@ -192,7 +192,7 @@ XWORD DIOSPITOUCHSCREENSTMPE610::GetVersion()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITOUCHSCREENSTMPE610::IsTouched()
 {
   if(!IsInitialized()) return false;
@@ -217,7 +217,7 @@ bool DIOSPITOUCHSCREENSTMPE610::IsTouched()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITOUCHSCREENSTMPE610::IsBufferEmpty()
 {
   if(!IsInitialized()) return false;
@@ -242,7 +242,7 @@ bool DIOSPITOUCHSCREENSTMPE610::IsBufferEmpty()
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOSPITOUCHSCREENSTMPE610::GetBufferSize()
 {
   if(!IsInitialized()) return false;
@@ -268,7 +268,7 @@ XBYTE DIOSPITOUCHSCREENSTMPE610::GetBufferSize()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITOUCHSCREENSTMPE610::ReadPosition(XWORD& x, XWORD& y, XBYTE& z)
 {
   if(!IsInitialized()) return false;
@@ -323,7 +323,7 @@ bool DIOSPITOUCHSCREENSTMPE610::ReadPosition(XWORD& x, XWORD& y, XBYTE& z)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITOUCHSCREENSTMPE610::End()
 {
   if(!DIODEVICE::End()) return false;
@@ -358,7 +358,7 @@ bool DIOSPITOUCHSCREENSTMPE610::End()
 *
 * @return     DIOSTREAMSPI* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSPI* DIOSPITOUCHSCREENSTMPE610::GetDIOStreamSPI()
 {
   return diostreamSPI;
@@ -377,7 +377,7 @@ DIOSTREAMSPI* DIOSPITOUCHSCREENSTMPE610::GetDIOStreamSPI()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPITOUCHSCREENSTMPE610::SetDIOStreamSPI(DIOSTREAMSPI* diostreamSPI)
 {
   this->diostreamSPI     = diostreamSPI;
@@ -395,7 +395,7 @@ void DIOSPITOUCHSCREENSTMPE610::SetDIOStreamSPI(DIOSTREAMSPI* diostreamSPI)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITOUCHSCREENSTMPE610::TouchScreen_Ini()
 {
   if(!WriteRegister(DIOSPITOUCHSCREENSTMPE610_REG_SYS_CTRL1, DIOSPITOUCHSCREENSTMPE610_SYS_CTRL1_RESET)) return false;
@@ -438,7 +438,7 @@ bool DIOSPITOUCHSCREENSTMPE610::TouchScreen_Ini()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITOUCHSCREENSTMPE610::ReadRegister(XBYTE reg, XBYTE& data)
 {
   //diostreamSPI->GetInXBuffer()->Delete();
@@ -470,7 +470,7 @@ bool DIOSPITOUCHSCREENSTMPE610::ReadRegister(XBYTE reg, XBYTE& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITOUCHSCREENSTMPE610::WriteRegister(XBYTE reg, XBYTE data)
 {
   if(!databuffer) return false;
@@ -496,7 +496,7 @@ bool DIOSPITOUCHSCREENSTMPE610::WriteRegister(XBYTE reg, XBYTE data)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPITOUCHSCREENSTMPE610::Clean()
 {
   timeout                 = 0;

@@ -6,7 +6,7 @@
 * @brief      ANDROID Graphics Screen class
 * @ingroup    PLATFORM_ANDROID
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPANDROIDSCREEN::GRPANDROIDSCREEN(): GRPSCREEN()
 {
   Clean();
@@ -80,7 +80,7 @@ GRPANDROIDSCREEN::GRPANDROIDSCREEN(): GRPSCREEN()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPANDROIDSCREEN::~GRPANDROIDSCREEN()
 {
   Delete();
@@ -99,7 +99,7 @@ GRPANDROIDSCREEN::~GRPANDROIDSCREEN()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPANDROIDSCREEN::Create(bool show)
 {
   CreateBuffers();
@@ -117,7 +117,7 @@ bool GRPANDROIDSCREEN::Create(bool show)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPANDROIDSCREEN::Update()
 {
   return true;
@@ -135,7 +135,7 @@ bool GRPANDROIDSCREEN::Update()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPANDROIDSCREEN::Update(GRPCANVAS* canvas)
 {
   if(!canvas)        return false;
@@ -186,7 +186,7 @@ bool GRPANDROIDSCREEN::Update(GRPCANVAS* canvas)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPANDROIDSCREEN::Delete()
 {
   DeleteBuffers();
@@ -209,7 +209,7 @@ bool GRPANDROIDSCREEN::Delete()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPANDROIDSCREEN::Resize(int width, int height)
 {
   return false;
@@ -225,7 +225,7 @@ bool GRPANDROIDSCREEN::Resize(int width, int height)
 *
 * @return     void* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void* GRPANDROIDSCREEN::GetHandle()
 {
   return (void*)anativehandle;
@@ -241,7 +241,7 @@ void* GRPANDROIDSCREEN::GetHandle()
 *
 * @return     ANativeWindow* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 ANativeWindow* GRPANDROIDSCREEN::GetAndroidHandle()
 {
   return anativehandle;
@@ -259,7 +259,7 @@ ANativeWindow* GRPANDROIDSCREEN::GetAndroidHandle()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPANDROIDSCREEN::SetAndroidHandle(ANativeWindow* anativehandle)
 {
   this->anativehandle = anativehandle;
@@ -275,7 +275,7 @@ void GRPANDROIDSCREEN::SetAndroidHandle(ANativeWindow* anativehandle)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPANDROIDSCREEN::Clean()
 {
   anativehandle  = NULL;

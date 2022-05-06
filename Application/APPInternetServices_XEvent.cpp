@@ -6,7 +6,7 @@
 * @brief      Application Internet Services eXtended Event class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,13 +24,11 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
-
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
-
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -55,12 +53,11 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 APPINTERNETSERVICES_XEVENT::APPINTERNETSERVICES_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -72,12 +69,11 @@ APPINTERNETSERVICES_XEVENT::APPINTERNETSERVICES_XEVENT(XSUBJECT* subject, XDWORD
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 APPINTERNETSERVICES_XEVENT::~APPINTERNETSERVICES_XEVENT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -93,7 +89,6 @@ APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE APPINTERNETSERVICES_XEVENT::Get
 {
   return internetconnexionstate;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -113,8 +108,6 @@ void APPINTERNETSERVICES_XEVENT::SetInternetConnexionState(APPINTERNETSERVICES_C
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCHECKTCPIPCONNECTION_CUT* APPINTERNETSERVICES_XEVENT::GetInternetConnextionCut()
@@ -128,7 +121,6 @@ DIOCHECKTCPIPCONNECTION_CUT* APPINTERNETSERVICES_XEVENT::GetInternetConnextionCu
 {
   return internetconnectioncut;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -146,7 +138,6 @@ void APPINTERNETSERVICES_XEVENT::SetInternetConnextionCut(DIOCHECKTCPIPCONNECTIO
 {
   this->internetconnectioncut  = internetconnectioncut;
 }
-  
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -180,7 +171,6 @@ void APPINTERNETSERVICES_XEVENT::SetIsChangeLocalIP(bool ischangelocalIP)
 {
   this->ischangelocalIP = ischangelocalIP;
 }
-
     
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -198,7 +188,6 @@ XSTRING* APPINTERNETSERVICES_XEVENT::GetChangeIP()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPINTERNETSERVICES_XEVENT::Clean()
@@ -208,7 +197,7 @@ XSTRING* APPINTERNETSERVICES_XEVENT::GetChangeIP()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES_XEVENT::Clean()
 {
   internetconnexionstate  = APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_NONE;
@@ -217,7 +206,3 @@ void APPINTERNETSERVICES_XEVENT::Clean()
   ischangelocalIP         = false;
   changeIP.Empty();
 }
-
-
-
-

@@ -6,7 +6,7 @@
 * @brief      eXtended LINUX Shared Memory Manager (Exchange between applications)
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -63,7 +63,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLINUXSHAREDMEMORYMANAGER::XLINUXSHAREDMEMORYMANAGER()
 {
   Clean();
@@ -80,7 +80,7 @@ XLINUXSHAREDMEMORYMANAGER::XLINUXSHAREDMEMORYMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLINUXSHAREDMEMORYMANAGER::~XLINUXSHAREDMEMORYMANAGER()
 {
   Clean();
@@ -100,7 +100,7 @@ XLINUXSHAREDMEMORYMANAGER::~XLINUXSHAREDMEMORYMANAGER()
 *
 * @return     XBYTE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* XLINUXSHAREDMEMORYMANAGER::Create(XCHAR* ID, XDWORD size, bool ispublic)
 {
   this->ID   = ID;
@@ -148,7 +148,7 @@ XBYTE* XLINUXSHAREDMEMORYMANAGER::Create(XCHAR* ID, XDWORD size, bool ispublic)
 *
 *  @return     XBYTE* : Pointer to shared memory
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* XLINUXSHAREDMEMORYMANAGER::Open(XCHAR* ID, XDWORD& size)
 {
   this->ID   = ID;
@@ -198,7 +198,7 @@ XBYTE* XLINUXSHAREDMEMORYMANAGER::Open(XCHAR* ID, XDWORD& size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSHAREDMEMORYMANAGER::Close()
 {
   if(!pointer)       return false;
@@ -232,7 +232,7 @@ bool XLINUXSHAREDMEMORYMANAGER::Close()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXSHAREDMEMORYMANAGER::Clean()
 {
   handlefile = -1;

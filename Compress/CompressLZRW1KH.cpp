@@ -1,21 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  COMPRESSLZRW1KH.CPP
-//
-//  Compress LZRW1KH class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 03/05/2004 10:28:42
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CompressLZRW1KH.cpp
+* 
+* @class      COMPRESSLZRW1KH
+* @brief      Compress LZRW1/KH class
+* @ingroup    COMPRESS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XBuffer.h"
 
@@ -23,59 +39,56 @@
 
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-//-------------------------------------------------------------------
-//  COMPRESS_LZRW1KH::COMPRESS_LZRW1KH
-/**
-//
-//
-//  ""
-//  @version      03/05/2004 11:06:42
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         COMPRESS_LZRW1KH::COMPRESS_LZRW1KH()
+* @brief      Constructor
+* @ingroup    COMPRESS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_LZRW1KH::COMPRESS_LZRW1KH()
 {
   SetType(COMPRESSBASE_TYPE_LZRW1KH);
 }
 
 
-//-------------------------------------------------------------------
-//  COMPRESS_LZRW1KH::~COMPRESS_LZRW1KH
-/**
-//
-//
-//  ""
-//  @version      03/05/2004 11:07:00
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         COMPRESS_LZRW1KH::~COMPRESS_LZRW1KH()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    COMPRESS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_LZRW1KH::~COMPRESS_LZRW1KH()
 {
 
 }
 
 
-//-------------------------------------------------------------------
-//  COMPRESS_LZRW1KH::Compress
-/**
-//
-//
-//  ""
-//  @version      03/05/2004 11:07:29
-//
-//  @return       bool :
-//  @param        origin :
-//  @param        size :
-//  @param        buffer :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESS_LZRW1KH::Compress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
+* @brief      Compress
+* @ingroup    COMPRESS
+* 
+* @param[in]  origin : 
+* @param[in]  size : 
+* @param[in]  buffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESS_LZRW1KH::Compress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
 {
   param1  =  NULL;
@@ -86,20 +99,19 @@ bool COMPRESS_LZRW1KH::Compress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
 }
 
 
-//-------------------------------------------------------------------
-//  COMPRESS_LZRW1KH::Decompress
-/**
-//
-//
-//  ""
-//  @version      03/05/2004 11:07:47
-//
-//  @return       bool :
-//  @param        origin :
-//  @param        size :
-//  @param        buffer :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESS_LZRW1KH::Decompress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
+* @brief      Decompress
+* @ingroup    COMPRESS
+* 
+* @param[in]  origin : 
+* @param[in]  size : 
+* @param[in]  buffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESS_LZRW1KH::Decompress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
 {
   param1  =  NULL;
@@ -110,20 +122,19 @@ bool COMPRESS_LZRW1KH::Decompress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
 }
 
 
-//-------------------------------------------------------------------
-//  COMPRESS_LZRW1KH::Compress
-/**
-//
-//
-//  ""
-//  @version      03/05/2004 11:08:02
-//
-//  @return       bool :
-//  @param        origin :
-//  @param        size :
-//  @param        param1 :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESS_LZRW1KH::Compress(XBYTE* origin,XDWORD size,void* param1)
+* @brief      Compress
+* @ingroup    COMPRESS
+* 
+* @param[in]  origin : 
+* @param[in]  size : 
+* @param[in]  param1 : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESS_LZRW1KH::Compress(XBYTE* origin,XDWORD size,void* param1)
 {
   this->param1  =  param1;
@@ -134,20 +145,19 @@ bool COMPRESS_LZRW1KH::Compress(XBYTE* origin,XDWORD size,void* param1)
 }
 
 
-//-------------------------------------------------------------------
-//  COMPRESS_LZRW1KH::Decompress
-/**
-//
-//
-//  ""
-//  @version      03/05/2004 11:08:26
-//
-//  @return       bool :
-//  @param        origin :
-//  @param        size :
-//  @param        param1 :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESS_LZRW1KH::Decompress(XBYTE* origin,XDWORD size,void* param1)
+* @brief      Decompress
+* @ingroup    COMPRESS
+* 
+* @param[in]  origin : 
+* @param[in]  size : 
+* @param[in]  param1 : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESS_LZRW1KH::Decompress(XBYTE* origin,XDWORD size,void* param1)
 {
   this->param1  =  param1;
@@ -158,24 +168,22 @@ bool COMPRESS_LZRW1KH::Decompress(XBYTE* origin,XDWORD size,void* param1)
 }
 
 
-
-//-------------------------------------------------------------------
-//  COMPRESS_LZRW1KH::GetMatch
-/**
-//
-//
-//  ""
-//  @version      03/05/2004 11:04:35
-//
-//  @return       XBYTE :
-//  @param        source :
-//  @param        x :
-//  @param        sourcesize :
-//  @param        hash :
-//  @param        size :
-//  @param        pos :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE COMPRESS_LZRW1KH::GetMatch(XBYTE* source, XDWORD x, XDWORD sourcesize, XDWORD* hash, XDWORD* size, XDWORD* pos)
+* @brief      GetMatch
+* @ingroup    COMPRESS
+* 
+* @param[in]  source : 
+* @param[in]  x : 
+* @param[in]  sourcesize : 
+* @param[in]  hash : 
+* @param[in]  size : 
+* @param[in]  pos : 
+* 
+* @return     XBYTE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE COMPRESS_LZRW1KH::GetMatch(XBYTE* source, XDWORD x, XDWORD sourcesize, XDWORD* hash, XDWORD* size, XDWORD* pos)
 {
   XWORD hashvalue = (XWORD)((40543L*((((source[x] << 4) ^ source[x+1]) << 4) ^ source[x+2]) >> 4) & 0xfff);
@@ -198,21 +206,19 @@ XBYTE COMPRESS_LZRW1KH::GetMatch(XBYTE* source, XDWORD x, XDWORD sourcesize, XDW
 }
 
 
-
-//-------------------------------------------------------------------
-//  COMPRESS_LZRW1KH::CompressionBuffer
-/**
-//
-//
-//  ""
-//  @version      03/05/2004 11:04:59
-//
-//  @return       XWORD :
-//  @param        source :
-//  @param        target :
-//  @param        sourcesize :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD COMPRESS_LZRW1KH::CompressionBuffer(XBYTE* source, XBYTE* target, XDWORD sourcesize)
+* @brief      CompressionBuffer
+* @ingroup    COMPRESS
+* 
+* @param[in]  source : 
+* @param[in]  target : 
+* @param[in]  sourcesize : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD COMPRESS_LZRW1KH::CompressionBuffer(XBYTE* source, XBYTE* target, XDWORD sourcesize)
 {
   XDWORD  key;
@@ -235,7 +241,6 @@ XDWORD COMPRESS_LZRW1KH::CompressionBuffer(XBYTE* source, XBYTE* target, XDWORD 
     {
       if(bit>15)
         {
-
           CMPTARGET(true,z++ ,(XBYTE)((command >> 8) & 0x00ff));
           CMPTARGET(true,z   ,(XBYTE)(command & 0x00ff));
 
@@ -273,7 +278,6 @@ XDWORD COMPRESS_LZRW1KH::CompressionBuffer(XBYTE* source, XBYTE* target, XDWORD 
             }
            else
             {
-
               CMPTARGET(true,y++,source[x++]);
 
               command = (XWORD)((command << 1));
@@ -304,21 +308,19 @@ XDWORD COMPRESS_LZRW1KH::CompressionBuffer(XBYTE* source, XBYTE* target, XDWORD 
 }
 
 
-
-//-------------------------------------------------------------------
-//  COMPRESS_LZRW1KH::DecompressionBuffer
-/**
-//
-//
-//  ""
-//  @version      03/05/2004 11:04:52
-//
-//  @return       XWORD :
-//  @param        *source :
-//  @param        *target :
-//  @param        sourcesize :
-*/
-//-------------------------------------------------------------------*
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD COMPRESS_LZRW1KH::DecompressionBuffer(XBYTE*source,XBYTE*target,XDWORD sourcesize)
+* @brief      DecompressionBuffer
+* @ingroup    COMPRESS
+* 
+* @param[in]  XBYTE*source : 
+* @param[in]  XBYTE*target : 
+* @param[in]  sourcesize : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD COMPRESS_LZRW1KH::DecompressionBuffer(XBYTE *source,XBYTE *target,XDWORD sourcesize)
 {
   XDWORD    x       = 3;

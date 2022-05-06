@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS Virtual Desktop Manager class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XWINDOWSVIRTUALDESKTOPMANAGER_H_
 #define _XWINDOWSVIRTUALDESKTOPMANAGER_H_
@@ -109,7 +109,7 @@ class XWINDOWSVIRTUALDESKTOPMANAGER
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 
 

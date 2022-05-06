@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Server API Rest class
 * @ingroup
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -57,7 +57,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_ENDPOINT::DIOWEBSERVER_ENDPOINT()
 {
   Clean();
@@ -74,7 +74,7 @@ DIOWEBSERVER_ENDPOINT::DIOWEBSERVER_ENDPOINT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_ENDPOINT::~DIOWEBSERVER_ENDPOINT()
 {
   Clean();
@@ -91,7 +91,7 @@ DIOWEBSERVER_ENDPOINT::~DIOWEBSERVER_ENDPOINT()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_ENDPOINT::Clean()
 {
 
@@ -113,7 +113,7 @@ void DIOWEBSERVER_ENDPOINT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_APIREST::DIOWEBSERVER_APIREST()
 {
   Clean();
@@ -130,7 +130,7 @@ DIOWEBSERVER_APIREST::DIOWEBSERVER_APIREST()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_APIREST::~DIOWEBSERVER_APIREST()
 {
   Clean();
@@ -152,7 +152,7 @@ DIOWEBSERVER_APIREST::~DIOWEBSERVER_APIREST()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_APIREST::ResolveEndPoint(DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystring, DIOWEBHEADER_RESULT* result, XSTRING* output)
 {
   //output->Set(__L("Prueba"));
@@ -174,7 +174,7 @@ bool DIOWEBSERVER_APIREST::ResolveEndPoint(DIOWEBSERVER_REQUEST* request, DIOWEB
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_APIREST::Clean()
 {
 

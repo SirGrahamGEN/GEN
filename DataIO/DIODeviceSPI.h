@@ -6,7 +6,7 @@
 * @brief      Data Input/Output device SPI class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 * 
-* *---------------------------------------------------------------------------------------------------------------------*/
+* * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIODEVICESPI_H_
 #define _DIODEVICESPI_H_
@@ -77,7 +77,7 @@ class DIODEVICESPI : public DIODEVICE
 
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

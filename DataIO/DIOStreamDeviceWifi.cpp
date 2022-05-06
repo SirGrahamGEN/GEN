@@ -39,7 +39,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEWIFI::DIOSTREAMDEVICEWIFI()
 {
   Clean();
@@ -56,7 +56,7 @@ DIOSTREAMDEVICEWIFI::DIOSTREAMDEVICEWIFI()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEWIFI::~DIOSTREAMDEVICEWIFI()
 {
   Clean();
@@ -72,7 +72,7 @@ DIOSTREAMDEVICEWIFI::~DIOSTREAMDEVICEWIFI()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMDEVICEWIFI::HasSecurity()
 {
   return hassecurity;
@@ -90,7 +90,7 @@ bool DIOSTREAMDEVICEWIFI::HasSecurity()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEWIFI::SetHasSecurity(bool hassecurity)
 {
   this->hassecurity = hassecurity;
@@ -106,7 +106,7 @@ void DIOSTREAMDEVICEWIFI::SetHasSecurity(bool hassecurity)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMDEVICEWIFI::GetTransmisionPower()
 {
   return transmisionpower;
@@ -124,7 +124,7 @@ int DIOSTREAMDEVICEWIFI::GetTransmisionPower()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEWIFI::SetTransmisionPower(int transmisionpower)
 {
   this->transmisionpower = transmisionpower;
@@ -140,7 +140,7 @@ void DIOSTREAMDEVICEWIFI::SetTransmisionPower(int transmisionpower)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMDEVICEWIFI::DebugPrintInfo()
 {
   DIOSTREAMDEVICEIP::DebugPrintInfo();
@@ -164,7 +164,7 @@ bool DIOSTREAMDEVICEWIFI::DebugPrintInfo()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEWIFI::Clean()
 {
   hassecurity       = false;

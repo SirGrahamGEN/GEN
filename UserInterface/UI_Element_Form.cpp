@@ -6,7 +6,7 @@
 * @brief      User Interface Element Form class
 * @ingroup    USERINTERFACE
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated

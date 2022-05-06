@@ -6,7 +6,7 @@
 * @brief      Script Javascript interpreter class
 * @ingroup    SCRIPT
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -57,7 +57,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_JAVASCRIPT::SCRIPT_JAVASCRIPT()
 {
   Clean();
@@ -77,7 +77,7 @@ SCRIPT_JAVASCRIPT::SCRIPT_JAVASCRIPT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_JAVASCRIPT::~SCRIPT_JAVASCRIPT()
 {
   if(context)
@@ -101,7 +101,7 @@ SCRIPT_JAVASCRIPT::~SCRIPT_JAVASCRIPT()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_JAVASCRIPT::Load(XPATH& xpath)
 {
   if(!SCRIPT::Load(xpath)) return false;
@@ -121,7 +121,7 @@ bool SCRIPT_JAVASCRIPT::Load(XPATH& xpath)
 *
 * @return     SCRIPT_G_ERRORCODE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int SCRIPT_JAVASCRIPT::Run(int* returnval)
 {
   errorcode    = SCRIPT_ERRORCODE_NONE;
@@ -226,7 +226,7 @@ int SCRIPT_JAVASCRIPT::Run(int* returnval)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction)
 {
   XSTRING namefunction;
@@ -259,7 +259,7 @@ bool SCRIPT_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCR
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_JAVASCRIPT::HaveError(int _errorcode)
 {
   XSTRING   currenttoken;
@@ -311,7 +311,7 @@ bool SCRIPT_JAVASCRIPT::HaveError(int _errorcode)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_JAVASCRIPT::HaveMainFunction()
 {
   XSTRING mainfunctionname;
@@ -372,7 +372,7 @@ bool SCRIPT_JAVASCRIPT::HaveMainFunction()
 *
 * @return     duk_ret_t :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
 {
   XVECTOR<XVARIANT*>    params;
@@ -504,7 +504,7 @@ duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
 {
   SCRIPT_JAVASCRIPT* script  = (SCRIPT_JAVASCRIPT*)udata;
@@ -528,7 +528,7 @@ void SCRIPT_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_JAVASCRIPT::Clean()
 {
   context = NULL;
@@ -547,7 +547,7 @@ void SCRIPT_JAVASCRIPT::Clean()
 *
 * @return     double :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 double __builtin_inf (void)
 {
   return (double)0xFFFFFFFFFFFFFFFF;

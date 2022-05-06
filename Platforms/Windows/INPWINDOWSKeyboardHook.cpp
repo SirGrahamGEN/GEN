@@ -142,7 +142,7 @@ void INPWINDOWSKEYBOARDHOOK::SetApplicationHandle(void* applicationhandle)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSKEYBOARDHOOK::Activate()
 {
   if(keyhook) return false;
@@ -178,7 +178,7 @@ bool INPWINDOWSKEYBOARDHOOK::Activate()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSKEYBOARDHOOK::Deactivate()
 {
   if(!keyhook) return false;
@@ -229,7 +229,7 @@ INPWINDOWSKEYBOARDHOOK:: INPWINDOWSKEYBOARDHOOK()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPWINDOWSKEYBOARDHOOK::~ INPWINDOWSKEYBOARDHOOK()
 {
   Deactivate();
@@ -251,7 +251,7 @@ INPWINDOWSKEYBOARDHOOK::~ INPWINDOWSKEYBOARDHOOK()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPWINDOWSKEYBOARDHOOK::Clean()
 {
   applicationhandle   = NULL;
@@ -275,7 +275,7 @@ void INPWINDOWSKEYBOARDHOOK::Clean()
 *
 * @return     LRESULT :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 LRESULT CALLBACK INPWINDOWSKEYBOARDHOOK::LowLevelKeyboardProc(int ncode, WPARAM wparam, LPARAM lparam)
 {
   bool keydown = false;

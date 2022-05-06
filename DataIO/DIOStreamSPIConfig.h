@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream SPI Config class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 * 
-* *---------------------------------------------------------------------------------------------------------------------*/
+* * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSTREAMSPICONFIG_H_
 #define _DIOSTREAMSPICONFIG_H_
@@ -117,7 +117,7 @@ class DIOSTREAMSPICONFIG : public DIOSTREAMCONFIG
     void                          Clean                             ();
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

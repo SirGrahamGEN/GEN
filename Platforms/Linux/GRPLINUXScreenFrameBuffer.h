@@ -6,7 +6,7 @@
 * @brief      LINUX Frame Buffer Screen class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _GRPLINUXSCREENFRAMEBUFFER_H_
 #define _GRPLINUXSCREENFRAMEBUFFER_H_
@@ -71,7 +71,7 @@ class GRPLINUXSCREENFRAMEBUFFER : public GRPSCREEN
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

@@ -6,7 +6,7 @@
 * @brief       eXtended WINDOWS Console class
 * @ingroup     PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSCONSOLE::XWINDOWSCONSOLE(): XCONSOLE()
 {
   HANDLE                hconsole    = GetStdHandle(STD_OUTPUT_HANDLE);   // Get the number of character cells in the current buffer.
@@ -83,7 +83,7 @@ XWINDOWSCONSOLE::XWINDOWSCONSOLE(): XCONSOLE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSCONSOLE::~XWINDOWSCONSOLE()
 {
   
@@ -102,7 +102,7 @@ XWINDOWSCONSOLE::~XWINDOWSCONSOLE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::GetSize(int& width, int& height)
 {
   HWND consolehandle = GetConsoleWindow();
@@ -132,7 +132,7 @@ bool XWINDOWSCONSOLE::GetSize(int& width, int& height)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::SetSize(int width, int height)
 {
   HWND consolehandle = GetConsoleWindow();
@@ -164,7 +164,7 @@ bool XWINDOWSCONSOLE::SetSize(int width, int height)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::GetSizeText(int& columns, int& rows)
 {
   CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -188,7 +188,7 @@ bool XWINDOWSCONSOLE::GetSizeText(int& columns, int& rows)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Maximize()
 {
   HANDLE                     hconsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -220,7 +220,7 @@ bool XWINDOWSCONSOLE::Maximize()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Minimize()
 {
   HANDLE                     hconsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -252,7 +252,7 @@ bool XWINDOWSCONSOLE::Minimize()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Hide()
 {
   HWND hwindow  = GetConsoleWindow();
@@ -274,7 +274,7 @@ bool XWINDOWSCONSOLE::Hide()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::IsHide()
 {
   HWND hwindow  = GetConsoleWindow();
@@ -293,7 +293,7 @@ bool XWINDOWSCONSOLE::IsHide()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::UnHide()
 {
   HWND hwindow  = GetConsoleWindow();
@@ -317,7 +317,7 @@ bool XWINDOWSCONSOLE::UnHide()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Print(XCHAR* string)
 {
   if(!string)     return false;
@@ -402,7 +402,7 @@ bool XWINDOWSCONSOLE::Clear(bool fill)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::KBHit(void)
 {
   #ifdef _MSC_VER
@@ -422,7 +422,7 @@ bool XWINDOWSCONSOLE::KBHit(void)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSCONSOLE::GetChar()
 {
   //if(!KBHit()) return 0;

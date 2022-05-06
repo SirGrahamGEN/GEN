@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream with Cipher class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSTREAMCIPHER_H_
 #define _DIOSTREAMCIPHER_H_
@@ -92,7 +92,7 @@ class DIOSTREAMCIPHER : public DIOSTREAM
     XTHREADCOLLECTED*           xthreadconnection;
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

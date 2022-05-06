@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C Sensor Light TSL2561  class (Luminosity Sensor)
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2CLIGHTSENSORTSL2561_H_
 #define _DIOI2CLIGHTSENSORTSL2561_H_
@@ -214,7 +214,7 @@ class DIOI2CLIGHTSENSORTSL2561 : public DIODEVICEI2C
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

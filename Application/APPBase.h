@@ -6,7 +6,7 @@
 * @brief      Application Base class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _APPBASE_H_
 #define _APPBASE_H_
@@ -36,7 +36,6 @@
 #include "XString.h"
 #include "XTrace.h"
 #include "XSystem.h"
-
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
@@ -79,11 +78,9 @@ enum APPBASE_APPLICATIONMODE_TYPE
                                                             return VARIABLE;                              \
                                                           }
 
-
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XTIMER;
-
 
 class APPBASE
 {
@@ -154,9 +151,10 @@ class APPBASE
     void                            Clean                         ();
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
+
 
 
 

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream UART config class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -51,7 +51,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUARTCONFIG::DIOSTREAMUARTCONFIG(): DIOSTREAMCONFIG()
 {
   Clean();
@@ -70,7 +70,7 @@ DIOSTREAMUARTCONFIG::DIOSTREAMUARTCONFIG(): DIOSTREAMCONFIG()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUARTCONFIG::~DIOSTREAMUARTCONFIG()
 {
   Clean();
@@ -86,7 +86,7 @@ DIOSTREAMUARTCONFIG::~DIOSTREAMUARTCONFIG()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMUARTCONFIG::GetPort()
 {
   return port;
@@ -104,7 +104,7 @@ int DIOSTREAMUARTCONFIG::GetPort()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetPort(int port)
 {
   this->port = port;
@@ -120,7 +120,7 @@ void DIOSTREAMUARTCONFIG::SetPort(int port)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOSTREAMUARTCONFIG::GetLocalDeviceName()
 {
   return &devicename;
@@ -136,7 +136,7 @@ XSTRING* DIOSTREAMUARTCONFIG::GetLocalDeviceName()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMUARTCONFIG::GetBaudRate()
 {
   return baudrate;
@@ -153,7 +153,7 @@ int DIOSTREAMUARTCONFIG::GetBaudRate()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetBaudRate(int baudrate)
 {
   this->baudrate = baudrate;
@@ -169,7 +169,7 @@ void DIOSTREAMUARTCONFIG::SetBaudRate(int baudrate)
 *
 * @return     DIOSTREAMUARTDATABITS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUARTDATABITS DIOSTREAMUARTCONFIG::GetDataBits()
 {
   return databits;
@@ -186,7 +186,7 @@ DIOSTREAMUARTDATABITS DIOSTREAMUARTCONFIG::GetDataBits()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetDataBits(DIOSTREAMUARTDATABITS databits)
 {
   this->databits = databits;
@@ -202,7 +202,7 @@ void DIOSTREAMUARTCONFIG::SetDataBits(DIOSTREAMUARTDATABITS databits)
 *
 * @return     DIOSTREAMUARTPARITY :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUARTPARITY DIOSTREAMUARTCONFIG::GetParity()
 {
   return parity;
@@ -220,7 +220,7 @@ DIOSTREAMUARTPARITY DIOSTREAMUARTCONFIG::GetParity()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetParity(DIOSTREAMUARTPARITY parity)
 {
   this->parity = parity;
@@ -236,7 +236,7 @@ void DIOSTREAMUARTCONFIG::SetParity(DIOSTREAMUARTPARITY parity)
 *
 * @return     DIOSTREAMUARTSTOPBITS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUARTSTOPBITS DIOSTREAMUARTCONFIG::GetStopBits()
 {
   return stopbits;
@@ -254,7 +254,7 @@ DIOSTREAMUARTSTOPBITS DIOSTREAMUARTCONFIG::GetStopBits()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetStopBits(DIOSTREAMUARTSTOPBITS stopbits)
 {
   this->stopbits = stopbits;
@@ -270,7 +270,7 @@ void DIOSTREAMUARTCONFIG::SetStopBits(DIOSTREAMUARTSTOPBITS stopbits)
 *
 * @return     DIOSTREAMUARTFLOWCONTROL :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUARTFLOWCONTROL DIOSTREAMUARTCONFIG::GetFlowControl()
 {
   return flowcontrol;
@@ -288,7 +288,7 @@ DIOSTREAMUARTFLOWCONTROL DIOSTREAMUARTCONFIG::GetFlowControl()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetFlowControl(DIOSTREAMUARTFLOWCONTROL flowcontrol)
 {
   this->flowcontrol = flowcontrol;
@@ -307,7 +307,7 @@ void DIOSTREAMUARTCONFIG::SetFlowControl(DIOSTREAMUARTFLOWCONTROL flowcontrol)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUARTCONFIG::GetToString(XSTRING* string)
 {
   if(!string) return false;
@@ -373,7 +373,7 @@ bool DIOSTREAMUARTCONFIG::GetToString(XSTRING* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUARTCONFIG::GetToString(XSTRING& string)
 {
   return GetToString(&string);
@@ -391,7 +391,7 @@ bool DIOSTREAMUARTCONFIG::GetToString(XSTRING& string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUARTCONFIG::SetFromString(XCHAR* string)
 {
   if(!string) return false;
@@ -499,7 +499,7 @@ bool DIOSTREAMUARTCONFIG::SetFromString(XCHAR* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUARTCONFIG::SetFromString(XSTRING* string)
 {
   if(!string) return false;
@@ -518,7 +518,7 @@ bool DIOSTREAMUARTCONFIG::SetFromString(XSTRING* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUARTCONFIG::SetFromString(XSTRING& string)
 {
   return SetFromString(&string);
@@ -535,7 +535,7 @@ bool DIOSTREAMUARTCONFIG::SetFromString(XSTRING& string)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::Clean()
 {
   type          = DIOSTREAMTYPE_UART;

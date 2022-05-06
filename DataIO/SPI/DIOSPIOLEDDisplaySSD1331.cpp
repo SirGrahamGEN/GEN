@@ -6,7 +6,7 @@
 * @brief      Data Input/Output SPI Display OLED SSD 1331
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSPIOLEDDISPLAYSSD1331::DIOSPIOLEDDISPLAYSSD1331(): DIODEVICESPI()
 {
   Clean();
@@ -75,7 +75,7 @@ DIOSPIOLEDDISPLAYSSD1331::DIOSPIOLEDDISPLAYSSD1331(): DIODEVICESPI()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSPIOLEDDISPLAYSSD1331::~DIOSPIOLEDDISPLAYSSD1331()
 {
   End();
@@ -93,7 +93,7 @@ DIOSPIOLEDDISPLAYSSD1331::~DIOSPIOLEDDISPLAYSSD1331()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::IniDevice()
 {
   if(!DIODEVICESPI::IniDevice()) return false;
@@ -148,7 +148,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::IniDevice()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::Clear(XWORD color)
 {
   if(!IsInitialized()) return false;
@@ -172,7 +172,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::Clear(XWORD color)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::Update(XBYTE* buffer)
 {
   if(!IsInitialized()) return false;
@@ -197,7 +197,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::Update(XBYTE* buffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::PutPixel(XWORD x, XWORD y, XWORD color)
 {
   if(!IsInitialized()) return false;
@@ -224,7 +224,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::PutPixel(XWORD x, XWORD y, XWORD color)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::End()
 {  
   ClearDisplay();
@@ -292,7 +292,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::Initializate()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::Reset()
 {
   if(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_RESET) == DIOGPIO_ID_NOTDEFINED)  return false;
@@ -322,7 +322,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::Reset()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::Active(bool on)
 {
   return SendCommand((on?DIOSPIOLEDDISPLAYSSD1331_CMD_DISPLAYON:DIOSPIOLEDDISPLAYSSD1331_CMD_DISPLAYOFF));
@@ -341,7 +341,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::Active(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::EnableFillMode(bool on)
 {
   XBYTE cmd[]=  {  (XBYTE)DIOSPIOLEDDISPLAYSSD1331_CMD_FILLRECT                                                              ,
@@ -363,7 +363,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::EnableFillMode(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::EnableLockMode(bool on)
 {
   XBYTE cmd[] = { (XBYTE)DIOSPIOLEDDISPLAYSSD1331_CMD_LOCKMODE                                                                 ,
@@ -385,7 +385,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::EnableLockMode(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::EnableScrollMode(bool on)
 {
   return SendCommand((on?DIOSPIOLEDDISPLAYSSD1331_CMD_ACTIVESCROLLING:DIOSPIOLEDDISPLAYSSD1331_CMD_DEACTIVESCROLLING));
@@ -404,7 +404,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::EnableScrollMode(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::SetScrollMode(XWORD horizontal, XWORD vertical)
 {
   EnableScrollMode(false);
@@ -425,7 +425,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::SetScrollMode(XWORD horizontal, XWORD vertical)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::ClearDisplay()
 {
   XBYTE cmd[]=  { (XBYTE)DIOSPIOLEDDISPLAYSSD1331_CMD_CLEARWINDOW  ,
@@ -448,7 +448,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::ClearDisplay()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::MaxWindow()
 {
   XBYTE cmd[]= {  DIOSPIOLEDDISPLAYSSD1331_CMD_SETCOLUMNADDRESS, 0x00, (XBYTE)(width-1),  DIOSPIOLEDDISPLAYSSD1331_CMD_SETROWADDRESS, 0x00, (XBYTE)(height-1) };
@@ -473,7 +473,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::MaxWindow()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::FillRect(XBYTE x0, XBYTE y0, XBYTE x1, XBYTE y1, XWORD color, XWORD background)
 {
   //---------------------------------------------------------------
@@ -523,7 +523,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::FillRect(XBYTE x0, XBYTE y0, XBYTE x1, XBYTE y1, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE command, int timeout)
 {
   bool status = false;
@@ -550,7 +550,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE command, int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE* command, XDWORD size, int timeout)
 {
   bool status = false;
@@ -576,7 +576,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE* command, XDWORD size, int time
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE data, int timeout)
 {
   bool status = false;
@@ -603,7 +603,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE data, int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE* data, XDWORD size, int timeout)
 {
   bool status = false;
@@ -627,7 +627,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE* data, XDWORD size, int timeout)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPIOLEDDISPLAYSSD1331::Clean()
 {
   isdirectconnection      = false;

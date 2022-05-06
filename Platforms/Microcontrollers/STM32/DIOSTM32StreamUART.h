@@ -6,7 +6,7 @@
 * @brief      Data Input/Output STM32 Stream UART class
 * @ingroup    PLATFORM_STM32
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSTM32STREAMUART_H_
 #define _DIOSTM32STREAMUART_H_
@@ -129,7 +129,7 @@ class DIOSTM32STREAMUART : public DIOSTREAMUART, public XFSMACHINE
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 extern DIOSTM32STREAMUART*  diostreamuartptrhandle[DIOSTM32STREAMIUART_MAXHANDLES];
 

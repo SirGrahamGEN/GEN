@@ -6,7 +6,7 @@
 * @brief      Data Input/Output AT commands class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -62,7 +62,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD::DIOATCMD()
 {
   Clean();
@@ -79,7 +79,7 @@ DIOATCMD::DIOATCMD()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD::~DIOATCMD()
 {
   Clean();
@@ -95,7 +95,7 @@ DIOATCMD::~DIOATCMD()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOATCMD::GetType()
 {
   return type;
@@ -111,7 +111,7 @@ XDWORD DIOATCMD::GetType()
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* DIOATCMD::GetCommand()
 {
   return command.Get();
@@ -127,7 +127,7 @@ XCHAR* DIOATCMD::GetCommand()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOATCMD::GetCommandString()
 {
   return &command;
@@ -147,7 +147,7 @@ XSTRING* DIOATCMD::GetCommandString()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMD::Set(XDWORD type, XCHAR* command, bool isunsolicited)
 {
   this->type          = type;
@@ -167,7 +167,7 @@ bool DIOATCMD::Set(XDWORD type, XCHAR* command, bool isunsolicited)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMD::IsUnSolicited()
 {
   return isunsolicited;
@@ -184,7 +184,7 @@ bool DIOATCMD::IsUnSolicited()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOATCMD::Clean()
 {
   type          = DIOATCMD_ERROR_NONE;
@@ -203,7 +203,7 @@ void DIOATCMD::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMDS::DIOATCMDS(DIOSTREAM* diostream) : XFSMACHINE(0)
 {
   Clean();
@@ -234,7 +234,7 @@ DIOATCMDS::DIOATCMDS(DIOSTREAM* diostream) : XFSMACHINE(0)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMDS::~DIOATCMDS()
 {
   End();
@@ -275,7 +275,7 @@ DIOATCMDS::~DIOATCMDS()
 *
 * @return     DIOSTREAM* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM* DIOATCMDS::GetDIOStream()
 {
   return diostream;
@@ -291,7 +291,7 @@ DIOSTREAM* DIOATCMDS::GetDIOStream()
 *
 * @return     XTIMER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTIMER* DIOATCMDS::GetXTimer()
 {
   return xtimer;
@@ -312,7 +312,7 @@ XTIMER* DIOATCMDS::GetXTimer()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::Ini(int timeout, bool echomode, bool verbosemode, int minimumbaurate)
 {
   if(!diostream)  return false;
@@ -385,7 +385,7 @@ bool DIOATCMDS::Ini(int timeout, bool echomode, bool verbosemode, int minimumbau
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::Basic(int timeout)
 {
   return MakeSimpleCommand(DIOATCMD_TYPE_BASIC,NULL,timeout);
@@ -405,7 +405,7 @@ DIOATCMD_ERROR DIOATCMDS::Basic(int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::GetCharacter(DIOATCMD_CODECHARACTER code,XBYTE& character,int timeout)
 {
   XSTRING param;
@@ -444,7 +444,7 @@ DIOATCMD_ERROR DIOATCMDS::GetCharacter(DIOATCMD_CODECHARACTER code,XBYTE& charac
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::Reset(int timeout)
 {
   return MakeSimpleCommand(DIOATCMD_TYPE_RESET,NULL,timeout);
@@ -463,7 +463,7 @@ DIOATCMD_ERROR DIOATCMDS::Reset(int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::SetEchoMode(bool echomode, int timeout)
 {
   DIOATCMD_ERROR error = SendCommand(DIOATCMD_TYPE_ECHO, echomode?__L("1"):__L("0"));
@@ -487,7 +487,7 @@ DIOATCMD_ERROR DIOATCMDS::SetEchoMode(bool echomode, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::SetVerboseMode(bool verbosemode  , int timeout)
 {
   DIOATCMD_ERROR error = SendCommand(DIOATCMD_TYPE_VERBOSE, verbosemode?__L("1"):__L("0"));
@@ -511,7 +511,7 @@ DIOATCMD_ERROR DIOATCMDS::SetVerboseMode(bool verbosemode  , int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::GetBaudRate(int& baudrate, int timeout)
 {
   DIOATCMD_ERROR error = MakeSimpleCommand(DIOATCMD_TYPE_BAUDRATE, __L("?"), timeout);
@@ -549,7 +549,7 @@ DIOATCMD_ERROR DIOATCMDS::GetBaudRate(int& baudrate, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::SetBaudRate(int baudrate, int timeout)
 {
   DIOATCMD_ERROR error;
@@ -588,7 +588,7 @@ DIOATCMD_ERROR DIOATCMDS::SetBaudRate(int baudrate, int timeout)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOATCMDS::End()
 {
   if(threadconnection) threadconnection->End();
@@ -608,7 +608,7 @@ void DIOATCMDS::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::AdditionalInitialization(int timeout)
 {
   return true;
@@ -629,7 +629,7 @@ bool DIOATCMDS::AdditionalInitialization(int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::UnsolicitedCommandAddtionalSize(XDWORD type, XSTRING& param, DIOATCMD_TYPEADDITIONALSIZE& typesize, int& size)
 {
   return false;
@@ -649,7 +649,7 @@ bool DIOATCMDS::UnsolicitedCommandAddtionalSize(XDWORD type, XSTRING& param, DIO
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::UnsolicitedCommand(XDWORD type, XSTRING& param, XBUFFER& additionalparamint)
 {
   return false;
@@ -667,7 +667,7 @@ bool DIOATCMDS::UnsolicitedCommand(XDWORD type, XSTRING& param, XBUFFER& additio
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOATCMDS::CalculeBaudRateStreamUART(int timeout)
 {
   int baudrates[] = { 115200, 9600, 57600, 38400, 19200, 4800, 2400 , 1200 };
@@ -726,7 +726,7 @@ int DIOATCMDS::CalculeBaudRateStreamUART(int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::AddCommand(XDWORD type, XCHAR* command,bool isunsolicited)
 {
   DIOATCMD* ATcommand = GetCommand(type);
@@ -754,7 +754,7 @@ bool DIOATCMDS::AddCommand(XDWORD type, XCHAR* command,bool isunsolicited)
 *
 * @return     DIOATCMD* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD* DIOATCMDS::GetCommand(XDWORD type)
 {
   DIOATCMD* ATcommand;
@@ -783,7 +783,7 @@ DIOATCMD* DIOATCMDS::GetCommand(XDWORD type)
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* DIOATCMDS::GetCommandString(XDWORD type)
 {
   DIOATCMD* command = GetCommand(type);
@@ -802,7 +802,7 @@ XCHAR* DIOATCMDS::GetCommandString(XDWORD type)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::DeleteAllCommand()
 {
   if(ATcmds.IsEmpty()) return false;
@@ -827,7 +827,7 @@ bool DIOATCMDS::DeleteAllCommand()
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::SendCommand(XDWORD type,XCHAR* param)
 {
   DIOATCMD* ATcommand = GetCommand(type);
@@ -873,7 +873,7 @@ DIOATCMD_ERROR DIOATCMDS::SendCommand(XDWORD type,XCHAR* param)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::SendCommand(XDWORD type, XSTRING& param)
 {
   return DIOATCMDS::SendCommand(type,param.Get());
@@ -892,7 +892,7 @@ DIOATCMD_ERROR DIOATCMDS::SendCommand(XDWORD type, XSTRING& param)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::SendParam(XCHAR* param)
 {
   XSTRING _param;
@@ -930,7 +930,7 @@ DIOATCMD_ERROR DIOATCMDS::SendParam(XCHAR* param)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::SendParam(XBUFFER& xbuffer)
 {
   if(!xbuffer.GetSize())  return DIOATCMD_ERROR_NONE;
@@ -974,7 +974,7 @@ DIOATCMD_ERROR DIOATCMDS::SendParam(XBUFFER& xbuffer)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::SendParam(XSTRING& param)
 {
   return DIOATCMDS::SendParam(param.Get());
@@ -992,7 +992,7 @@ DIOATCMD_ERROR DIOATCMDS::SendParam(XSTRING& param)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::AddSendCommand(XSTRING* sendcommand)
 {
   if(!sendcommand)           return false;
@@ -1024,7 +1024,7 @@ bool DIOATCMDS::AddSendCommand(XSTRING* sendcommand)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::AddSendCommand(XBUFFER& xbuffer)
 {
   XSTRING param;
@@ -1046,7 +1046,7 @@ bool DIOATCMDS::AddSendCommand(XBUFFER& xbuffer)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOATCMDS::GetSendCommand(int index)
 {
   XSTRING* sendcommand = (XSTRING*)sendcommands.Get(index);
@@ -1067,7 +1067,7 @@ XSTRING* DIOATCMDS::GetSendCommand(int index)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOATCMDS::SearchSendCommand(XSTRING* sendcommand)
 {
   if(!sendcommand) return DIOATCMDS_COMMANDNOTFOUND;
@@ -1096,7 +1096,7 @@ int DIOATCMDS::SearchSendCommand(XSTRING* sendcommand)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::DeleteSendCommand(int index)
 {
   XSTRING* sendcommand = (XSTRING*)sendcommands.Get(index);
@@ -1117,7 +1117,7 @@ bool DIOATCMDS::DeleteSendCommand(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::DeleteAllSendCommand()
 {
   if(sendcommands.IsEmpty()) return false;
@@ -1142,7 +1142,7 @@ bool DIOATCMDS::DeleteAllSendCommand()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::ReadAnswer(XSTRING& answer,int timeout)
 {
   if(!diostream) return false;
@@ -1228,7 +1228,7 @@ bool DIOATCMDS::ReadAnswer(XSTRING& answer,int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::ReadAnswerWithOutEndChar(XSTRING& answer, int timeout)
 {
   if(!diostream)       return false;
@@ -1305,7 +1305,7 @@ bool DIOATCMDS::ReadAnswerWithOutEndChar(XSTRING& answer, int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::ReadAnswerWithOutEndChar(XCHAR* answer, int timeout)
 {
   XSTRING _answer;
@@ -1327,7 +1327,7 @@ bool DIOATCMDS::ReadAnswerWithOutEndChar(XCHAR* answer, int timeout)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOATCMDS::GetAnswer(int index)
 {
   XSTRING* answer = (XSTRING*)answers.Get(index);
@@ -1345,7 +1345,7 @@ XSTRING* DIOATCMDS::GetAnswer(int index)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOATCMDS::GetLastAnswer()
 {
   XSTRING* answer = (XSTRING*)answers.GetLast();
@@ -1364,7 +1364,7 @@ XSTRING* DIOATCMDS::GetLastAnswer()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::DeleteAnswer(int index)
 {
   XSTRING* answer = (XSTRING*)answers.Get(index);
@@ -1386,7 +1386,7 @@ bool DIOATCMDS::DeleteAnswer(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::DeleteLastAnswer()
 {
   XSTRING* answer = (XSTRING*)answers.GetLast();
@@ -1414,7 +1414,7 @@ bool DIOATCMDS::DeleteLastAnswer()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::DeleteAllAnswers()
 {
   if(answers.IsEmpty()) return false;
@@ -1435,7 +1435,7 @@ bool DIOATCMDS::DeleteAllAnswers()
 *
 * @return     XVECTOR<XSTRING*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XSTRING*>* DIOATCMDS::GetAnswers()
 {
   return &answers;
@@ -1454,7 +1454,7 @@ XVECTOR<XSTRING*>* DIOATCMDS::GetAnswers()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOATCMDS::SearchInAnswers(XCHAR* string, int timeout)
 {
   if(timeout) xtimer->Reset();
@@ -1499,7 +1499,7 @@ int DIOATCMDS::SearchInAnswers(XCHAR* string, int timeout)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOATCMDS::SearchInAnswers(XDWORD typecommand,int timeout)
 {
   DIOATCMD* command = GetCommand(typecommand);
@@ -1526,7 +1526,7 @@ int DIOATCMDS::SearchInAnswers(XDWORD typecommand,int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::WaitToProcessAnswer(int timeout, int* index)
 {
   if(!xtimer) return DIOATCMD_ERROR_UNKNOWN;
@@ -1578,7 +1578,7 @@ DIOATCMD_ERROR DIOATCMDS::WaitToProcessAnswer(int timeout, int* index)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::WaitToOneAnswerMore(int timeout)
 {
   if(!xtimer) return DIOATCMD_ERROR_UNKNOWN;
@@ -1612,7 +1612,7 @@ DIOATCMD_ERROR DIOATCMDS::WaitToOneAnswerMore(int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::MakeSimpleCommand(XDWORD type,XCHAR* param,int timeout)
 {
   DIOATCMD_ERROR error = SendCommand(type,param);
@@ -1636,7 +1636,7 @@ DIOATCMD_ERROR DIOATCMDS::MakeSimpleCommand(XDWORD type,XCHAR* param,int timeout
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDS::MakeCommandWithSimpleAnswer(XDWORD type, XSTRING& answer, XCHAR* param, int timeout)
 {
   DIOATCMD_ERROR error = SendCommand(type);
@@ -1669,7 +1669,7 @@ DIOATCMD_ERROR DIOATCMDS::MakeCommandWithSimpleAnswer(XDWORD type, XSTRING& answ
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOATCMDS::ThreadConnection(void* param)
 {
   DIOATCMDS* dioatcmds = (DIOATCMDS*)param;
@@ -1733,7 +1733,7 @@ void DIOATCMDS::ThreadConnection(void* param)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDS::CheckUnsolicitedAnswer(XSTRING& answer)
 {
   if(answer.IsEmpty())  return false;
@@ -1810,7 +1810,7 @@ bool DIOATCMDS::CheckUnsolicitedAnswer(XSTRING& answer)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOATCMDS::Clean()
 {
   diostream               = NULL;

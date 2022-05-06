@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream WINDOWS USB Local Enum Devices class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -70,7 +70,7 @@ DEFINE_GUID(GUID_DEVINTERFACE_USB_PRINT            , 0x28D78FAD , 0x5A12, 0x11D1
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::DIOWINDOWSSTREAMUSBLOCALENUMDEVICES() : DIOSTREAMUSBLOCALENUMDEVICES()
 {
   Clean();
@@ -87,7 +87,7 @@ DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::DIOWINDOWSSTREAMUSBLOCALENUMDEVICES() : DIO
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::~DIOWINDOWSSTREAMUSBLOCALENUMDEVICES()
 {
   Clean();
@@ -103,7 +103,7 @@ DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::~DIOWINDOWSSTREAMUSBLOCALENUMDEVICES()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::Search()
 {
   DelAllDevices();
@@ -129,7 +129,7 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::Search()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::SearchGUID(const GUID* interfaceclassguid)
 {
   HDEVINFO                         hdevinfo;
@@ -229,7 +229,7 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::SearchGUID(const GUID* interfaceclassg
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::GetInfoFromRegistry(DIOSTREAMDEVICEUSB* device)
 {
   XSTRING name;
@@ -351,7 +351,7 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::GetInfoFromRegistry(DIOSTREAMDEVICEUSB
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::GetUSBDescriptor(HDEVINFO& hdevinfo, int memberindex, DIOSTREAMDEVICEUSB* device)
 {
   SP_DEVINFO_DATA devicedata;
@@ -452,7 +452,7 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::GetUSBDescriptor(HDEVINFO& hdevinfo, i
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
 {
   if(devices.IsEmpty()) return false;
@@ -504,7 +504,7 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::Clean()
 
 {

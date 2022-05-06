@@ -6,7 +6,7 @@
 * @brief      eXtended License generator and control class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -70,7 +70,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLICENSEXEVENT::XLICENSEXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
   Clean();
@@ -86,7 +86,7 @@ XLICENSEXEVENT::XLICENSEXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): X
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLICENSEXEVENT::~XLICENSEXEVENT()
 {
   Clean();
@@ -102,7 +102,7 @@ XLICENSEXEVENT::~XLICENSEXEVENT()
 *
 * @return     XLICENSE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLICENSE* XLICENSEXEVENT::Get()
 {
   return xlicense;
@@ -120,7 +120,7 @@ XLICENSE* XLICENSEXEVENT::Get()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XLICENSEXEVENT::Set(XLICENSE* xlicense)
 {
   this->xlicense = xlicense;
@@ -137,7 +137,7 @@ void XLICENSEXEVENT::Set(XLICENSE* xlicense)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XLICENSEXEVENT::Clean()
 {
   xlicense  = NULL;
@@ -145,9 +145,9 @@ void XLICENSEXEVENT::Clean()
 
 
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 /* XLICENSEID                                                                                                          */
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -159,7 +159,7 @@ void XLICENSEXEVENT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLICENSEID::XLICENSEID()
 {
   Clean();
@@ -176,7 +176,7 @@ XLICENSEID::XLICENSEID()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLICENSEID::~XLICENSEID()
 {
   Clean();
@@ -195,7 +195,7 @@ XLICENSEID::~XLICENSEID()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSEID::GetPart(int npart, XDWORD part)
 {
   if(npart<0)                      return false;
@@ -219,7 +219,7 @@ bool XLICENSEID::GetPart(int npart, XDWORD part)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSEID::SetPart(int npart, XDWORD part)
 {
   if(npart<0)                      return false;
@@ -240,7 +240,7 @@ bool XLICENSEID::SetPart(int npart, XDWORD part)
 *
 * @return     XDWORD* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD* XLICENSEID::GetParts()
 {
   return part;
@@ -258,7 +258,7 @@ XDWORD* XLICENSEID::GetParts()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XLICENSEID::GetXBuffer(XBUFFER& xbuffer)
 {
   for(int c=0; c<XLICENSE_MAXIDPARTS; c++)
@@ -279,7 +279,7 @@ void XLICENSEID::GetXBuffer(XBUFFER& xbuffer)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XLICENSEID::GetXString(XSTRING& IDstring)
 {
   XSTRING partstring;
@@ -305,7 +305,7 @@ void XLICENSEID::GetXString(XSTRING& IDstring)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XLICENSEID::Clean()
 {
   for(int c=0; c<XLICENSE_MAXIDPARTS; c++)
@@ -316,9 +316,9 @@ void XLICENSEID::Clean()
 
 
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 /* XLICENSE                                                                                                            */
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -330,7 +330,7 @@ void XLICENSEID::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLICENSE::XLICENSE()
 {
   Clean();
@@ -352,7 +352,7 @@ XLICENSE::XLICENSE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLICENSE::~XLICENSE()
 {
   DeRegisterEvent(XLICENSEXEVENT_TYPE_INVALID);
@@ -377,7 +377,7 @@ XLICENSE::~XLICENSE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSE::GenerateMachineID(XLICENSEID& licenseID)
 {
   DIOSTREAMIPLOCALENUMDEVICES* enumdevices = (DIOSTREAMIPLOCALENUMDEVICES*)GEN_DIOFACTORY.CreateStreamEnumDevices(DIOSTREAMENUMTYPE_IP_LOCAL);
@@ -461,7 +461,7 @@ bool XLICENSE::GenerateMachineID(XLICENSEID& licenseID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSE::Generate(XLICENSEID& licenseID, XSTRING* applicationID, XBUFFER* license)
 {
   CIPHERAES             cipherAES;
@@ -513,7 +513,7 @@ bool XLICENSE::Generate(XLICENSEID& licenseID, XSTRING* applicationID, XBUFFER* 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSE::GetBufferKeyFromMachineID(XSTRING& applicationID, XBUFFER& xbufferkey)
 {
   HASHSHA1 sha1;
@@ -548,7 +548,7 @@ bool XLICENSE::GetBufferKeyFromMachineID(XSTRING& applicationID, XBUFFER& xbuffe
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSE::CipherExpirationDate(bool cipher, XSTRING& applicationID, XSTRING& expirationdate)
 {
   XBUFFER               xbufferkey;
@@ -611,7 +611,7 @@ bool XLICENSE::CipherExpirationDate(bool cipher, XSTRING& applicationID, XSTRING
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XLICENSE::GetApplicationID()
 {
   return &applicationID;
@@ -627,7 +627,7 @@ XSTRING* XLICENSE::GetApplicationID()
 *
 * @return     XDATETIME* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDATETIME* XLICENSE::GetExpirationDateTime()
 {
   return &expirationdatetime;
@@ -643,7 +643,7 @@ XDATETIME* XLICENSE::GetExpirationDateTime()
 *
 * @return     XBUFFER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER* XLICENSE::Get()
 {
   return license;
@@ -661,7 +661,7 @@ XBUFFER* XLICENSE::Get()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSE::Get(XSTRING& licensestring)
 {
   licensestring.Empty();
@@ -695,7 +695,7 @@ bool XLICENSE::Get(XSTRING& licensestring)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSE::LoadFromFile(XPATH& xpath, XSTRING& applicationID, XBUFFER* license, XSTRING* expirationdate)
 {
   if(!license) return false;
@@ -739,7 +739,7 @@ bool XLICENSE::LoadFromFile(XPATH& xpath, XSTRING& applicationID, XBUFFER* licen
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSE::LoadFromURL(DIOURL& url, int timeout, XSTRING* IPlocal, XSTRING& applicationID, XBUFFER* license, XSTRING* expirationdate)
 {
   DIOWEBCLIENT* webclient = new DIOWEBCLIENT;
@@ -771,7 +771,7 @@ bool XLICENSE::LoadFromURL(DIOURL& url, int timeout, XSTRING* IPlocal, XSTRING& 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSE::LoadFromBuffer(XBUFFER& xbuffer, XSTRING& applicationID, XBUFFER* license, XSTRING* expirationdate)
 {
   if(!license) return false;
@@ -824,7 +824,7 @@ bool XLICENSE::LoadFromBuffer(XBUFFER& xbuffer, XSTRING& applicationID, XBUFFER*
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSE::CheckMasterCreation(XPATH& xpath, XLICENSEID& licenseID, XSTRING& applicationID, int expirationseconds)
 {
   XFILEINI    fileini;
@@ -890,7 +890,7 @@ bool XLICENSE::CheckMasterCreation(XPATH& xpath, XLICENSEID& licenseID, XSTRING&
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSE::SetEvent(XLICENSEXEVENT_TYPE type)
 {
   XLICENSEXEVENT xlicenseevent(this, type);
@@ -912,7 +912,7 @@ bool XLICENSE::SetEvent(XLICENSEXEVENT_TYPE type)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XLICENSE::Clean()
 {
   license = NULL;

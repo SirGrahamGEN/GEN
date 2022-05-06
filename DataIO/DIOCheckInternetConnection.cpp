@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Check Connection Internet class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -57,7 +57,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKINTERNETCONNECTION::DIOCHECKINTERNETCONNECTION(int timeconnectionchecks)
 {
   typedef struct { XCHAR* ipaddr;
@@ -155,7 +155,7 @@ DIOCHECKINTERNETCONNECTION::DIOCHECKINTERNETCONNECTION(int timeconnectionchecks)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKINTERNETCONNECTION::~DIOCHECKINTERNETCONNECTION()
 {
   DeleteAllConnectionCuts();
@@ -189,7 +189,7 @@ DIOCHECKINTERNETCONNECTION::~DIOCHECKINTERNETCONNECTION()
 *
 * @return     DIOCHECKTCPIPCONNECTIONS* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTIONS* DIOCHECKINTERNETCONNECTION::GetCheckConnections()
 {
   return checkconnections;
@@ -205,7 +205,7 @@ DIOCHECKTCPIPCONNECTIONS* DIOCHECKINTERNETCONNECTION::GetCheckConnections()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKINTERNETCONNECTION::Check()
 {
   if(!checkconnections) return false;
@@ -271,7 +271,7 @@ bool DIOCHECKINTERNETCONNECTION::Check()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKINTERNETCONNECTION::AddConnectionCut(DIOCHECKTCPIPCONNECTION_CUT& connectioncut)
 {
   DIOCHECKTCPIPCONNECTION_CUT* chekconnectioncut = new DIOCHECKTCPIPCONNECTION_CUT();
@@ -296,7 +296,7 @@ bool DIOCHECKINTERNETCONNECTION::AddConnectionCut(DIOCHECKTCPIPCONNECTION_CUT& c
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKINTERNETCONNECTION::DeleteAllConnectionCuts()
 {
   if(connectioncuts.IsEmpty()) return false;
@@ -323,7 +323,7 @@ bool DIOCHECKINTERNETCONNECTION::DeleteAllConnectionCuts()
 *
 * @return     XVECTOR<DIOCHECKTCPIPCONNECTION_CUT*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<DIOCHECKTCPIPCONNECTION_CUT*>*   DIOCHECKINTERNETCONNECTION::GetConnectionCuts()
 {
   return &connectioncuts;
@@ -339,7 +339,7 @@ XVECTOR<DIOCHECKTCPIPCONNECTION_CUT*>*   DIOCHECKINTERNETCONNECTION::GetConnecti
 *
 * @return     DIOCHECKTCPIPCONNECTION_CUT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTION_CUT* DIOCHECKINTERNETCONNECTION::GetLastConnectionsCut()
 {
   return GetConnectionCuts()->Get(GetConnectionCuts()->GetSize()-1);
@@ -355,7 +355,7 @@ DIOCHECKTCPIPCONNECTION_CUT* DIOCHECKINTERNETCONNECTION::GetLastConnectionsCut()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKINTERNETCONNECTION::IsChangeConnectionStatus()
 {
   return ischangeconnectionstatus;
@@ -372,7 +372,7 @@ bool DIOCHECKINTERNETCONNECTION::IsChangeConnectionStatus()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKINTERNETCONNECTION::Clean()
 {
   checkconnections         = NULL;

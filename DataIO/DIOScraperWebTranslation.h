@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Scraper Web Translation class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSCRAPERWEBTRANSLATION_H_
 #define _DIOSCRAPERWEBTRANSLATION_H_
@@ -96,7 +96,7 @@ class DIOSCRAPERWEBTRANSLATION : public DIOSCRAPERWEB
 
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

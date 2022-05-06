@@ -6,7 +6,7 @@
 * @brief      eXtended File ZIP eXtended Event class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILEZIP_XEVENT::XFILEZIP_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();
@@ -71,7 +71,7 @@ XFILEZIP_XEVENT::XFILEZIP_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) 
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILEZIP_XEVENT::~XFILEZIP_XEVENT()
 {
   Clean();
@@ -87,7 +87,7 @@ XFILEZIP_XEVENT::~XFILEZIP_XEVENT()
 *
 * @return     XPATH* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATH* XFILEZIP_XEVENT::GetFileName()
 {
   return &filename;
@@ -103,7 +103,7 @@ XPATH* XFILEZIP_XEVENT::GetFileName()
 *
 * @return     XFILECMPZIP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECMPZIP* XFILEZIP_XEVENT::GetFileCompress()
 {
   return filecmp;
@@ -121,7 +121,7 @@ XFILECMPZIP* XFILEZIP_XEVENT::GetFileCompress()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILEZIP_XEVENT::SetFileCompress(XFILECMPZIP* filecmp)
 {
   this->filecmp = filecmp;
@@ -137,7 +137,7 @@ void XFILEZIP_XEVENT::SetFileCompress(XFILECMPZIP* filecmp)
 *
 * @return     float :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float XFILEZIP_XEVENT::GetOperationPercent()
 {
   return operationpercent;
@@ -154,7 +154,7 @@ float XFILEZIP_XEVENT::GetOperationPercent()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILEZIP_XEVENT::SetOperationPercent(float operationpercent)
 {
   this->operationpercent = operationpercent;
@@ -170,7 +170,7 @@ void XFILEZIP_XEVENT::SetOperationPercent(float operationpercent)
 *
 * @return     XFILEZIP_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILEZIP_ERROR XFILEZIP_XEVENT::GetError()
 {
   return error;
@@ -188,7 +188,7 @@ XFILEZIP_ERROR XFILEZIP_XEVENT::GetError()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILEZIP_XEVENT::SetError(XFILEZIP_ERROR error)
 {
   this->error = error;
@@ -206,7 +206,7 @@ void XFILEZIP_XEVENT::SetError(XFILEZIP_ERROR error)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILEZIP_XEVENT::Clean()
 {
   filecmp            = NULL;

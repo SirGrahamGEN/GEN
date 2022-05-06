@@ -6,7 +6,7 @@
 * @brief      DataBase MySQL Connection class
 * @ingroup    DATABASESSQL
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -55,7 +55,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_CONNECTION::MYSQL_CONNECTION(DB_SQL_DATABASE* database): DB_SQL_CONNECTION(database)
 {
   Clean();
@@ -72,7 +72,7 @@ MYSQL_CONNECTION::MYSQL_CONNECTION(DB_SQL_DATABASE* database): DB_SQL_CONNECTION
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_CONNECTION::~MYSQL_CONNECTION()
 {
   Clean();
@@ -88,7 +88,7 @@ MYSQL_CONNECTION::~MYSQL_CONNECTION()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_CONNECTION::Connect()
 {
   connection = mysql_init(NULL);
@@ -186,7 +186,7 @@ bool MYSQL_CONNECTION::Connect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_CONNECTION::Disconnect()
 {
   mysql_close(connection);
@@ -205,7 +205,7 @@ bool MYSQL_CONNECTION::Disconnect()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MYSQL_CONNECTION::Clean()
 {
 

@@ -1,20 +1,37 @@
-/*------------------------------------------------------------------------------------------
-//  HASH.CPP
-//
-//  Hash CRC 32 class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/03/2013 12:07:38
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       HashCRC32.cpp
+* 
+* @class      HASHCRC32
+* @brief      Hash CRC32 class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <string.h>
 
@@ -26,30 +43,25 @@
 
 #include "XMemory_Control.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define  HASHCRC32_INI      0xEDB88320
 
-
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
-
-
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
-/*-------------------------------------------------------------------
-//  HASHCRC32::HASHCRC32
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:43:10
-//
-//  @return
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         HASHCRC32::HASHCRC32()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 HASHCRC32::HASHCRC32() : HASH()
 {
   Clean();
@@ -65,20 +77,18 @@ HASHCRC32::HASHCRC32() : HASH()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHCRC32::~HASHCRC32
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:09:01
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         HASHCRC32::~HASHCRC32()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 HASHCRC32::~HASHCRC32()
+
 {
   if(resulttmp)
     {
@@ -90,23 +100,18 @@ HASHCRC32::~HASHCRC32()
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  HASHCRC32::Do
-*/
-/**
-//
-//
-//  ""
-//  @version      03/03/2013 16:30:03
-//
-//  @return       bool :
-//  @param        input :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool HASHCRC32::Do(XBYTE* input, XQWORD size)
+* @brief      Do
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASHCRC32::Do(XBYTE* input, XQWORD size)
 {
   if(!size) return false;
@@ -127,20 +132,15 @@ bool HASHCRC32::Do(XBYTE* input, XQWORD size)
 }
 
 
-/*-------------------------------------------------------------------
-//  HASHCRC32::ResetResult
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      21/11/2014 13:48:58
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool HASHCRC32::ResetResult()
+* @brief      ResetResult
+* @ingroup    CIPHER
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASHCRC32::ResetResult()
 {
   HASH::ResetResult();
@@ -153,38 +153,30 @@ bool HASHCRC32::ResetResult()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHCRC32::GetDefaultSize
-*/
-/**
-//
-//
-//  ""
-//  @version      21/04/2013 0:54:19
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int HASHCRC32::GetDefaultSize()
+* @brief      GetDefaultSize
+* @ingroup    CIPHER
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int HASHCRC32::GetDefaultSize()
 {
   return sizeof(XDWORD);
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHCRC32::GetResult
-*/
-/**
-//
-//
-//  ""
-//  @version      03/03/2013 23:30:36
-//
-//  @return       XBUFFER* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBUFFER* HASHCRC32::GetResult()
+* @brief      GetResult
+* @ingroup    CIPHER
+* 
+* @return     XBUFFER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER* HASHCRC32::GetResult()
 {
   GetResultCRC32();
@@ -193,21 +185,17 @@ XBUFFER* HASHCRC32::GetResult()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHCRC32::GetResult
-*/
-/**
-//
-//
-//  ""
-//  @version      03/03/2013 23:30:44
-//
-//  @return       XBYTE* :
-//  @param        resultsize :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE* HASHCRC32::GetResult(XDWORD& resultsize)
+* @brief      GetResult
+* @ingroup    CIPHER
+* 
+* @param[in]  resultsize : 
+* 
+* @return     XBYTE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* HASHCRC32::GetResult(XDWORD& resultsize)
 {
   GetResultCRC32();
@@ -218,19 +206,15 @@ XBYTE* HASHCRC32::GetResult(XDWORD& resultsize)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHCRC32::GetResultCRC32
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 14:04:01
-//
-//  @return       XDWORD :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD HASHCRC32::GetResultCRC32()
+* @brief      GetResultCRC32
+* @ingroup    CIPHER
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD HASHCRC32::GetResultCRC32()
 {
   XDWORD value = 0;
@@ -247,41 +231,15 @@ XDWORD HASHCRC32::GetResultCRC32()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHCRC32::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:09:56
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
-void HASHCRC32::Clean()
-{
-  resulttmp = NULL;
-}
-
-
-
-
-
-/*-------------------------------------------------------------------
-//  HASHCRC32::Ini
-*/
-/**
-//
-//
-//  ""
-//  @version      03/03/2013 18:45:46
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHCRC32::Ini()
+* @brief      Ini
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHCRC32::Ini()
 {
   XDWORD crc;
@@ -304,22 +262,18 @@ void HASHCRC32::Ini()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  UpdateCRC32
-*/
-/**
-//
-//
-//  ""
-//  @version      03/03/2013 18:45:51
-//
-//  @return       XDWORD :
-//  @param        crc :
-//  @param        c :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD HASHCRC32::Update(XDWORD CRC32, XBYTE data)
+* @brief      Update
+* @ingroup    CIPHER
+* 
+* @param[in]  CRC32 : 
+* @param[in]  data : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD HASHCRC32::Update(XDWORD CRC32, XBYTE data)
 {
   XDWORD tmp;
@@ -335,4 +289,18 @@ XDWORD HASHCRC32::Update(XDWORD CRC32, XBYTE data)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHCRC32::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void HASHCRC32::Clean()
+{
+  resulttmp = NULL;
+}
 

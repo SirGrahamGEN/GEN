@@ -6,7 +6,7 @@
 * @brief      Sound Open AL Stream Element class
 * @ingroup    PLATFORM_COMMON
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDSTREAMELEMENT_OPENAL::SNDSTREAMELEMENT_OPENAL() : SNDSTREAMELEMENT()
 {
   Clean();
@@ -75,7 +75,7 @@ SNDSTREAMELEMENT_OPENAL::SNDSTREAMELEMENT_OPENAL() : SNDSTREAMELEMENT()
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDSTREAMELEMENT_OPENAL::~SNDSTREAMELEMENT_OPENAL()
 {
   if(file) delete file;
@@ -95,7 +95,7 @@ SNDSTREAMELEMENT_OPENAL::~SNDSTREAMELEMENT_OPENAL()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SNDSTREAMELEMENT_OPENAL::Play()
 {
   source->Play();
@@ -114,7 +114,7 @@ void SNDSTREAMELEMENT_OPENAL::Play()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SNDSTREAMELEMENT_OPENAL::AddData(XDWORD size, void* data)
 {
   if(size)
@@ -148,7 +148,7 @@ void SNDSTREAMELEMENT_OPENAL::AddData(XDWORD size, void* data)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SNDSTREAMELEMENT_OPENAL::SetFile(SNDFILE* file)
 {
   this->file = file;
@@ -169,7 +169,7 @@ void SNDSTREAMELEMENT_OPENAL::SetFile(SNDFILE* file)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SNDSTREAMELEMENT_OPENAL::ClearBuffers()
 {
   XLIST<SNDBUFFER_OPENAL*>::XITERATOR it;
@@ -196,7 +196,7 @@ void SNDSTREAMELEMENT_OPENAL::ClearBuffers()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SNDSTREAMELEMENT_OPENAL::SetSource(SNDSOURCE_OPENAL* source)                                 
 { 
   this->source = source;  
@@ -213,7 +213,7 @@ void SNDSTREAMELEMENT_OPENAL::SetSource(SNDSOURCE_OPENAL* source)
 *
 * @return     SNDSOURCE_OPENAL* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDSOURCE_OPENAL* SNDSTREAMELEMENT_OPENAL::GetSource()
 { 
   return source;          
@@ -230,7 +230,7 @@ SNDSOURCE_OPENAL* SNDSTREAMELEMENT_OPENAL::GetSource()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SNDSTREAMELEMENT_OPENAL::Clean()
 {
   totalbuffers  = 0;

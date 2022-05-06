@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Server CGI (Common Gateway Interface) Plugin class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOWEBSERVER_PLUGIN_CGI_H_
 #define _DIOWEBSERVER_PLUGIN_CGI_H_
@@ -58,7 +58,7 @@ class DIOWEBSERVER_PLUGIN_CGI : public DIOWEBSERVER_PLUGIN
     void                  Clean                      ();
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

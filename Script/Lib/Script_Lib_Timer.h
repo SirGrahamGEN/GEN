@@ -6,7 +6,7 @@
 * @brief      Script Library Timer (Delay)
 * @ingroup    SCRIPT
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _SCRIPT_LIB_TIMER_H_
 #define _SCRIPT_LIB_TIMER_H_
@@ -57,7 +57,7 @@ class SCRIPT_LIB_TIMER : public SCRIPT_LIB
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 void    Call_Delay                    (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 

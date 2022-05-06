@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream UDP Config class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -52,7 +52,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPCONFIG::DIOSTREAMUDPCONFIG() : DIOSTREAMCONFIG(), DIOSTREAMCONFIGSTRING()
 {
   Clean();
@@ -70,7 +70,7 @@ DIOSTREAMUDPCONFIG::DIOSTREAMUDPCONFIG() : DIOSTREAMCONFIG(), DIOSTREAMCONFIGSTR
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPCONFIG::~DIOSTREAMUDPCONFIG()
 {
   Clean();
@@ -86,7 +86,7 @@ DIOSTREAMUDPCONFIG::~DIOSTREAMUDPCONFIG()
 *
 * @return     DIOIP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOIP* DIOSTREAMUDPCONFIG ::GetLocalIP()
 {
   return &localIP;
@@ -102,7 +102,7 @@ DIOIP* DIOSTREAMUDPCONFIG ::GetLocalIP()
 *
 * @return     DIOURL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOURL* DIOSTREAMUDPCONFIG ::GetRemoteURL()
 {
   return &remoteURL;
@@ -118,7 +118,7 @@ DIOURL* DIOSTREAMUDPCONFIG ::GetRemoteURL()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMUDPCONFIG ::GetRemotePort()
 {
   return remoteport;
@@ -135,7 +135,7 @@ int DIOSTREAMUDPCONFIG ::GetRemotePort()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPCONFIG::SetRemotePort(int port)
 {
   this->remoteport = port;
@@ -153,7 +153,7 @@ bool DIOSTREAMUDPCONFIG::SetRemotePort(int port)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPCONFIG::IsUsedDatagrams()
 {
   return isuseddatagrams;
@@ -171,7 +171,7 @@ bool DIOSTREAMUDPCONFIG::IsUsedDatagrams()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPCONFIG::SetIsUsedDatagrams(bool active)
 {
   isuseddatagrams = active;
@@ -187,7 +187,7 @@ void DIOSTREAMUDPCONFIG::SetIsUsedDatagrams(bool active)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPCONFIG::IsBroadcastModeActive()
 {
   return isbroadcastmodeactive;
@@ -205,7 +205,7 @@ bool DIOSTREAMUDPCONFIG::IsBroadcastModeActive()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPCONFIG::SetBroadcastModeActive(bool active)
 {
   isbroadcastmodeactive = active;
@@ -221,7 +221,7 @@ void DIOSTREAMUDPCONFIG::SetBroadcastModeActive(bool active)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPCONFIG::Clean()
 {
   type                    = DIOSTREAMTYPE_UDP;

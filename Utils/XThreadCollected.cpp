@@ -6,7 +6,7 @@
 * @brief      eXtended Thread Collected class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -55,7 +55,7 @@ XTHREADSCOLLECTEDMANAGER* XTHREADSCOLLECTEDMANAGER::instance = NULL;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADCOLLECTED::XTHREADCOLLECTED()
 {
   Clean();
@@ -78,7 +78,7 @@ XTHREADCOLLECTED::XTHREADCOLLECTED()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADCOLLECTED::XTHREADCOLLECTED(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param)
 {
   Clean();
@@ -103,7 +103,7 @@ XTHREADCOLLECTED::XTHREADCOLLECTED(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUN
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADCOLLECTED::~XTHREADCOLLECTED()
 {
   if(xtimerout)     GEN_XFACTORY.DeleteTimer(xtimerout);
@@ -124,7 +124,7 @@ XTHREADCOLLECTED::~XTHREADCOLLECTED()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADCOLLECTED::Ini(bool run)
 {
   if(directxthread) return directxthread->Ini(run);
@@ -153,7 +153,7 @@ bool XTHREADCOLLECTED::Ini(bool run)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADCOLLECTED::Wait(int milliseconds)
 {
   if(directxthread)
@@ -175,7 +175,7 @@ void XTHREADCOLLECTED::Wait(int milliseconds)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADCOLLECTED::End()
 {
   if(directxthread) return directxthread->End();
@@ -198,7 +198,7 @@ bool XTHREADCOLLECTED::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADCOLLECTED::IsRunning()
 {
   if(directxthread) return directxthread->IsRunning();
@@ -219,7 +219,7 @@ bool XTHREADCOLLECTED::IsRunning()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADCOLLECTED::Run(bool activate)
 {
   if(directxthread) return directxthread->Run(activate);
@@ -248,7 +248,7 @@ bool XTHREADCOLLECTED::Run(bool activate)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADCOLLECTED::Exit()
 {
   if(directxthread) return directxthread->Exit();
@@ -267,7 +267,7 @@ bool XTHREADCOLLECTED::Exit()
 *
 * @return     XTHREADGROUPID :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADGROUPID XTHREADCOLLECTED::GetGroupID()
 {
   return groupID;
@@ -285,7 +285,7 @@ XTHREADGROUPID XTHREADCOLLECTED::GetGroupID()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADCOLLECTED::SetGroupID(XTHREADGROUPID groupID)
 {
   this->groupID = groupID;
@@ -301,7 +301,7 @@ void XTHREADCOLLECTED::SetGroupID(XTHREADGROUPID groupID)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XTHREADCOLLECTED::GetID()
 {
   if(directxthread)
@@ -324,7 +324,7 @@ XSTRING* XTHREADCOLLECTED::GetID()
 *
 * @return     XTHREADFUNCTION :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADFUNCTION  XTHREADCOLLECTED::GetFunction()
 {
   if(directxthread)
@@ -349,7 +349,7 @@ XTHREADFUNCTION  XTHREADCOLLECTED::GetFunction()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADCOLLECTED::SetFunction(XTHREADFUNCTION function)
 {
   this->function = function;
@@ -365,7 +365,7 @@ void XTHREADCOLLECTED::SetFunction(XTHREADFUNCTION function)
 *
 * @return     void* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void* XTHREADCOLLECTED::GetParam()
 {
   if(directxthread) return directxthread->GetParam();
@@ -384,7 +384,7 @@ void* XTHREADCOLLECTED::GetParam()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADCOLLECTED::SetParam(void* param)
 {
   this->param = param;
@@ -400,7 +400,7 @@ void XTHREADCOLLECTED::SetParam(void* param)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XTHREADCOLLECTED::GetWaitYield()
 {
   if(directxthread) return directxthread->GetWaitYield();
@@ -419,7 +419,7 @@ XDWORD XTHREADCOLLECTED::GetWaitYield()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADCOLLECTED::SetWaitYield(XDWORD waityield)
 {
   if(directxthread) return directxthread->SetWaitYield(priority);
@@ -436,7 +436,7 @@ void XTHREADCOLLECTED::SetWaitYield(XDWORD waityield)
 *
 * @return     XTHREADPRIORITY :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADPRIORITY XTHREADCOLLECTED::GetPriority()
 {
   if(directxthread) return directxthread->GetPriority();
@@ -455,7 +455,7 @@ XTHREADPRIORITY XTHREADCOLLECTED::GetPriority()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADCOLLECTED::SetPriority(XTHREADPRIORITY priority)
 {
   if(directxthread) return directxthread->SetPriority(priority);
@@ -472,7 +472,7 @@ void XTHREADCOLLECTED::SetPriority(XTHREADPRIORITY priority)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XTHREADCOLLECTED::GetStackSize()
 {
   return stacksize;
@@ -490,7 +490,7 @@ XDWORD XTHREADCOLLECTED::GetStackSize()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADCOLLECTED::SetStackSize(XDWORD stacksize)
 {
   this->stacksize = stacksize;
@@ -506,7 +506,7 @@ void XTHREADCOLLECTED::SetStackSize(XDWORD stacksize)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADCOLLECTED::IsInFunction()
 {
   if(directxthread) return directxthread->IsInFunction();
@@ -525,7 +525,7 @@ bool XTHREADCOLLECTED::IsInFunction()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADCOLLECTED::SetIsInFunction(bool isinfunction)
 {
   this->isinfunction = isinfunction;
@@ -541,7 +541,7 @@ void XTHREADCOLLECTED::SetIsInFunction(bool isinfunction)
 *
 * @return     XTHREADSTATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADSTATUS XTHREADCOLLECTED::GetStatus()
 {
   if(directxthread) return directxthread->GetStatusFunc();
@@ -562,7 +562,7 @@ XTHREADSTATUS XTHREADCOLLECTED::GetStatus()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADCOLLECTED::SetStatus(XTHREADSTATUS status)
 {
   this->status = status;
@@ -578,7 +578,7 @@ void XTHREADCOLLECTED::SetStatus(XTHREADSTATUS status)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADCOLLECTED::WaitToEnd()
 {
   while(GetStatus() != XTHREADSTATUS_END)
@@ -600,7 +600,7 @@ bool XTHREADCOLLECTED::WaitToEnd()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADCOLLECTED::Clean()
 {
   groupID         = XTHREADGROUPID_UNKNOWN;
@@ -623,9 +623,9 @@ void XTHREADCOLLECTED::Clean()
 
 
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 /* THREADSCOLLECTED                                                                                                    */
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -639,7 +639,7 @@ void XTHREADCOLLECTED::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADSCOLLECTED::XTHREADSCOLLECTED(XTHREADGROUPID groupID)
 {
   Clean();
@@ -669,7 +669,7 @@ XTHREADSCOLLECTED::XTHREADSCOLLECTED(XTHREADGROUPID groupID)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADSCOLLECTED::XTHREADSCOLLECTED()
 {
   Clean();
@@ -686,7 +686,7 @@ XTHREADSCOLLECTED::XTHREADSCOLLECTED()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADSCOLLECTED::~XTHREADSCOLLECTED()
 {
   ExitAll();
@@ -714,7 +714,7 @@ XTHREADSCOLLECTED::~XTHREADSCOLLECTED()
 *
 * @return     XTHREADGROUPID :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADGROUPID XTHREADSCOLLECTED::GetGroupID()
 {
   return groupID;
@@ -732,7 +732,7 @@ XTHREADGROUPID XTHREADSCOLLECTED::GetGroupID()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADSCOLLECTED::SetGroupID(XTHREADGROUPID groupID)
 {
   this->groupID = groupID;
@@ -753,7 +753,7 @@ void XTHREADSCOLLECTED::SetGroupID(XTHREADGROUPID groupID)
 *
 * @return     XTHREADCOLLECTED* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADCOLLECTED* XTHREADSCOLLECTED::Create(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param)
 {
   XTHREADCOLLECTED* xthreadcollected = NULL;
@@ -810,7 +810,7 @@ XTHREADCOLLECTED* XTHREADSCOLLECTED::Create(XTHREADGROUPID groupID, XCHAR* ID, X
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADSCOLLECTED::Delete(XTHREADGROUPID groupID, XTHREADCOLLECTED* xthreadcollected)
 {
   bool status = false;
@@ -867,7 +867,7 @@ bool XTHREADSCOLLECTED::Delete(XTHREADGROUPID groupID, XTHREADCOLLECTED* xthread
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADSCOLLECTED::ExitAll()
 {
   if(!xthreadsvectormutex) return false;
@@ -895,7 +895,7 @@ bool XTHREADSCOLLECTED::ExitAll()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADSCOLLECTED::DeleteAll()
 {
   if(!xthreadsvectormutex) return false;
@@ -922,7 +922,7 @@ bool XTHREADSCOLLECTED::DeleteAll()
 *
 * @return     static :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADSCOLLECTED::ThreadRunFunction(void* param)
 {
   XTHREADSCOLLECTED* xthreadscollected = (XTHREADSCOLLECTED*)param;
@@ -967,7 +967,7 @@ void XTHREADSCOLLECTED::ThreadRunFunction(void* param)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADSCOLLECTED::GetGroupThreadIDString(XSTRING& stringID)
 {
   stringID = __L("TGRP_");
@@ -1016,7 +1016,7 @@ bool XTHREADSCOLLECTED::GetGroupThreadIDString(XSTRING& stringID)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADSCOLLECTED::Clean()
 {
   groupID             = XTHREADGROUPID_UNKNOWN;
@@ -1026,9 +1026,9 @@ void XTHREADSCOLLECTED::Clean()
 
 
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 /* XTHREADSCOLLECTEDMANAGER                                                                                            */
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -1040,7 +1040,7 @@ void XTHREADSCOLLECTED::Clean()
 *
 * @return     XTHREADSCOLLECTEDMANAGER& :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADSCOLLECTEDMANAGER& XTHREADSCOLLECTEDMANAGER::GetInstance()
 {
   if(!instance) instance = new XTHREADSCOLLECTEDMANAGER();
@@ -1058,7 +1058,7 @@ XTHREADSCOLLECTEDMANAGER& XTHREADSCOLLECTEDMANAGER::GetInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADSCOLLECTEDMANAGER::DelInstance()
 {
   if(instance)
@@ -1086,7 +1086,7 @@ bool XTHREADSCOLLECTEDMANAGER::DelInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADSCOLLECTEDMANAGER::ActivateGroup(XTHREADGROUPID groupID)
 {
   groupthreadsactivate.Add(groupID);
@@ -1105,7 +1105,7 @@ bool XTHREADSCOLLECTEDMANAGER::ActivateGroup(XTHREADGROUPID groupID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADSCOLLECTEDMANAGER::DeactivateGroup(XTHREADGROUPID groupID)
 {
   groupthreadsactivate.Delete(groupID);
@@ -1124,7 +1124,7 @@ bool XTHREADSCOLLECTEDMANAGER::DeactivateGroup(XTHREADGROUPID groupID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADSCOLLECTEDMANAGER::IsActivateGroup(XTHREADGROUPID groupID)
 {
   for(XDWORD c=0; c<groupthreadsactivate.GetSize(); c++)
@@ -1148,7 +1148,7 @@ bool XTHREADSCOLLECTEDMANAGER::IsActivateGroup(XTHREADGROUPID groupID)
 *
 * @return     XTHREADSCOLLECTED* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADSCOLLECTED* XTHREADSCOLLECTEDMANAGER::GetThreadsCollectedByGroupID(XTHREADGROUPID groupID)
 {
   XTHREADSCOLLECTED* xthreadscollected = NULL;
@@ -1184,7 +1184,7 @@ XTHREADSCOLLECTED* XTHREADSCOLLECTEDMANAGER::GetThreadsCollectedByGroupID(XTHREA
 *
 * @return     XTHREADCOLLECTED* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADCOLLECTED* XTHREADSCOLLECTEDMANAGER::CreateThread(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param)
 {
   XTHREADCOLLECTED*  xthreadcollected = NULL;
@@ -1233,7 +1233,7 @@ XTHREADCOLLECTED* XTHREADSCOLLECTEDMANAGER::CreateThread(XTHREADGROUPID groupID,
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADSCOLLECTEDMANAGER::DeleteThread(XTHREADGROUPID groupID, XTHREADCOLLECTED* xthreadcollected)
 {
   bool isactivategroup = IsActivateGroup(groupID);
@@ -1276,7 +1276,7 @@ bool XTHREADSCOLLECTEDMANAGER::DeleteThread(XTHREADGROUPID groupID, XTHREADCOLLE
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADSCOLLECTEDMANAGER::DeleteAll()
 {
   if(!groupthreadsmutex) return false;
@@ -1301,7 +1301,7 @@ bool XTHREADSCOLLECTEDMANAGER::DeleteAll()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADSCOLLECTEDMANAGER::XTHREADSCOLLECTEDMANAGER()
 {
   Clean();
@@ -1320,7 +1320,7 @@ XTHREADSCOLLECTEDMANAGER::XTHREADSCOLLECTEDMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADSCOLLECTEDMANAGER::~XTHREADSCOLLECTEDMANAGER()
 {
   DeleteAll();
@@ -1343,7 +1343,7 @@ XTHREADSCOLLECTEDMANAGER::~XTHREADSCOLLECTEDMANAGER()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADSCOLLECTEDMANAGER::Clean()
 {
   nogroupthread     = NULL;

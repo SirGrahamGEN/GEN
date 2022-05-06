@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream TCP/IP class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTCPIP::DIOSTREAMTCPIP(): DIOSTREAM()
 {
   Clean();
@@ -70,7 +70,7 @@ DIOSTREAMTCPIP::DIOSTREAMTCPIP(): DIOSTREAM()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTCPIP::~DIOSTREAMTCPIP()
 {
   Clean();
@@ -86,7 +86,7 @@ DIOSTREAMTCPIP::~DIOSTREAMTCPIP()
 *
 * @return     DIOSTREAMCONFIG* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIG* DIOSTREAMTCPIP::GetConfig()
 {
   return (DIOSTREAMCONFIG*)config;
@@ -104,7 +104,7 @@ DIOSTREAMCONFIG* DIOSTREAMTCPIP::GetConfig()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMTCPIP::SetConfig(DIOSTREAMCONFIG* config)
 {
   if(!config) return false;
@@ -123,7 +123,7 @@ bool DIOSTREAMTCPIP::SetConfig(DIOSTREAMCONFIG* config)
 *
 * @return     DIOIP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOIP* DIOSTREAMTCPIP::GetClientIP()
 {
   return &clientIP;
@@ -139,7 +139,7 @@ DIOIP* DIOSTREAMTCPIP::GetClientIP()
 *
 * @return     DIOSTREAMENUMSERVERS* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMENUMSERVERS* DIOSTREAMTCPIP::GetEnumServers()
 {
   return enumservers;
@@ -157,7 +157,7 @@ DIOSTREAMENUMSERVERS* DIOSTREAMTCPIP::GetEnumServers()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMTCPIP::SetEnumServers(DIOSTREAMENUMSERVERS* enumservers)
 {
   this->enumservers = enumservers;
@@ -176,7 +176,7 @@ bool DIOSTREAMTCPIP::SetEnumServers(DIOSTREAMENUMSERVERS* enumservers)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMTCPIP::Clean()
 {
   config      = NULL;

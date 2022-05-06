@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Server PHP Plugin class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -59,7 +59,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGIN_PHP::DIOWEBSERVER_PLUGIN_PHP()
 {
   Clean();
@@ -84,7 +84,7 @@ DIOWEBSERVER_PLUGIN_PHP::DIOWEBSERVER_PLUGIN_PHP()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGIN_PHP::~DIOWEBSERVER_PLUGIN_PHP()
 {
   Clean();
@@ -102,7 +102,7 @@ DIOWEBSERVER_PLUGIN_PHP::~DIOWEBSERVER_PLUGIN_PHP()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGIN_PHP::Config(XPATH* pathinterpreter)
 {
   XSTRING nameexec;
@@ -128,7 +128,7 @@ bool DIOWEBSERVER_PLUGIN_PHP::Config(XPATH* pathinterpreter)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_PLUGIN_PHP::Clean()
 {
 

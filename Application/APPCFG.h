@@ -19,7 +19,7 @@
 *               APP_CFG_ALERTS_ACTIVE            : Alerts
 *               APP_CFG_LOG_ACTIVE               : Log
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -37,7 +37,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _APP_CFG_H_
 #define _APP_CFG_H_
@@ -66,7 +66,6 @@
 #endif
 
 
-
 #ifdef APP_CFG_CHECKRESOURCESHARDWARE_ACTIVE
 
 #define APP_CFG_SECTION_CHECKRESOURCESHARDWARE                                    __L("check resources hardware")
@@ -76,7 +75,6 @@
 #define APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGELIMITPERCENT                       __L("cpuusagelimitpercent")
 #define APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGEPROCESSNAME                        __L("cpuusageprocessname")
 #endif
-
 
 
 #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
@@ -115,7 +113,6 @@
 #endif
 
 
-
 #ifdef APP_CFG_LOCATION_ACTIVE
 
 #define APP_CFG_SECTION_LOCATION                                                  __L("location")
@@ -127,7 +124,6 @@
 #define APP_CFG_LOCATION_POSTALCODE                                               __L("postalcode")
 
 #endif
-
 
 
 #ifdef APP_CFG_APPUPDATE_ACTIVE
@@ -143,7 +139,6 @@
 #endif
 
 
-
 #ifdef APP_CFG_WEBSERVER_ACTIVE
 
 #define APP_CFG_SECTION_WEBSERVER                                                 __L("webserver")
@@ -156,7 +151,6 @@
 #define APP_CFG_WEBSERVER_PATH_PHP                                                __L("path_php")
 
 #endif
-
 
 
 #ifdef APP_CFG_ALERTS_ACTIVE
@@ -189,7 +183,6 @@
 #endif
 
 
-
 #ifdef APP_CFG_LOG_ACTIVE
 
 #define APP_CFG_SECTION_LOG                                                       __L("log")
@@ -203,9 +196,8 @@
 #define APP_CFG_LOG_REDUCTIONPERCENT                                              __L("reductionpercent")
 
 
-//---------------------------------------------------------------------------------------------------
+
 // ID Sections "generic" of LOG
-//
 #define APP_CFG_LOG_SECTIONID_INITIATION                                          __L("Ini")
 #define APP_CFG_LOG_SECTIONID_GENERIC                                             __L("General")
 #define APP_CFG_LOG_SECTIONID_STATUSAPP                                           __L("Status")
@@ -219,14 +211,12 @@
   #define   APP_CFG_SETAUTOMATICTRACETARGETS             
 #endif
 
-
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XFACTORY;
 class XPATHS;
 class XSYSTEM;
 class XLOG;
-
 
 class APPCFG
 #ifdef APP_CFG_REMOTEFILE_ACTIVE
@@ -494,15 +484,13 @@ class APPCFG
 
     #endif
 
-
   private:
 
     void                 Clean                                                    ();
 
 };
 
-
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

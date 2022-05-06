@@ -6,7 +6,7 @@
 * @brief      Application Internet Connection Services class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,12 +24,11 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
-
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -65,7 +64,6 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPINTERNETSERVICES::APPINTERNETSERVICES()
@@ -74,7 +72,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 APPINTERNETSERVICES::APPINTERNETSERVICES()
 {
   Clean();
@@ -97,7 +95,6 @@ APPINTERNETSERVICES::APPINTERNETSERVICES()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPINTERNETSERVICES::~APPINTERNETSERVICES()
@@ -107,7 +104,7 @@ APPINTERNETSERVICES::APPINTERNETSERVICES()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 APPINTERNETSERVICES::~APPINTERNETSERVICES()
 {
   End();
@@ -144,7 +141,6 @@ APPINTERNETSERVICES::~APPINTERNETSERVICES()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -303,7 +299,6 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPINTERNETSERVICES::HaveInternetConnection()
@@ -312,12 +307,11 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPINTERNETSERVICES::HaveInternetConnection()
 {
   return haveinternetconnection;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -328,12 +322,11 @@ bool APPINTERNETSERVICES::HaveInternetConnection()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPINTERNETSERVICES::GetAutomaticLocalIP()
 {
   return &automaticlocalIP;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -351,7 +344,6 @@ XSTRING* APPINTERNETSERVICES::GetAlLLocalIP()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* APPINTERNETSERVICES::GetPublicIP()
@@ -360,13 +352,11 @@ XSTRING* APPINTERNETSERVICES::GetAlLLocalIP()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPINTERNETSERVICES::GetPublicIP()
 {
   return &publicIP;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -380,7 +370,7 @@ XSTRING* APPINTERNETSERVICES::GetPublicIP()
 *
 * @return     XDATETIME* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDATETIME* APPINTERNETSERVICES::DateTime_GetActual(bool active_daylightsave, bool active_meridian)
 {
   if(!xdatetime_actual) return NULL;
@@ -418,7 +408,6 @@ XDATETIME* APPINTERNETSERVICES::DateTime_GetActual(bool active_daylightsave, boo
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* APPINTERNETSERVICES::DateTime_GetUTC()
@@ -427,7 +416,7 @@ XDATETIME* APPINTERNETSERVICES::DateTime_GetActual(bool active_daylightsave, boo
 *
 * @return     XDATETIME* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDATETIME* APPINTERNETSERVICES::DateTime_GetUTC()
 {
   if(!xdatetime_utc) return NULL;
@@ -470,7 +459,6 @@ XDATETIME* APPINTERNETSERVICES::DateTime_GetUTC()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int APPINTERNETSERVICES::DateTime_GetMeridian()
@@ -479,7 +467,7 @@ XDATETIME* APPINTERNETSERVICES::DateTime_GetUTC()
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int APPINTERNETSERVICES::DateTime_GetMeridian()
 {
   int meridian = 0;
@@ -495,8 +483,6 @@ int APPINTERNETSERVICES::DateTime_GetMeridian()
   
   return meridian;
 }
-    
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -507,12 +493,11 @@ int APPINTERNETSERVICES::DateTime_GetMeridian()
 *
 * @return     DIOCHECKTCPIPCONNECTIONS* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTIONS* APPINTERNETSERVICES::GetCheckTCPIPConnections()
 {
   return  checkinternetconnection->GetCheckConnections();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -523,12 +508,11 @@ DIOCHECKTCPIPCONNECTIONS* APPINTERNETSERVICES::GetCheckTCPIPConnections()
 *
 * @return     DIOCHECKINTERNETCONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKINTERNETCONNECTION* APPINTERNETSERVICES::GetCheckInternetConnection()
 {
   return checkinternetconnection;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -539,12 +523,11 @@ DIOCHECKINTERNETCONNECTION* APPINTERNETSERVICES::GetCheckInternetConnection()
 *
 * @return     DIODYNDNS_MANAGER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODYNDNS_MANAGER* APPINTERNETSERVICES::GetDynDNSManager()
 {
   return dyndnsmanager;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -555,7 +538,7 @@ DIODYNDNS_MANAGER* APPINTERNETSERVICES::GetDynDNSManager()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPINTERNETSERVICES::End()
 {
   if(xscheduler)
@@ -589,7 +572,6 @@ bool APPINTERNETSERVICES::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPINTERNETSERVICES::CheckInternetStatus()
@@ -598,7 +580,7 @@ bool APPINTERNETSERVICES::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPINTERNETSERVICES::CheckInternetStatus()
 {
   APPINTERNETSERVICES_XEVENT xevent(this, APPINTERNETSERVICES_XEVENT_TYPE_CHECKINTERNETCONNEXION);      
@@ -643,7 +625,6 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
@@ -654,7 +635,7 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
 {
   if(!servers) return false;
@@ -716,8 +697,6 @@ bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
@@ -729,7 +708,7 @@ bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 {
   switch(event->GetTask()->GetID())
@@ -833,8 +812,6 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPINTERNETSERVICES::HandleEvent(XEVENT* xevent)
@@ -846,7 +823,7 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES::HandleEvent(XEVENT* xevent)
 {
   if(!xevent) return;
@@ -863,9 +840,6 @@ void APPINTERNETSERVICES::HandleEvent(XEVENT* xevent)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPINTERNETSERVICES::Clean()
@@ -875,7 +849,7 @@ void APPINTERNETSERVICES::HandleEvent(XEVENT* xevent)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES::Clean()
 {
   xscheduler              = NULL;
@@ -894,4 +868,3 @@ void APPINTERNETSERVICES::Clean()
 
   dyndnsmanager           = NULL;
 }
-

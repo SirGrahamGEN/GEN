@@ -6,7 +6,7 @@
 * @brief      eXtended TXT (Text) file class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -57,7 +57,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILETXT::XFILETXT(): XFILECONTAINER()
 {
   Clean();
@@ -78,7 +78,7 @@ XFILETXT::XFILETXT(): XFILECONTAINER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILETXT::~XFILETXT()
 {
   if(!DeletePrimaryFile()) return;
@@ -103,7 +103,7 @@ XFILETXT::~XFILETXT()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::Open(XPATH& xpath, bool readonly)
 {
   if(!file) return false;
@@ -132,7 +132,7 @@ bool XFILETXT::Open(XPATH& xpath, bool readonly)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::Create(XPATH& xpath, XFILETXTFORMATCHAR formatchar, XFILETXTTYPELF typeLF)
 {
   if(!file) return false;
@@ -155,7 +155,7 @@ bool XFILETXT::Create(XPATH& xpath, XFILETXTFORMATCHAR formatchar, XFILETXTTYPEL
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::IsOpen()
 {
   if(!file) return false;
@@ -173,7 +173,7 @@ bool XFILETXT::IsOpen()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::Close()
 {
   if(!file)          return false;
@@ -192,7 +192,7 @@ bool XFILETXT::Close()
 *
 * @return     XFILETXTFORMATCHAR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILETXTFORMATCHAR XFILETXT::GetFormatChar()
 {
   return formatchar;
@@ -210,7 +210,7 @@ XFILETXTFORMATCHAR XFILETXT::GetFormatChar()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::SetFormatChar(XFILETXTFORMATCHAR formatchar)
 {
   this->formatchar = formatchar;
@@ -230,7 +230,7 @@ bool XFILETXT::SetFormatChar(XFILETXTFORMATCHAR formatchar)
 *
 * @return     XFILETXTFORMATCHAR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILETXTFORMATCHAR XFILETXT::GetFormatCharFromFile(XDWORD* sizeBOM)
 {
   XFILETXTFORMATCHAR formatchar;
@@ -289,7 +289,7 @@ XFILETXTFORMATCHAR XFILETXT::GetFormatCharFromFile(XDWORD* sizeBOM)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::CreateBOMFormatChar(XFILETXTFORMATCHAR formatchar, XBYTE* BOM, XDWORD& sizeBOM)
 {
   if(!BOM) return false;
@@ -332,7 +332,7 @@ bool XFILETXT::CreateBOMFormatChar(XFILETXTFORMATCHAR formatchar, XBYTE* BOM, XD
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XFILETXT::SizeOfCharacter(XFILETXTFORMATCHAR formatchar)
 {
   switch(formatchar)
@@ -359,7 +359,7 @@ int XFILETXT::SizeOfCharacter(XFILETXTFORMATCHAR formatchar)
 *
 * @return     XFILETXTTYPELF :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILETXTTYPELF XFILETXT::GetTypeLF()
 {
   return typeLF;
@@ -377,7 +377,7 @@ XFILETXTTYPELF XFILETXT::GetTypeLF()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::SetTypeLF(XFILETXTTYPELF typeLF)
 {
   this->typeLF = typeLF;
@@ -400,7 +400,7 @@ bool XFILETXT::SetTypeLF(XFILETXTTYPELF typeLF)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::CreateTypeLF(XFILETXTFORMATCHAR formatchar, XFILETXTTYPELF typeLF, XBYTE* LF, XDWORD& sizeLF)
 {
   if(!LF) return false;
@@ -511,7 +511,7 @@ bool XFILETXT::CreateTypeLF(XFILETXTFORMATCHAR formatchar, XFILETXTTYPELF typeLF
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::GetLF(XBUFFER& lfdata)
 {
   switch(typeLF)
@@ -547,7 +547,7 @@ bool XFILETXT::GetLF(XBUFFER& lfdata)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XFILETXT::GetLF()
 {
   LF.Empty();
@@ -574,7 +574,7 @@ XSTRING* XFILETXT::GetLF()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XFILETXT::GetNLines()
 {
   return lines.GetSize();
@@ -591,7 +591,7 @@ int XFILETXT::GetNLines()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XFILETXT::GetLine(int index)
 {
   //if(index<0)                     return NULL;
@@ -616,7 +616,7 @@ XSTRING* XFILETXT::GetLine(int index)
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* XFILETXT::GetLineText(int index)
 {
   XSTRING* string = GetLine(index);
@@ -639,7 +639,7 @@ XCHAR* XFILETXT::GetLineText(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end)
 {
   alllines.Empty();
@@ -672,7 +672,7 @@ bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XDWORD start, XDWORD end)
 {
   xbuffer.Delete();
@@ -703,7 +703,7 @@ bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XDWORD start, XDWORD end)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::ReadAllFile()
 {
   if(!file)           return false;
@@ -798,7 +798,7 @@ bool XFILETXT::ReadAllFile()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::WriteAllFile()
 {
   if(!file)           return false;
@@ -910,7 +910,7 @@ bool XFILETXT::WriteAllFile()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::DeleteFormatFile()
 {
   formatchar = XFILETXTFORMATCHAR_UNKNOWN;
@@ -931,7 +931,7 @@ bool XFILETXT::DeleteFormatFile()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::AddLine(XCHAR* line)
 {
   if(!line) return false;
@@ -953,7 +953,7 @@ bool XFILETXT::AddLine(XCHAR* line)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::AddLine(XSTRING& line)
 {
   XSTRING* string = new XSTRING(line);
@@ -979,7 +979,7 @@ bool XFILETXT::AddLine(XSTRING& line)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::GenerateLineFromBuffer(XFILETXTFORMATCHAR formatchar, XBYTE* line, XDWORD sizeline, XSTRING& string)
 {
   if(!line)     return true;
@@ -1046,7 +1046,7 @@ bool XFILETXT::GenerateLineFromBuffer(XFILETXTFORMATCHAR formatchar, XBYTE* line
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::AddLine(XFILETXTFORMATCHAR formatchar, XBYTE* line, XDWORD sizeline)
 {
   XSTRING* string = new XSTRING();
@@ -1079,7 +1079,7 @@ bool XFILETXT::AddLine(XFILETXTFORMATCHAR formatchar, XBYTE* line, XDWORD sizeli
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::AddLineAlready(XCHAR* line, XDWORD* resultsizeline, XDWORD* resultsizeLF)
 {
   if(!line) return false;
@@ -1103,7 +1103,7 @@ bool XFILETXT::AddLineAlready(XCHAR* line, XDWORD* resultsizeline, XDWORD* resul
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::AddLineAlready(XSTRING& line, XDWORD* resultsizeline, XDWORD* resultsizeLF)
 {
  //if(!file)           return false;
@@ -1196,7 +1196,7 @@ bool XFILETXT::AddLineAlready(XSTRING& line, XDWORD* resultsizeline, XDWORD* res
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::InsertLine(int index, XCHAR* line)
 {
   if(!line) return false;
@@ -1219,7 +1219,7 @@ bool XFILETXT::InsertLine(int index, XCHAR* line)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::InsertLine(int index, XSTRING& line)
 {
   XSTRING* string = new XSTRING(line);
@@ -1240,7 +1240,7 @@ bool XFILETXT::InsertLine(int index, XSTRING& line)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::DeleteLine(int index)
 {
   if(index<0)         return false;
@@ -1266,7 +1266,7 @@ bool XFILETXT::DeleteLine(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::DeleteAllLines()
 {
   if(lines.IsEmpty())  return false;
@@ -1290,7 +1290,7 @@ bool XFILETXT::DeleteAllLines()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::AddBufferLines(XFILETXTFORMATCHAR formatchar, XBUFFER& xbuffer)
 {
   if(xbuffer.IsEmpty()) return false;
@@ -1349,7 +1349,7 @@ bool XFILETXT::AddBufferLines(XFILETXTFORMATCHAR formatchar, XBUFFER& xbuffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::GetSizeOfLine(XFILETXTFORMATCHAR formatchar, XBYTE* buffer, XFILETXTTYPELF& typeLF, XDWORD& sizeLF, XDWORD& size, XDWORD maxsize)
 {
   bool    status = false;
@@ -1475,7 +1475,7 @@ bool XFILETXT::GetSizeOfLine(XFILETXTFORMATCHAR formatchar, XBYTE* buffer, XFILE
 *
 * @return     XVECTOR<XSTRING*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XSTRING*>* XFILETXT::GetLines()
 {
   return &lines;
@@ -1493,7 +1493,7 @@ XVECTOR<XSTRING*>* XFILETXT::GetLines()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::CopyFrom(XFILETXT* filetxt)
 {
   if(!filetxt) return false;
@@ -1513,7 +1513,7 @@ bool XFILETXT::CopyFrom(XFILETXT* filetxt)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::CopyTo(XFILETXT* filetxt)
 {
   if(!filetxt) return false;
@@ -1549,7 +1549,7 @@ bool XFILETXT::CopyTo(XFILETXT* filetxt)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILETXT::Clean()
 {
   file       = NULL;

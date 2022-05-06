@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream WINDOWS Wi-Fi remote Enum Devices class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES_H_
 #define _DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES_H_
@@ -85,7 +85,7 @@ class DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES :  public DIOSTREAMWIFIREMOTEENUMDEV
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

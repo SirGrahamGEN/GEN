@@ -6,7 +6,7 @@
 * @brief      Input Cursor Motion
 * @ingroup    INPUT
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPCURSORMOTIONPOINT::INPCURSORMOTIONPOINT()
 {
   Clean();
@@ -75,7 +75,7 @@ INPCURSORMOTIONPOINT::INPCURSORMOTIONPOINT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPCURSORMOTIONPOINT::~INPCURSORMOTIONPOINT()
 {
   Clean();
@@ -91,7 +91,7 @@ INPCURSORMOTIONPOINT::~INPCURSORMOTIONPOINT()
 *
 * @return     float : X position
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float INPCURSORMOTIONPOINT::GetX()
 {
   return x;
@@ -107,7 +107,7 @@ float INPCURSORMOTIONPOINT::GetX()
 *
 * @return     float : Y position
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float INPCURSORMOTIONPOINT::GetY()
 {
   return y;
@@ -123,7 +123,7 @@ float INPCURSORMOTIONPOINT::GetY()
 *
 * @return     float : Z position
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float INPCURSORMOTIONPOINT::GetZ()
 {
   return z;
@@ -143,7 +143,7 @@ float INPCURSORMOTIONPOINT::GetZ()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSORMOTIONPOINT::Set(float x, float y, float z)
 {
   this->x = x;
@@ -164,7 +164,7 @@ void INPCURSORMOTIONPOINT::Set(float x, float y, float z)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSORMOTIONPOINT::SetX(float x)
 {
   this->x = x;
@@ -182,7 +182,7 @@ void INPCURSORMOTIONPOINT::SetX(float x)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSORMOTIONPOINT::SetY(float y)
 {
   this->y = y;
@@ -201,7 +201,7 @@ void INPCURSORMOTIONPOINT::SetY(float y)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSORMOTIONPOINT::SetZ(float z)
 {
   this->z = z;
@@ -218,7 +218,7 @@ void INPCURSORMOTIONPOINT::SetZ(float z)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSORMOTIONPOINT::Clean()
 {
   x = 0;
@@ -233,7 +233,7 @@ void INPCURSORMOTIONPOINT::Clean()
 *
 * INPUT CURSOR MOTION
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -245,7 +245,7 @@ void INPCURSORMOTIONPOINT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPCURSORMOTION::INPCURSORMOTION()
 {
   Clean();
@@ -261,7 +261,7 @@ INPCURSORMOTION::INPCURSORMOTION()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPCURSORMOTION::~INPCURSORMOTION()
 {
   DeleteAllPoints();
@@ -279,7 +279,7 @@ INPCURSORMOTION::~INPCURSORMOTION()
 *
 * @return     XVECTOR<INPCURSORMOTIONPOINT*>* : vector with points
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<INPCURSORMOTIONPOINT*>* INPCURSORMOTION::Get()
 {
   return &points;
@@ -295,7 +295,7 @@ XVECTOR<INPCURSORMOTIONPOINT*>* INPCURSORMOTION::Get()
 *
 * @return     int : Number of Points
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int INPCURSORMOTION::GetNPoints()
 {
   return points.GetSize();
@@ -311,7 +311,7 @@ int INPCURSORMOTION::GetNPoints()
 *
 * @return     INPCURSORMOTIONPOINT* : first point
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPCURSORMOTIONPOINT* INPCURSORMOTION::GetFirstPoint()
 {
   if(!points.GetSize()) return NULL;
@@ -331,7 +331,7 @@ INPCURSORMOTIONPOINT* INPCURSORMOTION::GetFirstPoint()
 *
 * @return     INPCURSORMOTIONPOINT* : last point
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPCURSORMOTIONPOINT* INPCURSORMOTION::GetLastPoint()
 {
   if(points.GetSize() < 1) return NULL;
@@ -355,7 +355,7 @@ INPCURSORMOTIONPOINT* INPCURSORMOTION::GetLastPoint()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPCURSORMOTION::AddPoint(float x, float y, float z)
 {
   INPCURSORMOTIONPOINT* point = new INPCURSORMOTIONPOINT();
@@ -378,7 +378,7 @@ bool INPCURSORMOTION::AddPoint(float x, float y, float z)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPCURSORMOTION::DeleteAllPoints()
 {
   if(points.IsEmpty())  return false;
@@ -407,7 +407,7 @@ bool INPCURSORMOTION::DeleteAllPoints()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPCURSORMOTION::AddFromLine(INPCURSORMOTION_REDUCEDMODE reducedmode, int reducedfactor, int x1, int y1, int x2, int y2)
 {
   int x, xinc1, xinc2;
@@ -515,7 +515,7 @@ bool INPCURSORMOTION::AddFromLine(INPCURSORMOTION_REDUCEDMODE reducedmode, int r
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPCURSORMOTION::AddFromCircle(INPCURSORMOTION_REDUCEDMODE reducedmode,int reducedfactor,int xc, int yc, int radio)
 {
   float deg     = 0;
@@ -572,7 +572,7 @@ bool INPCURSORMOTION::AddFromCircle(INPCURSORMOTION_REDUCEDMODE reducedmode,int 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPCURSORMOTION::AddFromElipse(INPCURSORMOTION_REDUCEDMODE reducedmode,int reducedfactor, int x, int y, int rx, int ry)
 {
   int ix, iy;
@@ -703,7 +703,7 @@ bool INPCURSORMOTION::AddFromElipse(INPCURSORMOTION_REDUCEDMODE reducedmode,int 
 *
 * @return     float : angle of motion
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float INPCURSORMOTION::GetAngle()
 {
   if(points.GetSize() < 2) return 0;
@@ -732,7 +732,7 @@ float INPCURSORMOTION::GetAngle()
 *
 * @return     int : module of motion
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int INPCURSORMOTION::GetModule()
 {
   if(points.GetSize() < 2) return 0;
@@ -765,7 +765,7 @@ int INPCURSORMOTION::GetModule()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPCURSORMOTION::IsInRect(int x, int y, int width, int height)
 {
   if(points.IsEmpty()) return false;
@@ -797,7 +797,7 @@ bool INPCURSORMOTION::IsInRect(int x, int y, int width, int height)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPCURSORMOTION::IsInCurse()
 {
   return isincurse;
@@ -815,7 +815,7 @@ bool INPCURSORMOTION::IsInCurse()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPCURSORMOTION::SetIsInCurse(bool isincurse)
 {
   this->isincurse = isincurse;
@@ -889,7 +889,7 @@ bool INPCURSORMOTION::InvertYAxis(XDWORD screen_height)
 *
 * @return     INPCURSORMOTION_DIR : Direction of motion
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPCURSORMOTION_DIR INPCURSORMOTION::GetDirectionByAngle(bool indetail)
 {  
   if(points.GetSize() < 2) return INPCURSORMOTION_DIR_UNKNOWN;
@@ -986,7 +986,7 @@ INPCURSORMOTION_DIR INPCURSORMOTION::GetDirectionByDifferential(XDWORD* differen
 *
 * @return     XQWORD : time elapsed
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD INPCURSORMOTION::GetTimeElapsed()
 {
   return timeelapsed;
@@ -1004,7 +1004,7 @@ XQWORD INPCURSORMOTION::GetTimeElapsed()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPCURSORMOTION::SetTimeElapsed(XQWORD timeelapsed)
 {
   this->timeelapsed = timeelapsed;
@@ -1022,7 +1022,7 @@ bool INPCURSORMOTION::SetTimeElapsed(XQWORD timeelapsed)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPCURSORMOTION::Reset()
 {
   isincurse   = false;
@@ -1047,7 +1047,7 @@ bool INPCURSORMOTION::Reset()
 *
 * @return     int : number of steps
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int INPCURSORMOTION::CalculateReducedModeSteps(INPCURSORMOTION_REDUCEDMODE mode,int factor,int npixels)
 {
   int steps = 0;
@@ -1075,7 +1075,7 @@ int INPCURSORMOTION::CalculateReducedModeSteps(INPCURSORMOTION_REDUCEDMODE mode,
 *
 * @return     int : value rounded
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int INPCURSORMOTION::Round(double a)
 {
   return int(a + 0.5);
@@ -1092,7 +1092,7 @@ int INPCURSORMOTION::Round(double a)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSORMOTION::Clean()
 {
   isincurse   = false;

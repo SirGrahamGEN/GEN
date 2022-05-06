@@ -6,7 +6,7 @@
 * @brief      Application Alerts class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,8 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
-
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _APPALERTS_H_
 #define _APPALERTS_H_
@@ -61,10 +60,7 @@ enum APP_ALERT_STATUS
 };
 
 
-
-
 #define APP_ALERTS_WEBALERTCMD   __L("alert")
-
 
 #define APP_ALERTS               APPALERTS ::GetInstance()
 
@@ -72,7 +68,6 @@ enum APP_ALERT_STATUS
 
 class DIOSTREAM;
 class APPCFG;
-
 
 class APPALERTS
 {
@@ -100,8 +95,7 @@ class APPALERTS
     APPCFG*                             cfg;
 };
 
-
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

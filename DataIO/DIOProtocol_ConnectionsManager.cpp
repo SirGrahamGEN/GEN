@@ -6,7 +6,7 @@
 * @brief      Data Input/Output  Protocol Connections Manager class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -74,7 +74,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION::DIOPROTOCOL_CONNECTION(DIOSTREAMCONFIG* diostreamcfg)
 {
   Clean();
@@ -97,7 +97,7 @@ DIOPROTOCOL_CONNECTION::DIOPROTOCOL_CONNECTION(DIOSTREAMCONFIG* diostreamcfg)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION::~DIOPROTOCOL_CONNECTION()
 {
   GEN_XFACTORY.Delete_Mutex(xmutexinuseID);
@@ -115,7 +115,7 @@ DIOPROTOCOL_CONNECTION::~DIOPROTOCOL_CONNECTION()
 *
 * @return     DIOSTREAMCONFIG* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTION::GetDIOStreamConfig()
 {
   return diostreamcfg;
@@ -131,7 +131,7 @@ DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTION::GetDIOStreamConfig()
 *
 * @return     DIOPROTOCOL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL* DIOPROTOCOL_CONNECTION::GetDIOProtocol()
 {
   return dioprotocol;
@@ -149,7 +149,7 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTION::GetDIOProtocol()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTION::SetDIOProtocol(DIOPROTOCOL* protocol)
 {
   this->dioprotocol = protocol;
@@ -165,7 +165,7 @@ void DIOPROTOCOL_CONNECTION::SetDIOProtocol(DIOPROTOCOL* protocol)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTION::Connect()
 {
   if(!dioprotocol) return false;
@@ -184,7 +184,7 @@ bool DIOPROTOCOL_CONNECTION::Connect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTION::Disconected()
 {
   if(!dioprotocol)  return false;
@@ -210,7 +210,7 @@ bool DIOPROTOCOL_CONNECTION::Disconected()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTION::SetInUse(bool inuse, XDWORD ID)
 {
   if(!xmutexinuseID)  return false;
@@ -236,7 +236,7 @@ bool DIOPROTOCOL_CONNECTION::SetInUse(bool inuse, XDWORD ID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTION::IsInUse()
 {
   bool inuse = false;
@@ -260,7 +260,7 @@ bool DIOPROTOCOL_CONNECTION::IsInUse()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTION::IsSendEventConnected()
 {
   return issendeventconnected;
@@ -278,7 +278,7 @@ bool DIOPROTOCOL_CONNECTION::IsSendEventConnected()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTION::SetIsSendEventConnected(bool issendeventconnected)
 {
   this->issendeventconnected = issendeventconnected;
@@ -295,7 +295,7 @@ void DIOPROTOCOL_CONNECTION::SetIsSendEventConnected(bool issendeventconnected)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTION::Clean()
 {
   diostreamcfg            = NULL;
@@ -321,7 +321,7 @@ void DIOPROTOCOL_CONNECTION::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTIONSMANAGER::DIOPROTOCOL_CONNECTIONSMANAGER()
 {
   Clean();
@@ -344,7 +344,7 @@ DIOPROTOCOL_CONNECTIONSMANAGER::DIOPROTOCOL_CONNECTIONSMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTIONSMANAGER::~DIOPROTOCOL_CONNECTIONSMANAGER()
 {
   DeRegisterEvent(DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CONNECTEDCONNECTION);
@@ -368,7 +368,7 @@ DIOPROTOCOL_CONNECTIONSMANAGER::~DIOPROTOCOL_CONNECTIONSMANAGER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::Ini(bool isserver, DIOSTREAMCONFIG* diostreamcfg, DIOSTREAMENUMSERVERS* diostreamenumservers)
 {
   if(!diostreamcfg) return false;
@@ -413,7 +413,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::Ini(bool isserver, DIOSTREAMCONFIG* diostre
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::End()
 {
   WaitToAllConnectionsCanBeDeleted();
@@ -470,7 +470,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::End()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_GetNTargets()
 {
   return targetURLs.GetSize();
@@ -488,7 +488,7 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_GetNTargets()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XCHAR* URL)
 {
   if(!URL)    return false;
@@ -515,7 +515,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XCHAR* URL)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XSTRING& URL)
 {
   return TargetURL_Add(URL.Get());
@@ -533,7 +533,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XSTRING& URL)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(DIOURL& URL)
 {
   return TargetURL_Add(URL.Get());
@@ -551,7 +551,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(DIOURL& URL)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Get(int index)
 {
   return (XSTRING*)targetURLs.Get(index);
@@ -569,7 +569,7 @@ XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Get(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Delete(int index)
 {
   DIOURL* URL = (DIOURL*)targetURLs.Get(index);
@@ -592,7 +592,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Delete(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_DeleteAll()
 {
   if(targetURLs.IsEmpty())  return false;
@@ -613,7 +613,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_DeleteAll()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNLimit()
 {
   return protocolconnectionsnlimit;
@@ -631,7 +631,7 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNLimit()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SetNLimit(int protocolconnectionsnlimit)
 {
   this->protocolconnectionsnlimit = protocolconnectionsnlimit;
@@ -647,7 +647,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SetNLimit(int protocolc
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNAvailable()
 {
   return protocolconnections.GetSize();
@@ -665,7 +665,7 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNAvailable()
 *
 * @return     DIOPROTOCOL_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Get(int index)
 {
   if(!xmutexprocotolconnections)  return NULL;
@@ -697,7 +697,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Get(
 *
 * @return     DIOPROTOCOL_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetFirstConnected()
 {
   if(!xmutexprocotolconnections)  return NULL;
@@ -742,7 +742,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetF
 *
 * @return     DIOPROTOCOL_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetFirstOperative()
 {
   if(!xmutexprocotolconnections)  return NULL;
@@ -789,7 +789,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetF
 *
 * @return     DIOPROTOCOL_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetByDIOStream(DIOSTREAM* diostream)
 {
   DIOPROTOCOL_CONNECTION* protocolconnection = NULL;
@@ -834,7 +834,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetB
 *
 * @return     DIOPROTOCOL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetProtocol(int index)
 {
   DIOPROTOCOL* protocol = NULL;
@@ -873,7 +873,7 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetProtocol(int
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNConnected()
 {
   if(!xmutexprocotolconnections)  return false;
@@ -910,7 +910,7 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNConnected()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNFreeToConnect()
 {
   if(!xmutexprocotolconnections)  return 0;
@@ -947,7 +947,7 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNFreeToConnect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SendEventConnected()
 {
   if(!xmutexprocotolconnections)  return false;
@@ -991,7 +991,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SendEventConnected()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAllWaitConnections()
 {
   int index = 0;
@@ -1040,7 +1040,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAllWaitConnection
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteDisconnected()
 {
   int index = 0;
@@ -1090,7 +1090,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteDisconnected()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Disconnect(int index)
 {
   bool status = false;
@@ -1132,7 +1132,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Disconnect(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DisconnectAll()
 {
   if(!xmutexprocotolconnections)  return false;
@@ -1177,7 +1177,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DisconnectAll()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Delete(int index)
 {
   bool status = false;
@@ -1223,7 +1223,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Delete(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAll()
 {
   if(!xmutexprocotolconnections)  return false;
@@ -1267,7 +1267,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAll()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAnyConnectionIsConnected(int timeout)
 {
   int  index  = 0;
@@ -1307,7 +1307,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAnyConnectionIsConnected(int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAllConnectionsCanBeDeleted(int timeout)
 {
   if(!xmutexprocotolconnections)  return false;
@@ -1367,7 +1367,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAllConnectionsCanBeDeleted(int timeou
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::SendEvent(DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE type, DIOPROTOCOL_CONNECTION* protocolconnection)
 {
   if(!protocolconnection) return false;
@@ -1397,7 +1397,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::SendEvent(DIOPROTOCOL_CONNECTIONSMANAGER_XE
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
 {
   version         = this->applicationversion;
@@ -1419,7 +1419,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationVersion(XDWORD& version, XDWO
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
 {
   this->applicationversion        = version;
@@ -1437,7 +1437,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::SetApplicationVersion(XDWORD version, XDWOR
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationName()
 {
   return &applicationname;
@@ -1453,7 +1453,7 @@ XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationName()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsServer()
 {
   if(!xthreadconnections)              return;
@@ -1523,7 +1523,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsServer()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsClient()
 {
   if(!xmutexprocotolconnections)       return;
@@ -1690,7 +1690,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsClient()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::ThreadProtocolConnections(void* param)
 {
   DIOPROTOCOL_CONNECTIONSMANAGER* protocolconnections = (DIOPROTOCOL_CONNECTIONSMANAGER*)param;
@@ -1800,7 +1800,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ThreadProtocolConnections(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::Clean()
 {
   diostreamenumservers            = NULL;

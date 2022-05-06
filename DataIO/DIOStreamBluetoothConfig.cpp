@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Bluetooth Config class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -52,7 +52,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHCONFIG::DIOSTREAMBLUETOOTHCONFIG(): DIOSTREAMCONFIG()
 {
   Clean();
@@ -71,7 +71,7 @@ DIOSTREAMBLUETOOTHCONFIG::DIOSTREAMBLUETOOTHCONFIG(): DIOSTREAMCONFIG()
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHCONFIG::~DIOSTREAMBLUETOOTHCONFIG()
 {
   Clean();
@@ -87,7 +87,7 @@ DIOSTREAMBLUETOOTHCONFIG::~DIOSTREAMBLUETOOTHCONFIG()
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMBLUETOOTHCONFIG::GetDeviceSelect()
 {
   return deviceselect;
@@ -106,7 +106,7 @@ int DIOSTREAMBLUETOOTHCONFIG::GetDeviceSelect()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHCONFIG::SetDeviceSelect(int deviceselect)
 {
   this->deviceselect = deviceselect;
@@ -125,7 +125,7 @@ bool DIOSTREAMBLUETOOTHCONFIG::SetDeviceSelect(int deviceselect)
 *
 * @return     DIOMAC* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMAC* DIOSTREAMBLUETOOTHCONFIG::GetLocalMAC()
 {
   return &localMAC;
@@ -142,7 +142,7 @@ DIOMAC* DIOSTREAMBLUETOOTHCONFIG::GetLocalMAC()
 *
 * @return     DIOMAC* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMAC* DIOSTREAMBLUETOOTHCONFIG::GetRemoteMAC()
 {
   return &remoteMAC;
@@ -158,7 +158,7 @@ DIOMAC* DIOSTREAMBLUETOOTHCONFIG::GetRemoteMAC()
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMBLUETOOTHCONFIG::GetRemoteChannel()
 {
   return channel;
@@ -176,7 +176,7 @@ int DIOSTREAMBLUETOOTHCONFIG::GetRemoteChannel()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHCONFIG::SetRemoteChannel(int channel)
 {
   this->channel = channel;
@@ -194,7 +194,7 @@ bool DIOSTREAMBLUETOOTHCONFIG::SetRemoteChannel(int channel)
 *
 * @return     XSTRING* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOSTREAMBLUETOOTHCONFIG::GetPIN()
 {
   return &pin;
@@ -213,7 +213,7 @@ XSTRING* DIOSTREAMBLUETOOTHCONFIG::GetPIN()
 *
 * @return     void* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void* DIOSTREAMBLUETOOTHCONFIG::GetServerPropertys(int index)
 {
   if(index <  0) return NULL;
@@ -234,7 +234,7 @@ void* DIOSTREAMBLUETOOTHCONFIG::GetServerPropertys(int index)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMBLUETOOTHCONFIG::Clean()
 {
   type                = DIOSTREAMTYPE_BLUETOOTH;

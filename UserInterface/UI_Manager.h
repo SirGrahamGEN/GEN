@@ -9,7 +9,7 @@
 ""
 ""
 
-@copyright  GEN Group. All right reserved.
+@copyright  GEN Group. All rights reserved.
 
 @cond
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -27,7 +27,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR TH
 SOFTWARE.
 @endcond
 
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _UI_MANAGER_H_
 #define _UI_MANAGER_H_
@@ -222,7 +222,7 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
 
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

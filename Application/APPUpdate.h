@@ -6,7 +6,7 @@
 * @brief      Application Update class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _APPUPDATE_H_
 #define _APPUPDATE_H_
@@ -70,7 +70,6 @@ class XSCHEDULER_XEVENT;
 class DIOAPPLICATIONUPDATE_XEVENT;
 class APPCFG;
 
-
 class APPUPDATE_CFG
 {
   public:
@@ -105,7 +104,6 @@ class APPUPDATE_CFG
     XPATH                               xpathrootapp;
     bool                                dolog;
 };
-
 
 
 class APPUPDATE : public XOBSERVER, public XSUBJECT
@@ -155,8 +153,7 @@ class APPUPDATE : public XOBSERVER, public XSUBJECT
     
 };
 
-
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

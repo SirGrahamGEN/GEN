@@ -6,7 +6,7 @@
 * @brief      Data Input/Output STM32 Stream I2C class
 * @ingroup    PLATFORM_STM32
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -65,7 +65,7 @@ DIOSTM32STREAMI2C*        DIOSTM32STREAMI2C::handles[DIOSTM32STREAMI2C_MAXHANDLE
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMI2CPORT::DIOSTM32STREAMI2CPORT()
 {
   Clean();
@@ -82,7 +82,7 @@ DIOSTM32STREAMI2CPORT::DIOSTM32STREAMI2CPORT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMI2CPORT::~DIOSTM32STREAMI2CPORT()
 {
   Clean();
@@ -98,7 +98,7 @@ DIOSTM32STREAMI2CPORT::~DIOSTM32STREAMI2CPORT()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMI2CPORT::GetCounterRef()
 {
   return counterref;
@@ -116,7 +116,7 @@ XDWORD DIOSTM32STREAMI2CPORT::GetCounterRef()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMI2CPORT::SetCounterRef(XDWORD counterref)
 {
   this->counterref = counterref;
@@ -132,7 +132,7 @@ void DIOSTM32STREAMI2CPORT::SetCounterRef(XDWORD counterref)
 *
 * @return     I2C_HandleTypeDef* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 I2C_HandleTypeDef* DIOSTM32STREAMI2CPORT::GetHandleI2C()
 {
   return hi2c;
@@ -150,7 +150,7 @@ I2C_HandleTypeDef* DIOSTM32STREAMI2CPORT::GetHandleI2C()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMI2CPORT::SetHandleI2C(I2C_HandleTypeDef* hi2c)
 {
   this->hi2c = hi2c;
@@ -167,7 +167,7 @@ void DIOSTM32STREAMI2CPORT::SetHandleI2C(I2C_HandleTypeDef* hi2c)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMI2CPORT::Clean()
 {
   counterref        = 0;
@@ -190,7 +190,7 @@ void DIOSTM32STREAMI2CPORT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMI2C::DIOSTM32STREAMI2C() : DIOSTREAMI2C()
 {
   Clean();
@@ -229,7 +229,7 @@ DIOSTM32STREAMI2C::DIOSTM32STREAMI2C() : DIOSTREAMI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMI2C::~DIOSTM32STREAMI2C()
 {
   Close();
@@ -249,7 +249,7 @@ DIOSTM32STREAMI2C::~DIOSTM32STREAMI2C()
 *
 * @return     DIOSTREAMSTATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOSTM32STREAMI2C::GetConnectStatus()
 {
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -267,7 +267,7 @@ DIOSTREAMSTATUS DIOSTM32STREAMI2C::GetConnectStatus()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMI2C::Open()
 {
   bool result = false;
@@ -410,7 +410,7 @@ bool DIOSTM32STREAMI2C::Open()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMI2C::WaitToFilledReadingBuffer(int filledto, int timeout)
 {
   if(filledto == DIOSTREAM_SOMETHINGTOREAD) sizebufferdata = 1; else sizebufferdata = filledto;
@@ -442,7 +442,7 @@ bool DIOSTM32STREAMI2C::WaitToFilledReadingBuffer(int filledto, int timeout)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config)                                          return 0;
@@ -478,7 +478,7 @@ XDWORD DIOSTM32STREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config)                                          return 0;
@@ -518,7 +518,7 @@ XDWORD DIOSTM32STREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMI2C::Write(XBYTE* buffer, XDWORD size)
 {
   if(!outbuffer) return 0;
@@ -550,7 +550,7 @@ XDWORD DIOSTM32STREAMI2C::Write(XBYTE* buffer, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMI2C::Disconnect()
 {
   return false;
@@ -566,7 +566,7 @@ bool DIOSTM32STREAMI2C::Disconnect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMI2C::Close()
 {
   if(!threadconnection) return false;
@@ -607,7 +607,7 @@ bool DIOSTM32STREAMI2C::Close()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMI2C::CleanBuffers()
 {
   return false;
@@ -625,7 +625,7 @@ bool DIOSTM32STREAMI2C::CleanBuffers()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef* hi2c)
 {
   int indexport = -1;
@@ -678,7 +678,7 @@ void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef* hi2c)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef* hi2c)
 {
   HAL_I2C_MasterRxCpltCallback(hi2c);
@@ -696,7 +696,7 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef* hi2c)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c)
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("I2C comunication error  %d"), hi2c->ErrorCode);
@@ -714,7 +714,7 @@ void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMI2C::ThreadConnection(void* param)
 {
   DIOSTM32STREAMI2C* diostream = (DIOSTM32STREAMI2C*)param;
@@ -807,7 +807,7 @@ void DIOSTM32STREAMI2C::ThreadConnection(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMI2C::Clean()
 {
   hi2c              = NULL;

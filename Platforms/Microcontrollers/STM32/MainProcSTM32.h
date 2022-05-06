@@ -6,7 +6,7 @@
 * @brief      Main Proc STM32 class
 * @ingroup    PLATFORM_STM32
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _MAINPROCSTM32_H_
 #define _MAINPROCSTM32_H_
@@ -61,7 +61,7 @@ class MAINPROCSTM32 : public MAINPROC
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 
 #ifdef XTRACE_ACTIVE

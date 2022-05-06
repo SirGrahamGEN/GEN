@@ -6,7 +6,7 @@
 * @brief      Data Input/Output STM32 Stream USB class
 * @ingroup    PLATFORM_STM32
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -64,7 +64,7 @@ DIOSTM32STREAMUSB*      diostreamusbptrhandle =  NULL;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMUSB::DIOSTM32STREAMUSB() : DIOSTREAMUSB(), XFSMACHINE(0)
 {
   Clean();
@@ -103,7 +103,7 @@ DIOSTM32STREAMUSB::DIOSTM32STREAMUSB() : DIOSTREAMUSB(), XFSMACHINE(0)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMUSB::~DIOSTM32STREAMUSB()
 {
   Close();
@@ -123,7 +123,7 @@ DIOSTM32STREAMUSB::~DIOSTM32STREAMUSB()
 *
 * @return     DIOSTREAMSTATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOSTM32STREAMUSB::GetConnectStatus()
 {
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -141,7 +141,7 @@ DIOSTREAMSTATUS DIOSTM32STREAMUSB::GetConnectStatus()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUSB::Open()
 {
   if(!threadconnection)  return false;
@@ -173,7 +173,7 @@ bool DIOSTM32STREAMUSB::Open()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMUSB::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
@@ -196,7 +196,7 @@ XDWORD DIOSTM32STREAMUSB::WriteDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMUSB::Write(XBYTE* buffer, XDWORD size)
 {
   if(!outbuffer) return 0;
@@ -226,7 +226,7 @@ XDWORD DIOSTM32STREAMUSB::Write(XBYTE* buffer, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUSB::Disconnect()
 {
   return false;
@@ -242,7 +242,7 @@ bool DIOSTM32STREAMUSB::Disconnect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUSB::Close()
 {
   if(!threadconnection) return false;
@@ -267,7 +267,7 @@ bool DIOSTM32STREAMUSB::Close()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUSB::CleanBuffers()
 {
 
@@ -287,7 +287,7 @@ bool DIOSTM32STREAMUSB::CleanBuffers()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t *len)
 {
   if(GetConnectStatus() == DIOSTREAMSTATUS_DISCONNECTED) return;
@@ -321,7 +321,7 @@ void DIOSTM32STREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t *len)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMUSB::ThreadConnection(void* param)
 {
   DIOSTM32STREAMUSB* diostream = (DIOSTM32STREAMUSB*)param;
@@ -414,7 +414,7 @@ void DIOSTM32STREAMUSB::ThreadConnection(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMUSB::Clean()
 {
   threadconnection   = NULL;

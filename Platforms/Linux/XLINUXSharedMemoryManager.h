@@ -6,7 +6,7 @@
 * @brief      eXtended LINUX Shared Memory Manager(Exchange between applications)
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XLINUXSHAREDMEMORYMANAGER_H_
 #define _XLINUXSHAREDMEMORYMANAGER_H_
@@ -57,7 +57,7 @@ class XLINUXSHAREDMEMORYMANAGER : public XSHAREDMEMORYMANAGER
     int                     handlefile;
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

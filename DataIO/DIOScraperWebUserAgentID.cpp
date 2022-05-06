@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Scraper Web User Agent ID class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -59,7 +59,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOUSERAGENTID_RESULT::DIOUSERAGENTID_RESULT()
 {
   Clean();
@@ -75,7 +75,7 @@ DIOUSERAGENTID_RESULT::DIOUSERAGENTID_RESULT()
 *
 * @return     DIOUSERAGENTID_RESULT::~ : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOUSERAGENTID_RESULT::~ DIOUSERAGENTID_RESULT()
 {
   Clean();
@@ -91,7 +91,7 @@ DIOUSERAGENTID_RESULT::~ DIOUSERAGENTID_RESULT()
 *
 * @return     XSTRING* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOUSERAGENTID_RESULT::GetBrowser()
 {
   return &browser;
@@ -107,7 +107,7 @@ XSTRING* DIOUSERAGENTID_RESULT::GetBrowser()
 *
 * @return     XSTRING* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOUSERAGENTID_RESULT::GetSO()
 {
   return &systemoperative;
@@ -125,7 +125,7 @@ XSTRING* DIOUSERAGENTID_RESULT::GetSO()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOUSERAGENTID_RESULT::Clean()
 {
 
@@ -147,7 +147,7 @@ void DIOUSERAGENTID_RESULT::Clean()
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBUSERAGENTID::DIOSCRAPERWEBUSERAGENTID() : DIOSCRAPERWEB()
 {
   Clean();
@@ -164,7 +164,7 @@ DIOSCRAPERWEBUSERAGENTID::DIOSCRAPERWEBUSERAGENTID() : DIOSCRAPERWEB()
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBUSERAGENTID::~DIOSCRAPERWEBUSERAGENTID()
 {
   Clean();
@@ -184,7 +184,7 @@ DIOSCRAPERWEBUSERAGENTID::~DIOSCRAPERWEBUSERAGENTID()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBUSERAGENTID::ChangeURL(XCHAR* maskurl, DIOURL& url)
 {
   DIOURL urluseragent;
@@ -216,7 +216,7 @@ bool DIOSCRAPERWEBUSERAGENTID::ChangeURL(XCHAR* maskurl, DIOURL& url)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBUSERAGENTID::Get(XCHAR* useragent, XSTRING& browser, XSTRING& systemoperative, int timeout, XSTRING* localIP, bool usecache)
 {
   bool status = false;
@@ -288,7 +288,7 @@ bool DIOSCRAPERWEBUSERAGENTID::Get(XCHAR* useragent, XSTRING& browser, XSTRING& 
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBUSERAGENTID::Get(XSTRING& useragent, XSTRING& browser, XSTRING& systemoperative, int timeoutforurl, XSTRING* localIP, bool usecache)
 {
   return Get(useragent.Get(), browser, systemoperative, timeoutforurl, localIP, usecache);
@@ -305,7 +305,7 @@ bool DIOSCRAPERWEBUSERAGENTID::Get(XSTRING& useragent, XSTRING& browser, XSTRING
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBUSERAGENTID::Clean()
 {
 

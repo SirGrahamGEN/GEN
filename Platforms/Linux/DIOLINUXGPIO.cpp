@@ -6,7 +6,7 @@
 * @brief      Data Input/Output LINUX GPIO (General Purpose Input/Output) 
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -66,7 +66,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXGPIO::DIOLINUXGPIO() : DIOGPIO()
 {
   Clean();
@@ -83,7 +83,7 @@ DIOLINUXGPIO::DIOLINUXGPIO() : DIOGPIO()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXGPIO::~DIOLINUXGPIO()
 {
   Clean();
@@ -99,7 +99,7 @@ DIOLINUXGPIO::~DIOLINUXGPIO()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIO::Ini()
 {
 
@@ -192,7 +192,7 @@ bool DIOLINUXGPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIO::End()
 {
 	XVECTOR<XDWORD>* GPIO_exports = GPIOExport_Get();   
@@ -222,7 +222,7 @@ bool DIOLINUXGPIO::End()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIO::GPIOExport_Add(XDWORD GPIO)
 {
   if(GPIOExport_IsExport(GPIO))  return false;
@@ -242,7 +242,7 @@ bool DIOLINUXGPIO::GPIOExport_Add(XDWORD GPIO)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIO::GPIOExport_IsExport(XDWORD GPIO)
 {
   for(XDWORD c=0; c<GPIOexports.GetSize(); c++)
@@ -264,7 +264,7 @@ bool DIOLINUXGPIO::GPIOExport_IsExport(XDWORD GPIO)
 *
 * @return     XVECTOR<XDWORD>* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XDWORD>* DIOLINUXGPIO::GPIOExport_Get()
 {
   return &GPIOexports;
@@ -280,7 +280,7 @@ XVECTOR<XDWORD>* DIOLINUXGPIO::GPIOExport_Get()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIO::GPIOExport_DeleteAll()    
 {
   if(GPIOexports.IsEmpty()) return false;
@@ -303,7 +303,7 @@ bool DIOLINUXGPIO::GPIOExport_DeleteAll()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIO::GPIO_Export(XDWORD GPIO, bool isexport)
 {	
 	XPATH			xpath;
@@ -348,7 +348,7 @@ bool DIOLINUXGPIO::GPIO_Export(XDWORD GPIO, bool isexport)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIO::GPIO_SetDirection(XDWORD GPIO, bool isinput)
 {
 	XPATH			xpath;
@@ -392,7 +392,7 @@ bool DIOLINUXGPIO::GPIO_SetDirection(XDWORD GPIO, bool isinput)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIO::GPIO_GetData(XDWORD GPIO)
 {
 	XPATH   xpath;
@@ -438,7 +438,7 @@ bool DIOLINUXGPIO::GPIO_GetData(XDWORD GPIO)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIO::GPIO_SetData(XDWORD GPIO, bool on)
 {
 	XPATH			xpath;
@@ -482,7 +482,7 @@ bool DIOLINUXGPIO::GPIO_SetData(XDWORD GPIO, bool on)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXGPIO::Clean()
 {
 

@@ -6,7 +6,7 @@
 * @brief      DataBase PostgreSQL Database class
 * @ingroup    DATABASESSQL
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -56,7 +56,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_DATABASE::POSTGRESQL_DATABASE(): DB_SQL_DATABASE()
 {
   Clean();
@@ -78,7 +78,7 @@ POSTGRESQL_DATABASE::POSTGRESQL_DATABASE(): DB_SQL_DATABASE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_DATABASE::~POSTGRESQL_DATABASE()
 {
   Clean();
@@ -93,7 +93,7 @@ POSTGRESQL_DATABASE::~POSTGRESQL_DATABASE()
 *
 * @return     DB_SQL_DATABASE_TYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE_TYPE POSTGRESQL_DATABASE::GetType()
 {
   return DB_SQL_DATABASE_TYPE_POSTGRESQL;
@@ -109,7 +109,7 @@ DB_SQL_DATABASE_TYPE POSTGRESQL_DATABASE::GetType()
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* POSTGRESQL_DATABASE::GetTypeName()
 {
   return __L("PostgreSQL");
@@ -124,7 +124,7 @@ XCHAR* POSTGRESQL_DATABASE::GetTypeName()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_DATABASE::Transaction()
 {
   PGconn*   conn = static_cast<POSTGRESQL_CONNECTION*>(this->connection)->connection;
@@ -153,7 +153,7 @@ bool POSTGRESQL_DATABASE::Transaction()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_DATABASE::Commit()
 {
   PGconn* conn=static_cast<POSTGRESQL_CONNECTION*>(this->connection)->connection;
@@ -184,7 +184,7 @@ bool POSTGRESQL_DATABASE::Commit()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_DATABASE::Rollback(XCHAR* savepointname)
 {
   PGconn*   conn = static_cast<POSTGRESQL_CONNECTION*>(this->connection)->connection;
@@ -215,7 +215,7 @@ bool POSTGRESQL_DATABASE::Rollback(XCHAR* savepointname)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_DATABASE::Savepoint(XCHAR* savepoint)
 {
   PGconn* conn            = static_cast<POSTGRESQL_CONNECTION*>(this->connection)->connection;
@@ -253,7 +253,7 @@ bool POSTGRESQL_DATABASE::Savepoint(XCHAR* savepoint)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 {
   PGconn* conn              = static_cast<POSTGRESQL_CONNECTION*>(this->connection)->connection;
@@ -289,7 +289,7 @@ bool POSTGRESQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 *
 * @return     DB_SQL_QUERY* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_QUERY* POSTGRESQL_DATABASE::CreateQuery()
 {
   POSTGRESQL_QUERY* query = new POSTGRESQL_QUERY(this);
@@ -307,7 +307,7 @@ DB_SQL_QUERY* POSTGRESQL_DATABASE::CreateQuery()
 *
 * @return     DB_SQL_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_CONNECTION* POSTGRESQL_DATABASE::CreateConnection()
 {
   POSTGRESQL_CONNECTION* pgconnection= new POSTGRESQL_CONNECTION(this);
@@ -324,7 +324,7 @@ DB_SQL_CONNECTION* POSTGRESQL_DATABASE::CreateConnection()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_DATABASE::GetTables()
 {
   DB_SQL_STRING querystring;
@@ -382,7 +382,7 @@ bool POSTGRESQL_DATABASE::GetTables()
 *
 * @return     DB_SQL_DATABASE_ENCODING :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE_ENCODING POSTGRESQL_DATABASE::GetDatabaseEncoding()
 {
   int enc = PQclientEncoding(static_cast<POSTGRESQL_CONNECTION*>(this->connection)->connection);
@@ -404,7 +404,7 @@ DB_SQL_DATABASE_ENCODING POSTGRESQL_DATABASE::GetDatabaseEncoding()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
 {
   PGconn* conn = static_cast<POSTGRESQL_CONNECTION*>(connection)->connection;
@@ -474,7 +474,7 @@ bool POSTGRESQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingt
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_DATABASE::OnConnection()
 {
   SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING_UTF8);
@@ -493,7 +493,7 @@ bool POSTGRESQL_DATABASE::OnConnection()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_DATABASE::OnDisconnection()
 {
   return true;
@@ -508,7 +508,7 @@ bool POSTGRESQL_DATABASE::OnDisconnection()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_DATABASE::IsThreadSafe()
 {
   return PQisthreadsafe() == 1;
@@ -525,7 +525,7 @@ bool POSTGRESQL_DATABASE::IsThreadSafe()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void POSTGRESQL_DATABASE::Clean()
 {
   type        = DB_SQL_DATABASE_FLAGS_NONE;

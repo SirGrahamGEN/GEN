@@ -6,7 +6,7 @@
 * @brief       eXtended WINDOWS File class
 * @ingroup     PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -65,7 +65,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSFILE::XWINDOWSFILE(): XFILE()
 {
   Clean();
@@ -82,7 +82,7 @@ XWINDOWSFILE::XWINDOWSFILE(): XFILE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSFILE::~XWINDOWSFILE()
 {
   if(isopen) this->Close();
@@ -102,7 +102,7 @@ XWINDOWSFILE::~XWINDOWSFILE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Exist(XCHAR* xpath)
 {
   bool status = ExtendedOpen(xpath, (isreadonly)? XWINDOWSFILEMODE_READONLY: XWINDOWSFILEMODE_READWRITE);
@@ -124,7 +124,7 @@ bool XWINDOWSFILE::Exist(XCHAR* xpath)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Open(XCHAR* xpath, bool isreadonly)
 {
   this->isreadonly = isreadonly;
@@ -145,7 +145,7 @@ bool XWINDOWSFILE::Open(XCHAR* xpath, bool isreadonly)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Create(XCHAR* xpath)
 {
   this->isreadonly = false;
@@ -165,7 +165,7 @@ bool XWINDOWSFILE::Create(XCHAR* xpath)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::SetSize(XQWORD size)
 {
   if(!isopen)                   return false;
@@ -189,7 +189,7 @@ bool XWINDOWSFILE::SetSize(XQWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::GetPosition(XQWORD& position)
 {
   if(!isopen)     return false;
@@ -213,7 +213,7 @@ bool XWINDOWSFILE::GetPosition(XQWORD& position)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::SetPosition(XQWORD position)
 {
   if(!isopen)     return false;
@@ -248,7 +248,7 @@ bool XWINDOWSFILE::SetPosition(XQWORD position)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 {
   if(!isopen)       return false;
@@ -278,7 +278,7 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 {
   if(!isopen)       return false;
@@ -323,7 +323,7 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 {
   if(!isopen)       return false;
@@ -358,7 +358,7 @@ bool XWINDOWSFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Flush()
 {
   if(!isopen)       return false;
@@ -379,7 +379,7 @@ bool XWINDOWSFILE::Flush()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Close()
 {
   if(!isopen)       return false;
@@ -419,7 +419,7 @@ bool XWINDOWSFILE::Close()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Erase(XCHAR* xpath,bool overwrite)
 {
   bool status=true;
@@ -448,7 +448,7 @@ bool XWINDOWSFILE::Erase(XCHAR* xpath,bool overwrite)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 {
   if(!MoveFile(xpathold, xpathnew)) return false;
@@ -468,7 +468,7 @@ bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 *
 * @return     FILE* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 FILE* XWINDOWSFILE::CreateStructHandle()
 {
   if(fp != NULL) return fp;
@@ -505,7 +505,7 @@ FILE* XWINDOWSFILE::CreateStructHandle()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::DeleteStructHandle()
 {  
   if(fp == NULL) return false;
@@ -526,7 +526,7 @@ bool XWINDOWSFILE::DeleteStructHandle()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::ActualizeSize()
 {
   if(!isopen)       return false;
@@ -561,7 +561,7 @@ bool XWINDOWSFILE::ActualizeSize()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XWINDOWSFILEMODE mode)
 {
   if(isopen) Close();
@@ -604,7 +604,7 @@ bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XWINDOWSFILEMODE mode)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSFILE::Clean()
 {
   filehandle  = NULL;

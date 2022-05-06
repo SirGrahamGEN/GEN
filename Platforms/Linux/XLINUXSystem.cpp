@@ -6,7 +6,7 @@
 * @brief      eXtended LINUX System class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -102,7 +102,7 @@ void    unmount_disks_ourselves         ();
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLINUXSYSTEM::XLINUXSYSTEM(): XSYSTEM()
 {
   Clean();
@@ -119,7 +119,7 @@ XLINUXSYSTEM::XLINUXSYSTEM(): XSYSTEM()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLINUXSYSTEM::~XLINUXSYSTEM()
 {
    Clean();
@@ -138,7 +138,7 @@ XLINUXSYSTEM::~XLINUXSYSTEM()
 *
 * @return     XSYSTEM_HARDWARETYPE : hardware type
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSYSTEM_HARDWARETYPE XLINUXSYSTEM::GetTypeHardware(int* revision)
 {
   #define CPUINFOREVISION __L("Revision")
@@ -323,7 +323,7 @@ bool XLINUXSYSTEM::GetOperativeSystemID(XSTRING& ID)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XLINUXSYSTEM::GetLanguageSO()
 {
   XLANGUAGE_ISO_639_3 ISO639;
@@ -358,7 +358,7 @@ XDWORD XLINUXSYSTEM::GetLanguageSO()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 {
   struct sysinfo meminfo;
@@ -393,7 +393,7 @@ bool XLINUXSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSYSTEM::FreeCacheMemory()
 {
   return true;
@@ -411,7 +411,7 @@ bool XLINUXSYSTEM::FreeCacheMemory()
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XLINUXSYSTEM::GetCPUUsageTotal()
 {
   static unsigned int lasttotaluser, lasttotaluserlow, lasttotalsys, lasttotalidle;
@@ -460,7 +460,7 @@ int XLINUXSYSTEM::GetCPUUsageTotal()
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 {  
   XSTRING   params;
@@ -512,7 +512,7 @@ int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 {
   XSTRING   params;
@@ -564,7 +564,7 @@ int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* variablename)
 {
   XSTRING        _variablename = variablename;
@@ -590,7 +590,7 @@ XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* variablename)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 {
   XSTRING _variablename;
@@ -620,7 +620,7 @@ bool XLINUXSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* variablename)
 {
   XSTRING _variablename;
@@ -646,7 +646,7 @@ bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* variablename)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 {
   int	    opt_reboot = 0;
@@ -725,7 +725,7 @@ bool XLINUXSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XLINUXSYSTEM::Sound_GetLevel()
 {
   long _level = 0;
@@ -748,7 +748,7 @@ int XLINUXSYSTEM::Sound_GetLevel()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSYSTEM::Sound_SetLevel(int level)
 {
   long _level = (long)level;
@@ -769,7 +769,7 @@ bool XLINUXSYSTEM::Sound_SetLevel(int level)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSYSTEM::Sound_SetMutex(bool on)
 {
   static long old_level = Sound_GetLevel();
@@ -799,7 +799,7 @@ bool XLINUXSYSTEM::Sound_SetMutex(bool on)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXSYSTEM::Clean()
 {
 
@@ -981,7 +981,7 @@ void unmount_disks_ourselves()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSYSTEM::Sound_SetLevel(bool read, long* level)
 {
   #ifndef ANDROID

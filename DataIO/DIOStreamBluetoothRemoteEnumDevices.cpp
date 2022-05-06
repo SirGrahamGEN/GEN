@@ -6,7 +6,7 @@
 * @brief      
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -52,7 +52,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOSTREAMBLUETOOTHREMOTEENUMDEVICES() : DIOSTREAMENUMDEVICES()
 {
   Clean();
@@ -69,7 +69,7 @@ DIOSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOSTREAMBLUETOOTHREMOTEENUMDEVICES() : DIO
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOSTREAMBLUETOOTHREMOTEENUMDEVICES()
 {
   Clean();
@@ -85,7 +85,7 @@ DIOSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOSTREAMBLUETOOTHREMOTEENUMDEVICES()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 { 
   return false;   
@@ -103,7 +103,7 @@ bool DIOSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)                      
 { 
   return false;   
@@ -119,7 +119,7 @@ bool DIOSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()                                  
 { 
   return false;   
@@ -137,7 +137,7 @@ bool DIOSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHREMOTEENUMDEVICES::IsDeviceAvailable(XCHAR* resource)                   
 { 
   return false;   

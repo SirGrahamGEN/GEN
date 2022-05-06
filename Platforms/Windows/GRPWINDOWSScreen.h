@@ -6,7 +6,7 @@
 * @brief      WINDOWS Graphics Screen class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _GRPWINDOWSSCREEN_H_
 #define _GRPWINDOWSSCREEN_H_
@@ -103,7 +103,7 @@ class GRPWINDOWSSCREEN : public GRPSCREEN
     static XMAP<HWND, GRPWINDOWSSCREEN*>  listscreens;
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

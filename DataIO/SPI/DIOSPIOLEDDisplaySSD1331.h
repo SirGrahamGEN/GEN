@@ -6,7 +6,7 @@
 * @brief      Data Input/Output SPI Display OLED SSD 1331
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSPIOLEDDISPLAYSSD1331_H_
 #define _DIOSPIOLEDDISPLAYSSD1331_H_
@@ -155,7 +155,7 @@ class DIOSPIOLEDDISPLAYSSD1331 : public DIODISPLAYDEVICE, public DIODEVICESPI
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

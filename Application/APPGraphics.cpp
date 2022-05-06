@@ -6,7 +6,7 @@
 * @brief      Application Graphics class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -65,7 +65,6 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPLICATIONAPPCFG::APPGRAPHICS()
@@ -74,12 +73,11 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 APPGRAPHICS::APPGRAPHICS()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -91,12 +89,11 @@ APPGRAPHICS::APPGRAPHICS()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 APPGRAPHICS::~APPGRAPHICS()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -109,7 +106,7 @@ APPGRAPHICS::~APPGRAPHICS()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPGRAPHICS::Ini(XVECTOR<XSTRING*>* execparams)
 {
   RegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATING);
@@ -130,7 +127,6 @@ bool APPGRAPHICS::Ini(XVECTOR<XSTRING*>* execparams)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPGRAPHICS::End()
@@ -139,7 +135,7 @@ bool APPGRAPHICS::Ini(XVECTOR<XSTRING*>* execparams)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPGRAPHICS::End()
 {
   DeleteMainScreenProcess();
@@ -159,54 +155,50 @@ bool APPGRAPHICS::End()
   return status;
 }
 
-
-
- /**-------------------------------------------------------------------------------------------------------------------
- *
- *  @fn         XDWORD APPGRAPHICS::GetInitOptions()
- *  @brief      Get Init Options
- *  @ingroup
- *
- *  ""
- *  ""
- *
- *  @return     XDWORD :
- *
- *---------------------------------------------------------------------------------------------------------------------*/
+ 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD APPGRAPHICS::GetInitOptions()
+* @brief      GetInitOptions
+* @ingroup    APPLICATION
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD APPGRAPHICS::GetInitOptions()
  {
    return initoptions;
  }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void APPGRAPHICS::SetInitOptions(XDWORD initoptions)
-* @brief      Set Init Options
-* @ingroup
-*
-* @param[in]  initoptions :
-*
-* @return     void : does not return anything.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* @brief      SetInitOptions
+* @ingroup    APPLICATION
+* 
+* @param[in]  initoptions : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPGRAPHICS::SetInitOptions(XDWORD initoptions)
 {
   this->initoptions = initoptions;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool APPGRAPHICS::CreateMainScreenProcess()
+* 
+* @fn         bool APPGRAPHICS::CreateMainScreenProcess(bool show)
 * @brief      CreateMainScreenProcess
-* @ingroup
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* @ingroup    APPLICATION
+* 
+* @param[in]  show : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPGRAPHICS::CreateMainScreenProcess(bool show)
 {
   if(mainscreen) return false;
@@ -232,7 +224,6 @@ bool APPGRAPHICS::CreateMainScreenProcess(bool show)
 
   SubscribeEvent(GRPXEVENT_TYPE_SCREEN_DELETING , this);
   SubscribeEvent(GRPXEVENT_TYPE_SCREEN_DELETED  , this);
-
 
   #ifndef ANDROID
 
@@ -305,17 +296,15 @@ bool APPGRAPHICS::CreateMainScreenProcess(bool show)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool APPGRAPHICS::DeleteMainScreenProcess()
 * @brief      DeleteMainScreenProcess
-* @ingroup
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPGRAPHICS::DeleteMainScreenProcess()
 {
   GRPXEVENT grpeventini(this, GRPXEVENT_TYPE_SCREEN_DELETING);
@@ -344,21 +333,19 @@ bool APPGRAPHICS::DeleteMainScreenProcess()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         GRPSCREEN* APPGRAPHICS::GetMainScreen()
-* @brief      Get Main Screen
-* @ingroup
-*
-* @return     GRPSCREEN* : main screen
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* @brief      GetMainScreen
+* @ingroup    APPLICATION
+* 
+* @return     GRPSCREEN* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPSCREEN* APPGRAPHICS::GetMainScreen()
 {
   return mainscreen;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -371,40 +358,38 @@ GRPSCREEN* APPGRAPHICS::GetMainScreen()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPGRAPHICS::SetMainScreen(GRPSCREEN* mainscreen)
 {
   this->mainscreen = mainscreen;
 }
 
 
-
 #ifdef INP_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         INPDEVICE* APPGRAPHICS::GetInputKeyboard()
-* @brief      Get Input Keyboard
-* @ingroup
-*
-* @return     INPDEVICE* : keyboard device;
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* @brief      GetInputKeyboard
+* @ingroup    APPLICATION
+* 
+* @return     INPDEVICE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 INPDEVICE* APPGRAPHICS::GetInputKeyboard()
 {
   return keyboard;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         INPDEVICE* APPGRAPHICS::GetInputMouse()
-* @brief      Get Input Mouse
-* @ingroup
-*
-* @return     INPDEVICE* : device mouse
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* @brief      GetInputMouse
+* @ingroup    APPLICATION
+* 
+* @return     INPDEVICE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 INPDEVICE* APPGRAPHICS::GetInputMouse()
 {
   return mouse;
@@ -414,51 +399,49 @@ INPDEVICE* APPGRAPHICS::GetInputMouse()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool APPGRAPHICS::AppProc_BeforeCreateMainScreen(GRPSCREEN* mainscreen)
-* @brief      Callback Before Create Main Screen
-* @ingroup
-*
-* @param[in]  mainscreen :  instance incomplete of main screen
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* @brief      AppProc_BeforeCreateMainScreen
+* @ingroup    APPLICATION
+* 
+* @param[in]  mainscreen : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPGRAPHICS::AppProc_BeforeCreateMainScreen(GRPSCREEN* mainscreen)
 {
   return true;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool APPGRAPHICS::AppProc_BeforeCreateMainCanvas(GRPSCREEN* maincanvas)
-* @brief      Callback Before Create Main Canvas
-* @ingroup
-*
-* @param[in]  maincanvas : instance incomplete of main canvas
-*
-* @return     bool : true if is succesful.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* 
+* @fn         bool APPGRAPHICS::AppProc_BeforeCreateMainCanvas(GRPCANVAS* maincanvas)
+* @brief      AppProc_BeforeCreateMainCanvas
+* @ingroup    APPLICATION
+* 
+* @param[in]  maincanvas : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPGRAPHICS::AppProc_BeforeCreateMainCanvas(GRPCANVAS* maincanvas)
 {
   return true;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void APPGRAPHICS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @return     void : does not return anything.
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPGRAPHICS::Clean()
 {
   initoptions   = APPGRAPHICS_INIOPTION_NONE;
@@ -471,7 +454,6 @@ void APPGRAPHICS::Clean()
   touchscreen   = NULL;
   #endif
 }
-
 
 
 #endif

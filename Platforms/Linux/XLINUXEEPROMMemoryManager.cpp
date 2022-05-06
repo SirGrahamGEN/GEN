@@ -6,7 +6,7 @@
 * @brief      eXtended Windows EEPROM Memory Manager class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLINUXEEPROMMEMORYMANAGER::XLINUXEEPROMMEMORYMANAGER()
 {
 
@@ -70,7 +70,7 @@ XLINUXEEPROMMEMORYMANAGER::XLINUXEEPROMMEMORYMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLINUXEEPROMMEMORYMANAGER::~XLINUXEEPROMMEMORYMANAGER()
 {
 
@@ -86,7 +86,7 @@ XLINUXEEPROMMEMORYMANAGER::~XLINUXEEPROMMEMORYMANAGER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXEEPROMMEMORYMANAGER::Ini()
 {
   return false;
@@ -102,7 +102,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Ini()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXEEPROMMEMORYMANAGER::End()
 {
   return false;
@@ -121,7 +121,7 @@ bool XLINUXEEPROMMEMORYMANAGER::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 {
   return Read(offset, (XBYTE*)&data, sizeof(XBYTE));
@@ -140,7 +140,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 {
   return Read(offset, (XBYTE*)&data, sizeof(XWORD));
@@ -159,7 +159,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 {
   return Read(offset, (XBYTE*)&data, sizeof(XDWORD));
@@ -179,7 +179,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 {
   return false;
@@ -198,7 +198,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 {
   return Write(offset, (XBYTE*)&data, sizeof(XBYTE));
@@ -217,7 +217,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 {
   return Write(offset, (XBYTE*)&data, sizeof(XWORD));
@@ -236,7 +236,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 {
   return Write(offset,(XBYTE*)&data, sizeof(XDWORD));
@@ -257,7 +257,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 {
   return false;
@@ -272,7 +272,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXEEPROMMEMORYMANAGER::EraseAll()
 {
   return false;

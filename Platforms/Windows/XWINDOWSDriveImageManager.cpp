@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS Drive Image Manager class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -55,7 +55,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDRIVEIMAGEMANAGER::XWINDOWSDRIVEIMAGEMANAGER()
 {
   Clean();
@@ -72,7 +72,7 @@ XWINDOWSDRIVEIMAGEMANAGER::XWINDOWSDRIVEIMAGEMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDRIVEIMAGEMANAGER::~XWINDOWSDRIVEIMAGEMANAGER()
 {
   Clean();
@@ -90,7 +90,7 @@ XWINDOWSDRIVEIMAGEMANAGER::~XWINDOWSDRIVEIMAGEMANAGER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::GetDrives(XVECTOR<XDRIVEIMAGEMANAGER_DRIVE*>& drives)
 {
   drives.DeleteContents();
@@ -150,7 +150,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetDrives(XVECTOR<XDRIVEIMAGEMANAGER_DRIVE*>& dr
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::Open(XDRIVEIMAGEMANAGER_DRIVE& drive)
 {
   HANDLE handlevolume = GetHandleFromVolume(drive.GetVolume(), GENERIC_READ | GENERIC_WRITE);
@@ -197,7 +197,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::Open(XDRIVEIMAGEMANAGER_DRIVE& drive)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::Read(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD startsector, XQWORD numbersectors, XBUFFER& buffer)
 {
   XBYTE* _buffer;
@@ -269,7 +269,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::Read(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD sta
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::Write(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD startsector, XQWORD numbersectors, XBUFFER& buffer)
 {
   XBYTE* _buffer;
@@ -336,7 +336,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::Write(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD st
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::Close(XDRIVEIMAGEMANAGER_DRIVE& drive)
 {
   HANDLE vol_handle = (HANDLE)drive.GetHandle();
@@ -369,7 +369,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::Close(XDRIVEIMAGEMANAGER_DRIVE& drive)
 *
 * @return     HANDLE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 HANDLE XWINDOWSDRIVEIMAGEMANAGER::GetHandleFromDevice(int device, XDWORD access)
 {
   XSTRING devicename;
@@ -391,7 +391,7 @@ HANDLE XWINDOWSDRIVEIMAGEMANAGER::GetHandleFromDevice(int device, XDWORD access)
 *
 * @return     HANDLE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 HANDLE XWINDOWSDRIVEIMAGEMANAGER::GetHandleFromVolume(int volume, XDWORD access)
 {
   XSTRING  volumename;
@@ -413,7 +413,7 @@ HANDLE XWINDOWSDRIVEIMAGEMANAGER::GetHandleFromVolume(int volume, XDWORD access)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::GetDeviceID(HANDLE handlevolume, XDWORD& deviceID)
 {
   VOLUME_DISK_EXTENTS   vol_ext;
@@ -444,7 +444,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetDeviceID(HANDLE handlevolume, XDWORD& deviceI
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::LockVolume(HANDLE handle, bool islock)
 {
   DWORD junk;
@@ -464,7 +464,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::LockVolume(HANDLE handle, bool islock)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::UnMountVolume(HANDLE handle)
 {
   DWORD junk;
@@ -484,7 +484,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::UnMountVolume(HANDLE handle)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::IsVolumeUnmounted(HANDLE handle)
 {
   DWORD junk;
@@ -506,7 +506,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::IsVolumeUnmounted(HANDLE handle)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::GetNumberOfSectors(HANDLE handle, XQWORD& sectorsize, XQWORD& numbersectors)
 {
   DWORD             junk;
@@ -539,7 +539,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetNumberOfSectors(HANDLE handle, XQWORD& sector
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::GetSpaceAvailable(XCHAR* location, XQWORD& spaveavailable)
 {
   ULARGE_INTEGER freespace;
@@ -568,7 +568,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetSpaceAvailable(XCHAR* location, XQWORD& spave
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::GetDriveLabel(XCHAR* location, XSTRING& label)
 {
   bool status;
@@ -593,7 +593,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetDriveLabel(XCHAR* location, XSTRING& label)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::CheckDriveType(XPATH& path, XQWORD& ID)
 {
   bool                              status = false;
@@ -722,7 +722,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::CheckDriveType(XPATH& path, XQWORD& ID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::GetMediaType(HANDLE hdevice)
 {
   DISK_GEOMETRY diskgeometry;
@@ -753,7 +753,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetMediaType(HANDLE hdevice)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::ReadSectorDataFromHandle(HANDLE handle, XQWORD startsector, XQWORD sectorsize, XBYTE* buffer, XQWORD& size)
 {
   LARGE_INTEGER li;
@@ -790,7 +790,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::ReadSectorDataFromHandle(HANDLE handle, XQWORD s
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDRIVEIMAGEMANAGER::WriteSectorDataToHandle(HANDLE handle, XQWORD startsector, XQWORD sectorsize, XBYTE* buffer, XQWORD& size)
 {
   LARGE_INTEGER li;
@@ -822,7 +822,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::WriteSectorDataToHandle(HANDLE handle, XQWORD st
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSDRIVEIMAGEMANAGER::Clean()
 {
   handle = NULL;

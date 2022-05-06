@@ -1,22 +1,37 @@
-
-/*------------------------------------------------------------------------------------------
-//  HASHCKS16.CPP
-//
-//  computes a TCP checksum
-//
-//  Author            : Imanol Celaya Ruiz de Alegria
-//  Date Of Creation  : 17/02/2016 11:34:15
-//  Last Modification :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       HashCKS16.cpp
+* 
+* @class      HASHCKS16
+* @brief      Hash CKS16 class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XBuffer.h"
 #include "XFactory.h"
@@ -25,27 +40,22 @@
 
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  HASHCKS16::HASHCKS16
-*/
-/**
-//
-//  Class Constructor HASHCKS16
-//
-//  ""
-//  @version      17/02/2016 12:00:00
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         HASHCKS16::HASHCKS16()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 HASHCKS16::HASHCKS16() : HASH()
 {
   Clean();
@@ -61,24 +71,19 @@ HASHCKS16::HASHCKS16() : HASH()
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  HASHCKS16::~HASHCKS16
-*/
-/**
-//
-//   Class Destructor HASHCKS16
-//
-//  ""
-//  @version      17/02/2016 11:59:54
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         HASHCKS16::~HASHCKS16()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 HASHCKS16::~HASHCKS16()
 {
-    if(resulttmp)
+  if(resulttmp)
     {
       delete resulttmp;
       resulttmp = NULL;
@@ -88,25 +93,18 @@ HASHCKS16::~HASHCKS16()
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  HASHCKS16::Do
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      17/02/2016 11:59:48
-//
-//  @return       bool :
-//
-//  @param        input :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool HASHCKS16::Do(XBYTE* input, XQWORD size)
+* @brief      Do
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASHCKS16::Do(XBYTE* input, XQWORD size)
 {
   if(!size) return false;
@@ -129,22 +127,15 @@ bool HASHCKS16::Do(XBYTE* input, XQWORD size)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHCKS16::ResetResult
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      17/02/2016 11:59:40
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool HASHCKS16::ResetResult()
+* @brief      ResetResult
+* @ingroup    CIPHER
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASHCKS16::ResetResult()
 {
   HASH::ResetResult();
@@ -158,45 +149,30 @@ bool HASHCKS16::ResetResult()
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  HASHCKS16::GetDefaultSize
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      17/02/2016 11:59:33
-//
-//  @return       int :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int HASHCKS16::GetDefaultSize()
+* @brief      GetDefaultSize
+* @ingroup    CIPHER
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int HASHCKS16::GetDefaultSize()
 {
   return sizeof(XWORD);
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHCKS16::GetResult
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      17/02/2016 11:59:27
-//
-//  @return       XBUFFER* :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBUFFER* HASHCKS16::GetResult()
+* @brief      GetResult
+* @ingroup    CIPHER
+* 
+* @return     XBUFFER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER* HASHCKS16::GetResult()
 {
   GetResultCKS16();
@@ -205,19 +181,17 @@ XBUFFER* HASHCKS16::GetResult()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XBYTE* HASHCKS16::GetResult(XDWORD& resultsize)
 * @brief      GetResult
 * @ingroup    CIPHER
-*
+* 
 * @param[in]  resultsize : 
-*
+* 
 * @return     XBYTE* : 
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* HASHCKS16::GetResult(XDWORD& resultsize)
 {
   GetResultCKS16();
@@ -228,22 +202,15 @@ XBYTE* HASHCKS16::GetResult(XDWORD& resultsize)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHCKS16::GetResultCKS16
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      17/02/2016 11:59:16
-//
-//  @return       XWORD :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XWORD HASHCKS16::GetResultCKS16()
+* @brief      GetResultCKS16
+* @ingroup    CIPHER
+* 
+* @return     XWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD HASHCKS16::GetResultCKS16()
 {
   XWORD value = 0;
@@ -260,41 +227,35 @@ XWORD HASHCKS16::GetResultCKS16()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHCKS16::Ini
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      17/02/2016 11:59:10
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHCKS16::Ini(void)
+* @brief      Ini
+* @ingroup    CIPHER
+* 
+* @param[in]  void : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHCKS16::Ini(void)
 {
+
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHCKS16::Update
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      17/02/2016 11:59:04
-//
-//  @return       XWORD :
-//
-//  @param        CKS16 :
-//  @param        c :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XWORD HASHCKS16::Update(XWORD CKS16, XWORD c)
+* @brief      Update
+* @ingroup    CIPHER
+* 
+* @param[in]  CKS16 : 
+* @param[in]  c : 
+* 
+* @return     XWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD HASHCKS16::Update(XWORD CKS16, XWORD c)
 {
   XDWORD tmp = (XDWORD)CKS16 + (XDWORD)c;
@@ -309,3 +270,18 @@ XWORD HASHCKS16::Update(XWORD CKS16, XWORD c)
   return (XWORD)tmp;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHCKS16::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void HASHCKS16::Clean()
+{
+  resulttmp = NULL;
+}

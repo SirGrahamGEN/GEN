@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C OLED Display SSD1306 class 
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -61,7 +61,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2COLEDDISPLAYSSD1306::DIOI2COLEDDISPLAYSSD1306( XDWORD width, XDWORD height): DIODEVICEI2C()
 {
   Clean();
@@ -83,7 +83,7 @@ DIOI2COLEDDISPLAYSSD1306::DIOI2COLEDDISPLAYSSD1306( XDWORD width, XDWORD height)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2COLEDDISPLAYSSD1306::~DIOI2COLEDDISPLAYSSD1306()
 {
   End();
@@ -103,7 +103,7 @@ DIOI2COLEDDISPLAYSSD1306::~DIOI2COLEDDISPLAYSSD1306()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::SetBuffer(XBYTE* buffer)
 {
   if(!buffer) return false;
@@ -123,7 +123,7 @@ bool DIOI2COLEDDISPLAYSSD1306::SetBuffer(XBYTE* buffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::IniDevice()
 {
   if(!DIODEVICEI2C::IniDevice()) return false;
@@ -196,7 +196,7 @@ bool DIOI2COLEDDISPLAYSSD1306::IniDevice()
  *
  *  @return     bool :
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::Clear(XBYTE color)
 {
   XBYTE nblocks;
@@ -238,7 +238,7 @@ bool DIOI2COLEDDISPLAYSSD1306::Clear(XBYTE color)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::Update(XBYTE* buffer)
 {
   this->buffer = buffer;
@@ -279,7 +279,7 @@ bool DIOI2COLEDDISPLAYSSD1306::Update(XBYTE* buffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::PutPixel(XWORD x, XWORD y, bool color)
 {
   if(!buffer) return false;
@@ -315,7 +315,7 @@ bool DIOI2COLEDDISPLAYSSD1306::PutPixel(XWORD x, XWORD y, bool color)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::End()
 {
   Activate(false);
@@ -337,7 +337,7 @@ bool DIOI2COLEDDISPLAYSSD1306::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::Activate(bool active)
 {
   return SendCommand(active ? DIOI2COLEDDISPLAYSSD1306_COMMAND_DISPLAY_ON:DIOI2COLEDDISPLAYSSD1306_COMMAND_DISPLAY_OFF);
@@ -355,7 +355,7 @@ bool DIOI2COLEDDISPLAYSSD1306::Activate(bool active)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2COLEDDISPLAYSSD1306::SetContrast(XBYTE contrast)
 {
   SendCommand(DIOI2COLEDDISPLAYSSD1306_COMMAND_CONSTRAST_SET);
@@ -372,7 +372,7 @@ void DIOI2COLEDDISPLAYSSD1306::SetContrast(XBYTE contrast)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOI2COLEDDISPLAYSSD1306::GetX()
 {
   return x;
@@ -388,7 +388,7 @@ XBYTE DIOI2COLEDDISPLAYSSD1306::GetX()
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOI2COLEDDISPLAYSSD1306::GetY()
 {
   return y;
@@ -406,7 +406,7 @@ XBYTE DIOI2COLEDDISPLAYSSD1306::GetY()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::SetX(XBYTE x)
 {
   if(x >= width) return false;
@@ -428,7 +428,7 @@ bool DIOI2COLEDDISPLAYSSD1306::SetX(XBYTE x)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::SetY(XBYTE y)
 {
   if(y >= height) return false;
@@ -451,7 +451,7 @@ bool DIOI2COLEDDISPLAYSSD1306::SetY(XBYTE y)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::SetXY(XBYTE x, XBYTE y)
 {
   if(!SetX(x)) return false;
@@ -472,7 +472,7 @@ bool DIOI2COLEDDISPLAYSSD1306::SetXY(XBYTE x, XBYTE y)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::SendCommand(XBYTE command)
 {
   return Send((0<<DIOI2COLEDDISPLAYSSD1306_DC), &command, 1);
@@ -491,7 +491,7 @@ bool DIOI2COLEDDISPLAYSSD1306::SendCommand(XBYTE command)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::SendData(XBYTE* data, int size)
 {
   return Send((1<<DIOI2COLEDDISPLAYSSD1306_DC), data, size);
@@ -511,7 +511,7 @@ bool DIOI2COLEDDISPLAYSSD1306::SendData(XBYTE* data, int size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2COLEDDISPLAYSSD1306::Send(XBYTE control, XBYTE* data, int sizedata)
 {
   XBUFFER xbuffer;
@@ -538,7 +538,7 @@ bool DIOI2COLEDDISPLAYSSD1306::Send(XBYTE control, XBYTE* data, int sizedata)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2COLEDDISPLAYSSD1306::Clean()
 {
   x             = 0;

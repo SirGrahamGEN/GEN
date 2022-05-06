@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Config String class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -52,7 +52,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIGSTRING::DIOSTREAMCONFIGSTRING()
 {
   Clean();
@@ -69,7 +69,7 @@ DIOSTREAMCONFIGSTRING::DIOSTREAMCONFIGSTRING()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIGSTRING::~DIOSTREAMCONFIGSTRING()
 {
   Clean();
@@ -89,7 +89,7 @@ DIOSTREAMCONFIGSTRING::~DIOSTREAMCONFIGSTRING()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMCONFIGSTRING::GetToString(XSTRING* string)
 {
   if(!string)     return false;
@@ -111,7 +111,7 @@ bool DIOSTREAMCONFIGSTRING::GetToString(XSTRING* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMCONFIGSTRING::GetToString(XSTRING& string)
 {
   return GetToString(&string);
@@ -129,7 +129,7 @@ bool DIOSTREAMCONFIGSTRING::GetToString(XSTRING& string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMCONFIGSTRING::SetFromString(XCHAR* string)
 {
   if(!string) return false;
@@ -209,7 +209,7 @@ bool DIOSTREAMCONFIGSTRING::SetFromString(XCHAR* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMCONFIGSTRING::SetFromString(XSTRING* string)
 {
   if(!string) return false;
@@ -229,7 +229,7 @@ bool DIOSTREAMCONFIGSTRING::SetFromString(XSTRING* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMCONFIGSTRING::SetFromString(XSTRING& string, bool addslash)
 {
   return SetFromString(&string);
@@ -247,7 +247,7 @@ bool DIOSTREAMCONFIGSTRING::SetFromString(XSTRING& string, bool addslash)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIGSTRING::Clean()
 {
   remoteport = 0;

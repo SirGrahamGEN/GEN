@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS System class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -96,7 +96,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM_CPUUSAGESTATUS::XWINDOWSSYSTEM_CPUUSAGESTATUS()
 
 {
@@ -114,7 +114,7 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS::XWINDOWSSYSTEM_CPUUSAGESTATUS()
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM_CPUUSAGESTATUS::~XWINDOWSSYSTEM_CPUUSAGESTATUS()
 {
   Clean();
@@ -131,7 +131,7 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS::~XWINDOWSSYSTEM_CPUUSAGESTATUS()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSYSTEM_CPUUSAGESTATUS::Clean()
 {
   processname.Empty();		
@@ -161,7 +161,7 @@ void XWINDOWSSYSTEM_CPUUSAGESTATUS::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM::XWINDOWSSYSTEM() : XSYSTEM()
 {
   Clean();
@@ -178,7 +178,7 @@ XWINDOWSSYSTEM::XWINDOWSSYSTEM() : XSYSTEM()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM::~XWINDOWSSYSTEM()
 {
   DeleteAllCPUUsageStatus();
@@ -198,7 +198,7 @@ XWINDOWSSYSTEM::~XWINDOWSSYSTEM()
 *
 * @return     XSYSTEM_HARDWARETYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSYSTEM_HARDWARETYPE XWINDOWSSYSTEM::GetTypeHardware(int* revision)
 {
   if(revision) (*revision) = -1;
@@ -216,7 +216,7 @@ XSYSTEM_HARDWARETYPE XWINDOWSSYSTEM::GetTypeHardware(int* revision)
 *
 * @return     XSYSTEM_SO : type of SO (enum XSYSTEM_SO)
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 XSYSTEM_SO XWINDOWSSYSTEM::GetTypeSO()
 {
@@ -402,7 +402,7 @@ bool XWINDOWSSYSTEM::GetOperativeSystemID(XSTRING& ID)
 *
 * @return     XLANGUAGE_CODE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XWINDOWSSYSTEM::GetLanguageSO()
 {
   XLANGUAGE_ISO_639_3 ISO639;
@@ -428,7 +428,7 @@ XDWORD XWINDOWSSYSTEM::GetLanguageSO()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XWINDOWSSYSTEM::GetSerialNumber()
 {
   #ifndef BUILDER
@@ -453,7 +453,7 @@ XSTRING* XWINDOWSSYSTEM::GetSerialNumber()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 {
   MEMORYSTATUS mem;
@@ -476,7 +476,7 @@ bool XWINDOWSSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSSYSTEM::GetCPUUsageTotal()
 {
   int				                              cpuusage            = 0;
@@ -543,7 +543,7 @@ int XWINDOWSSYSTEM::GetCPUUsageTotal()
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 {
   int				       cpuusage = 0;
@@ -600,7 +600,7 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 { int				                              cpuusage            = 0;
 
@@ -660,7 +660,7 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* XWINDOWSSYSTEM::GetEnviromentVariable(XCHAR* variablename)
 {
   return (XCHAR*)_wgetenv((const wchar_t *)variablename);
@@ -679,7 +679,7 @@ XCHAR* XWINDOWSSYSTEM::GetEnviromentVariable(XCHAR* variablename)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 {
   XSTRING                 all;
@@ -728,7 +728,7 @@ bool XWINDOWSSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::DelEnviromentVariable(XCHAR* variablename)
 {
   XSTRING                 all;
@@ -774,7 +774,7 @@ bool XWINDOWSSYSTEM::DelEnviromentVariable(XCHAR* variablename)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
 {
   HANDLE        htoken   = NULL;
@@ -851,7 +851,7 @@ bool XWINDOWSSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 {
   if(type == XSYSTEM_CHANGESTATUSTYPE_UNKNOWN) return false;
@@ -904,7 +904,7 @@ bool XWINDOWSSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSSYSTEM::Sound_GetLevel()
 {
   float                   currentvolume     = 0.0f;
@@ -969,7 +969,7 @@ int XWINDOWSSYSTEM::Sound_GetLevel()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::Sound_SetLevel(int level)
 {
   bool                    status            = false;
@@ -1038,7 +1038,7 @@ bool XWINDOWSSYSTEM::Sound_SetLevel(int level)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::Sound_SetMutex(bool on)
 {
   bool                    status            = false;
@@ -1147,7 +1147,7 @@ bool XWINDOWSSYSTEM::GetBatteryLevel(bool& isincharge, XBYTE& levelpercent)
 *
 * @return     XWINDOWSSYSTEM_CPUUSAGESTATUS* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XCHAR* processname)
 {
   XWINDOWSSYSTEM_CPUUSAGESTATUS* cus = GetCPUUsageStatus(processname);
@@ -1175,7 +1175,7 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XCHAR* processn
 *
 * @return     XWINDOWSSYSTEM_CPUUSAGESTATUS* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XCHAR* processname)
 {
   if(cpuusagestatus.IsEmpty()) return NULL;
@@ -1204,7 +1204,7 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XCHAR* processn
 *
 * @return     XWINDOWSSYSTEM_CPUUSAGESTATUS* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XDWORD processID)
 {
   XWINDOWSSYSTEM_CPUUSAGESTATUS* cus = GetCPUUsageStatus(processID);
@@ -1232,7 +1232,7 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XDWORD processI
 *
 * @return     XWINDOWSSYSTEM_CPUUSAGESTATUS* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XDWORD processID)
 {
   if(cpuusagestatus.IsEmpty()) return NULL;
@@ -1259,7 +1259,7 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XDWORD processI
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::DeleteAllCPUUsageStatus()
 {
   if(cpuusagestatus.IsEmpty()) return false;
@@ -1280,7 +1280,7 @@ bool XWINDOWSSYSTEM::DeleteAllCPUUsageStatus()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSYSTEM::Clean()
 {
 

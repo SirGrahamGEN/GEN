@@ -6,7 +6,7 @@
 * @brief      Data Input/Output  Protocol Connections Manager eXtended Event class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT_H_
 #define _DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT_H_
@@ -91,7 +91,7 @@ class DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT : public XEVENT
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

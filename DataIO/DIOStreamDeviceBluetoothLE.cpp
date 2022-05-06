@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Device Bluetooth LE class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -57,7 +57,7 @@
 *
 * @return     DIOSTREAMDEVICEBLUETOOTHLE:: :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEBLUETOOTHLE:: DIOSTREAMDEVICEBLUETOOTHLE()
 {
   Clean();
@@ -75,7 +75,7 @@ DIOSTREAMDEVICEBLUETOOTHLE:: DIOSTREAMDEVICEBLUETOOTHLE()
 *
 * @return     DIOSTREAMDEVICEBLUETOOTHLE::~ :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEBLUETOOTHLE::~ DIOSTREAMDEVICEBLUETOOTHLE()
 {
 
@@ -98,7 +98,7 @@ DIOSTREAMDEVICEBLUETOOTHLE::~ DIOSTREAMDEVICEBLUETOOTHLE()
 *
 * @return     XBUFFER* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER* DIOSTREAMDEVICEBLUETOOTHLE::GetAdvertisingData()
 {
   return &advertisingdata;
@@ -114,7 +114,7 @@ XBUFFER* DIOSTREAMDEVICEBLUETOOTHLE::GetAdvertisingData()
 *
 * @return     XTIMER* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTIMER* DIOSTREAMDEVICEBLUETOOTHLE::GetLastScanTimer()
 {
   return lastscantimer;
@@ -130,7 +130,7 @@ XTIMER* DIOSTREAMDEVICEBLUETOOTHLE::GetLastScanTimer()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMDEVICEBLUETOOTHLE::IsReadLastScan()
 {
   return isreadlastscan;
@@ -148,7 +148,7 @@ bool DIOSTREAMDEVICEBLUETOOTHLE::IsReadLastScan()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEBLUETOOTHLE::SetIsReadLastScan(bool isreadlastscan)
 {
   this->isreadlastscan = isreadlastscan;
@@ -165,7 +165,7 @@ void DIOSTREAMDEVICEBLUETOOTHLE::SetIsReadLastScan(bool isreadlastscan)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMDEVICEBLUETOOTHLE::DebugPrintInfo()
 {
   DIOSTREAMDEVICE::DebugPrintInfo();
@@ -192,7 +192,7 @@ bool DIOSTREAMDEVICEBLUETOOTHLE::DebugPrintInfo()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEBLUETOOTHLE::Clean()
 {
   type            = DIOSTREAMDEVICE_TYPE_BLUETOOTHLE;

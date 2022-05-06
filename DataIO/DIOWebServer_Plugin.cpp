@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Server Pluging class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGIN::DIOWEBSERVER_PLUGIN()
 {
   Clean();
@@ -70,7 +70,7 @@ DIOWEBSERVER_PLUGIN::DIOWEBSERVER_PLUGIN()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGIN::~DIOWEBSERVER_PLUGIN()
 {
   PageExtension_DeleteAll();
@@ -88,7 +88,7 @@ DIOWEBSERVER_PLUGIN::~DIOWEBSERVER_PLUGIN()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_PLUGIN::GetName()
 {
   return &name;
@@ -106,7 +106,7 @@ XSTRING* DIOWEBSERVER_PLUGIN::GetName()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XCHAR* ext)
 {
   XSTRING* _ext = new XSTRING();
@@ -131,7 +131,7 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XCHAR* ext)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XSTRING& ext)
 {
   return PageExtension_Add(ext.Get());
@@ -150,7 +150,7 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XSTRING& ext)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_PLUGIN::PageExtension_Get(int index)
 {
   return pageextensions.Get(index);
@@ -168,7 +168,7 @@ XSTRING* DIOWEBSERVER_PLUGIN::PageExtension_Get(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XCHAR* ext)
 {
   if(pageextensions.IsEmpty()) return false;
@@ -196,7 +196,7 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XCHAR* ext)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XSTRING& ext)
 {
   return PageExtension_IsContent(ext.Get());
@@ -212,7 +212,7 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XSTRING& ext)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGIN::PageExtension_DeleteAll()
 {
   if(pageextensions.IsEmpty()) return false;
@@ -239,7 +239,7 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_DeleteAll()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGIN::ResolvedPageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
 {
   return false;
@@ -259,7 +259,7 @@ bool DIOWEBSERVER_PLUGIN::ResolvedPageExtension(XPATH& pathfile, DIOWEBSERVER_RE
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGIN::SeparedResult(XSTRING& result, XSTRING& head, XSTRING& data)
 {
   XSTRING lineend;
@@ -292,7 +292,7 @@ bool DIOWEBSERVER_PLUGIN::SeparedResult(XSTRING& result, XSTRING& head, XSTRING&
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_PLUGIN::Clean()
 {
   name    = __L("Undefined");

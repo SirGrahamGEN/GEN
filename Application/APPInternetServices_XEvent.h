@@ -6,7 +6,7 @@
 * @brief      Application Internet Services eXtended Event class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,8 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
-
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _APPINTERNETSERVICES_XEVENT_H_
 #define _APPINTERNETSERVICES_XEVENT_H_
@@ -35,9 +34,7 @@
 #include "XEvent.h"
 #include "XSubject.h"
 
-
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
-
 
 enum APPINTERNETSERVICES_XEVENT_TYPE
 {
@@ -57,13 +54,11 @@ enum APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE
   APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_RESTORE                                                     ,        
 };
 
-
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XTIMER;
 class XPUBLISHER;
 class DIOCHECKTCPIPCONNECTION_CUT;
-
 
 class APPINTERNETSERVICES_XEVENT : public XEVENT
 {
@@ -94,11 +89,7 @@ class APPINTERNETSERVICES_XEVENT : public XEVENT
     XSTRING                                             changeIP;     
 };
 
-
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
-
-
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-
 

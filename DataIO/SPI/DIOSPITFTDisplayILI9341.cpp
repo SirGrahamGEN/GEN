@@ -6,7 +6,7 @@
 * @brief      Data Input/Output SPI Display TFT ILI9341 (Ilitek)
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -57,7 +57,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSPITFTDISPLAYILI9341::DIOSPITFTDISPLAYILI9341()
 {
   Clean();
@@ -74,7 +74,7 @@ DIOSPITFTDISPLAYILI9341::DIOSPITFTDISPLAYILI9341()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSPITFTDISPLAYILI9341::~DIOSPITFTDISPLAYILI9341()
 {
   End();
@@ -92,7 +92,7 @@ DIOSPITFTDISPLAYILI9341::~DIOSPITFTDISPLAYILI9341()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYILI9341::IniDevice()
 {
   if(!DIODEVICESPI::IniDevice()) return false;
@@ -147,7 +147,7 @@ bool DIOSPITFTDISPLAYILI9341::IniDevice()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYILI9341::Clear(XWORD color)
 {
   int size = (GetSizeBuffer() / sizeof(XWORD));
@@ -179,7 +179,7 @@ bool DIOSPITFTDISPLAYILI9341::Clear(XWORD color)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYILI9341::Update(XBYTE* buffer)
 {
   if(!IsInitialized()) return false;
@@ -207,7 +207,7 @@ bool DIOSPITFTDISPLAYILI9341::Update(XBYTE* buffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYILI9341::PutPixel(XWORD x, XWORD y, XWORD color)
 {
   if(!IsInitialized()) return false;
@@ -232,7 +232,7 @@ bool DIOSPITFTDISPLAYILI9341::PutPixel(XWORD x, XWORD y, XWORD color)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYILI9341::End()
 {
   Clear();
@@ -252,7 +252,7 @@ bool DIOSPITFTDISPLAYILI9341::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYILI9341::TFT_Init()
 {
   DIOSPITFTDISPLAYILI9341_DCHIGH;
@@ -351,7 +351,7 @@ bool DIOSPITFTDISPLAYILI9341::TFT_Init()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYILI9341::TFT_Reset()
 {
   if(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_RESET) == DIOGPIO_ID_NOTDEFINED) return false;
@@ -378,7 +378,7 @@ bool DIOSPITFTDISPLAYILI9341::TFT_Reset()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYILI9341::TFT_RotateRGB(int rotate, XBYTE bgr)
 {
   #define MEM_Y   (7) /* MY row address order */
@@ -417,7 +417,7 @@ bool DIOSPITFTDISPLAYILI9341::TFT_RotateRGB(int rotate, XBYTE bgr)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYILI9341::TFT_SetWindow(int xs, int ys, int xe, int ye)
 {
   bool status;
@@ -443,7 +443,7 @@ bool DIOSPITFTDISPLAYILI9341::TFT_SetWindow(int xs, int ys, int xe, int ye)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYILI9341::SendCommand(XBYTE command)
 {
   bool status;
@@ -466,7 +466,7 @@ bool DIOSPITFTDISPLAYILI9341::SendCommand(XBYTE command)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYILI9341::SendData()
 {
   bool status;
@@ -495,7 +495,7 @@ bool DIOSPITFTDISPLAYILI9341::SendData()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYILI9341::WriteRegister(XBYTE reg, int ndata, ...)
 {
   va_list arg;
@@ -530,7 +530,7 @@ bool DIOSPITFTDISPLAYILI9341::WriteRegister(XBYTE reg, int ndata, ...)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPITFTDISPLAYILI9341::Clean()
 {
  

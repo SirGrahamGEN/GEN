@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Config class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -51,7 +51,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIG::DIOSTREAMCONFIG()
 {
   Clean();
@@ -68,7 +68,7 @@ DIOSTREAMCONFIG::DIOSTREAMCONFIG()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIG::~DIOSTREAMCONFIG()
 {
   Clean();
@@ -84,7 +84,7 @@ DIOSTREAMCONFIG::~DIOSTREAMCONFIG()
 *
 * @return     DIOSTREAMTYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTYPE DIOSTREAMCONFIG::GetType()
 {
   return type;
@@ -101,7 +101,7 @@ DIOSTREAMTYPE DIOSTREAMCONFIG::GetType()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIG::SetType(DIOSTREAMTYPE type)
 {
   this->type = type;
@@ -117,7 +117,7 @@ void DIOSTREAMCONFIG::SetType(DIOSTREAMTYPE type)
 *
 * @return     DIOSTREAMMODE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMMODE DIOSTREAMCONFIG::GetMode()
 {
   return mode;
@@ -135,7 +135,7 @@ DIOSTREAMMODE DIOSTREAMCONFIG::GetMode()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIG::SetMode(DIOSTREAMMODE mode)
 {
   this->mode = mode;
@@ -151,7 +151,7 @@ void DIOSTREAMCONFIG::SetMode(DIOSTREAMMODE mode)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMCONFIG::IsServer()
 {
   if(mode == DIOSTREAMMODE_SERVER) return true;
@@ -170,7 +170,7 @@ bool DIOSTREAMCONFIG::IsServer()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMCONFIG::GetSizeBufferSO()
 {
   return sizebufferSO;
@@ -188,7 +188,7 @@ XDWORD DIOSTREAMCONFIG::GetSizeBufferSO()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIG::SetSizeBufferSO(XDWORD sizebufferSO)
 {
   this->sizebufferSO = sizebufferSO;
@@ -204,7 +204,7 @@ void DIOSTREAMCONFIG::SetSizeBufferSO(XDWORD sizebufferSO)
 *
 * @return     XTHREADPRIORITY :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADPRIORITY DIOSTREAMCONFIG::GetThreadPriority()
 {
   return threadpriority;
@@ -222,7 +222,7 @@ XTHREADPRIORITY DIOSTREAMCONFIG::GetThreadPriority()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIG::SetThreadPriority(XTHREADPRIORITY threadpriority)
 {
   this->threadpriority =  threadpriority;
@@ -238,7 +238,7 @@ void DIOSTREAMCONFIG::SetThreadPriority(XTHREADPRIORITY threadpriority)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMCONFIG::GetThreadWaitYield()
 {
   return threadwaityield;
@@ -256,7 +256,7 @@ XDWORD DIOSTREAMCONFIG::GetThreadWaitYield()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIG::SetThreadWaitYield(XDWORD threadwaityield)
 {
   this->threadwaityield =  threadwaityield;
@@ -274,7 +274,7 @@ void DIOSTREAMCONFIG::SetThreadWaitYield(XDWORD threadwaityield)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIG::Clean()
 {
   type                    = DIOSTREAMTYPE_UNKNOWN;

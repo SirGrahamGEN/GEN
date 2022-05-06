@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C Touch Sensor AT42QT1060 class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -230,7 +230,7 @@ XBYTE DIOI2CTOUCHSENSORAT42QT1060::GetStatus()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTOUCHSENSORAT42QT1060::End()
 {
   if(!DIODEVICE::End()) return false;
@@ -249,7 +249,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTOUCHSENSORAT42QT1060::IniDevice()
 {
   if(!DIODEVICEI2C::IniDevice()) return false;

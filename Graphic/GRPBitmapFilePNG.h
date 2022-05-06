@@ -6,7 +6,7 @@
 * @brief      Graphic bitmap file PNG format (PNG: Portable Network Graphics) class
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _GRPBITMAPFILEPNG_H_
 #define _GRPBITMAPFILEPNG_H_
@@ -81,7 +81,7 @@ class GRPBITMAPFILEPNG : public GRPBITMAPFILEBASE
     XDWORD                      bufferdatasize;
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

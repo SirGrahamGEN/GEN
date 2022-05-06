@@ -6,7 +6,7 @@
 * @brief      Sound OpenAL factory class
 * @ingroup    PLATFORM_COMMON
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _SNDFACTORY_OPENAL_H_
 #define _SNDFACTORY_OPENAL_H_
@@ -120,7 +120,7 @@ class SNDFACTORY_OPENAL : public SNDFACTORY
 
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

@@ -6,7 +6,7 @@
 * @brief      ANDROID input device mouse class
 * @ingroup    PLATFORM_ANDROID
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPANDROIDDEVICEMOUSE::INPANDROIDDEVICEMOUSE(GRPANDROIDSCREEN* grpscreen)
 {
   Clean();
@@ -83,7 +83,7 @@ INPANDROIDDEVICEMOUSE::INPANDROIDDEVICEMOUSE(GRPANDROIDSCREEN* grpscreen)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPANDROIDDEVICEMOUSE::~INPANDROIDDEVICEMOUSE()
 {
   DeleteAllButtons();
@@ -105,7 +105,7 @@ INPANDROIDDEVICEMOUSE::~INPANDROIDDEVICEMOUSE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPANDROIDDEVICEMOUSE::Update()
 {
   if(!IsEnabled()) return false;
@@ -131,7 +131,7 @@ bool INPANDROIDDEVICEMOUSE::Update()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPANDROIDDEVICEMOUSE::SetScreen(void* screenpointer)
 {
   grpscreen = static_cast<GRPANDROIDSCREEN*>(screenpointer);
@@ -194,7 +194,7 @@ bool INPANDROIDDEVICEMOUSE::AddPosition(int index, float x, float y, bool ispres
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPANDROIDDEVICEMOUSE::Clean()
 {
   grpscreen = NULL;
@@ -210,7 +210,7 @@ void INPANDROIDDEVICEMOUSE::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPANDROIDDEVICEMOUSE::CreateAllButtons()
 {
   INPBUTTON::CreateButton( &buttons, 0  , INPBUTTON_ID_MOUSE_LEFT   , __C('\x0'));

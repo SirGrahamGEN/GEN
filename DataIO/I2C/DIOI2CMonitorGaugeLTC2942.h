@@ -6,7 +6,7 @@
 * @brief      Data Input\Output I2C Monitor Gauge LTC2942 
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2CMONITORGAUGELTC2942_H_
 #define _DIOI2CMONITORGAUGELTC2942_H_
@@ -169,7 +169,7 @@ class DIOI2CMONITORGAUGELTC2942: public DIODEVICEI2C
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

@@ -6,7 +6,7 @@
 * @brief      eXtended Multi-Precision Integer class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -68,7 +68,7 @@ static const int SmallPrime[] = {   3,    5,    7,   11,   13,   17,   19,   23,
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XMPINTEGER::XMPINTEGER()
 {
   Clean();
@@ -86,7 +86,7 @@ XMPINTEGER::XMPINTEGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XMPINTEGER::~XMPINTEGER()
 {
   End();
@@ -103,7 +103,7 @@ XMPINTEGER::~XMPINTEGER()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::GetSign()
 {
   return sign;
@@ -119,7 +119,7 @@ int XMPINTEGER::GetSign()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XMPINTEGER::GetNLimbs()
 {
   return nlimbs;
@@ -135,7 +135,7 @@ XDWORD XMPINTEGER::GetNLimbs()
 *
 * @return     XLIMB* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLIMB* XMPINTEGER::GetLimbs()
 {
   return limbs;
@@ -153,7 +153,7 @@ XLIMB* XMPINTEGER::GetLimbs()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::SetSign(int sign)
 {
   this->sign   = sign;
@@ -171,7 +171,7 @@ void XMPINTEGER::SetSign(int sign)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::SetNLimbs(XDWORD nlimbs)
 {
   this->nlimbs = nlimbs;
@@ -189,7 +189,7 @@ void XMPINTEGER::SetNLimbs(XDWORD nlimbs)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::SetLimbs(XLIMB* limbs)
 {
   this->limbs = limbs;
@@ -205,7 +205,7 @@ void XMPINTEGER::SetLimbs(XLIMB* limbs)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::Ini()
 {
   sign    = 1;
@@ -227,7 +227,7 @@ bool XMPINTEGER::Ini()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::Grow(XDWORD nblimbs)
 {
   XLIMB* newlimbs;
@@ -267,7 +267,7 @@ bool XMPINTEGER::Grow(XDWORD nblimbs)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::Shrink(XDWORD nblimbs)
 {
   XLIMB*  newlimbs;
@@ -315,7 +315,7 @@ bool XMPINTEGER::Shrink(XDWORD nblimbs)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::CopyFrom(XMPINTEGER* xmpinteger)
 {
   XDWORD c;
@@ -357,7 +357,7 @@ bool XMPINTEGER::CopyFrom(XMPINTEGER* xmpinteger)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::Swap(XMPINTEGER* xmpinteger)
 {
   XMPINTEGER xmpitempo;
@@ -383,7 +383,7 @@ void XMPINTEGER::Swap(XMPINTEGER* xmpinteger)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::LeftSet(int z)
 {
   if(!Grow(1)) return false;
@@ -408,7 +408,7 @@ bool XMPINTEGER::LeftSet(int z)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::GetBit(XDWORD position)
 {
   if(nlimbs * XMPINTEGER_BITSINLIMB <= position) return 0;
@@ -429,7 +429,7 @@ int XMPINTEGER::GetBit(XDWORD position)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::SetBit(XDWORD position, XBYTE value)
 {
   XDWORD off = position / XMPINTEGER_BITSINLIMB;
@@ -460,7 +460,7 @@ bool XMPINTEGER::SetBit(XDWORD position, XBYTE value)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::GetLSB()
 {
   XDWORD i;
@@ -488,7 +488,7 @@ int XMPINTEGER::GetLSB()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::GetMSB()
 {
   XDWORD i;
@@ -517,7 +517,7 @@ int XMPINTEGER::GetMSB()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XMPINTEGER::GetSize()
 {
   return ((GetMSB()+7) >> 3);
@@ -536,7 +536,7 @@ XDWORD XMPINTEGER::GetSize()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::ImportFromBinary(XBYTE* buffer, XDWORD size)
 {
   XDWORD i;
@@ -575,7 +575,7 @@ int XMPINTEGER::ImportFromBinary(XBYTE* buffer, XDWORD size)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::ExportToBinary(XBYTE* buffer, XDWORD size)
 {
   XDWORD i;
@@ -608,7 +608,7 @@ int XMPINTEGER::ExportToBinary(XBYTE* buffer, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::LeftShift(XDWORD count)
 {
   XDWORD i;
@@ -669,7 +669,7 @@ bool XMPINTEGER::LeftShift(XDWORD count)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::RightShift(XDWORD count)
 {
   XDWORD i;
@@ -725,7 +725,7 @@ bool XMPINTEGER::RightShift(XDWORD count)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::CompareABSValues(XMPINTEGER& xmpinteger)
 {
   XDWORD i;
@@ -767,7 +767,7 @@ int XMPINTEGER::CompareABSValues(XMPINTEGER& xmpinteger)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::CompareSignedValues(XMPINTEGER& xmpinteger)
 {
   XDWORD i;
@@ -812,7 +812,7 @@ int XMPINTEGER::CompareSignedValues(XMPINTEGER& xmpinteger)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::CompareSignedValues(int integer)
 {
  XMPINTEGER xmpinteger;
@@ -842,7 +842,7 @@ int XMPINTEGER::CompareSignedValues(int integer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::AdditionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
 {
   int    i;
@@ -911,7 +911,7 @@ bool XMPINTEGER::AdditionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::SubtractionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
 {
   XMPINTEGER  tb;
@@ -957,7 +957,7 @@ bool XMPINTEGER::SubtractionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
 {
   int tempsign = xmpinteger1->GetSign();
@@ -997,7 +997,7 @@ bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
 {
   int tempsign = xmpinteger1->GetSign();
@@ -1037,7 +1037,7 @@ bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteg
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger, int integer)
 {
   XMPINTEGER _xmpinteger2;
@@ -1065,7 +1065,7 @@ bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger, int integer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger, int integer)
 {
   XMPINTEGER  _xmpinteger2;
@@ -1093,7 +1093,7 @@ bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger, int integer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::Multiplication(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
 {
   int         i;
@@ -1156,7 +1156,7 @@ bool XMPINTEGER::Multiplication(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::Multiplication(XMPINTEGER* xmpinteger, int integer)
 {
   XMPINTEGER _xmpinteger;
@@ -1185,7 +1185,7 @@ bool XMPINTEGER::Multiplication(XMPINTEGER* xmpinteger, int integer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::Division(XMPINTEGER* xmpintegerQ, XMPINTEGER* xmpintegerR, XMPINTEGER* xmpintegerA, XMPINTEGER* xmpintegerB)
 {
   int i;
@@ -1351,7 +1351,7 @@ bool XMPINTEGER::Division(XMPINTEGER* xmpintegerQ, XMPINTEGER* xmpintegerR, XMPI
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::Division(XMPINTEGER* xmpintegerQ, XMPINTEGER* xmpintegerR, XMPINTEGER* xmpintegerA, int integerb)
 {
   XMPINTEGER _B;
@@ -1379,7 +1379,7 @@ bool XMPINTEGER::Division(XMPINTEGER* xmpintegerQ, XMPINTEGER* xmpintegerR, XMPI
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::Module(XMPINTEGER* xmpintegerR, XMPINTEGER* xmpintegerA, XMPINTEGER* xmpintegerB)
 {
   if(xmpintegerB->CompareSignedValues(0) < 0) return false;
@@ -1413,7 +1413,7 @@ bool XMPINTEGER::Module(XMPINTEGER* xmpintegerR, XMPINTEGER* xmpintegerA, XMPINT
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::Module(XLIMB* r, XMPINTEGER* xmpintegerA, int integerb)
 {
   XLIMB  x, y, z;
@@ -1472,7 +1472,7 @@ bool XMPINTEGER::Module(XLIMB* r, XMPINTEGER* xmpintegerA, int integerb)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::MontgomeryIni(XLIMB *mm, XMPINTEGER* N)
 {
   XLIMB x;
@@ -1506,7 +1506,7 @@ void XMPINTEGER::MontgomeryIni(XLIMB *mm, XMPINTEGER* N)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::MontgomeryMultiplication(XMPINTEGER* A, XMPINTEGER* B, XMPINTEGER* N, XLIMB mm, XMPINTEGER* T)
 {
   XLIMB   u0, u1, *d;
@@ -1554,7 +1554,7 @@ void XMPINTEGER::MontgomeryMultiplication(XMPINTEGER* A, XMPINTEGER* B, XMPINTEG
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::MontgomeryReduction(XMPINTEGER* A, XMPINTEGER* N, XLIMB mm, XMPINTEGER* T)
 {
   XLIMB*     z = new XLIMB();
@@ -1584,7 +1584,7 @@ void XMPINTEGER::MontgomeryReduction(XMPINTEGER* A, XMPINTEGER* N, XLIMB mm, XMP
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::SlidingWindowExponentiation(XMPINTEGER* A, XMPINTEGER* E, XMPINTEGER* N, XMPINTEGER* _RR)
 {
   XDWORD      wbits, wsize, one = 1;
@@ -1786,7 +1786,7 @@ bool XMPINTEGER::SlidingWindowExponentiation(XMPINTEGER* A, XMPINTEGER* E, XMPIN
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::GreatestCommonDivisor(XMPINTEGER* G, XMPINTEGER* A, XMPINTEGER* B)
 {
   XDWORD      lz;
@@ -1854,7 +1854,7 @@ bool XMPINTEGER::GreatestCommonDivisor(XMPINTEGER* G, XMPINTEGER* A, XMPINTEGER*
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::FillRandom(XDWORD size, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 {
   if(!Grow(XMPINTEGER_CHARSTOLIMBS(size))) return false;
@@ -1879,7 +1879,7 @@ int XMPINTEGER::FillRandom(XDWORD size, XMPINTEGER_FUNCRANDOM funcrandom, void* 
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::ModularInverse(XMPINTEGER* A, XMPINTEGER* N)
 {
   XMPINTEGER G;
@@ -1996,7 +1996,7 @@ int XMPINTEGER::ModularInverse(XMPINTEGER* A, XMPINTEGER* N)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::CheckSmallFactors()
 {
   XDWORD r;
@@ -2031,7 +2031,7 @@ int XMPINTEGER::CheckSmallFactors()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::MillerRabin(XMPINTEGER* X, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 {
   XMPINTEGER  W;
@@ -2125,7 +2125,7 @@ bool XMPINTEGER::MillerRabin(XMPINTEGER* X, XMPINTEGER_FUNCRANDOM funcrandom, vo
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XMPINTEGER::IsPrime(XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 {
  XMPINTEGER XX;
@@ -2165,7 +2165,7 @@ int XMPINTEGER::IsPrime(XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::GeneratePrime(int nbits, int dhflag, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 {
   int        k;
@@ -2262,7 +2262,7 @@ bool XMPINTEGER::GeneratePrime(int nbits, int dhflag, XMPINTEGER_FUNCRANDOM func
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::SetFromString(int radix, XCHAR* string)
 {
   int        i;
@@ -2346,7 +2346,7 @@ bool XMPINTEGER::SetFromString(int radix, XCHAR* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::SetFromString(int radix, XSTRING& string)
 {
   return SetFromString(radix, string.Get());
@@ -2365,7 +2365,7 @@ bool XMPINTEGER::SetFromString(int radix, XSTRING& string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::GetToString(int radix, XSTRING& string)
 {
   XMPINTEGER  T;
@@ -2437,7 +2437,7 @@ bool XMPINTEGER::GetToString(int radix, XSTRING& string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::SetFromXBuffer(XBUFFER& xbuffer)
 {
   int i;
@@ -2473,7 +2473,7 @@ bool XMPINTEGER::SetFromXBuffer(XBUFFER& xbuffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::GetToXBuffer(XBUFFER& xbuffer, XDWORD size)
 {
   int     i;
@@ -2504,7 +2504,7 @@ bool XMPINTEGER::GetToXBuffer(XBUFFER& xbuffer, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::End()
 {
   if(!limbs) return false;
@@ -2533,7 +2533,7 @@ bool XMPINTEGER::End()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::SubtractionHelper(XDWORD n, XLIMB *s, XLIMB *d)
 {
   int    i;
@@ -2568,7 +2568,7 @@ void XMPINTEGER::SubtractionHelper(XDWORD n, XLIMB *s, XLIMB *d)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::MultiplicationHelper(XDWORD i, XLIMB* s, XLIMB* d, XLIMB b)
 {
   XLIMB c = 0;
@@ -2635,7 +2635,7 @@ void XMPINTEGER::MultiplicationHelper(XDWORD i, XLIMB* s, XLIMB* d, XLIMB b)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::GetDigit(XDWORD* data, int radix, XCHAR character)
 {
   (*data) = 255;
@@ -2663,7 +2663,7 @@ bool XMPINTEGER::GetDigit(XDWORD* data, int radix, XCHAR character)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XMPINTEGER::SetToStringHelper(int radix, XSTRING& string)
 {
   XLIMB r;
@@ -2696,7 +2696,7 @@ bool XMPINTEGER::SetToStringHelper(int radix, XSTRING& string)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::Clean()
 {
   sign    = 0;

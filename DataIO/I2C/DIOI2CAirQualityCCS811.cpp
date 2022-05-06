@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C Sensor CCS811 class (Air Quality)
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -64,7 +64,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CAIRQUALITYCCS811::DIOI2CAIRQUALITYCCS811() : DIODEVICEI2C()
 {
   Clean();
@@ -81,7 +81,7 @@ DIOI2CAIRQUALITYCCS811::DIOI2CAIRQUALITYCCS811() : DIODEVICEI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CAIRQUALITYCCS811::~DIOI2CAIRQUALITYCCS811()
 {
   End();
@@ -101,7 +101,7 @@ DIOI2CAIRQUALITYCCS811::~DIOI2CAIRQUALITYCCS811()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::GetHW_ID(XBYTE& ID)
 {
   if(!diostream) return false;
@@ -123,7 +123,7 @@ bool DIOI2CAIRQUALITYCCS811::GetHW_ID(XBYTE& ID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::GetHW_Version(XBYTE& hwversion)
 {
   if(!diostream) return false;
@@ -146,7 +146,7 @@ bool DIOI2CAIRQUALITYCCS811::GetHW_Version(XBYTE& hwversion)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::GetBoot_Version(XWORD& bootversion)
 {
   if(!diostream) return false;
@@ -176,7 +176,7 @@ bool DIOI2CAIRQUALITYCCS811::GetBoot_Version(XWORD& bootversion)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::GetApp_Version(XWORD& appversion)
 {
   if(!diostream) return false;
@@ -204,7 +204,7 @@ bool DIOI2CAIRQUALITYCCS811::GetApp_Version(XWORD& appversion)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::ResetDevice()
 {
   if(!diostream) return false;
@@ -229,7 +229,7 @@ bool DIOI2CAIRQUALITYCCS811::ResetDevice()
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOI2CAIRQUALITYCCS811::GetStatus(XBYTE& sensorstatus)
 {
   sensorstatus = 0;
@@ -250,7 +250,7 @@ XBYTE DIOI2CAIRQUALITYCCS811::GetStatus(XBYTE& sensorstatus)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::IsAppValid()
 {
   XBYTE sensorstatus = 0;
@@ -272,7 +272,7 @@ bool DIOI2CAIRQUALITYCCS811::IsAppValid()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::IsDataAvailable()
 {
   XBYTE sensorstatus = 0;
@@ -292,7 +292,7 @@ bool DIOI2CAIRQUALITYCCS811::IsDataAvailable()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::HaveStatusError()
 {
   XBYTE sensorstatus = 0;
@@ -313,7 +313,7 @@ bool DIOI2CAIRQUALITYCCS811::HaveStatusError()
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOI2CAIRQUALITYCCS811::GetStatusErrorCode()
 {
   XBYTE value = 0;
@@ -335,7 +335,7 @@ XBYTE DIOI2CAIRQUALITYCCS811::GetStatusErrorCode()
 *
 * @return     XWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOI2CAIRQUALITYCCS811::GetBaseline()
 {
   XBYTE  data[2];
@@ -361,7 +361,7 @@ XWORD DIOI2CAIRQUALITYCCS811::GetBaseline()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::SetBaseline(XWORD baseline)
 {
   XBYTE data[2];
@@ -388,7 +388,7 @@ bool DIOI2CAIRQUALITYCCS811::SetBaseline(XWORD baseline)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::SetDriveMode(XBYTE mode)
 {
   if(mode > 4) mode = 4; // sanitize input
@@ -419,7 +419,7 @@ bool DIOI2CAIRQUALITYCCS811::SetDriveMode(XBYTE mode)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::SetEnvironmentalData(float relativehumidity, float temperature)
 {
   if((temperature < -25)    || (temperature > 50))        return false;
@@ -471,7 +471,7 @@ bool DIOI2CAIRQUALITYCCS811::SetEnvironmentalData(float relativehumidity, float 
 *
 * @return     float :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIOI2CAIRQUALITYCCS811::GetReferenceResistance()
 {
   return referenceresistance;
@@ -489,7 +489,7 @@ float DIOI2CAIRQUALITYCCS811::GetReferenceResistance()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CAIRQUALITYCCS811::SetReferenceResistance(float referenceresistance)
 {
   this->referenceresistance = referenceresistance;
@@ -508,7 +508,7 @@ void DIOI2CAIRQUALITYCCS811::SetReferenceResistance(float referenceresistance)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::ReadNTC(float& temperature, float& resistance)
 {
   XBYTE data[4];
@@ -543,7 +543,7 @@ bool DIOI2CAIRQUALITYCCS811::ReadNTC(float& temperature, float& resistance)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::ReadData(XWORD& TVOC, XWORD& CO2)
 {
   if(!diostream)        return false;
@@ -579,7 +579,7 @@ bool DIOI2CAIRQUALITYCCS811::ReadData(XWORD& TVOC, XWORD& CO2)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::SetInterrupt(bool activated)
 {
   XBYTE value = 0;
@@ -611,7 +611,7 @@ bool DIOI2CAIRQUALITYCCS811::SetInterrupt(bool activated)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::End()
 {
   if(!DIODEVICEI2C::End()) return false;
@@ -630,7 +630,7 @@ bool DIOI2CAIRQUALITYCCS811::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::IniDevice()
 {
   if(!DIODEVICEI2C::IniDevice()) return false;
@@ -669,7 +669,7 @@ bool DIOI2CAIRQUALITYCCS811::IniDevice()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE& data)
 {
   return ReadRegister(offset, &data, 1);
@@ -689,7 +689,7 @@ bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 {
   if(!diostream) return false;
@@ -721,7 +721,7 @@ bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE* data, XDWORD size
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE data)
 {
   return WriteRegister(offset, &data, 1);
@@ -741,7 +741,7 @@ bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 {
   if(!diostream) return false;
@@ -769,7 +769,7 @@ bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE* data, XDWORD siz
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CAIRQUALITYCCS811::Clean()
 {
   referenceresistance   = 0.0f;

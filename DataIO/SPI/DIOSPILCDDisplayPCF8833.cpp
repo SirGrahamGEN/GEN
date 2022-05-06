@@ -6,7 +6,7 @@
 * @brief      Data Input/Output SPI Display LCD Philips PCF8833
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -61,7 +61,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSPILCDDISPLAYPCF8833::DIOSPILCDDISPLAYPCF8833(DIOSPILCDDISPLAYPCF8833_TYPE type) : DIODEVICESPI()
 {
   Clean();
@@ -80,7 +80,7 @@ DIOSPILCDDISPLAYPCF8833::DIOSPILCDDISPLAYPCF8833(DIOSPILCDDISPLAYPCF8833_TYPE ty
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSPILCDDISPLAYPCF8833::~DIOSPILCDDISPLAYPCF8833()
 {
   End();
@@ -98,7 +98,7 @@ DIOSPILCDDISPLAYPCF8833::~DIOSPILCDDISPLAYPCF8833()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::IniDevice()
 {
   if(!DIODEVICESPI::IniDevice()) return false;
@@ -153,7 +153,7 @@ bool DIOSPILCDDISPLAYPCF8833::IniDevice()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::Clear(XWORD color)
 {
 
@@ -210,7 +210,7 @@ bool DIOSPILCDDISPLAYPCF8833::Clear(XWORD color)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::Update(XBYTE* buffer)
 {
   if(!IsInitialized()) return false;
@@ -247,7 +247,7 @@ bool DIOSPILCDDISPLAYPCF8833::Update(XBYTE* buffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::PutPixel(XWORD x, XWORD y, XWORD color)
 {
   if(!IsInitialized()) return false;
@@ -274,7 +274,7 @@ bool DIOSPILCDDISPLAYPCF8833::PutPixel(XWORD x, XWORD y, XWORD color)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::End()
 {  
   Clear();
@@ -438,7 +438,7 @@ bool DIOSPILCDDISPLAYPCF8833::Initializate()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::Reset()
 {
   if(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_RESET) == DIOGPIO_ID_NOTDEFINED) return false;
@@ -467,7 +467,7 @@ bool DIOSPILCDDISPLAYPCF8833::Reset()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::SetWindow(XWORD x0, XWORD y0, XWORD x1, XWORD y1)
 {
   XBYTE   paset = 0;
@@ -526,7 +526,7 @@ bool DIOSPILCDDISPLAYPCF8833::SetWindow(XWORD x0, XWORD y0, XWORD x1, XWORD y1)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD color)
 {
   if((width < 1) || (width > DIOSPILCDDISPLAYPCF8833_ROW_LENGTH)) return false;
@@ -565,7 +565,7 @@ bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD co
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD* buffer)
 {
   if((width < 1) || (width > DIOSPILCDDISPLAYPCF8833_ROW_LENGTH)) return false;
@@ -603,7 +603,7 @@ bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD* b
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::Buffer_AjustWithNOP(XBUFFER& databuffer)
 {
   XBYTE nbitsfree = databuffer.Bit_GetBitsFree();
@@ -625,7 +625,7 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_AjustWithNOP(XBUFFER& databuffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::Buffer_Send(XBUFFER& databuffer)
 {
   bool status = false;
@@ -648,7 +648,7 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_Send(XBUFFER& databuffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::Buffer_Delete(XBUFFER& databuffer)
 {
   databuffer.Delete();
@@ -670,7 +670,7 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_Delete(XBUFFER& databuffer)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPILCDDISPLAYPCF8833::Clean()
 {
   type        = DIOSPILCDDISPLAYPCF8833_UNKNOWN;

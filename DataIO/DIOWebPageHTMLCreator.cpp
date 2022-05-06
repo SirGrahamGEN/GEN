@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Page HTML Create class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -59,7 +59,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBPAGEHTMLCREATOR::DIOWEBPAGEHTMLCREATOR()
 
 {
@@ -79,7 +79,7 @@ DIOWEBPAGEHTMLCREATOR::DIOWEBPAGEHTMLCREATOR()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBPAGEHTMLCREATOR::~DIOWEBPAGEHTMLCREATOR()
 {
   DeRegisterEvent(DIOWEBPAGEHTMLCREATOR_XEVENT_TYPE_XTAGFOUND);
@@ -99,7 +99,7 @@ DIOWEBPAGEHTMLCREATOR::~DIOWEBPAGEHTMLCREATOR()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator = (const char* htlmpage)
 {
   Set(htlmpage);
@@ -117,7 +117,7 @@ void DIOWEBPAGEHTMLCREATOR::operator = (const char* htlmpage)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator = (const XCHAR* htlmpage)
 {
   Set(htlmpage);
@@ -135,7 +135,7 @@ void DIOWEBPAGEHTMLCREATOR::operator = (const XCHAR* htlmpage)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator = (DIOWEBPAGEHTMLCREATOR& htlmpage)
 {
   Set(htlmpage);
@@ -153,7 +153,7 @@ void DIOWEBPAGEHTMLCREATOR::operator = (DIOWEBPAGEHTMLCREATOR& htlmpage)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator = (XSTRING& string)
 {
   Set(string);
@@ -171,7 +171,7 @@ void DIOWEBPAGEHTMLCREATOR::operator = (XSTRING& string)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator = (XWORD* htlmpage)
 {
   Set(htlmpage);
@@ -189,7 +189,7 @@ void DIOWEBPAGEHTMLCREATOR::operator = (XWORD* htlmpage)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator += (const char* htlmpage)
 {
   Add(htlmpage);
@@ -207,7 +207,7 @@ void DIOWEBPAGEHTMLCREATOR::operator += (const char* htlmpage)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator += (const XCHAR* htlmpage)
 {
   Add(htlmpage);
@@ -225,7 +225,7 @@ void DIOWEBPAGEHTMLCREATOR::operator += (const XCHAR* htlmpage)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator += (XPATH& htlmpage)
 {
   Add(htlmpage);
@@ -243,7 +243,7 @@ void DIOWEBPAGEHTMLCREATOR::operator += (XPATH& htlmpage)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator += (XSTRING& string)
 {
   Add(string);
@@ -261,7 +261,7 @@ void DIOWEBPAGEHTMLCREATOR::operator += (XSTRING& string)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator += (XCHAR htlmpage)
 {
   Add(htlmpage);
@@ -279,7 +279,7 @@ void DIOWEBPAGEHTMLCREATOR::operator += (XCHAR htlmpage)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::operator <  (DIOWEBPAGEHTMLCREATOR& htlmpage)
 {
   return (bool)(Compare(htlmpage) == -1);
@@ -297,7 +297,7 @@ bool DIOWEBPAGEHTMLCREATOR::operator <  (DIOWEBPAGEHTMLCREATOR& htlmpage)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::operator >  (DIOWEBPAGEHTMLCREATOR& htlmpage)
 {
   return (bool)(Compare(htlmpage) ==  1);
@@ -315,7 +315,7 @@ bool DIOWEBPAGEHTMLCREATOR::operator >  (DIOWEBPAGEHTMLCREATOR& htlmpage)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::operator <= (DIOWEBPAGEHTMLCREATOR& htlmpage)
 {
   return (bool)(Compare(htlmpage) !=  1);
@@ -333,7 +333,7 @@ bool DIOWEBPAGEHTMLCREATOR::operator <= (DIOWEBPAGEHTMLCREATOR& htlmpage)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::operator >= (DIOWEBPAGEHTMLCREATOR& htlmpage)
 {
   return (bool)(Compare(htlmpage) != -1);
@@ -351,7 +351,7 @@ bool DIOWEBPAGEHTMLCREATOR::operator >= (DIOWEBPAGEHTMLCREATOR& htlmpage)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::operator == (DIOWEBPAGEHTMLCREATOR& htlmpage)
 {
   return (bool)(Compare(htlmpage) ==  0);
@@ -369,7 +369,7 @@ bool DIOWEBPAGEHTMLCREATOR::operator == (DIOWEBPAGEHTMLCREATOR& htlmpage)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::operator != (DIOWEBPAGEHTMLCREATOR& htlmpage)
 {
   return (bool)(Compare(htlmpage) !=  0);
@@ -387,7 +387,7 @@ bool DIOWEBPAGEHTMLCREATOR::operator != (DIOWEBPAGEHTMLCREATOR& htlmpage)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::operator <  (XSTRING& string)
 {
   return (bool)(Compare(string) == -1);
@@ -405,7 +405,7 @@ bool DIOWEBPAGEHTMLCREATOR::operator <  (XSTRING& string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::operator >  (XSTRING& string)
 {
   return (bool)(Compare(string) ==  1);
@@ -423,7 +423,7 @@ bool DIOWEBPAGEHTMLCREATOR::operator >  (XSTRING& string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::operator <= (XSTRING& string)
 {
   return (bool)(Compare(string) !=  1);
@@ -441,7 +441,7 @@ bool DIOWEBPAGEHTMLCREATOR::operator <= (XSTRING& string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::operator >= (XSTRING& string)
 {
   return (bool)(Compare(string) != -1);
@@ -459,7 +459,7 @@ bool DIOWEBPAGEHTMLCREATOR::operator >= (XSTRING& string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::operator == (XSTRING& string)
 {
   return (bool)(Compare(string) ==  0);
@@ -477,7 +477,7 @@ bool DIOWEBPAGEHTMLCREATOR::operator == (XSTRING& string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::operator != (XSTRING& string)
 {
   return (bool)(Compare(string) !=  0);
@@ -495,7 +495,7 @@ bool DIOWEBPAGEHTMLCREATOR::operator != (XSTRING& string)
 *
 * @return     XCHAR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR DIOWEBPAGEHTMLCREATOR::operator [] (int position)
 {
   if(IsEmpty())           return 0;
@@ -517,7 +517,7 @@ XCHAR DIOWEBPAGEHTMLCREATOR::operator [] (int position)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::Printf(XCHAR* mask,...)
 {
   XSTRING outstring;
@@ -553,7 +553,7 @@ bool DIOWEBPAGEHTMLCREATOR::Printf(XCHAR* mask,...)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::Print(XCHAR* text)
 {
   Add(text);
@@ -578,7 +578,7 @@ bool DIOWEBPAGEHTMLCREATOR::Print(XCHAR* text)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::Table_Ini(int border)
 {
   this->tableborder = border;
@@ -601,7 +601,7 @@ bool DIOWEBPAGEHTMLCREATOR::Table_Ini(int border)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::Table_Line(int columns, ...)
 {
   va_list arg;
@@ -655,7 +655,7 @@ bool DIOWEBPAGEHTMLCREATOR::Table_Line(int columns, ...)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::Table_Line(XCHAR* colorbackground, int columns, ...)
 {
   va_list arg;
@@ -719,7 +719,7 @@ bool DIOWEBPAGEHTMLCREATOR::Table_Line(XCHAR* colorbackground, int columns, ...)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::Table_LineColor(int columns, ...)
 {
   va_list arg;
@@ -770,7 +770,7 @@ bool DIOWEBPAGEHTMLCREATOR::Table_LineColor(int columns, ...)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::Table_End()
 {
   Printf(__L("</table>"));
@@ -790,7 +790,7 @@ bool DIOWEBPAGEHTMLCREATOR::Table_End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::AddAutoRefresh(int refresh, XSTRING* url)
 {
   if(refresh<0) return false;
@@ -818,7 +818,7 @@ bool DIOWEBPAGEHTMLCREATOR::AddAutoRefresh(int refresh, XSTRING* url)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::AddFile(XPATH& xpath)
 {
   XFILETXT filetxt;
@@ -909,7 +909,7 @@ bool DIOWEBPAGEHTMLCREATOR::AddFile(XPATH& xpath)
 *
 * @return     DIOWEBPAGEHTMLCREATORTAGXENGINESTATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBPAGEHTMLCREATORTAGXENGINESTATUS DIOWEBPAGEHTMLCREATOR::CheckXTAG(XSTRING* originalline,bool& intag, XSTRING& inioutputline,XSTRING& endoutputline)
 {
   int index[3];

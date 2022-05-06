@@ -6,7 +6,7 @@
 * @brief      Main procedure WINDOWS class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -152,7 +152,7 @@ bool                    Exception_ShutDown            (XSYSTEM_CHANGESTATUSTYPE 
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCWINDOWS::MAINPROCWINDOWS()
 {
   Clean();
@@ -169,7 +169,7 @@ MAINPROCWINDOWS::MAINPROCWINDOWS()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCWINDOWS::~MAINPROCWINDOWS()
 {
   Clean();
@@ -188,7 +188,7 @@ MAINPROCWINDOWS::~MAINPROCWINDOWS()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCWINDOWS::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
 {
   this->appmain = appmain;
@@ -258,7 +258,7 @@ bool MAINPROCWINDOWS::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applica
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCWINDOWS::Update()
 {
   if(!isrunningasservice)
@@ -320,7 +320,7 @@ bool MAINPROCWINDOWS::Update()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCWINDOWS::End()
 {
   #ifdef APP_ACTIVE
@@ -373,7 +373,7 @@ bool MAINPROCWINDOWS::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCWINDOWS::Factorys_Ini()
 {
   if(!XFACTORY::SetInstance(new XWINDOWSFACTORY())) return false;
@@ -446,7 +446,7 @@ bool MAINPROCWINDOWS::Factorys_Ini()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCWINDOWS::Factorys_End()
 {
   #ifdef GRP_ACTIVE
@@ -549,7 +549,7 @@ bool MAINPROCWINDOWS::Factorys_End()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int MAINPROCWINDOWS::MainLoop()
 {
   int status = 0;
@@ -594,7 +594,7 @@ int MAINPROCWINDOWS::MainLoop()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCWINDOWS::IsRunningAsService()
 {
  // return IsRunningAsService(APPMODE_SERVICE_NAME);
@@ -661,7 +661,7 @@ bool MAINPROCWINDOWS::IsRunningAsService()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCWINDOWS::Clean()
 {
   isrunningasservice = false;  
@@ -691,7 +691,7 @@ void MAINPROCWINDOWS::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 WINDOWSSERVICE::WINDOWSSERVICE(XCHAR* servicename, bool can_stop, bool can_shutdown, bool can_pause, bool can_powerevent, bool can_sessionchange) : XWINDOWSSERVICEBASE(servicename, can_stop, can_shutdown, can_pause, can_powerevent, can_sessionchange)
 {
   Clean();
@@ -713,7 +713,7 @@ WINDOWSSERVICE::WINDOWSSERVICE(XCHAR* servicename, bool can_stop, bool can_shutd
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 WINDOWSSERVICE::~WINDOWSSERVICE()
 {
   Clean();
@@ -735,7 +735,7 @@ WINDOWSSERVICE::~WINDOWSSERVICE()
 *
 * @return     HANDLE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 HANDLE WINDOWSSERVICE::GetHandleStoppedEvent()
 {
   return event_stopped;
@@ -751,7 +751,7 @@ HANDLE WINDOWSSERVICE::GetHandleStoppedEvent()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool WINDOWSSERVICE::MustRestartService()
 {
   return mustrestartservice;
@@ -769,7 +769,7 @@ bool WINDOWSSERVICE::MustRestartService()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::SetMustRestartService(bool mustrestartservice)
 {
   this->mustrestartservice = mustrestartservice;
@@ -788,7 +788,7 @@ void WINDOWSSERVICE::SetMustRestartService(bool mustrestartservice)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_Start(DWORD argc, XCHAR** args)
 {
   //HANDLE hthread = 
@@ -806,7 +806,7 @@ void WINDOWSSERVICE::On_Start(DWORD argc, XCHAR** args)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_Stop()
 {
   #ifdef APP_ACTIVE
@@ -849,7 +849,7 @@ void WINDOWSSERVICE::On_Stop()
  *
  *  @return     void : does not return anything.
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_Shutdown()
 {
   #ifdef APP_ACTIVE
@@ -875,7 +875,7 @@ void WINDOWSSERVICE::On_Shutdown()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
 {
   #ifdef APP_ACTIVE
@@ -906,7 +906,7 @@ void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_SessionChange(DWORD eventtype)
 {
   #ifdef APP_ACTIVE
@@ -940,7 +940,7 @@ void WINDOWSSERVICE::On_SessionChange(DWORD eventtype)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::Clean()
 {
   event_stopped       = NULL;
@@ -959,7 +959,7 @@ void WINDOWSSERVICE::Clean()
 *
 * @return     DWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
 {
   WINDOWSSERVICE* service = (WINDOWSSERVICE*)lpparam;
@@ -1035,7 +1035,7 @@ DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int wmain(int argc, wchar_t* argv[])
  {
   //wprintf(L"%s\n" , argv[0]);
@@ -1130,7 +1130,7 @@ int wmain(int argc, wchar_t* argv[])
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinst, LPSTR cmdline, int cmdshow)
 {
   int      nargs        = 0;
@@ -1198,7 +1198,7 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinst, LPSTR cmdline, int 
 *
 * @return     BOOL :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
 {
   switch(fdwReason)
@@ -1252,7 +1252,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCWINDOWSSTACKWALKER::OnSymInit(LPCSTR szSearchPath, DWORD symOptions, LPCSTR szUserName)
 {
   Exception_Printf(true, NULL, __L("Stack trace: "));
@@ -1272,7 +1272,7 @@ void MAINPROCWINDOWSSTACKWALKER::OnSymInit(LPCSTR szSearchPath, DWORD symOptions
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCWINDOWSSTACKWALKER::OnCallstackEntry(CallstackEntryType eType, CallstackEntry& entry)
 {
   XSTRING modulename;
@@ -1316,7 +1316,7 @@ void MAINPROCWINDOWSSTACKWALKER::OnCallstackEntry(CallstackEntryType eType, Call
 *
 * @return     BOOL :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 BOOL Exception_ConsoleHandler(DWORD fdwctrltype)
 {
   #ifdef APP_ACTIVE
@@ -1381,7 +1381,7 @@ BOOL Exception_ConsoleHandler(DWORD fdwctrltype)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
 {
   XSTRING exception;
@@ -1564,7 +1564,7 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool Exception_Printf(bool iserror, XCHAR* title, XCHAR* mask, ...)
 {
   XSTRING outstring;
@@ -1618,7 +1618,7 @@ bool Exception_Printf(bool iserror, XCHAR* title, XCHAR* mask, ...)
 *
 * @return     static :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 static bool Exception_PrintfStackTrace(const CONTEXT* context)
 {
   static const int MAX_TRACES     = 60;
@@ -1684,7 +1684,7 @@ static bool Exception_PrintfStackTrace(const CONTEXT* context)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool Exception_ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 {
   if(type == XSYSTEM_CHANGESTATUSTYPE_UNKNOWN) return false;

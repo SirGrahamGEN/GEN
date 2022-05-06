@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Scraper Web Geolocation IP class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -59,7 +59,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOGEOLOCATIONIP_RESULT::DIOGEOLOCATIONIP_RESULT(): DIOSCRAPERWEBCACHE_RESULT()
 {
   Clean();
@@ -76,7 +76,7 @@ DIOGEOLOCATIONIP_RESULT::DIOGEOLOCATIONIP_RESULT(): DIOSCRAPERWEBCACHE_RESULT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOGEOLOCATIONIP_RESULT::~DIOGEOLOCATIONIP_RESULT()
 {
   Clean();
@@ -92,7 +92,7 @@ DIOGEOLOCATIONIP_RESULT::~DIOGEOLOCATIONIP_RESULT()
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* DIOGEOLOCATIONIP_RESULT::GetCountry()
 {
   return country.Get();
@@ -108,7 +108,7 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetCountry()
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* DIOGEOLOCATIONIP_RESULT::GetState()
 {
   return state.Get();
@@ -124,7 +124,7 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetState()
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* DIOGEOLOCATIONIP_RESULT::GetCity()
 {
   return city.Get();
@@ -140,7 +140,7 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetCity()
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* DIOGEOLOCATIONIP_RESULT::GetISP()
 {
   return ISP.Get();
@@ -157,7 +157,7 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetISP()
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* DIOGEOLOCATIONIP_RESULT::GetOrganization()
 {
   return organization.Get();
@@ -173,7 +173,7 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetOrganization()
 *
 * @return     float :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIOGEOLOCATIONIP_RESULT::GetLatitude()
 {
   return latitude;
@@ -189,7 +189,7 @@ float DIOGEOLOCATIONIP_RESULT::GetLatitude()
 *
 * @return     float :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIOGEOLOCATIONIP_RESULT::GetLongitude()
 {
   return longitude;
@@ -205,7 +205,7 @@ float DIOGEOLOCATIONIP_RESULT::GetLongitude()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOGEOLOCATIONIP_RESULT::IsEmpty()
 {
   if(country.IsEmpty() || state.IsEmpty() || city.IsEmpty()) return true;
@@ -225,7 +225,7 @@ bool DIOGEOLOCATIONIP_RESULT::IsEmpty()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOGEOLOCATIONIP_RESULT::CopyFrom(DIOSCRAPERWEBCACHE_RESULT* result)
 {
   if(!result)   return false;
@@ -258,7 +258,7 @@ bool DIOGEOLOCATIONIP_RESULT::CopyFrom(DIOSCRAPERWEBCACHE_RESULT* result)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOGEOLOCATIONIP_RESULT::CopyTo(DIOSCRAPERWEBCACHE_RESULT* result)
 {
   if(!result)   return false;
@@ -294,7 +294,7 @@ bool DIOGEOLOCATIONIP_RESULT::CopyTo(DIOSCRAPERWEBCACHE_RESULT* result)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOGEOLOCATIONIP_RESULT::Set(XSTRING& country, XSTRING& state, XSTRING& city, XSTRING& ISP, XSTRING& organization)
 {
   return Set(country.Get(), state.Get(), city.Get(), ISP.Get(), organization.Get());
@@ -317,7 +317,7 @@ bool DIOGEOLOCATIONIP_RESULT::Set(XSTRING& country, XSTRING& state, XSTRING& cit
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOGEOLOCATIONIP_RESULT::Set(XCHAR* country, XCHAR* state, XCHAR* city, XCHAR* ISP, XCHAR* organization)
 {
   if(country)       this->country       = country;
@@ -353,7 +353,7 @@ bool DIOGEOLOCATIONIP_RESULT::Set(XCHAR* country, XCHAR* state, XCHAR* city, XCH
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOGEOLOCATIONIP_RESULT::Set(float latitude, float longitude)
 {
   this->latitude  = latitude;
@@ -374,7 +374,7 @@ bool DIOGEOLOCATIONIP_RESULT::Set(float latitude, float longitude)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOGEOLOCATIONIP_RESULT::Clean()
 {
   latitude  = 0;
@@ -399,7 +399,7 @@ void DIOGEOLOCATIONIP_RESULT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBGEOLOCATIONIP::DIOSCRAPERWEBGEOLOCATIONIP(DIOWEBCLIENT* webclient): DIOSCRAPERWEB()
 {
   Clean();
@@ -416,7 +416,7 @@ DIOSCRAPERWEBGEOLOCATIONIP::DIOSCRAPERWEBGEOLOCATIONIP(DIOWEBCLIENT* webclient):
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBGEOLOCATIONIP::~DIOSCRAPERWEBGEOLOCATIONIP()
 {
   Clean();
@@ -435,7 +435,7 @@ DIOSCRAPERWEBGEOLOCATIONIP::~DIOSCRAPERWEBGEOLOCATIONIP()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBGEOLOCATIONIP::ChangeURL(XCHAR* maskurl, DIOURL& url)
 {
   XSTRING IPstring;
@@ -463,7 +463,7 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::ChangeURL(XCHAR* maskurl, DIOURL& url)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XCHAR* IP, DIOGEOLOCATIONIP_RESULT& geolocationIPresult, int timeoutforurl, XSTRING* localIP, bool usecache)
 {
   DIOIP _IP;
@@ -489,7 +489,7 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XCHAR* IP, DIOGEOLOCATIONIP_RESULT& geoloca
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XSTRING& IP, DIOGEOLOCATIONIP_RESULT& geolocationIPresult, int timeoutforurl, XSTRING* localIP, bool usecache)
 {
   return Get(IP.Get(), geolocationIPresult, timeoutforurl, localIP, usecache);
@@ -511,7 +511,7 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XSTRING& IP, DIOGEOLOCATIONIP_RESULT& geolo
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBGEOLOCATIONIP::Get(DIOIP& IP, DIOGEOLOCATIONIP_RESULT& geolocationIPresult, int timeoutforurl, XSTRING* localIP, bool usecache)
 {
   bool status = false;
@@ -601,7 +601,7 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(DIOIP& IP, DIOGEOLOCATIONIP_RESULT& geoloca
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBGEOLOCATIONIP::Clean()
 {
 

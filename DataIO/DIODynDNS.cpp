@@ -6,7 +6,7 @@
 * @brief      Data Input/Output DYNDNS entry class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -55,7 +55,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODYNDNS::DIODYNDNS()
 {
   Clean();
@@ -75,7 +75,7 @@ DIODYNDNS::DIODYNDNS()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODYNDNS::~DIODYNDNS()
 {
   delete webclient;
@@ -93,7 +93,7 @@ DIODYNDNS::~DIODYNDNS()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIODYNDNS::GetLogin()
 {
   return &login;
@@ -109,7 +109,7 @@ XSTRING* DIODYNDNS::GetLogin()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIODYNDNS::GetPassword()
 {
   return &password;
@@ -129,7 +129,7 @@ XSTRING* DIODYNDNS::GetPassword()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODYNDNS::GetPublicIP(DIOIP& publicIP, int timeout, XSTRING* IPlocal)
 {
   XBUFFER   xbuffer;
@@ -192,7 +192,7 @@ bool DIODYNDNS::GetPublicIP(DIOIP& publicIP, int timeout, XSTRING* IPlocal)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODYNDNS::IsChangedPublicIP(DIOURL& url, bool& ischanged, DIOIP* newpublicip, int timeout, XSTRING* IPlocal)
 {
   ischanged = false;
@@ -239,7 +239,7 @@ bool DIODYNDNS::IsChangedPublicIP(DIOURL& url, bool& ischanged, DIOIP* newpublic
 *
 * @return     DIODYNDNS_STATUSCODE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODYNDNS_STATUSCODE DIODYNDNS::Update(DIOURL& url, DIOIP& newpublicip, int timeout, XSTRING* IPlocal)
 {
   if(!webclient) return DIODYNDNS_STATUSCODE_UNKNOWN;
@@ -274,7 +274,7 @@ DIODYNDNS_STATUSCODE DIODYNDNS::Update(DIOURL& url, DIOIP& newpublicip, int time
 *
 * @return     DIODYNDNS_STATUSCODE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODYNDNS_STATUSCODE DIODYNDNS::GetError(XSTRING& result)
 {
   // Other          Unknown result from dyndns service.
@@ -333,7 +333,7 @@ DIODYNDNS_STATUSCODE DIODYNDNS::GetError(XSTRING& result)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIODYNDNS::Clean()
 {
   webclient   = NULL;

@@ -6,7 +6,7 @@
 * @brief      ANDROID Thread and Mutex class
 * @ingroup    PLATFORM_ANDROID
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -50,7 +50,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDMUTEX::XANDROIDMUTEX()
 {
 
@@ -67,7 +67,7 @@ XANDROIDMUTEX::XANDROIDMUTEX()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDMUTEX::~XANDROIDMUTEX()
 {
 
@@ -88,7 +88,7 @@ XANDROIDMUTEX::~XANDROIDMUTEX()
 **
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDTHREAD::XANDROIDTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param) : XLINUXTHREAD(groupID, ID, function, param)
 {
 
@@ -105,7 +105,7 @@ XANDROIDTHREAD::XANDROIDTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTIO
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDTHREAD::~XANDROIDTHREAD()
 
 {

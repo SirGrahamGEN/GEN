@@ -1,21 +1,37 @@
-/*------------------------------------------------------------------------------------------
-//  HASHCOMP128V1.CPP
-//
-//  Hash COMP128 (version 1) Class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/03/2013 12:07:38
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       HashCOMP128v1.cpp
+* 
+* @class      HASHCOMP128V1
+* @brief      Hash COMP128 (version 1) class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <string.h>
 
@@ -25,10 +41,8 @@
 
 #include "XMemory_Control.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
 
-
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 const XBYTE HASHCOMP128V1::table0[512]    =   { 102,177,186,162,  2,156,112, 75, 55, 25,  8, 12,251,193,246,188,
                                                 109,213,151, 53, 42, 79,191,115,233,242,164,223,209,148,108,161,
@@ -110,64 +124,54 @@ const XBYTE* HASHCOMP128V1::table[5]      =   {  table0,
                                               };
 
 
-
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
-
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-/*-------------------------------------------------------------------
-//  HASHCOMP128V1::HASHCOMP128V1
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:43:10
-//
-//  @return
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         HASHCOMP128V1::HASHCOMP128V1()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 HASHCOMP128V1::HASHCOMP128V1() : HASH()
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHCOMP128V1::~HASHCOMP128V1
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:09:01
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         HASHCOMP128V1::~HASHCOMP128V1()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 HASHCOMP128V1::~HASHCOMP128V1()
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHCOMP128V1::SetInput
-*/
-/**
-//
-//
-//  ""
-//  @version      03/03/2013 16:31:05
-//
-//  @return       bool :
-//  @param        rand :
-//  @param        ki :
-//  @param        xbuffer :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool HASHCOMP128V1::SetInput(XBYTE* rand, XBYTE* ki,XBUFFER& xbuffer)
+* @brief      SetInput
+* @ingroup    CIPHER
+* 
+* @param[in]  rand : 
+* @param[in]  ki : 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASHCOMP128V1::SetInput(XBYTE* rand, XBYTE* ki,XBUFFER& xbuffer)
 {
   xbuffer.Add(rand  , HASHCOMP128V1_RAND_SIZE);
@@ -177,22 +181,18 @@ bool HASHCOMP128V1::SetInput(XBYTE* rand, XBYTE* ki,XBUFFER& xbuffer)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHCOMP128V1::Do
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:33:55
-//
-//  @return       bool :
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool HASHCOMP128V1::Do(XBYTE* input, XQWORD size)
+* @brief      Do
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASHCOMP128V1::Do(XBYTE* input, XQWORD size)
 {
   if(size!= (HASHCOMP128V1_RAND_SIZE + HASHCOMP128V1_KI_SIZE)) return false;
@@ -210,39 +210,32 @@ bool HASHCOMP128V1::Do(XBYTE* input, XQWORD size)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHCOMP128V1::GetDefaultSize
-*/
-/**
-//
-//
-//  ""
-//  @version      21/04/2013 0:49:18
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int HASHCOMP128V1::GetDefaultSize()
+* @brief      GetDefaultSize
+* @ingroup    CIPHER
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int HASHCOMP128V1::GetDefaultSize()
 {
   return HASHCOMP128V1_RESULT_SIZE;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHCOMP128V1::GetSRES
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 7:04:25
-//
-//  @return       bool :
-//  @param        SRES :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool HASHCOMP128V1::GetSRES(XBUFFER& SRES)
+* @brief      GetSRES
+* @ingroup    CIPHER
+* 
+* @param[in]  SRES : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASHCOMP128V1::GetSRES(XBUFFER& SRES)
 {
   SRES.Delete();
@@ -255,21 +248,17 @@ bool HASHCOMP128V1::GetSRES(XBUFFER& SRES)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHCOMP128V1::GetKc
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 7:04:29
-//
-//  @return       bool :
-//  @param        Kc :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool HASHCOMP128V1::GetKc(XBUFFER& Kc)
+* @brief      GetKc
+* @ingroup    CIPHER
+* 
+* @param[in]  Kc : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASHCOMP128V1::GetKc(XBUFFER& Kc)
 {
   Kc.Delete();
@@ -282,39 +271,17 @@ bool HASHCOMP128V1::GetKc(XBUFFER& Kc)
 }
 
 
-/*-------------------------------------------------------------------
-//  HASHCOMP128V1::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:09:56
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
-void HASHCOMP128V1::Clean()
-{
-
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  HASHCOMP128V1::Make
-*/
-/**
-//
-//
-//  ""
-//  @version      03/03/2013 16:31:49
-//
-//  @return       void :
-//  @param        input :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHCOMP128V1::Make(XBYTE* input)
+* @brief      Make
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHCOMP128V1::Make(XBYTE* input)
 {
   XBYTE  x[32];
@@ -328,7 +295,6 @@ void HASHCOMP128V1::Make(XBYTE* input)
   int    y;
   int    z;
   int    next_bit;
-
 
   // Load RAND into last 16 bytes of input
   for(i=16; i<32; i++)
@@ -411,3 +377,17 @@ void HASHCOMP128V1::Make(XBYTE* input)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHCOMP128V1::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void HASHCOMP128V1::Clean()
+{
+
+}

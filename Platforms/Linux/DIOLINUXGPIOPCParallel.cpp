@@ -6,7 +6,7 @@
 * @brief      Data Input/Output LINUX GPIO (General Purpose Input/Output) PC Parallel
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -66,7 +66,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXGPIOPCPARALLEL::DIOLINUXGPIOPCPARALLEL() : DIOGPIO()
 {
   Clean();
@@ -83,7 +83,7 @@ DIOLINUXGPIOPCPARALLEL::DIOLINUXGPIOPCPARALLEL() : DIOGPIO()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXGPIOPCPARALLEL::~DIOLINUXGPIOPCPARALLEL()
 {
   Clean();
@@ -134,7 +134,7 @@ void DIOLINUXGPIOPCPARALLEL::SetParallelPort(XWORD port)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIOPCPARALLEL::Ini()
 {
   return true;
@@ -222,7 +222,7 @@ bool DIOLINUXGPIOPCPARALLEL::SetValue(DIOGPIO_ENTRY* entry, bool value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIOPCPARALLEL::End()
 {
   return true;
@@ -241,7 +241,7 @@ bool DIOLINUXGPIOPCPARALLEL::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIOPCPARALLEL::PC_Get(XDWORD nport,XBYTE& data)
 {
   XDWORD val = 0;
@@ -270,7 +270,7 @@ bool DIOLINUXGPIOPCPARALLEL::PC_Get(XDWORD nport,XBYTE& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIOPCPARALLEL::PC_Set(XDWORD nport,XBYTE data)
 {
   if(ioperm(nport,1,1)) return false;
@@ -293,7 +293,7 @@ bool DIOLINUXGPIOPCPARALLEL::PC_Set(XDWORD nport,XBYTE data)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXGPIOPCPARALLEL::Clean()
 {
   port            = DIOLINUXGPIOPCPARALLEL_PORT1;

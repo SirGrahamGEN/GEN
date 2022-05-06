@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Bluetooth Local Enum Devices class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHLOCALENUMDEVICES::DIOSTREAMBLUETOOTHLOCALENUMDEVICES() : DIOSTREAMENUMDEVICES()
 {
   Clean();
@@ -71,7 +71,7 @@ DIOSTREAMBLUETOOTHLOCALENUMDEVICES::DIOSTREAMBLUETOOTHLOCALENUMDEVICES() : DIOST
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHLOCALENUMDEVICES::~DIOSTREAMBLUETOOTHLOCALENUMDEVICES()
 {
   Clean();
@@ -87,7 +87,7 @@ DIOSTREAMBLUETOOTHLOCALENUMDEVICES::~DIOSTREAMBLUETOOTHLOCALENUMDEVICES()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::Search()
 { 
   return false;         
@@ -106,7 +106,7 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::Search()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::StopSearch(bool waitend)                      
 { 
   return false;         
@@ -123,7 +123,7 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::IsSearching()                                  
 { 
   return issearching;   
@@ -142,7 +142,7 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::IsSearching()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)                   
 { 
   return false;         
@@ -160,7 +160,7 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMBLUETOOTHLOCALENUMDEVICES::Clean()
 {
   type        = DIOSTREAMENUMTYPE_BLUETOOTH_LOCAL;

@@ -6,7 +6,7 @@
 * @brief      eXtended EEPROM Memory Manager class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -55,7 +55,7 @@ XEEPROMMEMORYMANAGER* XEEPROMMEMORYMANAGER::instance = NULL;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XEEPROMMEMORYMANAGER::XEEPROMMEMORYMANAGER()
 {
 
@@ -72,7 +72,7 @@ XEEPROMMEMORYMANAGER::XEEPROMMEMORYMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XEEPROMMEMORYMANAGER::~XEEPROMMEMORYMANAGER()
 {
 
@@ -88,7 +88,7 @@ XEEPROMMEMORYMANAGER::~XEEPROMMEMORYMANAGER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::GetIsInstanced()
 {
   return instance!=NULL;
@@ -105,7 +105,7 @@ bool XEEPROMMEMORYMANAGER::GetIsInstanced()
 *
 * @return     XEEPROMMEMORYMANAGER& :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XEEPROMMEMORYMANAGER& XEEPROMMEMORYMANAGER::GetInstance()
 {
   if(!instance) instance = new XEEPROMMEMORYMANAGER();
@@ -126,7 +126,7 @@ XEEPROMMEMORYMANAGER& XEEPROMMEMORYMANAGER::GetInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::SetInstance(XEEPROMMEMORYMANAGER* _instance)
 {
   if(!_instance) return false;
@@ -147,7 +147,7 @@ bool XEEPROMMEMORYMANAGER::SetInstance(XEEPROMMEMORYMANAGER* _instance)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::DelInstance()
 {
   if(instance)
@@ -173,7 +173,7 @@ bool XEEPROMMEMORYMANAGER::DelInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::Ini()
 {
   return false;
@@ -189,7 +189,7 @@ bool XEEPROMMEMORYMANAGER::Ini()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::End()
 {
   return false;
@@ -208,7 +208,7 @@ bool XEEPROMMEMORYMANAGER::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 {
   return Read(offset, (XBYTE*)&data, sizeof(XBYTE));
@@ -227,7 +227,7 @@ bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 {
   return Read(offset, (XBYTE*)&data, sizeof(XWORD));
@@ -246,7 +246,7 @@ bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 {
   return Read(offset, (XBYTE*)&data, sizeof(XDWORD));
@@ -266,7 +266,7 @@ bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 {
   return false;
@@ -285,7 +285,7 @@ bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 {
   return Write(offset, (XBYTE*)&data, sizeof(XBYTE));
@@ -304,7 +304,7 @@ bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 {
   return Write(offset, (XBYTE*)&data, sizeof(XWORD));
@@ -323,7 +323,7 @@ bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 {
   return Write(offset,(XBYTE*)&data, sizeof(XDWORD));
@@ -344,7 +344,7 @@ bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 {
   return false;
@@ -359,7 +359,7 @@ bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XEEPROMMEMORYMANAGER::EraseAll()
 {
   return false;

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output SPI Display LCD Philips PCF8833
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSPILCDDISPLAYPCF8833_H_
 #define _DIOSPILCDDISPLAYPCF8833_H_
@@ -215,7 +215,7 @@ class DIOSPILCDDISPLAYPCF8833 : public DIODISPLAYDEVICE, public DIODEVICESPI
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

@@ -6,7 +6,7 @@
 * @brief      LINUX Frame Buffer Screen class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -66,7 +66,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPLINUXSCREENFRAMEBUFFER::GRPLINUXSCREENFRAMEBUFFER(): GRPSCREEN()
 {
   Clean();
@@ -117,7 +117,7 @@ GRPLINUXSCREENFRAMEBUFFER::GRPLINUXSCREENFRAMEBUFFER(): GRPSCREEN()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPLINUXSCREENFRAMEBUFFER::~GRPLINUXSCREENFRAMEBUFFER()
 {
   Delete();
@@ -137,7 +137,7 @@ GRPLINUXSCREENFRAMEBUFFER::~GRPLINUXSCREENFRAMEBUFFER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENFRAMEBUFFER::Create(bool show)
 {
   Clean();
@@ -185,7 +185,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::Create(bool show)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENFRAMEBUFFER::Update()
 {
 
@@ -204,7 +204,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::Update()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENFRAMEBUFFER::Update(GRPCANVAS* canvas)
 {
   if(handlefb == -1) return false;
@@ -246,7 +246,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::Update(GRPCANVAS* canvas)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENFRAMEBUFFER::Delete()
 {
   ClearScreen();
@@ -276,7 +276,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::Delete()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENFRAMEBUFFER::Resize(int width, int height)
 {
   return false;
@@ -294,7 +294,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::Resize(int width, int height)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENFRAMEBUFFER::Show(bool active)
 {
   isshow  = active;
@@ -314,7 +314,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::Show(bool active)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENFRAMEBUFFER::ShowCursor(bool active)
 {
   return false;
@@ -330,7 +330,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::ShowCursor(bool active)
 *
 * @return     void* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void* GRPLINUXSCREENFRAMEBUFFER::GetHandle()
 {
   void* ptr = 0;
@@ -350,7 +350,7 @@ void* GRPLINUXSCREENFRAMEBUFFER::GetHandle()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPLINUXSCREENFRAMEBUFFER::GetHandleFB()
 {
   return handlefb;
@@ -369,7 +369,7 @@ int GRPLINUXSCREENFRAMEBUFFER::GetHandleFB()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENFRAMEBUFFER::ScreenResolution(int width, int height)
 {
   if(handlefb == -1) return false;
@@ -435,7 +435,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::ScreenResolution(int width, int height)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENFRAMEBUFFER::ClearScreen()
 {
   if(handlefb == -1) return false;
@@ -461,7 +461,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::ClearScreen()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPLINUXSCREENFRAMEBUFFER::Clean()
 {
   handlefb  = -1;

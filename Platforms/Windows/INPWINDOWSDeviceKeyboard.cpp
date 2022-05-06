@@ -6,7 +6,7 @@
 * @brief       WINDOWS INPUT Device Keyboard class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -56,7 +56,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPWINDOWSDEVICEKEYBOARD::INPWINDOWSDEVICEKEYBOARD() : INPDEVICE()
 {
   Clean();
@@ -79,7 +79,7 @@ INPWINDOWSDEVICEKEYBOARD::INPWINDOWSDEVICEKEYBOARD() : INPDEVICE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPWINDOWSDEVICEKEYBOARD::~INPWINDOWSDEVICEKEYBOARD()
 {
   DeleteAllButtons();
@@ -100,7 +100,7 @@ INPWINDOWSDEVICEKEYBOARD::~INPWINDOWSDEVICEKEYBOARD()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSDEVICEKEYBOARD::Update()
 {
   if((!created)||(!enabled)) return false;
@@ -167,7 +167,7 @@ bool INPWINDOWSDEVICEKEYBOARD::Update()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPWINDOWSDEVICEKEYBOARD::Clean()
 {
 
@@ -184,7 +184,7 @@ void INPWINDOWSDEVICEKEYBOARD::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSDEVICEKEYBOARD::CreateAllButtons()
 {
   INPBUTTON::CreateButton( &buttons, VK_BACK            , INPBUTTON_ID_BACK_SPACE         , __C('\b'));

@@ -6,7 +6,7 @@
 * @brief      DataBase MySQL Query class
 * @ingroup    DATABASESSQL
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_QUERY::MYSQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(database)
 {
   Clean();
@@ -77,7 +77,7 @@ MYSQL_QUERY::MYSQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(database)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_QUERY::~MYSQL_QUERY()
 {
   UnbindAll();
@@ -97,7 +97,7 @@ MYSQL_QUERY::~MYSQL_QUERY()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_QUERY::Execute()
 {
   MYSQL_DATABASE* db    = static_cast<MYSQL_DATABASE*>  (database);
@@ -154,7 +154,7 @@ bool MYSQL_QUERY::Execute()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_QUERY::UnbindAll()
 {
   if(result)
@@ -194,7 +194,7 @@ bool MYSQL_QUERY::UnbindAll()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_QUERY::Bind(XDWORD ID, DB_SQL_DATETIME& datetime)
 {
   MYSQL_VARIANT* variant=new MYSQL_VARIANT();
@@ -218,7 +218,7 @@ bool MYSQL_QUERY::Bind(XDWORD ID, DB_SQL_DATETIME& datetime)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_QUERY::Exec(MYSQL* db,char* sql)
 {
   if(!db)
@@ -361,7 +361,7 @@ bool MYSQL_QUERY::Exec(MYSQL* db,char* sql)
 *
 * @return     DB_SQL_RESULT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_RESULT* MYSQL_QUERY::ConstructResult()
 {
   MYSQL_RESULT* result = new MYSQL_RESULT();
@@ -382,7 +382,7 @@ DB_SQL_RESULT* MYSQL_QUERY::ConstructResult()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_QUERY::BindParametersToQuery()
 {
   if(!statementbindings.GetSize())  return true;
@@ -493,7 +493,7 @@ bool MYSQL_QUERY::BindParametersToQuery()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_QUERY::BindParametersToResult()
 {
   MYSQL_RES* mysqlresultfromstmt = mysql_stmt_result_metadata(stmt);
@@ -570,7 +570,7 @@ bool MYSQL_QUERY::BindParametersToResult()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MYSQL_QUERY::Clean()
 {
   stmt    = NULL;

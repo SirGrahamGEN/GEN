@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream TCP/IP Config class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     DIOSTREAMTCPIPCONFIG :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTCPIPCONFIG ::DIOSTREAMTCPIPCONFIG(): DIOSTREAMCONFIG(), DIOSTREAMCONFIGSTRING()
 {
   Clean();
@@ -75,7 +75,7 @@ DIOSTREAMTCPIPCONFIG ::DIOSTREAMTCPIPCONFIG(): DIOSTREAMCONFIG(), DIOSTREAMCONFI
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTCPIPCONFIG::~DIOSTREAMTCPIPCONFIG()
 {
   if(xmutexmultiserver) GEN_XFACTORY.Delete_Mutex(xmutexmultiserver);
@@ -93,7 +93,7 @@ DIOSTREAMTCPIPCONFIG::~DIOSTREAMTCPIPCONFIG()
 *
 * @return     DIOIP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOIP* DIOSTREAMTCPIPCONFIG ::GetLocalIP()
 {
   return &localIP;
@@ -109,7 +109,7 @@ DIOIP* DIOSTREAMTCPIPCONFIG ::GetLocalIP()
 *
 * @return     DIOURL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOURL* DIOSTREAMTCPIPCONFIG ::GetRemoteURL()
 {
   return &remoteURL;
@@ -125,7 +125,7 @@ DIOURL* DIOSTREAMTCPIPCONFIG ::GetRemoteURL()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMTCPIPCONFIG ::GetRemotePort()
 {
   return remoteport;
@@ -143,7 +143,7 @@ int DIOSTREAMTCPIPCONFIG ::GetRemotePort()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMTCPIPCONFIG ::SetRemotePort(int port)
 {
   this->remoteport = port;
@@ -161,7 +161,7 @@ bool DIOSTREAMTCPIPCONFIG ::SetRemotePort(int port)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMTCPIPCONFIG::GetCounterMultiServer()
 {
   return countermultiserver;
@@ -179,7 +179,7 @@ int DIOSTREAMTCPIPCONFIG::GetCounterMultiServer()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMTCPIPCONFIG::SetCounterMultiServer(int countermultiserver)
 {
   this->countermultiserver = countermultiserver;
@@ -194,7 +194,7 @@ void DIOSTREAMTCPIPCONFIG::SetCounterMultiServer(int countermultiserver)
 *
 * @return     XMUTEX* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XMUTEX* DIOSTREAMTCPIPCONFIG::GetXMutexMultiServer()
 {
   return xmutexmultiserver;
@@ -210,7 +210,7 @@ XMUTEX* DIOSTREAMTCPIPCONFIG::GetXMutexMultiServer()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMTCPIPCONFIG::GetHandleMultiServer()
 {
   return handlemultiserver;
@@ -228,7 +228,7 @@ int DIOSTREAMTCPIPCONFIG::GetHandleMultiServer()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMTCPIPCONFIG::SetHandleMultiServer(int handlemultiserver)
 {
   this->handlemultiserver = handlemultiserver;
@@ -245,7 +245,7 @@ void DIOSTREAMTCPIPCONFIG::SetHandleMultiServer(int handlemultiserver)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMTCPIPCONFIG::Clean()
 {
   type                    = DIOSTREAMTYPE_TCPIP;

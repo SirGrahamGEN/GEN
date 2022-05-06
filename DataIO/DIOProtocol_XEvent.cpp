@@ -6,7 +6,7 @@
 * @brief      Data Input/Output eXtended event Generic Binary Protocol eXtended Event class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -56,7 +56,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_XEVENT::DIOPROTOCOL_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
   Clean();
@@ -73,7 +73,7 @@ DIOPROTOCOL_XEVENT::DIOPROTOCOL_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD fa
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_XEVENT::~DIOPROTOCOL_XEVENT()
 {
   Clean();
@@ -89,7 +89,7 @@ DIOPROTOCOL_XEVENT::~DIOPROTOCOL_XEVENT()
 *
 * @return     DIOPROTOCOL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL* DIOPROTOCOL_XEVENT::GetProtocol()
 {
   return protocol;
@@ -107,7 +107,7 @@ DIOPROTOCOL* DIOPROTOCOL_XEVENT::GetProtocol()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_XEVENT::SetProtocol(DIOPROTOCOL* protocol)
 {
   if(!protocol) return false;
@@ -126,7 +126,7 @@ bool DIOPROTOCOL_XEVENT::SetProtocol(DIOPROTOCOL* protocol)
 *
 * @return     DIOPROTOCOL_DIRECTION :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_DIRECTION  DIOPROTOCOL_XEVENT::GetDirection()
 {
   return direction;
@@ -144,7 +144,7 @@ DIOPROTOCOL_DIRECTION  DIOPROTOCOL_XEVENT::GetDirection()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_XEVENT::SetDirection(DIOPROTOCOL_DIRECTION direction)
 {
   this->direction = direction;
@@ -160,7 +160,7 @@ void DIOPROTOCOL_XEVENT::SetDirection(DIOPROTOCOL_DIRECTION direction)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOPROTOCOL_XEVENT::GetType()
 {
   return type;
@@ -178,7 +178,7 @@ XDWORD DIOPROTOCOL_XEVENT::GetType()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_XEVENT::SetType(XDWORD type)
 {
   this->type = type;
@@ -194,7 +194,7 @@ void DIOPROTOCOL_XEVENT::SetType(XDWORD type)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_XEVENT::GetResult()
 {
   return result;
@@ -212,7 +212,7 @@ bool DIOPROTOCOL_XEVENT::GetResult()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_XEVENT::SetResult(bool result)
 {
   this->result = result;
@@ -228,7 +228,7 @@ void DIOPROTOCOL_XEVENT::SetResult(bool result)
 *
 * @return     DIOPROTOCOL_FILESTATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_FILESTATUS DIOPROTOCOL_XEVENT::GetFileStatus()
 {
   return filestatus;
@@ -246,7 +246,7 @@ DIOPROTOCOL_FILESTATUS DIOPROTOCOL_XEVENT::GetFileStatus()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_XEVENT::SetFileStatus(DIOPROTOCOL_FILESTATUS filestatus)
 {
   this->filestatus = filestatus;
@@ -262,7 +262,7 @@ void DIOPROTOCOL_XEVENT::SetFileStatus(DIOPROTOCOL_FILESTATUS filestatus)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_XEVENT::FileIsSend()
 {
   return fileissend;
@@ -280,7 +280,7 @@ bool DIOPROTOCOL_XEVENT::FileIsSend()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_XEVENT::SetFileIsSend(bool fileissend)
 {
   this->fileissend = fileissend;
@@ -296,7 +296,7 @@ void DIOPROTOCOL_XEVENT::SetFileIsSend(bool fileissend)
 *
 * @return     XPATH* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATH* DIOPROTOCOL_XEVENT::GetFileSource()
 {
   return &filesource;
@@ -314,7 +314,7 @@ XPATH* DIOPROTOCOL_XEVENT::GetFileSource()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_XEVENT::SetFileSource(XCHAR* filesource)
 {
   if(!filesource) return false;
@@ -332,7 +332,7 @@ bool DIOPROTOCOL_XEVENT::SetFileSource(XCHAR* filesource)
 *
 * @return     XPATH* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATH* DIOPROTOCOL_XEVENT::GetFileTarget()
 {
   return &filetarget;
@@ -350,7 +350,7 @@ XPATH* DIOPROTOCOL_XEVENT::GetFileTarget()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_XEVENT::SetFileTarget(XCHAR* filetarget)
 {
   if(!filetarget) return false;
@@ -368,7 +368,7 @@ bool DIOPROTOCOL_XEVENT::SetFileTarget(XCHAR* filetarget)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOPROTOCOL_XEVENT::GetFilePercent()
 {
   return filepercent;
@@ -386,7 +386,7 @@ int DIOPROTOCOL_XEVENT::GetFilePercent()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_XEVENT::SetFilePercent(int filepercent)
 {
   this->filepercent = filepercent;
@@ -402,7 +402,7 @@ void DIOPROTOCOL_XEVENT::SetFilePercent(int filepercent)
 *
 * @return     void* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void* DIOPROTOCOL_XEVENT::GetParam1()
 {
   return param1;
@@ -420,7 +420,7 @@ void* DIOPROTOCOL_XEVENT::GetParam1()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_XEVENT::SetParam1(void* param1)
 {
   this->param1 = param1;
@@ -436,7 +436,7 @@ void DIOPROTOCOL_XEVENT::SetParam1(void* param1)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOPROTOCOL_XEVENT::GetParam2()
 {
   return param2;
@@ -454,7 +454,7 @@ XDWORD DIOPROTOCOL_XEVENT::GetParam2()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_XEVENT::SetParam2(XDWORD param2)
 {
   this->param2 = param2;
@@ -470,7 +470,7 @@ void DIOPROTOCOL_XEVENT::SetParam2(XDWORD param2)
 *
 * @return     DIOALERT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT* DIOPROTOCOL_XEVENT::GetAlert()
 {
   return alert;
@@ -488,7 +488,7 @@ DIOALERT* DIOPROTOCOL_XEVENT::GetAlert()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_XEVENT::SetAlert(DIOALERT* alert)
 {
   this->alert = alert;
@@ -505,7 +505,7 @@ void DIOPROTOCOL_XEVENT::SetAlert(DIOALERT* alert)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_XEVENT::Clean()
 {
   protocol    = NULL;

@@ -6,7 +6,7 @@
 * @brief      User Interface Element Progress Bar Class
 * @ingroup    USERINTERFACE
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 * 
-* *---------------------------------------------------------------------------------------------------------------------*/
+* * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _UI_ELEMENT_PROGRESSBAR_H_
 #define _UI_ELEMENT_PROGRESSBAR_H_
@@ -86,7 +86,7 @@ class UI_ELEMENT_PROGRESSBAR : public UI_ELEMENT_OPTION
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

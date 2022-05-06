@@ -6,7 +6,7 @@
 * @brief      
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 * 
-* *---------------------------------------------------------------------------------------------------------------------*/
+* * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2C6AXISTRACKINGBMI270_H_
 #define _DIOI2C6AXISTRACKINGBMI270_H_
@@ -2282,6 +2282,6 @@ class DIOI2C6AXISTRACKINGBMI270: public DIODEVICEI2C
 
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif

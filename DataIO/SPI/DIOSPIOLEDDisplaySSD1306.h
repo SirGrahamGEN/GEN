@@ -6,7 +6,7 @@
 * @brief      Data Input/Output SPI Display OLED SSD 1306
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSPIOLEDDISPLAYSSD1306_H_
 #define _DIOSPIOLEDDISPLAYSSD1306_H_
@@ -169,7 +169,7 @@ class DIOSPIOLEDDISPLAYSSD1306 : public DIODISPLAYDEVICE, public DIODEVICESPI
     XBYTE                     y;
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

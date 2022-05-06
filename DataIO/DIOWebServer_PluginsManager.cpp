@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Server Plugins Manager class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -56,7 +56,7 @@
  *
  *  @return     Does not return anything.
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGINSMANAGER::DIOWEBSERVER_PLUGINSMANAGER()
 {
   Clean();
@@ -72,7 +72,7 @@ DIOWEBSERVER_PLUGINSMANAGER::DIOWEBSERVER_PLUGINSMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGINSMANAGER::~DIOWEBSERVER_PLUGINSMANAGER()
 {
   Clean();
@@ -90,7 +90,7 @@ DIOWEBSERVER_PLUGINSMANAGER::~DIOWEBSERVER_PLUGINSMANAGER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_Add(DIOWEBSERVER_PLUGIN* plugin)
 {
   if(!plugin) return false;
@@ -109,7 +109,7 @@ bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_Add(DIOWEBSERVER_PLUGIN* plugin)
 *
 * @return     DIOWEBSERVER_PLUGIN* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOWEBSERVER_PLUGINSMANAGER::Plugins_GetNPlugins()
 {
   return plugins.GetSize();
@@ -127,7 +127,7 @@ XDWORD DIOWEBSERVER_PLUGINSMANAGER::Plugins_GetNPlugins()
 *
 * @return     DIOWEBSERVER_PLUGIN* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGIN* DIOWEBSERVER_PLUGINSMANAGER::Plugins_Get(int index)
 {
   return plugins.Get(index);
@@ -145,7 +145,7 @@ DIOWEBSERVER_PLUGIN* DIOWEBSERVER_PLUGINSMANAGER::Plugins_Get(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_Delete(DIOWEBSERVER_PLUGIN* plugin)
 {
   return plugins.Delete(plugin);
@@ -161,7 +161,7 @@ bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_Delete(DIOWEBSERVER_PLUGIN* plugin)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_DeleteAll()
 {
   if(!plugins.GetSize()) return false;
@@ -183,7 +183,7 @@ bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_DeleteAll()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_PLUGINSMANAGER::Clean()
 {
 

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream WINDOWS Wi-Fi remote Enum Devices class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -70,7 +70,7 @@ void    WLanCallback      (WLAN_NOTIFICATION_DATA *scannotificationdata, PVOID c
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES() : DIOSTREAMWIFIREMOTEENUMDEVICES()
 {
   Clean();
@@ -88,7 +88,7 @@ DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES() :
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::~DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES()
 {
   StopSearch(true);
@@ -106,7 +106,7 @@ DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::~DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Search()
 {
@@ -519,7 +519,7 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Search()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::SetAllConnectionInAutomaticMode(bool automaticmodeactive)
 {
   HANDLE                        handleclient      = NULL;
@@ -634,7 +634,7 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::SetAllConnectionInAutomaticMode(bool
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::SetAllConnectionStatus(bool activate)
 {
   HANDLE                      handleclient        = NULL;
@@ -915,7 +915,7 @@ VOID SetRadioState(__in int argc, __in_ecount(argc) LPWSTR argv[])
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 {
   if(!IsSearching()) return false;
@@ -935,7 +935,7 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 {
   return issearching;
@@ -956,7 +956,7 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::TriggerScan(HANDLE wlanhandle, WLAN_INTERFACE_INFO_LIST* interfaces)
 {
 
@@ -1027,7 +1027,7 @@ void DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::TriggerScan(HANDLE wlanhandle, WLAN_
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void WLanCallback(WLAN_NOTIFICATION_DATA *scannotificationdata, PVOID context)
 {
   // Get the data from my struct. If it's null, nothing to do
@@ -1069,7 +1069,7 @@ void WLanCallback(WLAN_NOTIFICATION_DATA *scannotificationdata, PVOID context)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Clean()
 {
   issearching = false;

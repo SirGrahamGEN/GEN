@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Enum Servers class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -56,7 +56,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMENUMSERVERS::DIOSTREAMENUMSERVERS(): DIOSTREAMENUMDEVICES()
 {
   Clean();
@@ -74,7 +74,7 @@ DIOSTREAMENUMSERVERS::DIOSTREAMENUMSERVERS(): DIOSTREAMENUMDEVICES()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMENUMSERVERS::~DIOSTREAMENUMSERVERS()
 {
   GEN_XFACTORY.DeleteTimer(xtimer);
@@ -91,7 +91,7 @@ DIOSTREAMENUMSERVERS::~DIOSTREAMENUMSERVERS()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMENUMSERVERS::GetSearchTimeout()
 {
   return searchtimeout;
@@ -109,7 +109,7 @@ XDWORD DIOSTREAMENUMSERVERS::GetSearchTimeout()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMENUMSERVERS::SetSearchTimeout(int searchtimeout)
 {
   this->searchtimeout = searchtimeout;
@@ -127,7 +127,7 @@ void DIOSTREAMENUMSERVERS::SetSearchTimeout(int searchtimeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMENUMSERVERS::Search(int searchtimeout)
 {
   if(issearching) return false;
@@ -147,7 +147,7 @@ bool DIOSTREAMENUMSERVERS::Search(int searchtimeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMENUMSERVERS::Search()
 {
   issearching = false;
@@ -167,7 +167,7 @@ bool DIOSTREAMENUMSERVERS::Search()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMENUMSERVERS::StopSearch(bool waitend)
 {
 
@@ -184,7 +184,7 @@ bool DIOSTREAMENUMSERVERS::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMENUMSERVERS::IsSearching()
 {
   return issearching;
@@ -202,7 +202,7 @@ bool DIOSTREAMENUMSERVERS::IsSearching()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
 {
 
@@ -219,7 +219,7 @@ bool DIOSTREAMENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
 *
 * @return     XTIMER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTIMER* DIOSTREAMENUMSERVERS::GetXTimer()
 {
   return xtimer;
@@ -235,7 +235,7 @@ XTIMER* DIOSTREAMENUMSERVERS::GetXTimer()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMENUMSERVERS::SendSignal()
 {
   return false;
@@ -251,7 +251,7 @@ bool DIOSTREAMENUMSERVERS::SendSignal()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMENUMSERVERS::GetID()
 {
   return ID;
@@ -269,7 +269,7 @@ XDWORD DIOSTREAMENUMSERVERS::GetID()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMENUMSERVERS::SetID(XDWORD ID)
 {
   this->ID = ID;
@@ -288,7 +288,7 @@ bool DIOSTREAMENUMSERVERS::SetID(XDWORD ID)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMENUMSERVERS::Clean()
 {
   type             = DIOSTREAMENUMTYPE_LOCAL_SERVERS;

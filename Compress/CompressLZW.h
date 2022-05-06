@@ -1,26 +1,39 @@
-/*------------------------------------------------------------------------------------------
-//  COMPRESSLZW.H
-*/
-/**
-// \class
-//
-//  Compres LWZ (Gif compression) class
-//
-//  ""
-//  @version 15/12/2009 10:29:20 p.m.
-*/
-/*  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CompressLZW.h
+* 
+* @class      COMPRESSLZW
+* @brief      Compress LZW (Gif compression) class
+* @ingroup    COMPRESS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _COMPRESSLZW_H_
 #define _COMPRESSLZW_H_
 
-
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "CompressBase.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define   LZW_MAX_TABLE_SIZE    4096
 #define   LZW_MAX_HASHSIZE      0x1000FF // (4096 << 8) + 0xFF
@@ -29,13 +42,12 @@
 
 typedef struct tagLZW_STRING
 {
-  XWORD wPrefix;
-  XWORD wSuffix;
+  XWORD prefix;
+  XWORD suffix;
 
 } LZW_STRING, *PLZW_STRING;
 
-
-/*---- CLASS -----------------------------------------------------------------------------*/
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class COMPRESS_LZW : public COMPRESSBASE
 {
@@ -46,20 +58,20 @@ class COMPRESS_LZW : public COMPRESSBASE
     bool                   Compress                           (XBYTE* source,XDWORD size,XBUFFER* buffer);
     bool                   Decompress                         (XBYTE* source,XDWORD size,XBUFFER* buffer);
 
-    XDWORD                 LZW_Encode                         (XBYTE* InBuffer, XDWORD dwLength, XBYTE* OutBuffer);
-    void                   LZW_Decode                         (XBYTE* InBuffer, XBYTE* OutBuffer);
+    XDWORD                 LZW_Encode                         (XBYTE* inbuffer, XDWORD length, XBYTE* outbuffer);
+    void                   LZW_Decode                         (XBYTE* inbuffer, XBYTE* outbuffer);
 
-    XDWORD                 LZW_GIF_Encode                     (XBYTE* DibBuffer ,XBYTE* OutBuffer, XDWORD dwDibWidth, XDWORD dwDibHeight, XWORD wColorBit);
-    void                   LZW_GIF_Decode                     (XBYTE* InBuffer  ,XBYTE* DibBuffer, XDWORD dwDibWidth, XDWORD dwDibHeight, bool bInterlace);
+    XDWORD                 LZW_GIF_Encode                     (XBYTE* dibbuffer ,XBYTE* outbuffer, XDWORD dibwidth, XDWORD dibheight, XWORD colorbit);
+    void                   LZW_GIF_Decode                     (XBYTE* inbuffer  ,XBYTE* dibbuffer, XDWORD dibwidth, XDWORD dibheight, bool binterlace);
 
   private:
 
     void                   Decode_InitStringTable             ();
-    XWORD                  Decode_GetNextCode                 ();
-    bool                   Decode_IsInTable                   (XWORD Code);
-    void                   Decode_AddStringToTable            (XWORD wPrefix, XWORD wSuffix);
-    XBYTE                  Decode_GetFirstChar                (XWORD Code);
-    void                   Decode_WriteString_to8             (XWORD Code);
+    XWORD                  Decode_GetNextcode                 ();
+    bool                   Decode_IsInTable                   (XWORD code);
+    void                   Decode_AddStringToTable            (XWORD prefix, XWORD suffix);
+    XBYTE                  Decode_GetFirstChar                (XWORD code);
+    void                   Decode_WriteString_to8             (XWORD code);
     void                   Decode_SwitchToFollowLine          ();
     void                   Encode_InitStringTable             ();
     XBYTE                  Encode_GetNextPixel                ();
@@ -67,33 +79,33 @@ class COMPRESS_LZW : public COMPRESSBASE
     void                   Encode_AddStringToTable            (XWORD Old, XWORD Pixel);
     void                   Encode_WriteIndex                  (XDWORD wIndex);
 
-    LZW_STRING*            m_pStrBegin;
-    XWORD*                 m_pHash;
+    LZW_STRING*            strbegin;
+    XWORD*                 hash;
 
-    XWORD                  m_LZW_CLEAR;
-    XWORD                  m_LZW_END;
+    XWORD                  LZWclear;
+    XWORD                  LZWend;
 
-    XBYTE                  m_byInterval;
-    XBYTE                  m_Interval[7];
+    XBYTE                  byinterval;
+    XBYTE                  interval[7];
 
-    XBYTE*                 m_pOrigin;
-    XBYTE*                 m_pCurIn;
-    XBYTE*                 m_pCurOut;
-    XBYTE                  m_byInBit;
-    XBYTE                  m_byOutBit;
+    XBYTE*                 origin;
+    XBYTE*                 curin;
+    XBYTE*                 curout;
+    XBYTE                  byinbit;
+    XBYTE                  byoutbit;
 
-    XBYTE                  m_byMinCode;
-    XBYTE                  m_byCurrBits;
-    XWORD                  m_CurrTableIndex;
-    XBYTE                  m_Padding[2];
+    XBYTE                  bymincode;
+    XBYTE                  bycurrbits;
+    XWORD                  currtableindex;
+    XBYTE                  padding[2];
 
-    XDWORD                 m_dwDibHeight;
-    XDWORD                 m_dwDibWidth;
-    XDWORD                 m_dwCurrPixel;
-    XDWORD                 m_dwCurrHeight;
-    XDWORD                 m_dwPitch;
+    XDWORD                 m_dibheight;
+    XDWORD                 m_dibwidth;
+    XDWORD                 currpixel;
+    XDWORD                 currheight;
+    XDWORD                 pitch;
 };
 
-/*---- INLINE FUNCTIONS ------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Bluetooth LE REMOTE Enum Devices eXtension event class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -56,7 +56,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT(XSUBJECT* subject, XDWORD family, XDWORD type) : XEVENT(subject, family, type)
 {
   Clean();
@@ -73,7 +73,7 @@ DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::DIOSTREAMBLUETOOTHLEREMOTEENUMDEVI
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::~DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT()
 {
   Clean();
@@ -89,7 +89,7 @@ DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::~DIOSTREAMBLUETOOTHLEREMOTEENUMDEV
 *
 * @return     DIOSTREAMDEVICEBLUETOOTHLE* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEBLUETOOTHLE* DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::GetDeviceSearch()
 {
   return devicesearch;
@@ -107,7 +107,7 @@ DIOSTREAMDEVICEBLUETOOTHLE* DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::GetDev
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::SetDeviceSearch(DIOSTREAMDEVICEBLUETOOTHLE* devicesearch)
 {
   this->devicesearch = devicesearch;
@@ -125,7 +125,7 @@ void DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::SetDeviceSearch(DIOSTREAMDEVI
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::Clean()
 {
   devicesearch = NULL;

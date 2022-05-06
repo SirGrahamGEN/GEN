@@ -6,7 +6,7 @@
 * @brief      WINDOWS Data IO Notifications manager class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOWINDOWSNOTIFICATIONSMANAGER_H_
 #define _DIOWINDOWSNOTIFICATIONSMANAGER_H_
@@ -161,7 +161,7 @@ class DIOWINDOWSNOTIFICATIONSMANAGER : public DIONOTIFICATIONSMANAGER, public To
 
 #endif
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #if(_MSC_VER >= 1700) && defined(_USING_V110_SDK71_)
 

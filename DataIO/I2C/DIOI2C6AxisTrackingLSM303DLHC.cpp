@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C 6 axis tracking LSM303DLHC
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -67,7 +67,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CLSM303DLHCVECTOR::DIOI2CLSM303DLHCVECTOR()
 {
   Clean();
@@ -84,7 +84,7 @@ DIOI2CLSM303DLHCVECTOR::DIOI2CLSM303DLHCVECTOR()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CLSM303DLHCVECTOR::~DIOI2CLSM303DLHCVECTOR()
 {
   Clean();
@@ -104,7 +104,7 @@ DIOI2CLSM303DLHCVECTOR::~DIOI2CLSM303DLHCVECTOR()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CLSM303DLHCVECTOR::Cross(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2CLSM303DLHCVECTOR& b, DIOI2CLSM303DLHCVECTOR& out)
 {
   out.x = a.y * b.z - a.z * b.y;
@@ -125,7 +125,7 @@ void DIOI2CLSM303DLHCVECTOR::Cross(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2C
 *
 * @return     float :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIOI2CLSM303DLHCVECTOR::Dot(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2CLSM303DLHCVECTOR& b)
 {
   return a.x * b.x + a.y * b.y + a.z * b.z;
@@ -143,7 +143,7 @@ float DIOI2CLSM303DLHCVECTOR::Dot(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2CL
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CLSM303DLHCVECTOR::Normalize(DIOI2CLSM303DLHCVECTOR& a)
 {
   float mag = (float)sqrt(Dot(a,a));
@@ -164,7 +164,7 @@ void DIOI2CLSM303DLHCVECTOR::Normalize(DIOI2CLSM303DLHCVECTOR& a)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CLSM303DLHCVECTOR::Clean()
 {
   x = 0;
@@ -187,7 +187,7 @@ void DIOI2CLSM303DLHCVECTOR::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CLSM303DLHC::DIOI2CLSM303DLHC() : DIODEVICEI2C()
 {
   Clean();
@@ -204,7 +204,7 @@ DIOI2CLSM303DLHC::DIOI2CLSM303DLHC() : DIODEVICEI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CLSM303DLHC::~DIOI2CLSM303DLHC()
 {
   End();
@@ -222,7 +222,7 @@ DIOI2CLSM303DLHC::~DIOI2CLSM303DLHC()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLSM303DLHC::End()
 {
   if(!DIODEVICEI2C::End()) return false;
@@ -240,7 +240,7 @@ bool DIOI2CLSM303DLHC::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLSM303DLHC::IniDevice()
 { 
   if(!DIODEVICEI2C::IniDevice()) return false;
@@ -268,7 +268,7 @@ bool DIOI2CLSM303DLHC::IniDevice()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XBYTE& value)
 {
   if(!diostream)          return false;
@@ -300,7 +300,7 @@ bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XBYTE& value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XWORD& value)
 {
   if(!diostream)  return false;
@@ -332,7 +332,7 @@ bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XWORD& value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLSM303DLHC::WriteRegister(XBYTE reg, XBYTE value)
 {
   if(!diostream)  return false;
@@ -360,7 +360,7 @@ bool DIOI2CLSM303DLHC::WriteRegister(XBYTE reg, XBYTE value)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CLSM303DLHC::Clean()
 {
   
@@ -383,7 +383,7 @@ void DIOI2CLSM303DLHC::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C3DCOMPASSLSM303DLHC::DIOI2C3DCOMPASSLSM303DLHC()
 {
 
@@ -400,7 +400,7 @@ DIOI2C3DCOMPASSLSM303DLHC::DIOI2C3DCOMPASSLSM303DLHC()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C3DCOMPASSLSM303DLHC::~DIOI2C3DCOMPASSLSM303DLHC()
 
 {
@@ -417,7 +417,7 @@ DIOI2C3DCOMPASSLSM303DLHC::~DIOI2C3DCOMPASSLSM303DLHC()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C3DACCELEROMETERLSM303DLHC::Configure()
 {
   if(!IsInitialized()) return false;
@@ -453,7 +453,7 @@ bool DIOI2C3DACCELEROMETERLSM303DLHC::Configure()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C3DACCELEROMETERLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z)
 {
   if(!IsInitialized()) return false;
@@ -487,7 +487,7 @@ bool DIOI2C3DACCELEROMETERLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C3DACCELEROMETERLSM303DLHC::DIOI2C3DACCELEROMETERLSM303DLHC()
 {
 
@@ -504,7 +504,7 @@ DIOI2C3DACCELEROMETERLSM303DLHC::DIOI2C3DACCELEROMETERLSM303DLHC()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C3DACCELEROMETERLSM303DLHC::~DIOI2C3DACCELEROMETERLSM303DLHC()
 {
 
@@ -520,7 +520,7 @@ DIOI2C3DACCELEROMETERLSM303DLHC::~DIOI2C3DACCELEROMETERLSM303DLHC()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C3DCOMPASSLSM303DLHC::Configure()
 {
   if(!IsInitialized()) return false;
@@ -555,7 +555,7 @@ bool DIOI2C3DCOMPASSLSM303DLHC::Configure()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C3DCOMPASSLSM303DLHC::Read(XWORD& c_x, XWORD& c_y, XWORD& c_z)
 {
   if(!IsInitialized()) return false;
@@ -587,7 +587,7 @@ bool DIOI2C3DCOMPASSLSM303DLHC::Read(XWORD& c_x, XWORD& c_y, XWORD& c_z)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C6AXISTRACKINGLSM303DLHC::DIOI2C6AXISTRACKINGLSM303DLHC()
 {
   Clean();
@@ -607,7 +607,7 @@ DIOI2C6AXISTRACKINGLSM303DLHC::DIOI2C6AXISTRACKINGLSM303DLHC()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C6AXISTRACKINGLSM303DLHC::~DIOI2C6AXISTRACKINGLSM303DLHC()
 {
   delete accelerometer;
@@ -631,7 +631,7 @@ DIOI2C6AXISTRACKINGLSM303DLHC::~DIOI2C6AXISTRACKINGLSM303DLHC()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGLSM303DLHC::Ini(XCHAR* localdevicename, int remotedeviceaddressaccelerometer, int remotedeviceaddresscompass, int timeout)
 {
   if(!accelerometer)  return false;
@@ -661,7 +661,7 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Ini(XCHAR* localdevicename, int remotedevice
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGLSM303DLHC::Ini(int port,  int remotedeviceaddressaccelerometer, int remotedeviceaddresscompass, int timeout)
 {
   if(!accelerometer)  return false;
@@ -693,7 +693,7 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Ini(int port,  int remotedeviceaddressaccele
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C6AXISTRACKINGLSM303DLHC::SetOffset(float x, float y, float z)
 {
   offset_x = x;
@@ -715,7 +715,7 @@ void DIOI2C6AXISTRACKINGLSM303DLHC::SetOffset(float x, float y, float z)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C6AXISTRACKINGLSM303DLHC::SetScale(float x, float y, float z)
 {
   scale_x = x;
@@ -740,7 +740,7 @@ void DIOI2C6AXISTRACKINGLSM303DLHC::SetScale(float x, float y, float z)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z, XWORD& c_x, XWORD& c_y, XWORD& c_z)
 {
   if(!accelerometer)  return false;
@@ -767,7 +767,7 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z, XWO
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGLSM303DLHC::Read(DIOI2CLSM303DLHCVECTOR& a, DIOI2CLSM303DLHCVECTOR& c)
 {
   if(!accelerometer)  return false;
@@ -808,7 +808,7 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Read(DIOI2CLSM303DLHCVECTOR& a, DIOI2CLSM303
 *
 * @return     float :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIOI2C6AXISTRACKINGLSM303DLHC::Heading()
 {
   DIOI2CLSM303DLHCVECTOR vector;
@@ -832,7 +832,7 @@ float DIOI2C6AXISTRACKINGLSM303DLHC::Heading()
 *
 * @return     float :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIOI2C6AXISTRACKINGLSM303DLHC::Heading(DIOI2CLSM303DLHCVECTOR& from)
 {
   DIOI2CLSM303DLHCVECTOR a;
@@ -876,7 +876,7 @@ float DIOI2C6AXISTRACKINGLSM303DLHC::Heading(DIOI2CLSM303DLHCVECTOR& from)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGLSM303DLHC::End()
 {
   if(!accelerometer)  return false;
@@ -899,7 +899,7 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::End()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C6AXISTRACKINGLSM303DLHC::Clean()
 {
   accelerometer   = NULL;

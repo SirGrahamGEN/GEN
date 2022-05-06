@@ -6,7 +6,7 @@
 * @brief      eXtended Console base class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCONSOLE::XCONSOLE()
 {
   Clean();
@@ -76,7 +76,7 @@ XCONSOLE::XCONSOLE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCONSOLE::~XCONSOLE()
 
 {
@@ -97,7 +97,7 @@ XCONSOLE::~XCONSOLE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::GetSize(int& width, int& height)
 {
   width  = 0;
@@ -120,7 +120,7 @@ bool XCONSOLE::GetSize(int& width, int& height)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::SetSize(int width, int height)
 {
   return false;
@@ -139,7 +139,7 @@ bool XCONSOLE::SetSize(int width, int height)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::GetSizeText(int& columns, int& rows)
 {
   return false;
@@ -155,7 +155,7 @@ bool XCONSOLE::GetSizeText(int& columns, int& rows)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::Maximize()
 {
   return false;
@@ -171,7 +171,7 @@ bool XCONSOLE::Maximize()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::Minimize()
 {
   return false;
@@ -188,7 +188,7 @@ bool XCONSOLE::Minimize()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::Hide()
 {
   return false;
@@ -204,7 +204,7 @@ bool XCONSOLE::Hide()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::IsHide()
 {
   return false;
@@ -220,7 +220,7 @@ bool XCONSOLE::IsHide()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::UnHide()
 {
   return false;
@@ -255,7 +255,7 @@ bool XCONSOLE::Clear(bool fill)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::KBHit()
 {
   return false;
@@ -272,7 +272,7 @@ bool XCONSOLE::KBHit()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XCONSOLE::GetChar()
 {
   return 0;
@@ -292,7 +292,7 @@ int XCONSOLE::GetChar()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::Print(XCHAR* string)
 {
   if(!string) return false;
@@ -313,7 +313,7 @@ bool XCONSOLE::Print(XCHAR* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::Printf(XCHAR* mask,...)
 {
   if(!mask) return false;
@@ -350,7 +350,7 @@ bool XCONSOLE::Printf(XCHAR* mask,...)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::PrintDataBlock(XBYTE* data, XDWORD size, XDWORD marginsize, XDWORD sizeline, bool showoffset, bool showtext)
 {
   XSTRING    margin;
@@ -437,7 +437,7 @@ bool XCONSOLE::PrintDataBlock(XBYTE* data, XDWORD size, XDWORD marginsize, XDWOR
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::PrintDataBlock(XBUFFER& data, XDWORD marginsize, XDWORD sizeline, bool showoffset, bool showtext)
 {
   return PrintDataBlock(data.Get(), data.GetSize(), marginsize, sizeline, showoffset, showtext);
@@ -460,7 +460,7 @@ bool XCONSOLE::PrintDataBlock(XBUFFER& data, XDWORD marginsize, XDWORD sizeline,
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::Format_Message(XCHAR* message, XDWORD margin, bool prelude, bool returnline, XSTRING& string)
 {
   string.Empty();
@@ -495,7 +495,7 @@ bool XCONSOLE::Format_Message(XCHAR* message, XDWORD margin, bool prelude, bool 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::PrintMessage(XCHAR* message, XDWORD margin, bool prelude, bool returnline)
 {
   XSTRING string;
@@ -525,7 +525,7 @@ bool XCONSOLE::PrintMessage(XCHAR* message, XDWORD margin, bool prelude, bool re
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::TipicalHeader_Create(int yearorigin, XCHAR* nameapp,int version,int subversion,int subversionerr,XCHAR* enterprise,XSTRING& header)
 {
   if(!nameapp)      return false;
@@ -589,7 +589,7 @@ bool XCONSOLE::TipicalHeader_Create(int yearorigin, XCHAR* nameapp,int version,i
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::TipicalHeader_Show(int yearorigin, XCHAR* nameapp,int version,int subversion,int subversionerr, XCHAR* enterprise)
 {
   XSTRING header;
@@ -617,7 +617,7 @@ bool XCONSOLE::TipicalHeader_Show(int yearorigin, XCHAR* nameapp,int version,int
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::WaitKey(XCHAR* text, XDWORD margin, bool prelude, XDWORD timeout)
 {
   XTIMER* GEN_XFACTORY_CREATE(xtimer, CreateTimer())
@@ -681,7 +681,7 @@ bool XCONSOLE::WaitKey(XCHAR* text, XDWORD margin, bool prelude, XDWORD timeout)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XCONSOLE::EraseToEndLine(int actualpos)
 {
   int ncolumns = 0;
@@ -708,7 +708,7 @@ void XCONSOLE::EraseToEndLine(int actualpos)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XCONSOLE::Clean()
 {
 

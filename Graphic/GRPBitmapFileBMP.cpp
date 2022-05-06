@@ -6,7 +6,7 @@
 * @brief      Graphic bitmap file BMP (Windows bitmap Format) class
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE()
 {
   Clean();
@@ -74,7 +74,7 @@ GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE(XBYTE red, XBYTE green, XBYTE blue, XBYTE alpha)
 {
   Clean();
@@ -96,7 +96,7 @@ GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE(XBYTE red, XBYTE green,
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMPCOLORPALETE::~GRPBITMAPFILEBMPCOLORPALETE()
 {
   Clean();
@@ -113,7 +113,7 @@ GRPBITMAPFILEBMPCOLORPALETE::~GRPBITMAPFILEBMPCOLORPALETE()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEBMPCOLORPALETE::Clean()
 {
   red   = 0;
@@ -128,7 +128,7 @@ void GRPBITMAPFILEBMPCOLORPALETE::Clean()
 *
 * GRPBITMAPFILEBMPHEADER
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -141,7 +141,7 @@ void GRPBITMAPFILEBMPCOLORPALETE::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMPHEADER::GRPBITMAPFILEBMPHEADER()
 {
   Clean();
@@ -158,7 +158,7 @@ GRPBITMAPFILEBMPHEADER::GRPBITMAPFILEBMPHEADER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMPHEADER::~GRPBITMAPFILEBMPHEADER()
 {
   Clean();
@@ -178,7 +178,7 @@ GRPBITMAPFILEBMPHEADER::~GRPBITMAPFILEBMPHEADER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEBMPHEADER::Load(XFILE* file)
 {
   if(!file->Read((XBYTE*)&headerinfo.type             , sizeof(XWORD)))     return false;
@@ -267,7 +267,7 @@ bool GRPBITMAPFILEBMPHEADER::Load(XFILE* file)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEBMPHEADER::Load(XBYTE* buffer, XDWORD size, XDWORD& indexbuffer)
 {
   memcpy((XBYTE*)&headerinfo.type             , &buffer[indexbuffer]   , sizeof(XWORD));     indexbuffer += sizeof(XWORD);
@@ -350,7 +350,7 @@ bool GRPBITMAPFILEBMPHEADER::Load(XBYTE* buffer, XDWORD size, XDWORD& indexbuffe
 *
 * @return     GRPBITMAPFILEBMPHEADERINFO* : header info class
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMPHEADERINFO* GRPBITMAPFILEBMPHEADER::GetHeaderInfo()
 {
   return &headerinfo;
@@ -366,7 +366,7 @@ GRPBITMAPFILEBMPHEADERINFO* GRPBITMAPFILEBMPHEADER::GetHeaderInfo()
 *
 * @return     int : width of bmp
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPFILEBMPHEADER::GetWidth()
 {
   return headerinfo.width;
@@ -382,7 +382,7 @@ int GRPBITMAPFILEBMPHEADER::GetWidth()
 *
 * @return     int : height of bmp
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPFILEBMPHEADER::GetHeight()
 {
   return headerinfo.height;
@@ -398,7 +398,7 @@ int GRPBITMAPFILEBMPHEADER::GetHeight()
 *
 * @return     int : bits por pixel
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPFILEBMPHEADER::GetBitsPerPixel()
 {
   return headerinfo.bitsperpixel;
@@ -414,7 +414,7 @@ int GRPBITMAPFILEBMPHEADER::GetBitsPerPixel()
 *
 * @return     int : offset data
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPFILEBMPHEADER::GetOffsetData()
 {
   return headerinfo.offsetdata;
@@ -430,7 +430,7 @@ int GRPBITMAPFILEBMPHEADER::GetOffsetData()
 *
 * @return     GRPPROPERTYMODE : propertys mode
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPPROPERTYMODE GRPBITMAPFILEBMPHEADER::GetMode()
 {
   return mode;
@@ -449,7 +449,7 @@ GRPPROPERTYMODE GRPBITMAPFILEBMPHEADER::GetMode()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEBMPHEADER::GetColorPalette(XBYTE index, GRP2DCOLOR_RGBA8& color)
 {
   GRPBITMAPFILEBMPCOLORPALETE* colorpalette = (GRPBITMAPFILEBMPCOLORPALETE*)palette.GetElement(index);
@@ -473,7 +473,7 @@ bool GRPBITMAPFILEBMPHEADER::GetColorPalette(XBYTE index, GRP2DCOLOR_RGBA8& colo
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEBMPHEADER::DeleteAllPalette()
 {
   if(palette.IsEmpty()) return true;
@@ -496,7 +496,7 @@ bool GRPBITMAPFILEBMPHEADER::DeleteAllPalette()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEBMPHEADER::Clean()
 {
   mode = GRPPROPERTYMODE_XX_UNKNOWN;
@@ -509,7 +509,7 @@ void GRPBITMAPFILEBMPHEADER::Clean()
 *
 * GRPBITMAPFILEBMPHEADER
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -521,7 +521,7 @@ void GRPBITMAPFILEBMPHEADER::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMP::GRPBITMAPFILEBMP(): GRPBITMAPFILEBASE()
 {
   Clean();
@@ -538,7 +538,7 @@ GRPBITMAPFILEBMP::GRPBITMAPFILEBMP(): GRPBITMAPFILEBASE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMP::~GRPBITMAPFILEBMP()
 {
   Clean();
@@ -557,7 +557,7 @@ GRPBITMAPFILEBMP::~GRPBITMAPFILEBMP()
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILEBMP::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
 {
   if(!Open(xpath))  return NULL;
@@ -687,7 +687,7 @@ GRPBITMAP* GRPBITMAPFILEBMP::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILEBMP::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode)
 {
   GRPBITMAPFILEBMPHEADER  header;
@@ -813,7 +813,7 @@ GRPBITMAP* GRPBITMAPFILEBMP::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEBMP::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
 {
   if(!bitmap)     return false;
@@ -897,7 +897,7 @@ bool GRPBITMAPFILEBMP::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEBMP::ReadHeaderFile(GRPBITMAPFILEBMPHEADER* header)
 {
   if(!header)           return false;
@@ -922,7 +922,7 @@ bool GRPBITMAPFILEBMP::ReadHeaderFile(GRPBITMAPFILEBMPHEADER* header)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEBMP::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFILEBMPHEADER* header)
 {
   if(!header->Load(buffer, size, indexbuffer)) return false;
@@ -941,7 +941,7 @@ bool GRPBITMAPFILEBMP::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEBMP::Clean()
 {
   indexbuffer = 0;

@@ -6,7 +6,7 @@
 * @brief       eXtended WINDOWS Data Time class
 * @ingroup     PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDATETIME::XWINDOWSDATETIME()
 {
   GetActualDateTime(this);
@@ -75,7 +75,7 @@ XWINDOWSDATETIME::XWINDOWSDATETIME()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDATETIME::~XWINDOWSDATETIME()
 {
 
@@ -91,7 +91,7 @@ XWINDOWSDATETIME::~XWINDOWSDATETIME()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDATETIME::Read()
 {
   GetActualDateTime(this);
@@ -109,7 +109,7 @@ bool XWINDOWSDATETIME::Read()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDATETIME::Write()
 {
   SetActualDateTime(this);
@@ -131,7 +131,7 @@ bool XWINDOWSDATETIME::Write()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 {
   HANDLE           hfind;
@@ -163,7 +163,7 @@ bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath)
 {
   HANDLE           hfind;
@@ -203,7 +203,7 @@ bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSDATETIME::GetMeridianDifference()
 {
   TIME_ZONE_INFORMATION timezoneinfo = { 0 };
@@ -228,7 +228,7 @@ int XWINDOWSDATETIME::GetMeridianDifference()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDATETIME::IsDayLigthSavingTime(int* bias)
 {
   TIME_ZONE_INFORMATION timezoneinfo = { 0 };
@@ -271,7 +271,7 @@ bool XWINDOWSDATETIME::IsDayLigthSavingTime(int* bias)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSDATETIME::GetActualDateTime(XWINDOWSDATETIME* time)
 {
   SYSTEMTIME st;
@@ -300,7 +300,7 @@ void XWINDOWSDATETIME::GetActualDateTime(XWINDOWSDATETIME* time)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSDATETIME::SetActualDateTime(XWINDOWSDATETIME* time)
 {
   SYSTEMTIME st;

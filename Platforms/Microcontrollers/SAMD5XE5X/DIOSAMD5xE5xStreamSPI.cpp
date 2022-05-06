@@ -6,7 +6,7 @@
 * @brief      SAMD5xE5x Data IO Stream SPI class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -67,7 +67,7 @@ DIOSAMD5XE5XSTREAMSPI*        DIOSAMD5XE5XSTREAMSPI::handles[DIOSAMD5XE5XSTREAMS
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XSTREAMSPIPORT::DIOSAMD5XE5XSTREAMSPIPORT()
 {
   Clean();
@@ -84,7 +84,7 @@ DIOSAMD5XE5XSTREAMSPIPORT::DIOSAMD5XE5XSTREAMSPIPORT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XSTREAMSPIPORT::~DIOSAMD5XE5XSTREAMSPIPORT()
 {
   Clean();
@@ -100,7 +100,7 @@ DIOSAMD5XE5XSTREAMSPIPORT::~DIOSAMD5XE5XSTREAMSPIPORT()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMSPIPORT::GetCounterRef()
 {
   return counterref;
@@ -118,7 +118,7 @@ XDWORD DIOSAMD5XE5XSTREAMSPIPORT::GetCounterRef()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSAMD5XE5XSTREAMSPIPORT::SetCounterRef(XDWORD counterref)
 {
   this->counterref = counterref;
@@ -135,7 +135,7 @@ void DIOSAMD5XE5XSTREAMSPIPORT::SetCounterRef(XDWORD counterref)
 *
 * @return     SPI_HandleTypeDef* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 //--- ABRHAMD5XE5X ------------------
 /*
 SPI_HandleTypeDef* DIOSAMD5XE5XSTREAMSPIPORT::GetHandleSPI()
@@ -156,7 +156,7 @@ SPI_HandleTypeDef* DIOSAMD5XE5XSTREAMSPIPORT::GetHandleSPI()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 //--- ABRHAMD5XE5X ------------------
 /*
 void DIOSAMD5XE5XSTREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
@@ -176,7 +176,7 @@ void DIOSAMD5XE5XSTREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSAMD5XE5XSTREAMSPIPORT::Clean()
 {
   counterref        = 0;
@@ -199,7 +199,7 @@ void DIOSAMD5XE5XSTREAMSPIPORT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XSTREAMSPI::DIOSAMD5XE5XSTREAMSPI()  : DIOSTREAMSPI()
 {
   Clean();
@@ -238,7 +238,7 @@ DIOSAMD5XE5XSTREAMSPI::DIOSAMD5XE5XSTREAMSPI()  : DIOSTREAMSPI()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XSTREAMSPI::~DIOSAMD5XE5XSTREAMSPI()
 {
   Close();
@@ -258,7 +258,7 @@ DIOSAMD5XE5XSTREAMSPI::~DIOSAMD5XE5XSTREAMSPI()
 *
 * @return     DIOSTREAMSTATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOSAMD5XE5XSTREAMSPI::GetConnectStatus()
 {
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -277,7 +277,7 @@ DIOSTREAMSTATUS DIOSAMD5XE5XSTREAMSPI::GetConnectStatus()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMSPI::Open()
 {
   if(!threadconnection)  return false;
@@ -391,7 +391,7 @@ bool DIOSAMD5XE5XSTREAMSPI::Open()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMSPI::WaitToFilledReadingBuffer(int filledto, int timeout)
 {
   if(filledto == DIOSTREAM_SOMETHINGTOREAD) sizebufferdata = 1; else sizebufferdata = filledto;
@@ -424,7 +424,7 @@ bool DIOSAMD5XE5XSTREAMSPI::WaitToFilledReadingBuffer(int filledto, int timeout)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMSPI::ReadDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config)                                          return 0;
@@ -461,7 +461,7 @@ XDWORD DIOSAMD5XE5XSTREAMSPI::ReadDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMSPI::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config)                                          return 0;
@@ -498,7 +498,7 @@ XDWORD DIOSAMD5XE5XSTREAMSPI::WriteDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMSPI::Write(XBYTE* buffer, XDWORD size)
 {
   if(!outbuffer) return 0;
@@ -531,7 +531,7 @@ XDWORD DIOSAMD5XE5XSTREAMSPI::Write(XBYTE* buffer, XDWORD size)
  *
  *  @return     bool : true if is succesful.
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMSPI::Disconnect()
  {
    return false;
@@ -546,7 +546,7 @@ bool DIOSAMD5XE5XSTREAMSPI::Disconnect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMSPI::Close()
 {
   if(!threadconnection) return false;
@@ -591,7 +591,7 @@ bool DIOSAMD5XE5XSTREAMSPI::Close()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMSPI::CleanBuffers()
 {
   return false;
@@ -610,7 +610,7 @@ bool DIOSAMD5XE5XSTREAMSPI::CleanBuffers()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 //--- ABRHAMD5XE5X ------------------
 /*
 void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
@@ -651,7 +651,7 @@ void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 //--- ABRHAMD5XE5X ------------------
 /*
 void HAL_SPI_SlaveRxCpltCallback(SPI_HandleTypeDef* hspi)
@@ -671,7 +671,7 @@ void HAL_SPI_SlaveRxCpltCallback(SPI_HandleTypeDef* hspi)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 //--- ABRHAMD5XE5X ------------------
 /*
 void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
@@ -691,7 +691,7 @@ void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSAMD5XE5XSTREAMSPI::ThreadConnection(void* param)
 {
   DIOSAMD5XE5XSTREAMSPI* diostream = (DIOSAMD5XE5XSTREAMSPI*)param;
@@ -782,7 +782,7 @@ void DIOSAMD5XE5XSTREAMSPI::ThreadConnection(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSAMD5XE5XSTREAMSPI::Clean()
 {
   //--- ABRHAMD5XE5X ------------------

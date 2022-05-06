@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Scraper Web Weather class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSCRAPERWEBWEATHER_H_
 #define _DIOSCRAPERWEBWEATHER_H_
@@ -62,7 +62,7 @@ class DIOSCRAPERWEBWEATHER : public DIOSCRAPERWEB
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS Management Instrumentation Interface class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -63,7 +63,7 @@ using namespace std;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSWMIINTERFACE_RESULT::XWINDOWSWMIINTERFACE_RESULT()
 {
   Clean();
@@ -82,7 +82,7 @@ XWINDOWSWMIINTERFACE_RESULT::XWINDOWSWMIINTERFACE_RESULT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSWMIINTERFACE_RESULT::~XWINDOWSWMIINTERFACE_RESULT()
 {
   results.DeleteContents();
@@ -101,7 +101,7 @@ XWINDOWSWMIINTERFACE_RESULT::~XWINDOWSWMIINTERFACE_RESULT()
 *
 * @return     XVECTOR<XSTRING*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XSTRING*>* XWINDOWSWMIINTERFACE_RESULT::GetResults()
 {
   return &results;
@@ -117,7 +117,7 @@ XVECTOR<XSTRING*>* XWINDOWSWMIINTERFACE_RESULT::GetResults()
 *
 * @return     XWINDOWSWMIINTERFACE_ERROR  :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSWMIINTERFACE_ERROR XWINDOWSWMIINTERFACE_RESULT::GetError()
 {
   return error;
@@ -135,7 +135,7 @@ XWINDOWSWMIINTERFACE_ERROR XWINDOWSWMIINTERFACE_RESULT::GetError()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSWMIINTERFACE_RESULT::SetError(XWINDOWSWMIINTERFACE_ERROR error)
 {
   this->error = error;
@@ -150,7 +150,7 @@ void XWINDOWSWMIINTERFACE_RESULT::SetError(XWINDOWSWMIINTERFACE_ERROR error)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XWINDOWSWMIINTERFACE_RESULT::GetErrorDescription()
 {
   return &errordescription;
@@ -167,7 +167,7 @@ XSTRING* XWINDOWSWMIINTERFACE_RESULT::GetErrorDescription()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSWMIINTERFACE_RESULT::Clean()
 {
   error = XWINDOWSWMIINTERFACE_ERROR_NONE;
@@ -177,9 +177,9 @@ void XWINDOWSWMIINTERFACE_RESULT::Clean()
 
 
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 /* XWINDOWSWMIINTERFACE                                                                                                */
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -191,7 +191,7 @@ void XWINDOWSWMIINTERFACE_RESULT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSWMIINTERFACE::XWINDOWSWMIINTERFACE()
 {
   Clean();
@@ -208,7 +208,7 @@ XWINDOWSWMIINTERFACE::XWINDOWSWMIINTERFACE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSWMIINTERFACE::~XWINDOWSWMIINTERFACE()
 {
   End();
@@ -227,7 +227,7 @@ XWINDOWSWMIINTERFACE::~XWINDOWSWMIINTERFACE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSWMIINTERFACE::Ini()
 {
   HRESULT hres;
@@ -277,7 +277,7 @@ bool XWINDOWSWMIINTERFACE::Ini()
 *
 * @return     XWINDOWSWMIINTERFACE_RESULT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSWMIINTERFACE_RESULT* XWINDOWSWMIINTERFACE::DoQuery(XCHAR* query, XCHAR* propertynameofresultobject, bool allowemptyitems)
 {
 
@@ -506,7 +506,7 @@ XWINDOWSWMIINTERFACE_RESULT* XWINDOWSWMIINTERFACE::DoQuery(XCHAR* query, XCHAR* 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XSTRING& answer)
 {
   XWINDOWSWMIINTERFACE_RESULT*  result       = NULL;
@@ -550,7 +550,7 @@ bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XSTRING& ans
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XVECTOR<XSTRING*>* answers)
 {
   XWINDOWSWMIINTERFACE_RESULT*  result       = NULL;
@@ -600,7 +600,7 @@ bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XVECTOR<XSTR
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSWMIINTERFACE::NetWorkInterfaceEnable(int ID, bool enable)
 {
   IWbemLocator*   ploc = NULL;
@@ -1093,7 +1093,7 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int metric)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSWMIINTERFACE::End()
 {
   CoUninitialize();
@@ -1111,7 +1111,7 @@ bool XWINDOWSWMIINTERFACE::End()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSWMIINTERFACE::Clean()
 {
 

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream UDP class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -65,7 +65,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPDATAGRAM::DIOSTREAMUDPDATAGRAM()
 {
   Clean();
@@ -83,7 +83,7 @@ DIOSTREAMUDPDATAGRAM::DIOSTREAMUDPDATAGRAM()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPDATAGRAM::~DIOSTREAMUDPDATAGRAM()
 {
   if(data) delete data;
@@ -101,7 +101,7 @@ DIOSTREAMUDPDATAGRAM::~DIOSTREAMUDPDATAGRAM()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPDATAGRAM::IsToSend()
 {
   return istosend;
@@ -119,7 +119,7 @@ bool DIOSTREAMUDPDATAGRAM::IsToSend()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPDATAGRAM::SetIsToSend(bool istosend)
 {
   this->istosend = istosend;
@@ -135,7 +135,7 @@ void DIOSTREAMUDPDATAGRAM::SetIsToSend(bool istosend)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOSTREAMUDPDATAGRAM::GetAddress()
 {
   return &address;
@@ -153,7 +153,7 @@ XSTRING* DIOSTREAMUDPDATAGRAM::GetAddress()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPDATAGRAM::SetAddress(XCHAR* address)
 {
   if(!address) return false;
@@ -175,7 +175,7 @@ bool DIOSTREAMUDPDATAGRAM::SetAddress(XCHAR* address)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPDATAGRAM::SetAddress(XSTRING& address)
 {
   return SetAddress(address.Get());
@@ -191,7 +191,7 @@ bool DIOSTREAMUDPDATAGRAM::SetAddress(XSTRING& address)
 *
 * @return     XWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOSTREAMUDPDATAGRAM::GetPort()
 {
   return port;
@@ -209,7 +209,7 @@ XWORD DIOSTREAMUDPDATAGRAM::GetPort()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPDATAGRAM::SetPorts(XWORD port)
 {
   this->port = port;
@@ -225,7 +225,7 @@ void DIOSTREAMUDPDATAGRAM::SetPorts(XWORD port)
 *
 * @return     XBUFFER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER* DIOSTREAMUDPDATAGRAM::GetData()
 {
   return data;
@@ -244,7 +244,7 @@ XBUFFER* DIOSTREAMUDPDATAGRAM::GetData()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPDATAGRAM::SetData(XBYTE* data,XDWORD size)
 {
   if(!this->data) return false;
@@ -267,7 +267,7 @@ bool DIOSTREAMUDPDATAGRAM::SetData(XBYTE* data,XDWORD size)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPDATAGRAM::SetData(XBUFFER& data)
 {
   SetData(data.Get(), data.GetSize());
@@ -284,7 +284,7 @@ void DIOSTREAMUDPDATAGRAM::SetData(XBUFFER& data)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPDATAGRAM::Clean()
 {
   istosend = false;
@@ -310,7 +310,7 @@ void DIOSTREAMUDPDATAGRAM::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDP::DIOSTREAMUDP() : DIOSTREAM()
 {
   Clean();
@@ -330,7 +330,7 @@ DIOSTREAMUDP::DIOSTREAMUDP() : DIOSTREAM()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDP::~DIOSTREAMUDP()
 {
   DeleteAllDatagrams();
@@ -352,7 +352,7 @@ DIOSTREAMUDP::~DIOSTREAMUDP()
 *
 * @return     DIOSTREAMCONFIG* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIG* DIOSTREAMUDP::GetConfig()
 {
   return config;
@@ -371,7 +371,7 @@ DIOSTREAMCONFIG* DIOSTREAMUDP::GetConfig()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::SetConfig(DIOSTREAMCONFIG* config)
 {
   if(!config) return false;
@@ -390,7 +390,7 @@ bool DIOSTREAMUDP::SetConfig(DIOSTREAMCONFIG* config)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::Open()
 {
   return false;
@@ -410,7 +410,7 @@ bool DIOSTREAMUDP::Open()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::ReadDatagram(XSTRING& address, XWORD& port, XBUFFER& xbuffer)
 {
   int index = GetFirstDatagram(false);
@@ -452,7 +452,7 @@ bool DIOSTREAMUDP::ReadDatagram(XSTRING& address, XWORD& port, XBUFFER& xbuffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::WriteDatagram(XSTRING& address, XWORD port, XBYTE* buffer, XDWORD size)
 {
   if(address.IsEmpty())                                 return false;
@@ -477,7 +477,7 @@ bool DIOSTREAMUDP::WriteDatagram(XSTRING& address, XWORD port, XBYTE* buffer, XD
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::WriteDatagram(XSTRING& address, XWORD port, XBUFFER& xbuffer)
 {
   return WriteDatagram(address, port, xbuffer.Get(), xbuffer.GetSize());
@@ -493,7 +493,7 @@ bool DIOSTREAMUDP::WriteDatagram(XSTRING& address, XWORD port, XBUFFER& xbuffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::Disconnect()
 {
   return false;
@@ -509,7 +509,7 @@ bool DIOSTREAMUDP::Disconnect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::Close()
 {
   return false;
@@ -525,7 +525,7 @@ bool DIOSTREAMUDP::Close()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::ResetXBuffers()
 {
   if(!DIOSTREAM::ResetXBuffers()) return false;
@@ -543,7 +543,7 @@ bool DIOSTREAMUDP::ResetXBuffers()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::ResetInXBuffer()
 {
   if(!DIOSTREAM::ResetInXBuffer()) return false;
@@ -576,7 +576,7 @@ bool DIOSTREAMUDP::ResetInXBuffer()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::ResetOutXBuffer()
 {
   if(!DIOSTREAM::ResetOutXBuffer()) return false;
@@ -608,7 +608,7 @@ bool DIOSTREAMUDP::ResetOutXBuffer()
 *
 * @return     DIOURL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOURL* DIOSTREAMUDP::GetHost()
 {
   return host;
@@ -626,7 +626,7 @@ DIOURL* DIOSTREAMUDP::GetHost()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::WaitToWriteDatagramsEmpty(int timeout)
 {
   if (!xtimerconnection) return false;
@@ -664,7 +664,7 @@ bool DIOSTREAMUDP::WaitToWriteDatagramsEmpty(int timeout)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMUDP::WaitToGetFirstDatagram(bool tosend, int timeout)
 {
   if (!xtimerconnection) return false;
@@ -699,7 +699,7 @@ int DIOSTREAMUDP::WaitToGetFirstDatagram(bool tosend, int timeout)
 *
 * @return     XVECTOR<DIOSTREAMUDPDATAGRAM*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<DIOSTREAMUDPDATAGRAM*>* DIOSTREAMUDP::GetDatagramsVector()
 {
   return &datagrams;
@@ -717,7 +717,7 @@ XVECTOR<DIOSTREAMUDPDATAGRAM*>* DIOSTREAMUDP::GetDatagramsVector()
 *
 * @return     DIOSTREAMUDPDATAGRAM* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPDATAGRAM* DIOSTREAMUDP::GetDatagram(int index)
 {
   if(datagramsmutex)  datagramsmutex->Lock();
@@ -742,7 +742,7 @@ DIOSTREAMUDPDATAGRAM* DIOSTREAMUDP::GetDatagram(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::DeleteDatagram(int index)
 {
   if(datagramsmutex)  datagramsmutex->Lock();
@@ -770,7 +770,7 @@ bool DIOSTREAMUDP::DeleteDatagram(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::DeleteAllDatagrams()
 {
   if(datagrams.IsEmpty()) return false;
@@ -802,7 +802,7 @@ bool DIOSTREAMUDP::DeleteAllDatagrams()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::AddDatagram(bool istosend, XCHAR* address, XWORD port, XBYTE* data, XDWORD size)
 {
   if(!address) return false;
@@ -842,7 +842,7 @@ bool DIOSTREAMUDP::AddDatagram(bool istosend, XCHAR* address, XWORD port, XBYTE*
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDP::AddDatagram(bool istosend, XSTRING& address, XWORD port, XBYTE* data,XDWORD size)
 {
   return AddDatagram(istosend, address.Get(), port, data, size);
@@ -860,7 +860,7 @@ bool DIOSTREAMUDP::AddDatagram(bool istosend, XSTRING& address, XWORD port, XBYT
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMUDP::GetFirstDatagram(bool tosend)
 {
   int index = DIOSTREAMUDP_NOTFOUND;
@@ -896,7 +896,7 @@ int DIOSTREAMUDP::GetFirstDatagram(bool tosend)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDP::Clean()
 {
   config          = NULL;

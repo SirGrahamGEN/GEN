@@ -6,7 +6,7 @@
 * @brief      Data Input/Output SPI GPIO Extender MCP23S17 (Microchip)
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSPIGPIOMCP23S17_H_
 #define _DIOSPIGPIOMCP23S17_H_
@@ -127,7 +127,7 @@ class DIOSPIGPIOMCP23S17 : public DIODEVICESPI
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output SPI Display TFT ILI9341 (Ilitek)
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -82,7 +82,7 @@ DIOSPITFTDISPLAYST7789::DIOSPITFTDISPLAYST7789(XDWORD width, XDWORD height)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSPITFTDISPLAYST7789::~DIOSPITFTDISPLAYST7789()
 {
   End();
@@ -100,7 +100,7 @@ DIOSPITFTDISPLAYST7789::~DIOSPITFTDISPLAYST7789()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYST7789::IniDevice()
 {
   if(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_DC) != DIOGPIO_ID_NOTDEFINED)
@@ -162,7 +162,7 @@ bool DIOSPITFTDISPLAYST7789::IniDevice()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYST7789::Clear(XWORD color)
 {
   int size = GetSizeBuffer();
@@ -200,7 +200,7 @@ bool DIOSPITFTDISPLAYST7789::Clear(XWORD color)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYST7789::Update(XBYTE* buffer)
 {
   if(!IsInitialized()) return false;
@@ -229,7 +229,7 @@ bool DIOSPITFTDISPLAYST7789::Update(XBYTE* buffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYST7789::PutPixel(XWORD x, XWORD y, XWORD color)
 {
   if(!IsInitialized()) return false;
@@ -251,7 +251,7 @@ bool DIOSPITFTDISPLAYST7789::PutPixel(XWORD x, XWORD y, XWORD color)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYST7789::End()
 {
   SetActiveBlackLight(false);
@@ -273,7 +273,7 @@ bool DIOSPITFTDISPLAYST7789::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYST7789::SetActiveBlackLight(bool active)
 {
   if(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_BACKLIGHT) == DIOGPIO_ID_NOTDEFINED) return false;
@@ -290,7 +290,7 @@ bool DIOSPITFTDISPLAYST7789::SetActiveBlackLight(bool active)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYST7789::TFT_Init()
 {
   _colstart  = 0;
@@ -349,7 +349,7 @@ bool DIOSPITFTDISPLAYST7789::TFT_Init()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYST7789::TFT_Reset()
 {  
   if(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_RESET) == DIOGPIO_ID_NOTDEFINED) return false;
@@ -381,7 +381,7 @@ bool DIOSPITFTDISPLAYST7789::TFT_Reset()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYST7789::TFT_SetWindow(int xs, int ys, int xe, int ye)
 {
   XWORD x_start = xs + _xstart;
@@ -482,7 +482,7 @@ void DIOSPITFTDISPLAYST7789::TFT_SetRotation(XBYTE mode)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYST7789::SendCommand(XBYTE command)
 {
   bool status;
@@ -505,7 +505,7 @@ bool DIOSPITFTDISPLAYST7789::SendCommand(XBYTE command)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYST7789::SendData()
 {
   bool status;
@@ -610,7 +610,7 @@ bool DIOSPITFTDISPLAYST7789::SendCommandParams(XBYTE command, int ndata, ...)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPITFTDISPLAYST7789::Clean()
 {
   diostream = NULL;

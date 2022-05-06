@@ -6,7 +6,7 @@
 * @brief      Application Check Resources Hardware class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _APPCHECKRESOURCESHARDWARE_H_
 #define _APPCHECKRESOURCESHARDWARE_H_
@@ -37,14 +37,12 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-
 enum APPCHECKRESOURCESHARDWARE_TASKID
 {
   APPCHECKRESOURCESHARDWARE_TASKID_UNKNOWN                   = 0  ,
   APPCHECKRESOURCESHARDWARE_TASKID_CHECKMEMORY                    ,
   APPCHECKRESOURCESHARDWARE_TASKID_CPUUSAGE                       ,
 };
-
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -87,7 +85,7 @@ class APPCHECKRESOURCESHARDWARE : public XOBSERVER, public XSUBJECT
 
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

@@ -6,7 +6,7 @@
 * @brief      DataBase Holds database class
 * @ingroup    DATABASESSQL
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE::DB_SQL_DATABASE()
 {
   Clean();
@@ -78,7 +78,7 @@ DB_SQL_DATABASE::DB_SQL_DATABASE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE::~DB_SQL_DATABASE()
 {
   if(mutex) GEN_XFACTORY.Delete_Mutex(mutex);
@@ -102,7 +102,7 @@ DB_SQL_DATABASE::~DB_SQL_DATABASE()
 *
 * @return     DB_SQL_DATABASE_ENCODING :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE_ENCODING DB_SQL_DATABASE::GetCurrentEncoding()
 {
   return this->encodingtype;
@@ -118,7 +118,7 @@ DB_SQL_DATABASE_ENCODING DB_SQL_DATABASE::GetCurrentEncoding()
 *
 * @return     DB_SQL_DATABASE_TYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE_TYPE DB_SQL_DATABASE::GetType()
 {
   return DB_SQL_DATABASE_TYPE_UNKNOWN;
@@ -134,7 +134,7 @@ DB_SQL_DATABASE_TYPE DB_SQL_DATABASE::GetType()
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* DB_SQL_DATABASE::GetTypeName()
 {
   return __L("unknown");
@@ -150,7 +150,7 @@ XCHAR* DB_SQL_DATABASE::GetTypeName()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DB_SQL_DATABASE::GetDefaultPort()
 {
   return defaultport;
@@ -166,7 +166,7 @@ XDWORD DB_SQL_DATABASE::GetDefaultPort()
 *
 * @return     XPATH* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATH* DB_SQL_DATABASE::GetDefaultPath()
 {
   defaultpath.Empty();
@@ -186,7 +186,7 @@ XPATH* DB_SQL_DATABASE::GetDefaultPath()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::IsOpen()
 {
   return (status == DB_SQL_DATABASE_FLAGS_CONNECTED);
@@ -204,7 +204,7 @@ bool DB_SQL_DATABASE::IsOpen()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::SetConnection(DB_SQL_CONNECTION* connection)
 {
   this->connection = connection;
@@ -221,7 +221,7 @@ bool DB_SQL_DATABASE::SetConnection(DB_SQL_CONNECTION* connection)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::IsTransactionStarted()
 {
   return transactionstarted;
@@ -237,7 +237,7 @@ bool DB_SQL_DATABASE::IsTransactionStarted()
 *
 * @return     DB_SQL_VECTOR<DB_SQL_STRING*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_VECTOR<DB_SQL_STRING*>* DB_SQL_DATABASE::GetTableList()
 {
   return &tables;
@@ -253,7 +253,7 @@ DB_SQL_VECTOR<DB_SQL_STRING*>* DB_SQL_DATABASE::GetTableList()
 *
 * @return     DB_SQL_VECTOR<DB_SQL_ERROR*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_VECTOR<DB_SQL_ERROR*>* DB_SQL_DATABASE::GetErrorList()
 {
   return &errorstack;
@@ -269,7 +269,7 @@ DB_SQL_VECTOR<DB_SQL_ERROR*>* DB_SQL_DATABASE::GetErrorList()
 *
 * @return     DB_SQL_VARIANT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_VARIANT* DB_SQL_DATABASE::CreateVariant()
 {
   return new DB_SQL_VARIANT();
@@ -285,7 +285,7 @@ DB_SQL_VARIANT* DB_SQL_DATABASE::CreateVariant()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::OnConnection()
 {
   SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING_UTF8);
@@ -304,7 +304,7 @@ bool DB_SQL_DATABASE::OnConnection()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::OnDisconnection()
 {
   return true;
@@ -320,7 +320,7 @@ bool DB_SQL_DATABASE::OnDisconnection()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::Open()
 {
   if(connection)
@@ -345,7 +345,7 @@ bool DB_SQL_DATABASE::Open()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::Close()
 {
   if(connection)
@@ -369,7 +369,7 @@ bool DB_SQL_DATABASE::Close()
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* DB_SQL_DATABASE::GetLastError()
 {
   return (this->errorstack.GetSize()>0 ? this->errorstack.GetLast()->description.Get() : __L(""));
@@ -387,7 +387,7 @@ XCHAR* DB_SQL_DATABASE::GetLastError()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::Execute(DB_SQL_QUERY* constructedquery)
 {
   if(!constructedquery->IsWellConstructedQuery())
@@ -411,7 +411,7 @@ bool DB_SQL_DATABASE::Execute(DB_SQL_QUERY* constructedquery)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_DATABASE::Error(XCHAR* errorstring)
 {
   DB_SQL_ERROR* error=new DB_SQL_ERROR(DB_SQL_ERROR_TYPE_STATEMENT_ERROR);
@@ -435,7 +435,7 @@ void DB_SQL_DATABASE::Error(XCHAR* errorstring)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_DATABASE::Error(char* errorstring)
 {
   XSTRING string;
@@ -455,7 +455,7 @@ void DB_SQL_DATABASE::Error(char* errorstring)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_DATABASE::ClearPreviousErrors()
 {
   this->errorstack.DeleteContents();
@@ -476,7 +476,7 @@ void DB_SQL_DATABASE::ClearPreviousErrors()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::Table_IsThere(XCHAR* nametable, XCHAR* constfield, bool& isexist)
 {
   isexist = false;
@@ -535,7 +535,7 @@ bool DB_SQL_DATABASE::Table_IsThere(XCHAR* nametable, XCHAR* constfield, bool& i
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::Table_IsThere(XSTRING& nametable, XCHAR* constfield, bool& isexist)
 {
   return Table_IsThere(nametable.Get(), constfield, isexist);
@@ -555,7 +555,7 @@ bool DB_SQL_DATABASE::Table_IsThere(XSTRING& nametable, XCHAR* constfield, bool&
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::Table_Create(XCHAR* nametable, XCHAR* fields[], int nfields)
 {
   XSTRING      querystring;
@@ -600,7 +600,7 @@ bool DB_SQL_DATABASE::Table_Create(XCHAR* nametable, XCHAR* fields[], int nfield
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::Table_Delete(XCHAR* nametable)
 {
   if(!nametable) return false;
@@ -644,7 +644,7 @@ bool DB_SQL_DATABASE::Table_Delete(XCHAR* nametable)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::Table_GetNRecords(XCHAR* nametable, XQWORD& nrecords)
 {
   DB_SQL_QUERY* query    = NULL;
@@ -686,7 +686,7 @@ bool DB_SQL_DATABASE::Table_GetNRecords(XCHAR* nametable, XQWORD& nrecords)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::IsThreadSafe()
 {
   return isthreadsafe;
@@ -701,7 +701,7 @@ bool DB_SQL_DATABASE::IsThreadSafe()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::Lock()
 {
   if(isthreadsafe && mutex) return mutex->Lock();
@@ -719,7 +719,7 @@ bool DB_SQL_DATABASE::Lock()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::Unlock()
 {
   if(isthreadsafe && mutex) return mutex->UnLock();
@@ -739,7 +739,7 @@ bool DB_SQL_DATABASE::Unlock()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::ExecuteQuery(DB_SQL_QUERY* wellconstructedquery)
 {
   if(!connection)
@@ -766,7 +766,7 @@ bool DB_SQL_DATABASE::ExecuteQuery(DB_SQL_QUERY* wellconstructedquery)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_DATABASE::Clean()
 {
   mutex                   = NULL;

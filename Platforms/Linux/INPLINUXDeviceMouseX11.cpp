@@ -6,7 +6,7 @@
 * @brief      LINUX X11 input device mouse class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -64,7 +64,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEMOUSEX11::INPLINUXDEVICEMOUSEX11() : INPDEVICE()
 {
   Clean();
@@ -93,7 +93,7 @@ INPLINUXDEVICEMOUSEX11::INPLINUXDEVICEMOUSEX11() : INPDEVICE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEMOUSEX11::~INPLINUXDEVICEMOUSEX11()
 {
   DeleteAllButtons();
@@ -115,7 +115,7 @@ INPLINUXDEVICEMOUSEX11::~INPLINUXDEVICEMOUSEX11()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEMOUSEX11::Update()
 {
   if((!created)||(!enabled)) return false;
@@ -227,7 +227,7 @@ bool INPLINUXDEVICEMOUSEX11::Update()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEMOUSEX11::SetScreen(void* screenhandle)
 {
   grpscreenx11 = (GRPLINUXSCREENX11*)screenhandle;
@@ -249,7 +249,7 @@ bool INPLINUXDEVICEMOUSEX11::SetScreen(void* screenhandle)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEMOUSEX11::Clean()
 {
   grpscreenx11 = NULL;
@@ -267,7 +267,7 @@ void INPLINUXDEVICEMOUSEX11::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEMOUSEX11::CreateAllButtons()
 {
   INPBUTTON::CreateButton( &buttons, Button3   , INPBUTTON_ID_MOUSE_RIGHT      , __C('\x0'));
@@ -288,7 +288,7 @@ bool INPLINUXDEVICEMOUSEX11::CreateAllButtons()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEMOUSEX11::CreateAllCursors()
 {
   INPCURSOR* cursor;

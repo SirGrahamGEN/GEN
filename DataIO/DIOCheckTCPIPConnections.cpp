@@ -6,7 +6,7 @@
 * @brief       Data Input/Output Check connections TPC/IP class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -64,7 +64,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTION_CUT::DIOCHECKTCPIPCONNECTION_CUT()
 {
   Clean();
@@ -83,7 +83,7 @@ DIOCHECKTCPIPCONNECTION_CUT::DIOCHECKTCPIPCONNECTION_CUT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTION_CUT::~DIOCHECKTCPIPCONNECTION_CUT()
 {
   if(startdatetime) GEN_XFACTORY.DeleteDateTime(startdatetime);
@@ -101,7 +101,7 @@ DIOCHECKTCPIPCONNECTION_CUT::~DIOCHECKTCPIPCONNECTION_CUT()
 *
 * @return     XDATETIME* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDATETIME* DIOCHECKTCPIPCONNECTION_CUT::GetStartDateTime()
 {
   return startdatetime;
@@ -116,7 +116,7 @@ XDATETIME* DIOCHECKTCPIPCONNECTION_CUT::GetStartDateTime()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOCHECKTCPIPCONNECTION_CUT::GetMeasureNSeconds()
 {
   return nseconds;
@@ -134,7 +134,7 @@ int DIOCHECKTCPIPCONNECTION_CUT::GetMeasureNSeconds()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTION_CUT::SetMeasureNSeconds(XDWORD nseconds)
 {
   this->nseconds = nseconds;
@@ -153,7 +153,7 @@ void DIOCHECKTCPIPCONNECTION_CUT::SetMeasureNSeconds(XDWORD nseconds)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTION_CUT::GetMeasureTimeString(XSTRING& measuretime, bool large)
 {
   XTIMER xtimer;
@@ -178,7 +178,7 @@ bool DIOCHECKTCPIPCONNECTION_CUT::GetMeasureTimeString(XSTRING& measuretime, boo
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTION_CUT::CopyFrom(DIOCHECKTCPIPCONNECTION_CUT* connectioncut)
 {
   if(!connectioncut)   return false;
@@ -198,7 +198,7 @@ bool DIOCHECKTCPIPCONNECTION_CUT::CopyFrom(DIOCHECKTCPIPCONNECTION_CUT* connecti
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTION_CUT::CopyTo(DIOCHECKTCPIPCONNECTION_CUT* connectioncut)
 {
   if(!connectioncut)   return false;
@@ -220,7 +220,7 @@ bool DIOCHECKTCPIPCONNECTION_CUT::CopyTo(DIOCHECKTCPIPCONNECTION_CUT* connection
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTION_CUT::Clean()
 {
   startdatetime   = NULL;
@@ -229,9 +229,9 @@ void DIOCHECKTCPIPCONNECTION_CUT::Clean()
 
 
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 /*DIOCHECKTCPIPCONNECTION                                                                                                   */
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -242,7 +242,7 @@ void DIOCHECKTCPIPCONNECTION_CUT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTION::DIOCHECKTCPIPCONNECTION()
 {
   Clean();
@@ -263,7 +263,7 @@ DIOCHECKTCPIPCONNECTION::DIOCHECKTCPIPCONNECTION()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTION::~DIOCHECKTCPIPCONNECTION()
 {
   if(url) delete url;
@@ -283,7 +283,7 @@ DIOCHECKTCPIPCONNECTION::~DIOCHECKTCPIPCONNECTION()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOCHECKTCPIPCONNECTION::GetID()
 {
   return ID;
@@ -299,7 +299,7 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetID()
 *
 * @return     DIOURL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOURL* DIOCHECKTCPIPCONNECTION::GetURL()
 {
   return url;
@@ -315,7 +315,7 @@ DIOURL* DIOCHECKTCPIPCONNECTION::GetURL()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTION::IsConnected()
 {
   return isconnected;
@@ -332,7 +332,7 @@ bool DIOCHECKTCPIPCONNECTION::IsConnected()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTION::SetIsConnected(bool isconnected)
 {
   this->isconnected = isconnected;
@@ -347,7 +347,7 @@ void DIOCHECKTCPIPCONNECTION::SetIsConnected(bool isconnected)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOCHECKTCPIPCONNECTION::GetNChecks()
 {
   return nchecks;
@@ -365,7 +365,7 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetNChecks()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTION::SetNChecks(XDWORD nchecks)
 {
   this->nchecks = nchecks;
@@ -381,7 +381,7 @@ void DIOCHECKTCPIPCONNECTION::SetNChecks(XDWORD nchecks)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOCHECKTCPIPCONNECTION::IncNChecks()
 {
   return ++nchecks;
@@ -399,7 +399,7 @@ XDWORD DIOCHECKTCPIPCONNECTION::IncNChecks()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTION::Set(XCHAR* url)
 {
   if(!this->url)  return 0;
@@ -423,7 +423,7 @@ bool DIOCHECKTCPIPCONNECTION::Set(XCHAR* url)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOCHECKTCPIPCONNECTION::GetElapsedTime()
 {
   return elapsedtime;
@@ -441,7 +441,7 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetElapsedTime()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTION::SetElapsedTime(XDWORD elapsedtime)
 {
   this->elapsedtime = elapsedtime;
@@ -457,7 +457,7 @@ void DIOCHECKTCPIPCONNECTION::SetElapsedTime(XDWORD elapsedtime)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTION::ResetTimeConnexionStatus()
 {
   if(!timerconnexion) return false;
@@ -476,7 +476,7 @@ bool DIOCHECKTCPIPCONNECTION::ResetTimeConnexionStatus()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOCHECKTCPIPCONNECTION::GetTimeConnexionStatus()
 {
   if(!timerconnexion) return 0;
@@ -493,7 +493,7 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetTimeConnexionStatus()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOCHECKTCPIPCONNECTION::CreateID()
 {
   HASHCRC32 hashcrc32;
@@ -517,7 +517,7 @@ XDWORD DIOCHECKTCPIPCONNECTION::CreateID()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTION::Clean()
 {
   ID                    = 0;
@@ -532,9 +532,9 @@ void DIOCHECKTCPIPCONNECTION::Clean()
 
 
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 /* DIOCHECKTCPIPCONNECTIONS                                                                                                  */
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -545,7 +545,7 @@ void DIOCHECKTCPIPCONNECTION::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTIONS::DIOCHECKTCPIPCONNECTIONS()
 {
   Clean();
@@ -562,7 +562,7 @@ DIOCHECKTCPIPCONNECTIONS::DIOCHECKTCPIPCONNECTIONS()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTIONS::~DIOCHECKTCPIPCONNECTIONS()
 {
   End();
@@ -584,7 +584,7 @@ DIOCHECKTCPIPCONNECTIONS::~DIOCHECKTCPIPCONNECTIONS()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Ini(int timeconnectionchecks, bool validsomeisconnected, bool dispersionmode)
 {
   Setup(timeconnectionchecks, validsomeisconnected, dispersionmode);
@@ -618,7 +618,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Ini(int timeconnectionchecks, bool validsomeiscon
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Run(bool activate)
 {
   if(!threadcheckconnections) return false;
@@ -635,7 +635,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Run(bool activate)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOCHECKTCPIPCONNECTIONS::GetTimeConnectionChecks()
 {
   return timeconnectionchecks;
@@ -651,7 +651,7 @@ int DIOCHECKTCPIPCONNECTIONS::GetTimeConnectionChecks()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::IsCheckTimeConnections()
 {
   return ischecktimeconnections;
@@ -669,7 +669,7 @@ bool DIOCHECKTCPIPCONNECTIONS::IsCheckTimeConnections()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTIONS::SetIsCheckTimeConnections(bool ischecktimeconnections)
 {
   this->ischecktimeconnections = ischecktimeconnections;
@@ -689,7 +689,7 @@ void DIOCHECKTCPIPCONNECTIONS::SetIsCheckTimeConnections(bool ischecktimeconnect
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTIONS::Setup(int timeconnectionchecks, bool validsomeisconnected, bool dispersionmode)
 {
   this->timeconnectionchecks  = timeconnectionchecks;
@@ -710,7 +710,7 @@ void DIOCHECKTCPIPCONNECTIONS::Setup(int timeconnectionchecks, bool validsomeisc
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XCHAR* url, XDWORD& ID)
 {
   DIOCHECKTCPIPCONNECTION* connection = new DIOCHECKTCPIPCONNECTION();
@@ -750,7 +750,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XCHAR* url, XDWORD& ID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XSTRING& url, XDWORD& ID)
 {
   return Connection_Add(url.Get(), ID);
@@ -769,7 +769,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XSTRING& url, XDWORD& ID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(DIOURL& url, XDWORD& ID)
 {
   return Connection_Add(url.Get(), ID);
@@ -787,7 +787,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(DIOURL& url, XDWORD& ID)
 *
 * @return    DIOCHECKTCPIPCONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTION* DIOCHECKTCPIPCONNECTIONS::Connection_GetByID(XDWORD ID)
 {
   if(xmutexconnections) xmutexconnections->Lock();
@@ -824,7 +824,7 @@ DIOCHECKTCPIPCONNECTION* DIOCHECKTCPIPCONNECTIONS::Connection_GetByID(XDWORD ID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Connection_IsActive(XDWORD ID, bool& isactive)
 {
   isactive = false;
@@ -863,7 +863,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_IsActive(XDWORD ID, bool& isactive)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Connection_DeleteByID(XDWORD ID)
 {
   DIOCHECKTCPIPCONNECTION* connection = Connection_GetByID(ID);
@@ -892,7 +892,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_DeleteByID(XDWORD ID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Connections_IsAllChecked()
 {
   bool ischeckallconnections = true;
@@ -923,7 +923,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_IsAllChecked()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Connections_IsSomeChecked()
 {
   bool ischecksomeconnections = false;
@@ -960,7 +960,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_IsSomeChecked()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToAllChecked(int timeout)
 {
   if(!connections.GetSize()) return false;
@@ -1009,7 +1009,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToAllChecked(int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToSomeIsChecked(int timeout)
 {
   if(!connections.GetSize()) return false;
@@ -1056,7 +1056,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToSomeIsChecked(int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Connections_SomeIsConnected()
 {
   bool someisactive = false;
@@ -1088,7 +1088,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_SomeIsConnected()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::Connections_DeleteAll()
 {
   if(xmutexconnections) xmutexconnections->Lock();
@@ -1111,7 +1111,7 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_DeleteAll()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::End()
 {
   if(threadcheckconnections)
@@ -1158,7 +1158,7 @@ bool DIOCHECKTCPIPCONNECTIONS::End()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
 {
   DIOCHECKTCPIPCONNECTIONS* checkconnections = (DIOCHECKTCPIPCONNECTIONS*)param;
@@ -1274,7 +1274,7 @@ void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTIONS::Clean()
 {
   timeconnectionchecks                = DIOCHECKTCPIPCONNECTIONS_DEFAULTTIMECONNECTIONCHECKS;

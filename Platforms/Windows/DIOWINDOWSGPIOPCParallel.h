@@ -6,7 +6,7 @@
 * @brief      WINDOWS Data Input/Output GPIO (General Purpose Input/Output) PC Parallel
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOWINDOWSGPIOPCPARALLEL_H_
 #define _DIOWINDOWSGPIOPCPARALLEL_H_
@@ -93,7 +93,7 @@ class DIOWINDOWSGPIOPCPARALLEL : public DIOGPIO
     XBYTE                       dataport;
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

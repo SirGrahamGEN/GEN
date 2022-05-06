@@ -6,7 +6,7 @@
 * @brief      Data Input/Output SPI GPIO Extender MCP23S17 (Microchip)
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -62,7 +62,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSPIGPIOMCP23S17::DIOSPIGPIOMCP23S17() : DIODEVICESPI()
 {
   Clean();
@@ -79,7 +79,7 @@ DIOSPIGPIOMCP23S17::DIOSPIGPIOMCP23S17() : DIODEVICESPI()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSPIGPIOMCP23S17::~DIOSPIGPIOMCP23S17()
 {
   End();
@@ -98,7 +98,7 @@ DIOSPIGPIOMCP23S17::~DIOSPIGPIOMCP23S17()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIGPIOMCP23S17::IniDevice()
 {
   if(!isdiostreamSPIexternal)
@@ -150,7 +150,7 @@ bool DIOSPIGPIOMCP23S17::IniDevice()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIGPIOMCP23S17::Configure()
 {
   XBYTE ioconfig =  DIOSPIGPIOMCP23S17_BANK_OFF       |         
@@ -190,7 +190,7 @@ bool DIOSPIGPIOMCP23S17::Configure()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIGPIOMCP23S17::Read_Register(XBYTE reg, XBYTE addr, XBYTE& data)
 {
   XBYTE control_byte                  = GetControlByte(DIOSPIGPIOMCP23S17_READ_CMD, addr);  
@@ -221,7 +221,7 @@ bool DIOSPIGPIOMCP23S17::Read_Register(XBYTE reg, XBYTE addr, XBYTE& data)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIGPIOMCP23S17::Write_Register(XBYTE reg, XBYTE addr, XBYTE data)
 {
   XBYTE control_byte                   = GetControlByte(DIOSPIGPIOMCP23S17_WRITE_CMD, addr);  
@@ -247,7 +247,7 @@ bool DIOSPIGPIOMCP23S17::Write_Register(XBYTE reg, XBYTE addr, XBYTE data)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIGPIOMCP23S17::Read_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE& data)
 {
   XBYTE _data    = 0;
@@ -274,7 +274,7 @@ bool DIOSPIGPIOMCP23S17::Read_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE& da
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIGPIOMCP23S17::Write_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE data)
 {
   XBYTE reg_data = 0;
@@ -304,7 +304,7 @@ bool DIOSPIGPIOMCP23S17::Write_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE da
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIGPIOMCP23S17::End()
 {
   if(!DIODEVICE::End()) return false;
@@ -339,7 +339,7 @@ bool DIOSPIGPIOMCP23S17::End()
 *
 * @return     DIOSTREAMSPI* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSPI* DIOSPIGPIOMCP23S17::GetDIOStreamSPI()
 {
   return diostream;
@@ -357,7 +357,7 @@ DIOSTREAMSPI* DIOSPIGPIOMCP23S17::GetDIOStreamSPI()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPIGPIOMCP23S17::SetDIOStreamSPI(DIOSTREAMSPI* diostream)
 {
   this->diostream     = diostream;
@@ -377,7 +377,7 @@ void DIOSPIGPIOMCP23S17::SetDIOStreamSPI(DIOSTREAMSPI* diostream)
 *
 * @return     XBYTE : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOSPIGPIOMCP23S17::GetControlByte(XBYTE rw_cmd, XBYTE addr)
 {
   addr     = (addr << 1) & 0xE;
@@ -396,7 +396,7 @@ XBYTE DIOSPIGPIOMCP23S17::GetControlByte(XBYTE rw_cmd, XBYTE addr)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPIGPIOMCP23S17::Clean()
 {
   timeout                 = 0;

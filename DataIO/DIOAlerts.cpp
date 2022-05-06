@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Alerts class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -79,7 +79,7 @@ DIOALERTS* DIOALERTS::instance = NULL;
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT_CONDITION::DIOALERT_CONDITION()
 {
   Clean();
@@ -98,7 +98,7 @@ DIOALERT_CONDITION::DIOALERT_CONDITION()
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT_CONDITION::~DIOALERT_CONDITION()
 {
   if(lasttimersend) GEN_XFACTORY.DeleteTimer(lasttimersend);
@@ -116,7 +116,7 @@ DIOALERT_CONDITION::~DIOALERT_CONDITION()
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOALERT_CONDITION::GetTimeLimitForRepeat()
 {
   return timelimitforrepeat;
@@ -134,7 +134,7 @@ int DIOALERT_CONDITION::GetTimeLimitForRepeat()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT_CONDITION::SetTimeLinitRepeat(int timelimitforrepeat)
 {
   this->timelimitforrepeat = timelimitforrepeat;
@@ -150,7 +150,7 @@ void DIOALERT_CONDITION::SetTimeLinitRepeat(int timelimitforrepeat)
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOALERT_CONDITION::GetEveryNumberOfTimes()
 {
   return everynumberoftimes;
@@ -168,7 +168,7 @@ int DIOALERT_CONDITION::GetEveryNumberOfTimes()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT_CONDITION::SetEveryNumberOfTimes(int everynumberoftimes)
 {
   this->everynumberoftimes = everynumberoftimes;
@@ -184,7 +184,7 @@ void DIOALERT_CONDITION::SetEveryNumberOfTimes(int everynumberoftimes)
 *
 * @return     XTIMER* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTIMER* DIOALERT_CONDITION::GetLastTimerSend()
 {
   return lasttimersend;
@@ -200,7 +200,7 @@ XTIMER* DIOALERT_CONDITION::GetLastTimerSend()
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOALERT_CONDITION::GetNSended()
 {
   return nsended;
@@ -218,7 +218,7 @@ int DIOALERT_CONDITION::GetNSended()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT_CONDITION::SetNSended(int nsended)
 {
   this->nsended = nsended;
@@ -235,7 +235,7 @@ void DIOALERT_CONDITION::SetNSended(int nsended)
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOALERT_CONDITION::GetNTimesSended()
 {
   return ntimessended;
@@ -253,7 +253,7 @@ int DIOALERT_CONDITION::GetNTimesSended()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT_CONDITION::SetNTimesSended(int ntimessended)
 {
   this->ntimessended = ntimessended;
@@ -270,7 +270,7 @@ void DIOALERT_CONDITION::SetNTimesSended(int ntimessended)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT_CONDITION::Clean()
 {  
   timelimitforrepeat   = 0;
@@ -299,7 +299,7 @@ void DIOALERT_CONDITION::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT::DIOALERT()
 {
   Clean();
@@ -318,7 +318,7 @@ DIOALERT::DIOALERT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT::~DIOALERT()
 {
   if(xdatetime) GEN_XFACTORY.DeleteDateTime(xdatetime);
@@ -336,7 +336,7 @@ DIOALERT::~DIOALERT()
 *
 * @return     XDATETIME* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDATETIME* DIOALERT::GetDateTime()
 {
   return xdatetime;
@@ -352,7 +352,7 @@ XDATETIME* DIOALERT::GetDateTime()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOALERT::GetApplicationID()
 {
   return &applicationID;
@@ -372,7 +372,7 @@ XSTRING* DIOALERT::GetApplicationID()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERT::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
 {
   version       = applicationversion;
@@ -396,7 +396,7 @@ bool DIOALERT::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERT::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
 {
   applicationversion        = version;
@@ -416,7 +416,7 @@ bool DIOALERT::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD s
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOALERT::GetID()
 {
   return ID;
@@ -434,7 +434,7 @@ XDWORD DIOALERT::GetID()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT::SetID(XDWORD ID)
 {
   this->ID = ID;
@@ -452,7 +452,7 @@ void DIOALERT::SetID(XDWORD ID)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOALERT::CalculateID(bool withdatetime)
 {
   if(!xdatetime)  return false;
@@ -504,7 +504,7 @@ XDWORD DIOALERT::CalculateID(bool withdatetime)
 *
 * @return     DIOALERTLEVEL :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERTLEVEL DIOALERT::GetLevel()
 {
   return level;
@@ -522,7 +522,7 @@ DIOALERTLEVEL DIOALERT::GetLevel()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT::SetLevel(DIOALERTLEVEL level)
 {
   this->level=level;
@@ -538,7 +538,7 @@ void DIOALERT::SetLevel(DIOALERTLEVEL level)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOALERT::GetOrigin()
 {
   return &origin;
@@ -554,7 +554,7 @@ XSTRING* DIOALERT::GetOrigin()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOALERT::GetTitle()
 {
   return &title;
@@ -570,7 +570,7 @@ XSTRING* DIOALERT::GetTitle()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOALERT::Get_Message()
 {
   return &message;
@@ -588,7 +588,7 @@ XSTRING* DIOALERT::Get_Message()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERT::CopyFrom(DIOALERT* alert)
 {
   if(!alert) return false;
@@ -619,7 +619,7 @@ bool DIOALERT::CopyFrom(DIOALERT* alert)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT::Clean()
 {
   applicationversion        = 0;
@@ -647,7 +647,7 @@ void DIOALERT::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::GetIsInstanced()
 {
   return instance!=NULL;
@@ -663,7 +663,7 @@ bool DIOALERTS::GetIsInstanced()
 *
 * @return     DIOALERTS& :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERTS& DIOALERTS::GetInstance()
 {
   if(!instance) instance = new DIOALERTS();
@@ -681,7 +681,7 @@ DIOALERTS& DIOALERTS::GetInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::DelInstance()
 {
   if(!instance) return false;
@@ -702,7 +702,7 @@ bool DIOALERTS::DelInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::Ini()
 {
   End();
@@ -753,7 +753,7 @@ bool DIOALERTS::Ini()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOALERTS::GetApplicationID()
 {
   return &applicationID;
@@ -773,7 +773,7 @@ XSTRING* DIOALERTS::GetApplicationID()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
 {
   version       = applicationversion;
@@ -797,7 +797,7 @@ bool DIOALERTS::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWOR
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
 {
   applicationversion        = version;
@@ -817,7 +817,7 @@ bool DIOALERTS::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD 
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOALERTS::GetOrigin()
 {
   return &origin;
@@ -833,7 +833,7 @@ XSTRING* DIOALERTS::GetOrigin()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::IsSending()
 {
   return issending;
@@ -855,7 +855,7 @@ bool DIOALERTS::IsSending()
 *
 * @return     DIOALERT* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT* DIOALERTS::CreateAlert(XCHAR* applicationID, DIOALERTLEVEL level, XCHAR* origin, XCHAR* title, XCHAR* message)
 {
   if(level == DIOALERTLEVEL_UNKNOWN) return NULL;
@@ -905,7 +905,7 @@ DIOALERT* DIOALERTS::CreateAlert(XCHAR* applicationID, DIOALERTLEVEL level, XCHA
 *
 * @return     DIOALERT* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT* DIOALERTS::CreateAlert(XSTRING& applicationID, DIOALERTLEVEL level, XSTRING& origin, XSTRING& title, XSTRING& message)
 {
   return CreateAlert(applicationID.Get(), level, origin.Get(), title.Get(), message.Get());
@@ -925,7 +925,7 @@ DIOALERT* DIOALERTS::CreateAlert(XSTRING& applicationID, DIOALERTLEVEL level, XS
 *
 * @return     DIOALERT* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XCHAR* title, XCHAR* message)
 {
   return CreateAlert(applicationID.Get(), level, origin.Get(), title, message);
@@ -945,7 +945,7 @@ DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XCHAR* title, XCHAR* messa
 *
 * @return     DIOALERT* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XSTRING& title, XSTRING& message)
 {
   return CreateAlert(applicationID.Get(), level, origin.Get(), title.Get(), message.Get());
@@ -969,7 +969,7 @@ DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XSTRING& title, XSTRING& m
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::Sender_SMTPConfig(XCHAR* URL, int port, XCHAR* login, XCHAR* password, XCHAR* senderemail, int nrecipients,...)
 {
   if(!isinitialized) return false;
@@ -1041,7 +1041,7 @@ bool DIOALERTS::Sender_SMTPConfig(XCHAR* URL, int port, XCHAR* login, XCHAR* pas
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::Sender_SMSConfig(DIOSTREAM* diostream, int nrecipients, ...)
 {
   if(!isinitialized) return false;
@@ -1093,7 +1093,7 @@ bool DIOALERTS::Sender_SMSConfig(DIOSTREAM* diostream, int nrecipients, ...)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::Sender_WEBConfig(XCHAR* command, bool isuseget, int nrecipients, ...)
 {
   if(!isinitialized) return false;
@@ -1172,7 +1172,7 @@ bool DIOALERTS::Sender_WEBConfig(XCHAR* command, bool isuseget, int nrecipients,
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::Sender_UDPConfig(int port, int nrecipients, ...)
 {
   if(!isinitialized) return false;
@@ -1236,7 +1236,7 @@ bool DIOALERTS::Sender_UDPConfig(int port, int nrecipients, ...)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::IsValidConditionToSend(XDWORD conditionID)
 {
   bool mustsend   = true;
@@ -1286,7 +1286,7 @@ bool DIOALERTS::IsValidConditionToSend(XDWORD conditionID)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOALERTS::Send(DIOALERTSENDER sender, XDWORD conditionID, DIOALERT* alert)
 {
   if(!isinitialized) return false;
@@ -1340,7 +1340,7 @@ int DIOALERTS::Send(DIOALERTSENDER sender, XDWORD conditionID, DIOALERT* alert)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::AddCondition(XDWORD conditionID, int timelimitforrepeat, int everynumberoftimes)
 {
   DIOALERT_CONDITION* condition = GetCondition(conditionID);
@@ -1372,7 +1372,7 @@ bool DIOALERTS::AddCondition(XDWORD conditionID, int timelimitforrepeat, int eve
 *
 * @return     DIOALERT_CONDITION_CFG* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT_CONDITION* DIOALERTS::GetCondition(XDWORD conditionID)
 {  
   return conditions.Get(conditionID);
@@ -1388,7 +1388,7 @@ DIOALERT_CONDITION* DIOALERTS::GetCondition(XDWORD conditionID)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::DeleteAllConditions()
 {
   if(conditions.IsEmpty()) return false;
@@ -1411,7 +1411,7 @@ bool DIOALERTS::DeleteAllConditions()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::End()
 {
   //------------------------------------------
@@ -1515,7 +1515,7 @@ bool DIOALERTS::End()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERTS::DIOALERTS()
 {
   Clean();
@@ -1532,7 +1532,7 @@ DIOALERTS::DIOALERTS()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOALERTS::~DIOALERTS()
 {
   End();
@@ -1552,7 +1552,7 @@ DIOALERTS::~DIOALERTS()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::Sender_SMTPSend(DIOALERT* alert)
 {
   if(!SMTP)   return false;
@@ -1601,7 +1601,7 @@ bool DIOALERTS::Sender_SMTPSend(DIOALERT* alert)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::Sender_SMSSend(DIOALERT* alert)
 {
   if(!alert) return false;
@@ -1681,7 +1681,7 @@ bool DIOALERTS::Sender_SMSSend(DIOALERT* alert)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::Sender_WEBSend(DIOALERT* alert)
 {
   if(WEBrecipients.IsEmpty()) return false;
@@ -1807,7 +1807,7 @@ bool DIOALERTS::Sender_WEBSend(DIOALERT* alert)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::Sender_UDPSend(DIOALERT* alert)
 {
   if(!alert)            return false;
@@ -1886,7 +1886,7 @@ bool DIOALERTS::Sender_UDPSend(DIOALERT* alert)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERTS::Clean()
 {
   isinitialized             = false;

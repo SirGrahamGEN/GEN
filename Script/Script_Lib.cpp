@@ -6,7 +6,7 @@
 * @brief      Script library class
 * @ingroup    SCRIPT
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -55,7 +55,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB::SCRIPT_LIB(XCHAR* ID)
 {
   Clean();
@@ -74,7 +74,7 @@ SCRIPT_LIB::SCRIPT_LIB(XCHAR* ID)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB::~SCRIPT_LIB()
 {
   Clean();
@@ -90,7 +90,7 @@ SCRIPT_LIB::~SCRIPT_LIB()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* SCRIPT_LIB::GetID()
 {
   return &ID;
@@ -108,7 +108,7 @@ XSTRING* SCRIPT_LIB::GetID()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_LIB::AddLibraryFunctions(SCRIPT* script)
 {
   return false;
@@ -127,7 +127,7 @@ bool SCRIPT_LIB::AddLibraryFunctions(SCRIPT* script)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, int& value)
 {
   if(!variant) return false;
@@ -177,7 +177,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, int& value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, XDWORD& value)
 {
   int _value = 0;
@@ -201,7 +201,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, XDWORD& value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, float& value)
 {
   if(!variant) return false;
@@ -250,7 +250,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, float& value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, double& value)
 {
   if(!variant) return false;
@@ -299,7 +299,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, double& value)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB::Clean()
 {
   script = NULL;

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Server eXtended Event class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -57,7 +57,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_XEVENT::DIOWEBSERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
   Clean();
@@ -74,7 +74,7 @@ DIOWEBSERVER_XEVENT::DIOWEBSERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD 
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_XEVENT::~DIOWEBSERVER_XEVENT()
 {
   Clean();
@@ -90,7 +90,7 @@ DIOWEBSERVER_XEVENT::~DIOWEBSERVER_XEVENT()
 *
 * @return     DIOWEBSERVER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER* DIOWEBSERVER_XEVENT::GetServer()
 {
   return server;
@@ -108,7 +108,7 @@ DIOWEBSERVER* DIOWEBSERVER_XEVENT::GetServer()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetServer(DIOWEBSERVER* server)
 {
   this->server = server;
@@ -124,7 +124,7 @@ void DIOWEBSERVER_XEVENT::SetServer(DIOWEBSERVER* server)
 *
 * @return     DIOWEBSERVER_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_CONNECTION* DIOWEBSERVER_XEVENT::GetConnection()
 {
   return connection;
@@ -142,7 +142,7 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER_XEVENT::GetConnection()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetConnection(DIOWEBSERVER_CONNECTION* connection)
 {
   this->connection = connection;
@@ -158,7 +158,7 @@ void DIOWEBSERVER_XEVENT::SetConnection(DIOWEBSERVER_CONNECTION* connection)
 *
 * @return     DIOWEBSERVER_REQUEST* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_REQUEST* DIOWEBSERVER_XEVENT::GetRequest()
 {
   return request;
@@ -176,7 +176,7 @@ DIOWEBSERVER_REQUEST* DIOWEBSERVER_XEVENT::GetRequest()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetRequest(DIOWEBSERVER_REQUEST* request)
 {
   this->request = request;
@@ -192,7 +192,7 @@ void DIOWEBSERVER_XEVENT::SetRequest(DIOWEBSERVER_REQUEST* request)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER_XEVENT::GetTimeOut()
 {
   return timeout;
@@ -210,7 +210,7 @@ int DIOWEBSERVER_XEVENT::GetTimeOut()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetTimeOut(int timeout)
 {
   this->timeout = timeout;
@@ -226,7 +226,7 @@ void DIOWEBSERVER_XEVENT::SetTimeOut(int timeout)
 *
 * @return     DIOWEBSERVER_QUERYSTRINGS* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_QUERYSTRINGS*  DIOWEBSERVER_XEVENT::GetQueryString()
 {
   return querystring;
@@ -244,7 +244,7 @@ DIOWEBSERVER_QUERYSTRINGS*  DIOWEBSERVER_XEVENT::GetQueryString()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetQueryString(DIOWEBSERVER_QUERYSTRINGS* querystring)
 {
   this->querystring = querystring;
@@ -260,7 +260,7 @@ void DIOWEBSERVER_XEVENT::SetQueryString(DIOWEBSERVER_QUERYSTRINGS* querystring)
 *
 * @return     XBUFFER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER* DIOWEBSERVER_XEVENT::GetReadDataWebSocket()
 {
   return &readdatawebsocket;
@@ -276,7 +276,7 @@ XBUFFER* DIOWEBSERVER_XEVENT::GetReadDataWebSocket()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_XEVENT::GetOutput()
 {
   return &output;
@@ -292,7 +292,7 @@ XSTRING* DIOWEBSERVER_XEVENT::GetOutput()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_XEVENT::IsRequestAuthenticate()
 {
   return isrequestauthenticate;
@@ -310,7 +310,7 @@ bool DIOWEBSERVER_XEVENT::IsRequestAuthenticate()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetIsRequestAuthenticate(bool isrequestauthenticate)
 {
   this->isrequestauthenticate = isrequestauthenticate;
@@ -326,7 +326,7 @@ void DIOWEBSERVER_XEVENT::SetIsRequestAuthenticate(bool isrequestauthenticate)
 *
 * @return     DIOWEBHEADER_RESULT :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBHEADER_RESULT DIOWEBSERVER_XEVENT::GetResult()
 {
   return result;
@@ -344,7 +344,7 @@ DIOWEBHEADER_RESULT DIOWEBSERVER_XEVENT::GetResult()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetResult(DIOWEBHEADER_RESULT result)
 {
   this->result = result;
@@ -360,7 +360,7 @@ void DIOWEBSERVER_XEVENT::SetResult(DIOWEBHEADER_RESULT result)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_XEVENT::GetStatus()
 {
   return status;
@@ -378,7 +378,7 @@ bool DIOWEBSERVER_XEVENT::GetStatus()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetStatus(bool status)
 {
   this->status = status;
@@ -395,7 +395,7 @@ void DIOWEBSERVER_XEVENT::SetStatus(bool status)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::Clean()
 {
   server                 = NULL;

@@ -6,7 +6,7 @@
 * @brief      eXtended Windows Access Control Lists
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSACCESSCONTROLLISTS::XWINDOWSACCESSCONTROLLISTS()
 {
   Clean();
@@ -75,7 +75,7 @@ XWINDOWSACCESSCONTROLLISTS::XWINDOWSACCESSCONTROLLISTS()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSACCESSCONTROLLISTS::~XWINDOWSACCESSCONTROLLISTS()
 {
   Clean();
@@ -93,7 +93,7 @@ XWINDOWSACCESSCONTROLLISTS::~XWINDOWSACCESSCONTROLLISTS()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSACCESSCONTROLLISTS::SetFileOnlyPermissionForAdmin(XCHAR* filename)
 {
   #define EXPLICIT_ACCESS_MAXNUM_ADMIN  2
@@ -175,7 +175,7 @@ bool XWINDOWSACCESSCONTROLLISTS::SetFileOnlyPermissionForAdmin(XCHAR* filename)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSACCESSCONTROLLISTS::SetFileOnlyPermissionForSystemUser(XCHAR* filename)
 {
   #define EXPLICIT_ACCESS_MAXNUM_SYSTEMUSER  1
@@ -241,7 +241,7 @@ bool XWINDOWSACCESSCONTROLLISTS::SetFileOnlyPermissionForSystemUser(XCHAR* filen
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSACCESSCONTROLLISTS::SetFilePermissionForEveryone(XCHAR* filename)
 {
   PSID                     everyoneSID = NULL;
@@ -299,7 +299,7 @@ bool XWINDOWSACCESSCONTROLLISTS::SetFilePermissionForEveryone(XCHAR* filename)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSACCESSCONTROLLISTS::Clean()
 {
 

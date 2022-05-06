@@ -6,7 +6,7 @@
 * @brief      eXtended LINUX process management class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -66,7 +66,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLINUXPROCESSMANAGER::XLINUXPROCESSMANAGER(): XPROCESSMANAGER()
 {
   Clean();
@@ -83,7 +83,7 @@ XLINUXPROCESSMANAGER::XLINUXPROCESSMANAGER(): XPROCESSMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLINUXPROCESSMANAGER::~XLINUXPROCESSMANAGER()
 {
    Clean();
@@ -101,7 +101,7 @@ XLINUXPROCESSMANAGER::~XLINUXPROCESSMANAGER()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 {
   XSTRING   _command;
@@ -131,7 +131,7 @@ bool XLINUXPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* returncode)
 {
   XSTRING _command;
@@ -185,7 +185,7 @@ bool XLINUXPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* return
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* command, XCHAR* params, XSTRING& in, XSTRING& out, int* returncode)
 {
@@ -335,7 +335,7 @@ bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* command, XCHAR* params, XST
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params)
 {
@@ -469,7 +469,7 @@ bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* par
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 { 
   #define PIPE_READ   0
@@ -691,7 +691,7 @@ bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* par
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
 {
   DIR*            dir;
@@ -762,7 +762,7 @@ bool XLINUXPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* 
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXPROCESSMANAGER::Clean()
 {
 

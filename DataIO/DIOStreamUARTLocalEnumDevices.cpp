@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream UART Local Enum Device class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -51,7 +51,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUARTLOCALENUMDEVICES::DIOSTREAMUARTLOCALENUMDEVICES() : DIOSTREAMENUMDEVICES()
 {
   Clean();
@@ -68,7 +68,7 @@ DIOSTREAMUARTLOCALENUMDEVICES::DIOSTREAMUARTLOCALENUMDEVICES() : DIOSTREAMENUMDE
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUARTLOCALENUMDEVICES::~DIOSTREAMUARTLOCALENUMDEVICES()
 {
   Clean();
@@ -84,7 +84,7 @@ DIOSTREAMUARTLOCALENUMDEVICES::~DIOSTREAMUARTLOCALENUMDEVICES()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUARTLOCALENUMDEVICES::Search()
 {
   return false;
@@ -102,7 +102,7 @@ bool DIOSTREAMUARTLOCALENUMDEVICES::Search()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUARTLOCALENUMDEVICES::StopSearch(bool waitend)
 {
   return false;
@@ -118,7 +118,7 @@ bool DIOSTREAMUARTLOCALENUMDEVICES::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUARTLOCALENUMDEVICES::IsSearching()
 {
   return issearching;
@@ -136,7 +136,7 @@ bool DIOSTREAMUARTLOCALENUMDEVICES::IsSearching()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUARTLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 {
   return false;
@@ -153,7 +153,7 @@ bool DIOSTREAMUARTLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTLOCALENUMDEVICES::Clean()
 {
   type        = DIOSTREAMENUMTYPE_UART_LOCAL;

@@ -7,7 +7,7 @@
 * @brief                                                   (TARGA: Truevision Advanced Raster Graphics Adapter)
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -25,7 +25,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _GRPBITMAPFILETGA_H_
 #define _GRPBITMAPFILETGA_H_
@@ -161,7 +161,7 @@ class GRPBITMAPFILETGA : public GRPBITMAPFILEBASE
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

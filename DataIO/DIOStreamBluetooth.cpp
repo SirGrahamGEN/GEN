@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream bluetooth class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -55,7 +55,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTH::DIOSTREAMBLUETOOTH() : DIOSTREAM()
 {
   Clean();
@@ -72,7 +72,7 @@ DIOSTREAMBLUETOOTH::DIOSTREAMBLUETOOTH() : DIOSTREAM()
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTH::~DIOSTREAMBLUETOOTH()
 
 {
@@ -89,7 +89,7 @@ DIOSTREAMBLUETOOTH::~DIOSTREAMBLUETOOTH()
 *
 * @return     DIOSTREAMCONFIG* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIG* DIOSTREAMBLUETOOTH::GetConfig()
 {
   return (DIOSTREAMCONFIG*)config;
@@ -107,7 +107,7 @@ DIOSTREAMCONFIG* DIOSTREAMBLUETOOTH::GetConfig()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTH::SetConfig(DIOSTREAMCONFIG* config)
 {
   if(!config) return false;
@@ -127,7 +127,7 @@ bool DIOSTREAMBLUETOOTH::SetConfig(DIOSTREAMCONFIG* config)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTH::IsRefusedConnection()
 {
   return isrefusedconnection;
@@ -145,7 +145,7 @@ bool DIOSTREAMBLUETOOTH::IsRefusedConnection()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTH::SetIsRefusedConnection(bool isrefused)
 {
   this->isrefusedconnection = isrefused;
@@ -164,7 +164,7 @@ bool DIOSTREAMBLUETOOTH::SetIsRefusedConnection(bool isrefused)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void  DIOSTREAMBLUETOOTH::Clean()
 {
   config              = NULL;

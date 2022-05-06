@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Client class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -73,7 +73,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT_HEADER::DIOWEBCLIENT_HEADER()
 {
   Clean();
@@ -90,7 +90,7 @@ DIOWEBCLIENT_HEADER::DIOWEBCLIENT_HEADER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT_HEADER::~DIOWEBCLIENT_HEADER()
 {
   DeleteAllLines();
@@ -110,7 +110,7 @@ DIOWEBCLIENT_HEADER::~DIOWEBCLIENT_HEADER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT_HEADER::GetMethod(XSTRING& method)
 {
   if(!GetFormat(false, 0, &method)) return false;
@@ -130,7 +130,7 @@ bool DIOWEBCLIENT_HEADER::GetMethod(XSTRING& method)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT_HEADER::GetResource(XSTRING& resource)
 {
   if(!GetFormat(false, 1, &resource)) return false;
@@ -148,7 +148,7 @@ bool DIOWEBCLIENT_HEADER::GetResource(XSTRING& resource)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBCLIENT_HEADER::GetVersion()
 {
   int data = 0;
@@ -168,7 +168,7 @@ int DIOWEBCLIENT_HEADER::GetVersion()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBCLIENT_HEADER::GetSubVersion()
 {
   int data = 0;
@@ -189,7 +189,7 @@ int DIOWEBCLIENT_HEADER::GetSubVersion()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBCLIENT_HEADER::GetResultServer()
 {
   int data = 0;
@@ -209,7 +209,7 @@ int DIOWEBCLIENT_HEADER::GetResultServer()
 *
 * @return     XQWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD DIOWEBCLIENT_HEADER::GetContentLength()
 {
   XQWORD contentlength = 0;
@@ -250,7 +250,7 @@ XQWORD DIOWEBCLIENT_HEADER::GetContentLength()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT_HEADER::GetETag(XSTRING& etag)
 {
   etag.Empty();
@@ -292,7 +292,7 @@ bool DIOWEBCLIENT_HEADER::GetETag(XSTRING& etag)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT_HEADER::GetWWWAuthenticate(XSTRING& authenticate)
 {
   authenticate.Empty();
@@ -315,7 +315,7 @@ bool DIOWEBCLIENT_HEADER::GetWWWAuthenticate(XSTRING& authenticate)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_HEADER::Clean()
 {
 
@@ -340,7 +340,7 @@ void DIOWEBCLIENT_HEADER::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)
 
 {
@@ -372,7 +372,7 @@ DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT::~DIOWEBCLIENT()
 {
   DeRegisterEvent(DIOWEBCLIENT_XEVENT_TYPE_OPENWEB);
@@ -413,7 +413,7 @@ DIOWEBCLIENT::~DIOWEBCLIENT()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBCLIENT::Get_Port()
 {
   return port;
@@ -431,7 +431,7 @@ int DIOWEBCLIENT::Get_Port()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT::Set_Port(int port)
 {
   this->port = port;
@@ -447,7 +447,7 @@ void DIOWEBCLIENT::Set_Port(int port)
 *
 * @return     DIOURL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOURL* DIOWEBCLIENT::GetProxyURL()
 {
   return &proxyurl;
@@ -463,7 +463,7 @@ DIOURL* DIOWEBCLIENT::GetProxyURL()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBCLIENT::GetProxyPort()
 {
   return proxyport;
@@ -481,7 +481,7 @@ int DIOWEBCLIENT::GetProxyPort()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT::SetProxyPort(int port)
 {
   proxyport = port;
@@ -498,7 +498,7 @@ void DIOWEBCLIENT::SetProxyPort(int port)
 *
 * @return     DIOWEBCLIENT_AUTHENTICATION_METHOD : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT_AUTHENTICATION_METHOD DIOWEBCLIENT::GetAuthenticationMethod()
 {
   return authenticationmethod;
@@ -516,7 +516,7 @@ DIOWEBCLIENT_AUTHENTICATION_METHOD DIOWEBCLIENT::GetAuthenticationMethod()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT::SetAuthenticationMethod(DIOWEBCLIENT_AUTHENTICATION_METHOD authenticationmethod)
 {
   this->authenticationmethod = authenticationmethod;
@@ -532,7 +532,7 @@ void DIOWEBCLIENT::SetAuthenticationMethod(DIOWEBCLIENT_AUTHENTICATION_METHOD au
 *
 * @return     XSTRING* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING*  DIOWEBCLIENT::GetLogin()
 {
   return &login;
@@ -548,7 +548,7 @@ XSTRING*  DIOWEBCLIENT::GetLogin()
 *
 * @return     XSTRING* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING*  DIOWEBCLIENT::GetPassword()
 {
   return &password;
@@ -566,7 +566,7 @@ XSTRING*  DIOWEBCLIENT::GetPassword()
 *
 * @return     DIOSTREAMTCPIPCONFIG* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTCPIPCONFIG* DIOWEBCLIENT::GetStreamCFG()
 {
   return diostreamcfg;
@@ -582,7 +582,7 @@ DIOSTREAMTCPIPCONFIG* DIOWEBCLIENT::GetStreamCFG()
 *
 * @return     DIOWEBCLIENT_HEADER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT_HEADER* DIOWEBCLIENT::GetHeader()
 {
   return &header;
@@ -598,7 +598,7 @@ DIOWEBCLIENT_HEADER* DIOWEBCLIENT::GetHeader()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::IsActiveDoStopHTTPError()
 {
   return dostophttperror;
@@ -617,7 +617,7 @@ bool DIOWEBCLIENT::IsActiveDoStopHTTPError()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT::DoStopHTTPError(bool activate)
 {
   dostophttperror = activate;
@@ -640,7 +640,7 @@ void DIOWEBCLIENT::DoStopHTTPError(bool activate)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Get(DIOURL& url, XBUFFER& tobuffer, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
   return MakeOperation(DIOWEBHEADER_METHOD_GET, url, NULL, addheader, timeout, localIP, true, (void*)&tobuffer);
@@ -662,7 +662,7 @@ bool DIOWEBCLIENT::Get(DIOURL& url, XBUFFER& tobuffer, XCHAR* addheader, int tim
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Get(XCHAR* url, XBUFFER& tobuffer, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
   DIOURL _url;
@@ -687,7 +687,7 @@ bool DIOWEBCLIENT::Get(XCHAR* url, XBUFFER& tobuffer, XCHAR* addheader, int time
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Get(DIOURL& url, XPATH& pathfile, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
   XFILE* GEN_XFACTORY_CREATE(file, Create_File())
@@ -734,7 +734,7 @@ bool DIOWEBCLIENT::Get(DIOURL& url, XPATH& pathfile, XCHAR* addheader, int timeo
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Get(XCHAR* url, XPATH& pathfile, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
   DIOURL _url;
@@ -759,7 +759,7 @@ bool DIOWEBCLIENT::Get(XCHAR* url, XPATH& pathfile, XCHAR* addheader, int timeou
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Put(DIOURL& url, XBUFFER& tobuffer, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
   return MakeOperation(DIOWEBHEADER_METHOD_PUT, url, NULL, addheader, timeout, localIP, true, (void*)&tobuffer);
@@ -781,7 +781,7 @@ bool DIOWEBCLIENT::Put(DIOURL& url, XBUFFER& tobuffer, XCHAR* addheader, int tim
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Put(XCHAR* url, XBUFFER& tobuffer, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
   DIOURL _url;
@@ -806,7 +806,7 @@ bool DIOWEBCLIENT::Put(XCHAR* url, XBUFFER& tobuffer, XCHAR* addheader, int time
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Put(DIOURL& url, XPATH& pathfile, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
   XFILE* GEN_XFACTORY_CREATE(file, Create_File())
@@ -855,7 +855,7 @@ bool DIOWEBCLIENT::Put(DIOURL& url, XPATH& pathfile, XCHAR* addheader, int timeo
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Put(XCHAR* url, XPATH& pathfile, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
   DIOURL _url;
@@ -881,7 +881,7 @@ bool DIOWEBCLIENT::Put(XCHAR* url, XPATH& pathfile, XCHAR* addheader, int timeou
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Post(DIOURL& url, XBUFFER& tobuffer, XBUFFER* postdata, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
   return MakeOperation(DIOWEBHEADER_METHOD_POST, url, postdata, addheader, timeout, localIP, true, (void*)&tobuffer);
@@ -904,7 +904,7 @@ bool DIOWEBCLIENT::Post(DIOURL& url, XBUFFER& tobuffer, XBUFFER* postdata, XCHAR
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Post(XCHAR* url, XBUFFER& tobuffer, XBUFFER* postdata, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
   DIOURL _url;
@@ -930,7 +930,7 @@ bool DIOWEBCLIENT::Post(XCHAR* url, XBUFFER& tobuffer, XBUFFER* postdata, XCHAR*
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Post(DIOURL& url, XPATH& pathfile, XBUFFER* postdata, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
   XFILE* GEN_XFACTORY_CREATE(file, Create_File())
@@ -972,7 +972,7 @@ bool DIOWEBCLIENT::Post(DIOURL& url, XPATH& pathfile, XBUFFER* postdata, XCHAR* 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::Post(XCHAR* url, XPATH& pathfile, XBUFFER* postdata, XCHAR* addheader, int timeout, XSTRING* localIP)
 {
   DIOURL _url;
@@ -1000,7 +1000,7 @@ bool DIOWEBCLIENT::Post(XCHAR* url, XPATH& pathfile, XBUFFER* postdata, XCHAR* a
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFER* postdata, XCHAR* addhead, int timeout, XSTRING* localIP, bool istobuffer, void* to)
 {
   if(!diostreamcfg)     return false;
@@ -1441,7 +1441,7 @@ bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFE
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT::GetSubStringWWWWAuthenticate(XSTRING& www_authenticate, XCHAR* field, XSTRING& value, bool betweenquotation)
 {
   if(www_authenticate.IsEmpty()) return false;
@@ -1490,7 +1490,7 @@ bool DIOWEBCLIENT::GetSubStringWWWWAuthenticate(XSTRING& www_authenticate, XCHAR
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT::Clean()
 {
   maxsizebuffer           = 0;

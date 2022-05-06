@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Scraper Web class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -68,7 +68,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEB::DIOSCRAPERWEB()
 {
   Clean();
@@ -99,7 +99,7 @@ DIOSCRAPERWEB::DIOSCRAPERWEB()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEB::~DIOSCRAPERWEB()
 {
   DeleteAllValues();
@@ -140,7 +140,7 @@ DIOSCRAPERWEB::~DIOSCRAPERWEB()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::Load(XCHAR* namefile)
 {
   static bool webupdate = false;
@@ -188,7 +188,7 @@ bool DIOSCRAPERWEB::Load(XCHAR* namefile)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::Load(XPATH& namefile)
 {
   return Load(namefile.Get());
@@ -204,7 +204,7 @@ bool DIOSCRAPERWEB::Load(XPATH& namefile)
 *
 * @return     DIOURL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOURL* DIOSCRAPERWEB::GetURLDownload()
 {
   return URLdownload;
@@ -223,7 +223,7 @@ DIOURL* DIOSCRAPERWEB::GetURLDownload()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::Download(DIOURL& URL, XPATH& xpath)
 {
   if(URL.IsEmpty())   return false;
@@ -259,7 +259,7 @@ bool DIOSCRAPERWEB::Download(DIOURL& URL, XPATH& xpath)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::Do(XCHAR* namewebservice, int timeoutforurl, XSTRING* localIP)
 {
   if(!xml) return false;
@@ -453,7 +453,7 @@ bool DIOSCRAPERWEB::Do(XCHAR* namewebservice, int timeoutforurl, XSTRING* localI
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::Do(XSTRING& namewebservice, int timeoutforurl, XSTRING* localIP)
 {
   return Do(namewebservice.Get(), timeoutforurl, localIP);
@@ -472,7 +472,7 @@ bool DIOSCRAPERWEB::Do(XSTRING& namewebservice, int timeoutforurl, XSTRING* loca
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::ChangeURL(XCHAR* maskurl, DIOURL& url)
 {
   url = maskurl;
@@ -495,7 +495,7 @@ bool DIOSCRAPERWEB::ChangeURL(XCHAR* maskurl, DIOURL& url)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::AddValue(XCHAR* name, XCHAR* value)
 {
   XSTRING* _name  = new XSTRING();
@@ -530,7 +530,7 @@ bool DIOSCRAPERWEB::AddValue(XCHAR* name, XCHAR* value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::AddValue(XCHAR* name, XSTRING& value)
 {
   return AddValue(name, value.Get());
@@ -549,7 +549,7 @@ bool DIOSCRAPERWEB::AddValue(XCHAR* name, XSTRING& value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::AddValue(XSTRING& name,XCHAR*  value)
 {
   return AddValue(name.Get(), value);
@@ -568,7 +568,7 @@ bool DIOSCRAPERWEB::AddValue(XSTRING& name,XCHAR*  value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::AddValue(XSTRING& name, XSTRING& value)
 {
   return AddValue(name.Get(), value.Get());
@@ -626,7 +626,7 @@ XCHAR* DIOSCRAPERWEB::GetValue(XCHAR* namevalue)
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* DIOSCRAPERWEB::GetValue(XSTRING& namevalue)
 {
   return DIOSCRAPERWEB::GetValue(namevalue.Get());
@@ -642,7 +642,7 @@ XCHAR* DIOSCRAPERWEB::GetValue(XSTRING& namevalue)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::DeleteAllValues()
 {
   if(values.IsEmpty())  return false;
@@ -664,7 +664,7 @@ bool DIOSCRAPERWEB::DeleteAllValues()
 *
 * @return     DIOWEBCLIENT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT* DIOSCRAPERWEB::GetWebClient()
 {
   return webclient;
@@ -686,7 +686,7 @@ DIOWEBCLIENT* DIOSCRAPERWEB::GetWebClient()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini,XCHAR* searchend,XBUFFER* xbuffer,bool usebufferpos,XSTRING& result)
 {
   if((!searchini) || (!searchend)) return false;
@@ -716,7 +716,7 @@ bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini,XCHAR* searchend,XBUFFER* xbu
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini, XSTRING& searchend, XBUFFER* xbuffer, bool usebufferpos, XSTRING& result)
 {
   if(!searchini) return false;
@@ -744,7 +744,7 @@ bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini, XSTRING& searchend, XBUFFER*
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini,XCHAR* searchend,XBUFFER* xbuffer,bool usebufferpos,XSTRING& result)
 {
   if(!searchend) return false;
@@ -773,7 +773,7 @@ bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini,XCHAR* searchend,XBUFFER* x
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini, XSTRING& searchend, XBUFFER* xbuffer, bool usebufferpos, XSTRING& result)
 {
   result.Empty();
@@ -821,7 +821,7 @@ bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini, XSTRING& searchend, XBUFFE
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEB::HandleEvent(XEVENT* xevent)
 {
   if(!xevent) return;
@@ -838,7 +838,7 @@ void DIOSCRAPERWEB::HandleEvent(XEVENT* xevent)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEB::Clean()
 {
   xmutexdo                = NULL;

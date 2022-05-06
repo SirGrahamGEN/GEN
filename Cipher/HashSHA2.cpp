@@ -1,22 +1,37 @@
-/*------------------------------------------------------------------------------------------
-//  HASHSHA2.CPP
-//
-//  Hash SHA1 class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/03/2013 12:07:38
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
-
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       HashSHA2.cpp
+* 
+* @class      HASHSHA2
+* @brief      Hash SHA2 class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <string.h>
 
@@ -26,7 +41,8 @@
 
 #include "XMemory_Control.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
+
+/*---- DEFINES & ENUMS  ---------------------------------------------------------------------------------------------*/
 
 #if 0
 #define UNROLL_LOOPS /* Enable loops unrolling */
@@ -112,29 +128,30 @@
                                                   wv[h] = t1 + t2;                                        \
                                               }
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
 
-XDWORD HASHSHA2::Sha224_h0[8] =  { 0xc1059ed8, 0x367cd507, 0x3070dd17, 0xf70e5939,
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+
+XDWORD HASHSHA2::Sha224_h0[8] =   { 0xc1059ed8, 0x367cd507, 0x3070dd17, 0xf70e5939,
                                     0xffc00b31, 0x68581511, 0x64f98fa7, 0xbefa4fa4
                                   };
 
-XDWORD HASHSHA2::Sha256_h0[8] = { 0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
+XDWORD HASHSHA2::Sha256_h0[8] =   { 0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
                                     0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19
                                   };
 
-XQWORD HASHSHA2::Sha384_h0[8] = { 0xcbbb9d5dc1059ed8ULL, 0x629a292a367cd507ULL,
+XQWORD HASHSHA2::Sha384_h0[8] =   { 0xcbbb9d5dc1059ed8ULL, 0x629a292a367cd507ULL,
                                     0x9159015a3070dd17ULL, 0x152fecd8f70e5939ULL,
                                     0x67332667ffc00b31ULL, 0x8eb44a8768581511ULL,
                                     0xdb0c2e0d64f98fa7ULL, 0x47b5481dbefa4fa4ULL
                                   };
 
-XQWORD HASHSHA2::Sha512_h0[8] = { 0x6a09e667f3bcc908ULL, 0xbb67ae8584caa73bULL,
+XQWORD HASHSHA2::Sha512_h0[8] =   { 0x6a09e667f3bcc908ULL, 0xbb67ae8584caa73bULL,
                                     0x3c6ef372fe94f82bULL, 0xa54ff53a5f1d36f1ULL,
                                     0x510e527fade682d1ULL, 0x9b05688c2b3e6c1fULL,
                                     0x1f83d9abfb41bd6bULL, 0x5be0cd19137e2179ULL
                                   };
 
-XDWORD HASHSHA2::Sha256_k[64] = { 0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
+XDWORD HASHSHA2::Sha256_k[64] =   { 0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
                                     0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
                                     0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
                                     0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
@@ -194,25 +211,20 @@ XDWORD HASHSHA2::Sha256_k[64] = { 0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5
                                     0x5fcb6fab3ad6faecULL, 0x6c44198c4a475817ULL
                                   };
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::HASHSHA2
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 18:16:26
-//
-//  @return
-
-//  @param        type :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         HASHSHA2::HASHSHA2(HASHSHA2TYPE type)
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @param[in]  HASHSHA2TYPE : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 HASHSHA2::HASHSHA2(HASHSHA2TYPE type) : HASH()
 {
   Clean();
@@ -230,41 +242,35 @@ HASHSHA2::HASHSHA2(HASHSHA2TYPE type) : HASH()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::~HASHSHA2
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:09:01
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         HASHSHA2::~HASHSHA2()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 HASHSHA2::~HASHSHA2()
+
 {
   Clean();
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Do
-*/
-/**
-//
-//
-//  ""
-//  @version      03/03/2013 16:28:42
-//
-//  @return       bool :
-//  @param        input :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool HASHSHA2::Do(XBYTE* input, XQWORD size)
+* @brief      Do
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool HASHSHA2::Do(XBYTE* input, XQWORD size)
 {
   XBYTE digest[128];
@@ -275,94 +281,65 @@ bool HASHSHA2::Do(XBYTE* input, XQWORD size)
     {
       case HASHSHA2TYPE_UNKNOWN : return false;
 
-      case HASHSHA2TYPE_224    : Sha2_224(input, (XDWORD)size, digest);
-                                 result->Add(digest,  HASHSHA2_224_DIGEST_SIZE);
-                                 break;
+      case HASHSHA2TYPE_224     : Sha2_224(input, (XDWORD)size, digest);
+                                  result->Add(digest,  HASHSHA2_224_DIGEST_SIZE);
+                                  break;
 
-      case HASHSHA2TYPE_256    : Sha2_256(input, (XDWORD)size, digest);
-                                 result->Add(digest,  HASHSHA2_256_DIGEST_SIZE);
-                                 break;
+      case HASHSHA2TYPE_256     : Sha2_256(input, (XDWORD)size, digest);
+                                  result->Add(digest,  HASHSHA2_256_DIGEST_SIZE);
+                                  break;
 
-      case HASHSHA2TYPE_384    : Sha2_384(input, (XDWORD)size, digest);
-                                 result->Add(digest,  HASHSHA2_384_DIGEST_SIZE);
-                                 break;
+      case HASHSHA2TYPE_384     : Sha2_384(input, (XDWORD)size, digest);
+                                  result->Add(digest,  HASHSHA2_384_DIGEST_SIZE);
+                                  break;
 
-      case HASHSHA2TYPE_512    : Sha2_512(input, (XDWORD)size, digest);
-                                 result->Add(digest,  HASHSHA2_512_DIGEST_SIZE);
-                                 break;
+      case HASHSHA2TYPE_512     : Sha2_512(input, (XDWORD)size, digest);
+                                  result->Add(digest,  HASHSHA2_512_DIGEST_SIZE);
+                                  break;
 
-                    default    : return false;
+                    default     : return false;
     }
 
   return true;
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::GetDefaultSize
-*/
-/**
-//
-//
-//  ""
-//  @version      21/04/2013 1:01:29
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int HASHSHA2::GetDefaultSize()
+* @brief      GetDefaultSize
+* @ingroup    CIPHER
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int HASHSHA2::GetDefaultSize()
 {
   switch(typesha2)
     {
-      case HASHSHA2TYPE_224    : return HASHSHA2_224_DIGEST_SIZE;
-      case HASHSHA2TYPE_256    : return HASHSHA2_256_DIGEST_SIZE;
-      case HASHSHA2TYPE_384    : return HASHSHA2_384_DIGEST_SIZE;
-      case HASHSHA2TYPE_512    : return HASHSHA2_512_DIGEST_SIZE;
+      case HASHSHA2TYPE_224     : return HASHSHA2_224_DIGEST_SIZE;
+      case HASHSHA2TYPE_256     : return HASHSHA2_256_DIGEST_SIZE;
+      case HASHSHA2TYPE_384     : return HASHSHA2_384_DIGEST_SIZE;
+      case HASHSHA2TYPE_512     : return HASHSHA2_512_DIGEST_SIZE;
       case HASHSHA2TYPE_UNKNOWN :
-                    default    : return 0;
+                     default    : return 0;
     }
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      02/03/2013 12:09:56
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
-void HASHSHA2::Clean()
-{
-
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_256_Transf
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 21:56:05
-//
-//  @return       void :
-//  @param        ctx :
-//  @param        input :
-//  @param        block_nb :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_256_Transf(HASHSHA2_256_CTX* ctx, XBYTE* input, XDWORD blocknb)
+* @brief      Sha2_256_Transf
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  input : 
+* @param[in]  blocknb : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_256_Transf(HASHSHA2_256_CTX* ctx, XBYTE* input, XDWORD blocknb)
 {
   XDWORD  w[64];
@@ -415,23 +392,19 @@ void HASHSHA2::Sha2_256_Transf(HASHSHA2_256_CTX* ctx, XBYTE* input, XDWORD block
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_256
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:03:03
-//
-//  @return       void :
-//  @param        input :
-//  @param        size :
-//  @param        digest :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_256(XBYTE* input, XDWORD size, XBYTE* digest)
+* @brief      Sha2_256
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* @param[in]  digest : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_256(XBYTE* input, XDWORD size, XBYTE* digest)
 {
   HASHSHA2_256_CTX ctx;
@@ -442,20 +415,17 @@ void HASHSHA2::Sha2_256(XBYTE* input, XDWORD size, XBYTE* digest)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_256_Ini
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:05:27
-//
-//  @return       void :
-//  @param        ctx :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_256_Ini(HASHSHA2_256_CTX* ctx)
+* @brief      Sha2_256_Ini
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_256_Ini(HASHSHA2_256_CTX* ctx)
 {
   int i;
@@ -470,22 +440,19 @@ void HASHSHA2::Sha2_256_Ini(HASHSHA2_256_CTX* ctx)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_256_Update
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:09:48
-//
-//  @return       void :
-//  @param        ctx :
-//  @param        input :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_256_Update(HASHSHA2_256_CTX* ctx, XBYTE* input, XDWORD size)
+* @brief      Sha2_256_Update
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_256_Update(HASHSHA2_256_CTX* ctx, XBYTE* input, XDWORD size)
 {
   XDWORD  blocknb;
@@ -520,21 +487,18 @@ void HASHSHA2::Sha2_256_Update(HASHSHA2_256_CTX* ctx, XBYTE* input, XDWORD size)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_256_End
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:16:54
-//
-//  @return       void :
-//  @param        ctx :
-//  @param        digest :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_256_End(HASHSHA2_256_CTX* ctx, XBYTE* digest)
+* @brief      Sha2_256_End
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  digest : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_256_End(HASHSHA2_256_CTX* ctx, XBYTE* digest)
 {
   XDWORD  blocknb;
@@ -561,22 +525,19 @@ void HASHSHA2::Sha2_256_End(HASHSHA2_256_CTX* ctx, XBYTE* digest)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_512_Transf
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:21:02
-//
-//  @return       void :
-//  @param        ctx :
-//  @param        input :
-//  @param        blocknb :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_512_Transf(HASHSHA2_512_CTX* ctx, XBYTE* input, XDWORD blocknb)
+* @brief      Sha2_512_Transf
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  input : 
+* @param[in]  blocknb : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_512_Transf(HASHSHA2_512_CTX* ctx, XBYTE* input, XDWORD blocknb)
 {
   XQWORD  w[80];
@@ -629,23 +590,19 @@ void HASHSHA2::Sha2_512_Transf(HASHSHA2_512_CTX* ctx, XBYTE* input, XDWORD block
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_512
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:29:39
-//
-//  @return       void :
-//  @param        input :
-//  @param        size :
-//  @param        digest :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_512(XBYTE* input, XDWORD size, XBYTE* digest)
+* @brief      Sha2_512
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* @param[in]  digest : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_512(XBYTE* input, XDWORD size, XBYTE* digest)
 {
   HASHSHA2_512_CTX ctx;
@@ -656,20 +613,17 @@ void HASHSHA2::Sha2_512(XBYTE* input, XDWORD size, XBYTE* digest)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_512_Ini
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:31:55
-//
-//  @return       void :
-//  @param        ctx :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_512_Ini(HASHSHA2_512_CTX* ctx)
+* @brief      Sha2_512_Ini
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_512_Ini(HASHSHA2_512_CTX* ctx)
 {
   int i;
@@ -684,23 +638,19 @@ void HASHSHA2::Sha2_512_Ini(HASHSHA2_512_CTX* ctx)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_512_Update
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:35:44
-//
-//  @return       void :
-//  @param        ctx :
-//  @param        input :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_512_Update(HASHSHA2_512_CTX* ctx, XBYTE* input, XDWORD size)
+* @brief      Sha2_512_Update
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_512_Update(HASHSHA2_512_CTX* ctx, XBYTE* input, XDWORD size)
 {
   XDWORD blocknb;
@@ -735,22 +685,18 @@ void HASHSHA2::Sha2_512_Update(HASHSHA2_512_CTX* ctx, XBYTE* input, XDWORD size)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_512_End
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:37:39
-//
-//  @return       void :
-//  @param        ctx :
-//  @param        digest :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_512_End(HASHSHA2_512_CTX* ctx, XBYTE* digest)
+* @brief      Sha2_512_End
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  digest : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_512_End(HASHSHA2_512_CTX* ctx, XBYTE* digest)
 {
   XDWORD  blocknb;
@@ -777,23 +723,19 @@ void HASHSHA2::Sha2_512_End(HASHSHA2_512_CTX* ctx, XBYTE* digest)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_384
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:43:00
-//
-//  @return       void :
-//  @param        input :
-//  @param        size :
-//  @param        digest :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_384(XBYTE* input, XDWORD size, XBYTE* digest)
+* @brief      Sha2_384
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* @param[in]  digest : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_384(XBYTE* input, XDWORD size, XBYTE* digest)
 {
   HASHSHA2_384_CTX ctx;
@@ -804,20 +746,17 @@ void HASHSHA2::Sha2_384(XBYTE* input, XDWORD size, XBYTE* digest)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_384_Ini
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:44:22
-//
-//  @return       void :
-//  @param        ctx :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_384_Ini(HASHSHA2_384_CTX* ctx)
+* @brief      Sha2_384_Ini
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_384_Ini(HASHSHA2_384_CTX* ctx)
 {
   int i;
@@ -832,23 +771,19 @@ void HASHSHA2::Sha2_384_Ini(HASHSHA2_384_CTX* ctx)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_384_Update
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:46:58
-//
-//  @return       void :
-//  @param        ctx :
-//  @param        input :
-//  @param        len :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_384_Update(HASHSHA2_384_CTX* ctx, XBYTE* input, XDWORD len)
+* @brief      Sha2_384_Update
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  input : 
+* @param[in]  len : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_384_Update(HASHSHA2_384_CTX* ctx, XBYTE* input, XDWORD len)
 {
   XDWORD block_nb;
@@ -883,21 +818,18 @@ void HASHSHA2::Sha2_384_Update(HASHSHA2_384_CTX* ctx, XBYTE* input, XDWORD len)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_384_End
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:48:29
-//
-//  @return       void :
-//  @param        ctx :
-//  @param        digest :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_384_End(HASHSHA2_384_CTX* ctx, XBYTE* digest)
+* @brief      Sha2_384_End
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  digest : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_384_End(HASHSHA2_384_CTX* ctx, XBYTE* digest)
 {
   XDWORD block_nb;
@@ -924,22 +856,19 @@ void HASHSHA2::Sha2_384_End(HASHSHA2_384_CTX* ctx, XBYTE* digest)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_224
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:50:05
-//
-//  @return       void :
-//  @param        input :
-//  @param        len :
-//  @param        digest :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_224(XBYTE* input, XDWORD len, XBYTE* digest)
+* @brief      Sha2_224
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  len : 
+* @param[in]  digest : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_224(XBYTE* input, XDWORD len, XBYTE* digest)
 {
   HASHSHA2_224_CTX ctx;
@@ -950,20 +879,17 @@ void HASHSHA2::Sha2_224(XBYTE* input, XDWORD len, XBYTE* digest)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_224_Ini
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:50:57
-//
-//  @return       void :
-//  @param        ctx :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_224_Ini(HASHSHA2_224_CTX* ctx)
+* @brief      Sha2_224_Ini
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_224_Ini(HASHSHA2_224_CTX* ctx)
 {
   int i;
@@ -978,22 +904,19 @@ void HASHSHA2::Sha2_224_Ini(HASHSHA2_224_CTX* ctx)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_224_Update
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:53:51
-//
-//  @return       void :
-//  @param        ctx :
-//  @param        input :
-//  @param        len :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_224_Update(HASHSHA2_224_CTX* ctx, XBYTE* input, XDWORD len)
+* @brief      Sha2_224_Update
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  input : 
+* @param[in]  len : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_224_Update(HASHSHA2_224_CTX* ctx, XBYTE* input, XDWORD len)
 {
   XDWORD  block_nb;
@@ -1030,22 +953,18 @@ void HASHSHA2::Sha2_224_Update(HASHSHA2_224_CTX* ctx, XBYTE* input, XDWORD len)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  HASHSHA2::Sha2_224_End
-*/
-/**
-//
-//
-//  ""
-//  @version      04/03/2013 22:55:35
-//
-//  @return       void :
-//  @param        ctx :
-//  @param        digest :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Sha2_224_End(HASHSHA2_224_CTX* ctx, XBYTE* digest)
+* @brief      Sha2_224_End
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  digest : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA2::Sha2_224_End(HASHSHA2_224_CTX* ctx, XBYTE* digest)
 {
   XDWORD block_nb;
@@ -1072,3 +991,17 @@ void HASHSHA2::Sha2_224_End(HASHSHA2_224_CTX* ctx, XBYTE* digest)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void HASHSHA2::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void HASHSHA2::Clean()
+{
+
+}

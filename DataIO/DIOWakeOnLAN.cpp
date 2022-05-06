@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Wake on LAN class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -56,7 +56,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWAKEONLAN::DIOWAKEONLAN()
 {
   Clean();
@@ -73,7 +73,7 @@ DIOWAKEONLAN::DIOWAKEONLAN()
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWAKEONLAN::~DIOWAKEONLAN()
 {
   Clean();
@@ -94,7 +94,7 @@ DIOWAKEONLAN::~DIOWAKEONLAN()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWAKEONLAN::SendActivation(DIOMAC* MAC, DIOIP* broadcastIP, int timeout)
 {
   #define DIOWAKEONLAN_NPACKETS  16
@@ -152,7 +152,7 @@ bool DIOWAKEONLAN::SendActivation(DIOMAC* MAC, DIOIP* broadcastIP, int timeout)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWAKEONLAN::Clean()
 {
 

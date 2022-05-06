@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS EEPROM Memory Manager class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSEEPROMMEMORYMANAGER::XWINDOWSEEPROMMEMORYMANAGER()
 {
 
@@ -71,7 +71,7 @@ XWINDOWSEEPROMMEMORYMANAGER::XWINDOWSEEPROMMEMORYMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSEEPROMMEMORYMANAGER::~XWINDOWSEEPROMMEMORYMANAGER()
 {
 
@@ -87,7 +87,7 @@ XWINDOWSEEPROMMEMORYMANAGER::~XWINDOWSEEPROMMEMORYMANAGER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSEEPROMMEMORYMANAGER::Ini()
 {
   return false;
@@ -103,7 +103,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Ini()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSEEPROMMEMORYMANAGER::End()
 {
   return false;
@@ -122,7 +122,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 {
   return Read(offset, (XBYTE*)&data, sizeof(XBYTE));
@@ -141,7 +141,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 {
   return Read(offset, (XBYTE*)&data, sizeof(XWORD));
@@ -160,7 +160,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 {
   return Read(offset, (XBYTE*)&data, sizeof(XDWORD));
@@ -180,7 +180,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 {
   return false;
@@ -199,7 +199,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 {
   return Write(offset, (XBYTE*)&data, sizeof(XBYTE));
@@ -218,7 +218,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 {
   return Write(offset, (XBYTE*)&data, sizeof(XWORD));
@@ -237,7 +237,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 {
   return Write(offset,(XBYTE*)&data, sizeof(XDWORD));
@@ -258,7 +258,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 {
   return false;
@@ -273,7 +273,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSEEPROMMEMORYMANAGER::EraseAll()
 {
   return false;

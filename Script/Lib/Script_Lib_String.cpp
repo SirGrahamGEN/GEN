@@ -6,7 +6,7 @@
 * @brief      Script Library String
 * @ingroup    SCRIPT
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_STRING::SCRIPT_LIB_STRING() : SCRIPT_LIB(SCRIPT_LIB_NAME_STRING)
 {
   Clean();
@@ -70,7 +70,7 @@ SCRIPT_LIB_STRING::SCRIPT_LIB_STRING() : SCRIPT_LIB(SCRIPT_LIB_NAME_STRING)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_STRING::~SCRIPT_LIB_STRING()
 {
   Clean();
@@ -88,7 +88,7 @@ SCRIPT_LIB_STRING::~SCRIPT_LIB_STRING()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_LIB_STRING::AddLibraryFunctions(SCRIPT* script)
 {
   if(!script) return false;
@@ -113,7 +113,7 @@ bool SCRIPT_LIB_STRING::AddLibraryFunctions(SCRIPT* script)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_STRING::Clean()
 {
 

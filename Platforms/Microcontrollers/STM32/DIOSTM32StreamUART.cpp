@@ -6,7 +6,7 @@
 * @brief      Data Input/Output STM32 Stream UART class
 * @ingroup    PLATFORM_STM32
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@ DIOSTM32STREAMUART*   diostreamuartptrhandle[DIOSTM32STREAMIUART_MAXHANDLES] = {
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMUART::DIOSTM32STREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 {
   Clean();
@@ -99,7 +99,7 @@ DIOSTM32STREAMUART::DIOSTM32STREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMUART::~DIOSTM32STREAMUART()
 {
   Close();
@@ -119,7 +119,7 @@ DIOSTM32STREAMUART::~DIOSTM32STREAMUART()
 *
 * @return     DIOSTREAMSTATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOSTM32STREAMUART::GetConnectStatus()
 {
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -137,7 +137,7 @@ DIOSTREAMSTATUS DIOSTM32STREAMUART::GetConnectStatus()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUART::Open()
 {
   if(!threadconnection)  return false;
@@ -217,7 +217,7 @@ bool DIOSTM32STREAMUART::Open()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUART::Config(XWORD mask)
 {
   if((mask&DIOSTREAMUARTMASK_BAUDRATE) == DIOSTREAMUARTMASK_BAUDRATE)
@@ -306,7 +306,7 @@ bool DIOSTM32STREAMUART::Config(XWORD mask)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
@@ -334,7 +334,7 @@ XDWORD DIOSTM32STREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
@@ -357,7 +357,7 @@ XDWORD DIOSTM32STREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMUART::Write(XBYTE* buffer, XDWORD size)
 {
   if(!outbuffer) return 0;
@@ -387,7 +387,7 @@ XDWORD DIOSTM32STREAMUART::Write(XBYTE* buffer, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUART::Disconnect()
 {
   return false;
@@ -403,7 +403,7 @@ bool DIOSTM32STREAMUART::Disconnect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUART::Close()
 {
   if(!threadconnection) return false;
@@ -427,7 +427,7 @@ bool DIOSTM32STREAMUART::Close()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUART::GetCTS()
 {
   return false;
@@ -443,7 +443,7 @@ bool DIOSTM32STREAMUART::GetCTS()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUART::GetDSR()
 {
   return false;
@@ -459,7 +459,7 @@ bool DIOSTM32STREAMUART::GetDSR()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUART::GetRing()
 {
   return false;
@@ -475,7 +475,7 @@ bool DIOSTM32STREAMUART::GetRing()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUART::GetRLSD()
 {
   return false;
@@ -493,7 +493,7 @@ bool DIOSTM32STREAMUART::GetRLSD()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUART::SetRTS(bool on)
 {
   return false;
@@ -511,7 +511,7 @@ bool DIOSTM32STREAMUART::SetRTS(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUART::SetDTR(bool on)
 {
   return false;
@@ -528,7 +528,7 @@ bool DIOSTM32STREAMUART::SetDTR(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMUART::CleanBuffers()
 {
 
@@ -545,7 +545,7 @@ bool DIOSTM32STREAMUART::CleanBuffers()
 *
 * @return     UART_HandleTypeDef* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 UART_HandleTypeDef* DIOSTM32STREAMUART::GetHuart()
 {
   return &huart;
@@ -563,7 +563,7 @@ UART_HandleTypeDef* DIOSTM32STREAMUART::GetHuart()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMUART::SetHuart(UART_HandleTypeDef* huart)
 {
 	if(!huart) return;
@@ -584,7 +584,7 @@ void DIOSTM32STREAMUART::SetHuart(UART_HandleTypeDef* huart)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
   int indexport = -1;
@@ -634,7 +634,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMUART::ThreadConnection(void* param)
 {
   DIOSTM32STREAMUART* diostream = (DIOSTM32STREAMUART*)param;
@@ -728,7 +728,7 @@ void DIOSTM32STREAMUART::ThreadConnection(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMUART::Clean()
 {
   threadconnection   = NULL;

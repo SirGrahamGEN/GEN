@@ -6,7 +6,7 @@
 * @brief
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -52,7 +52,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILETGAHEADER::GRPBITMAPFILETGAHEADER()
 {
   Clean();
@@ -69,7 +69,7 @@ GRPBITMAPFILETGAHEADER::GRPBITMAPFILETGAHEADER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILETGAHEADER::~GRPBITMAPFILETGAHEADER()
 {
   Clean();
@@ -87,7 +87,7 @@ GRPBITMAPFILETGAHEADER::~GRPBITMAPFILETGAHEADER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILETGAHEADER::Load(XFILE* file)
 {
   if(!file->Read((XBYTE*)&headerinfo.IDlength         , sizeof(XBYTE))) return false;
@@ -143,7 +143,7 @@ bool GRPBITMAPFILETGAHEADER::Load(XFILE* file)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILETGAHEADER::Load(XBYTE* buffer, XDWORD size, XDWORD& indexbuffer)
 {
   memcpy((XBYTE*)&headerinfo.IDlength         , &buffer[indexbuffer]   , sizeof(XBYTE));     indexbuffer += sizeof(XBYTE);
@@ -196,7 +196,7 @@ bool GRPBITMAPFILETGAHEADER::Load(XBYTE* buffer, XDWORD size, XDWORD& indexbuffe
 *
 * @return     GRPBITMAPFILETGAHEADERINFO* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILETGAHEADERINFO* GRPBITMAPFILETGAHEADER::GetHeaderInfo()
 {
   return &headerinfo;
@@ -212,7 +212,7 @@ GRPBITMAPFILETGAHEADERINFO* GRPBITMAPFILETGAHEADER::GetHeaderInfo()
 *
 * @return     int : Width of TGA
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPFILETGAHEADER::GetWidth()
 {
   return headerinfo.width;
@@ -228,7 +228,7 @@ int GRPBITMAPFILETGAHEADER::GetWidth()
 *
 * @return     int : Height if TGA
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPFILETGAHEADER::GetHeight()
 {
   return headerinfo.height;
@@ -244,7 +244,7 @@ int GRPBITMAPFILETGAHEADER::GetHeight()
 *
 * @return     int : Bits per pixel
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPFILETGAHEADER::GetBitsPerPixel()
 {
   return headerinfo.bitsperpixel;
@@ -260,7 +260,7 @@ int GRPBITMAPFILETGAHEADER::GetBitsPerPixel()
 *
 * @return     int : Offset data
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPFILETGAHEADER::GetOffsetData()
 {
   return offsetdata;
@@ -276,7 +276,7 @@ int GRPBITMAPFILETGAHEADER::GetOffsetData()
 *
 * @return     GRPPROPERTYMODE : property mode
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPPROPERTYMODE GRPBITMAPFILETGAHEADER::GetMode()
 {
   return mode;
@@ -292,7 +292,7 @@ GRPPROPERTYMODE GRPBITMAPFILETGAHEADER::GetMode()
 *
 * @return     GRPBITMAPFILETGATYPE : type of TGA
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILETGATYPE GRPBITMAPFILETGAHEADER::GetType()
 {
   return (GRPBITMAPFILETGATYPE)headerinfo.datatypecode;
@@ -309,7 +309,7 @@ GRPBITMAPFILETGATYPE GRPBITMAPFILETGAHEADER::GetType()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILETGAHEADER::Clean()
 {
   mode = GRPPROPERTYMODE_XX_UNKNOWN;
@@ -329,7 +329,7 @@ void GRPBITMAPFILETGAHEADER::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILETGA::GRPBITMAPFILETGA(): GRPBITMAPFILEBASE()
 {
   Clean();
@@ -346,7 +346,7 @@ GRPBITMAPFILETGA::GRPBITMAPFILETGA(): GRPBITMAPFILEBASE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILETGA::~GRPBITMAPFILETGA()
 {
   Clean();
@@ -365,7 +365,7 @@ GRPBITMAPFILETGA::~GRPBITMAPFILETGA()
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
 {
   if(!Open(xpath))  return NULL;
@@ -515,7 +515,7 @@ GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode)
 {
   GRPBITMAPFILETGAHEADER  header;
@@ -666,7 +666,7 @@ GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILETGA::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
 {
   if(!bitmap)         return false;
@@ -742,7 +742,7 @@ bool GRPBITMAPFILETGA::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILETGA::Clean()
 {
    indexbuffer = 0;
@@ -761,7 +761,7 @@ void GRPBITMAPFILETGA::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILETGA::ReadHeaderFile(GRPBITMAPFILETGAHEADER* header)
 {
   if(!header)           return false;
@@ -786,7 +786,7 @@ bool GRPBITMAPFILETGA::ReadHeaderFile(GRPBITMAPFILETGAHEADER* header)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILETGA::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFILETGAHEADER* header)
 {
   if(!header->Load(buffer, size, indexbuffer)) return false;
@@ -810,7 +810,7 @@ bool GRPBITMAPFILETGA::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILETGA::CreateColor(GRPPROPERTYMODE mode, XBYTE* databuffer, GRP2DCOLOR_RGBA8& color)
 {
   if(!databuffer) return false;

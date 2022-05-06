@@ -6,7 +6,7 @@
 * @brief      
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -919,7 +919,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetNotMove()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGBMI270::End()
 {
   if(!DIODEVICE::End()) return false;
@@ -938,7 +938,7 @@ bool DIOI2C6AXISTRACKINGBMI270::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGBMI270::IniDevice()
 {
   if(!DIODEVICEI2C::IniDevice()) return false;

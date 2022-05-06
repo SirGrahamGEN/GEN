@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Scraper Web Translation class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -59,7 +59,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOTRANSLATION_RESULT::DIOTRANSLATION_RESULT()
 {
   Clean();
@@ -76,7 +76,7 @@ DIOTRANSLATION_RESULT::DIOTRANSLATION_RESULT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOTRANSLATION_RESULT::~DIOTRANSLATION_RESULT()
 {
   Clean();
@@ -92,7 +92,7 @@ DIOTRANSLATION_RESULT::~DIOTRANSLATION_RESULT()
 *
 * @return     XLANGUAGE_CODE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTextCode()
 {
   return languagetextcode;
@@ -110,7 +110,7 @@ XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTextCode()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOTRANSLATION_RESULT::SetLanguageTextCode(XLANGUAGE_CODE code)
 {
   languagetextcode = code;
@@ -128,7 +128,7 @@ bool DIOTRANSLATION_RESULT::SetLanguageTextCode(XLANGUAGE_CODE code)
 *
 * @return     XLANGUAGE_CODE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTranslationCode()
 {
   return languagetranslationcode;
@@ -146,7 +146,7 @@ XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTranslationCode()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOTRANSLATION_RESULT::SetLanguageTranslationCode(XLANGUAGE_CODE code)
 {
   languagetranslationcode = code;
@@ -165,7 +165,7 @@ bool DIOTRANSLATION_RESULT::SetLanguageTranslationCode(XLANGUAGE_CODE code)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOTRANSLATION_RESULT::GetTranslation()
 {
   return &translation;
@@ -182,7 +182,7 @@ XSTRING* DIOTRANSLATION_RESULT::GetTranslation()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOTRANSLATION_RESULT::Clean()
 {
   languagetextcode        = XLANGUAGE_ISO_639_3_CODE_INVALID;
@@ -205,7 +205,7 @@ void DIOTRANSLATION_RESULT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBTRANSLATION::DIOSCRAPERWEBTRANSLATION() : DIOSCRAPERWEB()
 {
   Clean();
@@ -222,7 +222,7 @@ DIOSCRAPERWEBTRANSLATION::DIOSCRAPERWEBTRANSLATION() : DIOSCRAPERWEB()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBTRANSLATION::~DIOSCRAPERWEBTRANSLATION()
 {
   Clean();
@@ -241,7 +241,7 @@ DIOSCRAPERWEBTRANSLATION::~DIOSCRAPERWEBTRANSLATION()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBTRANSLATION::ChangeURL(XCHAR* maskurl, DIOURL& url)
 {
   XSTRING _maskurl;
@@ -291,7 +291,7 @@ bool DIOSCRAPERWEBTRANSLATION::ChangeURL(XCHAR* maskurl, DIOURL& url)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBTRANSLATION::Get(XCHAR* text, XLANGUAGE_CODE languagetextcode, XLANGUAGE_CODE languagetranslationcode, XSTRING& translation, int timeoutforurl, XSTRING* localIP, bool usecache)
 {
   XSTRING _text;
@@ -365,7 +365,7 @@ bool DIOSCRAPERWEBTRANSLATION::Get(XCHAR* text, XLANGUAGE_CODE languagetextcode,
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBTRANSLATION::Get(XSTRING& text, XLANGUAGE_CODE languagetextcode, XLANGUAGE_CODE languagetranslationcode, XSTRING& translation, int timeoutforurl, XSTRING* localIP, bool usecache)
 {
   return Get(text.Get(), languagetextcode, languagetranslationcode, translation, timeoutforurl, localIP, usecache);
@@ -384,7 +384,7 @@ bool DIOSCRAPERWEBTRANSLATION::Get(XSTRING& text, XLANGUAGE_CODE languagetextcod
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBTRANSLATION::GoogleLanguageCode(XLANGUAGE_CODE languagecode, XSTRING& googlecode)
 {
   googlecode.Empty();
@@ -592,7 +592,7 @@ bool DIOSCRAPERWEBTRANSLATION::GoogleLanguageCode(XLANGUAGE_CODE languagecode, X
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBTRANSLATION::Clean()
 {
 

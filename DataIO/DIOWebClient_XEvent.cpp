@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Client Event class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -59,7 +59,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT_XEVENT::DIOWEBCLIENT_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
   Clean();
@@ -75,7 +75,7 @@ DIOWEBCLIENT_XEVENT::DIOWEBCLIENT_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD 
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT_XEVENT::~DIOWEBCLIENT_XEVENT()
 {
   Clean();
@@ -91,7 +91,7 @@ DIOWEBCLIENT_XEVENT::~DIOWEBCLIENT_XEVENT()
 *
 * @return     DIOURL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOURL* DIOWEBCLIENT_XEVENT::GetURL()
 {
   return &URL;
@@ -107,7 +107,7 @@ DIOURL* DIOWEBCLIENT_XEVENT::GetURL()
 *
 * @return     DIOWEBHEADER_METHOD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBHEADER_METHOD DIOWEBCLIENT_XEVENT::GetMethod()
 {
   return method;
@@ -124,7 +124,7 @@ DIOWEBHEADER_METHOD DIOWEBCLIENT_XEVENT::GetMethod()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_XEVENT::SetMethod(DIOWEBHEADER_METHOD method)
 {
   this->method = method;
@@ -140,7 +140,7 @@ void DIOWEBCLIENT_XEVENT::SetMethod(DIOWEBHEADER_METHOD method)
 *
 * @return     XSTRNG* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBCLIENT_XEVENT::GetEtag()
 {
   return &etag;
@@ -156,7 +156,7 @@ XSTRING* DIOWEBCLIENT_XEVENT::GetEtag()
 *
 * @return     XQWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD DIOWEBCLIENT_XEVENT::GetContentLenght()
 {
   return contentlenght;
@@ -174,7 +174,7 @@ XQWORD DIOWEBCLIENT_XEVENT::GetContentLenght()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_XEVENT::SetContentLenght(XQWORD contentlenght)
 {
   this->contentlenght = contentlenght;
@@ -190,7 +190,7 @@ void DIOWEBCLIENT_XEVENT::SetContentLenght(XQWORD contentlenght)
 *
 * @return     float :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIOWEBCLIENT_XEVENT::GetOperationPercent()
 {
   return operationpercent;
@@ -208,7 +208,7 @@ float DIOWEBCLIENT_XEVENT::GetOperationPercent()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_XEVENT::SetOperationPercent(float operationpercent)
 {
   this->operationpercent = operationpercent;
@@ -224,7 +224,7 @@ void DIOWEBCLIENT_XEVENT::SetOperationPercent(float operationpercent)
 *
 * @return     XQWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD DIOWEBCLIENT_XEVENT::GetDownloadSize()
 {
   return this->downloadsize;
@@ -242,7 +242,7 @@ XQWORD DIOWEBCLIENT_XEVENT::GetDownloadSize()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_XEVENT::SetDownloadSize(XQWORD downloadsize)
 {
   this->downloadsize = downloadsize;
@@ -258,7 +258,7 @@ void DIOWEBCLIENT_XEVENT::SetDownloadSize(XQWORD downloadsize)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOWEBCLIENT_XEVENT::GetMBPSSpeed()
 {
   return MBPSspeed;
@@ -276,7 +276,7 @@ XDWORD DIOWEBCLIENT_XEVENT::GetMBPSSpeed()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_XEVENT::SetMBPSSpeed(XDWORD MBPSspeed)
 {
   this->MBPSspeed = MBPSspeed;
@@ -293,7 +293,7 @@ void DIOWEBCLIENT_XEVENT::SetMBPSSpeed(XDWORD MBPSspeed)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_XEVENT::Clean()
 {
   method            = DIOWEBHEADER_METHOD_UNKNOWN;

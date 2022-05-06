@@ -6,7 +6,7 @@
 * @brief       eXtended Trace class (for debug)
 * @ingroup     UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -67,7 +67,7 @@ XTRACE* XTRACE::instance = NULL;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTRACE_TARGET::XTRACE_TARGET()
 {
   Clean();
@@ -84,7 +84,7 @@ XTRACE_TARGET::XTRACE_TARGET()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTRACE_TARGET::~XTRACE_TARGET()
 {
   Clean();
@@ -100,7 +100,7 @@ XTRACE_TARGET::~XTRACE_TARGET()
 *
 * @return     XTRACE_TYPE : type of debug trace (enum XTRACE_TYPE)
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTRACE_TYPE XTRACE_TARGET::GetType()
 {
   return type;
@@ -118,7 +118,7 @@ XTRACE_TYPE XTRACE_TARGET::GetType()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE_TARGET::SetType(XTRACE_TYPE type)
 {
   this->type = type;
@@ -134,7 +134,7 @@ void XTRACE_TARGET::SetType(XTRACE_TYPE type)
 *
 * @return     XCHAR* : aim of target
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* XTRACE_TARGET::GetAim()
 {
   return aim;
@@ -152,7 +152,7 @@ XCHAR* XTRACE_TARGET::GetAim()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE_TARGET::GetAim(XSTRING& aim)
 {
   aim.Empty();
@@ -173,7 +173,7 @@ bool XTRACE_TARGET::GetAim(XSTRING& aim)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE_TARGET::SetAim(XSTRING& aim)
 {
   memset(this->aim, 0, (_MAXSTR * sizeof(XCHAR)));
@@ -192,7 +192,7 @@ void XTRACE_TARGET::SetAim(XSTRING& aim)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE_TARGET::SetAim(XCHAR* aim)
 {
   XDWORD size = XSTRING::GetSize(aim);
@@ -210,7 +210,7 @@ void XTRACE_TARGET::SetAim(XCHAR* aim)
 *
 * @return     XDWORD : number of sendings
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XTRACE_TARGET::GetNSendings()
 {
   return nsendings;
@@ -226,7 +226,7 @@ XDWORD XTRACE_TARGET::GetNSendings()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE_TARGET::AddNSendings()
 {
   nsendings++;
@@ -243,7 +243,7 @@ void XTRACE_TARGET::AddNSendings()
 *
 * @return     XWORD : port of target
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD XTRACE_TARGET::GetPort()
 {
   return port;
@@ -260,7 +260,7 @@ XWORD XTRACE_TARGET::GetPort()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE_TARGET::SetPort(XWORD port)
 {
   this->port = port;
@@ -276,7 +276,7 @@ void XTRACE_TARGET::SetPort(XWORD port)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE_TARGET::ResolvedIPTarget()
 {
   if(type != XTRACE_TYPE_NET) return false;
@@ -322,7 +322,7 @@ bool XTRACE_TARGET::ResolvedIPTarget()
 *
 * @return     char* : string with the IP
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 char* XTRACE_TARGET::GetIP()
 {
   return IP;
@@ -338,7 +338,7 @@ char* XTRACE_TARGET::GetIP()
 *
 * @return     XQWORD : Net Handle of target
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD XTRACE_TARGET::GetNETHandle()
 {
   return NEThandle;
@@ -356,7 +356,7 @@ XQWORD XTRACE_TARGET::GetNETHandle()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE_TARGET:: SetNETHandle(XQWORD NEThandle)
 {
   this->NEThandle = NEThandle;
@@ -375,7 +375,7 @@ void XTRACE_TARGET:: SetNETHandle(XQWORD NEThandle)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE_TARGET::Clean()
 {
   type          = XTRACE_TYPE_NONE;
@@ -1003,7 +1003,7 @@ void XTRACE_STATUS_MSGS::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTRACE::XTRACE()
 {
   Clean();
@@ -1020,7 +1020,7 @@ XTRACE::XTRACE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTRACE::~XTRACE()
 {
   Clean();
@@ -1040,7 +1040,7 @@ XTRACE::~XTRACE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::SetTarget(int index, XTRACE_TYPE type, XCHAR* aim)
 {
   if(index >= XTRACE_MAXNTARGETS) return false;
@@ -1098,7 +1098,7 @@ bool XTRACE::SetTarget(int index, XTRACE_TYPE type, XCHAR* aim)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::AddTarget(XTRACE_TYPE type, XCHAR* aim)
 {
   for(int c=0; c<XTRACE_MAXNTARGETS; c++)
@@ -1119,7 +1119,7 @@ bool XTRACE::AddTarget(XTRACE_TYPE type, XCHAR* aim)
 *
 * @return     XDWORD : size limit
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XTRACE::GetSizeLimit()
 {
   return sizelimit;
@@ -1137,7 +1137,7 @@ XDWORD XTRACE::GetSizeLimit()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::SetSizeLimit(XDWORD sizelimit)
 {
   if(!sizelimit) return false;
@@ -1156,7 +1156,7 @@ bool XTRACE::SetSizeLimit(XDWORD sizelimit)
 *
 * @return     XCHAR* : application name
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* XTRACE::GetApplicationName()
 {
   return applicationname;
@@ -1175,7 +1175,7 @@ XCHAR* XTRACE::GetApplicationName()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::SetApplicationName(XCHAR* applicationname)
 {
   XDWORD size = 0;
@@ -1198,7 +1198,7 @@ void XTRACE::SetApplicationName(XCHAR* applicationname)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::SetApplicationName(XCHAR* applicationname, XDWORD size)
 {
   memset(this->applicationname, 0, _MAXSTR*sizeof(XCHAR));
@@ -1217,7 +1217,7 @@ void XTRACE::SetApplicationName(XCHAR* applicationname, XDWORD size)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::SetApplicationName(XSTRING& applicationname)
 {
   SetApplicationName(applicationname.Get(), applicationname.GetSize());
@@ -1237,7 +1237,7 @@ void XTRACE::SetApplicationName(XSTRING& applicationname)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::GetApplicationVersion(int& applicationversion, int& applicationsubversion, int& applicationsubversionerr)
 {
   applicationversion        = this->applicationversion;
@@ -1259,7 +1259,7 @@ void XTRACE::GetApplicationVersion(int& applicationversion, int& applicationsubv
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::SetApplicationVersion(int applicationversion, int applicationsubversion, int applicationsubversionerr)
 {
   this->applicationversion        = applicationversion;
@@ -1277,7 +1277,7 @@ void XTRACE::SetApplicationVersion(int applicationversion, int applicationsubver
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* XTRACE::GetApplicationID()
 {
   return applicationID;
@@ -1296,7 +1296,7 @@ XCHAR* XTRACE::GetApplicationID()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::SetApplicationID(XCHAR* applicationID, XDWORD size)
 {
   memset(this->applicationID, 0, _MAXSTR*sizeof(XCHAR)),
@@ -1315,7 +1315,7 @@ void XTRACE::SetApplicationID(XCHAR* applicationID, XDWORD size)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::SetApplicationID(XSTRING& applicationID)
 {
   SetApplicationID(applicationID.Get(), applicationID.GetSize());
@@ -1356,7 +1356,7 @@ bool XTRACE::ScreenClear(XBYTE level)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::PrintHeader(XCHAR* header)
 {
   XSTRING line;
@@ -1396,7 +1396,7 @@ void XTRACE::PrintHeader(XCHAR* header)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::Print(XBYTE level, XCHAR* mask,...)
 {
   XSTRING string;
@@ -1499,7 +1499,7 @@ bool XTRACE::Print(XBYTE level, XCHAR* mask,...)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::PrintDataBlock(XBYTE level, XBYTE* data, XDWORD size, XDWORD marginsize, XDWORD sizeline, bool showoffset, bool showtext)
 {
   XSTRING    margin;
@@ -1587,7 +1587,7 @@ bool XTRACE::PrintDataBlock(XBYTE level, XBYTE* data, XDWORD size, XDWORD margin
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::PrintDataBlock(XBYTE level, XBUFFER& data, XDWORD marginsize, XDWORD sizeline, bool showoffset, bool showtext)
 {
   return PrintDataBlock(level,data.Get(), data.GetSize(), marginsize, sizeline, showoffset, showtext);
@@ -1781,7 +1781,7 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XBYTE value[3])
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
 
@@ -1802,7 +1802,7 @@ void XTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
 
@@ -1823,7 +1823,7 @@ void XTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
 
@@ -1841,7 +1841,7 @@ void XTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::GetHandleNet(XTRACE_TARGET* target)
 {
   return false;
@@ -1861,7 +1861,7 @@ bool XTRACE::GetHandleNet(XTRACE_TARGET* target)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::CloseHandleNet(XTRACE_TARGET* target)
 {
   return false;
@@ -2104,7 +2104,7 @@ bool XTRACE::SetTraceToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level, XDW
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::SetTraceTextToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level, XDWORD sequence, XDATETIME* xtime, XCHAR* string, XBUFFER& xbufferpacket)
 {  
   if(!string) return false;
@@ -2147,7 +2147,7 @@ bool XTRACE::SetTraceTextToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level,
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::SetLocalIPFilter(XBYTE localIPfilter)
 {
   this->localIPfilter = localIPfilter;
@@ -2163,7 +2163,7 @@ void XTRACE::SetLocalIPFilter(XBYTE localIPfilter)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::ObtainLocalIP()
 {
   bool status = false;
@@ -2229,7 +2229,7 @@ bool XTRACE::ObtainLocalIP()
 *
 * @return     XSTRING* : local ip in string format
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XTRACE::GetLocalIPString()
 {
   return &localIPstring;
@@ -2247,7 +2247,7 @@ XSTRING* XTRACE::GetLocalIPString()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::SetLocalIPString(XSTRING* localIPstring)
 {
   int data[4];
@@ -2271,7 +2271,7 @@ bool XTRACE::SetLocalIPString(XSTRING* localIPstring)
 *
 * @return     XDWORD : local IP in DWORD format
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XTRACE::GetLocalIP()
 {
   return localIP;
@@ -2288,7 +2288,7 @@ XDWORD XTRACE::GetLocalIP()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::ObtainPublicIP()
 {
   bool  status = false;
@@ -2327,7 +2327,7 @@ bool XTRACE::ObtainPublicIP()
 *
 * @return     XCHAR* : URL download
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* XTRACE::GetScraperWebScriptURLDownload()
 {
   return scraperwebscripturldownload;
@@ -2345,7 +2345,7 @@ XCHAR* XTRACE::GetScraperWebScriptURLDownload()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::SetScraperWebScriptURLDownload(XCHAR* scraperwebscripturldownload)
 {
   XDWORD size = 0;
@@ -2365,7 +2365,7 @@ void XTRACE::SetScraperWebScriptURLDownload(XCHAR* scraperwebscripturldownload)
 *
 * @return     XDWORD : public IP in DWORD format
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XTRACE::GetPublicIP()
 {
   return publicIP;
@@ -2380,7 +2380,7 @@ XDWORD XTRACE::GetPublicIP()
 *
 * @return     XSTRING* : string with public IP
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XTRACE::GetPublicIPString()
 {
   return &publicIPstring;
@@ -2398,7 +2398,7 @@ XSTRING* XTRACE::GetPublicIPString()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::SetPublicIPString(XSTRING* publicIPstring)
 {
   int data[4];
@@ -2426,7 +2426,7 @@ bool XTRACE::SetPublicIPString(XSTRING* publicIPstring)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::ObtainResourcesIP()
 {
   if(!ObtainLocalIP())  return false;
@@ -2448,7 +2448,7 @@ bool XTRACE::ObtainResourcesIP()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::ReConnectedAllNetTargets()
 {
   for(int c=0; c<XTRACE_MAXNTARGETS; c++)
@@ -2480,7 +2480,7 @@ bool XTRACE::ReConnectedAllNetTargets()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::ResolveAllNetTargets(bool& changed)
 {
   changed = false;
@@ -2516,7 +2516,7 @@ bool XTRACE::ResolveAllNetTargets(bool& changed)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::ResolveAllResources()
 {
   bool changed;
@@ -2544,7 +2544,7 @@ bool XTRACE::ResolveAllResources()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::GenerateTab(int ntab, XSTRING& tab)
 {
   tab.Empty();
@@ -2569,7 +2569,7 @@ bool XTRACE::GenerateTab(int ntab, XSTRING& tab)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRACE::Clean()
 {
   instance                  = NULL;

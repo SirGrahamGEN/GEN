@@ -6,7 +6,7 @@
 * @brief      Windows Data IO Stream Bluetooth LE REMOTE Enum Devices class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES(): DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
 {
   Clean();
@@ -70,7 +70,7 @@ DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHLEREMOTEE
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
 {
   StopSearch(true);
@@ -88,7 +88,7 @@ DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOWINDOWSSTREAMBLUETOOTHLEREMOTE
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
 {
 
@@ -108,7 +108,7 @@ bool DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::StopSearch(bool waitend)
 {
   return true;
@@ -125,7 +125,7 @@ bool DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
 {
   return false;
@@ -142,7 +142,7 @@ bool DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Clean()
 {
 

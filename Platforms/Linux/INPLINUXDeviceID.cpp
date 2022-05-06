@@ -6,7 +6,7 @@
 * @brief      Linux Input device ID
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
@@ -50,7 +50,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEID::INPLINUXDEVICEID()
 {
   Clean();
@@ -67,7 +67,7 @@ INPLINUXDEVICEID::INPLINUXDEVICEID()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEID::~INPLINUXDEVICEID()
 {
   Clean();
@@ -116,7 +116,7 @@ void INPLINUXDEVICEID::INPLINUXDEVICEID::SetType(INPDEVICE_TYPE type)
 *
 * @return     XSTRING* : name of device ID
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* INPLINUXDEVICEID::GetName()
 {
   return &name;
@@ -166,7 +166,7 @@ void INPLINUXDEVICEID::SetEventIndex(int eventindex)
 *
 * @return     int : file descriptor
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int INPLINUXDEVICEID::GetFileDescriptor()
 {
   return filedescriptor;
@@ -184,7 +184,7 @@ int INPLINUXDEVICEID::GetFileDescriptor()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEID::SetFileDescriptor(int filedescriptor)
 {
   this->filedescriptor = filedescriptor;
@@ -203,7 +203,7 @@ void INPLINUXDEVICEID::SetFileDescriptor(int filedescriptor)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEID::Clean()
 {
   type            = INPDEVICE_TYPE_NONE;  

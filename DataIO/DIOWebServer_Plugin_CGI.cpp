@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Server CGI (Common Gateway Interface) Plugin class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGIN_CGI::DIOWEBSERVER_PLUGIN_CGI()
 {
   Clean();
@@ -79,7 +79,7 @@ DIOWEBSERVER_PLUGIN_CGI::DIOWEBSERVER_PLUGIN_CGI()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGIN_CGI::~DIOWEBSERVER_PLUGIN_CGI()
 {
   Clean();
@@ -98,7 +98,7 @@ DIOWEBSERVER_PLUGIN_CGI::~DIOWEBSERVER_PLUGIN_CGI()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGIN_CGI::Config(XPATH* pathCGIinterpreter, XCHAR* nameexec)
 {
   if(!pathCGIinterpreter) return false;
@@ -125,7 +125,7 @@ bool DIOWEBSERVER_PLUGIN_CGI::Config(XPATH* pathCGIinterpreter, XCHAR* nameexec)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGIN_CGI::ResolvedPageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
 {
   if(!request)      return false;
@@ -207,7 +207,7 @@ bool DIOWEBSERVER_PLUGIN_CGI::ResolvedPageExtension(XPATH& pathfile, DIOWEBSERVE
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_PLUGIN_CGI::Clean()
 {
   pathCGIinterpreter.Empty();

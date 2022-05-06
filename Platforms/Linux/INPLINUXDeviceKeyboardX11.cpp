@@ -6,7 +6,7 @@
 * @brief      LINUX X11 input device keyboard class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -71,7 +71,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEKEYBOARDX11::INPLINUXDEVICEKEYBOARDX11(): INPDEVICE()
 {
   Clean();
@@ -94,7 +94,7 @@ INPLINUXDEVICEKEYBOARDX11::INPLINUXDEVICEKEYBOARDX11(): INPDEVICE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEKEYBOARDX11::~INPLINUXDEVICEKEYBOARDX11()
 {
   DeleteAllButtons();
@@ -116,7 +116,7 @@ INPLINUXDEVICEKEYBOARDX11::~INPLINUXDEVICEKEYBOARDX11()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEKEYBOARDX11::Update()
 {
   if((!created)||(!enabled))     return false;
@@ -199,7 +199,7 @@ bool INPLINUXDEVICEKEYBOARDX11::Update()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEKEYBOARDX11::SetScreen(void* screenhandle)
 {
   grpscreenx11 = (GRPLINUXSCREENX11*)screenhandle;
@@ -221,7 +221,7 @@ bool INPLINUXDEVICEKEYBOARDX11::SetScreen(void* screenhandle)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEKEYBOARDX11::Clean()
 {
   grpscreenx11 = NULL;
@@ -238,7 +238,7 @@ void INPLINUXDEVICEKEYBOARDX11::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEKEYBOARDX11::CreateAllButtons()
 {
   INPBUTTON::CreateButton( &buttons, XK_BackSpace       , INPBUTTON_ID_BACK_SPACE        , __C('\x0'));

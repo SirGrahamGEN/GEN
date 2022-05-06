@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS Directory class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -57,7 +57,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDIR::XWINDOWSDIR(): XDIR()
 {
   Clean();
@@ -74,7 +74,7 @@ XWINDOWSDIR::XWINDOWSDIR(): XDIR()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDIR::~XWINDOWSDIR()
 {
   Clean();
@@ -92,7 +92,7 @@ XWINDOWSDIR::~XWINDOWSDIR()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDIR::Exist(XCHAR* path)
 {
   XDIRELEMENT search;
@@ -205,7 +205,7 @@ bool XWINDOWSDIR::Make(XCHAR* path, bool recursive)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDIR::ChangeTo(XCHAR* path)
 {
   if(!path)    return false;
@@ -229,7 +229,7 @@ bool XWINDOWSDIR::ChangeTo(XCHAR* path)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDIR::Delete(XCHAR* path,bool all)
 {
   XDIRELEMENT search;
@@ -272,7 +272,7 @@ bool XWINDOWSDIR::Delete(XCHAR* path,bool all)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDIR::GetActual(XPATH& xpath)
 {
   xpath.Empty();
@@ -300,7 +300,7 @@ bool XWINDOWSDIR::GetActual(XPATH& xpath)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDIR::FirstSearch(XCHAR* xpath,XCHAR* patternsearch,XDIRELEMENT* searchelement)
 {
   if(!xpath)         return false;
@@ -357,7 +357,7 @@ bool XWINDOWSDIR::FirstSearch(XCHAR* xpath,XCHAR* patternsearch,XDIRELEMENT* sea
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDIR::NextSearch(XDIRELEMENT* searchelement)
 {
   WIN32_FIND_DATA* search = (WIN32_FIND_DATA*)searchelement->GetFindFileData();
@@ -398,7 +398,7 @@ bool XWINDOWSDIR::NextSearch(XDIRELEMENT* searchelement)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDIR::ReconvertSearchData(XDIRELEMENT* searchelement)
 {
   if(!searchelement) return false;
@@ -508,7 +508,7 @@ bool XWINDOWSDIR::SetFileDate(XDIRELEMENT* searchelement)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSDIR::Clean()
 {
 

@@ -6,7 +6,7 @@
 * @brief      eXtended Paths manager class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -57,7 +57,7 @@ XPATHSMANAGER*  XPATHSMANAGER::instance = NULL;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATHSMANAGERSECTION::XPATHSMANAGERSECTION()
 {
   Clean();
@@ -76,7 +76,7 @@ XPATHSMANAGERSECTION::XPATHSMANAGERSECTION()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATHSMANAGERSECTION::~XPATHSMANAGERSECTION()
 {
   if(xpath) delete xpath;
@@ -95,7 +95,7 @@ XPATHSMANAGERSECTION::~XPATHSMANAGERSECTION()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XPATHSMANAGERSECTION::Clean()
 {
   type = XPATHSMANAGERSECTIONTYPE_UNKNOWN;
@@ -104,9 +104,9 @@ void XPATHSMANAGERSECTION::Clean()
 
 
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 /* XPATHSMANAGER                                                                                                       */
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -118,7 +118,7 @@ void XPATHSMANAGERSECTION::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPATHSMANAGER::GetIsInstanced()
 {
   return instance!=NULL;
@@ -134,7 +134,7 @@ bool XPATHSMANAGER::GetIsInstanced()
 *
 * @return     XPATHSMANAGER& :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATHSMANAGER& XPATHSMANAGER::GetInstance()
 {
   if(!instance) instance = new XPATHSMANAGER();
@@ -151,7 +151,7 @@ XPATHSMANAGER& XPATHSMANAGER::GetInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPATHSMANAGER::DelInstance()
 {
   if(!instance) return false;
@@ -176,7 +176,7 @@ bool XPATHSMANAGER::DelInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPATHSMANAGER::GetPathOfSection(XPATHSMANAGERSECTIONTYPE sectiontype, XPATH& xpath, bool addroot)
 {
   xpath.Empty();
@@ -224,7 +224,7 @@ bool XPATHSMANAGER::GetPathOfSection(XPATHSMANAGERSECTIONTYPE sectiontype, XPATH
 *
 * @return     XPATH* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATH* XPATHSMANAGER::GetAppExecPath()
 {
   return appexecpath;
@@ -244,7 +244,7 @@ XPATH* XPATHSMANAGER::GetAppExecPath()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPATHSMANAGER::GetAppExecPathWithoutAsset(XCHAR* assetlevel, XPATH& xpath)
 {
   XSTRING assetname;
@@ -279,7 +279,7 @@ bool XPATHSMANAGER::GetAppExecPathWithoutAsset(XCHAR* assetlevel, XPATH& xpath)
 *
 * @return     XPATHSMANAGERSECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATHSMANAGERSECTION* XPATHSMANAGER::GetPathSection(XPATHSMANAGERSECTIONTYPE sectiontype)
 {
   if(pathsections.IsEmpty()) return NULL;
@@ -312,7 +312,7 @@ XPATHSMANAGERSECTION* XPATHSMANAGER::GetPathSection(XPATHSMANAGERSECTIONTYPE sec
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype, XSTRING& xpath)
 {
   XPATHSMANAGERSECTION* xpathsection = GetPathSection(sectiontype);
@@ -355,7 +355,7 @@ bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype, XSTRING
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype,const XCHAR* string)
 {
   XSTRING path(string);
@@ -373,7 +373,7 @@ bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype,const XC
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPATHSMANAGER::DeleteAllPathSections()
 {
   if(pathsections.IsEmpty()) return false;
@@ -395,7 +395,7 @@ bool XPATHSMANAGER::DeleteAllPathSections()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPATHSMANAGER::CreateAllPathSectionOnDisk()
 {
   XDIR* GEN_XFACTORY_CREATE(xdir, Create_Dir())
@@ -447,7 +447,7 @@ bool XPATHSMANAGER::CreateAllPathSectionOnDisk()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* nameapp, XCHAR* recopilatedir)
 {
@@ -545,7 +545,7 @@ bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* nameapp, XCHAR* recopilatedir)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* assetsdirname)
 { 
   XDIR* xdir;
@@ -612,7 +612,7 @@ bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* assetsdirname)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATHSMANAGER::XPATHSMANAGER()
 {
   Clean();
@@ -631,7 +631,7 @@ XPATHSMANAGER::XPATHSMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATHSMANAGER::~XPATHSMANAGER()
 {
   DeleteAllPathSections();
@@ -655,7 +655,7 @@ XPATHSMANAGER::~XPATHSMANAGER()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XPATHSMANAGER::Clean()
 {
   appexecpath = NULL;

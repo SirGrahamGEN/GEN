@@ -6,7 +6,7 @@
 * @brief      Data Input/Output LINUX Wifi Manager Mode
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -72,7 +72,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXWIFIMANAGERMODE::DIOLINUXWIFIMANAGERMODE()    
 { 
   Clean();                            
@@ -89,7 +89,7 @@ DIOLINUXWIFIMANAGERMODE::DIOLINUXWIFIMANAGERMODE()
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXWIFIMANAGERMODE::~DIOLINUXWIFIMANAGERMODE()    
 { 
   Clean();                            
@@ -108,7 +108,7 @@ DIOLINUXWIFIMANAGERMODE::~DIOLINUXWIFIMANAGERMODE()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password)
 {    
   switch(used_API)
@@ -140,7 +140,7 @@ bool DIOLINUXWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password)  
 {  
   switch(used_API)
@@ -171,7 +171,7 @@ bool DIOLINUXWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password)
  *
  *  @return     bool : true if is succesful. 
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::ReloadAPList()
 {
   switch(used_API)
@@ -197,7 +197,7 @@ bool DIOLINUXWIFIMANAGERMODE::ReloadAPList()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::DHCP_SetMode(bool active)
 {
   #define MARK_DHCP_FILE  __L("# @Special Mark to eliminate@")
@@ -292,7 +292,7 @@ bool DIOLINUXWIFIMANAGERMODE::DHCP_SetMode(bool active)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password, int indexnetwork)  
 {
   XSTRING   prefixcommand;
@@ -398,7 +398,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::WPA_RemoveAllNetworks()
 {
   XSTRING   prefixcommand;
@@ -435,7 +435,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_RemoveAllNetworks()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, XCHAR* value, bool isstring)
 {
   XSTRING   prefixcommand;
@@ -468,7 +468,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, X
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XSTRING& namevalue, XSTRING& value)
 {
   return WPA_SetValue(indexnetwork, namevalue.Get(), value.Get());
@@ -487,7 +487,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XSTRING& namevalue,
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::WPA_GetListRemoteAP(XVECTOR<XSTRING*>& nameAPs)
 { 
   XSTRING   prefixcommand;
@@ -567,7 +567,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_GetListRemoteAP(XVECTOR<XSTRING*>& nameAPs)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::WPA_CLI_Command(XSTRING& command, XSTRING& output)
 {
   if(command.IsEmpty()) return false;
@@ -602,7 +602,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_CLI_Command(XSTRING& command, XSTRING& output)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::CONNMAN_SetModeClient(XCHAR* SSID, XCHAR* password)
 {
   XSTRING   command;
@@ -642,7 +642,7 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_SetModeClient(XCHAR* SSID, XCHAR* password
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::CONNMAN_SetModeAP(XCHAR* SSID, XCHAR* password)
 {
   XSTRING   input;
@@ -684,7 +684,7 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_SetModeAP(XCHAR* SSID, XCHAR* password)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::CONNMAN_GetListRemoteAP()
 {  
   DIOSTREAMENUMDEVICES* enumdevicesWIFIremote = NULL;
@@ -731,7 +731,7 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_GetListRemoteAP()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::CONNMAN_GetClientService(XCHAR* SSID, XSTRING& service)
 {
   int       index_start    = 0;  
@@ -810,7 +810,7 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_GetClientService(XCHAR* SSID, XSTRING& ser
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::CONNMAN_ExecuteApplication(XCHAR* applicationpath, XCHAR* service, XCHAR* password)
 { 
   #define PIPE_READ   0
@@ -1103,7 +1103,7 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_ExecuteApplication(XCHAR* applicationpath,
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::CONNMAN_Command(XCHAR* command, XCHAR* resultOK, XSTRING& output)
 { 
   if(!command) return false; 
@@ -1137,7 +1137,7 @@ bool DIOLINUXWIFIMANAGERMODE::CONNMAN_Command(XCHAR* command, XCHAR* resultOK, X
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXWIFIMANAGERMODE::Clean()
 {
 

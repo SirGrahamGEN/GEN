@@ -6,7 +6,7 @@
 * @brief      LINUX direct input device keyboard class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -72,7 +72,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEKEYBOARDDIRECT::INPLINUXDEVICEKEYBOARDDIRECT(): INPDEVICE()
 {
   Clean();
@@ -100,7 +100,7 @@ INPLINUXDEVICEKEYBOARDDIRECT::INPLINUXDEVICEKEYBOARDDIRECT(): INPDEVICE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEKEYBOARDDIRECT::~INPLINUXDEVICEKEYBOARDDIRECT()
 {
   Old_DeleteTerminalConfig();
@@ -127,7 +127,7 @@ INPLINUXDEVICEKEYBOARDDIRECT::~INPLINUXDEVICEKEYBOARDDIRECT()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEKEYBOARDDIRECT::Update()
 {
   if((!created)||(!enabled)) return false;
@@ -247,7 +247,7 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::Update()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEKEYBOARDDIRECT::Clean()
 {
   old_fd = -1;
@@ -264,7 +264,7 @@ void INPLINUXDEVICEKEYBOARDDIRECT::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEKEYBOARDDIRECT::CreateAllButtons()
 {
   INPBUTTON::CreateButton( &buttons, KEY_BACKSPACE        , INPBUTTON_ID_BACK_SPACE         , __C('\x0'));
@@ -379,7 +379,7 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::CreateAllButtons()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEKEYBOARDDIRECT::CreateDevices()
 {
   INPLINUXFACTORYDEVICES*     inpdevices = (INPLINUXFACTORYDEVICES*)(&INPFACTORYDEVICES::GetInstance());
@@ -526,7 +526,7 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::CreateDevices()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEKEYBOARDDIRECT::Old_CreateDevices()
 {
   struct termios newsettings;
@@ -574,7 +574,7 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::Old_CreateDevices()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEKEYBOARDDIRECT::Old_DeleteTerminalConfig()
 {
   if(old_fd == -1) return false;
@@ -600,7 +600,7 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::Old_DeleteTerminalConfig()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int INPLINUXDEVICEKEYBOARDDIRECT::Old_IsConsole(int fd)
 {
   char arg;
@@ -623,7 +623,7 @@ int INPLINUXDEVICEKEYBOARDDIRECT::Old_IsConsole(int fd)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int INPLINUXDEVICEKEYBOARDDIRECT::Old_OpenConsole(const char *fnam)
 {
   int fd;
@@ -658,7 +658,7 @@ int INPLINUXDEVICEKEYBOARDDIRECT::Old_OpenConsole(const char *fnam)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int INPLINUXDEVICEKEYBOARDDIRECT::Old_GetFD(const char *fnam)
 {
   int fd;

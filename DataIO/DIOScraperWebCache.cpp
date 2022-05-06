@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Scraper Web cache class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBCACHE_RESULT::DIOSCRAPERWEBCACHE_RESULT()
 {
 
@@ -75,7 +75,7 @@ DIOSCRAPERWEBCACHE_RESULT::DIOSCRAPERWEBCACHE_RESULT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBCACHE_RESULT::~DIOSCRAPERWEBCACHE_RESULT()
 {
 
@@ -92,7 +92,7 @@ DIOSCRAPERWEBCACHE_RESULT::~DIOSCRAPERWEBCACHE_RESULT()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBCACHE_RESULT::CopyFrom(DIOSCRAPERWEBCACHE_RESULT* result)
 {
   return false;
@@ -110,7 +110,7 @@ bool DIOSCRAPERWEBCACHE_RESULT::CopyFrom(DIOSCRAPERWEBCACHE_RESULT* result)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBCACHE_RESULT::CopyTo(DIOSCRAPERWEBCACHE_RESULT* result)
 {
   return false;
@@ -134,7 +134,7 @@ bool DIOSCRAPERWEBCACHE_RESULT::CopyTo(DIOSCRAPERWEBCACHE_RESULT* result)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBCACHE::DIOSCRAPERWEBCACHE()
 {
   Clean();
@@ -153,7 +153,7 @@ DIOSCRAPERWEBCACHE::DIOSCRAPERWEBCACHE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBCACHE::~DIOSCRAPERWEBCACHE()
 
 {
@@ -175,7 +175,7 @@ DIOSCRAPERWEBCACHE::~DIOSCRAPERWEBCACHE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBCACHE::Add(XSTRING& ask, DIOSCRAPERWEBCACHE_RESULT* result)
 {
   DIOSCRAPERWEBCACHE_RESULT* _result = Get(ask);
@@ -213,7 +213,7 @@ bool DIOSCRAPERWEBCACHE::Add(XSTRING& ask, DIOSCRAPERWEBCACHE_RESULT* result)
 *
 * @return     DIOSCRAPERWEBCACHE_RESULT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBCACHE_RESULT* DIOSCRAPERWEBCACHE::Get(XSTRING& ask)
 {
   if(xmutexlist) xmutexlist->Lock();
@@ -250,7 +250,7 @@ DIOSCRAPERWEBCACHE_RESULT* DIOSCRAPERWEBCACHE::Get(XSTRING& ask)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBCACHE::DeleteAll()
 {
   if(cache.IsEmpty())  return false;
@@ -277,7 +277,7 @@ bool DIOSCRAPERWEBCACHE::DeleteAll()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBCACHE::Clean()
 {
   xmutexlist = NULL;

@@ -6,7 +6,7 @@
 * @brief      Graphic Bitmap File Class
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -63,7 +63,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBASE::GRPBITMAPFILEBASE(): XFILECONTAINER()
 {
   Clean();
@@ -82,7 +82,7 @@ GRPBITMAPFILEBASE::GRPBITMAPFILEBASE(): XFILECONTAINER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBASE::~GRPBITMAPFILEBASE()
 {
   if(file) GEN_XFACTORY.Delete_File(file);
@@ -103,7 +103,7 @@ GRPBITMAPFILEBASE::~GRPBITMAPFILEBASE()
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILEBASE::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
 {
   return NULL;
@@ -123,7 +123,7 @@ GRPBITMAP* GRPBITMAPFILEBASE::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILEBASE::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode)
 {
   return NULL;
@@ -143,7 +143,7 @@ GRPBITMAP* GRPBITMAPFILEBASE::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size,
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEBASE::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
 {
   return false;
@@ -161,7 +161,7 @@ bool GRPBITMAPFILEBASE::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, in
 *
 * @return     XBYTE* : Pointer to buffer
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* GRPBITMAPFILEBASE::ReadImageBufferFromFile(XPATH& xpath)
 {
   return NULL;
@@ -180,7 +180,7 @@ XBYTE* GRPBITMAPFILEBASE::ReadImageBufferFromFile(XPATH& xpath)
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILEBASE::ForceModeOfBitmap(GRPPROPERTYMODE forcemode, GRPBITMAP* bitmap)
 {
   GRPBITMAP* newbitmap = bitmap;
@@ -210,7 +210,7 @@ GRPBITMAP* GRPBITMAPFILEBASE::ForceModeOfBitmap(GRPPROPERTYMODE forcemode, GRPBI
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEBASE::Open(XPATH& xpath,bool readonly)
 {
   if(!file)                          return false;
@@ -232,7 +232,7 @@ bool GRPBITMAPFILEBASE::Open(XPATH& xpath,bool readonly)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEBASE::Create(XPATH& xpath)
 {
   if(!file)                return false;
@@ -251,7 +251,7 @@ bool GRPBITMAPFILEBASE::Create(XPATH& xpath)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEBASE::Close()
 {
   if(!file->Close()) return false;
@@ -270,7 +270,7 @@ bool GRPBITMAPFILEBASE::Close()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEBASE::Clean()
 {
 
@@ -283,7 +283,7 @@ void GRPBITMAPFILEBASE::Clean()
 *
 * GRPBITMAPFILE
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -295,7 +295,7 @@ void GRPBITMAPFILEBASE::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILE::GRPBITMAPFILE()
 {
   Clean();
@@ -314,7 +314,7 @@ GRPBITMAPFILE::GRPBITMAPFILE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILE::GRPBITMAPFILE(XCHAR* xpath)
 {
   Clean();
@@ -334,7 +334,7 @@ GRPBITMAPFILE::GRPBITMAPFILE(XCHAR* xpath)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILE::GRPBITMAPFILE(XPATH& xpath)
 {
   Clean();
@@ -353,7 +353,7 @@ GRPBITMAPFILE::GRPBITMAPFILE(XPATH& xpath)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILE::~GRPBITMAPFILE()
 {
   Clean();
@@ -369,7 +369,7 @@ GRPBITMAPFILE::~GRPBITMAPFILE()
 *
 * @return     XCHAR* : Path of file
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* GRPBITMAPFILE::GetPath()
 {
   return xpath.Get();
@@ -387,7 +387,7 @@ XCHAR* GRPBITMAPFILE::GetPath()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILE::SetPath(XPATH& xpath)
 {
   this->xpath = xpath;
@@ -405,7 +405,7 @@ void GRPBITMAPFILE::SetPath(XPATH& xpath)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILE::SetPath(XCHAR* xpath)
 {
   this->xpath = xpath;
@@ -424,7 +424,7 @@ void GRPBITMAPFILE::SetPath(XCHAR* xpath)
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILE::Load(XCHAR* xpath, GRPPROPERTYMODE forcemode)
 {
   if(!xpath) return NULL;
@@ -469,7 +469,7 @@ GRPBITMAP* GRPBITMAPFILE::Load(XCHAR* xpath, GRPPROPERTYMODE forcemode)
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILE::Load(XPATH& xpath, GRPPROPERTYMODE forcemode)
 {
   return Load(xpath.Get(), forcemode);
@@ -487,7 +487,7 @@ GRPBITMAP* GRPBITMAPFILE::Load(XPATH& xpath, GRPPROPERTYMODE forcemode)
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILE::Load(GRPPROPERTYMODE forcemode)
 {
   if(xpath.IsEmpty()) return NULL;
@@ -509,7 +509,7 @@ GRPBITMAP* GRPBITMAPFILE::Load(GRPPROPERTYMODE forcemode)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILE::Save(XCHAR* xpath, GRPBITMAP* bitmap, int quality)
 {
   if(!xpath) return false;
@@ -553,7 +553,7 @@ bool GRPBITMAPFILE::Save(XCHAR* xpath, GRPBITMAP* bitmap, int quality)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILE::Save(XPATH& xpath, GRPBITMAP* bitmap, int quality)
 {
   return Save(xpath.Get(), bitmap, quality);
@@ -572,7 +572,7 @@ bool GRPBITMAPFILE::Save(XPATH& xpath, GRPBITMAP* bitmap, int quality)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILE::Save(GRPBITMAP* bitmap, int quality)
 {
   if(xpath.IsEmpty()) return false;
@@ -594,7 +594,7 @@ bool GRPBITMAPFILE::Save(GRPBITMAP* bitmap, int quality)
 *
 * @return     GRPBITMAPSEQUENCE* : bitmap sequence class
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPSEQUENCE* GRPBITMAPFILE::LoadSequence(XCHAR* namemask, int inisequence, int endsequence)
 {
   if(xpath.IsEmpty()) return NULL;
@@ -649,7 +649,7 @@ GRPBITMAPSEQUENCE* GRPBITMAPFILE::LoadSequence(XCHAR* namemask, int inisequence,
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILE::Clean()
 {
 

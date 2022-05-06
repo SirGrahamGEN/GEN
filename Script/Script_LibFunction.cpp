@@ -6,7 +6,7 @@
 * @brief      Script Library Function class
 * @ingroup    SCRIPT
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIBFUNCTION::SCRIPT_LIBFUNCTION(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY functionlibrary)
 {
   Clean();
@@ -77,7 +77,7 @@ SCRIPT_LIBFUNCTION::SCRIPT_LIBFUNCTION(SCRIPT_LIB* library, XCHAR* name, SCRFUNC
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIBFUNCTION::SCRIPT_LIBFUNCTION(SCRIPT_LIB* library, XSTRING& name, SCRFUNCIONLIBRARY functionlibrary)
 {
   Clean();
@@ -98,7 +98,7 @@ SCRIPT_LIBFUNCTION::SCRIPT_LIBFUNCTION(SCRIPT_LIB* library, XSTRING& name, SCRFU
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIBFUNCTION::~SCRIPT_LIBFUNCTION()
 {
   Clean();
@@ -114,7 +114,7 @@ SCRIPT_LIBFUNCTION::~SCRIPT_LIBFUNCTION()
 *
 * @return     SCRIPT_LIB* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB* SCRIPT_LIBFUNCTION::GetLibrary()
 {
   return library;
@@ -132,7 +132,7 @@ SCRIPT_LIB* SCRIPT_LIBFUNCTION::GetLibrary()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_LIBFUNCTION::SetLibrary(SCRIPT_LIB* library)
 {
   if(!library) return false;
@@ -150,7 +150,7 @@ bool SCRIPT_LIBFUNCTION::SetLibrary(SCRIPT_LIB* library)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* SCRIPT_LIBFUNCTION::GetName()
 {
   return &name;
@@ -166,7 +166,7 @@ XSTRING* SCRIPT_LIBFUNCTION::GetName()
 *
 * @return     SCRFUNCIONLIBRARY :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRFUNCIONLIBRARY SCRIPT_LIBFUNCTION::GetFunctionLibrary()
 {
   return functionlibrary;
@@ -184,7 +184,7 @@ SCRFUNCIONLIBRARY SCRIPT_LIBFUNCTION::GetFunctionLibrary()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_LIBFUNCTION::SetFunctionLibrary(SCRFUNCIONLIBRARY functionlibrary)
 {
   this->functionlibrary = functionlibrary;
@@ -202,7 +202,7 @@ bool SCRIPT_LIBFUNCTION::SetFunctionLibrary(SCRFUNCIONLIBRARY functionlibrary)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIBFUNCTION::Clean()
 {
   name.Empty();

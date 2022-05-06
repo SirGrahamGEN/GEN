@@ -1,9 +1,7 @@
-
 # --------------------------------------------------------------------
 # CMakeLists.txt to GEN FrameWork
 # Features/Defines Initialization
 # --------------------------------------------------------------------
-
 
 
 # --------------------------------------------------------------------
@@ -23,13 +21,9 @@ set(APPMODE_API_LIB_FEATURE                             false   CACHE BOOL "Acti
 set(APPMODE_API_LIB_EXPORT_FEATURE                      false   CACHE BOOL "Activates the export of classes in a library"               FORCE)
 set(APPMODE_LIBRARY_DINAMIC_FEATURE                     false   CACHE BOOL "Activate Application Library Dinamic mode"                  FORCE)
 
-
-                  
-
+              
 # --------------------------------------------------------------------
 # Application
-
-
 
 set(APP_FEATURE                                         false   CACHE BOOL "Activate Application modules"                               FORCE)
 set(APP_CHECKRESOURCESHARDWARE_FEATURE                  false   CACHE BOOL "Activate Application Check Resources Hardwar"               FORCE)
@@ -121,6 +115,16 @@ set(CIPHER_ASYMMETRIC_RSA_FEATURE                       false   CACHE BOOL "Acti
 
 
 # --------------------------------------------------------------------
+# Compress
+
+set(COMPRESS_FEATURE                                    false   CACHE BOOL "Activate Compress"                                          FORCE)
+set(COMPRESS_GZ_FEATURE                                 false   CACHE BOOL "Activate Compres GZ"                                        FORCE)  
+set(COMPRESS_LZRW1KH_FEATURE                            false   CACHE BOOL "Activate Compres LZRW1KH"                                   FORCE)  
+set(COMPRESS_LZW_FEATURE                                false   CACHE BOOL "Activate Compres LZW"                                       FORCE)  
+set(COMPRESS_ZIP_FEATURE                                false   CACHE BOOL "Activate Compres ZIP"                                       FORCE)  
+
+
+# --------------------------------------------------------------------
 # Data Input/Output
 
 set(DIO_FEATURE                                         false   CACHE BOOL "Activate Data Input/Output"                                 FORCE)
@@ -201,6 +205,7 @@ set(DIO_APPLICATIONUPDATE_FEATURE                       false   CACHE BOOL "Acti
 
 set(DIO_LEDNEOPIXELWS2812B_FEATURE                      false   CACHE BOOL "Activate Data Input/Output Led Neopixel WS2812B"            FORCE)
 
+
 # --------------------------------------------------------------------
 # User interface
 
@@ -225,7 +230,6 @@ set(DATABASES_SQL_MYSQL_FEATURE                         false   CACHE BOOL "Acti
 set(DATABASES_SQL_POSTGRESQL_FEATURE                    false   CACHE BOOL "Activate DataBases PostgreSQL"                              FORCE)
 
 
-
 # --------------------------------------------------------------------
 # Graphics
 
@@ -236,13 +240,10 @@ set(GRP_3D_FEATURE                                      false   CACHE BOOL "Acti
 set(GRP_OPENGL_FEATURE                                  false   CACHE BOOL "Activate Graphics Open GL"                                  FORCE)
 
 
-
 # --------------------------------------------------------------------
 # Input
 
 set(INP_FEATURE                                         false   CACHE BOOL "Activate Inputs"                                            FORCE)
-
-
 
 
 # --------------------------------------------------------------------
@@ -253,7 +254,6 @@ set(SND_FILE_WAV_FEATURE                                false   CACHE BOOL "Acti
 set(SND_FILE_OGG_FEATURE                                false   CACHE BOOL "Activate Sound OGG file"                                    FORCE)
 
 
-
 # --------------------------------------------------------------------
 # Data Base
 
@@ -261,7 +261,6 @@ set(DB_SQL_FEATURE                                      false   CACHE BOOL "Acti
 set(DB_MYSQL_FEATURE                                    false   CACHE BOOL "Activate DB MySQL"                                          FORCE)
 set(DB_POSTGRESQL_FEATURE                               false   CACHE BOOL "Activate DB PostgresSQL"                                    FORCE)
 set(DB_SQLITE_FEATURE                                   false   CACHE BOOL "Activate DB SQLite"                                         FORCE)
-
 
 
 # --------------------------------------------------------------------

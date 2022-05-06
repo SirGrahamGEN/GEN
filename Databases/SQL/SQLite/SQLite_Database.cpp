@@ -6,7 +6,7 @@
 * @brief      DataBase SQLite Database class
 * @ingroup    DATABASESSQL
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -59,7 +59,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_DATABASE::SQLITE_DATABASE() : DB_SQL_DATABASE()
 {
   Clean();
@@ -78,7 +78,7 @@ SQLITE_DATABASE::SQLITE_DATABASE() : DB_SQL_DATABASE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_DATABASE::~SQLITE_DATABASE()
 {
   Clean();
@@ -94,7 +94,7 @@ SQLITE_DATABASE::~SQLITE_DATABASE()
 *
 * @return     DB_SQL_DATABASE_TYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE_TYPE SQLITE_DATABASE::GetType()
 {
   return DB_SQL_DATABASE_TYPE_SQLITE;
@@ -110,7 +110,7 @@ DB_SQL_DATABASE_TYPE SQLITE_DATABASE::GetType()
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* SQLITE_DATABASE::GetTypeName()
 {
   return __L("SQLite");
@@ -126,7 +126,7 @@ XCHAR* SQLITE_DATABASE::GetTypeName()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_DATABASE::Transaction()
 {
   transactionstarted = true;
@@ -146,7 +146,7 @@ bool SQLITE_DATABASE::Transaction()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_DATABASE::Commit()
 {
   if(IsTransactionStarted())
@@ -173,7 +173,7 @@ bool SQLITE_DATABASE::Commit()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_DATABASE::Rollback(XCHAR* savepoint)
 {
   if(IsTransactionStarted())
@@ -214,7 +214,7 @@ bool SQLITE_DATABASE::Rollback(XCHAR* savepoint)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_DATABASE::Savepoint(XCHAR* savepoint)
 {
   DB_SQL_STRING text;
@@ -239,7 +239,7 @@ bool SQLITE_DATABASE::Savepoint(XCHAR* savepoint)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 {
   DB_SQL_STRING text;
@@ -263,7 +263,7 @@ bool SQLITE_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 *
 * @return     DB_SQL_QUERY* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_QUERY* SQLITE_DATABASE::CreateQuery()
 {
   DB_SQL_QUERY* query = new SQLITE_QUERY(this);
@@ -286,7 +286,7 @@ DB_SQL_QUERY* SQLITE_DATABASE::CreateQuery()
 *
 * @return     DB_SQL_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_CONNECTION* SQLITE_DATABASE::CreateConnection()
 {
   DB_SQL_CONNECTION* conn = new SQLITE_CONNECTION(this);
@@ -303,7 +303,7 @@ DB_SQL_CONNECTION* SQLITE_DATABASE::CreateConnection()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_DATABASE::GetTables()
 {
   DB_SQL_QUERY* query = CreateQuery();
@@ -364,7 +364,7 @@ bool SQLITE_DATABASE::GetTables()
 *
 * @return     DB_SQL_DATABASE_ENCODING :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE_ENCODING SQLITE_DATABASE::GetDatabaseEncoding()
 {
   return DB_SQL_DATABASE_ENCODING_UNKNOWN;
@@ -382,7 +382,7 @@ DB_SQL_DATABASE_ENCODING SQLITE_DATABASE::GetDatabaseEncoding()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
 {
   switch(encodingtouse)
@@ -459,7 +459,7 @@ bool SQLITE_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SQLITE_DATABASE::Clean()
 {
   type            = DB_SQL_DATABASE_FLAGS_NONE;

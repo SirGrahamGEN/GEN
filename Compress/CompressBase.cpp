@@ -1,21 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  COMPRESSBASE.CPP
-//
-//  Compression/Descompression Class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 28/10/2003
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CompressBase.cpp
+* 
+* @class      COMPRESSBASE
+* @brief      Compress Base class
+* @ingroup    COMPRESS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
- /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,96 +43,88 @@
 
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-//-------------------------------------------------------------------
-//  COMPRESSBASE::COMPRESSBASE
-/**
-//
-//
-//  ""
-//  @version      21/11/2003 16:28:44
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         COMPRESSBASE::COMPRESSBASE()
+* @brief      Constructor
+* @ingroup    COMPRESS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 COMPRESSBASE::COMPRESSBASE()
 {
   SetType();
 }
 
 
-//-------------------------------------------------------------------
-//  COMPRESSBASE::COMPRESSBASE
-/**
-//
-//
-//  ""
-//  @version      21/11/2003 16:28:55
-//
-//  @return
-//  @param        type :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         COMPRESSBASE::COMPRESSBASE(COMPRESSBASE_TYPE type)
+* @brief      Constructor
+* @ingroup    COMPRESS
+* 
+* @param[in]  COMPRESSBASE_TYPE : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 COMPRESSBASE::COMPRESSBASE(COMPRESSBASE_TYPE type)
 {
   SetType(type);
 }
 
 
-
-//-------------------------------------------------------------------
-//  COMPRESSBASE::~COMPRESSBASE
-/**
-//
-//
-//  ""
-//  @version      21/11/2003 16:29:12
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         COMPRESSBASE::~COMPRESSBASE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    COMPRESS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 COMPRESSBASE::~COMPRESSBASE()
+
 {
   SetType();
 }
 
 
-
-//-------------------------------------------------------------------
-//  COMPRESSBASE::GetType
-/**
-//
-//
-//  ""
-//  @version      21/11/2003 16:28:34
-//
-//  @return       COMPRESSBASE_TYPE :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         COMPRESSBASE_TYPE COMPRESSBASE::GetType()
+* @brief      GetType
+* @ingroup    COMPRESS
+* 
+* @return     COMPRESSBASE_TYPE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 COMPRESSBASE_TYPE COMPRESSBASE::GetType()
 {
   return type;
 }
 
 
-
-//-------------------------------------------------------------------
-//  COMPRESSBASE::SetType
-/**
-//
-//
-//  ""
-//  @version      21/11/2003 16:28:27
-//
-//  @return
-//  @param        type :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         COMPRESSBASE_TYPE COMPRESSBASE::SetType(COMPRESSBASE_TYPE type)
+* @brief      SetType
+* @ingroup    COMPRESS
+* 
+* @param[in]  type : 
+* 
+* @return     COMPRESSBASE_TYPE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 COMPRESSBASE_TYPE COMPRESSBASE::SetType(COMPRESSBASE_TYPE type)
 {
   this->type = type;
@@ -125,20 +133,19 @@ COMPRESSBASE_TYPE COMPRESSBASE::SetType(COMPRESSBASE_TYPE type)
 }
 
 
-//-------------------------------------------------------------------
-//  COMPRESSBASE::Compress
-/**
-//
-//
-//  ""
-//  @version      10/02/2004 18:00:06
-//
-//  @return       bool :
-//  @param        origin :
-//  @param        size :
-//  @param        buffer :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESSBASE::Compress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
+* @brief      Compress
+* @ingroup    COMPRESS
+* 
+* @param[in]  origin : 
+* @param[in]  size : 
+* @param[in]  buffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESSBASE::Compress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
 {
   if(!origin)   return false;
@@ -152,21 +159,19 @@ bool COMPRESSBASE::Compress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
 }
 
 
-
-//-------------------------------------------------------------------
-//  COMPRESSBASE::Decompress
-/**
-//
-//
-//  ""
-//  @version      10/02/2004 18:00:11
-//
-//  @return       bool :
-//  @param        origin :
-//  @param        size :
-//  @param        buffer :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESSBASE::Decompress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
+* @brief      Decompress
+* @ingroup    COMPRESS
+* 
+* @param[in]  origin : 
+* @param[in]  size : 
+* @param[in]  buffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESSBASE::Decompress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
 {
   if(!origin)   return false;
@@ -180,20 +185,19 @@ bool COMPRESSBASE::Decompress(XBYTE* origin,XDWORD size,XBUFFER* buffer)
 }
 
 
-//-------------------------------------------------------------------
-//  COMPRESSBASE::Compress
-/**
-//
-//
-//  ""
-//  @version      21/11/2003 16:42:18
-//
-//  @return       bool :
-//  @param        origin :
-//  @param        size :
-//  @param        param1 :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESSBASE::Compress(XBYTE* origin,XDWORD size,void* param1)
+* @brief      Compress
+* @ingroup    COMPRESS
+* 
+* @param[in]  origin : 
+* @param[in]  size : 
+* @param[in]  param1 : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESSBASE::Compress(XBYTE* origin,XDWORD size,void* param1)
 {
   if(!origin) return false;
@@ -208,21 +212,19 @@ bool COMPRESSBASE::Compress(XBYTE* origin,XDWORD size,void* param1)
 }
 
 
-
-//-------------------------------------------------------------------
-//  COMPRESSBASE::Decompress
-/**
-//
-//
-//  ""
-//  @version      21/11/2003 16:43:39
-//
-//  @return       bool :
-//  @param        origin :
-//  @param        size :
-//  @param        param1 :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESSBASE::Decompress(XBYTE* origin,XDWORD size,void* param1)
+* @brief      Decompress
+* @ingroup    COMPRESS
+* 
+* @param[in]  origin : 
+* @param[in]  size : 
+* @param[in]  param1 : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESSBASE::Decompress(XBYTE* origin,XDWORD size,void* param1)
 {
   if(!origin) return false;
@@ -237,21 +239,19 @@ bool COMPRESSBASE::Decompress(XBYTE* origin,XDWORD size,void* param1)
 }
 
 
-
-//-------------------------------------------------------------------
-//  COMPRESSBASE::CompressResult
-/**
-//
-//
-//  ""
-//  @version      21/11/2003 16:44:04
-//
-//  @return       bool :
-//  @param        compress :
-//  @param        data :
-//  @param        param1 :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESSBASE::CompressResult(bool compress,XBYTE data,void* param1)
+* @brief      CompressResult
+* @ingroup    COMPRESS
+* 
+* @param[in]  compress : 
+* @param[in]  data : 
+* @param[in]  param1 : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESSBASE::CompressResult(bool compress,XBYTE data,void* param1)
 {
   if(compress)
@@ -265,7 +265,3 @@ bool COMPRESSBASE::CompressResult(bool compress,XBYTE data,void* param1)
 
   return false;
 }
-
-
-
-

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output  Protocol Connections Manager eXtended Event class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();
@@ -71,7 +71,7 @@ DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT(XSU
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::~DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT()
 {
   Clean();
@@ -87,7 +87,7 @@ DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::~DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT()
 *
 * @return     DIOSTREAMENUMSERVERS* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMENUMSERVERS* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOStreamEnumServers()
 {
   return diostreamenumservers;
@@ -105,7 +105,7 @@ DIOSTREAMENUMSERVERS* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOStreamEnumSer
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOStreamEnumServers(DIOSTREAMENUMSERVERS* diostreamenumservers)
 {
   this->diostreamenumservers = diostreamenumservers;
@@ -121,7 +121,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOStreamEnumServers(DIOSTREAMENU
 *
 * @return     DIOSTREAMCONFIG* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOStreamConfig()
 {
   return diostreamcfg;
@@ -139,7 +139,7 @@ DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOStreamConfig()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOStreamConfig(DIOSTREAMCONFIG* diostreamcfg)
 {
   this->diostreamcfg = diostreamcfg;
@@ -155,7 +155,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOStreamConfig(DIOSTREAMCONFIG* 
 *
 * @return     DIOPROTOCOL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOProtocol()
 {
   return dioprotocol;
@@ -173,7 +173,7 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOProtocol()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOProtocol(DIOPROTOCOL* dioprotocol)
 {
   this->dioprotocol = dioprotocol;
@@ -189,7 +189,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOProtocol(DIOPROTOCOL* dioproto
 *
 * @return     DIOPROTOCOL_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtocolConnection()
 {
   return protocolconnection;
@@ -207,7 +207,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtocolConnec
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocolConnection(DIOPROTOCOL_CONNECTION* protocolconnection)
 {
   this->protocolconnection = protocolconnection;
@@ -223,7 +223,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocolConnection(DIOPROTOCOL_CO
 *
 * @return     DIOPROTOCOL_CONNECTIONSMANAGER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTIONSMANAGER* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtocolConnectionsManager()
 {
   return protocolconnectionsmanager;
@@ -241,7 +241,7 @@ DIOPROTOCOL_CONNECTIONSMANAGER* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtoc
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocolConnectionsManager(DIOPROTOCOL_CONNECTIONSMANAGER* protocolconnectionsmanager)
 {
   this->protocolconnectionsmanager = protocolconnectionsmanager;
@@ -257,7 +257,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocolConnectionsManager(DIOPRO
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::IsInitialized()
 {
   return isinitialized;
@@ -275,7 +275,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::IsInitialized()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetIsInitialized(bool isinitialized)
 {
   this->isinitialized = isinitialized;
@@ -292,7 +292,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetIsInitialized(bool isinitialized)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::Clean()
 {
   diostreamenumservers       = NULL;

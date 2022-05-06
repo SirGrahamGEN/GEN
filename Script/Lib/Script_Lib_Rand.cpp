@@ -6,7 +6,7 @@
 * @brief      Script Library Random
 * @ingroup    SCRIPT
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -56,7 +56,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_RAND::SCRIPT_LIB_RAND() : SCRIPT_LIB(SCRIPT_LIB_NAME_RANDOM)
 {
   Clean();
@@ -76,7 +76,7 @@ SCRIPT_LIB_RAND::SCRIPT_LIB_RAND() : SCRIPT_LIB(SCRIPT_LIB_NAME_RANDOM)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_RAND::~SCRIPT_LIB_RAND()
 {
   if(xrand) GEN_XFACTORY.DeleteRand(xrand);
@@ -93,7 +93,7 @@ SCRIPT_LIB_RAND::~SCRIPT_LIB_RAND()
 *
 * @return     XRAND* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XRAND* SCRIPT_LIB_RAND::GetXRand()
 {
   return xrand;
@@ -111,7 +111,7 @@ XRAND* SCRIPT_LIB_RAND::GetXRand()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_LIB_RAND::AddLibraryFunctions(SCRIPT* script)
 {
   if(!script) return false;
@@ -135,7 +135,7 @@ bool SCRIPT_LIB_RAND::AddLibraryFunctions(SCRIPT* script)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_RAND::Clean()
 {
   xrand = NULL;
@@ -161,7 +161,7 @@ void SCRIPT_LIB_RAND::Clean()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void Call_RandMax(SCRIPT_LIB* library, SCRIPT* script , XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
@@ -208,7 +208,7 @@ void Call_RandMax(SCRIPT_LIB* library, SCRIPT* script , XVECTOR<XVARIANT*>* para
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void Call_RandBetween(SCRIPT_LIB* library, SCRIPT* script , XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;

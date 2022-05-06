@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Enum Bluetooth Devices class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -52,7 +52,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMENUMBLUETOOTHDEVICES::DIOSTREAMENUMBLUETOOTHDEVICES()
 {
   Clean();
@@ -69,7 +69,7 @@ DIOSTREAMENUMBLUETOOTHDEVICES::DIOSTREAMENUMBLUETOOTHDEVICES()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMENUMBLUETOOTHDEVICES::~DIOSTREAMENUMBLUETOOTHDEVICES()
 {  
   Clean();
@@ -85,7 +85,7 @@ DIOSTREAMENUMBLUETOOTHDEVICES::~DIOSTREAMENUMBLUETOOTHDEVICES()
 *
 * @return     DIOMAC* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMAC* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceSelect()
 {
   return &deviceselectMAC;
@@ -103,7 +103,7 @@ DIOMAC* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceSelect()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XBYTE* MAC)
 {
   return deviceselectMAC.Set(MAC);
@@ -121,7 +121,7 @@ bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XBYTE* MAC)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XCHAR* MAC)
 {
   XSTRING _MAC;
@@ -143,7 +143,7 @@ bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XCHAR* MAC)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XSTRING& MAC)
 {
   return deviceselectMAC.Set(MAC);
@@ -162,7 +162,7 @@ bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XSTRING& MAC)
 *
 * @return     DIOSTREAMDEVICEBLUETOOTH* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(XCHAR* MAC)
 { 
   if(devices.IsEmpty()) return NULL;
@@ -205,7 +205,7 @@ DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(XCHAR* M
 *
 * @return     DIOSTREAMDEVICEBLUETOOTH* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(DIOMAC* MAC)
 {
   if(devices.IsEmpty()) return NULL;
@@ -240,7 +240,7 @@ DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(DIOMAC* 
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMENUMBLUETOOTHDEVICES::Clean()
 {
   

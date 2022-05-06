@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C OLED Display SSD1306 class 
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2COLEDDISPLAYSSD1306_H_
 #define _DIOI2COLEDDISPLAYSSD1306_H_
@@ -175,7 +175,7 @@ class DIOI2COLEDDISPLAYSSD1306 : public DIODISPLAYDEVICE, public DIODEVICEI2C
 
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

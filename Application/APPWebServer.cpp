@@ -1,30 +1,30 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       APPWebServer.cpp
-*
+* 
 * @class      APPWEBSERVER
 * @brief      Application Web Server class
 * @ingroup    APPLICATION
-*
-* @copyright  GEN Group. All right reserved.
-*
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
-*---------------------------------------------------------------------------------------------------------------------*/
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -52,6 +52,7 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
@@ -63,14 +64,13 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 APPWEBSERVER::APPWEBSERVER()
 {
   Clean();
 
   webserver = new DIOWEBSERVER();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -82,15 +82,13 @@ APPWEBSERVER::APPWEBSERVER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 APPWEBSERVER::~APPWEBSERVER()
 {
   End();
 
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -106,7 +104,7 @@ APPWEBSERVER::~APPWEBSERVER()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::Ini(APPCFG* cfg, bool doinitialconnectitivitytest,  bool isapirestonly, bool chekuseragentid)
 {
   if(!cfg) return false;
@@ -136,8 +134,6 @@ bool APPWEBSERVER::Ini(APPCFG* cfg, bool doinitialconnectitivitytest,  bool isap
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPWEBSERVER::Ini(XDWORD port, , bool doinitialconnectitivitytest, int timeoutserverpage, XSTRING* addrlocal)
@@ -151,7 +147,7 @@ bool APPWEBSERVER::Ini(APPCFG* cfg, bool doinitialconnectitivitytest,  bool isap
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::Ini(XDWORD port, bool doinitialconnectitivitytest, int timeoutserverpage, XSTRING* addrlocal)
 {
   if(!webserver)  return false;
@@ -188,8 +184,6 @@ bool APPWEBSERVER::Ini(XDWORD port, bool doinitialconnectitivitytest, int timeou
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER* APPWEBSERVER::GetWebServer()
@@ -198,12 +192,11 @@ bool APPWEBSERVER::Ini(XDWORD port, bool doinitialconnectitivitytest, int timeou
 *
 * @return     DIOWEBSERVER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER* APPWEBSERVER::GetWebServer()
 {
   return webserver;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -214,12 +207,11 @@ DIOWEBSERVER* APPWEBSERVER::GetWebServer()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::GetIsAuthenticatedAccess()
 {
   return isauthenticatedaccess;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -230,13 +222,11 @@ bool APPWEBSERVER::GetIsAuthenticatedAccess()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::GetIsApiRestOnly()
 {
   return isapirestonly;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -255,7 +245,7 @@ bool APPWEBSERVER::GetIsApiRestOnly()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XBUFFER* data, int timeout, XSTRING* addhead)
 {
   DIOWEBSERVER_HEADER webserverheader;
@@ -301,7 +291,6 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XSTRING& data, int timeout, XSTRING* addhead)
@@ -316,7 +305,7 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XSTRING& data, int timeout, XSTRING* addhead)
 {
   XDWORD size = data.GetSize();
@@ -348,7 +337,7 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XPATH& xpathfile, int timeout, XSTRING* addhead)
 {
   XBUFFER xbuffer;
@@ -377,8 +366,6 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION* connection, DIOWEBSERVER_REQUEST* request)
@@ -391,7 +378,7 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION* connection, DIOWEBSERVER_REQUEST* request)
 {
   if(!server)     return false;
@@ -645,7 +632,6 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPWEBSERVER::GenerateMessagePage(XCHAR* leyend, DIOWEBPAGEHTMLCREATOR& webHTMLpage)
@@ -657,7 +643,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::GenerateMessagePage(XCHAR* leyend, DIOWEBPAGEHTMLCREATOR& webHTMLpage)
 {
   webHTMLpage.Printf(__L("<font color=\"red\" face=\"Courier New\" size=\"2\">"));
@@ -666,7 +652,6 @@ bool APPWEBSERVER::GenerateMessagePage(XCHAR* leyend, DIOWEBPAGEHTMLCREATOR& web
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -680,12 +665,11 @@ bool APPWEBSERVER::GenerateMessagePage(XCHAR* leyend, DIOWEBPAGEHTMLCREATOR& web
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::GenerateMessagePage(XSTRING& leyend, DIOWEBPAGEHTMLCREATOR& webHTMLpage)
 {
   return GenerateMessagePage(leyend.Get(), webHTMLpage);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -700,7 +684,7 @@ bool APPWEBSERVER::GenerateMessagePage(XSTRING& leyend, DIOWEBPAGEHTMLCREATOR& w
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::GenerateResponse_Error(DIOWEBSERVER_CONNECTION* connection,  DIOWEBHEADER_RESULT result, XCHAR* leyend)
 {
   DIOWEBPAGEHTMLCREATOR* webHTMLpage = new DIOWEBPAGEHTMLCREATOR();
@@ -718,7 +702,6 @@ bool APPWEBSERVER::GenerateResponse_Error(DIOWEBSERVER_CONNECTION* connection,  
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPWEBSERVER::GenerateResponse_Error(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT result, XSTRING& leyend)
@@ -731,13 +714,11 @@ bool APPWEBSERVER::GenerateResponse_Error(DIOWEBSERVER_CONNECTION* connection,  
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::GenerateResponse_Error(DIOWEBSERVER_CONNECTION* connection,  DIOWEBHEADER_RESULT result, XSTRING& leyend)
 {
   return GenerateResponse_Error(connection, result, leyend.Get());
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -748,7 +729,7 @@ bool APPWEBSERVER::GenerateResponse_Error(DIOWEBSERVER_CONNECTION* connection,  
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::End()
 {
   if(!webserver) return false;
@@ -799,7 +780,6 @@ bool APPWEBSERVER::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPWEBSERVER::HandleEvent_WebServer(DIOWEBSERVER_XEVENT* event)
@@ -811,7 +791,7 @@ bool APPWEBSERVER::End()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPWEBSERVER::HandleEvent_WebServer(DIOWEBSERVER_XEVENT* event)
 {
   switch(event->GetEventType())
@@ -836,7 +816,6 @@ void APPWEBSERVER::HandleEvent_WebServer(DIOWEBSERVER_XEVENT* event)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPWEBSERVER::HandleEvent(XEVENT* xevent)
@@ -848,7 +827,7 @@ void APPWEBSERVER::HandleEvent_WebServer(DIOWEBSERVER_XEVENT* event)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPWEBSERVER::HandleEvent(XEVENT* xevent)
 {
   if(!xevent) return;
@@ -865,7 +844,6 @@ void APPWEBSERVER::HandleEvent(XEVENT* xevent)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPWEBSERVER::Clean()
@@ -875,7 +853,7 @@ void APPWEBSERVER::HandleEvent(XEVENT* xevent)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPWEBSERVER::Clean()
 {
   cfg                        = NULL;

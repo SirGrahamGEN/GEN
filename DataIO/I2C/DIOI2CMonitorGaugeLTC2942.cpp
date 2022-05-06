@@ -6,7 +6,7 @@
 * @brief      Data Input\Output I2C Monitor Gauge LTC2942 
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -64,7 +64,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CMONITORGAUGELTC2942::DIOI2CMONITORGAUGELTC2942() : DIODEVICEI2C()
 {
   Clean();
@@ -81,7 +81,7 @@ DIOI2CMONITORGAUGELTC2942::DIOI2CMONITORGAUGELTC2942() : DIODEVICEI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CMONITORGAUGELTC2942::~DIOI2CMONITORGAUGELTC2942()
 {
   End();
@@ -215,7 +215,7 @@ XWORD DIOI2CMONITORGAUGELTC2942::GetMaxAC(void)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CMONITORGAUGELTC2942::End()
 {
   if(!DIODEVICEI2C::End()) return false;
@@ -234,7 +234,7 @@ bool DIOI2CMONITORGAUGELTC2942::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CMONITORGAUGELTC2942::IniDevice()
 {  
   if(!DIODEVICEI2C::IniDevice()) return false;
@@ -326,7 +326,7 @@ bool DIOI2CMONITORGAUGELTC2942::Initialize()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE& data)
 {
   return ReadRegister(offset, &data, 1);
@@ -347,7 +347,7 @@ bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 {
   if(!diostream) return false;
@@ -379,7 +379,7 @@ bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE* data, XDWORD s
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE data)
 {
   return WriteRegister(offset, &data, 1);
@@ -399,7 +399,7 @@ bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 {
   if(!diostream) return false;
@@ -428,7 +428,7 @@ bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE* data, XDWORD 
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CMONITORGAUGELTC2942::Clean()
 {
   referenceresistance   = 0.0f;  

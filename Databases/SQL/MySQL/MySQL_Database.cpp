@@ -6,7 +6,7 @@
 * @brief      DataBase MySQL Database class
 * @ingroup    DATABASESSQL
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -55,7 +55,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_DATABASE::MYSQL_DATABASE(): DB_SQL_DATABASE()
 {
   Clean();
@@ -75,7 +75,7 @@ MYSQL_DATABASE::MYSQL_DATABASE(): DB_SQL_DATABASE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_DATABASE::~MYSQL_DATABASE()
 {
   Clean();
@@ -90,7 +90,7 @@ MYSQL_DATABASE::~MYSQL_DATABASE()
 *
 * @return     DB_SQL_DATABASE_TYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE_TYPE MYSQL_DATABASE::GetType()
 {
   return DB_SQL_DATABASE_TYPE_MYSQL;
@@ -106,7 +106,7 @@ DB_SQL_DATABASE_TYPE MYSQL_DATABASE::GetType()
 *
 * @return     XCHAR* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* MYSQL_DATABASE::GetTypeName()
 {
   return __L("MySQL");
@@ -123,7 +123,7 @@ XCHAR* MYSQL_DATABASE::GetTypeName()
 *
 * @return     DB_SQL_VARIANT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_VARIANT* MYSQL_DATABASE::CreateVariant()
 {
   return new DB_SQL_VARIANT();
@@ -139,7 +139,7 @@ DB_SQL_VARIANT* MYSQL_DATABASE::CreateVariant()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_DATABASE::Transaction()
 {
   MYSQL* conn=static_cast<MYSQL_CONNECTION*>(this->connection)->connection;
@@ -168,7 +168,7 @@ bool MYSQL_DATABASE::Transaction()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_DATABASE::Commit()
 {
   if(transactionstarted)
@@ -205,7 +205,7 @@ bool MYSQL_DATABASE::Commit()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_DATABASE::Rollback(XCHAR* savepointname)
 {
   if(transactionstarted)
@@ -256,7 +256,7 @@ bool MYSQL_DATABASE::Rollback(XCHAR* savepointname)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_DATABASE::Savepoint(XCHAR* savepoint)
 {
   MYSQL* conn = static_cast<MYSQL_CONNECTION*>(this->connection)->connection;
@@ -291,7 +291,7 @@ bool MYSQL_DATABASE::Savepoint(XCHAR* savepoint)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 {
   MYSQL* conn=static_cast<MYSQL_CONNECTION*>(this->connection)->connection;
@@ -323,7 +323,7 @@ bool MYSQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 *
 * @return     DB_SQL_QUERY* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_QUERY* MYSQL_DATABASE::CreateQuery()
 {
   DB_SQL_QUERY* query = new MYSQL_QUERY(this);
@@ -340,7 +340,7 @@ DB_SQL_QUERY* MYSQL_DATABASE::CreateQuery()
 *
 * @return     DB_SQL_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_CONNECTION* MYSQL_DATABASE::CreateConnection()
 {
   DB_SQL_CONNECTION* conn = new MYSQL_CONNECTION(this);
@@ -357,7 +357,7 @@ DB_SQL_CONNECTION* MYSQL_DATABASE::CreateConnection()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_DATABASE::GetTables()
 {
   MYSQL*      conn  = static_cast<MYSQL_CONNECTION*>(this->connection)->connection;
@@ -421,7 +421,7 @@ bool MYSQL_DATABASE::GetTables()
 *
 * @return     DB_SQL_DATABASE_ENCODING :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE_ENCODING MYSQL_DATABASE::GetDatabaseEncoding()
 {
   MYSQL* conn = static_cast<MYSQL_CONNECTION*>(this->connection)->connection;
@@ -450,7 +450,7 @@ DB_SQL_DATABASE_ENCODING MYSQL_DATABASE::GetDatabaseEncoding()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MYSQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
 {
   MYSQL* conn = static_cast<MYSQL_CONNECTION*>(this->connection)->connection;
@@ -521,7 +521,7 @@ bool MYSQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MYSQL_DATABASE::Clean()
 {
   connection  = NULL;

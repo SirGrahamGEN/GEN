@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Scraper Web MAC Manufacturer class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -56,7 +56,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMACMANUFACTURED_RESULT::DIOMACMANUFACTURED_RESULT()
 {
   Clean();
@@ -73,7 +73,7 @@ DIOMACMANUFACTURED_RESULT::DIOMACMANUFACTURED_RESULT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMACMANUFACTURED_RESULT::~DIOMACMANUFACTURED_RESULT()
 {
   Clean();
@@ -89,7 +89,7 @@ DIOMACMANUFACTURED_RESULT::~DIOMACMANUFACTURED_RESULT()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOMACMANUFACTURED_RESULT::Get()
 {
   return &manufactured;
@@ -106,7 +106,7 @@ XSTRING* DIOMACMANUFACTURED_RESULT::Get()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOMACMANUFACTURED_RESULT::Clean()
 {
 
@@ -127,7 +127,7 @@ void DIOMACMANUFACTURED_RESULT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBMACMANUFACTURER::DIOSCRAPERWEBMACMANUFACTURER(): DIOSCRAPERWEB()
 {
   Clean();
@@ -144,7 +144,7 @@ DIOSCRAPERWEBMACMANUFACTURER::DIOSCRAPERWEBMACMANUFACTURER(): DIOSCRAPERWEB()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBMACMANUFACTURER::~DIOSCRAPERWEBMACMANUFACTURER()
 {
   Clean();
@@ -163,7 +163,7 @@ DIOSCRAPERWEBMACMANUFACTURER::~DIOSCRAPERWEBMACMANUFACTURER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBMACMANUFACTURER::ChangeURL(XCHAR* maskurl, DIOURL& url)
 {
   XSTRING MACmanufactured;
@@ -191,7 +191,7 @@ bool DIOSCRAPERWEBMACMANUFACTURER::ChangeURL(XCHAR* maskurl, DIOURL& url)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBMACMANUFACTURER::Get(DIOMAC& MAC, XSTRING& manufactured, int timeoutforurl, XSTRING* localIP, bool usecache)
 {
   XSTRING IPstring;

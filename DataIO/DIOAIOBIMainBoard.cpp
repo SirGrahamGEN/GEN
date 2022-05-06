@@ -6,7 +6,7 @@
 * @brief       Data IO AIOBI Main board class
 * @ingroup     DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -50,7 +50,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOAIOBIMAINBOARD::DIOAIOBIMAINBOARD()
 
 {
@@ -68,7 +68,7 @@ DIOAIOBIMAINBOARD::DIOAIOBIMAINBOARD()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOAIOBIMAINBOARD::~DIOAIOBIMAINBOARD()
 {
   Clean();
@@ -84,7 +84,7 @@ DIOAIOBIMAINBOARD::~DIOAIOBIMAINBOARD()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::Ini()
 {
   for(int c=0; c<3; c++)
@@ -167,7 +167,7 @@ bool DIOAIOBIMAINBOARD::Ini()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::IsIni()
 {
   return isini;
@@ -187,7 +187,7 @@ bool DIOAIOBIMAINBOARD::IsIni()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::SetModeHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pin, bool isinput)
 {
   if(!gpio) return false;
@@ -245,7 +245,7 @@ bool DIOAIOBIMAINBOARD::SetModeHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pi
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::GetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pin)
 {
   if(!gpio) return false;
@@ -304,7 +304,7 @@ bool DIOAIOBIMAINBOARD::GetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::SetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pin, bool active)
 {
   if(!gpio) return false;
@@ -361,7 +361,7 @@ bool DIOAIOBIMAINBOARD::SetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::SetP4HeaderForExternalButton(bool on)
 {
   if(!SetModeHeaderPin(DIOAIOBIMAINBOARD_HEADER_P24, 2, on))    return false;
@@ -387,7 +387,7 @@ bool DIOAIOBIMAINBOARD::SetP4HeaderForExternalButton(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::IsButtonAPressed()
 {
   if(!issetp24forexternalbutton) return false;
@@ -404,7 +404,7 @@ bool DIOAIOBIMAINBOARD::IsButtonAPressed()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::IsButtonBPressed()
 {
   if(!issetp24forexternalbutton) return false;
@@ -423,7 +423,7 @@ bool DIOAIOBIMAINBOARD::IsButtonBPressed()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::SetLedA(bool on)
 {
   if(!issetp24forexternalbutton) return false;
@@ -442,7 +442,7 @@ bool DIOAIOBIMAINBOARD::SetLedA(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::SetLedB(bool on)
 {
   if(!issetp24forexternalbutton) return false;
@@ -461,7 +461,7 @@ bool DIOAIOBIMAINBOARD::SetLedB(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::GetDigitalInput(XBYTE& data)
 {
   if(!pcf8574[DIOAIOBIMAINBOARD_I2CDIGIGPIO_IN])                          return false;
@@ -483,7 +483,7 @@ bool DIOAIOBIMAINBOARD::GetDigitalInput(XBYTE& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::SetDigitalOutput(XBYTE bit, bool on)
 {
   if(!pcf8574[DIOAIOBIMAINBOARD_I2CDIGIGPIO_OUT])                           return false;
@@ -515,7 +515,7 @@ bool DIOAIOBIMAINBOARD::SetDigitalOutput(XBYTE bit, bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::SwitchReleK1(bool on)
 {
   if(!pcf8574[DIOAIOBIMAINBOARD_I2CDIGIGPIO_RELAYS])                  return false;
@@ -540,7 +540,7 @@ bool DIOAIOBIMAINBOARD::SwitchReleK1(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::SwitchReleK2(bool on)
 {
   if(!pcf8574[DIOAIOBIMAINBOARD_I2CDIGIGPIO_RELAYS])                  return false;
@@ -565,7 +565,7 @@ bool DIOAIOBIMAINBOARD::SwitchReleK2(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::SwitchReleK3(bool on)
 {
   if(!pcf8574[DIOAIOBIMAINBOARD_I2CDIGIGPIO_RELAYS])                  return false;
@@ -591,7 +591,7 @@ bool DIOAIOBIMAINBOARD::SwitchReleK3(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::EEProm(bool write, XBUFFER& xbuffer)
 {
   if(!eeprom)                   return false;
@@ -616,7 +616,7 @@ bool DIOAIOBIMAINBOARD::EEProm(bool write, XBUFFER& xbuffer)
 *
 * @return     DIOGPIO* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOGPIO* DIOAIOBIMAINBOARD::GetGPIO()
 {
   return gpio;
@@ -637,7 +637,7 @@ DIOGPIO* DIOAIOBIMAINBOARD::GetGPIO()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::SetPWM(XBYTE channel, XWORD on, XWORD off, bool wait)
 {
   if(!pca9685) return false;
@@ -654,7 +654,7 @@ bool DIOAIOBIMAINBOARD::SetPWM(XBYTE channel, XWORD on, XWORD off, bool wait)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::ResetMicroControler()
 {
   if(!SetModeHeaderPin(DIOAIOBIMAINBOARD_HEADER_SLOT,  9, false)) return false;   // Reset Micro
@@ -684,7 +684,7 @@ bool DIOAIOBIMAINBOARD::ResetMicroControler()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAIOBIMAINBOARD::End()
 {
   for(int c=0; c<3; c++)
@@ -738,7 +738,7 @@ bool DIOAIOBIMAINBOARD::End()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOAIOBIMAINBOARD::Clean()
 {
   isini                      = false;

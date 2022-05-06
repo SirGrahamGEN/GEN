@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream IP Local Enum Devices class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMIPLOCALENUMDEVICES::DIOSTREAMIPLOCALENUMDEVICES(): DIOSTREAMENUMDEVICES()
 {
   Clean();
@@ -71,7 +71,7 @@ DIOSTREAMIPLOCALENUMDEVICES::DIOSTREAMIPLOCALENUMDEVICES(): DIOSTREAMENUMDEVICES
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMIPLOCALENUMDEVICES::~DIOSTREAMIPLOCALENUMDEVICES()
 {
   Clean();
@@ -87,7 +87,7 @@ DIOSTREAMIPLOCALENUMDEVICES::~DIOSTREAMIPLOCALENUMDEVICES()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMIPLOCALENUMDEVICES::Search()
 {
   return false;
@@ -105,7 +105,7 @@ bool DIOSTREAMIPLOCALENUMDEVICES::Search()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMIPLOCALENUMDEVICES::StopSearch(bool waitend)
 {
   return false;
@@ -121,7 +121,7 @@ bool DIOSTREAMIPLOCALENUMDEVICES::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMIPLOCALENUMDEVICES::IsSearching()
 {
   return issearching;
@@ -139,7 +139,7 @@ bool DIOSTREAMIPLOCALENUMDEVICES::IsSearching()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMIPLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 {
   return false;
@@ -155,7 +155,7 @@ bool DIOSTREAMIPLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 *
 * @return     DIOSTREAMDEVICE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICE* DIOSTREAMIPLOCALENUMDEVICES::GetFirstActiveDevice()
 {
   Search();
@@ -189,7 +189,7 @@ DIOSTREAMDEVICE* DIOSTREAMIPLOCALENUMDEVICES::GetFirstActiveDevice()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMIPLOCALENUMDEVICES::Clean()
 {
   type        = DIOSTREAMENUMTYPE_IP_LOCAL;

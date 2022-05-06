@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Use Generic Binary Protocol definitions
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOPROTOCOL_CONNECTIONSINUSEDEFINITIONS_H_
 #define _DIOPROTOCOL_CONNECTIONSINUSEDEFINITIONS_H_
@@ -44,7 +44,7 @@ enum DIOPROTOCOL_CONNECTIONSINUSEID
   DIOPROTOCOL_CONNECTIONSINUSEID_END                          =  0x10000000 ,
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

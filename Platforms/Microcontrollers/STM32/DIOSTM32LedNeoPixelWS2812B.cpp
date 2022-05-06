@@ -6,7 +6,7 @@
 * @brief      Data Input/Output STM32 Led Neopixel WS2812B
 * @ingroup    PLATFORM_STM32
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -57,7 +57,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32LEDNEOPIXELWS2812B::DIOSTM32LEDNEOPIXELWS2812B()
 {
   Clean();
@@ -73,7 +73,7 @@ DIOSTM32LEDNEOPIXELWS2812B::DIOSTM32LEDNEOPIXELWS2812B()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32LEDNEOPIXELWS2812B::~DIOSTM32LEDNEOPIXELWS2812B()
 {
   Clean();
@@ -89,7 +89,7 @@ DIOSTM32LEDNEOPIXELWS2812B::~DIOSTM32LEDNEOPIXELWS2812B()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32LEDNEOPIXELWS2812B::Send()
 {   
 	DIOGPIO_ENTRY* entry = GEN_DIOGPIO.GPIOEntry_GetByID(GPIOentryID);
@@ -222,7 +222,7 @@ bool DIOSTM32LEDNEOPIXELWS2812B::Send()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32LEDNEOPIXELWS2812B::Clean()
 {
   

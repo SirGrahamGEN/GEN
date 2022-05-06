@@ -6,7 +6,7 @@
 * @brief      GEN Defines precompilated
 * @ingroup
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _GEN_DEFINES_H_
 #define _GEN_DEFINES_H_
@@ -40,14 +40,11 @@
 #define UNICODE
 #endif
 
-
-
 // --- eXtensions ---------------------------------------------------------------------------------
 
 #ifndef GEN_XFACTORY
 #define GEN_XFACTORY                      XFACTORY::GetInstance()
 #endif
-
 
 #ifndef GEN_XFACTORY_CREATE
 #define GEN_XFACTORY_CREATE(var, func)    var = GEN_XFACTORY.func;   \
@@ -103,55 +100,47 @@
 // --- Data Input/Output Manager ------------------------------------------------------------------
 
 #ifndef GEN_DIOFACTORY
-#define GEN_DIOFACTORY            DIOFACTORY::GetInstance()
+#define GEN_DIOFACTORY                    DIOFACTORY::GetInstance()
 #endif
 
 // Macros SINGLETON
 
 #ifndef GEN_DIOGPIO
-#define GEN_DIOGPIO               DIOGPIO::GetInstance()
+#define GEN_DIOGPIO                       DIOGPIO::GetInstance()
 #endif
 
 #ifndef GEN_DIODNSRESOLVED
-#define GEN_DIODNSRESOLVED        DIODNSRESOLVED::GetInstance()
+#define GEN_DIODNSRESOLVED                DIODNSRESOLVED::GetInstance()
 #endif
 
 #ifndef GEN_DIOALERTS
-#define GEN_DIOALERTS             DIOALERTS::GetInstance()
+#define GEN_DIOALERTS                     DIOALERTS::GetInstance()
 #endif
 
 #ifndef GEN_APPALERTS
-#define GEN_APPALERTS             APPALERTS::GetInstance()
+#define GEN_APPALERTS                     APPALERTS::GetInstance()
 #endif
 
 // --- Graphics Manager ---------------------------------------------------------------------------
 
 #ifndef GEN_GRPFACTORY
-#define GEN_GRPFACTORY            GRPFACTORY::GetInstance()
+#define GEN_GRPFACTORY                    GRPFACTORY::GetInstance()
 #endif
 
 
 // --- Input Manager ------------------------------------------------------------------------------
 
 #ifndef GEN_INPMANAGER
-#define GEN_INPMANAGER            INPMANAGER::GetInstance()
+#define GEN_INPMANAGER                    INPMANAGER::GetInstance()
 #endif
 
 
 // --- User Interface manager ---------------------------------------------------------------------
 
 #ifndef GEN_USERINTERFACE
-#define GEN_USERINTERFACE         UI_MANAGER::GetInstance()
+#define GEN_USERINTERFACE                 UI_MANAGER::GetInstance()
 #endif
 
-
-
-
-
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
-
-
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-
-

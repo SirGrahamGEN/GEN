@@ -6,7 +6,7 @@
 * @brief
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -63,7 +63,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C9AXISTRACKINGMPU9150::DIOI2C9AXISTRACKINGMPU9150() : DIODEVICEI2C()
 {
   Clean();
@@ -82,7 +82,7 @@ DIOI2C9AXISTRACKINGMPU9150::DIOI2C9AXISTRACKINGMPU9150() : DIODEVICEI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C9AXISTRACKINGMPU9150::~DIOI2C9AXISTRACKINGMPU9150()
 {
   End();
@@ -99,7 +99,7 @@ DIOI2C9AXISTRACKINGMPU9150::~DIOI2C9AXISTRACKINGMPU9150()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::End()
 {
   if(!DIODEVICEI2C::End()) return false;
@@ -117,7 +117,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::IniDevice()
 {
   if(!DIODEVICEI2C::IniDevice()) return false;
@@ -143,7 +143,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::IniDevice()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::Initialize()
 {
   SetClockSource(DIOI2CMPU9150_CLOCK_PLL_XGYRO);
@@ -162,7 +162,7 @@ void DIOI2C9AXISTRACKINGMPU9150::Initialize()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::TestConnection()
 {
   return (GetDeviceID() == 0x34)?true:false;
@@ -180,7 +180,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::TestConnection()
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOI2C9AXISTRACKINGMPU9150::GetAuxVDDIOLevel()
 {
   ReadBit(deviceaddr, DIOI2CMPU9150_RA_YG_OFFS_TC, DIOI2CMPU9150_TC_PWR_MODE_BIT, buffer);
@@ -202,7 +202,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetAuxVDDIOLevel()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetAuxVDDIOLevel(XBYTE level)
 {
   WriteBit(deviceaddr, DIOI2CMPU9150_RA_YG_OFFS_TC, DIOI2CMPU9150_TC_PWR_MODE_BIT, level);
@@ -234,7 +234,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetAuxVDDIOLevel(XBYTE level)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOI2C9AXISTRACKINGMPU9150::GetRate()
 {
   ReadByte(deviceaddr, DIOI2CMPU9150_RA_SMPLRT_DIV, buffer);
@@ -253,7 +253,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetRate()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetRate(XBYTE rate)
 {
   WriteByte(deviceaddr, DIOI2CMPU9150_RA_SMPLRT_DIV, rate);
@@ -269,7 +269,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetRate(XBYTE rate)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOI2C9AXISTRACKINGMPU9150::CheckMagStatus()
 {
    ReadByte(DIOI2CMPU9150_RA_MAG_ADDRESS, 0x02, buffer);
@@ -307,7 +307,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::CheckMagStatus()
 *
 * @return     XBYTE : FSYNC configuration value
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOI2C9AXISTRACKINGMPU9150::GetExternalFrameSync()
 {
   ReadBits(deviceaddr, DIOI2CMPU9150_RA_CONFIG, DIOI2CMPU9150_CFG_EXT_SYNC_SET_BIT, DIOI2CMPU9150_CFG_EXT_SYNC_SET_LENGTH, buffer);
@@ -326,7 +326,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetExternalFrameSync()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetExternalFrameSync(XBYTE sync)
 {
   WriteBits(deviceaddr, DIOI2CMPU9150_RA_CONFIG, DIOI2CMPU9150_CFG_EXT_SYNC_SET_BIT, DIOI2CMPU9150_CFG_EXT_SYNC_SET_LENGTH, sync);
@@ -397,7 +397,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetExternalFrameSync(XBYTE sync)
 *
 * @return     XBYTE :  DLFP configuration
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOI2C9AXISTRACKINGMPU9150::GetDLPFMode()
 {
   ReadBits(deviceaddr, DIOI2CMPU9150_RA_CONFIG, DIOI2CMPU9150_CFG_DLPF_CFG_BIT, DIOI2CMPU9150_CFG_DLPF_CFG_LENGTH, buffer);
@@ -416,7 +416,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetDLPFMode()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetDLPFMode(XBYTE mode)
 {
   WriteBits(deviceaddr, DIOI2CMPU9150_RA_CONFIG, DIOI2CMPU9150_CFG_DLPF_CFG_BIT, DIOI2CMPU9150_CFG_DLPF_CFG_LENGTH, mode);
@@ -462,7 +462,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFullScaleGyroRange()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetFullScaleGyroRange(XBYTE range)
 {
   WriteBits(deviceaddr, DIOI2CMPU9150_RA_GYRO_CONFIG, DIOI2CMPU9150_GCONFIG_FS_SEL_BIT, DIOI2CMPU9150_GCONFIG_FS_SEL_LENGTH, range);
@@ -478,7 +478,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetFullScaleGyroRange(XBYTE range)
 *
 * @return     bool : Self-test enabled value.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::GetAccelXSelfTest()
 {
   ReadBit(deviceaddr, DIOI2CMPU9150_RA_ACCEL_CONFIG, DIOI2CMPU9150_ACONFIG_XA_ST_BIT, buffer);
@@ -497,7 +497,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetAccelXSelfTest()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetAccelXSelfTest(bool enabled)
 {
   WriteBit(deviceaddr, DIOI2CMPU9150_RA_ACCEL_CONFIG, DIOI2CMPU9150_ACONFIG_XA_ST_BIT, enabled);
@@ -513,7 +513,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetAccelXSelfTest(bool enabled)
 *
 * @return     bool : Self-test enabled value.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::GetAccelYSelfTest()
 {
   ReadBit(deviceaddr, DIOI2CMPU9150_RA_ACCEL_CONFIG, DIOI2CMPU9150_ACONFIG_YA_ST_BIT, buffer);
@@ -532,7 +532,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetAccelYSelfTest()
 *
 * @return     void : Self-test enabled value.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetAccelYSelfTest(bool enabled)
 {
   WriteBit(deviceaddr, DIOI2CMPU9150_RA_ACCEL_CONFIG, DIOI2CMPU9150_ACONFIG_YA_ST_BIT, enabled);
@@ -548,7 +548,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetAccelYSelfTest(bool enabled)
 *
 * @return     bool : Self-test enabled value
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::GetAccelZSelfTest()
 {
   ReadBit(deviceaddr, DIOI2CMPU9150_RA_ACCEL_CONFIG, DIOI2CMPU9150_ACONFIG_ZA_ST_BIT, buffer);
@@ -567,7 +567,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetAccelZSelfTest()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetAccelZSelfTest(bool enabled)
 {
   WriteBit(deviceaddr, DIOI2CMPU9150_RA_ACCEL_CONFIG, DIOI2CMPU9150_ACONFIG_ZA_ST_BIT, enabled);
@@ -608,7 +608,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetAccelZSelfTest(bool enabled)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFullScaleAccelRange()
 {
   ReadBits(deviceaddr, DIOI2CMPU9150_RA_ACCEL_CONFIG, DIOI2CMPU9150_ACONFIG_AFS_SEL_BIT, DIOI2CMPU9150_ACONFIG_AFS_SEL_LENGTH, buffer);
@@ -627,7 +627,7 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFullScaleAccelRange()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetFullScaleAccelRange(XBYTE range)
 {
   WriteBits(deviceaddr, DIOI2CMPU9150_RA_ACCEL_CONFIG, DIOI2CMPU9150_ACONFIG_AFS_SEL_BIT, DIOI2CMPU9150_ACONFIG_AFS_SEL_LENGTH, range);
@@ -6241,7 +6241,7 @@ void DIOI2C9AXISTRACKINGMPU9150::SetDMPConfig2(XBYTE config)
 *
 * @return     XBYTESIG :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBit(XBYTE deviceaddr, XBYTE regaddr, XBYTE bitnum, XBYTE* data, XWORD timeout)
 {
   return 0;
@@ -6263,7 +6263,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBit(XBYTE deviceaddr, XBYTE regaddr, XB
 *
 * @return     XBYTESIG :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBitW(XBYTE deviceaddr, XBYTE regaddr, XBYTE bitnum, XWORD* data, XWORD timeout)
 {
   return 0;
@@ -6286,7 +6286,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBitW(XBYTE deviceaddr, XBYTE regaddr, X
 *
 * @return     XBYTESIG :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBits(XBYTE deviceaddr, XBYTE regaddr, XBYTE bitstart, XBYTE length, XBYTE* data, XWORD timeout)
 {
   return 0;
@@ -6309,7 +6309,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBits(XBYTE deviceaddr, XBYTE regaddr, X
 *
 * @return     XBYTESIG :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBitsW(XBYTE deviceaddr, XBYTE regaddr, XBYTE bitstart, XBYTE length, XWORD* data, XWORD timeout)
 {
   return 0;
@@ -6330,7 +6330,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBitsW(XBYTE deviceaddr, XBYTE regaddr, 
 *
 * @return     XBYTESIG :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadByte(XBYTE deviceaddr, XBYTE regaddr, XBYTE* data, XWORD timeout)
 {
   return 0;
@@ -6351,7 +6351,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadByte(XBYTE deviceaddr, XBYTE regaddr, X
 *
 * @return     XBYTESIG :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadWord(XBYTE deviceaddr, XBYTE regaddr, XWORD* data, XWORD timeout)
 {
   return 0;
@@ -6373,7 +6373,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadWord(XBYTE deviceaddr, XBYTE regaddr, X
 *
 * @return     XBYTESIG :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBytes(XBYTE deviceaddr, XBYTE regaddr, XBYTE length, XBYTE* data, XWORD timeout)
 {
   return 0;
@@ -6395,7 +6395,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadBytes(XBYTE deviceaddr, XBYTE regaddr, 
 *
 * @return     XBYTESIG :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadWords(XBYTE deviceaddr, XBYTE regaddr, XBYTE length, XWORD* data, XWORD timeout)
 {
   return 0;
@@ -6416,7 +6416,7 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::ReadWords(XBYTE deviceaddr, XBYTE regaddr, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::WriteBit(XBYTE deviceaddr, XBYTE regaddr, XBYTE bitnum, XBYTE data)
 {
   return false;
@@ -6437,7 +6437,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteBit(XBYTE deviceaddr, XBYTE regaddr, XBYTE
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::WriteBitW(XBYTE deviceaddr, XBYTE regaddr, XBYTE bitnum, XWORD data)
 {
   return false;
@@ -6459,7 +6459,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteBitW(XBYTE deviceaddr, XBYTE regaddr, XBYT
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::WriteBits(XBYTE deviceaddr, XBYTE regaddr, XBYTE bitstart, XBYTE length, XBYTE data)
 {
   return false;
@@ -6481,7 +6481,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteBits(XBYTE deviceaddr, XBYTE regaddr, XBYT
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::WriteBitsW(XBYTE deviceaddr, XBYTE regaddr, XBYTE bitstart, XBYTE length, XWORD data)
 {
   return false;
@@ -6501,7 +6501,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteBitsW(XBYTE deviceaddr, XBYTE regaddr, XBY
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::WriteByte(XBYTE deviceaddr, XBYTE regaddr, XBYTE data)
 {
   return false;
@@ -6521,7 +6521,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteByte(XBYTE deviceaddr, XBYTE regaddr, XBYT
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::WriteWord(XBYTE deviceaddr, XBYTE regaddr, XWORD data)
 {
   return false;
@@ -6542,7 +6542,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteWord(XBYTE deviceaddr, XBYTE regaddr, XWOR
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::WriteBytes(XBYTE deviceaddr, XBYTE regaddr, XBYTE length, XBYTE* data)
 {
   return false;
@@ -6563,7 +6563,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteBytes(XBYTE deviceaddr, XBYTE regaddr, XBY
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C9AXISTRACKINGMPU9150::WriteWords(XBYTE deviceaddr, XBYTE regaddr, XBYTE length, XWORD* data)
 {
   return false;
@@ -6580,7 +6580,7 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteWords(XBYTE deviceaddr, XBYTE regaddr, XBY
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::Clean()
 {
   

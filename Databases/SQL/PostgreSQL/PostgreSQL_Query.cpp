@@ -6,7 +6,7 @@
 * @brief      DataBase PostgreSQL Query class
 * @ingroup    DATABASESSQL
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -61,7 +61,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_QUERY::POSTGRESQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(database)
 {
   Clean();
@@ -80,7 +80,7 @@ POSTGRESQL_QUERY::POSTGRESQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(data
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_QUERY::~POSTGRESQL_QUERY()
 {
   if(result)
@@ -124,7 +124,7 @@ POSTGRESQL_QUERY::~POSTGRESQL_QUERY()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_QUERY::Execute()
 {
   if(!database) return false;
@@ -276,7 +276,7 @@ bool POSTGRESQL_QUERY::Execute()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_QUERY::ClearCursor()
 {
   bool success = false;
@@ -308,7 +308,7 @@ bool POSTGRESQL_QUERY::ClearCursor()
 *
 * @return     DB_SQL_RESULT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_RESULT* POSTGRESQL_QUERY::ConstructResult()
 {
   POSTGRESQL_RESULT* result = new POSTGRESQL_RESULT();
@@ -327,7 +327,7 @@ DB_SQL_RESULT* POSTGRESQL_QUERY::ConstructResult()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_QUERY::BindParametersToQuery()
 {
   XDWORD nparams = value.CountCharacter(__C('$'));
@@ -432,7 +432,7 @@ bool POSTGRESQL_QUERY::BindParametersToQuery()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_QUERY::BindParametersToResult()
 {
   return false;
@@ -449,7 +449,7 @@ bool POSTGRESQL_QUERY::BindParametersToResult()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void POSTGRESQL_QUERY::Clean()
 {
 

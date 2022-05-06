@@ -6,7 +6,7 @@
 * @brief      Main Procedure SAMD5xE5x class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _MAINPROCSAMD5XE5X_H_
 #define _MAINPROCSAMD5XE5X_H_
@@ -60,7 +60,7 @@ class MAINPROCSAMD5XE5X : public MAINPROC
     void                          Clean                 ();
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 extern "C" void     _read               ();
 extern "C" void     _write              ();

@@ -6,7 +6,7 @@
 * @brief      Windows Data IO Stream Bluetooth LE REMOTE Enum Devices class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES_H_
 #define _DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES_H_
@@ -61,7 +61,7 @@ class DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES : public DIOSTREAMBLUETOOTHLE
     
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

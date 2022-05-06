@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Scraper Web Sex Name class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSEXNAME_RESULT::DIOSEXNAME_RESULT()
 {
   Clean();
@@ -75,7 +75,7 @@ DIOSEXNAME_RESULT::DIOSEXNAME_RESULT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSEXNAME_RESULT::~DIOSEXNAME_RESULT()
 {
   Clean();
@@ -91,7 +91,7 @@ DIOSEXNAME_RESULT::~DIOSEXNAME_RESULT()
 *
 * @return     DIOSCRAPERWEBSEXNAMETYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBSEXNAMETYPE DIOSEXNAME_RESULT::Get()
 {
   return sex;
@@ -109,7 +109,7 @@ DIOSCRAPERWEBSEXNAMETYPE DIOSEXNAME_RESULT::Get()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSEXNAME_RESULT::Set(DIOSCRAPERWEBSEXNAMETYPE sex)
 {
   this->sex = sex;
@@ -127,7 +127,7 @@ bool DIOSEXNAME_RESULT::Set(DIOSCRAPERWEBSEXNAMETYPE sex)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOSEXNAME_RESULT::GetNameClear()
 {
   return &nameclear;
@@ -144,7 +144,7 @@ XSTRING* DIOSEXNAME_RESULT::GetNameClear()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSEXNAME_RESULT::Clean()
 {
   sex = DIOSCRAPERWEBSEXNAMETYPE_NOTOBTAINED;
@@ -166,7 +166,7 @@ void DIOSEXNAME_RESULT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBSEXNAME::DIOSCRAPERWEBSEXNAME(): DIOSCRAPERWEB()
 {
   Clean();
@@ -183,7 +183,7 @@ DIOSCRAPERWEBSEXNAME::DIOSCRAPERWEBSEXNAME(): DIOSCRAPERWEB()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBSEXNAME::~DIOSCRAPERWEBSEXNAME()
 
 {
@@ -203,7 +203,7 @@ DIOSCRAPERWEBSEXNAME::~DIOSCRAPERWEBSEXNAME()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBSEXNAME::ChangeURL(XCHAR* maskurl, DIOURL& url)
 {
   url.Format(maskurl, name.Get());
@@ -228,7 +228,7 @@ bool DIOSCRAPERWEBSEXNAME::ChangeURL(XCHAR* maskurl, DIOURL& url)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBSEXNAME::Get(XCHAR* name, DIOSCRAPERWEBSEXNAMETYPE& sexnametype, XSTRING* nameclear, int timeoutforurl, XSTRING* localIP, bool usecache)
 {
   bool status = false;
@@ -313,7 +313,7 @@ bool DIOSCRAPERWEBSEXNAME::Get(XCHAR* name, DIOSCRAPERWEBSEXNAMETYPE& sexnametyp
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBSEXNAME::Get(XSTRING& name, DIOSCRAPERWEBSEXNAMETYPE& sexnametype, XSTRING* nameclear, int timeoutforurl, XSTRING* localIP, bool usecache)
 {
   return Get(name.Get(), sexnametype, nameclear, timeoutforurl, localIP, usecache);
@@ -331,7 +331,7 @@ bool DIOSCRAPERWEBSEXNAME::Get(XSTRING& name, DIOSCRAPERWEBSEXNAMETYPE& sexnamet
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBSEXNAME::Clean()
 {
 

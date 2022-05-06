@@ -6,7 +6,7 @@
 * @brief      Data Input/Output NTP (Network Time Protocol) UTC class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIONTP::DIONTP()
 {
   Clean();
@@ -82,7 +82,7 @@ DIONTP::DIONTP()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIONTP::~DIONTP()
 {
   if(xtimer)
@@ -121,7 +121,7 @@ DIONTP::~DIONTP()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIONTP::GetTimeResponse(XCHAR* urlntpserver, int timeout, bool hardwareuselittleendian, DIONTPRESPONSE& response)
 {
   if(!xtimer)                               return false;
@@ -208,7 +208,7 @@ bool DIONTP::GetTimeResponse(XCHAR* urlntpserver, int timeout, bool hardwareusel
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIONTP::GetTimeResponse(DIOURL& urlntpserver, int timeout, bool hardwareuselittleendian, DIONTPRESPONSE& response)
 {
   return GetTimeResponse(urlntpserver.Get(), timeout, hardwareuselittleendian, response);
@@ -229,7 +229,7 @@ bool DIONTP::GetTimeResponse(DIOURL& urlntpserver, int timeout, bool hardwareuse
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIONTP::GetTimeSeconds(XCHAR* urlntpserver, int timeout, bool hardwareuselittleendian, XQWORD& timeseconds)
 {
   DIONTPRESPONSE response;
@@ -260,7 +260,7 @@ bool DIONTP::GetTimeSeconds(XCHAR* urlntpserver, int timeout, bool hardwareuseli
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIONTP::GetTimeSeconds(DIOURL& urlntpserver, int timeout, bool hardwareuselittleendian, XQWORD& timeseconds)
 {
   return GetTimeSeconds(urlntpserver.Get(), timeout, hardwareuselittleendian, timeseconds);
@@ -281,7 +281,7 @@ bool DIONTP::GetTimeSeconds(DIOURL& urlntpserver, int timeout, bool hardwareusel
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIONTP::GetTime(XCHAR* urlntpserver, int timeout, bool hardwareuselittleendian, XDATETIME& xdatetime)
 {
   XQWORD timeseconds;
@@ -321,7 +321,7 @@ bool DIONTP::GetTime(XCHAR* urlntpserver, int timeout, bool hardwareuselittleend
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIONTP::GetTime(DIOURL& urlntpserver, int timeout, bool hardwareuselittleendian, XDATETIME& xtime)
 {
   return GetTime(urlntpserver.Get(), timeout, hardwareuselittleendian, xtime);
@@ -340,7 +340,7 @@ bool DIONTP::GetTime(DIOURL& urlntpserver, int timeout, bool hardwareuselittleen
 *
 * @return     XQWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD DIONTP::ConvertTimePacket(DIOTIMEPACKET& timepacket, bool hardwareuselittleendian)
 {
   XDWORD  dwhigh   =  (hardwareuselittleendian)?SwapDWORD(timepacket.integer)    : timepacket.integer;
@@ -364,7 +364,7 @@ XQWORD DIONTP::ConvertTimePacket(DIOTIMEPACKET& timepacket, bool hardwareuselitt
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIONTP::Clean()
 {
   xtimer          = NULL;

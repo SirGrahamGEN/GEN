@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Bluetooth LE REMOTE Enum Devices class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -51,7 +51,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES() 
 {
   Clean();
@@ -68,7 +68,7 @@ DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
 {
   Clean();
@@ -84,7 +84,7 @@ DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
 { 
   return false;   
@@ -102,7 +102,7 @@ bool DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::StopSearch(bool waitend)                      
 { 
   return false;   
@@ -118,7 +118,7 @@ bool DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()                                  
 { 
   return false;   
@@ -136,7 +136,7 @@ bool DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsDeviceAvailable(XCHAR* resource)                   
 { 
   return false;   
@@ -152,7 +152,7 @@ bool DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 *
 * @return     XDWORD : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::GetSearchMode()
 {
   return searchmode;
@@ -170,7 +170,7 @@ XDWORD DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::GetSearchMode()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::SetSearchMode(XDWORD searchmode)
 {
   this->searchmode |= searchmode;
@@ -188,7 +188,7 @@ void DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::SetSearchMode(XDWORD searchmode)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Clean()
 {
   type        = DIOSTREAMENUMTYPE_BLUETOOTHLE_REMOTE;

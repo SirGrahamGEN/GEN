@@ -6,7 +6,7 @@
 * @brief      Application Internet Connection Services class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _APPINTERNETSERVICES_H_
 #define _APPINTERNETSERVICES_H_
@@ -37,7 +37,6 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-
 enum APPINTERNETSERVICES_TASKID
 {
   APPINTERNETSERVICES_TASKID_UNKNOWN                      = 0 ,
@@ -46,7 +45,6 @@ enum APPINTERNETSERVICES_TASKID
   APPINTERNETSERVICES_TASKID_GETAUTOMATICLOCALIP              ,
   APPINTERNETSERVICES_TASKID_CHECKNTPDATETIME                 ,
 };
-
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -59,8 +57,6 @@ class DIONTP;
 class DIODYNDNS_MANAGER;
 class APPCFG;
 class XMUTEX;
-
-
 
 class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
 {
@@ -120,9 +116,7 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
     DIODYNDNS_MANAGER*              dyndnsmanager;
 };
 
-
-
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

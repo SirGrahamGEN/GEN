@@ -6,7 +6,7 @@
 * @brief      eXtended Drive Image Manager Event class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPWINDOWSKEYBOARDHOOK_XEVENT::INPWINDOWSKEYBOARDHOOK_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();
@@ -71,7 +71,7 @@ INPWINDOWSKEYBOARDHOOK_XEVENT::INPWINDOWSKEYBOARDHOOK_XEVENT(XSUBJECT* subject, 
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPWINDOWSKEYBOARDHOOK_XEVENT::~INPWINDOWSKEYBOARDHOOK_XEVENT()
 {
   Clean();
@@ -224,7 +224,7 @@ void INPWINDOWSKEYBOARDHOOK_XEVENT::SetIsKeyLocked(bool iskeylocked)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPWINDOWSKEYBOARDHOOK_XEVENT::Clean()
 {
   vkcode        = 0; 

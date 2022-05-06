@@ -6,7 +6,7 @@
 * @brief      ANDROID eXtended System class
 * @ingroup    PLATFORM_ANDROID
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XANDROIDSYSTEM_H_
 #define _XANDROIDSYSTEM_H_
@@ -53,7 +53,7 @@ class XANDROIDSYSTEM : public XLINUXSYSTEM
 
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

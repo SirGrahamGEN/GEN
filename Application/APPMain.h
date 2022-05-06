@@ -6,7 +6,7 @@
 * @brief      Application Main Base class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _APPMAIN_H_
 #define _APPMAIN_H_
@@ -36,6 +36,7 @@
 #include "MainProc.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -68,8 +69,7 @@ class APPMAIN
     MAINPROC*                   mainproc;
 };
 
-
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 extern APPMAIN GEN_appmain;
 

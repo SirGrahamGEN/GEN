@@ -6,7 +6,7 @@
 * @brief      eXtended Cobol file class (legacy OLD World)
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -69,7 +69,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_PIC::XFILECOBOL_PIC()
 {
   Clean();
@@ -86,7 +86,7 @@ XFILECOBOL_PIC::XFILECOBOL_PIC()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_PIC::~XFILECOBOL_PIC()
 {
   Clean();
@@ -102,7 +102,7 @@ XFILECOBOL_PIC::~XFILECOBOL_PIC()
 *
 * @return     XFILECOBOL_PIC_TYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_PIC_TYPE XFILECOBOL_PIC::GetType()
 {
   return type;
@@ -118,7 +118,7 @@ XFILECOBOL_PIC_TYPE XFILECOBOL_PIC::GetType()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XFILECOBOL_PIC::GetMask()
 {
   return &mask;
@@ -134,7 +134,7 @@ XSTRING* XFILECOBOL_PIC::GetMask()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XFILECOBOL_PIC::GetMaskDecondensed()
 {
   return &maskdecondensed;
@@ -150,7 +150,7 @@ XSTRING* XFILECOBOL_PIC::GetMaskDecondensed()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_PIC::ResolveMask()
 {
   if(mask.IsEmpty())
@@ -304,7 +304,7 @@ bool XFILECOBOL_PIC::ResolveMask()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XFILECOBOL_PIC::GetSizeData()
 {
   return sizedata;
@@ -320,7 +320,7 @@ XDWORD XFILECOBOL_PIC::GetSizeData()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XFILECOBOL_PIC::GetNDecimals()
 {
   return ndecimals;
@@ -335,7 +335,7 @@ int XFILECOBOL_PIC::GetNDecimals()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_PIC::HasSign()
 {
   return hassign;
@@ -350,7 +350,7 @@ bool XFILECOBOL_PIC::HasSign()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XFILECOBOL_PIC::GetComputationalType()
 {
   return computationaltype;
@@ -368,7 +368,7 @@ int XFILECOBOL_PIC::GetComputationalType()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_PIC::SetComputationalType(int computationaltype)
 {
   this->computationaltype = computationaltype;
@@ -385,7 +385,7 @@ void XFILECOBOL_PIC::SetComputationalType(int computationaltype)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_PIC::Clean()
 {
   type                =  XFILECOBOL_PIC_TYPE_UNKNOWN;
@@ -411,7 +411,7 @@ void XFILECOBOL_PIC::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FIELD::XFILECOBOL_FIELD()
 {
   Clean();
@@ -428,7 +428,7 @@ XFILECOBOL_FIELD::XFILECOBOL_FIELD()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FIELD::~XFILECOBOL_FIELD()
 {
   Clean();
@@ -444,7 +444,7 @@ XFILECOBOL_FIELD::~XFILECOBOL_FIELD()
 *
 * @return     XFILECOBOL_FIELD_TYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FIELD_TYPE XFILECOBOL_FIELD::GetType()
 {
   return type;
@@ -462,7 +462,7 @@ XFILECOBOL_FIELD_TYPE XFILECOBOL_FIELD::GetType()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_FIELD::SetType(XFILECOBOL_FIELD_TYPE type)
 {
   this->type = type;
@@ -477,7 +477,7 @@ void XFILECOBOL_FIELD::SetType(XFILECOBOL_FIELD_TYPE type)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XFILECOBOL_FIELD::GetLevel()
 {
   return level;
@@ -495,7 +495,7 @@ int XFILECOBOL_FIELD::GetLevel()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_FIELD::SetLevel(int level)
 {
   this->level = level;
@@ -511,7 +511,7 @@ void XFILECOBOL_FIELD::SetLevel(int level)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XFILECOBOL_FIELD::GetName()
 {
   return &name;
@@ -527,7 +527,7 @@ XSTRING* XFILECOBOL_FIELD::GetName()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_PIC* XFILECOBOL_FIELD::GetPIC()
 {
   return &PIC;
@@ -543,7 +543,7 @@ XFILECOBOL_PIC* XFILECOBOL_FIELD::GetPIC()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XFILECOBOL_FIELD::GetNOccurs()
 {
   return noccurs;
@@ -561,7 +561,7 @@ int XFILECOBOL_FIELD::GetNOccurs()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_FIELD::SetNOccurs(int noccurs)
 {
   this->noccurs = noccurs;
@@ -577,7 +577,7 @@ void XFILECOBOL_FIELD::SetNOccurs(int noccurs)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_FIELD::IsRedefine()
 {
   return isredefine;
@@ -595,7 +595,7 @@ bool XFILECOBOL_FIELD::IsRedefine()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_FIELD::SetIsRedefine(bool isredefine)
 {
   this->isredefine = isredefine;
@@ -611,7 +611,7 @@ void XFILECOBOL_FIELD::SetIsRedefine(bool isredefine)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XFILECOBOL_FIELD::GetRedefineName()
 {
   return &redefinename;
@@ -627,7 +627,7 @@ XSTRING* XFILECOBOL_FIELD::GetRedefineName()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XFILECOBOL_FIELD::GetRedefineOffset()
 {
   return redefineoffset;
@@ -645,7 +645,7 @@ int XFILECOBOL_FIELD::GetRedefineOffset()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_FIELD::SetRedefineOffset(int redefineoffset)
 {
   this->redefineoffset = redefineoffset;
@@ -662,7 +662,7 @@ void XFILECOBOL_FIELD::SetRedefineOffset(int redefineoffset)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_FIELD::Clean()
 {
   type            = XFILECOBOL_FIELD_TYPE_UNKNOWN;
@@ -693,7 +693,7 @@ void XFILECOBOL_FIELD::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_RECORD::XFILECOBOL_RECORD(XFILECOBOL_HANDLE* handle)
 {
   Clean();
@@ -715,7 +715,7 @@ XFILECOBOL_RECORD::XFILECOBOL_RECORD(XFILECOBOL_HANDLE* handle)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_RECORD::~XFILECOBOL_RECORD()
 {
   Clean();
@@ -731,7 +731,7 @@ XFILECOBOL_RECORD::~XFILECOBOL_RECORD()
 *
 * @return     XFILECOBOL_RECORD_TYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_RECORD_TYPE XFILECOBOL_RECORD::GetType()
 {
   if(!handle) return XFILECOBOL_RECORD_TYPE_UNKNOWN;
@@ -751,7 +751,7 @@ XFILECOBOL_RECORD_TYPE XFILECOBOL_RECORD::GetType()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::SetType(XFILECOBOL_RECORD_TYPE type)
 {
   if(!handle) return false;
@@ -770,7 +770,7 @@ bool XFILECOBOL_RECORD::SetType(XFILECOBOL_RECORD_TYPE type)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XFILECOBOL_RECORD::GetNFields()
 {
   if(!handle)               return 0;
@@ -794,7 +794,7 @@ XDWORD XFILECOBOL_RECORD::GetNFields()
 *
 * @return     XFILECOBOL_FIELD* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(int index)
 {
   if(!handle)               return NULL;
@@ -831,7 +831,7 @@ XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(int index)
 *
 * @return     XFILECOBOL_FIELD* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XCHAR* name)
 {
   if(!handle) return NULL;
@@ -864,7 +864,7 @@ XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XCHAR* name)
 *
 * @return     XFILECOBOL_FIELD* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XFILECOBOL_FD_TREENODEITERATOR& it)
 {
   XFILECOBOL_FIELD* field = (*it);
@@ -885,7 +885,7 @@ XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XFILECOBOL_FD_TREENODEITERATOR& it
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::GetFieldData(int index, XVARIANT& variant)
 {
   if(!handle)               return false;
@@ -910,7 +910,7 @@ bool XFILECOBOL_RECORD::GetFieldData(int index, XVARIANT& variant)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XVARIANT& variant)
 {
   if(!handle)               return false;
@@ -934,7 +934,7 @@ bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XVARIANT& variant)
 *
 * @return     XVARIANT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XVARIANT& variant)
 {
   XBUFFER           data;
@@ -963,7 +963,7 @@ bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XVARIAN
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::GetFieldData(int index, XSTRING& datastring)
 {
   if(!handle)               return false;
@@ -988,7 +988,7 @@ bool XFILECOBOL_RECORD::GetFieldData(int index, XSTRING& datastring)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XSTRING& datastring)
 {
   if(!handle)               return false;
@@ -1013,7 +1013,7 @@ bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XSTRING& datastring)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XSTRING& datastring)
 {
   XBUFFER           data;
@@ -1041,7 +1041,7 @@ bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XSTRING
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::GetFieldData(int index, XBUFFER& data)
 {
   if(!handle)               return false;
@@ -1066,7 +1066,7 @@ bool XFILECOBOL_RECORD::GetFieldData(int index, XBUFFER& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XBUFFER& data)
 {
   if(!handle)               return false;
@@ -1091,7 +1091,7 @@ bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XBUFFER& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XBUFFER& data)
 {
   if(!handle)               return false;
@@ -1121,7 +1121,7 @@ bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XBUFFER
 *
 * @return     XBUFFER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER* XFILECOBOL_RECORD::GetData()
 {
   return &data;
@@ -1140,7 +1140,7 @@ XBUFFER* XFILECOBOL_RECORD::GetData()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferdata, XVARIANT& datavariant)
 {
   if(!bufferdata.GetSize()) return false;
@@ -1163,7 +1163,7 @@ bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferda
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferdata, XSTRING& datastring)
 {
   datastring.Empty();
@@ -1283,7 +1283,7 @@ bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferda
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_RECORD::Clean()
 {
   handle = NULL;
@@ -1304,7 +1304,7 @@ void XFILECOBOL_RECORD::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_HANDLE::XFILECOBOL_HANDLE()
 {
   Clean();
@@ -1320,7 +1320,7 @@ XFILECOBOL_HANDLE::XFILECOBOL_HANDLE()
 *
 * @return     virtual :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_HANDLE::~XFILECOBOL_HANDLE()
 {
   fdtree.DeleteContents();
@@ -1339,7 +1339,7 @@ XFILECOBOL_HANDLE::~XFILECOBOL_HANDLE()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XFILECOBOL_HANDLE::GetName()
 {
   return &name;
@@ -1355,7 +1355,7 @@ XSTRING* XFILECOBOL_HANDLE::GetName()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XFILECOBOL_HANDLE::GetValueLabel()
 {
   return &valuelabel;
@@ -1371,7 +1371,7 @@ XSTRING* XFILECOBOL_HANDLE::GetValueLabel()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XFILECOBOL_HANDLE::GetDataRecord()
 {
   return &datarecord;
@@ -1387,7 +1387,7 @@ XSTRING* XFILECOBOL_HANDLE::GetDataRecord()
 *
 * @return     XFILECOBOL_FD_TREE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FD_TREE* XFILECOBOL_HANDLE::GetFDTree()
 {
   return &fdtree;
@@ -1406,7 +1406,7 @@ XFILECOBOL_FD_TREE* XFILECOBOL_HANDLE::GetFDTree()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XFILECOBOL_HANDLE::GetIndexNodeForName(XFILECOBOL_FD_TREENODE* node, XCHAR* name)
 {
   if(!node) return NOTFOUND;
@@ -1439,7 +1439,7 @@ int XFILECOBOL_HANDLE::GetIndexNodeForName(XFILECOBOL_FD_TREENODE* node, XCHAR* 
 *
 * @return     XFILECOBOL_RECORD_TYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_RECORD_TYPE  XFILECOBOL_HANDLE::GetTypeRecord()
 {
   return typerecord;
@@ -1457,7 +1457,7 @@ XFILECOBOL_RECORD_TYPE  XFILECOBOL_HANDLE::GetTypeRecord()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_HANDLE::SetTypeRecord(XFILECOBOL_RECORD_TYPE type)
 {
   typerecord = type;
@@ -1476,7 +1476,7 @@ void XFILECOBOL_HANDLE::SetTypeRecord(XFILECOBOL_RECORD_TYPE type)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_HANDLE::GetInterator(XDWORD index, XFILECOBOL_FD_TREENODEITERATOR& it)
 {
   if(!GetFDTree()) return false;
@@ -1517,7 +1517,7 @@ bool XFILECOBOL_HANDLE::GetInterator(XDWORD index, XFILECOBOL_FD_TREENODEITERATO
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_HANDLE::GetInterator(XCHAR* name, XFILECOBOL_FD_TREENODEITERATOR& it)
 {
   if(!GetFDTree()) return false;
@@ -1556,7 +1556,7 @@ bool XFILECOBOL_HANDLE::GetInterator(XCHAR* name, XFILECOBOL_FD_TREENODEITERATOR
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XFILECOBOL_HANDLE::CalculateDataSizeNode(XFILECOBOL_FD_TREENODE* node)
 {
   static XDWORD redefineoffset = 0;
@@ -1611,7 +1611,7 @@ XDWORD XFILECOBOL_HANDLE::CalculateDataSizeNode(XFILECOBOL_FD_TREENODE* node)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XFILECOBOL_HANDLE::CalculateDataSize()
 {
   XDWORD size = 0;
@@ -1640,7 +1640,7 @@ XDWORD XFILECOBOL_HANDLE::CalculateDataSize()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XFILECOBOL_HANDLE::CalculatePositionData(XFILECOBOL_FD_TREENODEITERATOR& it)
 {
   if(!GetFDTree()) return -1;
@@ -1714,7 +1714,7 @@ int XFILECOBOL_HANDLE::CalculatePositionData(XFILECOBOL_FD_TREENODEITERATOR& it)
 *
 * @return     XFILECOBOL_FIELD* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FIELD* XFILECOBOL_HANDLE::IsFieldRedefinedByAnother(XCHAR* name)
 {
   if(!GetFDTree()) return NULL;
@@ -1754,7 +1754,7 @@ XFILECOBOL_FIELD* XFILECOBOL_HANDLE::IsFieldRedefinedByAnother(XCHAR* name)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_HANDLE::Clean()
 {
   typerecord =  XFILECOBOL_RECORD_TYPE_UNKNOWN;
@@ -1776,7 +1776,7 @@ void XFILECOBOL_HANDLE::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL::XFILECOBOL()
 {
   Clean();
@@ -1794,7 +1794,7 @@ XFILECOBOL::XFILECOBOL()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL::~XFILECOBOL()
 {
   Close();
@@ -1819,7 +1819,7 @@ XFILECOBOL::~XFILECOBOL()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::Open(int nfiles, XCHAR* xpathcpyfiles, XCHAR* xpathdatfiles, ...)
 {
   XPATH     xpath_cpy;
@@ -1975,7 +1975,7 @@ bool XFILECOBOL::Open(int nfiles, XCHAR* xpathcpyfiles, XCHAR* xpathdatfiles, ..
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::IsOpen()
 {
   if(!xfiledata) return false;
@@ -1992,7 +1992,7 @@ bool XFILECOBOL::IsOpen()
 *
 * @return     XFILECOBOL_FILE_TYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FILE_TYPE XFILECOBOL::GetType()
 {
   return type;
@@ -2010,7 +2010,7 @@ XFILECOBOL_FILE_TYPE XFILECOBOL::GetType()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL::SetType(XFILECOBOL_FILE_TYPE type)
 {
   this->type = type;
@@ -2026,7 +2026,7 @@ void XFILECOBOL::SetType(XFILECOBOL_FILE_TYPE type)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::HaveFileHeaders()
 {
   return havefileheaders;
@@ -2044,7 +2044,7 @@ bool XFILECOBOL::HaveFileHeaders()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL::SetHaveFileHeaders(bool havefileheaders)
 {
   this->havefileheaders = havefileheaders;
@@ -2060,7 +2060,7 @@ void XFILECOBOL::SetHaveFileHeaders(bool havefileheaders)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XFILECOBOL::GetNRecords()
 {
   XQWORD size       = xfiledata->GetSize();
@@ -2090,7 +2090,7 @@ XDWORD XFILECOBOL::GetNRecords()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::ReadRecord(XDWORD index, XFILECOBOL_RECORD& record)
 {
   if(!IsOpen()) return false;
@@ -2139,7 +2139,7 @@ bool XFILECOBOL::ReadRecord(XDWORD index, XFILECOBOL_RECORD& record)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::ReadRecords(XVECTOR<XFILECOBOL_RECORD*>& records, XDWORD startindex)
 {
 
@@ -2156,7 +2156,7 @@ bool XFILECOBOL::ReadRecords(XVECTOR<XFILECOBOL_RECORD*>& records, XDWORD starti
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::Close()
 {
   xpathdatafile.Empty();
@@ -2185,7 +2185,7 @@ bool XFILECOBOL::Close()
 *
 * @return     XFILECOBOL_HANDLE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_HANDLE* XFILECOBOL::GetHandle()
 {
   return &handle;
@@ -2201,7 +2201,7 @@ XFILECOBOL_HANDLE* XFILECOBOL::GetHandle()
 *
 * @return     XPATH* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATH* XFILECOBOL::GetPathDataFile()
 {
   return &xpathdatafile;
@@ -2219,7 +2219,7 @@ XPATH* XFILECOBOL::GetPathDataFile()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::CapabilitiesFile_Load(XPATH& xpathcapabilitiesfile)
 {
   XFILETXT* filetxt;
@@ -2293,7 +2293,7 @@ bool XFILECOBOL::CapabilitiesFile_Load(XPATH& xpathcapabilitiesfile)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::CapabilitiesFile_UnLoad()
 {
   if(capabilitiesfilemap.IsEmpty()) return false;
@@ -2318,7 +2318,7 @@ bool XFILECOBOL::CapabilitiesFile_UnLoad()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::CapabilitiesFile_GetFile(XSTRING* fileID, XPATH& xpathfile)
 {
   if(!fileID) return false;
@@ -2355,7 +2355,7 @@ bool XFILECOBOL::CapabilitiesFile_GetFile(XSTRING* fileID, XPATH& xpathfile)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::IsValidCharacter(XCHAR character)
 {
   bool found = false;
@@ -2380,7 +2380,7 @@ bool XFILECOBOL::IsValidCharacter(XCHAR character)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::Eliminate_InvalidCharacters(XSTRING& line)
 {
   if(line.IsEmpty()) return false;
@@ -2410,7 +2410,7 @@ bool XFILECOBOL::Eliminate_InvalidCharacters(XSTRING& line)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::Eliminate_TabsForSpaces(XVECTOR<XSTRING*>* lines)
 {
   if(!lines) return false;
@@ -2452,7 +2452,7 @@ bool XFILECOBOL::Eliminate_TabsForSpaces(XVECTOR<XSTRING*>* lines)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::Eliminate_InvalidCharacters(XVECTOR<XSTRING*>* lines)
 {
   if(!lines) return false;
@@ -2477,7 +2477,7 @@ bool XFILECOBOL::Eliminate_InvalidCharacters(XVECTOR<XSTRING*>* lines)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::Eliminate_Comments(XVECTOR<XSTRING*>* lines)
 {
   if(!lines) return false;
@@ -2507,7 +2507,7 @@ bool XFILECOBOL::Eliminate_Comments(XVECTOR<XSTRING*>* lines)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::Eliminate_NumberLines(XVECTOR<XSTRING*>* lines)
 {
   if(!lines) return false;
@@ -2533,7 +2533,7 @@ bool XFILECOBOL::Eliminate_NumberLines(XVECTOR<XSTRING*>* lines)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::Eliminate_EmptyLines(XVECTOR<XSTRING*>* lines)
 {
   if(!lines) return false;
@@ -2570,7 +2570,7 @@ bool XFILECOBOL::Eliminate_EmptyLines(XVECTOR<XSTRING*>* lines)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::Eliminate_UnnecessarySpaces(XVECTOR<XSTRING*>* lines)
 {
   if(!lines) return false;
@@ -2608,7 +2608,7 @@ bool XFILECOBOL::Eliminate_UnnecessarySpaces(XVECTOR<XSTRING*>* lines)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::CreateUniqueLines(XVECTOR<XSTRING*>* lines)
 {
   if(!lines) return false;
@@ -2649,7 +2649,7 @@ bool XFILECOBOL::CreateUniqueLines(XVECTOR<XSTRING*>* lines)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::ExtractReservedToken(XSTRING& line, XCHAR* token, XSTRING& var)
 {
   XSTRING mask;
@@ -2687,7 +2687,7 @@ bool XFILECOBOL::ExtractReservedToken(XSTRING& line, XCHAR* token, XSTRING& var)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::ExtractReservedToken(XSTRING& line, XCHAR* token)
 {
   XSTRING mask;
@@ -2725,7 +2725,7 @@ bool XFILECOBOL::ExtractReservedToken(XSTRING& line, XCHAR* token)
 *
 * @return     XFILECOBOL_LINE_TYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_LINE_TYPE XFILECOBOL::InterpreterLineForHandle(XSTRING& line, int& level, XFILECOBOL_FIELD_TYPE& fieldtype, XFILECOBOL_HANDLE& handle, XSTRING& name, XSTRING& param, XSTRING& param2, int& noccurs, int& PICcomputationaltype)
 {
   XFILECOBOL_LINE_TYPE  returntype = XFILECOBOL_LINE_TYPE_UNKNOWN;
@@ -2839,7 +2839,7 @@ XFILECOBOL_LINE_TYPE XFILECOBOL::InterpreterLineForHandle(XSTRING& line, int& le
  *
  *  @return     XFILECOBOL_FD_TREENODE* :
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FD_TREENODE* XFILECOBOL::GetParentNodeOfLevel(int level)
 {
   if(!handle.GetFDTree()) return NULL;
@@ -2877,7 +2877,7 @@ XFILECOBOL_FD_TREENODE* XFILECOBOL::GetParentNodeOfLevel(int level)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::TraslateTextToHandle(XVECTOR<XSTRING*>* lines, XFILECOBOL_HANDLE& handle)
 {
   if(!lines) return false;
@@ -3092,7 +3092,7 @@ bool XFILECOBOL::TraslateTextToHandle(XVECTOR<XSTRING*>* lines, XFILECOBOL_HANDL
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::ChangeNameNodeWithOccurs(int index, XSTRING* name)
 {
   if(!name)             return false;
@@ -3131,7 +3131,7 @@ bool XFILECOBOL::ChangeNameNodeWithOccurs(int index, XSTRING* name)
 *
 * @return     XFILECOBOL_FD_TREENODE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FD_TREENODE* XFILECOBOL::DuplicateNodeWithSubnodes(int index, XFILECOBOL_FD_TREENODE* node, XFILECOBOL_FD_TREENODE* cretednode)
 {
   XFILECOBOL_FIELD*       newfielddata = NULL;
@@ -3195,7 +3195,7 @@ XFILECOBOL_FD_TREENODE* XFILECOBOL::DuplicateNodeWithSubnodes(int index, XFILECO
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::AjustNodeWithOccurs(XFILECOBOL_FD_TREENODE* node)
 {
   if(!node)            return false;
@@ -3249,7 +3249,7 @@ bool XFILECOBOL::AjustNodeWithOccurs(XFILECOBOL_FD_TREENODE* node)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL::Clean()
 {
   havefileheaders     = false;

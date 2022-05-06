@@ -6,7 +6,7 @@
 * @brief      Main Procedure class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _MAIN_PROC_H_
 #define _MAIN_PROC_H_
@@ -121,7 +121,7 @@ class MAINPROC
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 extern    MAIN_FUNCTION_TYPE    Main_Proc_PlatformIni;
 extern    MAIN_FUNCTION_TYPE    Main_Proc_Ini;

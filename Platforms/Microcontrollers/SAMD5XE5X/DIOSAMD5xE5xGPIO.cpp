@@ -6,7 +6,7 @@
 * @brief      SAMD5XE5X DIO General Port Input/Ouput
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XGPIO::DIOSAMD5XE5XGPIO(): DIOGPIO()
 {
   Clean();
@@ -71,7 +71,7 @@ DIOSAMD5XE5XGPIO::DIOSAMD5XE5XGPIO(): DIOGPIO()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XGPIO::~DIOSAMD5XE5XGPIO()
 {
   Clean();
@@ -87,7 +87,7 @@ DIOSAMD5XE5XGPIO::~DIOSAMD5XE5XGPIO()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XGPIO::Ini()
 {
 
@@ -118,7 +118,7 @@ bool DIOSAMD5XE5XGPIO::Ini()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XGPIO::SetMode(XBYTE pin, bool isinput, DIOGPIO_PINSGROUP block, DIOGPIO_PULLMODE pullmode)
 {
   if(GPIOvalue[block][pin] == DIOGPIO_PINNOTUSE) return false;
@@ -156,7 +156,7 @@ bool DIOSAMD5XE5XGPIO::SetMode(XBYTE pin, bool isinput, DIOGPIO_PINSGROUP block,
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XGPIO::Get(XBYTE pin, DIOGPIO_PINSGROUP block)
 {
   if(GPIOvalue[block][pin] == DIOGPIO_PINNOTUSE) return false;
@@ -178,7 +178,7 @@ bool DIOSAMD5XE5XGPIO::Get(XBYTE pin, DIOGPIO_PINSGROUP block)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XGPIO::Set(XBYTE pin, bool active, DIOGPIO_PINSGROUP block)
 {
   if(GPIOvalue[block][pin] == DIOGPIO_PINNOTUSE) return false;
@@ -198,7 +198,7 @@ bool DIOSAMD5XE5XGPIO::Set(XBYTE pin, bool active, DIOGPIO_PINSGROUP block)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XGPIO::End()
 {
   return false;
@@ -215,7 +215,7 @@ bool DIOSAMD5XE5XGPIO::End()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSAMD5XE5XGPIO::Clean()
 {
 

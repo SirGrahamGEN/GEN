@@ -6,7 +6,7 @@
 * @brief      ANDROID Main Proc class
 * @ingroup    PLATFORM_ANDROID
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
@@ -121,7 +121,7 @@ void*            java_vm;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCANDROID::MAINPROCANDROID()
 {
   Clean();
@@ -137,7 +137,7 @@ MAINPROCANDROID::MAINPROCANDROID()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCANDROID::~MAINPROCANDROID()
 {
   Clean();
@@ -157,7 +157,7 @@ MAINPROCANDROID::~MAINPROCANDROID()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::Ini(XSTRING* apkpath, XSTRING* datapath, APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
 {
   // #Imanol : required for openal as static library
@@ -214,7 +214,7 @@ bool MAINPROCANDROID::Ini(XSTRING* apkpath, XSTRING* datapath, APPMAIN* appmain,
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::Update()
 {
   #ifdef INP_ACTIVE
@@ -241,7 +241,7 @@ bool MAINPROCANDROID::Update()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::End()
 {
   #ifdef INP_ACTIVE
@@ -274,7 +274,7 @@ bool MAINPROCANDROID::End()
 *
 * @return     android_app* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 android_app* MAINPROCANDROID::GetAndroidApplication()
 {
   return androidapplication;
@@ -292,7 +292,7 @@ android_app* MAINPROCANDROID::GetAndroidApplication()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::SetAndroidApplication(android_app* application)
 {
   androidapplication = application;
@@ -309,7 +309,7 @@ void MAINPROCANDROID::SetAndroidApplication(android_app* application)
 *
 * @return     INPDEVICE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPDEVICE* MAINPROCANDROID::GetKeyboard()
 {
   return keyboard;
@@ -325,7 +325,7 @@ INPDEVICE* MAINPROCANDROID::GetKeyboard()
 *
 * @return     INPDEVICE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPDEVICE* MAINPROCANDROID::GetTouchscreen()
 {
   return mouse;
@@ -345,7 +345,7 @@ INPDEVICE* MAINPROCANDROID::GetTouchscreen()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::OnTouchEvent(AInputEvent* event)
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] INI OnTouchEvent"));
@@ -458,7 +458,7 @@ bool MAINPROCANDROID::OnTouchEvent(AInputEvent* event)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::OnKeyboardEvent(AInputEvent* event)
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] INI OnKeyboardEvent   Android code [%04x]"), AKeyEvent_getKeyCode(event));
@@ -498,7 +498,7 @@ bool MAINPROCANDROID::OnKeyboardEvent(AInputEvent* event)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::OnTrackballEvent(AInputEvent* event)
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnTrackballEvent"));
@@ -516,7 +516,7 @@ bool MAINPROCANDROID::OnTrackballEvent(AInputEvent* event)
 *
 * @return     STATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 STATUS MAINPROCANDROID::OnActivate()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnActivate"));
@@ -534,7 +534,7 @@ STATUS MAINPROCANDROID::OnActivate()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnDeactivate()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnDeactivate"));  
@@ -550,7 +550,7 @@ void MAINPROCANDROID::OnDeactivate()
 *
 * @return     STATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 STATUS MAINPROCANDROID::OnStep()
 {
   //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] INI OnStep"));
@@ -582,7 +582,7 @@ STATUS MAINPROCANDROID::OnStep()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnStart()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnStart"));
@@ -630,7 +630,7 @@ void MAINPROCANDROID::OnStart()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnResume()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnResume"));
@@ -647,7 +647,7 @@ void MAINPROCANDROID::OnResume()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnPause()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnPause"));  
@@ -663,7 +663,7 @@ void MAINPROCANDROID::OnPause()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnStop()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnStop"));  
@@ -679,7 +679,7 @@ void MAINPROCANDROID::OnStop()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnDestroy()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnDestroy"));  
@@ -704,7 +704,7 @@ void MAINPROCANDROID::OnDestroy()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnSaveState(void** data, size_t* size)
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnSaveState"));  
@@ -720,7 +720,7 @@ void MAINPROCANDROID::OnSaveState(void** data, size_t* size)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnConfigurationChanged()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnConfigurationChanged"));
@@ -759,7 +759,7 @@ void MAINPROCANDROID::OnConfigurationChanged()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnLowMemory()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnLowMemory"));  
@@ -775,7 +775,7 @@ void MAINPROCANDROID::OnLowMemory()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnCreateWindow()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnCreateWindow"));
@@ -900,7 +900,7 @@ void MAINPROCANDROID::OnCreateWindow()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnDestroyWindow()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnDestroyWindow"));
@@ -939,7 +939,7 @@ void MAINPROCANDROID::OnDestroyWindow()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnGainFocus()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnGainFocus"));
@@ -958,7 +958,7 @@ void MAINPROCANDROID::OnGainFocus()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnLostFocus()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnLostFocus"));
@@ -980,7 +980,7 @@ void MAINPROCANDROID::OnLostFocus()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::GetPackageResourcePath(struct android_app* app, XSTRING& path)
 {
   JNIEnv* env;
@@ -1020,7 +1020,7 @@ bool MAINPROCANDROID::GetPackageResourcePath(struct android_app* app, XSTRING& p
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::GetAbsolutePath(struct android_app* app, XSTRING& path)
 {
   JNIEnv* env;
@@ -1063,7 +1063,7 @@ bool MAINPROCANDROID::GetAbsolutePath(struct android_app* app, XSTRING& path)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::GetDPI(struct android_app* app)
 {
 
@@ -1105,7 +1105,7 @@ bool MAINPROCANDROID::GetDPI(struct android_app* app)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::Clean()
 {
   #ifdef INP_ACTIVE
@@ -1126,7 +1126,7 @@ void MAINPROCANDROID::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::Factorys_Ini()
 {
   XFACTORY::SetInstance(new XANDROIDFACTORY());
@@ -1178,7 +1178,7 @@ bool MAINPROCANDROID::Factorys_Ini()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::Factorys_End()
 {
   #ifdef GRP_ACTIVE
@@ -1565,7 +1565,7 @@ bool MAINPROCANDROID::AssetsDir_DeleteAll()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::CreateInputDevices(INPMANAGER* inpmanager, GRPANDROIDSCREEN* screen)
 {
   keyboard  = (INPANDROIDDEVICEKEYBOARD*)INPANDROIDFACTORYDEVICES::GetInstance().CreateDevice(INPDEVICE_TYPE_KEYBOARD , screen);
@@ -1619,7 +1619,7 @@ bool MAINPROCANDROID::DeleteInputDevices()
 *
 * @return     JNIEXPORT :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 JNIEXPORT jint JNI_OnLoad(JavaVM* InJavaVM, void* InReserved)
 {
   return JNI_VERSION_1_6;
@@ -1637,7 +1637,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* InJavaVM, void* InReserved)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void android_main(android_app* application)
 {
   ANDROIDJNI::InitializeJNI(application, JNI_VERSION_1_6);

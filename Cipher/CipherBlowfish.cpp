@@ -1,21 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  CIPHERBLOWFISH.CPP
-//
-//  Cipher / Uncipher Blowfish
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 25/04/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CipherBlowfish.cpp
+* 
+* @class      CIPHERBLOWFISH
+* @brief      Cipher Blowfish class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <string.h>
 
@@ -26,7 +42,7 @@
 #include "XMemory_Control.h"
 
 
-//---- DEFINES & ENUMS  --------------------------------------------------------------------
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define GET_UINT32_BE(n,b,i)  {  (n) =    ( (XDWORD) (b)[(i)    ] << 24 )             \
                                         | ( (XDWORD) (b)[(i) + 1] << 16 )             \
@@ -40,9 +56,7 @@
                                  (b)[(i) + 3] = (XBYTE) ( (n)       );       \
                               }
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 XDWORD CIPHERBLOWFISH::P[CIPHERBLOWFISH_ROUNDS + 2]   = { 0x243F6A88L, 0x85A308D3L, 0x13198A2EL, 0x03707344L,
                                                           0xA4093822L, 0x299F31D0L, 0x082EFA98L, 0xEC4E6C89L,
@@ -313,24 +327,18 @@ XDWORD CIPHERBLOWFISH::S[4][256]                     =  { { 0xD1310BA6L, 0x98DFB
                                                           }
                                                         };
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
-
-
-
-
-//-------------------------------------------------------------------
-//  CIPHERBLOWFISH::CIPHERBLOWFISH
-/**
-//
-//
-//  ""
-//  @version      30/04/2006 19:42:40
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERBLOWFISH::CIPHERBLOWFISH()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 CIPHERBLOWFISH::CIPHERBLOWFISH() : CIPHER()
 {
   Clean();
@@ -341,37 +349,35 @@ CIPHERBLOWFISH::CIPHERBLOWFISH() : CIPHER()
 }
 
 
-
-//-------------------------------------------------------------------
-//  CIPHERBLOWFISH::~CIPHERBLOWFISH
-/**
-//
-//
-//  ""
-//  @version      30/04/2006 19:42:37
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERBLOWFISH::~CIPHERBLOWFISH()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 CIPHERBLOWFISH::~CIPHERBLOWFISH()
+
 {
   Clean();
 }
 
 
-//-------------------------------------------------------------------
-//  CIPHERBLOWFISH::Cipher
-/**
-//
-//
-//  ""
-//  @version      25/04/2002 10:22:59
-//
-//  @return       bool :
-//  @param        buffer :
-//  @param        size :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERBLOWFISH::Cipher(XBYTE* input,XDWORD size)
+* @brief      Cipher
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERBLOWFISH::Cipher(XBYTE* input,XDWORD size)
 {
   if(!size) return false;
@@ -379,7 +385,6 @@ bool CIPHERBLOWFISH::Cipher(XBYTE* input,XDWORD size)
   XBUFFER                 inputpadding;
   CIPHERBLOWFISH_CONTEXT  ctx;
   XBYTE                   iv[16];
-//int                     sizecipher = size;
 
   memset(iv, 0, 16);
   if(inivector && inivector->GetSize()>=16) memcpy(iv, inivector->Get(), 16);
@@ -428,22 +433,18 @@ bool CIPHERBLOWFISH::Cipher(XBYTE* input,XDWORD size)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERBLOWFISH::Uncipher
-*/
-/**
-//
-//
-//  ""
-//  @version      11/03/2013 23:44:01
-//
-//  @return       bool :
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERBLOWFISH::Uncipher(XBYTE* input,XDWORD size)
+* @brief      Uncipher
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERBLOWFISH::Uncipher(XBYTE* input,XDWORD size)
 {
   if(!size) return false;
@@ -475,16 +476,16 @@ bool CIPHERBLOWFISH::Uncipher(XBYTE* input,XDWORD size)
   switch(this->GetChainingMode())
     {
       case CIPHERCHAININGMODE_UNKNOWN :
-      case CIPHERCHAININGMODE_ECB   : status =false;
+      case CIPHERCHAININGMODE_ECB     : status =false;
                                         break;
 
-      case CIPHERCHAININGMODE_CBC   : status = BlowfishCipher_CBC(&ctx, CIPHERBLOWFISH_DECRYPT , size, iv, input,  result->Get());
+      case CIPHERCHAININGMODE_CBC     : status = BlowfishCipher_CBC(&ctx, CIPHERBLOWFISH_DECRYPT , size, iv, input,  result->Get());
                                         break;
 
-      case CIPHERCHAININGMODE_CFB   : status = BlowfishCipher_CFB64(&ctx, CIPHERBLOWFISH_DECRYPT , size, &offset, iv, input,  result->Get());
+      case CIPHERCHAININGMODE_CFB     : status = BlowfishCipher_CFB64(&ctx, CIPHERBLOWFISH_DECRYPT , size, &offset, iv, input,  result->Get());
                                         break;
 
-      case CIPHERCHAININGMODE_CTR   : status = BlowfishCipher_CTR(&ctx, size, &offset, nonce_counter, stream_block, input,  result->Get());
+      case CIPHERCHAININGMODE_CTR     : status = BlowfishCipher_CTR(&ctx, size, &offset, nonce_counter, stream_block, input,  result->Get());
                                         break;
 
     }
@@ -493,43 +494,18 @@ bool CIPHERBLOWFISH::Uncipher(XBYTE* input,XDWORD size)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERBLOWFISH::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      10/03/2013 23:51:12
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
-void CIPHERBLOWFISH::Clean()
-{
-
-}
-
-
-
-
-
-/*-------------------------------------------------------------------
-//  CIPHERBLOWFISH::F
-*/
-/**
-//
-//
-//  ""
-//  @version      17/03/2013 23:11:53
-//
-//  @return       XDWORD :
-//  @param        ctx :
-//  @param        x :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD CIPHERBLOWFISH::F(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD x)
+* @brief      F
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  x : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD CIPHERBLOWFISH::F(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD x)
 {
   XWORD  a;
@@ -553,23 +529,19 @@ XDWORD CIPHERBLOWFISH::F(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD x)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERBLOWFISH::BlowfishCipher
-*/
-/**
-//
-//
-//  ""
-//  @version      17/03/2013 23:14:00
-//
-//  @return       void :
-//  @param        ctx :
-//  @param        xl :
-//  @param        xr :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERBLOWFISH::BlowfishCipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, XDWORD* xr)
+* @brief      BlowfishCipher
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  xl : 
+* @param[in]  xr : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERBLOWFISH::BlowfishCipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, XDWORD* xr)
 {
   XDWORD  Xl;
@@ -602,22 +574,19 @@ void CIPHERBLOWFISH::BlowfishCipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, XDW
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERBLOWFISH::BlowfishUncipher
-*/
-/**
-//
-//
-//  ""
-//  @version      17/03/2013 23:15:11
-//
-//  @return       void :
-//  @param        ctx :
-//  @param        xl :
-//  @param        xr :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERBLOWFISH::BlowfishUncipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, XDWORD* xr)
+* @brief      BlowfishUncipher
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  xl : 
+* @param[in]  xr : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERBLOWFISH::BlowfishUncipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, XDWORD* xr)
 {
   XDWORD  Xl;
@@ -650,23 +619,19 @@ void CIPHERBLOWFISH::BlowfishUncipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, X
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERBLOWFISH::BlowfishSetKey
-*/
-/**
-//
-//
-//  ""
-//  @version      17/03/2013 23:24:27
-//
-//  @return       bool :
-//  @param        ctx :
-//  @param        key :
-//  @param        keysize :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERBLOWFISH::BlowfishSetKey(CIPHERBLOWFISH_CONTEXT* ctx, XBYTE* key, XDWORD keysize)
+* @brief      BlowfishSetKey
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  key : 
+* @param[in]  keysize : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERBLOWFISH::BlowfishSetKey(CIPHERBLOWFISH_CONTEXT* ctx, XBYTE* key, XDWORD keysize)
 {
   XDWORD i;
@@ -724,24 +689,20 @@ bool CIPHERBLOWFISH::BlowfishSetKey(CIPHERBLOWFISH_CONTEXT* ctx, XBYTE* key, XDW
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERBLOWFISH::BlowfishCipher_ECB
-*/
-/**
-//
-//
-//  ""
-//  @version      17/03/2013 23:24:50
-//
-//  @return       bool :
-//  @param        ctx :
-//  @param        mode :
-//  @param        input[CIPHERBLOWFISH_BLOCKSIZE] :
-//  @param        output[CIPHERBLOWFISH_BLOCKSIZE] :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERBLOWFISH::BlowfishCipher_ECB(CIPHERBLOWFISH_CONTEXT* ctx, int mode, XBYTE input[CIPHERBLOWFISH_BLOCKSIZE], XBYTE output[CIPHERBLOWFISH_BLOCKSIZE])
+* @brief      BlowfishCipher_ECB
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  mode : 
+* @param[in]  input[CIPHERBLOWFISH_BLOCKSIZE] : 
+* @param[in]  output[CIPHERBLOWFISH_BLOCKSIZE] : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERBLOWFISH::BlowfishCipher_ECB(CIPHERBLOWFISH_CONTEXT* ctx, int mode, XBYTE input[CIPHERBLOWFISH_BLOCKSIZE], XBYTE output[CIPHERBLOWFISH_BLOCKSIZE])
 {
   XDWORD X0;
@@ -766,26 +727,22 @@ bool CIPHERBLOWFISH::BlowfishCipher_ECB(CIPHERBLOWFISH_CONTEXT* ctx, int mode, X
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERBLOWFISH::BlowfishCipher_CBC
-*/
-/**
-//
-//
-//  ""
-//  @version      17/03/2013 23:39:03
-//
-//  @return       bool :
-//  @param        ctx :
-//  @param        mode :
-//  @param        size :
-//  @param        iv[CIPHERBLOWFISH_BLOCKSIZE] :
-//  @param        input :
-//  @param        output :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERBLOWFISH::BlowfishCipher_CBC(CIPHERBLOWFISH_CONTEXT* ctx, int mode, XDWORD size, XBYTE iv[CIPHERBLOWFISH_BLOCKSIZE], XBYTE* input, XBYTE* output)
+* @brief      BlowfishCipher_CBC
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  mode : 
+* @param[in]  size : 
+* @param[in]  iv[CIPHERBLOWFISH_BLOCKSIZE] : 
+* @param[in]  input : 
+* @param[in]  output : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERBLOWFISH::BlowfishCipher_CBC(CIPHERBLOWFISH_CONTEXT* ctx, int mode, XDWORD size, XBYTE iv[CIPHERBLOWFISH_BLOCKSIZE], XBYTE* input, XBYTE* output)
 {
   XBYTE temp[CIPHERBLOWFISH_BLOCKSIZE];
@@ -835,27 +792,23 @@ bool CIPHERBLOWFISH::BlowfishCipher_CBC(CIPHERBLOWFISH_CONTEXT* ctx, int mode, X
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERBLOWFISH::BlowfishCipher_CFB64
-*/
-/**
-//
-//
-//  ""
-//  @version      17/03/2013 23:38:46
-//
-//  @return       bool :
-//  @param        ctx :
-//  @param        mode :
-//  @param        size :
-//  @param        iv_off :
-//  @param        iv[CIPHERBLOWFISH_BLOCKSIZE] :
-//  @param        input :
-//  @param        output :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERBLOWFISH::BlowfishCipher_CFB64(CIPHERBLOWFISH_CONTEXT* ctx, int mode, XDWORD size, int* iv_off, XBYTE iv[CIPHERBLOWFISH_BLOCKSIZE], XBYTE* input, XBYTE* output)
+* @brief      BlowfishCipher_CFB64
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  mode : 
+* @param[in]  size : 
+* @param[in]  iv_off : 
+* @param[in]  iv[CIPHERBLOWFISH_BLOCKSIZE] : 
+* @param[in]  input : 
+* @param[in]  output : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERBLOWFISH::BlowfishCipher_CFB64(CIPHERBLOWFISH_CONTEXT* ctx, int mode, XDWORD size, int* iv_off, XBYTE iv[CIPHERBLOWFISH_BLOCKSIZE], XBYTE* input, XBYTE* output)
 {
   int n = *iv_off;
@@ -892,27 +845,23 @@ bool CIPHERBLOWFISH::BlowfishCipher_CFB64(CIPHERBLOWFISH_CONTEXT* ctx, int mode,
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  CIPHERBLOWFISH::BlowfishCipher_CTR
-*/
-/**
-//
-//
-//  ""
-//  @version      17/03/2013 23:38:30
-//
-//  @return       bool :
-//  @param        ctx :
-//  @param        size :
-//  @param        nc_off :
-//  @param        nonce_counter[CIPHERBLOWFISH_BLOCKSIZE] :
-//  @param        stream_block[CIPHERBLOWFISH_BLOCKSIZE] :
-//  @param        input :
-//  @param        output :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERBLOWFISH::BlowfishCipher_CTR(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD size, int* nc_off, XBYTE nonce_counter[CIPHERBLOWFISH_BLOCKSIZE], XBYTE stream_block[CIPHERBLOWFISH_BLOCKSIZE], XBYTE* input, XBYTE* output)
+* @brief      BlowfishCipher_CTR
+* @ingroup    CIPHER
+* 
+* @param[in]  ctx : 
+* @param[in]  size : 
+* @param[in]  nc_off : 
+* @param[in]  nonce_counter[CIPHERBLOWFISH_BLOCKSIZE] : 
+* @param[in]  stream_block[CIPHERBLOWFISH_BLOCKSIZE] : 
+* @param[in]  input : 
+* @param[in]  output : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERBLOWFISH::BlowfishCipher_CTR(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD size, int* nc_off, XBYTE nonce_counter[CIPHERBLOWFISH_BLOCKSIZE], XBYTE stream_block[CIPHERBLOWFISH_BLOCKSIZE], XBYTE* input, XBYTE* output)
 {
   int n = *nc_off;
@@ -942,3 +891,17 @@ bool CIPHERBLOWFISH::BlowfishCipher_CTR(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD size
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERBLOWFISH::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERBLOWFISH::Clean()
+{
+
+}

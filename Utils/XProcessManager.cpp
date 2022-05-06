@@ -7,7 +7,7 @@
 * @note       Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -25,7 +25,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -246,7 +246,7 @@ void XPROCESS::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPROCESSMANAGER::XPROCESSMANAGER()
 {
   Clean();
@@ -262,7 +262,7 @@ XPROCESSMANAGER::XPROCESSMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPROCESSMANAGER::~XPROCESSMANAGER()
 {
   Clean();
@@ -279,7 +279,7 @@ XPROCESSMANAGER::~XPROCESSMANAGER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPROCESSMANAGER::GetIsInstanced()
 {
   return instance!=NULL;
@@ -296,7 +296,7 @@ bool XPROCESSMANAGER::GetIsInstanced()
 *
 * @return     XPROCESSMANAGER& :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPROCESSMANAGER& XPROCESSMANAGER::GetInstance()
 {
   if(!instance) instance = new XPROCESSMANAGER();
@@ -318,7 +318,7 @@ XPROCESSMANAGER& XPROCESSMANAGER::GetInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPROCESSMANAGER::SetInstance(XPROCESSMANAGER* _instance)
 {
   if(!_instance) return false;
@@ -339,7 +339,7 @@ bool XPROCESSMANAGER::SetInstance(XPROCESSMANAGER* _instance)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPROCESSMANAGER::DelInstance()
 {
   if(instance)
@@ -365,7 +365,7 @@ bool XPROCESSMANAGER::DelInstance()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 {
   return false;
@@ -386,7 +386,7 @@ bool XPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* returncode)
 {
   return false;
@@ -409,7 +409,7 @@ bool XPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* returncode)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 {
   return false;
@@ -429,7 +429,7 @@ bool XPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
 {
   return false;
@@ -567,7 +567,7 @@ bool XPROCESSMANAGER::TerminateApplication(XSTRING& processname, XDWORD exitcode
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XPROCESSMANAGER::Clean()
 {
 

@@ -6,7 +6,7 @@
 * @brief      WINDOWS INPUT Device Mouse class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -57,7 +57,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPWINDOWSDEVICEMOUSE::INPWINDOWSDEVICEMOUSE(): INPDEVICE()
 {
   Clean();
@@ -87,7 +87,7 @@ INPWINDOWSDEVICEMOUSE::INPWINDOWSDEVICEMOUSE(): INPDEVICE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPWINDOWSDEVICEMOUSE::~INPWINDOWSDEVICEMOUSE()
 {
   DeleteAllButtons();
@@ -109,7 +109,7 @@ INPWINDOWSDEVICEMOUSE::~INPWINDOWSDEVICEMOUSE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSDEVICEMOUSE::Update()
 {
   if(!IsEnabled()) return false;
@@ -213,7 +213,7 @@ bool INPWINDOWSDEVICEMOUSE::Update()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPWINDOWSDEVICEMOUSE::Clean()
 {
 
@@ -236,7 +236,7 @@ void INPWINDOWSDEVICEMOUSE::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSDEVICEMOUSE::GetWindowPosition(int& screenx,int& screeny,int& screenw,int& screenh)
 {
   if(!grpscreen) return false;
@@ -265,7 +265,7 @@ bool INPWINDOWSDEVICEMOUSE::GetWindowPosition(int& screenx,int& screeny,int& scr
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSDEVICEMOUSE::CreateAllButtons()
 { 
   INPBUTTON::CreateButton( &buttons, VK_LBUTTON , INPBUTTON_ID_MOUSE_LEFT      , __C('\x0'));
@@ -286,7 +286,7 @@ bool INPWINDOWSDEVICEMOUSE::CreateAllButtons()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSDEVICEMOUSE::CreateAllCursors()
 {
   INPCURSOR* cursor;

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C MCP23S17 (Microchip) (8+8 Digital I/O)
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2CGPIOMCP2317_H_
 #define _DIOI2CGPIOMCP2317_H_
@@ -89,7 +89,7 @@ class DIOI2CGPIOMCP2317 :  public DIODEVICEI2C
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

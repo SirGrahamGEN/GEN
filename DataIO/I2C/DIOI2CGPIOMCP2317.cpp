@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C MCP23S17 (Microchip) (8+8 Digital I/O)
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -59,7 +59,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CGPIOMCP2317::DIOI2CGPIOMCP2317() :  DIODEVICEI2C()
 {
   Clean();
@@ -78,7 +78,7 @@ DIOI2CGPIOMCP2317::DIOI2CGPIOMCP2317() :  DIODEVICEI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CGPIOMCP2317::~DIOI2CGPIOMCP2317()
 {
   End();
@@ -121,7 +121,7 @@ bool DIOI2CGPIOMCP2317::Configure(XBYTE port_A, XBYTE port_B)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CGPIOMCP2317::ReadInputs(DIOI2CGPIOMCP2317PORT port, XBYTE& value)
 {
   if(!diostream)        return false;
@@ -151,7 +151,7 @@ bool DIOI2CGPIOMCP2317::ReadInputs(DIOI2CGPIOMCP2317PORT port, XBYTE& value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CGPIOMCP2317::WriteOutputs(DIOI2CGPIOMCP2317PORT port, XBYTE value)
 {
   XBYTE cmd = (DIOI2CGPIOMCP2317_OLAT + port);
@@ -172,7 +172,7 @@ bool DIOI2CGPIOMCP2317::WriteOutputs(DIOI2CGPIOMCP2317PORT port, XBYTE value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CGPIOMCP2317::SendCommand(XBYTE cmd, XBYTE value)
 {
   if(!diostream)        return false;
@@ -200,7 +200,7 @@ bool DIOI2CGPIOMCP2317::SendCommand(XBYTE cmd, XBYTE value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CGPIOMCP2317::End()
 {
   if(!DIODEVICEI2C::End()) return false;
@@ -218,7 +218,7 @@ bool DIOI2CGPIOMCP2317::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CGPIOMCP2317::IniDevice()
 {  
   if(!DIODEVICEI2C::IniDevice()) return false;
@@ -246,7 +246,7 @@ bool DIOI2CGPIOMCP2317::IniDevice()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CGPIOMCP2317::Clean()
 {
   diostream     = NULL;

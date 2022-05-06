@@ -6,7 +6,7 @@
 * @brief      SAMD5xE5x Data IO Stream I2C class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -68,7 +68,7 @@ DIOSAMD5XE5XSTREAMI2C*        DIOSAMD5XE5XSTREAMI2C::handles[DIOSAMD5XE5XSTREAMI
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XSTREAMI2CPORT::DIOSAMD5XE5XSTREAMI2CPORT()
 {
   Clean();
@@ -85,7 +85,7 @@ DIOSAMD5XE5XSTREAMI2CPORT::DIOSAMD5XE5XSTREAMI2CPORT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XSTREAMI2CPORT::~DIOSAMD5XE5XSTREAMI2CPORT()
 {
   Clean();
@@ -101,7 +101,7 @@ DIOSAMD5XE5XSTREAMI2CPORT::~DIOSAMD5XE5XSTREAMI2CPORT()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMI2CPORT::GetCounterRef()
 {
   return counterref;
@@ -119,7 +119,7 @@ XDWORD DIOSAMD5XE5XSTREAMI2CPORT::GetCounterRef()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSAMD5XE5XSTREAMI2CPORT::SetCounterRef(XDWORD counterref)
 {
   this->counterref = counterref;
@@ -135,7 +135,7 @@ void DIOSAMD5XE5XSTREAMI2CPORT::SetCounterRef(XDWORD counterref)
 *
 * @return     I2C_HandleTypeDef* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 I2C_HandleTypeDef* DIOSAMD5XE5XSTREAMI2CPORT::GetHandleI2C()
 {
@@ -155,7 +155,7 @@ I2C_HandleTypeDef* DIOSAMD5XE5XSTREAMI2CPORT::GetHandleI2C()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 void DIOSAMD5XE5XSTREAMI2CPORT::SetHandleI2C(I2C_HandleTypeDef* hi2c)
 {
@@ -173,7 +173,7 @@ void DIOSAMD5XE5XSTREAMI2CPORT::SetHandleI2C(I2C_HandleTypeDef* hi2c)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSAMD5XE5XSTREAMI2CPORT::Clean()
 {
   counterref        = 0;
@@ -197,7 +197,7 @@ void DIOSAMD5XE5XSTREAMI2CPORT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XSTREAMI2C::DIOSAMD5XE5XSTREAMI2C() : DIOSTREAMI2C()
 {
   Clean();
@@ -236,7 +236,7 @@ DIOSAMD5XE5XSTREAMI2C::DIOSAMD5XE5XSTREAMI2C() : DIOSTREAMI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XSTREAMI2C::~DIOSAMD5XE5XSTREAMI2C()
 {
   Close();
@@ -256,7 +256,7 @@ DIOSAMD5XE5XSTREAMI2C::~DIOSAMD5XE5XSTREAMI2C()
 *
 * @return     DIOSTREAMSTATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOSAMD5XE5XSTREAMI2C::GetConnectStatus()
 {
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -274,7 +274,7 @@ DIOSTREAMSTATUS DIOSAMD5XE5XSTREAMI2C::GetConnectStatus()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMI2C::Open()
 {
   if(!threadconnection)  return false;
@@ -405,7 +405,7 @@ bool DIOSAMD5XE5XSTREAMI2C::Open()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMI2C::WaitToFilledReadingBuffer(int filledto, int timeout)
 {
   if(filledto == DIOSTREAM_SOMETHINGTOREAD) sizebufferdata = 1; else sizebufferdata = filledto;
@@ -440,7 +440,7 @@ bool DIOSAMD5XE5XSTREAMI2C::WaitToFilledReadingBuffer(int filledto, int timeout)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config)                                          return 0;
@@ -478,7 +478,7 @@ XDWORD DIOSAMD5XE5XSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config)                                          return 0;
@@ -518,7 +518,7 @@ XDWORD DIOSAMD5XE5XSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMI2C::Write(XBYTE* buffer, XDWORD size)
 {
   if(!outbuffer) return 0;
@@ -551,7 +551,7 @@ XDWORD DIOSAMD5XE5XSTREAMI2C::Write(XBYTE* buffer, XDWORD size)
  *
  *  @return     bool : true if is succesful.
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMI2C::Disconnect()
  {
    return false;
@@ -567,7 +567,7 @@ bool DIOSAMD5XE5XSTREAMI2C::Disconnect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMI2C::Close()
 {
   if(!threadconnection) return false;
@@ -612,7 +612,7 @@ bool DIOSAMD5XE5XSTREAMI2C::Close()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMI2C::CleanBuffers()
 {
   return false;
@@ -631,7 +631,7 @@ bool DIOSAMD5XE5XSTREAMI2C::CleanBuffers()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 //--- ABRHAMD5XE5X ------------------
 /*
 void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef* hi2c)
@@ -686,7 +686,7 @@ void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef* hi2c)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 //--- ABRHAMD5XE5X ------------------
 /*
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef* hi2c)
@@ -706,7 +706,7 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef* hi2c)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c)
 {
@@ -725,7 +725,7 @@ void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSAMD5XE5XSTREAMI2C::ThreadConnection(void* param)
 {
   DIOSAMD5XE5XSTREAMI2C* diostream = (DIOSAMD5XE5XSTREAMI2C*)param;
@@ -816,7 +816,7 @@ void DIOSAMD5XE5XSTREAMI2C::ThreadConnection(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSAMD5XE5XSTREAMI2C::Clean()
 {
   //--- ABRHAMD5XE5X ------------------

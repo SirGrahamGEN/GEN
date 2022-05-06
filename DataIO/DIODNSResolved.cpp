@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Domain Network System (DNS) resolved class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -68,7 +68,7 @@ DIODNSRESOLVED* DIODNSRESOLVED::instance = NULL;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVED_HOSTRESOLVED::DIODNSRESOLVED_HOSTRESOLVED()
 {
   Clean();
@@ -85,7 +85,7 @@ DIODNSRESOLVED_HOSTRESOLVED::DIODNSRESOLVED_HOSTRESOLVED()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVED_HOSTRESOLVED::~DIODNSRESOLVED_HOSTRESOLVED()
 {
   Clean();
@@ -101,7 +101,7 @@ DIODNSRESOLVED_HOSTRESOLVED::~DIODNSRESOLVED_HOSTRESOLVED()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIODNSRESOLVED_HOSTRESOLVED::GetHost()
 {
   return &host;
@@ -117,7 +117,7 @@ XSTRING* DIODNSRESOLVED_HOSTRESOLVED::GetHost()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIODNSRESOLVED_HOSTRESOLVED::GetIPResolved()
 {
   return &IPresolved;
@@ -134,7 +134,7 @@ XSTRING* DIODNSRESOLVED_HOSTRESOLVED::GetIPResolved()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSRESOLVED_HOSTRESOLVED::Clean()
 {
 
@@ -156,7 +156,7 @@ void DIODNSRESOLVED_HOSTRESOLVED::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVED_DNSSERVER::DIODNSRESOLVED_DNSSERVER()
 {
   Clean();
@@ -173,7 +173,7 @@ DIODNSRESOLVED_DNSSERVER::DIODNSRESOLVED_DNSSERVER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVED_DNSSERVER::~DIODNSRESOLVED_DNSSERVER()
 {
   Clean();
@@ -189,7 +189,7 @@ DIODNSRESOLVED_DNSSERVER::~DIODNSRESOLVED_DNSSERVER()
 *
 * @return     DIOIP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOIP* DIODNSRESOLVED_DNSSERVER::GetIP()
 {
   return &IP;
@@ -205,7 +205,7 @@ DIOIP* DIODNSRESOLVED_DNSSERVER::GetIP()
 *
 * @return     XWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIODNSRESOLVED_DNSSERVER::GetPort()
 {
   return port;
@@ -223,7 +223,7 @@ XWORD DIODNSRESOLVED_DNSSERVER::GetPort()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSRESOLVED_DNSSERVER::SetPort(XWORD port)
 {
   this->port = port;
@@ -240,7 +240,7 @@ void DIODNSRESOLVED_DNSSERVER::SetPort(XWORD port)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSRESOLVED_DNSSERVER::Clean()
 {
   port = 0;
@@ -262,7 +262,7 @@ void DIODNSRESOLVED_DNSSERVER::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::GetIsInstanced()
 {
   return instance!=NULL;
@@ -278,7 +278,7 @@ bool DIODNSRESOLVED::GetIsInstanced()
 *
 * @return     DIODNSRESOLVED& :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVED& DIODNSRESOLVED::GetInstance()
 {
   if(!instance) instance = new DIODNSRESOLVED();
@@ -296,7 +296,7 @@ DIODNSRESOLVED& DIODNSRESOLVED::GetInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::DelInstance()
 {
   if(instance)
@@ -325,7 +325,7 @@ bool DIODNSRESOLVED::DelInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 {
   if(!listhostresolved.GetSize())
@@ -405,7 +405,7 @@ bool DIODNSRESOLVED::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 {
   return ResolveURL(URL.Get(), IPresolved, querytype, timeout);
@@ -426,7 +426,7 @@ bool DIODNSRESOLVED::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, X
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 {
   return ResolveURL(URL.Get(), IPresolved, querytype, timeout);
@@ -444,7 +444,7 @@ bool DIODNSRESOLVED::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::DNSServer_AddDNSServer(XCHAR* server)
 {
   if(!server) return false;
@@ -479,7 +479,7 @@ bool DIODNSRESOLVED::DNSServer_AddDNSServer(XCHAR* server)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::DNSServer_AddDNSServer(XSTRING& server)
 {
   return DNSServer_AddDNSServer(server.Get());
@@ -498,7 +498,7 @@ bool DIODNSRESOLVED::DNSServer_AddDNSServer(XSTRING& server)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::DNSServer_AddDNSServer(XBYTE* serverIP, XWORD port)
 {
   DIODNSRESOLVED_DNSSERVER* DNSserver = new DIODNSRESOLVED_DNSSERVER();
@@ -523,7 +523,7 @@ bool DIODNSRESOLVED::DNSServer_AddDNSServer(XBYTE* serverIP, XWORD port)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::DNSServer_AddDNSServer(DIOIP& serverIP, XWORD port)
 {
   DIODNSRESOLVED_DNSSERVER* DNSserver = new DIODNSRESOLVED_DNSSERVER();
@@ -545,7 +545,7 @@ bool DIODNSRESOLVED::DNSServer_AddDNSServer(DIOIP& serverIP, XWORD port)
 *
 * @return     XVECTOR<DIOIP*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<DIODNSRESOLVED_DNSSERVER*>* DIODNSRESOLVED::DNSServer_GetList()
 {
   return &listDNSservers;
@@ -564,7 +564,7 @@ XVECTOR<DIODNSRESOLVED_DNSSERVER*>* DIODNSRESOLVED::DNSServer_GetList()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::HostResolved_FindIP(XCHAR* host, DIOIP& IPresolved)
 {
   bool status = false;
@@ -599,7 +599,7 @@ bool DIODNSRESOLVED::HostResolved_FindIP(XCHAR* host, DIOIP& IPresolved)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::HostResolved_FindIP(XSTRING& host, DIOIP& IPresolved)
 {
   return HostResolved_FindIP(host.Get(), IPresolved);
@@ -615,7 +615,7 @@ bool DIODNSRESOLVED::HostResolved_FindIP(XSTRING& host, DIOIP& IPresolved)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::DNSServer_DeleteAllList()
 {
   listDNSservers.DeleteContents();
@@ -637,7 +637,7 @@ bool DIODNSRESOLVED::DNSServer_DeleteAllList()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::HostResolved_Add(XCHAR* host, XCHAR* IPresolved)
 {
   DIODNSRESOLVED_HOSTRESOLVED* hostresolved = new DIODNSRESOLVED_HOSTRESOLVED();
@@ -662,7 +662,7 @@ bool DIODNSRESOLVED::HostResolved_Add(XCHAR* host, XCHAR* IPresolved)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::HostResolved_Add(XSTRING& host, XSTRING& IPresolved)
 {
   return HostResolved_Add(host.Get(), IPresolved.Get());
@@ -678,7 +678,7 @@ bool DIODNSRESOLVED::HostResolved_Add(XSTRING& host, XSTRING& IPresolved)
 *
 * @return     XVECTOR<DIODNSRESOLVED_HOSTRESOLVED*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<DIODNSRESOLVED_HOSTRESOLVED*>*  DIODNSRESOLVED::HostResolved_GetList()
 {
   return &listhostresolved;
@@ -694,7 +694,7 @@ XVECTOR<DIODNSRESOLVED_HOSTRESOLVED*>*  DIODNSRESOLVED::HostResolved_GetList()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::HostResolved_DeleteAllList()
 {
   listhostresolved.DeleteContents();
@@ -713,7 +713,7 @@ bool DIODNSRESOLVED::HostResolved_DeleteAllList()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVED::DIODNSRESOLVED()
 {
   Clean();
@@ -730,7 +730,7 @@ DIODNSRESOLVED::DIODNSRESOLVED()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVED::~DIODNSRESOLVED()
 {
   DNSServer_DeleteAllList();
@@ -750,7 +750,7 @@ DIODNSRESOLVED::~DIODNSRESOLVED()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSRESOLVED::Clean()
 {
 

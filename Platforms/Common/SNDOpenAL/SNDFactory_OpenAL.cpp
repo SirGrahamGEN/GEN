@@ -6,7 +6,7 @@
 * @brief      Sound OpenAL factory class
 * @ingroup    PLATFORM_COMMON
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -68,7 +68,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDFACTORY_OPENAL::SNDFACTORY_OPENAL()
 {
   Clean();
@@ -122,7 +122,7 @@ SNDFACTORY_OPENAL::SNDFACTORY_OPENAL()
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDFACTORY_OPENAL::~SNDFACTORY_OPENAL()
 {
   if(streamthread)
@@ -186,7 +186,7 @@ SNDFACTORY_OPENAL::~SNDFACTORY_OPENAL()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SNDFACTORY_OPENAL::Beep(float frequency, float duration)
 {
   ALuint       buffer;     
@@ -237,7 +237,7 @@ bool SNDFACTORY_OPENAL::Beep(float frequency, float duration)
 *
 * @return     SNDELEMENT* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDELEMENT* SNDFACTORY_OPENAL::Element_Add(XPATH& xpath, XCHAR* ID, bool instream)
 {
   XSTRING _ID;
@@ -429,7 +429,7 @@ SNDELEMENT* SNDFACTORY_OPENAL::Element_Add(XPATH& xpath, XCHAR* ID, bool instrea
 *
 * @return     SNDELEMENT* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDELEMENT* SNDFACTORY_OPENAL::Element_Get(XCHAR* ID, bool instream)
 {
   if(!instream)
@@ -493,7 +493,7 @@ SNDELEMENT* SNDFACTORY_OPENAL::Element_Get(XCHAR* ID, bool instream)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SNDFACTORY_OPENAL::Element_Del(SNDELEMENT* element)
 {
   this->StopSound(element);
@@ -513,7 +513,7 @@ bool SNDFACTORY_OPENAL::Element_Del(SNDELEMENT* element)
 *
 * @return     SNDSTREAMELEMENT* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDSTREAMELEMENT* SNDFACTORY_OPENAL::GetStreamer()
 {
   // create a streaming element and aquire a free source
@@ -572,7 +572,7 @@ SNDSTREAMELEMENT* SNDFACTORY_OPENAL::GetStreamer()
 *
 * @return     SNDINSTANCE* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDINSTANCE* SNDFACTORY_OPENAL::PlaySound(SNDELEMENT* element)
 {
   if(!element) return NULL;
@@ -733,7 +733,7 @@ SNDINSTANCE* SNDFACTORY_OPENAL::PlaySound(SNDELEMENT* element)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SNDFACTORY_OPENAL::StopSound(SNDELEMENT* element)
 { 
   SNDELEMENT_OPENAL* openalelement = (SNDELEMENT_OPENAL*)element;
@@ -778,7 +778,7 @@ bool SNDFACTORY_OPENAL::StopSound(SNDELEMENT* element)
 *
 * @return     SNDINSTANCE* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDINSTANCE* SNDFACTORY_OPENAL::PauseSound(SNDELEMENT* element)
 {
   SNDELEMENT_OPENAL* openalelement = (SNDELEMENT_OPENAL*)element;
@@ -811,7 +811,7 @@ SNDINSTANCE* SNDFACTORY_OPENAL::PauseSound(SNDELEMENT* element)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SNDFACTORY_OPENAL::IsAnyPlaying()
 {  
   for(XDWORD c=0; c<maxchannels; c++)
@@ -835,7 +835,7 @@ bool SNDFACTORY_OPENAL::IsAnyPlaying()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SNDFACTORY_OPENAL::StopAll()
 {
   playqueue.DeleteAll();
@@ -859,7 +859,7 @@ bool SNDFACTORY_OPENAL::StopAll()
 *
 * @return     float : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float SNDFACTORY_OPENAL::GetMasterVolume()                                                      
 { 
   return mastervolume;                
@@ -878,7 +878,7 @@ float SNDFACTORY_OPENAL::GetMasterVolume()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SNDFACTORY_OPENAL::SetMasterVolume(float mastervolume)
 {  
   
@@ -916,7 +916,7 @@ bool SNDFACTORY_OPENAL::SetMasterVolume(float mastervolume)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SNDFACTORY_OPENAL::Update()
 {
   
@@ -1144,7 +1144,7 @@ void SNDFACTORY_OPENAL::Update()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SNDFACTORY_OPENAL::ThreadStreaming(void* param)
 {
   SNDFACTORY_OPENAL* sndopenal = (SNDFACTORY_OPENAL*)param;
@@ -1189,7 +1189,7 @@ void SNDFACTORY_OPENAL::ThreadStreaming(void* param)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SNDFACTORY_OPENAL::Clean()
 {                                                
   device        = NULL;

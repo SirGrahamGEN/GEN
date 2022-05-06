@@ -6,7 +6,7 @@
 * @brief      Sound Open AL Stream Element class
 * @ingroup    PLATFORM_COMMON
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _SNDSTREAMELEMENT_OPENAL_H_
 #define _SNDSTREAMELEMENT_OPENAL_H_
@@ -79,7 +79,7 @@ class SNDSTREAMELEMENT_OPENAL : public SNDSTREAMELEMENT
 
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

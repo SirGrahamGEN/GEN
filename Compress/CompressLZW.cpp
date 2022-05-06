@@ -1,21 +1,37 @@
-/*------------------------------------------------------------------------------------------
-//  COMPRESS_LZW.CPP
-//
-//  Compress LZW (Gif compression) class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 15/12/2009 10:41:24 p.m.
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CompressLZW.cpp
+* 
+* @class      COMPRESSLZW
+* @brief      Compress LZW (Gif compression) class
+* @ingroup    COMPRESS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <string.h>
@@ -27,68 +43,60 @@
 #include "XMemory_Control.h"
 
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::COMPRESS_LZW
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 10:41:34 p.m.
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         COMPRESS_LZW::COMPRESS_LZW()
+* @brief      Constructor
+* @ingroup    COMPRESS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_LZW::COMPRESS_LZW()
 {
   SetType(COMPRESSBASE_TYPE_LZW);
 
-  m_Interval[0] = m_Interval[1] = 8;
-  m_Interval[2] = 4;
-  m_Interval[3] = 2;
+  interval[0] = interval[1] = 8;
+  interval[2] = 4;
+  interval[3] = 2;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::~COMPRESS_LZW
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 10:41:50 p.m.
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         COMPRESS_LZW::~COMPRESS_LZW()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    COMPRESS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_LZW::~COMPRESS_LZW()
 {
 
 }
 
 
-//-------------------------------------------------------------------
-//  COMPRESS_LZW::Compress
-/**
-//
-//
-//  ""
-//  @version      10/02/2004 18:05:17
-//
-//  @return       bool :
-//  @param        source :
-//  @param        size :
-//  @param        xbuffer :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESS_LZW::Compress(XBYTE* source,XDWORD size,XBUFFER* xbuffer)
+* @brief      Compress
+* @ingroup    COMPRESS
+* 
+* @param[in]  source : 
+* @param[in]  size : 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESS_LZW::Compress(XBYTE* source,XDWORD size,XBUFFER* xbuffer)
 {
   if(!source)  return false;
@@ -106,20 +114,19 @@ bool COMPRESS_LZW::Compress(XBYTE* source,XDWORD size,XBUFFER* xbuffer)
 }
 
 
-//-------------------------------------------------------------------
-//  COMPRESS_LZW::Decompress
-/**
-//
-//
-//  ""
-//  @version      10/02/2004 18:05:21
-//
-//  @return       bool :
-//  @param        source :
-//  @param        size :
-//  @param        xbuffer :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESS_LZW::Decompress(XBYTE* source,XDWORD size,XBUFFER* xbuffer)
+* @brief      Decompress
+* @ingroup    COMPRESS
+* 
+* @param[in]  source : 
+* @param[in]  size : 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESS_LZW::Decompress(XBYTE* source,XDWORD size,XBUFFER* xbuffer)
 {
   if(!source)  return false;
@@ -132,102 +139,95 @@ bool COMPRESS_LZW::Decompress(XBYTE* source,XDWORD size,XBUFFER* xbuffer)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::LZW_Encode
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 10:43:00 p.m.
-//
-//  @return       XDWORD :
-//  @param        InBuffer :
-//  @param        dwLength :
-//  @param        OutBuffer :
-*/
-/*-----------------------------------------------------------------*/
-XDWORD COMPRESS_LZW::LZW_Encode(XBYTE* InBuffer,XDWORD dwLength,XBYTE* OutBuffer)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD COMPRESS_LZW::LZW_Encode(XBYTE* inbuffer,XDWORD length,XBYTE* outbuffer)
+* @brief      LZW_Encode
+* @ingroup    COMPRESS
+* 
+* @param[in]  inbuffer : 
+* @param[in]  length : 
+* @param[in]  outbuffer : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD COMPRESS_LZW::LZW_Encode(XBYTE* inbuffer,XDWORD length,XBYTE* outbuffer)
 {
-  *OutBuffer++ = 8 ;
+  *outbuffer++ = 8 ;
 
-  return 1 + this->LZW_GIF_Encode(InBuffer, OutBuffer, dwLength, 1, 8);
+  return 1 + this->LZW_GIF_Encode(inbuffer, outbuffer, length, 1, 8);
 }
 
 
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::LZW_Decode
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 10:44:14 p.m.
-//
-//  @return       void :
-//  @param        InBuffer :
-//  @param        OutBuffer :
-*/
-/*-----------------------------------------------------------------*/
-void COMPRESS_LZW::LZW_Decode(XBYTE* InBuffer,XBYTE* OutBuffer)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void COMPRESS_LZW::LZW_Decode(XBYTE* inbuffer,XBYTE* outbuffer)
+* @brief      LZW_Decode
+* @ingroup    COMPRESS
+* 
+* @param[in]  inbuffer : 
+* @param[in]  outbuffer : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void COMPRESS_LZW::LZW_Decode(XBYTE* inbuffer,XBYTE* outbuffer)
 {
-  this->LZW_GIF_Decode (InBuffer, OutBuffer, 0, 0, false);
+  this->LZW_GIF_Decode (inbuffer, outbuffer, 0, 0, false);
 }
 
 
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::LZW_GIF_Encode
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 10:47:56 p.m.
-//
-//  @return       XDWORD :
-//  @param        DibBuffer :
-//  @param        OutBuffer :
-//  @param        dwDibWidth :
-//  @param        dwDibHeight :
-//  @param        wColorBit :
-*/
-/*-----------------------------------------------------------------*/
-XDWORD COMPRESS_LZW::LZW_GIF_Encode(XBYTE* DibBuffer,XBYTE* OutBuffer,XDWORD dwDibWidth,XDWORD dwDibHeight,XWORD wColorBit)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD COMPRESS_LZW::LZW_GIF_Encode(XBYTE* dibbuffer,XBYTE* outbuffer,XDWORD dibwidth,XDWORD dibheight,XWORD colorbit)
+* @brief      LZW_GIF_Encode
+* @ingroup    COMPRESS
+* 
+* @param[in]  dibbuffer : 
+* @param[in]  outbuffer : 
+* @param[in]  dibwidth : 
+* @param[in]  dibheight : 
+* @param[in]  colorbit : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD COMPRESS_LZW::LZW_GIF_Encode(XBYTE* dibbuffer,XBYTE* outbuffer,XDWORD dibwidth,XDWORD dibheight,XWORD colorbit)
 {
-  m_pHash = new XWORD [LZW_MAX_HASHSIZE] ;
+  hash = new XWORD [LZW_MAX_HASHSIZE] ;
 
-  if((m_pHash == NULL) || (DibBuffer == NULL) || (OutBuffer == NULL)) return 0;
+  if((hash == NULL) || (dibbuffer == NULL) || (outbuffer == NULL)) return 0;
 
-  m_byMinCode     = (wColorBit == 1) ? 2 : wColorBit;
-  m_LZW_CLEAR     = 1 << m_byMinCode;
-  m_LZW_END       = m_LZW_CLEAR + 1;
-  m_pOrigin       = m_pCurIn = DibBuffer;
-  m_pCurOut       = OutBuffer;
-  m_byInBit       = 8;
-  m_byOutBit      = 0;
+  bymincode     = (colorbit == 1) ? 2 : colorbit;
+  LZWclear     = 1 << bymincode;
+  LZWend       = LZWclear + 1;
+  origin       = curin = dibbuffer;
+  curout       = outbuffer;
+  byinbit       = 8;
+  byoutbit      = 0;
 
-  m_dwDibWidth    = dwDibWidth;
-  m_dwDibHeight   = dwDibHeight;
-  m_dwCurrPixel   = 0;
-  m_dwCurrHeight  = 0;
-  m_dwPitch       = 4 * ((dwDibWidth * m_byMinCode + 31) / 32);
+  m_dibwidth    = dibwidth;
+  m_dibheight   = dibheight;
+ currpixel   = 0;
+  currheight  = 0;
+  pitch       = 4 * ((dibwidth * bymincode + 31) / 32);
 
   XWORD Old;
   XBYTE Pixel;
 
   this->Encode_InitStringTable();
-  this->Encode_WriteIndex(m_LZW_CLEAR);
+  this->Encode_WriteIndex(LZWclear);
 
   Old = this->Encode_GetNextPixel();
 
-  while(m_dwCurrHeight<m_dwDibHeight)
+  while(currheight<m_dibheight)
     {
       Pixel = this->Encode_GetNextPixel();
 
       if(this->Encode_IsInTable (Old, Pixel))
         {
-          Old = m_pHash[(Old << 8) | Pixel];
+          Old = hash[(Old << 8) | Pixel];
         }
        else
         {
@@ -235,10 +235,10 @@ XDWORD COMPRESS_LZW::LZW_GIF_Encode(XBYTE* DibBuffer,XBYTE* OutBuffer,XDWORD dwD
           this->Encode_AddStringToTable(Old, Pixel);
 
           Old = Pixel ;
-          if(m_CurrTableIndex == LZW_MAX_TABLE_SIZE)
+          if(currtableindex == LZW_MAX_TABLE_SIZE)
             {
               this->Encode_WriteIndex(Pixel);
-              this->Encode_WriteIndex(m_LZW_CLEAR);
+              this->Encode_WriteIndex(LZWclear);
               this->Encode_InitStringTable();
 
               Old = this->Encode_GetNextPixel();
@@ -247,430 +247,382 @@ XDWORD COMPRESS_LZW::LZW_GIF_Encode(XBYTE* DibBuffer,XBYTE* OutBuffer,XDWORD dwD
     }
 
   this->Encode_WriteIndex(Old);
-  this->Encode_WriteIndex(m_LZW_END);
+  this->Encode_WriteIndex(LZWend);
 
-  delete [] m_pHash;
+  delete [] hash;
 
-  return (XDWORD)(m_pCurOut - OutBuffer + 1);
+  return (XDWORD)(curout - outbuffer + 1);
 }
 
 
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::LZW_GIF_Decode
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 10:52:05 p.m.
-//
-//  @return       void :
-//  @param        InBuffer :
-//  @param        DibBuffer :
-//  @param        dwDibWidth :
-//  @param        dwDibHeight :
-//  @param        bInterlace :
-*/
-/*-----------------------------------------------------------------*/
-void COMPRESS_LZW::LZW_GIF_Decode(XBYTE* InBuffer,XBYTE* DibBuffer,XDWORD dwDibWidth,XDWORD dwDibHeight,bool bInterlace)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void COMPRESS_LZW::LZW_GIF_Decode(XBYTE* inbuffer,XBYTE* dibbuffer,XDWORD dibwidth,XDWORD dibheight,bool binterlace)
+* @brief      LZW_GIF_Decode
+* @ingroup    COMPRESS
+* 
+* @param[in]  inbuffer : 
+* @param[in]  dibbuffer : 
+* @param[in]  dibwidth : 
+* @param[in]  dibheight : 
+* @param[in]  binterlace : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void COMPRESS_LZW::LZW_GIF_Decode(XBYTE* inbuffer,XBYTE* dibbuffer,XDWORD dibwidth,XDWORD dibheight,bool binterlace)
 {
-  m_pStrBegin = new LZW_STRING [LZW_MAX_TABLE_SIZE + 32];
+  strbegin = new LZW_STRING [LZW_MAX_TABLE_SIZE + 32];
 
-  if((m_pStrBegin == NULL) || (InBuffer == NULL) || (DibBuffer == NULL)) return;
+  if((strbegin == NULL) || (inbuffer == NULL) || (dibbuffer == NULL)) return;
 
-  m_pCurIn      = InBuffer + 1;
-  m_pCurOut     = DibBuffer;
-  m_byInBit     = 0;
-  m_byMinCode   = *InBuffer;
-  m_LZW_CLEAR   = 1 << m_byMinCode;
-  m_LZW_END     = m_LZW_CLEAR + 1;
+  curin      = inbuffer + 1;
+  curout     = dibbuffer;
+  byinbit     = 0;
+  bymincode   = *inbuffer;
+  LZWclear   = 1 << bymincode;
+  LZWend     = LZWclear + 1;
 
-  m_dwDibWidth  = dwDibWidth;
-  m_dwCurrPixel = 0;
-  m_dwPitch     = 4 * ((dwDibWidth * 8 + 31) / 32);
+  m_dibwidth  = dibwidth;
+ currpixel = 0;
+  pitch     = 4 * ((dibwidth * 8 + 31) / 32);
 
-  m_byInterval  = bInterlace ? 0 : 0xFF;
+  byinterval  = binterlace ? 0 : 0xFF;
 
-  if(m_byInterval == 0)
+  if(byinterval == 0)
     {
-      m_pOrigin      = m_pCurOut;
-      m_dwDibHeight  = dwDibHeight;
-      m_dwCurrHeight = 0;
+      origin      = curout;
+      m_dibheight  = dibheight;
+      currheight = 0;
     }
 
-  XWORD Code;
+  XWORD code;
   XWORD Old;
 
   this->Decode_InitStringTable();
 
-  while((Code = this->Decode_GetNextCode ()) != m_LZW_END)
+  while((code = this->Decode_GetNextcode ()) != LZWend)
     {
-      if(Code == m_LZW_CLEAR)
+      if(code == LZWclear)
         {
           this->Decode_InitStringTable () ;
-          while((Code = this->Decode_GetNextCode ()) == m_LZW_CLEAR) ;
+          while((code = this->Decode_GetNextcode ()) == LZWclear) ;
         }
        else
         {
-          if(this->Decode_IsInTable (Code))
-                 this->Decode_AddStringToTable (Old, this->Decode_GetFirstChar (Code));
+          if(this->Decode_IsInTable (code))
+                 this->Decode_AddStringToTable (Old, this->Decode_GetFirstChar (code));
             else this->Decode_AddStringToTable (Old, this->Decode_GetFirstChar (Old));
         }
 
-      this->Decode_WriteString_to8(Code);
-      Old = Code;
+      this->Decode_WriteString_to8(code);
+      Old = code;
     }
 
-  delete [] m_pStrBegin;
+  delete [] strbegin;
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::Decode_InitStringTable
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 10:56:25 p.m.
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void COMPRESS_LZW::Decode_InitStringTable()
+* @brief      Decode_InitStringTable
+* @ingroup    COMPRESS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Decode_InitStringTable()
 {
-  memset(m_pStrBegin, 0xFF, LZW_MAX_TABLE_SIZE * sizeof(LZW_STRING));
+  memset(strbegin, 0xFF, LZW_MAX_TABLE_SIZE * sizeof(LZW_STRING));
 
-  for (XWORD i = 0 ; i < m_LZW_CLEAR ; i++)
-    m_pStrBegin[i].wSuffix = i ;
+  for (XWORD i = 0 ; i < LZWclear ; i++)
+    strbegin[i].suffix = i ;
 
-  m_CurrTableIndex = m_LZW_END + 1;
-  m_byCurrBits     = m_byMinCode + 1;
+  currtableindex = LZWend + 1;
+  bycurrbits     = bymincode + 1;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::Decode_GetNextCode
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 10:58:12 p.m.
-//
-//  @return       XWORD :
-//  */
-/*-----------------------------------------------------------------*/
-XWORD COMPRESS_LZW::Decode_GetNextCode()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XWORD COMPRESS_LZW::Decode_GetNextcode()
+* @brief      Decode_GetNextcode
+* @ingroup    COMPRESS
+* 
+* @return     XWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XWORD COMPRESS_LZW::Decode_GetNextcode()
 {
   register XDWORD        dwRet = 0;
-  register unsigned int uiAdd = m_byInBit + m_byCurrBits;
+  register unsigned int uiAdd = byinbit + bycurrbits;
 
   if(uiAdd <= 8)
     {
-      dwRet |= * m_pCurIn;
+      dwRet |= * curin;
     }
    else
     {
       if(uiAdd <= 16)
         {
-          dwRet |= * (XWORD *) m_pCurIn;
+          dwRet |= * (XWORD *) curin;
         }
        else
         {
-          dwRet |= * (m_pCurIn + 2);
+          dwRet |= * (curin + 2);
           dwRet <<= 16;
-          dwRet |= * (XWORD *) m_pCurIn;
+          dwRet |= * (XWORD *) curin;
         }
     }
 
-  m_pCurIn += uiAdd/8;
-  m_byInBit = uiAdd%8;
+  curin += uiAdd/8;
+  byinbit = uiAdd%8;
 
   dwRet <<= 32 - uiAdd ;
-  dwRet >>= 32 - m_byCurrBits ;
+  dwRet >>= 32 - bycurrbits ;
 
   return (XWORD)dwRet ;
 }
 
 
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::Decode_IsInTable
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 10:59:57 p.m.
-//
-//  @return       bool :
-//  @param        Code :
-*/
-/*-----------------------------------------------------------------*/
-bool COMPRESS_LZW::Decode_IsInTable(XWORD Code)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESS_LZW::Decode_IsInTable(XWORD code)
+* @brief      Decode_IsInTable
+* @ingroup    COMPRESS
+* 
+* @param[in]  code : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool COMPRESS_LZW::Decode_IsInTable(XWORD code)
 {
-  return (Code < m_CurrTableIndex);
+  return (code < currtableindex);
 }
 
 
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::Decode_AddStringToTable
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 11:04:12 p.m.
-//
-//  @return       void :
-//  @param        wPrefix :
-//  @param        wSuffix :
-*/
-/*-----------------------------------------------------------------*/
-void COMPRESS_LZW::Decode_AddStringToTable(XWORD wPrefix, XWORD wSuffix)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void COMPRESS_LZW::Decode_AddStringToTable(XWORD prefix, XWORD suffix)
+* @brief      Decode_AddStringToTable
+* @ingroup    COMPRESS
+* 
+* @param[in]  prefix : 
+* @param[in]  suffix : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void COMPRESS_LZW::Decode_AddStringToTable(XWORD prefix, XWORD suffix)
 {
-  m_pStrBegin[m_CurrTableIndex  ].wPrefix = wPrefix ;
-  m_pStrBegin[m_CurrTableIndex++].wSuffix = wSuffix ;
+  strbegin[currtableindex  ].prefix = prefix ;
+  strbegin[currtableindex++].suffix = suffix ;
 
-  if((m_CurrTableIndex == 0x008) || (m_CurrTableIndex == 0x010) ||
-     (m_CurrTableIndex == 0x020) || (m_CurrTableIndex == 0x040) ||
-     (m_CurrTableIndex == 0x080) || (m_CurrTableIndex == 0x100) ||
-     (m_CurrTableIndex == 0x200) || (m_CurrTableIndex == 0x400) ||
-     (m_CurrTableIndex == 0x800)) m_byCurrBits++ ;
+  if((currtableindex == 0x008) || (currtableindex == 0x010) ||
+     (currtableindex == 0x020) || (currtableindex == 0x040) ||
+     (currtableindex == 0x080) || (currtableindex == 0x100) ||
+     (currtableindex == 0x200) || (currtableindex == 0x400) ||
+     (currtableindex == 0x800)) bycurrbits++ ;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::Decode_GetFirstChar
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 11:04:37 p.m.
-//
-//  @return       XBYTE :
-//  @param        Code :
-*/
-/*-----------------------------------------------------------------*/
-XBYTE COMPRESS_LZW::Decode_GetFirstChar(XWORD Code)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE COMPRESS_LZW::Decode_GetFirstChar(XWORD code)
+* @brief      Decode_GetFirstChar
+* @ingroup    COMPRESS
+* 
+* @param[in]  code : 
+* 
+* @return     XBYTE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBYTE COMPRESS_LZW::Decode_GetFirstChar(XWORD code)
 {
-  while (m_pStrBegin[Code].wPrefix != 0xFFFF)
+  while (strbegin[code].prefix != 0xFFFF)
     {
-      Code = m_pStrBegin[Code].wPrefix;
+      code = strbegin[code].prefix;
     }
 
-  return (XBYTE) m_pStrBegin[Code].wSuffix;
+  return (XBYTE) strbegin[code].suffix;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::Decode_WriteString_to8
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 11:04:58 p.m.
-//
-//  @return       void :
-//  @param        Code :
-*/
-/*-----------------------------------------------------------------*/
-void COMPRESS_LZW::Decode_WriteString_to8(XWORD Code)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void COMPRESS_LZW::Decode_WriteString_to8(XWORD code)
+* @brief      Decode_WriteString_to8
+* @ingroup    COMPRESS
+* 
+* @param[in]  code : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void COMPRESS_LZW::Decode_WriteString_to8(XWORD code)
 {
-  if(Code < m_LZW_CLEAR)
+  if(code < LZWclear)
     {
-      m_pCurOut[m_dwCurrPixel++] = (XBYTE) m_pStrBegin[Code].wSuffix;
+      curout[currpixel++] = (XBYTE) strbegin[code].suffix;
 
-      if(m_dwCurrPixel == m_dwDibWidth) this->Decode_SwitchToFollowLine();
+      if(currpixel == m_dibwidth) this->Decode_SwitchToFollowLine();
     }
    else
     {
-      this->Decode_WriteString_to8(m_pStrBegin[Code].wPrefix);
-      this->Decode_WriteString_to8(m_pStrBegin[Code].wSuffix);
+      this->Decode_WriteString_to8(strbegin[code].prefix);
+      this->Decode_WriteString_to8(strbegin[code].suffix);
     }
 }
 
 
-
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::Decode_SwitchToFollowLine
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 11:05:46 p.m.
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void COMPRESS_LZW::Decode_SwitchToFollowLine()
+* @brief      Decode_SwitchToFollowLine
+* @ingroup    COMPRESS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Decode_SwitchToFollowLine()
 {
-  m_dwCurrPixel = 0;
+ currpixel = 0;
 
-  if (m_byInterval == 0xFF)
+  if (byinterval == 0xFF)
     {
-      m_pCurOut -= m_dwPitch;
+      curout -= pitch;
     }
    else
     {
-      m_dwCurrHeight += m_Interval[m_byInterval];
+      currheight += interval[byinterval];
 
-      if(m_dwCurrHeight >= m_dwDibHeight)
+      if(currheight >= m_dibheight)
         {
-          if(++m_byInterval < 4)  m_dwCurrHeight = m_Interval[m_byInterval]/2;  else return;
+          if(++byinterval < 4)  currheight = interval[byinterval]/2;  else return;
         }
 
-      m_pCurOut = m_pOrigin - m_dwCurrHeight * m_dwPitch;
+      curout = origin - currheight * pitch;
     }
 }
 
 
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::Encode_InitStringTable
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 11:06:07 p.m.
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void COMPRESS_LZW::Encode_InitStringTable()
+* @brief      Encode_InitStringTable
+* @ingroup    COMPRESS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Encode_InitStringTable()
 {
-  m_CurrTableIndex = m_LZW_END   + 1;
-  m_byCurrBits     = m_byMinCode + 1;
+  currtableindex = LZWend   + 1;
+  bycurrbits     = bymincode + 1;
 
-  memset(m_pHash, 0x00, LZW_MAX_HASHSIZE * sizeof(XWORD));
+  memset(hash, 0x00, LZW_MAX_HASHSIZE * sizeof(XWORD));
 }
 
 
-
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::Encode_GetNextPixel
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 11:06:31 p.m.
-//
-//  @return       XBYTE :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE COMPRESS_LZW::Encode_GetNextPixel()
+* @brief      Encode_GetNextPixel
+* @ingroup    COMPRESS
+* 
+* @return     XBYTE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE COMPRESS_LZW::Encode_GetNextPixel()
 {
   register XBYTE byRet = 0;
 
-  switch(m_byMinCode)
+  switch(bymincode)
     {
-      case 8 : byRet = m_pCurIn[m_dwCurrPixel];
+      case 8 : byRet = curin[currpixel];
                break;
 
-      case 4 : byRet = (m_dwCurrPixel % 2 == 0) ? m_pCurIn[m_dwCurrPixel / 2] >> 4 : m_pCurIn[m_dwCurrPixel / 2] & 0x0F;
+      case 4 : byRet = (currpixel % 2 == 0) ? curin[currpixel / 2] >> 4 : curin[currpixel / 2] & 0x0F;
                break;
 
-      case 1 : byRet = 0x01 & (m_pCurIn[m_dwCurrPixel / 8] >> (7 - (m_dwCurrPixel & 7)));
+      case 1 : byRet = 0x01 & (curin[currpixel / 8] >> (7 - (currpixel & 7)));
                break;
     }
 
-  if(++m_dwCurrPixel == m_dwDibWidth)
+  if(++currpixel == m_dibwidth)
     {
-      m_dwCurrPixel = 0;
+     currpixel = 0;
 
-      m_dwCurrHeight++;
+      currheight++;
 
-      m_pCurIn = m_pOrigin - m_dwCurrHeight * m_dwPitch;
+      curin = origin - currheight * pitch;
     }
 
   return byRet;
 }
 
 
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::Encode_IsInTable
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 11:08:02 p.m.
-//
-//  @return       bool :
-//  @param        Old :
-//  @param        Pixel :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESS_LZW::Encode_IsInTable(XWORD Old, XWORD Pixel)
+* @brief      Encode_IsInTable
+* @ingroup    COMPRESS
+* 
+* @param[in]  Old : 
+* @param[in]  Pixel : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESS_LZW::Encode_IsInTable(XWORD Old, XWORD Pixel)
 {
-  return (m_pHash[(Old << 8) | Pixel] != 0);
+  return (hash[(Old << 8) | Pixel] != 0);
 }
 
 
-
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::Encode_AddStringToTable
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 11:08:16 p.m.
-//
-//  @return       void :
-//  @param        Old :
-//  @param        Pixel :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void COMPRESS_LZW::Encode_AddStringToTable(XWORD Old, XWORD Pixel)
+* @brief      Encode_AddStringToTable
+* @ingroup    COMPRESS
+* 
+* @param[in]  Old : 
+* @param[in]  Pixel : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Encode_AddStringToTable(XWORD Old, XWORD Pixel)
 {
-  m_pHash[(Old << 8) | Pixel] = m_CurrTableIndex++;
+  hash[(Old << 8) | Pixel] = currtableindex++;
 
-  if ((m_CurrTableIndex == 0x009) || (m_CurrTableIndex == 0x011) ||
-      (m_CurrTableIndex == 0x021) || (m_CurrTableIndex == 0x041) ||
-      (m_CurrTableIndex == 0x081) || (m_CurrTableIndex == 0x101) ||
-      (m_CurrTableIndex == 0x201) || (m_CurrTableIndex == 0x401) ||
-      (m_CurrTableIndex == 0x801))  m_byCurrBits++;
+  if ((currtableindex == 0x009) || (currtableindex == 0x011) ||
+      (currtableindex == 0x021) || (currtableindex == 0x041) ||
+      (currtableindex == 0x081) || (currtableindex == 0x101) ||
+      (currtableindex == 0x201) || (currtableindex == 0x401) ||
+      (currtableindex == 0x801))  bycurrbits++;
 }
 
 
-/*-------------------------------------------------------------------
-//  COMPRESS_LZW::Encode_WriteIndex
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2009 11:08:45 p.m.
-//
-//  @return       void :
-//  @param        Index :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void COMPRESS_LZW::Encode_WriteIndex(XDWORD Index)
+* @brief      Encode_WriteIndex
+* @ingroup    COMPRESS
+* 
+* @param[in]  Index : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Encode_WriteIndex(XDWORD Index)
 {
-  register unsigned int uiAdd = m_byOutBit + m_byCurrBits;
+  register unsigned int uiAdd = byoutbit + bycurrbits;
 
-  *(XDWORD*)m_pCurOut |= (Index << m_byOutBit);
+  *(XDWORD*)curout |= (Index << byoutbit);
 
-  m_byOutBit = uiAdd % 8;
-  m_pCurOut += uiAdd / 8;
+  byoutbit = uiAdd % 8;
+  curout += uiAdd / 8;
 }
-
-
-
-
-
-
-
-
-

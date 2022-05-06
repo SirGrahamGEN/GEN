@@ -6,7 +6,7 @@
 * @brief      LINUX Data Input/Output Stream Bluetooth Remote Enum Devices class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES_H_
 #define _DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES_H_
@@ -92,7 +92,7 @@ class DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES :  public DIOSTREAMBLUETOOTHLER
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

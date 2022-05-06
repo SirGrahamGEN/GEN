@@ -6,7 +6,7 @@
 * @brief      Data Input/Output AT command for GSM class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -61,7 +61,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMDGSM_ALPHABET_8859_1::DIOATCMDGSM_ALPHABET_8859_1()
 {
   Clean();
@@ -78,7 +78,7 @@ DIOATCMDGSM_ALPHABET_8859_1::DIOATCMDGSM_ALPHABET_8859_1()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMDGSM_ALPHABET_8859_1::~DIOATCMDGSM_ALPHABET_8859_1()
 {
   Clean();
@@ -94,7 +94,7 @@ DIOATCMDGSM_ALPHABET_8859_1::~DIOATCMDGSM_ALPHABET_8859_1()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDGSM_ALPHABET_8859_1::CreateTable()
 {
   char table2[138][2] = { // Normal Characters
@@ -149,7 +149,7 @@ bool DIOATCMDGSM_ALPHABET_8859_1::CreateTable()
 *
 * @return     XWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOATCMDGSM_ALPHABET_8859_1::Traslate(bool from, XWORD data)
 {
   XDWORD end         = (sizeof(table)/sizeof(char[2]));
@@ -198,7 +198,7 @@ XWORD DIOATCMDGSM_ALPHABET_8859_1::Traslate(bool from, XWORD data)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOATCMDGSM_ALPHABET_8859_1::Clean()
 {
   memset(table,0, 138*2);
@@ -207,9 +207,9 @@ void DIOATCMDGSM_ALPHABET_8859_1::Clean()
 
 
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 /* DIOATCMDGSM                                                                                                         */
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -223,7 +223,7 @@ void DIOATCMDGSM_ALPHABET_8859_1::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMDGSM::DIOATCMDGSM(DIOSTREAM* diostream) : DIOATCMDS(diostream)
 {
   Clean();
@@ -256,7 +256,7 @@ DIOATCMDGSM::DIOATCMDGSM(DIOSTREAM* diostream) : DIOATCMDS(diostream)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMDGSM::~DIOATCMDGSM()
 {
   Clean();
@@ -276,7 +276,7 @@ DIOATCMDGSM::~DIOATCMDGSM()
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::GetManufactured(XSTRING& manufactured, int timeout)
 {
   return MakeCommandWithSimpleAnswer(DIOATCMD_TYPE_GSMGETMANUFACTURED,manufactured,NULL,timeout);
@@ -296,7 +296,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetManufactured(XSTRING& manufactured, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::GetModel(XSTRING& model, int timeout)
 {
   return MakeCommandWithSimpleAnswer(DIOATCMD_TYPE_GSMGETMODEL, model, NULL, timeout);
@@ -315,7 +315,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetModel(XSTRING& model, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::GetIMEI(XSTRING& IMEI, int timeout)
 {
   return MakeCommandWithSimpleAnswer(DIOATCMD_TYPE_GSMGETSERIAL, IMEI, NULL, timeout);
@@ -335,7 +335,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetIMEI(XSTRING& IMEI, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::GetVersion(XSTRING& version, int timeout)
 {
   DIOATCMD_ERROR error;
@@ -386,7 +386,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetVersion(XSTRING& version, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::GetSignalQuality(int& RSSI, int& BER, int timeout)
 {
   DIOATCMD_ERROR error = SendCommand(DIOATCMD_TYPE_GSMGETSIGNALQUALITY);
@@ -428,7 +428,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSignalQuality(int& RSSI, int& BER, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::IsAvailableServiceGSM(bool& available, int timeout)
 {
   DIOATCMD_ERROR error = SendCommand(DIOATCMD_TYPE_GSMGETSERVICES);
@@ -464,7 +464,7 @@ DIOATCMD_ERROR DIOATCMDGSM::IsAvailableServiceGSM(bool& available, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::GetIMSI(XSTRING& IMSI, int timeout)
 {
   return MakeCommandWithSimpleAnswer(DIOATCMD_TYPE_GSMGETIMSI, IMSI, NULL, timeout);
@@ -589,7 +589,7 @@ DIOATCMD_ERROR DIOATCMDGSM::PIN_Activate(XCHAR* PIN, bool activate, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::GetSMSSupport(XBYTE& support, int timeout)
 {
   DIOATCMD_ERROR error = SendCommand(DIOATCMD_TYPE_GSMGETSMSSUPPORT,__L("?"));
@@ -642,7 +642,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSMSSupport(XBYTE& support, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::GetSMSFormat(XBYTE& format,bool support, int timeout)
 {
   DIOATCMD_ERROR error = SendCommand(DIOATCMD_TYPE_GSMGETSMSFORMAT,support?__L("=?"):__L("?"));
@@ -707,7 +707,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSMSFormat(XBYTE& format,bool support, int timeout
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::SetSMSFormat(XBYTE format, int timeout)
 {
   XSTRING param;
@@ -737,7 +737,7 @@ DIOATCMD_ERROR DIOATCMDGSM::SetSMSFormat(XBYTE format, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::GetSMSCenter(XSTRING& SMScenter, int timeout)
 {
   DIOATCMD_ERROR error = SendCommand(DIOATCMD_TYPE_GSMGETSMSCENTER,__L("?"));
@@ -787,7 +787,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSMSCenter(XSTRING& SMScenter, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::SetSMSCenter(XCHAR* smscenter, int timeout)
 {
   XSTRING param;
@@ -815,7 +815,7 @@ DIOATCMD_ERROR DIOATCMDGSM::SetSMSCenter(XCHAR* smscenter, int timeout)
 *
 * @return     DIOATCMD_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD_ERROR DIOATCMDGSM::SendSMS(XCHAR* number, XCHAR* message, int* mrID, int timeout)
 {
   DIOATCMD_ERROR error;
@@ -902,7 +902,7 @@ DIOATCMD_ERROR DIOATCMDGSM::SendSMS(XCHAR* number, XCHAR* message, int* mrID, in
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOATCMDGSM::CodecPDUFormat(XCHAR* number, XCHAR* message, bool inoctets, int validperiod, XSTRING& length, XSTRING& result)
 {
   if(!number)  return false;
@@ -1033,7 +1033,7 @@ bool DIOATCMDGSM::CodecPDUFormat(XCHAR* number, XCHAR* message, bool inoctets, i
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOATCMDGSM::Clean()
 {
 

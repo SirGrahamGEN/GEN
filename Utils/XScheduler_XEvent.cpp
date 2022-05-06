@@ -6,7 +6,7 @@
 * @brief      eXtended Scheduler eXtended Event class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSCHEDULER_XEVENT::XSCHEDULER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();
@@ -71,7 +71,7 @@ XSCHEDULER_XEVENT::XSCHEDULER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD fami
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSCHEDULER_XEVENT::~XSCHEDULER_XEVENT()
 {
   Clean();
@@ -87,7 +87,7 @@ XSCHEDULER_XEVENT::~XSCHEDULER_XEVENT()
 *
 * @return     XSCHEDULER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSCHEDULER*  XSCHEDULER_XEVENT::GetScheduler()
 {
   return xscheduler;
@@ -105,7 +105,7 @@ XSCHEDULER*  XSCHEDULER_XEVENT::GetScheduler()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULER_XEVENT::SetScheduler(XSCHEDULER* xscheduler)
 {
   this->xscheduler = xscheduler;
@@ -121,7 +121,7 @@ void XSCHEDULER_XEVENT::SetScheduler(XSCHEDULER* xscheduler)
 *
 * @return     XSCHEDULERTASK* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSCHEDULERTASK* XSCHEDULER_XEVENT::GetTask()
 {
   return xtask;
@@ -139,7 +139,7 @@ XSCHEDULERTASK* XSCHEDULER_XEVENT::GetTask()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULER_XEVENT::SetTask(XSCHEDULERTASK* xtask)
 {
   this->xtask = xtask;
@@ -155,7 +155,7 @@ void XSCHEDULER_XEVENT::SetTask(XSCHEDULERTASK* xtask)
 *
 * @return     XDATETIME* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDATETIME* XSCHEDULER_XEVENT::GetDateTime()
 {
   return xdatetime;
@@ -173,7 +173,7 @@ XDATETIME* XSCHEDULER_XEVENT::GetDateTime()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULER_XEVENT::SetDateTime(XDATETIME* xdatetime)
 {
   this->xdatetime = xdatetime;
@@ -190,7 +190,7 @@ void XSCHEDULER_XEVENT::SetDateTime(XDATETIME* xdatetime)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULER_XEVENT::Clean()
 {
   xscheduler  = NULL;

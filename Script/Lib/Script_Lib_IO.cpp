@@ -6,7 +6,7 @@
 * @brief      Script Library IO (input, output: Printf, Put, XTRACE_PRINTCOLOR, ...)
 * @ingroup    SCRIPT
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -57,7 +57,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_IO::SCRIPT_LIB_IO() : SCRIPT_LIB(SCRIPT_LIB_NAME_IO)
 {
   Clean();
@@ -76,7 +76,7 @@ SCRIPT_LIB_IO::SCRIPT_LIB_IO() : SCRIPT_LIB(SCRIPT_LIB_NAME_IO)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_IO::~SCRIPT_LIB_IO()
 {
   if(console) GEN_XFACTORY.DeleteConsole(console);
@@ -96,7 +96,7 @@ SCRIPT_LIB_IO::~SCRIPT_LIB_IO()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_LIB_IO::AddLibraryFunctions(SCRIPT* script)
 {
   if(!script) return false;
@@ -124,7 +124,7 @@ bool SCRIPT_LIB_IO::AddLibraryFunctions(SCRIPT* script)
 *
 * @return     XCONSOLE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCONSOLE* SCRIPT_LIB_IO::GetConsole()
 {
   if(!console) 
@@ -148,7 +148,7 @@ XCONSOLE* SCRIPT_LIB_IO::GetConsole()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_IO::Clean()
 {
   console = NULL;
@@ -174,7 +174,7 @@ void SCRIPT_LIB_IO::Clean()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void Call_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
@@ -203,7 +203,7 @@ void Call_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void Call_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
@@ -242,7 +242,7 @@ void Call_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void Call_SPrintf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
@@ -370,7 +370,7 @@ void Call_SPrintf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void Call_Printf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
@@ -508,7 +508,7 @@ void Call_Printf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void Call_XTRACE_PRINTCOLOR(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;

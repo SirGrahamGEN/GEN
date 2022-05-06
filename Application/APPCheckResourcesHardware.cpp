@@ -6,7 +6,7 @@
 * @brief      Application Check Resources Hardware class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -52,7 +52,6 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPCHECKRESOURCESHARDWARE::APPCHECKRESOURCESHARDWARE()
@@ -61,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 APPCHECKRESOURCESHARDWARE::APPCHECKRESOURCESHARDWARE()
 {
   Clean();
@@ -73,7 +72,6 @@ APPCHECKRESOURCESHARDWARE::APPCHECKRESOURCESHARDWARE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPCHECKRESOURCESHARDWARE::~APPCHECKRESOURCESHARDWARE()
@@ -83,7 +81,7 @@ APPCHECKRESOURCESHARDWARE::APPCHECKRESOURCESHARDWARE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 APPCHECKRESOURCESHARDWARE::~APPCHECKRESOURCESHARDWARE()
 {
   End();
@@ -97,7 +95,6 @@ APPCHECKRESOURCESHARDWARE::~APPCHECKRESOURCESHARDWARE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPCHECKRESOURCESHARDWARE::Ini(APPCFG* cfg)
@@ -108,7 +105,7 @@ APPCHECKRESOURCESHARDWARE::~APPCHECKRESOURCESHARDWARE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPCHECKRESOURCESHARDWARE::Ini(APPCFG* cfg)
 {
   this->cfg = cfg;
@@ -165,8 +162,6 @@ bool APPCHECKRESOURCESHARDWARE::Ini(APPCFG* cfg)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int APPCHECKRESOURCESHARDWARE::GetCPUAverangge()
@@ -175,15 +170,13 @@ bool APPCHECKRESOURCESHARDWARE::Ini(APPCFG* cfg)
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int APPCHECKRESOURCESHARDWARE::GetCPUAverangge()
 {
   if(!nsamplesCPU) return 0;
   
   return (nCPUusage /nsamplesCPU);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -194,7 +187,7 @@ int APPCHECKRESOURCESHARDWARE::GetCPUAverangge()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPCHECKRESOURCESHARDWARE::End()
 {
   inexit =  true;
@@ -215,7 +208,6 @@ bool APPCHECKRESOURCESHARDWARE::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPCHECKRESOURCESHARDWARE::CheckMemoryStatus()
@@ -224,7 +216,7 @@ bool APPCHECKRESOURCESHARDWARE::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPCHECKRESOURCESHARDWARE::CheckMemoryStatus()
 {
   if(!cfg) return false;
@@ -252,7 +244,6 @@ bool APPCHECKRESOURCESHARDWARE::CheckMemoryStatus()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPCHECKRESOURCESHARDWARE::CheckCPUUsageStatus()
@@ -261,7 +252,7 @@ bool APPCHECKRESOURCESHARDWARE::CheckMemoryStatus()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPCHECKRESOURCESHARDWARE::CheckCPUUsageStatus()
 {
   if(!cfg) return false;
@@ -292,8 +283,6 @@ bool APPCHECKRESOURCESHARDWARE::CheckCPUUsageStatus()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPCHECKRESOURCESHARDWARE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
@@ -305,7 +294,7 @@ bool APPCHECKRESOURCESHARDWARE::CheckCPUUsageStatus()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 {
   switch(event->GetTask()->GetID())
@@ -314,8 +303,6 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
       case APPCHECKRESOURCESHARDWARE_TASKID_CPUUSAGE          : CheckCPUUsageStatus();    break;
     } 
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -329,7 +316,7 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
 {
   if(!xevent) return; 
@@ -350,9 +337,6 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPCHECKRESOURCESHARDWARE::Clean()
@@ -362,7 +346,7 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE::Clean()
 {
   inexit                  =  false;
@@ -371,6 +355,4 @@ void APPCHECKRESOURCESHARDWARE::Clean()
 
   nCPUusage               = 0;
   nsamplesCPU             = 0;
-
 }
-

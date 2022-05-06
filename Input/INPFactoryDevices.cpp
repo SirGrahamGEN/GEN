@@ -6,7 +6,7 @@
 * @brief      INPUT factory
 * @ingroup    INPUT
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -52,7 +52,7 @@ INPFACTORYDEVICES* INPFACTORYDEVICES::instance = NULL;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPFACTORYDEVICES::INPFACTORYDEVICES()
 {
   Clean();
@@ -69,7 +69,7 @@ INPFACTORYDEVICES::INPFACTORYDEVICES()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPFACTORYDEVICES::~INPFACTORYDEVICES()
 {
   Clean();
@@ -86,7 +86,7 @@ INPFACTORYDEVICES::~INPFACTORYDEVICES()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPFACTORYDEVICES::GetIsInstanced()
 {
   return instance!=NULL;
@@ -103,7 +103,7 @@ bool INPFACTORYDEVICES::GetIsInstanced()
 *
 * @return     INPFACTORYDEVICES& :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPFACTORYDEVICES& INPFACTORYDEVICES::GetInstance()
 {
   if(!instance) instance = new INPFACTORYDEVICES();
@@ -124,7 +124,7 @@ INPFACTORYDEVICES& INPFACTORYDEVICES::GetInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPFACTORYDEVICES::SetInstance(INPFACTORYDEVICES* _instance)
 {
   if(!_instance) return false;
@@ -145,7 +145,7 @@ bool INPFACTORYDEVICES::SetInstance(INPFACTORYDEVICES* _instance)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPFACTORYDEVICES::DelInstance()
 {
   if(!instance) return false;
@@ -169,7 +169,7 @@ bool INPFACTORYDEVICES::DelInstance()
 *
 * @return     INPDEVICE* : device input created
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPDEVICE* INPFACTORYDEVICES::CreateDevice(INPDEVICE_TYPE type, void* param)
 {
   return NULL;
@@ -187,7 +187,7 @@ INPDEVICE* INPFACTORYDEVICES::CreateDevice(INPDEVICE_TYPE type, void* param)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPFACTORYDEVICES::DeleteDevice(INPDEVICE* device)
 {
   return false;
@@ -204,7 +204,7 @@ bool INPFACTORYDEVICES::DeleteDevice(INPDEVICE* device)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPFACTORYDEVICES::Clean()
 {
 

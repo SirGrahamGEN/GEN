@@ -6,7 +6,7 @@
 * @brief      WINDOWS Data Input/Output GPIO (General Purpose Input/Output) PC Parallel
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSGPIOPCPARALLEL::DIOWINDOWSGPIOPCPARALLEL(): DIOGPIO()
 {
   Clean();
@@ -70,7 +70,7 @@ DIOWINDOWSGPIOPCPARALLEL::DIOWINDOWSGPIOPCPARALLEL(): DIOGPIO()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSGPIOPCPARALLEL::~DIOWINDOWSGPIOPCPARALLEL()
 {
   Clean();
@@ -88,7 +88,7 @@ DIOWINDOWSGPIOPCPARALLEL::~DIOWINDOWSGPIOPCPARALLEL()
  *
  *  @return     XPATH* :
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 XPATH* DIOWINDOWSGPIOPCPARALLEL::GetPath()
  {
    return xpath;
@@ -106,7 +106,7 @@ XPATH* DIOWINDOWSGPIOPCPARALLEL::GetPath()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSGPIOPCPARALLEL::SetPath(XPATH* xpath)
 {
   this->xpath = xpath;
@@ -160,7 +160,7 @@ void DIOWINDOWSGPIOPCPARALLEL::SetParallelPort(XWORD port)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSGPIOPCPARALLEL::Ini()
 {
   XPATH xpathDLL;
@@ -292,7 +292,7 @@ bool DIOWINDOWSGPIOPCPARALLEL::SetValue(DIOGPIO_ENTRY* entry, bool value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSGPIOPCPARALLEL::End()
 {
   if(!handleDLL) return false;
@@ -314,7 +314,7 @@ bool DIOWINDOWSGPIOPCPARALLEL::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSGPIOPCPARALLEL::PC_Get(XDWORD nport, XBYTE& data)
 {
   if(!handleDLL)      return false;
@@ -339,7 +339,7 @@ bool DIOWINDOWSGPIOPCPARALLEL::PC_Get(XDWORD nport, XBYTE& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSGPIOPCPARALLEL::PC_Set(XDWORD nport, XBYTE data)
 {
   if(!handleDLL)      return false;
@@ -362,7 +362,7 @@ bool DIOWINDOWSGPIOPCPARALLEL::PC_Set(XDWORD nport, XBYTE data)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSGPIOPCPARALLEL::Clean()
 { 
   xpath           = NULL;

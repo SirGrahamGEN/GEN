@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C Sensor AOSONG AM2315 class (Temperature and humidity module)
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CTEMHUMSENSORAM2315::DIOI2CTEMHUMSENSORAM2315(): DIODEVICEI2C()
 {
   Clean();
@@ -78,7 +78,7 @@ DIOI2CTEMHUMSENSORAM2315::DIOI2CTEMHUMSENSORAM2315(): DIODEVICEI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CTEMHUMSENSORAM2315::~DIOI2CTEMHUMSENSORAM2315()
 {
   End();
@@ -99,7 +99,7 @@ DIOI2CTEMHUMSENSORAM2315::~DIOI2CTEMHUMSENSORAM2315()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORAM2315::Read(float& temperature, float& humidity)
 {
   if(!diostream)        return false;
@@ -149,7 +149,7 @@ bool DIOI2CTEMHUMSENSORAM2315::Read(float& temperature, float& humidity)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORAM2315::End()
 {
   if(!DIODEVICEI2C::End()) return false;
@@ -167,7 +167,7 @@ bool DIOI2CTEMHUMSENSORAM2315::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORAM2315::IniDevice()
 {
   if(!DIODEVICEI2C::IniDevice()) return false;
@@ -197,7 +197,7 @@ bool DIOI2CTEMHUMSENSORAM2315::IniDevice()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTEMHUMSENSORAM2315::CalculeCRC(XBYTE* buffer, XWORD& CRC)
 {
   CRC = 0xFFFF;
@@ -234,7 +234,7 @@ bool DIOI2CTEMHUMSENSORAM2315::CalculeCRC(XBYTE* buffer, XWORD& CRC)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CTEMHUMSENSORAM2315::Clean()
 {
 

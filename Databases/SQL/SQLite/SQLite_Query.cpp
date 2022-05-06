@@ -6,7 +6,7 @@
 * @brief      DataBase SQLite Query class
 * @ingroup    DATABASESSQL
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_QUERY::~SQLITE_QUERY()
 {
   if(result)
@@ -84,7 +84,7 @@ SQLITE_QUERY::~SQLITE_QUERY()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::Execute()
 {
   sqlite3* db = static_cast<SQLITE_DATABASE*>(database)->sqlite3database;
@@ -138,7 +138,7 @@ bool SQLITE_QUERY::Execute()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::ClearCursor()
 {
   return false;
@@ -157,7 +157,7 @@ bool SQLITE_QUERY::ClearCursor()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::Bind(XDWORD ID, int integer)
 {
   return DB_SQL_QUERY::Bind(ID+1, integer);
@@ -176,7 +176,7 @@ bool SQLITE_QUERY::Bind(XDWORD ID, int integer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::Bind(XDWORD ID, XCHAR* string)
 {
   return DB_SQL_QUERY::Bind(ID+1, string);
@@ -195,7 +195,7 @@ bool SQLITE_QUERY::Bind(XDWORD ID, XCHAR* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::Bind(XDWORD ID, float decimal)
 {
   return DB_SQL_QUERY::Bind(ID+1, decimal );
@@ -214,7 +214,7 @@ bool SQLITE_QUERY::Bind(XDWORD ID, float decimal)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::Bind(XDWORD ID, XDATETIME& datetime)
 {
   return DB_SQL_QUERY::Bind(ID+1, datetime);
@@ -230,7 +230,7 @@ bool SQLITE_QUERY::Bind(XDWORD ID, XDATETIME& datetime)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::IsWellConstructedQuery()
 {
   //pending checks
@@ -250,7 +250,7 @@ bool SQLITE_QUERY::IsWellConstructedQuery()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int SQLITE_QUERY::Exec(const char* sql, XDWORD size)
 {
   sqlite3* db = static_cast<SQLITE_DATABASE*>(database)->sqlite3database;
@@ -392,7 +392,7 @@ int SQLITE_QUERY::Exec(const char* sql, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::BindParametersToQuery()
 {
   for(XDWORD e=0; e<statementbindings.GetSize(); e++)
@@ -489,7 +489,7 @@ bool SQLITE_QUERY::BindParametersToQuery()
 *
 * @return     DB_SQL_RESULT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_RESULT* SQLITE_QUERY::ConstructResult()
 {
   SQLITE_RESULT* set = new SQLITE_RESULT();

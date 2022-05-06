@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Wi-Fi Remote Enum Devices class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSTREAMWIFIREMOTEENUMDEVICES_H_
 #define _DIOSTREAMWIFIREMOTEENUMDEVICES_H_
@@ -55,7 +55,7 @@ class DIOSTREAMWIFIREMOTEENUMDEVICES :  public DIOSTREAMENUMDEVICES
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

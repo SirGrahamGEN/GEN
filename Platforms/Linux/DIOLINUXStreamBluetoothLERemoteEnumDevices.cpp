@@ -6,7 +6,7 @@
 * @brief      LINUX Data Input/Output Stream Bluetooth Remote Enum Devices class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -66,7 +66,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES() : DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES() 
 {
   Clean();
@@ -85,7 +85,7 @@ DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMD
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
 {
   DeRegisterEvent(DIOSTREAMBLUETOOTH_XEVENT_TYPE_ENUMREMOTEBLUETOOTHLE_DEVICEFOUND);
@@ -105,7 +105,7 @@ DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHLEREMOTEENUM
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
 {
@@ -308,7 +308,7 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::StopSearch(bool waitend)
 {
 
@@ -360,7 +360,7 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
 {
   if(!threadenumdevices) return false;
@@ -382,7 +382,7 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 {
   DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES* LEremotedevices = (DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES*)param;
@@ -474,7 +474,7 @@ void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevicesEvent(void* param)
 {
   DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES* LEremotedevices = (DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES*)param;
@@ -524,7 +524,7 @@ void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevicesEvent(void* pa
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Clean()
 { 
   threadenumdevices       = NULL;

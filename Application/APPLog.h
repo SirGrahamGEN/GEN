@@ -6,7 +6,7 @@
 * @brief      Application Log class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _APPLOG_H_
 #define _APPLOG_H_
@@ -34,7 +34,6 @@
 #include "XPath.h"
 #include "XString.h"
 #include "XLog.h"
-
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
@@ -46,7 +45,6 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class APPCFG;
-
 
 class APPLOG
 {
@@ -74,8 +72,7 @@ class APPLOG
     APPCFG*                             cfg;
 };
 
-
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Remote File CFG class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -61,7 +61,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOREMOTEFILECFG::DIOREMOTEFILECFG(XCHAR* namefile): XFILECFG(namefile)
 {
   Clean();
@@ -81,7 +81,7 @@ DIOREMOTEFILECFG::DIOREMOTEFILECFG(XCHAR* namefile): XFILECFG(namefile)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOREMOTEFILECFG::~DIOREMOTEFILECFG()
 {
   if(webclient) delete webclient;
@@ -100,7 +100,7 @@ DIOREMOTEFILECFG::~DIOREMOTEFILECFG()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOREMOTEFILECFG::Ini()
 {
   if(!webclient)         return false;
@@ -171,7 +171,7 @@ bool DIOREMOTEFILECFG::Ini()
  *
  *  @return     XSTRING* : URL remote Config
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOREMOTEFILECFG::GetURLRemoteCFG()
  {
    return &URLremoteCFG;
@@ -188,7 +188,7 @@ XSTRING* DIOREMOTEFILECFG::GetURLRemoteCFG()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOREMOTEFILECFG::Clean()
 {
   webclient   = NULL;

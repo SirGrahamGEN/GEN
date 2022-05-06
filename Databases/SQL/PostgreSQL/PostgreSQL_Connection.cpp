@@ -6,7 +6,7 @@
 * @brief      DataBase PostgreSQL Connection class
 * @ingroup    DATABASESSQL
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_CONNECTION::POSTGRESQL_CONNECTION(DB_SQL_DATABASE* database) : DB_SQL_CONNECTION(database)
 {
   Clean();
@@ -70,7 +70,7 @@ POSTGRESQL_CONNECTION::POSTGRESQL_CONNECTION(DB_SQL_DATABASE* database) : DB_SQL
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_CONNECTION::~POSTGRESQL_CONNECTION()
 {
   Clean();
@@ -86,7 +86,7 @@ POSTGRESQL_CONNECTION::~POSTGRESQL_CONNECTION()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_CONNECTION::Connect()
 {
   DB_SQL_STRING connectionstring;
@@ -203,7 +203,7 @@ bool POSTGRESQL_CONNECTION::Connect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool POSTGRESQL_CONNECTION::Disconnect()
 {
   PQfinish(connection);
@@ -222,7 +222,7 @@ bool POSTGRESQL_CONNECTION::Disconnect()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void POSTGRESQL_CONNECTION::Clean()
 {
 

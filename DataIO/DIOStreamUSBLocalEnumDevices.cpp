@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream USB local enum class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUSBLOCALENUMDEVICES::DIOSTREAMUSBLOCALENUMDEVICES() : DIOSTREAMENUMDEVICES()
 {
   Clean();
@@ -71,7 +71,7 @@ DIOSTREAMUSBLOCALENUMDEVICES::DIOSTREAMUSBLOCALENUMDEVICES() : DIOSTREAMENUMDEVI
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUSBLOCALENUMDEVICES::~DIOSTREAMUSBLOCALENUMDEVICES()
 {
   Clean();
@@ -87,7 +87,7 @@ DIOSTREAMUSBLOCALENUMDEVICES::~DIOSTREAMUSBLOCALENUMDEVICES()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUSBLOCALENUMDEVICES::Search()
 {
   return false;
@@ -105,7 +105,7 @@ bool DIOSTREAMUSBLOCALENUMDEVICES::Search()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUSBLOCALENUMDEVICES::StopSearch(bool waitend)
 {
   return false;
@@ -121,7 +121,7 @@ bool DIOSTREAMUSBLOCALENUMDEVICES::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUSBLOCALENUMDEVICES::IsSearching()
 {
   return issearching;
@@ -139,7 +139,7 @@ bool DIOSTREAMUSBLOCALENUMDEVICES::IsSearching()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 {
   return false;
@@ -157,7 +157,7 @@ bool DIOSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 *
 * @return     DIOSTREAMDEVICEUSB* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(XCHAR* location)
 {
   if(devices.IsEmpty()) return NULL;
@@ -187,7 +187,7 @@ DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(XCHAR* location)
 *
 * @return     DIOSTREAMDEVICEUSB* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(XSTRING& location)
 {
   return FindDevice(location.Get());
@@ -207,7 +207,7 @@ DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(XSTRING& location)
 *
 * @return     DIOSTREAMDEVICEUSB* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(XCHAR* location, DIOSTREAMDEVICEUSBCLASS classdev)
 {
   if(devices.IsEmpty()) return NULL;
@@ -240,7 +240,7 @@ DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(XCHAR* location, DI
 *
 * @return     DIOSTREAMDEVICEUSB* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(XSTRING& location, DIOSTREAMDEVICEUSBCLASS classdev)
 {
   return FindDevice(location.Get(), classdev);
@@ -259,7 +259,7 @@ DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(XSTRING& location, 
 *
 * @return     DIOSTREAMDEVICEUSB* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(XDWORD vendorID, XDWORD productID)
 {
   if(devices.IsEmpty()) return NULL;
@@ -290,7 +290,7 @@ DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(XDWORD vendorID, XD
 *
 * @return     DIOSTREAMDEVICEUSB* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(XDWORD vendorID, XDWORD productID, DIOSTREAMDEVICEUSBCLASS classdev)
 {
   if(devices.IsEmpty()) return NULL;
@@ -319,7 +319,7 @@ DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(XDWORD vendorID, XD
 *
 * @return     DIOSTREAMDEVICEUSB* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(DIOSTREAMUSBCONFIG& config)
 {
   if(devices.IsEmpty()) return NULL;
@@ -350,7 +350,7 @@ DIOSTREAMDEVICEUSB* DIOSTREAMUSBLOCALENUMDEVICES::FindDevice(DIOSTREAMUSBCONFIG&
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUSBLOCALENUMDEVICES::Clean()
 {
   type        = DIOSTREAMENUMTYPE_USB_LOCAL;

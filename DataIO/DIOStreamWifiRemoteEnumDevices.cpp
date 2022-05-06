@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Wi-Fi Remote Enum Devices class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -51,7 +51,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMWIFIREMOTEENUMDEVICES::DIOSTREAMWIFIREMOTEENUMDEVICES() : DIOSTREAMENUMDEVICES()
 {
   Clean();
@@ -68,7 +68,7 @@ DIOSTREAMWIFIREMOTEENUMDEVICES::DIOSTREAMWIFIREMOTEENUMDEVICES() : DIOSTREAMENUM
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMWIFIREMOTEENUMDEVICES::~DIOSTREAMWIFIREMOTEENUMDEVICES()
 {
   Clean();
@@ -84,7 +84,7 @@ DIOSTREAMWIFIREMOTEENUMDEVICES::~DIOSTREAMWIFIREMOTEENUMDEVICES()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMWIFIREMOTEENUMDEVICES::Search()
 {
   return false;
@@ -102,7 +102,7 @@ bool DIOSTREAMWIFIREMOTEENUMDEVICES::Search()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 {
   return false;
@@ -118,7 +118,7 @@ bool DIOSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 {
   return false;
@@ -136,7 +136,7 @@ bool DIOSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMWIFIREMOTEENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 {
   return false;
@@ -153,7 +153,7 @@ bool DIOSTREAMWIFIREMOTEENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMWIFIREMOTEENUMDEVICES::Clean()
 {
   type = DIOSTREAMENUMTYPE_BLUETOOTH_REMOTE;

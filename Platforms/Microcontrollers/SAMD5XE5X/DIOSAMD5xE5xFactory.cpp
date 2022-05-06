@@ -6,7 +6,7 @@
 * @brief      SAMD5xE5x platform factory class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -78,7 +78,7 @@
 *
 * @return     DIOSTREAM* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM* DIOSAMD5XE5XFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 {
   if(!config) return NULL;
@@ -131,7 +131,7 @@ DIOSTREAM* DIOSAMD5XE5XFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 {
   if(!diostream) return false;
@@ -154,7 +154,7 @@ bool DIOSAMD5XE5XFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 *
 * @return     DIOGPIO* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOGPIO* DIOSAMD5XE5XFACTORY::CreateGPIO()
 {
   DIOSAMD5XE5XGPIO* _class = new DIOSAMD5XE5XGPIO();
@@ -175,7 +175,7 @@ DIOGPIO* DIOSAMD5XE5XFACTORY::CreateGPIO()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XFACTORY::DeleteGPIO(DIOGPIO* port)
 {
   if(!port) return false;

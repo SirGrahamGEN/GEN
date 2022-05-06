@@ -6,7 +6,7 @@
 * @brief      Sound Open AL Buffer class
 * @ingroup    PLATFORM_COMMON
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _SNDBUFFER_OPENAL_H_
 #define _SNDBUFFER_OPENAL_H_
@@ -65,7 +65,7 @@ class SNDBUFFER_OPENAL
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

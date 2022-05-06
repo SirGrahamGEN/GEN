@@ -6,7 +6,7 @@
 * @brief      SAMD5xE5x Data IO Stream UART class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -62,7 +62,7 @@ DIOSAMD5XE5XSTREAMUART*   diostreamuartptrhandle[3] = { NULL, NULL, NULL };
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XSTREAMUART::DIOSAMD5XE5XSTREAMUART(): DIOSTREAMUART(), XFSMACHINE(0)
 {
   Clean();
@@ -101,7 +101,7 @@ DIOSAMD5XE5XSTREAMUART::DIOSAMD5XE5XSTREAMUART(): DIOSTREAMUART(), XFSMACHINE(0)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSAMD5XE5XSTREAMUART::~DIOSAMD5XE5XSTREAMUART()
 {
   Close();
@@ -121,7 +121,7 @@ DIOSAMD5XE5XSTREAMUART::~DIOSAMD5XE5XSTREAMUART()
 *
 * @return     DIOSTREAMSTATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOSAMD5XE5XSTREAMUART::GetConnectStatus()
 {
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -140,7 +140,7 @@ DIOSTREAMSTATUS DIOSAMD5XE5XSTREAMUART::GetConnectStatus()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUART::Open()
 {
   if(!threadconnection)  return false;
@@ -219,7 +219,7 @@ bool DIOSAMD5XE5XSTREAMUART::Open()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUART::Config(XWORD mask)
 {
   //--- ABRHAMD5XE5X ------------------
@@ -314,7 +314,7 @@ bool DIOSAMD5XE5XSTREAMUART::Config(XWORD mask)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
@@ -345,7 +345,7 @@ XDWORD DIOSAMD5XE5XSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
@@ -370,7 +370,7 @@ XDWORD DIOSAMD5XE5XSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSAMD5XE5XSTREAMUART::Write(XBYTE* buffer, XDWORD size)
 {
   if(!outbuffer) return 0;
@@ -400,7 +400,7 @@ XDWORD DIOSAMD5XE5XSTREAMUART::Write(XBYTE* buffer, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUART::Disconnect()
 {
   return false;
@@ -416,7 +416,7 @@ bool DIOSAMD5XE5XSTREAMUART::Disconnect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUART::Close()
 {
   if(!threadconnection) return false;
@@ -440,7 +440,7 @@ bool DIOSAMD5XE5XSTREAMUART::Close()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUART::GetCTS()
 {
   return false;
@@ -456,7 +456,7 @@ bool DIOSAMD5XE5XSTREAMUART::GetCTS()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUART::GetDSR()
 {
   return false;
@@ -472,7 +472,7 @@ bool DIOSAMD5XE5XSTREAMUART::GetDSR()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUART::GetRing()
 {
   return false;
@@ -488,7 +488,7 @@ bool DIOSAMD5XE5XSTREAMUART::GetRing()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUART::GetRLSD()
 {
   return false;
@@ -506,7 +506,7 @@ bool DIOSAMD5XE5XSTREAMUART::GetRLSD()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUART::SetRTS(bool on)
 {
   return false;
@@ -524,7 +524,7 @@ bool DIOSAMD5XE5XSTREAMUART::SetRTS(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUART::SetDTR(bool on)
 {
   return false;
@@ -541,7 +541,7 @@ bool DIOSAMD5XE5XSTREAMUART::SetDTR(bool on)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSAMD5XE5XSTREAMUART::CleanBuffers()
 {
 
@@ -560,7 +560,7 @@ bool DIOSAMD5XE5XSTREAMUART::CleanBuffers()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 //--- ABRHAMD5XE5X ------------------
 /*
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -611,7 +611,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSAMD5XE5XSTREAMUART::ThreadConnection(void* param)
 {
   DIOSAMD5XE5XSTREAMUART* diostream = (DIOSAMD5XE5XSTREAMUART*)param;
@@ -705,7 +705,7 @@ void DIOSAMD5XE5XSTREAMUART::ThreadConnection(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSAMD5XE5XSTREAMUART::Clean()
 {
   threadconnection   = NULL;

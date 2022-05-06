@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C PCF8591 (AD/DA converter) class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2CADDACONVERTERPCF8591_H_
 #define _DIOI2CADDACONVERTERPCF8591_H_
@@ -77,7 +77,7 @@ class DIOI2CADDACONVERTERPCF8591 : public DIODEVICEI2C
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

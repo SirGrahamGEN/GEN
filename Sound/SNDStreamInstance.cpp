@@ -6,7 +6,7 @@
 * @brief      Sound Stream instance class
 * @ingroup    SOUND
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -63,7 +63,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDSTREAMINSTANCE::SNDSTREAMINSTANCE(SNDSOURCE* source, SNDELEMENT* element) : SNDINSTANCE(source, element)
 {
   Clean();
@@ -83,7 +83,7 @@ SNDSTREAMINSTANCE::SNDSTREAMINSTANCE(SNDSOURCE* source, SNDELEMENT* element) : S
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDSTREAMINSTANCE::~SNDSTREAMINSTANCE()
 {
   Clean();
@@ -100,7 +100,7 @@ SNDSTREAMINSTANCE::~SNDSTREAMINSTANCE()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SNDSTREAMINSTANCE::Update()
 {
 
@@ -191,7 +191,7 @@ bool SNDSTREAMINSTANCE::Update()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SNDSTREAMINSTANCE::Clean()
 {
   buffered      = 0.0f;

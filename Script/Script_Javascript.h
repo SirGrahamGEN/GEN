@@ -6,7 +6,7 @@
 * @brief      Script Javascript interpreter class
 * @ingroup    SCRIPT
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _SCRIPT_JAVASCRIPT_H_
 #define _SCRIPT_JAVASCRIPT_H_
@@ -81,7 +81,7 @@ class SCRIPT_JAVASCRIPT : public SCRIPT
 
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 double __builtin_inf (void);
 

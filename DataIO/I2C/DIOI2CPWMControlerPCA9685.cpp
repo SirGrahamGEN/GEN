@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C PCA9685 (16-channel, 12-bit PWM controller) class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -61,7 +61,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CPWMCONTROLERPCA9685::DIOI2CPWMCONTROLERPCA9685(): DIODEVICEI2C()
 {
   Clean();
@@ -79,7 +79,7 @@ DIOI2CPWMCONTROLERPCA9685::DIOI2CPWMCONTROLERPCA9685(): DIODEVICEI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CPWMCONTROLERPCA9685::~DIOI2CPWMCONTROLERPCA9685()
 {
   End();
@@ -98,7 +98,7 @@ DIOI2CPWMCONTROLERPCA9685::~DIOI2CPWMCONTROLERPCA9685()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CPWMCONTROLERPCA9685::Reset()
 {
   return SendCommand(DIOI2CPWMCONTROLERPCA9685_MODE1, 0x00);
@@ -116,7 +116,7 @@ bool DIOI2CPWMCONTROLERPCA9685::Reset()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CPWMCONTROLERPCA9685::SetPWMFrequency(float frequency)
 {
   if(!IsInitialized()) return false;
@@ -169,7 +169,7 @@ bool DIOI2CPWMCONTROLERPCA9685::SetPWMFrequency(float frequency)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CPWMCONTROLERPCA9685::SetPWM(XBYTE channel, XWORD on, XWORD off, bool wait)
 {
   if(!IsInitialized())  return false;
@@ -194,7 +194,7 @@ bool DIOI2CPWMCONTROLERPCA9685::SetPWM(XBYTE channel, XWORD on, XWORD off, bool 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CPWMCONTROLERPCA9685::End()
 {
   if(!DIODEVICEI2C::End()) return false;
@@ -214,7 +214,7 @@ bool DIOI2CPWMCONTROLERPCA9685::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CPWMCONTROLERPCA9685::IniDevice()
 {  
   if(!DIODEVICEI2C::IniDevice()) return false;
@@ -246,7 +246,7 @@ bool DIOI2CPWMCONTROLERPCA9685::IniDevice()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CPWMCONTROLERPCA9685::ReadCommand(XBYTE cmd, XBYTE& value)
 {
   if(!diostream) return false;
@@ -278,7 +278,7 @@ bool DIOI2CPWMCONTROLERPCA9685::ReadCommand(XBYTE cmd, XBYTE& value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CPWMCONTROLERPCA9685::SendCommand(XBYTE cmd, XBYTE value, bool wait)
 {
   if(!diostream)  return false;
@@ -309,7 +309,7 @@ bool DIOI2CPWMCONTROLERPCA9685::SendCommand(XBYTE cmd, XBYTE value, bool wait)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CPWMCONTROLERPCA9685::Clean()
 {
   

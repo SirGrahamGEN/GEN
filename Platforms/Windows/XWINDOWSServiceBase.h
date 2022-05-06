@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS Service Base class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XWINDOWSSERVICEBASE_H_
 #define _XWINDOWSSERVICEBASE_H_
@@ -114,7 +114,7 @@ class XWINDOWSSERVICEBASE
     static LPSERVICE_FAILURE_ACTIONS    service_failureactions;
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

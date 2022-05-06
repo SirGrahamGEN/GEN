@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS Registry Manager class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSREGISTRYKEY::XWINDOWSREGISTRYKEY()
 {
   Clean();
@@ -75,7 +75,7 @@ XWINDOWSREGISTRYKEY::XWINDOWSREGISTRYKEY()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSREGISTRYKEY::~XWINDOWSREGISTRYKEY()
 {
   Clean();
@@ -91,7 +91,7 @@ XWINDOWSREGISTRYKEY::~XWINDOWSREGISTRYKEY()
 *
 * @return     HKEY :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 HKEY XWINDOWSREGISTRYKEY::GetHandle()
 {
   return handlekey;
@@ -109,7 +109,7 @@ HKEY XWINDOWSREGISTRYKEY::GetHandle()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSREGISTRYKEY::SetHandle(HKEY handlekey)
 {
   this->handlekey = handlekey;
@@ -125,7 +125,7 @@ void XWINDOWSREGISTRYKEY::SetHandle(HKEY handlekey)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XWINDOWSREGISTRYKEY::GetType()
 {
   return type;
@@ -143,7 +143,7 @@ XDWORD XWINDOWSREGISTRYKEY::GetType()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSREGISTRYKEY::SetType(XDWORD type)
 {
   this->type = type;
@@ -162,7 +162,7 @@ void XWINDOWSREGISTRYKEY::SetType(XDWORD type)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYKEY::ReadValue(XCHAR* name, XVARIANT& data)
 {
   if(handlekey == NULL) return false;
@@ -256,7 +256,7 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XCHAR* name, XVARIANT& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYKEY::ReadValue(XSTRING& name, XVARIANT& data)
 {
   return ReadValue(name.Get(), data);
@@ -276,7 +276,7 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XSTRING& name, XVARIANT& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XDWORD type, XVARIANT& data)
 {
   if(handlekey == NULL) return false;
@@ -302,7 +302,7 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XDWORD type, XVARIANT& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
 {
   if(handlekey == NULL) return false;
@@ -364,7 +364,7 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XVARIANT& data)
 {
   return WriteValue(name.Get(), data);
@@ -384,7 +384,7 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XVARIANT& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XDWORD type, XVARIANT& data)
 {
   return WriteValue(name.Get(), type, data);
@@ -402,7 +402,7 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XDWORD type, XVARIANT& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYKEY::EnumValues(XVECTOR<XSTRING*>* valuelist)
 {
   if(GetHandle() == NULL) return false;
@@ -447,7 +447,7 @@ bool XWINDOWSREGISTRYKEY::EnumValues(XVECTOR<XSTRING*>* valuelist)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYKEY::DeleteValue(XCHAR* name)
 {
   if(handlekey == NULL) return false;
@@ -470,7 +470,7 @@ bool XWINDOWSREGISTRYKEY::DeleteValue(XCHAR* name)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYKEY::DeleteValue(XSTRING& name)
 {
   return DeleteValue(name.Get());
@@ -486,7 +486,7 @@ bool XWINDOWSREGISTRYKEY::DeleteValue(XSTRING& name)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSREGISTRYKEY::Clear()
 {
   handlekey = NULL;
@@ -504,7 +504,7 @@ void XWINDOWSREGISTRYKEY::Clear()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSREGISTRYKEY::Clean()
 {
   Clear();
@@ -513,9 +513,9 @@ void XWINDOWSREGISTRYKEY::Clean()
 
 
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 /*  XWINDOWSREGISTRYMANAGER                                                                                            */
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -529,7 +529,7 @@ void XWINDOWSREGISTRYKEY::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSREGISTRYMANAGER::XWINDOWSREGISTRYMANAGER()
 {
   Clean();
@@ -546,7 +546,7 @@ XWINDOWSREGISTRYMANAGER::XWINDOWSREGISTRYMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSREGISTRYMANAGER::~XWINDOWSREGISTRYMANAGER()
 {
   Clean();
@@ -566,7 +566,7 @@ XWINDOWSREGISTRYMANAGER::~XWINDOWSREGISTRYMANAGER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XCHAR* subkeystring, XWINDOWSREGISTRYKEY& registrykey)
 {
@@ -650,7 +650,7 @@ bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XCHAR* subkeystring, XWI
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XSTRING& subkeystring, XWINDOWSREGISTRYKEY& registrykey)
 {
   return CreateKey(handlekey, subkeystring.Get(), registrykey);
@@ -670,7 +670,7 @@ bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XSTRING& subkeystring, X
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XCHAR* subkeystring, XWINDOWSREGISTRYKEY& registrykey)
 {
   if(registrykey.GetHandle() != NULL) return false;
@@ -700,7 +700,7 @@ bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XCHAR* subkeystring, XWIND
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XSTRING& subkeystring, XWINDOWSREGISTRYKEY& registrykey)
 {
   return OpenKey(handlekey, subkeystring.Get(), registrykey);
@@ -720,7 +720,7 @@ bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XSTRING& subkeystring, XWI
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYMANAGER::EnumKeys(XWINDOWSREGISTRYKEY& registrykey, XVECTOR<XSTRING*>* keylist)
 {
   if(registrykey.GetHandle() == NULL) return false;
@@ -768,7 +768,7 @@ bool XWINDOWSREGISTRYMANAGER::EnumKeys(XWINDOWSREGISTRYKEY& registrykey, XVECTOR
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYMANAGER::CloseKey(XWINDOWSREGISTRYKEY& registrykey)
 {
   if(registrykey.GetHandle() == NULL) return false;
@@ -793,7 +793,7 @@ bool XWINDOWSREGISTRYMANAGER::CloseKey(XWINDOWSREGISTRYKEY& registrykey)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XCHAR* subkeystring)
 {
   HKEY      operhandlekey = NULL;
@@ -861,7 +861,7 @@ bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XCHAR* subkeystring)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XSTRING& subkeystring)
 {
   return XWINDOWSREGISTRYMANAGER::DeleteKey(handlekey, subkeystring.Get());
@@ -878,7 +878,7 @@ bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XSTRING& subkeystring)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSREGISTRYMANAGER::Clean()
 {
 

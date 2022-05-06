@@ -6,7 +6,7 @@
 * @brief      Graphic bitmap file JPEG format (JPEG: Joint Photographic Experts Group) class
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -56,7 +56,7 @@
 *
 * @return     METHODDEF(void)
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 METHODDEF(void) GRPBITMAPFILEJPG_ErrorExit(j_common_ptr info)
 {
   GRPBITMAPFILEJPG_ERROR_PTR myerr = (GRPBITMAPFILEJPG_ERROR_PTR) info->err;
@@ -76,7 +76,7 @@ METHODDEF(void) GRPBITMAPFILEJPG_ErrorExit(j_common_ptr info)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEJPG::GRPBITMAPFILEJPG(): GRPBITMAPFILEBASE()
 {
   Clean();
@@ -96,7 +96,7 @@ GRPBITMAPFILEJPG::GRPBITMAPFILEJPG(): GRPBITMAPFILEBASE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEJPG::~GRPBITMAPFILEJPG()
 {
   memset(&cinfo, 0, sizeof(struct jpeg_compress_struct));
@@ -118,7 +118,7 @@ GRPBITMAPFILEJPG::~GRPBITMAPFILEJPG()
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILEJPG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
 {
   if(!Open(xpath))  return NULL;
@@ -195,7 +195,7 @@ GRPBITMAP* GRPBITMAPFILEJPG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFILEJPG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode)
 {
   GRPBITMAPFILEJPGHEADER  header;
@@ -268,7 +268,7 @@ GRPBITMAP* GRPBITMAPFILEJPG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEJPG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
 {
   if(!bitmap)        return false;
@@ -319,7 +319,7 @@ bool GRPBITMAPFILEJPG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEJPG::Clean()
 {
 
@@ -337,7 +337,7 @@ void GRPBITMAPFILEJPG::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEJPG::ReadHeaderFile(GRPBITMAPFILEJPGHEADER* header)
 {
   if(!header) return false;
@@ -399,7 +399,7 @@ bool GRPBITMAPFILEJPG::ReadHeaderFile(GRPBITMAPFILEJPGHEADER* header)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEJPG::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFILEJPGHEADER* header)
 {
   if(!header) return false;
@@ -445,7 +445,7 @@ bool GRPBITMAPFILEJPG::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEJPG::DecodeToBufferFromFile(XBYTE* buffer)
 {
   if(!buffer)           return false;
@@ -527,7 +527,7 @@ bool GRPBITMAPFILEJPG::DecodeToBufferFromFile(XBYTE* buffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEJPG::DecodeToBufferFromRawBuffer(XBYTE* buffer, XDWORD size, XBYTE* tobuffer)
 {
   if(!buffer)       return false;
@@ -602,7 +602,7 @@ bool GRPBITMAPFILEJPG::DecodeToBufferFromRawBuffer(XBYTE* buffer, XDWORD size, X
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEJPG::EncodeToFile(int width, int height,  XBYTE* buffer, int quality, bool baseline)
 {
   if(!buffer)           return false;

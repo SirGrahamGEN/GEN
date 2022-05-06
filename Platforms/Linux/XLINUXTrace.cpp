@@ -6,7 +6,7 @@
 * @brief      eXtended LINUX debug trace class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -71,7 +71,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLINUXTRACE::XLINUXTRACE()
 {
   Clean();
@@ -93,7 +93,7 @@ XLINUXTRACE::XLINUXTRACE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XLINUXTRACE::~XLINUXTRACE()
 {
   if(mutexhandle)
@@ -129,7 +129,7 @@ XLINUXTRACE::~XLINUXTRACE()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
   if(!target)              return;
@@ -197,7 +197,7 @@ void XLINUXTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
   if(!target)              return;
@@ -282,7 +282,7 @@ void XLINUXTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
   if(!target) return;
@@ -324,7 +324,7 @@ void XLINUXTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXTRACE::GetHandleNet(XTRACE_TARGET* target)
 {
   #if(defined(DIO_ACTIVE) && defined(DIOUDP_ACTIVE))
@@ -377,7 +377,7 @@ bool XLINUXTRACE::GetHandleNet(XTRACE_TARGET* target)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXTRACE::CloseHandleNet(XTRACE_TARGET* target)
 {
   #if(defined(DIO_ACTIVE) && defined(DIOUDP_ACTIVE))
@@ -403,7 +403,7 @@ bool XLINUXTRACE::CloseHandleNet(XTRACE_TARGET* target)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXTRACE::Lock()
 {
   if(!mutexhandle)               return false;
@@ -422,7 +422,7 @@ bool XLINUXTRACE::Lock()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXTRACE::UnLock()
 {
   if(!mutexhandle)                   return false;

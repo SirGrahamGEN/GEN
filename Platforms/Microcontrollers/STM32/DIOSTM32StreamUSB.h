@@ -6,7 +6,7 @@
 * @brief      Data Input/Output STM32 Stream USB class
 * @ingroup    PLATFORM_STM32
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSTM32STREAMUSB_H_
 #define _DIOSTM32STREAMUSB_H_
@@ -117,7 +117,7 @@ class DIOSTM32STREAMUSB : public DIOSTREAMUSB, public XFSMACHINE
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 extern DIOSTM32STREAMUSB*  diostreamusbptrhandle;
 

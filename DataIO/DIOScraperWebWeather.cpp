@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Scraper Web Weather class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -55,7 +55,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBWEATHER::DIOSCRAPERWEBWEATHER() : DIOSCRAPERWEB()
 {
   Clean();
@@ -73,7 +73,7 @@ DIOSCRAPERWEBWEATHER::DIOSCRAPERWEBWEATHER() : DIOSCRAPERWEB()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBWEATHER::~DIOSCRAPERWEBWEATHER()
 {
   Clean();
@@ -92,7 +92,7 @@ DIOSCRAPERWEBWEATHER::~DIOSCRAPERWEBWEATHER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBWEATHER::ChangeURL(XCHAR* maskurl, DIOURL& url)
 {
   url.Format(maskurl, location.Get(), iscelsius?__L("units=metric"):__L("units=imperial"));
@@ -119,7 +119,7 @@ bool DIOSCRAPERWEBWEATHER::ChangeURL(XCHAR* maskurl, DIOURL& url)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBWEATHER::Get(XCHAR* location, bool iscelsius, XSTRING& condition, float& temperature, float& humidity, int timeoutforurl, XSTRING* localIP, bool usecache)
 {
   bool status = false;
@@ -174,7 +174,7 @@ bool DIOSCRAPERWEBWEATHER::Get(XCHAR* location, bool iscelsius, XSTRING& conditi
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBWEATHER::Get(XSTRING& location, bool iscelsius,  XSTRING& condition, float& temperature, float& humidity, int timeout, XSTRING* localIP, bool usecache)
 {
   return Get(location.Get(), iscelsius, condition, temperature, humidity, timeout, localIP, usecache);
@@ -192,7 +192,7 @@ bool DIOSCRAPERWEBWEATHER::Get(XSTRING& location, bool iscelsius,  XSTRING& cond
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBWEATHER::Clean()
 {
   iscelsius = false;

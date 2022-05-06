@@ -6,7 +6,7 @@
 * @brief      User Interface Boundary Line class
 * @ingroup    USERINTERFACE
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -50,7 +50,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 UI_BOUNDARYLINE::UI_BOUNDARYLINE()
 {
   Clean();
@@ -72,7 +72,7 @@ UI_BOUNDARYLINE::UI_BOUNDARYLINE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 UI_BOUNDARYLINE::~UI_BOUNDARYLINE()
 {
   Clean();
@@ -180,7 +180,7 @@ bool UI_BOUNDARYLINE::IsWithin(XDWORD xpos, XDWORD ypos)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void UI_BOUNDARYLINE::Clean()
 {
   x       = 0;

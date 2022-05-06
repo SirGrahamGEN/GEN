@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Application Update class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -69,7 +69,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE_VERSIONDATA::DIOAPPLICATIONUPDATE_VERSIONDATA()
 {
   Clean();
@@ -86,7 +86,7 @@ DIOAPPLICATIONUPDATE_VERSIONDATA::DIOAPPLICATIONUPDATE_VERSIONDATA()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE_VERSIONDATA::~DIOAPPLICATIONUPDATE_VERSIONDATA()
 {
   Clean();
@@ -102,7 +102,7 @@ DIOAPPLICATIONUPDATE_VERSIONDATA::~DIOAPPLICATIONUPDATE_VERSIONDATA()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetVersion()
 {
   return version;
@@ -120,7 +120,7 @@ XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetVersion()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_VERSIONDATA::SetVersion(XDWORD version)
 {
   this->version = version;
@@ -136,7 +136,7 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetVersion(XDWORD version)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetSubVersion()
 {
   return subversion;
@@ -154,7 +154,7 @@ XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetSubVersion()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSubVersion(XDWORD subversion)
 {
   this->subversion = subversion;
@@ -170,7 +170,7 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSubVersion(XDWORD subversion)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetSubVersionError()
 {
   return subversionerror;
@@ -188,7 +188,7 @@ XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetSubVersionError()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSubVersionError(XDWORD subversionerror)
 {
   this->subversionerror = subversionerror;
@@ -204,7 +204,7 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSubVersionError(XDWORD subversionerror
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE_VERSIONDATA::SystemMustBeInit()
 {
   return systemmustbeinit;
@@ -222,7 +222,7 @@ bool DIOAPPLICATIONUPDATE_VERSIONDATA::SystemMustBeInit()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE_VERSIONDATA::CopyTo(DIOAPPLICATIONUPDATE_VERSIONDATA& versiondata)
 {
   versiondata.SetVersion(version);
@@ -245,7 +245,7 @@ bool DIOAPPLICATIONUPDATE_VERSIONDATA::CopyTo(DIOAPPLICATIONUPDATE_VERSIONDATA& 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE_VERSIONDATA::CopyFrom(DIOAPPLICATIONUPDATE_VERSIONDATA* versiondata)
 {
   if(!versiondata) return false;
@@ -272,7 +272,7 @@ bool DIOAPPLICATIONUPDATE_VERSIONDATA::CopyFrom(DIOAPPLICATIONUPDATE_VERSIONDATA
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOAPPLICATIONUPDATE_VERSIONDATA::Compare(XDWORD version, XDWORD subversion, XDWORD subversionerror)
 {
   // Equal;
@@ -317,7 +317,7 @@ int DIOAPPLICATIONUPDATE_VERSIONDATA::Compare(XDWORD version, XDWORD subversion,
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSystemMustBeInit(bool applicationmustbeinit)
 {
   this->systemmustbeinit = applicationmustbeinit;
@@ -334,7 +334,7 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSystemMustBeInit(bool applicationmustb
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_VERSIONDATA::Clean()
 {
   version                 = 0;
@@ -346,9 +346,9 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::Clean()
 
 
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 /* DIOAPPLICATIONUPDATE_FILE                                                                                           */
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -365,7 +365,7 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE_FILE::DIOAPPLICATIONUPDATE_FILE(XPATH& xpathfile, XDWORD CRC32, XQWORD size)
 {
   Clean();
@@ -386,7 +386,7 @@ DIOAPPLICATIONUPDATE_FILE::DIOAPPLICATIONUPDATE_FILE(XPATH& xpathfile, XDWORD CR
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE_FILE::~DIOAPPLICATIONUPDATE_FILE()
 {
   Clean();
@@ -402,7 +402,7 @@ DIOAPPLICATIONUPDATE_FILE::~DIOAPPLICATIONUPDATE_FILE()
 *
 * @return     XPATH* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATH* DIOAPPLICATIONUPDATE_FILE::GetXPathFile()
 {
   return &xpathfile;
@@ -418,7 +418,7 @@ XPATH* DIOAPPLICATIONUPDATE_FILE::GetXPathFile()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOAPPLICATIONUPDATE_FILE::GetCRC32()
 {
   return CRC32;
@@ -434,7 +434,7 @@ XDWORD DIOAPPLICATIONUPDATE_FILE::GetCRC32()
 *
 * @return     XQWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD DIOAPPLICATIONUPDATE_FILE::GetSize()
 {
   return size;
@@ -450,7 +450,7 @@ XQWORD DIOAPPLICATIONUPDATE_FILE::GetSize()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE_FILE::HasSpecialControlUpdate()
 {
   return specialcontrolupdate;
@@ -468,7 +468,7 @@ bool DIOAPPLICATIONUPDATE_FILE::HasSpecialControlUpdate()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_FILE::SetHasSpecialControlUpdate(bool specialcontrolupdate)
 {
   this->specialcontrolupdate = specialcontrolupdate;
@@ -485,7 +485,7 @@ void DIOAPPLICATIONUPDATE_FILE::SetHasSpecialControlUpdate(bool specialcontrolup
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_FILE::Clean()
 {
   CRC32                 = 0;
@@ -495,9 +495,9 @@ void DIOAPPLICATIONUPDATE_FILE::Clean()
 
 
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 /* DIOAPPLICATIONUPDATE                                                                                                */
-/*---------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -515,7 +515,7 @@ void DIOAPPLICATIONUPDATE_FILE::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE::DIOAPPLICATIONUPDATE(XDWORD applicationversion, XDWORD applicationsubversion, XDWORD applicationsubversionerror, XCHAR* applicationname, XPATH& xpathrootapp)
 {
   Clean();
@@ -555,7 +555,7 @@ DIOAPPLICATIONUPDATE::DIOAPPLICATIONUPDATE(XDWORD applicationversion, XDWORD app
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE::~DIOAPPLICATIONUPDATE()
 {
   DeRegisterEvent(DIOAPPLICATIONUPDATE_XEVENT_TYPE_GETVERSIONAVAILABLE);
@@ -591,7 +591,7 @@ DIOAPPLICATIONUPDATE::~DIOAPPLICATIONUPDATE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::GetVersionAvailable(DIOURL& url, int port, DIOAPPLICATIONUPDATE_VERSIONDATA& updateversiondata, int timeout, DIOAPPLICATIONUPDATE_ERROR& error)
 {
   error  = DIOAPPLICATIONUPDATE_ERROR_INVALIDOPERATION;
@@ -725,7 +725,7 @@ bool DIOAPPLICATIONUPDATE::GetVersionAvailable(DIOURL& url, int port, DIOAPPLICA
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::Download(DIOURL& url, int port, XCHAR* addtargetpath, DIOAPPLICATIONUPDATE_VERSIONDATA& updateversiondata, int timeout, DIOAPPLICATIONUPDATE_ERROR& error)
 {
   error  = DIOAPPLICATIONUPDATE_NOT_ERROR;
@@ -928,7 +928,7 @@ bool DIOAPPLICATIONUPDATE::Download(DIOURL& url, int port, XCHAR* addtargetpath,
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::Download(DIOURL& url, int port, XPATH& addtargetpath, DIOAPPLICATIONUPDATE_VERSIONDATA& updateversiondata, int timeout, DIOAPPLICATIONUPDATE_ERROR& error)
 {
   return Download(url, port, addtargetpath.Get(), updateversiondata, timeout, error);
@@ -947,7 +947,7 @@ bool DIOAPPLICATIONUPDATE::Download(DIOURL& url, int port, XPATH& addtargetpath,
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::CopyOriginalFilesToBackup(XPATH& xpathbackup, DIOAPPLICATIONUPDATE_ERROR& error)
 {
   error = DIOAPPLICATIONUPDATE_NOT_ERROR;
@@ -1035,7 +1035,7 @@ bool DIOAPPLICATIONUPDATE::CopyOriginalFilesToBackup(XPATH& xpathbackup, DIOAPPL
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::CopyUpdateFilesToOriginal(XPATH& xpathupdate, DIOAPPLICATIONUPDATE_ERROR& error, bool restore)
 {
   error = DIOAPPLICATIONUPDATE_NOT_ERROR;
@@ -1159,7 +1159,7 @@ bool DIOAPPLICATIONUPDATE::CopyUpdateFilesToOriginal(XPATH& xpathupdate, DIOAPPL
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::DeleteFilesRenamed(XPATH& xpathtocheck)
 {
   XDIRELEMENT xdirelement;
@@ -1222,7 +1222,7 @@ bool DIOAPPLICATIONUPDATE::DeleteFilesRenamed(XPATH& xpathtocheck)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::ChangeFilesFromDownload(DIOAPPLICATIONUPDATE_VERSIONDATA& updateversiondata, XPATH& xpathupdate, XPATH& xpathbackup, DIOAPPLICATIONUPDATE_ERROR& error)
 {
   bool status = false;
@@ -1270,7 +1270,7 @@ bool DIOAPPLICATIONUPDATE::ChangeFilesFromDownload(DIOAPPLICATIONUPDATE_VERSIOND
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::RestartApplication(DIOAPPLICATIONUPDATE_ERROR& error)
 {
   XSTRING command;
@@ -1305,7 +1305,7 @@ bool DIOAPPLICATIONUPDATE::RestartApplication(DIOAPPLICATIONUPDATE_ERROR& error)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::GetListOfVersionsToRestore(XVECTOR<DIOAPPLICATIONUPDATE_VERSIONDATA*>& listversionstorestore)
 {
   XDIRELEMENT xdirelement;
@@ -1375,7 +1375,7 @@ bool DIOAPPLICATIONUPDATE::GetListOfVersionsToRestore(XVECTOR<DIOAPPLICATIONUPDA
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::GetPreviousVersionToRestore(XVECTOR<DIOAPPLICATIONUPDATE_VERSIONDATA*>& listversionstorestore, DIOAPPLICATIONUPDATE_VERSIONDATA& versiontorestore)
 {
   XVECTOR<int> indexversiontorestore;
@@ -1440,7 +1440,7 @@ bool DIOAPPLICATIONUPDATE::GetPreviousVersionToRestore(XVECTOR<DIOAPPLICATIONUPD
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::RestorePrevious(DIOAPPLICATIONUPDATE_ERROR& error)
 {
   DIOAPPLICATIONUPDATE_VERSIONDATA            versiontorestore;
@@ -1475,7 +1475,7 @@ bool DIOAPPLICATIONUPDATE::RestorePrevious(DIOAPPLICATIONUPDATE_ERROR& error)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::Restore(DIOAPPLICATIONUPDATE_VERSIONDATA& applicationversiondata, DIOAPPLICATIONUPDATE_ERROR& error)
 {
   XPATH     xpathbackup;
@@ -1509,7 +1509,7 @@ bool DIOAPPLICATIONUPDATE::Restore(DIOAPPLICATIONUPDATE_VERSIONDATA& application
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::Restore(XPATH& xpathbackup, DIOAPPLICATIONUPDATE_ERROR& error)
 {
    bool status = false;
@@ -1542,7 +1542,7 @@ bool DIOAPPLICATIONUPDATE::Restore(XPATH& xpathbackup, DIOAPPLICATIONUPDATE_ERRO
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::EliminateOldRestorations(int maxrestorations)
 {
   XVECTOR<DIOAPPLICATIONUPDATE_VERSIONDATA*>  listversionstorestore;
@@ -1641,7 +1641,7 @@ bool DIOAPPLICATIONUPDATE::EliminateOldRestorations(int maxrestorations)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::IsNewVersion(DIOAPPLICATIONUPDATE_VERSIONDATA& updateversiondata)
 {
   int versioncomparation = updateversiondata.Compare(applicationversion, applicationsubversion, applicationsubversionerror);
@@ -1672,7 +1672,7 @@ bool DIOAPPLICATIONUPDATE::IsNewVersion(DIOAPPLICATIONUPDATE_VERSIONDATA& update
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOAPPLICATIONUPDATE::GetApplicationVersion()
 {
   return this->applicationversion;
@@ -1688,7 +1688,7 @@ XDWORD DIOAPPLICATIONUPDATE::GetApplicationVersion()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOAPPLICATIONUPDATE::GetApplicationSubversion()
 {
   return this->applicationsubversion;
@@ -1704,7 +1704,7 @@ XDWORD DIOAPPLICATIONUPDATE::GetApplicationSubversion()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOAPPLICATIONUPDATE::GetApplicationSubVersionError()
 {
   return this->applicationsubversionerror;
@@ -1724,7 +1724,7 @@ XDWORD DIOAPPLICATIONUPDATE::GetApplicationSubVersionError()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::FilesToUpdate_CreateList(XPATH& xpathupdate)
 {
   XDIRELEMENT xdirelement;
@@ -1811,7 +1811,7 @@ bool DIOAPPLICATIONUPDATE::FilesToUpdate_CreateList(XPATH& xpathupdate)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::FilesToUpdate_EliminateFixedDir(XPATH& xpath)
 {
   XDWORD c = 0;
@@ -1842,7 +1842,7 @@ bool DIOAPPLICATIONUPDATE::FilesToUpdate_EliminateFixedDir(XPATH& xpath)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::FilesToUpdate_CheckListChangedFiles(XPATH& xpathupdate)
 {
   XDWORD c = 0;
@@ -1886,7 +1886,7 @@ bool DIOAPPLICATIONUPDATE::FilesToUpdate_CheckListChangedFiles(XPATH& xpathupdat
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::FilesToUpdate_DeleteList()
 {
   if(filestoupdate.IsEmpty()) return false;
@@ -1910,7 +1910,7 @@ bool DIOAPPLICATIONUPDATE::FilesToUpdate_DeleteList()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::CopyFile(XPATH& origin, XPATH& target)
 {
   XFILE* xfile[2] = { NULL, NULL };
@@ -1987,7 +1987,7 @@ bool DIOAPPLICATIONUPDATE::CopyFile(XPATH& origin, XPATH& target)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE::Clean()
 {
   applicationversion          = 0;

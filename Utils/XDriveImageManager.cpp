@@ -6,7 +6,7 @@
 * @brief      eXtended Drive Image Manager class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -67,7 +67,7 @@ XDRIVEIMAGEMANAGER* XDRIVEIMAGEMANAGER::instance = NULL;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDRIVEIMAGEMANAGER_DRIVE::XDRIVEIMAGEMANAGER_DRIVE()
 {
   Clean();
@@ -84,7 +84,7 @@ XDRIVEIMAGEMANAGER_DRIVE::XDRIVEIMAGEMANAGER_DRIVE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDRIVEIMAGEMANAGER_DRIVE::~XDRIVEIMAGEMANAGER_DRIVE()
 {
   Clean();
@@ -103,7 +103,7 @@ XDRIVEIMAGEMANAGER_DRIVE::~XDRIVEIMAGEMANAGER_DRIVE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XDRIVEIMAGEMANAGER::GetIsInstanced()
 {
   return instance!=NULL;
@@ -120,7 +120,7 @@ bool XDRIVEIMAGEMANAGER::GetIsInstanced()
 *
 * @return     XDRIVEIMAGE& :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDRIVEIMAGEMANAGER& XDRIVEIMAGEMANAGER::GetInstance()
 {
   if(!instance) 
@@ -144,7 +144,7 @@ XDRIVEIMAGEMANAGER& XDRIVEIMAGEMANAGER::GetInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XDRIVEIMAGEMANAGER::SetInstance(XDRIVEIMAGEMANAGER* _instance)
 {
   if(!_instance) return false;
@@ -165,7 +165,7 @@ bool XDRIVEIMAGEMANAGER::SetInstance(XDRIVEIMAGEMANAGER* _instance)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XDRIVEIMAGEMANAGER::DelInstance()
 {
   if(instance)
@@ -190,7 +190,7 @@ bool XDRIVEIMAGEMANAGER::DelInstance()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XDRIVEIMAGEMANAGER_DRIVE::GetName()
 {
   return &name;
@@ -206,7 +206,7 @@ XSTRING* XDRIVEIMAGEMANAGER_DRIVE::GetName()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XDRIVEIMAGEMANAGER_DRIVE::GetLabel()
 {
   return &label;
@@ -225,7 +225,7 @@ XSTRING* XDRIVEIMAGEMANAGER_DRIVE::GetLabel()
  *
  *  @return     XPATH* :
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 XPATH* XDRIVEIMAGEMANAGER_DRIVE::GetPath()
 {
   return &path;
@@ -241,7 +241,7 @@ XPATH* XDRIVEIMAGEMANAGER_DRIVE::GetPath()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XDRIVEIMAGEMANAGER_DRIVE::GetVolume()
 {
   return volume;
@@ -259,7 +259,7 @@ int XDRIVEIMAGEMANAGER_DRIVE::GetVolume()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_DRIVE::SetVolume(int volume)
 {
   this->volume = volume;
@@ -275,7 +275,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetVolume(int volume)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetDeviceID()
 {
   return deviceID;
@@ -293,7 +293,7 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetDeviceID()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void  XDRIVEIMAGEMANAGER_DRIVE::SetDeviceID(XDWORD deviceID)
 {
   this->deviceID  = deviceID;
@@ -309,7 +309,7 @@ void  XDRIVEIMAGEMANAGER_DRIVE::SetDeviceID(XDWORD deviceID)
 *
 * @return     XQWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetID()
 {
   return ID;
@@ -327,7 +327,7 @@ XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetID()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_DRIVE::SetID(XQWORD ID)
 {
   this->ID = ID;
@@ -343,7 +343,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetID(XQWORD ID)
 *
 * @return     XQWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetSectorSize()
 {
   return sectorsize;
@@ -361,7 +361,7 @@ XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetSectorSize()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_DRIVE::SetSectorSize(XQWORD sectorsize)
 {
   this->sectorsize = sectorsize;
@@ -377,7 +377,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetSectorSize(XQWORD sectorsize)
 *
 * @return     XQWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetNumberSectors()
 {
   return numbersectors;
@@ -395,7 +395,7 @@ XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetNumberSectors()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_DRIVE::SetNumberSectors(XQWORD numbersectors)
 {
   this->numbersectors = numbersectors;
@@ -411,7 +411,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetNumberSectors(XQWORD numbersectors)
 *
 * @return     XQWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetSize()
 {
   return (numbersectors * sectorsize);
@@ -427,7 +427,7 @@ XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetSize()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetSizeInGB()
 {
   XQWORD size = GetSize();
@@ -449,7 +449,7 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetSizeInGB()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetHandle()
 {
   return handle;
@@ -467,7 +467,7 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetHandle()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_DRIVE::SetHandle(XDWORD handle)
 {
   this->handle = handle;
@@ -483,7 +483,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetHandle(XDWORD handle)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetRawHandle()
 {
   return rawhandle;
@@ -501,7 +501,7 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetRawHandle()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_DRIVE::SetRawHandle(XDWORD rawhandle)
 {
   this->rawhandle = rawhandle;
@@ -518,7 +518,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetRawHandle(XDWORD rawhandle)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_DRIVE::Clean()
 {
   volume        = 0;
@@ -544,7 +544,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDRIVEIMAGEMANAGER::XDRIVEIMAGEMANAGER()
 {
   Clean();
@@ -566,7 +566,7 @@ XDRIVEIMAGEMANAGER::XDRIVEIMAGEMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDRIVEIMAGEMANAGER::~XDRIVEIMAGEMANAGER()
 {
   DeRegisterEvent(XDRIVEIMAGEMANAGER_XEVENT_TYPE_READSECTORS);
@@ -589,7 +589,7 @@ XDRIVEIMAGEMANAGER::~XDRIVEIMAGEMANAGER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XDRIVEIMAGEMANAGER::GetDrives(XVECTOR<XDRIVEIMAGEMANAGER_DRIVE*>& drives)
 {
   return false;
@@ -608,7 +608,7 @@ bool XDRIVEIMAGEMANAGER::GetDrives(XVECTOR<XDRIVEIMAGEMANAGER_DRIVE*>& drives)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XDRIVEIMAGEMANAGER::Open(XDRIVEIMAGEMANAGER_DRIVE& drive)
 {
   return false;
@@ -629,7 +629,7 @@ bool XDRIVEIMAGEMANAGER::Open(XDRIVEIMAGEMANAGER_DRIVE& drive)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XDRIVEIMAGEMANAGER::Read(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD startsector, XQWORD numbersectors, XBUFFER& buffer)
 {
 
@@ -651,7 +651,7 @@ bool XDRIVEIMAGEMANAGER::Read(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD startsecto
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XDRIVEIMAGEMANAGER::Write(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD startsector, XQWORD numbersectors, XBUFFER& buffer)
 {
   return false;
@@ -671,7 +671,7 @@ bool XDRIVEIMAGEMANAGER::Write(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD startsect
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XDRIVEIMAGEMANAGER::ReadToIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& pathfileIMG, XQWORD nsectorsperblock)
 {
   XFILE*   xfileIMG;
@@ -746,7 +746,7 @@ bool XDRIVEIMAGEMANAGER::ReadToIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& p
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XDRIVEIMAGEMANAGER::WriteFromIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& pathfileIMG, XQWORD nsectorsperblock)
 {
   XFILE*   xfileIMG;
@@ -818,7 +818,7 @@ bool XDRIVEIMAGEMANAGER::WriteFromIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH
 *
 * @return     float :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float XDRIVEIMAGEMANAGER::GetLastOperationPercent()
 {
   return lastoperationpercent;
@@ -834,7 +834,7 @@ float XDRIVEIMAGEMANAGER::GetLastOperationPercent()
 *
 * @return     XDRIVEIMAGEMANAGER_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDRIVEIMAGEMANAGER_ERROR XDRIVEIMAGEMANAGER::GetLastError()
 {
   return lasterror;
@@ -852,7 +852,7 @@ XDRIVEIMAGEMANAGER_ERROR XDRIVEIMAGEMANAGER::GetLastError()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XDRIVEIMAGEMANAGER::Close(XDRIVEIMAGEMANAGER_DRIVE& drive)
 {
   return false;
@@ -869,7 +869,7 @@ bool XDRIVEIMAGEMANAGER::Close(XDRIVEIMAGEMANAGER_DRIVE& drive)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER::Clean()
 {
   lastoperationpercent = 0.0f;

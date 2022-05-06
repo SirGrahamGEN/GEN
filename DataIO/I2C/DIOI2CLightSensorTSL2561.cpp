@@ -6,7 +6,7 @@
 * @brief       Data IO I2C Sensor AOSONG AM2315  class (Temperature and humidity module)
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -59,7 +59,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CLIGHTSENSORTSL2561::DIOI2CLIGHTSENSORTSL2561(): DIODEVICEI2C()
 {
   Clean();
@@ -76,7 +76,7 @@ DIOI2CLIGHTSENSORTSL2561::DIOI2CLIGHTSENSORTSL2561(): DIODEVICEI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CLIGHTSENSORTSL2561::~DIOI2CLIGHTSENSORTSL2561()
 {
   End();
@@ -96,7 +96,7 @@ DIOI2CLIGHTSENSORTSL2561::~DIOI2CLIGHTSENSORTSL2561()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLIGHTSENSORTSL2561::SetIntegrationTime(DIOI2CLIGHTSENSORTSL2561INTEGRATIONTIME integrationtime)
 {
   if(!diostream)  return false;
@@ -126,7 +126,7 @@ bool DIOI2CLIGHTSENSORTSL2561::SetIntegrationTime(DIOI2CLIGHTSENSORTSL2561INTEGR
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLIGHTSENSORTSL2561::SetGain(DIOI2CLIGHTSENSORTSL2561GAIN gain)
 {
   if(!diostream)  return false;
@@ -158,7 +158,7 @@ bool DIOI2CLIGHTSENSORTSL2561::SetGain(DIOI2CLIGHTSENSORTSL2561GAIN gain)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLIGHTSENSORTSL2561::Get(XWORD& fullspectrum, XWORD& infrared, XDWORD& lux, bool autogain)
 {
   fullspectrum = 0;
@@ -260,7 +260,7 @@ bool DIOI2CLIGHTSENSORTSL2561::Get(XWORD& fullspectrum, XWORD& infrared, XDWORD&
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLIGHTSENSORTSL2561::End()
 {
   if(!DIODEVICEI2C::End()) return false;
@@ -278,7 +278,7 @@ bool DIOI2CLIGHTSENSORTSL2561::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLIGHTSENSORTSL2561::IniDevice()
 {
   if(!DIODEVICEI2C::IniDevice()) return false;
@@ -316,7 +316,7 @@ bool DIOI2CLIGHTSENSORTSL2561::IniDevice()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLIGHTSENSORTSL2561::WriteReg(XBYTE reg, XBYTE value, int timeout)
 {
   XBUFFER xbuffer;
@@ -346,7 +346,7 @@ bool DIOI2CLIGHTSENSORTSL2561::WriteReg(XBYTE reg, XBYTE value, int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLIGHTSENSORTSL2561::ReadData16(XBYTE reg, XWORD& value, int timeout)
 {
   XBUFFER xbuffer;
@@ -384,7 +384,7 @@ bool DIOI2CLIGHTSENSORTSL2561::ReadData16(XBYTE reg, XWORD& value, int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLIGHTSENSORTSL2561::GetData(XWORD& fullspectrum, XWORD& infrared)
 {
   fullspectrum = 0;
@@ -420,7 +420,7 @@ bool DIOI2CLIGHTSENSORTSL2561::GetData(XWORD& fullspectrum, XWORD& infrared)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLIGHTSENSORTSL2561::Activate()
 {
   return WriteReg(DIOI2CLIGHTSENSORTSL2561REGISTER_CONTROL, DIOI2CLIGHTSENSORTSL2561_CONTROL_POWERON, timeout);
@@ -436,7 +436,7 @@ bool DIOI2CLIGHTSENSORTSL2561::Activate()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CLIGHTSENSORTSL2561::Deactivate()
 {
   return WriteReg(DIOI2CLIGHTSENSORTSL2561REGISTER_CONTROL, DIOI2CLIGHTSENSORTSL2561_CONTROL_POWEROFF, timeout);
@@ -455,7 +455,7 @@ bool DIOI2CLIGHTSENSORTSL2561::Deactivate()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOI2CLIGHTSENSORTSL2561::CalculateLux(XWORD broadband, XWORD inflared)
 {
   XDWORD chscale;
@@ -565,7 +565,7 @@ XDWORD DIOI2CLIGHTSENSORTSL2561::CalculateLux(XWORD broadband, XWORD inflared)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CLIGHTSENSORTSL2561::Clean()
 {
   integrationtime   = DIOI2CLIGHTSENSORTSL2561INTEGRATIONTIME_402MS;

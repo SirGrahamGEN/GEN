@@ -6,7 +6,7 @@
 * @brief      DataBase connection class
 * @ingroup    DATABASESSQL
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_CONNECTION::DB_SQL_CONNECTION(DB_SQL_DATABASE* database)
 {
   Clean();
@@ -83,7 +83,7 @@ DB_SQL_CONNECTION::DB_SQL_CONNECTION(DB_SQL_DATABASE* database)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_CONNECTION::~DB_SQL_CONNECTION()
 {
   options.DeleteKeyContents();
@@ -107,7 +107,7 @@ DB_SQL_CONNECTION::~DB_SQL_CONNECTION()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_CONNECTION::SetOption(XCHAR* key, XCHAR* value)
 {
   DB_SQL_STRING* newkey = new DB_SQL_STRING();
@@ -141,7 +141,7 @@ bool DB_SQL_CONNECTION::SetOption(XCHAR* key, XCHAR* value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_CONNECTION::FindOption(XCHAR* key, DB_SQL_STRING* result)
 {
   for(XDWORD e=0; e<this->options.GetSize(); e++)
@@ -167,7 +167,7 @@ bool DB_SQL_CONNECTION::FindOption(XCHAR* key, DB_SQL_STRING* result)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_CONNECTION::DB_SQL_CONNECTION()
 {
   Clean();
@@ -184,7 +184,7 @@ DB_SQL_CONNECTION::DB_SQL_CONNECTION()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_CONNECTION::Clean()
 {
   database = NULL;

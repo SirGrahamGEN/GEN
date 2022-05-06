@@ -6,7 +6,7 @@
 * @brief      Data Input/Output STM32 Stream SPI class
 * @ingroup    PLATFORM_STM32
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -66,7 +66,7 @@ DIOSTM32STREAMSPI*        DIOSTM32STREAMSPI::handles[DIOSTM32STREAMSPI_MAXHANDLE
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMSPIPORT::DIOSTM32STREAMSPIPORT()
 {
   Clean();
@@ -83,7 +83,7 @@ DIOSTM32STREAMSPIPORT::DIOSTM32STREAMSPIPORT()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMSPIPORT::~DIOSTM32STREAMSPIPORT()
 {
   Clean();
@@ -99,7 +99,7 @@ DIOSTM32STREAMSPIPORT::~DIOSTM32STREAMSPIPORT()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMSPIPORT::GetCounterRef()
 {
   return counterref;
@@ -117,7 +117,7 @@ XDWORD DIOSTM32STREAMSPIPORT::GetCounterRef()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMSPIPORT::SetCounterRef(XDWORD counterref)
 {
   this->counterref = counterref;
@@ -133,7 +133,7 @@ void DIOSTM32STREAMSPIPORT::SetCounterRef(XDWORD counterref)
 *
 * @return     SPI_HandleTypeDef* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SPI_HandleTypeDef* DIOSTM32STREAMSPIPORT::GetHandleSPI()
 {
   return hspi;
@@ -151,7 +151,7 @@ SPI_HandleTypeDef* DIOSTM32STREAMSPIPORT::GetHandleSPI()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
 {
   this->hspi = hspi;
@@ -168,7 +168,7 @@ void DIOSTM32STREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMSPIPORT::Clean()
 {
   counterref        = 0;
@@ -192,7 +192,7 @@ void DIOSTM32STREAMSPIPORT::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMSPI::DIOSTM32STREAMSPI() : DIOSTREAMSPI()
 {
   Clean();
@@ -231,7 +231,7 @@ DIOSTM32STREAMSPI::DIOSTM32STREAMSPI() : DIOSTREAMSPI()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMSPI::~DIOSTM32STREAMSPI()
 {
   Close();
@@ -251,7 +251,7 @@ DIOSTM32STREAMSPI::~DIOSTM32STREAMSPI()
 *
 * @return     DIOSTREAMSTATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOSTM32STREAMSPI::GetConnectStatus()
 {
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -269,7 +269,7 @@ DIOSTREAMSTATUS DIOSTM32STREAMSPI::GetConnectStatus()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMSPI::Open()
 {
   if(!threadconnection)  return false;
@@ -365,7 +365,7 @@ bool DIOSTM32STREAMSPI::Open()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMSPI::WaitToFilledReadingBuffer(int filledto, int timeout)
 {
   if(filledto == DIOSTREAM_SOMETHINGTOREAD) sizebufferdata = 1; else sizebufferdata = filledto;
@@ -395,7 +395,7 @@ bool DIOSTM32STREAMSPI::WaitToFilledReadingBuffer(int filledto, int timeout)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMSPI::ReadDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config)                                          return 0;
@@ -428,7 +428,7 @@ XDWORD DIOSTM32STREAMSPI::ReadDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMSPI::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config)                                          return 0;
@@ -463,7 +463,7 @@ XDWORD DIOSTM32STREAMSPI::WriteDirect(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMSPI::Write(XBYTE* buffer, XDWORD size)
 {
   if(!outbuffer) return 0;
@@ -493,7 +493,7 @@ XDWORD DIOSTM32STREAMSPI::Write(XBYTE* buffer, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMSPI::Disconnect()
 {
   return false;
@@ -509,7 +509,7 @@ bool DIOSTM32STREAMSPI::Disconnect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMSPI::Close()
 {
   if(!threadconnection) return false;
@@ -550,7 +550,7 @@ bool DIOSTM32STREAMSPI::Close()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTM32STREAMSPI::CleanBuffers()
 {
   return false;
@@ -567,7 +567,7 @@ bool DIOSTM32STREAMSPI::CleanBuffers()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
 {
   int port = -1;
@@ -606,7 +606,7 @@ void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void HAL_SPI_SlaveRxCpltCallback(SPI_HandleTypeDef* hspi)
 {
   HAL_SPI_MasterRxCpltCallback(hspi);
@@ -624,7 +624,7 @@ void HAL_SPI_SlaveRxCpltCallback(SPI_HandleTypeDef* hspi)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("SPI comunication error [%d]"), hspi->ErrorCode);
@@ -642,7 +642,7 @@ void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMSPI::ThreadConnection(void* param)
 {
   DIOSTM32STREAMSPI* diostream = (DIOSTM32STREAMSPI*)param;
@@ -735,7 +735,7 @@ void DIOSTM32STREAMSPI::ThreadConnection(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMSPI::Clean()
 {
   hspi              = NULL;

@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS Shared Memory Manager (Exchange between applications)
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XWINDOWSSHAREDMEMORYMANAGER_H_
 #define _XWINDOWSSHAREDMEMORYMANAGER_H_
@@ -59,7 +59,7 @@ class XWINDOWSSHAREDMEMORYMANAGER : public XSHAREDMEMORYMANAGER
     HANDLE                  handlefile;
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

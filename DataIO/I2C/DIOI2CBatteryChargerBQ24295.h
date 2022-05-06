@@ -6,7 +6,7 @@
 * @brief      Data Input/output Battery Charger BQ24295 class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 * 
-* *---------------------------------------------------------------------------------------------------------------------*/
+* * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2CBATTERYCHARGERBQ24295_H_
 #define _DIOI2CBATTERYCHARGERBQ24295_H_
@@ -122,7 +122,7 @@ class DIOI2CBATTERYCHARGERBQ24295: public DIODEVICEI2C
 
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

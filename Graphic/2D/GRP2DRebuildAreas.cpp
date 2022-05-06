@@ -6,7 +6,7 @@
 * @brief      Graphics 2D Rebuild Areas
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -52,7 +52,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRP2DREBUILDAREA::GRP2DREBUILDAREA()
 {
   Clean();
@@ -69,7 +69,7 @@ GRP2DREBUILDAREA::GRP2DREBUILDAREA()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRP2DREBUILDAREA::~GRP2DREBUILDAREA()
 {
   if(bitmap)
@@ -91,7 +91,7 @@ GRP2DREBUILDAREA::~GRP2DREBUILDAREA()
 *
 * @return     double :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 double GRP2DREBUILDAREA::GetXPos()
 {
   return xpos;
@@ -107,7 +107,7 @@ double GRP2DREBUILDAREA::GetXPos()
 *
 * @return     double :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 double GRP2DREBUILDAREA::GetYPos()
 {
   return ypos;
@@ -125,7 +125,7 @@ double GRP2DREBUILDAREA::GetYPos()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREA::SetXPos(double xpos)
 {
   this->xpos = xpos;
@@ -143,7 +143,7 @@ void GRP2DREBUILDAREA::SetXPos(double xpos)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREA::SetYPos(double ypos)
 {
   this->ypos = ypos;
@@ -159,7 +159,7 @@ void GRP2DREBUILDAREA::SetYPos(double ypos)
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRP2DREBUILDAREA::GetBitmap()
 {
   return bitmap;
@@ -177,7 +177,7 @@ GRPBITMAP* GRP2DREBUILDAREA::GetBitmap()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREA::SetBitmap(GRPBITMAP* bitmap)
 {
   this->bitmap = bitmap;
@@ -228,7 +228,7 @@ void GRP2DREBUILDAREA::SetExtraData(void* extra_data)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREA::Clean()
 {
   xpos        = 0;
@@ -256,7 +256,7 @@ void GRP2DREBUILDAREA::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRP2DREBUILDAREAS::GRP2DREBUILDAREAS()
 {
   Clean();
@@ -273,7 +273,7 @@ GRP2DREBUILDAREAS::GRP2DREBUILDAREAS()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRP2DREBUILDAREAS::~GRP2DREBUILDAREAS()
 {
   DeleteAllRebuildAreas();
@@ -290,7 +290,7 @@ GRP2DREBUILDAREAS::~GRP2DREBUILDAREAS()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD GRP2DREBUILDAREAS::GetExcessEdge()
 {
   return excessedge;
@@ -308,7 +308,7 @@ XDWORD GRP2DREBUILDAREAS::GetExcessEdge()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRP2DREBUILDAREAS::SetExcessEdge(XDWORD excessedge)
 {
   this->excessedge = excessedge;
@@ -326,7 +326,7 @@ bool GRP2DREBUILDAREAS::SetExcessEdge(XDWORD excessedge)
 *
 * @return     XVECTOR<GRP2DREBUILDAREA*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<GRP2DREBUILDAREA*>* GRP2DREBUILDAREAS::GetRebuildAreas()
 {
   return &areas;
@@ -342,7 +342,7 @@ XVECTOR<GRP2DREBUILDAREA*>* GRP2DREBUILDAREAS::GetRebuildAreas()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRP2DREBUILDAREAS::RebuildAllAreas()
 {
   for(XDWORD c = areas.GetSize(); c>0;  c--)
@@ -364,7 +364,7 @@ bool GRP2DREBUILDAREAS::RebuildAllAreas()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRP2DREBUILDAREAS::DeleteAllRebuildAreas()
 {
   if(areas.IsEmpty()) return false;
@@ -390,7 +390,7 @@ bool GRP2DREBUILDAREAS::DeleteAllRebuildAreas()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRP2DREBUILDAREAS::CreateRebuildArea(double x, double y, double width, double height, void* extra_data)
 {
   double _x      = (x      - excessedge);
@@ -434,7 +434,7 @@ bool GRP2DREBUILDAREAS::CreateRebuildArea(double x, double y, double width, doub
 *
 * @return     GRPBITMAP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRP2DREBUILDAREAS::GetBitmap(double x, double y, double width, double height)
 {
   return NULL;
@@ -454,7 +454,7 @@ GRPBITMAP* GRP2DREBUILDAREAS::GetBitmap(double x, double y, double width, double
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 {
 
@@ -471,7 +471,7 @@ void GRP2DREBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREAS::Clean()
 {
   excessedge = GRP2DREBUILDAREAS_DEFAULT_EXCESSEDGE;

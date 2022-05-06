@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C EEPROM 24XXX class.
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CEEPROM24XXX::DIOI2CEEPROM24XXX(): DIODEVICEI2C()
 {
   Clean();
@@ -77,7 +77,7 @@ DIOI2CEEPROM24XXX::DIOI2CEEPROM24XXX(): DIODEVICEI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CEEPROM24XXX::~DIOI2CEEPROM24XXX()
 {
   End();
@@ -149,7 +149,7 @@ XDWORD DIOI2CEEPROM24XXX::GetSize()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CEEPROM24XXX::Read(XDWORD address, XBYTE* buffer, XDWORD size)
 {
   if(!diostream)        return false;
@@ -193,7 +193,7 @@ bool DIOI2CEEPROM24XXX::Read(XDWORD address, XBYTE* buffer, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CEEPROM24XXX::Read(XDWORD address, XDWORD size, XBUFFER& xbuffer)
 {
   xbuffer.Delete();
@@ -216,7 +216,7 @@ bool DIOI2CEEPROM24XXX::Read(XDWORD address, XDWORD size, XBUFFER& xbuffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CEEPROM24XXX::Write(XDWORD address, XBYTE* buffer, XDWORD size)
 {
   if(!diostream)        return false;
@@ -250,7 +250,7 @@ bool DIOI2CEEPROM24XXX::Write(XDWORD address, XBYTE* buffer, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CEEPROM24XXX::Write(XDWORD address, XBUFFER& xbuffer)
 {
   return Write(address, xbuffer.Get(), xbuffer.GetSize());
@@ -266,7 +266,7 @@ bool DIOI2CEEPROM24XXX::Write(XDWORD address, XBUFFER& xbuffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CEEPROM24XXX::End()
 {
   if(!DIODEVICEI2C::End()) return false;
@@ -284,7 +284,7 @@ bool DIOI2CEEPROM24XXX::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CEEPROM24XXX::IniDevice()
 {
   int deviceaddressbase = diostreamcfg->GetRemoteAddress();
@@ -415,7 +415,7 @@ bool DIOI2CEEPROM24XXX::ReadBYTE(XDWORD address, XBYTE& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CEEPROM24XXX::WriteBYTE(XDWORD address, XBYTE data)
 {
   if(!diostream)        return false;

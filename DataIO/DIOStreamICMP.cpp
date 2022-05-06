@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream ICMP class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -64,7 +64,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMICMPDATAGRAM::DIOSTREAMICMPDATAGRAM()
 {
   Clean();
@@ -83,7 +83,7 @@ DIOSTREAMICMPDATAGRAM::DIOSTREAMICMPDATAGRAM()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMICMPDATAGRAM::~DIOSTREAMICMPDATAGRAM()
 {
   if(data) delete data;
@@ -101,7 +101,7 @@ DIOSTREAMICMPDATAGRAM::~DIOSTREAMICMPDATAGRAM()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMPDATAGRAM::IsToSend()
 {
   return istosend;
@@ -119,7 +119,7 @@ bool DIOSTREAMICMPDATAGRAM::IsToSend()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMICMPDATAGRAM::SetIsToSend(bool istosend)
 {
   this->istosend = istosend;
@@ -135,7 +135,7 @@ void DIOSTREAMICMPDATAGRAM::SetIsToSend(bool istosend)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOSTREAMICMPDATAGRAM::GetAddress()
 {
   return &address;
@@ -153,7 +153,7 @@ XSTRING* DIOSTREAMICMPDATAGRAM::GetAddress()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMPDATAGRAM::SetAddress(XCHAR* address)
 {
   if(!address) return false;
@@ -174,7 +174,7 @@ bool DIOSTREAMICMPDATAGRAM::SetAddress(XCHAR* address)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMPDATAGRAM::SetAddress(XSTRING& address)
 {
   return SetAddress(address.Get());
@@ -190,7 +190,7 @@ bool DIOSTREAMICMPDATAGRAM::SetAddress(XSTRING& address)
 *
 * @return     XBUFFER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER* DIOSTREAMICMPDATAGRAM::GetData()
 {
   return data;
@@ -209,7 +209,7 @@ XBUFFER* DIOSTREAMICMPDATAGRAM::GetData()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMPDATAGRAM::SetData(XBYTE* data,XDWORD size)
 {
   if(!this->data) return false;
@@ -231,7 +231,7 @@ bool DIOSTREAMICMPDATAGRAM::SetData(XBYTE* data,XDWORD size)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMICMPDATAGRAM::SetData(XBUFFER& data)
 {
   SetData(data.Get(), data.GetSize());
@@ -248,7 +248,7 @@ void DIOSTREAMICMPDATAGRAM::SetData(XBUFFER& data)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMICMPDATAGRAM::Clean()
 {
   istosend = false;
@@ -273,7 +273,7 @@ void DIOSTREAMICMPDATAGRAM::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMICMP::DIOSTREAMICMP() : DIOSTREAM()
 {
   Clean();
@@ -293,7 +293,7 @@ DIOSTREAMICMP::DIOSTREAMICMP() : DIOSTREAM()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMICMP::~DIOSTREAMICMP()
 {
   DeleteAllDatagrams();
@@ -315,7 +315,7 @@ DIOSTREAMICMP::~DIOSTREAMICMP()
 *
 * @return     DIOSTREAMCONFIG* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIG* DIOSTREAMICMP::GetConfig()
 {
   return (DIOSTREAMCONFIG*)config;
@@ -333,7 +333,7 @@ DIOSTREAMCONFIG* DIOSTREAMICMP::GetConfig()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMP::SetConfig(DIOSTREAMCONFIG* config)
 {
   if(!config) return false;
@@ -356,7 +356,7 @@ bool DIOSTREAMICMP::SetConfig(DIOSTREAMCONFIG* config)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMICMP::Read(XBYTE* buffer, XDWORD size)
 {
   XDWORD esize = 0;
@@ -401,7 +401,7 @@ XDWORD DIOSTREAMICMP::Read(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMICMP::Write(XBYTE* buffer, XDWORD size)
 {
   if(!AddDatagram(true, __L(""), buffer, size)) return 0;
@@ -427,7 +427,7 @@ XDWORD DIOSTREAMICMP::Write(XBYTE* buffer, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMP::ReadDatagram(XSTRING& address, XBUFFER& xbuffer)
 {
   int index = GetFirstDatagram(false);
@@ -467,7 +467,7 @@ bool DIOSTREAMICMP::ReadDatagram(XSTRING& address, XBUFFER& xbuffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBYTE* buffer, XDWORD size)
 {
   if(address.IsEmpty()) return false;
@@ -490,7 +490,7 @@ bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBYTE* buffer, XDWORD size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBUFFER& xbuffer)
 {
   return WriteDatagram(address, xbuffer.Get(), xbuffer.GetSize());
@@ -506,7 +506,7 @@ bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBUFFER& xbuffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMP::ResetXBuffers()
 {
   if(!DIOSTREAM::ResetXBuffers()) return false;
@@ -524,7 +524,7 @@ bool DIOSTREAMICMP::ResetXBuffers()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMP::ResetInXBuffer()
 {
   if(!DIOSTREAM::ResetInXBuffer()) return false;
@@ -557,7 +557,7 @@ bool DIOSTREAMICMP::ResetInXBuffer()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMP::ResetOutXBuffer()
 {
   if(!DIOSTREAM::ResetOutXBuffer()) return false;
@@ -589,7 +589,7 @@ bool DIOSTREAMICMP::ResetOutXBuffer()
 *
 * @return     DIOURL* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOURL* DIOSTREAMICMP::GetHost()
 {
   return host;
@@ -605,7 +605,7 @@ DIOURL* DIOSTREAMICMP::GetHost()
 *
 * @return     XVECTOR<DIOSTREAMICMPDATAGRAM*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<DIOSTREAMICMPDATAGRAM*>* DIOSTREAMICMP::GetDatagramsVector()
 {
   return &datagrams;
@@ -621,7 +621,7 @@ XVECTOR<DIOSTREAMICMPDATAGRAM*>* DIOSTREAMICMP::GetDatagramsVector()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMP::DeleteAllDatagrams()
 {
   if(datagrams.IsEmpty()) return false;
@@ -652,7 +652,7 @@ bool DIOSTREAMICMP::DeleteAllDatagrams()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMP::AddDatagram(bool istosend, XCHAR* address, XBYTE* data, XDWORD size)
 {
   if(!address) return false;
@@ -690,7 +690,7 @@ bool DIOSTREAMICMP::AddDatagram(bool istosend, XCHAR* address, XBYTE* data, XDWO
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMP::AddDatagram(bool istosend, XSTRING& address, XBYTE* data,XDWORD size)
 {
   return AddDatagram(istosend, address.Get(), data, size);
@@ -708,7 +708,7 @@ bool DIOSTREAMICMP::AddDatagram(bool istosend, XSTRING& address, XBYTE* data,XDW
 *
 * @return     DIOSTREAMICMPDATAGRAM* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMICMPDATAGRAM* DIOSTREAMICMP::GetDatagram(int index)
 {
   return (DIOSTREAMICMPDATAGRAM*)datagrams.Get(index);
@@ -726,7 +726,7 @@ DIOSTREAMICMPDATAGRAM* DIOSTREAMICMP::GetDatagram(int index)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMICMP::GetFirstDatagram(bool tosend)
 {
   int index = DIOSTREAMICMP_NOTFOUND;
@@ -763,7 +763,7 @@ int DIOSTREAMICMP::GetFirstDatagram(bool tosend)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMICMP::DeleteDatagram(int index)
 {
   if(datagramsmutex)  datagramsmutex->Lock();
@@ -791,7 +791,7 @@ bool DIOSTREAMICMP::DeleteDatagram(int index)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMICMP::Clean()
 {
   config          = NULL;

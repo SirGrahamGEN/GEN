@@ -6,7 +6,7 @@
 * @brief      LINUX direct input device keyboard class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _INPLINUXDEVICEKEYBOARDDIRECT_H_
 #define _INPLINUXDEVICEKEYBOARDDIRECT_H_
@@ -79,7 +79,7 @@ class INPLINUXDEVICEKEYBOARDDIRECT : public INPDEVICE
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

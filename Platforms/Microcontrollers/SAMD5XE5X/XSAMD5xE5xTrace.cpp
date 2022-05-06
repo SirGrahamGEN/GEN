@@ -6,7 +6,7 @@
 * @brief      SAMD5xE5x debug trace class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSAMD5XE5XTRACE::XSAMD5XE5XTRACE()
 {
   Clean();
@@ -77,7 +77,7 @@ XSAMD5XE5XTRACE::XSAMD5XE5XTRACE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSAMD5XE5XTRACE::~XSAMD5XE5XTRACE()
 {
   Clean();
@@ -100,7 +100,7 @@ XSAMD5XE5XTRACE::~XSAMD5XE5XTRACE()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XSAMD5XE5XTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
   XSAMD5XE5XDATETIME   xdatetime;
@@ -149,7 +149,7 @@ void XSAMD5XE5XTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* st
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XSAMD5XE5XTRACE::IniUARTSpecial()
 {
   #define CONF_GCLK_SERCOM0_CORE_SRC GCLK_PCHCTRL_GEN_GCLK0_Val
@@ -186,7 +186,7 @@ bool XSAMD5XE5XTRACE::IniUARTSpecial()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XSAMD5XE5XTRACE::Clean()
 {
 

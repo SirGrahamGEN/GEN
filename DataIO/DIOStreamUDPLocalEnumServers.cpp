@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream UDP Local Enum Servers class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -65,7 +65,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPLOCALENUMSERVERS::DIOSTREAMUDPLOCALENUMSERVERS(): DIOSTREAMENUMSERVERS()
 {
   Clean();
@@ -88,7 +88,7 @@ DIOSTREAMUDPLOCALENUMSERVERS::DIOSTREAMUDPLOCALENUMSERVERS(): DIOSTREAMENUMSERVE
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPLOCALENUMSERVERS::~DIOSTREAMUDPLOCALENUMSERVERS()
 {
   GEN_DIOFACTORY.DeleteStreamIO(diostreamudp);
@@ -113,7 +113,7 @@ DIOSTREAMUDPLOCALENUMSERVERS::~DIOSTREAMUDPLOCALENUMSERVERS()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPLOCALENUMSERVERS::Search()
 {
   if(!xthread)    return false;
@@ -138,7 +138,7 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::Search()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPLOCALENUMSERVERS::StopSearch(bool waitend)
 {
   if(!xthread)       return false;
@@ -165,7 +165,7 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::StopSearch(bool waitend)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPLOCALENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
 {
   for(int c=0;c<(int)GetDevices()->GetSize();c++)
@@ -197,7 +197,7 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
 *
 * @return     DIOSTREAMUDPCONFIG* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPCONFIG* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDPCFG()
 {
   return diostreamudpcfg;
@@ -213,7 +213,7 @@ DIOSTREAMUDPCONFIG* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDPCFG()
 *
 * @return     DIOSTREAMUDP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDP* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDP()
 {
   return diostreamudp;
@@ -229,7 +229,7 @@ DIOSTREAMUDP* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDP()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPLOCALENUMSERVERS::SendSignal()
 {
   if(!diostreamudp)     return false;
@@ -278,7 +278,7 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::SendSignal()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMUDPLOCALENUMSERVERS::GetPort()
 {
   return port;
@@ -296,7 +296,7 @@ int DIOSTREAMUDPLOCALENUMSERVERS::GetPort()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPLOCALENUMSERVERS::SetPort(int port)
 {
   this->port = port;
@@ -316,7 +316,7 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::SetPort(int port)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPLOCALENUMSERVERS::Clean()
 {
   type             = DIOSTREAMENUMTYPE_TCPIP_LOCAL_SERVERS;
@@ -342,7 +342,7 @@ void DIOSTREAMUDPLOCALENUMSERVERS::Clean()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPLOCALENUMSERVERS::ThreadDiscoveryLocalServer(void* data)
 {
   DIOSTREAMUDPLOCALENUMSERVERS* discoveryenum = (DIOSTREAMUDPLOCALENUMSERVERS*)data;

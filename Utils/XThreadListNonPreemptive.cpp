@@ -6,7 +6,7 @@
 * @brief      eXtended Thread List Non Preemtive
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@ XTHREADLISTNONPREEMPTIVE* XTHREADLISTNONPREEMPTIVE::instance = NULL;
 *
 * @return     XTHREADLISTNONPREEMPTIVE& :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADLISTNONPREEMPTIVE& XTHREADLISTNONPREEMPTIVE::GetInstance()
 {
   if(!instance) instance = new XTHREADLISTNONPREEMPTIVE();
@@ -71,7 +71,7 @@ XTHREADLISTNONPREEMPTIVE& XTHREADLISTNONPREEMPTIVE::GetInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADLISTNONPREEMPTIVE::DelInstance()
 {
   if(instance)
@@ -97,7 +97,7 @@ bool XTHREADLISTNONPREEMPTIVE::DelInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADLISTNONPREEMPTIVE::AddThread(XTHREAD* thread)
 {
   if(!thread) return false;
@@ -116,7 +116,7 @@ bool XTHREADLISTNONPREEMPTIVE::AddThread(XTHREAD* thread)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADLISTNONPREEMPTIVE::DeleteThread(XTHREAD* thread)
 {
   if(!thread) return false;
@@ -133,7 +133,7 @@ bool XTHREADLISTNONPREEMPTIVE::DeleteThread(XTHREAD* thread)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADLISTNONPREEMPTIVE::DeleteAll()
 {
   xthreadsvector.DeleteContents();
@@ -152,7 +152,7 @@ bool XTHREADLISTNONPREEMPTIVE::DeleteAll()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADLISTNONPREEMPTIVE::ExecuteFunctions()
 {
   if(!xthreadsvector.GetSize()) return false;
@@ -187,7 +187,7 @@ bool XTHREADLISTNONPREEMPTIVE::ExecuteFunctions()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADLISTNONPREEMPTIVE::XTHREADLISTNONPREEMPTIVE()
 {
   Clean();
@@ -204,7 +204,7 @@ XTHREADLISTNONPREEMPTIVE::XTHREADLISTNONPREEMPTIVE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREADLISTNONPREEMPTIVE::~XTHREADLISTNONPREEMPTIVE()
 {
   DeleteAll();
@@ -223,7 +223,7 @@ XTHREADLISTNONPREEMPTIVE::~XTHREADLISTNONPREEMPTIVE()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADLISTNONPREEMPTIVE::Clean()
 {
 

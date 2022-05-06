@@ -11,7 +11,7 @@
 //  Date Of Creation  : 22/03/2014 17:31:07
 //  Last Modification :
 //
-//  (C) Copyright GEN Group. All right reserved.
+//  (C) Copyright GEN Group. All rights reserved.
 //----------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/

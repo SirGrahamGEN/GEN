@@ -6,7 +6,7 @@
 * @brief      Main Procedure WINDOWS class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _MAINPROCWINDOWS_H_
 #define _MAINPROCWINDOWS_H_
@@ -128,7 +128,7 @@ class MAINPROCWINDOWSSTACKWALKER : public StackWalker
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 extern int                          Exception_Filter                  (XDWORD code, struct _EXCEPTION_POINTERS *ep);
 

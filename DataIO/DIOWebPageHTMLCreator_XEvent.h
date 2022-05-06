@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Page HTML Create eXtended Event class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOWEBPAGEHTMLCREATOR_XEVENT_H_
 #define _DIOWEBPAGEHTMLCREATOR_XEVENT_H_
@@ -69,7 +69,7 @@ class DIOWEBPAGEHTMLCREATOR_XEVENT : public XEVENT
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

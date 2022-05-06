@@ -6,7 +6,7 @@
 * @brief       SAMD5xE5x platform factory class
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -83,7 +83,7 @@ DELETEFUNC(XSAMD5XE5XFACTORY  , XMUTEX     , XSAMD5XE5XMUTEX      , Delete_Mutex
 *
 * @return     XTHREAD* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTHREAD* XSAMD5XE5XFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFUNCTION function,void* data)
 {
   XSAMD5XE5XTHREAD* _class =  new XSAMD5XE5XTHREAD(groupID, ID,function,data);
@@ -103,7 +103,7 @@ XTHREAD* XSAMD5XE5XFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHRE
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XSAMD5XE5XFACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
 {
   if(!xthread) return false;

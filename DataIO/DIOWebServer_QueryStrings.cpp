@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Server Query Strings Event class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -51,7 +51,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_QUERYSTRINGS::DIOWEBSERVER_QUERYSTRINGS()
 {
   Clean();
@@ -68,7 +68,7 @@ DIOWEBSERVER_QUERYSTRINGS::DIOWEBSERVER_QUERYSTRINGS()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_QUERYSTRINGS::~DIOWEBSERVER_QUERYSTRINGS()
 {
   DelAllParam();
@@ -86,7 +86,7 @@ DIOWEBSERVER_QUERYSTRINGS::~DIOWEBSERVER_QUERYSTRINGS()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER_QUERYSTRINGS::GetNParams()
 {
   return params.GetSize();
@@ -102,7 +102,7 @@ int DIOWEBSERVER_QUERYSTRINGS::GetNParams()
 *
 * @return     XMAP<XSTRING*, :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XMAP<XSTRING*, XSTRING*>* DIOWEBSERVER_QUERYSTRINGS::GetParams()
 {
   return &params;
@@ -121,7 +121,7 @@ XMAP<XSTRING*, XSTRING*>* DIOWEBSERVER_QUERYSTRINGS::GetParams()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XSTRING& ID, XSTRING& value)
 {
   return AddParam(ID.Get(), value.Get());
@@ -140,7 +140,7 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XSTRING& ID, XSTRING& value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID  , XSTRING& value)
 {
   return AddParam(ID, value.Get());
@@ -159,7 +159,7 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID  , XSTRING& value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XSTRING& ID, XCHAR* value)
 {
   return AddParam(ID.Get(), value);
@@ -178,7 +178,7 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XSTRING& ID, XCHAR* value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID, XCHAR* value)
 {
   XSTRING* _ID    = new XSTRING();
@@ -213,7 +213,7 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID, XCHAR* value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID, int value)
 {
   XSTRING* _ID    = new XSTRING();
@@ -247,7 +247,7 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID, int value)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParam(XSTRING& ID)
 {
   return GetParam(ID.Get());
@@ -265,7 +265,7 @@ XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParam(XSTRING& ID)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParam(XCHAR* ID)
 {
   if(params.IsEmpty()) return NULL;
@@ -298,7 +298,7 @@ XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParam(XCHAR* ID)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParamID(int index)
 {
   if(params.IsEmpty()) return NULL;
@@ -318,7 +318,7 @@ XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParamID(int index)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParamValue(int index)
 {
   if(params.IsEmpty()) return NULL;
@@ -338,7 +338,7 @@ XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParamValue(int index)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_QUERYSTRINGS::DelParam(XSTRING& ID)
 {
   return DelParam(ID.Get());
@@ -356,7 +356,7 @@ bool DIOWEBSERVER_QUERYSTRINGS::DelParam(XSTRING& ID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_QUERYSTRINGS::DelParam(XCHAR* ID)
 {
   XSTRING* _ID = DIOWEBSERVER_QUERYSTRINGS::GetParam(ID);
@@ -375,7 +375,7 @@ bool DIOWEBSERVER_QUERYSTRINGS::DelParam(XCHAR* ID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_QUERYSTRINGS::DelAllParam()
 {
   if(params.IsEmpty())  return false;
@@ -400,7 +400,7 @@ bool DIOWEBSERVER_QUERYSTRINGS::DelAllParam()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_QUERYSTRINGS::GetAllParam(XSTRING& allparam)
 {
   allparam.Empty();
@@ -431,7 +431,7 @@ bool DIOWEBSERVER_QUERYSTRINGS::GetAllParam(XSTRING& allparam)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(DIOURL& url)
 {
   return GetParamsFromURL(url.Get());
@@ -449,7 +449,7 @@ int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(DIOURL& url)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(XSTRING& url)
 {
   return GetParamsFromURL(url.Get());
@@ -467,7 +467,7 @@ int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(XSTRING& url)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(XCHAR* url)
 {
   DIOURL  _url;
@@ -529,7 +529,7 @@ int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(XCHAR* url)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_QUERYSTRINGS::DeleteParamsFromURL(XSTRING& url)
 {
   bool status = false;
@@ -560,7 +560,7 @@ bool DIOWEBSERVER_QUERYSTRINGS::DeleteParamsFromURL(XSTRING& url)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_QUERYSTRINGS::CreateURLFromParams(XSTRING& urlpart)
 {
   urlpart.Empty();
@@ -600,7 +600,7 @@ bool DIOWEBSERVER_QUERYSTRINGS::CreateURLFromParams(XSTRING& urlpart)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_QUERYSTRINGS::Clean()
 {
 

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C PCF8591 (AD/DA converter) class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CADDACONVERTERPCF8591::DIOI2CADDACONVERTERPCF8591() : DIODEVICEI2C()
 {
   Clean();
@@ -77,7 +77,7 @@ DIOI2CADDACONVERTERPCF8591::DIOI2CADDACONVERTERPCF8591() : DIODEVICEI2C()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CADDACONVERTERPCF8591::~DIOI2CADDACONVERTERPCF8591()
 {
   End();
@@ -97,7 +97,7 @@ DIOI2CADDACONVERTERPCF8591::~DIOI2CADDACONVERTERPCF8591()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CADDACONVERTERPCF8591::ReadADChannels(XBYTE values[4])
 {
   XBYTE   control = 0x04;
@@ -144,7 +144,7 @@ bool DIOI2CADDACONVERTERPCF8591::ReadADChannels(XBYTE values[4])
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CADDACONVERTERPCF8591::WriteDAChannel(XBYTE value)
 {
   if(!IsInitialized()) return false;
@@ -172,7 +172,7 @@ bool DIOI2CADDACONVERTERPCF8591::WriteDAChannel(XBYTE value)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CADDACONVERTERPCF8591::End()
 {  
   if(diostream)
@@ -197,7 +197,7 @@ bool DIOI2CADDACONVERTERPCF8591::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CADDACONVERTERPCF8591::IniDevice()
 {
   diostream = (DIOSTREAMI2C*)GEN_DIOFACTORY.CreateStreamIO(diostreamcfg);
@@ -229,7 +229,7 @@ bool DIOI2CADDACONVERTERPCF8591::IniDevice()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CADDACONVERTERPCF8591::Clean()
 {
   diostream  = NULL;

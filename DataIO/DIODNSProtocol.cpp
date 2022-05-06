@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Domain Network System (DNS) protocol class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -65,7 +65,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODNSPROTOCOL::DIODNSPROTOCOL()
 {
   Clean();
@@ -85,7 +85,7 @@ DIODNSPROTOCOL::DIODNSPROTOCOL()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIODNSPROTOCOL::~DIODNSPROTOCOL()
 {
   if(diostreamudpcfg)
@@ -116,7 +116,7 @@ DIODNSPROTOCOL::~DIODNSPROTOCOL()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSPROTOCOL::SetServer(DIOIP& serverIP, XWORD serverport)
 {
   if(!serverIP.Get()) return false;
@@ -141,7 +141,7 @@ bool DIODNSPROTOCOL::SetServer(DIOIP& serverIP, XWORD serverport)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSPROTOCOL::SetServer(XCHAR* serverIP, XWORD serverport)
 {
   if(!serverIP) return false;
@@ -166,7 +166,7 @@ bool DIODNSPROTOCOL::SetServer(XCHAR* serverIP, XWORD serverport)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSPROTOCOL::SetServer(XSTRING& serverIP, XWORD serverport)
 {
   return SetServer(serverIP.Get(), serverport);
@@ -187,7 +187,7 @@ bool DIODNSPROTOCOL::SetServer(XSTRING& serverIP, XWORD serverport)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 {
   if(!diostreamudpcfg)  return false;
@@ -394,7 +394,7 @@ bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSPROTOCOL::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 {
   return ResolveURL(URL.Get(), IPresolved, querytype, timeout);
@@ -415,7 +415,7 @@ bool DIODNSPROTOCOL::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, X
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSPROTOCOL::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype,  XDWORD timeout)
 {
   return ResolveURL(URL.Get(), IPresolved, querytype, timeout);
@@ -434,7 +434,7 @@ bool DIODNSPROTOCOL::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSPROTOCOL::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& target)
 {
   XSTRING _origin = origin;
@@ -482,7 +482,7 @@ bool DIODNSPROTOCOL::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& target)
 *
 * @return     XBYTE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* DIODNSPROTOCOL::GetBufferName(XBYTE* reader, XBYTE* buffer,int* count)
 {
   XBYTE*  name;
@@ -555,7 +555,7 @@ XBYTE* DIODNSPROTOCOL::GetBufferName(XBYTE* reader, XBYTE* buffer,int* count)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSPROTOCOL::Clean()
 {
   diostreamudpcfg = NULL;

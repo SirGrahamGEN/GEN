@@ -6,7 +6,7 @@
 * @brief      Script LUA interpreter class
 * @ingroup    SCRIPT
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _SCRIPT_LUA_H_
 #define _SCRIPT_LUA_H_
@@ -74,7 +74,7 @@ class SCRIPT_LUA : public SCRIPT
     lua_State*                          state;
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 extern "C"  int    LUA_LibraryCallBack       (lua_State* state);
 

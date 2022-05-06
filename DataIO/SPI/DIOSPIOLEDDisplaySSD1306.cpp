@@ -6,7 +6,7 @@
 * @brief      Data Input/Output SPI Display OLED SSD 1306
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -85,7 +85,7 @@ DIOSPIOLEDDISPLAYSSD1306::DIOSPIOLEDDISPLAYSSD1306(XDWORD width, XDWORD height)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSPIOLEDDISPLAYSSD1306::~DIOSPIOLEDDISPLAYSSD1306()
 {
   End();
@@ -103,7 +103,7 @@ DIOSPIOLEDDISPLAYSSD1306::~DIOSPIOLEDDISPLAYSSD1306()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::IniDevice()
 {
   if(!DIODEVICESPI::IniDevice()) return false;
@@ -157,7 +157,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::IniDevice()
  *
  *  @return     bool :
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::Clear(XBYTE color)
 {
   XBYTE nblocks;
@@ -199,7 +199,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::Clear(XBYTE color)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::Update(XBYTE* buffer)
 {  
   XBYTE nblocks;
@@ -238,7 +238,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::Update(XBYTE* buffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::PutPixel(XWORD x, XWORD y, bool color)
 {
   XBYTE* buffer = NULL;
@@ -274,7 +274,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::PutPixel(XWORD x, XWORD y, bool color)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::End()
 {
   Clear(0x00);
@@ -363,7 +363,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::Initializate()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::Reset()
 {
   if(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_RESET) == DIOGPIO_ID_NOTDEFINED)   return false;
@@ -393,7 +393,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::Reset()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::Activate(bool active)
 {
   return SendCommand(active ? DIOSPIOLEDDISPLAYSSD1306_COMMAND_DISPLAY_ON:DIOSPIOLEDDISPLAYSSD1306_COMMAND_DISPLAY_OFF);
@@ -411,7 +411,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::Activate(bool active)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPIOLEDDISPLAYSSD1306::SetContrast(XBYTE contrast)
 {
   SendCommand(DIOSPIOLEDDISPLAYSSD1306_COMMAND_CONSTRAST_SET);
@@ -428,7 +428,7 @@ void DIOSPIOLEDDISPLAYSSD1306::SetContrast(XBYTE contrast)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOSPIOLEDDISPLAYSSD1306::GetX()
 {
   return x;
@@ -444,7 +444,7 @@ XBYTE DIOSPIOLEDDISPLAYSSD1306::GetX()
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOSPIOLEDDISPLAYSSD1306::GetY()
 {
   return y;
@@ -462,7 +462,7 @@ XBYTE DIOSPIOLEDDISPLAYSSD1306::GetY()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::SetX(XBYTE x)
 {
   if(x >= width) return false;
@@ -484,7 +484,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::SetX(XBYTE x)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::SetY(XBYTE y)
 {
   if(y >= height) return false;
@@ -507,7 +507,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::SetY(XBYTE y)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::SetXY(XBYTE x, XBYTE y)
 {
   if(!SetX(x)) return false;
@@ -528,7 +528,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::SetXY(XBYTE x, XBYTE y)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::SendCommand(XBYTE command)
 {
   GEN_DIOGPIO.SetValue(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_DC), false); 
@@ -549,7 +549,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::SendCommand(XBYTE command)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::SendData(XBYTE* data, int size)
 {
   GEN_DIOGPIO.SetValue(GetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID_DC), true); 
@@ -570,7 +570,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::SendData(XBYTE* data, int size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPIOLEDDISPLAYSSD1306::Send(XBYTE* data, int size)
 {  
   if(!diostream->Write(data, size))              return false;
@@ -590,7 +590,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::Send(XBYTE* data, int size)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPIOLEDDISPLAYSSD1306::Clean()
 { 
   x             = 0;

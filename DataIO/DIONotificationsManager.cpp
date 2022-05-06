@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Notifications manager class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -56,7 +56,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIONOTIFICATION::DIONOTIFICATION()
 {
   Clean();
@@ -73,7 +73,7 @@ DIONOTIFICATION::DIONOTIFICATION()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIONOTIFICATION::~DIONOTIFICATION()
 {
   Clean();
@@ -89,7 +89,7 @@ DIONOTIFICATION::~DIONOTIFICATION()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIONOTIFICATION::Get_Title()
 {
   return &title;
@@ -106,7 +106,7 @@ XSTRING* DIONOTIFICATION::Get_Title()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIONOTIFICATION::Get_Message()
 {
   return &message;
@@ -122,7 +122,7 @@ XSTRING* DIONOTIFICATION::Get_Message()
 *
 * @return     void* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void* DIONOTIFICATION::GetApplicationHandle()
 {
   return applicationhandle;
@@ -141,7 +141,7 @@ void* DIONOTIFICATION::GetApplicationHandle()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIONOTIFICATION::SetApplicationHandle(void* applicationhandle)
 {
   this->applicationhandle = applicationhandle;
@@ -157,7 +157,7 @@ void DIONOTIFICATION::SetApplicationHandle(void* applicationhandle)
 *
 * @return     void* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 void* DIONOTIFICATION::GetWindowHandle()
 {
@@ -176,7 +176,7 @@ void* DIONOTIFICATION::GetWindowHandle()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 void DIONOTIFICATION::SetWindowHandle(void* windowhandle)
 {
@@ -193,7 +193,7 @@ void DIONOTIFICATION::SetWindowHandle(void* windowhandle)
 *
 * @return     void* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void* DIONOTIFICATION::GetApplicationIcon()
 {
   return applicationicon;
@@ -211,7 +211,7 @@ void* DIONOTIFICATION::GetApplicationIcon()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIONOTIFICATION::SetApplicationIcon(void* applicationicon)
 {
   this->applicationicon = applicationicon;
@@ -228,7 +228,7 @@ void DIONOTIFICATION::SetApplicationIcon(void* applicationicon)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIONOTIFICATION::Clean()
 {
   applicationhandle = NULL;
@@ -255,7 +255,7 @@ void DIONOTIFICATION::Clean()
 *
 *  @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIONOTIFICATIONSMANAGER::DIONOTIFICATIONSMANAGER()
 {
   Clean();
@@ -272,7 +272,7 @@ DIONOTIFICATIONSMANAGER::DIONOTIFICATIONSMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIONOTIFICATIONSMANAGER::~DIONOTIFICATIONSMANAGER()
 {
   Clean();
@@ -290,7 +290,7 @@ DIONOTIFICATIONSMANAGER::~DIONOTIFICATIONSMANAGER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIONOTIFICATIONSMANAGER::Ini(XCHAR* titleowner, XCHAR* genericapp)
 {
   return false;
@@ -307,7 +307,7 @@ bool DIONOTIFICATIONSMANAGER::Ini(XCHAR* titleowner, XCHAR* genericapp)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIONOTIFICATIONSMANAGER::Do(DIONOTIFICATION* notification)
 {
   return false;
@@ -325,7 +325,7 @@ bool DIONOTIFICATIONSMANAGER::Do(DIONOTIFICATION* notification)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIONOTIFICATIONSMANAGER::Do(DIONOTIFICATION& notification)
 {
   return Do(&notification);
@@ -341,7 +341,7 @@ bool DIONOTIFICATIONSMANAGER::Do(DIONOTIFICATION& notification)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIONOTIFICATIONSMANAGER::End()
 {
   return false;
@@ -358,7 +358,7 @@ bool DIONOTIFICATIONSMANAGER::End()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIONOTIFICATIONSMANAGER::Clean()
 {
 

@@ -6,7 +6,7 @@
 * @brief      Application Check Resources Hardware eXtended Event class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,8 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
-
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -39,6 +38,7 @@
 #include "XMemory_Control.h"
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
@@ -55,12 +55,11 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 APPCHECKRESOURCESHARDWARE_XEVENT::APPCHECKRESOURCESHARDWARE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -72,12 +71,11 @@ APPCHECKRESOURCESHARDWARE_XEVENT::APPCHECKRESOURCESHARDWARE_XEVENT(XSUBJECT* sub
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 APPCHECKRESOURCESHARDWARE_XEVENT::~APPCHECKRESOURCESHARDWARE_XEVENT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -91,7 +89,7 @@ APPCHECKRESOURCESHARDWARE_XEVENT::~APPCHECKRESOURCESHARDWARE_XEVENT()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool APPCHECKRESOURCESHARDWARE_XEVENT::GetActualMemFree(XDWORD& memfree_inbytes, XBYTE& memfree_percent)
 {
   memfree_inbytes = this->memfree_inbytes; 
@@ -100,7 +98,6 @@ bool APPCHECKRESOURCESHARDWARE_XEVENT::GetActualMemFree(XDWORD& memfree_inbytes,
   return true;
 }
     
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -113,14 +110,13 @@ bool APPCHECKRESOURCESHARDWARE_XEVENT::GetActualMemFree(XDWORD& memfree_inbytes,
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualMemFree(XDWORD memfree_inbytes, XBYTE memfree_percent)
 {
   this->memfree_inbytes = memfree_inbytes; 
   this->memfree_percent = memfree_percent;
 }
 
- 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -130,13 +126,12 @@ void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualMemFree(XDWORD memfree_inbytes, 
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int APPCHECKRESOURCESHARDWARE_XEVENT::GetActualCPUUsage()
 {
   return CPUusage;
 }
  
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -148,13 +143,11 @@ int APPCHECKRESOURCESHARDWARE_XEVENT::GetActualCPUUsage()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualCPUUsage(int& CPUusage)
 {
   this->CPUusage = CPUusage;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -166,14 +159,10 @@ void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualCPUUsage(int& CPUusage)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE_XEVENT::Clean()
 {
   memfree_inbytes   = 0;
   memfree_percent   = 0; 
   CPUusage          = 0; 
 }
-
-
-
-

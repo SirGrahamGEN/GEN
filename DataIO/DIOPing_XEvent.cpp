@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Ping eXtended Event class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPING_XEVENT::DIOPING_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
   Clean();
@@ -70,7 +70,7 @@ DIOPING_XEVENT::DIOPING_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): X
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPING_XEVENT::~DIOPING_XEVENT()
 {
   Clean();
@@ -86,7 +86,7 @@ DIOPING_XEVENT::~DIOPING_XEVENT()
 *
 * @return     DIOPINGREPLY* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPINGREPLY* DIOPING_XEVENT::GetPingReply()
 {
   return pingreply;
@@ -104,7 +104,7 @@ DIOPINGREPLY* DIOPING_XEVENT::GetPingReply()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPING_XEVENT::SetPingReply(DIOPINGREPLY* pingreply)
 {
   this->pingreply = pingreply;
@@ -121,7 +121,7 @@ void DIOPING_XEVENT::SetPingReply(DIOPINGREPLY* pingreply)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPING_XEVENT::Clean()
 {
   pingreply = NULL;

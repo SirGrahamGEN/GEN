@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS debug trace class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -69,7 +69,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSTRACE::XWINDOWSTRACE()
 {
   Clean();
@@ -91,7 +91,7 @@ XWINDOWSTRACE::XWINDOWSTRACE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSTRACE::~XWINDOWSTRACE()
 {
   if(mutexhandle)
@@ -127,7 +127,7 @@ XWINDOWSTRACE::~XWINDOWSTRACE()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
   if(!target)              return;
@@ -186,7 +186,7 @@ void XWINDOWSTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* stri
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
   if(!target)              return;
@@ -285,7 +285,7 @@ void XWINDOWSTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
   if(!target)  return;
@@ -326,7 +326,7 @@ void XWINDOWSTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSTRACE::GetHandleNet(XTRACE_TARGET* target)
 {
   #if(defined(DIO_ACTIVE) && defined(DIOUDP_ACTIVE))
@@ -382,7 +382,7 @@ bool XWINDOWSTRACE::GetHandleNet(XTRACE_TARGET* target)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSTRACE::CloseHandleNet(XTRACE_TARGET* target)
 {
   #if(defined(DIO_ACTIVE) && defined(DIOUDP_ACTIVE))
@@ -409,7 +409,7 @@ bool XWINDOWSTRACE::CloseHandleNet(XTRACE_TARGET* target)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSTRACE::Lock()
 {
   if(!mutexhandle) return false;
@@ -429,7 +429,7 @@ bool XWINDOWSTRACE::Lock()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSTRACE::UnLock()
 {
   if(!mutexhandle)                       return false;
@@ -449,7 +449,7 @@ bool XWINDOWSTRACE::UnLock()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSTRACE::Clean()
 {
   mutexhandle  = NULL;

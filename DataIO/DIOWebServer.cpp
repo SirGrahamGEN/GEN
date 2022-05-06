@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Web Server class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -78,7 +78,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_HEADER::DIOWEBSERVER_HEADER()
 {
   Clean();
@@ -95,7 +95,7 @@ DIOWEBSERVER_HEADER::DIOWEBSERVER_HEADER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_HEADER::~DIOWEBSERVER_HEADER()
 {
   DeleteAllLines();
@@ -113,7 +113,7 @@ DIOWEBSERVER_HEADER::~DIOWEBSERVER_HEADER()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER_HEADER::GetVersion()
 {
   int data = 0;
@@ -133,7 +133,7 @@ int DIOWEBSERVER_HEADER::GetVersion()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER_HEADER::GetSubVersion()
 {
   int data = 0;
@@ -153,7 +153,7 @@ int DIOWEBSERVER_HEADER::GetSubVersion()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER_HEADER::GetResult()
 {
   int data = 0;
@@ -175,7 +175,7 @@ int DIOWEBSERVER_HEADER::GetResult()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_HEADER::GetResultString(XSTRING& resultstring)
 {
   if(!GetFormat(true, 3, &resultstring)) return false;
@@ -196,7 +196,7 @@ bool DIOWEBSERVER_HEADER::GetResultString(XSTRING& resultstring)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_HEADER::CreateContentType(XSTRING* resource, XSTRING& contenttype)
 {
   contenttype.Empty();
@@ -246,7 +246,7 @@ bool DIOWEBSERVER_HEADER::CreateContentType(XSTRING* resource, XSTRING& contentt
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_HEADER::Create(XSTRING* resource, int version, int subversion, DIOWEBHEADER_RESULT result, int size, XSTRING* entitytag, bool isplayable, bool password)
 {
   /*
@@ -407,7 +407,7 @@ bool DIOWEBSERVER_HEADER::Create(XSTRING* resource, int version, int subversion,
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_HEADER::AddWebSocketKey(XSTRING& websocketaccept, XSTRING& websocketprotocol)
 {
   XSTRING line;
@@ -526,7 +526,7 @@ bool DIOWEBSERVER_HEADER::GetDescriptionResult(DIOWEBHEADER_RESULT result, XSTRI
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_HEADER::Clean()
 {
 
@@ -548,7 +548,7 @@ void DIOWEBSERVER_HEADER::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSOCKET_HEADER::DIOWEBSOCKET_HEADER()
 {
 
@@ -565,7 +565,7 @@ DIOWEBSOCKET_HEADER::DIOWEBSOCKET_HEADER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSOCKET_HEADER::~DIOWEBSOCKET_HEADER()
 {
 
@@ -582,7 +582,7 @@ DIOWEBSOCKET_HEADER::~DIOWEBSOCKET_HEADER()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSOCKET_HEADER::Clean()
 {
 
@@ -606,7 +606,7 @@ void DIOWEBSOCKET_HEADER::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_AUTHENTICATION::DIOWEBSERVER_AUTHENTICATION()
 {
   Clean();
@@ -623,7 +623,7 @@ DIOWEBSERVER_AUTHENTICATION::DIOWEBSERVER_AUTHENTICATION()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_AUTHENTICATION::~DIOWEBSERVER_AUTHENTICATION()
 {
   Clean();
@@ -639,7 +639,7 @@ DIOWEBSERVER_AUTHENTICATION::~DIOWEBSERVER_AUTHENTICATION()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_AUTHENTICATION::GetGuest()
 {
   return &guest;
@@ -655,7 +655,7 @@ XSTRING* DIOWEBSERVER_AUTHENTICATION::GetGuest()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_AUTHENTICATION::GetLogin()
 {
   return &login;
@@ -671,7 +671,7 @@ XSTRING* DIOWEBSERVER_AUTHENTICATION::GetLogin()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_AUTHENTICATION::GetPassword()
 {
   return &password;
@@ -690,7 +690,7 @@ XSTRING* DIOWEBSERVER_AUTHENTICATION::GetPassword()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_AUTHENTICATION::Set(XSTRING& login, XSTRING& password)
 {
   this->login    = login;
@@ -713,7 +713,7 @@ bool DIOWEBSERVER_AUTHENTICATION::Set(XSTRING& login, XSTRING& password)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_AUTHENTICATION::Set(XSTRING& guest, XSTRING& login, XSTRING& password)
 {
   this->guest    = guest;
@@ -733,7 +733,7 @@ bool DIOWEBSERVER_AUTHENTICATION::Set(XSTRING& guest, XSTRING& login, XSTRING& p
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_AUTHENTICATION::Clean()
 {
 
@@ -755,7 +755,7 @@ void DIOWEBSERVER_AUTHENTICATION::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_REQUEST::DIOWEBSERVER_REQUEST()
 
 {
@@ -774,7 +774,7 @@ DIOWEBSERVER_REQUEST::DIOWEBSERVER_REQUEST()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_REQUEST::~DIOWEBSERVER_REQUEST()
 {
   delete data;
@@ -792,7 +792,7 @@ DIOWEBSERVER_REQUEST::~DIOWEBSERVER_REQUEST()
 *
 * @return     DIOWEBSERVER_TYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_TYPE DIOWEBSERVER_REQUEST::GetType()
 {
   return type;
@@ -810,7 +810,7 @@ DIOWEBSERVER_TYPE DIOWEBSERVER_REQUEST::GetType()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::SetType(DIOWEBSERVER_TYPE type)
 {
   this->type = type;
@@ -826,7 +826,7 @@ void DIOWEBSERVER_REQUEST::SetType(DIOWEBSERVER_TYPE type)
 *
 * @return     DIOWEBHEADER_METHOD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBHEADER_METHOD DIOWEBSERVER_REQUEST::GetMethod()
 {
   return method;
@@ -844,7 +844,7 @@ DIOWEBHEADER_METHOD DIOWEBSERVER_REQUEST::GetMethod()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::SetMethod(DIOWEBHEADER_METHOD method)
 {
   this->method = method;
@@ -860,7 +860,7 @@ void DIOWEBSERVER_REQUEST::SetMethod(DIOWEBHEADER_METHOD method)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetResource()
 {
   return &resource;
@@ -876,7 +876,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetResource()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetGuest()
 {
   return &guest;
@@ -892,7 +892,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetGuest()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetUserAgent()
 {
   return &useragent;
@@ -909,7 +909,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetUserAgent()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER_REQUEST::GetSize()
 {
   return size;
@@ -927,7 +927,7 @@ int DIOWEBSERVER_REQUEST::GetSize()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::SetSize(XDWORD size)
 {
   this->size = size;
@@ -943,7 +943,7 @@ void DIOWEBSERVER_REQUEST::SetSize(XDWORD size)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetIfNoneMatch()
 {
   return &ifnonematch;
@@ -961,7 +961,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetIfNoneMatch()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::SetIfNoneMatch(XSTRING& ifnonematch)
 {
   XSTRING special;
@@ -986,7 +986,7 @@ void DIOWEBSERVER_REQUEST::SetIfNoneMatch(XSTRING& ifnonematch)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedCharset()
 {
   return &acceptedcharset;
@@ -1002,7 +1002,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedCharset()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedControlRequestMethod()
 {
   return &acceptedcontrolrequestmethod;
@@ -1018,7 +1018,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedControlRequestMethod()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedLanguage()
 {
   return &acceptedlanguage;
@@ -1034,7 +1034,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedLanguage()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedAllowHeaders()
 {
   return &acceptedallowheaders;
@@ -1052,7 +1052,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedAllowHeaders()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::ProcessAcceptedEncodingFlags(XSTRING& string)
 {
   if(string.IsEmpty()) return;
@@ -1075,7 +1075,7 @@ void DIOWEBSERVER_REQUEST::ProcessAcceptedEncodingFlags(XSTRING& string)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowOrigin()
 {
   return &accesscontrolalloworigin;
@@ -1091,7 +1091,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowOrigin()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowMethods()
 {
   return &accesscontrolallowmethods;
@@ -1107,7 +1107,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowMethods()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowHeaders()
 {
   return &accesscontrolallowheaders;
@@ -1123,7 +1123,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowHeaders()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetOrigin()
 {
   return &origin;
@@ -1139,7 +1139,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetOrigin()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetConnection()
 {
   return &connection;
@@ -1155,7 +1155,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetConnection()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::GetUpgrade()
 {
   return &upgrade;
@@ -1171,7 +1171,7 @@ XSTRING* DIOWEBSERVER_REQUEST::GetUpgrade()
 *
 * @return     XBUFFER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER* DIOWEBSERVER_REQUEST::GetData()
 {
   return data;
@@ -1187,7 +1187,7 @@ XBUFFER* DIOWEBSERVER_REQUEST::GetData()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_REQUEST::HaveLoginPassword()
 {
   return (loginpassword.IsEmpty()?false:true);
@@ -1206,7 +1206,7 @@ bool DIOWEBSERVER_REQUEST::HaveLoginPassword()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_REQUEST::GetLoginPassword(XSTRING& login, XSTRING& password)
 {
   if(loginpassword.IsEmpty()) return false;
@@ -1236,7 +1236,7 @@ bool DIOWEBSERVER_REQUEST::GetLoginPassword(XSTRING& login, XSTRING& password)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::SetLoginPassword(XSTRING& loginpassword)
 {
   this->loginpassword = loginpassword;
@@ -1254,7 +1254,7 @@ void DIOWEBSERVER_REQUEST::SetLoginPassword(XSTRING& loginpassword)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_REQUEST::ConvertFromWeb(XSTRING& string)
 {
   int c = 0;
@@ -1296,7 +1296,7 @@ bool DIOWEBSERVER_REQUEST::ConvertFromWeb(XSTRING& string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_REQUEST::IsAcceptedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
 {
   return ((acceptedencodingflags&flag) != 0);
@@ -1311,7 +1311,7 @@ bool DIOWEBSERVER_REQUEST::IsAcceptedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS fla
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::WebSocket_GetKey()
 {
   return &websocket_key;
@@ -1327,7 +1327,7 @@ XSTRING* DIOWEBSERVER_REQUEST::WebSocket_GetKey()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOWEBSERVER_REQUEST::WebSocket_GetProtocol()
 {
   return &websocket_protocol;
@@ -1343,7 +1343,7 @@ XSTRING* DIOWEBSERVER_REQUEST::WebSocket_GetProtocol()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER_REQUEST::WebSocket_GetVersion()
 {
   return websocket_version;
@@ -1361,7 +1361,7 @@ int DIOWEBSERVER_REQUEST::WebSocket_GetVersion()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::WebSocket_SetVersion(int version)
 {
   websocket_version = version;
@@ -1379,7 +1379,7 @@ void DIOWEBSERVER_REQUEST::WebSocket_SetVersion(int version)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::Clean()
 {
   type                      = DIOWEBSERVER_TYPE_NONE;
@@ -1437,7 +1437,7 @@ void DIOWEBSERVER_REQUEST::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_CONNECTION::DIOWEBSERVER_CONNECTION()
 {
   Clean();
@@ -1454,7 +1454,7 @@ DIOWEBSERVER_CONNECTION::DIOWEBSERVER_CONNECTION()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_CONNECTION::~DIOWEBSERVER_CONNECTION()
 {
   End();
@@ -1475,7 +1475,7 @@ DIOWEBSERVER_CONNECTION::~DIOWEBSERVER_CONNECTION()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::Ini(DIOWEBSERVER* webserver, DIOSTREAMTCPIPCONFIG* diostreamcfg)
 {
   this->webserver     = webserver;
@@ -1510,7 +1510,7 @@ bool DIOWEBSERVER_CONNECTION::Ini(DIOWEBSERVER* webserver, DIOSTREAMTCPIPCONFIG*
 *
 * @return     DIOSTREAMTCPIP* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTCPIP* DIOWEBSERVER_CONNECTION::GetDIOStream()
 {
   return diostream;
@@ -1526,7 +1526,7 @@ DIOSTREAMTCPIP* DIOWEBSERVER_CONNECTION::GetDIOStream()
 *
 * @return     XTIMER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTIMER* DIOWEBSERVER_CONNECTION::GetTimerConnection()
 {
   return xtimerconnection;
@@ -1542,7 +1542,7 @@ XTIMER* DIOWEBSERVER_CONNECTION::GetTimerConnection()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::IsActive()
 {
   return isactive;
@@ -1558,7 +1558,7 @@ bool DIOWEBSERVER_CONNECTION::IsActive()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::Activate()
 {
   if(!threadconnection) return false;
@@ -1582,7 +1582,7 @@ bool DIOWEBSERVER_CONNECTION::Activate()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::Deactivate()
 {
   if(!GetDIOStream())   return false;
@@ -1606,7 +1606,7 @@ bool DIOWEBSERVER_CONNECTION::Deactivate()
 *
 * @return     DIOWEBSERVER_CONNECTION_MODE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_CONNECTION_MODE DIOWEBSERVER_CONNECTION::GetMode()
 {
   return mode;
@@ -1624,7 +1624,7 @@ DIOWEBSERVER_CONNECTION_MODE DIOWEBSERVER_CONNECTION::GetMode()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_CONNECTION::SetMode(DIOWEBSERVER_CONNECTION_MODE mode)
 {
   this->mode = mode;
@@ -1644,7 +1644,7 @@ void DIOWEBSERVER_CONNECTION::SetMode(DIOWEBSERVER_CONNECTION_MODE mode)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::Receiver(XBYTE* buffer, XDWORD& size, int timeout)
 {
   if(!diostream)                return false;
@@ -1700,7 +1700,7 @@ bool DIOWEBSERVER_CONNECTION::Receiver(XBYTE* buffer, XDWORD& size, int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::Send(XBYTE* buffer, XDWORD& size, int timeout)
 {
   if(!diostream) return false;
@@ -1729,7 +1729,7 @@ bool DIOWEBSERVER_CONNECTION::Send(XBYTE* buffer, XDWORD& size, int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::Send(XBUFFER& xbuffer, int timeout)
 {
   XDWORD size = xbuffer.GetSize();
@@ -1747,7 +1747,7 @@ bool DIOWEBSERVER_CONNECTION::Send(XBUFFER& xbuffer, int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::IsRequestInProgress()
 {
   return isrequestinprogress;
@@ -1763,7 +1763,7 @@ bool DIOWEBSERVER_CONNECTION::IsRequestInProgress()
 *
 * @return     DIOWEBSERVER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER* DIOWEBSERVER_CONNECTION::GetServer()
 {
   return this->webserver;
@@ -1778,7 +1778,7 @@ DIOWEBSERVER* DIOWEBSERVER_CONNECTION::GetServer()
 *
 * @return     DIOWEBCLIENT_HEADER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT_HEADER* DIOWEBSERVER_CONNECTION::GetHeader()
 {
   return &header;
@@ -1794,7 +1794,7 @@ DIOWEBCLIENT_HEADER* DIOWEBSERVER_CONNECTION::GetHeader()
 *
 * @return     DIOWEBSERVER_REQUEST* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_REQUEST* DIOWEBSERVER_CONNECTION::GetRequest()
 {
   return &request;
@@ -1810,7 +1810,7 @@ DIOWEBSERVER_REQUEST* DIOWEBSERVER_CONNECTION::GetRequest()
 *
 * @return     DIOWEBSERVER_ENCODINGFLAGS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_ENCODINGFLAGS DIOWEBSERVER_CONNECTION::GetActualEncodingFlag()
 {
   return actualencodingflag;
@@ -1828,7 +1828,7 @@ DIOWEBSERVER_ENCODINGFLAGS DIOWEBSERVER_CONNECTION::GetActualEncodingFlag()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::SetActualEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS actualencodingflag)
 {
   if(!webserver) return false;
@@ -1857,7 +1857,7 @@ bool DIOWEBSERVER_CONNECTION::SetActualEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS a
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XCHAR* string, int timeout)
 {
   XBUFFER  data;
@@ -1887,7 +1887,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XCHAR* string, int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XSTRING& string, int timeout)
 {
   return WebSocket_Write(string.Get(), timeout);
@@ -1907,7 +1907,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XSTRING& string, int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XBYTE* buffer, XDWORD size, int timeout)
 {
   XBUFFER data;
@@ -1932,7 +1932,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XBYTE* buffer, XDWORD size, int ti
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XBUFFER& buffer, int timeout)
 {
   return WebSocket_Write(buffer.Get(), buffer.GetSize(), timeout);
@@ -1952,7 +1952,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XBUFFER& buffer, int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XCHAR* string, int timeout)
 {
   XBUFFER  data;
@@ -1983,7 +1983,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XCHAR* string
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XSTRING& string, int timeout)
 {
   return WebSocket_WritePingPong(isping, string.Get(), timeout);
@@ -2003,7 +2003,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XSTRING& stri
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XBUFFER& data, int timeout)
 {
   XBUFFER _data;
@@ -2025,7 +2025,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XBUFFER& data
 *
 * @return     XTIMER* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTIMER* DIOWEBSERVER_CONNECTION::GetTimerDisconnection()
 {
  return xtimerdisconnection;
@@ -2041,7 +2041,7 @@ XTIMER* DIOWEBSERVER_CONNECTION::GetTimerDisconnection()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::End()
 {
   if(threadconnection)
@@ -2090,7 +2090,7 @@ bool DIOWEBSERVER_CONNECTION::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::ReadRequest()
 {
   if(!diostream) return false;
@@ -2237,7 +2237,7 @@ bool DIOWEBSERVER_CONNECTION::ReadRequest()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::SendRequest()
 {
   if(!webserver) return false;
@@ -2275,7 +2275,7 @@ bool DIOWEBSERVER_CONNECTION::SendRequest()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_CreateAcceptKey(XSTRING& key, XSTRING& result)
 {
   if(key.IsEmpty()) return false;
@@ -2320,7 +2320,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_CreateAcceptKey(XSTRING& key, XSTRING& r
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_CreateHeader(DIOWEBSERVER_WEBSOCKET_OPCODE opcode, XDWORD size, XBUFFER& data)
 {
   data.Empty();
@@ -2369,7 +2369,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_CreateHeader(DIOWEBSERVER_WEBSOCKET_OPCO
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::Websocket_ResolveConnection(DIOWEBSERVER_REQUEST* request)
 {
   DIOWEBSERVER_HEADER webserverheader;
@@ -2399,7 +2399,7 @@ bool DIOWEBSERVER_CONNECTION::Websocket_ResolveConnection(DIOWEBSERVER_REQUEST* 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_ReadRequest(DIOWEBSERVER_WEBSOCKET_OPCODE& opcode, XBUFFER& data)
 {
   opcode = DIOWEBSERVER_WEBSOCKET_OPCODE_RESERVED10;
@@ -2514,7 +2514,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_ReadRequest(DIOWEBSERVER_WEBSOCKET_OPCOD
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Connected()
 {
   if(!webserver) return false;
@@ -2559,7 +2559,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Connected()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_ReadData(XBUFFER& data)
 {
   if(!webserver) return false;
@@ -2593,7 +2593,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_ReadData(XBUFFER& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Pong(XBUFFER& data)
 {
   if(!webserver) return false;
@@ -2624,7 +2624,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Pong(XBUFFER& data)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Disconnected()
 {
   if(!webserver) return false;
@@ -2657,7 +2657,7 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Disconnected()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_CONNECTION::ThreadRunFunction(void* param)
 {
   DIOWEBSERVER_CONNECTION* wsconn = (DIOWEBSERVER_CONNECTION*)param;
@@ -2749,7 +2749,7 @@ void DIOWEBSERVER_CONNECTION::ThreadRunFunction(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_CONNECTION::Clean()
 {
   webserver             = NULL;
@@ -2785,7 +2785,7 @@ void DIOWEBSERVER_CONNECTION::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER::DIOWEBSERVER()
 {
   Clean();
@@ -2802,7 +2802,7 @@ DIOWEBSERVER::DIOWEBSERVER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER::~DIOWEBSERVER()
 {
   End();
@@ -2825,7 +2825,7 @@ DIOWEBSERVER::~DIOWEBSERVER()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Ini(int port, bool doinitialconnectitivitytest, int timeoutserverpage, XSTRING* addrlocal)
 {
   isactive        = false;
@@ -2920,7 +2920,7 @@ bool DIOWEBSERVER::Ini(int port, bool doinitialconnectitivitytest, int timeoutse
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER::GetPort()
 {
   return port;
@@ -2936,7 +2936,7 @@ int DIOWEBSERVER::GetPort()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER::GetTimeoutServerPage()
 {
   return timeoutserverpage;
@@ -2952,7 +2952,7 @@ int DIOWEBSERVER::GetTimeoutServerPage()
 *
 * @return     DIOSTREAMTCPIPCONFIG* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTCPIPCONFIG* DIOWEBSERVER::GetDIOStreamCFG()
 {
   return diostreamcfg;
@@ -2968,7 +2968,7 @@ DIOSTREAMTCPIPCONFIG* DIOWEBSERVER::GetDIOStreamCFG()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::IsSendingAnyPage()
 {
   bool sending = false;
@@ -3002,7 +3002,7 @@ bool DIOWEBSERVER::IsSendingAnyPage()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::UnSubscribeAllPages()
 {
   if(!connections.IsEmpty())
@@ -3035,7 +3035,7 @@ bool DIOWEBSERVER::UnSubscribeAllPages()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::AddAuthentication(XSTRING& guest, XSTRING& login, XSTRING& password)
 {
   DIOWEBSERVER_AUTHENTICATION* authentication = GetAuthentication(guest);
@@ -3068,7 +3068,7 @@ bool DIOWEBSERVER::AddAuthentication(XSTRING& guest, XSTRING& login, XSTRING& pa
 *
 * @return     DIOWEBSERVER_AUTHENTICATION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_AUTHENTICATION* DIOWEBSERVER::GetAuthentication(XSTRING& guest)
 {
   if(authentications.IsEmpty()) return NULL;
@@ -3110,7 +3110,7 @@ DIOWEBSERVER_AUTHENTICATION* DIOWEBSERVER::GetAuthentication(XSTRING& guest)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::DelAuthentication(XSTRING& guest)
 {
   DIOWEBSERVER_AUTHENTICATION* authentication = GetAuthentication(guest);
@@ -3133,7 +3133,7 @@ bool DIOWEBSERVER::DelAuthentication(XSTRING& guest)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::DelAllAuthentication()
 {
   if(authentications.IsEmpty()) return false;
@@ -3157,7 +3157,7 @@ bool DIOWEBSERVER::DelAllAuthentication()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::IsPlayablePage(XCHAR* extension)
 {
   if(playablepageextensions.IsEmpty()) return false;
@@ -3186,7 +3186,7 @@ bool DIOWEBSERVER::IsPlayablePage(XCHAR* extension)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::IsPlayablePage(XSTRING& extension)
 {
   return IsPlayablePage(extension.Get());
@@ -3204,7 +3204,7 @@ bool DIOWEBSERVER::IsPlayablePage(XSTRING& extension)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::AddPlayablePageExtension(XCHAR* extension)
 {
   if(!extension) return false;
@@ -3229,7 +3229,7 @@ bool DIOWEBSERVER::AddPlayablePageExtension(XCHAR* extension)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::AddPlayablePageExtension(XSTRING& extension)
 {
   XSTRING* _string = new XSTRING(extension);
@@ -3250,7 +3250,7 @@ bool DIOWEBSERVER::AddPlayablePageExtension(XSTRING& extension)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::DeleteAllPlayablePageExtensions()
 {
   if(playablepageextensions.IsEmpty()) return false;
@@ -3273,7 +3273,7 @@ bool DIOWEBSERVER::DeleteAllPlayablePageExtensions()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER::AddIncludedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
 {
   includedencodingflags |= flag;
@@ -3291,7 +3291,7 @@ void DIOWEBSERVER::AddIncludedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::IsIncludedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
 {
   return ((includedencodingflags&flag) != 0);
@@ -3307,7 +3307,7 @@ bool DIOWEBSERVER::IsIncludedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
 *
 * @return     XMUTEX* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XMUTEX* DIOWEBSERVER::GetMutextConnections()
 {
   return xmutexconnections;
@@ -3323,7 +3323,7 @@ XMUTEX* DIOWEBSERVER::GetMutextConnections()
 *
 * @return     XVECTOR<DIOWEBSERVER_CONNECTION*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<DIOWEBSERVER_CONNECTION*>* DIOWEBSERVER::GetConnections()
 {
   return &connections;
@@ -3339,7 +3339,7 @@ XVECTOR<DIOWEBSERVER_CONNECTION*>* DIOWEBSERVER::GetConnections()
 *
 * @return     DIOWEBSERVER_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection()
 {
   if(connections.IsEmpty()) return NULL;
@@ -3366,7 +3366,7 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection()
 *
 * @return     DIOWEBSERVER_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol)
 {
   if(connections.IsEmpty()) return NULL;
@@ -3394,7 +3394,7 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol)
 *
 * @return     DIOWEBSERVER_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, int version)
 {
   if(connections.IsEmpty()) return NULL;
@@ -3424,7 +3424,7 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, 
 *
 * @return     DIOWEBSERVER_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, int version, XCHAR* resource)
 {
   if(connections.IsEmpty()) return NULL;
@@ -3449,7 +3449,7 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, 
 *
 * @return     DIOWEBSERVER_CONNECTION* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetNextConnection()
 {
   if(connections.IsEmpty()) return NULL;
@@ -3511,7 +3511,7 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetNextConnection()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Websocket_Write(XCHAR* string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 {
   DIOWEBSERVER_CONNECTION* connection;
@@ -3544,7 +3544,7 @@ bool DIOWEBSERVER::Websocket_Write(XCHAR* string, int timeout, XCHAR* protocol, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Websocket_Write(XSTRING& string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 {
   return Websocket_Write(string.Get(), timeout, protocol, version, resource);
@@ -3566,7 +3566,7 @@ bool DIOWEBSERVER::Websocket_Write(XSTRING& string, int timeout, XCHAR* protocol
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Websocket_Write(XBUFFER& data, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 {
   DIOWEBSERVER_CONNECTION* connection;
@@ -3598,7 +3598,7 @@ bool DIOWEBSERVER::Websocket_Write(XBUFFER& data, int timeout, XCHAR* protocol, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Websocket_Ping(XCHAR* string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 {
   DIOWEBSERVER_CONNECTION* connection;
@@ -3631,7 +3631,7 @@ bool DIOWEBSERVER::Websocket_Ping(XCHAR* string, int timeout, XCHAR* protocol, i
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Websocket_Ping(XSTRING& string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 {
   return Websocket_Ping(string.Get(), timeout, protocol, version, resource);
@@ -3648,7 +3648,7 @@ bool DIOWEBSERVER::Websocket_Ping(XSTRING& string, int timeout, XCHAR* protocol,
 *
 * @return     DIOWEBSERVER_PLUGINSMANAGER :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGINSMANAGER* DIOWEBSERVER::GetPluginsManager()
 {
   return &pluginsmanager;
@@ -3664,7 +3664,7 @@ DIOWEBSERVER_PLUGINSMANAGER* DIOWEBSERVER::GetPluginsManager()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::IsExit()
 {
   return doexit;
@@ -3680,7 +3680,7 @@ bool DIOWEBSERVER::IsExit()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::End()
 {
   doexit = true;
@@ -3759,7 +3759,7 @@ bool DIOWEBSERVER::End()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::WaitToSentAllPages()
 {
   if(!connections.IsEmpty())
@@ -3785,7 +3785,7 @@ bool DIOWEBSERVER::WaitToSentAllPages()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOWEBSERVER::Connections_GetNWaiting()
 {
   if(xmutexconnections) xmutexconnections->Lock();
@@ -3822,7 +3822,7 @@ XDWORD DIOWEBSERVER::Connections_GetNWaiting()
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWEBSERVER::Connections_GetNConnectionsSendingPage()
 {
   int nconnections = 0;
@@ -3855,7 +3855,7 @@ int DIOWEBSERVER::Connections_GetNConnectionsSendingPage()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Connections_CreateNew()
 {
   XDWORD nwaiting = Connections_GetNWaiting();
@@ -3905,7 +3905,7 @@ bool DIOWEBSERVER::Connections_CreateNew()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Connections_DeleteUsed()
 {
   if(xmutexconnections) xmutexconnections->Lock();
@@ -3948,7 +3948,7 @@ bool DIOWEBSERVER::Connections_DeleteUsed()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Connections_DeleteWaiting()
 {
   if(xmutexconnections) xmutexconnections->Lock();
@@ -3986,7 +3986,7 @@ bool DIOWEBSERVER::Connections_DeleteWaiting()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Connections_DeleteAll()
 {
   if(xmutexconnections) xmutexconnections->Lock();
@@ -4015,7 +4015,7 @@ bool DIOWEBSERVER::Connections_DeleteAll()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAMXEVENT* event)
 {
   if(!event) return;
@@ -4077,7 +4077,7 @@ void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAMXEVENT* event)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER::HandleEvent(XEVENT* xevent)
 {
   if(!xevent) return;
@@ -4106,7 +4106,7 @@ void DIOWEBSERVER::HandleEvent(XEVENT* xevent)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER::ThreadRunFunction(void* param)
 {
   DIOWEBSERVER* webserver = (DIOWEBSERVER*)param;
@@ -4131,7 +4131,7 @@ void DIOWEBSERVER::ThreadRunFunction(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER::Clean()
 {
   diostreamcfg                      = NULL;

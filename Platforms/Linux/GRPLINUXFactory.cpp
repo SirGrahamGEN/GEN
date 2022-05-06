@@ -6,7 +6,7 @@
 * @brief      Linux Graphics factory class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -65,7 +65,7 @@
 *
 * @return     GRPSCREEN* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPSCREEN* GRPLINUXFACTORY::CreateScreen()
 {
   GRPSCREEN* screen = NULL;
@@ -91,7 +91,7 @@ GRPSCREEN* GRPLINUXFACTORY::CreateScreen()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXFACTORY::DeleteScreen(GRPSCREEN* screen)
 {
   if(!screen) return false;
@@ -113,7 +113,7 @@ bool GRPLINUXFACTORY::DeleteScreen(GRPSCREEN* screen)
 *
 * @return     GRPCONTEXT* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPCONTEXT* GRPLINUXFACTORY::CreateContext()
 {
   GRPCONTEXT* context = NULL;
@@ -133,7 +133,7 @@ GRPCONTEXT* GRPLINUXFACTORY::CreateContext()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXFACTORY::DeleteContext(GRPCONTEXT* context)
 {
   if(!context) return false;

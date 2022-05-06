@@ -14,7 +14,7 @@
 //  Date Of Creation  : 22/03/2014 17:11:08
 //  Last Modification :
 */
-/*  (C) Copyright GEN Group. All right reserved.
+/*  (C) Copyright GEN Group. All rights reserved.
 //----------------------------------------------------------------------------------------*/
 
 #ifndef _DIOLIGHTSENSORLDRANALOG_H_

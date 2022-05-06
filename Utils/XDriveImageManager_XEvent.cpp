@@ -6,7 +6,7 @@
 * @brief      eXtended Drive Image Manager Event class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDRIVEIMAGEMANAGER_XEVENT::XDRIVEIMAGEMANAGER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();
@@ -71,7 +71,7 @@ XDRIVEIMAGEMANAGER_XEVENT::XDRIVEIMAGEMANAGER_XEVENT(XSUBJECT* subject, XDWORD t
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDRIVEIMAGEMANAGER_XEVENT::~XDRIVEIMAGEMANAGER_XEVENT()
 {
   Clean();
@@ -87,7 +87,7 @@ XDRIVEIMAGEMANAGER_XEVENT::~XDRIVEIMAGEMANAGER_XEVENT()
 *
 * @return     XDRIVEIMAGE_DRIVE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDRIVEIMAGEMANAGER_DRIVE* XDRIVEIMAGEMANAGER_XEVENT::GetDrive()
 {
   return drive;
@@ -105,7 +105,7 @@ XDRIVEIMAGEMANAGER_DRIVE* XDRIVEIMAGEMANAGER_XEVENT::GetDrive()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_XEVENT::SetDrive(XDRIVEIMAGEMANAGER_DRIVE* drive)
 {
   this->drive = drive;
@@ -121,7 +121,7 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetDrive(XDRIVEIMAGEMANAGER_DRIVE* drive)
 *
 * @return     XQWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD XDRIVEIMAGEMANAGER_XEVENT::GetIndexSector()
 {
   return indexsector;
@@ -139,7 +139,7 @@ XQWORD XDRIVEIMAGEMANAGER_XEVENT::GetIndexSector()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_XEVENT::SetIndexSector(XQWORD indexsector)
 {
   this->indexsector = indexsector;
@@ -155,7 +155,7 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetIndexSector(XQWORD indexsector)
 *
 * @return     XQWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD XDRIVEIMAGEMANAGER_XEVENT::GetNumberSectorsInOperation()
 {
   return numbersectorsinoperation;
@@ -173,7 +173,7 @@ XQWORD XDRIVEIMAGEMANAGER_XEVENT::GetNumberSectorsInOperation()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_XEVENT::SetNumberSectorsInOperation(XQWORD numbersectorsinoperation)
 {
   this->numbersectorsinoperation = numbersectorsinoperation;
@@ -189,7 +189,7 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetNumberSectorsInOperation(XQWORD numbersectors
 *
 * @return     float :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float XDRIVEIMAGEMANAGER_XEVENT::GetOperationPercent()
 {
   return operationpercent;
@@ -206,7 +206,7 @@ float XDRIVEIMAGEMANAGER_XEVENT::GetOperationPercent()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_XEVENT::SetOperationPercent(float operationpercent)
 {
   this->operationpercent = operationpercent;
@@ -222,7 +222,7 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetOperationPercent(float operationpercent)
 *
 * @return     XDRIVEIMAGE_ERROR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDRIVEIMAGEMANAGER_ERROR XDRIVEIMAGEMANAGER_XEVENT::GetError()
 {
   return error;
@@ -240,7 +240,7 @@ XDRIVEIMAGEMANAGER_ERROR XDRIVEIMAGEMANAGER_XEVENT::GetError()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_XEVENT::SetError(XDRIVEIMAGEMANAGER_ERROR error)
 {
   this->error = error;
@@ -257,7 +257,7 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetError(XDRIVEIMAGEMANAGER_ERROR error)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_XEVENT::Clean()
 {
   drive                     = NULL;

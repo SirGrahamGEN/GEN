@@ -6,7 +6,7 @@
 * @brief      eXtended Language class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -62,7 +62,7 @@ XTRANSLATION* XTRANSLATION::instance  = NULL;
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::GetIsInstanced()
 {
   return instance!=NULL;
@@ -78,7 +78,7 @@ bool XTRANSLATION::GetIsInstanced()
 *
 * @return     XTRANSLATION& : language instance
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTRANSLATION& XTRANSLATION::GetInstance()
 {
   if(!instance) instance = new XTRANSLATION();
@@ -96,7 +96,7 @@ XTRANSLATION& XTRANSLATION::GetInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::DelInstance()
 {
   if(instance)
@@ -122,7 +122,7 @@ bool XTRANSLATION::DelInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 #ifndef MICROCONTROLLER
 bool XTRANSLATION::Ini(XPATH& xpath)
 {
@@ -148,7 +148,7 @@ bool XTRANSLATION::Ini()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XTRANSLATION::GetActual()
 {
   return code;
@@ -165,7 +165,7 @@ XDWORD XTRANSLATION::GetActual()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::SetActual(XDWORD code)
 {
   if(this->code == code) return false;
@@ -195,7 +195,7 @@ bool XTRANSLATION::SetActual(XDWORD code)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::Translate_Add(XDWORD ID, XCHAR* sentence, XDWORD fixed)
 {
   if(!ID)       return false;
@@ -234,7 +234,7 @@ bool XTRANSLATION::Translate_Add(XDWORD ID, XCHAR* sentence, XDWORD fixed)
  *
  *  @return     XCHAR* :
  *
- *---------------------------------------------------------------------------------------------------------------------*/
+ * --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* XTRANSLATION::Translate_GetSentence(XDWORD ID)
 {
    if(ID >= XTRANSLATION_MAXSENTENCES) return emptysentence.Get();
@@ -253,7 +253,7 @@ XCHAR* XTRANSLATION::Translate_GetSentence(XDWORD ID)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::End()
 {
   languageavailables.DeleteAll();
@@ -273,7 +273,7 @@ bool XTRANSLATION::End()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTRANSLATION::XTRANSLATION()
 {
   Clean();
@@ -290,7 +290,7 @@ XTRANSLATION::XTRANSLATION()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XTRANSLATION::~XTRANSLATION()
 {
   End();
@@ -308,7 +308,7 @@ XTRANSLATION::~XTRANSLATION()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::LoadLanguageAvailable()
 {
   #ifndef MICROCONTROLLER
@@ -386,7 +386,7 @@ bool XTRANSLATION::LoadLanguageAvailable()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::IsLanguageAvailable(XDWORD code)
 {
   if(GetIndexLanguageByCode(code)!= -1) return true;
@@ -406,7 +406,7 @@ bool XTRANSLATION::IsLanguageAvailable(XDWORD code)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::AddLanguageAvailable(XDWORD code)
 {
   if(!IsLanguageAvailable(code)) return false;
@@ -428,7 +428,7 @@ bool XTRANSLATION::AddLanguageAvailable(XDWORD code)
 *
 * @return     int :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int XTRANSLATION::GetIndexLanguageByCode(XDWORD code)
 {
   for(XDWORD c=0; c<languageavailables.GetSize(); c++)
@@ -449,7 +449,7 @@ int XTRANSLATION::GetIndexLanguageByCode(XDWORD code)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::Translate_Load()
 {
   #ifndef MICROCONTROLLER
@@ -513,7 +513,7 @@ bool XTRANSLATION::Translate_Load()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::Translate_Delete()
 {
   for(XDWORD c=0; c<XTRANSLATION_MAXSENTENCES; c++)
@@ -539,7 +539,7 @@ bool XTRANSLATION::Translate_Delete()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XTRANSLATION::Clean()
 {
   code  = XLANGUAGE_ISO_639_3_CODE_INVALID;

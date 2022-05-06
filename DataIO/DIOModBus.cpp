@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Mod Bus protocol class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUS::DIOMODBUS(DIOSTREAM* diostream, DIOMODBUSMODE mode)
 
 {
@@ -83,7 +83,7 @@ DIOMODBUS::DIOMODBUS(DIOSTREAM* diostream, DIOMODBUSMODE mode)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUS::~DIOMODBUS()
 {
   Disconnect();
@@ -103,7 +103,7 @@ DIOMODBUS::~DIOMODBUS()
 *
 * @return     DIOSTREAM* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM* DIOMODBUS::GetDIOStream()
 {
   return diostream;
@@ -120,7 +120,7 @@ DIOSTREAM* DIOMODBUS::GetDIOStream()
 *
 * @return     DIOMODBUSMODE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUSMODE DIOMODBUS::GetMode()
 {
   return mode;
@@ -139,7 +139,7 @@ DIOMODBUSMODE DIOMODBUS::GetMode()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUS::SetMode(DIOMODBUSMODE mode)
 {
   this->mode = mode;
@@ -160,7 +160,7 @@ bool DIOMODBUS::SetMode(DIOMODBUSMODE mode)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUS::Connect(XBYTE unit, int timeout)
 {
   if(!diostream)                                                  return false;
@@ -183,7 +183,7 @@ bool DIOMODBUS::Connect(XBYTE unit, int timeout)
 *
 * @return     XBYTE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOMODBUS::GetUnit()
 {
   return unit;
@@ -201,7 +201,7 @@ XBYTE DIOMODBUS::GetUnit()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOMODBUS::SetUnit(XBYTE unit)
 {
   this->unit = unit;
@@ -222,7 +222,7 @@ void DIOMODBUS::SetUnit(XBYTE unit)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUS::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBUFFER& answer, int timeout)
 {
   if(!diostream)                                                 return false;
@@ -301,7 +301,7 @@ bool DIOMODBUS::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBUFFER& a
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUS::ReadInputRegisters(XWORD address, XWORD nregisters, XMAP<XWORD, XWORD>& registers, int timeout)
 {
   XBUFFER ask;
@@ -354,7 +354,7 @@ bool DIOMODBUS::ReadInputRegisters(XWORD address, XWORD nregisters, XMAP<XWORD, 
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUS::WriteSingleRegister(XWORD address, XWORD value, int timeout)
 {
   XBUFFER ask;
@@ -392,7 +392,7 @@ bool DIOMODBUS::WriteSingleRegister(XWORD address, XWORD value, int timeout)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUS::Disconnect()
 {
   if(diostream)
@@ -422,7 +422,7 @@ bool DIOMODBUS::Disconnect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUS::MakeCommand(DIOMODBUS_FUNCTION function, XBUFFER& ask, XBUFFER& answer, int timeout)
 {
   if(!diostream)                                                 return false;
@@ -516,7 +516,7 @@ bool DIOMODBUS::MakeCommand(DIOMODBUS_FUNCTION function, XBUFFER& ask, XBUFFER& 
 *
 * @return     XWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOMODBUS::CRC16(XBUFFER& data)
 {
   XWORD poly16 = 0xA001;
@@ -552,7 +552,7 @@ XWORD DIOMODBUS::CRC16(XBUFFER& data)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOMODBUS::Clean()
 {
   diostream   = NULL;

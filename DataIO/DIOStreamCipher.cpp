@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream with Cipher classs
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -63,7 +63,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCIPHER::DIOSTREAMCIPHER(DIOSTREAMCONFIG* config, CIPHER* cipher): DIOSTREAM()
 {
   Clean();
@@ -101,7 +101,7 @@ DIOSTREAMCIPHER::DIOSTREAMCIPHER(DIOSTREAMCONFIG* config, CIPHER* cipher): DIOST
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCIPHER::~DIOSTREAMCIPHER()
 
 {
@@ -131,7 +131,7 @@ DIOSTREAMCIPHER::~DIOSTREAMCIPHER()
 *
 * @return     DIOSTREAMCONFIG* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIG* DIOSTREAMCIPHER::GetConfig()
 {
   return config;
@@ -148,7 +148,7 @@ DIOSTREAMCONFIG* DIOSTREAMCIPHER::GetConfig()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMCIPHER::SetConfig(DIOSTREAMCONFIG* config)
 {
   this->config = config;
@@ -164,7 +164,7 @@ bool DIOSTREAMCIPHER::SetConfig(DIOSTREAMCONFIG* config)
 *
 * @return     DIOSTREAMSTATUS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOSTREAMCIPHER::GetConnectStatus()
 {
   if(!diostream) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -181,7 +181,7 @@ DIOSTREAMSTATUS DIOSTREAMCIPHER::GetConnectStatus()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMCIPHER::Open()
 {
   if(!diostream) return false;
@@ -198,7 +198,7 @@ bool DIOSTREAMCIPHER::Open()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMCIPHER::Disconnect()
 {
   if(!diostream) return false;
@@ -215,7 +215,7 @@ bool DIOSTREAMCIPHER::Disconnect()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMCIPHER::Close()
 {
   if(!diostream) return false;
@@ -235,7 +235,7 @@ bool DIOSTREAMCIPHER::Close()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMCIPHER::Read(XBYTE* buffer, XDWORD size)
 {
   if(mutexread)   mutexread->Lock();
@@ -260,7 +260,7 @@ XDWORD DIOSTREAMCIPHER::Read(XBYTE* buffer, XDWORD size)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMCIPHER::Write(XBYTE* buffer, XDWORD size)
 {
   if(mutexwrite)  mutexwrite->Lock();
@@ -282,7 +282,7 @@ XDWORD DIOSTREAMCIPHER::Write(XBYTE* buffer, XDWORD size)
 *
 * @return     DIOSTREAM* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM* DIOSTREAMCIPHER::GetDIOStreamBase()
 {
   return diostream;
@@ -298,7 +298,7 @@ DIOSTREAM* DIOSTREAMCIPHER::GetDIOStreamBase()
 *
 * @return     CIPHER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 CIPHER* DIOSTREAMCIPHER::GetCipher()
 {
   return cipher;
@@ -316,7 +316,7 @@ CIPHER* DIOSTREAMCIPHER::GetCipher()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCIPHER::ThreadRunFunction(void* param)
 {
   DIOSTREAMCIPHER* diostreamcipher = (DIOSTREAMCIPHER*)param;
@@ -413,7 +413,7 @@ void DIOSTREAMCIPHER::ThreadRunFunction(void* param)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCIPHER::Clean()
 {
   config            = NULL;

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output I2C 9 Axis Motion Tracking MPU9150  class (InvenSense - MPU9150)
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2C9AXISTRACKINGMPU9150_H_
 #define _DIOI2C9AXISTRACKINGMPU9150_H_
@@ -723,7 +723,7 @@ class DIOI2C9AXISTRACKINGMPU9150 : public DIODEVICEI2C
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

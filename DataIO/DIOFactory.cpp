@@ -6,7 +6,7 @@
 * @brief      Data Input/Output factory class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -59,7 +59,7 @@ DIOFACTORY* DIOFACTORY::instance = NULL;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOFACTORY::DIOFACTORY()
 {
   Clean();
@@ -76,7 +76,7 @@ DIOFACTORY::DIOFACTORY()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOFACTORY::~DIOFACTORY()
 {
   Clean();
@@ -92,7 +92,7 @@ DIOFACTORY::~DIOFACTORY()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOFACTORY::GetIsInstanced()
 {
   return instance!=NULL;
@@ -109,7 +109,7 @@ bool DIOFACTORY::GetIsInstanced()
 *
 * @return     DIOFACTORY& :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOFACTORY& DIOFACTORY::GetInstance()
 {
   if(!instance) instance = new DIOFACTORY();
@@ -130,7 +130,7 @@ DIOFACTORY& DIOFACTORY::GetInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOFACTORY::SetInstance(DIOFACTORY* _instance)
 {
   if(!_instance) return false;
@@ -151,7 +151,7 @@ bool DIOFACTORY::SetInstance(DIOFACTORY* _instance)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOFACTORY::DelInstance()
 {
   if(!instance) return false;
@@ -177,7 +177,7 @@ bool DIOFACTORY::DelInstance()
 *
 * @return     DIOSTREAMENUMDEVICES* : enum created
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMENUMDEVICES* DIOFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE type)
 {
   return NULL;
@@ -196,7 +196,7 @@ DIOSTREAMENUMDEVICES* DIOFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE type
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
 {
   return false;
@@ -215,7 +215,7 @@ bool DIOFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
 *
 * @return     DIOSTREAM* : stream IO created
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM* DIOFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 {
   return NULL;
@@ -234,7 +234,7 @@ DIOSTREAM* DIOFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOFACTORY::DeleteStreamIO(DIOSTREAM* streamio)
 {
   return false;
@@ -256,7 +256,7 @@ bool DIOFACTORY::DeleteStreamIO(DIOSTREAM* streamio)
 *
 * @return     DIOWIFIMANAGERMODE* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWIFIMANAGERMODE* DIOFACTORY::CreateWifiManagerMode()
 {
   return NULL;
@@ -274,7 +274,7 @@ DIOWIFIMANAGERMODE* DIOFACTORY::CreateWifiManagerMode()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOFACTORY::DeleteWifiManagerMode(DIOWIFIMANAGERMODE* wifimanagermode)
 {
   return false;
@@ -296,7 +296,7 @@ bool DIOFACTORY::DeleteWifiManagerMode(DIOWIFIMANAGERMODE* wifimanagermode)
 *
 * @return     DIOPING* : ping class created
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPING* DIOFACTORY::CreatePing()
 {
   return NULL;
@@ -314,7 +314,7 @@ DIOPING* DIOFACTORY::CreatePing()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOFACTORY::DeletePing(DIOPING* ping)
 {
   return false;
@@ -336,7 +336,7 @@ bool DIOFACTORY::DeletePing(DIOPING* ping)
 *
 * @return     DIOPCAP* : PCap created
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPCAP* DIOFACTORY::CreatePCap()
 {
   return NULL;
@@ -354,7 +354,7 @@ DIOPCAP* DIOFACTORY::CreatePCap()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOFACTORY::DeletePCap(DIOPCAP* pcap)
 {
   return false;
@@ -372,7 +372,7 @@ bool DIOFACTORY::DeletePCap(DIOPCAP* pcap)
 *
 * @return     DIONOTIFICATIONSMANAGER* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIONOTIFICATIONSMANAGER* DIOFACTORY::CreateNotificationsManager()
 {
   return NULL;
@@ -391,7 +391,7 @@ DIONOTIFICATIONSMANAGER* DIOFACTORY::CreateNotificationsManager()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOFACTORY::DeleteNotificationsManager(DIONOTIFICATIONSMANAGER* notificationsmanager)
 {
   return false;
@@ -453,7 +453,7 @@ bool DIOFACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixelws28
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOFACTORY::Clean()
 {
 

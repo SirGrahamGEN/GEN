@@ -6,7 +6,7 @@
 * @brief      LINUX direct input device mouse class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
@@ -67,7 +67,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICETOUCHSCREENDIRECT::INPLINUXDEVICETOUCHSCREENDIRECT(): INPDEVICE()
 {
   Clean();
@@ -100,7 +100,7 @@ INPLINUXDEVICETOUCHSCREENDIRECT::INPLINUXDEVICETOUCHSCREENDIRECT(): INPDEVICE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICETOUCHSCREENDIRECT::~INPLINUXDEVICETOUCHSCREENDIRECT()
 {
   CloseAllDevicesID();
@@ -127,7 +127,7 @@ INPLINUXDEVICETOUCHSCREENDIRECT::~INPLINUXDEVICETOUCHSCREENDIRECT()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICETOUCHSCREENDIRECT::Update()
 {
   if((!created)||(!enabled)) return false;
@@ -245,7 +245,7 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::Update()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICETOUCHSCREENDIRECT::CreateAllButtons()
 {
 
@@ -268,7 +268,7 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::CreateAllButtons()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICETOUCHSCREENDIRECT::CreateAllCursors()
 {
   INPCURSOR* cursor = new INPCURSOR();
@@ -293,7 +293,7 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::CreateAllCursors()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICETOUCHSCREENDIRECT::OpenAllDevicesID()
 {
   INPLINUXFACTORYDEVICES*     inpdevices = (INPLINUXFACTORYDEVICES*)(&INPFACTORYDEVICES::GetInstance());
@@ -349,7 +349,7 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::OpenAllDevicesID()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICETOUCHSCREENDIRECT::CloseAllDevicesID()
 {
   if(touchscr.IsEmpty()) return false;
@@ -376,7 +376,7 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::CloseAllDevicesID()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICETOUCHSCREENDIRECT::UpdateTouchScreenData()
 {
   if(!grpscreen) return false;
@@ -417,7 +417,7 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::UpdateTouchScreenData()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICETOUCHSCREENDIRECT::Clean()
 {
   touchscr_x  = -1;

@@ -6,7 +6,7 @@
 * @brief      Data Input/Output LINUX Wifi Manager Mode
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOLINUXWIFIMANAGERMODE_H_
 #define _DIOLINUXWIFIMANAGERMODE_H_
@@ -78,7 +78,7 @@ class DIOLINUXWIFIMANAGERMODE : public DIOWIFIMANAGERMODE
     XSTRING                           lastSSID;
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

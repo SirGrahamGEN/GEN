@@ -6,7 +6,7 @@
 * @brief      eXtended Interpolator class
 * @ingroup    UTILS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XINTERPOLATOR::XINTERPOLATOR(XINTERPOLATOR_TYPE type)
 {
   Clean();
@@ -74,7 +74,7 @@ XINTERPOLATOR::XINTERPOLATOR(XINTERPOLATOR_TYPE type)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XINTERPOLATOR::~XINTERPOLATOR()
 {
   Clean();
@@ -90,7 +90,7 @@ XINTERPOLATOR::~XINTERPOLATOR()
 *
 * @return     XINTERPOLATOR_TYPE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XINTERPOLATOR_TYPE XINTERPOLATOR::GetType()
 {
   return type;
@@ -108,7 +108,7 @@ XINTERPOLATOR_TYPE XINTERPOLATOR::GetType()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetType(XINTERPOLATOR_TYPE type)
 {
   this->type = type;
@@ -124,7 +124,7 @@ void XINTERPOLATOR::SetType(XINTERPOLATOR_TYPE type)
 *
 * @return     XINTERPOLATOR_LIMITMODE :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XINTERPOLATOR_LIMITMODE XINTERPOLATOR::GetMode()
 {
   return mode;
@@ -142,7 +142,7 @@ XINTERPOLATOR_LIMITMODE XINTERPOLATOR::GetMode()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetMode(XINTERPOLATOR_LIMITMODE mode)
 {
   this->mode = mode;
@@ -162,7 +162,7 @@ void XINTERPOLATOR::SetMode(XINTERPOLATOR_LIMITMODE mode)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::Get(XDWORD& current, XDWORD& target, float& speed)
 {
   current = this->current;
@@ -184,7 +184,7 @@ void XINTERPOLATOR::Get(XDWORD& current, XDWORD& target, float& speed)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::Set(XDWORD current,  XDWORD target, float speed)
 {
   this->current = current;
@@ -202,7 +202,7 @@ void XINTERPOLATOR::Set(XDWORD current,  XDWORD target, float speed)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XINTERPOLATOR::GetCurrent()
 {
   return current;
@@ -220,7 +220,7 @@ XDWORD XINTERPOLATOR::GetCurrent()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetCurrent(XDWORD current)
 {
   this->current = current;
@@ -252,7 +252,7 @@ void XINTERPOLATOR::SetCurrent(XDWORD current)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XINTERPOLATOR::GetTarget()
 {
   return target;
@@ -268,7 +268,7 @@ XDWORD XINTERPOLATOR::GetTarget()
 *
 * @return     float :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float XINTERPOLATOR::GetSpeed()
 {
   return speed;
@@ -286,7 +286,7 @@ float XINTERPOLATOR::GetSpeed()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetSpeed(float speed)
 {
   this->speed = speed;
@@ -302,7 +302,7 @@ void XINTERPOLATOR::SetSpeed(float speed)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XINTERPOLATOR::GetMaximun()
 {
   return max;
@@ -320,7 +320,7 @@ XDWORD XINTERPOLATOR::GetMaximun()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetMaximun(XDWORD max)
 {
   this->max = max;
@@ -336,7 +336,7 @@ void XINTERPOLATOR::SetMaximun(XDWORD max)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XINTERPOLATOR::GetMinimun()
 {
   return min;
@@ -353,7 +353,7 @@ XDWORD XINTERPOLATOR::GetMinimun()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetMinimun(XDWORD min)
 {
   this->min = min;
@@ -369,7 +369,7 @@ void XINTERPOLATOR::SetMinimun(XDWORD min)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XINTERPOLATOR::GetMultiplicator()
 {
   return multiplier;
@@ -387,7 +387,7 @@ XDWORD XINTERPOLATOR::GetMultiplicator()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetMultiplicator(XDWORD multiplier)
 {
   this->multiplier = multiplier;
@@ -405,7 +405,7 @@ void XINTERPOLATOR::SetMultiplicator(XDWORD multiplier)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetFactorType(XINTERPOLATOR_FACTOR factortype)
 {
   this->factortype = factortype;
@@ -421,7 +421,7 @@ void XINTERPOLATOR::SetFactorType(XINTERPOLATOR_FACTOR factortype)
 *
 * @return     XINTERPOLATOR_FACTOR :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XINTERPOLATOR_FACTOR XINTERPOLATOR::GetFactorType()
 {
   return factortype;
@@ -439,7 +439,7 @@ XINTERPOLATOR_FACTOR XINTERPOLATOR::GetFactorType()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetLimitFlags(XINTERPOLATOR_LIMITS limits)
 {
   this->limits = limits;
@@ -455,7 +455,7 @@ void XINTERPOLATOR::SetLimitFlags(XINTERPOLATOR_LIMITS limits)
 *
 * @return     XINTERPOLATOR_LIMITS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XINTERPOLATOR_LIMITS  XINTERPOLATOR::GetLimitFlags()
 {
   return limits;
@@ -473,7 +473,7 @@ XINTERPOLATOR_LIMITS  XINTERPOLATOR::GetLimitFlags()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XINTERPOLATOR::CopyFrom(XINTERPOLATOR& interpolator)
 {
   type          = interpolator.type;
@@ -505,7 +505,7 @@ bool XINTERPOLATOR::CopyFrom(XINTERPOLATOR& interpolator)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XINTERPOLATOR::CopyFrom(XINTERPOLATOR* interpolator)
 {
   if(!interpolator) return false;
@@ -526,7 +526,7 @@ bool XINTERPOLATOR::CopyFrom(XINTERPOLATOR* interpolator)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XINTERPOLATOR::CopyTo(XINTERPOLATOR& interpolator)
 {
   interpolator.type     = type;
@@ -558,7 +558,7 @@ bool XINTERPOLATOR::CopyTo(XINTERPOLATOR& interpolator)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XINTERPOLATOR::CopyTo(XINTERPOLATOR* interpolator)
 {
   if(!interpolator) return false;
@@ -577,7 +577,7 @@ bool XINTERPOLATOR::CopyTo(XINTERPOLATOR* interpolator)
 *
 * @return     const :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 const XINTERPOLATOR XINTERPOLATOR::operator = (XINTERPOLATOR& interpolator)
 {
   CopyFrom(interpolator);
@@ -597,7 +597,7 @@ const XINTERPOLATOR XINTERPOLATOR::operator = (XINTERPOLATOR& interpolator)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetTarget(XDWORD target)
 {
   //XTRACE_PRINTCOLOR(3,__L("XINTERPOLATOR::SetTarget(%d)"),target);
@@ -641,7 +641,7 @@ void XINTERPOLATOR::SetTarget(XDWORD target)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XINTERPOLATOR::Update(XQWORD delta)
 {
   switch(type)
@@ -683,7 +683,7 @@ bool XINTERPOLATOR::Update(XQWORD delta)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XINTERPOLATOR::Interpolate(XQWORD delta)
 {
   switch(factortype)
@@ -763,7 +763,7 @@ bool XINTERPOLATOR::InterpolateLinear(XQWORD delta)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XINTERPOLATOR::InterpolateRelative(XQWORD delta)
 {
   float   fdelta    = (float) (delta/100.0f);
@@ -830,7 +830,7 @@ bool XINTERPOLATOR::InterpolateRelative(XQWORD delta)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XINTERPOLATOR::DeSerialize(XBUFFER* xbuffer) const
 {
   xbuffer->Resize(9*sizeof(XDWORD) + 1*sizeof(float));
@@ -862,7 +862,7 @@ bool XINTERPOLATOR::DeSerialize(XBUFFER* xbuffer) const
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XINTERPOLATOR::Serialize(XBUFFER* buffer)
 {
   XDWORD buffer_type,    buffer_target, buffer_mode,   buffer_factortype,buffer_max,      buffer_min,buffer_current,buffer_multiplier;
@@ -907,7 +907,7 @@ bool XINTERPOLATOR::Serialize(XBUFFER* buffer)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XINTERPOLATOR::SetMask(XDWORD mask)
 {
   this->mask = mask;
@@ -925,7 +925,7 @@ bool XINTERPOLATOR::SetMask(XDWORD mask)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XINTERPOLATOR::GetMask()
 {
   return mask;
@@ -941,7 +941,7 @@ XDWORD XINTERPOLATOR::GetMask()
 *
 * @return     float :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 float XINTERPOLATOR::GetCarry()
 {
   return carry;
@@ -960,7 +960,7 @@ float XINTERPOLATOR::GetCarry()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetCarry(float carry)
 {
   this->carry = carry;
@@ -977,7 +977,7 @@ void XINTERPOLATOR::SetCarry(float carry)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::Clean()
 {
   mask        = XINTERPOLATOR_MASK_ALL;

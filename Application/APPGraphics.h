@@ -6,7 +6,7 @@
 * @brief      Application Graphics class
 * @ingroup    APPLICATION
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,11 +24,10 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _APPGRAPHICS_H_
 #define _APPGRAPHICS_H_
-
 
 #ifdef GRP_ACTIVE
 
@@ -42,7 +41,6 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-
 enum APPGRAPHICS_INIOPTIONS
 {
   APPGRAPHICS_INIOPTION_NONE                = 0       ,
@@ -50,7 +48,6 @@ enum APPGRAPHICS_INIOPTIONS
   APPGRAPHICS_INIOPTION_SHOWMAINSCREEN      = 1 << 2  ,
   APPGRAPHICS_INIOPTION_INPUT               = 1 << 3
 };
-
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -98,8 +95,7 @@ class APPGRAPHICS : public APPBASE, public XOBSERVER, public XSUBJECT
     #endif
 };
 
-
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

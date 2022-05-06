@@ -6,7 +6,7 @@
 * @brief      Factory Base class
 * @ingroup    PLATFORM_COMMON
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 * 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 * 
-* *---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _FACTORYBASE_H_
 #define _FACTORYBASE_H_
@@ -59,8 +59,6 @@ class FACTORYBASE
                               {
                                 memcpy(pathmodule, _pathmodule, strlen(_pathmodule));
                               }  
-
-
   private:
 
     char*                     pathmodule[256];

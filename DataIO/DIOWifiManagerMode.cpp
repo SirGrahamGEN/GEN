@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Wifi Manager Mode
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWIFIMANAGERMODE::DIOWIFIMANAGERMODE()    
 { 
   Clean();                            
@@ -75,7 +75,7 @@ DIOWIFIMANAGERMODE::DIOWIFIMANAGERMODE()
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWIFIMANAGERMODE::~DIOWIFIMANAGERMODE()    
 { 
   nameAPs.DeleteContents();
@@ -96,7 +96,7 @@ DIOWIFIMANAGERMODE::~DIOWIFIMANAGERMODE()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::GetSelectNetInterface(XSTRING& netinterface)
 {
   return &netinterface;
@@ -114,7 +114,7 @@ bool DIOWIFIMANAGERMODE::GetSelectNetInterface(XSTRING& netinterface)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XCHAR* netinterface)
 {
   this->netinterface = netinterface;
@@ -135,7 +135,7 @@ bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XCHAR* netinterface)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XSTRING& netinterface)
 {
   return SetSelectNetInterface(netinterface.Get());
@@ -187,7 +187,7 @@ void DIOWIFIMANAGERMODE::SetModeType(DIOWIFIMANAGER_MODETYPE modetype)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::CheckNetInterface(DIOIP* IP)
 {
   bool status = false;
@@ -252,7 +252,7 @@ bool DIOWIFIMANAGERMODE::CheckNetInterface(DIOIP* IP)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::CheckNetInterface(XSTRING* IP)
 {
   DIOIP   _IP;
@@ -283,7 +283,7 @@ bool DIOWIFIMANAGERMODE::CheckNetInterface(XSTRING* IP)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password,  bool serialize)
 {
   return SetMode_AP(SSID, password, serialize);
@@ -305,7 +305,7 @@ bool DIOWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password,  bool serializ
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::SetMode_AP(XSTRING& SSID, XSTRING& password, bool serialize)
 {
   return SetMode_AP(SSID.Get(), password.Get(), serialize);
@@ -345,7 +345,7 @@ bool DIOWIFIMANAGERMODE::SetMode_AP(XSTRING& SSID, XCHAR* password, bool seriali
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool serialize)
 {
   return false;
@@ -365,7 +365,7 @@ bool DIOWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool seria
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XSTRING& password, bool serialize)
 {
   return SetMode_Client(SSID.Get(), password.Get(), serialize);      
@@ -433,7 +433,7 @@ bool DIOWIFIMANAGERMODE::Disconnect()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::APList_Reload()
 {  
   return false;
@@ -449,7 +449,7 @@ bool DIOWIFIMANAGERMODE::APList_Reload()
 *
 * @return     XVECTOR<XSTRING*>* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XSTRING*>* DIOWIFIMANAGERMODE::APList_Get()
 {
   return &nameAPs;  
@@ -466,7 +466,7 @@ XVECTOR<XSTRING*>* DIOWIFIMANAGERMODE::APList_Get()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWIFIMANAGERMODE::Clean()
 {
   modetype   = DIOWIFIMANAGER_MODETYPE_DEFAULT;

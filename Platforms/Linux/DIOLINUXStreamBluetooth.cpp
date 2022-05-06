@@ -6,7 +6,7 @@
 * @brief      LINUX Data Input/Output Stream Bluetooth class
 * @ingroup    PLATFORM_LINUX
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -62,7 +62,7 @@
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMBLUETOOTH::DIOLINUXSTREAMBLUETOOTH() : DIOSTREAMBLUETOOTH() , XFSMACHINE(0)
 {
   Clean();
@@ -114,7 +114,7 @@ DIOLINUXSTREAMBLUETOOTH::DIOLINUXSTREAMBLUETOOTH() : DIOSTREAMBLUETOOTH() , XFSM
 *
 * @return     Does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMBLUETOOTH::~DIOLINUXSTREAMBLUETOOTH()
 {
   if(threadconnection)
@@ -136,7 +136,7 @@ DIOLINUXSTREAMBLUETOOTH::~DIOLINUXSTREAMBLUETOOTH()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTH::Open()
 {
   if(!threadconnection) return false;
@@ -159,7 +159,7 @@ bool DIOLINUXSTREAMBLUETOOTH::Open()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTH::Disconnect()
 {
   if((GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
@@ -186,7 +186,7 @@ bool DIOLINUXSTREAMBLUETOOTH::Disconnect()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTH::Close()
 {
   if(!threadconnection) return false;
@@ -229,7 +229,7 @@ bool DIOLINUXSTREAMBLUETOOTH::Close()
 *
 * @return     int : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOLINUXSTREAMBLUETOOTH::IsReadyConnect(int socket)
 {
   struct timeval  tv;
@@ -281,7 +281,7 @@ int DIOLINUXSTREAMBLUETOOTH::IsReadyConnect(int socket)
 *
 * @return     sdp_session_t* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 sdp_session_t* DIOLINUXSTREAMBLUETOOTH::SDP_RegisterService(char* service_name,char* service_dsc,char* service_prov,int rfcomm_channel)
 {
   uint32_t service_uuid_int[] = { 0x0111, 10, 1, 1 };
@@ -363,7 +363,7 @@ sdp_session_t* DIOLINUXSTREAMBLUETOOTH::SDP_RegisterService(char* service_name,c
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMBLUETOOTH::Clean()
 {
   threadconnection   = NULL;
@@ -390,7 +390,7 @@ void DIOLINUXSTREAMBLUETOOTH::Clean()
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACstring, XSTRING &remoteMACstring, XSTRING& PIN)
 {
   XDIR*   xdir;
@@ -501,7 +501,7 @@ bool DIOLINUXSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACstri
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMBLUETOOTH::ThreadRunFunction(void* param)
 {
   DIOLINUXSTREAMBLUETOOTH* diostream = (DIOLINUXSTREAMBLUETOOTH*)param;

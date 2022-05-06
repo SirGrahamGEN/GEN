@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS Shared Memory Manager (Exchange between applications)
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSHAREDMEMORYMANAGER::XWINDOWSSHAREDMEMORYMANAGER()
 {
   Clean();
@@ -76,7 +76,7 @@ XWINDOWSSHAREDMEMORYMANAGER::XWINDOWSSHAREDMEMORYMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSHAREDMEMORYMANAGER::~XWINDOWSSHAREDMEMORYMANAGER()
 {
   Clean();
@@ -95,7 +95,7 @@ XWINDOWSSHAREDMEMORYMANAGER::~XWINDOWSSHAREDMEMORYMANAGER()
 *
 * @return     XBYTE* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* XWINDOWSSHAREDMEMORYMANAGER::Create(XCHAR* ID, XDWORD size, bool ispublic)
 {
   // Allocate shared memory from the system by creating a shared memory
@@ -175,7 +175,7 @@ XBYTE* XWINDOWSSHAREDMEMORYMANAGER::Create(XCHAR* ID, XDWORD size, bool ispublic
 *
 *  @return     XBYTE* : Pointer to shared memory
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* XWINDOWSSHAREDMEMORYMANAGER::Open(XCHAR* ID, XDWORD& size)
 {
   // Open the shared memory file by name.  The file is based on the
@@ -235,7 +235,7 @@ XBYTE* XWINDOWSSHAREDMEMORYMANAGER::Open(XCHAR* ID, XDWORD& size)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSHAREDMEMORYMANAGER::Close()
 {
   if(!base)    return false;
@@ -263,7 +263,7 @@ bool XWINDOWSSHAREDMEMORYMANAGER::Close()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSHAREDMEMORYMANAGER::Clean()
 {
   handlefile  = NULL;

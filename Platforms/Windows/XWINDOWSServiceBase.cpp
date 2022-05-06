@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS Service Base class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -69,7 +69,7 @@ LPSERVICE_FAILURE_ACTIONS   XWINDOWSSERVICEBASE::service_failureactions   = NULL
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSERVICEBASE::XWINDOWSSERVICEBASE(XCHAR* servicename, bool can_stop, bool can_shutdown, bool can_pause, bool can_powerevent, bool can_sessionchange)
 {
   Clean();
@@ -90,7 +90,7 @@ XWINDOWSSERVICEBASE::XWINDOWSSERVICEBASE(XCHAR* servicename, bool can_stop, bool
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSERVICEBASE::~XWINDOWSSERVICEBASE()
 {  
   if(service_config)        LocalFree(service_config);
@@ -115,7 +115,7 @@ XWINDOWSSERVICEBASE::~XWINDOWSSERVICEBASE()
 *
 * @return     void : does not return anything. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::Setup(bool can_stop, bool can_shutdown, bool can_pause, bool can_powerevent, bool can_sessionchange)
 {
   status.dwServiceType               = SERVICE_WIN32_OWN_PROCESS;
@@ -147,7 +147,7 @@ void XWINDOWSSERVICEBASE::Setup(bool can_stop, bool can_shutdown, bool can_pause
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSERVICEBASE::Run(XWINDOWSSERVICEBASE& t_service)
 {
   service = &t_service;
@@ -169,7 +169,7 @@ bool XWINDOWSSERVICEBASE::Run(XWINDOWSSERVICEBASE& t_service)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::Stop()
 {
   DWORD originalstate = status.dwCurrentState;
@@ -208,7 +208,7 @@ void XWINDOWSSERVICEBASE::Stop()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSERVICEBASE::Install(XCHAR* servicename, XCHAR* displayname, XDWORD starttype, XCHAR* dependencies, XCHAR* account, XCHAR* password)
 {
   XCHAR       path[MAX_PATH];
@@ -272,7 +272,7 @@ bool XWINDOWSSERVICEBASE::Install(XCHAR* servicename, XCHAR* displayname, XDWORD
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSERVICEBASE::Uninstall(XCHAR* servicename)
 {
   SC_HANDLE      scmanager = NULL;
@@ -346,7 +346,7 @@ bool XWINDOWSSERVICEBASE::Uninstall(XCHAR* servicename)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSERVICEBASE::Start(XCHAR* servicename)
 {
   bool status = false;
@@ -387,7 +387,7 @@ bool XWINDOWSSERVICEBASE::Start(XCHAR* servicename)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSERVICEBASE::Stopped(XCHAR* servicename)
 {
   SC_HANDLE scmanager = OpenSCManager(0, 0, SC_MANAGER_ALL_ACCESS);
@@ -421,7 +421,7 @@ bool XWINDOWSSERVICEBASE::Stopped(XCHAR* servicename)
 *
 * @return     LPQUERY_SERVICE_CONFIG : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 LPQUERY_SERVICE_CONFIG  XWINDOWSSERVICEBASE::GetConfig(XCHAR* servicename)
 {
   if(!GetServiceConfig(servicename)) return NULL;
@@ -441,7 +441,7 @@ LPQUERY_SERVICE_CONFIG  XWINDOWSSERVICEBASE::GetConfig(XCHAR* servicename)
 *
 * @return     LPSERVICE_DESCRIPTION : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 LPSERVICE_DESCRIPTION  XWINDOWSSERVICEBASE::GetDescription(XCHAR* servicename)
 {
   if(!GetServiceDescription(servicename)) return NULL;
@@ -462,7 +462,7 @@ LPSERVICE_DESCRIPTION  XWINDOWSSERVICEBASE::GetDescription(XCHAR* servicename)
 *
 * @return     LPSERVICE_FAILURE_ACTIONS : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 LPSERVICE_FAILURE_ACTIONS XWINDOWSSERVICEBASE::GetFailureActions(XCHAR* servicename)
 {
   if(!GetServiceFaiilureActions(servicename)) return NULL;
@@ -481,7 +481,7 @@ LPSERVICE_FAILURE_ACTIONS XWINDOWSSERVICEBASE::GetFailureActions(XCHAR* servicen
 *
 * @return     XCHAR* : 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* XWINDOWSSERVICEBASE::GetServiceName()
 {
   return servicename;
@@ -500,7 +500,7 @@ XCHAR* XWINDOWSSERVICEBASE::GetServiceName()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::On_Start(DWORD argc, XCHAR** args)
 {
 
@@ -516,7 +516,7 @@ void XWINDOWSSERVICEBASE::On_Start(DWORD argc, XCHAR** args)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::On_Stop()
 {
 
@@ -532,7 +532,7 @@ void XWINDOWSSERVICEBASE::On_Stop()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::On_Pause()
 {
 
@@ -548,7 +548,7 @@ void XWINDOWSSERVICEBASE::On_Pause()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::On_Continue()
 {
 
@@ -564,7 +564,7 @@ void XWINDOWSSERVICEBASE::On_Continue()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::On_Shutdown()
 {
 
@@ -581,7 +581,7 @@ void XWINDOWSSERVICEBASE::On_Shutdown()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::On_PowerEvent(DWORD eventtype)
 {
 
@@ -599,7 +599,7 @@ void XWINDOWSSERVICEBASE::On_PowerEvent(DWORD eventtype)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::On_SessionChange(DWORD eventtype)
 {
 
@@ -618,7 +618,7 @@ void XWINDOWSSERVICEBASE::On_SessionChange(DWORD eventtype)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::SetServiceStatus(XDWORD currentstate, XDWORD win32exitcode, XDWORD waithint)
 {
  static DWORD checkpoint = 1;
@@ -647,7 +647,7 @@ void XWINDOWSSERVICEBASE::SetServiceStatus(XDWORD currentstate, XDWORD win32exit
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::WriteEventLogEntry(XCHAR* message, XWORD type)
 {
   HANDLE  heventsource = NULL;
@@ -685,7 +685,7 @@ void XWINDOWSSERVICEBASE::WriteEventLogEntry(XCHAR* message, XWORD type)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::WriteErrorLogEntry(XCHAR* function, XDWORD error)
 {
   XSTRING message;
@@ -707,7 +707,7 @@ void XWINDOWSSERVICEBASE::WriteErrorLogEntry(XCHAR* function, XDWORD error)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSERVICEBASE::GetServiceConfig(XCHAR* servicename)
 {
   SC_HANDLE scmanager = OpenSCManager(0, 0, SC_MANAGER_ALL_ACCESS);
@@ -766,7 +766,7 @@ bool XWINDOWSSERVICEBASE::GetServiceConfig(XCHAR* servicename)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSERVICEBASE::SetConfig(XCHAR* servicename, XDWORD type, XDWORD starttype, XDWORD errorcontrol)
 {
   SC_HANDLE scmanager = OpenSCManager(0, 0, SC_MANAGER_ALL_ACCESS);
@@ -807,7 +807,7 @@ bool XWINDOWSSERVICEBASE::SetConfig(XCHAR* servicename, XDWORD type, XDWORD star
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSERVICEBASE::GetServiceDescription(XCHAR* servicename)
 {
   SC_HANDLE scmanager = OpenSCManager(0, 0, SC_MANAGER_ALL_ACCESS);
@@ -864,7 +864,7 @@ bool XWINDOWSSERVICEBASE::GetServiceDescription(XCHAR* servicename)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSERVICEBASE::SetDescription(XCHAR* servicename, LPSERVICE_DESCRIPTION description)
 {
   bool status = false;
@@ -895,7 +895,7 @@ bool XWINDOWSSERVICEBASE::SetDescription(XCHAR* servicename, LPSERVICE_DESCRIPTI
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSERVICEBASE::GetServiceFaiilureActions(XCHAR* servicename)
 {
   SC_HANDLE scmanager = OpenSCManager(0, 0, SC_MANAGER_ALL_ACCESS);
@@ -953,7 +953,7 @@ bool XWINDOWSSERVICEBASE::GetServiceFaiilureActions(XCHAR* servicename)
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSERVICEBASE::SetFailureActions(XCHAR* servicename, LPSERVICE_FAILURE_ACTIONS failureactions)
 {
   bool status = false;
@@ -986,7 +986,7 @@ bool XWINDOWSSERVICEBASE::SetFailureActions(XCHAR* servicename, LPSERVICE_FAILUR
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void WINAPI XWINDOWSSERVICEBASE::ServiceMain(DWORD argc, LPWSTR* argv)
 {
   assert(service != NULL);
@@ -1013,7 +1013,7 @@ void WINAPI XWINDOWSSERVICEBASE::ServiceMain(DWORD argc, LPWSTR* argv)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void WINAPI XWINDOWSSERVICEBASE::ServiceCtrlHandler(DWORD control, DWORD eventtype, LPVOID eventdata, LPVOID context)
 {
   switch(control)
@@ -1042,7 +1042,7 @@ void WINAPI XWINDOWSSERVICEBASE::ServiceCtrlHandler(DWORD control, DWORD eventty
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::Start(XDWORD argc,  XCHAR** args)
 {
   try { SetServiceStatus(SERVICE_START_PENDING);
@@ -1077,7 +1077,7 @@ void XWINDOWSSERVICEBASE::Start(XDWORD argc,  XCHAR** args)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::Pause()
 {
   try { SetServiceStatus(SERVICE_PAUSE_PENDING);
@@ -1114,7 +1114,7 @@ void XWINDOWSSERVICEBASE::Pause()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::Continue()
 {
   try { SetServiceStatus(SERVICE_CONTINUE_PENDING);
@@ -1150,7 +1150,7 @@ void XWINDOWSSERVICEBASE::Continue()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::Shutdown()
 {
   try { On_Shutdown();
@@ -1184,7 +1184,7 @@ void XWINDOWSSERVICEBASE::Shutdown()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::PowerEvent(DWORD eventtype)
 {
   On_PowerEvent(eventtype);
@@ -1205,7 +1205,7 @@ void XWINDOWSSERVICEBASE::PowerEvent(DWORD eventtype)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::SessionChange(DWORD eventtype)
 {
   On_SessionChange(eventtype);
@@ -1225,7 +1225,7 @@ void XWINDOWSSERVICEBASE::SessionChange(DWORD eventtype)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSERVICEBASE::Clean()
 {
   servicename           = __L("");

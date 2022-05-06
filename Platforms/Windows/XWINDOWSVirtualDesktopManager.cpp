@@ -6,7 +6,7 @@
 * @brief      eXtended WINDOWS Virtual Desktop Manager class
 * @ingroup    PLATFORM_WINDOWS
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -61,7 +61,7 @@ XWINDOWSVIRTUALDESKTOPMANAGER* XWINDOWSVIRTUALDESKTOPMANAGER::instance = NULL;
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSVIRTUALDESKTOP::XWINDOWSVIRTUALDESKTOP()
 {
   Clean();
@@ -78,7 +78,7 @@ XWINDOWSVIRTUALDESKTOP::XWINDOWSVIRTUALDESKTOP()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSVIRTUALDESKTOP::~XWINDOWSVIRTUALDESKTOP()
 {
   Clean();
@@ -94,7 +94,7 @@ XWINDOWSVIRTUALDESKTOP::~XWINDOWSVIRTUALDESKTOP()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XWINDOWSVIRTUALDESKTOP::GetName()
 {
   return &name;
@@ -111,7 +111,7 @@ XSTRING* XWINDOWSVIRTUALDESKTOP::GetName()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSVIRTUALDESKTOP::Clean()
 {
 
@@ -133,7 +133,7 @@ void XWINDOWSVIRTUALDESKTOP::Clean()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::GetIsInstanced()
 {
   return instance!=NULL;
@@ -149,7 +149,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::GetIsInstanced()
 *
 * @return     XWINDOWSVIRTUALDESKTOPMANAGER& :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSVIRTUALDESKTOPMANAGER& XWINDOWSVIRTUALDESKTOPMANAGER::GetInstance()
 {
   if(!instance) instance = new XWINDOWSVIRTUALDESKTOPMANAGER();
@@ -167,7 +167,7 @@ XWINDOWSVIRTUALDESKTOPMANAGER& XWINDOWSVIRTUALDESKTOPMANAGER::GetInstance()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::DelInstance()
 {
   if(instance)
@@ -193,7 +193,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::DelInstance()
 *
 * @return     XVECTOR<XWINDOWSVIRTUALDESKTOP*>* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XWINDOWSVIRTUALDESKTOP*>* XWINDOWSVIRTUALDESKTOPMANAGER::EnumAllDesktops()
 {
   listdesktops.DeleteContents();
@@ -218,7 +218,7 @@ XVECTOR<XWINDOWSVIRTUALDESKTOP*>* XWINDOWSVIRTUALDESKTOPMANAGER::EnumAllDesktops
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::AddDesktopToList(XSTRING& name)
 {
   XWINDOWSVIRTUALDESKTOP* desktop = new XWINDOWSVIRTUALDESKTOP();
@@ -243,7 +243,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::AddDesktopToList(XSTRING& name)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XCHAR* name, bool addexplorer)
 {
   if(!name) return false;
@@ -298,7 +298,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XCHAR* name, bool addexplor
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XSTRING& name, bool addexplorer)
 {
   return CreateNewDesktop(name.Get(), addexplorer);
@@ -317,7 +317,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XSTRING& name, bool addexpl
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XCHAR* desktopname, bool inherit)
 {
   if(!desktopname) return false;
@@ -351,7 +351,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XCHAR* desktopname, bool inher
 *
 * @return     bool : true if is succesful. 
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XSTRING& desktopname, bool inherit)
 {
   return SwitchDesktop(desktopname.Get(), inherit);
@@ -369,7 +369,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XSTRING& desktopname, bool inh
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XCHAR* desktopname)
 {
   HDESK    hcurrentdesktop    = GetThreadDesktop(GetCurrentThreadId());
@@ -395,7 +395,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XCHAR* desktopname)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XSTRING& desktopname)
 {
   return IsCurrentDesktop(desktopname.Get());
@@ -414,7 +414,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XSTRING& desktopname)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XCHAR* desktopname)
 {
   bool found = false;
@@ -442,7 +442,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XCHAR* desktopname)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XSTRING& desktopname)
 {
   return IsDesktopCreated(desktopname.Get());
@@ -460,7 +460,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XSTRING& desktopname)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XCHAR* desktopname)
 {
   BOOL status = FALSE;
@@ -501,7 +501,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XCHAR* desktop
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XSTRING& desktopname)
 {
   return SwitchProcessSpecifiedDesktop(desktopname.Get());
@@ -517,7 +517,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XSTRING& deskt
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::IsUserInteractive()
 {
   BOOL isuserinteractive = FALSE;
@@ -544,7 +544,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsUserInteractive()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSVIRTUALDESKTOPMANAGER::XWINDOWSVIRTUALDESKTOPMANAGER()
 {
   Clean();
@@ -565,7 +565,7 @@ XWINDOWSVIRTUALDESKTOPMANAGER::XWINDOWSVIRTUALDESKTOPMANAGER()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSVIRTUALDESKTOPMANAGER::~XWINDOWSVIRTUALDESKTOPMANAGER()
 {
   listdesktops.DeleteContents();
@@ -587,7 +587,7 @@ XWINDOWSVIRTUALDESKTOPMANAGER::~XWINDOWSVIRTUALDESKTOPMANAGER()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSVIRTUALDESKTOPMANAGER::LaunchApplication(XCHAR* applicationfilepath, XCHAR* desktopname)
 {
   if(!applicationfilepath) return false;
@@ -639,7 +639,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::LaunchApplication(XCHAR* applicationfilepath
 *
 * @return     BOOL :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 BOOL __stdcall XWINDOWSVIRTUALDESKTOPMANAGER::EnumDesktopProc(LPTSTR namedesktop, LPARAM param)
 {
   XWINDOWSVIRTUALDESKTOPMANAGER* vdm = (XWINDOWSVIRTUALDESKTOPMANAGER*)param;
@@ -666,7 +666,7 @@ BOOL __stdcall XWINDOWSVIRTUALDESKTOPMANAGER::EnumDesktopProc(LPTSTR namedesktop
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSVIRTUALDESKTOPMANAGER::Clean()
 {
   enumdesktopfunc     = NULL;

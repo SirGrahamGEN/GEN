@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream Bluetooth LE REMOTE Enum Devices class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_H_
 #define _DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_H_
@@ -74,7 +74,7 @@ class DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES :  public DIOSTREAMENUMBLUETOOTHDEVI
 
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

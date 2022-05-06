@@ -9,7 +9,7 @@
 ""
 ""
 
-@copyright  GEN Group. All right reserved.
+@copyright  GEN Group. All rights reserved.
 
 @cond
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -27,7 +27,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR TH
 SOFTWARE.
 @endcond
 
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _UI_LAYOUT_H_
 #define _UI_LAYOUT_H_
@@ -82,7 +82,7 @@ class UI_LAYOUT
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

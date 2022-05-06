@@ -6,7 +6,7 @@
 * @brief      Data Input/Output Stream USB config class
 * @ingroup    DATAIO
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUSBCONFIG::DIOSTREAMUSBCONFIG() : DIOSTREAMCONFIG()
 {
   Clean();
@@ -73,7 +73,7 @@ DIOSTREAMUSBCONFIG::DIOSTREAMUSBCONFIG() : DIOSTREAMCONFIG()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUSBCONFIG::~DIOSTREAMUSBCONFIG()
 {
   Clean();
@@ -89,7 +89,7 @@ DIOSTREAMUSBCONFIG::~DIOSTREAMUSBCONFIG()
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOSTREAMUSBCONFIG::GetLocation()
 {
   return &location;
@@ -105,7 +105,7 @@ XSTRING* DIOSTREAMUSBCONFIG::GetLocation()
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMUSBCONFIG::GetVendorID()
 {
   return vendorID;
@@ -123,7 +123,7 @@ XDWORD DIOSTREAMUSBCONFIG::GetVendorID()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUSBCONFIG::SetVendorID(XDWORD vendorID)
 {
   this->vendorID = vendorID;
@@ -139,7 +139,7 @@ void DIOSTREAMUSBCONFIG::SetVendorID(XDWORD vendorID)
 *
 * @return     XDWORD :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMUSBCONFIG::GetProductID()
 {
   return productID;
@@ -157,7 +157,7 @@ XDWORD DIOSTREAMUSBCONFIG::GetProductID()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUSBCONFIG::SetProductID(XDWORD productID)
 {
   this->productID=productID;
@@ -173,7 +173,7 @@ void DIOSTREAMUSBCONFIG::SetProductID(XDWORD productID)
 *
 * @return     DIOSTREAMDEVICEUSBCLASS :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEUSBCLASS DIOSTREAMUSBCONFIG::GetClass()
 {
   return classdev;
@@ -191,7 +191,7 @@ DIOSTREAMDEVICEUSBCLASS DIOSTREAMUSBCONFIG::GetClass()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUSBCONFIG::SetClass(DIOSTREAMDEVICEUSBCLASS classdev)
 {
   this->classdev = classdev;
@@ -207,7 +207,7 @@ void DIOSTREAMUSBCONFIG::SetClass(DIOSTREAMDEVICEUSBCLASS classdev)
 *
 * @return     XSTRING* :
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOSTREAMUSBCONFIG::GetResource()
 {
   return &resource;
@@ -225,7 +225,7 @@ XSTRING* DIOSTREAMUSBCONFIG::GetResource()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUSBCONFIG::GetToString(XSTRING* string)
 {
   if(!string) return false;
@@ -259,7 +259,7 @@ bool DIOSTREAMUSBCONFIG::GetToString(XSTRING* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUSBCONFIG::GetToString(XSTRING& string)
 {
   return GetToString(&string);
@@ -277,7 +277,7 @@ bool DIOSTREAMUSBCONFIG::GetToString(XSTRING& string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUSBCONFIG::SetFromString(XCHAR* string)
 {
   if(!string) return false;
@@ -324,7 +324,7 @@ bool DIOSTREAMUSBCONFIG::SetFromString(XCHAR* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUSBCONFIG::SetFromString(XSTRING* string)
 {
   if(!string) return false;
@@ -344,7 +344,7 @@ bool DIOSTREAMUSBCONFIG::SetFromString(XSTRING* string)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUSBCONFIG::SetFromString(XSTRING& string)
 {
   return SetFromString(&string);
@@ -361,7 +361,7 @@ bool DIOSTREAMUSBCONFIG::SetFromString(XSTRING& string)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUSBCONFIG::Clean()
 {
   vendorID    = 0;

@@ -1,22 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  COMPRESS_GZ.CPP
-//
-//  Compression/Descompression GZ Class
-//
-//  Author            : Diego Martínez Ruiz de Gaona
-//  Date Of Creation  : 28/10/2016
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CompressGZ.cpp
+* 
+* @class      COMPRESSGZ
+* @brief      Compress GZ class
+* @ingroup    COMPRESS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
-
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,22 +43,22 @@
 
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-//-------------------------------------------------------------------
-//  COMPRESS_ZIP::COMPRESS_ZIP
-/**
-//
-//
-//  ""
-//  @version      08/08/2001 9:32:45
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         COMPRESS_GZ::COMPRESS_GZ()
+* @brief      Constructor
+* @ingroup    COMPRESS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_GZ::COMPRESS_GZ() : COMPRESSBASE()
 {
   Clean();
@@ -52,40 +67,35 @@ COMPRESS_GZ::COMPRESS_GZ() : COMPRESSBASE()
 }
 
 
-
-//-------------------------------------------------------------------
-//  COMPRESS_ZIP::~COMPRESS_ZIP
-/**
-//
-//
-//  ""
-//  @version      08/08/2001 9:33:11
-//
-//  @return
-//  @param
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         COMPRESS_GZ::~COMPRESS_GZ()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    COMPRESS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_GZ::~COMPRESS_GZ()
 {
   Clean();
 }
 
 
-
-//-------------------------------------------------------------------
-//  COMPRESS_GZ::Compress
-/**
-//
-//
-//  ""
-//  @version      10/02/2004 18:05:17
-//
-//  @return       bool :
-//  @param        source :
-//  @param        size :
-//  @param        xbuffer :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESS_GZ::Compress(XBYTE* source, XDWORD size, XBUFFER* xbuffer)
+* @brief      Compress
+* @ingroup    COMPRESS
+* 
+* @param[in]  source : 
+* @param[in]  size : 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESS_GZ::Compress(XBYTE* source, XDWORD size, XBUFFER* xbuffer)
 {
   if(!source)  return false;
@@ -105,20 +115,19 @@ bool COMPRESS_GZ::Compress(XBYTE* source, XDWORD size, XBUFFER* xbuffer)
 }
 
 
-//-------------------------------------------------------------------
-//  COMPRESS_GZ::Decompress
-/**
-//
-//
-//  ""
-//  @version      10/02/2004 18:05:21
-//
-//  @return       bool :
-//  @param        source :
-//  @param        size :
-//  @param        xbuffer :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool COMPRESS_GZ::Decompress(XBYTE* source, XDWORD size, XBUFFER* xbuffer)
+* @brief      Decompress
+* @ingroup    COMPRESS
+* 
+* @param[in]  source : 
+* @param[in]  size : 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool COMPRESS_GZ::Decompress(XBYTE* source, XDWORD size, XBUFFER* xbuffer)
 {
   if(!source)  return false;
@@ -133,40 +142,20 @@ bool COMPRESS_GZ::Decompress(XBYTE* source, XDWORD size, XBUFFER* xbuffer)
 }
 
 
-//-------------------------------------------------------------------
-//  COMPRESS_GZ::Clean
-/**
-//
-//
-//  ""
-//  @version      28/10/2003 16:40:47
-//
-//  @return       void :
-//  */
-//-------------------------------------------------------------------
-void COMPRESS_GZ::Clean()
-{
-  param1 = NULL;
-}
-
-
-
-/*-------------------------------------------------------------------
-//  COMPRESS_GZ::ZCompress
-*/
-/**
-//
-//
-//  ""
-//  @version      28/05/2009 06:41:35 p.m.
-//
-//  @return       int :
-//  @param        target :
-//  @param        targetsize :
-//  @param        source :
-//  @param        sourcesize :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int COMPRESS_GZ::ZCompress(XBYTE* target, XDWORD* targetsize, XBYTE* source, XDWORD sourcesize)
+* @brief      ZCompress
+* @ingroup    COMPRESS
+* 
+* @param[in]  target : 
+* @param[in]  targetsize : 
+* @param[in]  source : 
+* @param[in]  sourcesize : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int COMPRESS_GZ::ZCompress(XBYTE* target, XDWORD* targetsize, XBYTE* source, XDWORD sourcesize)
 {
   int       level = -1;
@@ -202,23 +191,20 @@ int COMPRESS_GZ::ZCompress(XBYTE* target, XDWORD* targetsize, XBYTE* source, XDW
 }
 
 
-
-/*-------------------------------------------------------------------
-//  COMPRESS_GZ::ZDecompress
-*/
-/**
-//
-//
-//  ""
-//  @version      28/05/2009 06:41:43 p.m.
-//
-//  @return       int :
-//  @param        target :
-//  @param        targetsize :
-//  @param        source :
-//  @param        sourcesize :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int COMPRESS_GZ::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWORD sourcesize)
+* @brief      ZDecompress
+* @ingroup    COMPRESS
+* 
+* @param[in]  target : 
+* @param[in]  targetsize : 
+* @param[in]  source : 
+* @param[in]  sourcesize : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int COMPRESS_GZ::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWORD sourcesize)
 {
   z_stream  stream;
@@ -273,3 +259,18 @@ int COMPRESS_GZ::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWO
   return Z_OK;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void COMPRESS_GZ::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    COMPRESS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void COMPRESS_GZ::Clean()
+{
+  param1 = NULL;
+}

@@ -6,7 +6,7 @@
 * @brief      eXtended SAMD5xE5x Plataform Ini Functions
 * @ingroup    PLATFORM_SAMD5XE5X
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _MAINPROCSAMD5XE5XPLATFORMINI_H_
 #define _MAINPROCSAMD5XE5XPLATFORMINI_H_
@@ -61,7 +61,7 @@ class XSAMD5XE5XPLATFORMINI : public XPLATFORMINI
 };
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 
 extern XDWORD    HAL_tick_count;

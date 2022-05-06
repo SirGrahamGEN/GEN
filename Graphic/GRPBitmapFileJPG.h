@@ -6,7 +6,7 @@
 * @brief      Graphic bitmap file JPEG format (JPEG: Joint Photographic Experts Group) class
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _GRPBITMAPFILEJPG_H_
 #define _GRPBITMAPFILEJPG_H_
@@ -99,7 +99,7 @@ class GRPBITMAPFILEJPG : public GRPBITMAPFILEBASE
 
 
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

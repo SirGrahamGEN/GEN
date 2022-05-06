@@ -6,7 +6,7 @@
 * @brief      Data Input/Output STM32 General Port Input/Ouput (GPIO)
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSTM32GPIO_H_
 #define _DIOSTM32GPIO_H_
@@ -59,7 +59,7 @@ class DIOSTM32GPIO : public DIOGPIO
 
 };
 
-/*---- INLINE FUNCTIONS ----------------------------------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
 

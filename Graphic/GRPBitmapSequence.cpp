@@ -6,7 +6,7 @@
 * @brief      Graphics Bitmap Sequence class
 * @ingroup    GRAPHIC
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -56,7 +56,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFRAME::GRPBITMAPFRAME()
 {
   Clean();
@@ -72,7 +72,7 @@ GRPBITMAPFRAME::GRPBITMAPFRAME()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFRAME::~GRPBITMAPFRAME()
 {
   delete bitmap;
@@ -89,7 +89,7 @@ GRPBITMAPFRAME::~GRPBITMAPFRAME()
 *
 * @return     GRPBITMAP* : Bitmap of frame class
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP* GRPBITMAPFRAME::GetBitmap()
 {
   return bitmap;
@@ -105,7 +105,7 @@ GRPBITMAP* GRPBITMAPFRAME::GetBitmap()
 *
 * @return     int : ajust x of frame
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPFRAME::GetAjustX()
 {
   return ajustx;
@@ -121,7 +121,7 @@ int GRPBITMAPFRAME::GetAjustX()
 *
 * @return     int : ajust y of frame
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPFRAME::GetAjustY()
 {
   return ajusty;
@@ -139,7 +139,7 @@ int GRPBITMAPFRAME::GetAjustY()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFRAME::SetBitmap(GRPBITMAP* bitmap)
 {
   this->bitmap = bitmap;
@@ -157,7 +157,7 @@ void GRPBITMAPFRAME::SetBitmap(GRPBITMAP* bitmap)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFRAME::SetAjustX(int ajustx)
 {
   this->ajustx = ajustx;
@@ -175,7 +175,7 @@ void GRPBITMAPFRAME::SetAjustX(int ajustx)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFRAME::SetAjustY(int ajusty)
 {
   this->ajusty = ajusty;
@@ -192,7 +192,7 @@ void GRPBITMAPFRAME::SetAjustY(int ajusty)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFRAME::Clean()
 {
   bitmap = NULL;
@@ -205,7 +205,7 @@ void GRPBITMAPFRAME::Clean()
 *
 * GRPBITMAPSEQUENCE()
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -217,7 +217,7 @@ void GRPBITMAPFRAME::Clean()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPSEQUENCE::GRPBITMAPSEQUENCE()
 {
   Clean();
@@ -239,7 +239,7 @@ GRPBITMAPSEQUENCE::GRPBITMAPSEQUENCE()
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPSEQUENCE::~GRPBITMAPSEQUENCE()
 {
   if(timer) GEN_XFACTORY.DeleteTimer(timer);
@@ -263,7 +263,7 @@ GRPBITMAPSEQUENCE::~GRPBITMAPSEQUENCE()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPSEQUENCE::AddFrame(GRPBITMAP* bitmap, int ajustx, int ajusty)
 {
   GRPBITMAPFRAME* frame = new GRPBITMAPFRAME();
@@ -290,7 +290,7 @@ bool GRPBITMAPSEQUENCE::AddFrame(GRPBITMAP* bitmap, int ajustx, int ajusty)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPSEQUENCE::DelAllSequence(bool full)
 {
   if(frames.IsEmpty())  return false;
@@ -312,7 +312,7 @@ bool GRPBITMAPSEQUENCE::DelAllSequence(bool full)
 *
 * @return     GRPBITMAPFRAME* : Actual frame class
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFRAME* GRPBITMAPSEQUENCE::GetActualFrame()
 {
   return (GRPBITMAPFRAME*)frames.Get(frameindex);
@@ -329,7 +329,7 @@ GRPBITMAPFRAME* GRPBITMAPSEQUENCE::GetActualFrame()
 *
 * @return     int : actual frame index
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPSEQUENCE::GetActualFrameIndex()
 {
   return frameindex;
@@ -347,7 +347,7 @@ int GRPBITMAPSEQUENCE::GetActualFrameIndex()
 *
 * @return     GRPBITMAPFRAME* : frame class
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFRAME* GRPBITMAPSEQUENCE::GetFrame(XWORD nframe)
 {
   if(nframe>=(XWORD)frames.GetSize()) return NULL;
@@ -364,7 +364,7 @@ GRPBITMAPFRAME* GRPBITMAPSEQUENCE::GetFrame(XWORD nframe)
 *
 * @return     int : number of frames
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPSEQUENCE::GetNFrames()
 {
   return frames.GetSize();
@@ -380,7 +380,7 @@ int GRPBITMAPSEQUENCE::GetNFrames()
 *
 * @return     int : number of loops to made in the sequence
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPSEQUENCE::GetNLoops()
 {
   return nloops;
@@ -396,7 +396,7 @@ int GRPBITMAPSEQUENCE::GetNLoops()
 *
 * @return     int : Number of Loops Made
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int GRPBITMAPSEQUENCE::GetNLoopsMade()
 {
   return nloopsmade;
@@ -414,7 +414,7 @@ int GRPBITMAPSEQUENCE::GetNLoopsMade()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPSEQUENCE::SetNLoops(int nloops)
 {
   this->nloops = nloops;
@@ -434,7 +434,7 @@ bool GRPBITMAPSEQUENCE::SetNLoops(int nloops)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPSEQUENCE::SetNLoopsMade(int nloopsmade)
 {
   this->nloopsmade = nloopsmade;
@@ -455,7 +455,7 @@ bool GRPBITMAPSEQUENCE::SetNLoopsMade(int nloopsmade)
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPSEQUENCE::AjustAllSequence(int ajustx, int ajusty)
 {
   if(frames.IsEmpty())  return false;
@@ -489,7 +489,7 @@ bool GRPBITMAPSEQUENCE::AjustAllSequence(int ajustx, int ajusty)
 *
 * @return     GRPBITMAPFRAME* : frame to show
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFRAME* GRPBITMAPSEQUENCE::Play(int nloops, bool ajusttimeauto, bool reverse)
 {
   if(status==GRPBITMAPSEQUENCESTATUS_PLAY) return NULL;
@@ -522,7 +522,7 @@ GRPBITMAPFRAME* GRPBITMAPSEQUENCE::Play(int nloops, bool ajusttimeauto, bool rev
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPSEQUENCE::Stop()
 {
   if(frames.IsEmpty())                     return false;
@@ -549,7 +549,7 @@ bool GRPBITMAPSEQUENCE::Stop()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPSEQUENCE::Pause()
 {
   if(frames.IsEmpty())                     return false;
@@ -570,7 +570,7 @@ bool GRPBITMAPSEQUENCE::Pause()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPSEQUENCE::Finished()
 {
   if(frames.IsEmpty())                     return false;
@@ -591,7 +591,7 @@ bool GRPBITMAPSEQUENCE::Finished()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPSEQUENCE::IsPlaying()
 {
   if(status==GRPBITMAPSEQUENCESTATUS_PLAY) return true;
@@ -608,7 +608,7 @@ bool GRPBITMAPSEQUENCE::IsPlaying()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPSEQUENCE::IsEndSequence()
 {
   if(status==GRPBITMAPSEQUENCESTATUS_END) return true;
@@ -626,7 +626,7 @@ bool GRPBITMAPSEQUENCE::IsEndSequence()
 *
 * @return     GRPBITMAPFRAME* : frame to show
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFRAME* GRPBITMAPSEQUENCE::Update()
 {
   if(!timer)                               return NULL;
@@ -677,7 +677,7 @@ GRPBITMAPFRAME* GRPBITMAPSEQUENCE::Update()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPSEQUENCE::AjustTime(int framebysec)
 {
   if(!timer) return false;
@@ -700,7 +700,7 @@ bool GRPBITMAPSEQUENCE::AjustTime(int framebysec)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPSEQUENCE::Clean()
 {
   framebysec    = 0;

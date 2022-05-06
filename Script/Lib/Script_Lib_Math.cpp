@@ -6,7 +6,7 @@
 * @brief      Script Library Math
 * @ingroup    SCRIPT
 *
-* @copyright  GEN Group. All right reserved.
+* @copyright  GEN Group. All rights reserved.
 *
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -24,7 +24,7 @@
 * SOFTWARE.
 * @endcond
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_MATH::SCRIPT_LIB_MATH() : SCRIPT_LIB(SCRIPT_LIB_MATH_NAME)
 {
   Clean();
@@ -75,7 +75,7 @@ SCRIPT_LIB_MATH::SCRIPT_LIB_MATH() : SCRIPT_LIB(SCRIPT_LIB_MATH_NAME)
 *
 * @return     Does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_MATH::~SCRIPT_LIB_MATH()
 {
   Clean();
@@ -93,7 +93,7 @@ SCRIPT_LIB_MATH::~SCRIPT_LIB_MATH()
 *
 * @return     bool : true if is succesful.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT_LIB_MATH::AddLibraryFunctions(SCRIPT* script)
 {
   if(!script) return false;
@@ -116,7 +116,7 @@ bool SCRIPT_LIB_MATH::AddLibraryFunctions(SCRIPT* script)
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_MATH::Clean()
 {
 
@@ -142,7 +142,7 @@ void SCRIPT_LIB_MATH::Clean()
 *
 * @return     void : does not return anything.
 *
-*---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void Call_Abs(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
