@@ -34,8 +34,8 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define FRAMEWORKNAME         "GEN FrameWork"
-#define FRAMEWORKVERSION      "0.8.0"
-#define FRAMEWORKCODENAME     "Gromazen R9"
+#define FRAMEWORKVERSION      "0.9.0"
+#define FRAMEWORKCODENAME     "Gaia Q5"
 
 #ifndef XBYTE
 typedef unsigned char         XBYTE;
