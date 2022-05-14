@@ -1,26 +1,40 @@
-/*------------------------------------------------------------------------------------------
-//  DIOTEMHUMSENSORAM2301.CPP
-//
-//  AOSONG AM2301 Sensor class (Temperature and humidity module)
-//
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 25/11/2013 23:03:27
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOTemHumSensorAM2301.cpp
+* 
+* @class      DIOTEMHUMSENSORAM2301
+* @brief      Data Input/Output AOSONG AM2301 Sensor (Temperature and humidity module) class 
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <stdlib.h>
-
 
 #include "XFactory.h"
 #include "XSleep.h"
@@ -34,35 +48,29 @@
 
 #include "XMemory_Control.h"
 
-
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
-
-
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-/*-------------------------------------------------------------------
-//  DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301
-*/
-/**
-//
-//
-//  ""
-//  @version      09/03/2014 19:17:09
-//
-//  @return
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
-//  @param        diogpio :
-//  @param        pindata :
-//  @param        activatecache :
-*/
-/*-----------------------------------------------------------------*/
-DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301(DIOGPIO* diogpio, int pindata, bool activatecache) : DIODEVICE()
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301(int pindata, bool activatecache)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]   int pindata : 
+* @param[in]   bool activatecache : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301(int pindata, bool activatecache) : DIODEVICE()
 {
   Clean();
 
-  this->diogpio = diogpio;
-  this->pindata     = pindata;
+  this->pindata = pindata;
 
   GEN_XFACTORY_CREATE(xtimer, CreateTimer())
   
@@ -80,20 +88,16 @@ DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301(DIOGPIO* diogpio, int pindata, bool
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOTEMHUMSENSORAM2301::~DIOTEMHUMSENSORAM2301
-*/
-/**
-//
-//
-//  ""
-//  @version      25/11/2013 23:13:13
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOTEMHUMSENSORAM2301::~DIOTEMHUMSENSORAM2301()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOTEMHUMSENSORAM2301::~DIOTEMHUMSENSORAM2301()
 {
   End();
@@ -107,22 +111,17 @@ DIOTEMHUMSENSORAM2301::~DIOTEMHUMSENSORAM2301()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOTEMHUMSENSORAM2301::Ini
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      29/09/2014 22:25:05
-//
-//  @return       bool :
-//
-//  @param        cadenceread :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOTEMHUMSENSORAM2301::Ini(int cadenceread)
+* @brief      Ini
+* @ingroup    DATAIO
+* 
+* @param[in]  cadenceread : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOTEMHUMSENSORAM2301::Ini(int cadenceread)
 {
   if(!threadcache) return false;
@@ -135,23 +134,33 @@ bool DIOTEMHUMSENSORAM2301::Ini(int cadenceread)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOTEMHUMSENSORAM2301::GetPinData()
+* @brief      GetPinData
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIOTEMHUMSENSORAM2301::GetPinData()
+{ 
+  return pindata;                   
+}
 
 
-/*-------------------------------------------------------------------
-//  DIOTEMHUMSENSORAM2301::ReadFromCache
-*/
-/**
-//
-//
-//  ""
-//  @version      25/11/2013 23:26:38
-//
-//  @return       bool :
-//  @param        temperature :
-//  @param        humidity :
-//  @param        mode :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOTEMHUMSENSORAM2301::ReadFromCache(float& temperature, float& humidity)
+* @brief      ReadFromCache
+* @ingroup    DATAIO
+* 
+* @param[in]  temperature : 
+* @param[in]  humidity : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOTEMHUMSENSORAM2301::ReadFromCache(float& temperature, float& humidity)
 {
   if(!xmutexread)      return false;
@@ -170,25 +179,20 @@ bool DIOTEMHUMSENSORAM2301::ReadFromCache(float& temperature, float& humidity)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOTEMHUMSENSORAM2301::ReadDirect
-*/
-/**
-//
-//
-//  ""
-//  @version      04/01/2014 16:57:11
-//
-//  @return       bool :
-//  @param        temperature :
-//  @param        humidity :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOTEMHUMSENSORAM2301::ReadDirect(float& temperature, float& humidity)
+* @brief      ReadDirect
+* @ingroup    DATAIO
+* 
+* @param[in]  temperature : 
+* @param[in]  humidity : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOTEMHUMSENSORAM2301::ReadDirect(float& temperature, float& humidity)
 {
-  if(!diogpio)      return false;
   if(!xtimer)           return false;
   if(!IsInitialized())  return false;
 
@@ -197,17 +201,17 @@ bool DIOTEMHUMSENSORAM2301::ReadDirect(float& temperature, float& humidity)
   XBYTE  value[5] = { 0, 0, 0, 0, 0 };
 
   // Leave it high for a while
-  diogpio->SetMode(pindata,  DIOTEMHUMSENSORAM2301_OUTPUT);
-  diogpio->Set(pindata, DIOTEMHUMSENSORAM2301_HIGH);
+  GEN_DIOGPIO.SetMode(pindata, DIOGPIO_MODE_OUTPUT);
+  GEN_DIOGPIO.SetValue(pindata, DIOTEMHUMSENSORAM2301_HIGH);
   GEN_XSLEEP.MilliSeconds(1);
 
   // Set it low to give the start signal
-  diogpio->Set(pindata, DIOTEMHUMSENSORAM2301_LOW);
+  GEN_DIOGPIO.SetValue(pindata, DIOTEMHUMSENSORAM2301_LOW);
   GEN_XSLEEP.MilliSeconds(1);
-  diogpio->Set(pindata, DIOTEMHUMSENSORAM2301_HIGH);
+  GEN_DIOGPIO.SetValue(pindata, DIOTEMHUMSENSORAM2301_HIGH);
 
   // Now set the pin high to let the sensor start communicating
-  diogpio->SetMode(pindata,  DIOTEMHUMSENSORAM2301_INPUT);
+  GEN_DIOGPIO.SetMode(pindata, DIOGPIO_MODE_INPUT);
 
   GEN_XSLEEP.NanoSeconds(30);
 
@@ -216,7 +220,6 @@ bool DIOTEMHUMSENSORAM2301::ReadDirect(float& temperature, float& humidity)
 
   WaitTo(true , 100);
   WaitTo(false, 100);
-
 
   // Read values
   for(int d=0; d<5; d++)
@@ -237,15 +240,13 @@ bool DIOTEMHUMSENSORAM2301::ReadDirect(float& temperature, float& humidity)
 
 
   // Final State of SDA
-  diogpio->SetMode(pindata, DIOTEMHUMSENSORAM2301_OUTPUT);
-  diogpio->Set(pindata    , DIOTEMHUMSENSORAM2301_HIGH);
+  GEN_DIOGPIO.SetMode(pindata, DIOGPIO_MODE_OUTPUT);
+  GEN_DIOGPIO.SetValue(pindata, DIOTEMHUMSENSORAM2301_HIGH);
 
   GEN_XSLEEP.MilliSeconds(1);
-
-  /*
- XTRACE_PRINTCOLOR(2, __L(" %X %X %X %X "), value[0], value[1], value[2],  value[3]);
-  */
-
+ 
+  // XTRACE_PRINTCOLOR(XTRACE_PRINTCOLOR, __L(" %X %X %X %X "), value[0], value[1], value[2],  value[3]);
+ 
   // Verify checksum
   XBYTE x = value[0] + value[1] + value[2] + value[3];
   if(x != value[4]) return false;
@@ -262,22 +263,15 @@ bool DIOTEMHUMSENSORAM2301::ReadDirect(float& temperature, float& humidity)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOTEMHUMSENSORAM2301::End
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      24/09/2014 19:41:19
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOTEMHUMSENSORAM2301::End()
+* @brief      End
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOTEMHUMSENSORAM2301::End()
 {
   if(!DIODEVICE::End()) return false;
@@ -288,23 +282,19 @@ bool DIOTEMHUMSENSORAM2301::End()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOTEMHUMSENSORAM2301::WaitTo
-*/
-/**
-//
-//
-//  ""
-//  @version      01/01/2014 19:10:40
-//
-//  @return       bool :
-//  @param        tohigh :
-//  @param        timeout :
-//  @param        timeelapsed :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOTEMHUMSENSORAM2301::WaitTo(bool tohigh, int timeout, int* timeelapsed)
+* @brief      WaitTo
+* @ingroup    DATAIO
+* 
+* @param[in]  tohigh : 
+* @param[in]  timeout : 
+* @param[in]  timeelapsed : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOTEMHUMSENSORAM2301::WaitTo(bool tohigh, int timeout, int* timeelapsed)
 {
   if(!xtimer) return false;
@@ -314,7 +304,7 @@ bool DIOTEMHUMSENSORAM2301::WaitTo(bool tohigh, int timeout, int* timeelapsed)
 
   int _timeelapsed = 0;
 
-  do{ state = diogpio->Get(pindata);
+  do{ state = GEN_DIOGPIO.GetValue(pindata);
 
       _timeelapsed++;
 
@@ -341,20 +331,17 @@ bool DIOTEMHUMSENSORAM2301::WaitTo(bool tohigh, int timeout, int* timeelapsed)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOTEMHUMSENSORAM2301::ThreadRunFunction
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      29/09/2014 22:41:16
-//
-//  @param        param :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOTEMHUMSENSORAM2301::ThreadRunFunction(void* param)
+* @brief      ThreadRunFunction
+* @ingroup    DATAIO
+* 
+* @param[in]  param : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOTEMHUMSENSORAM2301::ThreadRunFunction(void* param)
 {
   DIOTEMHUMSENSORAM2301* sensor = (DIOTEMHUMSENSORAM2301*)param;
@@ -390,6 +377,30 @@ void DIOTEMHUMSENSORAM2301::ThreadRunFunction(void* param)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOTEMHUMSENSORAM2301::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOTEMHUMSENSORAM2301::Clean()
+{
+  pindata           = DIOGPIO_PINNOTUSE;
+
+  cadenceread       = 0;
+
+  xtimer            = NULL;
+  threadcache       = NULL;
+  xmutexread        = NULL;
+
+  nreads            = 0;
+  temperaturecache  = 0;
+  humiditycache     = 0;
+}
 
 
 

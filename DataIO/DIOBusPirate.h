@@ -1,29 +1,39 @@
-/*------------------------------------------------------------------------------------------
-//  DIOBUSPIRATE.H
-*/
-/**
-// \class
-//
-//  DIO Interface to Bus Pirate 4.0
-//
-//  ""
-//
-//  Date Of Creation  : 05/02/2015 10:56:44
-//  Last Modification :
-*/
-/*  GEN (C) Copyright  (All right reserved).
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOBusPirate.h
+* 
+* @class      DIOBUSPIRATE
+* @brief      Data Input/Output interface Bus Pirate 4.0
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOBUSPIRATE_H_
 #define _DIOBUSPIRATE_H_
 
-
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XBase.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
-
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum DIOBUSPIRATETYPEPROCOTOL
 {
@@ -41,7 +51,6 @@ enum DIOBUSPIRATETYPEPROCOTOL
   DIOBUSPIRATETYPEPROCOTOL_DIO              ,
 };
 
-
 enum DIOBUSPIRATESPEEDSNIFFER
 {
   DIOBUSPIRATESPEEDSNIFFER_UNKNOWN      = 0 ,
@@ -51,7 +60,6 @@ enum DIOBUSPIRATESPEEDSNIFFER
   DIOBUSPIRATESPEEDSNIFFER_400KHZ           ,
 };
 
-
 enum DIOBUSPIRATESPEEDNOSNIFFER
 {
   DIOBUSPIRATESPEEDNOSNIFFER_UNKNOWN    = 0 ,
@@ -59,7 +67,6 @@ enum DIOBUSPIRATESPEEDNOSNIFFER
   DIOBUSPIRATESPEEDNOSNIFFER_400KHZ         ,
   DIOBUSPIRATESPEEDNOSNIFFER_1MHZ           ,
 };
-
 
 #define DIOBUSPIRATE_COMMANDMENU_PROTOCOL_HIZ    __L("HiZ")
 #define DIOBUSPIRATE_COMMANDMENU_PROTOCOL_1WIRE  __L("1-WIRE")
@@ -75,14 +82,13 @@ enum DIOBUSPIRATESPEEDNOSNIFFER
 
 #define DIOBUSPIRATE_DEFAULTTIMEOUT  5
 
-/*---- CLASS -----------------------------------------------------------------------------*/
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XFACTORY;
 class XPUBLISHER;
 class XTIMER;
 class DIOFACTORY;
 class DIOSTREAMUARTCONFIG;
-
 
 class DIOBUSPIRATE
 {
@@ -99,29 +105,19 @@ class DIOBUSPIRATE
 
     bool                        End                     ();
 
-
   private:
-
-    void                        Clean                   ()
-                                {
-                                  diostream   = NULL;
-
-                                  xtimerout   = NULL;
-                                }
 
     bool                        ReadPromptStatus        (XSTRING& status, int timeout = DIOBUSPIRATE_DEFAULTTIMEOUT);
 
     bool                        WriteCommand            (XCHAR* command, int timeout = DIOBUSPIRATE_DEFAULTTIMEOUT);
     bool                        WriteCommand            (XSTRING& command, int timeout = DIOBUSPIRATE_DEFAULTTIMEOUT)    { return WriteCommand(command.Get(), timeout);           }
 
+    void                        Clean                   ();
 
     DIOSTREAM*                  diostream;
-
-    XTIMER*                     xtimerout;
+    XTIMER*                     xtimerout;     
 };
 
-
-/*---- INLINE FUNCTIONS ------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-

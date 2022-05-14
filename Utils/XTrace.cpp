@@ -2002,6 +2002,31 @@ XDWORD XTRACE::GetTraceFromXBuffer(XBUFFER& xbufferpacket, XDWORD& publicIP, XDW
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD XTRACE::GetTraceFromDIOStream(DIOSTREAM* DIOstream, XDWORD& publicIP, XDWORD& localIP, XBYTE& level, XDWORD& sequence, XDATETIME* xtime, XBUFFER& data)
+* @brief      GetTraceFromDIOStream
+* @ingroup    UTILS
+* 
+* @param[in]  DIOstream : 
+* @param[in]  publicIP : 
+* @param[in]  localIP : 
+* @param[in]  level : 
+* @param[in]  sequence : 
+* @param[in]  xtime : 
+* @param[in]  data : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD XTRACE::GetTraceFromDIOStream(DIOSTREAM* DIOstream, XDWORD& publicIP, XDWORD& localIP, XBYTE& level, XDWORD& sequence, XDATETIME* xtime, XBUFFER& data)
+{
+  if(!DIOstream) return false;
+  if(!xtime)    return false;
+
+  return GetTraceFromXBuffer((*DIOstream->GetInXBuffer()), publicIP, localIP, level, sequence, xtime, data);
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -2029,7 +2054,6 @@ bool XTRACE::SetTraceDataToText(XBUFFER& data, XSTRING& string)
 
   return (string.IsEmpty()?false:true);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2087,7 +2111,6 @@ bool XTRACE::SetTraceToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level, XDW
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::SetTraceTextToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level, XDWORD sequence, XDATETIME* xtime, XCHAR* string, XBUFFER& xbufferpacket)
@@ -2135,8 +2158,6 @@ bool XTRACE::SetTraceTextToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level,
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::SetLocalIPFilter(XBYTE localIPfilter)
@@ -2152,7 +2173,6 @@ void XTRACE::SetLocalIPFilter(XBYTE localIPfilter)
 {
   this->localIPfilter = localIPfilter;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2220,7 +2240,6 @@ bool XTRACE::ObtainLocalIP()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XTRACE::GetLocalIPString()
@@ -2234,7 +2253,6 @@ XSTRING* XTRACE::GetLocalIPString()
 {
   return &localIPstring;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2278,7 +2296,6 @@ XDWORD XTRACE::GetLocalIP()
 }
 
 
-
 #ifndef XTRACE_NOINTERNET
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -2317,8 +2334,6 @@ bool XTRACE::ObtainPublicIP()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XTRACE::GetScraperWebScriptURLDownload()
@@ -2332,7 +2347,6 @@ XCHAR* XTRACE::GetScraperWebScriptURLDownload()
 {
   return scraperwebscripturldownload;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2354,7 +2368,6 @@ void XTRACE::SetScraperWebScriptURLDownload(XCHAR* scraperwebscripturldownload)
   memset(this->scraperwebscripturldownload, 0, _MAXSTR * sizeof(XCHAR));
   if(scraperwebscripturldownload) memcpy(this->scraperwebscripturldownload, scraperwebscripturldownload, (size + 1) * sizeof(XCHAR));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2387,7 +2400,6 @@ XSTRING* XTRACE::GetPublicIPString()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::SetPublicIPString(XSTRING* publicIPstring)
@@ -2413,9 +2425,7 @@ bool XTRACE::SetPublicIPString(XSTRING* publicIPstring)
   return true;
 }
 
-
 #endif
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2437,7 +2447,6 @@ bool XTRACE::ObtainResourcesIP()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2467,7 +2476,6 @@ bool XTRACE::ReConnectedAllNetTargets()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2507,7 +2515,6 @@ bool XTRACE::ResolveAllNetTargets(bool& changed)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::ResolveAllResources()
@@ -2530,7 +2537,6 @@ bool XTRACE::ResolveAllResources()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2556,8 +2562,6 @@ bool XTRACE::GenerateTab(int ntab, XSTRING& tab)
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2595,14 +2599,3 @@ void XTRACE::Clean()
   openheader                = false;
   sequence                  = 0;
 }
-
-
-
-
-
-
-
-
-
-
-

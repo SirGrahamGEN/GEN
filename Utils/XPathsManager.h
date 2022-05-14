@@ -61,7 +61,6 @@ enum XPATHSMANAGERSECTIONTYPE
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-
 class XPATH;
 
 class XPATHSMANAGERSECTION
@@ -77,7 +76,6 @@ class XPATHSMANAGERSECTION
 
     void                              Clean                         ();
 };
-
 
 
 class XPATHSMANAGER
@@ -117,7 +115,6 @@ class XPATHSMANAGER
     XVECTOR<XPATHSMANAGERSECTION*>    pathsections;
     static XPATHSMANAGER*             instance;
 };
-
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 

@@ -1,22 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  DIOOBEXPUSH.CPP
-//
-//  Send Method
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 14/09/2004 12:01:13
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOOBEXPush.cpp
+* 
+* @class      DIOOBEXPUSH
+* @brief      Data Input/Output Obex Push protocol class
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
- s
-//---- INCLUDES ----------------------------------------------------------------------------
 
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <string.h>
@@ -37,192 +52,161 @@
 
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+
+#pragma region DIOOBEXPUSHFILE
 
 
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::DIOOBEXPUSHFILE
-*/
-/**
-//
-//
-//  ""
-//  @version      12/12/2010 19:47:22
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOOBEXPUSHFILE::DIOOBEXPUSHFILE()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSHFILE::DIOOBEXPUSHFILE()
 {
   Clean();
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::~DIOOBEXPUSHFILE
-*/
-/**
-//
-//
-//  ""
-//  @version      12/12/2010 19:47:30
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOOBEXPUSHFILE::~DIOOBEXPUSHFILE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSHFILE::~DIOOBEXPUSHFILE()
 {
   Clean();
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::GetID
-*/
-/**
-//
-//
-//  ""
-//  @version      24/05/2011 13:29:49
-//
-//  @return       XDWORD :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOOBEXPUSHFILE::GetID()
+* @brief      GetID
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOOBEXPUSHFILE::GetID()
 {
   return ID;
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::GetXPath
-*/
-/**
-//
-//
-//  ""
-//  @version      24/05/2011 13:40:30
-//
-//  @return       XPATH* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XPATH* DIOOBEXPUSHFILE::GetXPath()
+* @brief      GetXPath
+* @ingroup    DATAIO
+* 
+* @return     XPATH* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATH* DIOOBEXPUSHFILE::GetXPath()
 {
   return &xpath;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::GetNameSend
-*/
-/**
-//
-//
-//  ""
-//  @version      24/05/2011 13:40:42
-//
-//  @return       XSTRING* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOOBEXPUSHFILE::GetNameSend()
+* @brief      GetNameSend
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOOBEXPUSHFILE::GetNameSend()
 {
   return &namesend;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::IsSend
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2011 0:22:45
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSHFILE::IsSend()
+* @brief      IsSend
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSHFILE::IsSend()
 {
   return sendis;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE:GetSendPercent
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2011 11:13:51
-//
-//  @return       XBYTE :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE DIOOBEXPUSHFILE::GetSendPercent()
+* @brief      GetSendPercent
+* @ingroup    DATAIO
+* 
+* @return     XBYTE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOOBEXPUSHFILE::GetSendPercent()
 {
   return sendpercent;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::GetSendTimeElapsed
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2011 10:07:37
-//
-//  @return       XQWORD :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XQWORD DIOOBEXPUSHFILE::GetSendTimeElapsed()
+* @brief      GetSendTimeElapsed
+* @ingroup    DATAIO
+* 
+* @return     XQWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD DIOOBEXPUSHFILE::GetSendTimeElapsed()
 {
   return sendtimeelapsed;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::GetError
-*/
-/**
-//
-//
-//  ""
-//  @version      24/05/2011 13:31:25
-//
-//  @return       DIOOBEXPUSHERROR :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOOBEXPUSHERROR DIOOBEXPUSHFILE::GetError()
+* @brief      GetError
+* @ingroup    DATAIO
+* 
+* @return     DIOOBEXPUSHERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSHERROR DIOOBEXPUSHFILE::GetError()
 {
   return error;
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::SetID
-*/
-/**
-//
-//
-//  ""
-//  @version      24/05/2011 13:31:50
-//
-//  @return       bool :
-//  @param        ID :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSHFILE::SetID(XDWORD ID)
+* @brief      SetID
+* @ingroup    DATAIO
+* 
+* @param[in]  ID : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSHFILE::SetID(XDWORD ID)
 {
   this->ID = ID;
@@ -231,20 +215,17 @@ bool DIOOBEXPUSHFILE::SetID(XDWORD ID)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::SetIsSend
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2011 0:23:47
-//
-//  @return       bool :
-//  @param        issend :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSHFILE::SetIsSend(bool issend)
+* @brief      SetIsSend
+* @ingroup    DATAIO
+* 
+* @param[in]  issend : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSHFILE::SetIsSend(bool issend)
 {
   this->sendis = issend;
@@ -253,20 +234,17 @@ bool DIOOBEXPUSHFILE::SetIsSend(bool issend)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::SetSendPercent
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2011 11:14:59
-//
-//  @return       bool :
-//  @param        percent :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSHFILE::SetSendPercent(XBYTE percent)
+* @brief      SetSendPercent
+* @ingroup    DATAIO
+* 
+* @param[in]  percent : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSHFILE::SetSendPercent(XBYTE percent)
 {
   sendpercent = percent;
@@ -275,20 +253,17 @@ bool DIOOBEXPUSHFILE::SetSendPercent(XBYTE percent)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::SetSendTimeElapsed
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2011 10:08:58
-//
-//  @return       bool :
-//  @param        sendtimeelapsed :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSHFILE::SetSendTimeElapsed(XQWORD sendtimeelapsed)
+* @brief      SetSendTimeElapsed
+* @ingroup    DATAIO
+* 
+* @param[in]  sendtimeelapsed : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSHFILE::SetSendTimeElapsed(XQWORD sendtimeelapsed)
 {
   this->sendtimeelapsed = sendtimeelapsed;
@@ -297,20 +272,17 @@ bool DIOOBEXPUSHFILE::SetSendTimeElapsed(XQWORD sendtimeelapsed)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::SetError
-*/
-/**
-//
-//
-//  ""
-//  @version      24/05/2011 13:32:10
-//
-//  @return       bool :
-//  @param        error :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSHFILE::SetError(DIOOBEXPUSHERROR error)
+* @brief      SetError
+* @ingroup    DATAIO
+* 
+* @param[in]  error : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSHFILE::SetError(DIOOBEXPUSHERROR error)
 {
   this->error = error;
@@ -319,19 +291,16 @@ bool DIOOBEXPUSHFILE::SetError(DIOOBEXPUSHERROR error)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSHFILE::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      12/12/2010 19:48:14
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOOBEXPUSHFILE::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOOBEXPUSHFILE::Clean()
 {
   ID               = 0;
@@ -341,24 +310,24 @@ void DIOOBEXPUSHFILE::Clean()
   error            = DIOOBEXPUSHERROR_NONE;
 }
 
+#pragma endregion
 
 
+#pragma region DIOOBEXPUSH
 
 
-
-//-------------------------------------------------------------------
-//  DIOOBEXPUSH::DIOOBEXPUSH
-/**
-//
-//
-//  ""
-//  @version      05/10/2004 15:03:37
-//
-//  @return
-
-//  @param        diostream :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOOBEXPUSH::DIOOBEXPUSH(DIOSTREAM* diostream, bool inlittleendian)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]  DIOSTREAM* : 
+* @param[in]   bool inlittleendian : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSH::DIOOBEXPUSH(DIOSTREAM* diostream, bool inlittleendian) : XFSMACHINE(0)
 {
   Clean();
@@ -419,18 +388,18 @@ DIOOBEXPUSH::DIOOBEXPUSH(DIOSTREAM* diostream, bool inlittleendian) : XFSMACHINE
 }
 
 
-//-------------------------------------------------------------------
-//  DIOOBEXPUSH::~DIOOBEXPUSH
-/**
-//
-//
-//  ""
-//  @version      14/09/2004 11:58:01
-//
-//  @return       void :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOOBEXPUSH::~DIOOBEXPUSH()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSH::~DIOOBEXPUSH()
+
 {
   End();
 
@@ -438,19 +407,17 @@ DIOOBEXPUSH::~DIOOBEXPUSH()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOOBEXPUSH::Ini
-/**
-//
-//
-//  ""
-//  @version      14/09/2004 12:02:44
-//
-//  @return       bool :
-//  @param        device :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSH::Ini(int timeout)
+* @brief      Ini
+* @ingroup    DATAIO
+* 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSH::Ini(int timeout)
 {
   if(!diostream)               return false;
@@ -493,18 +460,15 @@ bool DIOOBEXPUSH::Ini(int timeout)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOOBEXPUSH::IsSending
-/**
-//
-//
-//  ""
-//  @version      14/09/2004 12:02:09
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSH::IsSending()
+* @brief      IsSending
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSH::IsSending()
 {
   if(sendfilelist.IsEmpty()) return false;
@@ -515,19 +479,17 @@ bool DIOOBEXPUSH::IsSending()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::SetIsSending
-*/
-/**
-//
-//
-//  ""
-//  @version      02/06/2011 17:46:45
-//
-//  @return       bool :
-//  @param        issending :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSH::SetIsSending(bool issending)
+* @brief      SetIsSending
+* @ingroup    DATAIO
+* 
+* @param[in]  issending : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSH::SetIsSending(bool issending)
 {
   this->issending = issending;
@@ -536,24 +498,20 @@ bool DIOOBEXPUSH::SetIsSending(bool issending)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::SendFile
-*/
-/**
-//
-//
-//  ""
-//  @version      06/06/2011 23:59:29
-//
-//  @return       bool :
-//  @param        xpath :
-//  @param        namesend :
-//  @param        ID :
-//  @param        timeoutask :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSH::SendFile(XPATH& xpath,XSTRING& namesend,XDWORD ID,int timeoutask)
+* @brief      SendFile
+* @ingroup    DATAIO
+* 
+* @param[in]  xpath : 
+* @param[in]  namesend : 
+* @param[in]  ID : 
+* @param[in]  timeoutask : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSH::SendFile(XPATH& xpath,XSTRING& namesend,XDWORD ID,int timeoutask)
 {
   SendFileList_DeleteAll();
@@ -563,20 +521,17 @@ bool DIOOBEXPUSH::SendFile(XPATH& xpath,XSTRING& namesend,XDWORD ID,int timeouta
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::SendFiles
-*/
-/**
-//
-//
-//  ""
-//  @version      06/06/2011 23:59:42
-//
-//  @return       bool :
-//  @param        asktimeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSH::SendFiles(int asktimeout)
+* @brief      SendFiles
+* @ingroup    DATAIO
+* 
+* @param[in]  asktimeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSH::SendFiles(int asktimeout)
 {
   if(!sendfilelist.GetSize()) return false;
@@ -596,60 +551,49 @@ bool DIOOBEXPUSH::SendFiles(int asktimeout)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::GetXTimer
-*/
-/**
-//
-//
-//  ""
-//  @version      09/06/2011 16:23:54
-//
-//  @return       XTIMER* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XTIMER* DIOOBEXPUSH::GetXTimer()
+* @brief      GetXTimer
+* @ingroup    DATAIO
+* 
+* @return     XTIMER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XTIMER* DIOOBEXPUSH::GetXTimer()
 {
   return xtimer;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::GetAskTimeElapsed
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2011 10:04:34
-//
-//  @return       XQWORD :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XQWORD DIOOBEXPUSH::GetAskTimeElapsed()
+* @brief      GetAskTimeElapsed
+* @ingroup    DATAIO
+* 
+* @return     XQWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XQWORD DIOOBEXPUSH::GetAskTimeElapsed()
 {
   return asktimeelapsed;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::SendFileList_AddFile
-*/
-/**
-//
-//
-//  ""
-//  @version      24/05/2011 13:38:59
-//
-//  @return       bool :
-//  @param        xpath :
-//  @param        namesend :
-//  @param        ID :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSH::SendFileList_AddFile(XPATH& xpath,XSTRING& namesend,XDWORD ID)
+* @brief      SendFileList_AddFile
+* @ingroup    DATAIO
+* 
+* @param[in]  xpath : 
+* @param[in]  namesend : 
+* @param[in]  ID : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSH::SendFileList_AddFile(XPATH& xpath,XSTRING& namesend,XDWORD ID)
 {
   DIOOBEXPUSHFILE* obexpushfile = new DIOOBEXPUSHFILE();
@@ -690,19 +634,17 @@ bool DIOOBEXPUSH::SendFileList_AddFile(XPATH& xpath,XSTRING& namesend,XDWORD ID)
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::SendFileList_GetFile
-*/
-/**
-//
-//
-//  ""
-//  @version      14/12/2010 9:48:13
-//
-//  @return       DIOOBEXPUSHFILE* :
-//  @param        index :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOOBEXPUSHFILE* DIOOBEXPUSH::SendFileList_GetFile(int index)
+* @brief      SendFileList_GetFile
+* @ingroup    DATAIO
+* 
+* @param[in]  index : 
+* 
+* @return     DIOOBEXPUSHFILE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSHFILE* DIOOBEXPUSH::SendFileList_GetFile(int index)
 {
   if(sendfilelist.IsEmpty())                    return NULL;
@@ -712,19 +654,15 @@ DIOOBEXPUSHFILE* DIOOBEXPUSH::SendFileList_GetFile(int index)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::SendFileList_GetActualFile
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2010 10:15:58
-//
-//  @return       DIOOBEXPUSHFILE* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOOBEXPUSHFILE* DIOOBEXPUSH::SendFileList_GetActualFile()
+* @brief      SendFileList_GetActualFile
+* @ingroup    DATAIO
+* 
+* @return     DIOOBEXPUSHFILE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSHFILE* DIOOBEXPUSH::SendFileList_GetActualFile()
 {
   int index = SendFileList_GetIndex();
@@ -734,19 +672,15 @@ DIOOBEXPUSHFILE* DIOOBEXPUSH::SendFileList_GetActualFile()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::SendFileList_DeleteAll
-*/
-/**
-//
-//
-//  ""
-//  @version      13/12/2010 10:29:41
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSH::SendFileList_DeleteAll()
+* @brief      SendFileList_DeleteAll
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSH::SendFileList_DeleteAll()
 {
   if(sendfilelist.IsEmpty()) return false;
@@ -759,19 +693,15 @@ bool DIOOBEXPUSH::SendFileList_DeleteAll()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::SendFileList_GetIndex
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2010 10:10:16
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOOBEXPUSH::SendFileList_GetIndex()
+* @brief      SendFileList_GetIndex
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOOBEXPUSH::SendFileList_GetIndex()
 {
   if(sendfilelist.IsEmpty())                    return -1;
@@ -781,36 +711,30 @@ int DIOOBEXPUSH::SendFileList_GetIndex()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::SendFileList_GetSize
-*/
-/**
-//
-//
-//  ""
-//  @version      15/12/2010 11:18:00
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOOBEXPUSH::SendFileList_GetSize()
+* @brief      SendFileList_GetSize
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOOBEXPUSH::SendFileList_GetSize()
 {
   return sendfilelist.GetSize();
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOOBEXPUSH::End
-/**
-//
-//
-//  ""
-//  @version      14/09/2004 12:04:09
-//
-//  @return       bool :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSH::End()
+* @brief      End
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSH::End()
 {
   if(xthreadobex)
@@ -853,56 +777,47 @@ bool DIOOBEXPUSH::End()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::GetDIOStream
-*/
-/**
-//
-//
-//  ""
-//  @version      03/12/2009 08:22:22 a.m.
-//
-//  @return       DIOSTREAM* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAM* DIOOBEXPUSH::GetDIOStream()
+* @brief      GetDIOStream
+* @ingroup    DATAIO
+* 
+* @return     DIOSTREAM* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM* DIOOBEXPUSH::GetDIOStream()
 {
   return diostream;
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOOBEXPUSH::GetFileName
-/**
-//
-//
-//  ""
-//  @version      27/04/2006 23:12:04
-//
-//  @return       char* :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XPATH* DIOOBEXPUSH::GetFileNameSend()
+* @brief      GetFileNameSend
+* @ingroup    DATAIO
+* 
+* @return     XPATH* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XPATH* DIOOBEXPUSH::GetFileNameSend()
 {
   return &xpath;
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOOBEXPUSH::GenerateFileID
-/**
-//
-//
-//  ""
-//  @version      14/09/2004 12:44:11
-//
-//  @return       bool :
-//  @param        param :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOOBEXPUSH::GenerateFileID(XPATH& xpath)
+* @brief      GenerateFileID
+* @ingroup    DATAIO
+* 
+* @param[in]  xpath : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOOBEXPUSH::GenerateFileID(XPATH& xpath)
 {
   if(xpath.IsEmpty()) return 0;
@@ -915,61 +830,15 @@ XDWORD DIOOBEXPUSH::GenerateFileID(XPATH& xpath)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOOBEXPUSH::Clean
-/**
-//
-//
-//  ""
-//  @version      14/09/2004 12:04:13
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
-void DIOOBEXPUSH::Clean()
-{
-  diostream           = NULL;
-  inlittleendian      = false;
-
-  xtimer              = NULL;
-  asktimeout          = DIOOBEXPUSH_MAXTIMEOUTASK;
-  asktimeelapsed      = 0;
-
-  indexfilelist       = -1;
-
-  xfile               = NULL;
-
-  sendbuffer          = NULL;
-
-  issending           = false;
-
-  sendblocksize       = 0;
-  sendisstart         = false;
-
-  filesize            = 0;
-  readfilesize        = 0;
-  readfilesizeblock   = 0;
-
-  haveerror           = false;
-
-  xthreadobex         = NULL;
-}
-
-
-
-//-------------------------------------------------------------------
-//  DIOOBEXPUSH::CheckSending
-/**
-//
-//
-//  ""
-//  @version      14/09/2004 12:12:24
-//
-//  @return       bool :
-//  @param        error :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSH::CheckSending()
+* @brief      CheckSending
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSH::CheckSending()
 {
   DIOOBEXPUSHFILE*    obexpushfile = (DIOOBEXPUSHFILE*)sendfilelist.Get(indexfilelist);
@@ -1267,20 +1136,17 @@ bool DIOOBEXPUSH::CheckSending()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH::ReadAnswer
-*/
-/**
-//
-//
-//  ""
-//  @version      13/06/2013 7:13:41
-//
-//  @return       bool :
-//  @param        xbuffer :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOOBEXPUSH::ReadAnswer(XBUFFER& xbuffer)
+* @brief      ReadAnswer
+* @ingroup    DATAIO
+* 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOOBEXPUSH::ReadAnswer(XBUFFER& xbuffer)
 {
   if(!diostream) return false;
@@ -1296,21 +1162,17 @@ bool DIOOBEXPUSH::ReadAnswer(XBUFFER& xbuffer)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOOBEXPUSH_ThreadSend
-*/
-/**
-//
-//
-//  ""
-//  @version      02/06/2011 16:08:48
-//
-//  @return       void :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOOBEXPUSH::ThreadSend(void* data)
+* @brief      ThreadSend
+* @ingroup    DATAIO
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOOBEXPUSH::ThreadSend(void* data)
 {
   DIOOBEXPUSH* obexpush = (DIOOBEXPUSH*)data;
@@ -1318,3 +1180,46 @@ void DIOOBEXPUSH::ThreadSend(void* data)
 
   obexpush->SetIsSending(obexpush->CheckSending());
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOOBEXPUSH::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOOBEXPUSH::Clean()
+{
+  diostream           = NULL;
+  inlittleendian      = false;
+
+  xtimer              = NULL;
+  asktimeout          = DIOOBEXPUSH_MAXTIMEOUTASK;
+  asktimeelapsed      = 0;
+
+  indexfilelist       = -1;
+
+  xfile               = NULL;
+
+  sendbuffer          = NULL;
+
+  issending           = false;
+
+  sendblocksize       = 0;
+  sendisstart         = false;
+
+  filesize            = 0;
+  readfilesize        = 0;
+  readfilesizeblock   = 0;
+
+  haveerror           = false;
+
+  xthreadobex         = NULL;
+}
+
+
+#pragma endregion

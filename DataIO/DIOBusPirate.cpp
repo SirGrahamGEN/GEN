@@ -1,22 +1,37 @@
-
-/*------------------------------------------------------------------------------------------
-//  DIOBUSPIRATE.CPP
-//
-//  ksdfksdlñf
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 05/02/2015 11:13:36
-//  Last Modification :
-//
-/*  GEN (C) Copyright  (All right reserved).
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOBusPirate.cpp
+* 
+* @class      DIOBUSPIRATE
+* @brief      Data Input/Output interface Bus Pirate 4.0
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XFactory.h"
 #include "XSleep.h"
@@ -29,28 +44,25 @@
 
 #include "DIOBusPirate.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+#include "XMemory_Control.h"
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-/*-------------------------------------------------------------------
-//  DIOBUSPIRATE::DIOBUSPIRATE
-*/
-/**
-//
-//  Class Constructor DIOBUSPIRATE
-//
-//  ""
-//  @version      05/02/2015 17:03:49
-//
-
-
-//  @param        config :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOBUSPIRATE::DIOBUSPIRATE(DIOSTREAM* diostream)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]  DIOSTREAM* : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOBUSPIRATE::DIOBUSPIRATE(DIOSTREAM* diostream)
 {
   Clean();
@@ -61,19 +73,16 @@ DIOBUSPIRATE::DIOBUSPIRATE(DIOSTREAM* diostream)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOBUSPIRATE::~DIOBUSPIRATE
-*/
-/**
-//
-//   Class Destructor DIOBUSPIRATE
-//
-//  ""
-//  @version      05/02/2015 17:02:11
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOBUSPIRATE::~DIOBUSPIRATE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOBUSPIRATE::~DIOBUSPIRATE()
 {
   End();
@@ -84,21 +93,17 @@ DIOBUSPIRATE::~DIOBUSPIRATE()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOBUSPIRATE::Ini
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      05/02/2015 16:59:14
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOBUSPIRATE::Ini(int timeout)
+* @brief      Ini
+* @ingroup    DATAIO
+* 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOBUSPIRATE::Ini(int timeout)
 {
   if(!diostream)                           return false;
@@ -117,21 +122,17 @@ bool DIOBUSPIRATE::Ini(int timeout)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOBUSPIRATE::GetActualProtocol
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      06/02/2015 11:59:47
-//
-//  @return       DIOBUSPIRATETYPEPROCOTOL :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOBUSPIRATETYPEPROCOTOL DIOBUSPIRATE::GetActualProtocol(int timeout)
+* @brief      GetActualProtocol
+* @ingroup    DATAIO
+* 
+* @param[in]  timeout : 
+* 
+* @return     DIOBUSPIRATETYPEPROCOTOL : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOBUSPIRATETYPEPROCOTOL DIOBUSPIRATE::GetActualProtocol(int timeout)
 {
   if(!diostream)                                                 return DIOBUSPIRATETYPEPROCOTOL_UNKNOWN;
@@ -154,27 +155,21 @@ DIOBUSPIRATETYPEPROCOTOL DIOBUSPIRATE::GetActualProtocol(int timeout)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOBUSPIRATE::SetMode
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      06/02/2015 15:53:22
-//
-//  @return       bool :
-//
-//  @param        protocol :
-//  @param        issoftware :
-//  @param        speed :
-//  @param        issniffer :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOBUSPIRATE::SetMode(DIOBUSPIRATETYPEPROCOTOL protocol, bool issoftware, int speed, bool issniffer, int timeout)
+* @brief      SetMode
+* @ingroup    DATAIO
+* 
+* @param[in]  protocol : 
+* @param[in]  issoftware : 
+* @param[in]  speed : 
+* @param[in]  issniffer : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOBUSPIRATE::SetMode(DIOBUSPIRATETYPEPROCOTOL protocol, bool issoftware, int speed, bool issniffer, int timeout)
 {
   if(!xtimerout)                                                 return false;
@@ -218,23 +213,18 @@ bool DIOBUSPIRATE::SetMode(DIOBUSPIRATETYPEPROCOTOL protocol, bool issoftware, i
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOBUSPIRATE::ReadI2CSnifferCommand
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      09/02/2015 11:40:35
-//
-//  @return       bool :
-//
-//  @param        in :
-//  @param        out :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOBUSPIRATE::ReadI2CSnifferCommand(XBUFFER& in, XBUFFER& out)
+* @brief      ReadI2CSnifferCommand
+* @ingroup    DATAIO
+* 
+* @param[in]  in : 
+* @param[in]  out : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOBUSPIRATE::ReadI2CSnifferCommand(XBUFFER& in, XBUFFER& out)
 {
   XBUFFER xbuffer;
@@ -277,23 +267,15 @@ bool DIOBUSPIRATE::ReadI2CSnifferCommand(XBUFFER& in, XBUFFER& out)
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  DIOBUSPIRATE::End
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      05/02/2015 16:59:17
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOBUSPIRATE::End()
+* @brief      End
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOBUSPIRATE::End()
 {
   if(diostream) diostream->Close();
@@ -302,23 +284,18 @@ bool DIOBUSPIRATE::End()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOBUSPIRATE::ReadPromptStatus
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      06/02/2015 10:49:59
-//
-//  @return       bool :
-//
-//  @param        promptstatus :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOBUSPIRATE::ReadPromptStatus(XSTRING& promptstatus, int timeout)
+* @brief      ReadPromptStatus
+* @ingroup    DATAIO
+* 
+* @param[in]  promptstatus : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOBUSPIRATE::ReadPromptStatus(XSTRING& promptstatus, int timeout)
 {
   if(!diostream)                                                 return false;
@@ -351,27 +328,21 @@ bool DIOBUSPIRATE::ReadPromptStatus(XSTRING& promptstatus, int timeout)
     }
 
   return false;
-
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOBUSPIRATE::WriteCommand
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      06/02/2015 11:10:46
-//
-//  @return       bool :
-//
-//  @param        command :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOBUSPIRATE::WriteCommand(XCHAR* command, int timeout)
+* @brief      WriteCommand
+* @ingroup    DATAIO
+* 
+* @param[in]  command : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOBUSPIRATE::WriteCommand(XCHAR* command, int timeout)
 {
   if(!diostream)                                                 return false;
@@ -391,3 +362,19 @@ bool DIOBUSPIRATE::WriteCommand(XCHAR* command, int timeout)
   return status;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOBUSPIRATE::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOBUSPIRATE::Clean()
+{
+  diostream   = NULL;
+  xtimerout   = NULL;
+}

@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @file       DIOModBus.cpp
+* @file       DIOModBus_Client.cpp
 *
 * @class      DIOMODBUS
-* @brief      Data Input/Output Mod Bus protocol class
+* @brief      Data Input/Output Mod Bus client protocol class
 * @ingroup    DATAIO
 *
 * @copyright  GEN Group. All rights reserved.
@@ -38,7 +38,7 @@
 #include "XTimer.h"
 #include "DIOStream.h"
 
-#include "DIOModBus.h"
+#include "DIOModBus_Client.h"
 
 #include "XMemory_Control.h"
 
@@ -47,22 +47,19 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOMODBUS::DIOMODBUS(DIOSTREAM* diostream, DIOMODBUSMODE mode)
+* @fn         DIOMODBUS_CLIENT::DIOMODBUS_CLIENT(DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mode)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
 * @param[in]  DIOSTREAM* :
-* @param[in]   DIOMODBUSMODE mode :
+* @param[in]   DIOMODBUS_CLIENTMODE mode :
 *
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOMODBUS::DIOMODBUS(DIOSTREAM* diostream, DIOMODBUSMODE mode)
-
+DIOMODBUS_CLIENT::DIOMODBUS_CLIENT(DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mode)
 {
   Clean();
 
@@ -73,10 +70,9 @@ DIOMODBUS::DIOMODBUS(DIOSTREAM* diostream, DIOMODBUSMODE mode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOMODBUS::~DIOMODBUS()
+* @fn         DIOMODBUS_CLIENT::~DIOMODBUS_CLIENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
@@ -84,7 +80,7 @@ DIOMODBUS::DIOMODBUS(DIOSTREAM* diostream, DIOMODBUSMODE mode)
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOMODBUS::~DIOMODBUS()
+DIOMODBUS_CLIENT::~DIOMODBUS_CLIENT()
 {
   Disconnect();
 
@@ -94,44 +90,39 @@ DIOMODBUS::~DIOMODBUS()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAM* DIOMODBUS::GetDIOStream()
+* @fn         DIOSTREAM* DIOMODBUS_CLIENT::GetDIOStream()
 * @brief      GetDIOStream
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAM* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAM* DIOMODBUS::GetDIOStream()
+DIOSTREAM* DIOMODBUS_CLIENT::GetDIOStream()
 {
   return diostream;
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOMODBUSMODE DIOMODBUS::GetMode()
+* @fn         DIOMODBUS_CLIENTMODE DIOMODBUS_CLIENT::GetMode()
 * @brief      GetMode
 * @ingroup    DATAIO
 *
-* @return     DIOMODBUSMODE :
+* @return     DIOMODBUS_CLIENTMODE :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOMODBUSMODE DIOMODBUS::GetMode()
+DIOMODBUS_CLIENTMODE DIOMODBUS_CLIENT::GetMode()
 {
   return mode;
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOMODBUS::SetMode(DIOMODBUSMODE mode)
+* @fn         bool DIOMODBUS_CLIENT::SetMode(DIOMODBUS_CLIENTMODE mode)
 * @brief      SetMode
 * @ingroup    DATAIO
 *
@@ -140,7 +131,7 @@ DIOMODBUSMODE DIOMODBUS::GetMode()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOMODBUS::SetMode(DIOMODBUSMODE mode)
+bool DIOMODBUS_CLIENT::SetMode(DIOMODBUS_CLIENTMODE mode)
 {
   this->mode = mode;
 
@@ -148,10 +139,9 @@ bool DIOMODBUS::SetMode(DIOMODBUSMODE mode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOMODBUS::Connect(XBYTE unit, int timeout)
+* @fn         bool DIOMODBUS_CLIENT::Connect(XBYTE unit, int timeout)
 * @brief      Connect
 * @ingroup    DATAIO
 *
@@ -161,7 +151,7 @@ bool DIOMODBUS::SetMode(DIOMODBUSMODE mode)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOMODBUS::Connect(XBYTE unit, int timeout)
+bool DIOMODBUS_CLIENT::Connect(XBYTE unit, int timeout)
 {
   if(!diostream)                                                  return false;
   if(diostream->GetConnectStatus()!=DIOSTREAMSTATUS_DISCONNECTED) return false;
@@ -174,26 +164,24 @@ bool DIOMODBUS::Connect(XBYTE unit, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XBYTE DIOMODBUS::GetUnit()
+* @fn         XBYTE DIOMODBUS_CLIENT::GetUnit()
 * @brief      GetUnit
 * @ingroup    DATAIO
 *
 * @return     XBYTE :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XBYTE DIOMODBUS::GetUnit()
+XBYTE DIOMODBUS_CLIENT::GetUnit()
 {
   return unit;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void DIOMODBUS::SetUnit(XBYTE unit)
+* @fn         void DIOMODBUS_CLIENT::SetUnit(XBYTE unit)
 * @brief      SetUnit
 * @ingroup    DATAIO
 *
@@ -202,16 +190,15 @@ XBYTE DIOMODBUS::GetUnit()
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOMODBUS::SetUnit(XBYTE unit)
+void DIOMODBUS_CLIENT::SetUnit(XBYTE unit)
 {
   this->unit = unit;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOMODBUS::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBUFFER& answer, int timeout)
+* @fn         bool DIOMODBUS_CLIENT::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBUFFER& answer, int timeout)
 * @brief      ReadHoldingRegisters
 * @ingroup    DATAIO
 *
@@ -223,7 +210,7 @@ void DIOMODBUS::SetUnit(XBYTE unit)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOMODBUS::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBUFFER& answer, int timeout)
+bool DIOMODBUS_CLIENT::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBUFFER& answer, int timeout)
 {
   if(!diostream)                                                 return false;
   if(diostream->GetConnectStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
@@ -232,65 +219,63 @@ bool DIOMODBUS::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBUFFER& a
 
   switch(mode)
     {
-      case DIOMODBUSMODE_UNKNOWN    : return false;
+      case DIOMODBUS_CLIENTMODE_UNKNOWN     : return false;
 
-      case DIOMODBUSMODE_RTU        :
+      case DIOMODBUS_CLIENTMODE_RTU         :
 
-      case DIOMODBUSMODE_ASCII      : return false; //Not Implemented yet!!!
+      case DIOMODBUS_CLIENTMODE_ASCII       : return false; //Not Implemented yet!!!
 
-      case DIOMODBUSMODE_TCPIP      : { XBUFFER datawrite;
+      case DIOMODBUS_CLIENTMODE_TCPIP       : { XBUFFER datawrite;
 
-                                        datawrite.Add((XWORD) 0x0000);
-                                        datawrite.Add((XWORD) 0x0000);
-                                        datawrite.Add((XWORD) 0x0006);
-                                        datawrite.Add((XBYTE) unit);
-                                        datawrite.Add((XBYTE) DIOMODBUS_FUNCTION_READ_HOLDING_REGISTERS);
-                                        datawrite.Add((XWORD) address);
-                                        datawrite.Add((XWORD) nregisters);
+                                                datawrite.Add((XWORD) 0x0000);
+                                                datawrite.Add((XWORD) 0x0000);
+                                                datawrite.Add((XWORD) 0x0006);
+                                                datawrite.Add((XBYTE) unit);
+                                                datawrite.Add((XBYTE) DIOMODBUS_CLIENT_FUNCTION_READ_HOLDING_REGISTERS);
+                                                datawrite.Add((XWORD) address);
+                                                datawrite.Add((XWORD) nregisters);
 
-                                        diostream->Write(datawrite);
+                                                diostream->Write(datawrite);
 
-                                        if(!diostream->WaitToFlushOutXBuffer(timeout)) return false;
+                                                if(!diostream->WaitToFlushOutXBuffer(timeout)) return false;
 
-                                        xtimer->Reset();
+                                                xtimer->Reset();
 
-                                        XDWORD size = nregisters*sizeof(XWORD) + 9;
+                                                XDWORD size = nregisters*sizeof(XWORD) + 9;
 
-                                        while(diostream->GetInXBuffer()->GetSize() != size)
-                                          {
-                                            if(xtimer->GetMeasureSeconds() >= (XDWORD)timeout)
-                                              {
-                                                diostream->GetInXBuffer()->Delete();
-                                                return false;
+                                                while(diostream->GetInXBuffer()->GetSize() != size)
+                                                  {
+                                                    if(xtimer->GetMeasureSeconds() >= (XDWORD)timeout)
+                                                      {
+                                                        diostream->GetInXBuffer()->Delete();
+                                                        return false;
+                                                      }
+
+                                                    GEN_XSLEEP.MilliSeconds(10);
+                                                  }
+
+                                                answer.Resize(size);
+                                                answer.FillBuffer(0x00);
+
+                                                if(!diostream->Read(answer.Get(), size)) return false;
+
+                                                if(answer.GetSize() != size) return false;
+
+                                                if(answer.Get()[7] & 0x80)   return false;
+
+                                                XBYTE head[10];
+                                                answer.Extract(head, 0 , 9);
                                               }
-
-                                            GEN_XSLEEP.MilliSeconds(10);
-                                          }
-
-                                        answer.Resize(size);
-                                        answer.FillBuffer(0x00);
-
-                                        if(!diostream->Read(answer.Get(), size)) return false;
-
-                                        if(answer.GetSize() != size) return false;
-
-                                        if(answer.Get()[7] & 0x80)   return false;
-
-                                        XBYTE head[10];
-                                        answer.Extract(head, 0 , 9);
-                                      }
-                                      break;
+                                              break;
     }
 
   return true;
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOMODBUS::ReadInputRegisters(XWORD address, XWORD nregisters, XBUFFER& answer, int timeout)
+* @fn         bool DIOMODBUS_CLIENT::ReadInputRegisters(XWORD address, XWORD nregisters, XBUFFER& answer, int timeout)
 * @brief      ReadInputRegisters
 * @ingroup    DATAIO
 *
@@ -302,7 +287,7 @@ bool DIOMODBUS::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBUFFER& a
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOMODBUS::ReadInputRegisters(XWORD address, XWORD nregisters, XMAP<XWORD, XWORD>& registers, int timeout)
+bool DIOMODBUS_CLIENT::ReadInputRegisters(XWORD address, XWORD nregisters, XMAP<XWORD, XWORD>& registers, int timeout)
 {
   XBUFFER ask;
   XBUFFER answer;
@@ -311,7 +296,7 @@ bool DIOMODBUS::ReadInputRegisters(XWORD address, XWORD nregisters, XMAP<XWORD, 
   ask.Add((XWORD)address);
   ask.Add((XWORD)nregisters);
 
-  status = MakeCommand(DIOMODBUS_FUNCTION_READ_INPUT_REGISTERS, ask, answer, timeout);
+  status = MakeCommand(DIOMODBUS_CLIENT_FUNCTION_READ_INPUT_REGISTERS, ask, answer, timeout);
   if(status)
     {
       int sizeanswer =   1                              // Device Address
@@ -340,11 +325,9 @@ bool DIOMODBUS::ReadInputRegisters(XWORD address, XWORD nregisters, XMAP<XWORD, 
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOMODBUS::WriteSingleRegister(XWORD address, XBUFFER& value, int timeout)
+* @fn         bool DIOMODBUS_CLIENT::WriteSingleRegister(XWORD address, XBUFFER& value, int timeout)
 * @brief      WriteSingleRegister
 * @ingroup    DATAIO
 *
@@ -355,7 +338,7 @@ bool DIOMODBUS::ReadInputRegisters(XWORD address, XWORD nregisters, XMAP<XWORD, 
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOMODBUS::WriteSingleRegister(XWORD address, XWORD value, int timeout)
+bool DIOMODBUS_CLIENT::WriteSingleRegister(XWORD address, XWORD value, int timeout)
 {
   XBUFFER ask;
   XBUFFER answer;
@@ -364,7 +347,7 @@ bool DIOMODBUS::WriteSingleRegister(XWORD address, XWORD value, int timeout)
   ask.Add((XWORD)address);
   ask.Add((XWORD)value);
 
-  status = MakeCommand(DIOMODBUS_FUNCTION_WRITE_SINGLE_REGISTER, ask, answer, timeout);
+  status = MakeCommand(DIOMODBUS_CLIENT_FUNCTION_WRITE_SINGLE_REGISTER, ask, answer, timeout);
   if(status)
     {
       int sizeanswer =   1               // Device Address
@@ -381,19 +364,16 @@ bool DIOMODBUS::WriteSingleRegister(XWORD address, XWORD value, int timeout)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOMODBUS::Disconnect()
+* @fn         bool DIOMODBUS_CLIENT::Disconnect()
 * @brief      Disconnect
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOMODBUS::Disconnect()
+bool DIOMODBUS_CLIENT::Disconnect()
 {
   if(diostream)
     {
@@ -403,15 +383,13 @@ bool DIOMODBUS::Disconnect()
       diostream = NULL;
     }
 
-
   return true;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOMODBUS::MakeCommand(DIOMODBUS_FUNCTION function, XBUFFER& ask, XBUFFER& answer, int timeout)
+* @fn         bool DIOMODBUS_CLIENT::MakeCommand(DIOMODBUS_CLIENT_FUNCTION function, XBUFFER& ask, XBUFFER& answer, int timeout)
 * @brief      MakeCommand
 * @ingroup    DATAIO
 *
@@ -423,7 +401,7 @@ bool DIOMODBUS::Disconnect()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOMODBUS::MakeCommand(DIOMODBUS_FUNCTION function, XBUFFER& ask, XBUFFER& answer, int timeout)
+bool DIOMODBUS_CLIENT::MakeCommand(DIOMODBUS_CLIENT_FUNCTION function, XBUFFER& ask, XBUFFER& answer, int timeout)
 {
   if(!diostream)                                                 return false;
   if(diostream->GetConnectStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
@@ -436,79 +414,78 @@ bool DIOMODBUS::MakeCommand(DIOMODBUS_FUNCTION function, XBUFFER& ask, XBUFFER& 
 
   switch(mode)
     {
-      case DIOMODBUSMODE_UNKNOWN    : break;
+      case DIOMODBUS_CLIENTMODE_UNKNOWN     : break;
 
-      case DIOMODBUSMODE_RTU        : { datawrite.Add((XBYTE) unit);
-                                        datawrite.Add((XBYTE) function);
-                                        datawrite.Add(ask);
+      case DIOMODBUS_CLIENTMODE_RTU         : { datawrite.Add((XBYTE) unit);
+                                                datawrite.Add((XBYTE) function);
+                                                datawrite.Add(ask);
 
-                                        XWORD crc16 = CRC16(datawrite);
+                                                XWORD crc16 = CRC16(datawrite);
 
-                                        datawrite.Add((XWORD)crc16);
+                                                datawrite.Add((XWORD)crc16);
 
-                                        diostream->Write(datawrite);
+                                                diostream->Write(datawrite);
 
-                                        if(!diostream->WaitToFlushOutXBuffer(timeout))         return false;
-                                        if(!diostream->WaitToFilledReadingBuffer(3, timeout))  return false;
+                                                if(!diostream->WaitToFlushOutXBuffer(timeout))         return false;
+                                                if(!diostream->WaitToFilledReadingBuffer(3, timeout))  return false;
 
-                                        if(diostream->GetInXBuffer()->GetByte(0) != unit)      return false;
-                                        if(diostream->GetInXBuffer()->GetByte(1) != function)  return false;
+                                                if(diostream->GetInXBuffer()->GetByte(0) != unit)      return false;
+                                                if(diostream->GetInXBuffer()->GetByte(1) != function)  return false;
 
-                                        XDWORD sizeanswer = 0;
+                                                XDWORD sizeanswer = 0;
 
-                                        switch(function)
-                                          {
-                                            case DIOMODBUS_FUNCTION_READ_COILS                       : DIOMODBUSMODE_SIZEANSWERVAR;  break;
-                                            case DIOMODBUS_FUNCTION_READ_DISCRETE_INPUTS             : DIOMODBUSMODE_SIZEANSWERVAR;  break;
-                                            case DIOMODBUS_FUNCTION_READ_HOLDING_REGISTERS           : DIOMODBUSMODE_SIZEANSWERVAR;  break;
-                                            case DIOMODBUS_FUNCTION_READ_INPUT_REGISTERS             : DIOMODBUSMODE_SIZEANSWERVAR;  break;
-                                            case DIOMODBUS_FUNCTION_WRITE_SINGLE_COIL                : DIOMODBUSMODE_SIZEANSWERFIX;  break;
-                                            case DIOMODBUS_FUNCTION_WRITE_SINGLE_REGISTER            : DIOMODBUSMODE_SIZEANSWERFIX;  break;
-                                            case DIOMODBUS_FUNCTION_WRITE_MULTIPLE_COILS             : DIOMODBUSMODE_SIZEANSWERFIX;  break;
-                                            case DIOMODBUS_FUNCTION_WRITE_MULTIPLE_REGISTERS         : DIOMODBUSMODE_SIZEANSWERFIX;  break;
-                                            case DIOMODBUS_FUNCTION_READ_FILE_RECORD                 : break;
-                                            case DIOMODBUS_FUNCTION_WRITE_FILE_RECORD                : break;
-                                            case DIOMODBUS_FUNCTION_MASK_WRITE_REGISTER              : break;
-                                            case DIOMODBUS_FUNCTION_READWRITE_MULTIPLE_REGISTERS     : break;
-                                            case DIOMODBUS_FUNCTION_READ_FIFO_QUEUE                  : break;
-                                            case DIOMODBUS_FUNCTION_ENCAPSULATED_INTERFACE_TRANSPORT : break;
+                                                switch(function)
+                                                  {
+                                                    case DIOMODBUS_CLIENT_FUNCTION_READ_COILS                       : DIOMODBUS_CLIENTMODE_SIZEANSWERVAR;  break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_READ_DISCRETE_INPUTS             : DIOMODBUS_CLIENTMODE_SIZEANSWERVAR;  break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_READ_HOLDING_REGISTERS           : DIOMODBUS_CLIENTMODE_SIZEANSWERVAR;  break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_READ_INPUT_REGISTERS             : DIOMODBUS_CLIENTMODE_SIZEANSWERVAR;  break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_WRITE_SINGLE_COIL                : DIOMODBUS_CLIENTMODE_SIZEANSWERFIX;  break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_WRITE_SINGLE_REGISTER            : DIOMODBUS_CLIENTMODE_SIZEANSWERFIX;  break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_WRITE_MULTIPLE_COILS             : DIOMODBUS_CLIENTMODE_SIZEANSWERFIX;  break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_WRITE_MULTIPLE_REGISTERS         : DIOMODBUS_CLIENTMODE_SIZEANSWERFIX;  break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_READ_FILE_RECORD                 : break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_WRITE_FILE_RECORD                : break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_MASK_WRITE_REGISTER              : break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_READWRITE_MULTIPLE_REGISTERS     : break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_READ_FIFO_QUEUE                  : break;
+                                                    case DIOMODBUS_CLIENT_FUNCTION_ENCAPSULATED_INTERFACE_TRANSPORT : break;
 
-                                          }
+                                                  }
 
-                                        if(!sizeanswer) break;
+                                                if(!sizeanswer) break;
 
-                                        if(!diostream->WaitToFilledReadingBuffer(sizeanswer, timeout)) return false;
+                                                if(!diostream->WaitToFilledReadingBuffer(sizeanswer, timeout)) return false;
 
-                                        answer.Resize(sizeanswer);
+                                                answer.Resize(sizeanswer);
 
-                                        if(!diostream->Read(answer)) return false;
+                                                if(!diostream->Read(answer)) return false;
 
-                                        XWORD CRCread  = 0;
-                                        XWORD CRCcheck;
+                                                XWORD CRCread  = 0;
+                                                XWORD CRCcheck;
 
-                                        answer.Extract(CRCread, sizeanswer-2);
+                                                answer.Extract(CRCread, sizeanswer-2);
 
-                                        CRCcheck = CRC16(answer);
+                                                CRCcheck = CRC16(answer);
 
-                                        if(CRCcheck != CRCread)  return false;
+                                                if(CRCcheck != CRCread)  return false;
 
-                                        status = true;
-                                      }
-                                      break;
+                                                status = true;
+                                              }
+                                              break;
 
-      case DIOMODBUSMODE_ASCII      : break;
+      case DIOMODBUS_CLIENTMODE_ASCII       : break;
 
-      case DIOMODBUSMODE_TCPIP      : break;
+      case DIOMODBUS_CLIENTMODE_TCPIP       : break;
     }
 
   return status;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XWORD DIOMODBUS::CRC16(XBUFFER& data)
+* @fn         XWORD DIOMODBUS_CLIENT::CRC16(XBUFFER& data)
 * @brief      CRC16
 * @ingroup    DATAIO
 *
@@ -517,7 +494,7 @@ bool DIOMODBUS::MakeCommand(DIOMODBUS_FUNCTION function, XBUFFER& ask, XBUFFER& 
 * @return     XWORD :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XWORD DIOMODBUS::CRC16(XBUFFER& data)
+XWORD DIOMODBUS_CLIENT::CRC16(XBUFFER& data)
 {
   XWORD poly16 = 0xA001;
   XWORD LSB;
@@ -542,10 +519,9 @@ XWORD DIOMODBUS::CRC16(XBUFFER& data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void DIOMODBUS::Clean()
+* @fn         void DIOMODBUS_CLIENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
@@ -553,11 +529,11 @@ XWORD DIOMODBUS::CRC16(XBUFFER& data)
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOMODBUS::Clean()
+void DIOMODBUS_CLIENT::Clean()
 {
   diostream   = NULL;
 
-  mode        = DIOMODBUSMODE_UNKNOWN;
+  mode        = DIOMODBUS_CLIENTMODE_UNKNOWN;
   unit        = 0;
 
   xtimer      = NULL;

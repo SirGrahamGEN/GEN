@@ -54,70 +54,36 @@ class DIOSTREAM;
 class DIOSTRINGPROTOCOLCOMMAND
 {
   public:
-                                          DIOSTRINGPROTOCOLCOMMAND      ()
-                                          {
-                                            Clean();
-                                          }
-
-    virtual                              ~DIOSTRINGPROTOCOLCOMMAND      ()
-                                          {
-                                            Clean();
-                                          }
-
-    XCHAR*                                GetCommand                    ()                                  { return command.Get();                               }
-
-    int                                   GetNParams                    ()                                  { return nparams;                                     }
-
-    bool                                  Set                           (XCHAR* command, int nparams)
-                                          {
-
-                                            this->command = command;
-                                            this->nparams = nparams;
-
-                                            return true;
-                                          }
-
+                                          DIOSTRINGPROTOCOLCOMMAND      ();
+    virtual                              ~DIOSTRINGPROTOCOLCOMMAND      ();
+    
+    XCHAR*                                GetCommand                    ();
+    int                                   GetNParams                    ();
+    bool                                  Set                           (XCHAR* command, int nparams);
+                                          
   private:
 
-    void                                  Clean                         ()
-                                          {
-                                            command.Empty();
-                                            nparams = 0;
-                                          }
-
+    void                                  Clean                         ();
+    
     XSTRING                               command;
     int                                   nparams;
 };
 
 
-
 class DIOSTRINGPROTOCOLANSWER
 {
   public:
-                                          DIOSTRINGPROTOCOLANSWER       ()
-                                          {
-                                            Clean();
-                                          }
+                                          DIOSTRINGPROTOCOLANSWER       ();                                       
+    virtual                              ~DIOSTRINGPROTOCOLANSWER       ();                                        
 
-    virtual                              ~DIOSTRINGPROTOCOLANSWER       ()
-                                          {
-                                            Clean();
-                                          }
+    XSTRING*                              GetCommand                    ();
+    XSTRING*                              GetAnswer                     ();
 
-
-    XSTRING*                              GetCommand                    ()                                  { return &command;                                }
-    XSTRING*                              GetAnswer                     ()                                  { return &answer;                                 }
-
-     void                                 Clean                         ()
-                                          {
-                                            command.Empty();
-                                            answer.Empty();
-                                          }
-
+    void                                  Clean                         ();
+                                          
     XSTRING                               command;
     XSTRING                               answer;
 };
-
 
 
 class DIOSTRINGPROTOCOL
@@ -132,24 +98,14 @@ class DIOSTRINGPROTOCOL
     virtual bool                          SendCommand                   (XCHAR* command, XSTRING* answer, int timeoutanswer, ...);
     bool                                  SendCommand                   (XCHAR* command, XSTRING* answer, int timeoutanswer, va_list& arg);
 
-    virtual bool                          ReceivedCommand               (XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
-                                          {
-                                            return false;
-                                          }
-
-    virtual void                          ReceivedAnswer                (XSTRING& answer)
-                                          {
-
-                                          }
-
+    virtual bool                          ReceivedCommand               (XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer);    
+    virtual void                          ReceivedAnswer                (XSTRING& answer);
     void                                  ReceivedCommandManager        ();
-
 
     bool                                  AddAnswer                     (XCHAR* command, XSTRING& answer);
     XSTRING*                              GetFirstAnswer                (XCHAR* command);
     bool                                  DeleteFirstAnswer             (XCHAR* command);
     bool                                  DeleteAllAnswers              ();
-
 
   protected:
 
@@ -161,16 +117,8 @@ class DIOSTRINGPROTOCOL
 
   private:
 
-    void                                  Clean                         ()
-                                          {
-                                            diostream             = NULL;
-
-                                            xtimerout             = NULL;
-                                            timeout               = 0;
-
-                                            xmutexanswers         = NULL;
-                                          }
-
+    void                                  Clean                         ();
+                                        
     DIOSTREAM*                            diostream;
 
     XTIMER*                               xtimerout;
@@ -184,11 +132,6 @@ class DIOSTRINGPROTOCOL
     XSTRING                               laststringreceived;
 };
 
-
-
 //---- INLINE FUNCTIONS --------------------------------------------------------------------
 
-
-
 #endif
-

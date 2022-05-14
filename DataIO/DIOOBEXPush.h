@@ -1,29 +1,42 @@
-//------------------------------------------------------------------------------------------
-//  DIOOBEXPUSH.H
-//
-/**
-// \class
-//
-//  Send Method
-//
-//  ""
-//  @version 14/09/2004 11:59:59
-*/
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOOBEXPush.h
+* 
+* @class      DIOOBEXPUSH
+* @brief      Data Input/Output Obex Push protocol class
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOOBEXPUSH_H_
 #define _DIOOBEXPUSH_H_
 
-
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XBase.h"
 #include "XString.h"
 #include "XPath.h"
 #include "XFSMachine.h"
 
-//---- DEFINES & ENUMS  --------------------------------------------------------------------
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum DIOOBEXPUSHERROR
 {
@@ -32,7 +45,6 @@ enum DIOOBEXPUSHERROR
   DIOOBEXPUSHERROR_REFUSEDCONNECTION         ,
   DIOOBEXPUSHERROR_SENDING                  ,
 };
-
 
 enum DIOOBEXPUSHXFSMEVENTS
 {
@@ -49,7 +61,6 @@ enum DIOOBEXPUSHXFSMEVENTS
   DIOOBEXPUSH_LASTEVENT
 };
 
-
 enum DIOOBEXPUSHXFSMSTATES
 {
   DIOOBEXPUSH_XFSMSTATE_NONE            = 0 ,
@@ -65,13 +76,12 @@ enum DIOOBEXPUSHXFSMSTATES
   DIOOBEXPUSH_LASTSTATE
 };
 
-
 #define DIOOBEXPUSH_MAXBUFFER       65534   // Minimo evitar problemas en linux 38400
 #define DIOOBEXPUSH_MAXTIMEOUTASK   30
 
 #define DIOOBEXPUSH_MAXANSWER       32
 
-//---- CLASS -------------------------------------------------------------------------------
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XFACTORY;
 class XBUFFER;
@@ -79,7 +89,6 @@ class XTHREADCOLLECTED;
 class XTIMER;
 class DIOSTREAM;
 class BTIDDEVICE;
-
 
 class DIOOBEXPUSHFILE
 {
@@ -115,8 +124,6 @@ class DIOOBEXPUSHFILE
 
 };
 
-
-
 class DIOOBEXPUSH : public XFSMACHINE
 {
   public:
@@ -151,11 +158,11 @@ class DIOOBEXPUSH : public XFSMACHINE
 
   private:
 
-    void                            Clean                             ();
-
     bool                            CheckSending                      ();
     bool                            ReadAnswer                        (XBUFFER& xbuffer);
     static void                     ThreadSend                        (void* data);
+
+    void                            Clean                             ();
 
     DIOSTREAM*                      diostream;
     bool                            inlittleendian;
@@ -187,9 +194,6 @@ class DIOOBEXPUSH : public XFSMACHINE
 
 };
 
-
-
-//---- INLINE FUNCTIONS --------------------------------------------------------------------
-
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif

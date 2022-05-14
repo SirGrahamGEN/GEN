@@ -1,59 +1,69 @@
-//------------------------------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR.CPP
-//
-//  CLI Client functions
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 13/05/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOCLIClientBTModuleCSR.cpp
+* 
+* @class      DIOCLICLIENTBTMODULECSR
+* @brief      Data Input/Output CLI (Command Line Interface) client BT Module CSR class 
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
 
-
 #include "XFactory.h"
 #include "XFSMachine.h"
 
 #include "DIOStream.h"
+
 #include "DIOCLIClientBTModuleCSR.h"
 
 #include "XMemory_Control.h"
 
 
-//---- GENERAL VARIABLE -------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::DIOCLICLIENTBTMODULECSR
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 15:55:49
-//
-//  @return
-
-//  @param        diostream :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENTBTMODULECSR::DIOCLICLIENTBTMODULECSR(DIOSTREAM* diostream)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]  DIOSTREAM* : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENTBTMODULECSR::DIOCLICLIENTBTMODULECSR(DIOSTREAM* diostream) : DIOCLICLIENT(diostream)
 {
   AddCommand(DIOCLICLIENT_TYPECOMMAND_VERSION             ,__L("version"));
@@ -77,42 +87,34 @@ DIOCLICLIENTBTMODULECSR::DIOCLICLIENTBTMODULECSR(DIOSTREAM* diostream) : DIOCLIC
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::~DIOCLICLIENTBTMODULECSR
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 15:57:52
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENTBTMODULECSR::~DIOCLICLIENTBTMODULECSR()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENTBTMODULECSR::~DIOCLICLIENTBTMODULECSR()
 {
 
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::Version
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 15:58:16
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        version :
-//  @param        subversion :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::Version(int& version,int& subversion)
+* @brief      Version
+* @ingroup    DATAIO
+* 
+* @param[in]  version : 
+* @param[in]  subversion : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::Version(int& version,int& subversion)
 {
   XSTRING        answer;
@@ -125,20 +127,17 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::Version(int& version,int& subversion
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::RSSI
-*/
-/**
-//
-//
-//  ""
-//  @version      21/10/2011 13:08:03
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        RSSI :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::RSSI(int& RSSI)
+* @brief      RSSI
+* @ingroup    DATAIO
+* 
+* @param[in]  RSSI : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::RSSI(int& RSSI)
 {
   XSTRING        answer;
@@ -151,22 +150,18 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::RSSI(int& RSSI)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::GetCFGIOD
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 10:48:32
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        portio :
-//  @param        isoutput :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::GetCFGIOD(int portio,bool& isoutput)
+* @brief      GetCFGIOD
+* @ingroup    DATAIO
+* 
+* @param[in]  portio : 
+* @param[in]  isoutput : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::GetCFGIOD(int portio,bool& isoutput)
 {
   XSTRING        param;
@@ -182,21 +177,18 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::GetCFGIOD(int portio,bool& isoutput)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::SetCFGIOD
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 11:30:20
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        portio :
-//  @param        isoutput :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::SetCFGIOD(int portio,bool isoutput)
+* @brief      SetCFGIOD
+* @ingroup    DATAIO
+* 
+* @param[in]  portio : 
+* @param[in]  isoutput : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::SetCFGIOD(int portio,bool isoutput)
 {
   XSTRING param;
@@ -207,22 +199,18 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::SetCFGIOD(int portio,bool isoutput)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::GetIOD
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 16:44:26
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        portio :
-//  @param        isactive :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::GetIOD(int portio,bool& isactive)
+* @brief      GetIOD
+* @ingroup    DATAIO
+* 
+* @param[in]  portio : 
+* @param[in]  isactive : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::GetIOD(int portio,bool& isactive)
 {
   XSTRING        param;
@@ -238,21 +226,18 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::GetIOD(int portio,bool& isactive)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::SetIOD
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 16:47:31
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        portio :
-//  @param        isactive :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::SetIOD(int portio,bool isactive)
+* @brief      SetIOD
+* @ingroup    DATAIO
+* 
+* @param[in]  portio : 
+* @param[in]  isactive : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::SetIOD(int portio,bool isactive)
 {
   XSTRING param;
@@ -263,20 +248,17 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::SetIOD(int portio,bool isactive)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::GetIOA1
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 16:52:15
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        value :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::GetIOA1(XBYTE& value)
+* @brief      GetIOA1
+* @ingroup    DATAIO
+* 
+* @param[in]  value : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::GetIOA1(XBYTE& value)
 {
   XSTRING        answer;
@@ -289,19 +271,17 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::GetIOA1(XBYTE& value)
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::IsBatteryCharging
-*/
-/**
-//
-//
-//  ""
-//  @version      01/11/2011 0:44:01
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        ischarging :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::IsBatteryCharging(bool& ischarging)
+* @brief      IsBatteryCharging
+* @ingroup    DATAIO
+* 
+* @param[in]  ischarging : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::IsBatteryCharging(bool& ischarging)
 {
   XSTRING        answer;
@@ -314,20 +294,17 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::IsBatteryCharging(bool& ischarging)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::BatteryCharge
-*/
-/**
-//
-//
-//  ""
-//  @version      01/11/2011 0:44:07
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        &mVolts :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::BatteryCharge(int& mVolts)
+* @brief      BatteryCharge
+* @ingroup    DATAIO
+* 
+* @param[in]  mVolts : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::BatteryCharge(int& mVolts)
 {
   XSTRING        answer;
@@ -340,21 +317,19 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::BatteryCharge(int& mVolts)
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::I2CMemRead
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 16:55:05
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        address :
-//  @param        index :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CMemRead(int address,int index,XBYTE& data)
+* @brief      I2CMemRead
+* @ingroup    DATAIO
+* 
+* @param[in]  address : 
+* @param[in]  index : 
+* @param[in]  data : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CMemRead(int address,int index,XBYTE& data)
 {
   XSTRING        param;
@@ -370,22 +345,19 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CMemRead(int address,int index,XBY
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::I2CMemWrite
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 16:55:44
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        address :
-//  @param        index :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CMemWrite(int address,int index,XBYTE data)
+* @brief      I2CMemWrite
+* @ingroup    DATAIO
+* 
+* @param[in]  address : 
+* @param[in]  index : 
+* @param[in]  data : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CMemWrite(int address,int index,XBYTE data)
 {
   XSTRING param;
@@ -397,23 +369,19 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CMemWrite(int address,int index,XB
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::I2CADC
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 17:26:28
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        address :
-//  @param        port :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CADC(int address,int port,XBYTE& data)
+* @brief      I2CADC
+* @ingroup    DATAIO
+* 
+* @param[in]  address : 
+* @param[in]  port : 
+* @param[in]  data : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CADC(int address,int port,XBYTE& data)
 {
   XSTRING        param;
@@ -429,22 +397,18 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CADC(int address,int port,XBYTE& d
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::I2CDAC
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 17:26:28
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        address :
-//  @param        port :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CDAC(int address,XBYTE data)
+* @brief      I2CDAC
+* @ingroup    DATAIO
+* 
+* @param[in]  address : 
+* @param[in]  data : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CDAC(int address,XBYTE data)
 {
   XSTRING param;
@@ -455,25 +419,17 @@ DIOCLICLIENT_ERROR DIOCLICLIENTBTMODULECSR::I2CDAC(int address,XBYTE data)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTBTMODULECSR::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 15:58:34
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCLICLIENTBTMODULECSR::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCLICLIENTBTMODULECSR::Clean()
 {
 
 }
-
-
-
-
-

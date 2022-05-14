@@ -38,9 +38,6 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-
-
-
 #define DIOSPIGPIOMCP23S17_WRITE_CMD      0
 #define DIOSPIGPIOMCP23S17_READ_CMD       1
 
@@ -125,7 +122,6 @@ class DIOSPIGPIOMCP23S17 : public DIODEVICESPI
     void                      Clean                         ();
 
 };
-
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 

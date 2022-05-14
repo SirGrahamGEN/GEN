@@ -1,22 +1,37 @@
-
-/*------------------------------------------------------------------------------------------
-//  DIOSTREAMUDPACKNOWLEDGE.CPP
-//
-//  Data Input/Output Stream UDP with Acknowledge
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 24/11/2014 13:32:35
-//  Last Modification :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOStreamUDPAcknowledge.cpp
+* 
+* @class      DIOSTREAMUDPACKNOWLEDGE
+* @brief      Data Input/Output Stream UDP with Acknowledge
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XFactory.h"
 #include "XBuffer.h"
@@ -33,30 +48,23 @@
 
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-/*-------------------------------------------------------------------
-//  DIOSTREAMUDPACKNOWLEDGE::DIOSTREAMUDPACKNOWLEDGE
-*/
-/**
-//
-//  Class Constructor DIOSTREAMUDPACKNOWLEDGE
-//
-//  ""
-//  @version      24/11/2014 16:20:05
-//
-
-
-
-//  @param        config :
-//  @param        cipher :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMUDPACKNOWLEDGE::DIOSTREAMUDPACKNOWLEDGE(DIOSTREAMUDPCONFIG* config)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]  DIOSTREAMUDPCONFIG* : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPACKNOWLEDGE::DIOSTREAMUDPACKNOWLEDGE(DIOSTREAMUDPCONFIG* config) : DIOSTREAMUDP()
 {
   Clean();
@@ -70,20 +78,16 @@ DIOSTREAMUDPACKNOWLEDGE::DIOSTREAMUDPACKNOWLEDGE(DIOSTREAMUDPCONFIG* config) : D
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOSTREAMUDPACKNOWLEDGE::~DIOSTREAMUDPACKNOWLEDGE
-*/
-/**
-//
-//   Class Destructor DIOSTREAMUDPACKNOWLEDGE
-//
-//  ""
-//  @version      24/11/2014 13:34:46
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMUDPACKNOWLEDGE::~DIOSTREAMUDPACKNOWLEDGE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPACKNOWLEDGE::~DIOSTREAMUDPACKNOWLEDGE()
 {
   Close();
@@ -95,21 +99,96 @@ DIOSTREAMUDPACKNOWLEDGE::~DIOSTREAMUDPACKNOWLEDGE()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMCONFIG* DIOSTREAMUDPACKNOWLEDGE::GetConfig()
+* @brief      GetConfig
+* @ingroup    DATAIO
+* 
+* @return     DIOSTREAMCONFIG* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMCONFIG* DIOSTREAMUDPACKNOWLEDGE::GetConfig()
+{ 
+  return (DIOSTREAMCONFIG*)config;    
+}
 
-/*-------------------------------------------------------------------
-//  DIOSTREAMUDPACKNOWLEDGE::Open
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/03/2015 12:23:23
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSTREAMUDPACKNOWLEDGE::SetConfig(DIOSTREAMCONFIG* config)
+* @brief      SetConfig
+* @ingroup    DATAIO
+* 
+* @param[in]  config : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOSTREAMUDPACKNOWLEDGE::SetConfig(DIOSTREAMCONFIG* config)
+{
+  this->config = (DIOSTREAMUDPCONFIG*)config;
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMSTATUS DIOSTREAMUDPACKNOWLEDGE::GetConnectStatus()
+* @brief      GetConnectStatus
+* @ingroup    DATAIO
+* 
+* @return     DIOSTREAMSTATUS : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMSTATUS DIOSTREAMUDPACKNOWLEDGE::GetConnectStatus()
+{
+  if(!diostream) return DIOSTREAMSTATUS_DISCONNECTED;
+  return diostream->GetConnectStatus();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOSTREAMUDPACKNOWLEDGE::GetTimeout()
+* @brief      GetTimeout
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIOSTREAMUDPACKNOWLEDGE::GetTimeout()                                                              
+{ 
+  return timeout;                    
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMUDPACKNOWLEDGE::SetTimeout(int timeout)
+* @brief      SetTimeout
+* @ingroup    DATAIO
+* 
+* @param[in]  timeout : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMUDPACKNOWLEDGE::SetTimeout(int timeout)
+{ 
+  this->timeout = timeout;           
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSTREAMUDPACKNOWLEDGE::Open()
+* @brief      Open
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPACKNOWLEDGE::Open()
 {
   if(!diostream) return false;
@@ -136,97 +215,18 @@ bool DIOSTREAMUDPACKNOWLEDGE::Open()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOSTREAMUDPACKNOWLEDGE::Disconnect
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/03/2015 12:23:19
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
-bool DIOSTREAMUDPACKNOWLEDGE::Disconnect()
-{
-  if(!diostream) return false;
-
-  if(!config) return false;
-
-  if(config->IsServer())
-    {
-      if(xthreadconnection)
-        {
-          xthreadconnection->End();
-          DELETEXTHREAD(XTHREADGROUPID_DIOSTREAMUDP, xthreadconnection);
-          xthreadconnection = NULL;
-        }
-    }
-
-  if(!diostream->Disconnect()) return false;
-
-  return true;
-}
-
-
-
-/*-------------------------------------------------------------------
-//  DIOSTREAMUDPACKNOWLEDGE::Close
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/03/2015 12:25:41
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
-bool DIOSTREAMUDPACKNOWLEDGE::Close()
-{
-  if(!diostream) return false;
-
-  if(!config) return false;
-
-  if(config->IsServer())
-    {
-      if(xthreadconnection)
-        {
-          xthreadconnection->End();
-          DELETEXTHREAD(XTHREADGROUPID_DIOSTREAMUDP, xthreadconnection);
-          xthreadconnection = NULL;
-        }
-    }
-
-  if(!diostream->Close()) return false;
-
-  return true;
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  DIOSTREAMUDPACKNOWLEDGE::Write
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/02/2015 12:31:00
-//
-//  @return       XDWORD :
-//
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOSTREAMUDPACKNOWLEDGE::Write(XBYTE* buffer, XDWORD size)
+* @brief      Write
+* @ingroup    DATAIO
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTREAMUDPACKNOWLEDGE::Write(XBYTE* buffer, XDWORD size)
 {
   if(!diostream)      return 0;
@@ -290,25 +290,20 @@ XDWORD DIOSTREAMUDPACKNOWLEDGE::Write(XBYTE* buffer, XDWORD size)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOSTREAMUDPACKNOWLEDGE::WriteDatagram
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      16/03/2015 13:27:19
-//
-//  @return       bool :
-//
-//  @param        address :
-//  @param        port :
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSTREAMUDPACKNOWLEDGE::WriteDatagram(XSTRING& address, XWORD port, XBYTE* buffer, XDWORD size)
+* @brief      WriteDatagram
+* @ingroup    DATAIO
+* 
+* @param[in]  address : 
+* @param[in]  port : 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPACKNOWLEDGE::WriteDatagram(XSTRING& address, XWORD port, XBYTE* buffer, XDWORD size)
 {
   XSTRING old_address;
@@ -329,47 +324,113 @@ bool DIOSTREAMUDPACKNOWLEDGE::WriteDatagram(XSTRING& address, XWORD port, XBYTE*
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOSTREAMUDPACKNOWLEDGE::WriteDatagram
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      16/03/2015 13:27:14
-//
-//  @return       bool :
-//
-//  @param        address :
-//  @param        port :
-//  @param        xbuffer :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSTREAMUDPACKNOWLEDGE::WriteDatagram(XSTRING& address, XWORD port, XBUFFER& xbuffer)
+* @brief      WriteDatagram
+* @ingroup    DATAIO
+* 
+* @param[in]  address : 
+* @param[in]  port : 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMUDPACKNOWLEDGE::WriteDatagram(XSTRING& address, XWORD port, XBUFFER& xbuffer)
 {
   return WriteDatagram(address, port, xbuffer.Get(), xbuffer.GetSize());
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSTREAMUDPACKNOWLEDGE::Disconnect()
+* @brief      Disconnect
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOSTREAMUDPACKNOWLEDGE::Disconnect()
+{
+  if(!diostream) return false;
+
+  if(!config) return false;
+
+  if(config->IsServer())
+    {
+      if(xthreadconnection)
+        {
+          xthreadconnection->End();
+          DELETEXTHREAD(XTHREADGROUPID_DIOSTREAMUDP, xthreadconnection);
+          xthreadconnection = NULL;
+        }
+    }
+
+  if(!diostream->Disconnect()) return false;
+
+  return true;
+}
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSTREAMUDPACKNOWLEDGE::Close()
+* @brief      Close
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOSTREAMUDPACKNOWLEDGE::Close()
+{
+  if(!diostream) return false;
 
-/*-------------------------------------------------------------------
-//  DIOSTREAMUDPACKNOWLEDGE::ThreadRunFunction
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      17/02/2015 8:34:17
-//
-//  @param        param :
-*/
-/*-----------------------------------------------------------------*/
+  if(!config) return false;
+
+  if(config->IsServer())
+    {
+      if(xthreadconnection)
+        {
+          xthreadconnection->End();
+          DELETEXTHREAD(XTHREADGROUPID_DIOSTREAMUDP, xthreadconnection);
+          xthreadconnection = NULL;
+        }
+    }
+
+  if(!diostream->Close()) return false;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAM* DIOSTREAMUDPACKNOWLEDGE::GetDIOStreamBase()
+* @brief      GetDIOStreamBase
+* @ingroup    DATAIO
+* 
+* @return     DIOSTREAM* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAM* DIOSTREAMUDPACKNOWLEDGE::GetDIOStreamBase()
+{ 
+  return diostream;                 
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMUDPACKNOWLEDGE::ThreadRunFunction(void* param)
+* @brief      ThreadRunFunction
+* @ingroup    DATAIO
+* 
+* @param[in]  param : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPACKNOWLEDGE::ThreadRunFunction(void* param)
 {
   DIOSTREAMUDPACKNOWLEDGE* diostreamudpacknowledge = (DIOSTREAMUDPACKNOWLEDGE*)param;
@@ -400,6 +461,28 @@ void DIOSTREAMUDPACKNOWLEDGE::ThreadRunFunction(void* param)
               diostreamudpacknowledge->AddDatagram(false, address, port, data.Get(), data.GetSize());
             }
         }
-  }
+    }
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMUDPACKNOWLEDGE::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMUDPACKNOWLEDGE::Clean()
+{
+  config              = NULL;
+
+  timeout             = 0;
+
+  URLremote           = NULL;
+  portremote          = 0;
+  diostream           = NULL;
+  xthreadconnection   = NULL;
+}

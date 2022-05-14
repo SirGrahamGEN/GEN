@@ -1,22 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER.CPP
-//
-//  DIO Mod Bus Electric Meter class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 13/05/2002
-//  Last Mofificacion :
-//
-//  GEN (C) Copyright  (All right reserved)
-//------------------------------------------------------------------------------------------
-
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOModBusElectricMeter.cpp
+* 
+* @class      DIOMODBUSELECTRICMETER
+* @brief      Data Input/Output ModBus Electric Meter class
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -31,96 +46,91 @@
 
 #include "DIOStream.h"
 
-#include "DIOModbusElectricMeter.h"
+#include "DIOModBusElectricMeter.h"
 
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE -------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-/*-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETERXEVENT::DIOMODBUSELECTRICMETERXEVENT
-*/
-/**
-//
-//
-//  ""
-//  @version      16/06/2011 22:04:20
-//
-//  @return
-//  @param        subject :
-//  @param        type :
-*/
-/*-----------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+
+#pragma region DIOMODBUSELECTRICMETERXEVENT
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOMODBUSELECTRICMETERXEVENT::DIOMODBUSELECTRICMETERXEVENT(XSUBJECT* subject,XDWORD type)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]  XSUBJECT* : 
+* @param[in]  XDWORD : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUSELECTRICMETERXEVENT::DIOMODBUSELECTRICMETERXEVENT(XSUBJECT* subject,XDWORD type) : XEVENT(subject,type)
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETERXEVENT::~DIOMODBUSELECTRICMETERXEVENT
-*/
-/**
-//
-//
-//  ""
-//  @version      16/06/2011 22:05:33
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOMODBUSELECTRICMETERXEVENT::~DIOMODBUSELECTRICMETERXEVENT()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUSELECTRICMETERXEVENT::~DIOMODBUSELECTRICMETERXEVENT()
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETERXEVENT::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      16/06/2011 22:07:35
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOMODBUSELECTRICMETERXEVENT::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOMODBUSELECTRICMETERXEVENT::Clean()
 {
 
 }
 
 
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER::DIOMODBUSELECTRICMETER
-*/
-/**
-//
-//  Class Constructor DIOMODBUSELECTRICMETER
-//
-//  ""
-//  @version      26/12/2014 16:51:54
-//
-//  @param        diostream :
-//  @param        xpublisher :
-*/
-/*-----------------------------------------------------------------*/
-DIOMODBUSELECTRICMETER::DIOMODBUSELECTRICMETER(DIOSTREAM* diostream)
+#pragma region DIOMODBUSELECTRICMETER
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOMODBUSELECTRICMETER::DIOMODBUSELECTRICMETER(DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mode)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]  DIOSTREAM* : 
+* @param[in]   DIOMODBUS_CLIENTMODE mode : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOMODBUSELECTRICMETER::DIOMODBUSELECTRICMETER(DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mode)
 {
   Clean();
 
-  modbusprotocol = new DIOMODBUS(diostream);
+  modbusprotocol = new DIOMODBUS_CLIENT(diostream, mode);
   if(modbusprotocol)
     {
       RegisterEvent(DIOMODBUSELECTRICMETERXEVENT_TYPE_C_TR_AA_READVALUES);
@@ -131,18 +141,16 @@ DIOMODBUSELECTRICMETER::DIOMODBUSELECTRICMETER(DIOSTREAM* diostream)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER::~DIOMODBUSELECTRICMETER
-/**
-//
-//
-//  ""
-//  @version      02/12/2001 21:53:15
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOMODBUSELECTRICMETER::~DIOMODBUSELECTRICMETER()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUSELECTRICMETER::~DIOMODBUSELECTRICMETER()
 {
   GEN_XFACTORY.DeleteTimer(xtimer);
@@ -158,42 +166,34 @@ DIOMODBUSELECTRICMETER::~DIOMODBUSELECTRICMETER()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER::GetModBusProtocol
-*/
-/**
-//
-//
-//  ""
-//  @version      05/06/2013 23:03:45
-//
-//  @return       DIOMODBUS* :
-//  */
-/*-----------------------------------------------------------------*/
-DIOMODBUS* DIOMODBUSELECTRICMETER::GetModBusProtocol()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOMODBUS_CLIENT* DIOMODBUSELECTRICMETER::GetModBusProtocol()
+* @brief      GetModBusProtocol
+* @ingroup    DATAIO
+* 
+* @return     DIOMODBUS_CLIENT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOMODBUS_CLIENT* DIOMODBUSELECTRICMETER::GetModBusProtocol()
 {
   return modbusprotocol;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER::Connect
-*/
-/**
-//
-//
-//  ""
-//  @version      05/06/2013 22:02:50
-//
-//  @return       bool :
-//  @param        unit :
-//  @param        inlittleendian :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOMODBUSELECTRICMETER::Connect(XBYTE unit, bool inlittleendian, int timeout)
+* @brief      Connect
+* @ingroup    DATAIO
+* 
+* @param[in]  unit : 
+* @param[in]  inlittleendian : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUSELECTRICMETER::Connect(XBYTE unit, bool inlittleendian, int timeout)
 {
   if(!modbusprotocol)                   return false;
@@ -212,25 +212,21 @@ bool DIOMODBUSELECTRICMETER::Connect(XBYTE unit, bool inlittleendian, int timeou
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_ReadAllValues
-*/
-/**
-//
-//
-//  ""
-//  @version      20/12/2012 21:24:12
-//
-//  @return       bool :
-//  @param        TM :
-//  @param        timestart :
-//  @param        timeend :
-//  @param        results :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* timestart, XDATETIME* timeend, XVECTOR<DIO_C_CI_NU_2_RESULT*>* results, int timeout)
+* @brief      CMD_C_CI_NU_2_ReadAllValues
+* @ingroup    DATAIO
+* 
+* @param[in]  TM : 
+* @param[in]  timestart : 
+* @param[in]  timeend : 
+* @param[in]  results : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* timestart, XDATETIME* timeend, XVECTOR<DIO_C_CI_NU_2_RESULT*>* results, int timeout)
 {
   if(!results) return false;
@@ -299,21 +295,17 @@ bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* time
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_DeleteResults
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 11:22:05
-//
-//  @return       bool :
-//  @param        results :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_DeleteResults(XVECTOR<DIO_C_CI_NU_2_RESULT*>* results)
+* @brief      CMD_C_CI_NU_2_DeleteResults
+* @ingroup    DATAIO
+* 
+* @param[in]  results : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_DeleteResults(XVECTOR<DIO_C_CI_NU_2_RESULT*>* results)
 {
   if(!results) return false;
@@ -327,22 +319,18 @@ bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_DeleteResults(XVECTOR<DIO_C_CI_NU_2_R
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER::CMD_C_TR_AA_ReadValues
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:35:09
-//
-//  @return       bool :
-//  @param        result :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOMODBUSELECTRICMETER::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result, int timeout)
+* @brief      CMD_C_TR_AA_ReadValues
+* @ingroup    DATAIO
+* 
+* @param[in]  result : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUSELECTRICMETER::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result, int timeout)
 {
   if(!result)         return false;
@@ -378,7 +366,6 @@ bool DIOMODBUSELECTRICMETER::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result, 
   ReadRegister(50554, 2,  100, timeout, fresult);     result->SetReactivePowerPhase(3, (int)(fresult));       // Potencia Reactiva  Fase III
   ReadRegister(50566, 2, 1000, timeout, fresult);     result->SetPowerFactorPhase(3, fresult);                // Factor de Potencia Fase III
 
-
   // Valores Secundarios
   ReadRegister(50520, 2,  100, timeout, fresult);     result->SetVoltagePhase(1, fresult);                    // Tension    Fase I
   ReadRegister(50528, 2, 1000, timeout, fresult);     result->SetCurrentPhase(1, fresult);                    // Intensidad Fase I
@@ -389,25 +376,19 @@ bool DIOMODBUSELECTRICMETER::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result, 
   ReadRegister(50524, 2,  100, timeout, fresult);     result->SetVoltagePhase(3, fresult);                    // Tension    Fase III
   ReadRegister(50532, 2, 1000, timeout, fresult);     result->SetCurrentPhase(3, fresult);                    // Intensidad Fase III
 
-
   return true;
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER::CancelOperations
-*/
-/**
-//
-//
-//  ""
-//  @version      27/02/2013 18:41:53
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOMODBUSELECTRICMETER::CancelOperations()
+* @brief      CancelOperations
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUSELECTRICMETER::CancelOperations()
 {
   canceloperations = true;
@@ -415,18 +396,15 @@ bool DIOMODBUSELECTRICMETER::CancelOperations()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER::Disconnect
-/**
-//
-//
-//  ""
-//  @version      02/12/2001 15:59:02
-//
-//  @return       void :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOMODBUSELECTRICMETER::Disconnect()
+* @brief      Disconnect
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOMODBUSELECTRICMETER::Disconnect()
 {
   if(!modbusprotocol) return;
@@ -435,52 +413,21 @@ void DIOMODBUSELECTRICMETER::Disconnect()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER::Clean
-/**
-//
-//
-//  ""
-//  @version      02/12/2001 21:50:13
-//
-//  @return       void :
-//  */
-//-------------------------------------------------------------------
-void DIOMODBUSELECTRICMETER::Clean()
-{
-  xtimer                  = NULL;
-
-  unit                    = 0;
-  inlittleendian          = true;
-
-  lastactiveenergysum     = 0;
-  lastreactiveenergysum   = 0;
-
-  modbusprotocol          = NULL;
-
-  canceloperations        = false;
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER::ReadRegister
-*/
-/**
-//
-//
-//  ""
-//  @version      12/09/2013 16:34:04
-//
-//  @return       bool :
-//  @param        registerID :
-//  @param        nwords :
-//  @param        divisor :
-//  @param        result :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOMODBUSELECTRICMETER::ReadRegister(int registerID, int nwords, int divisor, int timeout, float& result)
+* @brief      ReadRegister
+* @ingroup    DATAIO
+* 
+* @param[in]  registerID : 
+* @param[in]  nwords : 
+* @param[in]  divisor : 
+* @param[in]  timeout : 
+* @param[in]  result : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUSELECTRICMETER::ReadRegister(int registerID, int nwords, int divisor, int timeout, float& result)
 {
   XBUFFER   answer;
@@ -510,24 +457,20 @@ bool DIOMODBUSELECTRICMETER::ReadRegister(int registerID, int nwords, int diviso
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER::ReadRegister
-*/
-/**
-//
-//
-//  ""
-//  @version      12/09/2013 18:00:22
-//
-//  @return       bool :
-//  @param        registerID :
-//  @param        nwords :
-//  @param        timeout :
-//  @param        result :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOMODBUSELECTRICMETER::ReadRegister(int registerID, int nwords, int timeout, int& result)
+* @brief      ReadRegister
+* @ingroup    DATAIO
+* 
+* @param[in]  registerID : 
+* @param[in]  nwords : 
+* @param[in]  timeout : 
+* @param[in]  result : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMODBUSELECTRICMETER::ReadRegister(int registerID, int nwords, int timeout, int& result)
 {
   XBUFFER   answer;
@@ -552,3 +495,32 @@ bool DIOMODBUSELECTRICMETER::ReadRegister(int registerID, int nwords, int timeou
 
   return true;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOMODBUSELECTRICMETER::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOMODBUSELECTRICMETER::Clean()
+{
+  xtimer                  = NULL;
+
+  unit                    = 0;
+  inlittleendian          = true;
+
+  lastactiveenergysum     = 0;
+  lastreactiveenergysum   = 0;
+
+  modbusprotocol          = NULL;
+
+  canceloperations        = false;
+}
+
+
+#pragma endregion

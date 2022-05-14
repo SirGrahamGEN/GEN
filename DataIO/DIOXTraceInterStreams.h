@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOMACManufactured.h
+* @file       DIOXTraceInterStreams.h
 * 
-* @class      DIOMACMANUFACTURED
-* @brief      Data Input/Output MAC MANUFACTURED Device class
+* @class      DIOXTRACEINTERSTREAMS
+* @brief      Data Input/Output XTrace InterStreams class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,48 +26,38 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIOMACMANUFACTURED_H_
-#define _DIOMACMANUFACTURED_H_
+#ifndef _DIOXTRACEINTERSTREAMS_H_
+#define _DIOXTRACEINTERSTREAMS_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XBase.h"
-#include "XString.h"
-
-#include "DIOMAC.h"
-#include "DIOWebClient.h"
-#include "DIOScraperWeb.h"
+#include "XTrace.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-#define DIOMACMANUFACTURED_URL             __L("http://standards.ieee.org/develop/regauth/oui/")
-#define DIOMACMANUFACTURED_URLNAMEFILE     __L("oui.txt")
-
-#define DIOMACMANUFACTURED_FILE_VERSION    0x0100
-#define DIOMACMANUFACTURED_FILE_IDSTRING   __L("[MAC Manufactured ID]")
-#define DIOMACMANUFACTURED_FILE_NAME       __L("macmanufacturedid.dat")
+#define DIOXTRACEINTERSTREAMS_LOGSECTIONID    __L("Debug")
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIOMACMANUFACTURED
+class DIOXTRACEINTERSTREAMS
 {
   public:
-                                  DIOMACMANUFACTURED              ();
-    virtual                      ~DIOMACMANUFACTURED              ();
+                          DIOXTRACEINTERSTREAMS     (DIOSTREAM* DIOstream, bool iswithlog);
+    virtual              ~DIOXTRACEINTERSTREAMS     ();
 
-    bool                          Web_GetManufactured             (DIOMAC& MAC, XSTRING& manufactured);
+    bool                  Process                   ();
 
-    bool                          File_GetManufactured            (XPATH& xpath, DIOMAC& MAC, XSTRING& manufactured);
-    bool                          File_GetManufacturedMACs        (XPATH& xpath, XSTRING& manufactured, XVECTOR<XDWORD>& MACs);
-
-    bool                          File_Download                   (XBUFFER& xbuffer, int timeout = 10);
-    bool                          File_Convert                    (XBUFFER& xbuffer, XPATH& xpath);
+  protected:
 
   private:
 
-    void                          Clean                           ();    
+    void                  Clean                     ();  
+
+    DIOSTREAM*            DIOstream;
+    bool                  iswithlog;
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
+

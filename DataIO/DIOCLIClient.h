@@ -1,27 +1,39 @@
-//------------------------------------------------------------------------------------------
-//  DIOCLICLIENT.H
-//
-/**
-// \class
-//
-//  Data IO Mod CLI class
-//
-//  ""
-//  @version 13/05/2002
-*/
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOCLIClient.h
+* 
+* @class      DIOCLICLIENT
+* @brief      Data Input/Output CLI (Command Line Interface) client class
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOCLICLIENT_H_
 #define _DIOCLICLIENT_H_
 
-
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XFSMachine.h"
 
-//---- DEFINES & ENUMS  --------------------------------------------------------------------
-
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum DIOCLICLIENT_ERROR
 {
@@ -63,11 +75,10 @@ enum DIOCLICLIENT_XFSMSTATES
 #define DIOCLICLIENT_HEADLINEMAX    3
 #define DIOCLICLIENT_TIMEOUT        5  //Seconds
 
-//---- CLASS -------------------------------------------------------------------------------
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XFACTORY;
 class DIOSTREAM;
-
 
 class DIOCLICLIENTCOMMAND
 {
@@ -91,7 +102,6 @@ class DIOCLICLIENTCOMMAND
     XSTRING*                        GetAnswer                     (int index);
     bool                            DeleteAllAnswers              ();
 
-
   private:
 
     void                            Clean                         ();
@@ -100,9 +110,7 @@ class DIOCLICLIENTCOMMAND
     XSTRING                         command;
     XVECTOR<XSTRING*>               params;
     XVECTOR<XSTRING*>               answers;
-
 };
-
 
 
 class DIOCLICLIENT  : public XFSMACHINE
@@ -150,9 +158,6 @@ class DIOCLICLIENT  : public XFSMACHINE
     XSTRING                         headline[DIOCLICLIENT_HEADLINEMAX];
 };
 
-//---- INLINE FUNCTIONS --------------------------------------------------------------------
-
-
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-

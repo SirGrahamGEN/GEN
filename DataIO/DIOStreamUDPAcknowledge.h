@@ -1,61 +1,62 @@
-/*------------------------------------------------------------------------------------------
-//  DIOSTREAMUDPACKNOWLEDGE.H
-*/
-/**
-// \class
-//
-//  Data Input/Output Stream UDP with Acknowledge
-//
-//  ""
-//
-//  Date Of Creation  : 24/11/2014 10:26:28
-//  Last Modification :
-*/
-/*  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOStreamUDPAcknowledge.h
+* 
+* @class      DIOSTREAMUDPACKNOWLEDGE
+* @brief      Data Input/Output Stream UDP with Acknowledge
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSTREAMUDPACKNOWLEDGE_H_
 #define _DIOSTREAMUDPACKNOWLEDGE_H_
 
-
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "DIOStreamUDP.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define DIOSTREAMUDPACKNOWLEDGE_DEFAULTTIMEOUT 5
 
-/*---- CLASS -----------------------------------------------------------------------------*/
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XTHREADCOLLECTED;
 class HASHCRC32;
 class DIOSTREAMUDPCONFIG;
 class DIOSTREAMUDP;
 
-
 class DIOSTREAMUDPACKNOWLEDGE : public DIOSTREAMUDP
 {
   public:
-
                                     DIOSTREAMUDPACKNOWLEDGE               (DIOSTREAMUDPCONFIG* config);
     virtual                        ~DIOSTREAMUDPACKNOWLEDGE               ();
 
-    DIOSTREAMCONFIG*                GetConfig                             ()                                                              { return (DIOSTREAMCONFIG*)config;    }
-    bool                            SetConfig                             (DIOSTREAMCONFIG* config)
-                                    {
-                                      this->config = (DIOSTREAMUDPCONFIG*)config;
-                                      return true;
-                                    }
-
-    DIOSTREAMSTATUS                 GetConnectStatus                      ()
-                                    {
-                                      if(!diostream) return DIOSTREAMSTATUS_DISCONNECTED;
-                                      return diostream->GetConnectStatus();
-                                    }
-
-    int                             GetTimeout                            ()                                                              { return timeout;                    }
-    void                            SetTimeout                            (int timeout  = DIOSTREAMUDPACKNOWLEDGE_DEFAULTTIMEOUT)         { this->timeout = timeout;           }
+    DIOSTREAMCONFIG*                GetConfig                             ();
+    bool                            SetConfig                             (DIOSTREAMCONFIG* config);
+    
+    DIOSTREAMSTATUS                 GetConnectStatus                      ();
+    
+    int                             GetTimeout                            ();
+    void                            SetTimeout                            (int timeout  = DIOSTREAMUDPACKNOWLEDGE_DEFAULTTIMEOUT);
 
     bool                            Open                                  ();
 
@@ -67,29 +68,15 @@ class DIOSTREAMUDPACKNOWLEDGE : public DIOSTREAMUDP
     bool                            Disconnect                            ();
     bool                            Close                                 ();
 
-    DIOSTREAM*                      GetDIOStreamBase                      ()                                                            { return diostream;                 }
+    DIOSTREAM*                      GetDIOStreamBase                      ();
 
   private:
-
-    void                            Clean                                 ()
-                                    {
-                                      config            = NULL;
-
-                                      timeout           = 0;
-
-                                      URLremote         = NULL;
-                                      portremote        = 0;
-                                      diostream         = NULL;
-                                      xthreadconnection  = NULL;
-                                    }
-
-    static void                     ThreadRunFunction                     (void* param);
-
-
+   
+    static void                     ThreadRunFunction                     (void* param); 
+    void                            Clean                                 ();
+    
     DIOSTREAMUDPCONFIG*             config;
-
     int                             timeout;
-
     DIOURL*                         URLremote;
     XSTRING                         addressremote;
     XWORD                           portremote;
@@ -97,8 +84,6 @@ class DIOSTREAMUDPACKNOWLEDGE : public DIOSTREAMUDP
     XTHREADCOLLECTED*               xthreadconnection;
 };
 
-
-/*---- INLINE FUNCTIONS ------------------------------------------------------------------*/
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-

@@ -42,16 +42,15 @@ class XSERIALIZABLE
   public:
                         XSERIALIZABLE   ()
                         {  
-
                         }
+
     virtual            ~XSERIALIZABLE   ()                              
                         {  
-
                         }
 
     virtual bool        DeSerialize     (XBUFFER* buffer) const = 0;
     virtual bool        Serialize       (XBUFFER* buffer)       = 0;
-}
+};
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 

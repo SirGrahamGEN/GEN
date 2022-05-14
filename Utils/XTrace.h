@@ -148,7 +148,6 @@ enum XTRACE_TYPE_STATUS_MSG
                                                  }
 
 
-
 #ifdef XTRACE_ACTIVE
 
   #define XTRACE_SETTARGET(index, type , aim)                                                             XTRACE::instance->SetTarget(index, type , aim)
@@ -202,10 +201,7 @@ enum XTRACE_TYPE_STATUS_MSG
     #define XTRACE_PRINTDATABLOCKTAB(level, data, ...)                                                    XTRACE::instance->PrintDataBlock((level|XTRACE_LEVEL_WITHTAB)    , data , ## __VA_ARGS__)
     #define XTRACE_PRINTDATABLOCKCODE(level, data, ...)                                                   XTRACE::instance->PrintDataBlock((level|XTRACE_LEVEL_WITHCODE)   , data , ## __VA_ARGS__)
 
- 
-
   #endif
-
 
 #else
 
@@ -448,6 +444,7 @@ class XTRACE
     virtual bool                    CloseHandleNet                    (XTRACE_TARGET* target);
 
     XDWORD                          GetTraceFromXBuffer               (XBUFFER& xbufferpacket, XDWORD& publicIP, XDWORD& localIP, XBYTE& level, XDWORD& sequence, XDATETIME* xtime, XBUFFER& data);
+    XDWORD                          GetTraceFromDIOStream             (DIOSTREAM* DIOstream, XDWORD& publicIP, XDWORD& localIP, XBYTE& level, XDWORD& sequence, XDATETIME* xtime, XBUFFER& data);
     bool                            SetTraceDataToText                (XBUFFER& data, XSTRING& string);
 
     bool                            SetTraceToXBuffer                 (XDWORD publicIP, XDWORD localIP, XBYTE level, XDWORD sequence, XDATETIME* xtime, XDWORD& sizepacket, XBUFFER& xbufferpacket);
@@ -514,8 +511,3 @@ class XTRACE
 
 
 #endif
-
-
-
-
-

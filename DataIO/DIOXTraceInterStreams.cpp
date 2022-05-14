@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOPiFace.cpp
+* @file       DIOXTraceInterStreams.cpp
 * 
-* @class      DIOPIFACE
-* @brief      Data Input/Output Rasberry Pi Face class
+* @class      DIOXTRACEINTERSTREAMS
+* @brief      Data Input/Output XTrace InterStreams class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -33,14 +33,9 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XFactory.h"
-#include "XBuffer.h"
+#include "XLog.h"
 
-#include "DIOFactory.h"
-#include "DIOStreamSPIConfig.h"
-#include "DIOStreamSPI.h"
-
-#include "DIOPiFace.h"
+#include "DIOXTraceInterStreams.h"
 
 #include "XMemory_Control.h"
 
@@ -53,22 +48,28 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOPIFACE::DIOPIFACE()
+* @fn         DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS(DIOSTREAM* DIOstream, bool iswithlog)
 * @brief      Constructor
 * @ingroup    DATAIO
+* 
+* @param[in]  DIOSTREAM* : 
+* @param[in]   bool iswithlog : 
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOPIFACE::DIOPIFACE() : DIOSPIGPIOMCP23S17()
+DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS(DIOSTREAM* DIOstream, bool iswithlog)
 {
+  Clean();
 
+  this->DIOstream  = DIOstream;
+  this->iswithlog = iswithlog;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOPIFACE::~DIOPIFACE()
+* @fn         DIOXTRACEINTERSTREAMS::~DIOXTRACEINTERSTREAMS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
@@ -76,29 +77,64 @@ DIOPIFACE::DIOPIFACE() : DIOSPIGPIOMCP23S17()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOPIFACE::~DIOPIFACE()
-
+DIOXTRACEINTERSTREAMS::~DIOXTRACEINTERSTREAMS()
 {
-
+  Clean();
 }
 
-
+    
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPIFACE::Configure()
-* @brief      Configure
+* @fn         bool DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS::Process()
+* @brief      DIOXTRACEINTERSTREAMS::Process
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPIFACE::Configure()
-{         
-  Write_Register(DIOSPIGPIOMCP23S17_WRITE_CMD, DIOSPIGPIOMCP23S17_IOCON   , 8);     // Enable hardware addressing
-  Write_Register(DIOSPIGPIOMCP23S17_WRITE_CMD, DIOSPIGPIOMCP23S17_GPIOA   , 0x00);  // Turn on port A
-  Write_Register(DIOSPIGPIOMCP23S17_WRITE_CMD, DIOSPIGPIOMCP23S17_IODIRA  , 0);     // Set port A as an output
-  Write_Register(DIOSPIGPIOMCP23S17_WRITE_CMD, DIOSPIGPIOMCP23S17_IODIRB  , 0xFF);  // Set port B as an input
-  Write_Register(DIOSPIGPIOMCP23S17_WRITE_CMD, DIOSPIGPIOMCP23S17_GPPUB   , 0xFF);  // Turn on port B pullups
+bool DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS::Process()
+{
+  if(!DIOstream) return false;
+
+  #ifdef XTRACE_ACTIVE
+
+  XDWORD    publicIP;
+  XDWORD    localIP;
+  XBYTE     level;
+  XDWORD    sequence;
+  XDATETIME xtime;
+  XBUFFER   data;
+
+  if(!XTRACE::instance->GetTraceFromDIOStream(DIOstream, publicIP, localIP, level, sequence, &xtime, data))
+    {
+      if(iswithlog)
+        {
+          XLOGLEVEL xloglevel = (XLOGLEVEL)0;
+
+          switch(level & 0x0F)
+            {
+
+              case XTRACE_COLOR_BLACK  :
+              case XTRACE_COLOR_BLUE   :
+              case XTRACE_COLOR_GREEN  :
+              case XTRACE_COLOR_GRAY   :
+                               default : xloglevel = (XLOGLEVEL)XLOGLEVEL_INFO;      break;
+              case XTRACE_COLOR_PURPLE : xloglevel = (XLOGLEVEL)XLOGLEVEL_WARNING;   break;
+              case XTRACE_COLOR_RED    : xloglevel = (XLOGLEVEL)XLOGLEVEL_ERROR;     break;
+            }
+
+          //GEN_XLOG.AddEntry(xloglevel, DIOXTRACEINTERSTREAMS_LOGSECTIONID, false, string.Get());
+        }
+       else
+        {
+          if(XTRACE::instance)
+            {
+              //XTRACE::instance->Print(level, data.Get());
+            }
+        }
+    }
+
+  #endif
 
   return true;
 }
@@ -106,64 +142,16 @@ bool DIOPIFACE::Configure()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPIFACE::ReadInputs(XBYTE& value)
-* @brief      ReadInputs
+* @fn         void DIOXTRACEINTERSTREAMS::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
 * @ingroup    DATAIO
 * 
-* @param[in]  value : 
-* 
-* @return     bool : true if is succesful. 
+* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPIFACE::ReadInputs(XBYTE& value)
+void DIOXTRACEINTERSTREAMS::Clean()
 {
-  XBYTE _value[3] = { 0xFF, 0xFF, 0xFF };
-
-  if(!diostream) return false;
-
-  diostream->GetInXBuffer()->Delete();
-
-  if(!Write_Register(DIOSPIGPIOMCP23S17_READ_CMD, DIOPIFACE_INPUTPORT, 0xFF)) return false;
-
-  if(!diostream->WaitToFilledReadingBuffer(3, timeout)) return false;
-
-  bool status = diostream->Read(_value, 3)?true:false;
-
-  value = _value[2] ^ 0xFF;
-
-  return status;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOPIFACE::WriteOutputs(XBYTE value)
-* @brief      WriteOutputs
-* @ingroup    DATAIO
-* 
-* @param[in]  value : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPIFACE::WriteOutputs(XBYTE value)
-{
-  return Write_Register(DIOSPIGPIOMCP23S17_WRITE_CMD, DIOPIFACE_OUTPUTPORT, value);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOPIFACE::End()
-* @brief      End
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPIFACE::End()
-{
-  WriteOutputs(0x00);
-
-  return DIOSPIGPIOMCP23S17::End();
+  DIOstream  = NULL;
+  iswithlog = false;
 }

@@ -1,25 +1,41 @@
-//------------------------------------------------------------------------------------------
-//  DIOIEC60870_5.CPP
-//
-//  IEC 60870 5 client protocol class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 13/05/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOIEC60870_5.cpp
+* 
+* @class      DIOIEC60870_5
+* @brief      Data Input/Output IEC 60870_5 (electric meters)
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
-//---- INCLUDES ----------------------------------------------------------------------------
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
-
 
 #include "XFactory.h"
 #include "XSleep.h"
@@ -35,88 +51,79 @@
 
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE -------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5XEVENT::DIOIEC60870_5XEVENT
-*/
-/**
-//
-//  Class Constructor DIOIEC60870_5XEVENT
-//
-//  ""
-//  @version      10/07/2015 17:32:25
-//
-//  @param        subject :
-//  @param        type :
-//  @param        family :
-*/
-/*-----------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+
+
+#pragma region DIOIEC60870_5XEVENT
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOIEC60870_5XEVENT::DIOIEC60870_5XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]  XSUBJECT* : 
+* @param[in]   XDWORD type : 
+* @param[in]   XDWORD family : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOIEC60870_5XEVENT::DIOIEC60870_5XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5XEVENT::~DIOIEC60870_5XEVENT
-*/
-/**
-//
-//
-//  ""
-//  @version      16/06/2011 22:05:33
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOIEC60870_5XEVENT::~DIOIEC60870_5XEVENT()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOIEC60870_5XEVENT::~DIOIEC60870_5XEVENT()
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5XEVENT::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      16/06/2011 22:07:35
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOIEC60870_5XEVENT::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOIEC60870_5XEVENT::Clean()
 {
 
 }
 
+#pragma endregion
 
 
+#pragma region DIO_C_CI_NU_2_RESULT
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_CI_NU_2_RESULT::DIO_C_CI_NU_2_RESULT
-*/
-/**
-//
-//
-//  ""
-//  @version      06/06/2012 18:24:30
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIO_C_CI_NU_2_RESULT::DIO_C_CI_NU_2_RESULT()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIO_C_CI_NU_2_RESULT::DIO_C_CI_NU_2_RESULT()
 {
   Clean();
@@ -125,19 +132,16 @@ DIO_C_CI_NU_2_RESULT::DIO_C_CI_NU_2_RESULT()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_CI_NU_2_RESULT::~DIO_C_CI_NU_2_RESULT
-*/
-/**
-//
-//
-//  ""
-//  @version      06/06/2012 18:24:49
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIO_C_CI_NU_2_RESULT::~DIO_C_CI_NU_2_RESULT()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIO_C_CI_NU_2_RESULT::~DIO_C_CI_NU_2_RESULT()
 {
   GEN_XFACTORY.DeleteDateTime(xdatetime);
@@ -146,97 +150,81 @@ DIO_C_CI_NU_2_RESULT::~DIO_C_CI_NU_2_RESULT()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_CI_NU_2_RESULT::GetDateTime
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      17/09/2014 10:21:59
-//
-//  @return       XDATETIME* :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDATETIME* DIO_C_CI_NU_2_RESULT::GetDateTime()
+* @brief      GetDateTime
+* @ingroup    DATAIO
+* 
+* @return     XDATETIME* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDATETIME* DIO_C_CI_NU_2_RESULT::GetDateTime()
 {
   return xdatetime;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_CI_NU_2_RESULT::GetIndexValues
-*/
-/**
-//
-//
-//  ""
-//  @version      06/06/2012 18:32:58
-//
-//  @return       XVECTOR<XDWORD>* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XDWORD>* DIO_C_CI_NU_2_RESULT::GetIndexValues()
+* @brief      GetIndexValues
+* @ingroup    DATAIO
+* 
+* @return     XVECTOR<XDWORD>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XDWORD>* DIO_C_CI_NU_2_RESULT::GetIndexValues()
 {
   return &indexvalues;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_CI_NU_2_RESULT::GetValues
-*/
-/**
-//
-//
-//  ""
-//  @version      06/06/2012 18:33:05
-//
-//  @return       XVECTOR<XDWORD>* :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XDWORD>* DIO_C_CI_NU_2_RESULT::GetValues()
+* @brief      GetValues
+* @ingroup    DATAIO
+* 
+* @return     XVECTOR<XDWORD>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XDWORD>* DIO_C_CI_NU_2_RESULT::GetValues()
 {
   return &values;
 }
 
 
-/*-------------------------------------------------------------------
-//  DIO_C_CI_NU_2_RESULT::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      06/06/2012 18:28:36
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIO_C_CI_NU_2_RESULT::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIO_C_CI_NU_2_RESULT::Clean()
 {
   xdatetime   = NULL;
 }
 
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::DIO_C_TR_AA_RESULT
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 18:40:21
-//
-//  @return
+#pragma region DIO_C_TR_AA_RESULT
 
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIO_C_TR_AA_RESULT::DIO_C_TR_AA_RESULT()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIO_C_TR_AA_RESULT::DIO_C_TR_AA_RESULT()
 {
   Clean();
@@ -245,19 +233,16 @@ DIO_C_TR_AA_RESULT::DIO_C_TR_AA_RESULT()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::~DIO_C_TR_AA_RESULT
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 18:40:42
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIO_C_TR_AA_RESULT::~DIO_C_TR_AA_RESULT()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIO_C_TR_AA_RESULT::~DIO_C_TR_AA_RESULT()
 {
   GEN_XFACTORY.DeleteDateTime(xdatetime);
@@ -266,59 +251,47 @@ DIO_C_TR_AA_RESULT::~DIO_C_TR_AA_RESULT()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::GetDateTime
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      17/09/2014 10:22:32
-//
-//  @return       XDATETIME* :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDATETIME* DIO_C_TR_AA_RESULT::GetDateTime()
+* @brief      GetDateTime
+* @ingroup    DATAIO
+* 
+* @return     XDATETIME* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDATETIME* DIO_C_TR_AA_RESULT::GetDateTime()
 {
   return xdatetime;
 }
 
 
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::GetActiveImport
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 19:41:37
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIO_C_TR_AA_RESULT::GetActiveImport()
+* @brief      GetActiveImport
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIO_C_TR_AA_RESULT::GetActiveImport()
 {
   return activeimport;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::SetActiveImport
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 19:41:53
-//
-//  @return       bool :
-//  @param        activeimport :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIO_C_TR_AA_RESULT::SetActiveImport(int activeimport)
+* @brief      SetActiveImport
+* @ingroup    DATAIO
+* 
+* @param[in]  activeimport : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIO_C_TR_AA_RESULT::SetActiveImport(int activeimport)
 {
   this->activeimport = activeimport;
@@ -326,37 +299,32 @@ bool DIO_C_TR_AA_RESULT::SetActiveImport(int activeimport)
 }
 
 
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::GetActiveExport
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 19:53:12
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIO_C_TR_AA_RESULT::GetActiveExport()
+* @brief      GetActiveExport
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIO_C_TR_AA_RESULT::GetActiveExport()
 {
   return activeexport;
 }
 
 
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::SetActiveExport
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 19:53:53
-//
-//  @return       bool :
-//  @param        activeexport :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIO_C_TR_AA_RESULT::SetActiveExport(int activeexport)
+* @brief      SetActiveExport
+* @ingroup    DATAIO
+* 
+* @param[in]  activeexport : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIO_C_TR_AA_RESULT::SetActiveExport(int activeexport)
 {
   this->activeexport = activeexport;
@@ -364,19 +332,17 @@ bool DIO_C_TR_AA_RESULT::SetActiveExport(int activeexport)
 }
 
 
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::GetReactiveQ
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 19:54:22
-//
-//  @return       int :
-//  @param        index :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIO_C_TR_AA_RESULT::GetReactiveQ(int index)
+* @brief      GetReactiveQ
+* @ingroup    DATAIO
+* 
+* @param[in]  index : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIO_C_TR_AA_RESULT::GetReactiveQ(int index)
 {
   if((index<1)||(index>4))  return -1;
@@ -385,21 +351,18 @@ int DIO_C_TR_AA_RESULT::GetReactiveQ(int index)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::SetReactiveQ
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:21:12
-//
-//  @return       bool :
-//  @param        index :
-//  @param        reactiveQ :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIO_C_TR_AA_RESULT::SetReactiveQ(int index,int reactiveQ)
+* @brief      SetReactiveQ
+* @ingroup    DATAIO
+* 
+* @param[in]  index : 
+* @param[in]  reactiveQ : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIO_C_TR_AA_RESULT::SetReactiveQ(int index,int reactiveQ)
 {
   if((index<1)||(index>4))  return false;
@@ -408,39 +371,32 @@ bool DIO_C_TR_AA_RESULT::SetReactiveQ(int index,int reactiveQ)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::GetTotalActivePower
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:23:28
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIO_C_TR_AA_RESULT::GetTotalActivePower()
+* @brief      GetTotalActivePower
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIO_C_TR_AA_RESULT::GetTotalActivePower()
 {
   return totalactivepower;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::SetTotalActivePower
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:23:33
-//
-//  @return       bool :
-//  @param        totalactivepower :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIO_C_TR_AA_RESULT::SetTotalActivePower(int totalactivepower)
+* @brief      SetTotalActivePower
+* @ingroup    DATAIO
+* 
+* @param[in]  totalactivepower : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIO_C_TR_AA_RESULT::SetTotalActivePower(int totalactivepower)
 {
   this->totalactivepower = totalactivepower;
@@ -448,39 +404,32 @@ bool DIO_C_TR_AA_RESULT::SetTotalActivePower(int totalactivepower)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::GetTotalReactivePower
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:23:37
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIO_C_TR_AA_RESULT::GetTotalReactivePower()
+* @brief      GetTotalReactivePower
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIO_C_TR_AA_RESULT::GetTotalReactivePower()
 {
   return totalreactivepower;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::SetTotalReactivePower
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:23:43
-//
-//  @return       bool :
-//  @param        totalreactivepower :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIO_C_TR_AA_RESULT::SetTotalReactivePower(int totalreactivepower)
+* @brief      SetTotalReactivePower
+* @ingroup    DATAIO
+* 
+* @param[in]  totalreactivepower : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIO_C_TR_AA_RESULT::SetTotalReactivePower(int totalreactivepower)
 {
   this->totalreactivepower = totalreactivepower;
@@ -488,38 +437,32 @@ bool DIO_C_TR_AA_RESULT::SetTotalReactivePower(int totalreactivepower)
 }
 
 
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::GetTotalPowerFactor
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:23:51
-//
-//  @return       float :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float DIO_C_TR_AA_RESULT::GetTotalPowerFactor()
+* @brief      GetTotalPowerFactor
+* @ingroup    DATAIO
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIO_C_TR_AA_RESULT::GetTotalPowerFactor()
 {
   return totalpowerfactor;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::SetTotalPowerFactor
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:24:13
-//
-//  @return       bool :
-//  @param        totalpowerfactor :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIO_C_TR_AA_RESULT::SetTotalPowerFactor(float totalpowerfactor)
+* @brief      SetTotalPowerFactor
+* @ingroup    DATAIO
+* 
+* @param[in]  totalpowerfactor : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIO_C_TR_AA_RESULT::SetTotalPowerFactor(float totalpowerfactor)
 {
   this->totalpowerfactor = totalpowerfactor;
@@ -527,20 +470,17 @@ bool DIO_C_TR_AA_RESULT::SetTotalPowerFactor(float totalpowerfactor)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::GetActivePowerPhase
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:25:55
-//
-//  @return       int :
-//  @param        phase :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIO_C_TR_AA_RESULT::GetActivePowerPhase(int phase)
+* @brief      GetActivePowerPhase
+* @ingroup    DATAIO
+* 
+* @param[in]  phase : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIO_C_TR_AA_RESULT::GetActivePowerPhase(int phase)
 {
   if((phase<1)||(phase>3)) return -1;
@@ -548,21 +488,18 @@ int DIO_C_TR_AA_RESULT::GetActivePowerPhase(int phase)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::SetActivePowerPhase
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:27:37
-//
-//  @return       bool :
-//  @param        phase :
-//  @param        activepowerphase :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIO_C_TR_AA_RESULT::SetActivePowerPhase(int phase, int activepowerphase)
+* @brief      SetActivePowerPhase
+* @ingroup    DATAIO
+* 
+* @param[in]  phase : 
+* @param[in]  activepowerphase : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIO_C_TR_AA_RESULT::SetActivePowerPhase(int phase, int activepowerphase)
 {
   if((phase<1)||(phase>3)) return false;
@@ -571,20 +508,17 @@ bool DIO_C_TR_AA_RESULT::SetActivePowerPhase(int phase, int activepowerphase)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::GetReactivePowerPhase
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:28:55
-//
-//  @return       int :
-//  @param        phase :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIO_C_TR_AA_RESULT::GetReactivePowerPhase(int phase)
+* @brief      GetReactivePowerPhase
+* @ingroup    DATAIO
+* 
+* @param[in]  phase : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIO_C_TR_AA_RESULT::GetReactivePowerPhase(int phase)
 {
   if((phase<1)||(phase>3)) return -1;
@@ -592,21 +526,18 @@ int DIO_C_TR_AA_RESULT::GetReactivePowerPhase(int phase)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::SetReactivePowerPhase
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:29:28
-//
-//  @return       bool :
-//  @param        phase :
-//  @param        reactivepowerphase :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIO_C_TR_AA_RESULT::SetReactivePowerPhase(int phase, int reactivepowerphase)
+* @brief      SetReactivePowerPhase
+* @ingroup    DATAIO
+* 
+* @param[in]  phase : 
+* @param[in]  reactivepowerphase : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIO_C_TR_AA_RESULT::SetReactivePowerPhase(int phase, int reactivepowerphase)
 {
   if((phase<1)||(phase>3)) return false;
@@ -615,19 +546,17 @@ bool DIO_C_TR_AA_RESULT::SetReactivePowerPhase(int phase, int reactivepowerphase
 }
 
 
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::GetPowerFactorPhase
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:31:36
-//
-//  @return       float :
-//  @param        phase :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float DIO_C_TR_AA_RESULT::GetPowerFactorPhase(int phase)
+* @brief      GetPowerFactorPhase
+* @ingroup    DATAIO
+* 
+* @param[in]  phase : 
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIO_C_TR_AA_RESULT::GetPowerFactorPhase(int phase)
 {
   if((phase<1)||(phase>3)) return -1;
@@ -635,21 +564,18 @@ float DIO_C_TR_AA_RESULT::GetPowerFactorPhase(int phase)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::SetPowerFactorPhase
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:31:43
-//
-//  @return       bool :
-//  @param        phase :
-//  @param        powerfactorphase :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIO_C_TR_AA_RESULT::SetPowerFactorPhase(int phase, float powerfactorphase)
+* @brief      SetPowerFactorPhase
+* @ingroup    DATAIO
+* 
+* @param[in]  phase : 
+* @param[in]  powerfactorphase : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIO_C_TR_AA_RESULT::SetPowerFactorPhase(int phase, float powerfactorphase)
 {
   if((phase<1)||(phase>3)) return false;
@@ -658,20 +584,17 @@ bool DIO_C_TR_AA_RESULT::SetPowerFactorPhase(int phase, float powerfactorphase)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::GetVoltagePhase
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:33:08
-//
-//  @return       float :
-//  @param        phase :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float DIO_C_TR_AA_RESULT::GetVoltagePhase(int phase)
+* @brief      GetVoltagePhase
+* @ingroup    DATAIO
+* 
+* @param[in]  phase : 
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIO_C_TR_AA_RESULT::GetVoltagePhase(int phase)
 {
   if((phase<1)||(phase>3)) return -1;
@@ -679,21 +602,18 @@ float DIO_C_TR_AA_RESULT::GetVoltagePhase(int phase)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::SetVoltagePhase
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:33:12
-//
-//  @return       float :
-//  @param        phase :
-//  @param        voltagephase :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float DIO_C_TR_AA_RESULT::SetVoltagePhase(int phase, float voltagephase)
+* @brief      SetVoltagePhase
+* @ingroup    DATAIO
+* 
+* @param[in]  phase : 
+* @param[in]  voltagephase : 
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIO_C_TR_AA_RESULT::SetVoltagePhase(int phase, float voltagephase)
 {
   if((phase<1)||(phase>3)) return false;
@@ -702,20 +622,17 @@ float DIO_C_TR_AA_RESULT::SetVoltagePhase(int phase, float voltagephase)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::GetCurrentPhase
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:33:16
-//
-//  @return       float :
-//  @param        phase :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float DIO_C_TR_AA_RESULT::GetCurrentPhase(int phase)
+* @brief      GetCurrentPhase
+* @ingroup    DATAIO
+* 
+* @param[in]  phase : 
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIO_C_TR_AA_RESULT::GetCurrentPhase(int phase)
 {
   if((phase<1)||(phase>3)) return -1;
@@ -723,21 +640,18 @@ float DIO_C_TR_AA_RESULT::GetCurrentPhase(int phase)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::SetCurrentPhase
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:33:23
-//
-//  @return       float :
-//  @param        phase :
-//  @param        currentphase :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float DIO_C_TR_AA_RESULT::SetCurrentPhase(int phase, float currentphase)
+* @brief      SetCurrentPhase
+* @ingroup    DATAIO
+* 
+* @param[in]  phase : 
+* @param[in]  currentphase : 
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIO_C_TR_AA_RESULT::SetCurrentPhase(int phase, float currentphase)
 {
   if((phase<1)||(phase>3)) return false;
@@ -746,20 +660,16 @@ float DIO_C_TR_AA_RESULT::SetCurrentPhase(int phase, float currentphase)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIO_C_TR_AA_RESULT::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 19:37:40
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIO_C_TR_AA_RESULT::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIO_C_TR_AA_RESULT::Clean()
 {
   xdatetime    = NULL;
@@ -789,23 +699,23 @@ void DIO_C_TR_AA_RESULT::Clean()
     }
 }
 
+#pragma endregion
 
 
+#pragma region DIOIEC60870_5
 
 
-//-------------------------------------------------------------------
-//  DIOIEC60870_5::DIOIEC60870_5
-/**
-//
-//
-//  ""
-//  @version      17/04/2002 13:34:54
-//
-//  @return       void :
-
-//  @param        diostream :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOIEC60870_5::DIOIEC60870_5(DIOSTREAM* diostream)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]  DIOSTREAM* : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOIEC60870_5::DIOIEC60870_5(DIOSTREAM* diostream)
 {
   Clean();
@@ -821,18 +731,16 @@ DIOIEC60870_5::DIOIEC60870_5(DIOSTREAM* diostream)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOIEC60870_5::~DIOIEC60870_5
-/**
-//
-//
-//  ""
-//  @version      02/12/2001 21:53:15
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOIEC60870_5::~DIOIEC60870_5()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOIEC60870_5::~DIOIEC60870_5()
 {
   GEN_XFACTORY.DeleteTimer(xtimer);
@@ -848,26 +756,22 @@ DIOIEC60870_5::~DIOIEC60870_5()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::Connect
-*/
-/**
-//
-//
-//  ""
-//  @version      20/12/2012 21:11:50
-//
-//  @return       bool :
-//  @param        addresfield :
-//  @param        addressPM :
-//  @param        keyPM :
-//  @param        inlittleendian :
-//  @param        havelongaddress :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::Connect(XWORD addressfield,XBYTE addressPM, XDWORD keyPM, bool inlittleendian, bool havelongaddress, int timeout)
+* @brief      Connect
+* @ingroup    DATAIO
+* 
+* @param[in]  addressfield : 
+* @param[in]  addressPM : 
+* @param[in]  keyPM : 
+* @param[in]  inlittleendian : 
+* @param[in]  havelongaddress : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::Connect(XWORD addressfield,XBYTE addressPM, XDWORD keyPM, bool inlittleendian, bool havelongaddress, int timeout)
 {
   if(!diostream)                                                  return false;
@@ -896,7 +800,7 @@ bool DIOIEC60870_5::Connect(XWORD addressfield,XBYTE addressPM, XDWORD keyPM, bo
 
   if(!diostream->WaitToConnected(timeout)) return false;
 
- XTRACE_PRINTCOLOR(1,__L("IEC60870_5 Connected physical layer."));
+  XTRACE_PRINTCOLOR(1,__L("IEC60870_5 Connected physical layer."));
 
   this->addressfield      = addressfield;
   this->addressPM         = addressPM;
@@ -904,8 +808,7 @@ bool DIOIEC60870_5::Connect(XWORD addressfield,XBYTE addressPM, XDWORD keyPM, bo
   this->inlittleendian    = inlittleendian;
   this->havelongaddress   = havelongaddress;
 
- XTRACE_PRINTCOLOR(1,__L("IEC60870_5 Meter Address Field: %d, Address PM: %d, Key PM: %d"), addressfield, addressPM, keyPM);
-
+  XTRACE_PRINTCOLOR(1,__L("IEC60870_5 Meter Address Field: %d, Address PM: %d, Key PM: %d"), addressfield, addressPM, keyPM);
 
   canceloperations = false;
 
@@ -913,19 +816,17 @@ bool DIOIEC60870_5::Connect(XWORD addressfield,XBYTE addressPM, XDWORD keyPM, bo
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CMD_ResetRemoteLink
-*/
-/**
-//
-//
-//  ""
-//  @version      31/05/2012 10:49:50
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::CMD_ResetRemoteLink(int timeout)
+* @brief      CMD_ResetRemoteLink
+* @ingroup    DATAIO
+* 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::CMD_ResetRemoteLink(int timeout)
 {
   XBYTE retfunctioncode;
@@ -941,20 +842,17 @@ bool DIOIEC60870_5::CMD_ResetRemoteLink(int timeout)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CMD_RequestStatusLink
-*/
-/**
-//
-//
-//  ""
-//  @version      31/05/2012 10:58:54
-//
-//  @return       bool :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::CMD_RequestStatusLink(int timeout)
+* @brief      CMD_RequestStatusLink
+* @ingroup    DATAIO
+* 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::CMD_RequestStatusLink(int timeout)
 {
   XBYTE retfunctioncode;
@@ -969,21 +867,18 @@ bool DIOIEC60870_5::CMD_RequestStatusLink(int timeout)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CMD_RequestUserDataClass1
-*/
-/**
-//
-//
-//  ""
-//  @version      01/06/2012 10:10:09
-//
-//  @return       bool :
-//  @param        asdu :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::CMD_RequestUserDataClass1(XBUFFER* asdu,int timeout)
+* @brief      CMD_RequestUserDataClass1
+* @ingroup    DATAIO
+* 
+* @param[in]  asdu : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::CMD_RequestUserDataClass1(XBUFFER* asdu,int timeout)
 {
   XBYTE retfunctioncode;
@@ -1003,22 +898,18 @@ bool DIOIEC60870_5::CMD_RequestUserDataClass1(XBUFFER* asdu,int timeout)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CMD_RequestUserDataClass2
-*/
-/**
-//
-//
-//  ""
-//  @version      01/06/2012 10:09:24
-//
-//  @return       bool :
-//  @param        asdu :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::CMD_RequestUserDataClass2(XBUFFER* asdu,int timeout)
+* @brief      CMD_RequestUserDataClass2
+* @ingroup    DATAIO
+* 
+* @param[in]  asdu : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::CMD_RequestUserDataClass2(XBUFFER* asdu,int timeout)
 {
   if(!asdu) return false;
@@ -1045,23 +936,17 @@ bool DIOIEC60870_5::CMD_RequestUserDataClass2(XBUFFER* asdu,int timeout)
 }
 
 
-
-
-
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CMD_C_AC_NA_2_IniSession
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 12:32:41
-//
-//  @return       bool :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::CMD_C_AC_NA_2_IniSession(int timeout)
+* @brief      CMD_C_AC_NA_2_IniSession
+* @ingroup    DATAIO
+* 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::CMD_C_AC_NA_2_IniSession(int timeout)
 {
   XBYTE retfunctioncode;
@@ -1119,21 +1004,17 @@ bool DIOIEC60870_5::CMD_C_AC_NA_2_IniSession(int timeout)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CMD_C_FS_NA_2_EndSession
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 12:32:31
-//
-//  @return       bool :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::CMD_C_FS_NA_2_EndSession(int timeout)
+* @brief      CMD_C_FS_NA_2_EndSession
+* @ingroup    DATAIO
+* 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::CMD_C_FS_NA_2_EndSession(int timeout)
 {
   XBYTE retfunctioncode;
@@ -1177,23 +1058,20 @@ bool DIOIEC60870_5::CMD_C_FS_NA_2_EndSession(int timeout)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CMD_C_CI_NU_2_Init
-*/
-/**
-//
-//
-//  ""
-//  @version      10/10/2012 21:17:24
-//
-//  @return       bool :
-//  @param        TM :
-//  @param        timestart :
-//  @param        timeend :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::CMD_C_CI_NU_2_Init(int TM,XDATETIME& timestart,XDATETIME& timeend,int timeout)
+* @brief      CMD_C_CI_NU_2_Init
+* @ingroup    DATAIO
+* 
+* @param[in]  TM : 
+* @param[in]  timestart : 
+* @param[in]  timeend : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::CMD_C_CI_NU_2_Init(int TM,XDATETIME& timestart,XDATETIME& timeend,int timeout)
 {
   XBYTE retfunctioncode;
@@ -1232,21 +1110,18 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_Init(int TM,XDATETIME& timestart,XDATETIME& ti
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CMD_C_CI_NU_2_Read
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 11:22:22
-//
-//  @return       bool :
-//  @param        result :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::CMD_C_CI_NU_2_Read(DIO_C_CI_NU_2_RESULT* result,int timeout)
+* @brief      CMD_C_CI_NU_2_Read
+* @ingroup    DATAIO
+* 
+* @param[in]  result : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::CMD_C_CI_NU_2_Read(DIO_C_CI_NU_2_RESULT* result,int timeout)
 {
   if(!result) return false;
@@ -1285,25 +1160,21 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_Read(DIO_C_CI_NU_2_RESULT* result,int timeout)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CMD_C_CI_NU_2_ReadAllValues
-*/
-/**
-//
-//
-//  ""
-//  @version      20/12/2012 21:24:12
-//
-//  @return       bool :
-//  @param        TM :
-//  @param        timestart :
-//  @param        timeend :
-//  @param        results :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* timestart, XDATETIME* timeend, XVECTOR<DIO_C_CI_NU_2_RESULT*>* results, int timeout)
+* @brief      CMD_C_CI_NU_2_ReadAllValues
+* @ingroup    DATAIO
+* 
+* @param[in]  TM : 
+* @param[in]  timestart : 
+* @param[in]  timeend : 
+* @param[in]  results : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* timestart, XDATETIME* timeend, XVECTOR<DIO_C_CI_NU_2_RESULT*>* results, int timeout)
 {
   if(!timestart) return false;
@@ -1343,20 +1214,17 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* timestart, XD
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CMD_C_CI_NU_2_DeleteResults
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 11:22:05
-//
-//  @return       bool :
-//  @param        results :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::CMD_C_CI_NU_2_DeleteResults(XVECTOR<DIO_C_CI_NU_2_RESULT*>* results)
+* @brief      CMD_C_CI_NU_2_DeleteResults
+* @ingroup    DATAIO
+* 
+* @param[in]  results : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::CMD_C_CI_NU_2_DeleteResults(XVECTOR<DIO_C_CI_NU_2_RESULT*>* results)
 {
   if(!results) return false;
@@ -1370,22 +1238,18 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_DeleteResults(XVECTOR<DIO_C_CI_NU_2_RESULT*>* 
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CMD_C_TR_AA_ReadValues
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:35:09
-//
-//  @return       bool :
-//  @param        result :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result,int timeout)
+* @brief      CMD_C_TR_AA_ReadValues
+* @ingroup    DATAIO
+* 
+* @param[in]  result : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result,int timeout)
 {
   if(!result) return false;
@@ -1513,25 +1377,21 @@ bool DIOIEC60870_5::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result,int timeou
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::SetTimeLabelTypeA
-*/
-/**
-//
-//
-//  ""
-//  @version      05/06/2012 17:26:34
-//
-//  @return       bool :
-//  @param        time :
-//  @param        rateON :
-//  @param        VI :
-//  @param        ETI :
-//  @param        PTI :
-//  @param        result :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::SetTimeLabelTypeA(XDATETIME& time, bool rate, bool VI, bool summer,XBYTE* result)
+* @brief      SetTimeLabelTypeA
+* @ingroup    DATAIO
+* 
+* @param[in]  time : 
+* @param[in]  rate : 
+* @param[in]  VI : 
+* @param[in]  summer : 
+* @param[in]  result : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::SetTimeLabelTypeA(XDATETIME& time, bool rate, bool VI, bool summer,XBYTE* result)
 {
   memset(result,0,DIOIEC60870_5_SIZEMAXTIMELABELTYPEA);
@@ -1546,25 +1406,21 @@ bool DIOIEC60870_5::SetTimeLabelTypeA(XDATETIME& time, bool rate, bool VI, bool 
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::SetTimeLabelTypeB
-*/
-/**
-//
-//
-//  ""
-//  @version      06/06/2012 17:01:54
-//
-//  @return       bool :
-//  @param        time :
-//  @param        rateON :
-//  @param        VI :
-//  @param        ETI :
-//  @param        PTI :
-//  @param        result :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::SetTimeLabelTypeB(XDATETIME& time, bool rate, bool VI, bool summer,XBYTE* result)
+* @brief      SetTimeLabelTypeB
+* @ingroup    DATAIO
+* 
+* @param[in]  time : 
+* @param[in]  rate : 
+* @param[in]  VI : 
+* @param[in]  summer : 
+* @param[in]  result : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::SetTimeLabelTypeB(XDATETIME& time, bool rate, bool VI, bool summer,XBYTE* result)
 {
   memset(result,0,DIOIEC60870_5_SIZEMAXTIMELABELTYPEB);
@@ -1583,24 +1439,21 @@ bool DIOIEC60870_5::SetTimeLabelTypeB(XDATETIME& time, bool rate, bool VI, bool 
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::GetTimeLabelTypeA
-*/
-/**
-//
-//
-//  ""
-//  @version      06/06/2012 17:28:00
-//
-//  @return       bool :
-//  @param        result :
-//  @param        rate :
-//  @param        VI :
-//  @param        summer :
-//  @param        time :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::GetTimeLabelTypeA(XBYTE* result, bool& rate, bool& VI,bool& summer,XDATETIME& time)
+* @brief      GetTimeLabelTypeA
+* @ingroup    DATAIO
+* 
+* @param[in]  result : 
+* @param[in]  rate : 
+* @param[in]  VI : 
+* @param[in]  summer : 
+* @param[in]  time : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::GetTimeLabelTypeA(XBYTE* result, bool& rate, bool& VI,bool& summer,XDATETIME& time)
 {
   time.SetToZero();
@@ -1614,37 +1467,28 @@ bool DIOIEC60870_5::GetTimeLabelTypeA(XBYTE* result, bool& rate, bool& VI,bool& 
   summer = (result[1] & 0x80)?true:false;
 
   time.SetDay(result[2] & 0x1F);
-
-  //XBYTE dayofweek = (result[2] & 0xE0 ) >> 5;
-  //if(dayofweek) dayofweek = (dayofweek + 1)%7;
-  //time.SetDayOfWeek((XDATETIME_DAYWEEK)dayofweek);
-
   time.SetMonth(result[3] & 0x0F);
-
   time.SetYear(2000 + (result[4] & 0x7F));
 
   return true;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::GetTimeLabelTypeB
-*/
-/**
-//
-//
-//  ""
-//  @version      06/06/2012 17:28:07
-//
-//  @return       bool :
-//  @param        result :
-//  @param        rate :
-//  @param        VI :
-//  @param        summer :
-//  @param        time :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::GetTimeLabelTypeB(XBYTE* result, bool& rate, bool& VI,bool& summer,XDATETIME& time)
+* @brief      GetTimeLabelTypeB
+* @ingroup    DATAIO
+* 
+* @param[in]  result : 
+* @param[in]  rate : 
+* @param[in]  VI : 
+* @param[in]  summer : 
+* @param[in]  time : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::GetTimeLabelTypeB(XBYTE* result, bool& rate, bool& VI,bool& summer,XDATETIME& time)
 {
   time.SetToZero();
@@ -1676,19 +1520,15 @@ bool DIOIEC60870_5::GetTimeLabelTypeB(XBYTE* result, bool& rate, bool& VI,bool& 
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CancelOperations
-*/
-/**
-//
-//
-//  ""
-//  @version      27/02/2013 18:41:53
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::CancelOperations()
+* @brief      CancelOperations
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::CancelOperations()
 {
   canceloperations = true;
@@ -1696,18 +1536,15 @@ bool DIOIEC60870_5::CancelOperations()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOIEC60870_5::Disconnect
-/**
-//
-//
-//  ""
-//  @version      02/12/2001 15:59:02
-//
-//  @return       void :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOIEC60870_5::Disconnect()
+* @brief      Disconnect
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOIEC60870_5::Disconnect()
 {
   if(diostream)
@@ -1720,22 +1557,17 @@ void DIOIEC60870_5::Disconnect()
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::IsValidFrameCount
-*/
-/**
-//
-//
-//  ""
-//  @version      31/05/2012 16:34:49
-//
-//  @return       bool :
-//  @param        functioncode :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::IsValidFrameCount(XBYTE functioncode)
+* @brief      IsValidFrameCount
+* @ingroup    DATAIO
+* 
+* @param[in]  functioncode : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::IsValidFrameCount(XBYTE functioncode)
 {
   bool isFCVon = false;
@@ -1754,21 +1586,18 @@ bool DIOIEC60870_5::IsValidFrameCount(XBYTE functioncode)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::SendMsgVar
-*/
-/**
-//
-//
-//  ""
-//  @version      31/05/2012 16:53:55
-//
-//  @return       bool :
-//  @param        functioncode :
-//  @param        dataASDU :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::SendMsgVar(XBYTE functioncode, XBUFFER* dataASDU)
+* @brief      SendMsgVar
+* @ingroup    DATAIO
+* 
+* @param[in]  functioncode : 
+* @param[in]  dataASDU : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::SendMsgVar(XBYTE functioncode, XBUFFER* dataASDU)
 {
   if(!diostream) return false;
@@ -1828,21 +1657,17 @@ bool DIOIEC60870_5::SendMsgVar(XBYTE functioncode, XBUFFER* dataASDU)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::SendMsgFix
-*/
-/**
-//
-//
-//  ""
-//  @version      25/05/2012 18:10:42
-//
-//  @return       bool :
-//  @param        functioncode :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::SendMsgFix(XBYTE functioncode)
+* @brief      SendMsgFix
+* @ingroup    DATAIO
+* 
+* @param[in]  functioncode : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::SendMsgFix(XBYTE functioncode)
 {
   if(!diostream) return false;
@@ -1893,22 +1718,18 @@ bool DIOIEC60870_5::SendMsgFix(XBYTE functioncode)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::WaitToReadMsg
-*/
-/**
-//
-//
-//  ""
-//  @version      30/05/2012 21:42:24
-//
-//  @return       bool :
-//  @param        size :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::WaitToReadMsg(XDWORD size,int timeout)
+* @brief      WaitToReadMsg
+* @ingroup    DATAIO
+* 
+* @param[in]  size : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::WaitToReadMsg(XDWORD size,int timeout)
 {
   XDWORD actualsize = 0;
@@ -1937,25 +1758,20 @@ bool DIOIEC60870_5::WaitToReadMsg(XDWORD size,int timeout)
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::ReadMsg
-*/
-/**
-//
-//
-//  ""
-//  @version      31/05/2012 17:02:24
-//
-//  @return       bool :
-//  @param        retfunctioncode :
-//  @param        retisfixmsg :
-//  @param        dataASDU :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOIEC60870_5::ReadMsg(XBYTE& retfunctioncode,bool& retisfixmsg,XBUFFER* retASDU,int timeout)
+* @brief      ReadMsg
+* @ingroup    DATAIO
+* 
+* @param[in]  retfunctioncode : 
+* @param[in]  retisfixmsg : 
+* @param[in]  retASDU : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIEC60870_5::ReadMsg(XBYTE& retfunctioncode,bool& retisfixmsg,XBUFFER* retASDU,int timeout)
 {
   if(!diostream) return false;
@@ -2053,22 +1869,18 @@ bool DIOIEC60870_5::ReadMsg(XBYTE& retfunctioncode,bool& retisfixmsg,XBUFFER* re
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CalculateCheckSum
-*/
-/**
-//
-//
-//  ""
-//  @version      30/05/2012 22:44:24
-//
-//  @return       XBYTE :
-//  @param        buffer :
-//  @param        sizebuffer :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE DIOIEC60870_5::CalculateCheckSum(XBYTE* buffer,XDWORD sizebuffer)
+* @brief      CalculateCheckSum
+* @ingroup    DATAIO
+* 
+* @param[in]  buffer : 
+* @param[in]  sizebuffer : 
+* 
+* @return     XBYTE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOIEC60870_5::CalculateCheckSum(XBYTE* buffer,XDWORD sizebuffer)
 {
   if(!buffer)       return 0;
@@ -2110,42 +1922,35 @@ XBYTE DIOIEC60870_5::CalculateCheckSum(XBYTE* buffer,XDWORD sizebuffer)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::CalculateCheckSum
-*/
-/**
-//
-//
-//  ""
-//  @version      30/05/2012 22:19:13
-//
-//  @return       XBYTE :
-//  @param        xbuffer :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE DIOIEC60870_5::CalculateCheckSum(XBUFFER& xbuffer)
+* @brief      CalculateCheckSum
+* @ingroup    DATAIO
+* 
+* @param[in]  xbuffer : 
+* 
+* @return     XBYTE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOIEC60870_5::CalculateCheckSum(XBUFFER& xbuffer)
 {
   return CalculateCheckSum(xbuffer.Get(),xbuffer.GetSize());
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOIEC60870_5::GetIntFromBuffer
-*/
-/**
-//
-//
-//  ""
-//  @version      07/06/2012 20:39:27
-//
-//  @return       int :
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOIEC60870_5::GetIntFromBuffer(XBYTE* buffer,XDWORD size)
+* @brief      GetIntFromBuffer
+* @ingroup    DATAIO
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOIEC60870_5::GetIntFromBuffer(XBYTE* buffer,XDWORD size)
 {
   XDWORD value = 0;
@@ -2158,3 +1963,34 @@ int DIOIEC60870_5::GetIntFromBuffer(XBYTE* buffer,XDWORD size)
 
   return (int)value;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOIEC60870_5::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOIEC60870_5::Clean()
+{
+  diostream         = NULL;
+  xtimer            = NULL;
+
+  addressfield      = 0;
+  addressPM         = 0;
+  keyPM             = 0;
+
+  FCBstate          = true;
+
+  inlittleendian    = true;
+  havelongaddress   = true;
+
+  canceloperations  = false;
+}
+
+
+#pragma endregion

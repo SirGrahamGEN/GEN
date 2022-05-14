@@ -1,28 +1,41 @@
-//------------------------------------------------------------------------------------------
-//  DIOIEC60870_5.H
-//
-/**
-// \class
-//
-//  IEC 60870 5 client protocol class
-//
-//  ""
-//  @version 13/05/2002
-*/
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOIEC60870_5.h
+* 
+* @class      DIOIEC60870_5
+* @brief      Data Input/Output IEC 60870_5 (electric meters)
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOIEC60870_5_H_
 #define _DIOIEC60870_5_H_
 
-
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XFSMachine.h"
 #include "XEvent.h"
 #include "XSubject.h"
 
-//---- DEFINES & ENUMS  --------------------------------------------------------------------
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum DIOIEC60870_5XEVENT_TYPE
 {
@@ -83,15 +96,13 @@ enum DIOIEC60870_5XEVENT_TYPE
 #define DIOIEC60870_5_ASDUCAUSETRANS_OBJECTINFOUNKNOWN          17
 #define DIOIEC60870_5_ASDUCAUSETRANS_INTEGRPEROIDNOTAVAILABLE   18
 
-
-//---- CLASS -------------------------------------------------------------------------------
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XFACTORY;
 class XDATETIME;
 class XTIMER;
 class XPUBLISHER;
 class DIOSTREAM;
-
 
 class DIOIEC60870_5XEVENT : public XEVENT
 {
@@ -103,8 +114,6 @@ class DIOIEC60870_5XEVENT : public XEVENT
 
     void                      Clean                               ();
 };
-
-
 
 class DIO_C_CI_NU_2_RESULT
 {
@@ -125,8 +134,6 @@ class DIO_C_CI_NU_2_RESULT
     XVECTOR<XDWORD>           indexvalues;
     XVECTOR<XDWORD>           values;
 };
-
-
 
 class DIO_C_TR_AA_RESULT
 {
@@ -184,9 +191,6 @@ class DIO_C_TR_AA_RESULT
     float                     currentphase[3];
 };
 
-
-
-
 class DIOIEC60870_5  : public XSUBJECT
 {
   public:
@@ -223,23 +227,7 @@ class DIOIEC60870_5  : public XSUBJECT
 
   private:
 
-    void                      Clean                               ()
-                              {
-                                diostream         = NULL;
-                                xtimer            = NULL;
-
-                                addressfield      = 0;
-                                addressPM         = 0;
-                                keyPM             = 0;
-
-                                FCBstate          = true;
-
-                                inlittleendian    = true;
-                                havelongaddress   = true;
-
-                                canceloperations  = false;
-                              }
-
+   
     bool                      IsValidFrameCount                   (XBYTE functioncode);
 
     bool                      SendMsgVar                          (XBYTE functioncode, XBUFFER* dataASDU);
@@ -251,8 +239,10 @@ class DIOIEC60870_5  : public XSUBJECT
     XBYTE                     CalculateCheckSum                   (XBYTE* buffer, XDWORD sizebuffer);
     XBYTE                     CalculateCheckSum                   (XBUFFER& xbuffer);
 
-    int                       GetIntFromBuffer                    (XBYTE* buffer, XDWORD size);
+    int                       GetIntFromBuffer                    (XBYTE* buffer, XDWORD size); 
 
+    void                      Clean                               ();
+   
     DIOSTREAM*                diostream;
     XTIMER*                   xtimer;
 
@@ -267,9 +257,6 @@ class DIOIEC60870_5  : public XSUBJECT
     bool                      canceloperations;
 };
 
-//---- INLINE FUNCTIONS --------------------------------------------------------------------
-
-
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-

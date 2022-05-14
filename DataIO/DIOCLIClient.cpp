@@ -1,22 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  DIOCLICLIENT.CPP
-//
-//  Data IO Mod CLI class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 13/05/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
-
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOCLIClient.cpp
+* 
+* @class      DIOCLICLIENT
+* @brief      Data Input/Output CLI (Command Line Interface) client class
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -27,48 +42,25 @@
 #include "XFSMachine.h"
 
 #include "DIOStream.h"
+
 #include "DIOCLIClient.h"
 
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE -------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::DIOCLICLIENTCOMMAND
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 11:27:15
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+
+#pragma region DIOCLICLIENTCOMMAND
+
 DIOCLICLIENTCOMMAND::DIOCLICLIENTCOMMAND()
 {
   Clean();
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::~DIOCLICLIENTCOMMAND
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 11:27:19
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
 DIOCLICLIENTCOMMAND::~DIOCLICLIENTCOMMAND()
 {
   DeleteAllAnswers();
@@ -78,57 +70,18 @@ DIOCLICLIENTCOMMAND::~DIOCLICLIENTCOMMAND()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::GetType
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 12:06:16
-//
-//  @return       DIOCLICLIENT_TYPECOMMAND :
-//  */
-/*-----------------------------------------------------------------*/
 int DIOCLICLIENTCOMMAND::GetType()
 {
   return type;
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::GetCommand
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 11:43:56
-//
-//  @return       XCHAR* :
-//  */
-/*-----------------------------------------------------------------*/
 XCHAR* DIOCLICLIENTCOMMAND::GetCommand()
 {
   return command.Get();
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::Set
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 11:48:06
-//
-//  @return       bool :
-//  @param        type :
-//  @param        command :
-//  @param        answer :
-*/
-/*-----------------------------------------------------------------*/
 bool DIOCLICLIENTCOMMAND::Set(int type, XCHAR* command)
 {
   this->type    = type;
@@ -138,20 +91,6 @@ bool DIOCLICLIENTCOMMAND::Set(int type, XCHAR* command)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::AddParam
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 22:57:54
-//
-//  @return       bool :
-//  @param        param :
-*/
-/*-----------------------------------------------------------------*/
 bool DIOCLICLIENTCOMMAND::AddParam(XSTRING* param)
 {
   params.Add(param);
@@ -160,18 +99,6 @@ bool DIOCLICLIENTCOMMAND::AddParam(XSTRING* param)
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::GetParam
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 11:43:56
-//
-//  @return       XCHAR* :
-//  */
-/*-----------------------------------------------------------------*/
 XCHAR* DIOCLICLIENTCOMMAND::GetParam(int index)
 {
   XSTRING* param = (XSTRING*)params.Get(index);
@@ -181,36 +108,12 @@ XCHAR* DIOCLICLIENTCOMMAND::GetParam(int index)
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::GetNParams
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 23:35:39
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
 int DIOCLICLIENTCOMMAND::GetNParams()
 {
   return params.GetSize();
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::DeleteAllParams
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 23:00:44
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
 bool DIOCLICLIENTCOMMAND::DeleteAllParams()
 {
   if(params.IsEmpty()) return false;
@@ -223,20 +126,6 @@ bool DIOCLICLIENTCOMMAND::DeleteAllParams()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::AddAnswer
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 22:57:54
-//
-//  @return       bool :
-//  @param        answer :
-*/
-/*-----------------------------------------------------------------*/
 bool DIOCLICLIENTCOMMAND::AddAnswer(XCHAR* answer)
 {
   XSTRING* _answer = new XSTRING(answer);
@@ -247,21 +136,6 @@ bool DIOCLICLIENTCOMMAND::AddAnswer(XCHAR* answer)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::AddAnswer
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 13:09:17
-//
-//  @return       bool :
-//  @param        answer :
-*/
-/*-----------------------------------------------------------------*/
 bool DIOCLICLIENTCOMMAND::AddAnswer(XSTRING* answer)
 {
   if(!answer) return false;
@@ -272,40 +146,12 @@ bool DIOCLICLIENTCOMMAND::AddAnswer(XSTRING* answer)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::GetNAnswers
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 23:35:39
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
 int DIOCLICLIENTCOMMAND::GetNAnswers()
 {
   return answers.GetSize();
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::GetAnswer
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 13:20:44
-//
-//  @return       XSTRING* :
-//  @param        index :
-*/
-/*-----------------------------------------------------------------*/
 XSTRING* DIOCLICLIENTCOMMAND::GetAnswer(int index)
 {
   XSTRING* answer = (XSTRING*)answers.Get(index);
@@ -315,18 +161,6 @@ XSTRING* DIOCLICLIENTCOMMAND::GetAnswer(int index)
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::DeleteAllAnswers
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 23:00:44
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
 bool DIOCLICLIENTCOMMAND::DeleteAllAnswers()
 {
   if(answers.IsEmpty()) return false;
@@ -338,40 +172,28 @@ bool DIOCLICLIENTCOMMAND::DeleteAllAnswers()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENTCOMMAND::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 11:27:23
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
 void DIOCLICLIENTCOMMAND::Clean()
 {
 
 }
 
+#pragma endregion
 
 
-//-------------------------------------------------------------------
-//  DIOCLICLIENT::DIOCLICLIENT
-/**
-//
-//
-//  ""
-//  @version      17/04/2002 13:34:54
-//
-//  @return       void :
+#pragma region DIOCLICLIENT
 
-//  @param        diostream :
-*/
-//-------------------------------------------------------------------
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT::DIOCLICLIENT(DIOSTREAM* diostream)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]  DIOSTREAM* : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT::DIOCLICLIENT(DIOSTREAM* diostream) : XFSMACHINE(0)
 {
   Clean();
@@ -411,19 +233,18 @@ DIOCLICLIENT::DIOCLICLIENT(DIOSTREAM* diostream) : XFSMACHINE(0)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOCLICLIENT::~DIOCLICLIENT
-/**
-//
-//
-//  ""
-//  @version      02/12/2001 21:53:15
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT::~DIOCLICLIENT()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT::~DIOCLICLIENT()
+
 {
   DeleteAllCommand();
 
@@ -435,20 +256,17 @@ DIOCLICLIENT::~DIOCLICLIENT()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::Ini
-*/
-/**
-//
-//
-//  ""
-//  @version      17/06/2013 19:29:56
-//
-//  @return       bool :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCLICLIENT::Ini(int timeout)
+* @brief      Ini
+* @ingroup    DATAIO
+* 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCLICLIENT::Ini(int timeout)
 {
   if(!diostream)          return false;
@@ -459,7 +277,6 @@ bool DIOCLICLIENT::Ini(int timeout)
   this->timeout = timeout;
 
   if(!diostream->WaitToConnected(timeout)) return false;
-
 
   // -----------------------------------------
   // Read Header of CLI
@@ -488,19 +305,15 @@ bool DIOCLICLIENT::Ini(int timeout)
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOCLICLIENT::End
-/**
-//
-//
-//  ""
-//  @version      02/12/2001 15:59:02
-//
-//  @return       void :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCLICLIENT::End()
+* @brief      End
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCLICLIENT::End()
 {
   if(diostream)
@@ -511,21 +324,18 @@ void DIOCLICLIENT::End()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::AddCommand
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 11:34:35
-//
-//  @return       bool :
-//  @param        command :
-//  @param        answer :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCLICLIENT::AddCommand(int type, XCHAR* command)
+* @brief      AddCommand
+* @ingroup    DATAIO
+* 
+* @param[in]  type : 
+* @param[in]  command : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCLICLIENT::AddCommand(int type, XCHAR* command)
 {
   DIOCLICLIENTCOMMAND* clicommand = GetCommand(type);
@@ -542,20 +352,17 @@ bool DIOCLICLIENT::AddCommand(int type, XCHAR* command)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::GetCommand
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 11:57:19
-//
-//  @return       DIOCLICLIENTCOMMAND* :
-//  @param        type :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENTCOMMAND* DIOCLICLIENT::GetCommand(int type)
+* @brief      GetCommand
+* @ingroup    DATAIO
+* 
+* @param[in]  type : 
+* 
+* @return     DIOCLICLIENTCOMMAND* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENTCOMMAND* DIOCLICLIENT::GetCommand(int type)
 {
   DIOCLICLIENTCOMMAND* clicommand;
@@ -573,19 +380,15 @@ DIOCLICLIENTCOMMAND* DIOCLICLIENT::GetCommand(int type)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::DeleteAllCommand
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 11:35:30
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCLICLIENT::DeleteAllCommand()
+* @brief      DeleteAllCommand
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCLICLIENT::DeleteAllCommand()
 {
   if(clicommands.IsEmpty()) return false;
@@ -597,22 +400,19 @@ bool DIOCLICLIENT::DeleteAllCommand()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::GetAnswer
-*/
-/**
-//
-//
-//  ""
-//  @version      28/03/2011 11:56:23
-//
-//  @return       bool :
-//  @param        type :
-//  @param        indexanswer :
-//  @param        answerstring :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCLICLIENT::GetAnswer(int type,int indexanswer,XSTRING& answerstring)
+* @brief      GetAnswer
+* @ingroup    DATAIO
+* 
+* @param[in]  type : 
+* @param[in]  indexanswer : 
+* @param[in]  answerstring : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCLICLIENT::GetAnswer(int type,int indexanswer,XSTRING& answerstring)
 {
   DIOCLICLIENTCOMMAND* clicommand = GetCommand(type);
@@ -630,21 +430,18 @@ bool DIOCLICLIENT::GetAnswer(int type,int indexanswer,XSTRING& answerstring)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::ReadAnswerLF
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 23:53:40
-//
-//  @return       bool :
-//  @param        answer :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCLICLIENT::ReadAnswerLF(XSTRING& answer,int timeout)
+* @brief      ReadAnswerLF
+* @ingroup    DATAIO
+* 
+* @param[in]  answer : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCLICLIENT::ReadAnswerLF(XSTRING& answer,int timeout)
 {
   char str[4];
@@ -689,23 +486,19 @@ bool DIOCLICLIENT::ReadAnswerLF(XSTRING& answer,int timeout)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::ReadAnswer
-*/
-/**
-//
-//
-//  ""
-//  @version      28/03/2011 22:38:40
-//
-//  @return       bool :
-//  @param        answer :
-//  @param        size :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCLICLIENT::ReadAnswer(XSTRING& answer,XDWORD size,int timeout)
+* @brief      ReadAnswer
+* @ingroup    DATAIO
+* 
+* @param[in]  answer : 
+* @param[in]  size : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCLICLIENT::ReadAnswer(XSTRING& answer,XDWORD size,int timeout)
 {
   char str[4];
@@ -741,22 +534,19 @@ bool DIOCLICLIENT::ReadAnswer(XSTRING& answer,XDWORD size,int timeout)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::SendCommand
-*/
-/**
-//
-//
-//  ""
-//  @version      25/03/2011 22:50:20
-//
-//  @return       bool :
-//  @param        type :
-//  @param        nparams :
-//  @param        ... :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCLICLIENT::SendCommand(int type, int nparams,...)
+* @brief      SendCommand
+* @ingroup    DATAIO
+* 
+* @param[in]  type : 
+* @param[in]  nparams : 
+* @param[in]  ... : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCLICLIENT::SendCommand(int type, int nparams,...)
 {
   DIOCLICLIENTCOMMAND* clicommand = GetCommand(type);
@@ -793,20 +583,17 @@ bool DIOCLICLIENT::SendCommand(int type, int nparams,...)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::IsSendCommand
-*/
-/**
-//
-//
-//  ""
-//  @version      26/03/2011 0:05:15
-//
-//  @return       bool :
-//  @param        error :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCLICLIENT::IsSendCommand(DIOCLICLIENT_ERROR& error)
+* @brief      IsSendCommand
+* @ingroup    DATAIO
+* 
+* @param[in]  error : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCLICLIENT::IsSendCommand(DIOCLICLIENT_ERROR& error)
 {
   DIOCLICLIENTCOMMAND* clicommand = GetCommand(actualtypecommand);
@@ -818,22 +605,18 @@ bool DIOCLICLIENT::IsSendCommand(DIOCLICLIENT_ERROR& error)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::SendCommandWithoutAnswer
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 16:36:26
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        type :
-//  @param        param :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENT::SendCommandWithoutAnswer(int type,XCHAR* param)
+* @brief      SendCommandWithoutAnswer
+* @ingroup    DATAIO
+* 
+* @param[in]  type : 
+* @param[in]  param : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENT::SendCommandWithoutAnswer(int type,XCHAR* param)
 {
   DIOCLICLIENT_ERROR error = DIOCLICLIENT_ERROR_NONE;
@@ -849,22 +632,19 @@ DIOCLICLIENT_ERROR DIOCLICLIENT::SendCommandWithoutAnswer(int type,XCHAR* param)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::SendCommandWithAnswer
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 16:14:12
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        type :
-//  @param        answer :
-//  @param        param :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENT::SendCommandWithAnswer(int type,XSTRING& answer,XCHAR* param)
+* @brief      SendCommandWithAnswer
+* @ingroup    DATAIO
+* 
+* @param[in]  type : 
+* @param[in]  answer : 
+* @param[in]  param : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENT::SendCommandWithAnswer(int type,XSTRING& answer,XCHAR* param)
 {
   DIOCLICLIENT_ERROR error = DIOCLICLIENT_ERROR_NONE;
@@ -893,23 +673,19 @@ DIOCLICLIENT_ERROR DIOCLICLIENT::SendCommandWithAnswer(int type,XSTRING& answer,
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::SendCommandWithAnswers
-*/
-/**
-//
-//
-//  ""
-//  @version      31/10/2011 16:28:21
-//
-//  @return       DIOCLICLIENT_ERROR :
-//  @param        type :
-//  @param        answers :
-//  @param        param :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCLICLIENT_ERROR DIOCLICLIENT::SendCommandWithAnswers(int type,XVECTOR<XSTRING*>* answers,XCHAR* param)
+* @brief      SendCommandWithAnswers
+* @ingroup    DATAIO
+* 
+* @param[in]  type : 
+* @param[in]  answers : 
+* @param[in]  param : 
+* 
+* @return     DIOCLICLIENT_ERROR : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOCLICLIENT_ERROR DIOCLICLIENT::SendCommandWithAnswers(int type,XVECTOR<XSTRING*>* answers,XCHAR* param)
 {
   DIOCLICLIENT_ERROR error = DIOCLICLIENT_ERROR_NONE;
@@ -945,20 +721,17 @@ DIOCLICLIENT_ERROR DIOCLICLIENT::SendCommandWithAnswers(int type,XVECTOR<XSTRING
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::ProcessWait
-*/
-/**
-//
-//
-//  ""
-//  @version      28/03/2011 15:59:53
-//
-//  @return       void :
-//  @param        error :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCLICLIENT::ProcessWait(DIOCLICLIENT_ERROR& error)
+* @brief      ProcessWait
+* @ingroup    DATAIO
+* 
+* @param[in]  error : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCLICLIENT::ProcessWait(DIOCLICLIENT_ERROR& error)
 {
   while(IsSendCommand(error))
@@ -968,20 +741,17 @@ void DIOCLICLIENT::ProcessWait(DIOCLICLIENT_ERROR& error)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOCLICLIENT::ProcessCommand
-*/
-/**
-//
-//
-//  ""
-//  @version      26/03/2011 0:04:40
-//
-//  @return       bool :
-//  @param        error :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCLICLIENT::ProcessCommand(DIOCLICLIENT_ERROR& error)
+* @brief      ProcessCommand
+* @ingroup    DATAIO
+* 
+* @param[in]  error : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCLICLIENT::ProcessCommand(DIOCLICLIENT_ERROR& error)
 {
   static int  paramindex  =  0;
@@ -1154,32 +924,26 @@ bool DIOCLICLIENT::ProcessCommand(DIOCLICLIENT_ERROR& error)
 }
 
 
-
-
-
-//-------------------------------------------------------------------
-//  DIOCLICLIENT::Clean
-/**
-//
-//
-//  ""
-//  @version      02/12/2001 21:50:13
-//
-//  @return       void :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCLICLIENT::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOCLICLIENT::Clean()
 {
-  diostream         = NULL;
+  diostream           = NULL;
 
-  timeout           = DIOCLICLIENT_TIMEOUT;
+  timeout             = DIOCLICLIENT_TIMEOUT;
 
-  timer             = NULL;
+  timer               = NULL;
 
-  actualtypecommand = 0;
+  actualtypecommand   = 0;
 }
 
-
-
-
+#pragma endregion
 

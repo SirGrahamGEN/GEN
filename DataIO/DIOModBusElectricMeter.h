@@ -1,21 +1,35 @@
-//------------------------------------------------------------------------------------------
-//  DIOMODBUSELECTRICMETER.H
-//
-/**
-// \class
-//
-//  DIO Mod Bus Electric Meter class
-//
-//  ""
-//  @version 13/05/2002
-*/
-//  GEN (C) Copyright  (All right reserved)
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOModBusElectricMeter.h
+* 
+* @class      DIOMODBUSELECTRICMETER
+* @brief      Data Input/Output ModBus Electric Meter class
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOMODBUSELECTRICMETER_H_
 #define _DIOMODBUSELECTRICMETER_H_
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XDateTime.h"
 #include "XTimer.h"
@@ -24,21 +38,16 @@
 #include "XSubject.h"
 
 #include "DIOIEC60870_5.h"
-#include "DIOModBus.h"
+#include "DIOModBus_Client.h"
 
-//---- DEFINES & ENUMS  --------------------------------------------------------------------
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum DIOMODBUSELECTRICMETERXEVENT_TYPE
 {
-  DIOMODBUSELECTRICMETERXEVENT_TYPE_UNKNOW                 = XEVENT_TYPE_DIOMODBUSELECTRICMETER + 1 ,
-  DIOMODBUSELECTRICMETERXEVENT_TYPE_C_CI_NU_2_READVALUE                                            ,
-  DIOMODBUSELECTRICMETERXEVENT_TYPE_C_TR_AA_READVALUES                                             ,
+  DIOMODBUSELECTRICMETERXEVENT_TYPE_UNKNOW                        = XEVENT_TYPE_DIOMODBUSELECTRICMETER + 1 ,
+  DIOMODBUSELECTRICMETERXEVENT_TYPE_C_CI_NU_2_READVALUE                                                    ,
+  DIOMODBUSELECTRICMETERXEVENT_TYPE_C_TR_AA_READVALUES                                                     ,
 };
-
-#define DIOMODBUSELECTRICMETER_CONNECTTIMEOUT            5       // Seconds
-#define DIOMODBUSELECTRICMETER_READTIMEOUT              15       // Seconds
-
-
 
 enum DIOMODBUSELECTRICMETER_REGISTERTYPE
 {
@@ -78,15 +87,14 @@ enum DIOMODBUSELECTRICMETER_REGISTERTYPE
   DIOMODBUSELECTRICMETER_REGISTERTYPE_CURRENTPHASEIII                 ,   // Intensidad Fase III
 };
 
+#define DIOMODBUSELECTRICMETER_CONNECTTIMEOUT            5       // Seconds
+#define DIOMODBUSELECTRICMETER_READTIMEOUT              15       // Seconds
 
-
-
-//---- CLASS -------------------------------------------------------------------------------
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XFACTORY;
 class XPUBLISHER;
 class DIOSTREAM;
-
 
 class DIOMODBUSELECTRICMETERXEVENT : public XEVENT
 {
@@ -99,15 +107,13 @@ class DIOMODBUSELECTRICMETERXEVENT : public XEVENT
     void                      Clean                               ();
 };
 
-
-
 class DIOMODBUSELECTRICMETER  : public XSUBJECT
 {
   public:
-                              DIOMODBUSELECTRICMETER              (DIOSTREAM* diostream);
+                              DIOMODBUSELECTRICMETER              (DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mode = DIOMODBUS_CLIENTMODE_RTU);
     virtual                  ~DIOMODBUSELECTRICMETER              ();
 
-    DIOMODBUS*                GetModBusProtocol                   ();
+    DIOMODBUS_CLIENT*         GetModBusProtocol                   ();
 
     bool                      Connect                             (XBYTE unit, bool inlittleendian, int timeout = DIOMODBUSELECTRICMETER_CONNECTTIMEOUT);
 
@@ -125,12 +131,10 @@ class DIOMODBUSELECTRICMETER  : public XSUBJECT
     XMAP<XDWORD,XDWORD>       registermap;
 
   private:
-
-    void                      Clean                               ();
+    
     bool                      ReadRegister                        (int registerID, int nwords, int divisor, int timeout, float& result);
     bool                      ReadRegister                        (int registerID, int nwords, int timeout, int& result);
-
-
+    void                      Clean                               ();
 
     XTIMER*                   xtimer;
 
@@ -140,14 +144,12 @@ class DIOMODBUSELECTRICMETER  : public XSUBJECT
     int                       lastactiveenergysum;
     int                       lastreactiveenergysum;
 
-    DIOMODBUS*                modbusprotocol;
+    DIOMODBUS_CLIENT*         modbusprotocol;
 
     bool                      canceloperations;
 };
 
-//---- INLINE FUNCTIONS --------------------------------------------------------------------
 
-
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-

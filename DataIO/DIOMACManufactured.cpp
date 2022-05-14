@@ -1,21 +1,37 @@
-/*------------------------------------------------------------------------------------------
-//  DIOMACMANUFACTURED.CPP
-//
-//  Data IO MAC MANUFACTURED class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 30/08/2012 9:14:11
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOMACManufactured.cpp
+* 
+* @class      DIOMACMANUFACTURED
+* @brief      Data Input/Output MAC MANUFACTURED Device class
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <string.h>
@@ -32,71 +48,55 @@
 
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-/*-------------------------------------------------------------------
-//  DIOMACMANUFACTURED::DIOMACMANUFACTURED
-*/
-/**
-//
-//  Class Constructor DIOMACMANUFACTURED
-//
-//  ""
-//  @version      15/02/2015 21:02:25
-//
-
-
-
-//  @param        xpublisher :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOMACMANUFACTURED::DIOMACMANUFACTURED()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMACMANUFACTURED::DIOMACMANUFACTURED()
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOMACMANUFACTURED::~DIOMACMANUFACTURED
-*/
-/**
-//
-//
-//  ""
-//  @version      22/04/2013 20:02:11
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOMACMANUFACTURED::~DIOMACMANUFACTURED()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOMACMANUFACTURED::~DIOMACMANUFACTURED()
 {
   Clean();
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOMACMANUFACTURED::Web_GetManufactured
-*/
-/**
-//
-//
-//  ""
-//  @version      22/04/2013 22:13:30
-//
-//  @return       bool :
-//  @param        deviceMAC :
-//  @param        manufactured :
-//  @param        usewebservice :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOMACMANUFACTURED::Web_GetManufactured(DIOMAC& MAC, XSTRING& manufactured)
+* @brief      Web_GetManufactured
+* @ingroup    DATAIO
+* 
+* @param[in]  MAC : 
+* @param[in]  manufactured : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMACMANUFACTURED::Web_GetManufactured(DIOMAC& MAC, XSTRING& manufactured)
 {
   bool status = false;
@@ -112,24 +112,19 @@ bool DIOMACMANUFACTURED::Web_GetManufactured(DIOMAC& MAC, XSTRING& manufactured)
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  DIOMACMANUFACTURED::File_GetManufactured
-*/
-/**
-//
-//
-//  ""
-//  @version      25/04/2013 22:30:28
-//
-//  @return       bool :
-//  @param        xpath :
-//  @param        ID :
-//  @param        manufactured :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOMACMANUFACTURED::File_GetManufactured(XPATH& xpath, DIOMAC& MAC, XSTRING& manufactured)
+* @brief      File_GetManufactured
+* @ingroup    DATAIO
+* 
+* @param[in]  xpath : 
+* @param[in]  MAC : 
+* @param[in]  manufactured : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMACMANUFACTURED::File_GetManufactured(XPATH& xpath, DIOMAC& MAC, XSTRING& manufactured)
 {
   if(xpath.IsEmpty())
@@ -171,23 +166,19 @@ bool DIOMACMANUFACTURED::File_GetManufactured(XPATH& xpath, DIOMAC& MAC, XSTRING
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOMACMANUFACTURED::File_GetManufacturedMACs
-*/
-/**
-//
-//
-//  ""
-//  @version      26/04/2013 17:32:46
-//
-//  @return       bool :
-//  @param        xpath :
-//  @param        manufactured :
-//  @param        MACs :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOMACMANUFACTURED::File_GetManufacturedMACs(XPATH& xpath, XSTRING& manufactured, XVECTOR<XDWORD>& MACs)
+* @brief      File_GetManufacturedMACs
+* @ingroup    DATAIO
+* 
+* @param[in]  xpath : 
+* @param[in]  manufactured : 
+* @param[in]  MACs : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMACMANUFACTURED::File_GetManufacturedMACs(XPATH& xpath, XSTRING& manufactured, XVECTOR<XDWORD>& MACs)
 {
   if(xpath.IsEmpty())
@@ -244,23 +235,18 @@ bool DIOMACMANUFACTURED::File_GetManufacturedMACs(XPATH& xpath, XSTRING& manufac
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  DIOMACMANUFACTURED::File_Download
-*/
-/**
-//
-//
-//  ""
-//  @version      26/04/2013 22:35:29
-//
-//  @return       bool :
-//  @param        xbuffer :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOMACMANUFACTURED::File_Download(XBUFFER& xbuffer, int timeout)
+* @brief      File_Download
+* @ingroup    DATAIO
+* 
+* @param[in]  xbuffer : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMACMANUFACTURED::File_Download(XBUFFER& xbuffer, int timeout)
 {
   DIOURL url;
@@ -281,22 +267,18 @@ bool DIOMACMANUFACTURED::File_Download(XBUFFER& xbuffer, int timeout)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOMACMANUFACTURED::File_Convert
-*/
-/**
-//
-//
-//  ""
-//  @version      26/04/2013 22:38:41
-//
-//  @return       bool :
-//  @param        xbuffer :
-//  @param        xpath :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOMACMANUFACTURED::File_Convert(XBUFFER& xbuffer, XPATH& xpath)
+* @brief      File_Convert
+* @ingroup    DATAIO
+* 
+* @param[in]  xbuffer : 
+* @param[in]  xpath : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMACMANUFACTURED::File_Convert(XBUFFER& xbuffer, XPATH& xpath)
 {
   if(xpath.IsEmpty()) return false;
@@ -421,6 +403,21 @@ bool DIOMACMANUFACTURED::File_Convert(XBUFFER& xbuffer, XPATH& xpath)
   return true;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOMACMANUFACTURED::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOMACMANUFACTURED::Clean()
+{
+
+}
 
 
 
