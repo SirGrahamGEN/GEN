@@ -64,11 +64,7 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOWEBSERVER_HEADER                                                                                                */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-
+#pragma region DIOWEBSERVER_HEADER
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -83,7 +79,6 @@ DIOWEBSERVER_HEADER::DIOWEBSERVER_HEADER()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -102,7 +97,6 @@ DIOWEBSERVER_HEADER::~DIOWEBSERVER_HEADER()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -124,7 +118,6 @@ int DIOWEBSERVER_HEADER::GetVersion()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBSERVER_HEADER::GetSubVersion()
@@ -142,7 +135,6 @@ int DIOWEBSERVER_HEADER::GetSubVersion()
 
   return data;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -164,7 +156,6 @@ int DIOWEBSERVER_HEADER::GetResult()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_HEADER::GetResultString(XSTRING& resultstring)
@@ -182,7 +173,6 @@ bool DIOWEBSERVER_HEADER::GetResultString(XSTRING& resultstring)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -226,7 +216,6 @@ bool DIOWEBSERVER_HEADER::CreateContentType(XSTRING* resource, XSTRING& contentt
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -366,7 +355,6 @@ bool DIOWEBSERVER_HEADER::Create(XSTRING* resource, int version, int subversion,
 
     }
 
-
   /*
   AddLine(__L("Access-Control-Allow-Headers: DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Encoding,Vary"));
   AddLine(__L("Vary : Accept-Encoding"));
@@ -394,7 +382,6 @@ bool DIOWEBSERVER_HEADER::Create(XSTRING* resource, int version, int subversion,
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -427,7 +414,6 @@ bool DIOWEBSERVER_HEADER::AddWebSocketKey(XSTRING& websocketaccept, XSTRING& web
 
   return true;
 }
-
 
 
 /*-------------------------------------------------------------------
@@ -516,7 +502,6 @@ bool DIOWEBSERVER_HEADER::GetDescriptionResult(DIOWEBHEADER_RESULT result, XSTRI
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_HEADER::Clean()
@@ -533,12 +518,10 @@ void DIOWEBSERVER_HEADER::Clean()
 
 }
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOWEBSOCKET_HEADER                                                                                                */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion 
 
 
+#pragma region DIOWEBSOCKET_HEADER
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -551,9 +534,8 @@ void DIOWEBSERVER_HEADER::Clean()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSOCKET_HEADER::DIOWEBSOCKET_HEADER()
 {
-
+  Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -568,9 +550,8 @@ DIOWEBSOCKET_HEADER::DIOWEBSOCKET_HEADER()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSOCKET_HEADER::~DIOWEBSOCKET_HEADER()
 {
-
+  Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -588,14 +569,10 @@ void DIOWEBSOCKET_HEADER::Clean()
 
 }
 
+#pragma endregion 
 
 
-
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOWEBSERVER_AUTHENTICATION                                                                                        */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region DIOWEBSERVER_AUTHENTICATION
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -611,7 +588,6 @@ DIOWEBSERVER_AUTHENTICATION::DIOWEBSERVER_AUTHENTICATION()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -630,7 +606,6 @@ DIOWEBSERVER_AUTHENTICATION::~DIOWEBSERVER_AUTHENTICATION()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_AUTHENTICATION::GetGuest()
@@ -644,7 +619,6 @@ XSTRING* DIOWEBSERVER_AUTHENTICATION::GetGuest()
 {
   return &guest;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -662,7 +636,6 @@ XSTRING* DIOWEBSERVER_AUTHENTICATION::GetLogin()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_AUTHENTICATION::GetPassword()
@@ -676,7 +649,6 @@ XSTRING* DIOWEBSERVER_AUTHENTICATION::GetPassword()
 {
   return &password;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -698,7 +670,6 @@ bool DIOWEBSERVER_AUTHENTICATION::Set(XSTRING& login, XSTRING& password)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -739,13 +710,10 @@ void DIOWEBSERVER_AUTHENTICATION::Clean()
 
 }
 
+#pragma endregion
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOWEBSERVER_REQUEST                                                                                               */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-
+#pragma region DIOWEBSERVER_REQUEST
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -762,7 +730,6 @@ DIOWEBSERVER_REQUEST::DIOWEBSERVER_REQUEST()
   Clean();
   data = new XBUFFER();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -783,7 +750,6 @@ DIOWEBSERVER_REQUEST::~DIOWEBSERVER_REQUEST()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_TYPE DIOWEBSERVER_REQUEST::GetType()
@@ -797,7 +763,6 @@ DIOWEBSERVER_TYPE DIOWEBSERVER_REQUEST::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -817,7 +782,6 @@ void DIOWEBSERVER_REQUEST::SetType(DIOWEBSERVER_TYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBHEADER_METHOD DIOWEBSERVER_REQUEST::GetMethod()
@@ -831,7 +795,6 @@ DIOWEBHEADER_METHOD DIOWEBSERVER_REQUEST::GetMethod()
 {
   return method;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -851,7 +814,6 @@ void DIOWEBSERVER_REQUEST::SetMethod(DIOWEBHEADER_METHOD method)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetResource()
@@ -865,7 +827,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetResource()
 {
   return &resource;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -883,7 +844,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetGuest()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetUserAgent()
@@ -899,8 +859,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetUserAgent()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBSERVER_REQUEST::GetSize()
@@ -914,7 +872,6 @@ int DIOWEBSERVER_REQUEST::GetSize()
 {
   return size;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -934,7 +891,6 @@ void DIOWEBSERVER_REQUEST::SetSize(XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetIfNoneMatch()
@@ -948,7 +904,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetIfNoneMatch()
 {
   return &ifnonematch;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -977,7 +932,6 @@ void DIOWEBSERVER_REQUEST::SetIfNoneMatch(XSTRING& ifnonematch)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedCharset()
@@ -991,7 +945,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedCharset()
 {
   return &acceptedcharset;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1009,7 +962,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedControlRequestMethod()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedLanguage()
@@ -1025,7 +977,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedLanguage()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedAllowHeaders()
@@ -1039,7 +990,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedAllowHeaders()
 {
   return &acceptedallowheaders;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1066,7 +1016,6 @@ void DIOWEBSERVER_REQUEST::ProcessAcceptedEncodingFlags(XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowOrigin()
@@ -1080,7 +1029,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowOrigin()
 {
   return &accesscontrolalloworigin;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1098,7 +1046,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowMethods()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowHeaders()
@@ -1112,7 +1059,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAccessControlAllowHeaders()
 {
   return &accesscontrolallowheaders;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1130,7 +1076,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetOrigin()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::GetConnection()
@@ -1144,7 +1089,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetConnection()
 {
   return &connection;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1162,7 +1106,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetUpgrade()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* DIOWEBSERVER_REQUEST::GetData()
@@ -1178,7 +1121,6 @@ XBUFFER* DIOWEBSERVER_REQUEST::GetData()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_REQUEST::HaveLoginPassword()
@@ -1192,7 +1134,6 @@ bool DIOWEBSERVER_REQUEST::HaveLoginPassword()
 {
   return (loginpassword.IsEmpty()?false:true);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1225,7 +1166,6 @@ bool DIOWEBSERVER_REQUEST::GetLoginPassword(XSTRING& login, XSTRING& password)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_REQUEST::SetLoginPassword(XSTRING& loginpassword)
@@ -1241,7 +1181,6 @@ void DIOWEBSERVER_REQUEST::SetLoginPassword(XSTRING& loginpassword)
 {
   this->loginpassword = loginpassword;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1285,7 +1224,6 @@ bool DIOWEBSERVER_REQUEST::ConvertFromWeb(XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_REQUEST::IsAcceptedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
@@ -1318,7 +1256,6 @@ XSTRING* DIOWEBSERVER_REQUEST::WebSocket_GetKey()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_REQUEST::WebSocket_GetProtocol()
@@ -1332,7 +1269,6 @@ XSTRING* DIOWEBSERVER_REQUEST::WebSocket_GetProtocol()
 {
   return &websocket_protocol;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1350,7 +1286,6 @@ int DIOWEBSERVER_REQUEST::WebSocket_GetVersion()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_REQUEST::WebSocket_SetVersion(int version)
@@ -1366,8 +1301,6 @@ void DIOWEBSERVER_REQUEST::WebSocket_SetVersion(int version)
 {
   websocket_version = version;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1418,16 +1351,10 @@ void DIOWEBSERVER_REQUEST::Clean()
   data                      = NULL;
 }
 
+#pragma endregion
 
 
-
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOWEBSERVER_CONNECTION                                                                                            */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-
-
+#pragma region DIOWEBSERVER_CONNECTION
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -1442,7 +1369,6 @@ DIOWEBSERVER_CONNECTION::DIOWEBSERVER_CONNECTION()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1461,7 +1387,6 @@ DIOWEBSERVER_CONNECTION::~DIOWEBSERVER_CONNECTION()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1501,7 +1426,6 @@ bool DIOWEBSERVER_CONNECTION::Ini(DIOWEBSERVER* webserver, DIOSTREAMTCPIPCONFIG*
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTCPIP* DIOWEBSERVER_CONNECTION::GetDIOStream()
@@ -1515,7 +1439,6 @@ DIOSTREAMTCPIP* DIOWEBSERVER_CONNECTION::GetDIOStream()
 {
   return diostream;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1533,7 +1456,6 @@ XTIMER* DIOWEBSERVER_CONNECTION::GetTimerConnection()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_CONNECTION::IsActive()
@@ -1547,7 +1469,6 @@ bool DIOWEBSERVER_CONNECTION::IsActive()
 {
   return isactive;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1613,7 +1534,6 @@ DIOWEBSERVER_CONNECTION_MODE DIOWEBSERVER_CONNECTION::GetMode()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_CONNECTION::SetMode(DIOWEBSERVER_CONNECTION_MODE mode)
@@ -1629,7 +1549,6 @@ void DIOWEBSERVER_CONNECTION::SetMode(DIOWEBSERVER_CONNECTION_MODE mode)
 {
   this->mode = mode;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1687,7 +1606,6 @@ bool DIOWEBSERVER_CONNECTION::Receiver(XBYTE* buffer, XDWORD& size, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_CONNECTION::Send(XBYTE* buffer, XDWORD& size, int timeout)
@@ -1712,10 +1630,8 @@ bool DIOWEBSERVER_CONNECTION::Send(XBYTE* buffer, XDWORD& size, int timeout)
   bw = diostream->Write(buffer, size);
   if(size != bw) status = false;
 
-
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1738,7 +1654,6 @@ bool DIOWEBSERVER_CONNECTION::Send(XBUFFER& xbuffer, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_CONNECTION::IsRequestInProgress()
@@ -1752,7 +1667,6 @@ bool DIOWEBSERVER_CONNECTION::IsRequestInProgress()
 {
   return isrequestinprogress;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1785,7 +1699,6 @@ DIOWEBCLIENT_HEADER* DIOWEBSERVER_CONNECTION::GetHeader()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_REQUEST* DIOWEBSERVER_CONNECTION::GetRequest()
@@ -1801,7 +1714,6 @@ DIOWEBSERVER_REQUEST* DIOWEBSERVER_CONNECTION::GetRequest()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_ENCODINGFLAGS DIOWEBSERVER_CONNECTION::GetActualEncodingFlag()
@@ -1815,7 +1727,6 @@ DIOWEBSERVER_ENCODINGFLAGS DIOWEBSERVER_CONNECTION::GetActualEncodingFlag()
 {
   return actualencodingflag;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1843,7 +1754,6 @@ bool DIOWEBSERVER_CONNECTION::SetActualEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS a
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1875,7 +1785,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XCHAR* string, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XSTRING& string, int timeout)
@@ -1892,7 +1801,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XSTRING& string, int timeout)
 {
   return WebSocket_Write(string.Get(), timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1920,7 +1828,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XBYTE* buffer, XDWORD size, int ti
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XBUFFER& buffer, int timeout)
@@ -1937,7 +1844,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XBUFFER& buffer, int timeout)
 {
   return WebSocket_Write(buffer.Get(), buffer.GetSize(), timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1970,7 +1876,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XCHAR* string
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XSTRING& string, int timeout)
@@ -1988,7 +1893,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XSTRING& stri
 {
   return WebSocket_WritePingPong(isping, string.Get(), timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2016,7 +1920,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XBUFFER& data
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* DIOWEBSERVER_CONNECTION::GetTimerDisconnection()
@@ -2030,7 +1933,6 @@ XTIMER* DIOWEBSERVER_CONNECTION::GetTimerDisconnection()
 {
  return xtimerdisconnection;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2076,7 +1978,6 @@ bool DIOWEBSERVER_CONNECTION::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2181,7 +2082,6 @@ bool DIOWEBSERVER_CONNECTION::ReadRequest()
   string = header.GetFieldValue(__L("Sec-WebSocket-Version:"));
   request.WebSocket_SetVersion(string.ConvertToInt());
 
-
   if(request.GetSize()>0)
     {
       XBUFFER* data = request.GetData();
@@ -2228,7 +2128,6 @@ bool DIOWEBSERVER_CONNECTION::ReadRequest()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_CONNECTION::SendRequest()
@@ -2261,7 +2160,6 @@ bool DIOWEBSERVER_CONNECTION::SendRequest()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2305,7 +2203,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_CreateAcceptKey(XSTRING& key, XSTRING& r
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2358,7 +2255,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_CreateHeader(DIOWEBSERVER_WEBSOCKET_OPCO
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_CONNECTION::Websocket_ResolveConnection(DIOWEBSERVER_REQUEST* request)
@@ -2385,7 +2281,6 @@ bool DIOWEBSERVER_CONNECTION::Websocket_ResolveConnection(DIOWEBSERVER_REQUEST* 
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2505,7 +2400,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_ReadRequest(DIOWEBSERVER_WEBSOCKET_OPCOD
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Connected()
@@ -2546,9 +2440,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Connected()
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_ReadData(XBUFFER& data)
@@ -2580,7 +2471,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_ReadData(XBUFFER& data)
                                                                                                                  , request.GetResource()->Get());
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2646,7 +2536,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Disconnected()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_CONNECTION::ThreadRunFunction(void* param)
@@ -2682,10 +2571,10 @@ void DIOWEBSERVER_CONNECTION::ThreadRunFunction(void* param)
 
                                                                 case DIOWEBSERVER_CONNECTION_MODE_WEBSOCKET    : sendrequest = wsconn->WebSocket_SendEvent_Connected();
                                                                                                                  break;
-                                                              }
-
-                                                                  wsconn->GetTimerDisconnection()->Reset();
+                                                              }                                                          
                                                           }
+
+                                                        wsconn->GetTimerDisconnection()->Reset();
                                                         break;
 
       case DIOWEBSERVER_CONNECTION_MODE_WEBSOCKET     : { XBUFFER data;
@@ -2769,13 +2658,10 @@ void DIOWEBSERVER_CONNECTION::Clean()
   origin.Empty();
 }
 
+#pragma endregion
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOWEBSERVER                                                                                                       */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-
+#pragma region DIOWEBSERVER
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -2790,7 +2676,6 @@ DIOWEBSERVER::DIOWEBSERVER()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2809,7 +2694,6 @@ DIOWEBSERVER::~DIOWEBSERVER()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2911,7 +2795,6 @@ bool DIOWEBSERVER::Ini(int port, bool doinitialconnectitivitytest, int timeoutse
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBSERVER::GetPort()
@@ -2925,7 +2808,6 @@ int DIOWEBSERVER::GetPort()
 {
   return port;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2943,7 +2825,6 @@ int DIOWEBSERVER::GetTimeoutServerPage()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTCPIPCONFIG* DIOWEBSERVER::GetDIOStreamCFG()
@@ -2957,7 +2838,6 @@ DIOSTREAMTCPIPCONFIG* DIOWEBSERVER::GetDIOStreamCFG()
 {
   return diostreamcfg;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2993,7 +2873,6 @@ bool DIOWEBSERVER::IsSendingAnyPage()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::UnSubscribeAllPages()
@@ -3020,7 +2899,6 @@ bool DIOWEBSERVER::UnSubscribeAllPages()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3055,7 +2933,6 @@ bool DIOWEBSERVER::AddAuthentication(XSTRING& guest, XSTRING& login, XSTRING& pa
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3099,7 +2976,6 @@ DIOWEBSERVER_AUTHENTICATION* DIOWEBSERVER::GetAuthentication(XSTRING& guest)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::DelAuthentication(XSTRING& guest)
@@ -3124,7 +3000,6 @@ bool DIOWEBSERVER::DelAuthentication(XSTRING& guest)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::DelAllAuthentication()
@@ -3144,7 +3019,6 @@ bool DIOWEBSERVER::DelAllAuthentication()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3175,7 +3049,6 @@ bool DIOWEBSERVER::IsPlayablePage(XCHAR* extension)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::IsPlayablePage(XSTRING& extension)
@@ -3191,7 +3064,6 @@ bool DIOWEBSERVER::IsPlayablePage(XSTRING& extension)
 {
   return IsPlayablePage(extension.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3218,7 +3090,6 @@ bool DIOWEBSERVER::AddPlayablePageExtension(XCHAR* extension)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::AddPlayablePageExtension(XSTRING& extension)
@@ -3241,7 +3112,6 @@ bool DIOWEBSERVER::AddPlayablePageExtension(XSTRING& extension)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::DeleteAllPlayablePageExtensions()
@@ -3262,7 +3132,6 @@ bool DIOWEBSERVER::DeleteAllPlayablePageExtensions()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER::AddIncludedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
@@ -3278,7 +3147,6 @@ void DIOWEBSERVER::AddIncludedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
 {
   includedencodingflags |= flag;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3298,7 +3166,6 @@ bool DIOWEBSERVER::IsIncludedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XMUTEX* DIOWEBSERVER::GetMutextConnections()
@@ -3314,7 +3181,6 @@ XMUTEX* DIOWEBSERVER::GetMutextConnections()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOWEBSERVER_CONNECTION*>* DIOWEBSERVER::GetConnections()
@@ -3328,7 +3194,6 @@ XVECTOR<DIOWEBSERVER_CONNECTION*>* DIOWEBSERVER::GetConnections()
 {
   return &connections;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3355,7 +3220,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol)
@@ -3380,7 +3244,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol)
 
   return Websocket_GetNextConnection();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3410,8 +3273,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, 
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, int version, XCHAR* resource)
@@ -3438,7 +3299,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, 
 
   return Websocket_GetNextConnection();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3496,7 +3356,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetNextConnection()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::Websocket_Write(XSTRING& string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
@@ -3529,7 +3388,6 @@ bool DIOWEBSERVER::Websocket_Write(XCHAR* string, int timeout, XCHAR* protocol, 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::Websocket_Write(XSTRING& string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
@@ -3549,7 +3407,6 @@ bool DIOWEBSERVER::Websocket_Write(XSTRING& string, int timeout, XCHAR* protocol
 {
   return Websocket_Write(string.Get(), timeout, protocol, version, resource);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3616,7 +3473,6 @@ bool DIOWEBSERVER::Websocket_Ping(XCHAR* string, int timeout, XCHAR* protocol, i
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::Websocket_Ping(XSTRING& string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
@@ -3638,8 +3494,6 @@ bool DIOWEBSERVER::Websocket_Ping(XSTRING& string, int timeout, XCHAR* protocol,
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_PLUGINSMANAGER DIOWEBSERVER::GetPluginsManager()
@@ -3655,7 +3509,6 @@ DIOWEBSERVER_PLUGINSMANAGER* DIOWEBSERVER::GetPluginsManager()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::IsExit()
@@ -3669,7 +3522,6 @@ bool DIOWEBSERVER::IsExit()
 {
   return doexit;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3750,7 +3602,6 @@ bool DIOWEBSERVER::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::WaitToSentAllPages()
@@ -3774,7 +3625,6 @@ bool DIOWEBSERVER::WaitToSentAllPages()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3813,7 +3663,6 @@ XDWORD DIOWEBSERVER::Connections_GetNWaiting()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBSERVER::Connections_GetNConnectionsSendingPage()
@@ -3844,7 +3693,6 @@ int DIOWEBSERVER::Connections_GetNConnectionsSendingPage()
 
   return nconnections;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3896,7 +3744,6 @@ bool DIOWEBSERVER::Connections_CreateNew()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::Connections_DeleteUsed()
@@ -3939,7 +3786,6 @@ bool DIOWEBSERVER::Connections_DeleteUsed()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::Connections_DeleteWaiting()
@@ -3977,7 +3823,6 @@ bool DIOWEBSERVER::Connections_DeleteWaiting()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER::Connections_DeleteAll()
@@ -4001,7 +3846,6 @@ bool DIOWEBSERVER::Connections_DeleteAll()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -4064,8 +3908,6 @@ void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAMXEVENT* event)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER::HandleEvent(XEVENT* xevent)
@@ -4095,7 +3937,6 @@ void DIOWEBSERVER::HandleEvent(XEVENT* xevent)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER::ThreadRunFunction(void* param)
@@ -4119,7 +3960,6 @@ void DIOWEBSERVER::ThreadRunFunction(void* param)
   webserver->Connections_DeleteUsed();
   webserver->Connections_CreateNew();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -4152,5 +3992,4 @@ void DIOWEBSERVER::Clean()
   websocket_search_resource.Empty();
 }
 
-
-
+#pragma endregion 

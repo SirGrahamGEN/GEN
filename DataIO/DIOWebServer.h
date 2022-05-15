@@ -146,10 +146,7 @@ class DIOSTREAMTCPIPCONFIG ;
 class DIOSTREAMTCPIP;
 class DIOWEBSERVER_REQUEST;
 class DIOWEBSERVER_CONNECTION;
-
-
 class DIOWEBSERVER;
-
 
 class DIOWEBSERVER_HEADER : public DIOWEBHEADER
 {
@@ -177,7 +174,6 @@ class DIOWEBSERVER_HEADER : public DIOWEBHEADER
 };
 
 
-
 class DIOWEBSOCKET_HEADER
 {
   public:
@@ -188,7 +184,6 @@ class DIOWEBSOCKET_HEADER
 
     void                                        Clean                                   ();
 };
-
 
 
 class DIOWEBSERVER_AUTHENTICATION
@@ -212,7 +207,6 @@ class DIOWEBSERVER_AUTHENTICATION
     XSTRING                                     login;
     XSTRING                                     password;
 };
-
 
 
 class DIOWEBSERVER_REQUEST
@@ -308,7 +302,6 @@ class DIOWEBSERVER_REQUEST
     int                                         size;
     XBUFFER*                                    data;
 };
-
 
 
 class DIOWEBSERVER_CONNECTION

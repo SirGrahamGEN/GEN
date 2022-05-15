@@ -34,7 +34,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define FRAMEWORKNAME         "GEN FrameWork"
-#define FRAMEWORKVERSION      "0.9.0"
+#define FRAMEWORKVERSION      "0.9.1"
 #define FRAMEWORKCODENAME     "Gaia Q5"
 
 #ifndef XBYTE
