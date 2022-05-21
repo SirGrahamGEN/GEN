@@ -108,7 +108,7 @@ APPCFG::APPCFG(XCHAR* namefile)
   // INTERNET SERVICES
 
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_CHECKINTERNETSTATUSCADENCE         , &internetservices_checkinternetstatuscadence);
-  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_CHECKIPPUBLICCHANGECADENCE         , &internetservices_checkippublicchangecadence);
+  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_CHECKIPSCHANGECADENCE                 , &internetservices_checkipschangecadence);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMEBYNTPCADENCE             , &internetservices_updatetimebyntpcadence);
 
   for(int c=0; c<APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS; c++)
@@ -117,7 +117,7 @@ APPCFG::APPCFG(XCHAR* namefile)
       AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_INTERNETSERVICES, key.Get(), &internetservices_updatetimentpservers[c]);
     }
 
-  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE    , &internetservices_updatetimentpmeridiandifference);
+  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE       , &internetservices_updatetimentpmeridiandifference);
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPUSEDAYLIGHTSAVING     , &internetservices_updatetimentpusedaylightsaving);
 
 
@@ -339,7 +339,7 @@ bool APPCFG::Default()
   #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
 
   internetservices_checkinternetstatuscadence       = 30;
-  internetservices_checkippublicchangecadence       = 60;
+  internetservices_checkipschangecadence            = 60;
   internetservices_updatetimebyntpcadence           = 4;
 
   internetservices_updatetimentpservers[0]          = __L("1.es.pool.ntp.org");
@@ -657,17 +657,17 @@ int APPCFG::InternetServices_GetCheckInternetStatusCadence()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int APPCFG::InternetServices_GetCheckIPPublicChangeCadence()
-* @brief      Get cadence for check IP public status (in minutes)
+* 
+* @fn         int APPCFG::InternetServices_GetCheckIPsChangeCadence()
+* @brief      InternetServices_GetCheckIPsChangeCadence
 * @ingroup    APPLICATION
-*
-* @return     int : check cadence in seconds
-*
+* 
+* @return     int : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-int APPCFG::InternetServices_GetCheckIPPublicChangeCadence()
+int APPCFG::InternetServices_GetCheckIPsChangeCadence()
 {
-  return (internetservices_checkippublicchangecadence*60);
+  return (internetservices_checkipschangecadence*60);
 }
 
 
@@ -1618,7 +1618,7 @@ void APPCFG::Clean()
   #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
 
   internetservices_checkinternetstatuscadence       = 0;
-  internetservices_checkippublicchangecadence       = 0;
+  internetservices_checkipschangecadence            = 0;
   internetservices_updatetimebyntpcadence           = 0;
 
   for(int c=0; c<APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS; c++)

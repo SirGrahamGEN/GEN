@@ -81,7 +81,7 @@
 
 #define APP_CFG_SECTION_INTERNETSERVICES                                          __L("internet services")
 #define APP_CFG_INTERNETSERVICES_CHECKINTERNETSTATUSCADENCE                       __L("checkinternetstatuscadenceseconds")
-#define APP_CFG_INTERNETSERVICES_CHECKIPPUBLICCHANGECADENCE                       __L("checkippublicchangecadenceminutes")
+#define APP_CFG_INTERNETSERVICES_CHECKIPSCHANGECADENCE                            __L("checkipschangecadenceminutes")
 #define APP_CFG_INTERNETSERVICES_UPDATETIMEBYNTPCADENCE                           __L("updatetimebyntpcadencehours")
 #define APP_CFG_INTERNETSERVICES_UPDATETIMENTPSERVER                              __L("updatetimentpserver")
 #define APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE                  __L("updatetimentpmeridiandifference")
@@ -260,7 +260,7 @@ class APPCFG
     #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
 
     int                  InternetServices_GetCheckInternetStatusCadence           ();
-    int                  InternetServices_GetCheckIPPublicChangeCadence           ();
+    int                  InternetServices_GetCheckIPsChangeCadence                ();
     int                  InternetServices_GetUpdateTimeByNTPCadence               ();
     XSTRING*             InternetServices_GetUpdateTimeNTPServer                  (int index);
     int                  InternetServices_GetUpdateTimeNTPMeridianDifference      ();
@@ -387,7 +387,7 @@ class APPCFG
     #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
 
     int                  internetservices_checkinternetstatuscadence;
-    int                  internetservices_checkippublicchangecadence;
+    int                  internetservices_checkipschangecadence;
     int                  internetservices_updatetimebyntpcadence;
     XSTRING              internetservices_updatetimentpservers[APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS];
     int                  internetservices_updatetimentpmeridiandifference;

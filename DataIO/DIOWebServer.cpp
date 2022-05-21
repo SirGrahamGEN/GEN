@@ -2001,8 +2001,6 @@ bool DIOWEBSERVER_CONNECTION::ReadRequest()
 
   if(!header.Read(diostream, DIOWEBSERVER_DEFAULTCONNECTIONTIMEOUT))  return false;
 
-  isrequestinprogress = true;
-
   XSTRING string;
 
   string = (*(XSTRING*)(header.GetLines()->Get(0)));
@@ -2100,7 +2098,7 @@ bool DIOWEBSERVER_CONNECTION::ReadRequest()
 
           if(size)
             {
-              Receiver((XBYTE*)buffer,size);
+              Receiver((XBYTE*)buffer,size, DIOWEBSERVER_DEFAULTCONNECTIONTIMEOUT);
               if(size) data->Add((XBYTE*)buffer,size);
             }
 
@@ -2156,8 +2154,7 @@ bool DIOWEBSERVER_CONNECTION::SendRequest()
   GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID , false, __L("[%08X] Server Page END [%d] %s"), this, nresourcesprocessed, request.GetResource()->Get());
 
   nresourcesprocessed++;
-  isrequestinprogress = false;
-
+ 
   return true;
 }
 
@@ -2561,12 +2558,15 @@ void DIOWEBSERVER_CONNECTION::ThreadRunFunction(void* param)
       case DIOWEBSERVER_CONNECTION_MODE_NORMAL        :
       case DIOWEBSERVER_CONNECTION_MODE_KEEPALIVE     : if(wsconn->ReadRequest())
                                                           {
+                                                            wsconn->isrequestinprogress = true;
+
                                                             switch(wsconn->GetMode())
                                                               {
                                                                 case DIOWEBSERVER_CONNECTION_MODE_UNKNOWN      :
                                                                 case DIOWEBSERVER_CONNECTION_MODE_NORMAL       :
                                                                 case DIOWEBSERVER_CONNECTION_MODE_KEEPALIVE    : sendrequest = wsconn->SendRequest();
                                                                                                                  if(sendrequest) wsconn->GetTimerDisconnection()->Reset();
+                                                                                                                 wsconn->isrequestinprogress = false;
                                                                                                                  break;
 
                                                                 case DIOWEBSERVER_CONNECTION_MODE_WEBSOCKET    : sendrequest = wsconn->WebSocket_SendEvent_Connected();
@@ -2616,7 +2616,7 @@ void DIOWEBSERVER_CONNECTION::ThreadRunFunction(void* param)
                                                           (wsconn->nresourcesprocessed                    >= DIOWEBSERVER_KEEPALIVE_MAXRESOURCES))     wsconn->Deactivate();
                                                         break;
 
-       case DIOWEBSERVER_CONNECTION_MODE_WEBSOCKET    : if(opcode == DIOWEBSERVER_WEBSOCKET_OPCODE_CONNECTION_CLOSE)
+      case DIOWEBSERVER_CONNECTION_MODE_WEBSOCKET     : if(opcode == DIOWEBSERVER_WEBSOCKET_OPCODE_CONNECTION_CLOSE)
                                                           {
                                                             wsconn->Deactivate();
                                                             wsconn->WebSocket_SendEvent_Disconnected();

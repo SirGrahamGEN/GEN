@@ -50,6 +50,7 @@ enum APPINTERNETSERVICES_TASKID
 
 class XSCHEDULER;
 class XSCHEDULER_XEVENT;
+class XDATETIME;
 class DIOCHECKTCPIPCONNECTIONS;
 class DIOCHECKINTERNETCONNECTION;
 class DIOSCRAPERWEBPUBLICIP;
@@ -78,6 +79,8 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
     DIOCHECKTCPIPCONNECTIONS*       GetCheckTCPIPConnections        ();
     DIOCHECKINTERNETCONNECTION*     GetCheckInternetConnection      ();
     DIODYNDNS_MANAGER*              GetDynDNSManager                ();
+
+    XSCHEDULER*                     GetXScheduler                   ();
 
     bool                            End                             ();
 

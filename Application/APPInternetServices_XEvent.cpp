@@ -142,6 +142,44 @@ void APPINTERNETSERVICES_XEVENT::SetInternetConnextionCut(DIOCHECKTCPIPCONNECTIO
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool APPINTERNETSERVICES_XEVENT::IsChangePublicIP()
+* @brief      IsChangePublicIP
+* @ingroup    APPLICATION
+* 
+* @author     Abraham J. Velez 
+* @date       18/05/2022 19:41:14
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool APPINTERNETSERVICES_XEVENT::IsChangePublicIP()
+{
+  return ischangepublicIP;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void APPINTERNETSERVICES_XEVENT::SetIsChangePublicIP(bool ischangepublicIP)
+* @brief      SetIsChangePublicIP
+* @ingroup    APPLICATION
+* 
+* @author     Abraham J. Velez 
+* @date       18/05/2022 19:41:18
+* 
+* @param[in]  ischangepublicIP : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void APPINTERNETSERVICES_XEVENT::SetIsChangePublicIP(bool ischangepublicIP)
+{
+  this->ischangepublicIP = ischangepublicIP;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool APPINTERNETSERVICES_XEVENT::IsChangeLocalIP()
 * @brief      IsChangeLocalIP
 * @ingroup    APPLICATION
@@ -175,16 +213,37 @@ void APPINTERNETSERVICES_XEVENT::SetIsChangeLocalIP(bool ischangelocalIP)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* APPINTERNETSERVICES_XEVENT::GetChangeIP()
-* @brief      GetChangeIP
+* @fn         XSTRING* APPINTERNETSERVICES_XEVENT::GetChangePublicIP()
+* @brief      GetChangePublicIP
 * @ingroup    APPLICATION
-*
+* 
+* @author     Abraham J. Velez 
+* @date       18/05/2022 19:39:47
+* 
 * @return     XSTRING* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-XSTRING* APPINTERNETSERVICES_XEVENT::GetChangeIP()
+XSTRING* APPINTERNETSERVICES_XEVENT::GetChangePublicIP()
 {
-  return &changeIP;
+  return &changepublicIP;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* APPINTERNETSERVICES_XEVENT::GetChangeLocalIP()
+* @brief      GetChangeLocalIP
+* @ingroup    APPLICATION
+* 
+* @author     Abraham J. Velez 
+* @date       18/05/2022 19:40:00
+* 
+* @return     XSTRING* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPINTERNETSERVICES_XEVENT::GetChangeLocalIP()
+{
+  return &changelocalIP;
 }
 
 
@@ -203,6 +262,8 @@ void APPINTERNETSERVICES_XEVENT::Clean()
   internetconnexionstate  = APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_NONE;
   internetconnectioncut   = NULL;
 
+  ischangepublicIP        = false;
   ischangelocalIP         = false;
-  changeIP.Empty();
+  changepublicIP.Empty();
+  changelocalIP.Empty();
 }

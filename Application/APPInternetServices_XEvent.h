@@ -72,10 +72,14 @@ class APPINTERNETSERVICES_XEVENT : public XEVENT
     DIOCHECKTCPIPCONNECTION_CUT*                        GetInternetConnextionCut               ();
     void                                                SetInternetConnextionCut               (DIOCHECKTCPIPCONNECTION_CUT* internetconnectioncut);
 
+    bool                                                IsChangePublicIP                       ();     
+    void                                                SetIsChangePublicIP                    (bool ischangepublicIP);     
+
     bool                                                IsChangeLocalIP                        ();     
     void                                                SetIsChangeLocalIP                     (bool ischangelocalIP);     
 
-    XSTRING*                                            GetChangeIP                            ();     
+    XSTRING*                                            GetChangePublicIP                      ();     
+    XSTRING*                                            GetChangeLocalIP                       ();     
 
     
   private:
@@ -85,8 +89,11 @@ class APPINTERNETSERVICES_XEVENT : public XEVENT
     APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE    internetconnexionstate;
     DIOCHECKTCPIPCONNECTION_CUT*                        internetconnectioncut;
 
+    bool                                                ischangepublicIP;
     bool                                                ischangelocalIP;
-    XSTRING                                             changeIP;     
+    
+    XSTRING                                             changepublicIP;     
+    XSTRING                                             changelocalIP;     
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
