@@ -1,72 +1,78 @@
 # --------------------------------------------------------------------
 # CMakeLists_Librarys.txt to GEN FrameWork
-# Librarys  
 # --------------------------------------------------------------------
 
-
-# --------------------------------------------------------------------
-# Add Libraries
 
 # --------------------------------------------------------------------
 # Windows
 
-if(COMPILE_TO_WINDOWS)
-        
-  #if(COMPILE_TO_WINDOWS_PC_32)
+ if(COMPILE_TO_WINDOWS)  
 
-    if(APP_CONSOLE_FEATURE)    
-      set_target_properties(${CMAKE_PROJECT_NAME}  PROPERTIES LINK_FLAGS /SUBSYSTEM:CONSOLE)
-    else()
+   if(APP_CONSOLE_FEATURE)    
 
-      if(GRP_FEATURE)
-        set_target_properties(${CMAKE_PROJECT_NAME}  PROPERTIES LINK_FLAGS /SUBSYSTEM:WINDOWS)
-        # target_link_libraries(${CMAKE_PROJECT_NAME} shcore)
-      endif()
+     set_target_properties(${CMAKE_PROJECT_NAME}  PROPERTIES LINK_FLAGS /SUBSYSTEM:CONSOLE)
 
-    endif()
+   else()
 
-    if(XTRACE_FEATURE OR DIO_FEATURE)    
-      target_link_libraries(${CMAKE_PROJECT_NAME} ws2_32) 
-      target_link_libraries(${CMAKE_PROJECT_NAME} iphlpapi)  
+     if(GRP_FEATURE)
+
+       set_target_properties(${CMAKE_PROJECT_NAME}  PROPERTIES LINK_FLAGS /SUBSYSTEM:WINDOWS)
+       # target_link_libraries(${CMAKE_PROJECT_NAME} shcore)
+     endif()
+
+   endif()
+
+   if(XTRACE_FEATURE OR DIO_FEATURE)    
+
+     target_link_libraries(${CMAKE_PROJECT_NAME} ws2_32) 
+     target_link_libraries(${CMAKE_PROJECT_NAME} iphlpapi)  
       
-    endif()
+   endif()
 
-    if(XSYSTEM_FEATURE)          
+   if(XSYSTEM_FEATURE)          
+
       target_link_libraries(${CMAKE_PROJECT_NAME} secur32)      
       target_link_libraries(${CMAKE_PROJECT_NAME} powrprof)
-    endif()
 
+   endif()
 
-#   target_link_libraries(${CMAKE_PROJECT_NAME} dbghelp)  
+   if(DIO_STREAMUSB_FEATURE)      
 
-    if(DIO_STREAMUSB_FEATURE)      
-      target_link_libraries(${CMAKE_PROJECT_NAME} setupapi)
-    endif()  
+     target_link_libraries(${CMAKE_PROJECT_NAME} setupapi)
+
+   endif()  
   
-    if(DIO_STREAMBLUETOOTH_FEATURE OR DIO_STREAMBLUETOOTHLE_FEATURE)      
-      target_link_libraries(${CMAKE_PROJECT_NAME} bthprops.lib)
-    endif()  
+   if(DIO_STREAMBLUETOOTH_FEATURE OR DIO_STREAMBLUETOOTHLE_FEATURE)      
+
+     target_link_libraries(${CMAKE_PROJECT_NAME} bthprops.lib)
+
+   endif()  
   
-    if(SND_FEATURE)  
-      target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
-    endif()
+   if(SND_FEATURE)  
 
-    if(DATABASES_SQL_MYSQL_FEATURE)    
-      target_link_libraries(${CMAKE_PROJECT_NAME} libmysql.lib)
-    endif()
+     target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
 
-    if(DATABASES_SQL_POSTGRESQL_FEATURE)
-      target_link_libraries(${CMAKE_PROJECT_NAME} libpq.lib)
-    endif() 
+   endif()
 
-    if(DIO_PCAP_FEATURE)
-      target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_LIB})
-    endif()  
+   if(DATABASES_SQL_MYSQL_FEATURE)    
 
-  #endif()
+     target_link_libraries(${CMAKE_PROJECT_NAME} libmysql.lib)
+
+   endif()
+
+   if(DATABASES_SQL_POSTGRESQL_FEATURE)
+
+     target_link_libraries(${CMAKE_PROJECT_NAME} libpq.lib)
+
+   endif() 
+
+   if(DIO_PCAP_FEATURE)
+
+     target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_LIB})
+
+   endif()  
 
 endif()
-
 
 
 # --------------------------------------------------------------------
@@ -128,8 +134,6 @@ if(COMPILE_TO_LINUX)
   endif()
 
 endif()
-
-
 
 
 # ----------------------------------------

@@ -249,7 +249,7 @@ bool MYSQL_QUERY::Exec(MYSQL* db,char* sql)
    else
     {
       // Set up statement
-      if(mysql_stmt_prepare(stmt, sql, strlen(sql)) != 0)
+      if(mysql_stmt_prepare(stmt, sql, (unsigned long)strlen(sql)) != 0)
         {
           DB_SQL_ERROR* error=new DB_SQL_ERROR(DB_SQL_ERROR_TYPE_STATEMENT_ERROR);
           if(!error) return false;
