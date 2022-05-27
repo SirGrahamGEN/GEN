@@ -253,7 +253,7 @@ int COMPRESS_ZIP::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDW
       err = inflate(&stream, Z_FINISH);
       if(err==Z_STREAM_END) break;
 
-      if(err == Z_NEED_DICT || (err == Z_BUF_ERROR && stream.avail_in == 0)) err = Z_TICKET_ERROR;
+      if(err == Z_NEED_DICT || (err == Z_BUF_ERROR && stream.avail_in == 0)) err = Z_DATA_ERROR;
 
       if(err!=Z_BUF_ERROR)
         {

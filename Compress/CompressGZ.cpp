@@ -218,7 +218,7 @@ int COMPRESS_GZ::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWO
   stream.avail_in = 0;
   stream.next_in  = Z_NULL;
 
-  if(inflateInit2(&stream, 16 + MAX_WBITS) != Z_OK)  return Z_TICKET_ERROR;
+  if(inflateInit2(&stream, 16 + MAX_WBITS) != Z_OK)  return Z_DATA_ERROR;
 
   stream.avail_in = sourcesize;
 
@@ -237,7 +237,7 @@ int COMPRESS_GZ::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWO
           case Z_BUF_ERROR      :
           case Z_VERSION_ERROR  :
           case Z_NEED_DICT      :
-          case Z_TICKET_ERROR   :
+          case Z_DATA_ERROR     :
           case Z_MEM_ERROR      : inflateEnd(&stream);
                                   return false;
         }
