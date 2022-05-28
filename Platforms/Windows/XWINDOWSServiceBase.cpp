@@ -400,7 +400,7 @@ bool XWINDOWSSERVICEBASE::Stopped(XCHAR* servicename)
 
   if(ControlService(service, SERVICE_CONTROL_STOP, &ss) == 0)
     {
-      DWORD error = GetLastError();
+      //DWORD error = GetLastError();
       return false;
     }
 

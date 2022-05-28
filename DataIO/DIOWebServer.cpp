@@ -293,7 +293,7 @@ bool DIOWEBSERVER_HEADER::Create(XSTRING* resource, int version, int subversion,
       datetime->GetDateTimeToString(XDATETIME_FORMAT_ADDTIME | XDATETIME_FORMAT_TIMEWITHSECONDS, hour);
       datetime->GetMonthString(month);
 
-      switch (datetime->GetDayOfWeek())
+      switch((int)datetime->GetDayOfWeek())
         {
           case  1:  day.Set(__L("Mon")); break;
           case  2:  day.Set(__L("Tue")); break;
@@ -303,9 +303,10 @@ bool DIOWEBSERVER_HEADER::Create(XSTRING* resource, int version, int subversion,
           case  6:  day.Set(__L("Sat")); break;
           case  0:
           case  7:  day.Set(__L("Sun")); break;
+          default:  break;
         }
 
-      switch (datetime->GetMonth())
+      switch(datetime->GetMonth())
         {
           case  1:  month.Set(__L("Jan")); break;
           case  2:  month.Set(__L("Feb")); break;
@@ -319,6 +320,7 @@ bool DIOWEBSERVER_HEADER::Create(XSTRING* resource, int version, int subversion,
           case 10:  month.Set(__L("Oct")); break;
           case 11:  month.Set(__L("Nov")); break;
           case 12:  month.Set(__L("Dec")); break;
+          default:  break;
         }
 
       //Date: Wed, 21 Oct 2015 07:28:00 GMT
@@ -2595,6 +2597,8 @@ void DIOWEBSERVER_CONNECTION::ThreadRunFunction(void* param)
 
                                                                   case DIOWEBSERVER_WEBSOCKET_OPCODE_PONG                 : wsconn->WebSocket_SendEvent_Pong(data);
                                                                                                                             break;
+
+                                                                                                            default       : break;
                                                                }
 
                                                             }
@@ -3209,8 +3213,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection()
 {
   if(connections.IsEmpty()) return NULL;
 
-  DIOWEBSERVER_CONNECTION* connection = NULL;
-
   websocket_search_indexconnection = 0;
   websocket_search_protocol.Empty();
   websocket_search_version         = 0;
@@ -3234,8 +3236,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection()
 DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol)
 {
   if(connections.IsEmpty()) return NULL;
-
-  DIOWEBSERVER_CONNECTION* connection = NULL;
 
   websocket_search_indexconnection = 0;
   websocket_search_protocol        = protocol;
@@ -3261,9 +3261,7 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol)
 DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, int version)
 {
   if(connections.IsEmpty()) return NULL;
-
-  DIOWEBSERVER_CONNECTION* connection = NULL;
-
+ 
   websocket_search_indexconnection = 0;
   websocket_search_protocol        = protocol;
   websocket_search_version         = version;
@@ -3289,8 +3287,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, 
 DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetConnection(XCHAR* protocol, int version, XCHAR* resource)
 {
   if(connections.IsEmpty()) return NULL;
-
-  DIOWEBSERVER_CONNECTION* connection = NULL;
 
   websocket_search_indexconnection = 0;
   websocket_search_protocol        = protocol;

@@ -578,7 +578,7 @@ bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XWINDOWSFILEMODE mode)
 
   if(filehandle == INVALID_HANDLE_VALUE)
     {
-      XDWORD err = GetLastError();
+      //XDWORD err = GetLastError();
       return false;
     }
 

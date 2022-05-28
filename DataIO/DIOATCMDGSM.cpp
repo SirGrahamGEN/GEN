@@ -866,7 +866,6 @@ DIOATCMD_ERROR DIOATCMDGSM::SendSMS(XCHAR* number, XCHAR* message, int* mrID, in
             {
               if(mrID)
                 {
-                  int      size = 0;
                   XSTRING  mask;
 
                   mask  = GetCommandString(DIOATCMD_TYPE_GSMSENDSMS);

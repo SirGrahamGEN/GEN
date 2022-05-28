@@ -1,26 +1,37 @@
-/*------------------------------------------------------------------------------------------
-// DIOSSHREVERSE.CPP
-*/
-/**
-// \class
-//
-//  DIO SSH reverse connections (only ssh/sshpass avaible [linux])
-//
-//  ""
-//
-//  Date of Creation : 27/03/2018 7:24:08
-//  Last Modification :
-*/
-/*  GEN  Copyright (C).  All right reserved.
-/*------------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOSSHReverse.cpp
+* 
+* @class      DIOSSHREVERSE
+* @brief      Data Input/Output SSH reverse.
+* @ingroup    DATAIO
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XThreadCollected.h"
 
@@ -28,34 +39,177 @@
 #include "DIOURL.h"
 #include "DIOWebClient.h"
 
-
 #include "DIOSSHReverse.h"
 
+#include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 DIOSSHREVERSE* DIOSSHREVERSE::instance = NULL;
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSSHREVERSE::GetIsInstanced()
+* @brief      GetIsInstanced
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOSSHREVERSE::GetIsInstanced()
+{
+  return instance!=NULL;
+}
 
-/*-------------------------------------------------------------------
-//   DIOSSHREVERSE::DownloadCFG
-*/
-/**
-//
-//
-//  ""
-//  @version  27/03/2018 7:38:29
-//
-//  @return   bool :
-//
-//  @param    XCHAR* :
-//  @param    XSTRING& :
-//  @param    XSTRING& :
-//
-*//*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSSHREVERSE& DIOSSHREVERSE::GetInstance()
+* @brief      GetInstance
+* @ingroup    DATAIO
+* 
+* @return     DIOSSHREVERSE& : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOSSHREVERSE& DIOSSHREVERSE::GetInstance()
+{
+  if(!instance) instance = new DIOSSHREVERSE();
+
+  return (*instance);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSSHREVERSE::DelInstance()
+* @brief      DelInstance
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOSSHREVERSE::DelInstance()
+{
+  if(instance)
+    {
+      delete instance;
+      instance = NULL;
+
+      return true;
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOSSHREVERSE::GetURLTarget()
+* @brief      GetURLTarget
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOSSHREVERSE::GetURLTarget()
+{ 
+  return &URLtarget;                                            
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOSSHREVERSE::GetLocalIP()
+* @brief      GetLocalIP
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOSSHREVERSE::GetLocalIP()
+{ 
+  return &localIP;                                              
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOSSHREVERSE::GetLogin()
+* @brief      GetLogin
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOSSHREVERSE::GetLogin()
+{ 
+  return &login;                                                
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOSSHREVERSE::GetPassword()
+* @brief      GetPassword
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOSSHREVERSE::GetPassword()
+{ 
+  return &password;                                             
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOSSHREVERSE::GetPort()
+* @brief      GetPort
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOSSHREVERSE::GetPort()
+{ 
+  return port;                                                  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSSHREVERSE::SetPort(XDWORD port)
+* @brief      SetPort
+* @ingroup    DATAIO
+* 
+* @param[in]  port : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOSSHREVERSE::SetPort(XDWORD port)
+{ 
+  this->port = port;                                            
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSSHREVERSE::DownloadCFG(XCHAR* URL, XSTRING& publicIP, XSTRING& localIP)
+* @brief      DownloadCFG
+* @ingroup    DATAIO
+* 
+* @param[in]  URL : 
+* @param[in]  publicIP : 
+* @param[in]  localIP : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSSHREVERSE::DownloadCFG(XCHAR* URL, XSTRING& publicIP, XSTRING& localIP)
 {
   if(!URL)   return false;
@@ -167,25 +321,55 @@ bool DIOSSHREVERSE::DownloadCFG(XCHAR* URL, XSTRING& publicIP, XSTRING& localIP)
 
   return result;
 }
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSSHREVERSE::DownloadCFG(XSTRING& URL, XSTRING& publicIP, XSTRING& localIP)
+* @brief      DownloadCFG
+* @ingroup    DATAIO
+* 
+* @param[in]  URL : 
+* @param[in]  publicIP : 
+* @param[in]  localIP : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOSSHREVERSE::DownloadCFG(XSTRING& URL, XSTRING& publicIP, XSTRING& localIP)
+{
+  return DownloadCFG(URL.Get(), publicIP, localIP);
+}
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSSHREVERSE::DownloadCFG(DIOURL& URL, XSTRING& publicIP, XSTRING& localIP)
+* @brief      DownloadCFG
+* @ingroup    DATAIO
+* 
+* @param[in]  URL : 
+* @param[in]  publicIP : 
+* @param[in]  localIP : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOSSHREVERSE::DownloadCFG(DIOURL&  URL, XSTRING& publicIP, XSTRING& localIP)
+{
+  return DownloadCFG(URL.Get(), publicIP, localIP);
+}
+ 
 
-
-
-/*-------------------------------------------------------------------
-//   DIOSSHREVERSE::Activate
-*/
-/**
-//
-//
-//  ""
-//  @version  14/04/2018 17:43:48
-//
-//  @return   bool :
-//
-//  @param    withscreen :
-//
-*//*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSSHREVERSE::Activate()
+* @brief      Activate
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSSHREVERSE::Activate()
 {
   XSTRING command;
@@ -218,24 +402,17 @@ bool DIOSSHREVERSE::Activate()
 
   return status;
 }
+   
 
-
-
-
-/*-------------------------------------------------------------------
-//   DIOSSHREVERSE::DeActivate
-*/
-/**
-//
-//
-//  ""
-//  @version  27/03/2018 7:41:33
-//
-//  @return   bool :
-//
-//  @param     :
-//
-*//*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSSHREVERSE::DeActivate()
+* @brief      DeActivate
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSSHREVERSE::DeActivate()
 {
   XSTRING command;
@@ -258,21 +435,15 @@ bool DIOSSHREVERSE::DeActivate()
 }
 
 
-
-/*-------------------------------------------------------------------
-//   DIOSSHREVERSE::IsRunning
-*/
-/**
-//
-//
-//  ""
-//  @version  27/03/2018 7:45:02
-//
-//  @return   bool :
-//
-//  @param    ) :
-//
-*//*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSSHREVERSE::IsRunning()
+* @brief      IsRunning
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSSHREVERSE::IsRunning()
 {
 
@@ -352,5 +523,131 @@ bool DIOSSHREVERSE::IsRunning()
 
   return status;
 }
+  
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSSHREVERSE::Exec(XCHAR* URL, XSTRING& publicIP, XSTRING& localIP)
+* @brief      Exec
+* @ingroup    DATAIO
+* 
+* @param[in]  URL : 
+* @param[in]  publicIP : 
+* @param[in]  localIP : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOSSHREVERSE::Exec(XCHAR* URL, XSTRING& publicIP, XSTRING& localIP)
+{
+  bool status = false;
+
+  if(IsRunning())
+    {
+      status = true;
+      return status;
+    }
+
+  if(DownloadCFG(URL, publicIP, localIP))
+    {
+      Activate();
+    }
+
+  DelInstance();
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSSHREVERSE::Exec(XSTRING& URL, XSTRING& publicIP, XSTRING& localIP)
+* @brief      Exec
+* @ingroup    DATAIO
+* 
+* @param[in]  URL : 
+* @param[in]  publicIP : 
+* @param[in]  localIP : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOSSHREVERSE::Exec(XSTRING& URL, XSTRING& publicIP, XSTRING& localIP)
+{
+  return Exec(URL.Get(), publicIP, localIP);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSSHREVERSE::Exec(DIOURL& URL, XSTRING& publicIP, XSTRING& localIP)
+* @brief      Exec
+* @ingroup    DATAIO
+* 
+* @param[in]  URL : 
+* @param[in]  publicIP : 
+* @param[in]  localIP : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOSSHREVERSE::Exec(DIOURL&  URL, XSTRING& publicIP, XSTRING& localIP)
+{
+  return Exec(URL.Get(), publicIP, localIP);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSSHREVERSE::DIOSSHREVERSE()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOSSHREVERSE::DIOSSHREVERSE()
+{
+  Clean();
+}
+
+                                  
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSSHREVERSE::~DIOSSHREVERSE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOSSHREVERSE::~DIOSSHREVERSE()
+{
+  Clean();
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSSHREVERSE::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOSSHREVERSE::Clean()
+{
+  URLtarget.Empty();
+  localIP.Empty();
+  login.Empty();
+  password.Empty();
+
+  port  = 0;
+}
+
+
 
 

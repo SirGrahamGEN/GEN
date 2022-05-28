@@ -231,8 +231,9 @@ bool APPCHECKRESOURCESHARDWARE::CheckMemoryStatus()
 
   if(freepercent < cfg->CheckResourcesHardware_GetMemStatusLimitPercent())
     {
-      bool status =  GEN_XSYSTEM.FreeCacheMemory();
+      GEN_XSYSTEM.FreeCacheMemory();
 
+      //bool status =  GEN_XSYSTEM.FreeCacheMemory();
       //GEN_XLOG.AddEntry((status?XLOGLEVEL_INFO:XLOGLEVEL_WARNING), APP_CFG_LOG_SECTIONID_STATUSAPP, false, __L("Low free memory: %d Kb (%d%%). Cache memory released: %s"), free,  freepercent, (status?__L("Ok."):__L("Error!")));      
      
       APPCHECKRESOURCESHARDWARE_XEVENT  xevent(this, APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_MEMFREELIMIT);      

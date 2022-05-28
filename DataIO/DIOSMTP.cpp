@@ -371,20 +371,15 @@ DIOSMTP::~DIOSMTP()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOSMTP::Ini
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      30/05/2014 17:15:23
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSMTP::Ini()
+* @brief      Ini
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSMTP::Ini()
 {
   if(!diostream)                return false;
@@ -393,7 +388,6 @@ bool DIOSMTP::Ini()
   message = new XFILETXT();
   if(!message) return false;
 
-  this->contenttype = contenttype;
   serverconnectiontimeout  = DIOSMTP_DEFAULTTIMEOUT;
 
   return true;
@@ -1500,7 +1494,7 @@ bool DIOSMTP::SendResponseAndWait(XSTRING& response, int codevalid, int codecont
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSMTP::CreateHeader(XSTRING& header)
 {
-  XCHAR*  month[] = { __L("Jan") , __L("Feb"), __L("Mar"), __L("Apr"), __L("May"), __L("Jun"), __L("Jul") , __L("Aug"), __L("Sep"), __L("Oct"), __L("Nov"), __L("Dec") };
+//XCHAR*  month[] = { __L("Jan") , __L("Feb"), __L("Mar"), __L("Apr"), __L("May"), __L("Jun"), __L("Jul") , __L("Aug"), __L("Sep"), __L("Oct"), __L("Nov"), __L("Dec") };
   XSTRING to_line;
   XSTRING cc_line;
   XSTRING bcc_line;

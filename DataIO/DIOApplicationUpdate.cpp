@@ -788,8 +788,7 @@ bool DIOAPPLICATIONUPDATE::Download(DIOURL& url, int port, XCHAR* addtargetpath,
       xpathfile.GetExt(extenxion);
 
       HASHCRC32 hashCRC32;
-      int       sizetarget = 0;
-
+      
       hashCRC32.ResetResult();
       hashCRC32.Do(xpathfile);
 
@@ -1275,7 +1274,6 @@ bool DIOAPPLICATIONUPDATE::RestartApplication(DIOAPPLICATIONUPDATE_ERROR& error)
 {
   XSTRING command;
   XSTRING appname;
-  int     returncode = 0;
 
   appname = applicationname.Get();  
   //appname.ToLowerCase();

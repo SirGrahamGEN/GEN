@@ -444,6 +444,7 @@ bool APPUPDATE::EventManager(APPUPDATE_EVENTOPERATION eventoperation, XSUBJECT* 
           case APPUPDATE_EVENTOPERATION_DEREGISTER   : DeRegisterEvent(events[c]);                         break;
           case APPUPDATE_EVENTOPERATION_SUBSCRIBE    : SubscribeEvent(events[c]   , xsubject, observer);   break;
           case APPUPDATE_EVENTOPERATION_UNSUBSCRIBE  : UnSubscribeEvent(events[c] , xsubject, observer);   break;
+                                           default   : return false;
         }
     }
 

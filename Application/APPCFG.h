@@ -178,7 +178,7 @@
 #define APP_CFG_ALERTS_UDP_RECIPIENT                                              __L("udp_recipient")
 
 #define APP_CFG_ALERTS_MAXCONDITIONS                                              10
-#define APP_CFG_ALERTS_MAXRECIPIENTS                                              5
+#define APP_CFG_ALERTS_MAXRECIPIENTS                                              10
 
 #endif
 

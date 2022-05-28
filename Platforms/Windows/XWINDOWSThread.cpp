@@ -234,10 +234,11 @@ bool XWINDOWSTHREAD::Ini(bool run)
   if((priority != XTHREADPRIORITY_UNKNOWN) && (priority != XTHREADPRIORITY_NORMAL))
     {
       switch(priority)
-        {
+        {            
           case XTHREADPRIORITY_LOW       : SetThreadPriority(thhandle, THREAD_PRIORITY_LOWEST);         break;
           case XTHREADPRIORITY_HIGH      : SetThreadPriority(thhandle, THREAD_PRIORITY_HIGHEST);        break;
           case XTHREADPRIORITY_REALTIME  : SetThreadPriority(thhandle, THREAD_PRIORITY_TIME_CRITICAL);  break;
+                               default   : break;
         }
     }
 

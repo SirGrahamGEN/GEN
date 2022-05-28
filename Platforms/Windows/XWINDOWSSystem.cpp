@@ -550,8 +550,7 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 
   #ifndef BUILDER
   HANDLE           hprocesssnap;
-  PROCESSENTRY32   pe32;
-  bool             status   = false;
+  PROCESSENTRY32   pe32;  
 
   // Take a snapshot of all processes in the system.
   hprocesssnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -889,6 +888,9 @@ bool XWINDOWSSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
                                                         #endif    
                                                         break;
 
+                                          default    :  return false;
+
+
     }
 
   return true;
@@ -915,18 +917,19 @@ int XWINDOWSSYSTEM::Sound_GetLevel()
   IAudioEndpointVolume*   endpointvolume    = NULL;
   IMMDevice*              defaultdevice     = NULL;
   HRESULT                 hresult;
-  bool                    status            = false;
-
+ 
   //-------------------------------------------------------------------------------------------------------------------
 
   CoInitialize(NULL);
 
   hresult = CoCreateInstance(__uuidof(MMDeviceEnumerator), NULL, CLSCTX_INPROC_SERVER, __uuidof(IMMDeviceEnumerator), (LPVOID *)&deviceenumerator);
   if(!deviceenumerator) return 0;
+  if(hresult != S_OK) return 0;
 
   //-------------------------------------------------------------------------------------------------------------------
 
   hresult = deviceenumerator->GetDefaultAudioEndpoint(eRender, eConsole, &defaultdevice);
+  if(hresult != S_OK) return 0;
   if(defaultdevice)
     {
       deviceenumerator->Release();
@@ -942,12 +945,11 @@ int XWINDOWSSYSTEM::Sound_GetLevel()
       //-------------------------------------------------------------------------------------------------------------------
 
       hresult = endpointvolume->GetMasterVolumeLevelScalar(&currentvolume);
+      if(hresult != S_OK) return 0;
 
       //-------------------------------------------------------------------------------------------------------------------
 
       endpointvolume->Release();
-
-      status = true;
     }
 
   CoUninitialize();
@@ -988,10 +990,13 @@ bool XWINDOWSSYSTEM::Sound_SetLevel(int level)
 
   hresult = CoCreateInstance(__uuidof(MMDeviceEnumerator), NULL, CLSCTX_INPROC_SERVER, __uuidof(IMMDeviceEnumerator), (LPVOID *)&deviceenumerator);
   if(!deviceenumerator) return false;
+  if(hresult != S_OK) return false;
 
   //-------------------------------------------------------------------------------------------------------------------
 
   hresult = deviceenumerator->GetDefaultAudioEndpoint(eRender, eConsole, &defaultdevice);
+  if(hresult != S_OK) return false;
+
   deviceenumerator->Release();
   deviceenumerator = NULL;
 
@@ -1000,6 +1005,8 @@ bool XWINDOWSSYSTEM::Sound_SetLevel(int level)
       //-------------------------------------------------------------------------------------------------------------------
 
       hresult = defaultdevice->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_INPROC_SERVER, NULL, (LPVOID *)&endpointvolume);
+      if(hresult != S_OK) return false;
+
       defaultdevice->Release();
       defaultdevice = NULL;
       endpointvolume->GetMasterVolumeLevel(&currentvolume);
@@ -1056,10 +1063,12 @@ bool XWINDOWSSYSTEM::Sound_SetMutex(bool on)
 
   hresult = CoCreateInstance(__uuidof(MMDeviceEnumerator), NULL, CLSCTX_INPROC_SERVER, __uuidof(IMMDeviceEnumerator), (LPVOID *)&deviceenumerator);
   if(!deviceenumerator) return false;
+  if(hresult != S_OK) return false;
 
   //-------------------------------------------------------------------------------------------------------------------
 
   hresult = deviceenumerator->GetDefaultAudioEndpoint(eRender, eConsole, &defaultdevice);
+  if(hresult != S_OK) return false;
  
   deviceenumerator->Release();
   deviceenumerator = NULL; 
@@ -1069,6 +1078,8 @@ bool XWINDOWSSYSTEM::Sound_SetMutex(bool on)
       //-------------------------------------------------------------------------------------------------------------------
 
       hresult = defaultdevice->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_INPROC_SERVER, NULL, (LPVOID *)&endpointvolume);
+      if(hresult != S_OK) status = false;
+
       defaultdevice->Release();
       defaultdevice = NULL;
       endpointvolume->GetMasterVolumeLevel(&currentvolume);

@@ -512,7 +512,7 @@ bool XPROCESSMANAGER::TerminateApplication(XPROCESS& process, XDWORD exitcode)
 bool XPROCESSMANAGER::TerminateApplication(XCHAR* processname, XDWORD exitcode)
 {
   XVECTOR<XPROCESS*> apprunning; 
-  bool               status;           
+  bool               status = false;           
 
   if(!GEN_XPROCESSMANAGER.GetApplicationRunningList(apprunning)) return false;
 

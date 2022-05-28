@@ -1619,6 +1619,7 @@ bool Exception_Printf(bool iserror, XCHAR* title, XCHAR* mask, ...)
 * @return     static :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
+/*
 static bool Exception_PrintfStackTrace(const CONTEXT* context)
 {
   static const int MAX_TRACES     = 60;
@@ -1637,13 +1638,13 @@ static bool Exception_PrintfStackTrace(const CONTEXT* context)
     {
       ULONG64         buffer[BUFFER_LENGTH];
       DWORD_PTR       frame               = reinterpret_cast<DWORD_PTR>(trace[i]);
-      DWORD64         sym_displacement    = 0;
+    //DWORD64         sym_displacement    = 0;
       PSYMBOL_INFO    symbol              = reinterpret_cast<PSYMBOL_INFO>(&buffer[0]);
 
       symbol->SizeOfStruct = sizeof(SYMBOL_INFO);
       symbol->MaxNameLen   = MAX_LENGTH;
 
-      BOOL            has_symbol          = SymFromAddr(GetCurrentProcess(), frame, &sym_displacement, symbol);
+    //BOOL            has_symbol          = SymFromAddr(GetCurrentProcess(), frame, &sym_displacement, symbol);
       DWORD           line_displacement   = 0;
       IMAGEHLP_LINE64 line                = {};
 
@@ -1670,7 +1671,7 @@ static bool Exception_PrintfStackTrace(const CONTEXT* context)
 
   return true;
 }
-
+*/
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1707,14 +1708,16 @@ bool Exception_ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 
   switch(type)
     {
-      case XSYSTEM_CHANGESTATUSTYPE_REBOOT          :  if(!ExitWindowsEx(EWX_REBOOT   | EWX_FORCE, SHTDN_REASON_MAJOR_OPERATINGSYSTEM | SHTDN_REASON_MINOR_UPGRADE | SHTDN_REASON_FLAG_PLANNED)) return false;
-                                                       break;
+      case XSYSTEM_CHANGESTATUSTYPE_REBOOT          : if(!ExitWindowsEx(EWX_REBOOT   | EWX_FORCE, SHTDN_REASON_MAJOR_OPERATINGSYSTEM | SHTDN_REASON_MINOR_UPGRADE | SHTDN_REASON_FLAG_PLANNED)) return false;
+                                                      break;
 
-      case XSYSTEM_CHANGESTATUSTYPE_SESSION_LOGOFF  :  if(!ExitWindowsEx(EWX_LOGOFF   | EWX_FORCE, SHTDN_REASON_MAJOR_OPERATINGSYSTEM | SHTDN_REASON_MINOR_UPGRADE | SHTDN_REASON_FLAG_PLANNED)) return false;
-                                                       break;
+      case XSYSTEM_CHANGESTATUSTYPE_SESSION_LOGOFF  : if(!ExitWindowsEx(EWX_LOGOFF   | EWX_FORCE, SHTDN_REASON_MAJOR_OPERATINGSYSTEM | SHTDN_REASON_MINOR_UPGRADE | SHTDN_REASON_FLAG_PLANNED)) return false;
+                                                      break;
 
-      case XSYSTEM_CHANGESTATUSTYPE_POWEROFF        :  if(!ExitWindowsEx(EWX_POWEROFF | EWX_FORCE, SHTDN_REASON_MAJOR_OPERATINGSYSTEM | SHTDN_REASON_MINOR_UPGRADE | SHTDN_REASON_FLAG_PLANNED)) return false;
-                                                       break;
+      case XSYSTEM_CHANGESTATUSTYPE_POWEROFF        : if(!ExitWindowsEx(EWX_POWEROFF | EWX_FORCE, SHTDN_REASON_MAJOR_OPERATINGSYSTEM | SHTDN_REASON_MINOR_UPGRADE | SHTDN_REASON_FLAG_PLANNED)) return false;
+                                                      break;
+
+                                          default   : return false;
     }
 
   return true;

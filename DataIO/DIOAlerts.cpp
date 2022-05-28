@@ -1291,7 +1291,6 @@ int DIOALERTS::Send(DIOALERTSENDER sender, XDWORD conditionID, DIOALERT* alert)
 {
   if(!isinitialized) return false;
 
-  bool  mustsend   = true;
   int   statussend = 0;
 
   xmutexsending->Lock();  

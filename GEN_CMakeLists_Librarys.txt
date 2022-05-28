@@ -4,6 +4,15 @@
 
 
 # --------------------------------------------------------------------
+# Compile Info
+add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
+                   COMMAND echo Proyect ${CMAKE_PROJECT_NAME}
+                   COMMAND echo Mode ${CMAKE_BUILD_TYPE}
+                   COMMAND echo To ${CMAKE_CURRENT_BINARY_DIR}
+                   VERBATIM)
+
+
+# --------------------------------------------------------------------
 # Windows
 
  if(COMPILE_TO_WINDOWS)  

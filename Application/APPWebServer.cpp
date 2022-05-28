@@ -601,7 +601,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
 
               PostEvent(&xevent);
 
-              DIOWEBHEADER_RESULT result = xevent.GetResult();
+              //DIOWEBHEADER_RESULT result = xevent.GetResult();
 
               status = xevent.GetStatus();
               if(status)
