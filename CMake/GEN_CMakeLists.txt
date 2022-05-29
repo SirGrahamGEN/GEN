@@ -737,6 +737,12 @@
 
 
 # -------------------------------------------------
+# Always
+
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_COMMON}/Version.cpp")
+
+
+# -------------------------------------------------
 # Utils
            
  if(XTRACE_FEATURE)

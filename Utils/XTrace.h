@@ -31,8 +31,6 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "GEN_DefaultXTraceCFG.h"
-
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
@@ -40,6 +38,8 @@
 #ifdef BUILDER
 #include <cstdarg>
 #endif
+
+#include "Common_DefaultXTraceCFG.h"
 
 #include "XBase.h"
 #include "XTimer.h"

@@ -37,6 +37,8 @@
 #include "XFileTXT.h"
 #include "XTrace.h"
 
+#include "Version.h"
+
 #include "DIOStreamTCPIPConfig.h"
 #include "DIOStreamTCPIP.h"
 
@@ -1566,9 +1568,9 @@ bool DIOSMTP::CreateHeader(XSTRING& header)
 
   XSTRING defaultxmailer;
 
-  defaultxmailer  = FRAMEWORKNAME;
+  defaultxmailer  = GEN_VERSION.GetName()->Get();
   defaultxmailer += __L(" ");
-  defaultxmailer += FRAMEWORKVERSION;
+  defaultxmailer += GEN_VERSION.GetVersion()->Get();
 
   string.Format(__L("X-Mailer: %s\r\n"),  GetXMailer()->IsEmpty()? defaultxmailer.Get() : GetXMailer()->Get());
   header+= string;

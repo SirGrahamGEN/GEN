@@ -121,6 +121,12 @@
 #define GEN_APPALERTS                     APPALERTS::GetInstance()
 #endif
 
+// --- Common -------------------------------------------------------------------------------------
+
+#ifndef GEN_VERSION
+#define GEN_VERSION                       VERSION::GetInstance()
+#endif
+
 // --- Graphics Manager ---------------------------------------------------------------------------
 
 #ifndef GEN_GRPFACTORY

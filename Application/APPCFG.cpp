@@ -33,7 +33,7 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "GEN_DefaultXTraceCFG.h"
+#include "Common_DefaultXTraceCFG.h"
 
 #include "XTrace.h"
 #include "XLog.h"
