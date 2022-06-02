@@ -152,6 +152,7 @@ enum XTRACE_TYPE_STATUS_MSG
 
   #define XTRACE_SETTARGET(index, type , aim)                                                             XTRACE::instance->SetTarget(index, type , aim)
   #define XTRACE_ADDTARGET(type , aim)                                                                    XTRACE::instance->AddTarget(type, aim)
+  #define XTRACE_DEACTIVATEALLTARGETS()                                                                   XTRACE::instance->DeactivateAllTargets()
   #define XTRACE_SETSIZELIMIT(sizelimit)                                                                  XTRACE::instance->SetSizeLimit(sizelimit)
   #define XTRACE_SETAPPLICATIONNAME(name)                                                                 XTRACE::instance->SetApplicationName(name)
   #define XTRACE_SETAPPLICATIONVERSION(version, subversion, subversionerr)                                XTRACE::instance->SetApplicationVersion(version, subversion, subversionerr)
@@ -302,11 +303,11 @@ class XTRACE_TARGET
     XQWORD                          GetNETHandle                      ();
     void                            SetNETHandle                      (XQWORD NEThandle);
 
-    #endif
-
-  private:
+    #endif 
 
     void                            Clean                             ();
+
+  private:
 
     XTRACE_TYPE                     type;
     XCHAR                           aim[_MAXSTR];
@@ -406,6 +407,7 @@ class XTRACE
 
     bool                            SetTarget                         (int index, XTRACE_TYPE type , XCHAR* aim);
     bool                            AddTarget                         (XTRACE_TYPE type , XCHAR* aim);
+    bool                            DeactivateAllTargets              ();
 
     XDWORD                          GetSizeLimit                      ();
     bool                            SetSizeLimit                      (XDWORD sizelimit = XTRACE_SIZELIMITDEFAULT);

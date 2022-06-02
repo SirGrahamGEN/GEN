@@ -1110,6 +1110,25 @@ bool XTRACE::AddTarget(XTRACE_TYPE type, XCHAR* aim)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XTRACE::DeactivateAllTargets()
+* @brief      DeactivateAllTargets
+* @ingroup    UTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XTRACE::DeactivateAllTargets()
+{
+  for(int c=0; c<XTRACE_MAXNTARGETS; c++)
+    {
+      targets[c].Clean();
+    }
+
+  return true;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
