@@ -1,7 +1,5 @@
 ![GEN FrameWork](GENIcon.png "GEN FrameWork")
 
-# GEN FrameWork
-
 ## What is GEN FrameWork?
 
 GEN is a small multiplatform framework for the development of applications in C/C++. The main objective of this framework is above all the portability between different hardware and/or operating systems.
