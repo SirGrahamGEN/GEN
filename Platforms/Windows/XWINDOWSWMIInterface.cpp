@@ -972,7 +972,9 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int metric)
 
 			    // Get the class object
 
-    			hr = pSvc->GetObject(L"Win32_NetWorkAdapterConfiguration", 0, NULL, &pClass, NULL);
+          BSTR Win32_NetWorkAdapterConfigurationStr = SysAllocString(L"Win32_NetWorkAdapterConfiguration");
+
+    			hr = pSvc->GetObject(Win32_NetWorkAdapterConfigurationStr, 0, NULL, &pClass, NULL);
 			    if(hr != WBEM_S_NO_ERROR)
 			      {
               XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("getting object Win32_NetWorkAdapterConfiguration. Error code [0x%08X]"), hr);					      
@@ -1031,8 +1033,8 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int metric)
               XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Put(IPConnectionMetric). Error code [0x%08X]"), hr);							      
       				break;
 			      }
-
-			    hr = pSvc->ExecMethod(bstrObjPath, L"SetIPConnectionMetric", 0, NULL, pInInst, &pOutInst, NULL);
+          BSTR SetIPConnectionMetricStr = SysAllocString(L"SetIPConnectionMetric");
+			    hr = pSvc->ExecMethod(bstrObjPath, SetIPConnectionMetricStr, 0, NULL, pInInst, &pOutInst, NULL);
 			    if(hr != WBEM_S_NO_ERROR)
 			      {
               XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("executing SetIPConnectionMetric. Error code [0x%08X]"), hr);							      				      

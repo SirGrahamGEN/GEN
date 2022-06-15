@@ -15,6 +15,10 @@
  set(COMPILE_TO_ANDROID                                  false   CACHE BOOL "Compile to Android General"                                 FORCE)
  set(COMPILE_TO_STM32                                    false   CACHE BOOL "Compile to STM32   Genral"                                  FORCE)
 
+ set(COMPILE_WITH_MSVC                                   false   CACHE BOOL "Compile with Microsoft Compiler (MSVC)"                     FORCE)
+ set(COMPILE_WITH_GCC                                    false   CACHE BOOL "Compile with GNU Compiler Collection (GCC)"                 FORCE)
+ set(COMPILE_WITH_CLANG                                  false   CACHE BOOL "Compile with CLang (front-end of LLVM)"                     FORCE)
+
 
 #--- Compile in Windows Platform -------------------------------------
 
@@ -94,3 +98,18 @@
  endif()
 
 # --------------------------------------------------------------------
+
+if(("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC"))
+  set(COMPILE_WITH_MSVC true CACHE BOOL "Compile with Microsoft Compiler (MSVC)" FORCE)
+  message(STATUS "[Select for compile with Microsoft Compiler (MSVC)]")
+endif()
+
+if(("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU"))
+  set(COMPILE_WITH_GCC true CACHE BOOL "Compile with GNU Compiler Collection (GCC)" FORCE)
+  message(STATUS "[Select for compile with GNU Compiler Collection (GCC)]")
+endif()
+
+if(("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang"))
+  set(COMPILE_WITH_CLANG true CACHE BOOL "Compile with CLang (front-end of LLVM)" FORCE)
+  message(STATUS "[Select for compile with CLang (front-end of LLVM)]")
+endif()

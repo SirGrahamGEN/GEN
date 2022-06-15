@@ -419,8 +419,7 @@ void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::SearchServices()
 
       if(WSALookupServiceBegin( qs, flags, &hlookup) == SOCKET_ERROR)
         {
-          int error = WSAGetLastError();
-
+          //int error = WSAGetLastError();
           //XTRACE_PRINT(__L("Search SDP Services Error %d"), error);
 
           delete [] qs;
@@ -559,14 +558,13 @@ BOOL __stdcall SDP_ServiceCallback(ULONG attribID, LPBYTE valuestream, ULONG cbs
                                                                                             for(ULONG c=0; c<data.data.sequence.length; c++)
                                                                                               xbuffer.Add((XBYTE)data.data.sequence.value[c]);
 
-                                                                                           XTRACE_PRINTCOLOR(1, __L("Sequence: "));
-                                                                                            XTRACE_PRINTDATABLOCK(1, xbuffer);
+                                                                                             XTRACE_PRINTCOLOR(1, __L("Sequence: "));
+                                                                                             XTRACE_PRINTDATABLOCK(1, xbuffer);
                                                                                             */
                                                                                             //---------------------------------------------------
 
-                                                                                            BYTE*   buffer  = (BYTE*)element;
-                                                                                            XWORD   channel = 0;
-
+                                                                                            BYTE* buffer  = (BYTE*)element;
+                                                                                            
                                                                                             if(buffer[0] == 0x35)
                                                                                               {
                                                                                                 DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL* protocol = service->GetProtocol(service->GetNProtocols());

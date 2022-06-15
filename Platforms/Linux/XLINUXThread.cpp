@@ -369,6 +369,8 @@ void* XLINUXTHREAD::Callback(void* thread)
           case XTHREADPRIORITY_REALTIME : policy = SCHED_FIFO;
                                           param.sched_priority = sched_get_priority_max(policy);
                                           break;
+
+                              default   : break;
         }
 
       pthread_setschedparam(th->thhandle, policy, &param);

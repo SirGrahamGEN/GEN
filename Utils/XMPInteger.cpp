@@ -2370,18 +2370,20 @@ bool XMPINTEGER::GetToString(int radix, XSTRING& string)
 {
   XMPINTEGER  T;
   XSTRING     charshex;
-  int         n;
-
+//int         n;
+  
   charshex = __L("0123456789ABCDEF");
 
   string.Empty();
 
   if( radix < 2 || radix > 16 ) return false;
 
+  /*
   n = GetMSB();
   if( radix >=  4 ) n >>= 1;
   if( radix >= 16 ) n >>= 1;
   n += 3;
+  */
 
   T.Ini();
 

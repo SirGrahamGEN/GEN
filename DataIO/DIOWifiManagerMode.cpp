@@ -99,7 +99,9 @@ DIOWIFIMANAGERMODE::~DIOWIFIMANAGERMODE()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::GetSelectNetInterface(XSTRING& netinterface)
 {
-  return &netinterface;
+  netinterface = this->netinterface;
+
+  return true;
 }
 
 
@@ -269,8 +271,6 @@ bool DIOWIFIMANAGERMODE::CheckNetInterface(XSTRING* IP)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password, bool serialize)
@@ -286,12 +286,9 @@ bool DIOWIFIMANAGERMODE::CheckNetInterface(XSTRING* IP)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password,  bool serialize)
 {
-  return SetMode_AP(SSID, password, serialize);
+  return true;
 }
    
-
-
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 *

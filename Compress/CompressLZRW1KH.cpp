@@ -294,7 +294,7 @@ XDWORD COMPRESS_LZRW1KH::CompressionBuffer(XBYTE* source, XBYTE* target, XDWORD 
 
   if(y > sourcesize)
     {
-      for(y=0; y<sourcesize; CMPTARGET(true,y+1,source[y++]) ) // #Imanol order of execution not guaranteed, y could have weird values
+      for(y=0; y<sourcesize; CMPTARGET(true, y+1, source[y++]) ) // #Imanol order of execution not guaranteed, y could have weird values
         {
 
         }
@@ -333,7 +333,7 @@ XDWORD COMPRESS_LZRW1KH::DecompressionBuffer(XBYTE *source,XBYTE *target,XDWORD 
 
   if(source[0]==CMPFLAG_COPIED)
     {
-      for(y=1;y<sourcesize;CMPTARGET(false,y-1,source[y++]) )
+      for(y=1; y<sourcesize; CMPTARGET(false, y-1, source[y++]) )
         {
 
         }

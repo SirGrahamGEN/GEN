@@ -126,8 +126,6 @@ bool DIOSPIGPIOMCP23S17::IniDevice()
       if(!diostreamcfg) return false;
     }
 
-  this->timeout = timeout;
-
   if(!diostream->Open())  return false;
 
   if(!diostream->WaitToConnected(timeout)) return false;

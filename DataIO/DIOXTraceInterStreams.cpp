@@ -96,6 +96,7 @@ bool DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS::Process()
 {
   if(!DIOstream) return false;
 
+  /*
   #ifdef XTRACE_ACTIVE
 
   XDWORD    publicIP;
@@ -109,7 +110,7 @@ bool DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS::Process()
     {
       if(iswithlog)
         {
-          XLOGLEVEL xloglevel = (XLOGLEVEL)0;
+          XLOGLEVEL xloglevel;
 
           switch(level & 0x0F)
             {
@@ -123,18 +124,19 @@ bool DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS::Process()
               case XTRACE_COLOR_RED    : xloglevel = (XLOGLEVEL)XLOGLEVEL_ERROR;     break;
             }
 
-          //GEN_XLOG.AddEntry(xloglevel, DIOXTRACEINTERSTREAMS_LOGSECTIONID, false, string.Get());
+          GEN_XLOG.AddEntry(xloglevel, DIOXTRACEINTERSTREAMS_LOGSECTIONID, false, string.Get());
         }
        else
         {
           if(XTRACE::instance)
             {
-              //XTRACE::instance->Print(level, data.Get());
+              XTRACE::instance->Print(level, data.Get());
             }
         }
     }
 
   #endif
+  */
 
   return true;
 }

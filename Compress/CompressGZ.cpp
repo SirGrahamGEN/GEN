@@ -172,14 +172,14 @@ int COMPRESS_GZ::ZCompress(XBYTE* target, XDWORD* targetsize, XBYTE* source, XDW
 
   int destlen     = (uInt)*targetsize;
 
-  do{ int have;
+  do{ //int have;
 
       stream.avail_out = destlen;
       stream.next_out  = target;
 
       if(deflate(&stream, Z_FINISH) == Z_STREAM_ERROR)  return Z_STREAM_ERROR;
 
-      have = destlen - stream.avail_out;
+      //have = destlen - stream.avail_out;
 
     } while (stream.avail_out == 0);
 
@@ -210,7 +210,7 @@ int COMPRESS_GZ::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWO
   z_stream  stream;
   int       err;
   int       ret;
-  unsigned  have;
+//unsigned  have;
 
   stream.zalloc   = Z_NULL;
   stream.zfree    = Z_NULL;
@@ -242,7 +242,7 @@ int COMPRESS_GZ::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWO
                                   return false;
         }
 
-      have = COMPRESS_GZ_CHUNK - stream.avail_out;
+      //have = COMPRESS_GZ_CHUNK - stream.avail_out;
 
     } while(stream.avail_out == 0);
 

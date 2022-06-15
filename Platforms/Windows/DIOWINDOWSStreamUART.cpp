@@ -252,6 +252,7 @@ bool DIOWINDOWSSTREAMUART::Config(XWORD mask)
           case DIOSTREAMUARTDATABIT_6             :  dcb.ByteSize = 6;          break;
           case DIOSTREAMUARTDATABIT_7             :  dcb.ByteSize = 7;          break;
           case DIOSTREAMUARTDATABIT_8             :  dcb.ByteSize = 8;          break;
+                                        default   :  break;
         }
     }
 

@@ -181,7 +181,7 @@ bool DIOBUSPIRATE::SetMode(DIOBUSPIRATETYPEPROCOTOL protocol, bool issoftware, i
 
   switch(protocol)
     {
-      case DIOBUSPIRATETYPEPROCOTOL_I2C:  if(WriteCommand(__L("m"), timeout))
+      case DIOBUSPIRATETYPEPROCOTOL_I2C : if(WriteCommand(__L("m"), timeout))
                                             {
                                               option.Format(__L("%d"), protocol);
                                               if(WriteCommand(option, timeout))
@@ -206,6 +206,8 @@ bool DIOBUSPIRATE::SetMode(DIOBUSPIRATETYPEPROCOTOL protocol, bool issoftware, i
                                             GEN_XSLEEP.Seconds(1);
                                             diostream->GetInXBuffer()->Empty();
                                             break;
+
+                              default   :   break;
 
     }
 

@@ -962,7 +962,7 @@ static void Signal_Handler(int sig)
 
                           if(Signal_RunLevel(previous, actual))
                             {
-                              if((actual == __C('0')))
+                              if(actual == __C('0'))
                                 {
                                   #ifdef APP_ACTIVE
                                   if(app) app->SetExitType(APPBASE_EXITTYPE_BY_SHUTDOWN);

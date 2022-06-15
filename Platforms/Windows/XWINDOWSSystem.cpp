@@ -487,9 +487,12 @@ int XWINDOWSSYSTEM::GetCPUUsageTotal()
 	DWORD                                   cpuusageindex;	
 	LONGLONG		                            newvalue            = 0;
 	PPERF_DATA_BLOCK                        perfdata            = NULL;
-	LARGE_INTEGER	                          newperftime100nsec  = { 0 };
+	LARGE_INTEGER	                          newperftime100nsec;
   XSTRING                                 processstr;
   XWINDOWSSYSTEM_CPUUSAGESTATUS*          cus                 = NULL;
+
+  newperftime100nsec.HighPart = 0;
+  newperftime100nsec.LowPart  = 0;
 
   objectindex     = XWINDOWSSYSTEM_PROCESSOR_OBJECT_INDEX;
   cpuusageindex   = XWINDOWSSYSTEM_PROCESSOR_TIME_COUNTER_INDEX;
@@ -609,8 +612,11 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 	DWORD                                   cpuusageindex;
 	LONGLONG		                            newvalue            = 0;
 	PPERF_DATA_BLOCK                        perfdata            = NULL;
-	LARGE_INTEGER	                          newperftime100nsec  = { 0 };
+	LARGE_INTEGER	                          newperftime100nsec;
   XWINDOWSSYSTEM_CPUUSAGESTATUS*          cus                 = NULL;
+
+  newperftime100nsec.HighPart = 0;
+  newperftime100nsec.LowPart  = 0;
 
   cus = AddCPUUsageStatus(processID);
   if(!cus) return 0;
@@ -937,14 +943,14 @@ int XWINDOWSSYSTEM::Sound_GetLevel()
 
       //-------------------------------------------------------------------------------------------------------------------
 
-      hresult = defaultdevice->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_INPROC_SERVER, NULL, (LPVOID *)&endpointvolume);
+      defaultdevice->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_INPROC_SERVER, NULL, (LPVOID *)&endpointvolume);
       defaultdevice->Release();
       defaultdevice = NULL;
       endpointvolume->GetMasterVolumeLevel(&currentvolume);
 
       //-------------------------------------------------------------------------------------------------------------------
 
-      hresult = endpointvolume->GetMasterVolumeLevelScalar(&currentvolume);
+      endpointvolume->GetMasterVolumeLevelScalar(&currentvolume);
       if(hresult != S_OK) return 0;
 
       //-------------------------------------------------------------------------------------------------------------------
@@ -1013,10 +1019,10 @@ bool XWINDOWSSYSTEM::Sound_SetLevel(int level)
 
       //-------------------------------------------------------------------------------------------------------------------
 
-      hresult = endpointvolume->GetMasterVolumeLevelScalar(&currentvolume);
+      endpointvolume->GetMasterVolumeLevelScalar(&currentvolume);
 
       endpointvolume->SetMute(false, NULL);
-      hresult = endpointvolume->SetMasterVolumeLevelScalar((float)(level/100.0f), NULL);
+      endpointvolume->SetMasterVolumeLevelScalar((float)(level/100.0f), NULL);
 
       //-------------------------------------------------------------------------------------------------------------------
 
@@ -1078,23 +1084,24 @@ bool XWINDOWSSYSTEM::Sound_SetMutex(bool on)
       //-------------------------------------------------------------------------------------------------------------------
 
       hresult = defaultdevice->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_INPROC_SERVER, NULL, (LPVOID *)&endpointvolume);
-      if(hresult != S_OK) status = false;
+      status = (hresult == S_OK)?true:false;
 
-      defaultdevice->Release();
-      defaultdevice = NULL;
-      endpointvolume->GetMasterVolumeLevel(&currentvolume);
+      if(status)
+        {
+          defaultdevice->Release();
+          defaultdevice = NULL;
+          endpointvolume->GetMasterVolumeLevel(&currentvolume);
 
-      //-------------------------------------------------------------------------------------------------------------------
+          //-------------------------------------------------------------------------------------------------------------------
 
-      hresult = endpointvolume->GetMasterVolumeLevelScalar(&currentvolume);
+          endpointvolume->GetMasterVolumeLevelScalar(&currentvolume);
 
-      endpointvolume->SetMute(on, NULL);
+          endpointvolume->SetMute(on, NULL);
 
-      //-------------------------------------------------------------------------------------------------------------------
+          //-------------------------------------------------------------------------------------------------------------------
 
-      endpointvolume->Release();
-
-      status = true;
+          endpointvolume->Release();
+        }
     }
 
   CoUninitialize();

@@ -299,10 +299,10 @@ bool DIOSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, XDWORD 
       for(XDWORD c=0; c<size; c+=2)
         {
           XWORD readdata;
-          XWORD writedata = bufferwrite[c];
+          //XWORD writedata = bufferwrite[c];
 
-          writedata<<=8;
-          writedata |= bufferwrite[c];
+          //writedata<<=8;
+          //writedata |= bufferwrite[c];
 
           TransferOneData(bufferwrite[c], readdata);
 

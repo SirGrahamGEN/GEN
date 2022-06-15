@@ -357,15 +357,15 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Search()
   DWORD                         max_client        = 2;
   DWORD                         current_version   = 0;
   DWORD                         result            = 0;
-  DWORD                         returnval         = 0;
+//DWORD                         returnval         = 0;
   WCHAR                         GUIDstring[39]    = { 0 };
   PWLAN_INTERFACE_INFO_LIST     interfacelist     = NULL;
   PWLAN_INTERFACE_INFO          interfacelinfo    = NULL;
-  PWLAN_AVAILABLE_NETWORK_LIST  networklist       = NULL;
-  PWLAN_AVAILABLE_NETWORK       networkentry      = NULL;
+//PWLAN_AVAILABLE_NETWORK_LIST  networklist       = NULL;
+//PWLAN_AVAILABLE_NETWORK       networkentry      = NULL;
   PWLAN_BSS_LIST                bsslist           = NULL;
   PWLAN_BSS_ENTRY               bssentry          = NULL;
-  int                           ireturn           = 0;
+//int                           ireturn;
   bool                          status            = false;
 
   result = WlanOpenHandle(max_client, NULL, &current_version, &handleclient);
@@ -384,7 +384,7 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Search()
     {
       interfacelinfo = (WLAN_INTERFACE_INFO *) &interfacelist->InterfaceInfo[i];
 
-      ireturn = StringFromGUID2(interfacelinfo->InterfaceGuid, (LPOLESTR) &GUIDstring, sizeof(GUIDstring)/sizeof(*GUIDstring));
+      /* ireturn = */ StringFromGUID2(interfacelinfo->InterfaceGuid, (LPOLESTR) &GUIDstring, sizeof(GUIDstring)/sizeof(*GUIDstring));
 
       XSTRING line;
 
@@ -413,7 +413,9 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Search()
         }
       
 
-      WLAN_CALLBACK_INFO callbackinfo = { 0 };                                            
+      WLAN_CALLBACK_INFO callbackinfo;                                            
+
+      memset(&callbackinfo, 0, sizeof(WLAN_CALLBACK_INFO));
 
       callbackinfo.interfaceGUID      = interfacelist->InterfaceInfo[i].InterfaceGuid;
       callbackinfo.scanevent          = CreateEvent( NULL, FALSE, FALSE, NULL);           
@@ -531,15 +533,15 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::SetAllConnectionInAutomaticMode(bool
   DWORD                         max_client        = 2;
   DWORD                         current_version   = 0;
   DWORD                         result            = 0;
-  DWORD                         returnval         = 0;
+//DWORD                         returnval         = 0;
   WCHAR                         GUIDstring[39]    = { 0 };
   PWLAN_INTERFACE_INFO_LIST     interfacelist     = NULL;
   PWLAN_INTERFACE_INFO          interfacelinfo    = NULL;
   PWLAN_PROFILE_INFO_LIST       profilelist       = NULL;
   PWLAN_PROFILE_INFO            profileinfo       = NULL;
   XSTRING                       line;
-  int                           RSSI              = 0;
-  int                           ireturn           = 0;
+//int                           RSSI              = 0;
+//int                           ireturn;
 
   result = WlanOpenHandle(max_client, NULL, &current_version, &handleclient);
   if(result != ERROR_SUCCESS) return false;
@@ -551,12 +553,12 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::SetAllConnectionInAutomaticMode(bool
     {
       interfacelinfo = (WLAN_INTERFACE_INFO *) &interfacelist->InterfaceInfo[i];
 
-      ireturn = StringFromGUID2(interfacelinfo->InterfaceGuid, (LPOLESTR) &GUIDstring, sizeof(GUIDstring)/sizeof(*GUIDstring));
+      /* ireturn = */ StringFromGUID2(interfacelinfo->InterfaceGuid, (LPOLESTR) &GUIDstring, sizeof(GUIDstring)/sizeof(*GUIDstring));
 
       result = WlanGetProfileList(handleclient, &interfacelinfo->InterfaceGuid, NULL, &profilelist);
       if(result != ERROR_SUCCESS)
         {
-          returnval = 1;
+          // returnval = 1;
         }
        else
         {
@@ -793,7 +795,9 @@ void DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::TriggerScan(HANDLE wlanhandle, WLAN_
   for(ULONG i=0; i<interfaces->dwNumberOfItems; i++)
     {
       //Declare the callback parameter struct
-      WLAN_CALLBACK_INFO callbackinfo = { 0 };
+      WLAN_CALLBACK_INFO callbackinfo;
+
+      memset(&callbackinfo, 0, sizeof(WLAN_CALLBACK_INFO));
 
       callbackinfo.interfaceGUID = interfaces->InterfaceInfo[i].InterfaceGuid;
 

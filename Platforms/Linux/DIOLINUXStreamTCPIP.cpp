@@ -766,7 +766,7 @@ void DIOLINUXSTREAMTCPIP::ThreadConnection(void* data)
                                                               }
 
                                                             int error = select((int)(diostream->handlesocket)+1, &read_flags, &write_flags, (fd_set*)NULL, &waitd);
-                                                            if((error==-1))   //Socket ready for reading
+                                                            if(error == -1)   //Socket ready for reading
                                                               {
                                                                 diostream->SetEvent(DIOLINUXTCPIPFSMEVENT_DISCONNECTING);
                                                                 break;

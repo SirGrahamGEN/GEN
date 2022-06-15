@@ -4276,7 +4276,7 @@ bool XSTRING::FormatArg(const XCHAR* mask, va_list* arg, bool isspecialweb)
                                                               #if defined(LINUX) || defined(ANDROID) || defined(MICROCONTROLLER)
                                                               character = (XCHAR)va_arg((*arg), XDWORD);
                                                               #else
-                                                              character = (XCHAR)va_arg((*arg), XCHAR);
+                                                              character = (XCHAR)va_arg((*arg), int /*XCHAR*/);
                                                               #endif
 
                                                               str.Set(character);

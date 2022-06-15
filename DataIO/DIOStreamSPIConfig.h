@@ -91,7 +91,7 @@ class DIOSTREAMSPICONFIG : public DIOSTREAMCONFIG
     XDWORD*                       GetPinsDirectAccess               ();
     bool                          SetPinsDirectAccess               (XDWORD GPIOID_CLK = DIOGPIO_ID_NOTDEFINED, XDWORD GPIOID_MISO = DIOGPIO_ID_NOTDEFINED, XDWORD GPIOID_MOSI = DIOGPIO_ID_NOTDEFINED, XDWORD GPIOID_CS = DIOGPIO_ID_NOTDEFINED);
 
-    void                          SetSPIMode                        (XBYTE modeSPI);
+    void                          SetSPIMode                        (XBYTE SPImode);
     void                          SetNBitsWord                      (XBYTE nbitsword);
     void                          SetSpeed                          (XDWORD speed);
     void                          SetDelay                          (XWORD delay);

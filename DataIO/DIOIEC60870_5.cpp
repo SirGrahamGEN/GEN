@@ -958,7 +958,7 @@ bool DIOIEC60870_5::CMD_C_AC_NA_2_IniSession(int timeout)
 
   XBUFFER asdu;
 
-  bool haveuserdataclass1 = CMD_RequestUserDataClass1(&asdu,timeout);
+  CMD_RequestUserDataClass1(&asdu,timeout);
 
   asdu.Delete();
 
@@ -1608,8 +1608,7 @@ bool DIOIEC60870_5::SendMsgVar(XBYTE functioncode, XBUFFER* dataASDU)
 
   XBUFFER xbuffer;
   XBYTE   controlfield = 0;
-  XBYTE   checksum     = 0;
-
+  
   xbuffer.Add((XBYTE)DIOIEC60870_5_MARKSTARTVAR);
   xbuffer.Add((XBYTE)0);
   xbuffer.Add((XBYTE)0);
@@ -1676,7 +1675,6 @@ bool DIOIEC60870_5::SendMsgFix(XBYTE functioncode)
 
   XBUFFER  xbuffer;
   XBYTE    controlfield = 0;
-  XBYTE    checksum     = 0;
 
   xbuffer.Add((XBYTE)DIOIEC60870_5_MARKSTARTFIX);
 

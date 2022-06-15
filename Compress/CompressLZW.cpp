@@ -355,8 +355,8 @@ void COMPRESS_LZW::Decode_InitStringTable()
 * --------------------------------------------------------------------------------------------------------------------*/
 XWORD COMPRESS_LZW::Decode_GetNextcode()
 {
-  register XDWORD        dwRet = 0;
-  register unsigned int uiAdd = byinbit + bycurrbits;
+  XDWORD       dwRet = 0;
+  unsigned int uiAdd = byinbit + bycurrbits;
 
   if(uiAdd <= 8)
     {
@@ -537,7 +537,7 @@ void COMPRESS_LZW::Encode_InitStringTable()
 * --------------------------------------------------------------------------------------------------------------------*/
 XBYTE COMPRESS_LZW::Encode_GetNextPixel()
 {
-  register XBYTE byRet = 0;
+  XBYTE byRet = 0;
 
   switch(bymincode)
     {
@@ -619,7 +619,7 @@ void COMPRESS_LZW::Encode_AddStringToTable(XWORD Old, XWORD Pixel)
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Encode_WriteIndex(XDWORD Index)
 {
-  register unsigned int uiAdd = byoutbit + bycurrbits;
+  unsigned int uiAdd = byoutbit + bycurrbits;
 
   *(XDWORD*)curout |= (Index << byoutbit);
 

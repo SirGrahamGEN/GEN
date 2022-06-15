@@ -344,16 +344,16 @@ bool DIOSTREAMSPICONFIG::SetPinsDirectAccess(XDWORD GPIOID_CLK, XDWORD GPIOID_MI
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOSTREAMSPICONFIG::SetSPIMode(XBYTE modeSPI)
+* @fn         void DIOSTREAMSPICONFIG::SetSPIMode(XBYTE SPImode)
 * @brief      SetSPIMode
 * @ingroup    DATAIO
 *
-* @param[in]  modeSPI : 
+* @param[in]  SPImode : 
 * 
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-void DIOSTREAMSPICONFIG::SetSPIMode(XBYTE modeSPI)
+void DIOSTREAMSPICONFIG::SetSPIMode(XBYTE SPImode)
 { 
   this->SPImode = SPImode;                     
 }
