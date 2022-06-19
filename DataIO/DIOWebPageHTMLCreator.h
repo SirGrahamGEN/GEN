@@ -99,11 +99,10 @@ class DIOWEBPAGEHTMLCREATOR : public XSTRING, public XSUBJECT
     bool                                    Printf                        (XCHAR* mask,...);
     bool                                    Print                         (XCHAR* text);
 
-    bool                                    Table_Ini                     (int border = 0);
-    bool                                    Table_Line                    (int columns,...);
-    bool                                    Table_Line                    (XSTRING& colorbackground, int columns,...);
-    bool                                    Table_Line                    (XCHAR* colorbackground, int columns,...);
-    bool                                    Table_LineColor               (int columns, ...);
+    bool                                    Table_Ini                     (int border = false, XCHAR* addstype = NULL);
+    bool                                    Table_Line                    (int ncolumns,...);
+    bool                                    Table_Line                    (XCHAR* colorbackground, int ncolumns,...);
+    bool                                    Table_LineColor               (int ncolumns, ...);
     bool                                    Table_End                     ();
 
     bool                                    AddAutoRefresh                (int refresh, XSTRING* url = NULL);

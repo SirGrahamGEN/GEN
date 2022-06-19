@@ -62,6 +62,20 @@ enum XTRANSLATION_GEN_ID
   XTRANSLATION_GEN_ID_XDATETIME_DAYOFWEEK_FRIDAY                                  ,
   XTRANSLATION_GEN_ID_XDATETIME_DAYOFWEEK_SATURDAY                                ,
 
+  XTRANSLATION_GEN_ID_XTIMER_XX_YEARS                                             ,
+  XTRANSLATION_GEN_ID_XTIMER_ONE_YEAR                                             ,
+  XTRANSLATION_GEN_ID_XTIMER_XX_MONTHS                                            ,
+  XTRANSLATION_GEN_ID_XTIMER_ONE_MONTH                                            ,
+  XTRANSLATION_GEN_ID_XTIMER_XX_DAYS                                              ,
+  XTRANSLATION_GEN_ID_XTIMER_ONE_DAY                                              ,
+  XTRANSLATION_GEN_ID_XTIMER_XX_HOURS                                             ,
+  XTRANSLATION_GEN_ID_XTIMER_ONE_HOUR                                             ,
+  XTRANSLATION_GEN_ID_XTIMER_XX_MINUTES                                           ,
+  XTRANSLATION_GEN_ID_XTIMER_ONE_MINUTE                                           ,
+  XTRANSLATION_GEN_ID_XTIMER_XX_SECONDS                                           ,
+  XTRANSLATION_GEN_ID_XTIMER_ONE_SECOND                                           ,
+  XTRANSLATION_GEN_ID_XTIMER_ZERO_SECONDS                                         ,
+
   XTRANSLATION_GEN_ID_APPLOG_INITMSG                                              ,
   XTRANSLATION_GEN_ID_APPLOG_TOTALMEMORY                                          ,  
 

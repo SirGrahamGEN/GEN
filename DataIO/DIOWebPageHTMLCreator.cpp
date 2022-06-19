@@ -61,7 +61,6 @@
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBPAGEHTMLCREATOR::DIOWEBPAGEHTMLCREATOR()
-
 {
   Clean();
 
@@ -569,48 +568,48 @@ bool DIOWEBPAGEHTMLCREATOR::Print(XCHAR* text)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWEBPAGEHTMLCREATOR::Table_Ini(int border)
+* 
+* @fn         bool DIOWEBPAGEHTMLCREATOR::Table_Ini(int border, XCHAR* addstyle)
 * @brief      Table_Ini
 * @ingroup    DATAIO
-*
-* @param[in]  border :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  border : 
+* @param[in]  addstyle : Add style ( example:  __L("font-family: Arial; font-size: 0.85em;") )
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOWEBPAGEHTMLCREATOR::Table_Ini(int border)
+bool DIOWEBPAGEHTMLCREATOR::Table_Ini(int border, XCHAR* addstyle)
 {
   this->tableborder = border;
 
-  Printf(__L("<table style=\"border-collapse: collapse; font-family: Arial; font-size: 0.85em;\">"), border);
+  Printf(__L("<table style=\"border-collapse: collapse; %s \">"), (addstyle?addstyle:__L("")));
 
   return true;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOWEBPAGEHTMLCREATOR::Table_Line(int columns, ...)
+* @fn         bool DIOWEBPAGEHTMLCREATOR::Table_Line(int ncolumns, ...)
 * @brief      Table_Line
 * @ingroup    DATAIO
 *
-* @param[in]  columns :
+* @param[in]  ncolumns :
 * @param[in]  ... :
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOWEBPAGEHTMLCREATOR::Table_Line(int columns, ...)
+bool DIOWEBPAGEHTMLCREATOR::Table_Line(int ncolumns, ...)
 {
   va_list arg;
 
-  va_start(arg,columns);
+  va_start(arg, ncolumns);
 
   Printf(__L("<tr>"));
 
-  for(int c=0;c<columns;c++)
+  for(int c=0; c<ncolumns; c++)
     {
       int                         width = va_arg(arg, int);
       DIOWEBPAGEHTMLCREATORALIGN  align = (DIOWEBPAGEHTMLCREATORALIGN)va_arg(arg, int);
@@ -645,7 +644,7 @@ bool DIOWEBPAGEHTMLCREATOR::Table_Line(int columns, ...)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOWEBPAGEHTMLCREATOR::Table_Line(XCHAR* colorbackground, int columns, ...)
+* @fn         bool DIOWEBPAGEHTMLCREATOR::Table_Line(XCHAR* colorbackground, int ncolumns, ...)
 * @brief      Table_Line
 * @ingroup    DATAIO
 *
@@ -656,11 +655,11 @@ bool DIOWEBPAGEHTMLCREATOR::Table_Line(int columns, ...)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOWEBPAGEHTMLCREATOR::Table_Line(XCHAR* colorbackground, int columns, ...)
+bool DIOWEBPAGEHTMLCREATOR::Table_Line(XCHAR* colorbackground, int ncolumns, ...)
 {
   va_list arg;
 
-  va_start(arg, columns);
+  va_start(arg, ncolumns);
 
   XSTRING tr;
   XSTRING color;
@@ -676,7 +675,7 @@ bool DIOWEBPAGEHTMLCREATOR::Table_Line(XCHAR* colorbackground, int columns, ...)
 
   Printf(tr.Get());
 
-  for(int c=0;c<columns;c++)
+  for(int c=0; c<ncolumns; c++)
     {
       int                         width = va_arg(arg, int);
       DIOWEBPAGEHTMLCREATORALIGN  align = (DIOWEBPAGEHTMLCREATORALIGN)va_arg(arg, int);
@@ -720,15 +719,15 @@ bool DIOWEBPAGEHTMLCREATOR::Table_Line(XCHAR* colorbackground, int columns, ...)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOWEBPAGEHTMLCREATOR::Table_LineColor(int columns, ...)
+bool DIOWEBPAGEHTMLCREATOR::Table_LineColor(int ncolumns, ...)
 {
   va_list arg;
 
-  va_start(arg,columns);
+  va_start(arg, ncolumns);
 
   Printf(__L("<tr>"));
 
-  for(int c=0;c<columns;c++)
+  for(int c=0; c<ncolumns; c++)
     {
       int                         width     = va_arg(arg, int);
       XCHAR*                      colortxt  = va_arg(arg, XCHAR*);
@@ -761,7 +760,6 @@ bool DIOWEBPAGEHTMLCREATOR::Table_LineColor(int columns, ...)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBPAGEHTMLCREATOR::Table_End()
@@ -776,7 +774,6 @@ bool DIOWEBPAGEHTMLCREATOR::Table_End()
   Printf(__L("</table>"));
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -805,7 +802,6 @@ bool DIOWEBPAGEHTMLCREATOR::AddAutoRefresh(int refresh, XSTRING* url)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

@@ -580,9 +580,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
               PostEvent(&xevent);
 
               status = xevent.GetStatus();
-            }
-
-          GEN_XLOG.AddEntry((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), DIOWEBSERVER_LOGSECTIONID, false, __L("Request to the web server of file \"%s\" %s."), resourceconv.Get(), status?__L("sent."):__L("not found or incorrect."));
+            }          
         }
 
       //-------------------------------------------------------------------------------------------------------------------------------
@@ -625,6 +623,10 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
 
               delete webHTMLpage;
             }
+        }
+       else 
+        {
+          GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID, false, __L("Request to the web server of file \"%s\" sent."));
         }
     }
 

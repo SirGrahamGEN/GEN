@@ -41,6 +41,7 @@
 #include "XBase.h"
 #include "XFactory.h"
 #include "XDateTime.h"
+#include "XTranslation_GEN.h"
 
 #include "XTimer.h"
 
@@ -458,21 +459,29 @@ bool XTIMER::GetMeasureString(XSTRING& measure,bool large)
       switch(c)
         {
           case 0: if(!years) break;
-                  if(years>1) string.Format(__L("%d a\xf1os"), years); else string.Format(__L("un a\xf1o"));
+                  if(years>1) 
+                         string.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_XX_YEARS), years); 
+                    else string.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_ONE_YEAR));
                   break;
 
           case 1: if(!months) break;
-                  if(months>1) string.Format(__L("%d meses"), months);  else string.Format(__L("un mes"));
+                  if(months>1) 
+                         string.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_XX_MONTHS), months);  
+                    else string.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_ONE_MONTH));
                   break;
 
           case 2: if(!days) break;
-                  if(days>1) string.Format(__L("%d dias"), days); else string.Format(__L("un dia"));
+                  if(days>1) 
+                         string.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_XX_DAYS), days); 
+                    else string.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_ONE_DAY));
                   break;
 
           case 3: if(large)
                     {
                       if(!hours) break;
-                      if(hours>1) string.Format(__L("%d horas"), hours); else string.Format(__L("una hora"));
+                      if(hours>1) 
+                             string.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_XX_HOURS), hours); 
+                        else string.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_ONE_HOUR));
                     }
                    else
                     {
@@ -483,7 +492,9 @@ bool XTIMER::GetMeasureString(XSTRING& measure,bool large)
           case 4: if(large)
                     {
                       if(!minutes) break;
-                      if(minutes>1) string.Format(__L("%d minutos"), minutes); else string.Format(__L("un minuto"));
+                      if(minutes>1) 
+                             string.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_XX_MINUTES), minutes); 
+                        else string.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_ONE_MINUTE));
                     }
                    else
                     {
@@ -494,7 +505,9 @@ bool XTIMER::GetMeasureString(XSTRING& measure,bool large)
           case 5: if(large)
                     {
                       if(!seconds) break;
-                      if(seconds>1) string.Format(__L("%d segundos"), seconds); else string.Format(__L("un segundo"));
+                      if(seconds>1) 
+                             string.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_XX_SECONDS), seconds); 
+                        else string.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_ONE_SECOND));
                     }
                    else
                     {
@@ -524,7 +537,7 @@ bool XTIMER::GetMeasureString(XSTRING& measure,bool large)
 
   if(measure.IsEmpty())
     {
-      measure.Format(__L("0 segundos"));
+      measure.Format(XT_L(XTRANSLATION_GEN_ID_XTIMER_ZERO_SECONDS));
       return false;
     }
 

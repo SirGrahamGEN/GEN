@@ -324,7 +324,9 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
   languageavailables.Add(XLANGUAGE_ISO_639_3_CODE_ENG);
   languageavailables.Add(XLANGUAGE_ISO_639_3_CODE_SPA);
 
-  //--- MONTHS -------------------------------------------------------------------------------------------------------
+  //--- DATETIME -----------------------------------------------------------------------------------------------------
+
+  // MONTHS 
 
   Sentence_Add(XTRANSLATION_GEN_ID_XDATETIME_MONTH_JANUARY                                      , XLANGUAGE_ISO_639_3_CODE_ENG , __L("January")                                                         , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_XDATETIME_MONTH_FEBRUARY                                     , XLANGUAGE_ISO_639_3_CODE_ENG , __L("February")                                                        , 0);
@@ -354,7 +356,7 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
   Sentence_Add(XTRANSLATION_GEN_ID_XDATETIME_MONTH_DECEMBER                                     , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Diciembre")                                                       , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_XDATETIME_MONTH_PRESEPARATOR                                 , XLANGUAGE_ISO_639_3_CODE_SPA , __L("de")                                                              , 0);
 
-  //--- DAYOFWEEK ----------------------------------------------------------------------------------------------------
+  // DAYOFWEEK 
 
   Sentence_Add(XTRANSLATION_GEN_ID_XDATETIME_DAYOFWEEK_SUNDAY                                   , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Sunday")                                                          , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_XDATETIME_DAYOFWEEK_MONDAY                                   , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Monday")                                                          , 0);
@@ -371,6 +373,36 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
   Sentence_Add(XTRANSLATION_GEN_ID_XDATETIME_DAYOFWEEK_THURSDAY                                 , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Jueves")                                                          , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_XDATETIME_DAYOFWEEK_FRIDAY                                   , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Viernes")                                                         , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_XDATETIME_DAYOFWEEK_SATURDAY                                 , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Sabado")                                                          , 0);
+
+  //--- XTIMER -------------------------------------------------------------------------------------------------------
+
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_XX_YEARS                                              , XLANGUAGE_ISO_639_3_CODE_ENG , __L("%d years")                                                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ONE_YEAR                                              , XLANGUAGE_ISO_639_3_CODE_ENG , __L("one year")                                                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_XX_MONTHS                                             , XLANGUAGE_ISO_639_3_CODE_ENG , __L("%d months")                                                       , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ONE_MONTH                                             , XLANGUAGE_ISO_639_3_CODE_ENG , __L("one month")                                                       , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_XX_DAYS                                               , XLANGUAGE_ISO_639_3_CODE_ENG , __L("%d days")                                                         , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ONE_DAY                                               , XLANGUAGE_ISO_639_3_CODE_ENG , __L("one day")                                                         , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_XX_HOURS                                              , XLANGUAGE_ISO_639_3_CODE_ENG , __L("%d hours")                                                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ONE_HOUR                                              , XLANGUAGE_ISO_639_3_CODE_ENG , __L("one hour")                                                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_XX_MINUTES                                            , XLANGUAGE_ISO_639_3_CODE_ENG , __L("%d minutes")                                                      , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ONE_MINUTE                                            , XLANGUAGE_ISO_639_3_CODE_ENG , __L("one minute")                                                      , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_XX_SECONDS                                            , XLANGUAGE_ISO_639_3_CODE_ENG , __L("%d seconds")                                                      , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ONE_SECOND                                            , XLANGUAGE_ISO_639_3_CODE_ENG , __L("one second")                                                      , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ZERO_SECONDS                                          , XLANGUAGE_ISO_639_3_CODE_ENG , __L("zero seconds")                                                    , 0);
+
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_XX_YEARS                                              , XLANGUAGE_ISO_639_3_CODE_SPA , __L("%d a\xf1os")                                                      , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ONE_YEAR                                              , XLANGUAGE_ISO_639_3_CODE_SPA , __L("un a\xf1o")                                                       , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_XX_MONTHS                                             , XLANGUAGE_ISO_639_3_CODE_SPA , __L("%d meses")                                                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ONE_MONTH                                             , XLANGUAGE_ISO_639_3_CODE_SPA , __L("un mes")                                                          , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_XX_DAYS                                               , XLANGUAGE_ISO_639_3_CODE_SPA , __L("%d dias")                                                         , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ONE_DAY                                               , XLANGUAGE_ISO_639_3_CODE_SPA , __L("un dia")                                                          , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_XX_HOURS                                              , XLANGUAGE_ISO_639_3_CODE_SPA , __L("%d horas")                                                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ONE_HOUR                                              , XLANGUAGE_ISO_639_3_CODE_SPA , __L("una hora")                                                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_XX_MINUTES                                            , XLANGUAGE_ISO_639_3_CODE_SPA , __L("%d minutos")                                                      , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ONE_MINUTE                                            , XLANGUAGE_ISO_639_3_CODE_SPA , __L("un minuto")                                                       , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_XX_SECONDS                                            , XLANGUAGE_ISO_639_3_CODE_SPA , __L("%d segundos")                                                     , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ONE_SECOND                                            , XLANGUAGE_ISO_639_3_CODE_SPA , __L("un segundo")                                                      , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_XTIMER_ZERO_SECONDS                                          , XLANGUAGE_ISO_639_3_CODE_SPA , __L("cero segundos")                                                   , 0);
 
 
   //--- APPLICATION LOG ----------------------------------------------------------------------------------------------
