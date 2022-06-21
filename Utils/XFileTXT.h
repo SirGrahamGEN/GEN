@@ -39,10 +39,10 @@
 
 enum XFILETXTFORMATCHAR
 {
-  XFILETXTFORMATCHAR_UNKNOWN              = 0 ,
-  XFILETXTFORMATCHAR_ASCII                  ,
-  XFILETXTFORMATCHAR_UTF8                   ,
-  XFILETXTFORMATCHAR_UTF16_BE               ,
+  XFILETXTFORMATCHAR_UNKNOWN             = 0 ,
+  XFILETXTFORMATCHAR_ASCII                   ,
+  XFILETXTFORMATCHAR_UTF8                    ,
+  XFILETXTFORMATCHAR_UTF16_BE                ,
   XFILETXTFORMATCHAR_UTF16_LE
 };
 
@@ -50,10 +50,10 @@ enum XFILETXTFORMATCHAR
 enum XFILETXTTYPELF
 {
   XFILETXTTYPELF_UNKNOWN                 = 0 ,
-  XFILETXTTYPELF_0A                        ,
-  XFILETXTTYPELF_0D                        ,
-  XFILETXTTYPELF_0A0D                      ,
-  XFILETXTTYPELF_0D0A                      ,
+  XFILETXTTYPELF_0A                          ,
+  XFILETXTTYPELF_0D                          ,
+  XFILETXTTYPELF_0A0D                        ,
+  XFILETXTTYPELF_0D0A                        ,
 };
 
 #define XFILETXT_MAXBUFFER      (1000*1024)
@@ -65,6 +65,9 @@ enum XFILETXTTYPELF
 #else
 #define XFILETXTTYPELF_DEFAULT  XFILETXTTYPELF_0D0A
 #endif
+
+
+#define XFILETXT_ALLLINES       -1
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -103,6 +106,8 @@ class XFILETXT : public XFILECONTAINER
 
     bool                  ReadAllFile             ();
     bool                  WriteAllFile            ();
+
+    bool                  ReadNLines              (int nlines = XFILETXT_ALLLINES);
 
     bool                  DeleteFormatFile        ();
 

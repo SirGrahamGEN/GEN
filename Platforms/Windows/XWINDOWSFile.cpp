@@ -566,14 +566,18 @@ bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XWINDOWSFILEMODE mode)
 {
   if(isopen) Close();
 
-  this->xpathnamefile = xpath;
   this->mode          = mode;
+
+  xpathnamefile.Empty();
+  //this->xpathnamefile.Add("\"");
+  xpathnamefile.Add(xpath);
+  //this->xpathnamefile.Add("\"");
 
   switch(mode)
     {
-      case XWINDOWSFILEMODE_READONLY  : filehandle = CreateFile(xpath, GENERIC_READ                , FILE_SHARE_READ                   , NULL, OPEN_EXISTING  , FILE_ATTRIBUTE_NORMAL, NULL);  break;
-      case XWINDOWSFILEMODE_READWRITE : filehandle = CreateFile(xpath, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING  , FILE_ATTRIBUTE_NORMAL, NULL);  break;
-      case XWINDOWSFILEMODE_CREATE    : filehandle = CreateFile(xpath, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, CREATE_ALWAYS  , FILE_ATTRIBUTE_NORMAL, NULL);  break;
+      case XWINDOWSFILEMODE_READONLY  : filehandle = CreateFile(xpathnamefile.Get(), GENERIC_READ                , FILE_SHARE_READ                   , NULL, OPEN_EXISTING  , FILE_ATTRIBUTE_NORMAL, NULL);  break;
+      case XWINDOWSFILEMODE_READWRITE : filehandle = CreateFile(xpathnamefile.Get(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING  , FILE_ATTRIBUTE_NORMAL, NULL);  break;
+      case XWINDOWSFILEMODE_CREATE    : filehandle = CreateFile(xpathnamefile.Get(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, CREATE_ALWAYS  , FILE_ATTRIBUTE_NORMAL, NULL);  break;
     }
 
   if(filehandle == INVALID_HANDLE_VALUE)

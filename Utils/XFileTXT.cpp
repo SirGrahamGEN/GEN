@@ -706,6 +706,7 @@ bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XDWORD start, XDWORD end)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILETXT::ReadAllFile()
 {
+  /*
   if(!file)           return false;
   if(!file->IsOpen()) return false;
 
@@ -770,15 +771,6 @@ bool XFILETXT::ReadAllFile()
                 }
             }
 
-          /*
-          if(counter > 5000)
-            {
-              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Line %d"), lines.GetSize());
-              counter = 0;
-            }
-           */
-
-
         } while(bufferpos < br);
 
     } while(!endfile);
@@ -786,6 +778,9 @@ bool XFILETXT::ReadAllFile()
   delete [] readbuffer;
 
   return true;
+  */
+
+  return ReadNLines(XFILETXT_ALLLINES);
 }
 
 
@@ -898,6 +893,102 @@ bool XFILETXT::WriteAllFile()
     }
 
   return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILETXT::ReadNLines(int nlines)
+* @brief      ReadNLines
+* @ingroup    UTILS
+* 
+* @param[in]  nlines : number of lines to read in list. XFILETXT_ALLLINES for all
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILETXT::ReadNLines(int nlines)
+{
+  if(!file)           return false;
+  if(!file->IsOpen()) return false;
+
+  DeleteAllLines();
+
+  XDWORD             sizeBOM              = 0;
+  XFILETXTFORMATCHAR formatchar           = GetFormatCharFromFile(&sizeBOM);
+  XDWORD             sizebytescharacter   = SizeOfCharacter(formatchar);
+
+  if(this->formatchar==XFILETXTFORMATCHAR_UNKNOWN) this->formatchar = formatchar;
+
+  file->SetPosition(sizeBOM);
+
+  bool    endfile;
+  XDWORD  br;
+  XBUFFER dataline(false);
+
+  XBYTE*  readbuffer = new XBYTE[XFILETXT_MAXBUFFER];
+  if(!readbuffer) return false;
+
+  memset(readbuffer, 0, XFILETXT_MAXBUFFER);
+
+  do{ XDWORD bufferpos = 0;
+
+      br      = XFILETXT_MAXBUFFER;
+      endfile = !file->Read(readbuffer, &br);
+      if(!br) break;
+
+      XDWORD counter = 0;
+
+      do{ XFILETXTTYPELF  _typeLF   = XFILETXTTYPELF_UNKNOWN;
+          XDWORD          sizeLF    = 0;
+          XDWORD          sizeline  = 0;
+          bool            endline   = GetSizeOfLine(formatchar, &readbuffer[bufferpos], _typeLF, sizeLF, sizeline, (br-bufferpos));
+
+          if(typeLF == XFILETXTTYPELF_UNKNOWN && _typeLF != XFILETXTTYPELF_UNKNOWN) typeLF = _typeLF;
+
+          if(endline)
+            {
+              dataline.Add(&readbuffer[bufferpos], sizebytescharacter*sizeline);
+              AddLine(formatchar, dataline.Get(), (int)(dataline.GetSize()/sizebytescharacter));
+              dataline.Delete();
+
+              //counter++;
+
+              sizeline  *= sizebytescharacter;
+              sizeline  += (sizeLF*sizebytescharacter);
+              bufferpos += sizeline;
+            }
+           else
+            {
+              int lack = (br-bufferpos);
+              dataline.Add(&readbuffer[bufferpos], lack);
+              bufferpos += lack;
+
+              if(endfile && (bufferpos == br))
+                {
+                  AddLine(formatchar, dataline.Get(), (int)(lack/sizebytescharacter));
+                  dataline.Delete();
+
+                  counter++;
+                }
+            }
+
+          if(nlines != XFILETXT_ALLLINES)
+            {
+              if(counter > nlines)
+                {
+                  break;
+                }
+            }
+          
+        } while(bufferpos < br);
+
+    } while(!endfile);
+
+  delete [] readbuffer;
+
+  return true;
+
 }
 
 
