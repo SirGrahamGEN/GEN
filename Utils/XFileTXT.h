@@ -56,7 +56,7 @@ enum XFILETXTTYPELF
   XFILETXTTYPELF_0D0A                        ,
 };
 
-#define XFILETXT_MAXBUFFER      (1000*1024)
+#define XFILETXT_MAXBUFFER      (5000*1024)
 
 #define XFILETXT_TOLASTLINE     0x80000000
 

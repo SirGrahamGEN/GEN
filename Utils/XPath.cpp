@@ -889,13 +889,13 @@ bool XPATH::GetPathInSequence(int index, XSTRING& pathpart)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         const XCHAR* XPATH::SetOnlyDrive()
 * @brief      SetOnlyDrive
 * @ingroup    UTILS
-*
-* @return     const :
-*
+* 
+* @return     const : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 const XCHAR* XPATH::SetOnlyDrive()
 {
