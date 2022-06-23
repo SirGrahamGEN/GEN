@@ -198,11 +198,11 @@ set(DIO_MODBUSCLIENT_FEATURE                            false   CACHE BOOL "Acti
 set(DIO_ALERTS_FEATURE                                  false   CACHE BOOL "Activate Data Input/Output Alerts"                          FORCE)
 
 set(DIO_PROTOCOL_FEATURE                                false  CACHE BOOL "Activate Data Input/Output Protocol"                         FORCE)
+set(DIO_PROTOCOL_CLI_FEATURE                            false  CACHE BOOL "Activate Data Input/Output Protocol in CLI"                  FORCE)
 
 set(DIO_MPSSE_FEATURE                                   false   CACHE BOOL "Activate Data Input/Output MPSSE"                           FORCE)     
 set(DIO_WAKEONLAN_FEATURE                               false   CACHE BOOL "Activate Data Input/Output WakeON Lan"                      FORCE)
 set(DIO_BUSPIRATE_FEATURE                               false   CACHE BOOL "Activate Data Input/Output Bus Pirate 4.0"                  FORCE)
-set(DIO_CLICLIENT_FEATURE                               false   CACHE BOOL "Activate Data Input/Output CLI CLient"                      FORCE)
 set(DIO_LEDNEOPIXELWS2812B_FEATURE                      false   CACHE BOOL "Activate Data Input/Output Led Neopixel WS2812B"            FORCE)
 
 set(DIO_APPLICATIONUPDATE_FEATURE                       false   CACHE BOOL "Activate Data Input/Output Application Update"              FORCE)

@@ -1480,6 +1480,18 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOProtocol_ApplicationData.cpp")
    set(DIO_STREAMCIPHER_FEATURE                          true   CACHE BOOL "Activate Data Input/Output Stream Cipher"                      FORCE)
    set(DIO_STREAMUDP_FEATURE                             true   CACHE BOOL "Activate Data Input/Output Stream UDP"                         FORCE)
+   set(DIO_STREAMTCPIP_FEATURE                           true   CACHE BOOL "Activate Data Input/Output Stream TCPIP"                       FORCE)
+   set(CIPHER_SYMMETRIC_AES_FEATURE                      true   CACHE BOOL "Activate Cipher Symetric AES"                                  FORCE)
+
+ endif()
+
+ if(DIO_PROTOCOL_CLI_FEATURE)
+
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOProtocolCLI.cpp")
+   set(DIO_STREAMCIPHER_FEATURE                          true   CACHE BOOL "Activate Data Input/Output Stream Cipher"                      FORCE)   
+   set(DIO_STREAMUART_FEATURE                            true   CACHE BOOL "Activate Data Input/Output Stream UART"                        FORCE)
+   set(DIO_STREAMUSB_FEATURE                             true   CACHE BOOL "Activate Data Input/Output Stream USB"                         FORCE)
+   set(DIO_STREAMTCPIP_FEATURE                           true   CACHE BOOL "Activate Data Input/Output Stream TCPIP"                       FORCE)
    set(CIPHER_SYMMETRIC_AES_FEATURE                      true   CACHE BOOL "Activate Cipher Symetric AES"                                  FORCE)
 
  endif()
@@ -1806,12 +1818,6 @@
  if(DIO_BUSPIRATE_FEATURE)
 
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOBusPirate.cpp")  
-
- endif()
-
- if(DIO_CLICLIENT_FEATURE)  
-
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOCLIClient.cpp")  
 
  endif()
 
