@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOStringProtocol.cpp
+* @file       DIOProtocolCLI.cpp
 * 
-* @class      DIOSTRINGPROTOCOL
-* @brief      Data Input/Output String protocol class
+* @class      DIOPROTOCOLCLI
+* @brief      Data Input/Output protocol in CLI class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -45,7 +45,7 @@
 
 #include "DIOStream.h"
 
-#include "DIOStringProtocol.h"
+#include "DIOProtocolCLI.h"
 
 #include "XMemory_Control.h"
 
@@ -56,18 +56,18 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-#pragma region DIOSTRINGPROTOCOLCOMMAND
+#pragma region DIOPROTOCOLCLICOMMAND
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTRINGPROTOCOLCOMMAND::DIOSTRINGPROTOCOLCOMMAND()
+* @fn         DIOPROTOCOLCLICOMMAND::DIOPROTOCOLCLICOMMAND()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTRINGPROTOCOLCOMMAND::DIOSTRINGPROTOCOLCOMMAND()
+DIOPROTOCOLCLICOMMAND::DIOPROTOCOLCLICOMMAND()
 {
   Clean();
 }
@@ -75,7 +75,7 @@ DIOSTRINGPROTOCOLCOMMAND::DIOSTRINGPROTOCOLCOMMAND()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTRINGPROTOCOLCOMMAND::~DIOSTRINGPROTOCOLCOMMAND()
+* @fn         DIOPROTOCOLCLICOMMAND::~DIOPROTOCOLCLICOMMAND()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
@@ -83,7 +83,7 @@ DIOSTRINGPROTOCOLCOMMAND::DIOSTRINGPROTOCOLCOMMAND()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTRINGPROTOCOLCOMMAND::~DIOSTRINGPROTOCOLCOMMAND()
+DIOPROTOCOLCLICOMMAND::~DIOPROTOCOLCLICOMMAND()
 {
   Clean();
 }
@@ -91,14 +91,14 @@ DIOSTRINGPROTOCOLCOMMAND::~DIOSTRINGPROTOCOLCOMMAND()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XCHAR* DIOSTRINGPROTOCOLCOMMAND::GetCommand()
+* @fn         XCHAR* DIOPROTOCOLCLICOMMAND::GetCommand()
 * @brief      GetCommand
 * @ingroup    DATAIO
 * 
 * @return     XCHAR* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XCHAR* DIOSTRINGPROTOCOLCOMMAND::GetCommand()
+XCHAR* DIOPROTOCOLCLICOMMAND::GetCommand()
 { 
   return command.Get();                               
 }
@@ -106,14 +106,14 @@ XCHAR* DIOSTRINGPROTOCOLCOMMAND::GetCommand()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         int DIOSTRINGPROTOCOLCOMMAND::GetNParams()
+* @fn         int DIOPROTOCOLCLICOMMAND::GetNParams()
 * @brief      GetNParams
 * @ingroup    DATAIO
 * 
 * @return     int : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-int DIOSTRINGPROTOCOLCOMMAND::GetNParams()
+int DIOPROTOCOLCLICOMMAND::GetNParams()
 { 
   return nparams;                                     
 }
@@ -121,7 +121,7 @@ int DIOSTRINGPROTOCOLCOMMAND::GetNParams()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOSTRINGPROTOCOLCOMMAND::Set(XCHAR* command, int nparams)
+* @fn         bool DIOPROTOCOLCLICOMMAND::Set(XCHAR* command, int nparams)
 * @brief      Set
 * @ingroup    DATAIO
 * 
@@ -131,7 +131,7 @@ int DIOSTRINGPROTOCOLCOMMAND::GetNParams()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTRINGPROTOCOLCOMMAND::Set(XCHAR* command, int nparams)
+bool DIOPROTOCOLCLICOMMAND::Set(XCHAR* command, int nparams)
 {
   this->command = command;
   this->nparams = nparams;
@@ -142,7 +142,7 @@ bool DIOSTRINGPROTOCOLCOMMAND::Set(XCHAR* command, int nparams)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOSTRINGPROTOCOLCOMMAND::Clean()
+* @fn         void DIOPROTOCOLCLICOMMAND::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
@@ -150,7 +150,7 @@ bool DIOSTRINGPROTOCOLCOMMAND::Set(XCHAR* command, int nparams)
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOSTRINGPROTOCOLCOMMAND::Clean()
+void DIOPROTOCOLCLICOMMAND::Clean()
 {
   command.Empty();
   nparams = 0;
@@ -159,18 +159,18 @@ void DIOSTRINGPROTOCOLCOMMAND::Clean()
 #pragma endregion
 
 
-#pragma region DIOSTRINGPROTOCOLANSWER
+#pragma region DIOPROTOCOLCLIANSWER
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTRINGPROTOCOLANSWER::DIOSTRINGPROTOCOLANSWER()
+* @fn         DIOPROTOCOLCLIANSWER::DIOPROTOCOLCLIANSWER()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTRINGPROTOCOLANSWER::DIOSTRINGPROTOCOLANSWER()
+DIOPROTOCOLCLIANSWER::DIOPROTOCOLCLIANSWER()
 {
   Clean();
 }
@@ -178,7 +178,7 @@ DIOSTRINGPROTOCOLANSWER::DIOSTRINGPROTOCOLANSWER()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTRINGPROTOCOLANSWER::~DIOSTRINGPROTOCOLANSWER()
+* @fn         DIOPROTOCOLCLIANSWER::~DIOPROTOCOLCLIANSWER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
@@ -186,7 +186,7 @@ DIOSTRINGPROTOCOLANSWER::DIOSTRINGPROTOCOLANSWER()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTRINGPROTOCOLANSWER::~DIOSTRINGPROTOCOLANSWER()
+DIOPROTOCOLCLIANSWER::~DIOPROTOCOLCLIANSWER()
 {
   Clean();
 }
@@ -194,14 +194,14 @@ DIOSTRINGPROTOCOLANSWER::~DIOSTRINGPROTOCOLANSWER()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* DIOSTRINGPROTOCOLANSWER::GetCommand()
+* @fn         XSTRING* DIOPROTOCOLCLIANSWER::GetCommand()
 * @brief      GetCommand
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* DIOSTRINGPROTOCOLANSWER::GetCommand()
+XSTRING* DIOPROTOCOLCLIANSWER::GetCommand()
 { 
   return &command;                                
 }
@@ -209,14 +209,14 @@ XSTRING* DIOSTRINGPROTOCOLANSWER::GetCommand()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* DIOSTRINGPROTOCOLANSWER::GetAnswer()
+* @fn         XSTRING* DIOPROTOCOLCLIANSWER::GetAnswer()
 * @brief      GetAnswer
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* DIOSTRINGPROTOCOLANSWER::GetAnswer()
+XSTRING* DIOPROTOCOLCLIANSWER::GetAnswer()
 { 
   return &answer;                                 
 }
@@ -224,7 +224,7 @@ XSTRING* DIOSTRINGPROTOCOLANSWER::GetAnswer()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOSTRINGPROTOCOLANSWER::Clean()
+* @fn         void DIOPROTOCOLCLIANSWER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
@@ -232,7 +232,7 @@ XSTRING* DIOSTRINGPROTOCOLANSWER::GetAnswer()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOSTRINGPROTOCOLANSWER::Clean()
+void DIOPROTOCOLCLIANSWER::Clean()
 {
   command.Empty();
   answer.Empty();
@@ -241,30 +241,27 @@ void DIOSTRINGPROTOCOLANSWER::Clean()
 #pragma endregion
 
 
-#pragma region DIOSTRINGPROTOCOL
+#pragma region DIOPROTOCOLCLI
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTRINGPROTOCOL::DIOSTRINGPROTOCOL(DIOSTREAM* diostream)
+* @fn         DIOPROTOCOLCLI::DIOPROTOCOLCLI()
 * @brief      Constructor
 * @ingroup    DATAIO
-* 
-* @param[in]  DIOSTREAM* : 
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTRINGPROTOCOL::DIOSTRINGPROTOCOL(DIOSTREAM* diostream)
+DIOPROTOCOLCLI::DIOPROTOCOLCLI()
 {
-  Clean();
-
-  this->diostream = diostream;
+  Clean();  
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTRINGPROTOCOL::~DIOSTRINGPROTOCOL()
+* @fn         DIOPROTOCOLCLI::~DIOPROTOCOLCLI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
@@ -272,7 +269,7 @@ DIOSTRINGPROTOCOL::DIOSTRINGPROTOCOL(DIOSTREAM* diostream)
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTRINGPROTOCOL::~DIOSTRINGPROTOCOL()
+DIOPROTOCOLCLI::~DIOPROTOCOLCLI()
 {
   DeleteAllCommand();
 
@@ -286,17 +283,21 @@ DIOSTRINGPROTOCOL::~DIOSTRINGPROTOCOL()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOSTRINGPROTOCOL::Ini(int timeout)
+* @fn         bool DIOPROTOCOLCLI::Ini(DIOSTREAM* diostream, int timeout)
 * @brief      Ini
 * @ingroup    DATAIO
 * 
+* @param[in]  diostream : 
 * @param[in]  timeout : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTRINGPROTOCOL::Ini(int timeout)
+bool DIOPROTOCOLCLI::Ini(DIOSTREAM* diostream, int timeout)
 {
+  this->diostream = diostream;
+  if(!diostream) return false;
+
   GEN_XFACTORY_CREATE(xtimerout, CreateTimer())
   if(!xtimerout) return false;
 
@@ -316,38 +317,7 @@ bool DIOSTRINGPROTOCOL::Ini(int timeout)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOSTRINGPROTOCOL::End()
-* @brief      End
-* @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOSTRINGPROTOCOL::End()
-{
-  if(diostream)
-    {
-      diostream->Disconnect();
-      diostream->Close();
-    }
-
-  if(xmutexanswers)
-    {
-      GEN_XFACTORY.Delete_Mutex(xmutexanswers);
-      xmutexanswers = NULL;
-    }
-
-  if(xtimerout)
-    {
-      GEN_XFACTORY.DeleteTimer(xtimerout);
-      xtimerout = NULL;
-    }
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOSTRINGPROTOCOL::SendCommand(XCHAR* command, XSTRING* answer, int timeoutanswer, ...)
+* @fn         bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* answer, int timeoutanswer, ...)
 * @brief      SendCommand
 * @ingroup    DATAIO
 * 
@@ -359,7 +329,7 @@ void DIOSTRINGPROTOCOL::End()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTRINGPROTOCOL::SendCommand(XCHAR* command, XSTRING* answer, int timeoutanswer, ...)
+bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* answer, int timeoutanswer, ...)
 {
   va_list arg;
 
@@ -375,7 +345,7 @@ bool DIOSTRINGPROTOCOL::SendCommand(XCHAR* command, XSTRING* answer, int timeout
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOSTRINGPROTOCOL::SendCommand(XCHAR* command, XSTRING* answer, int timeoutanswer, va_list& arg)
+* @fn         bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* answer, int timeoutanswer, va_list& arg)
 * @brief      SendCommand
 * @ingroup    DATAIO
 * 
@@ -387,11 +357,11 @@ bool DIOSTRINGPROTOCOL::SendCommand(XCHAR* command, XSTRING* answer, int timeout
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTRINGPROTOCOL::SendCommand(XCHAR* command, XSTRING* answer, int timeoutanswer, va_list& arg)
+bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* answer, int timeoutanswer, va_list& arg)
 {
   if(answer) answer->Empty();
 
-  DIOSTRINGPROTOCOLCOMMAND* protocolcommand = GetCommand(command);
+  DIOPROTOCOLCLICOMMAND* protocolcommand = GetCommand(command);
   if(!protocolcommand) return false;
 
   XSTRING  tosend;
@@ -457,7 +427,7 @@ bool DIOSTRINGPROTOCOL::SendCommand(XCHAR* command, XSTRING* answer, int timeout
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOSTRINGPROTOCOL::ReceivedCommand(XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
+* @fn         bool DIOPROTOCOLCLI::ReceivedCommand(XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
 * @brief      ReceivedCommand
 * @ingroup    DATAIO
 * 
@@ -468,7 +438,7 @@ bool DIOSTRINGPROTOCOL::SendCommand(XCHAR* command, XSTRING* answer, int timeout
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTRINGPROTOCOL::ReceivedCommand(XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
+bool DIOPROTOCOLCLI::ReceivedCommand(XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
 {
   return false;
 }
@@ -476,7 +446,7 @@ bool DIOSTRINGPROTOCOL::ReceivedCommand(XSTRING& command, XVECTOR<XSTRING*>& par
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOSTRINGPROTOCOL::ReceivedAnswer(XSTRING& answer)
+* @fn         void DIOPROTOCOLCLI::ReceivedAnswer(XSTRING& answer)
 * @brief      ReceivedAnswer
 * @ingroup    DATAIO
 * 
@@ -485,7 +455,7 @@ bool DIOSTRINGPROTOCOL::ReceivedCommand(XSTRING& command, XVECTOR<XSTRING*>& par
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOSTRINGPROTOCOL::ReceivedAnswer(XSTRING& answer)
+void DIOPROTOCOLCLI::ReceivedAnswer(XSTRING& answer)
 {
 
 }
@@ -493,14 +463,14 @@ void DIOSTRINGPROTOCOL::ReceivedAnswer(XSTRING& answer)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOSTRINGPROTOCOL::ReceivedCommandManager()
+* @fn         void DIOPROTOCOLCLI::ReceivedCommandManager()
 * @brief      ReceivedCommandManager
 * @ingroup    DATAIO
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOSTRINGPROTOCOL::ReceivedCommandManager()
+void DIOPROTOCOLCLI::ReceivedCommandManager()
 {
   if(!diostream) return;
 
@@ -541,7 +511,7 @@ void DIOSTRINGPROTOCOL::ReceivedCommandManager()
                       makeanswer = false;
                     }
 
-                  markanswer.Format(__L("[%s"), DIOSTRINGPROTOCOL_ANSWER);
+                  markanswer.Format(__L("[%s"), DIOPROTOCOLCLI_ANSWER);
 
                   int indexanswer = laststringreceived.Find(markanswer.Get(), true);
                   if((indexanswer == XSTRING_NOTFOUND) || (indexanswer > 0))
@@ -553,20 +523,20 @@ void DIOSTRINGPROTOCOL::ReceivedCommandManager()
                       bool status = ReceivedCommand(command, params, answer);
                       if(!status)
                         {
-                          answer = DIOSTRINGPROTOCOL_ERROR;
+                          answer = DIOPROTOCOLCLI_ERROR;
                         }
                        else
                         {
-                          if(answer.IsEmpty()) answer = DIOSTRINGPROTOCOL_OK;
+                          if(answer.IsEmpty()) answer = DIOPROTOCOLCLI_OK;
                         }
 
                       if(makeanswer)
                         {
                           XSTRING result;
 
-                          result.Format(__L("[%s%s]:%s\n\r"), DIOSTRINGPROTOCOL_ANSWER, command.Get(), answer.Get());
+                          result.Format(__L("[%s%s]:%s\n\r"), DIOPROTOCOLCLI_ANSWER, command.Get(), answer.Get());
 
-                          //XTRACE_PRINTCOLOR(3, __L("DIOStringProtocol Send Answer: %s"), result.Get());
+                          //XTRACE_PRINTCOLOR(3, __L("DIOProtocolCLI Send Answer: %s"), result.Get());
 
                           XSTRING_CREATEOEM(result, charstr);
                           diostream->Write((XBYTE*)charstr, result.GetSize());
@@ -593,7 +563,7 @@ void DIOSTRINGPROTOCOL::ReceivedCommandManager()
 
                              laststringreceived.DeleteCharacters(0, startanswer+2);
 
-                             //XTRACE_PRINTCOLOR(3, __L("DIOStringProtocol Received Answer: %s %s"), command.Get(), laststringreceived.Get());
+                             //XTRACE_PRINTCOLOR(3, __L("DIOProtocolCLI Received Answer: %s %s"), command.Get(), laststringreceived.Get());
 
                              if(AddAnswer(command.Get(), laststringreceived))
                                {
@@ -618,7 +588,7 @@ void DIOSTRINGPROTOCOL::ReceivedCommandManager()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOSTRINGPROTOCOL::AddAnswer(XCHAR*command, XSTRING& answer)
+* @fn         bool DIOPROTOCOLCLI::AddAnswer(XCHAR*command, XSTRING& answer)
 * @brief      AddAnswer
 * @ingroup    DATAIO
 * 
@@ -628,9 +598,9 @@ void DIOSTRINGPROTOCOL::ReceivedCommandManager()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTRINGPROTOCOL::AddAnswer(XCHAR*command, XSTRING& answer)
+bool DIOPROTOCOLCLI::AddAnswer(XCHAR*command, XSTRING& answer)
 {
-  DIOSTRINGPROTOCOLANSWER* protocolanswer = new DIOSTRINGPROTOCOLANSWER();
+  DIOPROTOCOLCLIANSWER* protocolanswer = new DIOPROTOCOLCLIANSWER();
   if(!protocolanswer) return false;
 
   if(xmutexanswers) xmutexanswers->Lock();
@@ -648,7 +618,7 @@ bool DIOSTRINGPROTOCOL::AddAnswer(XCHAR*command, XSTRING& answer)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* DIOSTRINGPROTOCOL::GetFirstAnswer(XCHAR* command)
+* @fn         XSTRING* DIOPROTOCOLCLI::GetFirstAnswer(XCHAR* command)
 * @brief      GetFirstAnswer
 * @ingroup    DATAIO
 * 
@@ -657,7 +627,7 @@ bool DIOSTRINGPROTOCOL::AddAnswer(XCHAR*command, XSTRING& answer)
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* DIOSTRINGPROTOCOL::GetFirstAnswer(XCHAR* command)
+XSTRING* DIOPROTOCOLCLI::GetFirstAnswer(XCHAR* command)
 {
   if(answers.IsEmpty()) return NULL;
 
@@ -667,7 +637,7 @@ XSTRING* DIOSTRINGPROTOCOL::GetFirstAnswer(XCHAR* command)
 
   for(XDWORD c=0; c<answers.GetSize(); c++)
     {
-      DIOSTRINGPROTOCOLANSWER* protocolanswer = answers.Get(c);
+      DIOPROTOCOLCLIANSWER* protocolanswer = answers.Get(c);
       if(protocolanswer)
         {
           if(!protocolanswer->GetCommand()->Compare(command))
@@ -686,7 +656,7 @@ XSTRING* DIOSTRINGPROTOCOL::GetFirstAnswer(XCHAR* command)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOSTRINGPROTOCOL::DeleteFirstAnswer(XCHAR* command)
+* @fn         bool DIOPROTOCOLCLI::DeleteFirstAnswer(XCHAR* command)
 * @brief      DeleteFirstAnswer
 * @ingroup    DATAIO
 * 
@@ -695,7 +665,7 @@ XSTRING* DIOSTRINGPROTOCOL::GetFirstAnswer(XCHAR* command)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTRINGPROTOCOL::DeleteFirstAnswer(XCHAR* command)
+bool DIOPROTOCOLCLI::DeleteFirstAnswer(XCHAR* command)
 {
   if(answers.IsEmpty()) return false;
 
@@ -705,7 +675,7 @@ bool DIOSTRINGPROTOCOL::DeleteFirstAnswer(XCHAR* command)
 
   for(XDWORD c=0; c<answers.GetSize(); c++)
     {
-      DIOSTRINGPROTOCOLANSWER* protocolanswer = answers.Get(c);
+      DIOPROTOCOLCLIANSWER* protocolanswer = answers.Get(c);
       if(protocolanswer)
         {
           if(!protocolanswer->GetCommand()->Compare(command))
@@ -727,14 +697,14 @@ bool DIOSTRINGPROTOCOL::DeleteFirstAnswer(XCHAR* command)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOSTRINGPROTOCOL::DeleteAllAnswers()
+* @fn         bool DIOPROTOCOLCLI::DeleteAllAnswers()
 * @brief      DeleteAllAnswers
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTRINGPROTOCOL::DeleteAllAnswers()
+bool DIOPROTOCOLCLI::DeleteAllAnswers()
 {
   if(answers.IsEmpty()) return false;
 
@@ -751,7 +721,38 @@ bool DIOSTRINGPROTOCOL::DeleteAllAnswers()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOSTRINGPROTOCOL::AddCommand(XCHAR* command, int nparams)
+* @fn         void DIOPROTOCOLCLI::End()
+* @brief      End
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOPROTOCOLCLI::End()
+{
+  if(diostream)
+    {
+      diostream->Disconnect();
+      diostream->Close();
+    }
+
+  if(xmutexanswers)
+    {
+      GEN_XFACTORY.Delete_Mutex(xmutexanswers);
+      xmutexanswers = NULL;
+    }
+
+  if(xtimerout)
+    {
+      GEN_XFACTORY.DeleteTimer(xtimerout);
+      xtimerout = NULL;
+    }
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOLCLI::AddCommand(XCHAR* command, int nparams)
 * @brief      AddCommand
 * @ingroup    DATAIO
 * 
@@ -761,10 +762,10 @@ bool DIOSTRINGPROTOCOL::DeleteAllAnswers()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTRINGPROTOCOL::AddCommand(XCHAR* command, int nparams)
+bool DIOPROTOCOLCLI::AddCommand(XCHAR* command, int nparams)
 {
   XSTRING                   commandstring;
-  DIOSTRINGPROTOCOLCOMMAND* protocolcommand;
+  DIOPROTOCOLCLICOMMAND* protocolcommand;
 
   commandstring = command;
   commandstring.ToLowerCase();
@@ -772,7 +773,7 @@ bool DIOSTRINGPROTOCOL::AddCommand(XCHAR* command, int nparams)
   protocolcommand = GetCommand(commandstring.Get());
   if(protocolcommand) return false;
 
-  protocolcommand = new DIOSTRINGPROTOCOLCOMMAND();
+  protocolcommand = new DIOPROTOCOLCLICOMMAND();
   if(!protocolcommand) return false;
 
   protocolcommand->Set(commandstring.Get(), nparams);
@@ -783,26 +784,26 @@ bool DIOSTRINGPROTOCOL::AddCommand(XCHAR* command, int nparams)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTRINGPROTOCOLCOMMAND* DIOSTRINGPROTOCOL::GetCommand(XCHAR* command)
+* @fn         DIOPROTOCOLCLICOMMAND* DIOPROTOCOLCLI::GetCommand(XCHAR* command)
 * @brief      GetCommand
 * @ingroup    DATAIO
 * 
 * @param[in]  command : 
 * 
-* @return     DIOSTRINGPROTOCOLCOMMAND* : 
+* @return     DIOPROTOCOLCLICOMMAND* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTRINGPROTOCOLCOMMAND* DIOSTRINGPROTOCOL::GetCommand(XCHAR* command)
+DIOPROTOCOLCLICOMMAND* DIOPROTOCOLCLI::GetCommand(XCHAR* command)
 {
   XSTRING                   commandstring;
-  DIOSTRINGPROTOCOLCOMMAND* protocolcommand;
+  DIOPROTOCOLCLICOMMAND* protocolcommand;
 
   commandstring = command;
   commandstring.ToLowerCase();
 
   for(int c=0;c<(int)commands.GetSize();c++)
     {
-       protocolcommand = (DIOSTRINGPROTOCOLCOMMAND*)commands.Get(c);
+       protocolcommand = (DIOPROTOCOLCLICOMMAND*)commands.Get(c);
        if(protocolcommand)
          {
            XSTRING protocolcommandstring;
@@ -819,14 +820,14 @@ DIOSTRINGPROTOCOLCOMMAND* DIOSTRINGPROTOCOL::GetCommand(XCHAR* command)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOSTRINGPROTOCOL::DeleteAllCommand()
+* @fn         bool DIOPROTOCOLCLI::DeleteAllCommand()
 * @brief      DeleteAllCommand
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTRINGPROTOCOL::DeleteAllCommand()
+bool DIOPROTOCOLCLI::DeleteAllCommand()
 {
   if(commands.IsEmpty()) return false;
 
@@ -839,7 +840,7 @@ bool DIOSTRINGPROTOCOL::DeleteAllCommand()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOSTRINGPROTOCOL::ExtractParamsFromCommand(XSTRING& stringreceived, XSTRING& command, XVECTOR<XSTRING*>& params)
+* @fn         bool DIOPROTOCOLCLI::ExtractParamsFromCommand(XSTRING& stringreceived, XSTRING& command, XVECTOR<XSTRING*>& params)
 * @brief      ExtractParamsFromCommand
 * @ingroup    DATAIO
 * 
@@ -850,7 +851,7 @@ bool DIOSTRINGPROTOCOL::DeleteAllCommand()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTRINGPROTOCOL::ExtractParamsFromCommand(XSTRING& stringreceived, XSTRING& command, XVECTOR<XSTRING*>& params)
+bool DIOPROTOCOLCLI::ExtractParamsFromCommand(XSTRING& stringreceived, XSTRING& command, XVECTOR<XSTRING*>& params)
 {
   params.DeleteContents();
   params.DeleteAll();
@@ -913,7 +914,7 @@ bool DIOSTRINGPROTOCOL::ExtractParamsFromCommand(XSTRING& stringreceived, XSTRIN
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOSTRINGPROTOCOL::Clean()
+* @fn         void DIOPROTOCOLCLI::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
@@ -921,7 +922,7 @@ bool DIOSTRINGPROTOCOL::ExtractParamsFromCommand(XSTRING& stringreceived, XSTRIN
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOSTRINGPROTOCOL::Clean()
+void DIOPROTOCOLCLI::Clean()
 {
   diostream             = NULL;
 
