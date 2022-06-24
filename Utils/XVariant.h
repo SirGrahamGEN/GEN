@@ -108,6 +108,7 @@ class XVARIANT
 
     #ifdef XTRACE_ACTIVE
     void                            PrintDebug              ();
+    void                            GetDebugString          (XSTRING& string);
     #endif
 
   protected:

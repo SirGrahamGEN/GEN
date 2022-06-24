@@ -49,6 +49,7 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
+#pragma region XFILECFGVALUE
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -203,15 +204,10 @@ void XFILECFGVALUE::Clean()
   value = NULL;
 }
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* XFILECFG  eXtended file Config
-*
-* --------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion 
 
 
-
+#pragma region XFILECFG
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -228,23 +224,22 @@ XFILECFG::XFILECFG(XCHAR* namefile)
 {
   Clean();
 
-  if(!namefile) return;
-
-  this->namefile = namefile;
-
-  if(this->namefile.IsEmpty()) return;
-
-  XPATH xpathroot;
-  GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathroot);
-
-  xpathfile.Add(xpathroot.Get());
-  if(!xpathfile.IsEmpty()) xpathfile.Slash_Add();
-
-  xpathfile.Add(this->namefile.Get());
-  xpathfile.Add(XFILECFG_EXTENSIONFILE);
-
   fileini = new XFILEINI();
 
+  if(namefile) 
+    {
+      this->namefile = namefile;
+      if(this->namefile.IsEmpty()) return;
+
+      XPATH xpathroot;
+      GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathroot);
+
+      xpathfile.Add(xpathroot.Get());
+      if(!xpathfile.IsEmpty()) xpathfile.Slash_Add();
+
+      xpathfile.Add(this->namefile.Get());
+      xpathfile.Add(XFILECFG_EXTENSIONFILE);
+    }
  }
 
 
@@ -261,10 +256,7 @@ XFILECFG::XFILECFG(XCHAR* namefile)
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECFG::~XFILECFG()
 {
-  if(!namefile.IsEmpty())
-    {
-      if(fileini) delete fileini;
-    }
+  if(fileini) delete fileini;
 
   DeleteAllRemarks();
 
@@ -272,8 +264,6 @@ XFILECFG::~XFILECFG()
   
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -296,7 +286,6 @@ bool XFILECFG::Ini()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFG::Load()
@@ -312,7 +301,6 @@ bool XFILECFG::Load()
 
   return Load(xpathfile);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -521,7 +509,6 @@ bool XFILECFG::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value)
@@ -551,6 +538,40 @@ bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* 
   return true;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn          XVECTOR<XFILECFGVALUE*>* XFILECFG::GetValues()
+* @brief       GetValues
+* @ingroup     UTILS
+* 
+* @return      XVECTOR<XFILECFGVALUE*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XFILECFGVALUE*>* XFILECFG::GetValues()
+{
+  return &values;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XFILECFG::DeleteAllValues()
+* @brief      Delete All Values
+* @ingroup    UTILS
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILECFG::DeleteAllValues()
+{
+  if(values.IsEmpty()) return false;
+
+  values.DeleteContents();
+  values.DeleteAll();
+
+  return true;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -624,6 +645,20 @@ bool XFILECFG::AddRemark(XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWO
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn          XVECTOR<XFILEINIREMARK*>* XFILECFG::GetRemarks()
+* @brief       GetRemarks
+* @ingroup     UTILS
+* 
+* @return      XVECTOR<XFILEINIREMARK*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XFILEINIREMARK*>* XFILECFG::GetRemarks()
+{
+  return &remarks;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -643,30 +678,6 @@ bool XFILECFG::DeleteAllRemarks()
 
   return true;
 }
-
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XFILECFG::DeleteAllValues()
-* @brief      Delete All Values
-* @ingroup    UTILS
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XFILECFG::DeleteAllValues()
-{
-  if(values.IsEmpty()) return false;
-
-  values.DeleteContents();
-  values.DeleteAll();
-
-  return true;
-}
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -788,6 +799,8 @@ bool XFILECFG::AjustRemarks()
 void XFILECFG::Clean()
 {
   fileini     = NULL;
+
   namefile.Empty();
 }
 
+#pragma endregion

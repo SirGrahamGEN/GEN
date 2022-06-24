@@ -86,7 +86,7 @@ class XFILECFGVALUE
 
 class XFILECFG : public XSUBJECT
 {
-  public:
+  public:                                        
                                         XFILECFG                  (XCHAR* namefile = NULL);
     virtual                            ~XFILECFG                  ();
 
@@ -101,12 +101,13 @@ class XFILECFG : public XSUBJECT
     virtual bool                        End                       ();
 
     bool                                AddValue                  (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value);
+    XVECTOR<XFILECFGVALUE*>*            GetValues                 ();    
+    bool                                DeleteAllValues           ();
     
     bool                                AddRemark                 (XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
     bool                                AddRemark                 (XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
+    XVECTOR<XFILEINIREMARK*>*           GetRemarks                ();
     bool                                DeleteAllRemarks          ();
-
-    bool                                DeleteAllValues           ();
      
   protected:
 

@@ -103,6 +103,7 @@ class XPATH : public XSTRING
     const XCHAR*              SetOnlyExt                    ();
 
     bool                      DeleteDrive                   ();
+    bool                      DeleteExt                     ();
 
     bool                      Slash_HaveAtLast              ();
     bool                      Slash_Add                     ();
