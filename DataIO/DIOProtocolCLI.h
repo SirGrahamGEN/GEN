@@ -53,7 +53,6 @@ enum DIOPROTOCOLCLI_ERROR
 
 #define DIOPROTOCOLCLI_OK            __L("ok")
 #define DIOPROTOCOLCLI_ERROR         __L("error")
-#define DIOPROTOCOLCLI_ANSWER        __L("answer ")
 
 #define DIOPROTOCOLCLI_TIMEOUT       5  //Seconds
 
@@ -104,11 +103,10 @@ class DIOPROTOCOLCLI
                                           DIOPROTOCOLCLI                ();
     virtual                              ~DIOPROTOCOLCLI                ();
 
-    virtual bool                          Ini                           (DIOSTREAM* diostream, int timeout = DIOPROTOCOLCLI_TIMEOUT);
+    virtual bool                          Ini                           (DIOSTREAM* diostream, XCHAR* ID, int timeout = DIOPROTOCOLCLI_TIMEOUT);
     
-    virtual bool                          SendCommand                   (XCHAR* command, XSTRING* answer, int timeoutanswer, ...);
-    bool                                  SendCommand                   (XCHAR* command, XSTRING* answer, int timeoutanswer, va_list& arg);
-
+    virtual bool                          SendCommand                   (XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...);
+    
     virtual bool                          ReceivedCommand               (XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer);    
     virtual void                          ReceivedAnswer                (XSTRING& answer);
     void                                  ReceivedCommandManager        ();
@@ -128,12 +126,14 @@ class DIOPROTOCOLCLI
 
     bool                                  ExtractParamsFromCommand      (XSTRING& stringreceived, XSTRING& command, XVECTOR<XSTRING*>& params);
 
+    XSTRING                               ID;
+
   private:
 
     void                                  Clean                         ();
                                         
     DIOSTREAM*                            diostream;
-
+    
     XTIMER*                               xtimerout;
     int                                   timeout;
 

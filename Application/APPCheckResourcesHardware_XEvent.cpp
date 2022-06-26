@@ -47,7 +47,7 @@
 *
 * @fn         APPCHECKRESOURCESHARDWARE_XEVENT::APPCHECKRESOURCESHARDWARE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @brief      Constructor
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  subject :
 * @param[in]  type :
@@ -67,7 +67,7 @@ APPCHECKRESOURCESHARDWARE_XEVENT::APPCHECKRESOURCESHARDWARE_XEVENT(XSUBJECT* sub
 * @fn         APPCHECKRESOURCESHARDWARE_XEVENT::~APPCHECKRESOURCESHARDWARE_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     Does not return anything.
 *
@@ -155,7 +155,7 @@ void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualCPUUsage(int& CPUusage)
 * @fn         void APPCHECKRESOURCESHARDWARE_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     void : does not return anything.
 *

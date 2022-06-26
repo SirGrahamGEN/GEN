@@ -4,7 +4,7 @@
 *
 * @class      INPWINDOWSKEYBOARDHOOK_XEVENT
 * @brief      eXtended Drive Image Mamanger Event class
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @copyright  GEN Group. All rights reserved.
 *

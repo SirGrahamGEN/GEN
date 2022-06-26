@@ -129,7 +129,7 @@ void XWINDOWSVIRTUALDESKTOP::Clean()
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::GetIsInstanced()
 * @brief      GetIsInstanced
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *
@@ -145,7 +145,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::GetIsInstanced()
 *
 * @fn         XWINDOWSVIRTUALDESKTOPMANAGER& XWINDOWSVIRTUALDESKTOPMANAGER::GetInstance()
 * @brief      GetInstance
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     XWINDOWSVIRTUALDESKTOPMANAGER& :
 *
@@ -163,7 +163,7 @@ XWINDOWSVIRTUALDESKTOPMANAGER& XWINDOWSVIRTUALDESKTOPMANAGER::GetInstance()
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::DelInstance()
 * @brief      DelInstance
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *

@@ -4,7 +4,7 @@
 *
 * @class      UI_XEVENT
 * @brief      User Interface eXtended Event class
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @copyright  GEN Group. All rights reserved.
 *
@@ -46,7 +46,7 @@
 *
 * @fn         UI_XEVENT::UI_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @brief      Constructor
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  subject :
 * @param[in]  type :
@@ -67,7 +67,7 @@ UI_XEVENT::UI_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(sub
 * @fn         UI_XEVENT::~UI_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     Does not return anything.
 *
@@ -291,7 +291,7 @@ XSTRING* UI_XEVENT::GetMaskTextResolved()
 * @fn         void UI_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     void : does not return anything.
 *

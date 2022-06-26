@@ -45,7 +45,7 @@
 *
 * @fn         APPINTERNETSERVICES_XEVENT::APPINTERNETSERVICES_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @brief      Constructor
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  subject :
 * @param[in]  type :
@@ -65,7 +65,7 @@ APPINTERNETSERVICES_XEVENT::APPINTERNETSERVICES_XEVENT(XSUBJECT* subject, XDWORD
 * @fn         APPINTERNETSERVICES_XEVENT::~APPINTERNETSERVICES_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     Does not return anything.
 *
@@ -252,7 +252,7 @@ XSTRING* APPINTERNETSERVICES_XEVENT::GetChangeLocalIP()
 * @fn         void APPINTERNETSERVICES_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     void : does not return anything.
 *

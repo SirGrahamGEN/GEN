@@ -1259,7 +1259,7 @@ bool MAINPROCANDROID::Factorys_End()
   XPUBLISHER::DelInstance();
   #endif
 
-  #ifdef XTHREADCOLLECTION_ACTIVE
+  #ifdef XTHREADCOLLECTED_ACTIVE
   XTHREADSCOLLECTEDMANAGER::DelInstance();
   #endif
 

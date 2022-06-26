@@ -548,7 +548,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
                       GEN_XLOG.AddEntry(XLOGLEVEL_ERROR, DIOWEBSERVER_LOGSECTIONID, false, leyend.Get());
                     }
 
-                  GEN_XLOG.AddEntry((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), DIOWEBSERVER_LOGSECTIONID, false, __L("Request to the web server\"%s\" %s."), resourceconv.Get(), status?__L("sent."):__L("not send."));
+                  GEN_XLOG.AddEntry((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), DIOWEBSERVER_LOGSECTIONID, false, __L("Request to the web server \"%s\" %s."), resourceconv.Get(), status?__L("sent."):__L("not send."));
                   ispagepluging = true;
                 }
             }
@@ -626,7 +626,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
         }
        else 
         {
-          GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID, false, __L("Request to the web server of file \"%s\" sent."));
+          GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID, false, __L("Request to the web server of file \"%s\" sent."), xpathfile.Get());
         }
     }
 

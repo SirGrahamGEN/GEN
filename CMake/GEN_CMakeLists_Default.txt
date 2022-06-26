@@ -49,7 +49,7 @@ set(APP_CFG_ALERTS_FEATURE                              false   CACHE BOOL "Acti
 
 
 # --------------------------------------------------------------------
-# Utils
+# XUtils
 
 set(XTRACE_FEATURE                                      false   CACHE BOOL "Activate XTrace"                                            FORCE)
 set(XTRACE_NOINTERNET_FEATURE                           false   CACHE BOOL "Activate No need for trace dependencies with the Internet"  FORCE)                        
@@ -76,8 +76,9 @@ set(XFILE_FEATURE                                       false   CACHE BOOL "Acti
 
 set(XLICENSE_FEATURE                                    false   CACHE BOOL "Activate License functions"                                 FORCE)
 
-set(XUUID_FEATURE                                       false   CACHE BOOL "Activate UUID functions"                                    FORCE)
 
+set(XTHREADCOLLECTED_FEATURE                            false   CACHE BOOL "Activate Thread Collected"                                  FORCE)
+set(XUUID_FEATURE                                       false   CACHE BOOL "Activate UUID functions"                                    FORCE)
 set(XSLEEP_FEATURE                                      false   CACHE BOOL "Activate Sleep functions"                                   FORCE)
 set(XSYSTEM_FEATURE                                     false   CACHE BOOL "Activate System functions"                                  FORCE)
 set(XCONSOLE_FEATURE                                    false   CACHE BOOL "Activate Console functions"                                 FORCE)

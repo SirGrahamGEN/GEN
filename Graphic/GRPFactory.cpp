@@ -53,7 +53,7 @@ GRPFACTORY* GRPFACTORY::instance = NULL;
 *
 * @fn         GRPFACTORY::GRPFACTORY()
 * @brief      Constructor
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     Does not return anything.
 *
@@ -70,7 +70,7 @@ GRPFACTORY::GRPFACTORY()
 * @fn         GRPFACTORY::~GRPFACTORY()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     Does not return anything.
 *
@@ -87,7 +87,7 @@ GRPFACTORY::~GRPFACTORY()
 * @fn         bool GRPFACTORY::GetIsInstanced()
 * @brief      Get if Is Instanced
 * @note       STATIC
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *
@@ -104,7 +104,7 @@ bool GRPFACTORY::GetIsInstanced()
 * @fn         GRPFACTORY& GRPFACTORY::GetInstance()
 * @brief      Get Instance of GRPFACTORY
 * @note       STATIC
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     GRPFACTORY& :
 *
@@ -126,7 +126,7 @@ GRPFACTORY& GRPFACTORY::GetInstance()
 * @fn         bool GRPFACTORY::SetInstance(GRPFACTORY* instance)
 * @brief      Set Instance of GRPFACTORY
 * @note       STATIC
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  _instance : new instance
 *
@@ -149,7 +149,7 @@ bool GRPFACTORY::SetInstance(GRPFACTORY* _instance)
 * @fn         bool GRPFACTORY::DelInstance()
 * @brief      Delete Instance of GRPFACTORY
 * @note       STATIC
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *

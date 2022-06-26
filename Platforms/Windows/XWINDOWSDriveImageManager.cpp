@@ -51,7 +51,7 @@
 *
 * @fn         XWINDOWSDRIVEIMAGEMANAGER::XWINDOWSDRIVEIMAGEMANAGER()
 * @brief      Constructor
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     Does not return anything.
 *
@@ -68,7 +68,7 @@ XWINDOWSDRIVEIMAGEMANAGER::XWINDOWSDRIVEIMAGEMANAGER()
 * @fn         XWINDOWSDRIVEIMAGEMANAGER::~XWINDOWSDRIVEIMAGEMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     Does not return anything.
 *
@@ -818,7 +818,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::WriteSectorDataToHandle(HANDLE handle, XQWORD st
 * @fn         void XWINDOWSDRIVEIMAGEMANAGER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     void : does not return anything.
 *

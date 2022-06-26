@@ -49,7 +49,7 @@ VERSION* VERSION::instance = NULL;
 *
 * @fn         bool VERSION::GetIsInstanced()
 * @brief      GetIsInstanced
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *
@@ -64,7 +64,7 @@ bool VERSION::GetIsInstanced()
 *
 * @fn         VERSION& VERSION::GetInstance()
 * @brief      GetInstance
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     VERSION& :
 *
@@ -81,7 +81,7 @@ VERSION& VERSION::GetInstance()
 *
 * @fn         bool VERSION::DelInstance()
 * @brief      DelInstance
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *

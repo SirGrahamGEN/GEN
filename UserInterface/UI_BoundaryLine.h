@@ -4,7 +4,7 @@
 *
 * @class      UI_BOUNDARYLINE
 * @brief      Rect class
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @copyright  GEN Group. All rights reserved.
 *

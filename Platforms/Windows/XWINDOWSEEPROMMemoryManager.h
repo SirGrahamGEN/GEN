@@ -4,7 +4,7 @@
 *
 * @class      XWINDOWSEEPROMMEMORYMANAGER
 * @brief      eXtended WINDOWS EEPROM Memory Manager class
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @copyright  GEN Group. All rights reserved.
 *

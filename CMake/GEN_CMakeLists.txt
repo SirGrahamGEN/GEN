@@ -38,7 +38,7 @@
  set(GEN_DIRECTORY_SOURCES_USERINTERFACE_SKIN                  "${GEN_DIRECTORY_SOURCES_USERINTERFACE}/Skin")
  set(GEN_DIRECTORY_SOURCES_INPUT                               "${GEN_DIRECTORY_SOURCES}/Input")
  set(GEN_DIRECTORY_SOURCES_APPLICATION                         "${GEN_DIRECTORY_SOURCES}/Application")
- set(GEN_DIRECTORY_SOURCES_UTILS                               "${GEN_DIRECTORY_SOURCES}/Utils")
+ set(GEN_DIRECTORY_SOURCES_XUTILS                              "${GEN_DIRECTORY_SOURCES}/XUtils")
  set(GEN_DIRECTORY_SOURCES_SCRIPT                              "${GEN_DIRECTORY_SOURCES}/Script")
  set(GEN_DIRECTORY_SOURCES_SCRIPT_LIB                          "${GEN_DIRECTORY_SOURCES_SCRIPT}/Lib")
  set(GEN_DIRECTORY_SOURCES_SOUND                               "${GEN_DIRECTORY_SOURCES}/Sound")
@@ -70,7 +70,7 @@
  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_SOURCES_USERINTERFACE_SKIN})
  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_SOURCES_INPUT})
  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_SOURCES_APPLICATION})
- list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_SOURCES_UTILS})
+ list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_SOURCES_XUTILS})
  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_SOURCES_SCRIPT})
  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_SOURCES_SCRIPT_LIB})
  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_SOURCES_SOUND})
@@ -1525,7 +1525,7 @@
  if(DIO_SNMP_FEATURE)
 
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOSNMP.cpp")
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XBER.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XBER.cpp")
 
  endif()
 
@@ -1866,30 +1866,37 @@
 # -------------------------------------------------
 # Utils
 
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XBase.cpp")
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XBase.cpp")
  
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XString.cpp")
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XBuffer.cpp")
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XVariant.cpp")
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XPath.cpp")
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XRect.cpp") 
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XString.cpp")
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XBuffer.cpp")
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XVariant.cpp")
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XPath.cpp")
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XRect.cpp") 
  
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFactory.cpp") 
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XTimer.cpp")
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XDateTime.cpp")
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XRand.cpp")
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XDir.cpp")
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XThread.cpp")
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFactory.cpp") 
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XTimer.cpp")
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XDateTime.cpp")
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XRand.cpp")
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XDir.cpp")
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XThread.cpp")
   
  if(XTRACE_FEATURE)
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XTrace.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XTrace.cpp")
 
  endif()
 
  if(XMEMORY_CONTROL_FEATURE)
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XMemory_Control.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XMemory_Control.cpp")
+
+ endif()
+
+ if(XTHREADCOLLECTED_FEATURE)
+ 
+   add_definitions(-DXTHREADCOLLECTED_ACTIVE)    
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XThreadCollected.cpp")
 
  endif()
   
@@ -1897,43 +1904,43 @@
 
    add_definitions(-DXCONSOLE_ACTIVE) 
    set(XSLEEP_FEATURE                                    true    CACHE BOOL "Activate Sleep functions"                                   FORCE)
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XConsole.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XConsole.cpp")
 
  endif()
 
  if(XSYSTEM_FEATURE)  
 
    add_definitions(-DXSYSTEM_ACTIVE)  
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XSystem.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XSystem.cpp")
 
  endif()
 
  if(XFSMACHINE_FEATURE)
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFSMachine.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFSMachine.cpp")
 
  endif()  
 
  if(XSCHEDULER_FEATURE)
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XScheduler.cpp")
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XScheduler_XEvent.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XScheduler.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XScheduler_XEvent.cpp")
 
  endif()
 
  if(XPUBLISHER_FEATURE)
 
    add_definitions(-DXPUBLISHER_ACTIVE)
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XPublisher.cpp")
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XSubject.cpp")
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XObserver.cpp")
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XEvent.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XPublisher.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XSubject.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XObserver.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XEvent.cpp")
 
  endif()
 
  if(XUUID_FEATURE)
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XUUID.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XUUID.cpp")
    set(HASH_FEATURE                                        true    CACHE BOOL "Activate Hash"                                              FORCE)
    set(HASH_CRC32_FEATURE                                  true    CACHE BOOL "Activate Hash CRC32"                                        FORCE)
 
@@ -1941,132 +1948,132 @@
 
  if(XLOG_FEATURE)  
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XLog.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XLog.cpp")
    add_definitions(-DXLOG_ACTIVE)
    set(XFILE_ZIP_FEATURE                                   true    CACHE BOOL "Activate XFile Zip format"                                  FORCE)
 
  endif()
 
- list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XPathsManager.cpp")
+ list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XPathsManager.cpp")
 
  if(XTRANSLATION_FEATURE)
 
    set(XFILE_JSON_FEATURE                                  true    CACHE BOOL "Activate XFile JSON format"                                 FORCE)
    set(XTRANSLATION_GEN_FEATURE                            true    CACHE BOOL "Activate Translation"                                       FORCE)
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XTranslation.cpp")  
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XTranslation.cpp")  
 
  endif()
 
  if(XTRANSLATION_GEN_FEATURE)  
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XLanguage_ISO_639_3.cpp")
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XTranslation_GEN.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XLanguage_ISO_639_3.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XTranslation_GEN.cpp")
 
  endif()
 
  if(XSLEEP_FEATURE)
 
    add_definitions(-DXSLEEP_ACTIVE) 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XSleep.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XSleep.cpp")
 
  endif()
 
  if(XPROCESSMANAGER_FEATURE)
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XProcessManager.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XProcessManager.cpp")
 
  endif()
 
  if(XSHAREDMEMORYMANAGER_FEATURE)
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XSharedMemoryManager.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XSharedMemoryManager.cpp")
 
  endif()
 
  if(XDRIVEIMAGEMANAGER_FEATURE)
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XDriveImageManager.cpp")
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XDriveImageManager_XEvent.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XDriveImageManager.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XDriveImageManager_XEvent.cpp")
 
  endif()
 
  if(XEEPROMMEMORYMANAGER_FEATURE)
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XEEPROMMemoryManager.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XEEPROMMemoryManager.cpp")
 
  endif()
 
  if(APP_CFG_LOCATION_FEATURE)
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XLocationAddress.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XLocationAddress.cpp")
 
  endif()
 
  if(XFILE_CFG_FEATURE) 
    set(XFILE_INI_FEATURE                                   true    CACHE BOOL "Activate XFile INI format"                                  FORCE)
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileCFG.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileCFG.cpp")
  endif()
 
  if(XFILE_INI_FEATURE) 
 
    set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileINI.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileINI.cpp")
 
  endif()
 
  if(XFILE_ZIP_FEATURE) 
 
    set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)   
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileZIP.cpp")
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileZIP_XEvent.cpp")  
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileZIP.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileZIP_XEvent.cpp")  
 
  endif()  
    
  if(XFILE_XML_FEATURE) 
 
    set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileXML.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileXML.cpp")
 
  endif()  
    
  if(XFILE_JSON_FEATURE)  
 
    set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileJSON.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileJSON.cpp")
 
  endif()
 
  if(XFILE_RIFF_FEATURE) 
 
    set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)     
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileRIFF.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileRIFF.cpp")
 
  endif()
      
  if(XFILE_HEX_FEATURE)  
 
    set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileHEX.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileHEX.cpp")
 
  endif()
    
  if(XFILE_DFU_FEATURE)  
 
    set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)     
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileDFU.cpp")  
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileDFU.cpp")  
 
  endif()  
 
  if(XFILE_TXT_FEATURE)
 
    set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)     
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFileTXT.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileTXT.cpp")
 
  endif()    
    
  if(XFILE_FEATURE)
 
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XFile.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFile.cpp")
    set(CIPHER_SYMMETRIC_FEATURE                            true    CACHE BOOL "Activate Cipher Symetric"                                   FORCE)
    set(CIPHER_ASYMMETRIC_FEATURE                           true    CACHE BOOL "Activate Cipher Asymetric"                                  FORCE)
 
@@ -2076,7 +2083,7 @@
 
    set(CIPHER_SYMMETRIC_FEATURE                            true    CACHE BOOL "Activate Cipher Symetric"                                   FORCE)
    set(CIPHER_SYMMETRIC_AES_FEATURE                        true    CACHE BOOL "Activate Cipher Symetric AES"                               FORCE)
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XLicense.cpp")
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XLicense.cpp")
 
  endif()
 
@@ -2175,8 +2182,8 @@
 
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherRSA.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherFileKeys.cpp")
-     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XMPInteger.cpp")
-     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_UTILS}/XBER.cpp")
+     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XMPInteger.cpp")
+     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XBER.cpp")
 
    endif()
 

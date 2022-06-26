@@ -88,7 +88,7 @@ DIOFACTORY::~DIOFACTORY()
 * @fn         bool DIOFACTORY::GetIsInstanced()
 * @brief      Get if Is Instanced
 * @note       STATIC
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *
@@ -105,7 +105,7 @@ bool DIOFACTORY::GetIsInstanced()
 * @fn         DIOFACTORY& DIOFACTORY::GetInstance()
 * @brief      Get Instance of DIOFACTORY
 * @note       STATIC
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     DIOFACTORY& :
 *
@@ -124,7 +124,7 @@ DIOFACTORY& DIOFACTORY::GetInstance()
 * @fn         bool DIOFACTORY::SetInstance(DIOFACTORY* instance)
 * @brief      Set Instance of DIOFACTORY
 * @note       STATIC
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  _instance : new instance
 *
@@ -147,7 +147,7 @@ bool DIOFACTORY::SetInstance(DIOFACTORY* _instance)
 * @fn         bool DIOFACTORY::DelInstance()
 * @brief      Delete Instance of DIOFACTORY
 * @note       STATIC
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *

@@ -82,7 +82,7 @@ INPFACTORYDEVICES::~INPFACTORYDEVICES()
 * @fn         bool INPFACTORYDEVICES::GetIsInstanced()
 * @brief      Get if Is Instanced
 * @note       STATIC
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *
@@ -99,7 +99,7 @@ bool INPFACTORYDEVICES::GetIsInstanced()
 * @fn         INPFACTORYDEVICES& INPFACTORYDEVICES::GetInstance()
 * @brief      Get Instance of INPFACTORYDEVICES
 * @note       STATIC
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     INPFACTORYDEVICES& :
 *
@@ -118,7 +118,7 @@ INPFACTORYDEVICES& INPFACTORYDEVICES::GetInstance()
 * @fn         bool INPFACTORYDEVICES::SetInstance(INPFACTORYDEVICES* instance)
 * @brief      Set Instance of INPFACTORYDEVICES
 * @note       STATIC
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  _instance : new instance
 *
@@ -141,7 +141,7 @@ bool INPFACTORYDEVICES::SetInstance(INPFACTORYDEVICES* _instance)
 * @fn         bool INPFACTORYDEVICES::DelInstance()
 * @brief      Delete Instance of INPFACTORYDEVICES
 * @note       STATIC
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *

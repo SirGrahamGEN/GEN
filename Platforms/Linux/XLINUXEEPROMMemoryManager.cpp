@@ -4,7 +4,7 @@
 *
 * @class      XLINUXEEPROMMEMORYMANAGER
 * @brief      eXtended Windows EEPROM Memory Manager class
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @copyright  GEN Group. All rights reserved.
 *
@@ -49,7 +49,7 @@
 *
 * @fn         XLINUXEEPROMMEMORYMANAGER::XLINUXEEPROMMEMORYMANAGER()
 * @brief      Constructor
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     Does not return anything.
 *
@@ -66,7 +66,7 @@ XLINUXEEPROMMEMORYMANAGER::XLINUXEEPROMMEMORYMANAGER()
 * @fn         XLINUXEEPROMMEMORYMANAGER::~XLINUXEEPROMMEMORYMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     Does not return anything.
 *
@@ -82,7 +82,7 @@ XLINUXEEPROMMEMORYMANAGER::~XLINUXEEPROMMEMORYMANAGER()
 *
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Ini()
 * @brief      Ini
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *
@@ -98,7 +98,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Ini()
 *
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::End()
 * @brief      End
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *
@@ -114,7 +114,7 @@ bool XLINUXEEPROMMEMORYMANAGER::End()
 *
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 * @brief      Read
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -133,7 +133,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 *
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 * @brief      Read
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -152,7 +152,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 *
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 * @brief      Read
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -171,7 +171,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 *
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Read
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -191,7 +191,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 *
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 * @brief      Write
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -210,7 +210,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 *
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 * @brief      Write
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -229,7 +229,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 *
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 * @brief      Write
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -249,7 +249,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 *
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Write
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -268,7 +268,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 *
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::EraseAll()
 * @brief      EraseAll
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *

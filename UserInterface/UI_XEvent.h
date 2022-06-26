@@ -4,7 +4,7 @@
 *
 * @class      UI_XEVENT
 * @brief      eXtended File ZIP eXtended Event class
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @copyright  GEN Group. All rights reserved.
 *

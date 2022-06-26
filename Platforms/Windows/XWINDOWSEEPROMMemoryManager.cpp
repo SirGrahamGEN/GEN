@@ -50,7 +50,7 @@
 *
 * @fn         XWINDOWSEEPROMMEMORYMANAGER::XWINDOWSEEPROMMEMORYMANAGER()
 * @brief      Constructor
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     Does not return anything.
 *
@@ -67,7 +67,7 @@ XWINDOWSEEPROMMEMORYMANAGER::XWINDOWSEEPROMMEMORYMANAGER()
 * @fn         XWINDOWSEEPROMMEMORYMANAGER::~XWINDOWSEEPROMMEMORYMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     Does not return anything.
 *
@@ -83,7 +83,7 @@ XWINDOWSEEPROMMEMORYMANAGER::~XWINDOWSEEPROMMEMORYMANAGER()
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Ini()
 * @brief      Ini
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *
@@ -99,7 +99,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Ini()
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::End()
 * @brief      End
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *
@@ -115,7 +115,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::End()
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 * @brief      Read
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -134,7 +134,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 * @brief      Read
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -153,7 +153,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 * @brief      Read
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -172,7 +172,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Read
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -192,7 +192,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 * @brief      Write
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -211,7 +211,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 * @brief      Write
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -230,7 +230,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 * @brief      Write
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -250,7 +250,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 * @brief      Write
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  offset :
 * @param[in]  data :
@@ -269,7 +269,7 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::EraseAll()
 * @brief      EraseAll
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *

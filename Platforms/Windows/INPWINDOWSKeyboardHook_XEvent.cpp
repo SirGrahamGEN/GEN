@@ -4,7 +4,7 @@
 *
 * @class      INPWINDOWSKEYBOARDHOOK_XEVENT
 * @brief      eXtended Drive Image Manager Event class
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @copyright  GEN Group. All rights reserved.
 *
@@ -46,7 +46,7 @@
 *
 * @fn         INPWINDOWSKEYBOARDHOOK_XEVENT::INPWINDOWSKEYBOARDHOOK_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @brief      Constructor
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @param[in]  subject :
 * @param[in]  type :
@@ -67,7 +67,7 @@ INPWINDOWSKEYBOARDHOOK_XEVENT::INPWINDOWSKEYBOARDHOOK_XEVENT(XSUBJECT* subject, 
 * @fn         INPWINDOWSKEYBOARDHOOK_XEVENT::~INPWINDOWSKEYBOARDHOOK_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     Does not return anything.
 *
@@ -220,7 +220,7 @@ void INPWINDOWSKEYBOARDHOOK_XEVENT::SetIsKeyLocked(bool iskeylocked)
 * @fn         void INPWINDOWSKEYBOARDHOOK_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    UTILS
+* @ingroup    XUTILS
 *
 * @return     void : does not return anything.
 *
