@@ -194,6 +194,21 @@ DIOPROTOCOLCLIANSWER::~DIOPROTOCOLCLIANSWER()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XSTRING* DIOPROTOCOLCLIANSWER::GetOriginID()
+* @brief      GetOriginID
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOPROTOCOLCLIANSWER::GetOriginID()
+{
+  return &originID;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XSTRING* DIOPROTOCOLCLIANSWER::GetCommand()
 * @brief      GetCommand
 * @ingroup    DATAIO
@@ -449,16 +464,18 @@ bool DIOPROTOCOLCLI::ReceivedCommand(XSTRING& command, XVECTOR<XSTRING*>& params
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOPROTOCOLCLI::ReceivedAnswer(XSTRING& answer)
+* @fn         void DIOPROTOCOLCLI::ReceivedAnswer(XSTRING& origin, XSTRING& command, XSTRING& answer)
 * @brief      ReceivedAnswer
 * @ingroup    DATAIO
 * 
+* @param[in]  origin : 
+* @param[in]  command : 
 * @param[in]  answer : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOPROTOCOLCLI::ReceivedAnswer(XSTRING& answer)
+void DIOPROTOCOLCLI::ReceivedAnswer(XSTRING& origin, XSTRING& command, XSTRING& answer)
 {
 
 }
@@ -509,36 +526,47 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
                   XSTRING  markanswer;
                   bool     makeanswer = true;
                   bool     isanswer   = false;
+                  bool     validmessagereception =  false;
 
 
-                  if(laststringreceived.Get()[0] == __C('#'))
+                  if(laststringreceived.Get()[0] == DIOPROTOCOLCLI_MARK_DONOTANSWER)
                     {
                       laststringreceived.DeleteCharacters(0, 1);
                       makeanswer = false;
                     }
 
-                  if(laststringreceived.Get()[0] == __C('>'))
+                  if(laststringreceived.Get()[0] == DIOPROTOCOLCLI_MARK_ANSWER)
                     {
                       laststringreceived.DeleteCharacters(0, 1);
                       isanswer = true;
                     }
 
 
-                  int indexoriginID = laststringreceived.Find(__L("@"), true);
+                  int indexoriginID = laststringreceived.Find(DIOPROTOCOLCLI_MARK_ORIGIN, true);
                   if(indexoriginID != XSTRING_NOTFOUND)
                     {
                       laststringreceived.Copy(0, indexoriginID, originID);
                       laststringreceived.DeleteCharacters(0, indexoriginID+1);
                     }
 
-                  int indextargetID = laststringreceived.Find(__L("$"), true);
+                  int indextargetID = laststringreceived.Find(DIOPROTOCOLCLI_MARK_TARGET, true);
                   if(indextargetID != XSTRING_NOTFOUND)
                     {
                       laststringreceived.Copy(0, indextargetID, targetID);
                       laststringreceived.DeleteCharacters(0, indextargetID+1);
                     }
 
-                //if(!targetID.Compare(ID,true))
+                  if(!targetID.Compare(DIOPROTOCOLCLI_MARK_BROADCAST, true))
+                    {
+                      validmessagereception = true;  
+                    }
+
+                  if(!targetID.Compare(ID, true))
+                    {
+                      validmessagereception = true;  
+                    }
+
+                  if(validmessagereception)
                     {
                       if(!isanswer)
                         {
@@ -561,9 +589,9 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
                             {
                               XSTRING result;
 
-                              result.Format(__L(">%s@%s:%s\n\r"), originID.Get(), command.Get(), answer.Get());
+                              result.Format(__L("%c%s%s%s%s%s_%s\n\r"), DIOPROTOCOLCLI_MARK_ANSWER, ID.Get(), DIOPROTOCOLCLI_MARK_ORIGIN, originID.Get(), DIOPROTOCOLCLI_MARK_TARGET, command.Get(), answer.Get());
 
-                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Send Answer: %s"), result.Get());
+                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Send Answer: %s -> %s %s : (%s)"), ID.Get(), originID.Get(), command.Get(), answer.Get());
 
                               XSTRING_CREATEOEM(result, charstr);
                               diostream->Write((XBYTE*)charstr, result.GetSize());
@@ -575,11 +603,21 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
                         }
                        else
                         {
-                          if(AddAnswer(command.Get(), laststringreceived))
-                            {
-                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Received answer: %s -> %s %s:%s"), originID.Get(), targetID.Get(), command.Get(), answer.Get());
 
-                              ReceivedAnswer(laststringreceived);
+                          int indexcommand = laststringreceived.Find(__L("_"), true);
+                          if(indexcommand != XSTRING_NOTFOUND)
+                            {
+                              laststringreceived.Copy(0, indexcommand, command);
+                              laststringreceived.DeleteCharacters(0, indexcommand+1);
+                            }
+
+                          answer = laststringreceived.Get();
+
+                          if(AddAnswer(originID, command, answer))
+                            {
+                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Received answer: %s -> %s %s : (%s)"), originID.Get(), targetID.Get(), command.Get(), answer.Get());
+
+                              ReceivedAnswer(originID, command, answer);
                             }                         
                         }
                     }
@@ -598,23 +636,25 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPROTOCOLCLI::AddAnswer(XCHAR*command, XSTRING& answer)
+* @fn         bool DIOPROTOCOLCLI::AddAnswer(XSTRING& origin, XSTRING& command, XSTRING& answer)
 * @brief      AddAnswer
 * @ingroup    DATAIO
 * 
-* @param[in]  XCHAR*command : 
+* @param[in]  origin : 
+* @param[in]  command : 
 * @param[in]  answer : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPROTOCOLCLI::AddAnswer(XCHAR*command, XSTRING& answer)
+bool DIOPROTOCOLCLI::AddAnswer(XSTRING& originID, XSTRING& command, XSTRING& answer)
 {
   DIOPROTOCOLCLIANSWER* protocolanswer = new DIOPROTOCOLCLIANSWER();
   if(!protocolanswer) return false;
 
   if(xmutexanswers) xmutexanswers->Lock();
 
+  protocolanswer->GetOriginID()->Add(originID);
   protocolanswer->GetCommand()->Add(command);
   protocolanswer->GetAnswer()->Add(answer.Get());
 
