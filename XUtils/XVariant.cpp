@@ -103,6 +103,66 @@ XVARIANT::~XVARIANT()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         const XVARIANT& XVARIANT::operator=(const XSERIALIZABLE& serializable)
+* @brief      operator=
+* @ingroup    XUTILS
+*
+* @param[in]  XSERIALIZABLE& serializable :
+*
+* @return     const :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+const XVARIANT& XVARIANT::operator=(const XSERIALIZABLE& serializable)
+{
+  XBUFFER xbuffer;
+
+  serializable.DeSerialize(&xbuffer);
+
+  if(data) Destroy();
+
+  size = xbuffer.GetSize();
+  if(size)
+    {
+      data = new XBYTE[size];
+      if(data)
+        {
+          type = XVARIANT_TYPE_SERIALIZABLE;
+          xbuffer.Get((XBYTE*)data, size, 0);
+        }
+    }
+
+  return (*this);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         const XVARIANT& XVARIANT::operator = (bool boolean)
+* @brief      operator =
+* @ingroup    XUTILS
+* 
+* @param[in]  boolean : 
+* 
+* @return     const : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+const XVARIANT& XVARIANT::operator = (bool boolean)
+{
+  if(data) Destroy();
+
+  type  = XVARIANT_TYPE_BOOLEAN;
+  size  = sizeof(bool);
+  data  = (void*)new bool;
+
+  if(data)
+    {
+      *((bool*)data) = boolean;
+    }
+
+  return *this;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -133,8 +193,6 @@ const XVARIANT& XVARIANT::operator = (int integer)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         const XVARIANT& XVARIANT::operator = (XDWORD integer)
@@ -163,7 +221,6 @@ const XVARIANT& XVARIANT::operator = (XDWORD integer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         const XVARIANT& XVARIANT::operator = (XQWORD integer)
@@ -190,8 +247,6 @@ const XVARIANT& XVARIANT::operator = (XQWORD integer)
 
   return (*this);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -223,8 +278,6 @@ const XVARIANT& XVARIANT::operator = (float value)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         const XVARIANT& XVARIANT::operator = (double value)
@@ -252,7 +305,6 @@ const XVARIANT& XVARIANT::operator = (double value)
 
   return (*this);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -283,7 +335,6 @@ const XVARIANT& XVARIANT::operator = (XCHAR value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         const XVARIANT& XVARIANT::operator = (XCHAR* string)
@@ -301,8 +352,6 @@ const XVARIANT& XVARIANT::operator = (XCHAR* string)
 
   return (*this);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -406,6 +455,7 @@ const XVARIANT& XVARIANT::operator = (const XVARIANT& origin)
   type    = origin.type;
   switch(type)
     {
+      case XVARIANT_TYPE_BOOLEAN        : (*this) = (bool)(XVARIANT&)origin;      break;
       case XVARIANT_TYPE_INTEGER        : (*this) = (int)(XVARIANT&)origin;       break;
       case XVARIANT_TYPE_DOUBLEINTEGER  : (*this) = (XQWORD)(XVARIANT&)origin;    break;
       case XVARIANT_TYPE_CHAR           : (*this) = (char)(XVARIANT&)origin;      break;
@@ -429,48 +479,8 @@ const XVARIANT& XVARIANT::operator = (const XVARIANT& origin)
                               default   : break;
     }
 
-
-
-
   return (*this);
 }
-
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         const XVARIANT& XVARIANT::operator=(const XSERIALIZABLE& serializable)
-* @brief      operator=
-* @ingroup    XUTILS
-*
-* @param[in]  XSERIALIZABLE& serializable :
-*
-* @return     const :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-const XVARIANT& XVARIANT::operator=(const XSERIALIZABLE& serializable)
-{
-  XBUFFER xbuffer;
-
-  serializable.DeSerialize(&xbuffer);
-
-  if(data) Destroy();
-
-  size = xbuffer.GetSize();
-  if(size)
-    {
-      data = new XBYTE[size];
-      if(data)
-        {
-          type = XVARIANT_TYPE_SERIALIZABLE;
-          xbuffer.Get((XBYTE*)data, size, 0);
-        }
-    }
-
-  return (*this);
-}
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -500,6 +510,22 @@ const XVARIANT& XVARIANT::operator = (XDATETIME datetime)
 }
 
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT::operator bool()
+* @brief      bool
+* @ingroup    XUTILS
+* 
+* @return     XVARIANT::operator : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT::operator bool()
+{
+  if(IsNull())  return 0;
+
+  return *(bool*)data;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -899,7 +925,10 @@ bool XVARIANT::ToString(XSTRING& to)
     {
 
       case XVARIANT_TYPE_NULL             : to.Format(__L("NULL"));                                                                                               break;
-      case XVARIANT_TYPE_SERIALIZABLE     : to.Format(__L("[Object]"));                                                                                           break;
+
+      case XVARIANT_TYPE_SERIALIZABLE     : to.Format(__L("[Object]"));
+
+      case XVARIANT_TYPE_BOOLEAN          : to.Format(__L("%s"), (*(bool*)this->data)?__L("true"):__L("false"));                                                  break;                                                                                           break;
       case XVARIANT_TYPE_INTEGER          : to.Format(__L("%d"),*(int*)this->data);                                                                               break;
       case XVARIANT_TYPE_DOUBLEINTEGER    : to.Format(__L("%d"),*(XQWORD*)this->data);                                                                            break;
       case XVARIANT_TYPE_CHAR             : to.Format(__L("%c"),*(int*)this->data);                                                                               break;
@@ -909,8 +938,7 @@ bool XVARIANT::ToString(XSTRING& to)
 
       case XVARIANT_TYPE_TIME             : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_ADDTIME | XDATETIME_FORMAT_TIMEWITHSECONDS,  to);      break;
       case XVARIANT_TYPE_DATE             : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_YMD,                                         to);      break;
-      case XVARIANT_TYPE_DATETIME         : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_STANDARD,                                    to);      break;
-
+      case XVARIANT_TYPE_DATETIME         : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_STANDARD,                                    to);      break;      
                         default           : return false;
     }
 
@@ -975,6 +1003,7 @@ bool XVARIANT::Destroy()
     {
       switch(this->type)
         {
+          case XVARIANT_TYPE_BOOLEAN        : delete (bool*)data;           break;
           case XVARIANT_TYPE_INTEGER        : delete (int*)data;            break;
           case XVARIANT_TYPE_DOUBLEINTEGER  : delete (XQWORD*)data;         break;
           case XVARIANT_TYPE_CHAR           : delete (char*)(data);         break;
