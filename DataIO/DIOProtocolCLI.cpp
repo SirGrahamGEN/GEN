@@ -38,12 +38,16 @@
 #include <string.h>
 
 #include "XFactory.h"
+#include "XString.h"
 #include "XSleep.h"
 #include "XBuffer.h"
 #include "XFSMachine.h"
 #include "XTrace.h"
 
 #include "DIOStream.h"
+
+#include "HashCRC32.h"
+
 
 #include "DIOProtocolCLI.h"
 
@@ -331,6 +335,22 @@ bool DIOPROTOCOLCLI::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOPROTOCOLCLI::ActiveCRC(bool activated)
+* @brief      ActiveCRC
+* @ingroup    DATAIO
+* 
+* @param[in]  activated : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOPROTOCOLCLI::ActiveCRC(bool activated)
+{
+  activeCRC = activated;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -375,6 +395,10 @@ bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answe
           tosend.AddFormat(__L("%s$"), target->Get());
         }
     }
+   else
+    {
+      tosend.AddFormat(__L("%s$"), DIOPROTOCOLCLI_MARK_BROADCAST);
+    }
 
   tosend.AddFormat(__L("%s"), protocolcommand->GetCommand());
   
@@ -400,13 +424,30 @@ bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answe
       va_end(arg);
     }
 
+  if(activeCRC)
+    { 
+      HASHCRC32 CRC32;
+
+      XSTRING_CREATEOEM(tosend, str)
+      CRC32.Do((XBYTE*)str, tosend.GetSize());
+      XSTRING_DELETEOEM(tosend, str)
+
+      XDWORD CRC32result = CRC32.GetResultCRC32();
+      tosend.AddFormat(__L("%s%08X%s"), DIOPROTOCOLCLI_MARK_CRC32, CRC32result, DIOPROTOCOLCLI_MARK_CRC32);
+    }
+
   tosend += __L("\n\r");
 
   XSTRING_CREATEOEM(tosend, charstr);
   diostream->Write((XBYTE*)charstr, tosend.GetSize());
   XSTRING_DELETEOEM(tosend, charstr);
 
+  tosend.DeleteCharacter(__C('\n'));
+  tosend.DeleteCharacter(__C('\r'));
+
   bool status = true;
+
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] [%s] Send Ask: %s -> %s %s"), tosend.Get(), ID.Get(), (target?target->Get():DIOPROTOCOLCLI_MARK_BROADCAST), command);
 
   if(answer)
     {
@@ -436,7 +477,7 @@ bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answe
 
           //GEN_XSLEEP.MilliSeconds(10);
         }
-    }
+    }  
 
   return status;
 }
@@ -521,104 +562,145 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
                 {
                   XSTRING  originID;
                   XSTRING  targetID;
-                  XSTRING  command;
+                  XSTRING  command;                   
                   XSTRING  answer;
                   XSTRING  markanswer;
-                  bool     makeanswer = true;
-                  bool     isanswer   = false;
+                  XDWORD   CRC32send   = 0;
+                  XDWORD   CRC32result = 0;
+                  bool     makeanswer  = true;
+                  bool     isanswer    = false;
                   bool     validmessagereception =  false;
 
-
-                  if(laststringreceived.Get()[0] == DIOPROTOCOLCLI_MARK_DONOTANSWER)
+                  int indexCRC32 = laststringreceived.Find(DIOPROTOCOLCLI_MARK_CRC32, true);
+                  if(indexCRC32 != XSTRING_NOTFOUND)
                     {
-                      laststringreceived.DeleteCharacters(0, 1);
-                      makeanswer = false;
+                      XSTRING strCRC32;
+                      laststringreceived.Copy(indexCRC32+1, indexCRC32+1+8, strCRC32);
+                      laststringreceived.DeleteCharacters(indexCRC32, 10);
+                      strCRC32.UnFormat(__L("%08X"), &CRC32send);                    
+
+                      { HASHCRC32 CRC32;
+
+                        XSTRING_CREATEOEM(laststringreceived, str)
+                        CRC32.Do((XBYTE*)str, laststringreceived.GetSize());
+                        XSTRING_DELETEOEM(laststringreceived, str)
+
+                        CRC32result = CRC32.GetResultCRC32();                    
+                      }
                     }
 
-                  if(laststringreceived.Get()[0] == DIOPROTOCOLCLI_MARK_ANSWER)
+                  if(CRC32result == CRC32send)
                     {
-                      laststringreceived.DeleteCharacters(0, 1);
-                      isanswer = true;
-                    }
-
-
-                  int indexoriginID = laststringreceived.Find(DIOPROTOCOLCLI_MARK_ORIGIN, true);
-                  if(indexoriginID != XSTRING_NOTFOUND)
-                    {
-                      laststringreceived.Copy(0, indexoriginID, originID);
-                      laststringreceived.DeleteCharacters(0, indexoriginID+1);
-                    }
-
-                  int indextargetID = laststringreceived.Find(DIOPROTOCOLCLI_MARK_TARGET, true);
-                  if(indextargetID != XSTRING_NOTFOUND)
-                    {
-                      laststringreceived.Copy(0, indextargetID, targetID);
-                      laststringreceived.DeleteCharacters(0, indextargetID+1);
-                    }
-
-                  if(!targetID.Compare(DIOPROTOCOLCLI_MARK_BROADCAST, true))
-                    {
-                      validmessagereception = true;  
-                    }
-
-                  if(!targetID.Compare(ID, true))
-                    {
-                      validmessagereception = true;  
+                      validmessagereception = true;
                     }
 
                   if(validmessagereception)
                     {
-                      if(!isanswer)
+                      if(laststringreceived.Get()[0] == DIOPROTOCOLCLI_MARK_DONOTANSWER)
                         {
-                          XVECTOR<XSTRING*> params;
-                          ExtractParamsFromCommand(laststringreceived, command, params);
-  
-                          bool status = ReceivedCommand(command, params, answer);
-                          if(!status)
+                          laststringreceived.DeleteCharacters(0, 1);
+                          makeanswer = false;
+                        }
+
+                      if(laststringreceived.Get()[0] == DIOPROTOCOLCLI_MARK_ANSWER)
+                        {
+                          laststringreceived.DeleteCharacters(0, 1);
+                          isanswer = true;
+                        }
+
+
+                      int indexoriginID = laststringreceived.Find(DIOPROTOCOLCLI_MARK_ORIGIN, true);
+                      if(indexoriginID != XSTRING_NOTFOUND)
+                        {
+                          laststringreceived.Copy(0, indexoriginID, originID);
+                          laststringreceived.DeleteCharacters(0, indexoriginID+1);
+                        }
+
+                      int indextargetID = laststringreceived.Find(DIOPROTOCOLCLI_MARK_TARGET, true);
+                      if(indextargetID != XSTRING_NOTFOUND)
+                        {
+                          laststringreceived.Copy(0, indextargetID, targetID);
+                          laststringreceived.DeleteCharacters(0, indextargetID+1);
+                        }
+
+                      if(!targetID.Compare(DIOPROTOCOLCLI_MARK_BROADCAST, true))
+                        {
+                          validmessagereception = true;  
+                        }
+
+                      if(!targetID.Compare(ID, true))
+                        {
+                          validmessagereception = true;  
+                        }
+
+                      if(validmessagereception)
+                        {
+                          if(!isanswer)
                             {
-                              answer = DIOPROTOCOLCLI_ERROR;
+                              XVECTOR<XSTRING*> params;
+                              ExtractParamsFromCommand(laststringreceived, command, params);
+  
+                              bool status = ReceivedCommand(command, params, answer);
+                              if(!status)
+                                {
+                                  answer = DIOPROTOCOLCLI_ERROR;
+                                }
+                               else
+                                {
+                                  if(answer.IsEmpty()) answer = DIOPROTOCOLCLI_OK;
+                                }
+
+                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Received Command: %s -> %s %s"), originID.Get(), targetID.Get(), command.Get());
+
+                              if(makeanswer)
+                                {
+                                  XSTRING result;
+
+                                  result.Format(__L("%c%s%s%s%s%s_%s"), DIOPROTOCOLCLI_MARK_ANSWER, ID.Get(), DIOPROTOCOLCLI_MARK_ORIGIN, originID.Get(), DIOPROTOCOLCLI_MARK_TARGET, command.Get(), answer.Get());
+
+                                  if(activeCRC)
+                                    { 
+                                       HASHCRC32 CRC32;
+
+                                      XSTRING_CREATEOEM(result, str)
+                                      CRC32.Do((XBYTE*)str, result.GetSize());
+                                      XSTRING_DELETEOEM(result, str)
+
+                                      XDWORD CRC32result = CRC32.GetResultCRC32();
+                                      result.AddFormat(__L("%s%08X%s"), DIOPROTOCOLCLI_MARK_CRC32, CRC32result, DIOPROTOCOLCLI_MARK_CRC32);
+                                    }                                  
+
+                                  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] [%s] Send Answer: %s -> %s %s : (%s)"), result.Get(), ID.Get(), originID.Get(), command.Get(), answer.Get());
+
+                                  result.Add(__L("\n\r"));
+
+                                  XSTRING_CREATEOEM(result, charstr);
+                                  diostream->Write((XBYTE*)charstr, result.GetSize());
+                                  XSTRING_DELETEOEM(result, charstr);
+                                }
+
+                              params.DeleteContents();
+                              params.DeleteAll();
                             }
                            else
                             {
-                              if(answer.IsEmpty()) answer = DIOPROTOCOLCLI_OK;
+
+                              int indexcommand = laststringreceived.Find(__L("_"), true);
+                              if(indexcommand != XSTRING_NOTFOUND)
+                                {
+                                  laststringreceived.Copy(0, indexcommand, command);
+                                  laststringreceived.DeleteCharacters(0, indexcommand+1);
+                                }
+
+                              answer = laststringreceived.Get();
+
+                              if(AddAnswer(originID, command, answer))
+                                {
+                                  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Received answer: %s -> %s %s : (%s)"), originID.Get(), targetID.Get(), command.Get(), answer.Get());
+
+                                  ReceivedAnswer(originID, command, answer);
+                                }                         
                             }
-
-                          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Received Command: %s -> %s %s"), originID.Get(), targetID.Get(), command.Get());
-
-                          if(makeanswer)
-                            {
-                              XSTRING result;
-
-                              result.Format(__L("%c%s%s%s%s%s_%s\n\r"), DIOPROTOCOLCLI_MARK_ANSWER, ID.Get(), DIOPROTOCOLCLI_MARK_ORIGIN, originID.Get(), DIOPROTOCOLCLI_MARK_TARGET, command.Get(), answer.Get());
-
-                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Send Answer: %s -> %s %s : (%s)"), ID.Get(), originID.Get(), command.Get(), answer.Get());
-
-                              XSTRING_CREATEOEM(result, charstr);
-                              diostream->Write((XBYTE*)charstr, result.GetSize());
-                              XSTRING_DELETEOEM(result, charstr);
-                            }
-
-                          params.DeleteContents();
-                          params.DeleteAll();
-                        }
-                       else
-                        {
-
-                          int indexcommand = laststringreceived.Find(__L("_"), true);
-                          if(indexcommand != XSTRING_NOTFOUND)
-                            {
-                              laststringreceived.Copy(0, indexcommand, command);
-                              laststringreceived.DeleteCharacters(0, indexcommand+1);
-                            }
-
-                          answer = laststringreceived.Get();
-
-                          if(AddAnswer(originID, command, answer))
-                            {
-                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Received answer: %s -> %s %s : (%s)"), originID.Get(), targetID.Get(), command.Get(), answer.Get());
-
-                              ReceivedAnswer(originID, command, answer);
-                            }                         
                         }
                     }
 
@@ -974,9 +1056,11 @@ bool DIOPROTOCOLCLI::ExtractParamsFromCommand(XSTRING& stringreceived, XSTRING& 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLI::Clean()
 {
+  ID.Empty();
+
   diostream             = NULL;
 
-  ID.Empty();
+  activeCRC             = false;
 
   xtimerout             = NULL;
   timeout               = 0;
