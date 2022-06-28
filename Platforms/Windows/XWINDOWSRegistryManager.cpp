@@ -314,6 +314,7 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
       switch(data.GetType())
         {
           case XVARIANT_TYPE_NULL            :
+          case XVARIANT_TYPE_BOOLEAN         :
           case XVARIANT_TYPE_SERIALIZABLE    :
 
           case XVARIANT_TYPE_DOUBLEINTEGER   :

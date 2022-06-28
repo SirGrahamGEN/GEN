@@ -51,7 +51,9 @@ enum XVARIANT_TYPE
   XVARIANT_TYPE_STRING                              ,
   XVARIANT_TYPE_DATE                                ,
   XVARIANT_TYPE_TIME                                ,
-  XVARIANT_TYPE_DATETIME
+  XVARIANT_TYPE_DATETIME                            ,
+  XVARIANT_TYPE_BOOLEAN                                  
+
 };
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
@@ -64,7 +66,9 @@ class XVARIANT
                                     XVARIANT                ();
                                     XVARIANT                (const XVARIANT& variant);
     virtual                        ~XVARIANT                ();
-
+    
+    const XVARIANT&                 operator =              (const XSERIALIZABLE& serializable);
+    const XVARIANT&                 operator =              (bool boolean);
     const XVARIANT&                 operator =              (int integer);
     const XVARIANT&                 operator =              (XDWORD integer);
     const XVARIANT&                 operator =              (XQWORD integer);
@@ -75,10 +79,10 @@ class XVARIANT
     const XVARIANT&                 operator =              (XSTRING& string);
     const XVARIANT&                 operator =              (char* string);
     const XVARIANT&                 operator =              (char character);
-    const XVARIANT&                 operator =              (const XVARIANT& variant);
-    const XVARIANT&                 operator =              (const XSERIALIZABLE& serializable);
+    const XVARIANT&                 operator =              (const XVARIANT& variant);  
     const XVARIANT&                 operator =              (XDATETIME datetime);
-
+   
+    operator                        bool                    ();
     operator                        int                     ();
     operator                        XDWORD                  ();
     operator                        XQWORD                  ();
@@ -89,6 +93,7 @@ class XVARIANT
     operator                        char                    ();
     operator                        const XCHAR*            ();
     operator                        XDATETIME               ();
+    
 
     void                            GetSerializable         (XSERIALIZABLE& serializable);
     void                            GetSerializable         (XSERIALIZABLE* serializable);
@@ -107,8 +112,7 @@ class XVARIANT
     bool                            IsNull                  ();
 
     #ifdef XTRACE_ACTIVE
-    void                            PrintDebug              ();
-    void                            GetDebugString          (XSTRING& string);
+    void                            PrintDebug              ();    
     #endif
 
   protected:
