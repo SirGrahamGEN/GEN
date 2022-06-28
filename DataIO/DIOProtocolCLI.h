@@ -50,11 +50,17 @@ enum DIOPROTOCOLCLI_ERROR
   DIOPROTOCOLCLI_ERROR_NOTANSWER                   ,
 };
 
+#define DIOPROTOCOLCLI_MARK_DONOTANSWER     __C('#')
+#define DIOPROTOCOLCLI_MARK_ANSWER          __C('>')
+#define DIOPROTOCOLCLI_MARK_ORIGIN          __L("@")
+#define DIOPROTOCOLCLI_MARK_TARGET          __L("$") 
+#define DIOPROTOCOLCLI_MARK_BROADCAST       __L("*") 
 
-#define DIOPROTOCOLCLI_OK            __L("ok")
-#define DIOPROTOCOLCLI_ERROR         __L("error")
 
-#define DIOPROTOCOLCLI_TIMEOUT       5  //Seconds
+#define DIOPROTOCOLCLI_OK                   __L("ok")
+#define DIOPROTOCOLCLI_ERROR                __L("error")
+
+#define DIOPROTOCOLCLI_TIMEOUT              5  //Seconds
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -87,11 +93,15 @@ class DIOPROTOCOLCLIANSWER
                                           DIOPROTOCOLCLIANSWER          ();                                       
     virtual                              ~DIOPROTOCOLCLIANSWER          ();                                        
 
+    XSTRING*                              GetOriginID                   ();
     XSTRING*                              GetCommand                    ();
     XSTRING*                              GetAnswer                     ();
 
+  private:
+
     void                                  Clean                         ();
-                                          
+    
+    XSTRING                               originID;                                      
     XSTRING                               command;
     XSTRING                               answer;
 };
@@ -108,10 +118,10 @@ class DIOPROTOCOLCLI
     virtual bool                          SendCommand                   (XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...);
     
     virtual bool                          ReceivedCommand               (XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer);    
-    virtual void                          ReceivedAnswer                (XSTRING& answer);
+    virtual void                          ReceivedAnswer                (XSTRING& origin, XSTRING& command, XSTRING& answer);
     void                                  ReceivedCommandManager        ();
 
-    bool                                  AddAnswer                     (XCHAR* command, XSTRING& answer);
+    bool                                  AddAnswer                     (XSTRING& originID, XSTRING& command, XSTRING& answer);
     XSTRING*                              GetFirstAnswer                (XCHAR* command);
     bool                                  DeleteFirstAnswer             (XCHAR* command);
     bool                                  DeleteAllAnswers              ();
