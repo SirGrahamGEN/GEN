@@ -107,7 +107,13 @@ class XFILECFG : public XSUBJECT
     bool                                AddRemark                 (XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
     bool                                AddRemark                 (XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
     XVECTOR<XFILEINIREMARK*>*           GetRemarks                ();
-    bool                                DeleteAllRemarks          ();
+    bool                                DeleteAllRemarks          ();  
+    
+    bool                                IniFile                   (XPATH& xpath);
+    bool                                EndFile                   ();
+    bool                                AjustRemarks              (); 
+
+    XFILEINI*                           GetFileINI                ();
      
   protected:
 
@@ -117,11 +123,7 @@ class XFILECFG : public XSUBJECT
 
   private:
     
-    bool                                IniFile                   (XPATH& xpath);
-    bool                                EndFile                   ();
-
-    bool                                AjustRemarks              (); 
-
+  
     void                                Clean                     ();
  
     XVECTOR<XFILECFGVALUE*>             values;

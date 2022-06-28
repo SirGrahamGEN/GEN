@@ -948,44 +948,13 @@ void XVARIANT::PrintDebug()
 {
   XSTRING string;
 
-  GetDebugString(string);
+  ToString(string);
   
   if(!string.IsEmpty())
     {
       XTRACE_PRINTCOLOR(XTRACE_COLOR_INFO, __L("%s"), string.Get());  
     }
 }
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn             void XVARIANT::GetDebugString(XSTRING& string)
-* @brief       GetDebugString
-* @ingroup     UTILS
-* 
-* @param[in]   string : 
-* 
-* @return         void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void XVARIANT::GetDebugString(XSTRING& string)
-{
-  switch(type)
-    {
-      case XVARIANT_TYPE_NULL           : string.Format(__L("NULL"));                                 break;
-      case XVARIANT_TYPE_SERIALIZABLE   : string.Format(__L("SERIALIZABLE"));                         break;
-      case XVARIANT_TYPE_INTEGER        : string.Format(__L("INTEGER [%d]"), (int)*this);             break;
-      case XVARIANT_TYPE_DOUBLEINTEGER  : string.Format(__L("DOUBLE INTEGER %ld"), (XQWORD)*this);    break;
-      case XVARIANT_TYPE_FLOAT          : string.Format(__L("FLOAT %f"),(float)*this);                break;
-      case XVARIANT_TYPE_DOUBLE         : string.Format(__L("DOUBLE FLOAT %lf"),(double)*this);       break;
-      case XVARIANT_TYPE_XCHAR          : string.Format(__L("XCHAR %c"),(XCHAR)*this);                break;
-      case XVARIANT_TYPE_STRING         : string.Format(__L("STRING %s"),(XCHAR*)*this);              break;
-
-                                default : break;
-    }
-}
-
-
 
 #endif
 
