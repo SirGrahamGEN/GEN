@@ -221,6 +221,8 @@ class GEN_API_LIB XSTRING
     XCHAR                 Character_GetLast               ();
     bool                  Character_Change                (XCHAR source, XCHAR target);
 
+    bool                  IsNumber                        ();               
+
     bool                  ToUpperCase                     ();
     bool                  ToLowerCase                     ();
 
@@ -293,12 +295,10 @@ class GEN_API_LIB XSTRING
     bool                  Split                           (XCHAR separator, XVECTOR<XSTRING*>& results,  bool addsubstringempty = false);
 
     bool                  FormatArg                       (const XCHAR* mask, va_list* arg, bool isspecialweb = false);
-
     bool                  Format                          (const XCHAR* mask, ...);
     bool                  AddFormat                       (const XCHAR* mask, ...);
     bool                  UnFormat                        (const XCHAR* mask, ...);
-    bool                  IsSpace                         (XCHAR xchar);
-    bool                  IsDigit                         (XCHAR xchar);
+
     int                   FindCharacterFromSet            (const XCHAR* set);
 
     bool                  AdjustSize                      (XDWORD size, bool ahead = false, XCHAR* characters = NULL, bool addstring = false);
@@ -321,8 +321,7 @@ class GEN_API_LIB XSTRING
     bool                  ReAllocBuffer                   (XDWORD size);
     bool                  FreeBuffer                      ();
 
-    XCHAR                 ConvertIndexBase64ToXCHAR       (int index);
-  //XBYTE                 ConvertXCHARToBase64            (XCHAR character);
+    XCHAR                 ConvertIndexBase64ToXCHAR       (int index); 
     bool                  ConvertStringWithMask           (XCHAR* mask, XCHAR* string, XCHAR* result);
 
     XDWORD                sizemem;
