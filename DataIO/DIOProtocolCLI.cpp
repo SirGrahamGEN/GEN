@@ -473,9 +473,7 @@ bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answe
               answer->Add(firstanswer->Get());
               DeleteFirstAnswer(command);
               break;
-            }
-
-          //GEN_XSLEEP.MilliSeconds(10);
+            }          
         }
     }  
 
