@@ -1769,10 +1769,14 @@ bool XSTRING::Character_IsLowerCase(XCHAR character)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSTRING::Character_IsNumber(XCHAR character)
-{
-  XBYTE _char = (XBYTE)character;
+{  
+  if((character >= __C('0')) && (character <= '9'))  return true;
 
-  if((_char>='0') && (_char<='9'))  return true;
+  if(character == __C('.')) return true;
+  if(character == __C(',')) return true;
+  if(character == __C('-')) return true;
+  if(character == __C('E')) return true;
+  if(character == __C('+')) return true;
 
   return false;
 }
@@ -1934,6 +1938,29 @@ bool XSTRING::Character_Change(XCHAR source, XCHAR target)
     }
 
   return status;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::IsNumber()
+* @brief      IsNumber
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::IsNumber()
+{
+  if(IsEmpty()) return false;
+
+  for(XDWORD c=0;c<size;c++)
+    {      
+      if(!Character_IsNumber(text[c])) return false;
+    }
+
+  return true;
 }
 
 
@@ -4683,49 +4710,6 @@ bool XSTRING::UnFormat(const XCHAR* mask,...)
   va_end(arg);
 
   return true;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSTRING::IsSpace(XCHAR xchar)
-* @brief      IsSpace
-* @ingroup    XUTILS
-*
-* @param[in]  xchar :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::IsSpace(XCHAR xchar)
-{
-  if(xchar == 0x20) return true;  //  space
-  if(xchar == 0x09) return true;  //  horizontal tab(TAB)
-  if(xchar == 0x0a) return true;  //  newline(LF)
-  if(xchar == 0x0b) return true;  //  vertical tab(VT)
-  if(xchar == 0x0c) return true;  //  feed(FF)
-  if(xchar == 0x0d) return true;  //  carriage return (CR)
-
-  return false;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSTRING::IsDigit(XCHAR xchar)
-* @brief      IsDigit
-* @ingroup    XUTILS
-*
-* @param[in]  xchar :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::IsDigit(XCHAR xchar)
-{
-  return (xchar >= __C('0') && xchar <= __C('9'));
 }
 
 
