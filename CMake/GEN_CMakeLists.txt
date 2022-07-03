@@ -1485,6 +1485,11 @@
 
  endif()
 
+ if(DIO_PROTOCOL_CLI_BUS_FEATURE)
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOProtocolCLIBus.cpp")
+   set(DIO_PROTOCOL_CLI_FEATURE                          true    CACHE BOOL "Activate Data Input/Output Protocol in CLI"                   FORCE)
+ endif()
+
  if(DIO_PROTOCOL_CLI_FEATURE)
 
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOProtocolCLI.cpp")
