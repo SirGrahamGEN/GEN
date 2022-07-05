@@ -467,10 +467,10 @@ bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answe
               break;
             }
 
-          XSTRING* firstanswer = GetFirstAnswer(command);
-          if(firstanswer)
+          DIOPROTOCOLCLIANSWER* protocolanswer = GetFirstAnswer(command);
+          if(protocolanswer)
             {
-              answer->Add(firstanswer->Get());
+              answer->Add(protocolanswer->GetAnswer()->Get());
               DeleteFirstAnswer(command);
               break;
             }          
@@ -483,11 +483,11 @@ bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answe
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPROTOCOLCLI::ReceivedCommand(XSTRING& receivedID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
+* @fn         bool DIOPROTOCOLCLI::ReceivedCommand(XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
 * @brief      ReceivedCommand
 * @ingroup    DATAIO
 * 
-* @param[in]  receivedID : 
+* @param[in]  originID : 
 * @param[in]  command : 
 * @param[in]  params : 
 * @param[in]  answer : 
@@ -495,7 +495,7 @@ bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answe
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPROTOCOLCLI::ReceivedCommand(XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
+bool DIOPROTOCOLCLI::ReceivedCommand(XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
 {
   return false;
 }
@@ -638,7 +638,7 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
                               XVECTOR<XSTRING*> params;
                               ExtractParamsFromCommand(laststringreceived, command, params);
   
-                              bool status = ReceivedCommand(command, params, answer);
+                              bool status = ReceivedCommand(originID, command, params, answer);
                               if(!status)
                                 {
                                   answer = DIOPROTOCOLCLI_ERROR;
@@ -682,7 +682,6 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
                             }
                            else
                             {
-
                               int indexcommand = laststringreceived.Find(__L("_"), true);
                               if(indexcommand != XSTRING_NOTFOUND)
                                 {
@@ -748,39 +747,39 @@ bool DIOPROTOCOLCLI::AddAnswer(XSTRING& originID, XSTRING& command, XSTRING& ans
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* DIOPROTOCOLCLI::GetFirstAnswer(XCHAR* command)
+* @fn         DIOPROTOCOLCLIANSWER* DIOPROTOCOLCLI::GetFirstAnswer(XCHAR* command)
 * @brief      GetFirstAnswer
 * @ingroup    DATAIO
 * 
 * @param[in]  command : 
 * 
-* @return     XSTRING* : 
+* @return     DIOPROTOCOLCLIANSWER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* DIOPROTOCOLCLI::GetFirstAnswer(XCHAR* command)
+DIOPROTOCOLCLIANSWER* DIOPROTOCOLCLI::GetFirstAnswer(XCHAR* command)
 {
   if(answers.IsEmpty()) return NULL;
 
-  XSTRING* answer = NULL;
+  DIOPROTOCOLCLIANSWER* protocolanswer = NULL;
 
   if(xmutexanswers) xmutexanswers->Lock();
 
   for(XDWORD c=0; c<answers.GetSize(); c++)
     {
-      DIOPROTOCOLCLIANSWER* protocolanswer = answers.Get(c);
+      protocolanswer = answers.Get(c);
       if(protocolanswer)
         {
           if(!protocolanswer->GetCommand()->Compare(command))
             {
-               answer = protocolanswer->GetAnswer();
-               break;
-            }
+              break;
+
+            } else protocolanswer = NULL;
         }
     }
 
   if(xmutexanswers) xmutexanswers->UnLock();
 
-  return answer;
+  return protocolanswer;
 }
 
 
@@ -925,7 +924,7 @@ bool DIOPROTOCOLCLI::AddCommand(XCHAR* command, int nparams)
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOLCLICOMMAND* DIOPROTOCOLCLI::GetCommand(XCHAR* command)
 {
-  XSTRING                   commandstring;
+  XSTRING                commandstring;
   DIOPROTOCOLCLICOMMAND* protocolcommand;
 
   commandstring = command;

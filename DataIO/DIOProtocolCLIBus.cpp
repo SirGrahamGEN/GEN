@@ -49,8 +49,12 @@ DIOPROTOCOLCLIBUS::DIOPROTOCOLCLIBUS()
 {
   Clean();
 
+  nretries = DIOPROTOCOLCLIBUS_SEND_DEFAULNRETRIES;
+
 	AddCommand(DIOPROTOCOLCLIBUS_COMMAND_VERSION			      , 0);
 	AddCommand(DIOPROTOCOLCLIBUS_COMMAND_PING					      , 0);
+  AddCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUM 				      , 0);
+  AddCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST        , 0);
 }
 
 
@@ -87,12 +91,132 @@ bool DIOPROTOCOLCLIBUS::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
 {	
 	this->ID = ID;
 
-	threadreceivedcommand	= CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, __L("DIOPROTOCOLCLIBUS::Ini()"), ThreadReceivedCommand,	(void*)this);
+  threadsendenumrequest	= CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, __L("DIOPROTOCOLCLIBUS::Ini2"), ThreadSendEnumRequest, (void*)this);
+  if(!threadsendenumrequest) return false;
+
+	threadreceivedcommand	= CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, __L("DIOPROTOCOLCLIBUS::Ini"), ThreadReceivedCommand,	(void*)this);
   if(!threadreceivedcommand) return false;
-  
+  	
   if(!threadreceivedcommand->Ini()) return false;
 
   return DIOPROTOCOLCLI::Ini(diostream, ID, timeout);  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOLCLIBUS::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerror)
+* @brief      GetVersion
+* @ingroup    DATAIO
+* 
+* @param[in]  version : 
+* @param[in]  subversion : 
+* @param[in]  subversionerror : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOPROTOCOLCLIBUS::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerror)
+{
+  if((!version) && (!subversion) && (!subversionerror)) return false;
+
+  version         = this->version;
+  subversion      = this->subversion;
+  subversionerror = this->subversionerror;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOPROTOCOLCLIBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerror)
+* @brief      SetVersion
+* @ingroup    DATAIO
+* 
+* @param[in]  version : 
+* @param[in]  subversion : 
+* @param[in]  subversionerror : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOPROTOCOLCLIBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerror)
+{
+  this->version         = version;
+  this->subversion      = subversion;
+  this->subversionerror = subversionerror;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices, int enummaxtime)
+* @brief      EnumRemoteDevices
+* @ingroup    DATAIO
+* 
+* @param[in]  remotedevices : 
+* @param[in]  enummaxtime : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices, int enummaxtime)
+{
+  remotedevices.DeleteContents();
+  remotedevices.DeleteAll();
+
+  SendCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUM, NULL, NULL, 0);
+  
+  XTIMER* timer = GEN_XFACTORY.CreateTimer();
+  if(!timer) return false;
+
+  timer->Reset();
+
+  this->remotedevices = &remotedevices;
+
+  do{ if(timer->GetMeasureSeconds() > enummaxtime)
+        {
+          break;
+        }
+
+    } while(1);
+  
+  this->remotedevices = NULL;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOPROTOCOLCLIBUS::GetNRetries()
+* @brief      GetNRetries
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIOPROTOCOLCLIBUS::GetNRetries()
+{
+  return nretries;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOPROTOCOLCLIBUS::SetNRetries(int nretries)
+* @brief      SetNRetries
+* @ingroup    DATAIO
+* 
+* @param[in]  nretries : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOPROTOCOLCLIBUS::SetNRetries(int nretries)
+{
+  this->nretries = nretries;
 }
 
 
@@ -131,7 +255,11 @@ bool DIOPROTOCOLCLIBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* an
 			
   va_start(arg, timeoutanswer);	
 
-  for(int c=0; c<3; c++)
+  int nr = GetNRetries();
+
+  if(!answer) nr = 1;
+    
+  for(int c=0; c<nr; c++)
     {	
       status = DIOPROTOCOLCLI::SendCommand(command, target, answer, timeoutanswer, arg);
       if(status) break;
@@ -163,7 +291,7 @@ bool DIOPROTOCOLCLIBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* an
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
+bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
 {
   bool status = false;
   
@@ -176,7 +304,7 @@ bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& command, XVECTOR<XSTRING*>& par
 
 			if(!command.Compare(DIOPROTOCOLCLIBUS_COMMAND_VERSION, true))	  		 
 				{
-					answer.Format(__L("%d.%d.%d"), DIOPROTOCOLCLIBUS_VERSION, DIOPROTOCOLCLIBUS_SUBVERSION, DIOPROTOCOLCLIBUS_SUBVERSIONERR); 
+					answer.Format(__L("%d.%d.%d"), version, subversion, subversionerror); 
 					status = true;            
 				}
 
@@ -184,6 +312,41 @@ bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& command, XVECTOR<XSTRING*>& par
 				{					
 					status = true;            
 				}
+
+      if(!command.Compare(DIOPROTOCOLCLIBUS_COMMAND_ENUM, true))	  		 
+				{		
+          sendenum_originID = originID;
+          threadsendenumrequest->Ini();
+				}
+      
+      if(!command.Compare(DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST, true))
+        {
+          if(remotedevices)
+            {
+              bool found = false;
+
+              for(XDWORD c=0; c<remotedevices->GetSize(); c++)
+                {
+                  XSTRING* device = remotedevices->Get(c);
+                  if(device)
+                    {
+                      if(!device->Compare(originID, true)) found = true;
+                    }
+                }
+
+              if(!found)
+                {
+                  XSTRING* origin = new XSTRING();
+                  if(origin)
+                    {
+                      (*origin) = originID;    
+                      remotedevices->Add(origin);
+                    }
+                }
+            }
+
+          status = true;
+        }
 		}
 
   return status;
@@ -220,10 +383,18 @@ void DIOPROTOCOLCLIBUS::ReceivedAnswer(XSTRING& origin, XSTRING& command, XSTRIN
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLIBUS::End()
 {
+  if(threadsendenumrequest)					
+    {
+      threadsendenumrequest->End();
+      DELETEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, threadsendenumrequest);
+      
+      threadsendenumrequest = NULL;
+    }
+
   if(threadreceivedcommand)					
     {
       threadreceivedcommand->End();
-      DELETEXTHREAD(XTHREADGROUPID_DIOSTREAMI2C, threadreceivedcommand);
+      DELETEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, threadreceivedcommand);
       
       threadreceivedcommand = NULL;
     }
@@ -254,6 +425,43 @@ void DIOPROTOCOLCLIBUS::ThreadReceivedCommand(void* param)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
+* @brief      ThreadSendEnumRequest
+* @ingroup    DATAIO
+* 
+* @param[in]  param : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
+{
+  DIOPROTOCOLCLIBUS* sp = (DIOPROTOCOLCLIBUS*)param;
+	if(!sp) return;
+
+  if(sp->sendenum_originID.IsEmpty()) 
+    {
+      sp->threadsendenumrequest->Run(false); 
+    }
+   else
+    {    
+      XSTRING answer;
+  
+      bool status = sp->SendCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST, &sp->sendenum_originID, &answer, 3); 
+      if(status)
+        {
+          sp->sendenum_originID.Empty();
+        }
+    } 
+
+  GEN_XSLEEP.Seconds(3);
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void DIOPROTOCOLCLIBUS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -264,5 +472,15 @@ void DIOPROTOCOLCLIBUS::ThreadReceivedCommand(void* param)
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLIBUS::Clean()
 {
-	threadreceivedcommand =  NULL;
+  version                 = 0;
+  subversion              = 0;
+  subversionerror         = 0;
+
+  nretries                = 0;
+
+  remotedevices           = NULL;
+  sendenum_originID.Empty();
+
+	threadreceivedcommand   = NULL;
+  threadsendenumrequest   = NULL;
 }

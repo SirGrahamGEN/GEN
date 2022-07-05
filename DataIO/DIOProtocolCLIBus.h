@@ -25,12 +25,13 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-#define DIOPROTOCOLCLIBUS_VERSION									  0
-#define DIOPROTOCOLCLIBUS_SUBVERSION							  1
-#define DIOPROTOCOLCLIBUS_SUBVERSIONERR						  0 
+#define DIOPROTOCOLCLIBUS_ENUM_DEFAULTMAXTIME     30
+#define DIOPROTOCOLCLIBUS_SEND_DEFAULNRETRIES     3
 
 #define DIOPROTOCOLCLIBUS_COMMAND_VERSION			    __L("version")
 #define DIOPROTOCOLCLIBUS_COMMAND_PING   			    __L("ping")
+#define DIOPROTOCOLCLIBUS_COMMAND_ENUM  			    __L("enum")
+#define DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST     __L("enumrequest")
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -39,26 +40,42 @@ class DIOPROTOCOLCLIBUS : public DIOPROTOCOLCLI
   public:
                             DIOPROTOCOLCLIBUS             ();
     virtual                ~DIOPROTOCOLCLIBUS             ();
-
+    
     bool                    Ini                           (DIOSTREAM* diostream, XCHAR* ID, int timeout = DIOPROTOCOLCLI_TIMEOUT);
+
+    bool                    GetVersion                    (XDWORD& version, XDWORD& subversion, XDWORD& subversionerror);
+    void                    SetVersion                    (XDWORD version, XDWORD subversion, XDWORD subversionerror);    
+   
+    bool                    EnumRemoteDevices             (XVECTOR<XSTRING*>& remotedevices, int enummaxtime = DIOPROTOCOLCLIBUS_ENUM_DEFAULTMAXTIME);
+    
+    int                     GetNRetries                   ();
+    void                    SetNRetries                   (int nretries = DIOPROTOCOLCLIBUS_SEND_DEFAULNRETRIES);
 
     bool                    SendCommand                   (XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...);
 
-    bool                    ReceivedCommand               (XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer);  
-    void                    ReceivedAnswer                (XSTRING& origin, XSTRING& command, XSTRING& answer);
+    virtual bool            ReceivedCommand               (XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer);
+    virtual void            ReceivedAnswer                (XSTRING& origin, XSTRING& command, XSTRING& answer);
 
     void                    End                           ();
    
   private:
 
-	  static void						  ThreadReceivedCommand         (void* param); 
+	  static void						  ThreadReceivedCommand         (void* param);
+    static void             ThreadSendEnumRequest         (void* param);
     
     void                    Clean                         ();
 
-    XTHREADCOLLECTED*				threadreceivedcommand;
+    XDWORD                  version;
+    XDWORD                  subversion;
+    XDWORD                  subversionerror;
 
+    XDWORD                  nretries;
+
+    XVECTOR<XSTRING*>*      remotedevices;
+    XSTRING                 sendenum_originID;
     
-
+    XTHREADCOLLECTED*				threadreceivedcommand;
+    XTHREADCOLLECTED*				threadsendenumrequest;
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

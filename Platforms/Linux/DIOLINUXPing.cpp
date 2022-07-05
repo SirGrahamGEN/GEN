@@ -257,22 +257,22 @@ bool DIOLINUXPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstg
                     }
                    else
                     {
-                     XTRACE_PRINTCOLOR(4, __L("Ping: application ID not equal! %s"), fromIP.Get());
+                      //XTRACE_PRINTCOLOR(4, __L("Ping: application ID not equal! %s"), fromIP.Get());
                     }
                 }
                else
                 {
-                 XTRACE_PRINTCOLOR(4, __L("Ping: error Checksum! %s "), targetIP.Get());
+                  // XTRACE_PRINTCOLOR(4, __L("Ping: error Checksum! %s "), targetIP.Get());
                 }
             }
            else
             {
-             XTRACE_PRINTCOLOR(4, __L("Ping: error CRC! %s "), targetIP.Get());
+              // XTRACE_PRINTCOLOR(4, __L("Ping: error CRC! %s "), targetIP.Get());
             }
         }
        else
         {
-         XTRACE_PRINTCOLOR(4, __L("Ping: invalid packet! %s "), targetIP.Get());
+          // XTRACE_PRINTCOLOR(4, __L("Ping: invalid packet! %s "), targetIP.Get());
         }
 
       if(exitfirstgoodreply) nloop = 0; else nloop--;
@@ -284,7 +284,7 @@ bool DIOLINUXPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstg
 
   if(!status)
     {
-     XTRACE_PRINTCOLOR((status?1:4), __L("Ping to [%s]: %s"), targetIP.Get(), (status?__L("Ok."): __L("ERROR!")));
+      // XTRACE_PRINTCOLOR((status?1:4), __L("Ping to [%s]: %s"), targetIP.Get(), (status?__L("Ok."): __L("ERROR!")));
     }
 
   return status;

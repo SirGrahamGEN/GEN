@@ -119,12 +119,12 @@ class DIOPROTOCOLCLI
     
     virtual bool                          SendCommand                   (XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...);
     
-    virtual bool                          ReceivedCommand               (XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer);    
+    virtual bool                          ReceivedCommand               (XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer);
     virtual void                          ReceivedAnswer                (XSTRING& origin, XSTRING& command, XSTRING& answer);
     void                                  ReceivedCommandManager        ();
 
     bool                                  AddAnswer                     (XSTRING& originID, XSTRING& command, XSTRING& answer);
-    XSTRING*                              GetFirstAnswer                (XCHAR* command);
+    DIOPROTOCOLCLIANSWER*                 GetFirstAnswer                (XCHAR* command);
     bool                                  DeleteFirstAnswer             (XCHAR* command);
     bool                                  DeleteAllAnswers              ();
 
