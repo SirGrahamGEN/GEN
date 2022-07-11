@@ -51,11 +51,12 @@ enum DIOPROTOCOLCLI_ERROR
 };
 
 #define DIOPROTOCOLCLI_MARK_DONOTANSWER     __C('#')
-#define DIOPROTOCOLCLI_MARK_ANSWER          __C('>')
-#define DIOPROTOCOLCLI_MARK_ORIGIN          __L("@")
-#define DIOPROTOCOLCLI_MARK_TARGET          __L("$") 
-#define DIOPROTOCOLCLI_MARK_BROADCAST       __L("*") 
-#define DIOPROTOCOLCLI_MARK_CRC32           __L("|") 
+#define DIOPROTOCOLCLI_MARK_ISANSWER        __C('>')
+#define DIOPROTOCOLCLI_MARK_ORIGIN          __L("[@]")
+#define DIOPROTOCOLCLI_MARK_TARGET          __L("[$]") 
+#define DIOPROTOCOLCLI_MARK_BROADCAST       __L("[*]") 
+#define DIOPROTOCOLCLI_MARK_ANSWER          __L("[-]") 
+#define DIOPROTOCOLCLI_MARK_CRC32           __L("[|]") 
 
 #define DIOPROTOCOLCLI_OK                   __L("ok")
 #define DIOPROTOCOLCLI_ERROR                __L("error")
@@ -115,12 +116,15 @@ class DIOPROTOCOLCLI
 
     virtual bool                          Ini                           (DIOSTREAM* diostream, XCHAR* ID, int timeout = DIOPROTOCOLCLI_TIMEOUT);
 
+    bool                                  IsIni                         ();  
+
     void                                  ActiveCRC                     (bool activated = true);
     
     virtual bool                          SendCommand                   (XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...);
     
-    virtual bool                          ReceivedCommand               (XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer);
-    virtual void                          ReceivedAnswer                (XSTRING& origin, XSTRING& command, XSTRING& answer);
+    virtual bool                          ReceivedCommand               (XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer);    
+    virtual bool                          ReceivedAnswer                (XSTRING& origin, XSTRING& command, XSTRING& answer);
+
     void                                  ReceivedCommandManager        ();
 
     bool                                  AddAnswer                     (XSTRING& originID, XSTRING& command, XSTRING& answer);
@@ -138,7 +142,8 @@ class DIOPROTOCOLCLI
 
     bool                                  ExtractParamsFromCommand      (XSTRING& stringreceived, XSTRING& command, XVECTOR<XSTRING*>& params);
 
-    XSTRING                               ID;
+    XSTRING                               ID; 
+    bool                                  exitproccess;    
 
   private:
 
@@ -146,6 +151,7 @@ class DIOPROTOCOLCLI
                                         
     DIOSTREAM*                            diostream;
 
+    bool                                  isini;
     bool                                  activeCRC;
     
     XTIMER*                               xtimerout;

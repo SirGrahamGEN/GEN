@@ -46,7 +46,8 @@ class DIOPROTOCOLCLIBUS : public DIOPROTOCOLCLI
     bool                    GetVersion                    (XDWORD& version, XDWORD& subversion, XDWORD& subversionerror);
     void                    SetVersion                    (XDWORD version, XDWORD subversion, XDWORD subversionerror);    
    
-    bool                    EnumRemoteDevices             (XVECTOR<XSTRING*>& remotedevices, int enummaxtime = DIOPROTOCOLCLIBUS_ENUM_DEFAULTMAXTIME);
+    bool                    EnumRemoteDevices             (XVECTOR<XSTRING*>* remotedevices = NULL, XDWORD maxtime = DIOPROTOCOLCLIBUS_ENUM_DEFAULTMAXTIME);
+    bool                    GetEnumRemoteDevices          (XVECTOR<XSTRING*>& remotedevices);
     
     int                     GetNRetries                   ();
     void                    SetNRetries                   (int nretries = DIOPROTOCOLCLIBUS_SEND_DEFAULNRETRIES);
@@ -54,8 +55,7 @@ class DIOPROTOCOLCLIBUS : public DIOPROTOCOLCLI
     bool                    SendCommand                   (XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...);
 
     virtual bool            ReceivedCommand               (XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer);
-    virtual void            ReceivedAnswer                (XSTRING& origin, XSTRING& command, XSTRING& answer);
-
+    
     void                    End                           ();
    
   private:
@@ -71,8 +71,13 @@ class DIOPROTOCOLCLIBUS : public DIOPROTOCOLCLI
 
     XDWORD                  nretries;
 
-    XVECTOR<XSTRING*>*      remotedevices;
-    XSTRING                 sendenum_originID;
+    bool                    exitproccess;  
+
+    XMUTEX*                 enum_mutex;
+    XVECTOR<XSTRING*>       enum_remotedevices;
+    XSTRING                 enum_sendoriginID;
+    XTIMER*                 enum_timer;
+    XDWORD                  enum_maxtimersec;
     
     XTHREADCOLLECTED*				threadreceivedcommand;
     XTHREADCOLLECTED*				threadsendenumrequest;

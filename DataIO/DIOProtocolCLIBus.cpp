@@ -70,6 +70,9 @@ DIOPROTOCOLCLIBUS::DIOPROTOCOLCLIBUS()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOLCLIBUS::~DIOPROTOCOLCLIBUS()
 {
+  enum_remotedevices.DeleteContents();
+  enum_remotedevices.DeleteAll();
+
   Clean();
 }
 
@@ -91,11 +94,17 @@ bool DIOPROTOCOLCLIBUS::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
 {	
 	this->ID = ID;
 
+  enum_mutex = GEN_XFACTORY.Create_Mutex();
+  if(!enum_mutex) return false;
+
   threadsendenumrequest	= CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, __L("DIOPROTOCOLCLIBUS::Ini2"), ThreadSendEnumRequest, (void*)this);
   if(!threadsendenumrequest) return false;
 
 	threadreceivedcommand	= CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, __L("DIOPROTOCOLCLIBUS::Ini"), ThreadReceivedCommand,	(void*)this);
   if(!threadreceivedcommand) return false;
+
+  enum_timer = GEN_XFACTORY.CreateTimer();
+  if(!enum_timer) return false;
   	
   if(!threadreceivedcommand->Ini()) return false;
 
@@ -149,9 +158,10 @@ void DIOPROTOCOLCLIBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD sub
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices, int enummaxtime)
+* @fn         bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, int enummaxtime)
 * @brief      EnumRemoteDevices
 * @ingroup    DATAIO
 * 
@@ -161,28 +171,65 @@ void DIOPROTOCOLCLIBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD sub
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices, int enummaxtime)
+bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, XDWORD maxtime)
 {
-  remotedevices.DeleteContents();
-  remotedevices.DeleteAll();
+  bool status = false;
+
+  enum_remotedevices.DeleteContents();
+  enum_remotedevices.DeleteAll();
+
+  if(!enum_timer) return false;
 
   SendCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUM, NULL, NULL, 0);
-  
-  XTIMER* timer = GEN_XFACTORY.CreateTimer();
-  if(!timer) return false;
+    
+  enum_maxtimersec = maxtime;
 
-  timer->Reset();
+  enum_timer->Reset();
 
-  this->remotedevices = &remotedevices;
+  if(remotedevices)
+    {
+      remotedevices->DeleteContents();
+      remotedevices->DeleteAll();
 
-  do{ if(timer->GetMeasureSeconds() > enummaxtime)
+      do{ GEN_XSLEEP.Seconds(1);           
+
+        } while(enum_timer->GetMeasureSeconds() < enum_maxtimersec); 
+
+      status = GetEnumRemoteDevices((*remotedevices));
+
+    } else status = true;
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOLCLIBUS::GetEnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices)
+* @brief      GetEnumRemoteDevices
+* @ingroup    DATAIO
+* 
+* @param[in]  remotedevices : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOPROTOCOLCLIBUS::GetEnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices)
+{
+  if(!enum_timer)       return false;
+  if(!enum_maxtimersec) return false;
+
+  if(enum_timer->GetMeasureSeconds() < enum_maxtimersec) return false;
+
+  for(XDWORD c=0; c<enum_remotedevices.GetSize(); c++)
+    {
+      XSTRING* device = new XSTRING();
+      if(device)
         {
-          break;
+          (*device) = enum_remotedevices.Get(c)->Get();
+          remotedevices.Add(device);
         }
-
-    } while(1);
-  
-  this->remotedevices = NULL;
+    }
 
   return true;
 }
@@ -261,6 +308,12 @@ bool DIOPROTOCOLCLIBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* an
     
   for(int c=0; c<nr; c++)
     {	
+      if(exitproccess) 
+        {
+          status = false;
+          break;
+        }
+
       status = DIOPROTOCOLCLI::SendCommand(command, target, answer, timeoutanswer, arg);
       if(status) break;
       
@@ -315,60 +368,43 @@ bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& originID, XSTRING& command, XVE
 
       if(!command.Compare(DIOPROTOCOLCLIBUS_COMMAND_ENUM, true))	  		 
 				{		
-          sendenum_originID = originID;
+          enum_mutex->Lock();
+
+          enum_sendoriginID = originID;
+
+          enum_mutex->UnLock();
+
           threadsendenumrequest->Ini();
 				}
       
       if(!command.Compare(DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST, true))
         {
-          if(remotedevices)
+          bool found = false;
+
+          for(XDWORD c=0; c<enum_remotedevices.GetSize(); c++)
             {
-              bool found = false;
-
-              for(XDWORD c=0; c<remotedevices->GetSize(); c++)
+              XSTRING* device = enum_remotedevices.Get(c);
+              if(device)
                 {
-                  XSTRING* device = remotedevices->Get(c);
-                  if(device)
-                    {
-                      if(!device->Compare(originID, true)) found = true;
-                    }
-                }
-
-              if(!found)
-                {
-                  XSTRING* origin = new XSTRING();
-                  if(origin)
-                    {
-                      (*origin) = originID;    
-                      remotedevices->Add(origin);
-                    }
+                  if(!device->Compare(originID, true)) found = true;
                 }
             }
 
+          if(!found)
+            {
+              XSTRING* origin = new XSTRING();
+              if(origin)
+                {
+                  (*origin) = originID;    
+                  enum_remotedevices.Add(origin);
+                }
+            }
+         
           status = true;
         }
 		}
 
   return status;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOPROTOCOLCLIBUS::ReceivedAnswer(XSTRING& origin, XSTRING& command, XSTRING& answer)
-* @brief      ReceivedAnswer
-* @ingroup    
-* 
-* @param[in]  origin : 
-* @param[in]  command : 
-* @param[in]  answer : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOPROTOCOLCLIBUS::ReceivedAnswer(XSTRING& origin, XSTRING& command, XSTRING& answer)
-{
-  
 }
 
 
@@ -383,6 +419,8 @@ void DIOPROTOCOLCLIBUS::ReceivedAnswer(XSTRING& origin, XSTRING& command, XSTRIN
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLIBUS::End()
 {
+  exitproccess = true;
+
   if(threadsendenumrequest)					
     {
       threadsendenumrequest->End();
@@ -397,6 +435,18 @@ void DIOPROTOCOLCLIBUS::End()
       DELETEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, threadreceivedcommand);
       
       threadreceivedcommand = NULL;
+    }
+
+  if(enum_mutex)
+    { 
+      GEN_XFACTORY.Delete_Mutex(enum_mutex);
+      enum_mutex = NULL;
+    }
+
+  if(enum_timer)
+    {
+      GEN_XFACTORY.DeleteTimer(enum_timer);
+      enum_timer = NULL;
     }
 
   return DIOPROTOCOLCLI::End();  
@@ -419,6 +469,12 @@ void DIOPROTOCOLCLIBUS::ThreadReceivedCommand(void* param)
   DIOPROTOCOLCLIBUS* sp = (DIOPROTOCOLCLIBUS*)param;
 	if(!sp) return;
 
+  if(sp->exitproccess) 
+    { 
+      sp->threadreceivedcommand->Run(false);
+      return;
+    }
+
   sp->ReceivedCommandManager();
 }
 
@@ -439,7 +495,15 @@ void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
   DIOPROTOCOLCLIBUS* sp = (DIOPROTOCOLCLIBUS*)param;
 	if(!sp) return;
 
-  if(sp->sendenum_originID.IsEmpty()) 
+  if(sp->exitproccess) 
+    {
+      sp->threadsendenumrequest->Run(false);
+      return;
+    }
+
+  sp->enum_mutex->Lock();
+
+  if(sp->enum_sendoriginID.IsEmpty()) 
     {
       sp->threadsendenumrequest->Run(false); 
     }
@@ -447,14 +511,16 @@ void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
     {    
       XSTRING answer;
   
-      bool status = sp->SendCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST, &sp->sendenum_originID, &answer, 3); 
+      bool status = sp->SendCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST, &sp->enum_sendoriginID, &answer, 6); 
       if(status)
         {
-          sp->sendenum_originID.Empty();
+          sp->enum_sendoriginID.Empty();
         }
     } 
 
-  GEN_XSLEEP.Seconds(3);
+  sp->enum_mutex->UnLock();
+
+  GEN_XSLEEP.Seconds(8);
 }
 
 
@@ -478,8 +544,12 @@ void DIOPROTOCOLCLIBUS::Clean()
 
   nretries                = 0;
 
-  remotedevices           = NULL;
-  sendenum_originID.Empty();
+  exitproccess            = false;
+
+  enum_mutex              = NULL;
+  enum_sendoriginID.Empty();
+  enum_timer              = NULL;
+  enum_maxtimersec        = 0;
 
 	threadreceivedcommand   = NULL;
   threadsendenumrequest   = NULL;
