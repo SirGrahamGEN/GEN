@@ -94,7 +94,10 @@ bool DIOPROTOCOLCLIBUS::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
 {	
 	this->ID = ID;
 
-  enum_mutex = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexsendcommand, Create_Mutex());
+  if(!xmutexsendcommand) return false;
+
+  GEN_XFACTORY_CREATE(enum_mutex, Create_Mutex());
   if(!enum_mutex) return false;
 
   threadsendenumrequest	= CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, __L("DIOPROTOCOLCLIBUS::Ini2"), ThreadSendEnumRequest, (void*)this);
@@ -286,45 +289,17 @@ bool DIOPROTOCOLCLIBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* an
 {
   if(!command) return false;
   
-  XRAND*  xrand;
-  XSTRING _command  = command;
-  XSTRING _answer;
-  bool    status    = false;
+  bool status    = false;
+
+  if(xmutexsendcommand) xmutexsendcommand->Lock();
   
-  xrand    = GEN_XFACTORY.CreateRand();
-  if(!xrand) return false;  
-
-  xrand->Ini();
-
-  int timedelay = xrand->Between(500, 3000);
-
   va_list arg;
 			
   va_start(arg, timeoutanswer);	
-
-  int nr = GetNRetries();
-
-  if(!answer) nr = 1;
-    
-  for(int c=0; c<nr; c++)
-    {	
-      if(exitproccess) 
-        {
-          status = false;
-          break;
-        }
-
-      status = DIOPROTOCOLCLI::SendCommand(command, target, answer, timeoutanswer, arg);
-      if(status) break;
-      
-      GEN_XSLEEP.MilliSeconds(timedelay);      
-    }
-																		
-  va_end(arg);
-
-  GEN_XFACTORY.DeleteRand(xrand);
-
-  if(answer) _answer = (*answer);
+  status = DIOPROTOCOLCLI::SendCommandArg(command, target, answer, timeoutanswer, &arg);           																		
+  va_end(arg);  
+  
+  if(xmutexsendcommand) xmutexsendcommand->UnLock();
 
   return status;
 }    
@@ -443,6 +418,12 @@ void DIOPROTOCOLCLIBUS::End()
       enum_mutex = NULL;
     }
 
+  if(xmutexsendcommand)
+    {
+      GEN_XFACTORY.Delete_Mutex(xmutexsendcommand);
+      xmutexsendcommand = NULL;
+    }
+
   if(enum_timer)
     {
       GEN_XFACTORY.DeleteTimer(enum_timer);
@@ -470,8 +451,7 @@ void DIOPROTOCOLCLIBUS::ThreadReceivedCommand(void* param)
 	if(!sp) return;
 
   if(sp->exitproccess) 
-    { 
-      sp->threadreceivedcommand->Run(false);
+    {      
       return;
     }
 
@@ -496,12 +476,11 @@ void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
 	if(!sp) return;
 
   if(sp->exitproccess) 
-    {
-      sp->threadsendenumrequest->Run(false);
+    { 
       return;
     }
 
-  sp->enum_mutex->Lock();
+  if(sp->enum_mutex) sp->enum_mutex->Lock();
 
   if(sp->enum_sendoriginID.IsEmpty()) 
     {
@@ -511,16 +490,14 @@ void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
     {    
       XSTRING answer;
   
-      bool status = sp->SendCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST, &sp->enum_sendoriginID, &answer, 6); 
+      bool status = sp->SendCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST, &sp->enum_sendoriginID, &answer, sp->enum_maxtimersec); 
       if(status)
         {
           sp->enum_sendoriginID.Empty();
         }
     } 
 
-  sp->enum_mutex->UnLock();
-
-  GEN_XSLEEP.Seconds(8);
+  if(sp->enum_mutex) sp->enum_mutex->UnLock();
 }
 
 
@@ -550,6 +527,8 @@ void DIOPROTOCOLCLIBUS::Clean()
   enum_sendoriginID.Empty();
   enum_timer              = NULL;
   enum_maxtimersec        = 0;
+
+  xmutexsendcommand       = NULL;
 
 	threadreceivedcommand   = NULL;
   threadsendenumrequest   = NULL;

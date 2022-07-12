@@ -48,7 +48,6 @@
 
 #include "HashCRC32.h"
 
-
 #include "DIOProtocolCLI.h"
 
 #include "XMemory_Control.h"
@@ -388,8 +387,39 @@ void DIOPROTOCOLCLI::ActiveCRC(bool activated)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...)
 {
+  va_list arg;
+
+  va_start(arg, timeoutanswer);
+
+  bool status = SendCommandArg(command, target, answer, timeoutanswer, &arg);
+
+  va_end(arg);
+ 
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOLCLI::SendCommandArg(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, va_list* arg)
+* @brief      SendCommandArg
+* @ingroup    DATAIO
+* 
+* @param[in]  command : 
+* @param[in]  target : 
+* @param[in]  answer : 
+* @param[in]  timeoutanswer : 
+* @param[in]  arg : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOPROTOCOLCLI::SendCommandArg(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, va_list* arg)
+{
   DIOPROTOCOLCLICOMMAND* protocolcommand = GetCommand(command);
   if(!protocolcommand) return false;
+
+  if(!arg) return false;
 
   XSTRING tosend;
 
@@ -425,22 +455,16 @@ bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answe
   if(nparams)
     {
       tosend.AddFormat(__L(" "));
-
-      va_list arg;
-
-      va_start(arg, timeoutanswer);
-
+      
       for(int c=0;c<nparams;c++)
         {
-          XCHAR* param = (XCHAR*)va_arg(arg, XCHAR*);
+          XCHAR* param = (XCHAR*)va_arg((*arg), XCHAR*);
           if(param)
             {
               tosend += param;   
               if(c != nparams-1) tosend += __L(",");         
             }
         }
-
-      va_end(arg);
     }
 
   if(activeCRC)
@@ -464,7 +488,7 @@ bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answe
   tosend.DeleteCharacter(__C('\n'));
   tosend.DeleteCharacter(__C('\r'));
 
-  // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] %s Send Ask: %s -> %s %s"), tosend.Get(), ID.Get(), (target?target->Get():DIOPROTOCOLCLI_MARK_BROADCAST), command);
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] %s Send Ask: %s -> %s %s"), tosend.Get(), ID.Get(), (target?target->Get():DIOPROTOCOLCLI_MARK_BROADCAST), command);
 
   bool status = true;
 
@@ -504,6 +528,7 @@ bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answe
 
   return status;
 }
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -687,7 +712,7 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
                                   if(answer.IsEmpty()) answer = DIOPROTOCOLCLI_OK;
                                 }
 
-                              // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Received Command: %s -> %s %s"), originID.Get(), targetID.Get(), command.Get());
+                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Received Command: %s -> %s %s"), originID.Get(), targetID.Get(), command.Get());
 
                               if(makeanswer)
                                 {
@@ -707,7 +732,7 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
                                       result.AddFormat(__L("%s%08X"), DIOPROTOCOLCLI_MARK_CRC32, CRC32result);
                                     }                                  
 
-                                  // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] %s Send Answer: %s -> %s %s : (%s)"), result.Get(), ID.Get(), originID.Get(), command.Get(), answer.Get());
+                                  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] %s Send Answer: %s -> %s %s : (%s)"), result.Get(), ID.Get(), originID.Get(), command.Get(), answer.Get());
 
                                   result.Add(__L("\n\r"));
 
@@ -730,7 +755,7 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
 
                               answer = laststringreceived.Get();
 
-                              // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Received answer: %s -> %s %s : (%s)"), originID.Get(), targetID.Get(), command.Get(), answer.Get());
+                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Protocol CLI] Received answer: %s -> %s %s : (%s)"), originID.Get(), targetID.Get(), command.Get(), answer.Get());
 
                               if(!ReceivedAnswer(originID, command, answer))
                                 {
@@ -913,7 +938,7 @@ void DIOPROTOCOLCLI::End()
     {
       GEN_XFACTORY.Delete_Mutex(xmutexanswers);
       xmutexanswers = NULL;
-    }
+    }  
 
   if(xtimerout)
     {
@@ -1029,7 +1054,7 @@ bool DIOPROTOCOLCLI::ExtractParamsFromCommand(XSTRING& stringreceived, XSTRING& 
   params.DeleteContents();
   params.DeleteAll();
 
-  int firstspace = stringreceived.Find(__L(","), true);
+  int firstspace = stringreceived.Find(__L(" "), true);
   if(firstspace == XSTRING_NOTFOUND)
     {
       command = stringreceived.Get();

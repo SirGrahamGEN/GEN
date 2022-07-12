@@ -78,7 +78,9 @@ class DIOPROTOCOLCLIBUS : public DIOPROTOCOLCLI
     XSTRING                 enum_sendoriginID;
     XTIMER*                 enum_timer;
     XDWORD                  enum_maxtimersec;
-    
+
+    XMUTEX*                 xmutexsendcommand;    
+
     XTHREADCOLLECTED*				threadreceivedcommand;
     XTHREADCOLLECTED*				threadsendenumrequest;
 };

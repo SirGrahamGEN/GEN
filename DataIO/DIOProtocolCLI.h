@@ -121,6 +121,7 @@ class DIOPROTOCOLCLI
     void                                  ActiveCRC                     (bool activated = true);
     
     virtual bool                          SendCommand                   (XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...);
+    bool                                  SendCommandArg                (XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, va_list* arg);
     
     virtual bool                          ReceivedCommand               (XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer);    
     virtual bool                          ReceivedAnswer                (XSTRING& origin, XSTRING& command, XSTRING& answer);
