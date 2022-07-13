@@ -48,7 +48,7 @@
 #ifdef MICROCONTROLLER
   #define XVECTOR_DEFAULTADDINLIMIT   2
 #else
-  #define XVECTOR_DEFAULTADDINLIMIT   10
+  #define XVECTOR_DEFAULTADDINLIMIT   100
 #endif
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/

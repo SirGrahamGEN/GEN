@@ -115,6 +115,9 @@ bool XFILETXT::Open(XPATH& xpath, bool readonly)
   if(formatchar == XFILETXTFORMATCHAR_UNKNOWN) formatchar = XFILETXTFORMATCHAR_ASCII;
   typeLF = XFILETXTTYPELF_DEFAULT;
 
+  
+  lines.SetAddInLimit(file->GetSize()/50);
+
   return true;
 }
 
