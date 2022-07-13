@@ -200,6 +200,7 @@ set(DIO_ALERTS_FEATURE                                  false   CACHE BOOL "Acti
 
 set(DIO_PROTOCOL_FEATURE                                false  CACHE BOOL "Activate Data Input/Output Protocol"                         FORCE)
 set(DIO_PROTOCOL_CLI_FEATURE                            false  CACHE BOOL "Activate Data Input/Output Protocol in CLI"                  FORCE)
+set(DIO_PROTOCOL_CLI_BUS_FEATURE                        false  CACHE BOOL "Activate Data Input/Output Protocol in CLI Bus"              FORCE)
 
 set(DIO_MPSSE_FEATURE                                   false   CACHE BOOL "Activate Data Input/Output MPSSE"                           FORCE)     
 set(DIO_WAKEONLAN_FEATURE                               false   CACHE BOOL "Activate Data Input/Output WakeON Lan"                      FORCE)
