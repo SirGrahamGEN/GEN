@@ -116,7 +116,7 @@ bool XFILETXT::Open(XPATH& xpath, bool readonly)
   typeLF = XFILETXTTYPELF_DEFAULT;
 
   
-  lines.SetAddInLimit(file->GetSize()/50);
+  lines.SetAddInLimit(file->GetSize()/10);
 
   return true;
 }
