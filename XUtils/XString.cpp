@@ -41,9 +41,11 @@
 #include <string.h>
 #include <math.h>
 
+#include "XFactory.h"
 #include "XBase.h"
 #include "XBuffer.h"
 #include "XTrace.h"
+#include "XThread.h"
 
 #include "XString.h"
 
@@ -70,6 +72,8 @@ bool  XSTRING::istable64bitsinit = false;
 XSTRING::XSTRING()
 {
   Clean();
+
+  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
 }
 
 
@@ -88,6 +92,8 @@ XSTRING::XSTRING()
 XSTRING::XSTRING(XDWORD size)
 {
   Clean();
+
+  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
 
   ReAllocBuffer(size);
 }
@@ -109,6 +115,8 @@ XSTRING::XSTRING(const char* string)
 {
   Clean();
 
+  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
+
   Set(string);
 }
 
@@ -128,6 +136,8 @@ XSTRING::XSTRING(const char* string)
 XSTRING::XSTRING(const XCHAR* string)
 {
   Clean();
+
+  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
 
   Set(string);
 }
@@ -150,6 +160,8 @@ XSTRING::XSTRING(const XCHAR* string,XDWORD size)
 {
   Clean();
 
+  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
+
   Set(string,size);
 }
 
@@ -169,6 +181,8 @@ XSTRING::XSTRING(const XCHAR* string,XDWORD size)
 XSTRING::XSTRING(const XSTRING& string)
 {
   Clean();
+
+  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
 
   Set(string);
 }
@@ -190,6 +204,8 @@ XSTRING::XSTRING(XWORD* string)
 {
   Clean();
 
+  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
+
   Set(string);
 }
 
@@ -208,6 +224,8 @@ XSTRING::XSTRING(XWORD* string)
 XSTRING::~XSTRING()
 {
   FreeBuffer();
+
+  if(xmutexfreemen) GEN_XFACTORY.Delete_Mutex(xmutexfreemen);
 
   Clean();
 }
@@ -5026,63 +5044,6 @@ XBYTE XSTRING::ConvertXCHARToBase64(XCHAR character)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
-bool XSTRING::ReAllocBuffer(XDWORD size)
-{
-  if(!size)
-    {
-      FreeBuffer();
-    }
-   else
-    {
-      int nblocks  = (size / XSTRING_BLOCKMEM) + 1;
-
-      XDWORD sizemem = (nblocks * XSTRING_BLOCKMEM);
-
-      if(!text)
-        {
-          text = new XCHAR[sizemem+1];
-          if(!text) return false;
-
-          memset(text, 0, (sizemem+1) * sizeof(XCHAR));
-
-          this->sizemem = sizemem;
-        }
-       else
-        {
-          if(size >= this->sizemem)
-            {
-              XCHAR* ttext = new XCHAR[sizemem+1];
-              if(!ttext) return false;
-
-              memset(ttext, 0, (sizemem+1) * sizeof(XCHAR));
-
-              XDWORD tsize = size;
-              if(tsize>this->size) tsize = this->size;
-
-              memcpy(ttext, text, tsize * sizeof(XCHAR));
-
-              FreeBuffer();
-
-              text = ttext;
-
-              this->sizemem = sizemem;
-            }
-           else
-            {
-              // culd we have an off by one error here?
-              // size is index zero, not reall an off by one problem here
-               memset(&text[size], 0, (this->sizemem - size)* sizeof(XCHAR));
-               text[size] = '\0';
-            }
-        }
-
-      this->size    = size;
-    }
-
-  return true;
-}
-*/
 bool XSTRING::ReAllocBuffer(XDWORD size)
 {
   if(!size)
@@ -5160,15 +5121,24 @@ bool XSTRING::ReAllocBuffer(XDWORD size)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSTRING::FreeBuffer()
 {
-  if(!text) return false;
+  if(xmutexfreemen) xmutexfreemen->Lock();
 
-  delete [] text;
+  bool status = false;
 
-  text    = NULL;
-  size    = 0;
-  sizemem = 0;
+  if(text) 
+    {
+      delete [] text;
 
-  return true;
+      text    = NULL;
+      size    = 0;
+      sizemem = 0;
+
+      status = true;
+    }
+
+  if(xmutexfreemen) xmutexfreemen->UnLock();
+
+  return status;
 }
 
 
@@ -5252,14 +5222,15 @@ bool XSTRING::ConvertStringWithMask(XCHAR* mask, XCHAR* string, XCHAR* result)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::Clean()
 {
-  text        = NULL;
-  size        = 0;
+  text            = NULL;
+  size            = 0;
+  sizemem         = 0;
 
-  sizemem     = 0;
+  xmutexfreemen   = NULL;
 
-  intvalue    = NULL;
-  doublevalue = NULL;
-  xcharvalue  = NULL;
+  intvalue        = NULL;
+  doublevalue     = NULL;
+  xcharvalue      = NULL;
 
   if(!istable64bitsinit)
     {

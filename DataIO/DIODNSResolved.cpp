@@ -328,64 +328,64 @@ bool DIODNSRESOLVED::DelInstance()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVED::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 {
+  if(HostResolved_FindIP(URL, IPresolved)) return true;
+
   if(!listhostresolved.GetSize())
     {
       GEN_DIODNSRESOLVED.HostResolved_Add(__L("localhost"), __L("127.0.0.1"));
     }
 
-  if(HostResolved_FindIP(URL, IPresolved)) return true;
-
   DIOURL url;
-  
   url = URL;  
 
   if(url.IsAURLResolved())
     {  
-      IPresolved.Set(URL);
-      return true;  
+      IPresolved.Set(URL);  
     }
+   else
+    { 
+      XTIMER* GEN_XFACTORY_CREATE(xtimerout, CreateTimer());
+      if(xtimerout) 
+        { 
+          bool status;
 
-
-  XTIMER* GEN_XFACTORY_CREATE(xtimerout, CreateTimer());
-  if(!xtimerout) return false;
- 
-  bool status;
-
-  if(!listDNSservers.GetSize())
-    {
-      GEN_DIODNSRESOLVED.DNSServer_AddDNSServer(__L("8.8.8.8"));
-      GEN_DIODNSRESOLVED.DNSServer_AddDNSServer(__L("8.8.4.4"));
-    }
-
-  DIODNSPROTOCOL* dnsprotocol = new DIODNSPROTOCOL();
-  if(dnsprotocol)
-    {
-      for(XDWORD c=0; c<listDNSservers.GetSize(); c++)
-        {
-          if(xtimerout->GetMeasureSeconds() > 120 /*timeout*/)
+          if(!listDNSservers.GetSize())
             {
-              status = false;
-              break;
+              GEN_DIODNSRESOLVED.DNSServer_AddDNSServer(__L("8.8.8.8"));
+              GEN_DIODNSRESOLVED.DNSServer_AddDNSServer(__L("8.8.4.4"));
             }
 
-          DIODNSRESOLVED_DNSSERVER* serverDNS = listDNSservers.Get(c);
-          if(serverDNS)
+          DIODNSPROTOCOL* dnsprotocol = new DIODNSPROTOCOL();
+          if(dnsprotocol)
             {
-              XSTRING serverIP;
+              for(XDWORD c=0; c<listDNSservers.GetSize(); c++)
+                {
+                  if(xtimerout->GetMeasureSeconds() > (timeout * listDNSservers.GetSize()))
+                    {
+                      status = false;
+                      break;
+                    }
 
-              serverDNS->GetIP()->GetXString(serverIP);
+                  DIODNSRESOLVED_DNSSERVER* serverDNS = listDNSservers.Get(c);
+                  if(serverDNS)
+                    {
+                      XSTRING serverIP;
 
-              dnsprotocol->SetServer(serverIP.Get(), serverDNS->GetPort());
+                      serverDNS->GetIP()->GetXString(serverIP);
 
-              status = dnsprotocol->ResolveURL(URL, IPresolved, querytype, timeout);
-              if(status) break;
+                      dnsprotocol->SetServer(serverIP.Get(), serverDNS->GetPort());
+
+                      status = dnsprotocol->ResolveURL(URL, IPresolved, querytype, timeout);
+                      if(status) break;
+                    }
+                }
+
+              delete dnsprotocol;
             }
+
+          GEN_XFACTORY.DeleteTimer(xtimerout);
         }
-
-      delete dnsprotocol;
     }
-
-  GEN_XFACTORY.DeleteTimer(xtimerout);
 
   return true;
 }
@@ -717,6 +717,8 @@ bool DIODNSRESOLVED::HostResolved_DeleteAllList()
 DIODNSRESOLVED::DIODNSRESOLVED()
 {
   Clean();
+
+  xmutexresolved = GEN_XFACTORY.Create_Mutex();
 }
 
 
@@ -733,6 +735,11 @@ DIODNSRESOLVED::DIODNSRESOLVED()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVED::~DIODNSRESOLVED()
 {
+  if(xmutexresolved)
+    {
+      GEN_XFACTORY.Delete_Mutex(xmutexresolved);       
+    }
+
   DNSServer_DeleteAllList();
   HostResolved_DeleteAllList();
 
@@ -753,5 +760,5 @@ DIODNSRESOLVED::~DIODNSRESOLVED()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSRESOLVED::Clean()
 {
-
+  xmutexresolved = NULL;
 }

@@ -97,6 +97,8 @@ class XFILETXT : public XFILECONTAINER
     bool                  GetLF                   (XBUFFER& lfdata);
     XSTRING*              GetLF                   ();
 
+    bool                  IsBinaryFile            ();
+
     int                   GetNLines               ();
     XSTRING*              GetLine                 (int index);
     XCHAR*                GetLineText             (int index);

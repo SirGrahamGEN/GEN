@@ -31,6 +31,7 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "XFactory.h"
 #include "XVector.h"
 
 #include "DIOIP.h"
@@ -121,6 +122,7 @@ class DIODNSRESOLVED
 
     static DIODNSRESOLVED*                  instance;
 
+    XMUTEX*                                 xmutexresolved;
     XVECTOR<DIODNSRESOLVED_HOSTRESOLVED*>   listhostresolved;
     XVECTOR<DIODNSRESOLVED_DNSSERVER*>      listDNSservers;
 };

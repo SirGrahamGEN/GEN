@@ -192,14 +192,14 @@ bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 {
   if(!diostreamudpcfg)  return false;
 
-  DIOURL _URL;
+  DIOURL url;
   bool   status = false;
 
-  _URL = URL;
+  url = URL;
 
-  if(_URL.IsAURLResolved())
+  if(url.IsAURLResolved())
     {
-      IPresolved.Set(URL);
+      IPresolved.Set(url);
       return true;
     }
 

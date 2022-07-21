@@ -128,8 +128,8 @@ typedef struct
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-
 class XBUFFER;
+class XMUTEX;
 
 class GEN_API_LIB XSTRING
 {
@@ -313,10 +313,7 @@ class GEN_API_LIB XSTRING
 
     static XBYTE          ConvertXCHARToBase64            (XCHAR character);
 
-  protected:
-
-    XCHAR*                text;
-    XDWORD                size;
+  protected: 
 
     bool                  ReAllocBuffer                   (XDWORD size);
     bool                  FreeBuffer                      ();
@@ -324,7 +321,12 @@ class GEN_API_LIB XSTRING
     XCHAR                 ConvertIndexBase64ToXCHAR       (int index); 
     bool                  ConvertStringWithMask           (XCHAR* mask, XCHAR* string, XCHAR* result);
 
+
+    XCHAR*                text;
+    XDWORD                size;
     XDWORD                sizemem;
+
+    XMUTEX*               xmutexfreemen;
 
     int*                  intvalue;
     double*               doublevalue;
