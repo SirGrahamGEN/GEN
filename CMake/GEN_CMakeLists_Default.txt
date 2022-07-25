@@ -8,6 +8,7 @@
 # Generic
 
 set(DEBUG_FEATURE                                       false   CACHE BOOL "Activate Debug mode"                                        FORCE)
+set(GOOGLETEST_FEATURE                                  false   CACHE BOOL "Activate Google Test functionality"                         FORCE)
 
 
 # --------------------------------------------------------------------

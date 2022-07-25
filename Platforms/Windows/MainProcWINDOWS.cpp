@@ -42,6 +42,10 @@
 #include <dbghelp.h>
 #pragma warning(pop)
 
+#ifdef GOOGLETEST_ACTIVE      
+#include "gtest/gtest.h"
+#endif
+
 #include "XWINDOWSFactory.h"
 #include "XWINDOWSTrace.h"
 #include "XWINDOWSRand.h"
@@ -1040,6 +1044,10 @@ int wmain(int argc, wchar_t* argv[])
  {
   //wprintf(L"%s\n" , argv[0]);
 
+  #ifdef GOOGLETEST_ACTIVE
+  testing::InitGoogleTest(&argc, argv);
+  #endif
+
   mainprocwindows.SetHandle((void*)GetModuleHandle(NULL));
 
   mainprocwindows.GetXPathExec()->Set(argv[0]);
@@ -1069,7 +1077,11 @@ int wmain(int argc, wchar_t* argv[])
 
       if(!status)
         {
+          #ifdef GOOGLETEST_ACTIVE      
+          RUN_ALL_TESTS();
+          #else
           while(mainprocwindows.Update());
+          #endif
         }
 
       int returncode = 0;

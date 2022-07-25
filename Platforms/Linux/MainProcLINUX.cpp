@@ -56,6 +56,10 @@
 #include <netdb.h>
 #include <fenv.h>
 
+#ifdef GOOGLETEST_ACTIVE      
+#include "gtest/gtest.h"
+#endif
+
 #include "XLINUXFactory.h"
 #include "XLINUXRand.h"
 #include "XLINUXSleep.h"
@@ -149,9 +153,8 @@
 XLINUXTRACE           linuxdebugtrace;
 #endif
 
-MAINPROCLINUX*        linuxmain         = NULL;
-bool                  liblinuxmain      = false;
-//struct sigaction      signalaction;
+MAINPROCLINUX         mainproclinux;
+bool                  libmainproclinux      = false;
 XSTRING               allexceptiontext;
 
 
@@ -565,8 +568,6 @@ void MAINPROCLINUX::Clean()
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 
-
-
 #if !defined(APPMODE_LIBRARY_STATIC) && !defined(APPMODE_LIBRARY_DINAMIC)
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -583,6 +584,10 @@ void MAINPROCLINUX::Clean()
 * --------------------------------------------------------------------------------------------------------------------*/
 int main(int argc, char* argv[])
 {
+  #ifdef GOOGLETEST_ACTIVE
+  testing::InitGoogleTest(&argc, argv);
+  #endif
+
   Signal_Ini();
 
   char  sztmp[64];
@@ -591,29 +596,23 @@ int main(int argc, char* argv[])
 
   memset(path, 0, pathsize);
 
-  if(!linuxmain)
-    {
-      linuxmain = new MAINPROCLINUX();
-      if(!linuxmain) return 1;
-    }
-
   sprintf(sztmp, "/proc/%d/exe", getpid());
   int rb = readlink(sztmp, path, pathsize);
   if(rb >= 0)
     {
       path[rb] = '\0';
-      linuxmain->GetXPathExec()->Set(path);
+      mainproclinux.GetXPathExec()->Set(path);
     }
-   else linuxmain->GetXPathExec()->Set(argv[0]);
+   else mainproclinux.GetXPathExec()->Set(argv[0]);
 
-  linuxmain->CreateParams(argc, argv);
+  mainproclinux.CreateParams(argc, argv);
 
   int status = 0;
 
   #ifdef APP_ACTIVE
-  if(!linuxmain->Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_APPLICATION))
+  if(!mainproclinux.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_APPLICATION))
   #else
-  if(!linuxmain->Ini())
+  if(!mainproclinux.Ini())
   #endif
     {
       status=1;
@@ -621,14 +620,18 @@ int main(int argc, char* argv[])
 
   if(!status)
     {
-      while(linuxmain->Update());
+      #ifdef GOOGLETEST_ACTIVE      
+      int code = RUN_ALL_TESTS();
+      if(code)
+        {
+          status = 1; 
+        }
+      #else
+      while(mainproclinux.Update());
+      #endif      
     }
 
-  if(!linuxmain->End()) status = 1;
-
-  delete linuxmain;
-
-  linuxmain = NULL;
+  if(!mainproclinux.End()) status = 1;
 
   XFILE_DISPLAYNOTCLOSEFILES
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
@@ -660,11 +663,6 @@ __attribute__((constructor))
 * --------------------------------------------------------------------------------------------------------------------*/
 static void LIBRARY_Ini(void)
 {
-  if(linuxmain) return;
-
-  linuxmain = new MAINPROCLINUX();
-  if(!linuxmain) return;
-
   char  xpathexecutable[_MAXPATH];
   int   status = 0;
   char  sztmp[64];
@@ -675,10 +673,10 @@ static void LIBRARY_Ini(void)
   int rb = readlink(sztmp, xpathexecutable, _MAXPATH);
   if(rb >= 0) xpathexecutable[rb] = '\0';
 
-  linuxmain->GetXPathExec()->Set(xpathexecutable);
-  linuxmain->Ini();
+  mainproclinux.GetXPathExec()->Set(xpathexecutable);
+  mainproclinux.Ini();
 
-  liblinuxmain = true;
+  libmainproclinux = true;
 }
 
 
@@ -697,16 +695,8 @@ __attribute__((destructor))
 * --------------------------------------------------------------------------------------------------------------------*/
 static void LIBRARY_End(void)
 {
-  if(!liblinuxmain) return;
-  
-  if(linuxmain)
-    {
-      linuxmain->GetXPathExec()->Empty();
-      linuxmain->End();
-
-      delete linuxmain;
-      linuxmain = NULL;
-    }
+  mainproclinux.GetXPathExec()->Empty();
+  mainproclinux.End();
 
   XFILE_DISPLAYNOTCLOSEFILES
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS 
@@ -808,7 +798,7 @@ static void Signal_Handler(int sig)
 
   #ifdef APP_ACTIVE
   APPBASE* app = NULL;
-  if(linuxmain->GetAppMain()) app = linuxmain->GetAppMain()->GetApplication();
+  if(mainproclinux.GetAppMain()) app = mainproclinux.GetAppMain()->GetApplication();
 
   if(app)
     {

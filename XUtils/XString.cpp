@@ -123,15 +123,15 @@ XSTRING::XSTRING(const char* string)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XSTRING::XSTRING(const XCHAR* string)
 * @brief      Constructor
 * @ingroup    XUTILS
-*
-* @param[in]  :
-*
-* @return     Does not return anything.
-*
+* 
+* @param[in]  const : 
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING::XSTRING(const XCHAR* string)
 {
@@ -156,7 +156,7 @@ XSTRING::XSTRING(const XCHAR* string)
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING::XSTRING(const XCHAR* string,XDWORD size)
+XSTRING::XSTRING(const XCHAR* string, XDWORD size)
 {
   Clean();
 
@@ -233,15 +233,13 @@ XSTRING::~XSTRING()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XCHAR* XSTRING::Get() const
 * @brief      Get
 * @ingroup    XUTILS
-*
-* @param[in]  cons :
-*
-* @return     XCHAR* :
-*
+* 
+* @return     const XCHAR* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* XSTRING::Get() const
 {
