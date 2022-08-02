@@ -77,6 +77,9 @@ APPCFG::APPCFG(XCHAR* namefile)
   //-----------------------------------------------------
   // GENERAL
 
+  AddRemark(APP_CFG_SECTION_GENERAL, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APP_CFG_SECTION_GENERAL, __L(" General section of configuration")                          , 0, 2);
+
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_GENERAL                   , APP_CFG_SCRAPERWEBSCRIPTURLDOWNLOAD                         , &scraperwebscripturldownload);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_GENERAL                   , APP_CFG_SHOWDETAILINFO                                      , &showdetailinfo);
 
@@ -94,6 +97,9 @@ APPCFG::APPCFG(XCHAR* namefile)
   // CHECH RESOURCES HARWARE
   #ifdef APP_CFG_CHECKRESOURCESHARDWARE_ACTIVE
 
+  AddRemark(APP_CFG_SECTION_CHECKRESOURCESHARDWARE, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APP_CFG_SECTION_CHECKRESOURCESHARDWARE, __L(" Check resources section of configuration")                          , 0, 2);
+
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_MEMSTATUSCHECKCADENCE        , &checkresourceshardware_memstatuscheckcadence);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_MEMSTATUSLIMITPERCENT        , &checkresourceshardware_memstatuslimitpercent);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGECHECKCADENCE         , &checkresourceshardware_cpuusagecheckcadence);
@@ -107,8 +113,11 @@ APPCFG::APPCFG(XCHAR* namefile)
   //-----------------------------------------------------
   // INTERNET SERVICES
 
+  AddRemark(APP_CFG_SECTION_INTERNETSERVICES, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APP_CFG_SECTION_INTERNETSERVICES, __L(" Internet services section of configuration")                          , 0, 2);
+
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_CHECKINTERNETSTATUSCADENCE         , &internetservices_checkinternetstatuscadence);
-  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_CHECKIPSCHANGECADENCE                 , &internetservices_checkipschangecadence);
+  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_CHECKIPSCHANGECADENCE              , &internetservices_checkipschangecadence);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMEBYNTPCADENCE             , &internetservices_updatetimebyntpcadence);
 
   for(int c=0; c<APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS; c++)
@@ -117,7 +126,7 @@ APPCFG::APPCFG(XCHAR* namefile)
       AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_INTERNETSERVICES, key.Get(), &internetservices_updatetimentpservers[c]);
     }
 
-  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE       , &internetservices_updatetimentpmeridiandifference);
+  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE    , &internetservices_updatetimentpmeridiandifference);
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPUSEDAYLIGHTSAVING     , &internetservices_updatetimentpusedaylightsaving);
 
 
@@ -126,6 +135,9 @@ APPCFG::APPCFG(XCHAR* namefile)
   #ifdef APP_CFG_DNSRESOLVED_ACTIVE
   //-----------------------------------------------------
   // DNS RESOLVED
+
+  AddRemark(APP_CFG_SECTION_DNSRESOLVED, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APP_CFG_SECTION_DNSRESOLVED, __L(" DNS resolved section of configuration")                          , 0, 2);
 
   for(int c=0; c<APP_CFG_DNSRESOLVED_MAXHOSTRESOLVED; c++)
     {
@@ -147,6 +159,9 @@ APPCFG::APPCFG(XCHAR* namefile)
   //-----------------------------------------------------
   // DYNDNS MANAGER
 
+  AddRemark(APP_CFG_DYNDNSMANAGER_URL, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APP_CFG_DYNDNSMANAGER_URL, __L(" Location info section of configuration")                          , 0, 2);
+
   for(int c=0; c<APP_CFG_DYNDNSMANAGER_MAXURL; c++)
     {
       key.Format(__L("%s%02d"), APP_CFG_DYNDNSMANAGER_URL, c+1);
@@ -162,6 +177,9 @@ APPCFG::APPCFG(XCHAR* namefile)
   //-----------------------------------------------------
   // LOCATION
 
+  AddRemark(APP_CFG_SECTION_LOCATION, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APP_CFG_SECTION_LOCATION, __L(" Location info section of configuration")                          , 0, 2);
+
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_LOCATION                  , APP_CFG_LOCATION_STREET                                     , &location_street);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_LOCATION                  , APP_CFG_LOCATION_TOWN                                       , &location_city);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_LOCATION                  , APP_CFG_LOCATION_STATE                                      , &location_state);
@@ -174,6 +192,9 @@ APPCFG::APPCFG(XCHAR* namefile)
   #ifdef APP_CFG_APPUPDATE_ACTIVE
   //-----------------------------------------------------
   // APPLICATION UPDATE
+
+  AddRemark(APP_CFG_SECTION_APPLICATIONUPDATE, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APP_CFG_SECTION_APPLICATIONUPDATE, __L(" Application Update section of configuration")                          , 0, 2);
 
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_APPLICATIONUPDATE         , APP_CFG_APPLICATIONUPDATE_ISACTIVE                          , &applicationupdate_isactive);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_APPLICATIONUPDATE         , APP_CFG_APPLICATIONUPDATE_URL                               , &applicationupdate_URL);
@@ -191,6 +212,9 @@ APPCFG::APPCFG(XCHAR* namefile)
   //-----------------------------------------------------
   // WEBSERVER
 
+  AddRemark(APP_CFG_SECTION_WEBSERVER, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APP_CFG_SECTION_WEBSERVER, __L(" Web server section of configuration")                          , 0, 2);
+
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_LOCALADDR                                 , &webserver_localaddr);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_PORT                                      , &webserver_port);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_TIMEOUTTOSERVERPAGE                       , &webserver_timeouttoserverpage);
@@ -206,6 +230,9 @@ APPCFG::APPCFG(XCHAR* namefile)
   //-----------------------------------------------------
   // ALERTS
 
+  AddRemark(APP_CFG_SECTION_ALERTS, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APP_CFG_SECTION_ALERTS, __L(" Alerts section of configuration")                          , 0, 2);
+  
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_ISACTIVE                                     , &alerts_isactive);
 
   //------------------------------------
@@ -268,14 +295,17 @@ APPCFG::APPCFG(XCHAR* namefile)
   //-----------------------------------------------------
   // LOG
 
-  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_ISACTIVE                                          , &log_isactive);
-  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_BACKUPISACTIVE                                    , &log_backupisactive);
-  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_BACKUPMAXFILES                                    , &log_backupmaxfiles);
-  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_BACKUPISCOMPRESS                                  , &log_backupiscompress);
-  AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_ACTIVESECTIONSID                                  , &log_activesectionsID);
-  AddValue(XFILECFG_VALUETYPE_MASK    , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_LEVELMASK                                         , &log_levelmask);
-  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_MAXSIZE                                           , &log_maxsize);
-  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_REDUCTIONPERCENT                                  , &log_reductionpercent);
+  AddRemark(APP_CFG_SECTION_LOG, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APP_CFG_SECTION_LOG, __L(" Log section of configuration")                          , 0, 2);
+  
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_ISACTIVE                                          , &log_isactive             , __L("Activate log generation")                                        , 64);
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_BACKUPISACTIVE                                    , &log_backupisactive       , __L("Activate backup for the log")                                    , 64);
+  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_BACKUPMAXFILES                                    , &log_backupmaxfiles       , __L("Maximum number of backup files (ZIP)")                           , 64);
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_BACKUPISCOMPRESS                                  , &log_backupiscompress     , __L("Activate compression in log backup")                             , 64);   
+  AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_ACTIVESECTIONSID                                  , &log_activesectionsID     , __L("Activate section filter by ID in the log")                       , 64);
+  AddValue(XFILECFG_VALUETYPE_MASK    , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_LEVELMASK                                         , &log_levelmask            , __L("Filter by level mask")                                           , 64);
+  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_MAXSIZE                                           , &log_maxsize              , __L("Limit of the main file to perform the backup (in Kb)")           , 64);
+  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_REDUCTIONPERCENT                                  , &log_reductionpercent     , __L("Reduction (percentage) of the main file when performing backup") , 64);
   #endif
 
   Default();

@@ -1,22 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  DIOLINUXSTREAMUDP.CPP
-//
-//  LINUX Data Input/Output Stream UDP class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
-
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOLINUXStreamUDP.cpp
+* 
+* @class      DIOLINUXSTREAMUDP
+* @brief      Data Input/Output Linux Stream UDP class
+* @ingroup    PLATFORM_LINUX
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -54,45 +69,37 @@
 #include "DIOStreamXEvent.h"
 #include "DIOStreamUDPConfig.h"
 #include "DIOStreamUDP.h"
-
-
 #include "DIOLINUXStreamUDP.h"
 
 #include "XMemory_Control.h"
 
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUDP::DIOLINUXSTREAMUDP
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 23:10:30
-//
-//  @return
-
-
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMUDP::DIOLINUXSTREAMUDP()
+* @brief      Constructor
+* @ingroup    PLATFORM_LINUX 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUDP::DIOLINUXSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 {
   Clean();
 
   AddState( DIOLINUXUDPFSMSTATE_NONE                ,
-            DIOLINUXUDPFSMEVENT_GETTINGCONNECTION    , DIOLINUXUDPFSMSTATE_GETTINGCONNECTION,
+            DIOLINUXUDPFSMEVENT_GETTINGCONNECTION   , DIOLINUXUDPFSMSTATE_GETTINGCONNECTION,
             DIOLINUXUDPFSMEVENT_CONNECTED           , DIOLINUXUDPFSMSTATE_CONNECTED        ,
             DIOLINUXUDPFSMEVENT_DISCONNECTING       , DIOLINUXUDPFSMSTATE_DISCONNECTING    ,
             XFSMACHINESTATE_EVENTDEFEND);
 
-  AddState( DIOLINUXUDPFSMSTATE_GETTINGCONNECTION    ,
+  AddState( DIOLINUXUDPFSMSTATE_GETTINGCONNECTION   ,
             DIOLINUXUDPFSMEVENT_CONNECTED           , DIOLINUXUDPFSMSTATE_CONNECTED        ,
             DIOLINUXUDPFSMEVENT_WAITINGTOREAD       , DIOLINUXUDPFSMSTATE_WAITINGTOREAD    ,
             DIOLINUXUDPFSMEVENT_SENDINGDATA         , DIOLINUXUDPFSMSTATE_SENDINGDATA      ,
@@ -100,21 +107,21 @@ DIOLINUXSTREAMUDP::DIOLINUXSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
             XFSMACHINESTATE_EVENTDEFEND);
 
   AddState( DIOLINUXUDPFSMSTATE_CONNECTED           ,
-            DIOLINUXUDPFSMEVENT_GETTINGCONNECTION    , DIOLINUXUDPFSMSTATE_GETTINGCONNECTION,
+            DIOLINUXUDPFSMEVENT_GETTINGCONNECTION   , DIOLINUXUDPFSMSTATE_GETTINGCONNECTION,
             DIOLINUXUDPFSMEVENT_WAITINGTOREAD       , DIOLINUXUDPFSMSTATE_WAITINGTOREAD    ,
             DIOLINUXUDPFSMEVENT_SENDINGDATA         , DIOLINUXUDPFSMSTATE_SENDINGDATA      ,
             DIOLINUXUDPFSMEVENT_DISCONNECTING       , DIOLINUXUDPFSMSTATE_DISCONNECTING    ,
             XFSMACHINESTATE_EVENTDEFEND);
 
   AddState( DIOLINUXUDPFSMSTATE_WAITINGTOREAD       ,
-            DIOLINUXUDPFSMEVENT_GETTINGCONNECTION    , DIOLINUXUDPFSMSTATE_GETTINGCONNECTION,
+            DIOLINUXUDPFSMEVENT_GETTINGCONNECTION   , DIOLINUXUDPFSMSTATE_GETTINGCONNECTION,
             DIOLINUXUDPFSMEVENT_CONNECTED           , DIOLINUXUDPFSMSTATE_CONNECTED        ,
             DIOLINUXUDPFSMEVENT_SENDINGDATA         , DIOLINUXUDPFSMSTATE_SENDINGDATA      ,
             DIOLINUXUDPFSMEVENT_DISCONNECTING       , DIOLINUXUDPFSMSTATE_DISCONNECTING    ,
             XFSMACHINESTATE_EVENTDEFEND);
 
   AddState( DIOLINUXUDPFSMSTATE_DISCONNECTING       ,
-            DIOLINUXUDPFSMEVENT_GETTINGCONNECTION    , DIOLINUXUDPFSMSTATE_GETTINGCONNECTION,
+            DIOLINUXUDPFSMEVENT_GETTINGCONNECTION   , DIOLINUXUDPFSMSTATE_GETTINGCONNECTION,
             DIOLINUXUDPFSMEVENT_CONNECTED           , DIOLINUXUDPFSMSTATE_CONNECTED        ,
             DIOLINUXUDPFSMEVENT_WAITINGTOREAD       , DIOLINUXUDPFSMSTATE_WAITINGTOREAD    ,
             DIOLINUXUDPFSMEVENT_SENDINGDATA         , DIOLINUXUDPFSMSTATE_SENDINGDATA      ,
@@ -124,17 +131,16 @@ DIOLINUXSTREAMUDP::DIOLINUXSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 }
 
 
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUDP::~DIOLINUXSTREAMUDP
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMUDP::~DIOLINUXSTREAMUDP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUDP::~DIOLINUXSTREAMUDP()
 {
   if(threadconnection)
@@ -146,18 +152,15 @@ DIOLINUXSTREAMUDP::~DIOLINUXSTREAMUDP()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUDP::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUDP::Open()
+* @brief      Open
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUDP::Open()
 {
   if(!threadconnection)  return false;
@@ -181,18 +184,15 @@ bool DIOLINUXSTREAMUDP::Open()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUDP::Disconnect
-*/
-/**
-//
-//
-//  ""
-//  @version      01/12/2010 23:10:56
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUDP::Disconnect()
+* @brief      Disconnect
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUDP::Disconnect()
 {
   if((GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
@@ -218,17 +218,15 @@ bool DIOLINUXSTREAMUDP::Disconnect()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUDP::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUDP::Close()
+* @brief      Close
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUDP::Close()
 {
   if(!threadconnection) return false;
@@ -246,19 +244,17 @@ bool DIOLINUXSTREAMUDP::Close()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUDP::IsReadyConnect
-/**
-//
-//
-//  ""
-//  @version      08/03/2006 15:36:59
-//
-//  @return       int :
-//  @param        sock :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOLINUXSTREAMUDP::IsReadyConnect(int socket)
+* @brief      IsReadyConnect
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  socket : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOLINUXSTREAMUDP::IsReadyConnect(int socket)
 {
   struct timeval  tv;
@@ -302,39 +298,35 @@ int DIOLINUXSTREAMUDP::IsReadyConnect(int socket)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUDP::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMUDP::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMUDP::Clean()
 {
-  threadconnection   = NULL;
+  threadconnection  = NULL;
   status            = DIOSTREAMSTATUS_DISCONNECTED;
   handle            = -1;
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUDP::ThreadRunFunction
-/**
-//
-//
-//  ""
-//  @version      06/03/2006 15:44:00
-//
-//  @return       void :
-//  @param        data :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
+* @brief      ThreadRunFunction
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  thread : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
 {
   DIOLINUXSTREAMUDP* diostream = (DIOLINUXSTREAMUDP*)thread;
@@ -621,16 +613,20 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                 }
 
                                                               if(!diostream->config->IsServer())
-                                                                {
-                                                                  diostream->config->GetRemoteURL()->ResolveURL(diostream->remoteaddress);
-
+                                                                {                                                                 
                                                                   if(diostream->config->IsBroadcastModeActive())
                                                                     {
                                                                       int yes = 1;
                                                                       setsockopt(diostream->handle, SOL_SOCKET, SO_BROADCAST, (char*)&yes, sizeof(yes));
                                                                     }
+                                                                   else
+                                                                    {
+                                                                      if(diostream->config->GetRemoteURL()->GetSize()) 
+                                                                        {
+                                                                          diostream->config->GetRemoteURL()->ResolveURL(diostream->remoteaddress);
+                                                                        }
+                                                                    }
                                                                 }
-
 
                                                               if(diostream->config->GetSizeBufferSO())
                                                                 {
@@ -672,5 +668,3 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
         }
     }
 }
-
-

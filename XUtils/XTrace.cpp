@@ -2220,7 +2220,7 @@ bool XTRACE::ObtainLocalIP()
               XSTRING string;
 
               device->GetIP()->GetXString(string);
-              SetLocalIPString(&string);
+              SetLocalIPString(string.Get());
 
               status = true;
             }
@@ -2243,7 +2243,7 @@ bool XTRACE::ObtainLocalIP()
                       XSTRING string;
 
                       device->GetIP()->GetXString(string);
-                      SetLocalIPString(&string);
+                      SetLocalIPString(string.Get());
                       status = true;
                     }
                 }
@@ -2261,21 +2261,6 @@ bool XTRACE::ObtainLocalIP()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTRING* XTRACE::GetLocalIPString()
-* @brief      Get Local IP (in string format)
-* @ingroup    XUTILS
-*
-* @return     XSTRING* : local ip in string format
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XTRACE::GetLocalIPString()
-{
-  return &localIPstring;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         bool XTRACE::SetLocalIPString(XSTRING* localIPstring)
 * @brief      Set Local IP (in string format)
 * @ingroup    XUTILS
@@ -2285,11 +2270,13 @@ XSTRING* XTRACE::GetLocalIPString()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XTRACE::SetLocalIPString(XSTRING* localIPstring)
+bool XTRACE::SetLocalIPString(XCHAR* localIPstring)
 {
+  XSTRING _localIPstring;
   int data[4];
 
-  localIPstring->UnFormat(__L("%d.%d.%d.%d"), &data[0], &data[1], &data[2], &data[3]);
+  _localIPstring = localIPstring;
+  _localIPstring.UnFormat(__L("%d.%d.%d.%d"), &data[0], &data[1], &data[2], &data[3]);
 
   localIP  |= (data[0] << 24);
   localIP  |= (data[1] << 16);
@@ -2342,7 +2329,7 @@ bool XTRACE::ObtainPublicIP()
       XSTRING string;
 
       ip.GetXString(string);
-      SetPublicIPString(&string);
+      SetPublicIPString(string.Get());
     }
 
   delete publicip;
@@ -2405,36 +2392,24 @@ XDWORD XTRACE::GetPublicIP()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XSTRING* XTRACE::GetPublicIPString()
-* @brief      Get Public IP (in string format)
+* 
+* @fn         bool XTRACE::SetPublicIPString(XCHAR* publicIPstring)
+* @brief      SetPublicIPString
 * @ingroup    XUTILS
-*
-* @return     XSTRING* : string with public IP
-*
+* 
+* @param[in]  publicIPstring : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XTRACE::GetPublicIPString()
+bool XTRACE::SetPublicIPString(XCHAR* publicIPstring)
 {
-  return &publicIPstring;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XTRACE::SetPublicIPString(XSTRING* publicIPstring)
-* @brief      Set public IP (in string format)
-* @ingroup    XUTILS
-*
-* @param[in]  publicIPstring : public ip in string format
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XTRACE::SetPublicIPString(XSTRING* publicIPstring)
-{
+  XSTRING _publicIPstring;
   int data[4];
 
-  publicIPstring->UnFormat(__L("%d.%d.%d.%d"), &data[0], &data[1], &data[2], &data[3]);
+  _publicIPstring = publicIPstring;
+
+  _publicIPstring.UnFormat(__L("%d.%d.%d.%d"), &data[0], &data[1], &data[2], &data[3]);
 
   publicIP  |= (data[0] << 24);
   publicIP  |= (data[1] << 16);

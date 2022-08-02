@@ -73,7 +73,7 @@ XSTRING::XSTRING()
 {
   Clean();
 
-  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexfreemen, Create_Mutex());
 }
 
 
@@ -93,7 +93,7 @@ XSTRING::XSTRING(XDWORD size)
 {
   Clean();
 
-  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexfreemen, Create_Mutex());
 
   ReAllocBuffer(size);
 }
@@ -115,7 +115,7 @@ XSTRING::XSTRING(const char* string)
 {
   Clean();
 
-  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexfreemen, Create_Mutex());
 
   Set(string);
 }
@@ -137,7 +137,7 @@ XSTRING::XSTRING(const XCHAR* string)
 {
   Clean();
 
-  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexfreemen, Create_Mutex());
 
   Set(string);
 }
@@ -160,7 +160,7 @@ XSTRING::XSTRING(const XCHAR* string, XDWORD size)
 {
   Clean();
 
-  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexfreemen, Create_Mutex());
 
   Set(string,size);
 }
@@ -182,7 +182,7 @@ XSTRING::XSTRING(const XSTRING& string)
 {
   Clean();
 
-  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexfreemen, Create_Mutex());
 
   Set(string);
 }
@@ -204,7 +204,7 @@ XSTRING::XSTRING(XWORD* string)
 {
   Clean();
 
-  xmutexfreemen = GEN_XFACTORY.Create_Mutex();
+  GEN_XFACTORY_CREATE(xmutexfreemen, Create_Mutex());
 
   Set(string);
 }
@@ -225,7 +225,11 @@ XSTRING::~XSTRING()
 {
   FreeBuffer();
 
-  if(xmutexfreemen) GEN_XFACTORY.Delete_Mutex(xmutexfreemen);
+  if(xmutexfreemen) 
+    {
+      //GEN_XFACTORY.Delete_Mutex(xmutexfreemen);
+      delete xmutexfreemen;
+    }
 
   Clean();
 }
@@ -5184,7 +5188,6 @@ bool XSTRING::ConvertStringWithMask(XCHAR* mask, XCHAR* string, XCHAR* result)
 
   _mask   = mask;
   _string = string;
-
 
   char* resultchar = new char[XSTRING_MAXTEMPOSTR];
   if(!resultchar) return false;

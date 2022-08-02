@@ -84,10 +84,8 @@ XMEMORY_CONTROL::XMEMORY_CONTROL()
 
   ResizeAssignList();
 
-  active = true;
+  //isactive = true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -102,7 +100,7 @@ XMEMORY_CONTROL::XMEMORY_CONTROL()
 * --------------------------------------------------------------------------------------------------------------------*/
 XMEMORY_CONTROL::~XMEMORY_CONTROL()
 {
-  active = false;
+  isactive = false;
 
   FreeAll();
 
@@ -126,7 +124,6 @@ XMEMORY_CONTROL::~XMEMORY_CONTROL()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMEMORY_CONTROL::IsActive()
@@ -138,9 +135,29 @@ XMEMORY_CONTROL::~XMEMORY_CONTROL()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XMEMORY_CONTROL::IsActive()
 {
-  return active;
+  return isactive;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XMEMORY_CONTROL::Activate(bool isactive)
+* @brief      Activate
+* @ingroup    XUTILS
+* 
+* @param[in]  isactive : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XMEMORY_CONTROL::Activate(bool isactive)
+{
+  if(this->isactive == isactive) return false;
+
+  this->isactive = isactive;
+
+  return true;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -293,11 +310,14 @@ XDWORD XMEMORY_CONTROL::GetNAssigns()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XMEMORY_CONTROL::DisplayAll(bool displaydata)
 {
-  int nassigned = 0;
+   int nassigned = 0;  
 
-  for(XDWORD c=0; c<nregisterelements; c++)
+   for(XDWORD c=0; c<nregisterelements; c++)
     {
-      if(assignlist[c].ptr) nassigned++;
+      if(assignlist[c].ptr) 
+        {
+          nassigned++;
+        }
     }
 
   #ifdef XTRACE_ACTIVE
@@ -305,7 +325,7 @@ bool XMEMORY_CONTROL::DisplayAll(bool displaydata)
   XTRACE_PRINTHEADER((!nassigned)?__L("ALL FREE MEMORY RESOURCES"):__L("NOT FREE MEMORY RESOURCES"));
   XTRACE_PRINT(__L(" "));
   XTRACE_PRINT(__L("Maximum allocated blocks at a time : %d") , maxnassigns);
-  XTRACE_PRINT(__L("Maximum memory used at a time      : %dk"), maxused/1024);
+  XTRACE_PRINT(__L("Maximum memory used at a time      : %dk"), maxused/1024); 
 
   if(nassigned)
     {
@@ -668,7 +688,7 @@ bool XMEMORY_CONTROL::SearchAssignIndex(bool free, void* ptr, XDWORD& index)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMEMORY_CONTROL::Clean()
 {
-  active                  = false;
+  isactive                = false;
 
   assignlist              = NULL;
 
@@ -683,7 +703,6 @@ void XMEMORY_CONTROL::Clean()
 
   mutexhandle             = 0;
 }
-
 
 
 #undef new

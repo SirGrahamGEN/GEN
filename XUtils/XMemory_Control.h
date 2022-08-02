@@ -62,7 +62,7 @@
 #endif
 
 #define XMEMORY_CONTROL_MAXNAMEMODULESIZE       32
-#define XMEMORY_CONTROL_SHOWDATABLOCKSIZE       256
+#define XMEMORY_CONTROL_SHOWDATABLOCKSIZE       512
 #define XMEMORY_CONTROL_MAXIMUNLEAKSTODISPLAY   100
 
 #define XMEMORY_CONTROL_DISPLAYMEMORYLEAKS      XMemory_Control.DisplayAll(true);
@@ -93,6 +93,7 @@ class XMEMORY_CONTROL
     virtual                    ~XMEMORY_CONTROL             ();
 
     bool                        IsActive                    ();
+    bool                        Activate                    (bool isactive);
 
     void*                       Assign                      (XDWORD size, char* namefile, int line);
     void                        Free                        (void* ptr);
@@ -122,7 +123,7 @@ class XMEMORY_CONTROL
     void                        Clean                       ();
 
 
-    bool                        active;
+    bool                        isactive;
 
     XMEMORY_CONTROL_ASSIGN*     assignlist;
 

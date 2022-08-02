@@ -101,7 +101,6 @@ typedef struct
 #pragma pack(pop)
 
 
-
 //------------------------------------------------------------
 // Pointers to resource record contents
 typedef struct RES_RECORD
@@ -113,7 +112,6 @@ typedef struct RES_RECORD
 } DIODNSPROTOCOL_RES_RECORD;
 
 
-
 //------------------------------------------------------------
 // Structure of a Query
 typedef struct
@@ -122,7 +120,6 @@ typedef struct
   DIODNSPROTOCOL_QUESTION*        question;
 
 } DIODNSPROTOCOL_QUERY;
-
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
@@ -162,10 +159,6 @@ class DIODNSPROTOCOL
 };
 
 
-
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-
-
-

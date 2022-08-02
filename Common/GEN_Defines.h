@@ -47,8 +47,9 @@
 #endif
 
 #ifndef GEN_XFACTORY_CREATE
-#define GEN_XFACTORY_CREATE(var, func)    var = GEN_XFACTORY.func;   \
-                                          FACTORY_MODULE(var) 
+#define GEN_XFACTORY_CREATE(var, func)    var = GEN_XFACTORY.func;      \
+                                          FACTORY_MODULE(var)
+                                            
 #endif
 
 // Macros SINGLETON

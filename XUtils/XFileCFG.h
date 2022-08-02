@@ -100,7 +100,7 @@ class XFILECFG : public XSUBJECT
 
     virtual bool                        End                       ();
 
-    bool                                AddValue                  (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value);
+    bool                                AddValue                  (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value, XCHAR* remark_text = NULL, XDWORD remark_xpos = 0);
     XVECTOR<XFILECFGVALUE*>*            GetValues                 ();    
     bool                                DeleteAllValues           ();
     

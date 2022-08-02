@@ -132,6 +132,8 @@ bool XFACTORY::SetInstance(XFACTORY* _instance)
 {
   if(!_instance) return false;
 
+  DelInstance();
+
   instance = _instance;
 
   return (instance)?true:false;
