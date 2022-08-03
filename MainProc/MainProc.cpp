@@ -422,8 +422,8 @@ bool MAINPROC::DeleteAllExecParams()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROC::Clean()
-{
-  handle            = NULL;
-  appmain           = NULL;
+{  
+  handle            = NULL;  
+  appmain           = NULL;    
 }
 

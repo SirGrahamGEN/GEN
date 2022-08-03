@@ -321,55 +321,7 @@ bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 
                       if(status) break;
                     }
-                }
-
-              /*
-              for(int i=0; i<ntohs(authoritativeservers_count);  i++)
-                {
-                  RES_RECORD* result = new RES_RECORD();
-                  if(result)
-                    {
-                      result->name = GetBufferName(reader, buffer.Get(), &stop);
-                      reader += stop;
-
-                      result->resource = (DIODNSPROTOCOL_R_DATA*)(reader);
-                      reader += sizeof(DIODNSPROTOCOL_R_DATA);
-
-                      result->rdata = GetBufferName(reader, buffer.Get(), &stop);
-                      reader+=stop;
-                    }
-                }
-
-              for(int i=0; i<ntohs(additionalrecords_count); i++)
-                {
-                  RES_RECORD* result = new RES_RECORD();
-                  if(result)
-                    {
-                      result->name = GetBufferName(reader, buffer.Get(), &stop);
-                      reader += stop;
-
-                      result->resource = (DIODNSPROTOCOL_R_DATA*)(reader);
-                      reader += sizeof(DIODNSPROTOCOL_R_DATA);
-
-                      if(ntohs(result->resource->type) == 1)
-                        {
-                          XSTRING data;
-
-                          for(int j=0; j<ntohs(result->resource->data_len); j++)
-                            {
-                              data += reader[j];
-                            }
-
-                          reader += ntohs(result->resource->data_len);
-                        }
-                        else
-                        {
-                          result->rdata = GetBufferName(reader, buffer.Get(), &stop);
-                          reader += stop;
-                        }
-                    }
-                }
-              */
+                }              
             }
         }
 

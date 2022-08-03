@@ -717,8 +717,6 @@ bool DIODNSRESOLVED::HostResolved_DeleteAllList()
 DIODNSRESOLVED::DIODNSRESOLVED()
 {
   Clean();
-
-  xmutexresolved = GEN_XFACTORY.Create_Mutex();
 }
 
 
@@ -734,12 +732,7 @@ DIODNSRESOLVED::DIODNSRESOLVED()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVED::~DIODNSRESOLVED()
-{
-  if(xmutexresolved)
-    {
-      GEN_XFACTORY.Delete_Mutex(xmutexresolved);       
-    }
-
+{  
   DNSServer_DeleteAllList();
   HostResolved_DeleteAllList();
 
@@ -760,5 +753,5 @@ DIODNSRESOLVED::~DIODNSRESOLVED()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSRESOLVED::Clean()
 {
-  xmutexresolved = NULL;
+  
 }

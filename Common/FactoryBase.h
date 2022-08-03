@@ -36,9 +36,11 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "XBase.h"
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-#define FACTORY_MODULE(variable)    variable->SetModule(__FILE__);
+#define FACTORY_MODULE(variable)    if(variable) variable->SetModule(__FILE__);
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -57,15 +59,21 @@ class FACTORYBASE
 
     void                      SetModule           (const char* _pathmodule)
                               {
-                                memcpy(pathmodule, _pathmodule, strlen(_pathmodule));
+                                if(pathmodule && _pathmodule) 
+                                  {
+                                    memcpy(pathmodule, _pathmodule, strlen(_pathmodule));
+                                  }
                               }  
   private:
 
-    char*                     pathmodule[256];
+    char*                     pathmodule[_MAXSTR];
 
     void                      Clean               ()
                               {
-                                memset(pathmodule, 0, 256);
+                                if(pathmodule)  
+                                  {
+                                    memset(pathmodule, 0, _MAXSTR);
+                                  }
                               }
 };
 

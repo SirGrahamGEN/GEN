@@ -331,7 +331,6 @@ bool MAINPROCLINUX::End()
 
   Factorys_End();
 
-
   #ifdef APP_ACTIVE
 
   if(appmain) appmain->Delete();
@@ -345,6 +344,10 @@ bool MAINPROCLINUX::End()
 
   #endif
 
+  XFILE_DISPLAYNOTCLOSEFILES
+
+  XMemory_Control.Activate(false);
+  XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
 
   return true;
 }
@@ -450,6 +453,7 @@ bool MAINPROCLINUX::Factorys_Ini()
 bool MAINPROCLINUX::Factorys_End()
 {
   #ifdef GRP_ACTIVE
+  GRPWINDOWSSCREEN::GetListScreens()->DeleteAll();
   GRPFACTORY::DelInstance();
   #endif
 
@@ -465,11 +469,11 @@ bool MAINPROCLINUX::Factorys_End()
       DIOGPIO::DelInstance();
     }
   #endif
-	
-	#ifdef DIOUDP_ACTIVE
-	DIODNSRESOLVED::DelInstance();
-	#endif 
-	
+
+  #ifdef DIOUDP_ACTIVE
+  DIODNSRESOLVED::DelInstance();
+  #endif
+
   DIOFACTORY::DelInstance();
   #endif
 
@@ -488,16 +492,12 @@ bool MAINPROCLINUX::Factorys_End()
 
   #ifdef DIOALERTS_ACTIVE
   DIOALERTS::DelInstance();
-  #endif
+  #endif 
 
   #ifdef XLOG_ACTIVE
   XLOG::DelInstance();
   #endif
 
-  XPATHSMANAGER::DelInstance();
-
-  XTRANSLATION::DelInstance();
-  XTRANSLATION_GEN::DelInstance();
 
   #ifdef XPROCESSMANAGER_ACTIVE
   XPROCESSMANAGER::DelInstance();
@@ -511,17 +511,22 @@ bool MAINPROCLINUX::Factorys_End()
   XDRIVEIMAGE::DelInstance();
   #endif
 
-  #ifdef XSHAREDMEMORY_ACTIVE   
-  XSHAREDMEMORY::DelInstance();
-  #endif
+  #ifdef XSHAREDMEMORYMANAGER_ACTIVE   
+  XSHAREDMEMORYMANAGER::DelInstance();
+  #endif  
+
+  XPATHSMANAGER::DelInstance();
+
+  XTRANSLATION::DelInstance();
+  XTRANSLATION_GEN::DelInstance();
 
   #ifdef XSLEEP_ACTIVE
   XSLEEP::DelInstance();
-  #endif  
+  #endif
 
   XRAND::DelInstance();
 
-  #ifdef XSYSTEM_ACTIVE  
+  #ifdef XSYSTEM_ACTIVE
   XSYSTEM::DelInstance();
   #endif
 
@@ -539,18 +544,16 @@ bool MAINPROCLINUX::Factorys_End()
 }
 
 
-
-//-------------------------------------------------------------------
-//  MAINPROCLINUX::Clean
-/**
-//
-//
-//  ""
-//  @version      13/08/2003 12:09:01
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void MAINPROCLINUX::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCLINUX::Clean()
 {
 
@@ -584,6 +587,8 @@ void MAINPROCLINUX::Clean()
 * --------------------------------------------------------------------------------------------------------------------*/
 int main(int argc, char* argv[])
 {
+  XMemory_Control.Activate(true);
+
   #ifdef GOOGLETEST_ACTIVE
   testing::InitGoogleTest(&argc, argv);
   #endif
@@ -608,7 +613,7 @@ int main(int argc, char* argv[])
   mainproclinux.CreateParams(argc, argv);
 
   int status = 0;
-
+  
   #ifdef APP_ACTIVE
   if(!mainproclinux.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_APPLICATION))
   #else
@@ -631,16 +636,26 @@ int main(int argc, char* argv[])
       #endif      
     }
 
-  if(!mainproclinux.End()) status = 1;
+  int returncode = 0;
 
-  XFILE_DISPLAYNOTCLOSEFILES
-  XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
+  #ifdef APP_ACTIVE
+  if(mainproclinux.GetAppMain())
+    {
+      if(mainproclinux.GetAppMain()->GetApplication())
+        {
+          returncode = mainproclinux.GetAppMain()->GetApplication()->GetExitType();
+        }
+    }
+  #endif
 
-  return status;
+  mainproclinux.GetXPathExec()->Empty();
+
+  mainproclinux.End();
+      
+  return returncode;
 }
 
 #endif
-
 
 
 #ifdef APPMODE_LIBRARY_DINAMIC
@@ -663,6 +678,8 @@ __attribute__((constructor))
 * --------------------------------------------------------------------------------------------------------------------*/
 static void LIBRARY_Ini(void)
 {
+  XMemory_Control.Activate(true);
+
   char  xpathexecutable[_MAXPATH];
   int   status = 0;
   char  sztmp[64];
@@ -699,6 +716,8 @@ static void LIBRARY_End(void)
   mainproclinux.End();
 
   XFILE_DISPLAYNOTCLOSEFILES
+
+  XMemory_Control.Activate(false);
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS 
 }
 

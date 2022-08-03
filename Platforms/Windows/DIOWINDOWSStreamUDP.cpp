@@ -1,22 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUDP.CPP
-//
-//  WINDOWS Data Input/Output Stream UDP class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSStreamUDP.cpp
+* 
+* @class      DIOWINDOWSSTREAMUDP
+* @brief      Data Input/Output Windows Stream UDP class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
- /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <winsock2.h>
 #include <windows.h>
@@ -39,26 +54,21 @@
 #include "XMemory_Control.h"
 
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUDP::DIOWINDOWSSTREAMUDP
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 7:42:19
-//
-//  @return       void :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMUDP::DIOWINDOWSSTREAMUDP()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUDP::DIOWINDOWSSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 {
   Clean();
@@ -101,18 +111,16 @@ DIOWINDOWSSTREAMUDP::DIOWINDOWSSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUDP::~DIOWINDOWSSTREAMUDP
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMUDP::~DIOWINDOWSSTREAMUDP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUDP::~DIOWINDOWSSTREAMUDP()
 {
   if(threadconnection)
@@ -124,19 +132,15 @@ DIOWINDOWSSTREAMUDP::~DIOWINDOWSSTREAMUDP()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUDP::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUDP::Open()
+* @brief      Open
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUDP::Open()
 {
   if(!threadconnection)  return false;
@@ -160,20 +164,15 @@ bool DIOWINDOWSSTREAMUDP::Open()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUDP::Disconnect
-*/
-/**
-//
-//
-//  ""
-//  @version      01/12/2010 23:10:56
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUDP::Disconnect()
+* @brief      Disconnect
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUDP::Disconnect()
 {
   if((GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
@@ -199,18 +198,15 @@ bool DIOWINDOWSSTREAMUDP::Disconnect()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUDP::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUDP::Close()
+* @brief      Close
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUDP::Close()
 {
   if(!threadconnection) return false;
@@ -228,56 +224,18 @@ bool DIOWINDOWSSTREAMUDP::Close()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUDP::IsReadyConnect
-/**
-//
-//
-//  ""
-//  @version      08/03/2006 15:36:59
-//
-//  @return       int :
-//  @param        sock :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOWINDOWSSTREAMUDP::IsReadyConnect(SOCKET socket)
+* @brief      IsReadyConnect
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  socket : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWINDOWSSTREAMUDP::IsReadyConnect(SOCKET socket)
-/*
-{
-  struct timeval  tv;
-  int             rc;
-  fd_set          fdr;
-  fd_set          fdw;
-  fd_set          fds;
-
-  if(socket==INVALID_SOCKET) return -1;
-
-  FD_ZERO(&fdr);
-  FD_ZERO(&fdw);
-  FD_ZERO(&fds);
-
-  FD_SET((unsigned int)socket,&fdr);
-  FD_SET((unsigned int)socket,&fdw);
-  FD_SET((unsigned int)socket,&fds);
-
-  tv.tv_sec  = 0;
-  tv.tv_usec = 100;
-
-  rc = select((int)(socket)+1, &fdr, &fdw, &fds, &tv);
-  if(rc==SOCKET_ERROR) return -1;
-  //if(rc>1)             return -1;
-
-  int status1 = FD_ISSET(socket,&fdr) ? 1 : 0;
-  int status2 = FD_ISSET(socket,&fdw) ? 1 : 0;
-  int status3 = FD_ISSET(socket,&fds) ? 1 : 0;
-
-  if(status1 || status2) return  1;
-  if(status3)            return -1;
-
-  return 0;
-}
-*/
 {
   struct timeval  tv;
   int             rc;
@@ -322,41 +280,35 @@ int DIOWINDOWSSTREAMUDP::IsReadyConnect(SOCKET socket)
 }
 
 
-
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUDP::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMUDP::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMUDP::Clean()
 {
-  threadconnection   = NULL;
+  threadconnection  = NULL;
   status            = DIOSTREAMSTATUS_DISCONNECTED;
   handle            = INVALID_SOCKET;
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUDP::ThreadRunFunction
-/**
-//
-//
-//  ""
-//  @version      06/03/2006 15:44:00
-//
-//  @return       void :
-//  @param        data :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
+* @brief      ThreadConnection
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
 {
   DIOWINDOWSSTREAMUDP* diostream = (DIOWINDOWSSTREAMUDP*)data;
@@ -366,228 +318,228 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
     {
       switch(diostream->GetCurrentState())
         {
-          case DIOWINDOWSUDPFSMSTATE_NONE               : break;
+          case DIOWINDOWSUDPFSMSTATE_NONE                 : break;
 
-          case DIOWINDOWSUDPFSMSTATE_GETTINGCONNECTION   : switch(diostream->IsReadyConnect(diostream->handle))
-                                                            {
-                                                              case -1:  diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
-                                                                        break;
+          case DIOWINDOWSUDPFSMSTATE_GETTINGCONNECTION    : switch(diostream->IsReadyConnect(diostream->handle))
+                                                              {
+                                                                case -1:  diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
+                                                                          break;
 
-                                                              case  1:  diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_CONNECTED);
-                                                                        diostream->status = DIOSTREAMSTATUS_CONNECTED;
-                                                                        break;
+                                                                case  1:  diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_CONNECTED);
+                                                                          diostream->status = DIOSTREAMSTATUS_CONNECTED;
+                                                                          break;
 
-                                                              default:  diostream->status = DIOSTREAMSTATUS_GETTINGCONNECTION;
-                                                                        break;
+                                                                default:  diostream->status = DIOSTREAMSTATUS_GETTINGCONNECTION;
+                                                                          break;
+                                                              }
+                                                            break;
+
+          case DIOWINDOWSUDPFSMSTATE_CONNECTED            : break;
+
+          case DIOWINDOWSUDPFSMSTATE_WAITINGTOREAD        : { struct timeval  waitd;
+                                                              fd_set          read_flags;
+                                                              fd_set          write_flags;
+
+                                                              if(diostream->handle == INVALID_SOCKET)
+                                                                {
+                                                                  diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
+                                                                  break;
+                                                                }
+
+                                                              waitd.tv_sec  = 0;
+                                                              waitd.tv_usec = 100;
+
+                                                              FD_ZERO(&read_flags);
+                                                              FD_ZERO(&write_flags);
+
+                                                              if(!diostream->IsBlockRead()) FD_SET(diostream->handle, &read_flags);
+                                                              if(!diostream->IsBlockWrite())
+                                                                {
+                                                                  if(diostream->config->IsUsedDatagrams())
+                                                                    {
+                                                                      if(diostream->GetFirstDatagram(true) != DIOSTREAMUDP_NOTFOUND) FD_SET(diostream->handle, &write_flags);
+                                                                    }
+                                                                   else
+                                                                    {
+                                                                      if(diostream->outbuffer->GetSize()) FD_SET(diostream->handle, &write_flags);
+                                                                    }
+                                                                }
+
+                                                              int error = select((int)(diostream->handle)+1, &read_flags, &write_flags, (fd_set*)0, &waitd);
+                                                              if(error == SOCKET_ERROR)
+                                                                {
+                                                                  diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
+                                                                  break;
+                                                                }
+
+                                                              if(FD_ISSET(diostream->handle, &read_flags))  //Socket ready for reading
+                                                                {
+                                                                  XBYTE buffer[DIOSTREAM_MAXBUFFER];
+
+                                                                  FD_CLR(diostream->handle, &read_flags);
+
+                                                                  memset(buffer, 0, DIOSTREAM_MAXBUFFER);
+
+                                                                  SOCKADDR_IN  origin_addr;
+                                                                  int          size_addr = sizeof(SOCKADDR_IN);
+
+                                                                  memset(&origin_addr, 0, size_addr);
+
+                                                                  XDWORD size = recvfrom(diostream->handle, (char*)buffer, DIOSTREAM_MAXBUFFER, 0,(sockaddr*)&origin_addr, &size_addr);
+
+                                                                  if(size == SOCKET_ERROR)
+                                                                    {
+                                                                      //int error = WSAGetLastError();
+
+                                                                      diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
+                                                                      break;
+                                                                    }
+
+                                                                  if(size)
+                                                                    {
+                                                                      XSTRING address;
+                                                                      XWORD   port;
+
+                                                                      address.Format(__L("%d.%d.%d.%d") , origin_addr.sin_addr.S_un.S_un_b.s_b1
+                                                                                                        , origin_addr.sin_addr.S_un.S_un_b.s_b2
+                                                                                                        , origin_addr.sin_addr.S_un.S_un_b.s_b3
+                                                                                                        , origin_addr.sin_addr.S_un.S_un_b.s_b4);
+
+                                                                     // XTRACE_PRINTCOLOR(((size == 100)?XTRACE_COLOR_PURPLE:XTRACE_COLOR_BLUE) , __L("Read UDP from [%s] (%d)"), address.Get(), size);
+
+                                                                      port =  ntohs(origin_addr.sin_port);
+
+                                                                      if(diostream->config->IsUsedDatagrams())
+                                                                              diostream->AddDatagram(false, address.Get(), port, (XBYTE*)buffer, size);
+                                                                         else diostream->inbuffer->Add(buffer, size);
+                                                                    }
+                                                                   else
+                                                                    {
+                                                                      diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
+                                                                      break;
+                                                                    }
+                                                                }
+
+
+                                                              if(FD_ISSET(diostream->handle, &write_flags))  //Socket ready for writing
+                                                                {
+                                                                  FD_CLR(diostream->handle, &write_flags);
+
+                                                                  if(diostream->config->IsUsedDatagrams())
+                                                                    {
+                                                                      int indexdatagram  = diostream->GetFirstDatagram(true);
+                                                                      if(indexdatagram != DIOSTREAMUDP_NOTFOUND)
+                                                                        {
+                                                                          DIOSTREAMUDPDATAGRAM* datagram = (DIOSTREAMUDPDATAGRAM*)diostream->GetDatagram(indexdatagram);
+                                                                          if(datagram)
+                                                                            {
+                                                                              SOCKADDR_IN  target_addr;
+                                                                              int          size_addr = sizeof(SOCKADDR_IN);
+                                                                              int          size;
+                                                                              XSTRING      tmpremoteaddress;
+
+                                                                              memset(&target_addr, 0, size_addr);
+
+                                                                              target_addr.sin_family = AF_INET;
+
+                                                                              if(diostream->config->IsBroadcastModeActive())
+                                                                                {
+                                                                                  target_addr.sin_addr.s_addr = htonl(INADDR_BROADCAST);
+                                                                                }
+                                                                               else
+                                                                                {
+                                                                                  if(datagram->GetAddress()->IsEmpty())
+                                                                                          tmpremoteaddress = diostream->remoteaddress.Get();
+                                                                                    else  tmpremoteaddress = datagram->GetAddress()->Get();
+
+                                                                                  XSTRING_CREATEOEM(tmpremoteaddress, charstr)
+                                                                                  #ifndef BUILDER
+                                                                                  inet_pton(target_addr.sin_family, charstr, &target_addr.sin_addr.s_addr);
+                                                                                  #else
+                                                                                  target_addr.sin_addr.s_addr   = inet_addr(charstr);
+                                                                                  #endif
+                                                                                  XSTRING_DELETEOEM(tmpremoteaddress, charstr)
+                                                                                }
+
+                                                                              target_addr.sin_port  = htons(datagram->GetPort()?datagram->GetPort():diostream->config->GetRemotePort());
+
+                                                                              size = sendto(diostream->handle,(char*)datagram->GetData()->Get(), datagram->GetData()->GetSize(), 0, (sockaddr*)&target_addr, size_addr);
+
+                                                                              //XTRACE_PRINTCOLOR(1, __L("Write UDP to [%s] (%d)"), tmpremoteaddress.Get(), size);
+
+                                                                              if(size == SOCKET_ERROR)
+                                                                                {
+                                                                                  diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
+                                                                                  break;
+                                                                                }
+
+                                                                              if(size)
+                                                                                {
+                                                                                  if(diostream->config->IsUsedDatagrams())
+                                                                                       diostream->DeleteDatagram(indexdatagram);
+                                                                                  else diostream->outbuffer->Extract(NULL, 0 , datagram->GetData()->GetSize());
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                   else
+                                                                    {
+                                                                      int esize = diostream->outbuffer->GetSize();
+                                                                      if(esize>DIOSTREAM_MAXBUFFER) esize = DIOSTREAM_MAXBUFFER;
+
+                                                                      if(esize)
+                                                                        {
+                                                                          SOCKADDR_IN  target_addr;
+                                                                          int          size_addr = sizeof(SOCKADDR_IN);
+                                                                          int          size;
+                                                                          XSTRING      tmpremoteaddress;
+
+                                                                          memset(&target_addr, 0, size_addr);
+
+                                                                          target_addr.sin_family = AF_INET;
+
+                                                                          if(diostream->config->IsBroadcastModeActive())
+                                                                            {
+                                                                              target_addr.sin_addr.s_addr = htonl(INADDR_BROADCAST);
+                                                                            }
+                                                                           else
+                                                                            {
+                                                                              tmpremoteaddress = diostream->remoteaddress.Get();
+                                                                              XSTRING_CREATEOEM(tmpremoteaddress, charstr)
+                                                                              #ifndef BUILDER
+                                                                              inet_pton(target_addr.sin_family, charstr, &target_addr.sin_addr.s_addr);
+                                                                              #else
+                                                                              target_addr.sin_addr.s_addr   = inet_addr(charstr);
+                                                                              #endif
+                                                                              XSTRING_DELETEOEM(tmpremoteaddress, charstr)
+                                                                            }
+
+                                                                          target_addr.sin_port  = htons(diostream->config->GetRemotePort());
+
+                                                                          diostream->outbuffer->SetBlocked(true);
+                                                                          size = sendto(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0, (sockaddr*)&target_addr, size_addr);
+                                                                          diostream->outbuffer->SetBlocked(false);
+
+                                                                          if(size == SOCKET_ERROR)
+                                                                            {
+                                                                              diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
+                                                                              break;
+                                                                            }
+
+                                                                          if(size)
+                                                                            {
+                                                                              diostream->outbuffer->Extract(NULL, 0 , esize);
+                                                                            }
+
+                                                                        }
+                                                                    }
+                                                                }
                                                             }
-                                                          break;
+                                                            break;
 
-          case DIOWINDOWSUDPFSMSTATE_CONNECTED          : break;
+          case DIOWINDOWSUDPFSMSTATE_SENDINGDATA          : break;
 
-          case DIOWINDOWSUDPFSMSTATE_WAITINGTOREAD      : { struct timeval  waitd;
-                                                            fd_set          read_flags;
-                                                            fd_set          write_flags;
-
-                                                            if(diostream->handle == INVALID_SOCKET)
-                                                              {
-                                                                diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
-                                                                break;
-                                                              }
-
-                                                            waitd.tv_sec  = 0;
-                                                            waitd.tv_usec = 100;
-
-                                                            FD_ZERO(&read_flags);
-                                                            FD_ZERO(&write_flags);
-
-                                                            if(!diostream->IsBlockRead()) FD_SET(diostream->handle, &read_flags);
-                                                            if(!diostream->IsBlockWrite())
-                                                              {
-                                                                if(diostream->config->IsUsedDatagrams())
-                                                                  {
-                                                                    if(diostream->GetFirstDatagram(true) != DIOSTREAMUDP_NOTFOUND) FD_SET(diostream->handle, &write_flags);
-                                                                  }
-                                                                 else
-                                                                  {
-                                                                    if(diostream->outbuffer->GetSize()) FD_SET(diostream->handle, &write_flags);
-                                                                  }
-                                                              }
-
-                                                            int error = select((int)(diostream->handle)+1, &read_flags, &write_flags, (fd_set*)0, &waitd);
-                                                            if(error == SOCKET_ERROR)
-                                                              {
-                                                                diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
-                                                                break;
-                                                              }
-
-                                                            if(FD_ISSET(diostream->handle, &read_flags))  //Socket ready for reading
-                                                              {
-                                                                XBYTE buffer[DIOSTREAM_MAXBUFFER];
-
-                                                                FD_CLR(diostream->handle, &read_flags);
-
-                                                                memset(buffer, 0, DIOSTREAM_MAXBUFFER);
-
-                                                                SOCKADDR_IN  origin_addr;
-                                                                int          size_addr = sizeof(SOCKADDR_IN);
-
-                                                                memset(&origin_addr, 0, size_addr);
-
-                                                                XDWORD size = recvfrom(diostream->handle, (char*)buffer, DIOSTREAM_MAXBUFFER, 0,(sockaddr*)&origin_addr, &size_addr);
-
-                                                                if(size == SOCKET_ERROR)
-                                                                  {
-                                                                    //int error = WSAGetLastError();
-
-                                                                    diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
-                                                                    break;
-                                                                  }
-
-                                                                if(size)
-                                                                  {
-                                                                    XSTRING address;
-                                                                    XWORD   port;
-
-                                                                    address.Format(__L("%d.%d.%d.%d") , origin_addr.sin_addr.S_un.S_un_b.s_b1
-                                                                                                      , origin_addr.sin_addr.S_un.S_un_b.s_b2
-                                                                                                      , origin_addr.sin_addr.S_un.S_un_b.s_b3
-                                                                                                      , origin_addr.sin_addr.S_un.S_un_b.s_b4);
-
-                                                                   // XTRACE_PRINTCOLOR(((size == 100)?XTRACE_COLOR_PURPLE:XTRACE_COLOR_BLUE) , __L("Read UDP from [%s] (%d)"), address.Get(), size);
-
-                                                                    port =  ntohs(origin_addr.sin_port);
-
-                                                                    if(diostream->config->IsUsedDatagrams())
-                                                                            diostream->AddDatagram(false, address.Get(), port, (XBYTE*)buffer, size);
-                                                                       else diostream->inbuffer->Add(buffer, size);
-                                                                  }
-                                                                 else
-                                                                  {
-                                                                    diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
-                                                                    break;
-                                                                  }
-                                                              }
-
-
-                                                            if(FD_ISSET(diostream->handle, &write_flags))  //Socket ready for writing
-                                                              {
-                                                                FD_CLR(diostream->handle, &write_flags);
-
-                                                                if(diostream->config->IsUsedDatagrams())
-                                                                  {
-                                                                    int indexdatagram  = diostream->GetFirstDatagram(true);
-                                                                    if(indexdatagram != DIOSTREAMUDP_NOTFOUND)
-                                                                      {
-                                                                        DIOSTREAMUDPDATAGRAM* datagram = (DIOSTREAMUDPDATAGRAM*)diostream->GetDatagram(indexdatagram);
-                                                                        if(datagram)
-                                                                          {
-                                                                            SOCKADDR_IN  target_addr;
-                                                                            int          size_addr = sizeof(SOCKADDR_IN);
-                                                                            int          size;
-                                                                            XSTRING      tmpremoteaddress;
-
-                                                                            memset(&target_addr, 0, size_addr);
-
-                                                                            target_addr.sin_family = AF_INET;
-
-                                                                            if(diostream->config->IsBroadcastModeActive())
-                                                                              {
-                                                                                target_addr.sin_addr.s_addr = htonl(INADDR_BROADCAST);
-                                                                              }
-                                                                             else
-                                                                              {
-                                                                                if(datagram->GetAddress()->IsEmpty())
-                                                                                        tmpremoteaddress = diostream->remoteaddress.Get();
-                                                                                  else  tmpremoteaddress = datagram->GetAddress()->Get();
-
-                                                                                XSTRING_CREATEOEM(tmpremoteaddress, charstr)
-                                                                                #ifndef BUILDER
-                                                                                inet_pton(target_addr.sin_family, charstr, &target_addr.sin_addr.s_addr);
-                                                                                #else
-                                                                                target_addr.sin_addr.s_addr   = inet_addr(charstr);
-                                                                                #endif
-                                                                                XSTRING_DELETEOEM(tmpremoteaddress, charstr)
-                                                                              }
-
-                                                                            target_addr.sin_port  = htons(datagram->GetPort()?datagram->GetPort():diostream->config->GetRemotePort());
-
-                                                                            size = sendto(diostream->handle,(char*)datagram->GetData()->Get(), datagram->GetData()->GetSize(), 0, (sockaddr*)&target_addr, size_addr);
-
-                                                                            //XTRACE_PRINTCOLOR(1, __L("Write UDP to [%s] (%d)"), tmpremoteaddress.Get(), size);
-
-                                                                            if(size == SOCKET_ERROR)
-                                                                              {
-                                                                                diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
-                                                                                break;
-                                                                              }
-
-                                                                            if(size)
-                                                                              {
-                                                                                if(diostream->config->IsUsedDatagrams())
-                                                                                     diostream->DeleteDatagram(indexdatagram);
-                                                                                else diostream->outbuffer->Extract(NULL, 0 , datagram->GetData()->GetSize());
-                                                                              }
-                                                                          }
-                                                                      }
-                                                                  }
-                                                                 else
-                                                                  {
-                                                                    int esize = diostream->outbuffer->GetSize();
-                                                                    if(esize>DIOSTREAM_MAXBUFFER) esize = DIOSTREAM_MAXBUFFER;
-
-                                                                    if(esize)
-                                                                      {
-                                                                        SOCKADDR_IN  target_addr;
-                                                                        int          size_addr = sizeof(SOCKADDR_IN);
-                                                                        int          size;
-                                                                        XSTRING      tmpremoteaddress;
-
-                                                                        memset(&target_addr, 0, size_addr);
-
-                                                                        target_addr.sin_family = AF_INET;
-
-                                                                        if(diostream->config->IsBroadcastModeActive())
-                                                                          {
-                                                                            target_addr.sin_addr.s_addr = htonl(INADDR_BROADCAST);
-                                                                          }
-                                                                         else
-                                                                          {
-                                                                            tmpremoteaddress = diostream->remoteaddress.Get();
-                                                                            XSTRING_CREATEOEM(tmpremoteaddress, charstr)
-                                                                            #ifndef BUILDER
-                                                                            inet_pton(target_addr.sin_family, charstr, &target_addr.sin_addr.s_addr);
-                                                                            #else
-                                                                            target_addr.sin_addr.s_addr   = inet_addr(charstr);
-                                                                            #endif
-                                                                            XSTRING_DELETEOEM(tmpremoteaddress, charstr)
-                                                                          }
-
-                                                                        target_addr.sin_port  = htons(diostream->config->GetRemotePort());
-
-                                                                        diostream->outbuffer->SetBlocked(true);
-                                                                        size = sendto(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0, (sockaddr*)&target_addr, size_addr);
-                                                                        diostream->outbuffer->SetBlocked(false);
-
-                                                                        if(size == SOCKET_ERROR)
-                                                                          {
-                                                                            diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
-                                                                            break;
-                                                                          }
-
-                                                                        if(size)
-                                                                          {
-                                                                            diostream->outbuffer->Extract(NULL, 0 , esize);
-                                                                          }
-
-                                                                      }
-                                                                  }
-                                                              }
-                                                          }
-                                                          break;
-
-          case DIOWINDOWSUDPFSMSTATE_SENDINGDATA        : break;
-
-          case DIOWINDOWSUDPFSMSTATE_DISCONNECTING      : break;
+          case DIOWINDOWSUDPFSMSTATE_DISCONNECTING        : break;
 
         }
     }
@@ -709,3 +661,5 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
         }
     }
 }
+
+

@@ -318,74 +318,74 @@ bool XFILECFG::Load(XPATH& xpath)
 {
   bool status = false;
 
-  if(!values.IsEmpty())
+  if(values.IsEmpty()) return status;
+    
+  if(IniFile(xpath)) 
     {
-      if(IniFile(xpath)) 
+      AjustRemarks();
+
+      for(int c=0;c<(int)values.GetSize();c++)
         {
-          AjustRemarks();
-
-          for(int c=0;c<(int)values.GetSize();c++)
+          XFILECFGVALUE* cfgvalue = (XFILECFGVALUE*)values.Get(c);
+          if(cfgvalue)
             {
-              XFILECFGVALUE* cfgvalue = (XFILECFGVALUE*)values.Get(c);
-              if(cfgvalue)
+              XSTRING strvalue;
+
+              if(fileini->ReadValue(cfgvalue->GetGroup()->Get(), cfgvalue->GetID()->Get() , strvalue))
                 {
-                  XSTRING strvalue;
-
-                  if(fileini->ReadValue(cfgvalue->GetGroup()->Get(), cfgvalue->GetID()->Get() , strvalue))
+                  switch(cfgvalue->GetType())
                     {
-                      switch(cfgvalue->GetType())
-                        {
-                          case XFILECFG_VALUETYPE_UNKNOWN : break;
+                      case XFILECFG_VALUETYPE_UNKNOWN : break;
 
-                          case XFILECFG_VALUETYPE_INT     : { int* value = (int*)cfgvalue->GetValue();
-                                                              if(!value) return false;
+                      case XFILECFG_VALUETYPE_INT     : { int* value = (int*)cfgvalue->GetValue();
+                                                          if(!value) return false;
 
-                                                              (*value) = strvalue.ConvertToInt();
-                                                            }
-                                                            break;
+                                                          (*value) = strvalue.ConvertToInt();
+                                                        }
+                                                        break;
 
-                          case XFILECFG_VALUETYPE_MASK    : { XWORD* value = (XWORD*)cfgvalue->GetValue();
-                                                              if(!value) return false;
+                      case XFILECFG_VALUETYPE_MASK    : { XWORD* value = (XWORD*)cfgvalue->GetValue();
+                                                          if(!value) return false;
 
-                                                              strvalue.UnFormat(__L("%04X"), value);
-                                                            }
-                                                            break;
+                                                          strvalue.UnFormat(__L("%04X"), value);
+                                                        }
+                                                        break;
 
-                          case XFILECFG_VALUETYPE_FLOAT   : { float* value = (float*)cfgvalue->GetValue();
-                                                              if(!value) return false;
+                      case XFILECFG_VALUETYPE_FLOAT   : { float* value = (float*)cfgvalue->GetValue();
+                                                          if(!value) return false;
 
-                                                              (*value) = strvalue.ConvertToFloat();
-                                                            }
-                                                            break;
+                                                          (*value) = strvalue.ConvertToFloat();
+                                                        }
+                                                        break;
 
-                          case XFILECFG_VALUETYPE_STRING  : { XSTRING* value = (XSTRING*)cfgvalue->GetValue();
-                                                              if(!value) return false;
+                      case XFILECFG_VALUETYPE_STRING  : { XSTRING* value = (XSTRING*)cfgvalue->GetValue();
+                                                          if(!value) return false;
 
-                                                              (*value) = strvalue.Get();
+                                                          (*value) = strvalue.Get();
 
-                                                              value->DeleteCharacter(__C('\t'));
-                                                              value->DeleteCharacter(__C('\n'));
-                                                              value->DeleteCharacter(__C('\r'));
+                                                          value->DeleteCharacter(__C('\t'));
+                                                          value->DeleteCharacter(__C('\n'));
+                                                          value->DeleteCharacter(__C('\r'));
 
-                                                              value->DeleteCharacter(__C(' '), XSTRINGCONTEXT_TO_END);
-                                                            }
-                                                            break;
+                                                          value->DeleteCharacter(__C(' '), XSTRINGCONTEXT_TO_END);
+                                                        }
+                                                        break;
 
-                          case XFILECFG_VALUETYPE_BOOLEAN : { bool* value = (bool*)cfgvalue->GetValue();
-                                                              if(!value) return false;
+                      case XFILECFG_VALUETYPE_BOOLEAN : { bool* value = (bool*)cfgvalue->GetValue();
+                                                          if(!value) return false;
 
-                                                              (*value) = strvalue.ConvertToBoolean();
-                                                            }
-                                                            break;
-                        }
+                                                          (*value) = strvalue.ConvertToBoolean();
+                                                        }
+                                                        break;
                     }
                 }
             }
-
-          status = EndFile();
         }
 
+      status = EndFile();
     }
+
+    
 
   return status;
 }
@@ -523,7 +523,7 @@ bool XFILECFG::End()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value)
+bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value, XCHAR* remark_text, XDWORD remark_xpos)
 {
   XFILECFGVALUE* cfgvalue = new XFILECFGVALUE();
   if(!cfgvalue) return false;
@@ -533,7 +533,13 @@ bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* 
   cfgvalue->GetID()->Set(ID);
   cfgvalue->SetValue(value);
 
-  values.Add(cfgvalue);
+  if(values.Add(cfgvalue))
+    {
+      if(remark_text)
+        {
+          AddRemark(group, ID, remark_text, remark_xpos, 0);
+        }
+    }
 
   return true;
 }
@@ -600,7 +606,8 @@ bool XFILECFG::AddRemark(XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relative
   remark->GetRelativeKey()->Empty();
   remark->SetXPos(xpos);
   remark->SetRelativeYPos(relativeypos);
-  remark->GetTextRemark()->Set(text);
+  remark->GetTextRemark()->Empty();
+  remark->GetTextRemark()->Add(text);
 
   remarks.Add(remark);
 
@@ -637,7 +644,8 @@ bool XFILECFG::AddRemark(XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWO
   remark->GetRelativeKey()->Set(ID);
   remark->SetXPos(xpos);
   remark->SetRelativeYPos(relativeypos);
-  remark->GetTextRemark()->Set(text);
+  remark->GetTextRemark()->Empty();
+  remark->GetTextRemark()->Add(text);
 
   remarks.Add(remark);
 

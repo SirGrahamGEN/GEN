@@ -49,12 +49,7 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOSTREAMUDPDATAGRAM                                                                                              */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region DIOSTREAMUDPDATAGRAM 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -71,7 +66,6 @@ DIOSTREAMUDPDATAGRAM::DIOSTREAMUDPDATAGRAM()
   Clean();
   data = new XBUFFER();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -92,7 +86,6 @@ DIOSTREAMUDPDATAGRAM::~DIOSTREAMUDPDATAGRAM()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDPDATAGRAM::IsToSend()
@@ -106,7 +99,6 @@ bool DIOSTREAMUDPDATAGRAM::IsToSend()
 {
   return istosend;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -126,7 +118,6 @@ void DIOSTREAMUDPDATAGRAM::SetIsToSend(bool istosend)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSTREAMUDPDATAGRAM::GetAddress()
@@ -140,7 +131,6 @@ XSTRING* DIOSTREAMUDPDATAGRAM::GetAddress()
 {
   return &address;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -164,7 +154,6 @@ bool DIOSTREAMUDPDATAGRAM::SetAddress(XCHAR* address)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDPDATAGRAM::SetAddress(XSTRING& address)
@@ -182,7 +171,6 @@ bool DIOSTREAMUDPDATAGRAM::SetAddress(XSTRING& address)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD DIOSTREAMUDPDATAGRAM::GetPort()
@@ -196,7 +184,6 @@ XWORD DIOSTREAMUDPDATAGRAM::GetPort()
 {
   return port;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -216,7 +203,6 @@ void DIOSTREAMUDPDATAGRAM::SetPorts(XWORD port)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* DIOSTREAMUDPDATAGRAM::GetData()
@@ -230,7 +216,6 @@ XBUFFER* DIOSTREAMUDPDATAGRAM::GetData()
 {
   return data;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -256,7 +241,6 @@ bool DIOSTREAMUDPDATAGRAM::SetData(XBYTE* data,XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMUDPDATAGRAM::SetData(XBUFFER& data)
@@ -272,7 +256,6 @@ void DIOSTREAMUDPDATAGRAM::SetData(XBUFFER& data)
 {
   SetData(data.Get(), data.GetSize());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -294,12 +277,10 @@ void DIOSTREAMUDPDATAGRAM::Clean()
 }
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOSTREAMUDP                                                                                                      */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion 
 
 
+#pragma region DIOSTREAMUDP
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -316,9 +297,8 @@ DIOSTREAMUDP::DIOSTREAMUDP() : DIOSTREAM()
   Clean();
 
   GEN_XFACTORY_CREATE(datagramsmutex, Create_Mutex())
-  host           = new DIOURL();
+  host = new DIOURL();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -343,7 +323,6 @@ DIOSTREAMUDP::~DIOSTREAMUDP()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMUDP::GetConfig()
@@ -357,8 +336,6 @@ DIOSTREAMCONFIG* DIOSTREAMUDP::GetConfig()
 {
   return config;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -381,7 +358,6 @@ bool DIOSTREAMUDP::SetConfig(DIOSTREAMCONFIG* config)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::Open()
@@ -395,7 +371,6 @@ bool DIOSTREAMUDP::Open()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -438,7 +413,6 @@ bool DIOSTREAMUDP::ReadDatagram(XSTRING& address, XWORD& port, XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::WriteDatagram(XSTRING& address, XWORD port, XBYTE* buffer, XDWORD size)
@@ -463,8 +437,6 @@ bool DIOSTREAMUDP::WriteDatagram(XSTRING& address, XWORD port, XBYTE* buffer, XD
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::WriteDatagram(XSTRING& address, XWORD port, XBUFFER& xbuffer)
@@ -484,7 +456,6 @@ bool DIOSTREAMUDP::WriteDatagram(XSTRING& address, XWORD port, XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::Disconnect()
@@ -498,7 +469,6 @@ bool DIOSTREAMUDP::Disconnect()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -516,7 +486,6 @@ bool DIOSTREAMUDP::Close()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::ResetXBuffers()
@@ -532,7 +501,6 @@ bool DIOSTREAMUDP::ResetXBuffers()
 
   return DeleteAllDatagrams();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -562,10 +530,8 @@ bool DIOSTREAMUDP::ResetInXBuffer()
         } else index++;
     }
 
-
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -599,7 +565,6 @@ bool DIOSTREAMUDP::ResetOutXBuffer()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL* DIOSTREAMUDP::GetHost()
@@ -613,7 +578,6 @@ DIOURL* DIOSTREAMUDP::GetHost()
 {
   return host;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -650,7 +614,6 @@ bool DIOSTREAMUDP::WaitToWriteDatagramsEmpty(int timeout)
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -690,7 +653,6 @@ int DIOSTREAMUDP::WaitToGetFirstDatagram(bool tosend, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOSTREAMUDPDATAGRAM*>* DIOSTREAMUDP::GetDatagramsVector()
@@ -704,7 +666,6 @@ XVECTOR<DIOSTREAMUDPDATAGRAM*>* DIOSTREAMUDP::GetDatagramsVector()
 {
   return &datagrams;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -728,8 +689,6 @@ DIOSTREAMUDPDATAGRAM* DIOSTREAMUDP::GetDatagram(int index)
 
   return datagram;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -761,7 +720,6 @@ bool DIOSTREAMUDP::DeleteDatagram(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::DeleteAllDatagrams()
@@ -785,7 +743,6 @@ bool DIOSTREAMUDP::DeleteAllDatagrams()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -827,7 +784,6 @@ bool DIOSTREAMUDP::AddDatagram(bool istosend, XCHAR* address, XWORD port, XBYTE*
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::AddDatagram(bool istosend, XSTRING& address, XWORD port, XBYTE* data,XDWORD size)
@@ -847,7 +803,6 @@ bool DIOSTREAMUDP::AddDatagram(bool istosend, XSTRING& address, XWORD port, XBYT
 {
   return AddDatagram(istosend, address.Get(), port, data, size);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -886,7 +841,6 @@ int DIOSTREAMUDP::GetFirstDatagram(bool tosend)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMUDP::Clean()
@@ -903,3 +857,6 @@ void DIOSTREAMUDP::Clean()
   host            = NULL;
   datagramsmutex  = NULL;
 }
+
+
+#pragma endregion 

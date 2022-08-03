@@ -53,7 +53,7 @@
 
 #include "XWINDOWSTrace.h"
 
-#include "XMemory_Control.h"
+//#include "XMemory_Control.h"
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 

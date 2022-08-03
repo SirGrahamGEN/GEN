@@ -97,7 +97,6 @@ class MAINPROC
     XPATH*                        GetXPathExec            ();
 		#endif
 		
-
     virtual bool                  Factorys_Ini            ();
     virtual bool                  Factorys_End            ();
 

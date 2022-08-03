@@ -130,7 +130,7 @@
 XWINDOWSTRACE           windowsdebugtrace;
 #endif
 MAINPROCWINDOWS         mainprocwindows;
-XSTRING                 allexceptiontext;
+XSTRING*                allexceptiontext  = NULL;
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
@@ -220,7 +220,6 @@ bool MAINPROCWINDOWS::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applica
   //---------------------------------------------------------------------------
 
   if(!Factorys_Ini()) return false;
-
 
   #ifdef APP_ACTIVE
 
@@ -358,6 +357,8 @@ bool MAINPROCWINDOWS::End()
   #endif
 
   XFILE_DISPLAYNOTCLOSEFILES
+
+  XMemory_Control.Activate(false);
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
 
   #if defined(XTRACE_ACTIVE) || defined(DIO_ACTIVE) || defined(DIOUDP_ACTIVE) || defined(DIOTCPIP_ACTIVE) || defined(DIOBLUETOOTH_ACTIVE)
@@ -379,14 +380,14 @@ bool MAINPROCWINDOWS::End()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCWINDOWS::Factorys_Ini()
-{
+{  
   if(!XFACTORY::SetInstance(new XWINDOWSFACTORY())) return false;
   
   #ifdef XSYSTEM_ACTIVE  
   if(!XSYSTEM::SetInstance(new XWINDOWSSYSTEM()))  return false;
   XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
   #endif
-
+  
   #ifdef XSLEEP_ACTIVE
   if(!XSLEEP::SetInstance(new XWINDOWSSLEEP())) return false;
   #endif
@@ -1041,8 +1042,8 @@ DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 int wmain(int argc, wchar_t* argv[])
- {
-  //wprintf(L"%s\n" , argv[0]);
+{ 
+  XMemory_Control.Activate(true);
 
   #ifdef GOOGLETEST_ACTIVE
   testing::InitGoogleTest(&argc, argv);
@@ -1051,7 +1052,8 @@ int wmain(int argc, wchar_t* argv[])
   mainprocwindows.SetHandle((void*)GetModuleHandle(NULL));
 
   mainprocwindows.GetXPathExec()->Set(argv[0]);
-  mainprocwindows.CreateParams(argc, argv);
+  mainprocwindows.CreateParams(argc, argv);  
+
 
   if(!mainprocwindows.IsRunningAsService())
     {
@@ -1145,6 +1147,8 @@ int wmain(int argc, wchar_t* argv[])
 * --------------------------------------------------------------------------------------------------------------------*/
 int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinst, LPSTR cmdline, int cmdshow)
 {
+  XMemory_Control.Activate(true);
+
   int      nargs        = 0;
   LPWSTR*  ptrpathexec  = CommandLineToArgvW(__L(""), &nargs);
   XSTRING  xpathexecutable;
@@ -1162,13 +1166,13 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinst, LPSTR cmdline, int 
 
   mainprocwindows.CreateParams(cmdlinestr.Get());
   cmdlinestr.Empty();
-  xpathexecutable.Empty();
+  xpathexecutable.Empty(); 
 
   if(!mainprocwindows.IsRunningAsService())
     {
       mainprocwindows.MainLoop();
     }
-   else
+    else
     {
       WINDOWSSERVICE service(APPMODE_SERVICE_NAME);
       if(!WINDOWSSERVICE::Run(service))
@@ -1215,7 +1219,15 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
 {
   switch(fdwReason)
     {
-      case DLL_PROCESS_ATTACH : { XPATH xpathexecutable;
+      case DLL_PROCESS_ATTACH : {
+                                  if(!XFACTORY::SetInstance(new XWINDOWSFACTORY())) return false;
+  
+                                  #ifdef XSYSTEM_ACTIVE  
+                                  if(!XSYSTEM::SetInstance(new XWINDOWSSYSTEM()))  return false;
+                                  XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
+                                  #endif
+
+                                  XPATH xpathexecutable;
 
                                   xpathexecutable.AdjustSize(_MAXPATH);
                                   GetModuleFileName(hinstDLL, xpathexecutable.Get(), xpathexecutable.GetSize());
@@ -1400,7 +1412,8 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
   XSTRING description;
   XSTRING string;
 
-  allexceptiontext.Empty();
+  allexceptiontext = new XSTRING();
+  if(!allexceptiontext) return 0;
 
   APPBASE* app = NULL;
   #ifdef APP_ACTIVE
@@ -1533,7 +1546,6 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
       case EXCEPTION_NONCONTINUABLE_EXCEPTION :
       case EXCEPTION_PRIV_INSTRUCTION         :
       case EXCEPTION_STACK_OVERFLOW           : {
-
                                                   MAINPROCWINDOWSSTACKWALKER stackwalker;
                                                   stackwalker.ShowCallstack(GetCurrentThread(), ep->ContextRecord);
 
@@ -1541,7 +1553,7 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
                                                   string.Format(__L("EXCEPTION %s"), exception.Get());
 
                                                   #ifdef DIOALERTS_ACTIVE
-                                                  DIOALERT* alert = GEN_DIOALERTS.CreateAlert(DIOALERTLEVEL_DANGER, string.Get(), allexceptiontext.Get());
+                                                  DIOALERT* alert = GEN_DIOALERTS.CreateAlert(DIOALERTLEVEL_DANGER, string.Get(), allexceptiontext->Get());
                                                   if(alert)
                                                     {
                                                       GEN_DIOALERTS.Send(DIOALERTSSENDER_ALL, DIOALERTS_CONDITIONS_ID_GENINTERN_EXCEPTION, alert);
@@ -1556,6 +1568,12 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
 
                                                 }
                                                 break;
+    }
+
+  if(allexceptiontext)
+    {
+      delete allexceptiontext;
+      allexceptiontext = NULL;
     }
 
   return EXCEPTION_EXECUTE_HANDLER;
@@ -1603,8 +1621,11 @@ bool Exception_Printf(bool iserror, XCHAR* title, XCHAR* mask, ...)
     }
   #endif
 
-  allexceptiontext += outstring;
-  allexceptiontext += __L("\r\n");
+  if(allexceptiontext)
+    {
+      (*allexceptiontext) += outstring;
+      (*allexceptiontext) += __L("\r\n");
+    }
 
   #ifdef XTRACE_ACTIVE
   if(!do_log)

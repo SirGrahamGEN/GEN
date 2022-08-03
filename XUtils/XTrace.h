@@ -459,16 +459,14 @@ class XTRACE
     XCHAR*                          GetScraperWebScriptURLDownload    ();
     void                            SetScraperWebScriptURLDownload    (XCHAR* scraperwebscripturldownload);
     XDWORD                          GetPublicIP                       ();
-    XSTRING*                        GetPublicIPString                 ();
-    bool                            SetPublicIPString                 (XSTRING* publicIPstring);
+    bool                            SetPublicIPString                 (XCHAR* publicIPstring);
 
     #endif
 
     void                            SetLocalIPFilter                  (XBYTE localIPfilter);
     bool                            ObtainLocalIP                     ();
     XDWORD                          GetLocalIP                        ();
-    XSTRING*                        GetLocalIPString                  ();
-    bool                            SetLocalIPString                  (XSTRING* localIPstring);
+    bool                            SetLocalIPString                  (XCHAR* localIPstring);
 
     bool                            ObtainResourcesIP                 ();
     bool                            ResolveAllNetTargets              (bool& changed);
@@ -494,13 +492,11 @@ class XTRACE
     #ifndef XTRACE_NOINTERNET
     XCHAR                           scraperwebscripturldownload[_MAXSTR];
     XDWORD                          publicIP;
-    XSTRING                         publicIPstring;
     #endif
 
     XBYTE                           localIPfilter;
     XDWORD                          localIP;
-    XSTRING                         localIPstring;
-
+    
     bool                            openheader;
     XDWORD                          sequence;
 
