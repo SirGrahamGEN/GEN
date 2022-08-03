@@ -36,7 +36,7 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-enum XEVENT_TYPE
+enum XEVENT_TYPE : XDWORD
 {
   XEVENT_TYPE_NONE                              = 0x00000000 ,
   XEVENT_TYPE_USERINTERFACE                     = 0x00001000 ,
