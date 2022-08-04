@@ -69,8 +69,8 @@
 #define XMEMORY_CONTROL_GETMEMORYUSED           XMemory_Control.GetMemoryUsed()
 #define XMEMORY_CONTROL_GETMEMORYNBLOCKS        XMemory_Control.GetMemoryNBlocks()
 
-#define XMEMORY_CONTROL_ACTIVATED               XMemory_Control.Active(true);
-#define XMEMORY_CONTROL_DEACTIVATED             XMemory_Control.Active(false);
+#define XMEMORY_CONTROL_ACTIVATED               XMemory_Control.Activate(true);
+#define XMEMORY_CONTROL_DEACTIVATED             XMemory_Control.Activate(false);
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
