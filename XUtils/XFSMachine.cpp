@@ -175,7 +175,7 @@ int XFSMACHINESTATE::GetOutput(int input)
     {
       if(!outputstates[c]) break;
 
-      if(input==inputs[c])
+      if(input == inputs[c])
         {
           outputID = outputstates[c];
           break;

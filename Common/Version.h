@@ -37,9 +37,9 @@
 
 #define VERSION_NAME         "GEN FrameWork"
 #define VERSION_VERSION      0
-#define VERSION_SUBVERSION   10
+#define VERSION_SUBVERSION   11
 #define VERSION_SUBERROR     0
-#define VERSION_CODENAME     "King Dan X10"
+#define VERSION_CODENAME     "Zaila"
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
