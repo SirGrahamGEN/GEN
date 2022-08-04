@@ -345,8 +345,7 @@ bool MAINPROCLINUX::End()
   #endif
 
   XFILE_DISPLAYNOTCLOSEFILES
-
-  XMemory_Control.Activate(false);
+  XMEMORY_CONTROL_DEACTIVATED
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
 
   return true;
@@ -587,7 +586,7 @@ void MAINPROCLINUX::Clean()
 * --------------------------------------------------------------------------------------------------------------------*/
 int main(int argc, char* argv[])
 {
-  XMemory_Control.Activate(true);
+  XMEMORY_CONTROL_ACTIVATED
 
   #ifdef GOOGLETEST_ACTIVE
   testing::InitGoogleTest(&argc, argv);
@@ -714,11 +713,6 @@ static void LIBRARY_End(void)
 {
   mainproclinux.GetXPathExec()->Empty();
   mainproclinux.End();
-
-  XFILE_DISPLAYNOTCLOSEFILES
-
-  XMemory_Control.Activate(false);
-  XMEMORY_CONTROL_DISPLAYMEMORYLEAKS 
 }
 
 

@@ -358,7 +358,7 @@ bool MAINPROCWINDOWS::End()
 
   XFILE_DISPLAYNOTCLOSEFILES
 
-  XMemory_Control.Activate(false);
+  XMEMORY_CONTROL_DEACTIVATED
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
 
   #if defined(XTRACE_ACTIVE) || defined(DIO_ACTIVE) || defined(DIOUDP_ACTIVE) || defined(DIOTCPIP_ACTIVE) || defined(DIOBLUETOOTH_ACTIVE)
@@ -1043,7 +1043,7 @@ DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
 * --------------------------------------------------------------------------------------------------------------------*/
 int wmain(int argc, wchar_t* argv[])
 { 
-  XMemory_Control.Activate(true);
+  XMEMORY_CONTROL_ACTIVATED
 
   #ifdef GOOGLETEST_ACTIVE
   testing::InitGoogleTest(&argc, argv);
@@ -1147,7 +1147,7 @@ int wmain(int argc, wchar_t* argv[])
 * --------------------------------------------------------------------------------------------------------------------*/
 int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinst, LPSTR cmdline, int cmdshow)
 {
-  XMemory_Control.Activate(true);
+  XMEMORY_CONTROL_ACTIVATED
 
   int      nargs        = 0;
   LPWSTR*  ptrpathexec  = CommandLineToArgvW(__L(""), &nargs);
@@ -1219,7 +1219,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
 {
   switch(fdwReason)
     {
-      case DLL_PROCESS_ATTACH : {
+      case DLL_PROCESS_ATTACH : { XMEMORY_CONTROL_ACTIVATED
                                   if(!XFACTORY::SetInstance(new XWINDOWSFACTORY())) return false;
   
                                   #ifdef XSYSTEM_ACTIVE  

@@ -69,6 +69,9 @@
 #define XMEMORY_CONTROL_GETMEMORYUSED           XMemory_Control.GetMemoryUsed()
 #define XMEMORY_CONTROL_GETMEMORYNBLOCKS        XMemory_Control.GetMemoryNBlocks()
 
+#define XMEMORY_CONTROL_ACTIVATED               XMemory_Control.Active(true);
+#define XMEMORY_CONTROL_DEACTIVATED             XMemory_Control.Active(false);
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XMUTEX;
@@ -163,6 +166,8 @@ void  operator delete[] (void* ptr) throw ();
   #define XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
   #define XMEMORY_CONTROL_GETMEMORYUSED           0
   #define XMEMORY_CONTROL_GETMEMORYNBLOCKS        0
+  #define XMEMORY_CONTROL_ACTIVATED               
+  #define XMEMORY_CONTROL_DEACTIVATED
 
 #endif
 
