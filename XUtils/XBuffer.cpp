@@ -2152,10 +2152,13 @@ bool XBUFFER::Resize(XDWORD newsize, bool setblocked)
 
       if(newsize > sizeassign)
         {
-          newbuffer = new XBYTE[newsize];
+          //sizeassign = newsize + (16 - (newsize % 16)); 
+          sizeassign = newsize + 16; 
+
+          newbuffer = new XBYTE[sizeassign];
           if(newbuffer)
-            {
-              memset(newbuffer , 0,  newsize);
+            {             
+              memset(newbuffer , 0,  sizeassign);
 
               if(buffer)
                 {
@@ -2168,8 +2171,7 @@ bool XBUFFER::Resize(XDWORD newsize, bool setblocked)
                   position = 0;
                 }
 
-              buffer      = newbuffer;
-              sizeassign  = newsize;
+              buffer      = newbuffer;              
               size        = newsize;
               position    = 0;
             }
@@ -2217,7 +2219,7 @@ bool XBUFFER::Delete(bool setblocked)
 {
   if(setblocked) SetBlocked(true);
 
-  if(buffer) delete[] buffer;
+  if(buffer) delete [] buffer;
 
   buffer        = NULL;
   size          = 0;

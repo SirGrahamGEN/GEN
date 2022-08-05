@@ -778,16 +778,17 @@ bool XFILETXT::WriteAllFile()
   XBYTE*  buffer;
   bool    status    = true;
 
-  buffer    = new XBYTE[XFILETXT_MAXBUFFER];
+  buffer  = new XBYTE[XFILETXT_MAXBUFFER];
   if(buffer)
     {
       int bw;
-      memset(buffer,0,XFILETXT_MAXBUFFER);
-
+      
       for(int c=0;c<(int)lines.GetSize();c++)
         {
           XSTRING* string = (XSTRING*)lines.Get(c);
           bw = 0;
+
+          memset(buffer, 0, XFILETXT_MAXBUFFER);
 
           if(string)
             {
@@ -831,7 +832,7 @@ bool XFILETXT::WriteAllFile()
                 }
 
               if(bw) xbuffer.Add(buffer, bw);
-              xbuffer.Add(LF    ,sizeLF);
+              xbuffer.Add(LF, sizeLF);
             }
         }
 
