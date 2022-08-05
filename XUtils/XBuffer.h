@@ -54,6 +54,14 @@ enum XBUFFER_PADDINGTYPE
 
 #define XBUFFER_MASTER_NBITS            -1
 
+
+
+#ifdef MICROCONTROLLER
+ #define XBUFFER_BLOCKMEM          8
+#else
+ #define XBUFFER_BLOCKMEM          128
+#endif
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XFACTORY;

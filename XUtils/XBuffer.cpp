@@ -2147,13 +2147,12 @@ bool XBUFFER::Resize(XDWORD newsize, bool setblocked)
       if(sizeassign) memset(buffer, 0,  sizeassign);
     }
    else
-    {
-      XBYTE* newbuffer;
-
+    {     
       if(newsize > sizeassign)
-        {
-          //sizeassign = newsize + (16 - (newsize % 16)); 
-          sizeassign = newsize + 16; 
+        { 
+          XBYTE* newbuffer = NULL;         
+
+          sizeassign = (newsize + XBUFFER_BLOCKMEM); 
 
           newbuffer = new XBYTE[sizeassign];
           if(newbuffer)
