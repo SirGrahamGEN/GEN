@@ -972,6 +972,7 @@
    
  if(DIO_STREAMTLS_FEATURE)
 
+   add_definitions(-DDIOTLS_ACTIVE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamTLS.cpp") 
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamTLSConfig.cpp") 
    set(DIO_STREAMTCPIP_FEATURE                           true    CACHE BOOL "Activate Data Input/Output TCPIP"                             FORCE)    

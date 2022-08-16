@@ -121,7 +121,7 @@ XSHAREDMEMORYMANAGER& XSHAREDMEMORYMANAGER::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSHAREDMEMORYMANAGER::SetInstance(XSHAREDMEMORYMANAGER* instance)
-* @brief      Set Instance of XSHAREDMEMORY
+* @brief      Set Instance of XSHAREDMEMORYMANAGER
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -144,7 +144,7 @@ bool XSHAREDMEMORYMANAGER::SetInstance(XSHAREDMEMORYMANAGER* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSHAREDMEMORYMANAGER::DelInstance()
-* @brief      Delete Instance of XSHAREDMEMORY
+* @brief      Delete Instance of XSHAREDMEMORYMANAGER
 * @note       STATIC
 * @ingroup    XUTILS
 *

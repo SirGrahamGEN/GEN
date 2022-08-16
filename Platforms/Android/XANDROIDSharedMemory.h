@@ -39,7 +39,7 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 
-class XANDROIDSHAREDMEMORY : public XLINUXSHAREDMEMORY
+class XANDROIDSHAREDMEMORY : public XLINUXSHAREDMEMORYMANAGER
 {
   public:
                             XANDROIDSHAREDMEMORY        ();

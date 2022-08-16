@@ -1243,8 +1243,8 @@ bool MAINPROCANDROID::Factorys_End()
   XDRIVEIMAGE::DelInstance();
   #endif
 
-  #ifdef XSHAREDMEMORY_ACTIVE   
-  XSHAREDMEMORY::DelInstance();
+  #ifdef XSHAREDMEMORYMANAGER_ACTIVE   
+  XSHAREDMEMORYMANAGER::DelInstance();
   #endif
 
   #ifdef XSLEEP_ACTIVE

@@ -70,8 +70,8 @@
   #include "XLINUXProcessManager.h"
 #endif
 
-#ifdef XSHAREDMEMORY_ACTIVE
-  #include "XLINUXSharedMemory.h"
+#ifdef XSHAREDMEMORYMANAGER_ACTIVE
+  #include "XLINUXSharedMemoryManager.h"
 #endif
 
 #ifdef XDRIVEIMAGE_ACTIVE
@@ -381,8 +381,8 @@ bool MAINPROCLINUX::Factorys_Ini()
   if(!XPROCESSMANAGER::SetInstance(new XLINUXPROCESSMANAGER())) return false;
   #endif
   
-  #ifdef XSHAREDMEMORY_ACTIVE
-  if(!XSHAREDMEMORY::SetInstance(new XLINUXSHAREDMEMORY())) return false;  
+  #ifdef XSHAREDMEMORYMANAGER_ACTIVE
+  if(!XSHAREDMEMORYMANAGER::SetInstance(new XLINUXSHAREDMEMORYMANAGER())) return false;  
   #endif
     
   #ifdef XDRIVEIMAGE_ACTIVE
