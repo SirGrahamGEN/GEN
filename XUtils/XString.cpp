@@ -5053,15 +5053,9 @@ bool XSTRING::ReAllocBuffer(XDWORD size)
       FreeBuffer();
     }
    else
-    {
-      XDWORD nblocks  = (XDWORD)(size / XSTRING_BLOCKMEM);
-      
-      nblocks++;
-
-      XDWORD _sizemem = (nblocks * XSTRING_BLOCKMEM);
-      
-      _sizemem++;
-
+    {      
+      XDWORD _sizemem = (size + XSTRING_BLOCKMEM);
+     
       if(!text)
         {
           text = new XCHAR[_sizemem];
@@ -5100,7 +5094,7 @@ bool XSTRING::ReAllocBuffer(XDWORD size)
             }
         }
 
-      this->size    = size;
+      this->size = size;
     }
 
   return true;

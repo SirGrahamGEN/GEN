@@ -56,8 +56,8 @@ class DIOSTREAMTCPIP : public DIOSTREAM
                                             DIOSTREAMTCPIP            ();
     virtual                                ~DIOSTREAMTCPIP            ();
 
-    DIOSTREAMCONFIG*                        GetConfig                 ();
-    bool                                    SetConfig                 (DIOSTREAMCONFIG* config);
+    virtual DIOSTREAMCONFIG*                GetConfig                 ();
+    virtual bool                            SetConfig                 (DIOSTREAMCONFIG* config);
 
     virtual bool                            Open                      ()                                = 0;
     virtual bool                            Disconnect                ()                                = 0;

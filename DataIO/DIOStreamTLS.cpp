@@ -47,7 +47,6 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTLS::DIOSTREAMTLS(DIOSTREAMCONFIG* config)
@@ -69,7 +68,6 @@ DIOSTREAMTLS::DIOSTREAMTLS(DIOSTREAMTLSCONFIG* config)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTLS::~DIOSTREAMTLS()
@@ -88,7 +86,6 @@ DIOSTREAMTLS::~DIOSTREAMTLS()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMTLS::GetConfig()
@@ -102,7 +99,6 @@ DIOSTREAMCONFIG* DIOSTREAMTLS::GetConfig()
 {
   return (DIOSTREAMCONFIG*)config;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -125,27 +121,6 @@ bool DIOSTREAMTLS::SetConfig(DIOSTREAMCONFIG* config)
 }
 
 
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOSTREAMSTATUS DIOSTREAMTLS::GetConnectStatus()
-* @brief      GetConnectStatus
-* @ingroup    DATAIO
-*
-* @return     DIOSTREAMSTATUS : 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOSTREAMTLS::GetConnectStatus()
-{
-  if(!diostream) return DIOSTREAMSTATUS_DISCONNECTED;
-
-  return diostream->GetConnectStatus();
-}
-
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMTLS::Open()
@@ -159,47 +134,13 @@ bool DIOSTREAMTLS::Open()
 {
   if(!diostream) return false;
 
-  return diostream->Open();
-}
+  bool status = diostream->Open();
+  if(!status) return false;
 
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOSTREAMTLS::HandShake_Client_Hello()
-* @brief      HandShake_Client_Hello
-* @ingroup    DATAIO
-*
-* @return     bool : true if is succesful. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTREAMTLS::HandShake_Client_Hello()
-{
-  XBUFFER   xbuffer;
-  XWORD     size16                            = 0;
-  XBYTE     size24[3]                         = { 0, 0, 0 };  
-  bool      status                            = false;
-
-  //-------------------------------------------------------------------
-  // TLS Plaintext
-
-  xbuffer.Add((XBYTE)DIOSTREAMTLS_CONTENTTYPE_HANDSHAKE);             // Content Type     
-  xbuffer.Add((XWORD)SwapWORD(DIOSTREAMTLS_VERSION_TLS_1_0));         // legacy record version
-  xbuffer.Add((XWORD)SwapWORD(size16));                               // Length 
-
-  //-------------------------------------------------------------------
-  // HandSake protot
-  xbuffer.Add((XBYTE)DIOSTREAMTLS_HANDSHAKETYPE_CLIENT_HELLO);        // Handshake type: Client Hello (1)
-  xbuffer.Add(size24, 3);
-  xbuffer.Add((XWORD)SwapWORD(DIOSTREAMTLS_VERSION_TLS_1_2));         // Version TLS 1.2
-  xbuffer.Add(random, DIOSTREAMTLS_RANDOM_SIZE);                      // Random
-  xbuffer.Add((XBYTE)DIOSTREAMTLS_SESSION_ID_SIZE);                   // Session ID length
-  xbuffer.Add(sessionID, DIOSTREAMTLS_SESSION_ID_SIZE);               // Session ID
-
+  status = HandShake_Client_Hello();
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -258,7 +199,6 @@ bool DIOSTREAMTLS::Disconnect()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMTLS::Close()
@@ -275,23 +215,75 @@ bool DIOSTREAMTLS::Close()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOSTREAMSTATUS DIOSTREAMTLS::GetConnectStatus()
+* @brief      GetConnectStatus
+* @ingroup    DATAIO
+*
+* @return     DIOSTREAMSTATUS : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMSTATUS DIOSTREAMTLS::GetConnectStatus()
+{
+  if(!diostream) return DIOSTREAMSTATUS_DISCONNECTED;
 
+  return diostream->GetConnectStatus();
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMTCPIP* DIOSTREAMTLS::GetDIOStreamBase()
-* @brief      GetDIOStreamBase
+* @fn         bool DIOSTREAMTLS::HandShake_Client_Hello()
+* @brief      HandShake_Client_Hello
 * @ingroup    DATAIO
 *
-* @return     DIOSTREAMTCPIP* : 
+* @return     bool : true if is succesful. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMTCPIP* DIOSTREAMTLS::GetDIOStreamBase()
+bool DIOSTREAMTLS::HandShake_Client_Hello()
+{
+  XBUFFER   xbuffer;
+  XWORD     size16                            = 0;
+  XBYTE     size24[3]                         = { 0, 0, 0 };  
+  bool      status                            = false;
+
+  //-------------------------------------------------------------------
+  // TLS Plaintext
+
+  xbuffer.Add((XBYTE)DIOSTREAMTLS_CONTENTTYPE_HANDSHAKE);             // Content Type     
+  xbuffer.Add((XWORD)SwapWORD(DIOSTREAMTLS_VERSION_TLS_1_0));         // legacy record version
+  xbuffer.Add((XWORD)SwapWORD(size16));                               // Length 
+
+  //-------------------------------------------------------------------
+  // HandSake protot
+  xbuffer.Add((XBYTE)DIOSTREAMTLS_HANDSHAKETYPE_CLIENT_HELLO);        // Handshake type: Client Hello (1)
+  xbuffer.Add(size24, 3);
+  xbuffer.Add((XWORD)SwapWORD(DIOSTREAMTLS_VERSION_TLS_1_2));         // Version TLS 1.2
+  xbuffer.Add(random, DIOSTREAMTLS_RANDOM_SIZE);                      // Random
+  xbuffer.Add((XBYTE)DIOSTREAMTLS_SESSION_ID_SIZE);                   // Session ID length
+  xbuffer.Add(sessionID, DIOSTREAMTLS_SESSION_ID_SIZE);               // Session ID
+
+  XDWORD size = Write(xbuffer.Get(), xbuffer.GetSize());
+  if(size == xbuffer.GetSize()) status = true;
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMTCPIP* DIOSTREAMTLS::GetDIOStreamTCPIP()
+* @brief      GetDIOStreamTCPIP
+* @ingroup    DATAIO
+* 
+* @return     DIOSTREAMTCPIP* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMTCPIP* DIOSTREAMTLS::GetDIOStreamTCPIP()
 {
   return diostream;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

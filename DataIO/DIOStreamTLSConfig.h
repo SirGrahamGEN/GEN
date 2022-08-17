@@ -57,10 +57,9 @@ class DIOSTREAMTLSCONFIG  : public DIOSTREAMTCPIPCONFIG
     
   private:
 
-    void                    Clean                       ();
+    void                    Clean                    ();
 
 };
-
 
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

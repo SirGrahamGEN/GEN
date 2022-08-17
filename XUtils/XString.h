@@ -68,7 +68,7 @@ typedef struct
 #define XSTRING_MAXTEMPOSTR       128
 #define XSTRING_STANDARDSIZE      64
 #else
-#define XSTRING_BLOCKMEM          64
+#define XSTRING_BLOCKMEM          128
 #define XSTRING_MAXTEMPOSTR       1024
 #define XSTRING_STANDARDSIZE      256
 #endif

@@ -105,9 +105,6 @@ enum DIOSTREAMTLS_HANDSHAKETYPE
  };
 
 
-
-
-
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class DIOSTREAMTLSCONFIG;
@@ -120,21 +117,22 @@ class DIOSTREAMTLS : public DIOSTREAM
     virtual                                ~DIOSTREAMTLS                  ();
 
     DIOSTREAMCONFIG*                        GetConfig                     ();
-    bool                                    SetConfig                     (DIOSTREAMCONFIG* config);
+    bool                                    SetConfig                     (DIOSTREAMCONFIG* config);  
 
-    DIOSTREAMSTATUS                         GetConnectStatus              ();  
-
-    bool                                    Open                          ();
-
-    bool                                    HandShake_Client_Hello        ();
+    bool                                    Open                          ();    
 
     XDWORD                                  Read                          (XBYTE* buffer, XDWORD size);
     XDWORD                                  Write                         (XBYTE* buffer, XDWORD size);
 
     bool                                    Disconnect                    ();
+
     bool                                    Close                         ();
 
-    DIOSTREAMTCPIP*                         GetDIOStreamBase              ();
+    DIOSTREAMSTATUS                         GetConnectStatus              ();  
+
+    bool                                    HandShake_Client_Hello        ();
+
+    DIOSTREAMTCPIP*                         GetDIOStreamTCPIP             ();
     
   private:
 
