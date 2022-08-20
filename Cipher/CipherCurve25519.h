@@ -44,22 +44,22 @@
 
 enum CIPHERTYPE
 {
-  CIPHERTYPE_XOR                = 0 ,
-  CIPHERTYPE_DES                    ,
-  CIPHERTYPE_3DES                   ,
-  CIPHERTYPE_BLOWFISH               ,
-  CIPHERTYPE_AES                    ,
-  CIPHERTYPE_RSA                    ,
-  CIPHERTYPE_CURVE25519             ,
+  CIPHERTYPE_XOR      = 0 ,
+  CIPHERTYPE_DES          ,
+  CIPHERTYPE_3DES         ,
+  CIPHERTYPE_BLOWFISH     ,
+  CIPHERTYPE_AES          ,
 };
+
 
 
 enum CIPHERKEYTYPE
 {
-  CIPHERKEYTYPE_UNKNOWN         = 0 ,
-  CIPHERKEYTYPE_SYMMETRICAL         ,
-  CIPHERKEYTYPE_PUBLIC              ,
-  CIPHERKEYTYPE_PRIVATE             ,
+  CIPHERKEYTYPE_UNKNOWN         = 0  ,
+  CIPHERKEYTYPE_SYMMETRICAL          ,
+  CIPHERKEYTYPE_PUBLIC               ,
+  CIPHERKEYTYPE_PRIVATE              ,
+
 };
 
 
@@ -71,7 +71,6 @@ enum CIPHERCHAININGMODE
   CIPHERCHAININGMODE_CFB            ,
   CIPHERCHAININGMODE_CTR            ,
 };
-
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 

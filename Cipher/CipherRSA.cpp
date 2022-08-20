@@ -565,6 +565,8 @@ CIPHERRSA::CIPHERRSA() : CIPHER()
 {
   Clean();
 
+  type = CIPHERTYPE_RSA;
+
   GEN_XFACTORY_CREATE(xrand, CreateRand())
 
   CIPHERRSA::instance = this;
@@ -1275,25 +1277,20 @@ bool CIPHERRSA::DoRSAPublicOperation(XBUFFER& input, XBUFFER& output)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  CIPHERRSA::DoRSAPrivateOperation
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/03/2014 9:58:14
-//
-//  @return       bool :
-//
-//  @param        input :
-//  @param        output :
-//  @param        funcrandom :
-//  @param        paramrandom :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERRSA::DoRSAPrivateOperation(XBUFFER& input, XBUFFER& output, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
+* @brief      DoRSAPrivateOperation
+* @ingroup    CIPHER
+* 
+* @param[in]  input : 
+* @param[in]  output : 
+* @param[in]  funcrandom : 
+* @param[in]  paramrandom : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERRSA::DoRSAPrivateOperation(XBUFFER& input, XBUFFER& output, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 {
   XMPINTEGER  T;

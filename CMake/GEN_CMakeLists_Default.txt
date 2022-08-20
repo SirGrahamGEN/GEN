@@ -114,6 +114,7 @@ set(CIPHER_SYMMETRIC_AES_FEATURE                        false   CACHE BOOL "Acti
 set(CIPHER_SYMMETRIC_BLOWFISH_FEATURE                   false   CACHE BOOL "Activate Cipher Symetric BlowFish"                          FORCE)
 
 set(CIPHER_ASYMMETRIC_RSA_FEATURE                       false   CACHE BOOL "Activate Cipher ASymetric RSA"                              FORCE)
+set(CIPHER_ASYMMETRIC_CURVE25519_FEATURE                false   CACHE BOOL "Activate Cipher ASymetric Curve25519"                       FORCE) 
 
 
 # --------------------------------------------------------------------
