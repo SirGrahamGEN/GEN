@@ -39,6 +39,8 @@
 #include <string.h>
 
 #include "XBase.h"
+#include "XFactory.h"
+#include "XRand.h"
 
 #include "CipherCurve25519.h"
 
@@ -85,23 +87,123 @@ CIPHERCURVE25519::~CIPHERCURVE25519()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool CIPHERCURVE25519::CreateKey(XBYTE* privatekey, XBYTE* publickey, XBYTE* basepoint)
-* @brief      CreateKey
+* @fn         bool CIPHERCURVE25519::GenerateRandomPrivateKey()
+* @brief      GenerateRandomPrivateKey
 * @ingroup    CIPHER
-* 
-* @param[in]  privatekey : 
-* @param[in]  publickey : 
-* @param[in]  basepoint : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERCURVE25519::CreateKey(XBYTE* privatekey, XBYTE* publickey, XBYTE* basepoint)
-{ 
-  curve25519(publickey, privatekey, basepoint);
+bool CIPHERCURVE25519::GenerateRandomPrivateKey()
+{
+  XRAND* xrand = GEN_XFACTORY.CreateRand();
+  if(!xrand) return false;
 
-  return true;
+  for(int c=0; c<CIPHERCURVE25519_MAXKEY; c++)
+    {
+      keys[CIPHERCURVE25519_TYPEKEY_PRIVATE][c] = xrand->Max(255);      
+    }
+
+  GEN_XFACTORY.DeleteRand(xrand);
+
+  return IsKeyCreated(CIPHERCURVE25519_TYPEKEY_PRIVATE);
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERCURVE25519::CreatePublicKey()
+* @brief      CreatePublicKey
+* @ingroup    CIPHER
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool CIPHERCURVE25519::CreatePublicKey()
+{
+  curve25519(keys[CIPHERCURVE25519_TYPEKEY_PUBLIC], keys[CIPHERCURVE25519_TYPEKEY_PRIVATE], NULL);
+
+  return IsKeyCreated(CIPHERCURVE25519_TYPEKEY_PUBLIC);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERCURVE25519::CreateSharedKey(XBYTE publickey[CIPHERCURVE25519_MAXKEY])
+* @brief      CreateSharedKey
+* @ingroup    CIPHER
+* 
+* @param[in]  publickey[CIPHERCURVE25519_MAXKEY] : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool CIPHERCURVE25519::CreateSharedKey(XBYTE publickey[CIPHERCURVE25519_MAXKEY])
+{
+  curve25519(keys[CIPHERCURVE25519_TYPEKEY_SHARED], keys[CIPHERCURVE25519_TYPEKEY_PRIVATE], publickey);
+
+  return IsKeyCreated(CIPHERCURVE25519_TYPEKEY_SHARED);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE* CIPHERCURVE25519::GetPrivateKey()
+* @brief      GetPrivateKey
+* @ingroup    CIPHER
+* 
+* @return     XBYTE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBYTE* CIPHERCURVE25519::GetKey(CIPHERCURVE25519_TYPEKEY typekey)
+{
+  if(!IsKeyCreated(typekey))  return NULL;
+
+  return keys[typekey];
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERCURVE25519::IsKeyCreated(CIPHERCURVE25519_TYPEKEY typekey)
+* @brief      IsKeyCreated
+* @ingroup    CIPHER
+* 
+* @param[in]  typekey : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool CIPHERCURVE25519::IsKeyCreated(CIPHERCURVE25519_TYPEKEY typekey)
+{
+  for(int c=0; c<CIPHERCURVE25519_MAXKEY; c++)
+    {
+      if(keys[typekey][c])  return true;
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERCURVE25519::CleanAllKeys()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERCURVE25519::CleanAllKeys()
+{
+  for(int c=0; c<CIPHERCURVE25519_MAXKEYS; c++)
+    {
+      memset(keys[c], 0, CIPHERCURVE25519_MAXKEY);
+    }
+}
+
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1038,5 +1140,5 @@ void CIPHERCURVE25519::curve25519(XBYTE* mypublic, const XBYTE* secret, const XB
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::Clean()
 {
-
+  CleanAllKeys();
 }

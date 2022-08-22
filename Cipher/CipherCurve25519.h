@@ -34,6 +34,15 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+enum CIPHERCURVE25519_TYPEKEY  
+{
+  CIPHERCURVE25519_TYPEKEY_PRIVATE    = 0 ,
+  CIPHERCURVE25519_TYPEKEY_PUBLIC         ,
+  CIPHERCURVE25519_TYPEKEY_SHARED         ,
+
+  CIPHERCURVE25519_MAXKEYS
+};  
+
 #define CIPHERCURVE25519_MAXKEY  32
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
@@ -44,12 +53,14 @@ class CIPHERCURVE25519
                             CIPHERCURVE25519          ();
     virtual                ~CIPHERCURVE25519          ();
 
-    bool                    CreateKey                 (XBYTE* privatekey, XBYTE* publickey, XBYTE* basepoint = NULL);
+    bool                    GenerateRandomPrivateKey  ();
+    bool                    CreatePublicKey           ();
+    bool                    CreateSharedKey           (XBYTE publickey[CIPHERCURVE25519_MAXKEY]);
 
-    static const XBYTE      basepoint[32];
-
-  protected:
-
+    XBYTE*                  GetKey                    (CIPHERCURVE25519_TYPEKEY typekey);
+    bool                    IsKeyCreated              (CIPHERCURVE25519_TYPEKEY typekey);
+    void                    CleanAllKeys              ();
+    
   private:
 
     static void             fsum                      (XQWORDSIG* output, const XQWORDSIG* in);
@@ -83,7 +94,11 @@ class CIPHERCURVE25519
     void                    curve25519                (XBYTE* mypublic, const XBYTE* secret, const XBYTE* basepoint);
 
 
-    void                    Clean                     ();    
+    void                    Clean                     ();  
+
+    static const XBYTE      basepoint[CIPHERCURVE25519_MAXKEY]; 
+
+    XBYTE                   keys[CIPHERCURVE25519_MAXKEYS][CIPHERCURVE25519_MAXKEY];    
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
