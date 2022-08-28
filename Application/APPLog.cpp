@@ -99,6 +99,8 @@ bool APPLOG::DelInstance()
 {
   if(instance)
     {
+      instance->End();
+
       delete instance;
       instance = NULL;
 

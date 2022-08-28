@@ -1181,9 +1181,12 @@ bool XLOG::Backup_AdjustNFilesInCompressed()
 
   if(xfileunzip.Open(xpathzipfile))
     {
-      if(xfileunzip.GetNFiles()>=backupmaxfiles)
+      if(backupmaxfiles)
         {
-          xfileunzip.DelFile(0);
+          if(xfileunzip.GetNFiles()>=backupmaxfiles)
+            {
+              xfileunzip.DelFile(0);
+            }
         }
 
       xfileunzip.Close();
@@ -1221,10 +1224,14 @@ bool XLOG::Backup_AdjustNFiles(XCHAR* pathnamelog, bool iscompress)
 
   if(!iscompress)
     {
-      if(Backup_GetNFiles()>backupmaxfiles)
+
+      if(backupmaxfiles)
         {
-          Backup_GetNameFileMoreOld(xpathnamelog);
-          xfilebackup->Erase(xpathnamelog);
+          if(Backup_GetNFiles()>backupmaxfiles)
+            {
+              Backup_GetNameFileMoreOld(xpathnamelog);
+              xfilebackup->Erase(xpathnamelog);
+            }
         }
     }
    else
@@ -1277,6 +1284,8 @@ bool XLOG::Backup_AdjustNFiles(XCHAR* pathnamelog, bool iscompress)
 bool XLOG::Backup_ControlLimits()
 {
   if(!IsActive()) return false;
+
+  if(!limit) return false;
 
   switch(typelimit)
     {
