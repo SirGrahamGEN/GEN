@@ -747,7 +747,7 @@ bool XFILEOPENLIST::DisplayAll()
 
       XTRACE_PRINTCOLOR(XTRACE_COLOR_BLACK, __L("Number files not closed: %d"), nfilesopen);
       XTRACE_PRINTCOLOR(XTRACE_COLOR_BLACK, __L("Path + File Name"), NULL);
-      XTRACE_PRINT(__L(" "));
+      XTRACE_PRINT(__L(" "), NULL);
 
       for(XDWORD c=0; c<nfilesopen; c++)
         {

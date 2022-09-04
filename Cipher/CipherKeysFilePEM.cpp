@@ -88,7 +88,10 @@ CIPHERKEYSFILEPEM::~CIPHERKEYSFILEPEM()
 {
   DeleteAllKeys();
 
-  if(xfiletxt) delete xfiletxt;
+  if(xfiletxt) 
+    {
+      delete xfiletxt;
+    }
 
   Clean();
 }
@@ -368,6 +371,9 @@ bool CIPHERKEYSFILEPEM::ReadAllFile()
   
     }
 
+
+  entrysbuffer.DeleteContents();
+  entrysbuffer.DeleteAll();
 
   xfiletxt->Close();
 
