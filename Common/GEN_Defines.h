@@ -98,6 +98,7 @@
 #define GEN_XEEPROMMEMORYMANAGER          XEEPROMMEMORYMANAGER::GetInstance()
 #endif
 
+
 // --- Data Input/Output Manager ------------------------------------------------------------------
 
 #ifndef GEN_DIOFACTORY
@@ -122,10 +123,19 @@
 #define GEN_APPALERTS                     APPALERTS::GetInstance()
 #endif
 
+
 // --- Common -------------------------------------------------------------------------------------
 
 #ifndef GEN_VERSION
 #define GEN_VERSION                       VERSION::GetInstance()
+#endif
+
+#ifndef GEN_SET_VERSION
+#define GEN_SET_VERSION(name, version, subversion, versionerror, owner, creationyear)   GEN_VERSION.SetAppVersion(name, version, subversion, versionerror, owner, creationyear);
+#endif
+
+#ifndef GEN_VERSION_CLEAN
+#define GEN_VERSION_CLEAN                 VERSION::GetInstance().Clean();
 #endif
 
 // --- Graphics Manager ---------------------------------------------------------------------------

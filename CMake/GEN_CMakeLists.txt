@@ -7,16 +7,12 @@
 # Debug / Release 
 
  if(DEBUG_FEATURE)
-
    add_definitions(-D_DEBUG)
    set(CMAKE_BUILD_TYPE "Debug"  CACHE STRING "" FORCE)
    set(CMAKE_CONFIGURATION_TYPES "Debug" CACHE STRING "" FORCE)
-
  else()
-
    set(CMAKE_BUILD_TYPE "Release"  CACHE STRING "" FORCE)
    set(CMAKE_CONFIGURATION_TYPES "Release" CACHE STRING "" FORCE)
-
  endif()
 
 
@@ -154,10 +150,8 @@
    list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_STACKWALKER})
   
    if(DIO_PCAP_FEATURE)
-
      list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_LIB})
      list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_INCLUDE})
-
    endif()
 
  endif()  
@@ -168,47 +162,35 @@
    if(LINUX_X11_FEATURE)     
      #list(APPEND INCLUDES_DIR "../../../../../../usr/include")
      #message(${INCLUDES_DIR})
-
    endif()
 
    if(DIO_LINUX_DBUS_FEATURE)  
-  
      list(APPEND INCLUDES_DIR "/usr/include/dbus-1.0")
      list(APPEND INCLUDES_DIR "/usr/lib/x86_64-linux-gnu/dbus-1.0/include")
-
    endif()
 
    if(DIO_LINUX_NETWORKMANAGER_FEATURE)         
-
      list(APPEND INCLUDES_DIR "/usr/include/libnm")
      list(APPEND INCLUDES_DIR "/usr/include/glib-2.0")
      list(APPEND INCLUDES_DIR "/usr/lib/x86_64-linux-gnu/glib-2.0/include")
-
    endif()
   
    if(DIO_PCAP_FEATURE)
-
     list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPCAP})
-
    endif()  
 
    if(COMPILE_TO_LINUX_ARM_RASPBERRYPI)  
 
      if(DIO_LEDNEOPIXELWS2812B_FEATURE)
-
        list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_RPI_WS281X})
-
      endif()
 
    endif()  
 
  endif()
 
-
  if(COMPILE_TO_ANDROID)
-
    list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_ANDROID_GLUE})
-
  endif()
 
 
@@ -216,22 +198,16 @@
 
  if(COMPILE_TO_WINDOWS)
 
-    if(COMPILE_TO_WINDOWS_PC_32)
-
+   if(COMPILE_TO_WINDOWS_PC_32)
      list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/OpenAL/sdk/libs/Win32")
-
      list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/mysql-connector-c/libmysql/mysql-connector-c-6.1.11-win32/lib")
-     list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/postgresql/Release/libpq/lib_32")
-  
+     list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/postgresql/Release/libpq/lib_32")  
    endif()
 
-   if(COMPILE_TO_WINDOWS_PC_64)
-    
+   if(COMPILE_TO_WINDOWS_PC_64)    
      list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/OpenAL/sdk/libs/Win64")
-
      list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/mysql-connector-c/libmysql/mysql-connector-c-6.1.11-winx64/lib")
-     list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/postgresql/Release/libpq/lib_64")
-  
+     list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/postgresql/Release/libpq/lib_64")  
    endif()
   
    link_directories(${LIBRARIES_DIR})
@@ -279,18 +255,14 @@
 # Library import/export activation
 
  if(APPMODE_LIBRARY_DINAMIC_FEATURE)
-   
    set(APPMODE_API_LIB_FEATURE                              true    CACHE BOOL "Activates the export/import of classes in a library"        FORCE)
-   set(APPMODE_API_LIB_EXPORT_FEATURE                       true    CACHE BOOL "Activates the export of classes in a library"               FORCE)
-  
+   set(APPMODE_API_LIB_EXPORT_FEATURE                       true    CACHE BOOL "Activates the export of classes in a library"               FORCE)  
    add_definitions(-DAPPMODE_LIBRARY_DINAMIC)
-
  endif()
 
  if(APPMODE_API_LIB_FEATURE)
+   add_definitions(-DAPPMODE_API_LIB_ACTIVE) 
 
-   add_definitions(-DAPPMODE_API_LIB_ACTIVE)
-  
    if(APPMODE_API_LIB_EXPORT_FEATURE)
 
     add_definitions(-DAPPMODE_API_LIB_EXPORT_ACTIVE)  
@@ -394,12 +366,9 @@
    foreach(CompilerFlag ${CompilerFlags})
   
      if(APPMODE_WINDOWS_DINAMIC)  
-
        string(REPLACE "/MT" "/MD" ${CompilerFlag} "${${CompilerFlag}}")
-
      else()
        string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
-
      endif()  
       
      set(${CompilerFlag} "${${CompilerFlag}}" CACHE STRING "msvc compiler flags" FORCE)
@@ -421,15 +390,11 @@
    add_definitions(-DLINUX)
 
    if(LINUX_X11_FEATURE)     
-
     add_definitions(-DLINUX_X11_ACTIVE)      
-
    endif()
    
    if(LINUX_VISUALSTUDIOCODEPAGE_FEATURE)
-
      set(CMAKE_CXX_FLAGS "-finput-charset=CP1252")
-
    endif()
 
    set(XTRANSLATION_FEATURE                              true    CACHE BOOL "Activate Translation"                                       FORCE)   
@@ -437,10 +402,8 @@
    # ----------------------------------------
    # PC 
 
-   if(COMPILE_TO_LINUX_PC_64) 
-   
+   if(COMPILE_TO_LINUX_PC_64)  
      add_definitions(-DHW_PC)    
-
    endif()
 
    # ----------------------------------------
@@ -484,8 +447,7 @@
      set(CMAKE_SYSTEM_PROCESSOR arm)  
        
      add_definitions(-DLINUX)
-     add_definitions(-DHW_NXP_IMX6) 
-         
+     add_definitions(-DHW_NXP_IMX6)          
                 
      # Define the cross compiler locations
      list(APPEND INCLUDES_DIR "/usr/")    
@@ -512,8 +474,7 @@
        
      add_definitions(-DLINUX)
      add_definitions(-DHW_NXP_IMX8) 
-         
-                       
+                                
      list(APPEND INCLUDES_DIR "/usr/include/")    
      
      set(NXPIMX "/usr")
@@ -539,8 +500,7 @@
 # ----------------------------------------
 # Platform Android
    
- if(COMPILE_TO_ANDROID)
-       
+ if(COMPILE_TO_ANDROID)      
    add_definitions(-DANDROID)    
    add_definitions(-DIOAPI_NO_64)
    add_definitions(-DFT_DEBUG_LEVEL_ERROR)
@@ -568,15 +528,13 @@
    #add_library(native_app_glue STATIC ${ANDROID_NDK_ROOT}/sources/android/native_app_glue/android_native_app_glue.c)
    #target_include_directories(native_app_glue PUBLIC ${ANDROID_NDK_ROOT}/sources/android/native_app_glue)
 
-   set(XTRANSLATION_FEATURE                              true    CACHE BOOL "Activate Translation"                                       FORCE)   
-                               
+   set(XTRANSLATION_FEATURE                              true    CACHE BOOL "Activate Translation"                                       FORCE)                                  
  endif()   
 
 # -------------------------------------------
 # Platform STM32
 
  if(COMPILE_TO_STM32)
-
    # Configure the project
    set(CMAKE_C_STANDARD 11)
    set(CMAKE_CXX_STANDARD 17)
@@ -631,7 +589,6 @@
                        COMMAND ${CMAKE_OBJCOPY} -Obinary $<TARGET_FILE:${PROJECT_NAME}.elf> ${BIN_FILE}
                        COMMENT "Building ${HEX_FILE}
                        Building ${BIN_FILE}")
-
  endif()
 
 # --------------------------------------------------------------------
@@ -657,102 +614,76 @@
  endif()
 
  if(APP_CFG_LOG_FEATURE)
-
    set(XLOG_FEATURE                                        true    CACHE BOOL "Activate LOG File"                                          FORCE)  
-
  endif()
 
  if(APP_FEATURE)
-
    add_definitions(-DAPP_ACTIVE)
    set(XPUBLISHER_FEATURE                                  true    CACHE BOOL "Activate XPublisher"                                        FORCE)
    set(XSYSTEM_FEATURE                                     true    CACHE BOOL "Activate System functions"                                  FORCE)
-
  endif()
 
  if(APP_CFG_REMOTEFILE_FEATURE)
-
    add_definitions(-DAPP_CFG_REMOTEFILE_ACTIVE)
    set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIORemoteFileCFG.cpp")
    set(DIO_WEBCLIENT_FEATURE                               true    CACHE BOOL "Activate Web Client"                                        FORCE)
-
  endif()
 
  if(APP_CFG_GENERAL_FEATURE)
-
    add_definitions(-DAPP_CFG_GENERAL_ACTIVE)
    set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
-
  endif()
 
  if(APP_CFG_LOG_FEATURE)
-
    add_definitions(-DAPP_CFG_LOG_ACTIVE)  
    set(APP_LOG_FEATURE                                     true    CACHE BOOL "Activate Application Log"                                   FORCE)
    set(XLOG_FEATURE                                        true    CACHE BOOL "Activate LOG File"                                          FORCE)  
    set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
-
  endif()
 
  if(APP_CFG_INTERNETSERVICES_FEATURE)
-
    add_definitions(-DAPP_CFG_INTERNETSERVICES_ACTIVE)
    set(HASH_FEATURE                                        true    CACHE BOOL "Activate HASH"                                              FORCE)
    set(APP_INTERNETSERVICES_FEATURE                        true    CACHE BOOL "Activate Application Internet Services"                     FORCE)
    set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
-
  endif()
 
  if(APP_CFG_DYNDNSMANAGER_FEATURE)
-
    add_definitions(-DAPP_CFG_DYNDNSMANAGER_ACTIVE)
-
  endif()
 
  if(APP_CFG_WEBSERVER_FEATURE)
-
    add_definitions(-DAPP_CFG_WEBSERVER_ACTIVE)
    set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
-
  endif()
 
  if(APP_CFG_CHECKRESOURCESHARDWARE_FEATURE)
-
    add_definitions(-DAPP_CFG_CHECKRESOURCESHARDWARE_ACTIVE)
    set(APP_CHECKRESOURCESHARDWARE_FEATURE                  true   CACHE BOOL "Activate Application Check Resources Hardwar"                FORCE)
    set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
-
  endif()
 
  if(APP_CFG_LOCATION_FEATURE)
-
    add_definitions(-DAPP_CFG_LOCATION_ACTIVE)
    set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
-
  endif()
 
  if(APP_CFG_DNSRESOLVED_FEATURE)
-
    add_definitions(-DAPP_CFG_DNSRESOLVED_ACTIVE)
    set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
-
  endif()
 
  if(APP_CFG_ALERTS_FEATURE)
-
    add_definitions(-DAPP_CFG_ALERTS_ACTIVE)
    set(APP_ALERTS_FEATURE                                  true    CACHE BOOL "Activate Application Alerts"                                FORCE)
    set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
-
  endif()
 
  if(APP_CFG_APPUPDATE_FEATURE)
-
    add_definitions(-DAPP_CFG_APPUPDATE_ACTIVE)
    set(APP_UPDATE_FEATURE                                  true    CACHE BOOL "Activate Application Update"                                FORCE)
    set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                               FORCE)
-
  endif()
 
 
@@ -760,9 +691,7 @@
 # Special Linux
 
  if(COMPILE_TO_LINUX)
-
    set(XPROCESSMANAGER_FEATURE                             true    CACHE BOOL "Activate Process Manager"                                   FORCE)
-
  endif()
 
 
@@ -780,62 +709,44 @@
    add_definitions(-DXTRACE_ACTIVE)
 
    if(XTRACE_NOINTERNET_FEATURE)
-
      add_definitions(-DXTRACE_NOINTERNET)  
-
    endif()
    
    if((COMPILE_TO_WINDOWS)  OR  (COMPILE_TO_LINUX)  OR  (COMPILE_TO_ANDROID))
-
      set(DIO_FEATURE                                       true    CACHE BOOL "Activate Data Input/Output"                                 FORCE)
      set(DIO_DNSRESOLVED_FEATURE                           true    CACHE BOOL "Activate DNS Resolved"                                      FORCE)
      set(DIO_WEBCLIENT_FEATURE                             true    CACHE BOOL "Activate Web Client"                                        FORCE)    
      set(DIO_SCRAPERWEB_FEATURE                            true    CACHE BOOL "Activate Scraper Web"                                       FORCE)       
-
    endif()
 
  endif()  
 
  if(XMEMORY_CONTROL_FEATURE)
-
    add_definitions(-DXMEMORY_CONTROL_ACTIVE)
-
  endif()   
 
  if(XLOG_FEATURE)  
-
    set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)  
-
  endif()
 
  if(XFILE_FEATURE)
-
    set(CIPHER_SYMMETRIC_FEATURE                            true    CACHE BOOL "Activate Cipher"                                            FORCE)  
-
  endif()
 
  if(XPROCESSMANAGER_FEATURE)
-
    add_definitions(-DXPROCESSMANAGER_ACTIVE)
-
  endif()
 
  if(XSHAREDMEMORYMANAGER_FEATURE)
-
    add_definitions(-DXSHAREDMEMORYMANAGER_ACTIVE)
-
  endif()
 
  if(XDRIVEIMAGEMANAGER_FEATURE)
-
    add_definitions(-DXDRIVEIMAGEMANAGER_ACTIVE)
-
  endif()   
 
  if(XEEPROMMEMORYMANAGER_FEATURE)
-
    add_definitions(-DXEEPROMMEMORYMANAGER_ACTIVE)
-
  endif()
 
 
@@ -843,38 +754,29 @@
 # Data Input/Output     
 
  if(DIO_FEATURE)
-
    add_definitions(-DDIO_ACTIVE)
    set(DIO_DNSRESOLVED_FEATURE                           true    CACHE BOOL "Activate DNS Resolved"                                        FORCE)
    set(DIO_WEBCLIENT_FEATURE                             true    CACHE BOOL "Activate Web Client"                                          FORCE)    
    set(DIO_SCRAPERWEB_FEATURE                            true    CACHE BOOL "Activate Scraper Web"                                         FORCE)       
-
  endif()
 
  if(DIO_WAKEONLAN_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOWakeOnLAN.cpp")
    set(DIO_STREAMUDP_FEATURE                             true    CACHE BOOL "Activate Data Input/Output Stream UDP"                        FORCE)
-
  endif()
 
  if(DIO_MPSSE_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOMPSSE.cpp")
    set(DIO_STREAMUSB_FEATURE                             true    CACHE BOOL "Activate Data Input/Output Stream USB"                        FORCE)
-
  endif()
 
  if(DIO_DNSRESOLVED_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIODNSProtocol.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIODNSResolved.cpp")  
    set(DIO_STREAMUDP_FEATURE                             true   CACHE BOOL "Activate Data Input/Output Stream UDP"                         FORCE)
-
  endif()
 
  if(DIO_SCRAPERWEB_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOScraperWeb.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOScraperWebCache.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOScraperWebPublicIP.cpp")
@@ -887,48 +789,37 @@
    set(XFILE_XML_FEATURE                                 true    CACHE BOOL "Activate XFile XML format"                                    FORCE)  
    set(XFILE_JSON_FEATURE                                true    CACHE BOOL "Activate XFile JSON format"                                   FORCE)
    set(DIO_WEBCLIENT_FEATURE                             true    CACHE BOOL "Activate Web Client"                                          FORCE)
-
  endif()
 
- if(DIO_CHECKCONNECTIONS_FEATURE)
-   
+ if(DIO_CHECKCONNECTIONS_FEATURE) 
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOCheckInternetConnection.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOCheckTCPIPConnections.cpp")
    set(DIO_PING_FEATURE                                  true    CACHE BOOL "Activate Data Input/Output Ping"                              FORCE)
-
  endif()
 
  if(DIO_NETWORKTINEPROTOCOL_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIONTP.cpp")  
    set(DIO_STREAMUDP_FEATURE                             true    CACHE BOOL "Activate Data Input/Output UDP"                               FORCE)
-
  endif()
 
  if(DIO_DYNDNS_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIODynDNS.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIODynDNS_Manager.cpp")    
    set(DIO_WEBCLIENT_FEATURE                             true    CACHE BOOL "Activate Web Client"                                          FORCE)
-
  endif()
 
  if(DIO_PING_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOPing.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOPing_XEvent.cpp")
    set(DIO_STREAMICMP_FEATURE                            true     CACHE BOOL "Activate Data Input/Output ICMP"                             FORCE)  
-
  endif()
 
  if(DIO_WEBCLIENT_FEATURE)  
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOWebHeader.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOWebClient.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOWebClient_XEvent.cpp")   
    set(DIO_STREAMTCPIP_FEATURE                           true     CACHE BOOL "Activate Data Input/Output TCPIP"                            FORCE)  
    set(HASH_MD5_FEATURE                                  true     CACHE BOOL "Activate Hash MD5"                                           FORCE)
-
  endif()
 
  if(DIO_STREAMUART_FEATURE         OR 
@@ -940,19 +831,14 @@
     DIO_STREAMBLUETOOTHLE_FEATURE  OR 
     DIO_STREAMSPI_FEATURE          OR 
     DIO_STREAMI2C_FEATURE)
-
     set(DIO_STREAM_FEATURE                               true    CACHE BOOL "Activate Data Input/Output Stream"                            FORCE)
-
  endif()
 
  if(DIO_WEBCLIENT_FEATURE OR DIO_WEBSERVER_FEATURE)  
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOWebHeader.cpp")
-
  endif()
 
  if(DIO_WEBSERVER_FEATURE)  
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOWebPageHTMLCreator.cpp") 
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOWebPageHTMLCreator_XEvent.cpp")                        
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOWebServer.cpp")                         
@@ -967,11 +853,9 @@
    set(HASH_FEATURE                                      true    CACHE BOOL "Activate HASH"                                                FORCE)  
    set(HASH_SHA1_FEATURE                                 true    CACHE BOOL "Activate Hash SHA1"                                           FORCE)    
    set(XPROCESSMANAGER_FEATURE                           true    CACHE BOOL "Activate Process Manager"                                     FORCE)
-
  endif()
    
  if(DIO_STREAMTLS_FEATURE)
-
    add_definitions(-DDIOTLS_ACTIVE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamTLS.cpp") 
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamTLSConfig.cpp") 
@@ -979,117 +863,81 @@
    set(HASH_FEATURE                                      true    CACHE BOOL "Activate XTrace"                                              FORCE)
    set(CIPHER_SYMMETRIC_FEATURE                          true    CACHE BOOL "Activate Cipher Symetric"                                     FORCE)
    set(CIPHER_ASYMMETRIC_FEATURE                         true    CACHE BOOL "Activate Cipher Asymetric"                                    FORCE)
-
  endif()
 
  if(DIO_STREAMUART_FEATURE)
-
    add_definitions(-DDIOUART_ACTIVE)
-
  endif()
 
  if(DIO_STREAMUSB_FEATURE)
-
    add_definitions(-DDIOUSB_ACTIVE)
-
  endif()
 
  if(DIO_STREAMBLUETOOTH_FEATURE)
-
    add_definitions(-DDIOBLUETOOTH_ACTIVE)  
    set(XUUID_FEATURE                                     true    CACHE BOOL "Activate UUID functions"                                    FORCE)
-
  endif()
 
  if(DIO_STREAMBLUETOOTHLE_FEATURE)
-
    add_definitions(-DDIOBLUETOOTHLE_ACTIVE)
-
  endif()
 
  if(DIO_STREAMI2C_FEATURE)
-
    add_definitions(-DDIOI2C_ACTIVE)   
-
  endif()
 
  if(DIO_STREAMSPI_FEATURE)
-
    add_definitions(-DDIOSPI_ACTIVE)
-
  endif()
 
  if(DIO_STREAMICMP_FEATURE)
-
    add_definitions(-DDIOICMP_ACTIVE)
-
  endif()
 
  if(DIO_STREAMUDP_FEATURE)
-
    add_definitions(-DDIOUDP_ACTIVE)
-
  endif()
 
  if(DIO_STREAMTCPIP_FEATURE)
-
    add_definitions(-DDIOTCPIP_ACTIVE)
-
  endif()
 
  if(DIO_STREAMWIFI_FEATURE)
-
    add_definitions(-DDIOWIFI_ACTIVE)
-
  endif()
 
  if(DIO_WIFIMANAGERMODE_FEATURE)
-
    add_definitions(-DDIOWIFIMANAGERMODE_ACTIVE)
-
  endif()
 
  if(DIO_MODBUSCLIENT_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOModBus_Client.cpp") 
-
  endif()
 
  if(DIO_PING_FEATURE)
-
    add_definitions(-DDIOPING_ACTIVE)
-
  endif()
 
  if(DIO_PCAP_FEATURE)
-
    add_definitions(-DDIOPCAP_ACTIVE)
-
  endif()
 
  if(DIO_GPIO_FEATURE)
-
    add_definitions(-DDIOGPIO_ACTIVE)
 
    if(DIO_GPIO_PCPARALLEL_FEATURE)
-
      add_definitions(-DDIO_GPIO_PCPARALLEL_ACTIVE)
-
    endif()
 
  endif()
 
  if(DIO_ALERTS_FEATURE)
-
    add_definitions(-DDIOALERTS_ACTIVE)
-
  endif()
 
  if(DIO_LEDNEOPIXELWS2812B_FEATURE)
-
    add_definitions(-DDIOLEDNEOPIXELWS2812B_ACTIVE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOLedNeoPixelWS2812B.cpp") 
-
  endif()
 
 
@@ -1097,32 +945,24 @@
 # Databases
 
  if(DATABASES_SQL_SQLITE_FEATURE)
-
    add_definitions(-DDB_SQLITE_ACTIVE)
    set(DATABASES_SQL                                     true    CACHE BOOL "Activate DataBases SQL"                                       FORCE)
-
  endif()
 
  if(DATABASES_SQL_MYSQL_FEATURE)  
-
    add_definitions(-DDB_MYSQL_ACTIVE)
    set(DATABASES_SQL                                     true    CACHE BOOL "Activate DataBases SQL"                                       FORCE)
-
  endif()
 
  if(DATABASES_SQL_POSTGRESQL_FEATURE)  
-
    add_definitions(-DDB_POSTGRESQL_ACTIVE)
    set(DATABASES_SQL                                     true    CACHE BOOL "Activate DataBases SQL"                                       FORCE)
-
  endif()
 
  if(DATABASES_SQL_FEATURE)
-
    add_definitions(-DDB_SQL_ACTIVE)
    set(XPUBLISHER_FEATURE                                true    CACHE BOOL "Activate XPublisher"                                          FORCE)
    set(XFSMACHINE_FEATURE                                true    CACHE BOOL "Activate XFSMachine"                                          FORCE)
-
  endif()
 
 
@@ -1130,18 +970,14 @@
 # Graphics 
 
  if(GRP_FEATURE)
-
    add_definitions(-DGRP_ACTIVE)
    add_definitions(-DFT_DEBUG_LEVEL_ERROR)
    add_definitions(-DFT_DEBUG_LEVEL_TRACE)
    add_definitions(-DFT2_BUILD_LIBRARY)
-
  endif()
 
  if(GRP_OPENGL_FEATURE)
-
    add_definitions(-DGRP_OPENGL_ACTIVE)
-
  endif()
 
 
@@ -1149,9 +985,7 @@
 # Input 
 
  if(INP_FEATURE)
-
    add_definitions(-DINP_ACTIVE)
-
  endif()
 
 
@@ -1159,9 +993,7 @@
 # Sound 
 
  if(SND_FEATURE)
-
    add_definitions(-DSND_ACTIVE)
-
  endif()
 
                           
@@ -1180,67 +1012,49 @@
 # Application   
 
  if(APP_CONSOLE_FEATURE)
-
-   set(XCONSOLE_FEATURE                                    true    CACHE BOOL "Activate Cconsole functions"                                FORCE)
+   set(XCONSOLE_FEATURE                                    true    CACHE BOOL "Activate Console functions"                                 FORCE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPConsole.cpp")    
-
  endif()
             
  if(APP_GRAPHICS_FEATURE)  
-
    set(XPUBLISHER_FEATURE                                  true    CACHE BOOL "Activate XPublisher"                                        FORCE)
    set(XFSMACHINE_FEATURE                                  true    CACHE BOOL "Activate XFSMachine"                                        FORCE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPGraphics.cpp")    
-
  endif()
 
  if(APP_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPBase.cpp")                         
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPMain.cpp")
    set(XSYSTEM_FEATURE                                     true    CACHE BOOL "Activate System functions"                                  FORCE)
-
  endif()
                                   
  if(APP_CHECKRESOURCESHARDWARE_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPCheckResourcesHardware.cpp")  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPCheckResourcesHardware_XEvent.cpp")    
    set(XSCHEDULER_FEATURE                                  true    CACHE BOOL "Activate XScheduler"                                        FORCE)  
-
  endif()
 
  if(APP_INTERNETSERVICES_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPInternetServices.cpp")                         
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPInternetServices_XEvent.cpp")  
    set(XSCHEDULER_FEATURE                                  true    CACHE BOOL "Activate XScheduler"                                        FORCE)  
-
  endif()
 
  if(APP_LOG_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPLog.cpp")     
-
  endif()
 
  if(APP_WEBSERVER_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPWebServer.cpp")  
-
  endif()
 
  if(APP_UPDATE_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPUpdate.cpp")  
    set(DIO_APPLICATIONUPDATE_FEATURE                     true   CACHE BOOL "Activate Data Input/Output Application Update"                 FORCE)
-
  endif()
 
  if(APP_ALERTS_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPAlerts.cpp")  
-
  endif()
 
 
@@ -1251,7 +1065,6 @@
 
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPFactory.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPScreen.cpp")
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPViewPort.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPXEvent.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPProperties.cpp")
@@ -1259,26 +1072,20 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPBitmapSequence.cpp")
 
    if(GRP_FILE_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPBitmapFile.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPBitmapFileBMP.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPBitmapFileJPG.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPBitmapFilePNG.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPBitmapFileTGA.cpp")
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPVideoFile.cpp")
-     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPVideoFileAVI.cpp")
-     
-     set(XFILE_RIFF_FEATURE                                  true    CACHE BOOL "Activate XFile RIFF format"                                 FORCE)  
-     
+     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPVideoFileAVI.cpp")    
+     set(XFILE_RIFF_FEATURE                                  true    CACHE BOOL "Activate XFile RIFF format"                                 FORCE)      
    endif()
 
    if(GRP_2D_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC_2D}/GRPCanvas.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC_2D}/GRP2DVertexs.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC_2D}/GRP2DRebuildAreas.cpp")
-
    endif()
 
  endif()
@@ -1290,9 +1097,7 @@
  if(USERINTERFACE_FEATURE)
 
    if(USERINTERFACE_DEBUG_FEATURE)
-
      add_definitions("-DUSERINTERFACE_DEBUG")
-
    endif()
 
    set(XPUBLISHER_FEATURE                                 true    CACHE BOOL "Activate XPublisher"                                        FORCE)
@@ -1360,15 +1165,11 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT_LIB}/Script_Lib_System.cpp")
 
    if(SCRIPT_LUA_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT}/Script_Lua.cpp")
-
    endif()
 
    if(SCRIPT_JAVASCRIPT_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT}/Script_Javascript.cpp")
-
    endif()
 
  endif()
@@ -1378,39 +1179,30 @@
 # Databases
 
  if(DATABASES_SQL_SQLITE_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_SQLITE}/SQLite_Connection.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_SQLITE}/SQLite_Database.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_SQLITE}/SQLite_Query.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_SQLITE}/SQLite_Result.cpp")
-
    list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_SQLITE}/sqlite3.c")
-
  endif()
 
  if(DATABASES_SQL_MYSQL_FEATURE)
-
    list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_MYSQL})  
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_MYSQL}/MySQL_Connection.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_MYSQL}/MySQL_Database.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_MYSQL}/MySQL_Query.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_MYSQL}/MySQL_Result.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_MYSQL}/MySQL_Variant.cpp")
-
  endif()
 
  if(DATABASES_SQL_POSTGRESQL_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_POSTGRESQL}/PostgreSQL_Connection.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_POSTGRESQL}/PostgreSQL_Database.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_POSTGRESQL}/PostgreSQL_Query.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL_POSTGRESQL}/PostgreSQL_Result.cpp")
-
  endif()
 
  if(DATABASES_SQL_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL}/DB_SQL_Factory.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL}/DB_SQL_Database.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL}/DB_SQL_Connection.cpp")
@@ -1418,7 +1210,6 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL}/DB_SQL_Error.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL}/DB_SQL_Result.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATABASES_SQL}/DB_SQL_Variant.cpp")
-
  endif()
 
 
@@ -1426,7 +1217,6 @@
  # Graphics
 
  if(GRP_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPFactory.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPScreen.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPViewPort.cpp")
@@ -1437,21 +1227,17 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPFrameRate.cpp")
 
    if(GRP_FILE_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPBitmapFile.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPBitmapFileBMP.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPBitmapFileJPG.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPBitmapFilePNG.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPBitmapFileTGA.cpp")
-
    endif()
 
    if(GRP_2D_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC_2D}/GRPCanvas.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC_2D}/GRP2DVertexs.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC_2D}/GRP2DRebuildAreas.cpp")
-
    endif()
 
  endif()
@@ -1461,14 +1247,12 @@
 # Inputs
 
  if(INP_FEATURE)  
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPManager.cpp")  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPFactoryDevices.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPDevice.cpp")  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPButton.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPCursor.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPCursorMotion.cpp")
-
  endif()
 
 
@@ -1476,28 +1260,21 @@
 # Data Input/Output
 
  if(DIO_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOFactory.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOMAC.cpp")
    set(DIO_NOTIFICATIONS_MANAGER_FEATURE                 true   CACHE BOOL "Activate Notifications Nanager"                                FORCE)
-
  endif()
 
  if(DIO_WIFIMANAGERMODE_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOWifiManagerMode.cpp")
    set(DIO_STREAMTCPIP_FEATURE                           true   CACHE BOOL "Activate Data Input/Output Stream TCPIP"                       FORCE)
-
  endif()
 
  if(DIO_NOTIFICATIONS_MANAGER_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIONotificationsManager.cpp")
-
  endif()
 
  if(DIO_PROTOCOL_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOProtocol_XEvent.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOProtocol.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOProtocol_ApplicationData.cpp")
@@ -1508,7 +1285,6 @@
    set(DIO_STREAMUDP_FEATURE                             true   CACHE BOOL "Activate Data Input/Output Stream UDP"                         FORCE)
    set(DIO_STREAMTCPIP_FEATURE                           true   CACHE BOOL "Activate Data Input/Output Stream TCPIP"                       FORCE)
    set(CIPHER_SYMMETRIC_AES_FEATURE                      true   CACHE BOOL "Activate Cipher Symetric AES"                                  FORCE)
-
  endif()
 
  if(DIO_PROTOCOL_CLI_BUS_FEATURE)
@@ -1517,59 +1293,46 @@
  endif()
 
  if(DIO_PROTOCOL_CLI_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOProtocolCLI.cpp")
    set(DIO_STREAMCIPHER_FEATURE                          true   CACHE BOOL "Activate Data Input/Output Stream Cipher"                      FORCE)   
    set(DIO_STREAMUART_FEATURE                            true   CACHE BOOL "Activate Data Input/Output Stream UART"                        FORCE)
    set(DIO_STREAMUSB_FEATURE                             true   CACHE BOOL "Activate Data Input/Output Stream USB"                         FORCE)
    set(DIO_STREAMTCPIP_FEATURE                           true   CACHE BOOL "Activate Data Input/Output Stream TCPIP"                       FORCE)
    set(CIPHER_SYMMETRIC_AES_FEATURE                      true   CACHE BOOL "Activate Cipher Symetric AES"                                  FORCE)
-
  endif()
 
  if(DIO_STREAMCIPHER_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamCipher.cpp")
    set(HASH_FEATURE                                      true   CACHE BOOL "Activate Hash"                                                 FORCE)
    set(CIPHER_SYMMETRIC_FEATURE                          true   CACHE BOOL "Activate Cipher Symetric"                                      FORCE)
-
  endif()
 
  if(DIO_ALERTS_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOAlerts.cpp")    
    set(DIO_ATCMD_FEATURE                                 true   CACHE BOOL "Activate AT Commands"                                          FORCE)
    set(DIO_SMTP_FEATURE                                  true   CACHE BOOL "Activate SMTP (email)"                                         FORCE) 
    set(DIO_WEBCLIENT_FEATURE                             true   CACHE BOOL "Activate Web Client"                                           FORCE)
    set(DIO_STREAMUDP_FEATURE                             true   CACHE BOOL "Activate Data Input/Output Stream UDP"                         FORCE)
-
  endif()
 
  if(DIO_SMTP_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOSMTP.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOEmailAddress.cpp")
    set(DIO_STREAMTCPIP_FEATURE                           true   CACHE BOOL "Activate Data Input/Output Stream TCPIP"                       FORCE)
-
  endif()
 
  if(DIO_SNMP_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOSNMP.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XBER.cpp")
-
  endif()
 
  if(DIO_ATCMD_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOATCMDS.cpp")  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOATCMDGSM.cpp")   
    set(DIO_STREAMUART_FEATURE                            true   CACHE BOOL "Activate Data Input/Output Stream UART"                        FORCE)
-
  endif()
 
  if(DIO_STREAM_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIODevice.cpp")   
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStream.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamConfig.cpp")
@@ -1579,285 +1342,205 @@
    set(XSLEEP_FEATURE                                      true    CACHE BOOL "Activate Sleep functions"                                   FORCE)
    set(XPUBLISHER_FEATURE                                  true    CACHE BOOL "Activate XPublisher"                                        FORCE)
    set(XFSMACHINE_FEATURE                                  true    CACHE BOOL "Activate XFSMachine"                                        FORCE)
-
  endif()
 
  if(DIO_STREAMUART_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamUART.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamUARTConfig.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamUARTLocalEnumDevices.cpp")
-
  endif()
 
  if(DIO_STREAMUSB_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamUSB.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamUSBConfig.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamDeviceUSB.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamUSBLocalEnumDevices.cpp")
-
  endif()
 
  if(DIO_STREAMBLUETOOTH_FEATURE OR DIO_STREAMBLUETOOTHLE_FEATURE) 
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamBluetooth.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamBluetoothConfig.cpp")  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamDeviceBluetooth.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamEnumBluetoothDevices.cpp")      
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamBluetoothLocalEnumDevices.cpp")    
-   
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamBluetoothLocalEnumDevices.cpp")     
  endif()
 
  if(DIO_STREAMBLUETOOTH_FEATURE) 
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamBluetoothRemoteEnumDevices.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamDeviceBluetooth.cpp")  
-
  endif()
 
  if(DIO_STREAMBLUETOOTHLE_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamBluetoothLERemoteEnumDevices_XEvent.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamBluetoothLERemoteEnumDevices.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamDeviceBluetoothLE.cpp")  
-
  endif()
 
  if(DIO_STREAMI2C_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIODeviceI2C.cpp")   
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamI2C.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamI2CConfig.cpp")  
    
-   if(DIO_I2C_6AXISTRACKING_LSM303DLHC_FEATURE)
-   
+   if(DIO_I2C_6AXISTRACKING_LSM303DLHC_FEATURE) 
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2C6AxisTrackingLSM303DLHC.cpp")
-
    endif()
 
    if(DIO_I2C_6AXISTRACKING_BMI270_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2C6AxisTrackingBMI270.cpp")
-
    endif()
 
    if(DIO_I2C_9AXISTRACKING_MPU9150_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2C9AxisTrackingMPU9150.cpp")
-
    endif()
 
    if(DIO_I2C_ADDACONVERTER_PCF8591_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2CADDAConverterPCF8591.cpp")
-
    endif()
 
    if(DIO_I2C_AIRQUALITY_CCS811_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2CAirQualityCCS811.cpp") 
-
    endif()
 
    if(DIO_I2C_EEPROM_24XXX_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2CEEprom24XXX.cpp")  
-
    endif()
 
    if(DIO_I2C_GPIO_MCP2317_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2CGPIOMCP2317.cpp")
-
    endif()
 
    if(DIO_I2C_GPIO_PCF8574_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2CGPIOPCF8574.cpp")
-
    endif()
 
    if(DIO_I2C_LIGHTSENSOR_TSL2561_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2CLightSensorTSL2561.cpp")
-
    endif()
 
    if(DIO_I2C_OLEDDISPLAY_SSD1306_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2COLEDDisplaySSD1306.cpp")
      set(DIO_DISPLAYDEVICE_FEATURE                           true    CACHE BOOL "Activate Data Input/Output Display Device"                  FORCE)
-
    endif()
 
    if(DIO_I2C_PWMCONTROLER_PCA9685_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2CPWMControlerPCA9685.cpp")
-
    endif()
 
    if(DIO_I2C_TEMHUMSENSOR_AM2315_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2CTemHumSensorAM2315.cpp")
-
    endif()
 
    if(DIO_I2C_TEMHUMSENSOR_SHT20_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2CTemHumSensorSHT20.cpp")
-
    endif()
 
    if(DIO_I2C_MONITORGAUGE_LTC2942_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2CMonitorGaugeLTC2942.cpp")
-
    endif()
 
    if(DIO_I2C_BATTERYCHARGER_BQ24295_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2CBatteryChargerBQ24295.cpp")
-
    endif()
 
    if(DIO_I2C_TOUCHSENSOR_AT42QT1060_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_I2C}/DIOI2CTouchSensorAT42QT1060.cpp")
-
    endif()
 
  endif()
 
  if(DIO_STREAMSPI_FEATURE)  
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIODeviceSPI.cpp")   
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamSPI.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamSPIConfig.cpp") 
 
    if(DIO_SPI_GPIO_MCP23S17_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_SPI}/DIOSPIGPIOMCP23S17.cpp")
-
    endif()
 
    if(DIO_SPI_LCDDISPLAY_PCF8833_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_SPI}/DIOSPILCDDisplayPCF8833.cpp")    
      set(DIO_DISPLAYDEVICE_FEATURE                           true    CACHE BOOL "Activate Data Input/Output Display Device"                  FORCE)
-
    endif()
 
    if(DIO_SPI_OLEDDISPLAY_SSD1306_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_SPI}/DIOSPIOLEDDisplaySSD1306.cpp")
      set(DIO_DISPLAYDEVICE_FEATURE                           true    CACHE BOOL "Activate Data Input/Output Display Device"                  FORCE)
-
    endif()
 
    if(DIO_SPI_OLEDDISPLAY_SSD1331_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_SPI}/DIOSPIOLEDDisplaySSD1331.cpp")
      set(DIO_DISPLAYDEVICE_FEATURE                           true    CACHE BOOL "Activate Data Input/Output Display Device"                  FORCE)
-
    endif()
 
    if(DIO_SPI_TFTDISPLAY_ILI9341_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_SPI}/DIOSPITFTDisplayILI9341.cpp")
      set(DIO_DISPLAYDEVICE_FEATURE                           true    CACHE BOOL "Activate Data Input/Output Display Device"                  FORCE)
-
    endif()
 
    if(DIO_SPI_TFTDISPLAY_ST7789_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_SPI}/DIOSPITFTDisplayST7789.cpp")
      set(DIO_DISPLAYDEVICE_FEATURE                           true    CACHE BOOL "Activate Data Input/Output Display Device"                  FORCE)
-
    endif()
 
    if(DIO_SPI_TOUCHSCREEN_STMPE610_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_SPI}/DIOSPITouchScreenSTMPE610.cpp")
-
    endif()
 
  endif()
 
  if(DIO_DISPLAYDEVICE_FEATURE)  
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIODisplayDevice.cpp")
-
  endif()
 
  if(DIO_STREAMICMP_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamICMP.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamICMPConfig.cpp")
-
  endif()
 
  if(DIO_STREAMUDP_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamUDP.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamUDPConfig.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamUDPLocalEnumServers.cpp")
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamUDPAcknowledge.cpp")  
-   
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamUDPAcknowledge.cpp")    
    set(HASH_FEATURE                                      true    CACHE BOOL "Activate HASH"                                                FORCE)
    set(HASH_CRC32_FEATURE                                true    CACHE BOOL "Activate Hash CRC32"                                          FORCE)
-
  endif()
 
  if(DIO_STREAMTCPIP_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamTCPIP.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamTCPIPConfig.cpp") 
-
  endif()
 
  if(DIO_STREAMWIFI_FEATURE)  
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamDeviceWifi.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamWifiRemoteEnumDevices.cpp")
-
  endif()
 
  if(DIO_STREAMUDP_FEATURE OR DIO_STREAMTCPIP_FEATURE OR DIO_STREAMWIFI_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOIP.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOURL.cpp") 
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamDeviceIP.cpp")  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamIPLocalEnumDevices.cpp")  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOStreamConfigString.cpp")
-
  endif()
 
  if(DIO_GPIO_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOGPIO.cpp")
-
  endif()
    
  if(DIO_PCAP_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOPCap.cpp")  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOPCapEX.cpp")  
-
  endif()
 
  if(DIO_BUSPIRATE_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOBusPirate.cpp")  
-
  endif()
 
  if(DIO_APPLICATIONUPDATE_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOApplicationUpdate_XEvent.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOApplicationUpdate.cpp")
    set(XPROCESSMANAGER_FEATURE                           true    CACHE BOOL "Activate Process Manager"                                     FORCE)
-
  endif()
 
 
@@ -1865,7 +1548,6 @@
 # Sound 
 
  if(SND_FEATURE) 
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SOUND}/SNDFactory.cpp")  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SOUND}/SNDElement.cpp")  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SOUND}/SNDInstance.cpp")  
@@ -1876,21 +1558,16 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SOUND}/SNDCodec.cpp")    
    set(SND_FILE_WAV_FEATURE                                true    CACHE BOOL "Activate Sound WAV file"                                    FORCE)
    set(SND_FILE_OGG_FEATURE                                true    CACHE BOOL "Activate Sound OGG file"                                    FORCE)
-
  endif()
 
  if(SND_FILE_OGG_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SOUND}/SNDFile.cpp")  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SOUND}/SNDFileOGG.cpp")  
-
  endif()
 
  if(SND_FILE_WAV_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SOUND}/SNDFileBase.cpp")  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SOUND}/SNDFileWAV.cpp")  
-
  endif()
 
 
@@ -1913,131 +1590,95 @@
  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XThread.cpp")
   
  if(XTRACE_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XTrace.cpp")
-
  endif()
 
  if(XMEMORY_CONTROL_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XMemory_Control.cpp")
-
  endif()
 
  if(XTHREADCOLLECTED_FEATURE)
- 
    add_definitions(-DXTHREADCOLLECTED_ACTIVE)    
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XThreadCollected.cpp")
-
  endif()
   
  if(XCONSOLE_FEATURE)
-
    add_definitions(-DXCONSOLE_ACTIVE) 
    set(XSLEEP_FEATURE                                    true    CACHE BOOL "Activate Sleep functions"                                   FORCE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XConsole.cpp")
-
  endif()
 
  if(XSYSTEM_FEATURE)  
-
    add_definitions(-DXSYSTEM_ACTIVE)  
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XSystem.cpp")
-
  endif()
 
  if(XFSMACHINE_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFSMachine.cpp")
-
  endif()  
 
  if(XSCHEDULER_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XScheduler.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XScheduler_XEvent.cpp")
-
  endif()
 
  if(XPUBLISHER_FEATURE)
-
    add_definitions(-DXPUBLISHER_ACTIVE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XPublisher.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XSubject.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XObserver.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XEvent.cpp")
-
  endif()
 
  if(XUUID_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XUUID.cpp")
    set(HASH_FEATURE                                        true    CACHE BOOL "Activate Hash"                                              FORCE)
    set(HASH_CRC32_FEATURE                                  true    CACHE BOOL "Activate Hash CRC32"                                        FORCE)
-
  endif()
 
  if(XLOG_FEATURE)  
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XLog.cpp")
    add_definitions(-DXLOG_ACTIVE)
    set(XFILE_ZIP_FEATURE                                   true    CACHE BOOL "Activate XFile Zip format"                                  FORCE)
-
  endif()
 
  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XPathsManager.cpp")
 
  if(XTRANSLATION_FEATURE)
-
    set(XFILE_JSON_FEATURE                                  true    CACHE BOOL "Activate XFile JSON format"                                 FORCE)
    set(XTRANSLATION_GEN_FEATURE                            true    CACHE BOOL "Activate Translation"                                       FORCE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XTranslation.cpp")  
-
  endif()
 
  if(XTRANSLATION_GEN_FEATURE)  
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XLanguage_ISO_639_3.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XTranslation_GEN.cpp")
-
  endif()
 
  if(XSLEEP_FEATURE)
-
    add_definitions(-DXSLEEP_ACTIVE) 
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XSleep.cpp")
-
  endif()
 
  if(XPROCESSMANAGER_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XProcessManager.cpp")
-
  endif()
 
  if(XSHAREDMEMORYMANAGER_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XSharedMemoryManager.cpp")
-
  endif()
 
  if(XDRIVEIMAGEMANAGER_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XDriveImageManager.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XDriveImageManager_XEvent.cpp")
-
  endif()
 
  if(XEEPROMMEMORYMANAGER_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XEEPROMMemoryManager.cpp")
-
  endif()
 
  if(APP_CFG_LOCATION_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XLocationAddress.cpp")
-
  endif()
 
  if(XFILE_CFG_FEATURE) 
@@ -2046,76 +1687,56 @@
  endif()
 
  if(XFILE_INI_FEATURE) 
-
    set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileINI.cpp")
-
  endif()
 
  if(XFILE_ZIP_FEATURE) 
-
    set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)   
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileZIP.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileZIP_XEvent.cpp")  
-
  endif()  
    
  if(XFILE_XML_FEATURE) 
-
    set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileXML.cpp")
-
  endif()  
    
  if(XFILE_JSON_FEATURE)  
-
    set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileJSON.cpp")
-
  endif()
 
  if(XFILE_RIFF_FEATURE) 
-
    set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)     
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileRIFF.cpp")
-
  endif()
      
  if(XFILE_HEX_FEATURE)  
-
    set(XFILE_TXT_FEATURE                                   true    CACHE BOOL "Activate XFile Text format"                                 FORCE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileHEX.cpp")
-
  endif()
    
  if(XFILE_DFU_FEATURE)  
-
    set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)     
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileDFU.cpp")  
-
  endif()  
 
  if(XFILE_TXT_FEATURE)
-
    set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                             FORCE)     
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFileTXT.cpp")
-
  endif()    
    
  if(XFILE_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XFile.cpp")
    set(CIPHER_SYMMETRIC_FEATURE                            true    CACHE BOOL "Activate Cipher Symetric"                                   FORCE)
    set(CIPHER_ASYMMETRIC_FEATURE                           true    CACHE BOOL "Activate Cipher Asymetric"                                  FORCE)
-
  endif()  
 
  if(XLICENSE_FEATURE)
-
    set(CIPHER_SYMMETRIC_FEATURE                            true    CACHE BOOL "Activate Cipher Symetric"                                   FORCE)
    set(CIPHER_SYMMETRIC_AES_FEATURE                        true    CACHE BOOL "Activate Cipher Symetric AES"                               FORCE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XLicense.cpp")
-
  endif()
 
 
@@ -2123,85 +1744,61 @@
 # Cipher
 
  if(HASH_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/Hash.cpp")
      
    if(HASH_CRC16_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHCRC16.cpp")
-
    endif()
    
    if(HASH_CKS16_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHCKS16.cpp")
-
    endif()
    
    if(HASH_CRC32_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHCRC32.cpp")
-
    endif()
    
    if(HASH_MD5_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHMD5.cpp")
-
    endif()
    
    if(HASH_SHA1_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHSHA1.cpp")
-
    endif()
    
    if(HASH_SHA2_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHSHA2.cpp")
-
    endif()
    
    if(HASH_COMP128V1_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HashCOMP128v1.cpp")
-
    endif()
    
    if(HASH_WHIRLPOOL_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/HASHWhirlpool.cpp")
-
    endif()   
 
  endif()
 
 
  if(CIPHER_SYMMETRIC_FEATURE OR CIPHER_ASYMMETRIC_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/Cipher.cpp")  
-
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherKey.cpp")  
  endif()
 
  if(CIPHER_SYMMETRIC_FEATURE)
 
    if(CIPHER_SYMMETRIC_DES_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherDES.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/Cipher3DES.cpp")
-
    endif()
 
    if(CIPHER_SYMMETRIC_AES_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherAES.cpp")
-
    endif()
 
    if(CIPHER_SYMMETRIC_BLOWFISH_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherBlowfish.cpp")
-
    endif()
 
  endif()
@@ -2210,10 +1807,18 @@
  if(CIPHER_ASYMMETRIC_FEATURE)  
    
    if(CIPHER_ASYMMETRIC_RSA_FEATURE)
-     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherFileKeys.cpp") 
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XMPInteger.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XBER.cpp")
-     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherRSA.cpp")    
+     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherRSA.cpp")  
+
+     if(CIPHER_ASYMMETRIC_FILEKEY_GFK)
+       list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherKeysFileGKF.cpp")    
+     endif()
+
+     if(CIPHER_ASYMMETRIC_FILEKEY_PEM)
+       list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_CIPHER}/CipherKeysFilePEM.cpp")    
+     endif()
+
    endif()
 
    if(CIPHER_ASYMMETRIC_CURVE25519_FEATURE)
@@ -2227,38 +1832,28 @@
 # Compress
 
  if(COMPRESS_GZ_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_COMPRESS}/CompressGZ.cpp")
    set(COMPRESS_FEATURE                                    true    CACHE BOOL "Activate Compress"                                          FORCE)
-
  endif()
 
- if(COMPRESS_LZRW1KH_FEATURE)
-                                                                 
+ if(COMPRESS_LZRW1KH_FEATURE)                                                              
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_COMPRESS}/CompressLZRW1KH.cpp")
    set(COMPRESS_FEATURE                                    true    CACHE BOOL "Activate Compress"                                          FORCE)
-
  endif()
 
  if(COMPRESS_LZW_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_COMPRESS}/CompressLZW.cpp")
    set(COMPRESS_FEATURE                                    true    CACHE BOOL "Activate Compress"                                          FORCE)
-
  endif()
 
  if(COMPRESS_ZIP_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_COMPRESS}/CompressZIP.cpp")
    set(COMPRESS_FEATURE                                    true    CACHE BOOL "Activate Compress"                                          FORCE)
-
  endif()
 
  if(COMPRESS_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_COMPRESS}/CompressManager.cpp")
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_COMPRESS}/CompressBase.cpp")
-
  endif()
 
 
@@ -2274,13 +1869,11 @@
    if((${CMAKE_SYSTEM_NAME} MATCHES "Windows") OR (${CMAKE_SYSTEM_NAME} MATCHES "Linux"))
 
      if(SND_FEATURE)
-
        list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_COMMON_SNDOPENAL}/SNDFactory_OpenAL.cpp")
        list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_COMMON_SNDOPENAL}/SNDBuffer_OpenAL.cpp")
        list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_COMMON_SNDOPENAL}/SNDElement_OpenAL.cpp")
        list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_COMMON_SNDOPENAL}/SNDSource_OpenAL.cpp")
        list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_COMMON_SNDOPENAL}/SNDStreamElement_OpenAL.cpp")
-
      endif()
 
    endif()
@@ -2296,56 +1889,40 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/MainProcWINDOWS.cpp")
 
    if(GRP_FEATURE)       
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/GRPWINDOWSFactory.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/GRPWINDOWSScreen.cpp")
-
    endif()
 
    if(INP_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/INPWINDOWSFactoryDevices.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/INPWINDOWSDeviceMouse.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/INPWINDOWSDeviceKeyboard.cpp")
-
    endif()
 
    if(DIO_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSFactory.cpp")
-
    endif()
 
    if(DIO_PING_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSPing.cpp")
-
    endif()
 
    if(DIO_STREAMUART_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamUART.cpp")  
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamUARTLocalEnumDevices.cpp")
-
    endif()
 
    if(DIO_STREAMUSB_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamUSB.cpp")  
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamUSBLocalEnumDevices.cpp")
-
    endif()
 
    if(DIO_STREAMI2C_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamI2C.cpp")    
-
    endif()
 
    if(DIO_STREAMSPI_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamSPI.cpp")    
-
    endif()
 
    if(DIO_STREAMICMP_FEATURE)
@@ -2353,63 +1930,45 @@
    endif()
    
    if(DIO_STREAMUDP_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamUDP.cpp")    
-
    endif()
 
    if(DIO_STREAMTCPIP_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamTCPIP.cpp") 
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamIPLocalEnumDevices.cpp")
-
    endif()
 
    if(DIO_STREAMBLUETOOTH_FEATURE OR DIO_STREAMBLUETOOTHLE_FEATURE)            
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamBluetooth.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamBluetoothLocalEnumDevices.cpp")      
-
    endif()
 
    if(DIO_STREAMBLUETOOTH_FEATURE)            
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamBluetoothRemoteEnumDevices.cpp")
-
    endif()
 
    if(DIO_STREAMBLUETOOTHLE_FEATURE)            
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamBluetoothLERemoteEnumDevices.cpp")
-
    endif()
 
    if(DIO_STREAMWIFI_FEATURE)            
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSStreamWifiRemoteEnumDevices.cpp")    
-
    endif()
 
    if(DIO_WIFIMANAGERMODE_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSWifiManagerMode.cpp")
-
    endif()
 
    if(DIO_GPIO_FEATURE)
 
      if(DIO_GPIO_PCPARALLEL_FEATURE)
-
        list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSGPIOPCParallel.cpp") 
-
      endif()
 
    endif()
 
    if(DIO_PCAP_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSPCap.cpp")      
-
    endif()
       
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSFactory.cpp")
@@ -2421,57 +1980,39 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSDateTime.cpp")
    
    if(XSYSTEM_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSSystem.cpp")
-
    endif()
 
    if(XSLEEP_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSSleep.cpp")
-
    endif()
 
    if(XCONSOLE_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSConsole.cpp")
-
    endif()
 
    if(XFILE_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSFile.cpp")
-
    endif()
 
    if(XPROCESSMANAGER_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSProcessManager.cpp")
-
    endif()
 
    if(XSHAREDMEMORYMANAGER_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSSharedMemoryManager.cpp")
-
    endif()
 
    if(XDRIVEIMAGEMANAGER_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSDriveImageManager.cpp")
-
    endif()
 
    if(XEEPROMMEMORYMANAGER_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSEEPROMMemoryManager.cpp")
-
    endif()
    
    if(DIO_NOTIFICATIONS_MANAGER_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/DIOWINDOWSNotificationsManager.cpp")
-
    endif()
 
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSAccessControlLists.cpp")
@@ -2480,16 +2021,12 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSWMIInterface.cpp")    
    
    if(X_WINDOWS_VIRTUALDESKTOPMANAGER_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/XWINDOWSVirtualDesktopManager.cpp")
-
    endif()
    
    if(INP_WINDOWS_KEYBOARDHOOK_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/INPWINDOWSKeyboardHook_XEvent.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/INPWINDOWSKeyboardHook.cpp")
-
    endif()
 
  endif()
@@ -2501,11 +2038,9 @@
  if(COMPILE_TO_LINUX)
    
    if(GRP_FEATURE)       
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/GRPLINUXFactory.cpp")    
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/GRPLINUXScreenX11.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/GRPLINUXScreenFrameBuffer.cpp")    
-
    endif()
 
    if(INP_FEATURE)
@@ -2514,15 +2049,13 @@
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/INPLINUXDeviceID.cpp")
 
      if(LINUX_X11_FEATURE) 
-
        list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/INPLINUXDeviceKeyboardX11.cpp")
        list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/INPLINUXDeviceMouseX11.cpp")    
-
      else()
 
-       list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/INPLINUXDeviceKeyboardDirect.cpp")
-       list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/INPLINUXDeviceMouseDirect.cpp")
-       list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/INPLINUXDeviceTouchScreenDirect.cpp")
+     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/INPLINUXDeviceKeyboardDirect.cpp")
+     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/INPLINUXDeviceMouseDirect.cpp")
+     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/INPLINUXDeviceTouchScreenDirect.cpp")
 
      endif()     
 
@@ -2531,119 +2064,82 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/MainProcLINUX.cpp")
 
    if(DIO_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXFactory.cpp")
-
    endif()
 
    if(DIO_PING_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXPing.cpp")
-
    endif()
 
    if(DIO_STREAMUART_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamUART.cpp")  
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamUARTLocalEnumDevices.cpp")
-
    endif()
 
    if(DIO_STREAMUSB_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamUSB.cpp")  
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamUSBLocalEnumDevices.cpp")
-
    endif()
 
    if(DIO_STREAMI2C_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamI2C.cpp")    
-
    endif()
 
    if(DIO_STREAMSPI_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamSPI.cpp")    
-
    endif()
 
    if(DIO_STREAMICMP_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamICMP.cpp")
-
    endif()
    
    if(DIO_STREAMUDP_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamUDP.cpp")    
-
    endif()
 
    if(DIO_STREAMTCPIP_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamTCPIP.cpp") 
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamIPLocalEnumDevices.cpp")
-
    endif()
 
    if(DIO_STREAMBLUETOOTH_FEATURE OR DIO_STREAMBLUETOOTHLE_FEATURE)            
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamBluetooth.cpp")
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamBluetoothLocalEnumDevices.cpp")      
-
    endif()
 
    if(DIO_STREAMBLUETOOTH_FEATURE)            
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamBluetoothRemoteEnumDevices.cpp")
-
    endif()
 
    if(DIO_STREAMBLUETOOTHLE_FEATURE)            
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamBluetoothLERemoteEnumDevices.cpp")
-
    endif()
 
    if(DIO_STREAMWIFI_FEATURE)        
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXStreamWifiRemoteEnumDevices.cpp")
-
    endif()
 
    if(DIO_WIFIMANAGERMODE_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXWifiManagerMode.cpp")
-
    endif()
    
    if(DIO_PCAP_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXPCap.cpp")      
-
    endif()
 
    if(DIO_GPIO_FEATURE)    
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXGPIO.cpp")
 
      if(${TARGET} MATCHES "raspberrypi")
-
        list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXGPIORaspberryPi.cpp")
-
      else()
 
        if((${TARGET} MATCHES "nxp_imx6") OR (${TARGET} MATCHES "nxp_imx8"))       
-
          list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXGPIONXPiMX.cpp")
-
        endif()  
 
        if(DIO_GPIO_PCPARALLEL_FEATURE)
-
          list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXGPIOPCParallel.cpp")
-
        endif()  
 
      endif()   
@@ -2653,9 +2149,7 @@
    if(DIO_LEDNEOPIXELWS2812B_FEATURE)
 
      if(${TARGET} MATCHES "raspberrypi")
-
        list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXLedNeoPixelWS2812BRaspberryPi.cpp")
-
      endif()
 
    endif()
@@ -2681,51 +2175,35 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/XLINUXDateTime.cpp")
    
    if(XSYSTEM_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/XLINUXSystem.cpp")
-
    endif()
 
    if(XSLEEP_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/XLINUXSleep.cpp")
-
    endif()
 
    if(XCONSOLE_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/XLINUXConsole.cpp")
-
    endif()
 
    if(XFILE_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/XLINUXFile.cpp")
-
    endif()
 
    if(XPROCESSMANAGER_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/XLINUXProcessManager.cpp")
-
    endif()
 
    if(XSHAREDMEMORYMANAGER_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/XLINUXSharedMemoryManager.cpp")
-
    endif()
 
    if(XDRIVEIMAGEMANAGER_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/XLINUXDriveImageManager.cpp")
-
    endif()
 
    if(XEEPROMMEMORYMANAGER_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/XLINUXEEPROMMemoryManager.cpp")
-
    endif()
 
  endif()
@@ -2751,21 +2229,15 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_ANDROID}/XANDROIDDateTime.cpp")
 
    if(XSYSTEM_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_ANDROID}/XANDROIDSystem.cpp")
-
    endif()
 
    if(XSLEEP_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_ANDROID}/XANDROIDSleep.cpp")
-
    endif()
    
    if(XFILE_FEATURE)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_ANDROID}/XANDROIDFile.cpp")
-
    endif()
 
  endif()
@@ -2962,24 +2434,19 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/pngwutil.c")	 
    
    if(COMPILE_TO_LINUX_ARM_RASPBERRYPI)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/arm/arm_init.c")
      list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/arm/filter_neon_intrinsics.c")
-
    endif()
 
    if(COMPILE_TO_LINUX_ARM_NXP_IMX8)
-
      list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/arm/arm_init.c")
      list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/arm/filter_neon_intrinsics.c")
-
    endif()
 
  endif()
 
 
  if(SCRIPT_LUA_FEATURE)  
-
    #add_definitions(-DLUA_USE_POSIX)  
    list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LUA}/lapi.c")
    list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LUA}/lauxlib.c")
@@ -3014,18 +2481,13 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LUA}/lutf8lib.c")
    list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LUA}/lvm.c")
    list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LUA}/lzio.c")
-
  endif() 
 
  if(SCRIPT_JAVASCRIPT_FEATURE)
-
    list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_DUKTAPE}/duktape.c")
-
  endif()
 
  if(COMPILE_TO_WINDOWS)
-
    remove_definitions(-DUNICODE)
    list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_STACKWALKER}/StackWalker.cpp")
-
  endif()

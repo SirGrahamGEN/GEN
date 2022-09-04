@@ -127,6 +127,8 @@
   #endif
 #endif
 
+#include "Version.h"
+
 #include "XRand.h"
 #include "XSleep.h"
 #include "XPath.h"
@@ -344,7 +346,10 @@ bool MAINPROCLINUX::End()
 
   #endif
 
+  GEN_VERSION.DelInstance();
+
   XFILE_DISPLAYNOTCLOSEFILES
+
   XMEMORY_CONTROL_DEACTIVATED
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
 
@@ -720,11 +725,9 @@ static void LIBRARY_End(void)
 #endif
 
 
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*  SIGNAL FUNCTIONS                                                                                                  */
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

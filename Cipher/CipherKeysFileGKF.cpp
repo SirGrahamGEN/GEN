@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       CipherFileKeys.cpp
+* @file       CipherKeysFileGKF.cpp
 * 
-* @class      CIPHERFILEKEYS
-* @brief      Cipher File Keys class
+* @class      CIPHERKEYSFILEGKF
+* @brief      Cipher File Keys GKF (GEN Key File) class
 * @ingroup    CIPHER
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -42,7 +42,7 @@
 #include "Cipher.h"
 #include "CipherRSA.h"
 
-#include "CipherFileKeys.h"
+#include "CipherKeysFileGKF.h"
 
 #include "XMemory_Control.h"
 
@@ -54,7 +54,7 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         CIPHERFILEKEYS::CIPHERFILEKEYS(XPATH& xpath)
+* @fn         CIPHERKEYSFILEGKF::CIPHERKEYSFILEGKF(XPATH& xpath)
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
@@ -63,7 +63,7 @@
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-CIPHERFILEKEYS::CIPHERFILEKEYS(XPATH& xpath)
+CIPHERKEYSFILEGKF::CIPHERKEYSFILEGKF(XPATH& xpath)
 {
   Clean();
 
@@ -78,7 +78,7 @@ CIPHERFILEKEYS::CIPHERFILEKEYS(XPATH& xpath)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         CIPHERFILEKEYS::~CIPHERFILEKEYS()
+* @fn         CIPHERKEYSFILEGKF::~CIPHERKEYSFILEGKF()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
@@ -86,7 +86,7 @@ CIPHERFILEKEYS::CIPHERFILEKEYS(XPATH& xpath)
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-CIPHERFILEKEYS::~CIPHERFILEKEYS()
+CIPHERKEYSFILEGKF::~CIPHERKEYSFILEGKF()
 {
   DeleteAllKeys();
 
@@ -98,14 +98,14 @@ CIPHERFILEKEYS::~CIPHERFILEKEYS()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* CIPHERFILEKEYS::GetCreatorName()
+* @fn         XSTRING* CIPHERKEYSFILEGKF::GetCreatorName()
 * @brief      GetCreatorName
 * @ingroup    CIPHER
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* CIPHERFILEKEYS::GetCreatorName()
+XSTRING* CIPHERKEYSFILEGKF::GetCreatorName()
 { 
   return &creatorname;                    
 }
@@ -113,14 +113,14 @@ XSTRING* CIPHERFILEKEYS::GetCreatorName()
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDATETIME* CIPHERFILEKEYS::GetCreatorDateTime()
+* @fn         XDATETIME* CIPHERKEYSFILEGKF::GetCreatorDateTime()
 * @brief      GetCreatorDateTime
 * @ingroup    CIPHER
 * 
 * @return     XDATETIME* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDATETIME* CIPHERFILEKEYS::GetCreatorDateTime()
+XDATETIME* CIPHERKEYSFILEGKF::GetCreatorDateTime()
 { 
   return &creatordatetime;                
 }
@@ -128,14 +128,14 @@ XDATETIME* CIPHERFILEKEYS::GetCreatorDateTime()
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDATETIME* CIPHERFILEKEYS::GetCreatorLastModifiedDateTime()
+* @fn         XDATETIME* CIPHERKEYSFILEGKF::GetCreatorLastModifiedDateTime()
 * @brief      GetCreatorLastModifiedDateTime
 * @ingroup    CIPHER
 * 
 * @return     XDATETIME* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDATETIME* CIPHERFILEKEYS::GetCreatorLastModifiedDateTime()
+XDATETIME* CIPHERKEYSFILEGKF::GetCreatorLastModifiedDateTime()
 { 
   return &creatorlastmodifieddatetime;    
 }
@@ -143,7 +143,7 @@ XDATETIME* CIPHERFILEKEYS::GetCreatorLastModifiedDateTime()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool CIPHERFILEKEYS::HaveKey(CIPHERKEYTYPE type)
+* @fn         bool CIPHERKEYSFILEGKF::HaveKey(CIPHERKEYTYPE type)
 * @brief      HaveKey
 * @ingroup    CIPHER
 * 
@@ -152,7 +152,7 @@ XDATETIME* CIPHERFILEKEYS::GetCreatorLastModifiedDateTime()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERFILEKEYS::HaveKey(CIPHERKEYTYPE type)
+bool CIPHERKEYSFILEGKF::HaveKey(CIPHERKEYTYPE type)
 {
   for(int c=0; c<(int)keys.GetSize(); c++)
     {
@@ -169,7 +169,7 @@ bool CIPHERFILEKEYS::HaveKey(CIPHERKEYTYPE type)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         CIPHERKEY* CIPHERFILEKEYS::GetKey(CIPHERKEYTYPE type)
+* @fn         CIPHERKEY* CIPHERKEYSFILEGKF::GetKey(CIPHERKEYTYPE type)
 * @brief      GetKey
 * @ingroup    CIPHER
 * 
@@ -178,7 +178,7 @@ bool CIPHERFILEKEYS::HaveKey(CIPHERKEYTYPE type)
 * @return     CIPHERKEY* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-CIPHERKEY* CIPHERFILEKEYS::GetKey(CIPHERKEYTYPE type)
+CIPHERKEY* CIPHERKEYSFILEGKF::GetKey(CIPHERKEYTYPE type)
 {
   for(int c=0; c<(int)keys.GetSize(); c++)
     {
@@ -195,7 +195,7 @@ CIPHERKEY* CIPHERFILEKEYS::GetKey(CIPHERKEYTYPE type)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool CIPHERFILEKEYS::AddKey(CIPHERKEY& key)
+* @fn         bool CIPHERKEYSFILEGKF::AddKey(CIPHERKEY& key)
 * @brief      AddKey
 * @ingroup    CIPHER
 * 
@@ -204,7 +204,7 @@ CIPHERKEY* CIPHERFILEKEYS::GetKey(CIPHERKEYTYPE type)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERFILEKEYS::AddKey(CIPHERKEY& key)
+bool CIPHERKEYSFILEGKF::AddKey(CIPHERKEY& key)
 {
   if(HaveKey(key.GetType())) return false;
 
@@ -241,7 +241,7 @@ bool CIPHERFILEKEYS::AddKey(CIPHERKEY& key)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool CIPHERFILEKEYS::DeleteKey(CIPHERKEYTYPE type)
+* @fn         bool CIPHERKEYSFILEGKF::DeleteKey(CIPHERKEYTYPE type)
 * @brief      DeleteKey
 * @ingroup    CIPHER
 * 
@@ -250,7 +250,7 @@ bool CIPHERFILEKEYS::AddKey(CIPHERKEY& key)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERFILEKEYS::DeleteKey(CIPHERKEYTYPE type)
+bool CIPHERKEYSFILEGKF::DeleteKey(CIPHERKEYTYPE type)
 {
   for(int c=0; c<(int)keys.GetSize(); c++)
     {
@@ -271,14 +271,14 @@ bool CIPHERFILEKEYS::DeleteKey(CIPHERKEYTYPE type)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool CIPHERFILEKEYS::DeleteAllKeys()
+* @fn         bool CIPHERKEYSFILEGKF::DeleteAllKeys()
 * @brief      DeleteAllKeys
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERFILEKEYS::DeleteAllKeys()
+bool CIPHERKEYSFILEGKF::DeleteAllKeys()
 {
   if(keys.IsEmpty()) return false;
 
@@ -292,26 +292,26 @@ bool CIPHERFILEKEYS::DeleteAllKeys()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool CIPHERFILEKEYS::UpdateFile()
+* @fn         bool CIPHERKEYSFILEGKF::UpdateFile()
 * @brief      UpdateFile
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERFILEKEYS::UpdateFile()
+bool CIPHERKEYSFILEGKF::UpdateFile()
 {
   if(!xfilexml) return false;
 
   if(!xfilexml->Create(xpath))   return false;
 
-  XFILEXMLELEMENT* noderoot = new XFILEXMLELEMENT(CIPHERFILEKEYS_NODENAME_ROOT);
+  XFILEXMLELEMENT* noderoot = new XFILEXMLELEMENT(CIPHERKEYSFILEGKF_NODENAME_ROOT);
   if(!noderoot) return false;
 
   XFILEXMLELEMENT* node   = NULL;
   XSTRING          string;
 
-  node = noderoot->AddElement(CIPHERFILEKEYS_NODENAME_CREATOR);
+  node = noderoot->AddElement(CIPHERKEYSFILEGKF_NODENAME_CREATOR);
   if(node)
     {
       XDATETIME* xdatetime = GEN_XFACTORY.CreateDateTime();
@@ -319,16 +319,16 @@ bool CIPHERFILEKEYS::UpdateFile()
         {
           xdatetime->Read();
 
-          node->AddAtribute(CIPHERFILEKEYS_ATTRNAME_CREATOR_CREATENAME , creatorname.Get());
+          node->AddAtribute(CIPHERKEYSFILEGKF_ATTRNAME_CREATOR_CREATENAME , creatorname.Get());
 
           if(!creatordatetime.IsValidDate()) creatordatetime.CopyFrom(xdatetime);
           creatordatetime.GetDateTimeToString(XDATETIME_FORMAT_STANDARD, string);
-          node->AddAtribute(CIPHERFILEKEYS_ATTRNAME_CREATOR_CREATEDATE , string.Get());
+          node->AddAtribute(CIPHERKEYSFILEGKF_ATTRNAME_CREATOR_CREATEDATE , string.Get());
 
           creatorlastmodifieddatetime.CopyFrom(xdatetime);
 
           creatorlastmodifieddatetime.GetDateTimeToString(XDATETIME_FORMAT_STANDARD, string);
-          node->AddAtribute(CIPHERFILEKEYS_ATTRNAME_CREATOR_LASTMODDATE , string.Get());
+          node->AddAtribute(CIPHERKEYSFILEGKF_ATTRNAME_CREATOR_LASTMODDATE , string.Get());
 
           GEN_XFACTORY.DeleteDateTime(xdatetime);
         }
@@ -340,14 +340,14 @@ bool CIPHERFILEKEYS::UpdateFile()
             {
               if(key->GetType()!=CIPHERKEYTYPE_UNKNOWN)
                 {
-                  node = noderoot->AddElement(CIPHERFILEKEYS_NODENAME_CIPHERKEY);
+                  node = noderoot->AddElement(CIPHERKEYSFILEGKF_NODENAME_CIPHERKEY);
                   if(node)
                     {
                       string.Format(__L("%d"), key->GetType());
-                      node->AddAtribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_TYPEKEY, string.Get());
+                      node->AddAtribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_TYPEKEY, string.Get());
 
                       string.Format(__L("%d"), key->GetSizeInBits());
-                      node->AddAtribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_SIZEBITS, string.Get());
+                      node->AddAtribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_SIZEBITS, string.Get());
 
                       switch(key->GetType())
                         {
@@ -357,7 +357,7 @@ bool CIPHERFILEKEYS::UpdateFile()
                                                               XBUFFER* xbuffer = keysimetrical->Get();
                                                               if(xbuffer) string.ConvertHexStringFromBuffer((*xbuffer));
 
-                                                              node->AddAtribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_KEY , string.Get());
+                                                              node->AddAtribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_KEY , string.Get());
                                                             }
                                                             break;
 
@@ -368,10 +368,10 @@ bool CIPHERFILEKEYS::UpdateFile()
                                                               keypublic->Get(modulus, exponent);
 
                                                               modulus.GetToString(16, string);
-                                                              node->AddAtribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_MODULUS , string.Get());
+                                                              node->AddAtribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_MODULUS , string.Get());
 
                                                               exponent.GetToString(16, string);
-                                                              node->AddAtribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_EXPONENT , string.Get());
+                                                              node->AddAtribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_EXPONENT , string.Get());
                                                             }
                                                             break;
 
@@ -383,13 +383,13 @@ bool CIPHERFILEKEYS::UpdateFile()
                                                               keyprivate->Get(prime1factor, prime2factor, exponent);
 
                                                               prime1factor.GetToString(16, string);
-                                                              node->AddAtribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_FACTOR1 , string.Get());
+                                                              node->AddAtribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_FACTOR1 , string.Get());
 
                                                               prime2factor.GetToString(16, string);
-                                                              node->AddAtribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_FACTOR2 , string.Get());
+                                                              node->AddAtribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_FACTOR2 , string.Get());
 
                                                               exponent.GetToString(16, string);
-                                                              node->AddAtribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_EXPONENT , string.Get());
+                                                              node->AddAtribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_EXPONENT , string.Get());
                                                             }
                                                             break;
                         }
@@ -425,7 +425,7 @@ bool CIPHERFILEKEYS::UpdateFile()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
+* @fn         bool CIPHERKEYSFILEGKF::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
 * @brief      ExportToPEMFile
 * @ingroup    CIPHER
 * 
@@ -435,7 +435,7 @@ bool CIPHERFILEKEYS::UpdateFile()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
+bool CIPHERKEYSFILEGKF::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
 {
   if(!key) return false;
 
@@ -536,7 +536,7 @@ bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
+* @fn         bool CIPHERKEYSFILEGKF::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
 * @brief      ExportToPEMFile
 * @ingroup    CIPHER
 * 
@@ -546,7 +546,7 @@ bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
+bool CIPHERKEYSFILEGKF::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
 {
   if(!key) return false;
 
@@ -574,14 +574,14 @@ bool CIPHERFILEKEYS::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XPATH& CIPHERFILEKEYS::GetXPath()
+* @fn         XPATH& CIPHERKEYSFILEGKF::GetXPath()
 * @brief      GetXPath
 * @ingroup    CIPHER
 * 
 * @return     XPATH& : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XPATH& CIPHERFILEKEYS::GetXPath()
+XPATH& CIPHERKEYSFILEGKF::GetXPath()
 { 
   return xpath;                           
 }
@@ -589,14 +589,14 @@ XPATH& CIPHERFILEKEYS::GetXPath()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XFILEXML* CIPHERFILEKEYS::GetXFileXML()
+* @fn         XFILEXML* CIPHERKEYSFILEGKF::GetXFileXML()
 * @brief      GetXFileXML
 * @ingroup    CIPHER
 * 
 * @return     XFILEXML* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XFILEXML* CIPHERFILEKEYS::GetXFileXML()
+XFILEXML* CIPHERKEYSFILEGKF::GetXFileXML()
 { 
   return xfilexml;                        
 }
@@ -604,14 +604,14 @@ XFILEXML* CIPHERFILEKEYS::GetXFileXML()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool CIPHERFILEKEYS::ReadAllFile()
+* @fn         bool CIPHERKEYSFILEGKF::ReadAllFile()
 * @brief      ReadAllFile
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERFILEKEYS::ReadAllFile()
+bool CIPHERKEYSFILEGKF::ReadAllFile()
 {
   if(!xfilexml) return false;
 
@@ -622,7 +622,7 @@ bool CIPHERFILEKEYS::ReadAllFile()
   XFILEXMLELEMENT* noderoot = xfilexml->GetRoot();
   if(noderoot)
     {
-      if(!noderoot->GetName().Compare(CIPHERFILEKEYS_NODENAME_ROOT))
+      if(!noderoot->GetName().Compare(CIPHERKEYSFILEGKF_NODENAME_ROOT))
         {
           XFILEXMLELEMENT* node   = NULL;
           int              index  = 0;
@@ -630,22 +630,22 @@ bool CIPHERFILEKEYS::ReadAllFile()
           do{ node = noderoot->GetElement(index);
               if(node)
                 {
-                  if(!node->GetName().Compare(CIPHERFILEKEYS_NODENAME_CREATOR))
+                  if(!node->GetName().Compare(CIPHERKEYSFILEGKF_NODENAME_CREATOR))
                     {
                       XSTRING string;
 
-                      node->GetValueAttribute(CIPHERFILEKEYS_ATTRNAME_CREATOR_CREATENAME  , creatorname);
-                      if(node->GetValueAttribute(CIPHERFILEKEYS_ATTRNAME_CREATOR_CREATEDATE  , string))  creatordatetime.GetDateTimeFromString(string, XDATETIME_FORMAT_STANDARD);
-                      if(node->GetValueAttribute(CIPHERFILEKEYS_ATTRNAME_CREATOR_LASTMODDATE , string))  creatorlastmodifieddatetime.GetDateTimeFromString(string, XDATETIME_FORMAT_STANDARD);
+                      node->GetValueAttribute(CIPHERKEYSFILEGKF_ATTRNAME_CREATOR_CREATENAME  , creatorname);
+                      if(node->GetValueAttribute(CIPHERKEYSFILEGKF_ATTRNAME_CREATOR_CREATEDATE  , string))  creatordatetime.GetDateTimeFromString(string, XDATETIME_FORMAT_STANDARD);
+                      if(node->GetValueAttribute(CIPHERKEYSFILEGKF_ATTRNAME_CREATOR_LASTMODDATE , string))  creatorlastmodifieddatetime.GetDateTimeFromString(string, XDATETIME_FORMAT_STANDARD);
                     }
                    else
                     {
-                      if(!node->GetName().Compare(CIPHERFILEKEYS_NODENAME_CIPHERKEY))
+                      if(!node->GetName().Compare(CIPHERKEYSFILEGKF_NODENAME_CIPHERKEY))
                         {
                           XSTRING           string;
                           //int             index2 = 0;
 
-                          if(node->GetValueAttribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_TYPEKEY  , string))
+                          if(node->GetValueAttribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_TYPEKEY  , string))
                             {
                               int typekey = string.ConvertToInt();
 
@@ -656,7 +656,7 @@ bool CIPHERFILEKEYS::ReadAllFile()
                                   case CIPHERKEYTYPE_SYMMETRICAL  : { CIPHERKEYSYMMETRICAL* keysimetrical = new CIPHERKEYSYMMETRICAL();
                                                                       if(keysimetrical)
                                                                         {
-                                                                          if(node->GetValueAttribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_KEY  , string))
+                                                                          if(node->GetValueAttribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_KEY  , string))
                                                                             {
                                                                               XBUFFER xbuffer;
 
@@ -678,10 +678,10 @@ bool CIPHERFILEKEYS::ReadAllFile()
                                                                           modulus.Ini();
                                                                           exponent.Ini();
 
-                                                                          if(node->GetValueAttribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_MODULUS, string))
+                                                                          if(node->GetValueAttribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_MODULUS, string))
                                                                             {
                                                                               modulus.SetFromString(16, string);
-                                                                              if(node->GetValueAttribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_EXPONENT, string))
+                                                                              if(node->GetValueAttribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_EXPONENT, string))
                                                                                 {
                                                                                   exponent.SetFromString(16, string);
 
@@ -708,15 +708,15 @@ bool CIPHERFILEKEYS::ReadAllFile()
                                                                           prime2factor.Ini();
                                                                           exponent.Ini();
 
-                                                                          if(node->GetValueAttribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_FACTOR1, string))
+                                                                          if(node->GetValueAttribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_FACTOR1, string))
                                                                             {
                                                                               prime1factor.SetFromString(16, string);
 
-                                                                              if(node->GetValueAttribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_FACTOR2, string))
+                                                                              if(node->GetValueAttribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_FACTOR2, string))
                                                                                 {
                                                                                   prime2factor.SetFromString(16, string);
 
-                                                                                  if(node->GetValueAttribute(CIPHERFILEKEYS_ATTRNAME_CIPHERKEY_EXPONENT, string))
+                                                                                  if(node->GetValueAttribute(CIPHERKEYSFILEGKF_ATTRNAME_CIPHERKEY_EXPONENT, string))
                                                                                     {
                                                                                       exponent.SetFromString(16, string);
 
@@ -754,7 +754,7 @@ bool CIPHERFILEKEYS::ReadAllFile()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void CIPHERFILEKEYS::Clean()
+* @fn         void CIPHERKEYSFILEGKF::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
@@ -762,7 +762,7 @@ bool CIPHERFILEKEYS::ReadAllFile()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void CIPHERFILEKEYS::Clean()
+void CIPHERKEYSFILEGKF::Clean()
 {
   xfilexml  = NULL;
 }

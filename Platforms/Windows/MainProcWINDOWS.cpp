@@ -106,6 +106,7 @@
 
 #endif
 
+#include "Version.h"
 
 #include "XRand.h"
 #include "XSleep.h"
@@ -355,6 +356,8 @@ bool MAINPROCWINDOWS::End()
     }
 
   #endif
+
+  VERSION::DelInstance();
 
   XFILE_DISPLAYNOTCLOSEFILES
 
@@ -1027,7 +1030,12 @@ DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
 /*  wmain    : Windows UNICODE entry  /CONSOLE mode                                                                   */
 /*  WinMain  : Windows entry          /WINDOWS mode                                                                   */
 /*--------------------------------------------------------------------------------------------------------------------*/
-
+/*
+int wmain(int argc, wchar_t* argv[]) 
+{   
+  return WinMain(GetModuleHandle(NULL), NULL, GetCommandLineA(), SW_SHOWNORMAL);
+}
+*/
 
 /**-------------------------------------------------------------------------------------------------------------------
 *

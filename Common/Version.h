@@ -38,7 +38,7 @@
 #define VERSION_NAME         "GEN FrameWork"
 #define VERSION_VERSION      0
 #define VERSION_SUBVERSION   11
-#define VERSION_SUBERROR     0
+#define VERSION_SUBERROR     1
 #define VERSION_CODENAME     "Zaila"
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
@@ -47,27 +47,46 @@ class VERSION
 {
   public:
 
-    static bool             GetIsInstanced          ();
-    static VERSION&         GetInstance             ();
-    static bool             DelInstance             ();
+    static bool             GetIsInstanced                ();
+    static VERSION&         GetInstance                   ();
+    static bool             DelInstance                   ();
 
-    XSTRING*                GetName                 ();
-    XSTRING*                GetVersion              ();
-    void                    GetVersion              (XDWORD& version, XDWORD& subversion, XDWORD& versioneror);
-    XSTRING*                GetCodeName             ();
-
+    XSTRING*                GetName                       ();
+    XSTRING*                GetVersion                    ();
+    void                    GetVersion                    (XDWORD& version, XDWORD& subversion, XDWORD& versionerror);
+    XSTRING*                GetCodeName                   ();
+    
+    
+    void                    GetAppVersion                 (XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror);    
+    XSTRING*                GetAppOwner                   ();
+    XDWORD                  GetAppCreationYear            ();    
+    
+    XSTRING*                GetAppTitle                   ();
+    XSTRING*                GetAppVersion                 ();
+    bool                    SetAppVersion                 (XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror,XCHAR* app_owner, XDWORD app_creationyear);
+   
   private:
-                            VERSION                 ();
-                            VERSION                 (VERSION const&);         // Don't implement
-    virtual                ~VERSION                 ();
+                            VERSION                       ();
+                            VERSION                       (VERSION const&);         // Don't implement
+    virtual                ~VERSION                       ();
 
-    void                    operator =              (VERSION const&);         // Don't implement
+    void                    operator =                    (VERSION const&);         // Don't implement    
 
-    void                    Clean                   ();
+    void                    Clean                         ();
 
     XSTRING                 name;   
     XSTRING                 version;         
     XSTRING                 codename; 
+
+    XSTRING                 app_name;    
+    XDWORD                  app_version;
+    XDWORD                  app_subversion;
+    XDWORD                  app_versionerror;
+    XSTRING                 app_ower;
+    XDWORD                  app_creationyear;
+
+    XSTRING                 app_titlestr;
+    XSTRING                 app_versionstr;
 
     static VERSION*         instance;     
 };

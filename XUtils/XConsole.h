@@ -76,8 +76,8 @@ class XCONSOLE : public FACTORYBASE
 
     bool                        Format_Message                (XCHAR* message, XDWORD margin, bool prelude, bool returnline, XSTRING& string);
     bool                        PrintMessage                  (XCHAR* message, XDWORD margin, bool prelude, bool returnline);
-    bool                        TipicalHeader_Create          (int yearorigin, XCHAR* nameapp, int version, int subversion, int subversionerr, XCHAR* enterprise, XSTRING& header);
-    bool                        TipicalHeader_Show            (int yearorigin, XCHAR* nameapp, int version, int subversion, int subversionerr, XCHAR* enterprise);
+  //bool                        TipicalHeader_Create          (int yearorigin, XCHAR* nameapp, int version, int subversion, int subversionerr, XCHAR* owner, XSTRING& header);
+  //bool                        TipicalHeader_Show            (int yearorigin, XCHAR* nameapp, int version, int subversion, int subversionerr, XCHAR* owner);
     bool                        WaitKey                       (XCHAR* text, XDWORD margin, bool prelude, XDWORD timeout);
     void                        EraseToEndLine                (int actualpos = 0);
 

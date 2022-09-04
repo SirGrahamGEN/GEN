@@ -33,6 +33,8 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "Version.h"
+
 #include "XFactory.h"
 #include "XConsole.h"
 #include "XLog.h"
@@ -105,13 +107,96 @@ bool APPCONSOLE::Ini(XVECTOR<XSTRING*>* execparams)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool APPCONSOLE::End()
-* @brief      End application console function
+* 
+* @fn         bool APPCONSOLE::Show_Line(XSTRING& string, XSTRING& string2, int tab, bool linefeed)
+* @brief      Show_Line
 * @ingroup    APPLICATION
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  string : 
+* @param[in]  string2 : 
+* @param[in]  tab : 
+* @param[in]  linefeed : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPCONSOLE::Show_Line(XSTRING& string, XSTRING& string2, int tab, bool linefeed)
+{
+  XSTRING line1;
+  XSTRING line2;
+
+  console->Format_Message(string.Get(), tab , false, false, line1);
+  if(tab)
+    {
+      int _tab = tab;
+
+      if(_tab<37) _tab = 37;
+      line1.AdjustSize(_tab, false, __L(" "));
+    }
+
+  console->Format_Message(string2.Get(), 0 , false, linefeed, line2);
+
+  console->Print(line1.Get());
+  console->Print(line2.Get());
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPCONSOLE::Show_LineDirect(XSTRING& string, bool lf)
+* @brief      Show_LineDirect
+* @ingroup    APPLICATION
+* 
+* @param[in]  string : 
+* @param[in]  lf : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPCONSOLE::Show_LineDirect(XSTRING& string, bool lf)
+{
+  console->Print(string.Get());
+  if(lf) console->Print(__L("\n"));
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPCONSOLE::Show_Header(bool separator)
+* @brief      Show_Header
+* @ingroup    APPLICATION
+* 
+* @param[in]  separator : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPCONSOLE::Show_Header(bool separator)
+{ 
+  XSTRING header;
+
+  header = GEN_VERSION.GetAppTitle()->Get();
+  
+  console->Printf(__L(" %s"),header.Get());
+  console->Printf(__L("\n"));
+  if(separator) console->Printf(__L("\n"));
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPCONSOLE::End()
+* @brief      End
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPCONSOLE::End()
 {

@@ -448,7 +448,6 @@ bool XFILE::InsertBlock(XBYTE* buffer, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILE::ChangeAttributes(XCHAR* attributes)
@@ -466,22 +465,17 @@ void XFILE::ChangeAttributes(XCHAR* attributes)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  XFILE::OverwriteContent
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      12/06/2014 16:54:32
-//
-//  @return       bool :
-//
-//  @param        xpath :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILE::OverwriteContent(XCHAR* xpath)
+* @brief      OverwriteContent
+* @ingroup    XUTILS
+* 
+* @param[in]  xpath : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILE::OverwriteContent(XCHAR* xpath)
 {
   bool status=true;
@@ -522,7 +516,6 @@ bool XFILE::OverwriteContent(XCHAR* xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILE::Clean()
@@ -539,7 +532,6 @@ void XFILE::Clean()
   isreadonly    = false;
   cachesize     = 0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -574,19 +566,15 @@ XFILECONTAINER::~XFILECONTAINER()
 }
 
 
-
-//-------------------------------------------------------------------
-//  XFILECONTAINER::CreatePrimaryFile
-/**
-//
-//
-//  ""
-//  @version      16/12/2003 21:56:17
-//
-//  @return       bool :
-
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILECONTAINER::CreatePrimaryFile()
+* @brief      CreatePrimaryFile
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECONTAINER::CreatePrimaryFile()
 {
   GEN_XFACTORY_CREATE(file, Create_File())
@@ -598,34 +586,30 @@ bool XFILECONTAINER::CreatePrimaryFile()
 }
 
 
-//-------------------------------------------------------------------
-//  XFILECONTAINER::GetPrimaryFile
-/**
-//
-//
-//  ""
-//  @version      16/12/2003 21:56:23
-//
-//  @return       XFILE* :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XFILE* XFILECONTAINER::GetPrimaryFile()
+* @brief      GetPrimaryFile
+* @ingroup    XUTILS
+* 
+* @return     XFILE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILE* XFILECONTAINER::GetPrimaryFile()
 {
   return file;
 }
 
 
-//-------------------------------------------------------------------
-//  XFILECONTAINER::DeletePrimaryFile
-/**
-//
-//
-//  ""
-//  @version      16/12/2003 21:56:31
-//
-//  @return       bool :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILECONTAINER::DeletePrimaryFile()
+* @brief      DeletePrimaryFile
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECONTAINER::DeletePrimaryFile()
 {
   if(!file)  return false;
@@ -638,7 +622,6 @@ bool XFILECONTAINER::DeletePrimaryFile()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -658,42 +641,37 @@ void XFILECONTAINER::Clean()
 }
 
 
-
-
-
 #ifdef XTRACE_ACTIVE
 
 
-/*-------------------------------------------------------------------
-//  XFILEOPENLIST::~XFILEOPENLIST
-*/
-/**
-//
-//   Class Destructor XFILEOPENLIST
-//
-//  ""
-//  @version      12/06/2014 17:18:27
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XFILEOPENLIST::~XFILEOPENLIST()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    XUTILS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILEOPENLIST::~XFILEOPENLIST()
+
 {
 
 }
 
 
-//-------------------------------------------------------------------
-// XFILEOPENLIST::Add
-/**
-//
-//
-//  ""
-//  @version      13/03/2002 18:54:20
-//
-//  @return       bool :
-//  @param        xfile :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILEOPENLIST::Add(XFILE* xfile)
+* @brief      Add
+* @ingroup    XUTILS
+* 
+* @param[in]  xfile : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILEOPENLIST::Add(XFILE* xfile)
 {
   filelist.Add(xfile);
@@ -702,18 +680,17 @@ bool XFILEOPENLIST::Add(XFILE* xfile)
 }
 
 
-//-------------------------------------------------------------------
-// XFILEOPENLIST::Del
-/**
-//
-//
-//  ""
-//  @version      13/03/2002 18:54:26
-//
-//  @return       bool :
-//  @param        xfile :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILEOPENLIST::Del(XFILE* xfile)
+* @brief      Del
+* @ingroup    XUTILS
+* 
+* @param[in]  xfile : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILEOPENLIST::Del(XFILE* xfile)
 {
   if(filelist.IsEmpty()) return false;
@@ -724,17 +701,15 @@ bool XFILEOPENLIST::Del(XFILE* xfile)
 }
 
 
-//-------------------------------------------------------------------
-// XFILEOPENLIST::CloseAll
-/**
-//
-//
-//  ""
-//  @version      13/03/2002 18:54:32
-//
-//  @return       bool :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILEOPENLIST::CloseAll()
+* @brief      CloseAll
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILEOPENLIST::CloseAll()
 {
   if(filelist.IsEmpty()) return false;
@@ -750,22 +725,15 @@ bool XFILEOPENLIST::CloseAll()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  XFILEOPENLIST::DisplayAll
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      13/06/2014 11:26:07
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILEOPENLIST::DisplayAll()
+* @brief      DisplayAll
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XFILEOPENLIST::DisplayAll()
 {
   XDWORD nfilesopen = filelist.GetSize();
@@ -779,6 +747,7 @@ bool XFILEOPENLIST::DisplayAll()
 
       XTRACE_PRINTCOLOR(XTRACE_COLOR_BLACK, __L("Number files not closed: %d"), nfilesopen);
       XTRACE_PRINTCOLOR(XTRACE_COLOR_BLACK, __L("Path + File Name"), NULL);
+      XTRACE_PRINT(__L(" "));
 
       for(XDWORD c=0; c<nfilesopen; c++)
         {

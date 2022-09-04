@@ -326,6 +326,7 @@ bool XMEMORY_CONTROL::DisplayAll(bool displaydata)
   XTRACE_PRINT(__L(" "));
   XTRACE_PRINT(__L("Maximum allocated blocks at a time : %d") , maxnassigns);
   XTRACE_PRINT(__L("Maximum memory used at a time      : %dk"), maxused/1024); 
+  XTRACE_PRINT(__L(" "));
 
   if(nassigned)
     {

@@ -511,7 +511,7 @@ bool XCONSOLE::PrintMessage(XCHAR* message, XDWORD margin, bool prelude, bool re
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XCONSOLE::TipicalHeader_Create(int yearorigin, XCHAR* nameapp,int version,int subversion,int subversionerr,XCHAR* enterprise,XSTRING& header)
+* @fn         bool XCONSOLE::TipicalHeader_Create(int yearorigin, XCHAR* nameapp,int version,int subversion,int subversionerr,XCHAR* owner,XSTRING& header)
 * @brief      Create in string a tipical header in console
 * @ingroup    XUTILS
 *
@@ -520,16 +520,17 @@ bool XCONSOLE::PrintMessage(XCHAR* message, XDWORD margin, bool prelude, bool re
 * @param[in]  version : veraion of application
 * @param[in]  subversion : suversion of application
 * @param[in]  subversionerr : sub version error of application
-* @param[in]  enterprise : enterprise
+* @param[in]  owner : owner
 * @param[out] header : string result
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XCONSOLE::TipicalHeader_Create(int yearorigin, XCHAR* nameapp,int version,int subversion,int subversionerr,XCHAR* enterprise,XSTRING& header)
+/*
+bool XCONSOLE::TipicalHeader_Create(int yearorigin, XCHAR* nameapp,int version,int subversion,int subversionerr,XCHAR* owner,XSTRING& header)
 {
-  if(!nameapp)      return false;
-  if(!enterprise)   return false;
+  if(!nameapp) return false;
+  if(!owner)   return false;
 
   XDATETIME* GEN_XFACTORY_CREATE(xdatetime, CreateDateTime())
   if(!xdatetime) return false;
@@ -562,21 +563,21 @@ bool XCONSOLE::TipicalHeader_Create(int yearorigin, XCHAR* nameapp,int version,i
   string2.Format((xdatetime->GetYear()>yearorigin)?__L("%d-%d "):__L("%d "), yearorigin, xdatetime->GetYear());
 
   header += string2;
-  header += enterprise;
+  header += owner;
   //header += __L("\n\n");
 
   GEN_XFACTORY.DeleteDateTime(xdatetime);
 
   return true;
 }
-
+*/
 
 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XCONSOLE::TipicalHeader_Show(int yearorigin, XCHAR* nameapp,int version,int subversion,int subversionerr, XCHAR* enterprise)
+* @fn         bool XCONSOLE::TipicalHeader_Show(int yearorigin, XCHAR* nameapp,int version,int subversion,int subversionerr, XCHAR* owner)
 * @brief      Print a tipical header in console
 * @ingroup    XUTILS
 *
@@ -585,22 +586,23 @@ bool XCONSOLE::TipicalHeader_Create(int yearorigin, XCHAR* nameapp,int version,i
 * @param[in]  version : veraion of application
 * @param[in]  subversion : suversion of application
 * @param[in]  subversionerr : sub version error of application
-* @param[in]  enterprise : enterprise
+* @param[in]  owner : owner
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XCONSOLE::TipicalHeader_Show(int yearorigin, XCHAR* nameapp,int version,int subversion,int subversionerr, XCHAR* enterprise)
+/*
+bool XCONSOLE::TipicalHeader_Show(int yearorigin, XCHAR* nameapp,int version,int subversion,int subversionerr, XCHAR* owner)
 {
   XSTRING header;
 
-  if(!TipicalHeader_Create(yearorigin, nameapp, version, subversion, subversionerr, enterprise, header)) return false;
+  if(!TipicalHeader_Create(yearorigin, nameapp, version, subversion, subversionerr, owner, header)) return false;
 
   Printf(header.Get());
 
   return true;
 }
-
+*/
 
 
 

@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Version.cpp
+* @file       CipherKey.cpp
 * 
-* @class      VERSION
-* @brief      Version of framework
-* @ingroup    PLATFORM_COMMON
+* @class      CIPHERKEY
+* @brief      Cipher Key interface class
+* @ingroup    CIPHER
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -33,343 +33,331 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XFactory.h"
-#include "XDateTime.h"
+#include <string.h>
 
-#include "Version.h"
+#include "XFactory.h"
+
+#include "CipherKey.h"
 
 #include "XMemory_Control.h"
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
-VERSION* VERSION::instance = NULL;
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
+#pragma region CIPHERKEY
+
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool VERSION::GetIsInstanced()
-* @brief      GetIsInstanced
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @fn         CIPHERKEY::CIPHERKEY()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool VERSION::GetIsInstanced()
-{
-  return instance!=NULL;
+CIPHERKEY::CIPHERKEY()
+{ 
+  Clean();                                          
 }
 
 
+       
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         VERSION& VERSION::GetInstance()
-* @brief      GetInstance
-* @ingroup    XUTILS
-*
-* @return     VERSION& :
-*
+* 
+* @fn         CIPHERKEY::~CIPHERKEY()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-VERSION& VERSION::GetInstance()
-{
-  if(!instance) instance = new VERSION();
-
-  return (*instance);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool VERSION::DelInstance()
-* @brief      DelInstance
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool VERSION::DelInstance()
-{
-  if(instance)
-    {
-      delete instance;
-      instance = NULL;
-
-      return true;
-    }
-
-  return false;
+CIPHERKEY::~CIPHERKEY()
+{ 
+  Clean();                                          
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* VERSION::GetName()
-* @brief      GetName
-* @ingroup    PLATFORM_COMMON
+* @fn         CIPHERKEYTYPE CIPHERKEY::GetType()
+* @brief      GetType
+* @ingroup    CIPHER
 * 
-* @return     XSTRING* : 
+* @return     CIPHERKEYTYPE : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* VERSION::GetName()
-{
-  return &name;
+CIPHERKEYTYPE CIPHERKEY::GetType()
+{ 
+  return type;                                      
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* VERSION::GetVersion();
-* @brief      GetVersion
-* @ingroup    PLATFORM_COMMON
+* @fn         void CIPHERKEY::SetType(CIPHERKEYTYPE type)
+* @brief      SetType
+* @ingroup    CIPHER
 * 
-* @param[in]  ) : 
-* 
-* @return     XSTRING* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* VERSION::GetVersion()
-{
-  version.Format(__L("%d.%d.%d"), VERSION_VERSION, VERSION_SUBVERSION, VERSION_SUBERROR);
-
-  return &version;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void VERSION::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& suberror)
-* @brief      GetVersion
-* @ingroup    PLATFORM_COMMON
-* 
-* @param[in]  version : 
-* @param[in]  subversion : 
-* @param[in]  suberror : 
+* @param[in]  type : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void VERSION::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& suberror)
-{
-  version       = VERSION_VERSION;
-  subversion    = VERSION_SUBVERSION;
-  suberror      = VERSION_SUBERROR;
+void CIPHERKEY::SetType(CIPHERKEYTYPE type)
+{ 
+  this->type = type;                                
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* VERSION::GetCodeName()
-* @brief      GetCodeName
-* @ingroup    PLATFORM_COMMON
+* @fn         int CIPHERKEY::GetSizeInBytes()
+* @brief      GetSizeInBytes
+* @ingroup    CIPHER
 * 
-* @return     XSTRING* : 
+* @return     int : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* VERSION::GetCodeName()
-{
-  return &codename;
+int CIPHERKEY::GetSizeInBytes()
+{ 
+  return 0;                                         
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void VERSION::GetAppVersion(XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror)
-* @brief      GetAppVersion
-* @ingroup    PLATFORM_COMMON
+* @fn         int CIPHERKEY::GetSizeInBits()
+* @brief      GetSizeInBits
+* @ingroup    CIPHER
 * 
-* @param[in]  app_version : 
-* @param[in]  app_subversion : 
-* @param[in]  app_versionerror : 
-* 
-* @return     void : does not return anything. 
+* @return     int : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void VERSION::GetAppVersion(XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror)
-{
-  app_version       = this->app_version;
-  app_subversion    = this->app_subversion;
-  app_versionerror  = this->app_versionerror;
+int CIPHERKEY::GetSizeInBits()
+{ 
+  return (GetSizeInBytes()*8);                      
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* VERSION::GetAppOwner()
-* @brief      GetAppOwner
-* @ingroup    PLATFORM_COMMON
+* @fn         bool CIPHERKEY::CopyFrom(CIPHERKEY* key)
+* @brief      CopyFrom
+* @ingroup    CIPHER
 * 
-* @return     XSTRING* : 
+* @param[in]  key : 
 * 
-* --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* VERSION::GetAppOwner()
-{
-  return &app_ower;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XDWORD VERSION::GetAppCreationYear()
-* @brief      GetAppCreationYear
-* @ingroup    PLATFORM_COMMON
-* 
-* @return     XDWORD : 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD VERSION::GetAppCreationYear()
+bool CIPHERKEY::CopyFrom(CIPHERKEY* key)
 {
-  return app_creationyear;
-}
+  if(!key) return false;
+  type = key->GetType();
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XSTRING* VERSION::GetAppTitle()
-* @brief      GetAppTitle
-* @ingroup    PLATFORM_COMMON
-* 
-* @return     XSTRING* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* VERSION::GetAppTitle()
-{
-  return &app_titlestr;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XSTRING* VERSION::GetAppVersion()
-* @brief      GetAppVersion
-* @ingroup    PLATFORM_COMMON
-* 
-* @return     XSTRING* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* VERSION::GetAppVersion()
-{
-  return &app_versionstr;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void VERSION::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror,XCHAR* app_owner, XDWORD app_creationyear)
-* @brief      SetAppVersion
-* @ingroup    PLATFORM_COMMON
-* 
-* @param[in]  app_name : 
-* @param[in]  app_version : 
-* @param[in]  app_subversion : 
-* @param[in]  app_versionerror : 
-* @param[in]  app_owner : 
-* @param[in]  app_creationyear : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool VERSION::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror,XCHAR* app_owner, XDWORD app_creationyear)
-{
-  app_titlestr.Empty();
-  app_versionstr.Empty();
-
-  app_versionstr.Format(__L("%s %d.%d.%d "), app_name?app_name:NULL, app_version, app_subversion, app_versionerror);
-
-  XSTRING statusstr;
-
-  if(version<1) statusstr += __L("Beta");
-
-  #ifdef _DEBUG
-  if(statusstr.GetSize()) statusstr += __L("+");
-  statusstr += __L("Debug");
-  #endif
-
-  if(statusstr.GetSize())
-    {
-      app_versionstr += __L("(");
-      app_versionstr += statusstr;
-      app_versionstr += __L(")");
-    }
-
-
-  app_titlestr = app_versionstr;
-  app_titlestr += __L(" Copyright (c) ");
-
-  XSTRING string2; 
-
-  XDATETIME* GEN_XFACTORY_CREATE(xdatetime, CreateDateTime())
-  if(!xdatetime) return false;
-
-  xdatetime->Read();
-  string2.Format((xdatetime->GetYear()>app_creationyear)?__L("%d-%d "):__L("%d "), app_creationyear, xdatetime->GetYear());
-
-  GEN_XFACTORY.DeleteDateTime(xdatetime);
-
-  app_titlestr += string2;
-  if(app_owner) app_titlestr += app_owner;
-  
   return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         VERSION::VERSION()
-* @brief      Constructor
-* @ingroup    PLATFORM_COMMON
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-VERSION::VERSION()
-{
-  Clean();
-
-  name      = VERSION_NAME; 
-  codename  = VERSION_CODENAME; 
-  version.Format(__L("%d.%d.%d"), VERSION_VERSION, VERSION_SUBVERSION, VERSION_SUBERROR);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         VERSION::~VERSION()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    PLATFORM_COMMON
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-VERSION::~VERSION()
-{
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void VERSION::Clean()
+* @fn         void CIPHERKEY::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    PLATFORM_COMMON
+* @ingroup    CIPHER
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void VERSION::Clean()
+void CIPHERKEY::Clean()
 {
-  name.Empty();   
-  version.Empty();         
-  codename.Empty(); 
-
-  app_name.Empty();    
-  app_version         = 0;
-  app_subversion      = 0;
-  app_versionerror    = 0;
-  app_ower.Empty();
-  app_creationyear    = 0;
-  app_versionstr.Empty();
+  type = CIPHERKEYTYPE_UNKNOWN;
 }
+
+
+#pragma endregion
+
+
+#pragma region CIPHERKEYSYMMETRICAL
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERKEYSYMMETRICAL::CIPHERKEYSYMMETRICAL() : CIPHERKEY()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+CIPHERKEYSYMMETRICAL::CIPHERKEYSYMMETRICAL() : CIPHERKEY()
+{
+  Clean();
+
+  type = CIPHERKEYTYPE_SYMMETRICAL;
+
+  xbufferkey = new XBUFFER();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERKEYSYMMETRICAL::~CIPHERKEYSYMMETRICAL()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+CIPHERKEYSYMMETRICAL::~CIPHERKEYSYMMETRICAL()
+{
+  if(xbufferkey)  delete xbufferkey;
+
+  Clean();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE* CIPHERKEYSYMMETRICAL::Get(int& size)
+* @brief      Get
+* @ingroup    CIPHER
+* 
+* @param[in]  size : 
+* 
+* @return     XBYTE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBYTE* CIPHERKEYSYMMETRICAL::Get(int& size)
+{
+  if(!xbufferkey) return NULL;
+
+  size = xbufferkey->GetSize();
+
+  return xbufferkey->Get();
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBUFFER* CIPHERKEYSYMMETRICAL::Get()
+* @brief      Get
+* @ingroup    CIPHER
+* 
+* @return     XBUFFER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBUFFER* CIPHERKEYSYMMETRICAL::Get()
+{
+  return xbufferkey;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYSYMMETRICAL::Set(XBYTE* key, XDWORD size)
+* @brief      Set
+* @ingroup    CIPHER
+* 
+* @param[in]  key : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool CIPHERKEYSYMMETRICAL::Set(XBYTE* key, XDWORD size)
+{
+  if(!key) return false;
+
+  this->xbufferkey->Delete();
+
+  this->xbufferkey->Add(key, (XDWORD)size);
+
+  return true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYSYMMETRICAL::Set(XBUFFER& key)
+* @brief      Set
+* @ingroup    CIPHER
+* 
+* @param[in]  key : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool CIPHERKEYSYMMETRICAL::Set(XBUFFER& key)
+{
+  return Set(key.Get(), key.GetSize());
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int CIPHERKEYSYMMETRICAL::GetSizeInBytes()
+* @brief      GetSizeInBytes
+* @ingroup    CIPHER
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int CIPHERKEYSYMMETRICAL::GetSizeInBytes()
+{ 
+  return xbufferkey->GetSize();                     
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYSYMMETRICAL::CopyFrom(CIPHERKEYSYMMETRICAL* key)
+* @brief      CopyFrom
+* @ingroup    CIPHER
+* 
+* @param[in]  key : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool CIPHERKEYSYMMETRICAL::CopyFrom(CIPHERKEYSYMMETRICAL* key)
+{
+  if(!key) return false;
+
+  if(!CIPHERKEY::CopyFrom((CIPHERKEY*)key)) return false;
+
+  xbufferkey->Delete();
+  xbufferkey->Add(key->Get()->Get(), key->Get()->GetSize());
+
+  return true;
+}
+
+  
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERKEYSYMMETRICAL::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERKEYSYMMETRICAL::Clean()
+{
+  xbufferkey = NULL;
+}
+
+#pragma endregion

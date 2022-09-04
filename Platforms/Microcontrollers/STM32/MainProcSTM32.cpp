@@ -55,6 +55,8 @@
 
 #endif
 
+#include "Version.h"
+
 #include "XThreadListNonPreemptive.h"
 #include "XTranslation_GEN.h"
 #include "XTranslation.h"
@@ -224,6 +226,7 @@ bool MAINPROCSTM32::End()
 
   #endif
   
+  VERSION::DelInstance();
   
   XFILE_DISPLAYNOTCLOSEFILES
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS

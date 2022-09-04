@@ -31,12 +31,7 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include <stdio.h>
-#include <string.h>
-
-#include "XBase.h"
-#include "XBuffer.h"
-#include "XString.h"
+#include "CipherKey.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
@@ -53,16 +48,6 @@ enum CIPHERTYPE
   CIPHERTYPE_CURVE25519             ,
 };
 
-
-enum CIPHERKEYTYPE
-{
-  CIPHERKEYTYPE_UNKNOWN         = 0 ,
-  CIPHERKEYTYPE_SYMMETRICAL         ,
-  CIPHERKEYTYPE_PUBLIC              ,
-  CIPHERKEYTYPE_PRIVATE             ,
-};
-
-
 enum CIPHERCHAININGMODE
 {
   CIPHERCHAININGMODE_UNKNOWN    = 0 ,
@@ -74,55 +59,6 @@ enum CIPHERCHAININGMODE
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
-class CIPHERKEY
-{
-  public:
-                          CIPHERKEY                 ();
-    virtual              ~CIPHERKEY                 ();
-
-    CIPHERKEYTYPE         GetType                   ();
-    void                  SetType                   (CIPHERKEYTYPE type);
-
-    virtual int           GetSizeInBytes            ();
-    int                   GetSizeInBits             ();
-
-    bool                  CopyFrom                  (CIPHERKEY* key);
-
-  protected:
-
-    CIPHERKEYTYPE         type;
-
-private:
-
-    void                  Clean                     ();
-};
-
-
-
-class CIPHERKEYSYMMETRICAL : public CIPHERKEY
-{
-  public:
-                          CIPHERKEYSYMMETRICAL      ();
-    virtual              ~CIPHERKEYSYMMETRICAL      ();
-
-    XBYTE*                Get                       (int& size);
-    XBUFFER*              Get                       ();
-
-    bool                  Set                       (XBYTE* key, XDWORD size);
-    bool                  Set                       (XBUFFER& key);
-
-    int                   GetSizeInBytes            ();
-
-    bool                  CopyFrom                  (CIPHERKEYSYMMETRICAL* key);                          
-
-  private:
-
-    void                  Clean                     ();
-    
-    XBUFFER*              xbufferkey;
-};
-
 
 
 class CIPHER

@@ -54,6 +54,11 @@ class APPCONSOLE : public APPBASE, public XOBSERVER, public XSUBJECT
     virtual                      ~APPCONSOLE            ();
 
     bool                          Ini                   (XVECTOR<XSTRING*>* execparams);
+  
+    bool                          Show_Line             (XSTRING& string, XSTRING& string2, int tab = 3, bool linefeed = true);
+    bool                          Show_LineDirect       (XSTRING& string, bool lf);
+    bool                          Show_Header           (bool separator);
+
     bool                          End                   ();
 
     virtual bool                  PrintExitMessage      (XSTRING& message);

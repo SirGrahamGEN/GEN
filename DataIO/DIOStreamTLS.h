@@ -43,6 +43,11 @@
 #define DIOSTREAMTLS_VERSION_TLS_1_0                                      0x0301    // TLS v1.0 
 #define DIOSTREAMTLS_VERSION_TLS_1_1                                      0x0302    // TLS v1.1 
 #define DIOSTREAMTLS_VERSION_TLS_1_2                                      0x0303    // TLS v1.2 
+#define DIOSTREAMTLS_VERSION_TLS_1_3                                      0x0304    // TLS v1.3 
+
+#define DIOSTREAMTLS_VERSION_DATAGRAMA_TLS_1_0                            0xFEFF    // Datagrama TLS v1.0
+#define DIOSTREAMTLS_VERSION_DATAGRAMA_TLS_1_2                            0xFEFD    // Datagrama TLS v1.2
+#define DIOSTREAMTLS_VERSION_DATAGRAMA_TLS_1_3                            0xFEFC    // Datagrama TLS v1.3
 
 #define DIOSTREAMTLS_CIPHER_DES_CBC3_SHA                                  0x000A    // SSLv3   
 #define DIOSTREAMTLS_CIPHER_RSA_WITH_AES_128_CBC_SHA                      0x002F    // SSLv3   

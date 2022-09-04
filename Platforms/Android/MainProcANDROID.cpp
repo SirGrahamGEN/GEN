@@ -72,6 +72,8 @@
   #endif
 #endif
 
+#include "Version.h"
+
 #include "XPathsManager.h"
 #include "XThreadCollected.h"
 #include "XRand.h"
@@ -1050,9 +1052,6 @@ bool MAINPROCANDROID::GetAbsolutePath(struct android_app* app, XSTRING& path)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::GetDPI(struct android_app* app)
@@ -1267,17 +1266,6 @@ bool MAINPROCANDROID::Factorys_End()
 
   return true;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1647,6 +1635,8 @@ void android_main(android_app* application)
   androidmain.SetAndroidApplication(application);
 
   eventloop.Run(&androidmain, &androidmain);
+
+  VERSION::DelInstance();
 
   XFILE_DISPLAYNOTCLOSEFILES
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS

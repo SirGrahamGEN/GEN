@@ -38,6 +38,8 @@
 #include <stdio.h>
 #include <conio.h>
 #include <tchar.h>
+#include <fcntl.h> 
+#include <io.h>
 
 #include "XString.h"
 #include "XFileTXT.h"
@@ -306,7 +308,6 @@ bool XWINDOWSCONSOLE::UnHide()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSCONSOLE::Print(XCHAR* string)
@@ -328,8 +329,6 @@ bool XWINDOWSCONSOLE::Print(XCHAR* string)
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

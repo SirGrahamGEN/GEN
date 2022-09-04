@@ -141,16 +141,15 @@ bool APPLOG::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int appsub
 
   status = GEN_XLOG.Ini(xpath, applicationname, true);
   if(status)
-    {
-      XSTRING appstatusstring;
-
+    {     
       GEN_XLOG.SetLimit(XLOGTYPELIMIT_SIZE, cfg->Log_MaxSize()*1000, cfg->Log_ReductionPercent());
       GEN_XLOG.SetFilters(cfg->Log_ActiveSectionsID()->Get(), cfg->Log_LevelMask());
       GEN_XLOG.SetBackup(cfg->Log_Backup_IsActive(), cfg->Log_Backup_GetMaxFiles(),  cfg->Log_Backup_IsCompress());
-
       
+      /*
       APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, APP_LOG_SEPARATOR);
 
+      XSTRING appstatusstring;
       #ifdef _DEBUG
       appstatusstring = __L("Debug");
       #endif
@@ -160,8 +159,7 @@ bool APPLOG::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int appsub
           if(appstatusstring.GetSize() > 1) appstatusstring.AddFormat(__L(" + "));
           appstatusstring.AddFormat(__L("Beta"));
         }
-
-      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Path EXEC: %s"), GEN_XPATHSMANAGER.GetAppExecPath()->Get());  
+      
 
       APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, XT_L(XTRANSLATION_GEN_ID_APPLOG_INITMSG) , appversion, appsubversion, appsubversionerror
                                                                                                                       , appstatusstring.Get());
@@ -171,7 +169,7 @@ bool APPLOG::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int appsub
       GEN_XSYSTEM.GetMemoryInfo(total,free);
 
       APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, XT_L(XTRANSLATION_GEN_ID_APPLOG_TOTALMEMORY), total, free, GEN_XSYSTEM.GetFreeMemoryPercent());
-   
+      */   
     }
 
   return status;

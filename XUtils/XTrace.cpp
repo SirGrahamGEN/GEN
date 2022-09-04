@@ -1391,7 +1391,7 @@ void XTRACE::PrintHeader(XCHAR* header)
       line += __L(" ");
     }
 
-  while(line.GetSize()<64)
+  while(line.GetSize()<120)
     {
       line += __L("-");
     }

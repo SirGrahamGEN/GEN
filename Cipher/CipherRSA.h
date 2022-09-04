@@ -1,29 +1,42 @@
-//------------------------------------------------------------------------------------------
-//  CIPHERRSA.H
-//
-/**
-// \class
-//
-//  Cipher / Uncipher RSA Class
-//
-//  ""
-//  @version 25/04/2002
-*/
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       CipherRSA.h
+* 
+* @class      CIPHERRSA
+* @brief      Cipher RSA class
+* @ingroup    CIPHER
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _CIPHERRSA_H_
 #define _CIPHERRSA_H_
 
-
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XMPInteger.h"
 
 #include "Cipher.h"
 
 
-//---- DEFINES & ENUMS  --------------------------------------------------------------------
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum CIPHERRSAPKCS1VERSION
 {
@@ -34,14 +47,12 @@ enum CIPHERRSAPKCS1VERSION
 #define CIPHERRSA_SINGDATA        1
 #define CIPHERRSA_CIPHERDATA      2
 
-
 //#define CIPHERRSA_RSANOCRT
 
-//---- CLASS -------------------------------------------------------------------------------
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XRAND;
 class HASH;
-
 
 class CIPHERKEYRSAPUBLIC : public CIPHERKEY
 {
@@ -129,10 +140,7 @@ class CIPHERRSA_CONTEXT
 
     int                             padding;                          // RSA_PKCS_V15 for 1.5 padding and RSA_PKCS_v21 for OAEP/PSS
     int                             hashID;                           // Hash identifier of md_type_t as specified in the md.h header file for the EME-OAEP and EMSA-PSS encoding
-
 };
-
-
 
 
 class CIPHERRSA : public CIPHER
@@ -190,10 +198,6 @@ class CIPHERRSA : public CIPHER
 };
 
 
-
-//---- INLINE FUNCTIONS --------------------------------------------------------------------
-
-
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-
