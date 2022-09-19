@@ -846,11 +846,11 @@ bool CIPHERRSA::Sign(XBYTE* input, XDWORD size, CIPHERKEYTYPE keytouse, HASH* ha
   berseq1.Sequence_AddTo(beroui);
   berseq1.Sequence_AddTo(bernull);
 
-  berseq1.SetType(berseq1.GetType()|(XBYTE)(XBERTYPE_ISCONSTRUCTED));
+  berseq1.SetTagType(berseq1.GetTagType()|(XBYTE)(XBERTYPE_ISCONSTRUCTED));
 
   berseq2.Sequence_AddTo(berseq1);
   berseq2.Sequence_AddTo(berhash);
-  berseq2.SetType(berseq2.GetType()|(XBYTE)(XBERTYPE_ISCONSTRUCTED));
+  berseq2.SetTagType(berseq2.GetTagType()|(XBYTE)(XBERTYPE_ISCONSTRUCTED));
 
   berseq2.GetDump(sign);
 

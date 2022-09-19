@@ -2855,103 +2855,38 @@ bool XBUFFER::Bit_SetBitsFree(XBYTE nbitsfree)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XBUFFER::ConvertFromBase64(XSTRING& stringbase64)
-* @brief      Convert from string in Base 64.
+* 
+* @fn         bool XBUFFER::ConvertFromBase64(XSTRING& in_stringbase64)
+* @brief      ConvertFromBase64
 * @ingroup    XUTILS
-*
-* @param[in]  stringbase64 : string origin to convert.
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  in_stringbase64 : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XBUFFER::ConvertFromBase64(XSTRING& stringbase64)
+bool XBUFFER::ConvertFromBase64(XSTRING& in_stringbase64)
 {
-  /*
-  XSTRING stringbin;
-
-  Delete();
-
-  stringbin.ConvertFromBase64(stringbase64);
-
-  if(stringbin.IsEmpty()) return false;
-
-  for(int c=0; c<(int)stringbin.GetSize(); c++)
-    {
-      XBYTE data = (XBYTE)stringbin.Get()[c];
-
-      Add(data);
-    }
-
-  return true;
-*/
-
-
-  XDWORD  data;
-  int     size  = stringbase64.GetSize();
-  int     c     = 0;
-  int     d;
-
-  Delete();
-
-  if(!size) return false;
-
-  XSTRING_CREATEOEM(stringbase64, charstr)
-
-  do{ data = 0;
-
-      for(d=0;d<4;d++)
-        {
-          data |= XSTRING::ConvertXCHARToBase64((char)charstr[c+d]);
-          if(d!=3) data<<=6;
-        }
-
-      data<<=8;
-
-      SWAPDWORD(data);
-
-      XBYTE* ptr = (XBYTE*)&data;
-   
-      Add(ptr, 3);
-
-      c+=4;
-      
-    } while(c<size);
-
-  XSTRING_DELETEOEM(stringbase64, charstr)
-
-  return true;
-
-
+  return in_stringbase64.ConvertBase64ToBinary((*this));
 }
 
-
-
+    
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XBUFFER::ConvertToBase64(XSTRING& stringbase64)
-* @brief      Set String to base 64 from buffer
+* 
+* @fn         bool XBUFFER::ConvertToBase64(XSTRING& out_stringbase64)
+* @brief      ConvertToBase64
 * @ingroup    XUTILS
-*
-* @param[out] stringbase64 : string in base 64.
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  out_stringbase64 : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XBUFFER::ConvertToBase64(XSTRING& stringbase64)
+bool XBUFFER::ConvertToBase64(XSTRING& out_stringbase64)
 {
-  XSTRING stringbin;
-
-  stringbase64.Empty();
-
-  stringbin.Add((*this));
-  stringbin.ConvertToBase64(stringbase64);
-
-  return stringbase64.GetSize()?true:false;
+  return out_stringbase64.ConvertBinaryToBase64((*this));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3445,7 +3380,6 @@ bool XBUFFER::ExtractXBufferWithMask(XBUFFER& xbuffer, XCHAR* mask, va_list& arg
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::ExtractXBufferWithMask(XBUFFER& xbuffer, XSTRING* mask, va_list& arg)
@@ -3465,7 +3399,6 @@ bool XBUFFER::ExtractXBufferWithMask(XBUFFER& xbuffer, XSTRING* mask, va_list& a
 
   return ExtractXBufferWithMask(xbuffer, mask->Get(), arg);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

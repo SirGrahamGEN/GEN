@@ -283,7 +283,8 @@ class GEN_API_LIB XSTRING
     bool                  ConvertToUTF8                   (XBUFFER& xbuffer);
 
     bool                  ConvertToBase64                 (XSTRING& string);
-    bool                  ConvertFromBase64               (XSTRING& string);
+    bool                  ConvertBinaryToBase64           (XBUFFER& inbuffer);
+    bool                  ConvertBase64ToBinary           (XBUFFER& outbuffer);
 
     bool                  ConvertToPascal                 (SHORTSTRING& pascalstring);
     bool                  ConvertFromPascal               (SHORTSTRING& pascalstring);
@@ -309,18 +310,20 @@ class GEN_API_LIB XSTRING
     bool                  Explode                         (XCHAR character, XVECTOR<XSTRING*>* receive);
 
     bool                  GetTypeOfLineEnd                (XSTRING& lineend);
-
-
-    static XBYTE          ConvertXCHARToBase64            (XCHAR character);
+    
 
   protected: 
 
     bool                  ReAllocBuffer                   (XDWORD size);
     bool                  FreeBuffer                      ();
 
-    XCHAR                 ConvertIndexBase64ToXCHAR       (int index); 
     bool                  ConvertStringWithMask           (XCHAR* mask, XCHAR* string, XCHAR* result);
 
+    void                  Base64_EncodeBlock              (XBYTE* in, XBYTE* out, int len);
+    bool                  Base64_Encode                   (XBYTE* buffer, XDWORD buffersize, XSTRING& line);
+
+    void                  Base64_DecodeBlock              (XBYTE in[4], XBYTE out[3]);
+    bool                  Base64_Decode                   (const char* in_buffer, int in_buffer_size, XBUFFER& outbuffer);
 
     XCHAR*                text;
     XDWORD                size;
@@ -332,8 +335,8 @@ class GEN_API_LIB XSTRING
     double*               doublevalue;
     XCHAR*                xcharvalue;
 
-    static XCHAR          table64bits[XSTRING_SIZETABLE64BITS];
-    static bool           istable64bitsinit;
+    static const char     codetablebase64[];
+    static const char     decodetablebase64[];
 
   private:
 

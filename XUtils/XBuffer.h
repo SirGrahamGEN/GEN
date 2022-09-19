@@ -191,8 +191,8 @@ class XBUFFER
     XBYTE                    Bit_GetBitsFree                ();
     bool                     Bit_SetBitsFree                (XBYTE nbitsfree);
 
-    bool                     ConvertFromBase64              (XSTRING& stringbase64);
-    bool                     ConvertToBase64                (XSTRING& stringbase64);
+    bool                     ConvertFromBase64              (XSTRING& in_stringbase64);
+    bool                     ConvertToBase64                (XSTRING& out_stringbase64);
 
     XDWORD                   DecodeBCD                      (XDWORD ppos, XDWORD psize);
     XQWORD                   DecodeBCDLong                  (XDWORD ppos, XDWORD psize);
@@ -211,7 +211,7 @@ class XBUFFER
 
     bool                     ExtractXBufferWithMask         (XBUFFER& xbuffer, XCHAR* mask    , va_list& arg);
     bool                     ExtractXBufferWithMask         (XBUFFER& xbuffer, XSTRING* mask  , va_list& arg);
-
+    
     XBYTE*                   buffer;
     XDWORD                   size;
     XDWORD                   sizeassign;

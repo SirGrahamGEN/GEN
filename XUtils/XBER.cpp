@@ -33,8 +33,7 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-
-#include "XBuffer.h"
+#include "XTrace.h"
 
 #include "XBER.h"
 
@@ -43,8 +42,9 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
-/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+XDWORD XBER::totalposition = 0;
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -60,10 +60,8 @@ XBER::XBER()
 {
   Clean();
 
-  data = new XBUFFER();
+  data.Empty();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -78,13 +76,10 @@ XBER::XBER()
 * --------------------------------------------------------------------------------------------------------------------*/
 XBER::~XBER()
 {
-  if(data) delete data;
-
   Sequence_DeleteAll();
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -96,11 +91,115 @@ XBER::~XBER()
 * @return     XBYTE : Type of BER
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XBYTE XBER::GetType()
+XBYTE XBER::GetTagType()
 {
-  return (XBYTE)(type&0x3F);
+  return (XBYTE)tagtype;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBER::GetTagTypeName(XSTRING& name)
+* @brief      GetTagTypeName
+* @ingroup    XUTILS
+* 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER::GetTagTypeName(XSTRING& name)
+{
+  name.Empty();
+
+  switch(GetTagType())
+    {
+      case XBER_TAGTYPE_CONTEXT_SPECIFIC     : name = __L("CONTEXT_SPECIFIC");	          break;
+      case XBER_TAGTYPE_BOOLEAN	             : name = __L("BOOLEAN");	  	                break;
+      case XBER_TAGTYPE_INTEGER	             : name = __L("INTEGER");	  	                break;
+      case XBER_TAGTYPE_BIT_STRING	         : name = __L("BIT STRING");	  	            break;
+      case XBER_TAGTYPE_OCTET_STRING         : name = __L("OCTET STRING");	  	          break;
+      case XBER_TAGTYPE_NULL                 : name = __L("NULL");	  	                  break;
+      case XBER_TAGTYPE_OBJECT_IDENTIFIER    : name = __L("OBJECT IDENTIFIER");	  	      break;
+      case XBER_TAGTYPE_OBJECT_DESCRIPTOR    : name = __L("Object Descriptor");	  	      break;
+      case XBER_TAGTYPE_EXTERNAL             : name = __L("EXTERNAL");	  	              break;
+      case XBER_TAGTYPE_REAL                 : name = __L("REAL (float)");	  	          break;
+      case XBER_TAGTYPE_ENUMERATED           : name = __L("ENUMERATED");	  	            break;
+      case XBER_TAGTYPE_EMBEDDED_PDV         : name = __L("EMBEDDED PDV");	  	          break;
+      case XBER_TAGTYPE_UTF8STRING           : name = __L("UTF8String");	  	            break;
+      case XBER_TAGTYPE_RELATIVE_OID         : name = __L("RELATIVE-OID");	  	          break;
+      case XBER_TAGTYPE_TIME                 : name = __L("TIME");	  	                  break;
+      case XBER_TAGTYPE_RESERVED             : name = __L("Reserved");	  		            break;
+      case XBER_TAGTYPE_SEQUENCE             : name = __L("SEQUENCE");	                  break;
+      case XBER_TAGTYPE_SET                  : name = __L("SET");	  	                    break;
+      case XBER_TAGTYPE_NUMERICSTRING        : name = __L("NumericString");	  	          break;
+      case XBER_TAGTYPE_PRINTABLESTRING      : name = __L("PrintableString");	  	        break;
+      case XBER_TAGTYPE_T61STRING            : name = __L("T61String");	  	              break;
+      case XBER_TAGTYPE_VIDEOTEXSTRING       : name = __L("VideotexString");	  	        break;
+      case XBER_TAGTYPE_IA5STRING            : name = __L("IA5String");	  	              break;
+      case XBER_TAGTYPE_UTCTIME              : name = __L("UTCTime");	  	                break;
+      case XBER_TAGTYPE_GENERALIZEDTIME      : name = __L("GeneralizedTime");	  	        break;
+      case XBER_TAGTYPE_GRAPHICSTRING        : name = __L("GraphicString");	  	          break;
+      case XBER_TAGTYPE_VISIBLESTRING        : name = __L("VisibleString");	  	          break;
+      case XBER_TAGTYPE_GENERALSTRING        : name = __L("GeneralString");	  	          break;
+      case XBER_TAGTYPE_UNIVERSALSTRING      : name = __L("UniversalString");	  	        break;
+      case XBER_TAGTYPE_CHARACTER_STRING     : name = __L("CHARACTER STRING");	  	      break;
+      case XBER_TAGTYPE_BMPSTRING            : name = __L("BMPString");	  		            break;
+      case XBER_TAGTYPE_DATE                 : name = __L("DATE");	  	                  break;
+      case XBER_TAGTYPE_TIME_OF_DAY          : name = __L("TIME-OF-DAY");	  	            break;
+      case XBER_TAGTYPE_DATE_TIME            : name = __L("DATE-TIME");	  	              break;
+      case XBER_TAGTYPE_DURATION             : name = __L("DURATION");	  	              break;
+      case XBER_TAGTYPE_OID_IRI              : name = __L("OID-IRI");	  	                break;
+      case XBER_TAGTYPE_RELATIVE_OID_IRI     : name = __L("RELATIVE-OID-IRI");	  	      break;
+    }
+
+  return (!name.IsEmpty());
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBER_TAGCLASS XBER::GetTagClass()
+* @brief      GetTagClass
+* @ingroup    XUTILS
+* 
+* @return     XBER_TAGCLASS : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBER_TAGCLASS XBER::GetTagClass()
+{
+  return tagclass;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBER::IsConstructed()
+* @brief      IsConstructed
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER::IsConstructed()
+{
+  return isconstructed;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD XBER::GetSizeHead()
+* @brief      Get Size Head of BER
+* @ingroup    XUTILS
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD XBER::GetSizeHead()
+{
+  return sizehead;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -118,7 +217,6 @@ XDWORD XBER::GetSize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* XBER::GetData()
@@ -130,9 +228,23 @@ XDWORD XBER::GetSize()
 * --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER* XBER::GetData()
 {
-  return data;
+  return &data;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT* XBER::GetValue()
+* @brief      GetValue
+* @ingroup    XUTILS
+* 
+* @return     XVARIANT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT* XBER::GetValue()
+{
+  return &value;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -151,25 +263,22 @@ bool XBER::GetDump(XBUFFER& xbuffer, bool notheader)
 {
   if(!notheader)
     {
-      xbuffer.Add((XBYTE)type);
+      xbuffer.Add((XBYTE)tagtype);
 
       XBUFFER sizedata;
-      if(CodeSize(size, sizedata) && type!=XBERTYPE_NULL) xbuffer.Add(&sizedata);
+      if(CodeSize(size, sizedata) && tagtype != XBER_TAGTYPE_NULL) xbuffer.Add(&sizedata);
     }
 
-  if(data->GetSize()) xbuffer.Add(data->Get(), data->GetSize());
+  if(data.GetSize()) xbuffer.Add(data.Get(), data.GetSize());
 
-  for(XDWORD c=0;c<sequence.GetSize();c++)
+  for(XDWORD c=0;c<sequences.GetSize();c++)
     {
-      XBER* xber = (XBER*)sequence.Get(c);
+      XBER* xber = (XBER*)sequences.Get(c);
       if(xber) xber->GetDump(xbuffer);
     }
 
   return true;
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -178,42 +287,36 @@ bool XBER::GetDump(XBUFFER& xbuffer, bool notheader)
 * @brief      SetFromDump
 * @ingroup    XUTILS
 *
-* @param[in]  xbuffer : 
+* @param[in]  buffer : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XBER::SetFromDump(XBUFFER& xbuffer)
+bool XBER::SetFromDump(XBUFFER& buffer)
 {
-  if(xbuffer.IsEmpty()) return false;
-    
-  type = xbuffer.Get()[0];
-  size = xbuffer.Get()[1];
-
-  return false;
+  totalposition = 0;
+  
+  return SetFromDumpInternal(buffer);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XBER::SetType(XBYTE type)
-* @brief      Set Type of BER
+* 
+* @fn         bool XBER::SetTagType(XBYTE tagtype)
+* @brief      SetTagType
 * @ingroup    XUTILS
-*
-* @param[in]  type : new type of BER
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  tagtype : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XBER::SetType(XBYTE type)
+bool XBER::SetTagType(XBYTE tagtype)
 {
-  this->type = type;
+  this->tagtype = tagtype;
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -235,7 +338,6 @@ bool XBER::SetSize(XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBER::SetNULL()
@@ -247,18 +349,15 @@ bool XBER::SetSize(XDWORD size)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBER::SetNULL()
 {
-  if(!data) return false;
+  data.Delete();
 
-  data->Delete();
+  data.Add((XBYTE)0);
 
-  data->Add((XBYTE)0);
-
-  this->type = XBERTYPE_NULL;
-  this->size = 0;
+  tagtype = XBER_TAGTYPE_NULL;
+  size    = 0;
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -273,10 +372,8 @@ bool XBER::SetNULL()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBER::SetINTEGER(XDWORD integer)
-{
-  if(!data) return false;
-
-  data->Delete();
+{ 
+  data.Delete();
 
   XDWORD size = 0;
 
@@ -309,15 +406,14 @@ bool XBER::SetINTEGER(XDWORD integer)
     {
       XBYTE byte = (XBYTE)((c?(integer>>(c*8)):(integer))&0xFF);
 
-      data->Add((XBYTE)byte);
+      data.Add((XBYTE)byte);
     }
 
-  this->type = XBERTYPE_INTEGER;
-  this->size = size;
+  tagtype = XBER_TAGTYPE_INTEGER;
+  size    = size;
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -333,18 +429,15 @@ bool XBER::SetINTEGER(XDWORD integer)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBER::SetINTEGER(XBUFFER& xbufferdata)
 {
-  if(!data) return false;
+  data.Delete();
 
-  data->Delete();
+  data.Add(xbufferdata);
 
-  data->Add(xbufferdata);
-
-  this->type = XBERTYPE_INTEGER;
-  this->size = xbufferdata.GetSize();
+  tagtype = XBER_TAGTYPE_INTEGER;
+  size    = xbufferdata.GetSize();
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -361,18 +454,16 @@ bool XBER::SetINTEGER(XBUFFER& xbufferdata)
 bool XBER::SetBITSTRING(XBUFFER& xbuffer)
 {
   if(!xbuffer.GetSize()) return false;
-  if(!data)              return false;
+  
+  data.Delete();
 
-  data->Delete();
+  data.Add(xbuffer);
 
-  data->Add(xbuffer);
-
-  this->type = XBERTYPE_BITSTRING;
-  this->size = xbuffer.GetSize();
+  tagtype = XBER_TAGTYPE_BIT_STRING;
+  size    = xbuffer.GetSize();
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -391,18 +482,16 @@ bool XBER::SetBITSTRING(XBYTE* buffer, XDWORD size)
 {
   if(!buffer) return false;
   if(!size)   return false;
-  if(!data)   return false;
+  
+  data.Delete();
 
-  data->Delete();
+  data.Add(buffer, size);
 
-  data->Add(buffer, size);
-
-  this->type = XBERTYPE_BITSTRING;
-  this->size = size;
+  tagtype = XBER_TAGTYPE_BIT_STRING;
+  size    = size;
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -420,24 +509,22 @@ bool XBER::SetOCTETSTRING(XCHAR* string)
 {
   if(!string)    return false;
   if(!string[0]) return false;
-  if(!data)      return false;
-
-  data->Delete();
+  
+  data.Delete();
 
   XSTRING _string;
 
   _string = string;
 
   XSTRING_CREATEOEM(_string, charOEM)
-  data->Add((XBYTE*)charOEM, _string.GetSize());
+  data.Add((XBYTE*)charOEM, _string.GetSize());
   XSTRING_DELETEOEM(_string, charOEM)
 
-  this->type = XBERTYPE_OCTETSTRING;
-  this->size = _string.GetSize();
+  tagtype = XBER_TAGTYPE_OCTET_STRING;
+  size    = _string.GetSize();
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -454,18 +541,16 @@ bool XBER::SetOCTETSTRING(XCHAR* string)
 bool XBER::SetOCTETSTRING(XBUFFER& xbuffer)
 {
   if(!xbuffer.GetSize()) return false;
-  if(!data)              return false;
+  
+  data.Delete();
 
-  data->Delete();
+  data.Add(xbuffer);
 
-  data->Add(xbuffer);
-
-  this->type = XBERTYPE_OCTETSTRING;
-  this->size = xbuffer.GetSize();
+  tagtype = XBER_TAGTYPE_OCTET_STRING;
+  size    = xbuffer.GetSize();
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -484,18 +569,16 @@ bool XBER::SetOCTETSTRING(XBYTE* buffer, XDWORD size)
 {
   if(!buffer) return false;
   if(!size)   return false;
-  if(!data)   return false;
+  
+  data.Delete();
 
-  data->Delete();
+  data.Add(buffer, size);
 
-  data->Add(buffer, size);
-
-  this->type = XBERTYPE_OCTETSTRING;
-  this->size = size;
+  tagtype = XBER_TAGTYPE_OCTET_STRING;
+  size    = size;
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -513,9 +596,8 @@ bool XBER::SetOID(XCHAR* OIDstring)
 {
   if(!OIDstring)    return false;
   if(!OIDstring[0]) return false;
-  if(!data)         return false;
-
-  data->Delete();
+  
+  data.Delete();
 
   XSTRING       string;
   XVECTOR<int>  numbers;
@@ -558,7 +640,7 @@ bool XBER::SetOID(XCHAR* OIDstring)
   _first = (size_t)(numbers.Get(1));
   first += (int)(_first);
 
-  data->Add((XBYTE)first);
+  data.Add((XBYTE)first);
 
   for(XDWORD c=2;c<numbers.GetSize();c++)
     {
@@ -569,16 +651,15 @@ bool XBER::SetOID(XCHAR* OIDstring)
 
       if(CodeBigNumber((XDWORD)(number),_data))
         {
-          data->Add(_data.Get(),_data.GetSize());
+          data.Add(_data.Get(),_data.GetSize());
         }
     }
 
-  this->type = XBERTYPE_OID;
-  this->size = data->GetSize();
+  this->tagtype = XBER_TAGTYPE_OBJECT_IDENTIFIER;
+  this->size    = data.GetSize();
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -595,30 +676,28 @@ bool XBER::SetOID(XCHAR* OIDstring)
 bool XBER::Copy(XBER* newxber)
 {
   if(!newxber)       return false;
-  if(!newxber->data) return false;
+ 
+  newxber->tagtype  = tagtype;
+  newxber->size     = size;
+ 
+  newxber->data.Delete();
+  newxber->data.Add(data.Get(),data.GetSize());
 
-  newxber->type = type;
-  newxber->size = size;
-
-  newxber->data->Delete();
-  newxber->data->Add(data->Get(),data->GetSize());
-
-  for(XDWORD c=0;c<sequence.GetSize();c++)
+  for(XDWORD c=0;c<sequences.GetSize();c++)
     {
-      XBER* xbertmp = (XBER*)sequence.Get(c);
+      XBER* xbertmp = (XBER*)sequences.Get(c);
       if(xbertmp)
         {
           XBER* newxberseq = new XBER();
           if(newxberseq)
             {
-              if(xbertmp->Copy(newxberseq))  newxber->sequence.Add(newxberseq);
+              if(xbertmp->Copy(newxberseq))  newxber->sequences.Add(newxberseq);
             }
         }
     }
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -634,9 +713,7 @@ bool XBER::Copy(XBER* newxber)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBER::Sequence_AddTo(XBER& xber)
 {
-  if(!data) return false;
-
-  data->Delete();
+  data.Delete();
 
   XBER* newxber = new XBER();
   if(!newxber) return false;
@@ -647,20 +724,34 @@ bool XBER::Sequence_AddTo(XBER& xber)
       return false;
     }
 
-  sequence.Add(newxber);
+  sequences.Add(newxber);
 
-  this->type = XBERTYPE_SEQOFSEQ;
-  this->size = 0;
+  tagtype = XBER_TAGTYPE_SEQUENCE;
+  size    = 0;
 
-  for(XDWORD c=0;c<sequence.GetSize();c++)
+  for(XDWORD c=0;c<sequences.GetSize();c++)
     {
-      XBER* xber = (XBER*)sequence.Get(c);
-      if(xber) this->size += xber->Sequence_GetSize();
+      XBER* xber = (XBER*)sequences.Get(c);
+      if(xber) size += xber->Sequence_GetSize();
     }
 
   return true;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XBER*>* XBER::Sequence_GetSequences()
+* @brief      Sequence_GetSequences
+* @ingroup    XUTILS
+* 
+* @return     XVECTOR<XBER*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XBER*>* XBER::Sequence_GetSequences()
+{
+  return &sequences;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -676,19 +767,16 @@ bool XBER::Sequence_AddTo(XBER& xber)
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool XBER::Sequence_AddCommandTo(XBYTE command, XBER& xber)
-{
-  if(!data) return false;
+{ 
+  data.Delete();
 
-  data->Delete();
+  xber.GetDump(data, true);
 
-  xber.GetDump((*data), true);
-
-  this->type = command;
-  this->size = data->GetSize();
+  this->tagtype = command;
+  this->size    = data.GetSize();
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -705,7 +793,7 @@ XDWORD XBER::Sequence_GetSize()
   XDWORD  sizeall = 0;
 
   // Size type
-  if(type != XBERTYPE_NULL) sizeall++;
+  if(tagtype != XBER_TAGTYPE_NULL) sizeall++;
 
   // Size of size;
   XBUFFER sizedata;
@@ -713,11 +801,11 @@ XDWORD XBER::Sequence_GetSize()
   CodeSize(size,sizedata);
   sizeall += sizedata.GetSize();
 
-  sizeall += data->GetSize();
+  sizeall += data.GetSize();
 
-  for(XDWORD c=0;c<sequence.GetSize();c++)
+  for(XDWORD c=0;c<sequences.GetSize();c++)
     {
-      XBER* xber = (XBER*)sequence.Get(c);
+      XBER* xber = (XBER*)sequences.Get(c);
       if(xber) sizeall += xber->Sequence_GetSize();
     }
 
@@ -737,15 +825,337 @@ XDWORD XBER::Sequence_GetSize()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBER::Sequence_DeleteAll()
 {
-  if(sequence.IsEmpty()) return false;
+  if(sequences.IsEmpty()) return false;
 
-  sequence.DeleteContents();
+  sequences.DeleteContents();
 
-  sequence.DeleteAll();
+  sequences.DeleteAll();
 
   return true;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBER::SetFromDump(XBUFFER& xbuffer)
+* @brief      SetFromDump
+* @ingroup    XUTILS
+*
+* @param[in]  buffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool XBER::SetFromDumpInternal(XBUFFER& buffer)
+{
+  static int level = 0;
+  
+  if(buffer.IsEmpty()) return false;
+
+  tagtype = (XBYTE)(buffer.Get()[0] & XBER_TAG_MASKTYPE); 
+
+  if(!CalculeSize(buffer, size, sizehead)) return false;  
+  
+  GetTagTypeName(nametagtype);
+
+  tagclass = XBER_TAG_CLASS(buffer.Get()[0]);
+
+  isconstructed =  ((buffer.Get()[0] & XBER_TAG_MASKISCONSTRUCTED) == XBER_TAG_MASKISCONSTRUCTED)?true:false;
+
+  data.Delete();
+  data.Add(&buffer.Get()[sizehead], size);
+ 
+  if(isconstructed)  
+    { 
+      XBUFFER buffer_rest;
+      XBER*   sub_ber  = NULL; 
+      XDWORD  position = 0;     
+
+      XTRACE_PRINTTAB(level, __L("(%d, %d) %s"), totalposition, size, nametagtype.Get());  
+      // XTRACE_PRINTDATABLOCKTAB(level, buffer.Get(), sizehead);
+
+      level++;    
+
+      totalposition += sizehead;           
+
+      buffer_rest.Delete();
+      buffer_rest.Add(&buffer.Get()[sizehead], buffer.GetSize()-sizehead);          
+      
+      while(position < data.GetSize())
+        {                  
+          sub_ber = new XBER();
+          if(sub_ber) 
+            {                           
+              if(!sub_ber->SetFromDumpInternal(buffer_rest))
+                {
+                  delete sub_ber;    
+                  sub_ber = NULL;
+
+                  return false;  
+                }
+               else
+                {                
+                  sequences.Add(sub_ber);
+                    
+                  int addsize = sub_ber->GetSizeHead() + sub_ber->GetSize();    
+                  
+                  position += addsize;                                                                                     
+                  
+                  buffer_rest.Extract(NULL, 0, addsize);
+                }            
+                
+            } else return false;
+        }
+
+      level--;
+    } 
+   else
+    {
+      switch(tagtype)
+        {  
+          case XBER_TAGTYPE_CONTEXT_SPECIFIC    : break;
+          case XBER_TAGTYPE_BOOLEAN	            : break;
+          case XBER_TAGTYPE_INTEGER	            : break;
+          case XBER_TAGTYPE_BIT_STRING	        : break;
+          case XBER_TAGTYPE_OCTET_STRING        : break;
+          case XBER_TAGTYPE_NULL                : break;
+
+          case XBER_TAGTYPE_OBJECT_IDENTIFIER   : ConvertToObjetIdentifier(data, value);
+                                                  break;
+
+          case XBER_TAGTYPE_OBJECT_DESCRIPTOR   : break;
+          case XBER_TAGTYPE_EXTERNAL            : break;
+          case XBER_TAGTYPE_REAL                : break;
+          case XBER_TAGTYPE_ENUMERATED          : break;
+          case XBER_TAGTYPE_EMBEDDED_PDV        : break;
+          case XBER_TAGTYPE_UTF8STRING          : break;
+          case XBER_TAGTYPE_RELATIVE_OID        : break;
+          case XBER_TAGTYPE_TIME                : break;
+          case XBER_TAGTYPE_RESERVED            : break;
+          case XBER_TAGTYPE_SEQUENCE            : break;
+          case XBER_TAGTYPE_SET                 : break;
+          case XBER_TAGTYPE_NUMERICSTRING       : break;
+
+          case XBER_TAGTYPE_PRINTABLESTRING     : ConvertToPrintableString(data, value);
+                                                  break;
+
+          case XBER_TAGTYPE_T61STRING           : break;
+          case XBER_TAGTYPE_VIDEOTEXSTRING      : break;
+          case XBER_TAGTYPE_IA5STRING           : break;
+          case XBER_TAGTYPE_UTCTIME             : break;
+          case XBER_TAGTYPE_GENERALIZEDTIME     : break;
+          case XBER_TAGTYPE_GRAPHICSTRING       : break;
+          case XBER_TAGTYPE_VISIBLESTRING       : break;
+          case XBER_TAGTYPE_GENERALSTRING       : break;
+          case XBER_TAGTYPE_UNIVERSALSTRING     : break;
+          case XBER_TAGTYPE_CHARACTER_STRING    : break;
+          case XBER_TAGTYPE_BMPSTRING           : break;
+          case XBER_TAGTYPE_DATE                : break;
+          case XBER_TAGTYPE_TIME_OF_DAY         : break;
+          case XBER_TAGTYPE_DATE_TIME           : break;
+          case XBER_TAGTYPE_DURATION            : break;
+          case XBER_TAGTYPE_OID_IRI             : break;
+          case XBER_TAGTYPE_RELATIVE_OID_IRI    : break;
+        }      
+
+      { XSTRING valuestr;
+      
+        value.ToString(valuestr);
+        if((valuestr.GetSize() && (!value.IsNull())))
+          {
+            XTRACE_PRINTTAB(level, __L("(%d, %d) %s : [%s]"), totalposition, size, nametagtype.Get(), (valuestr.GetSize() && (!value.IsNull()))?valuestr.Get():__L(""));        
+          }
+         else
+          {
+            XTRACE_PRINTTAB(level, __L("(%d, %d) %s"), totalposition, size, nametagtype.Get());        
+          }
+
+        XTRACE_PRINTDATABLOCKTAB(level, data);  
+      }
+
+      
+      totalposition += sizehead + size;     
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBER::ConvertToNULL(XVARIANT& variant)
+* @brief      ConvertToNULL
+* @ingroup    XUTILS
+* 
+* @param[in]  variant : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER::ConvertToNULL(XVARIANT& variant)
+{
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBER::ConvertToObjetIdentifier(XBUFFER& data, XVARIANT& variant)
+* @brief      ConvertToObjetIdentifier
+* @ingroup    XUTILS
+* 
+* @param[in]  data : 
+* @param[in]  variant : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER::ConvertToObjetIdentifier(XBUFFER& data, XVARIANT& variant)
+{
+  XSTRING string;
+
+  string.Format(__L("%d.%d"), (data.Get()[0]/40), (data.Get()[0]%40));
+
+  XDWORD wdata = 0;
+
+  for(XDWORD c=1; c<data.GetSize(); c++)
+    {      
+      if(data.Get()[c]&0x80)
+        {
+        
+          wdata = 0;
+        }
+       else
+        {
+          if(!wdata) 
+            {
+
+            }        
+        }
+
+
+    }
+
+
+  variant = string;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBER::ConvertToPrintableString(XBUFFER& data, XVARIANT& variant)
+* @brief      ConvertToPrintableString
+* @ingroup    XUTILS
+* 
+* @param[in]  data : 
+* @param[in]  variant : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER::ConvertToPrintableString(XBUFFER& data, XVARIANT& variant)
+{
+  XSTRING string; 
+
+  string.Add(data);
+
+  variant = string;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBER::ConvertToUTCTime(XBUFFER& data, XVARIANT& variant)
+* @brief      ConvertToUTCTime
+* @ingroup    XUTILS
+* 
+* @param[in]  data : 
+* @param[in]  variant : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER::ConvertToUTCTime(XBUFFER& data, XVARIANT& variant)
+{
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD XBER::CalculeSize(XBYTE& sizehead)
+* @brief      CalculeSize
+* @ingroup    XUTILS
+* 
+* @param[in]  sizehead : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER::CalculeSize(XBUFFER& buffer, XDWORD& sizedataber, XBYTE& sizehead)
+{  
+  int mode = -1;
+  
+  if(buffer.IsEmpty()) return false;
+
+  if(!(buffer.Get()[1] & 0x80))
+    {
+      if(!(buffer.Get()[1]))
+        {
+          if(tagtype == XBER_TAGTYPE_NULL)            
+                 mode = 0;             
+            else mode = 3;
+            
+        } else mode  = 0;
+
+    } else mode = 2;  
+    
+
+  switch(mode)
+    {
+      case  0 : // Short mode              
+                sizedataber = buffer.Get()[1];              
+                sizehead    = 2;
+                break;
+
+      case  2 : // Long mode;
+                { 
+                  int sizeofsize = (buffer.Get()[1] & 0x7F);
+                  sizehead       = 2 + sizeofsize;
+
+                  if(sizeofsize > 4)  return false;
+                  if(!sizeofsize)     return false;                    
+                
+                  memcpy((XBYTE*)&sizedataber, (XBYTE*)&buffer.Get()[2], sizeofsize);   
+                  SWAPDWORD(sizedataber);
+
+                  XBYTE bitsrotate = (32-(sizeofsize*8));
+                  sizedataber >>= bitsrotate; 
+                }
+                break;
+
+      case  3 : // Indefinite mode;                               
+                sizehead    = 2;
+                sizedataber = 0;
+                for(XDWORD c=2; c<data.GetSize()-1; c++)
+                  {
+                    if(!data.Get()[c] && !data.Get()[c+1])  
+                      {
+                        sizedataber++;
+                      }
+                  }  
+                break;
+
+      default : break;
+
+    }
+
+  return true;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -887,8 +1297,18 @@ bool XBER::CodeSize(XDWORD integer, XBUFFER& data)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBER::Clean()
 {
-  type      = 0;
-  size      = 0;
-  data      = NULL;
+  tagtype         = 0;  
+  nametagtype.Empty();
+  tagclass        = XBER_TAGCLASS_UNIVERSAL;
+
+  sizehead        = 0;
+  size            = 0;
+
+  data.Empty();
+
+  isconstructed   = false;
+
+  sequences.DeleteContents();
+  sequences.DeleteAll();
 }
 

@@ -53,11 +53,10 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
-XCHAR XSTRING::table64bits[XSTRING_SIZETABLE64BITS];
-bool  XSTRING::istable64bitsinit = false;
+const char XSTRING::codetablebase64[]   = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+const char XSTRING::decodetablebase64[] = "|$$$}rstuvwxyz{$$$$$$$>?@ABCDEFGHIJKLMNOPQRSTUVW$$$$$$XYZ[\\]^_`abcdefghijklmnopq";
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -75,7 +74,6 @@ XSTRING::XSTRING()
 
   GEN_XFACTORY_CREATE(xmutexfreemen, Create_Mutex());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -99,7 +97,6 @@ XSTRING::XSTRING(XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING::XSTRING(const char* string)
@@ -121,7 +118,6 @@ XSTRING::XSTRING(const char* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING::XSTRING(const XCHAR* string)
@@ -141,7 +137,6 @@ XSTRING::XSTRING(const XCHAR* string)
 
   Set(string);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -166,7 +161,6 @@ XSTRING::XSTRING(const XCHAR* string, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING::XSTRING(const XSTRING& string)
@@ -188,7 +182,6 @@ XSTRING::XSTRING(const XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING::XSTRING(XWORD* string)
@@ -208,7 +201,6 @@ XSTRING::XSTRING(XWORD* string)
 
   Set(string);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -235,7 +227,6 @@ XSTRING::~XSTRING()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XCHAR* XSTRING::Get() const
@@ -251,7 +242,6 @@ XCHAR* XSTRING::Get() const
 
   return text;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -271,7 +261,6 @@ XDWORD XSTRING::GetSize() const
 
   return size;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -298,7 +287,6 @@ XDWORD XSTRING::GetSize(const XCHAR* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XSTRING::GetSize(XWORD* string)
@@ -323,7 +311,6 @@ XDWORD XSTRING::GetSize(XWORD* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::IsOEM()
@@ -342,7 +329,6 @@ bool XSTRING::IsOEM()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -374,7 +360,6 @@ bool XSTRING::CreateOEM(char*& _textOEM) const
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::DeleteOEM(char* text)
@@ -394,7 +379,6 @@ bool XSTRING::DeleteOEM(char* text)
 
   return true;                                                 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -440,7 +424,6 @@ bool XSTRING::CreateNormalize(XWORD*& _textnormalize, bool inverse)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::DeleteNormalize(XWORD*& _textnormalize)
@@ -462,7 +445,6 @@ bool XSTRING::DeleteNormalize(XWORD*& _textnormalize)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Set(XDWORD size)
@@ -482,7 +464,6 @@ bool XSTRING::Set(XDWORD size)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -515,7 +496,6 @@ bool XSTRING::Set(const char* string)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -554,7 +534,6 @@ bool XSTRING::Set(const XCHAR* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Set(const XCHAR* string, XDWORD size)
@@ -587,7 +566,6 @@ bool XSTRING::Set(const XCHAR* string, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Set(const XSTRING& string)
@@ -616,7 +594,6 @@ bool XSTRING::Set(const XSTRING& string)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -655,7 +632,6 @@ bool XSTRING::Set(XWORD* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Set(XCHAR character)
@@ -675,7 +651,6 @@ bool XSTRING::Set(XCHAR character)
 
   return Set(characters);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -706,7 +681,6 @@ bool XSTRING::Set(XCHAR* str1, const XCHAR* str2)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -742,7 +716,6 @@ bool XSTRING::Set(const XBYTE* buffer, XDWORD size)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -781,7 +754,6 @@ bool XSTRING::Set(const XDWORD* buffer, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Set(XBUFFER& buffer)
@@ -797,7 +769,6 @@ bool XSTRING::Set(XBUFFER& buffer)
 {
   return Set(buffer.Get(), buffer.GetSize());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -850,7 +821,6 @@ bool XSTRING::Add(const char* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Add(const XCHAR* string)
@@ -876,7 +846,6 @@ bool XSTRING::Add(const XCHAR* string)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -928,7 +897,6 @@ bool XSTRING::Add(XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Add(XCHAR character)
@@ -948,7 +916,6 @@ bool XSTRING::Add(XCHAR character)
 
   return Add(characters);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -983,7 +950,6 @@ bool XSTRING::Add(XCHAR* str1, const XCHAR* str2)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Add(const XBYTE* buffer, XDWORD size)
@@ -1012,7 +978,6 @@ bool XSTRING::Add(const XBYTE* buffer, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Add(XBUFFER& buffer)
@@ -1028,7 +993,6 @@ bool XSTRING::Add(XBUFFER& buffer)
 {
   return Add(buffer.Get(), buffer.GetSize());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1065,7 +1029,6 @@ void XSTRING::operator =  (const XCHAR* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::operator = (XSTRING& string)
@@ -1081,7 +1044,6 @@ void XSTRING::operator =  (const XSTRING& string)
 {
   Set(string);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1101,7 +1063,6 @@ void XSTRING::operator =  (XWORD* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::operator = (XBUFFER& string)
@@ -1117,7 +1078,6 @@ void XSTRING::operator =  (XBUFFER& string)
 {
   Set(string);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1137,7 +1097,6 @@ void XSTRING::operator += (const char* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::operator += (const XCHAR* string)
@@ -1153,7 +1112,6 @@ void XSTRING::operator += (const XCHAR* string)
 {
   Add(string);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1173,7 +1131,6 @@ void XSTRING::operator += (XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::operator += (XCHAR character)
@@ -1189,7 +1146,6 @@ void XSTRING::operator += (XCHAR character)
 {
   Add(character);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1209,7 +1165,6 @@ bool XSTRING::operator <  (const XSTRING& string) const
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::operator > (XSTRING& string)
@@ -1225,7 +1180,6 @@ bool XSTRING::operator >  (XSTRING& string)
 {
   return (bool)(Compare(string) ==  1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1245,7 +1199,6 @@ bool XSTRING::operator <= (XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::operator >= (XSTRING& string)
@@ -1261,7 +1214,6 @@ bool XSTRING::operator >= (XSTRING& string)
 {
   return (bool)(Compare(string) != -1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1281,7 +1233,6 @@ bool XSTRING::operator == (const XSTRING& string) const
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::operator != (XSTRING& string)
@@ -1297,7 +1248,6 @@ bool XSTRING::operator != (XSTRING& string)
 {
   return (bool)(Compare(string) !=  0);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1319,7 +1269,6 @@ XCHAR XSTRING::operator [] (int position)
 
   return text[position];
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1346,7 +1295,6 @@ bool XSTRING::FillChar(XCHAR character)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Empty()
@@ -1366,7 +1314,6 @@ bool XSTRING::Empty()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::IsEmpty()
@@ -1383,7 +1330,6 @@ bool XSTRING::IsEmpty()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1409,7 +1355,6 @@ bool XSTRING::HaveCharacters()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::HaveOnlyNumbers()
@@ -1431,7 +1376,6 @@ bool XSTRING::HaveOnlyNumbers()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1468,7 +1412,6 @@ bool XSTRING::DeleteCharacters(XDWORD index, XDWORD ncharacteres)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::DeleteCharactersToEnd(XDWORD index)
@@ -1498,7 +1441,6 @@ bool XSTRING::DeleteCharactersToEnd(XDWORD index)
 
   return ReAllocBuffer(size - nchar);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1565,7 +1507,6 @@ bool XSTRING::DeleteCharacter(XCHAR character,XSTRINGCONTEXT context)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::DeleteNoCharacters(XSTRINGCONTEXT context)
@@ -1587,7 +1528,6 @@ bool XSTRING::DeleteNoCharacters(XSTRINGCONTEXT context)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1693,7 +1633,6 @@ int XSTRING::DeleteNoCharacters(XCHAR* n, int start, XSTRINGCONTEXT context)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::DeleteLastCharacter()
@@ -1707,7 +1646,6 @@ bool XSTRING::DeleteLastCharacter()
 {
   return DeleteCharacters(GetSize()-1, 1);  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1732,7 +1670,6 @@ bool XSTRING::Character_IsAlpha(XCHAR character) const
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Character_IsUpperCase(XCHAR character)
@@ -1754,7 +1691,6 @@ bool XSTRING::Character_IsUpperCase(XCHAR character)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Character_IsLowerCase(XCHAR character)
@@ -1774,7 +1710,6 @@ bool XSTRING::Character_IsLowerCase(XCHAR character)
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1802,7 +1737,6 @@ bool XSTRING::Character_IsNumber(XCHAR character)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Character_IsNOT(XCHAR character)
@@ -1827,7 +1761,6 @@ bool XSTRING::Character_IsNOT(XCHAR character)
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1857,7 +1790,6 @@ XCHAR XSTRING::Character_ToUpper(XCHAR character) const
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR XSTRING::Character_ToLower(XCHAR character) const
@@ -1884,7 +1816,6 @@ XCHAR XSTRING::Character_ToLower(XCHAR character) const
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR XSTRING::Character_GetFirst()
@@ -1900,7 +1831,6 @@ XCHAR XSTRING::Character_GetFirst()
 
   return text[0];
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1927,7 +1857,6 @@ XCHAR XSTRING::Character_GetLast()
 
   return 0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1961,7 +1890,6 @@ bool XSTRING::Character_Change(XCHAR source, XCHAR target)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::IsNumber()
@@ -1982,7 +1910,6 @@ bool XSTRING::IsNumber()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2011,7 +1938,6 @@ bool XSTRING::ToUpperCase()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ToLowerCase()
@@ -2036,7 +1962,6 @@ bool XSTRING::ToLowerCase()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2104,7 +2029,6 @@ int XSTRING::Compare(const XCHAR* string, int csize, bool ignorecase)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::Compare(const XCHAR* string, bool ignorecase)
@@ -2169,7 +2093,6 @@ int XSTRING::Compare(const XCHAR* string, bool ignorecase)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::Compare(const char* string, bool ignorecase)
@@ -2188,7 +2111,6 @@ int XSTRING::Compare(const char* string, bool ignorecase)
 
   return Compare(stringtemp, ignorecase);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2212,7 +2134,6 @@ int XSTRING::Compare(const XCHAR* string, const XCHAR* string2, bool ignorecase)
 
   return a.Compare(string2,ignorecase);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2276,7 +2197,6 @@ int XSTRING::Compare(const XSTRING& string, bool ignorecase) const
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::Find(const XCHAR* string, bool ignorecase, int startindex)
@@ -2296,7 +2216,6 @@ int XSTRING::Find(const XCHAR* string, bool ignorecase, int startindex)
 
   return Find(unistring,ignorecase,startindex);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2360,7 +2279,6 @@ int XSTRING::Find(XSTRING& string, bool ignorecase,int startindex)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::FindCharacter(XCHAR character, XDWORD startindex, bool endtostart)
@@ -2395,7 +2313,6 @@ int XSTRING::FindCharacter(XCHAR character, XDWORD startindex, bool endtostart)
 
   return XSTRING_NOTFOUND;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2438,7 +2355,6 @@ XDWORD XSTRING::CountCharacter(XCHAR character, int startindex, bool endtostart)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::FindDiferentCharacter(XCHAR character, int startindex, bool endtostart)
@@ -2478,7 +2394,6 @@ int XSTRING::FindDiferentCharacter(XCHAR character, int startindex, bool endtost
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::GetNCharacters(XCHAR character)
@@ -2501,7 +2416,6 @@ int XSTRING::GetNCharacters(XCHAR character)
 
   return count;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2541,7 +2455,6 @@ bool XSTRING::AreValidCharacters(XCHAR* validcharacterslist)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2604,7 +2517,6 @@ int XSTRING::Copy(const XCHAR* startmark, const XCHAR* endmark, bool ignorecase,
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::Copy(int startindex, const XCHAR* endmark, bool ignorecase, XSTRING& string)
@@ -2652,7 +2564,6 @@ int XSTRING::Copy(int startindex, const XCHAR* endmark, bool ignorecase, XSTRING
 
   return indexnext;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2705,7 +2616,6 @@ int XSTRING::Copy(const XCHAR* startmark, int endindex, bool ignorecase, int add
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::Copy(int startindex, int endindex, XSTRING& string)
@@ -2730,7 +2640,6 @@ int XSTRING::Copy(int startindex, int endindex, XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::Copy(int startindex, XSTRING& string)
@@ -2747,7 +2656,6 @@ int XSTRING::Copy(int startindex, XSTRING& string)
 {
   return Copy(startindex, GetSize(), string);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2786,7 +2694,6 @@ int XSTRING::Replace(XCHAR* findwhat, XCHAR* replaceby)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::ReplaceFirst(XCHAR* findwhat, XCHAR* replaceby)
@@ -2819,7 +2726,6 @@ int XSTRING::ReplaceFirst(XCHAR* findwhat, XCHAR* replaceby)
 
   return found;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2858,7 +2764,6 @@ bool XSTRING::Insert(XSTRING str,XDWORD position)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromInt(int value, const XCHAR* mask)
@@ -2893,7 +2798,6 @@ bool XSTRING::ConvertFromInt(int value, const XCHAR* mask)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2932,7 +2836,6 @@ bool XSTRING::ConvertFromDWord(XDWORD value, const XCHAR* mask)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromQWord(XQWORD value, const XCHAR* mask)
@@ -2967,7 +2870,6 @@ bool XSTRING::ConvertFromQWord(XQWORD value, const XCHAR* mask)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3006,7 +2908,6 @@ bool XSTRING::ConvertFromLongLong(long long value, const XCHAR* mask)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromFloat(float value, const XCHAR* mask)
@@ -3041,7 +2942,6 @@ bool XSTRING::ConvertFromFloat(float value, const XCHAR* mask)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3080,7 +2980,6 @@ bool XSTRING::ConvertFromDouble(double value, const XCHAR* mask)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromBoolean(bool boolean, bool uppercase)
@@ -3103,7 +3002,6 @@ bool XSTRING::ConvertFromBoolean(bool boolean, bool uppercase)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromXBUFFER(XBUFFER& buffer)
@@ -3122,7 +3020,6 @@ bool XSTRING::ConvertFromXBUFFER(XBUFFER& buffer)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3180,7 +3077,6 @@ bool XSTRING::ConvertHexFormatChars()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertToHexString(XSTRING& string, bool uppercase)
@@ -3207,7 +3103,6 @@ bool XSTRING::ConvertToHexString(XSTRING& string, bool uppercase)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3244,7 +3139,6 @@ bool XSTRING::ConvertHexStringToBuffer(XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertHexStringFromBuffer(XBUFFER& xbuffer, bool uppercase)
@@ -3270,9 +3164,7 @@ bool XSTRING::ConvertHexStringFromBuffer(XBUFFER& xbuffer, bool uppercase)
     }
 
   return true;
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3318,8 +3210,6 @@ int XSTRING::ConvertToInt(int index, const XCHAR* mask, bool checkvalidchars)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XSTRING::ConvertToDWord(int index, const XCHAR* mask, bool checkvalidchars)
@@ -3359,7 +3249,6 @@ XDWORD XSTRING::ConvertToDWord(int index, const XCHAR* mask, bool checkvalidchar
 
   return data;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3403,7 +3292,6 @@ XQWORD XSTRING::ConvertToQWord(int index, const XCHAR* mask, bool checkvalidchar
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float XSTRING::ConvertToFloat(int index, const XCHAR* mask, bool checkvalidchars)
@@ -3443,7 +3331,6 @@ float XSTRING::ConvertToFloat(int index, const XCHAR* mask, bool checkvalidchars
 
   return data;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3487,7 +3374,6 @@ double XSTRING::ConvertToDouble(int index, const XCHAR* mask, bool checkvalidcha
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertToXBUFFER(XBUFFER& buffer)
@@ -3508,7 +3394,6 @@ bool XSTRING::ConvertToXBUFFER(XBUFFER& buffer)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3569,7 +3454,6 @@ bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD maxsize)
   
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3664,7 +3548,6 @@ bool XSTRING::ConvertFromUTF8(XBYTE* data,XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromUTF8(XBUFFER& xbuffer)
@@ -3680,7 +3563,6 @@ bool XSTRING::ConvertFromUTF8(XBUFFER& xbuffer)
 {
   return ConvertFromUTF8(xbuffer.Get(), xbuffer.GetSize());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3748,7 +3630,6 @@ int XSTRING::GetSizeConvertToUTF8()
 
   return size;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3825,7 +3706,6 @@ bool XSTRING::ConvertToUTF8(XBYTE* data, int& size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertToUTF8(XBUFFER& xbuffer)
@@ -3853,104 +3733,75 @@ bool XSTRING::ConvertToUTF8(XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XSTRING::ConvertToBase64(XSTRING& string)
 * @brief      ConvertToBase64
 * @ingroup    XUTILS
-*
-* @param[in]  string :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  string : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSTRING::ConvertToBase64(XSTRING& string)
 {
-  XDWORD sizebase64  = 4 * ((GetSize() + 2) / 3);
-  int mod_table[] = { 0, 2, 1 };
+  XBUFFER data;
 
-  string.Empty();
-  string.ReAllocBuffer(sizebase64);
+  XSTRING_CREATEOEM((*this), charOEM)
 
-  for(int i=0, j=0; i<(int)GetSize();)
-    {
-      XDWORD octetA = (i < (int)GetSize()) ? (XBYTE)Get()[i++] : 0;
-      XDWORD octetB = (i < (int)GetSize()) ? (XBYTE)Get()[i++] : 0;
-      XDWORD octetC = (i < (int)GetSize()) ? (XBYTE)Get()[i++] : 0;
+  data.Add((XBYTE*)charOEM, GetSize());  
 
-      XDWORD triple = (octetA << 0x10) + (octetB << 0x08) + octetC;
+  XSTRING_DELETEOEM((*this), charOEM)
 
-      string.Get()[j++] = (ConvertIndexBase64ToXCHAR((triple >> 3 * 6) & 0x3F));
-      string.Get()[j++] = (ConvertIndexBase64ToXCHAR((triple >> 2 * 6) & 0x3F));
-      string.Get()[j++] = (ConvertIndexBase64ToXCHAR((triple >> 1 * 6) & 0x3F));
-      string.Get()[j++] = (ConvertIndexBase64ToXCHAR((triple >> 0 * 6) & 0x3F));
-    }
+  string.ConvertBinaryToBase64(data);
 
-  for(int i = 0; i < mod_table[GetSize() % 3]; i++)
-    {
-      string.Get()[sizebase64 - 1 - i] = __C('=');
-    }
-
-  return true;
+  return string.GetSize()?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSTRING::ConvertFromBase64(XSTRING& string)
-* @brief      ConvertFromBase64
+* 
+* @fn         bool XSTRING::ConvertBinaryToBase64(XBUFFER& inbuffer)
+* @brief      ConvertBinaryToBase64
 * @ingroup    XUTILS
-*
-* @param[in]  string :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  inbuffer) : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::ConvertFromBase64(XSTRING& string)
-{
-  XDWORD  data;
-  int     size  = string.GetSize();
-  int     c     = 0;
-  int     d;
-
-  Empty();
-
-  if(!size) return false;
-
-  XSTRING_CREATEOEM(string, charstr)
-
-  do{ data = 0;
-
-      for(d=0;d<4;d++)
-        {
-          data |= XSTRING::ConvertXCHARToBase64((char)charstr[c+d]);
-          if(d!=3) data<<=6;
-        }
-
-
-      data<<=8;
-
-      for(d=0;d<3;d++)
-        {
-          XCHAR character[2] = { 0 , 0 };
-
-          character[0]  = ((data & 0xFF000000)>>24);
-          data<<=8;
-
-          Add(character);
-        }
-
-      c+=4;
-
-    } while(c<size);
-
-  XSTRING_DELETEOEM(string, charstr)
-
-  return true;
+bool XSTRING::ConvertBinaryToBase64(XBUFFER& inbuffer)
+{  
+  return Base64_Encode(inbuffer.Get(), inbuffer.GetSize(), (*this));
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertFromBase64(XBUFFER& data)
+* @brief      ConvertFromBase64
+* @ingroup    XUTILS
+* 
+* @param[in]  data : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertBase64ToBinary(XBUFFER& outbuffer)
+{
+  int     size  = GetSize();
+  
+  if(!size) return false;
+
+  XSTRING_CREATEOEM((*this), charstr)
+ 
+  bool status = Base64_Decode(charstr, GetSize(), outbuffer); 
+  
+  XSTRING_DELETEOEM((*this), charstr)
+
+  return status;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3978,7 +3829,6 @@ bool XSTRING::ConvertToPascal(SHORTSTRING& pascalstring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromPascal(SHORTSTRING& pascalstring)
@@ -3998,7 +3848,6 @@ bool XSTRING::ConvertFromPascal(SHORTSTRING& pascalstring)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -4179,7 +4028,6 @@ bool XSTRING::ConvertFromDoubleToSpanishText(double value, bool withintegerpart,
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Swab()
@@ -4204,7 +4052,6 @@ bool XSTRING::Swab()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -4268,7 +4115,6 @@ bool XSTRING::Split(XCHAR separator, XVECTOR<XSTRING*>& results, bool addsubstri
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -4480,7 +4326,6 @@ bool XSTRING::FormatArg(const XCHAR* mask, va_list* arg, bool isspecialweb)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Format(const XCHAR* mask, ...)
@@ -4505,7 +4350,6 @@ bool XSTRING::Format(const XCHAR* mask, ...)
 
   return 0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -4535,7 +4379,6 @@ bool XSTRING::AddFormat(const XCHAR* mask, ...)
 
   return 0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -4733,7 +4576,6 @@ bool XSTRING::UnFormat(const XCHAR* mask,...)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::FindCharacterFromSet(const XCHAR* chars)
@@ -4764,7 +4606,6 @@ int XSTRING::FindCharacterFromSet(const XCHAR* chars)
 
   return (int)(s - text);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -4867,7 +4708,6 @@ bool XSTRING::AdjustSize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::BinaryCompare(XSTRING& string)
@@ -4888,7 +4728,6 @@ bool XSTRING::BinaryCompare(XSTRING& string)
 
   return memcmp(text, string.text, size*sizeof(XCHAR)) == 0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -5010,31 +4849,6 @@ bool XSTRING::GetTypeOfLineEnd(XSTRING& lineend)
 }
 
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XBYTE XSTRING::ConvertXCHARToBase64(XCHAR character)
-* @brief      ConvertXCHARToBase64
-* @ingroup    XUTILS
-*
-* @param[in]  character : 
-*
-* @return     XBYTE : 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XBYTE XSTRING::ConvertXCHARToBase64(XCHAR character)
-{
-  for(XBYTE c=0;c<(XBYTE)XSTRING_SIZETABLE64BITS;c++)
-    {
-      if(table64bits[c]==character) return c;
-    }
-
-  return 0;
-}
-
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ReAllocBuffer(XDWORD size)
@@ -5101,11 +4915,6 @@ bool XSTRING::ReAllocBuffer(XDWORD size)
 }
 
 
-
-
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::FreeBuffer()
@@ -5136,29 +4945,6 @@ bool XSTRING::FreeBuffer()
 
   return status;
 }
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XCHAR XSTRING::ConvertIndexBase64ToXCHAR(int index)
-* @brief      ConvertIndexBase64ToXCHAR
-* @ingroup    XUTILS
-*
-* @param[in]  index :
-*
-* @return     XCHAR :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XCHAR XSTRING::ConvertIndexBase64ToXCHAR(int index)
-{
-  if(index>=(int)XSTRING_SIZETABLE64BITS) return 0;
-  if(index<0)                             return 0;
-
-  return table64bits[index];
-}
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -5204,6 +4990,160 @@ bool XSTRING::ConvertStringWithMask(XCHAR* mask, XCHAR* string, XCHAR* result)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XSTRING::Base64_EncodeBlock(XBYTE*in, XBYTE*out, int len)
+* @brief      Base64_EncodeBlock
+* @ingroup    XUTILS
+* 
+* @param[in]  XBYTE*in : 
+* @param[in]  XBYTE*out : 
+* @param[in]  len : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XSTRING::Base64_EncodeBlock(XBYTE *in, XBYTE *out, int len)
+{
+  out[0] = (XBYTE) codetablebase64[ (int)(in[0] >> 2) ];  
+  out[1] = (XBYTE) codetablebase64[ (int)(((in[0] & 0x03) << 4) | ((in[1] & 0xf0) >> 4)) ];
+  out[2] = (XBYTE) (len > 1 ? codetablebase64[ (int)(((in[1] & 0x0f) << 2) | ((in[2] & 0xc0) >> 6)) ] : '=');
+  out[3] = (XBYTE) (len > 2 ? codetablebase64[ (int)(in[2] & 0x3f) ] : '=');
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::Base64_Encode(XBYTE* buffer, XDWORD buffersize, XSTRING& line)
+* @brief      Base64_Encode
+* @ingroup    XUTILS
+* 
+* @param[in]  buffer : 
+* @param[in]  buffersize : 
+* @param[in]  line : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::Base64_Encode(XBYTE* buffer, XDWORD buffersize, XSTRING& line)
+{
+  XBYTE in[3]     = { 0 };
+	XBYTE out[4]    = { 0 };
+  int   i;
+  int   len;
+  int   cin       = 0;
+  
+	*in   = (XBYTE) 0;
+	*out  = (XBYTE) 0;
+
+  while(cin < buffersize) 
+    {
+      len = 0;
+      for(i = 0; i < 3; i++) 
+        {
+          in[i] = (XBYTE)buffer[cin++];
+
+          if(cin <= buffersize) 
+            {
+              len++;
+            }
+           else 
+            {
+              in[i] = (XBYTE)0;
+            }
+        }
+
+      if(len > 0) 
+        {
+          Base64_EncodeBlock(in, out, len );
+          line.Add(out, 4);	                
+        }      
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XSTRING::Base64_DecodeBlock(XBYTE in[4], XBYTE out[3])
+* @brief      Base64_DecodeBlock
+* @ingroup    XUTILS
+* 
+* @param[in]  in[4] : 
+* @param[in]  out[3] : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XSTRING::Base64_DecodeBlock(XBYTE in[4], XBYTE out[3]) 
+{
+  out[0] = (XBYTE)(in[0] << 2 | in[1] >> 4);
+  out[1] = (XBYTE)(in[1] << 4 | in[2] >> 2);
+  out[2] = (XBYTE)(((in[2] << 6) & 0xc0) | in[3]);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::Base64_Decode(const char* in_buffer, int in_buffer_size, XBUFFER& outbuffer)
+* @brief      Base64_Decode
+* @ingroup    XUTILS
+* 
+* @param[in]  char* in_buffer : 
+* @param[in]  in_buffer_size : 
+* @param[in]  outbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::Base64_Decode(const char* in_buffer, int in_buffer_size, XBUFFER& outbuffer) 
+{
+  XBYTE       in[4]; 
+  XBYTE       out[3];
+  XBYTE       v;
+  int         i;
+  int         len;    
+  const char* ptr  = in_buffer;
+    
+  while (ptr <= in_buffer + in_buffer_size) 
+    {
+      for(len = 0, i = 0; i < 4 && (ptr <= in_buffer + in_buffer_size); i++) 
+        {
+          v = 0;
+          while((ptr <= in_buffer + in_buffer_size) && v == 0) 
+            {
+              v = (XBYTE)ptr[0];
+              ptr++;
+              v = (XBYTE)((v < 43 || v > 122) ? 0 : decodetablebase64[v - 43]);
+              if(v) v = (XBYTE)((v == '$') ? 0 : v - 61);
+            }
+
+          if(ptr <= in_buffer + in_buffer_size) 
+            {
+              len++;
+              if(v) in[i] = (XBYTE)(v - 1);
+            } 
+           else 
+            {
+              in[i] = 0;
+            }
+        }
+
+      if(len) 
+        {
+          Base64_DecodeBlock(in, out);
+
+          for(i = 0; i < len - 1; i++) 
+            {
+              outbuffer.Add(out[i]);              
+            }
+        }
+    }
+    
+  return outbuffer.GetSize()?true:false;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -5226,13 +5166,6 @@ void XSTRING::Clean()
   intvalue        = NULL;
   doublevalue     = NULL;
   xcharvalue      = NULL;
-
-  if(!istable64bitsinit)
-    {
-      istable64bitsinit = true;
-      memcpy(table64bits, (XCHAR*)XSTRING_TABLE64BITS, XSTRING_SIZETABLE64BITS * sizeof(XCHAR));
-    }
 }
 
 #endif
-

@@ -33,13 +33,37 @@
 
 #include "XBase.h"
 #include "XVector.h"
-#include "XBuffer.h"
 #include "XString.h"
-#include "XVariant.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-#define XBER_TAGTYPE_CONTEXT_SPECIFIC              0
+//----------------------------------------------------------------------------
+// OUTDATED
+//----------------------------------------------------------------------------
+#define XBERTYPE_EXTENDED                 0x01
+#define XBERTYPE_INTEGER                  0x02
+#define XBERTYPE_BITSTRING                0x03
+#define XBERTYPE_OCTETSTRING              0x04
+#define XBERTYPE_NULL                     0x05
+#define XBERTYPE_OID                      0x06
+#define XBERTYPE_SEQOFSEQ                 0x10
+#define XBERTYPE_SETOFSET                 0x11
+#define XBERTYPE_PRINTABLESTRING          0x13
+#define XBERTYPE_IA5STRING                0x16
+#define XBERTYPE_UTCTIME                  0x17
+
+#define XBERTYPE_ISUNIVERSAL              0x00
+#define XBERTYPE_ISCONSTRUCTED            0x20
+#define XBERTYPE_ISAPPLICATION            0x40
+#define XBERTYPE_ISCONTEXTSPECIFIC        0x80
+#define XBERTYPE_ISPRIVATE                0xC0
+//----------------------------------------------------------------------------
+// OUTDATED
+//----------------------------------------------------------------------------
+
+
+
+#define XBER_TAGTYPE_END_OF_CONTENT                0
 #define XBER_TAGTYPE_BOOLEAN	                     1
 #define XBER_TAGTYPE_INTEGER	                     2
 #define XBER_TAGTYPE_BIT_STRING	                   3
@@ -77,27 +101,23 @@
 #define XBER_TAGTYPE_OID_IRI                      35
 #define XBER_TAGTYPE_RELATIVE_OID_IRI             36
 
-enum XBER_TAGCLASS
-{ 
-  XBER_TAGCLASS_UNIVERSAL	                      = 0 ,	  // The type is native to ASN.1
-  XBER_TAGCLASS_APPLICATION	                        ,	  // The type is only valid for one specific application
-  XBER_TAGCLASS_CONTEXT_SPECIFIC	                  ,	  // Meaning of this type depends on the context (such as within a sequence, set or choice)
-  XBER_TAGCLASS_PRIVATE	                            ,	  // Defined in private specifications
-};
-
+#define XBER_TAGCLASS_UNIVERSAL                    0
+#define XBER_TAGCLASS_CONSTRUCTED                  1
+#define XBER_TAGCLASS_APPLICATION                  2
+#define XBER_TAGCLASS_CONTEXTSPECIFIC              3
+#define XBER_TAGCLASS_PRIVATE                      4
 
 #define XBER_TAG_MASKTYPE                       0x1F  
 #define XBER_TAG_MASKISCONSTRUCTED              0x20  
 
 #define XBER_TAG_ISCONSTRUCTED(tag)             (tag&XBER_TAG_MASKISCONSTRUCTED)?true:false
-#define XBER_TAG_CLASS(tag)                     (XBER_TAGCLASS)(tag>>6)
-
-// OBSOLETE
-#define XBERTYPE_ISCONSTRUCTED                  XBER_TAG_MASKISCONSTRUCTED
+#define XBER_TAG_CLASS(tag)                     (tag>>6)
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
+class XFACTORY;
+class XBUFFER;
 
 class XBER
 {
@@ -105,24 +125,14 @@ class XBER
                               XBER                      ();
     virtual                  ~XBER                      ();
 
-    XBYTE                     GetTagType                ();
-    bool                      GetTagTypeName            (XSTRING& name);
-    XBER_TAGCLASS             GetTagClass               ();
-
-    bool                      IsConstructed             ();    
-        
-    XDWORD                    GetSizeHead               ();
+    XBYTE                     GetType                   ();
     XDWORD                    GetSize                   ();
-
     XBUFFER*                  GetData                   ();
 
-    XVARIANT*                 GetValue                  ();
-
-   
     bool                      GetDump                   (XBUFFER& xbuffer, bool notheader = false);
     bool                      SetFromDump               (XBUFFER& xbuffer);
 
-    bool                      SetTagType                (XBYTE type);
+    bool                      SetType                   (XBYTE type);
     bool                      SetSize                   (XDWORD size);
 
     bool                      SetNULL                   ();
@@ -141,7 +151,6 @@ class XBER
 
     bool                      Copy                      (XBER* newber);
 
-    XVECTOR<XBER*>*           Sequence_GetSequences     ();
     bool                      Sequence_AddCommandTo     (XBYTE command, XBER& xber);
     virtual bool              Sequence_AddTo            (XBER& xber);
     XDWORD                    Sequence_GetSize          ();
@@ -149,37 +158,17 @@ class XBER
 
   protected:
 
-    XBYTE                     tagtype;
-    XSTRING                   nametagtype;
-    XBER_TAGCLASS             tagclass; 
-
-    bool                      isconstructed;  
-
-    XBYTE                     sizehead;
+    XBYTE                     type;
     XDWORD                    size;
-    XBUFFER                   data;
-
-    XVARIANT                  value;
-    
-    XVECTOR<XBER*>            sequences;
+    XBUFFER*                  data;
+    XVECTOR<XBER*>            sequence;
 
   private:
 
-    bool                      SetFromDumpInternal             (XBUFFER& xbuffer);
-    
-    bool                      ConvertToNULL                   (XVARIANT& variant);
-    bool                      ConvertToObjetIdentifier        (XBUFFER& data, XVARIANT& variant);
-    bool                      ConvertToPrintableString        (XBUFFER& data, XVARIANT& variant);
-    bool                      ConvertToUTCTime                (XBUFFER& data, XVARIANT& variant);
+    void                      Clean                     ();
 
-    bool                      CalculeSize                     (XBUFFER& buffer, XDWORD& sizedataber, XBYTE& sizehead);
-
-    bool                      CodeBigNumber                   (XDWORD number,XBUFFER& data);
-    bool                      CodeSize                        (XDWORD number,XBUFFER& data);
-
-    void                      Clean                           ();
-
-    static XDWORD             totalposition;
+    bool                      CodeBigNumber             (XDWORD number,XBUFFER& data);
+    bool                      CodeSize                  (XDWORD number,XBUFFER& data);
 
 };
 

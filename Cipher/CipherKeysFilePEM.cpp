@@ -33,10 +33,10 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XFactory.h"
 #include "XBuffer.h"
 #include "XBER.h"
 #include "XFileTXT.h"
+#include "XTrace.h"
 
 #include "CipherKey.h"
 
@@ -48,6 +48,54 @@
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERKEYSFILEPEM_TYPECERTIFICATE::CIPHERKEYSFILEPEM_TYPECERTIFICATE()
+* @brief      Constructor
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+CIPHERKEYSFILEPEM_TYPECERTIFICATE::CIPHERKEYSFILEPEM_TYPECERTIFICATE()
+{
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         CIPHERKEYSFILEPEM_TYPECERTIFICATE::~CIPHERKEYSFILEPEM_TYPECERTIFICATE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    CIPHER
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+CIPHERKEYSFILEPEM_TYPECERTIFICATE::~CIPHERKEYSFILEPEM_TYPECERTIFICATE()
+{
+  Clean();
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERKEYSFILEPEM_TYPECERTIFICATE::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERKEYSFILEPEM_TYPECERTIFICATE::Clean()
+{
+
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -354,6 +402,8 @@ bool CIPHERKEYSFILEPEM::ReadAllFile()
         {
           XSTRING datastr;
 
+          XSTRING datastr1;
+
           for(int d=entrybuffer->ini_line; d<entrybuffer->end_line; d++)
             {
               datastr += xfiletxt->GetLine(d)->Get();                                 
@@ -363,12 +413,26 @@ bool CIPHERKEYSFILEPEM::ReadAllFile()
         }
     }
 
+
+  XASN1 asn1;
+    
   for(XDWORD c=0; c<entrysbuffer.GetSize(); c++)
     {
+      CIPHERKEYSFILEPEM_ENTRYBUFFER* entrybuffer = entrysbuffer.Get(c);
 
+      if(entrybuffer)
+        {
+          CIPHERKEYSFILEPEM_TYPECERTIFICATE certificate;
 
+          XTRACE_PRINTHEADER(__L("Certificate"));  
 
-  
+          if(asn1.Decode(entrybuffer->data))
+            {
+              break;
+            }
+          
+          XTRACE_PRINTHEADER(NULL);  
+        }  
     }
 
 
@@ -379,10 +443,6 @@ bool CIPHERKEYSFILEPEM::ReadAllFile()
 
   return true;
 }
-
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

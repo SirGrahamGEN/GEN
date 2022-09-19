@@ -33,6 +33,7 @@
 
 #include "XVector.h"
 #include "XDateTime.h"
+#include "XASN1.h"
 
 #include "CipherKey.h"
 
@@ -54,33 +55,81 @@
 
 class XFACTORY;
 class CIPHERKEY;
-class XFILEXML;
+class XFILETXT;
+
+    
+class CIPHERKEYSFILEPEM_TYPECERTIFICATE
+{
+  public:
+                            CIPHERKEYSFILEPEM_TYPECERTIFICATE   ();
+    virtual                ~CIPHERKEYSFILEPEM_TYPECERTIFICATE   ();
+
+    void                    Clean                               ();
+
+    XWORD                   version;
+    XDWORD                  algorithm;
+    XDWORD                  key_algorithm;
+    XDWORD                  ec_algorithm;
+    XBYTE*                  exponent;
+    XDWORD                  exponent_len;
+    XBYTE*                  pk;
+    XDWORD                  pk_len;
+    XBYTE*                  priv;
+    XDWORD                  priv_len;
+    XBYTE*                  issuer_country;
+    XBYTE*                  issuer_state;
+    XBYTE*                  issuer_location;
+    XBYTE*                  issuer_entity;
+    XBYTE*                  issuer_subject;
+    XBYTE*                  not_before;
+    XBYTE*                  not_after;
+    XBYTE*                  country;
+    XBYTE*                  state;
+    XBYTE*                  location;
+    XBYTE*                  entity;
+    XBYTE*                  subject;
+    XBYTE**                 san;
+    XWORD                   san_length;
+    XBYTE*                  ocsp;
+    XBYTE*                  serial_number;
+    XDWORD                  serial_len;
+    XBYTE*                  sign_key;
+    XDWORD                  sign_len;
+    XBYTE*                  fingerprint;
+    XBYTE*                  der_bytes;
+    XDWORD                  der_len;
+    XBYTE*                  bytes;
+    XDWORD                  len;
+
+    
+};
+
 
 class CIPHERKEYSFILEPEM
 {
   public:
-                           CIPHERKEYSFILEPEM                (XPATH& xpath);
-    virtual               ~CIPHERKEYSFILEPEM                ();
+                            CIPHERKEYSFILEPEM                   (XPATH& xpath);
+    virtual                ~CIPHERKEYSFILEPEM                   ();
    
-    bool                   HaveKey                          (CIPHERKEYTYPE type);
-    CIPHERKEY*             GetKey                           (CIPHERKEYTYPE type);
-    bool                   AddKey                           (CIPHERKEY& key);
-    bool                   DeleteKey                        (CIPHERKEYTYPE type);
-    bool                   DeleteAllKeys                    ();
+    bool                    HaveKey                             (CIPHERKEYTYPE type);
+    CIPHERKEY*              GetKey                              (CIPHERKEYTYPE type);
+    bool                    AddKey                              (CIPHERKEY& key);
+    bool                    DeleteKey                           (CIPHERKEYTYPE type);
+    bool                    DeleteAllKeys                       ();
 
-    XPATH&                 GetXPath                         ();
-    XFILETXT*              GetXFileTXT                      ();
+    XPATH&                  GetXPath                            ();
+    XFILETXT*               GetXFileTXT                         ();
 
   private:
 
-    bool                   ReadAllFile                      ();
+    bool                    ReadAllFile                         ();
 
-    void                   Clean                            ();
+    void                    Clean                               ();
                            
-    XPATH                  xpath;
-    XFILETXT*              xfiletxt;
+    XPATH                   xpath;
+    XFILETXT*               xfiletxt;
     
-    XVECTOR<CIPHERKEY*>    keys;
+    XVECTOR<CIPHERKEY*>     keys;
 };
 
 
