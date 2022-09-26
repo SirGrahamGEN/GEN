@@ -36,23 +36,33 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+typedef struct
+{
+  XCHAR*    OID;
+  XCHAR*    description;
+
+} XASN1_OID_DESCRIPTION;
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 
 class XASN1
 {
   public:
-                    XASN1										();
-    virtual        ~XASN1										();
+                                      XASN1										();
+    virtual                          ~XASN1										();
 
-		bool    				Decode								  (XBUFFER& databin);
+    static XCHAR*                     GetOIDDescription       (XCHAR* OID);
+
+		bool    				                  Decode								  (XBUFFER& databin);
 
   private:
 	
-    void            Clean										();
+    void                              Clean										();
 
-    XBER*    				ber;   
-
+    XBER*    				                  ber; 
+    static XASN1_OID_DESCRIPTION      OID_description[];
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

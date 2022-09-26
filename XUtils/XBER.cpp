@@ -35,6 +35,8 @@
 
 #include "XTrace.h"
 
+#include "XASN1.h"
+
 #include "XBER.h"
 
 #include "XMemory_Control.h"
@@ -921,6 +923,8 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
           case XBER_TAGTYPE_NULL                : break;
 
           case XBER_TAGTYPE_OBJECT_IDENTIFIER   : ConvertToObjetIdentifier(data, value);
+
+                                                  
                                                   break;
 
           case XBER_TAGTYPE_OBJECT_DESCRIPTOR   : break;
@@ -962,15 +966,19 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
       
         value.ToString(valuestr);
         if((valuestr.GetSize() && (!value.IsNull())))
-          {
-            XTRACE_PRINTTAB(level, __L("(%d, %d) %s : [%s]"), totalposition, size, nametagtype.Get(), (valuestr.GetSize() && (!value.IsNull()))?valuestr.Get():__L(""));        
+          {            
+            XCHAR* description = NULL;
+
+            if(tagtype == XBER_TAGTYPE_OBJECT_IDENTIFIER) description = XASN1::GetOIDDescription(valuestr.Get());
+           
+            XTRACE_PRINTTAB(level, __L("(%d, %d) %s : %s [%s]"), totalposition, size, nametagtype.Get(), description?description:__L(""), (valuestr.GetSize() && (!value.IsNull()))?valuestr.Get():__L(""));        
           }
          else
           {
             XTRACE_PRINTTAB(level, __L("(%d, %d) %s"), totalposition, size, nametagtype.Get());        
           }
 
-        XTRACE_PRINTDATABLOCKTAB(level, data);  
+        // XTRACE_PRINTDATABLOCKTAB(level, data);  
       }
 
       
@@ -1011,31 +1019,43 @@ bool XBER::ConvertToNULL(XVARIANT& variant)
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBER::ConvertToObjetIdentifier(XBUFFER& data, XVARIANT& variant)
-{
-  XSTRING string;
-
-  string.Format(__L("%d.%d"), (data.Get()[0]/40), (data.Get()[0]%40));
-
-  XDWORD wdata = 0;
-
-  for(XDWORD c=1; c<data.GetSize(); c++)
-    {      
-      if(data.Get()[c]&0x80)
-        {
-        
-          wdata = 0;
-        }
-       else
-        {
-          if(!wdata) 
-            {
-
-            }        
-        }
-
-
+{  
+  XSTRING string;      
+  int     length  = data.GetSize();
+  XBYTE*  bits    = data.Get();
+ 
+  if(length < 2 && !(length == 1 && bits[0] == 0))
+    {
+      return false; 
     }
 
+  string.Format(__L("%d.%d"), (data.Get()[0]/40), (data.Get()[0]%40));
+   
+  size_t i = 0;
+  while(i != length - 1)
+    {
+      XDWORD component = 0;
+
+      while(i != length - 1)
+        {
+          ++i;
+ 
+          if(component >> (32-7))
+            {
+              return false;      
+            }
+ 
+          component = (component << 7) + (bits[i] & 0x7F);
+ 
+          if(!(bits[i] & 0x80))
+            {
+              break;
+            }
+        }
+
+      string.AddFormat(__L(".%d"), component);
+
+    }
 
   variant = string;
 
