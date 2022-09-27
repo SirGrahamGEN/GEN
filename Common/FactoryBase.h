@@ -59,21 +59,18 @@ class FACTORYBASE
 
     void                      SetModule           (const char* _pathmodule)
                               {
-                                if(pathmodule && _pathmodule) 
+                                if(_pathmodule) 
                                   {
                                     memcpy(pathmodule, _pathmodule, strlen(_pathmodule));
                                   }
                               }  
   private:
 
-    char*                     pathmodule[_MAXSTR];
+    char                      pathmodule[_MAXSTR];
 
     void                      Clean               ()
                               {
-                                if(pathmodule)  
-                                  {
-                                    memset(pathmodule, 0, _MAXSTR);
-                                  }
+                                memset(pathmodule, 0, _MAXSTR);                                
                               }
 };
 
