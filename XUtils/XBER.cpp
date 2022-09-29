@@ -866,6 +866,12 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
 
   data.Delete();
   data.Add(&buffer.Get()[sizehead], size);
+
+  if(tagtype == XBER_TAGTYPE_BIT_STRING)
+    {
+      int a=0;
+      a++;
+    }
  
   if(isconstructed)  
     { 
@@ -916,15 +922,20 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
       switch(tagtype)
         {  
           case XBER_TAGTYPE_CONTEXT_SPECIFIC    : break;
-          case XBER_TAGTYPE_BOOLEAN	            : break;
-          case XBER_TAGTYPE_INTEGER	            : break;
-          case XBER_TAGTYPE_BIT_STRING	        : break;
+
+          case XBER_TAGTYPE_BOOLEAN	            : ConvertToBoolean(data, value);
+                                                  break;
+
+          case XBER_TAGTYPE_INTEGER	            : ConvertToInteger(data, value);
+                                                  break;
+
+          case XBER_TAGTYPE_BIT_STRING	        : 
+                                                  break;
+
           case XBER_TAGTYPE_OCTET_STRING        : break;
           case XBER_TAGTYPE_NULL                : break;
 
-          case XBER_TAGTYPE_OBJECT_IDENTIFIER   : ConvertToObjetIdentifier(data, value);
-
-                                                  
+          case XBER_TAGTYPE_OBJECT_IDENTIFIER   : ConvertToObjetIdentifier(data, value);                                                  
                                                   break;
 
           case XBER_TAGTYPE_OBJECT_DESCRIPTOR   : break;
@@ -946,7 +957,10 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
           case XBER_TAGTYPE_T61STRING           : break;
           case XBER_TAGTYPE_VIDEOTEXSTRING      : break;
           case XBER_TAGTYPE_IA5STRING           : break;
-          case XBER_TAGTYPE_UTCTIME             : break;
+
+          case XBER_TAGTYPE_UTCTIME             : ConvertToUTCTime(data, value);
+                                                  break;
+
           case XBER_TAGTYPE_GENERALIZEDTIME     : break;
           case XBER_TAGTYPE_GRAPHICSTRING       : break;
           case XBER_TAGTYPE_VISIBLESTRING       : break;
@@ -971,7 +985,7 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
 
             if(tagtype == XBER_TAGTYPE_OBJECT_IDENTIFIER) description = XASN1::GetOIDDescription(valuestr.Get());
            
-            XTRACE_PRINTTAB(level, __L("(%d, %d) %s : %s [%s]"), totalposition, size, nametagtype.Get(), description?description:__L(""), (valuestr.GetSize() && (!value.IsNull()))?valuestr.Get():__L(""));        
+            XTRACE_PRINTTAB(level, __L("(%d, %d) %s : %s '%s'"), totalposition, size, nametagtype.Get(), description?description:__L(""), (valuestr.GetSize() && (!value.IsNull()))?valuestr.Get():__L(""));        
           }
          else
           {
@@ -984,6 +998,72 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
       
       totalposition += sizehead + size;     
     }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBER::ConvertToBoolean(XBUFFER& data, XVARIANT& variant)
+* @brief      ConvertToBoolean
+* @ingroup    XUTILS
+* 
+* @param[in]  data : 
+* @param[in]  variant : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER::ConvertToBoolean(XBUFFER& data, XVARIANT& variant)
+{
+  XSTRING string; 
+    
+  string.Format(__L("%s"), data.Get()[0]?__L("True"):__L("False"));
+  
+  variant = string;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBER::ConvertToInteger(XBUFFER& data, XVARIANT& variant)
+* @brief      ConvertToInteger
+* @ingroup    XUTILS
+* 
+* @param[in]  data : 
+* @param[in]  variant : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER::ConvertToInteger(XBUFFER& data, XVARIANT& variant)
+{
+  XSTRING string; 
+
+  if(data.GetSize() <= 4)
+    {
+      XDWORD integerdec = 0;
+
+      for(int c=0; c<data.GetSize(); c++)
+        {
+          integerdec |= data.Get()[c];
+          if(c != data.GetSize() -1) integerdec <<= 8;
+        }   
+
+      string.Format(__L("%d"), integerdec);
+    }
+   else
+    { 
+      for(int c=0; c<data.GetSize(); c++)
+        {
+          string.AddFormat(__L("%02X"), data.Get()[c]);
+        }
+    }
+  
+  variant = string;
 
   return true;
 }
@@ -1101,6 +1181,13 @@ bool XBER::ConvertToPrintableString(XBUFFER& data, XVARIANT& variant)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBER::ConvertToUTCTime(XBUFFER& data, XVARIANT& variant)
 {
+  XSTRING string; 
+
+  string.Add(data);
+  string.Add(__L("Z"));
+
+  variant = string;
+
   return true;
 }
 

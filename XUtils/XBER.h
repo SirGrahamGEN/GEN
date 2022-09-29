@@ -166,11 +166,13 @@ class XBER
   private:
 
     bool                      SetFromDumpInternal             (XBUFFER& xbuffer);
-    
+
+    bool                      ConvertToBoolean                (XBUFFER& data, XVARIANT& variant);
+    bool                      ConvertToInteger                (XBUFFER& data, XVARIANT& variant);
     bool                      ConvertToNULL                   (XVARIANT& variant);
     bool                      ConvertToObjetIdentifier        (XBUFFER& data, XVARIANT& variant);
     bool                      ConvertToPrintableString        (XBUFFER& data, XVARIANT& variant);
-    bool                      ConvertToUTCTime                (XBUFFER& data, XVARIANT& variant);
+    bool                      ConvertToUTCTime                (XBUFFER& data, XVARIANT& variant); 
 
     bool                      CalculeSize                     (XBUFFER& buffer, XDWORD& sizedataber, XBYTE& sizehead);
 
