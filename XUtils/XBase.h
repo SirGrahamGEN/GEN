@@ -67,6 +67,10 @@ typedef signed int            XDWORDSIG;
 typedef signed long long      XQWORDSIG;
 #endif
 
+#ifndef XREAL
+typedef double                XREAL;
+#endif
+
 #ifndef POINTER
 typedef void*                 POINTER;
 #endif
