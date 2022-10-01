@@ -75,6 +75,7 @@ enum XTRACE_TYPE_STATUS_MSG
 #define XTRACE_LEVEL_WITHCOLOR              0x80
 #define XTRACE_LEVEL_WITHTAB                0x40
 #define XTRACE_LEVEL_WITHCODE               0x20
+#define XTRACE_LEVEL_STATUS                 0x10
 
 #define XTRACE_LEVEL_COLOR(level)           (level|XTRACE_LEVEL_WITHCOLOR)
 #define XTRACE_LEVEL_TAB(level)             (level|XTRACE_LEVEL_WITHTAB)
@@ -190,7 +191,7 @@ enum XTRACE_TYPE_STATUS_MSG
 
   #else
     
-    #define XTRACE_PRINT(mask, ...)                                                                       XTRACE::instance->Print(0                                        , mask , ## __VA_ARGS__)
+    #define XTRACE_PRINT(mask, ...)                                                                       XTRACE::instance->Print(XTRACE_LEVEL_STATUS                      , mask , ## __VA_ARGS__)
     #define XTRACE_PRINTLEVEL(level, mask, ...)                                                           XTRACE::instance->Print(level                                    , mask , ## __VA_ARGS__)
     #define XTRACE_PRINTCOLOR(level, mask, ...)                                                           XTRACE::instance->Print((level|XTRACE_LEVEL_WITHCOLOR)           , mask , ## __VA_ARGS__)
     #define XTRACE_PRINTTAB(level, mask, ...)                                                             XTRACE::instance->Print((level|XTRACE_LEVEL_WITHTAB)             , mask , ## __VA_ARGS__)
