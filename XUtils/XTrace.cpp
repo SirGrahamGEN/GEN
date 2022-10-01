@@ -1426,13 +1426,15 @@ bool XTRACE::Print(XBYTE level, XCHAR* mask,...)
     {
       string.AdjustSize(XTRACE_MAXAPPLICATIONNAMESIZE, false, __L(" "));
       outstring += string;
+      outstring += __L(" ");
     }
 
   string.Format(__L("%d.%d.%d"), applicationversion, applicationsubversion, applicationsubversionerr);
   if(string.GetSize())
     {
-      string.AdjustSize(XTRACE_MAXAPPLICATIONVERSIONSIZE, false, __L(" "));
+      string.AdjustSize(XTRACE_MAXAPPLICATIONVERSIONSIZE, false, __L(" "));      
       outstring += string;
+      outstring += __L(" ");
     }
 
   string = applicationID;
@@ -1440,6 +1442,7 @@ bool XTRACE::Print(XBYTE level, XCHAR* mask,...)
     {
       string.AdjustSize(XTRACE_MAXAPPLICATIONIDSIZE, false, __L(" "));
       outstring += string;
+      outstring += __L(" ");
     }
 
   va_list arg;
