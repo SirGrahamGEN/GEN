@@ -1396,7 +1396,7 @@ void XTRACE::PrintHeader(XCHAR* header)
       line += __L("-");
     }
 
-  Print(0,line.Get());
+  Print(XTRACE_LEVEL_WITHCOLOR,line.Get());
 
   openheader = header?true:false;
 }
@@ -1452,6 +1452,7 @@ bool XTRACE::Print(XBYTE level, XCHAR* mask,...)
 
   sequence++;
 
+  
   if(level)
     {
       if((level & XTRACE_LEVEL_WITHCOLOR) == XTRACE_LEVEL_WITHCOLOR)
@@ -1481,7 +1482,7 @@ bool XTRACE::Print(XBYTE level, XCHAR* mask,...)
             }
         }
     }
-
+  
   outstring += string;
 
   for(int c=0; c<XTRACE_MAXNTARGETS ; c++)

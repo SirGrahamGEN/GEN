@@ -39,7 +39,7 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-#define XBER_TAGTYPE_CONTEXT_SPECIFIC              0
+#define XBER_TAGTYPE_RESERVEDBER                   0
 #define XBER_TAGTYPE_BOOLEAN	                     1
 #define XBER_TAGTYPE_INTEGER	                     2
 #define XBER_TAGTYPE_BIT_STRING	                   3
@@ -76,6 +76,7 @@
 #define XBER_TAGTYPE_DURATION                     34
 #define XBER_TAGTYPE_OID_IRI                      35
 #define XBER_TAGTYPE_RELATIVE_OID_IRI             36
+#define XBER_TAGTYPE_CONTEXT_SPECIFIC            127
 
 enum XBER_TAGCLASS
 { 
@@ -158,7 +159,8 @@ class XBER
     XBYTE                     sizehead;
     XDWORD                    size;
     XBUFFER                   data;
-
+    XBYTE                     contextspecificvalue;
+    XBYTE                     unusedbits;
     XVARIANT                  value;
     
     XVECTOR<XBER*>            sequences;

@@ -426,10 +426,9 @@ bool CIPHERKEYSFILEPEM::ReadAllFile()
 
           XTRACE_PRINTHEADER(__L("Certificate"));  
 
-          if(asn1.Decode(entrybuffer->data))
-            {
-              break;
-            }
+          asn1.Decode(entrybuffer->data);
+
+          break;
           
           XTRACE_PRINTHEADER(NULL);  
         }  

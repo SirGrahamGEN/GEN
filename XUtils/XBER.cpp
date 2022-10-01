@@ -850,7 +850,7 @@ bool XBER::Sequence_DeleteAll()
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool XBER::SetFromDumpInternal(XBUFFER& buffer)
 {
-  static int level = 0;
+  static XBYTE level = 0;
   
   if(buffer.IsEmpty()) return false;
 
@@ -858,28 +858,60 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
 
   if(!CalculeSize(buffer, size, sizehead)) return false;  
   
-  GetTagTypeName(nametagtype);
-
   tagclass = XBER_TAG_CLASS(buffer.Get()[0]);
 
+  switch(tagclass)
+    {
+      case XBER_TAGCLASS_UNIVERSAL	      : break;
+
+      case XBER_TAGCLASS_APPLICATION	    : break;
+
+      case XBER_TAGCLASS_CONTEXT_SPECIFIC	: contextspecificvalue = tagtype;
+                                            tagtype = XBER_TAGTYPE_CONTEXT_SPECIFIC;
+                                            break;
+
+      case XBER_TAGCLASS_PRIVATE          :	break;
+    } 
+
+  GetTagTypeName(nametagtype);
+  
   isconstructed =  ((buffer.Get()[0] & XBER_TAG_MASKISCONSTRUCTED) == XBER_TAG_MASKISCONSTRUCTED)?true:false;
 
   data.Delete();
   data.Add(&buffer.Get()[sizehead], size);
 
-  if(tagtype == XBER_TAGTYPE_BIT_STRING)
-    {
-      int a=0;
-      a++;
-    }
+  switch(tagtype)
+   {  
+     case XBER_TAGTYPE_BIT_STRING : unusedbits = data.Get()[0];
+                                    sizehead++;                                   
+                                    if(!unusedbits)  isconstructed = true;
+                                    break;
+
+                        default   : break;
+   }
  
   if(isconstructed)  
     { 
       XBUFFER buffer_rest;
       XBER*   sub_ber  = NULL; 
       XDWORD  position = 0;     
+      XSTRING line;
 
-      XTRACE_PRINTTAB(level, __L("(%d, %d) %s"), totalposition, size, nametagtype.Get());  
+      line.Format(__L("(%d, %d) %s"), totalposition, size, nametagtype.Get());  
+
+      switch(tagtype)
+        {  
+          case XBER_TAGTYPE_CONTEXT_SPECIFIC    : line.AddFormat(__L(" (%d) "), contextspecificvalue);  
+                                                  break;
+
+          case XBER_TAGTYPE_BIT_STRING          : line.AddFormat(__L(" UnusedBits: %d "), unusedbits);  
+                                                  break;
+
+                             default            : break;
+        }
+
+
+      XTRACE_PRINTTAB(level, line.Get(), NULL);  
       // XTRACE_PRINTDATABLOCKTAB(level, buffer.Get(), sizehead);
 
       level++;    
@@ -1404,16 +1436,21 @@ bool XBER::CodeSize(XDWORD integer, XBUFFER& data)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBER::Clean()
 {
-  tagtype         = 0;  
+  tagtype               = 0;  
   nametagtype.Empty();
-  tagclass        = XBER_TAGCLASS_UNIVERSAL;
+  tagclass              = XBER_TAGCLASS_UNIVERSAL;
 
-  sizehead        = 0;
-  size            = 0;
+  sizehead              = 0;
+  size                  = 0;
 
   data.Empty();
 
-  isconstructed   = false;
+  isconstructed         = false;
+
+  contextspecificvalue  = 0;
+  unusedbits            = 0;
+
+  value                 = NULL;
 
   sequences.DeleteContents();
   sequences.DeleteAll();
