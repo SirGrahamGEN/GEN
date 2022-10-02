@@ -1156,7 +1156,8 @@ bool DIOWEBSERVER_REQUEST::GetLoginPassword(XSTRING& login, XSTRING& password)
 
   XSTRING lp;
 
-  lp.ConvertFromBase64(loginpassword);
+  lp.ConvertToBase64(loginpassword);
+  //lp.ConvertFromBase64(loginpassword);
 
   int index = lp.Find(__L(":"),true);
   if(index ==  XSTRING_NOTFOUND) return false;

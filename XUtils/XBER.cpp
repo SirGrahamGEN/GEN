@@ -882,12 +882,15 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
 
   switch(tagtype)
    {  
-     case XBER_TAGTYPE_BIT_STRING : unusedbits = data.Get()[0];
-                                    sizehead++;                                   
-                                    if(!unusedbits)  isconstructed = true;
-                                    break;
+     case XBER_TAGTYPE_BIT_STRING     : unusedbits = data.Get()[0];
+                                        sizehead++;                                   
+                                        if(!unusedbits)  isconstructed = true;
+                                        break;
 
-                        default   : break;
+     case XBER_TAGTYPE_OCTET_STRING   : //isconstructed = true;
+                                        break;
+
+                          default     : break;
    }
  
   if(isconstructed)  
@@ -912,7 +915,7 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
 
 
       XTRACE_PRINTTAB(level, line.Get(), NULL);  
-      // XTRACE_PRINTDATABLOCKTAB(level, buffer.Get(), sizehead);
+      XTRACE_PRINTDATABLOCKTAB(level, buffer.Get(), sizehead);
 
       level++;    
 
@@ -964,7 +967,9 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
           case XBER_TAGTYPE_BIT_STRING	        : 
                                                   break;
 
-          case XBER_TAGTYPE_OCTET_STRING        : break;
+          case XBER_TAGTYPE_OCTET_STRING        : ConvertToOctetString(data, value);
+                                                  break;
+
           case XBER_TAGTYPE_NULL                : break;
 
           case XBER_TAGTYPE_OBJECT_IDENTIFIER   : ConvertToObjetIdentifier(data, value);                                                  
@@ -1095,6 +1100,33 @@ bool XBER::ConvertToInteger(XBUFFER& data, XVARIANT& variant)
         }
     }
   
+  variant = string;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool ConvertToOctetString(XBUFFER& data, XVARIANT& variant)
+* @brief      ConvertToOctetString
+* @ingroup    XUTILS
+* 
+* @param[in]  data : 
+* @param[in]  variant : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER::ConvertToOctetString(XBUFFER& data, XVARIANT& variant)
+{
+  XSTRING string; 
+
+  for(int c=0; c<data.GetSize(); c++)
+    {
+      string.AddFormat(__L("%02X"), data.Get()[c]);
+    }
+
   variant = string;
 
   return true;

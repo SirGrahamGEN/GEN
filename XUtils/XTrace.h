@@ -95,11 +95,13 @@ enum XTRACE_TYPE_STATUS_MSG
 
 #define XTRACE_DEFAULT_SPECIALAIM           __L("eXtended Trace Monitor")
 
+/*
 #define XTRACE_DEFAULT_NETAIM1              GEN_XTRACE_NET_DEFAULT_01    // __L("xdebug1.kicks-ass.org:10021")
 #define XTRACE_DEFAULT_NETAIM2              GEN_XTRACE_NET_DEFAULT_01    // __L("xdebug2.kicks-ass.org:10022")
 #define XTRACE_DEFAULT_NETAIM3              GEN_XTRACE_NET_DEFAULT_01    // __L("xdebug3.kicks-ass.org:10023")
 #define XTRACE_DEFAULT_NETAIM4              GEN_XTRACE_NET_DEFAULT_01    // __L("xdebug4.kicks-ass.org:10024")
 #define XTRACE_DEFAULT_NETAIM5              GEN_XTRACE_NET_DEFAULT_01    // __L("xdebug5.kicks-ass.org:10025")
+*/
 
 #define XTRACE_LIMITCTRLNETRESURCES         25
 
