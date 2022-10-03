@@ -90,6 +90,8 @@ class XFILECFG : public XSUBJECT
                                         XFILECFG                  (XCHAR* namefile = NULL);
     virtual                            ~XFILECFG                  ();
 
+    XPATH*                              GetPathFile               ();
+
     virtual bool                        Ini                       ();
 
     bool                                Load                      ();
