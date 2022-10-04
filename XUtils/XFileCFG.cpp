@@ -39,6 +39,7 @@
 #include "XPath.h"
 #include "XFileINI.h"
 #include "XVector.h"
+#include "XVariant.h"
 
 #include "XFileCFG.h"
 
@@ -66,7 +67,6 @@ XFILECFGVALUE::XFILECFGVALUE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECFGVALUE::~XFILECFGVALUE()
@@ -83,7 +83,6 @@ XFILECFGVALUE::~XFILECFGVALUE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECFG_VALUETYPE XFILECFGVALUE::GetType()
@@ -97,7 +96,6 @@ XFILECFG_VALUETYPE XFILECFGVALUE::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -118,7 +116,6 @@ bool XFILECFGVALUE::SetType(XFILECFG_VALUETYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILECFGVALUE::GetGroup()
@@ -132,7 +129,6 @@ XSTRING* XFILECFGVALUE::GetGroup()
 {
   return &group;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -150,7 +146,6 @@ XSTRING* XFILECFGVALUE::GetID()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* XFILECFGVALUE::GetValue()
@@ -164,8 +159,6 @@ void* XFILECFGVALUE::GetValue()
 {
   return value;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -184,8 +177,6 @@ bool XFILECFGVALUE::SetValue(void* value)
   this->value = value;
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -241,7 +232,6 @@ XFILECFG::XFILECFG(XCHAR* namefile)
       xpathfile.Add(XFILECFG_EXTENSIONFILE);
     }
  }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -383,13 +373,10 @@ bool XFILECFG::Load(XPATH& xpath)
         }
 
       status = EndFile();
-    }
-
-    
+    } 
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -406,7 +393,6 @@ bool XFILECFG::Save()
   if(xpathfile.IsEmpty()) return false;
   return Save(xpathfile);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -493,7 +479,6 @@ bool XFILECFG::Save(XPATH& xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFG::End()
@@ -557,6 +542,64 @@ bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* 
 XVECTOR<XFILECFGVALUE*>* XFILECFG::GetValues()
 {
   return &values;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT* XFILECFG::GetValue(XCHAR* group, XCHAR* ID)
+* @brief      GetValue
+* @ingroup    XUTILS
+* 
+* @param[in]  group : 
+* @param[in]  ID : 
+* 
+* @return     XVARIANT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT* XFILECFG::GetValue(XCHAR* group, XCHAR* ID)
+{
+  XVARIANT* value = NULL;
+
+  if((!group) || (!ID))
+    {
+      return NULL;
+    }
+
+  for(XDWORD c=0; c<values.GetSize(); c++)
+    {
+      XFILECFGVALUE* cfgvalue = values.Get(c);
+      if(cfgvalue)
+        {
+          if((!cfgvalue->GetGroup()->Compare(group, true)) && (!cfgvalue->GetID()->Compare(ID, true)))
+            {
+              value = new XVARIANT();
+              if(value)
+                {
+                  switch(cfgvalue->GetType())
+                    {
+                      case XFILECFG_VALUETYPE_UNKNOWN :
+                                             default  : delete value; 
+                                                        value = NULL;
+                                                        break;
+
+                      case XFILECFG_VALUETYPE_INT     : (*value) = (*(int*)(cfgvalue->GetValue()));     break; 
+                      case XFILECFG_VALUETYPE_MASK    : (*value) = (*(XWORD*)(cfgvalue->GetValue()));   break;
+                      case XFILECFG_VALUETYPE_FLOAT   : (*value) = (*(float*)(cfgvalue->GetValue()));   break;                                                        
+
+                      case XFILECFG_VALUETYPE_STRING  : { XSTRING* _value = (XSTRING*)(cfgvalue->GetValue());                                                        
+                                                          (*value) = _value->Get(); 
+                                                        }
+                                                        break;
+
+                      case XFILECFG_VALUETYPE_BOOLEAN : (*value) = (*(bool*)(cfgvalue->GetValue()));    break; 
+                    }
+                }    
+            }
+        }
+    }
+  
+  return value;
 }
 
 

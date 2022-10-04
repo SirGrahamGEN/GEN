@@ -55,6 +55,7 @@ enum XFILECFG_VALUETYPE
 class XPATHS;
 class XFILEINI;
 class XFILEINIREMARK;
+class XVARIANT;
 
 
 class XFILECFGVALUE
@@ -101,7 +102,8 @@ class XFILECFG : public XSUBJECT
     virtual bool                        End                       ();
 
     bool                                AddValue                  (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value, XCHAR* remark_text = NULL, XDWORD remark_xpos = 0);
-    XVECTOR<XFILECFGVALUE*>*            GetValues                 ();    
+    XVECTOR<XFILECFGVALUE*>*            GetValues                 ();   
+    XVARIANT*                           GetValue                  (XCHAR* group, XCHAR* ID);   
     bool                                DeleteAllValues           ();
     
     bool                                AddRemark                 (XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
