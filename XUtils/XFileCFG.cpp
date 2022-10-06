@@ -853,6 +853,54 @@ bool XFILECFG::AjustRemarks()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn          int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, int maxcount)
+* @brief       GetCountKeys
+* @ingroup     XUTILS
+* 
+* @param[in]   group : 
+* @param[in]   IDbase : 
+* @param[in]   maxcount : 
+* 
+* @return      int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, int maxcount)
+{
+  XSTRING   section       = group;      
+  int       enumeratekeys = -1;
+  XFILEINI* inifile       = GetFileINI();
+
+  if(inifile) 
+    {
+      if(inifile->Open(xpathfile, true))
+        {
+          if(inifile->ReadAllFile()) 
+            {
+              if(inifile->ConvertFromLines())
+                {  
+                  for(int c=0; c<maxcount; c++)
+                    {    
+                      XSTRING key;      
+                      key.Format(__L("%s%d"), IDbase, c);
+
+                      XFILEINIKEY* inikey = GetFileINI()->GetKey(section, key);
+                      if(inikey) enumeratekeys++;
+                    }
+                }
+            }
+
+          inifile->DeleteAllLines();           
+
+          inifile->Close();
+        }
+    }
+
+  return enumeratekeys;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XFILEINI* XFILECFG::GetFileINI()
 * @brief      GetFileINI
 * @ingroup    XUTILS

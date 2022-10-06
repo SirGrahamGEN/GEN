@@ -117,6 +117,8 @@ class XFILECFG : public XSUBJECT
     bool                                EndFile                   ();
     bool                                AjustRemarks              (); 
 
+    int                                 GetCountKeys              (XCHAR* group, XCHAR* IDbase, int maxcount);
+
     XFILEINI*                           GetFileINI                ();
      
   protected:
