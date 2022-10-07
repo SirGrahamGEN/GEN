@@ -130,26 +130,15 @@ APPCFG::APPCFG(XCHAR* namefile)
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPUSEDAYLIGHTSAVING     , &internetservices_updatetimentpusedaylightsaving);
 
 
-
-
   #ifdef APP_CFG_DNSRESOLVED_ACTIVE
   //-----------------------------------------------------
   // DNS RESOLVED
 
   AddRemark(APP_CFG_SECTION_DNSRESOLVED, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
   AddRemark(APP_CFG_SECTION_DNSRESOLVED, __L(" DNS resolved section of configuration")                          , 0, 2);
-
-  for(int c=0; c<APP_CFG_DNSRESOLVED_MAXHOSTRESOLVED; c++)
-    {
-      key.Format(__L("%s%02d"), APP_CFG_DNSRESOLVED_HOSTRESOLVED, c+1);
-      AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_DNSRESOLVED, key.Get(), &hostresolved[c]);
-    }
-
-  for(int c=0; c<APP_CFG_DNSRESOLVED_MAXDNSSERVERS; c++)
-    {
-      key.Format(__L("%s%02d"), APP_CFG_DNSRESOLVED_DNSSERVER, c+1);
-      AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_DNSRESOLVED, key.Get(), &DNSserver[c]);
-    }
+  
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DNSRESOLVED, APP_CFG_DNSRESOLVED_HOSTRESOLVED, __L("%02d"), 3, 99, hostsresolved, nhostsresolved);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DNSRESOLVED, APP_CFG_DNSRESOLVED_DNSSERVER, __L("%02d"), 3, 99, DNSservers, nDNSservers);
 
   #endif
 
@@ -162,11 +151,15 @@ APPCFG::APPCFG(XCHAR* namefile)
   AddRemark(APP_CFG_DYNDNSMANAGER_URL, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
   AddRemark(APP_CFG_DYNDNSMANAGER_URL, __L(" Location info section of configuration")                          , 0, 2);
 
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DYNDNSMANAGER,  APP_CFG_DYNDNSMANAGER_URL, __L("%02d"), 3, 99, dnsmanager_urls, dnsmanager_nurls);
+  
+  /*
   for(int c=0; c<APP_CFG_DYNDNSMANAGER_MAXURL; c++)
     {
       key.Format(__L("%s%02d"), APP_CFG_DYNDNSMANAGER_URL, c+1);
       AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_DYNDNSMANAGER, key.Get(), &dnsmanager_url[c]);
     }
+  */
   #endif
 
   #endif
@@ -324,6 +317,27 @@ APPCFG::APPCFG(XCHAR* namefile)
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCFG::~APPCFG()
 {
+
+  //------------------------------------------------------------------------------------------------------
+
+  #ifdef APP_CFG_DNSRESOLVED_ACTIVE
+  hostsresolved.DeleteContents();
+  hostsresolved.DeleteAll();
+
+  DNSservers.DeleteContents();
+  DNSservers.DeleteAll();
+  #endif
+
+  //------------------------------------------------------------------------------------------------------
+
+  #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+  dnsmanager_urls.DeleteContents();  
+  dnsmanager_urls.DeleteAll();
+  #endif
+
+  //------------------------------------------------------------------------------------------------------
+
+
   End();
 
   Clean();
@@ -783,13 +797,13 @@ bool APPCFG::InternetServices_GetUpdateTimeNTPUseDayLightSaving()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPCFG::DNSResolved_GetHostResolved(int index, XSTRING& host, XSTRING& IPresolved)
 {
-  if(index < 0)                                    return false;
-  if(index >= APP_CFG_DNSRESOLVED_MAXHOSTRESOLVED) return false;
+  if(index < 0)                       return false;
+  if(index >= hostsresolved.GetSize()) return false;
 
   host.AdjustSize(_MAXSTR);
   IPresolved.AdjustSize(_MAXSTR);
 
-  hostresolved[index].UnFormat(__L("%s,%s"), host.Get(), IPresolved.Get());
+  hostsresolved.Get(index)->UnFormat(__L("%s,%s"), host.Get(), IPresolved.Get());
 
   host.AdjustSize();
   IPresolved.AdjustSize();
@@ -811,12 +825,12 @@ bool APPCFG::DNSResolved_GetHostResolved(int index, XSTRING& host, XSTRING& IPre
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPCFG::DNSResolved_GetDNSserver(int index)
 {
-  if(index < 0)                                    return NULL;
-  if(index >= APP_CFG_DNSRESOLVED_MAXDNSSERVERS)   return NULL;
+  if(index < 0)                       return NULL;
+  if(index >= DNSservers.GetSize())   return NULL;
 
-  if(!DNSserver[index].GetSize()) return NULL;
+  if(!DNSservers.GetSize()) return NULL;
 
-  return &DNSserver[index];
+  return DNSservers.Get(index);
 }
 
 
@@ -831,7 +845,7 @@ XSTRING* APPCFG::DNSResolved_GetDNSserver(int index)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPCFG::SetAutomaticDNSResolved()
 {
-  for(XDWORD c=0; c<APP_CFG_DNSRESOLVED_MAXHOSTRESOLVED; c++)
+  for(XDWORD c=0; c<nhostsresolved; c++)
     {
       XSTRING  host;
       XSTRING  IPresolved;
@@ -842,7 +856,7 @@ bool APPCFG::SetAutomaticDNSResolved()
         }
     }
 
-  for(XDWORD c=0; c<APP_CFG_DNSRESOLVED_MAXDNSSERVERS; c++)
+  for(XDWORD c=0; c<nDNSservers; c++)
     {
       XSTRING* dnsserver = DNSResolved_GetDNSserver(c);
       if(dnsserver)
@@ -859,6 +873,23 @@ bool APPCFG::SetAutomaticDNSResolved()
 
 #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPCFG::DNSManager_GetURLs()
+* @brief      DNSManager_GetURLs
+* @ingroup    APPLICATION
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPCFG::DNSManager_GetURLs()
+{
+  return &dnsmanager_urls;
+
+}
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* APPCFG::DNSManager_GetURL(int index)
@@ -872,10 +903,10 @@ bool APPCFG::SetAutomaticDNSResolved()
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPCFG::DNSManager_GetURL(int index)
 {
-  if(index < 0)                                        return NULL;
-  if(index >= APP_CFG_DYNDNSMANAGER_MAXURL) return NULL;
+  if(index < 0)                          return NULL;
+  if(index >= dnsmanager_urls.GetSize()) return NULL;
 
-  return &dnsmanager_url[index];
+  return dnsmanager_urls.Get(index);
 }
 
 #endif
@@ -1659,6 +1690,23 @@ void APPCFG::Clean()
   internetservices_updatetimentpmeridiandifference  = 0;
   internetservices_updatetimentpusedaylightsaving   = false;
 
+  #endif
+
+  //-----------------------------------------------------------------------------------------------------
+
+  #ifdef APP_CFG_DNSRESOLVED_ACTIVE
+
+  nhostsresolved = 0; 
+  nDNSservers    = 0;
+    
+  #endif
+
+  //-----------------------------------------------------------------------------------------------------
+
+  #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+
+  dnsmanager_nurls = 0;
+    
   #endif
 
   //-----------------------------------------------------------------------------------------------------

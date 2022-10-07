@@ -672,8 +672,6 @@ bool XFILECFG::AddRemark(XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relative
   return true;
 }
 
-
-
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -853,18 +851,19 @@ bool XFILECFG::AjustRemarks()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn          int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, int maxcount)
-* @brief       GetCountKeys
-* @ingroup     XUTILS
+* @fn         int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, XCHAR* mask, int maxcount)
+* @brief      GetCountKeys
+* @ingroup    XUTILS
 * 
-* @param[in]   group : 
-* @param[in]   IDbase : 
-* @param[in]   maxcount : 
+* @param[in]  group : 
+* @param[in]  IDbase : 
+* @param[in]  mask : 
+* @param[in]  maxcount : 
 * 
-* @return      int : 
+* @return     int : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, int maxcount)
+int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, XCHAR* mask, int maxcount)
 {
   XSTRING   section       = group;      
   int       enumeratekeys = -1;
@@ -878,10 +877,19 @@ int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, int maxcount)
             {
               if(inifile->ConvertFromLines())
                 {  
+                  enumeratekeys = 0;
+
                   for(int c=0; c<maxcount; c++)
                     {    
+                      XSTRING keymask;      
                       XSTRING key;      
-                      key.Format(__L("%s%d"), IDbase, c);
+
+                      if(mask)  
+                        {
+                          keymask.Format(__L("%s%s"), IDbase, mask);
+                          key.Format(keymask.Get(), c);
+
+                        } else key.Format(__L("%s%c"), IDbase, mask);
 
                       XFILEINIKEY* inikey = GetFileINI()->GetKey(section, key);
                       if(inikey) enumeratekeys++;
@@ -897,7 +905,6 @@ int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, int maxcount)
 
   return enumeratekeys;
 }
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 

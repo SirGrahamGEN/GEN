@@ -107,6 +107,8 @@ class XFILECFG : public XSUBJECT
     XVECTOR<XFILECFGVALUE*>*            GetValues                 ();   
     XVARIANT*                           GetValue                  (XCHAR* group, XCHAR* ID);   
     bool                                DeleteAllValues           ();
+
+   
     
     bool                                AddRemark                 (XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
     bool                                AddRemark                 (XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
@@ -117,7 +119,41 @@ class XFILECFG : public XSUBJECT
     bool                                EndFile                   ();
     bool                                AjustRemarks              (); 
 
-    int                                 GetCountKeys              (XCHAR* group, XCHAR* IDbase, int maxcount);
+    int                                 GetCountKeys              (XCHAR* group, XCHAR* IDbase, XCHAR* mask = NULL, int maxcount = 99); 
+
+    template<typename T>
+    bool                                AddValueSecuence          (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* IDbasic, XCHAR* mask, int mincount, int maxcount, XVECTOR<T*>& values, int& nkeys, XCHAR* remark_text = NULL, XDWORD remark_xpos = 0)
+                                        {
+                                          XSTRING key;
+                                          
+                                          nkeys = GetCountKeys(group, IDbasic, mask);    
+
+                                          if(nkeys < 0) return false;
+
+                                          if((nkeys > 0) && nkeys < mincount)  nkeys = mincount;
+
+                                          values.DeleteContents();
+                                          values.DeleteAll();
+
+                                          for(int c=0; c<nkeys; c++)
+                                            {
+                                              T* value = new T();
+                                              if(!value) 
+                                                {
+                                                  values.DeleteContents();
+                                                  values.DeleteAll();
+
+                                                  return false;
+
+                                                } else values.Add(value);
+       
+                                              key.Format(__L("%s%02d"), IDbasic, c+1);
+                                              AddValue(type , group, key.Get(), value);
+                                            }
+
+                                          return true;
+                                        }
+
 
     XFILEINI*                           GetFileINI                ();
      

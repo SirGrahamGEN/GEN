@@ -232,7 +232,7 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
           dyndnsmanager = new DIODYNDNS_MANAGER();
           if(dyndnsmanager)
             {
-              for(XDWORD c=0; c<APP_CFG_DYNDNSMANAGER_MAXURL; c++)
+              for(XDWORD c=0; c<cfg->DNSManager_GetURLs()->GetSize(); c++)
                 {
                   dyndnsmanager->AddDNS((*cfg->DNSManager_GetURL(c)));
                 }

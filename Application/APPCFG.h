@@ -95,9 +95,7 @@
 
 #define APP_CFG_SECTION_DNSRESOLVED                                               __L("dns resolved")
 #define APP_CFG_DNSRESOLVED_HOSTRESOLVED                                          __L("host_resolved")
-#define APP_CFG_DNSRESOLVED_MAXHOSTRESOLVED                                       10
 #define APP_CFG_DNSRESOLVED_DNSSERVER                                             __L("dns_server")
-#define APP_CFG_DNSRESOLVED_MAXDNSSERVERS                                         3
 
 #endif
 
@@ -106,7 +104,7 @@
 
 #define APP_CFG_SECTION_DYNDNSMANAGER                                             __L("dyndns manager")
 #define APP_CFG_DYNDNSMANAGER_URL                                                 __L("url")
-#define APP_CFG_DYNDNSMANAGER_MAXURL                                              15
+//#define APP_CFG_DYNDNSMANAGER_MAXURL                                              15
 
 #endif
 
@@ -275,6 +273,7 @@ class APPCFG
 
 
     #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+    XVECTOR<XSTRING*>*   DNSManager_GetURLs                                       ();      
     XSTRING*             DNSManager_GetURL                                        (int index);
     #endif
 
@@ -396,13 +395,18 @@ class APPCFG
 
 
     #ifdef APP_CFG_DNSRESOLVED_ACTIVE
-    XSTRING              hostresolved[APP_CFG_DNSRESOLVED_MAXHOSTRESOLVED];
-    XSTRING              DNSserver[APP_CFG_DNSRESOLVED_MAXDNSSERVERS];
+
+    int                  nhostsresolved; 
+    XVECTOR<XSTRING*>    hostsresolved;
+    int                  nDNSservers;
+    XVECTOR<XSTRING*>    DNSservers;
+
     #endif
 
 
     #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
-    XSTRING              dnsmanager_url[APP_CFG_DYNDNSMANAGER_MAXURL];
+    int                    dnsmanager_nurls;
+    XVECTOR<XSTRING*>      dnsmanager_urls;      
     #endif
 
     #endif
