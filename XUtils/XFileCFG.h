@@ -128,9 +128,9 @@ class XFILECFG : public XSUBJECT
                                           
                                           nkeys = GetCountKeys(group, IDbasic, mask);    
 
-                                          if(nkeys < 0) return false;
+                                          if(nkeys < 0) nkeys = 0;
 
-                                          if((nkeys > 0) && nkeys < mincount)  nkeys = mincount;
+                                          if(nkeys < mincount)  nkeys = mincount;
 
                                           values.DeleteContents();
                                           values.DeleteAll();
@@ -148,7 +148,7 @@ class XFILECFG : public XSUBJECT
                                                 } else values.Add(value);
        
                                               key.Format(__L("%s%02d"), IDbasic, c+1);
-                                              AddValue(type , group, key.Get(), value);
+                                              AddValue(type , group, key.Get(), value, remark_text, remark_xpos);
                                             }
 
                                           return true;
