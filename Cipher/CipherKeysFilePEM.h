@@ -41,6 +41,8 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define CIPHERKEYSFILEPEM_EXT           __L(".PEM")
+#define CIPHERKEYSFILEKEY_EXT           __L(".KEY")
+#define CIPHERKEYSFILECER_EXT           __L(".CER")
 
 #define CIPHERKEYSFILEPEM_BEGINKEY      __L("-----BEGIN ")
 #define CIPHERKEYSFILEPEM_ENDKEY        __L("-----END ")

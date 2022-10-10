@@ -39,9 +39,10 @@
 typedef struct
 {
   XCHAR*    OID;
-  XCHAR*    description;
-
-} XASN1_OID_DESCRIPTION;
+  XCHAR*    description; 
+  bool      isconstructed;
+   
+} XASN1_OID_PROPERTY;
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
@@ -50,19 +51,21 @@ typedef struct
 class XASN1
 {
   public:
-                                      XASN1										();
-    virtual                          ~XASN1										();
+                                      XASN1										        ();
+    virtual                          ~XASN1										        ();
 
-    static XCHAR*                     GetOIDDescription       (XCHAR* OID);
+    static XASN1_OID_PROPERTY*        GetOIDProperty                  (XCHAR* OID); 
 
-		bool    				                  Decode								  (XBUFFER& databin);
+    static XCHAR*                     GetOIDPropertyDescription       (XCHAR* OID);
+
+		bool    				                  Decode								          (XBUFFER& databin);
 
   private:
 	
-    void                              Clean										();
+    void                              Clean										        ();
 
     XBER*    				                  ber; 
-    static XASN1_OID_DESCRIPTION      OID_description[];
+    static XASN1_OID_PROPERTY         OID_properties[];
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

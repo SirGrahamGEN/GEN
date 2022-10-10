@@ -850,7 +850,9 @@ bool XBER::Sequence_DeleteAll()
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool XBER::SetFromDumpInternal(XBUFFER& buffer)
 {
-  static XBYTE level = 0;
+  static XASN1_OID_PROPERTY*  property  = NULL;
+  static XBYTE                level     = 0;
+  XSTRING                     line;
   
   if(buffer.IsEmpty()) return false;
 
@@ -880,56 +882,77 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
   data.Delete();
   data.Add(&buffer.Get()[sizehead], size);
 
+  line.Format(__L("(%d, %d) %s"), totalposition, size, nametagtype.Get());  
+
   switch(tagtype)
-   {  
-     case XBER_TAGTYPE_BIT_STRING     : unusedbits = data.Get()[0];
-                                        sizehead++;                                   
-                                        if(!unusedbits)  isconstructed = true;
-                                        break;
+   {   
+     case XBER_TAGTYPE_CONTEXT_SPECIFIC    : line.AddFormat(__L(" (%d) "), contextspecificvalue);  
+                                             break;
 
-     case XBER_TAGTYPE_OCTET_STRING   : //isconstructed = true;
-                                        break;
+     case XBER_TAGTYPE_OBJECT_IDENTIFIER  : { XSTRING valuestr;
+      
+                                              ConvertToObjetIdentifier(data, value);
+                                              value.ToString(valuestr);
 
-                          default     : break;
+                                              property = XASN1::GetOIDProperty(valuestr.Get());
+                                              if(property)
+                                                {
+                                                  line.AddFormat(__L(": %s :"), property->description);  
+                                                  
+                                                  if(!property->isconstructed)
+                                                    {
+                                                      property = NULL;
+                                                    }
+                                                }
+                                            }
+
+                                            break;
+
+     case XBER_TAGTYPE_BIT_STRING         : unusedbits = data.Get()[0];   
+                                            data.Extract(NULL, 0, 1);                                            
+                                            line.AddFormat(__L(" UnusedBits: %d "), unusedbits);                                                                           
+                                            if(property)
+                                              {
+                                                isconstructed = property->isconstructed;
+                                                if(isconstructed) totalposition++;
+                                              }
+
+                                            property = NULL;                                               
+                                            break;
+
+     case XBER_TAGTYPE_OCTET_STRING       : if(property)
+                                              {
+                                                isconstructed = property->isconstructed;  
+                                              }
+
+                                            property = NULL;                                            
+                                            break;
+
+                          default         : break;
    }
- 
+
   if(isconstructed)  
     { 
-      XBUFFER buffer_rest;
+      XBUFFER subdata;
       XBER*   sub_ber  = NULL; 
-      XDWORD  position = 0;     
-      XSTRING line;
-
-      line.Format(__L("(%d, %d) %s"), totalposition, size, nametagtype.Get());  
-
-      switch(tagtype)
-        {  
-          case XBER_TAGTYPE_CONTEXT_SPECIFIC    : line.AddFormat(__L(" (%d) "), contextspecificvalue);  
-                                                  break;
-
-          case XBER_TAGTYPE_BIT_STRING          : line.AddFormat(__L(" UnusedBits: %d "), unusedbits);  
-                                                  break;
-
-                             default            : break;
-        }
-
+      XDWORD  position = 0;    
 
       XTRACE_PRINTTAB(level, line.Get(), NULL);  
-      XTRACE_PRINTDATABLOCKTAB(level, buffer.Get(), sizehead);
-
-      level++;    
+      //XTRACE_PRINTDATABLOCKTAB(level, buffer.Get(), sizehead);
+       
+      level++;          
 
       totalposition += sizehead;           
 
-      buffer_rest.Delete();
-      buffer_rest.Add(&buffer.Get()[sizehead], buffer.GetSize()-sizehead);          
+      subdata.Delete();
+      subdata.Add(data.Get(), data.GetSize());          
       
-      while(position < data.GetSize())
+      while(subdata.GetSize())
         {                  
           sub_ber = new XBER();
           if(sub_ber) 
             {                           
-              if(!sub_ber->SetFromDumpInternal(buffer_rest))
+              if(!sub_ber->SetFromDumpInternal(subdata))
                 {
                   delete sub_ber;    
                   sub_ber = NULL;
@@ -944,7 +967,7 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
                   
                   position += addsize;                                                                                     
                   
-                  buffer_rest.Extract(NULL, 0, addsize);
+                  subdata.Extract(NULL, 0, addsize);
                 }            
                 
             } else return false;
@@ -964,13 +987,14 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
           case XBER_TAGTYPE_INTEGER	            : ConvertToInteger(data, value);
                                                   break;
 
-          case XBER_TAGTYPE_BIT_STRING	        : 
+          case XBER_TAGTYPE_BIT_STRING	        : ConvertToBitString(data, value);                                                  
                                                   break;
 
           case XBER_TAGTYPE_OCTET_STRING        : ConvertToOctetString(data, value);
                                                   break;
 
-          case XBER_TAGTYPE_NULL                : break;
+          case XBER_TAGTYPE_NULL                : value.Set();
+                                                  break;
 
           case XBER_TAGTYPE_OBJECT_IDENTIFIER   : ConvertToObjetIdentifier(data, value);                                                  
                                                   break;
@@ -1011,28 +1035,23 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
           case XBER_TAGTYPE_DURATION            : break;
           case XBER_TAGTYPE_OID_IRI             : break;
           case XBER_TAGTYPE_RELATIVE_OID_IRI    : break;
-        }      
+        }            
 
-      { XSTRING valuestr;
-      
-        value.ToString(valuestr);
-        if((valuestr.GetSize() && (!value.IsNull())))
-          {            
-            XCHAR* description = NULL;
 
-            if(tagtype == XBER_TAGTYPE_OBJECT_IDENTIFIER) description = XASN1::GetOIDDescription(valuestr.Get());
-           
-            XTRACE_PRINTTAB(level, __L("(%d, %d) %s : %s '%s'"), totalposition, size, nametagtype.Get(), description?description:__L(""), (valuestr.GetSize() && (!value.IsNull()))?valuestr.Get():__L(""));        
-          }
-         else
-          {
-            XTRACE_PRINTTAB(level, __L("(%d, %d) %s"), totalposition, size, nametagtype.Get());        
-          }
+      if(!value.IsNull())
+        {
+          XSTRING valuestr;
 
-        // XTRACE_PRINTDATABLOCKTAB(level, data);  
-      }
+          value.ToString(valuestr);
 
-      
+          if(!valuestr.IsEmpty())
+            {     
+              line.AddFormat(__L(" '%s' "), valuestr.Get());  
+            }         
+        }
+
+      XTRACE_PRINTTAB(level, line.Get(), NULL);        
+
       totalposition += sizehead + size;     
     }
 
@@ -1131,6 +1150,34 @@ bool XBER::ConvertToOctetString(XBUFFER& data, XVARIANT& variant)
 
   return true;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBER::ConvertToBitString(XBUFFER& data, XVARIANT& variant)
+* @brief      ConvertToBitString
+* @ingroup    XUTILS
+* 
+* @param[in]  data : 
+* @param[in]  variant : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER::ConvertToBitString(XBUFFER& data, XVARIANT& variant)
+{
+  XSTRING string; 
+
+  for(int c=0; c<data.GetSize(); c++)
+    {
+      string.AddFormat(__L("%02X"), data.Get()[c]);
+    }
+
+  variant = string;
+
+  return true;
+}
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------

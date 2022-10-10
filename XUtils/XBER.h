@@ -172,6 +172,7 @@ class XBER
     bool                      ConvertToBoolean                (XBUFFER& data, XVARIANT& variant);
     bool                      ConvertToInteger                (XBUFFER& data, XVARIANT& variant);
     bool                      ConvertToOctetString            (XBUFFER& data, XVARIANT& variant);
+    bool                      ConvertToBitString              (XBUFFER& data, XVARIANT& variant);
     bool                      ConvertToNULL                   (XVARIANT& variant);
     bool                      ConvertToObjetIdentifier        (XBUFFER& data, XVARIANT& variant);
     bool                      ConvertToPrintableString        (XBUFFER& data, XVARIANT& variant);

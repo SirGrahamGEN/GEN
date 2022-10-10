@@ -285,9 +285,27 @@ bool XFILECFG::Ini()
   bool status[2];
 
   status[0] = Load();  
+
+  ReAjustIni();
+
   status[1] = Save();
 
   return (status[0] && status[1]);  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILECFG::ReAjustIni()
+* @brief      ReAjustIni
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILECFG::ReAjustIni()
+{
+  return true;
 }
 
 

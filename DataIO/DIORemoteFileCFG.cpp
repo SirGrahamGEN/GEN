@@ -154,6 +154,8 @@ bool DIOREMOTEFILECFG::Ini()
         }
     }
 
+  ReAjustIni();
+
   status[1] = Save();
 
   return (status[0] && status[1]);

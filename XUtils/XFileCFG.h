@@ -95,9 +95,11 @@ class XFILECFG : public XSUBJECT
 
     virtual bool                        Ini                       ();
 
+    virtual bool                        ReAjustIni                ();        
+
     bool                                Load                      ();
     virtual bool                        Load                      (XPATH& xpath);
-
+    
     bool                                Save                      ();
     virtual bool                        Save                      (XPATH& xpath);
 
@@ -107,9 +109,7 @@ class XFILECFG : public XSUBJECT
     XVECTOR<XFILECFGVALUE*>*            GetValues                 ();   
     XVARIANT*                           GetValue                  (XCHAR* group, XCHAR* ID);   
     bool                                DeleteAllValues           ();
-
    
-    
     bool                                AddRemark                 (XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
     bool                                AddRemark                 (XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
     XVECTOR<XFILEINIREMARK*>*           GetRemarks                ();

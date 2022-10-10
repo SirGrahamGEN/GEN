@@ -70,6 +70,7 @@ enum APPBASE_APPLICATIONMODE_TYPE
 #define APPDEFAULT_DIRECTORY_FONTS           __L("fonts")
 #define APPDEFAULT_DIRECTORY_SCRIPTS         __L("scripts")
 #define APPDEFAULT_DIRECTORY_FIRMWARE        __L("firmware")
+#define APPDEFAULT_DIRECTORY_CERTIFICATES    __L("certificates")
 
 #define APPLICATIONCREATEINSTANCE(CLASSNAME, VARIABLE)    CLASSNAME* VARIABLE = NULL;                     \
                                                           APPBASE* APPBASE::Create()                      \

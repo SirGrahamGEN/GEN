@@ -79,7 +79,6 @@ set(XASN_FEATURE                                        false   CACHE BOOL "Acti
 
 set(XLICENSE_FEATURE                                    false   CACHE BOOL "Activate License functions"                                   FORCE)
 
-
 set(XTHREADCOLLECTED_FEATURE                            false   CACHE BOOL "Activate Thread Collected"                                    FORCE)
 set(XUUID_FEATURE                                       false   CACHE BOOL "Activate UUID functions"                                      FORCE)
 set(XSLEEP_FEATURE                                      false   CACHE BOOL "Activate Sleep functions"                                     FORCE)
