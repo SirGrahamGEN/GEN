@@ -87,7 +87,6 @@
 #define APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE                  __L("updatetimentpmeridiandifference")
 #define APP_CFG_INTERNETSERVICES_UPDATETIMENTPUSEDAYLIGHTSAVING                   __L("updatetimentpusedaylightsaving")
 
-#define APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS                          3
 #define APP_CFG_INTERNETSERVICES__UPDATETIMENTPMERIDIANDIFFERENCE_AUTO            25
 
 
@@ -175,9 +174,6 @@
 #define APP_CFG_ALERTS_UDP_PORT                                                   __L("udp_port")
 #define APP_CFG_ALERTS_UDP_RECIPIENT                                              __L("udp_recipient")
 
-#define APP_CFG_ALERTS_MAXCONDITIONS                                              10
-#define APP_CFG_ALERTS_MAXRECIPIENTS                                              10
-
 #endif
 
 
@@ -260,6 +256,7 @@ class APPCFG
     int                  InternetServices_GetCheckInternetStatusCadence           ();
     int                  InternetServices_GetCheckIPsChangeCadence                ();
     int                  InternetServices_GetUpdateTimeByNTPCadence               ();
+    XVECTOR<XSTRING*>*   InternetServices_GetUpdateTimeNTPServers                 (); 
     XSTRING*             InternetServices_GetUpdateTimeNTPServer                  (int index);
     int                  InternetServices_GetUpdateTimeNTPMeridianDifference      ();
     bool                 InternetServices_GetUpdateTimeNTPUseDayLightSaving       ();
@@ -306,6 +303,7 @@ class APPCFG
     #ifdef APP_CFG_ALERTS_ACTIVE
 
     bool                 Alerts_IsActive                                          ();
+    XVECTOR<XSTRING*>*   Alerts_GetConditions                                     ();
     XSTRING*             Alerts_GetCondition                                      (int index);
     bool                 Alerts_GetCondition                                      (int index, XDWORD& conditionID, int& timelimitforrepeat, int& numberoftimesrepeat);
     bool                 Alerts_IsActiveSMTP                                      ();
@@ -314,17 +312,21 @@ class APPCFG
     XSTRING*             Alerts_GetSMTPLogin                                      ();
     XSTRING*             Alerts_GetSMTPPassword                                   ();
     XSTRING*             Alerts_GetSMTPSender                                     ();
+    XVECTOR<XSTRING*>*   Alerts_GetSMTPRecipients                                 ();
     XSTRING*             Alerts_GetSMTPRecipient                                  (int index);
 
     bool                 Alerts_IsActiveSMS                                       ();
+    XVECTOR<XSTRING*>*   Alerts_GetSMSRecipients                                  ();
     XSTRING*             Alerts_GetSMSRecipient                                   (int index);
 
     bool                 Alerts_IsActiveWEB                                       ();
     bool                 Alerts_GetWEBIsUseGet                                    ();
+    XVECTOR<XSTRING*>*   Alerts_GetWEBRecipients                                  ();
     XSTRING*             Alerts_GetWEBRecipient                                   (int index);
 
     bool                 Alerts_IsActiveUDP                                       ();
     int                  Alerts_GetUDPPort                                        ();
+    XVECTOR<XSTRING*>*   Alerts_GetUDPRecipients                                  ();
     XSTRING*             Alerts_GetUDPRecipient                                   (int index);
 
     #endif
@@ -388,7 +390,8 @@ class APPCFG
     int                  internetservices_checkinternetstatuscadence;
     int                  internetservices_checkipschangecadence;
     int                  internetservices_updatetimebyntpcadence;
-    XSTRING              internetservices_updatetimentpservers[APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS];
+    int                  internetservices_nupdatetimentpservers;
+    XVECTOR<XSTRING*>    internetservices_updatetimentpservers;    
     int                  internetservices_updatetimentpmeridiandifference;
     bool                 internetservices_updatetimentpusedaylightsaving;
 
@@ -405,8 +408,8 @@ class APPCFG
 
 
     #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
-    int                    dnsmanager_nurls;
-    XVECTOR<XSTRING*>      dnsmanager_urls;      
+    int                  dnsmanager_nurls;
+    XVECTOR<XSTRING*>    dnsmanager_urls;      
     #endif
 
     #endif
@@ -452,25 +455,30 @@ class APPCFG
     #ifdef APP_CFG_ALERTS_ACTIVE
 
     bool                 alerts_isactive;
-    XSTRING              alerts_conditions[APP_CFG_ALERTS_MAXCONDITIONS];
+    int                  alerts_nconditions;
+    XVECTOR<XSTRING*>    alerts_conditions;
     bool                 alerts_SMTP_isactive;
     XSTRING              alerts_SMTP_URL;
     int                  alerts_SMTP_port;
     XSTRING              alerts_SMTP_login;
     XSTRING              alerts_SMTP_password;
     XSTRING              alerts_SMTP_sender;
-    XSTRING              alerts_SMTP_recipient[APP_CFG_ALERTS_MAXRECIPIENTS];
+    int                  alerts_SMTP_nrecipients;
+    XVECTOR<XSTRING*>    alerts_SMTP_recipients;
 
     bool                 alerts_SMS_isactive;
-    XSTRING              alerts_SMS_recipient[APP_CFG_ALERTS_MAXRECIPIENTS];
+    int                  alerts_SMS_nrecipients;
+    XVECTOR<XSTRING*>    alerts_SMS_recipients;
 
     bool                 alerts_WEB_isactive;
     bool                 alerts_WEB_isuseget;
-    XSTRING              alerts_WEB_recipient[APP_CFG_ALERTS_MAXRECIPIENTS];
+    int                  alerts_WEB_nrecipients;
+    XVECTOR<XSTRING*>    alerts_WEB_recipients;
 
     bool                 alerts_UDP_isactive;
     int                  alerts_UDP_port;
-    XSTRING              alerts_UDP_recipient[APP_CFG_ALERTS_MAXRECIPIENTS];
+    int                  alerts_UDP_nrecipients;
+    XVECTOR<XSTRING*>    alerts_UDP_recipients;
 
     #endif
 

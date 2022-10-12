@@ -90,6 +90,7 @@ APPCFG::APPCFG(XCHAR* namefile)
       AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_GENERAL, key.Get(), &tracetarget[c]);
     }
   #endif
+
   #endif
 
 
@@ -120,11 +121,15 @@ APPCFG::APPCFG(XCHAR* namefile)
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_CHECKIPSCHANGECADENCE              , &internetservices_checkipschangecadence);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMEBYNTPCADENCE             , &internetservices_updatetimebyntpcadence);
 
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_INTERNETSERVICES,  APP_CFG_INTERNETSERVICES_UPDATETIMENTPSERVER, __L("%02d"), 3, 99, internetservices_updatetimentpservers, internetservices_nupdatetimentpservers);
+
+  /*
   for(int c=0; c<APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS; c++)
     {
       key.Format(__L("%s%02d"), APP_CFG_INTERNETSERVICES_UPDATETIMENTPSERVER, c+1);
       AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_INTERNETSERVICES, key.Get(), &internetservices_updatetimentpservers[c]);
     }
+  */
 
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE    , &internetservices_updatetimentpmeridiandifference);
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPUSEDAYLIGHTSAVING     , &internetservices_updatetimentpusedaylightsaving);
@@ -152,14 +157,6 @@ APPCFG::APPCFG(XCHAR* namefile)
   AddRemark(APP_CFG_DYNDNSMANAGER_URL, __L(" Location info section of configuration")                          , 0, 2);
 
   AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DYNDNSMANAGER,  APP_CFG_DYNDNSMANAGER_URL, __L("%02d"), 3, 99, dnsmanager_urls, dnsmanager_nurls);
-  
-  /*
-  for(int c=0; c<APP_CFG_DYNDNSMANAGER_MAXURL; c++)
-    {
-      key.Format(__L("%s%02d"), APP_CFG_DYNDNSMANAGER_URL, c+1);
-      AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_DYNDNSMANAGER, key.Get(), &dnsmanager_url[c]);
-    }
-  */
   #endif
 
   #endif
@@ -232,11 +229,7 @@ APPCFG::APPCFG(XCHAR* namefile)
 
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_SMTP_ISACTIVE                                , &alerts_SMTP_isactive);
 
-   for(int c=0; c<APP_CFG_ALERTS_MAXCONDITIONS; c++)
-    {
-      key.Format(__L("%s%02d"), APP_CFG_ALERTS_CONDITION, c+1);
-      AddValue(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, key.Get(),  &alerts_conditions[c]);
-    }
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS,  APP_CFG_ALERTS_CONDITION, __L("%02d"), 3, 99, alerts_conditions, alerts_nconditions);
 
   //------------------------------------
 
@@ -245,40 +238,28 @@ APPCFG::APPCFG(XCHAR* namefile)
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_SMTP_LOGIN                                   , &alerts_SMTP_login);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_SMTP_PASSWORD                                , &alerts_SMTP_password);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_SMTP_SENDER                                  , &alerts_SMTP_sender);
-  for(int c=0; c<APP_CFG_ALERTS_MAXRECIPIENTS; c++)
-    {
-      key.Format(__L("%s%02d"), APP_CFG_ALERTS_SMTP_RECIPIENT, c+1);
-      AddValue(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, key.Get(),  &alerts_SMTP_recipient[c]);
-    }
 
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, APP_CFG_ALERTS_SMTP_RECIPIENT, __L("%02d"), 3, 99, alerts_SMTP_recipients, alerts_SMTP_nrecipients);
+  
   //------------------------------------
 
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_SMS_ISACTIVE                                 , &alerts_SMS_isactive);
-  for(int c=0; c<APP_CFG_ALERTS_MAXRECIPIENTS; c++)
-    {
-      key.Format(__L("%s%02d"), APP_CFG_ALERTS_SMS_RECIPIENT, c+1);
-      AddValue(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, key.Get(),  &alerts_SMS_recipient[c]);
-    }
 
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, APP_CFG_ALERTS_SMS_RECIPIENT, __L("%02d"), 3, 99, alerts_SMS_recipients, alerts_SMS_nrecipients);
+  
   //------------------------------------
 
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_WEB_ISACTIVE                                 , &alerts_WEB_isactive);
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_WEB_UISUSEGET                                , &alerts_WEB_isuseget);
-  for(int c=0; c<APP_CFG_ALERTS_MAXRECIPIENTS; c++)
-    {
-      key.Format(__L("%s%02d"), APP_CFG_ALERTS_WEB_RECIPIENT, c+1);
-      AddValue(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, key.Get(),  &alerts_WEB_recipient[c]);
-    }
+
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, APP_CFG_ALERTS_WEB_RECIPIENT, __L("%02d"), 3, 99, alerts_WEB_recipients, alerts_WEB_nrecipients);
 
   //------------------------------------
 
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_UDP_ISACTIVE                                 , &alerts_UDP_isactive);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_UDP_PORT                                     , &alerts_UDP_port);
-  for(int c=0; c<APP_CFG_ALERTS_MAXRECIPIENTS; c++)
-    {
-      key.Format(__L("%s%02d"), APP_CFG_ALERTS_UDP_RECIPIENT, c+1);
-      AddValue(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, key.Get(),  &alerts_UDP_recipient[c]);
-    }
+
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, APP_CFG_ALERTS_UDP_RECIPIENT, __L("%02d"), 3, 99, alerts_UDP_recipients, alerts_UDP_nrecipients);
 
   #endif
 
@@ -320,6 +301,13 @@ APPCFG::~APPCFG()
 
   //------------------------------------------------------------------------------------------------------
 
+  #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
+  internetservices_updatetimentpservers.DeleteContents();
+  internetservices_updatetimentpservers.DeleteAll();
+  #endif
+
+  //------------------------------------------------------------------------------------------------------
+
   #ifdef APP_CFG_DNSRESOLVED_ACTIVE
   hostsresolved.DeleteContents();
   hostsresolved.DeleteAll();
@@ -333,6 +321,27 @@ APPCFG::~APPCFG()
   #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
   dnsmanager_urls.DeleteContents();  
   dnsmanager_urls.DeleteAll();
+  #endif
+
+  //------------------------------------------------------------------------------------------------------
+
+  #ifdef APP_CFG_ALERTS_ACTIVE
+
+  alerts_conditions.DeleteContents();
+  alerts_conditions.DeleteAll();
+
+  alerts_SMTP_recipients.DeleteContents();
+  alerts_SMTP_recipients.DeleteAll();
+
+  alerts_SMS_recipients.DeleteContents();
+  alerts_SMS_recipients.DeleteAll();
+
+  alerts_WEB_recipients.DeleteContents();
+  alerts_WEB_recipients.DeleteAll();
+
+  alerts_UDP_recipients.DeleteContents();
+  alerts_UDP_recipients.DeleteAll();
+
   #endif
 
   //------------------------------------------------------------------------------------------------------
@@ -386,10 +395,10 @@ bool APPCFG::Default()
   internetservices_checkipschangecadence            = 60;
   internetservices_updatetimebyntpcadence           = 4;
 
-  internetservices_updatetimentpservers[0]          = __L("1.es.pool.ntp.org");
-  internetservices_updatetimentpservers[1]          = __L("1.europe.pool.ntp.org");
-  internetservices_updatetimentpservers[2]          = __L("3.europe.pool.ntp.org");
-
+  internetservices_updatetimentpservers.Get(0)->Set(__L("1.es.pool.ntp.org")); 
+  internetservices_updatetimentpservers.Get(1)->Set(__L("1.europe.pool.ntp.org")); 
+  internetservices_updatetimentpservers.Get(2)->Set(__L("3.europe.pool.ntp.org")); 
+  
   internetservices_updatetimentpmeridiandifference  = APP_CFG_INTERNETSERVICES__UPDATETIMENTPMERIDIANDIFFERENCE_AUTO;
   internetservices_updatetimentpusedaylightsaving   = true;
 
@@ -731,6 +740,21 @@ int APPCFG::InternetServices_GetUpdateTimeByNTPCadence()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPCFG::InternetServices_GetUpdateTimeNTPServers()
+* @brief      InternetServices_GetUpdateTimeNTPServers
+* @ingroup    APPLICATION
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPCFG::InternetServices_GetUpdateTimeNTPServers()
+{
+  return &internetservices_updatetimentpservers;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* APPCFG::InternetServices_GetUpdateTimeNTPServer(int index)
 * @brief      Get Update Time NTP Server by Index from a List
@@ -742,11 +766,13 @@ int APPCFG::InternetServices_GetUpdateTimeByNTPCadence()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPCFG::InternetServices_GetUpdateTimeNTPServer(int index)
-{
-  if((index>=0) && (index<APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS)) return &internetservices_updatetimentpservers[index];
-
+{  
   static XSTRING empty;
-  return &empty;
+
+  if(index < 0)                                                 return &empty;
+  if(index >= internetservices_updatetimentpservers.GetSize())  return &empty;
+
+  return internetservices_updatetimentpservers.Get(index);
 }
 
 
@@ -1105,6 +1131,21 @@ bool APPCFG::Alerts_IsActive()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPCFG::Alerts_GetConditions()
+* @brief      Alerts_GetConditions
+* @ingroup    APPLICATION
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPCFG::Alerts_GetConditions()
+{
+  return &alerts_conditions;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* APPCFG::Alerts_GetCondition(int index)
 * @brief      Alerts_GetCondition
@@ -1117,10 +1158,10 @@ bool APPCFG::Alerts_IsActive()
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPCFG::Alerts_GetCondition(int index)
 {
-  if(index<0)                               return NULL;
-  if(index>=APP_CFG_ALERTS_MAXCONDITIONS)   return NULL;
+  if(index < 0)                              return NULL;
+  if(index >= alerts_conditions.GetSize())   return NULL;
 
-  return &alerts_conditions[index];
+  return alerts_conditions.Get(index);
 }
 
 
@@ -1245,6 +1286,21 @@ XSTRING* APPCFG::Alerts_GetSMTPSender()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPCFG::Alerts_GetSMTPRecipients()
+* @brief      Alerts_GetSMTPRecipients
+* @ingroup    APPLICATION
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPCFG::Alerts_GetSMTPRecipients()
+{
+  return &alerts_SMTP_recipients;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* APPCFG::Alerts_GetSMTPRecipient(int index)
 * @brief      Alerts_GetSMTPRecipient
@@ -1257,10 +1313,10 @@ XSTRING* APPCFG::Alerts_GetSMTPSender()
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPCFG::Alerts_GetSMTPRecipient(int index)
 {
-  if(index<0)                             return NULL;
-  if(index>=APP_CFG_ALERTS_MAXRECIPIENTS) return NULL;
+  if(index < 0)                                  return NULL;
+  if(index >= alerts_SMTP_recipients.GetSize())  return NULL;
 
-  return &alerts_SMTP_recipient[index];
+  return alerts_SMTP_recipients.Get(index);
 }
 
 
@@ -1280,6 +1336,21 @@ bool APPCFG::Alerts_IsActiveSMS()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPCFG::Alerts_GetSMSRecipients()
+* @brief      Alerts_GetSMSRecipients
+* @ingroup    APPLICATION
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPCFG::Alerts_GetSMSRecipients()
+{
+  return &alerts_SMS_recipients;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* APPCFG::Alerts_GetSMSRecipient(int index)
 * @brief      Alerts_GetSMSRecipient
@@ -1292,10 +1363,10 @@ bool APPCFG::Alerts_IsActiveSMS()
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPCFG::Alerts_GetSMSRecipient(int index)
 {
-  if(index<0)                                return NULL;
-  if(index>=APP_CFG_ALERTS_MAXRECIPIENTS)    return NULL;
+  if(index < 0)                                 return NULL;
+  if(index >= alerts_SMS_recipients.GetSize())  return NULL;
 
-  return &alerts_SMS_recipient[index];
+  return alerts_SMS_recipients.Get(index);
 }
 
 
@@ -1330,6 +1401,21 @@ bool APPCFG::Alerts_GetWEBIsUseGet()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPCFG::Alerts_GetWEBRecipients()
+* @brief      Alerts_GetWEBRecipients
+* @ingroup    APPLICATION
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPCFG::Alerts_GetWEBRecipients()
+{
+  return &alerts_WEB_recipients;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* APPCFG::Alerts_GetWEBRecipient(int index)
 * @brief      Alerts_GetWEBRecipient
@@ -1342,10 +1428,10 @@ bool APPCFG::Alerts_GetWEBIsUseGet()
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPCFG::Alerts_GetWEBRecipient(int index)
 {
-  if(index<0)                                  return NULL;
-  if(index>=APP_CFG_ALERTS_MAXRECIPIENTS)    return NULL;
+  if(index <  0)                               return NULL;
+  if(index >= alerts_WEB_recipients.GetSize()) return NULL;
 
-  return &alerts_WEB_recipient[index];
+  return alerts_WEB_recipients.Get(index);
 }
 
 
@@ -1380,6 +1466,21 @@ int APPCFG::Alerts_GetUDPPort()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPCFG::Alerts_GetUDPRecipients()
+* @brief      Alerts_GetUDPRecipients
+* @ingroup    APPLICATION
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPCFG::Alerts_GetUDPRecipients()
+{
+  return &alerts_UDP_recipients;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* APPCFG::Alerts_GetUDPRecipient(int index)
 * @brief      Alerts_GetUDPRecipient
@@ -1392,10 +1493,10 @@ int APPCFG::Alerts_GetUDPPort()
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPCFG::Alerts_GetUDPRecipient(int index)
 {
-  if(index<0)                                                 return NULL;
-  if(index>=APP_CFG_ALERTS_MAXRECIPIENTS)    return NULL;
+  if(index <  0)                                return NULL;
+  if(index >= alerts_UDP_recipients.GetSize())  return NULL;
 
-  return &alerts_UDP_recipient[index];
+  return alerts_UDP_recipients.Get(index);
 }
 
 #endif
@@ -1682,11 +1783,8 @@ void APPCFG::Clean()
   internetservices_checkipschangecadence            = 0;
   internetservices_updatetimebyntpcadence           = 0;
 
-  for(int c=0; c<APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS; c++)
-    {
-      internetservices_updatetimentpservers[c].Empty();
-    }
-
+  internetservices_nupdatetimentpservers            = 0;
+  
   internetservices_updatetimentpmeridiandifference  = 0;
   internetservices_updatetimentpusedaylightsaving   = false;
 
@@ -1749,35 +1847,25 @@ void APPCFG::Clean()
   #ifdef APP_CFG_ALERTS_ACTIVE
 
   alerts_isactive                                   = false;
+  alerts_nconditions                                = 0;
 
   alerts_SMTP_isactive                              = false;
-  alerts_SMTP_port                                  = 0;
-  for(int c=0; c<APP_CFG_ALERTS_MAXRECIPIENTS; c++)
-    {
-      alerts_SMTP_recipient[c].Empty();
-    }
-
+  alerts_SMTP_port                                  = 0; 
+  alerts_SMTP_nrecipients                           = 0;
+  
   alerts_SMS_isactive                               = false;
-  for(int c=0; c<APP_CFG_ALERTS_MAXRECIPIENTS; c++)
-    {
-      alerts_SMS_recipient[c].Empty();
-    }
-
-  alerts_WEB_isactive                                = false;
-  alerts_WEB_isuseget                                = false;
-  for(int c=0; c<APP_CFG_ALERTS_MAXRECIPIENTS; c++)
-    {
-      alerts_WEB_recipient[c].Empty();
-    }
-
-  alerts_UDP_isactive                                = false;
-  alerts_UDP_port                                     = 0;
-  for(int c=0; c<APP_CFG_ALERTS_MAXRECIPIENTS; c++)
-    {
-      alerts_UDP_recipient[c].Empty();
-    }
-
+  alerts_SMS_nrecipients                            = 0;  
+  
+  alerts_WEB_isactive                               = false;
+  alerts_WEB_isuseget                               = false;
+  alerts_WEB_nrecipients                            = 0;
+  
+  alerts_UDP_isactive                               = false;
+  alerts_UDP_port                                   = 0;
+  alerts_UDP_nrecipients                            = 0;
+  
   #endif
+
 
   //-----------------------------------------------------------------------------------------------------
 

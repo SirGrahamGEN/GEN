@@ -149,17 +149,17 @@ bool APPALERTS::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int app
   GEN_DIOALERTS.GetApplicationID()->Set(applicationname);
   GEN_DIOALERTS.SetApplicationVersion(appversion, appsubversion, appsubversionerror);
 
+  #define ALERTS_MAX_RECIPIENTS  100
 
-  XCHAR* recipients[APP_CFG_ALERTS_MAXRECIPIENTS];
+  XCHAR* recipients[ALERTS_MAX_RECIPIENTS];
 
   //-----------------------------------------------------------------------------------------
   // SMTP
   if(cfg->Alerts_IsActiveSMTP())
     {
+      memset(recipients, 0, sizeof(XCHAR*) * 100);
 
-      memset(recipients, 0, sizeof(XCHAR*)*APP_CFG_ALERTS_MAXRECIPIENTS);
-
-      for(int c=0; c<APP_CFG_ALERTS_MAXRECIPIENTS; c++)
+      for(int c=0; c<cfg->Alerts_GetSMTPRecipients()->GetSize(); c++)
         {
           if(cfg->Alerts_GetSMTPRecipient(c))
             {
@@ -195,9 +195,9 @@ bool APPALERTS::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int app
   // SMS
   if(cfg->Alerts_IsActiveSMS())
     {
-      memset(recipients, 0, sizeof(XCHAR*)*APP_CFG_ALERTS_MAXRECIPIENTS);
+      memset(recipients, 0, sizeof(XCHAR*) * ALERTS_MAX_RECIPIENTS);
 
-      for(int c=0; c<APP_CFG_ALERTS_MAXRECIPIENTS; c++)
+      for(int c=0; c<cfg->Alerts_GetSMSRecipients()->GetSize(); c++)
         {
           if(cfg->Alerts_GetSMSRecipient(c))
             {
@@ -230,9 +230,9 @@ bool APPALERTS::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int app
   // WEB
   if(cfg->Alerts_IsActiveWEB())
     {
-      memset(recipients, 0, sizeof(XCHAR*)*APP_CFG_ALERTS_MAXRECIPIENTS);
+      memset(recipients, 0, sizeof(XCHAR*) * ALERTS_MAX_RECIPIENTS);
 
-      for(int c=0; c<APP_CFG_ALERTS_MAXRECIPIENTS; c++)
+      for(int c=0; c<cfg->Alerts_GetWEBRecipients()->GetSize(); c++)
         {
           if(cfg->Alerts_GetWEBRecipient(c))
             {
@@ -266,9 +266,9 @@ bool APPALERTS::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int app
   // UDP
   if(cfg->Alerts_IsActiveUDP())
     {
-      memset(recipients, 0, sizeof(XCHAR*)*APP_CFG_ALERTS_MAXRECIPIENTS);
+      memset(recipients, 0, sizeof(XCHAR*) * ALERTS_MAX_RECIPIENTS);
 
-      for(int c=0; c<APP_CFG_ALERTS_MAXRECIPIENTS; c++)
+      for(int c=0; c<cfg->Alerts_GetUDPRecipients()->GetSize(); c++)
         {
           if(cfg->Alerts_GetUDPRecipient(c))
             {
@@ -316,7 +316,7 @@ bool APPALERTS::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int app
     }
 */
 
- for(XDWORD c=0; c<APP_CFG_ALERTS_MAXCONDITIONS; c++)
+ for(XDWORD c=0; c<cfg->Alerts_GetConditions()->GetSize(); c++)
     {
       XDWORD conditionID          = 0;
       int    timelimitforrepeat   = 0; 

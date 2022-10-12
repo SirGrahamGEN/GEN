@@ -202,6 +202,7 @@ class GEN_API_LIB XSTRING
 
     bool                  HaveCharacters                  ();
     bool                  HaveOnlyNumbers                 ();
+    bool                  HaveNumbers                     ();
 
     bool                  DeleteCharacters                (XDWORD index, XDWORD ncharacteres);
     bool                  DeleteCharactersToEnd           (XDWORD index);

@@ -1379,6 +1379,29 @@ bool XSTRING::HaveOnlyNumbers()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::HaveNumbers()
+* @brief      HaveNumbers
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::HaveNumbers()
+{
+  if(IsEmpty()) return false;
+
+  for(XDWORD c=0;c<size;c++)
+    {
+      if(!text[c]) break;
+      if(Character_IsNumber(text[c])) return true;
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::DeleteCharacters(XDWORD index, XDWORD ncharacteres)
 * @brief      DeleteCharacters

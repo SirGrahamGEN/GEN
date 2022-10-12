@@ -248,7 +248,7 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
 
   if(cfg->InternetServices_GetUpdateTimeByNTPCadence() > 0)
     {
-      for(XDWORD c=0; c<APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS; c++)
+      for(XDWORD c=0; c<cfg->InternetServices_GetUpdateTimeNTPServers()->GetSize(); c++)
         {
           this->NTPservers.Add(cfg->InternetServices_GetUpdateTimeNTPServer(c));
         }
