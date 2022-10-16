@@ -216,6 +216,15 @@
 
 
  # --------------------------------------------------------------------
+ # Memory control 
+
+ if(XMEMORY_CONTROL_FEATURE)
+   add_definitions(-DXMEMORY_CONTROL_ACTIVE)
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XMemory_Control.cpp")
+ endif()
+
+
+ # --------------------------------------------------------------------
  # Google Test Library
 
  if(GOOGLETEST_FEATURE)
@@ -646,6 +655,8 @@
    set(HASH_FEATURE                                        true    CACHE BOOL "Activate HASH"                                                FORCE)
    set(APP_INTERNETSERVICES_FEATURE                        true    CACHE BOOL "Activate Application Internet Services"                       FORCE)
    set(XFILE_CFG_FEATURE                                   true    CACHE BOOL "Activate XFile Config format"                                 FORCE)
+   set(DIO_CHECKCONNECTIONS_FEATURE                        true    CACHE BOOL "Activate Check Connections"                                   FORCE)
+   set(DIO_NETWORKTINEPROTOCOL_FEATURE                     true    CACHE BOOL "Activate Network Time Protocol"                               FORCE)
  endif()
 
  if(APP_CFG_DYNDNSMANAGER_FEATURE)
@@ -719,10 +730,6 @@
    endif()
 
  endif()  
-
- if(XMEMORY_CONTROL_FEATURE)
-   add_definitions(-DXMEMORY_CONTROL_ACTIVE)
- endif()   
 
  if(XLOG_FEATURE)  
    set(XFILE_FEATURE                                       true    CACHE BOOL "Activate XFile"                                               FORCE)  
@@ -1035,7 +1042,8 @@
 
  if(APP_INTERNETSERVICES_FEATURE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPInternetServices.cpp")                         
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPInternetServices_XEvent.cpp")  
+   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPInternetServices_XEvent.cpp") 
+   set(DIO_CHECKCONNECTIONS_FEATURE                        true    CACHE BOOL "Activate Check Connections"                                   FORCE)
    set(XSCHEDULER_FEATURE                                  true    CACHE BOOL "Activate XScheduler"                                          FORCE)  
  endif()
 
@@ -1606,11 +1614,7 @@
  if(XTRACE_FEATURE)
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XTrace.cpp")
  endif()
-
- if(XMEMORY_CONTROL_FEATURE)
-   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XMemory_Control.cpp")
- endif()
-
+ 
  if(XTHREADCOLLECTED_FEATURE)
    add_definitions(-DXTHREADCOLLECTED_ACTIVE)    
    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XThreadCollected.cpp")

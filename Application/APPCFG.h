@@ -74,6 +74,7 @@
 #define APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGECHECKCADENCE                       __L("cpuusagecheckcadenceseconds")
 #define APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGELIMITPERCENT                       __L("cpuusagelimitpercent")
 #define APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGEPROCESSNAME                        __L("cpuusageprocessname")
+
 #endif
 
 
@@ -87,7 +88,7 @@
 #define APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE                  __L("updatetimentpmeridiandifference")
 #define APP_CFG_INTERNETSERVICES_UPDATETIMENTPUSEDAYLIGHTSAVING                   __L("updatetimentpusedaylightsaving")
 
-#define APP_CFG_INTERNETSERVICES__UPDATETIMENTPMERIDIANDIFFERENCE_AUTO            25
+#define APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE_AUTO             25
 
 
 #ifdef APP_CFG_DNSRESOLVED_ACTIVE
@@ -103,7 +104,6 @@
 
 #define APP_CFG_SECTION_DYNDNSMANAGER                                             __L("dyndns manager")
 #define APP_CFG_DYNDNSMANAGER_URL                                                 __L("url")
-//#define APP_CFG_DYNDNSMANAGER_MAXURL                                              15
 
 #endif
 
@@ -188,7 +188,6 @@
 #define APP_CFG_LOG_LEVELMASK                                                     __L("levelmask")
 #define APP_CFG_LOG_MAXSIZE                                                       __L("maxsize")
 #define APP_CFG_LOG_REDUCTIONPERCENT                                              __L("reductionpercent")
-
 
 
 // ID Sections "generic" of LOG

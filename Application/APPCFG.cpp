@@ -72,6 +72,7 @@ APPCFG::APPCFG(XCHAR* namefile)
 
   Clean();
 
+  showdetailinfo = __L("0000");
 
   #ifdef APP_CFG_GENERAL_ACTIVE
   //-----------------------------------------------------
@@ -122,15 +123,7 @@ APPCFG::APPCFG(XCHAR* namefile)
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMEBYNTPCADENCE             , &internetservices_updatetimebyntpcadence);
 
   AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_INTERNETSERVICES,  APP_CFG_INTERNETSERVICES_UPDATETIMENTPSERVER, __L("%02d"), 3, 99, internetservices_updatetimentpservers, internetservices_nupdatetimentpservers);
-
-  /*
-  for(int c=0; c<APP_CFG_INTERNETSERVICES_UPDATETIMENTPMAXSERVERS; c++)
-    {
-      key.Format(__L("%s%02d"), APP_CFG_INTERNETSERVICES_UPDATETIMENTPSERVER, c+1);
-      AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_INTERNETSERVICES, key.Get(), &internetservices_updatetimentpservers[c]);
-    }
-  */
-
+  
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE    , &internetservices_updatetimentpmeridiandifference);
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPUSEDAYLIGHTSAVING     , &internetservices_updatetimentpusedaylightsaving);
 
@@ -148,7 +141,6 @@ APPCFG::APPCFG(XCHAR* namefile)
   #endif
 
 
-
   #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
   //-----------------------------------------------------
   // DYNDNS MANAGER
@@ -160,7 +152,6 @@ APPCFG::APPCFG(XCHAR* namefile)
   #endif
 
   #endif
-
 
 
   #ifdef APP_CFG_LOCATION_ACTIVE
@@ -175,8 +166,8 @@ APPCFG::APPCFG(XCHAR* namefile)
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_LOCATION                  , APP_CFG_LOCATION_STATE                                      , &location_state);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_LOCATION                  , APP_CFG_LOCATION_COUNTRY                                    , &location_country);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_LOCATION                  , APP_CFG_LOCATION_POSTALCODE                                 , &location_postalcode);
-  #endif
 
+  #endif
 
 
   #ifdef APP_CFG_APPUPDATE_ACTIVE
@@ -192,10 +183,8 @@ APPCFG::APPCFG(XCHAR* namefile)
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_APPLICATIONUPDATE         , APP_CFG_APPLICATIONUPDATE_CHECKCADENCE                      , &applicationupdate_checkcadence);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_APPLICATIONUPDATE         , APP_CFG_APPLICATIONUPDATE_CHECKTIME                         , &applicationupdate_checktime);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_APPLICATIONUPDATE         , APP_CFG_APPLICATIONUPDATE_MAXRESTORATIONS                   , &applicationupdate_maxrestorations);
+
   #endif
-
-
-
 
 
   #ifdef APP_CFG_WEBSERVER_ACTIVE
@@ -212,8 +201,8 @@ APPCFG::APPCFG(XCHAR* namefile)
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_PASSWORD                                  , &webserver_password);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_PATH_RESOURCES                            , &webserver_path_resources);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_PATH_PHP                                  , &webserver_path_PHP);
-  #endif
 
+  #endif
 
 
   #ifdef APP_CFG_ALERTS_ACTIVE
@@ -264,7 +253,6 @@ APPCFG::APPCFG(XCHAR* namefile)
   #endif
 
 
-
   #ifdef APP_CFG_LOG_ACTIVE
   //-----------------------------------------------------
   // LOG
@@ -280,7 +268,9 @@ APPCFG::APPCFG(XCHAR* namefile)
   AddValue(XFILECFG_VALUETYPE_MASK    , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_LEVELMASK                                         , &log_levelmask            , __L("Filter by level mask")                                           , 64);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_MAXSIZE                                           , &log_maxsize              , __L("Limit of the main file to perform the backup (in Kb)")           , 64);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_REDUCTIONPERCENT                                  , &log_reductionpercent     , __L("Reduction (percentage) of the main file when performing backup") , 64);
+
   #endif
+
 
   Default();
 }
@@ -298,31 +288,35 @@ APPCFG::APPCFG(XCHAR* namefile)
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCFG::~APPCFG()
 {
-
   //------------------------------------------------------------------------------------------------------
 
   #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
+
   internetservices_updatetimentpservers.DeleteContents();
   internetservices_updatetimentpservers.DeleteAll();
-  #endif
 
   //------------------------------------------------------------------------------------------------------
 
   #ifdef APP_CFG_DNSRESOLVED_ACTIVE
+
   hostsresolved.DeleteContents();
   hostsresolved.DeleteAll();
 
   DNSservers.DeleteContents();
   DNSservers.DeleteAll();
+
   #endif
 
   //------------------------------------------------------------------------------------------------------
 
   #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+
   dnsmanager_urls.DeleteContents();  
   dnsmanager_urls.DeleteAll();
+
   #endif
 
+  #endif
   //------------------------------------------------------------------------------------------------------
 
   #ifdef APP_CFG_ALERTS_ACTIVE
@@ -363,7 +357,7 @@ APPCFG::~APPCFG()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPCFG::Default()
-{
+{  
   //------------------------------------------------------------------------------------------------------
 
   #ifdef APP_CFG_GENERAL_ACTIVE
@@ -399,13 +393,8 @@ bool APPCFG::Default()
   internetservices_updatetimentpservers.Get(1)->Set(__L("1.europe.pool.ntp.org")); 
   internetservices_updatetimentpservers.Get(2)->Set(__L("3.europe.pool.ntp.org")); 
   
-  internetservices_updatetimentpmeridiandifference  = APP_CFG_INTERNETSERVICES__UPDATETIMENTPMERIDIANDIFFERENCE_AUTO;
+  internetservices_updatetimentpmeridiandifference  = APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE_AUTO;
   internetservices_updatetimentpusedaylightsaving   = true;
-
-
-  #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
-
-  #endif
 
   #endif
 
@@ -451,7 +440,6 @@ bool APPCFG::Default()
   #endif
 
   //------------------------------------------------------------------------------------------------------
-
 
   return true;
 }
@@ -767,10 +755,8 @@ XVECTOR<XSTRING*>* APPCFG::InternetServices_GetUpdateTimeNTPServers()
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPCFG::InternetServices_GetUpdateTimeNTPServer(int index)
 {  
-  static XSTRING empty;
-
-  if(index < 0)                                                 return &empty;
-  if(index >= internetservices_updatetimentpservers.GetSize())  return &empty;
+  if(index < 0)                                                 return NULL;
+  if(index >= internetservices_updatetimentpservers.GetSize())  return NULL;
 
   return internetservices_updatetimentpservers.Get(index);
 }
@@ -1752,7 +1738,8 @@ void APPCFG::Clean()
   #ifdef APP_CFG_GENERAL_ACTIVE
 
   scraperwebscripturldownload.Empty();
-  showdetailinfo                                    = __L("0000");
+
+  showdetailinfo.Empty();
 
   #ifdef XTRACE_ACTIVE
   for(int c=0; c<XTRACE_MAXNTARGETS; c++)
@@ -1788,8 +1775,6 @@ void APPCFG::Clean()
   internetservices_updatetimentpmeridiandifference  = 0;
   internetservices_updatetimentpusedaylightsaving   = false;
 
-  #endif
-
   //-----------------------------------------------------------------------------------------------------
 
   #ifdef APP_CFG_DNSRESOLVED_ACTIVE
@@ -1807,6 +1792,7 @@ void APPCFG::Clean()
     
   #endif
 
+  #endif
   //-----------------------------------------------------------------------------------------------------
 
   #ifdef APP_CFG_LOCATION_ACTIVE

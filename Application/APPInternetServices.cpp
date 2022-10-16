@@ -110,6 +110,7 @@ APPINTERNETSERVICES::~APPINTERNETSERVICES()
 {
   End();
 
+  NTPservers.DeleteContents();
   NTPservers.DeleteAll();
 
   if(xdatetime_actual)
@@ -168,9 +169,10 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
   XDATETIME       xdatetimecadence;
   XTIMER          xtimercadence;
   XSCHEDULERTASK* xtask;
-
+  
   //-------------------------------------------------------------------
 
+  
   if(cfg->InternetServices_GetCheckInternetStatusCadence() > 0)
     {
       xtask = new XSCHEDULERTASK( xscheduler);
@@ -192,14 +194,6 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
 
       checkinternetconnection = new DIOCHECKINTERNETCONNECTION(cfg->InternetServices_GetCheckInternetStatusCadence()/2);
       status =(checkinternetconnection)?true:false;
-
-      /*
-      if(status) 
-        { 
-          haveinternetconnection = checkinternetconnection->Check();
-        }
-       else return false; 
-      */
     }
 
   //-------------------------------------------------------------------
@@ -245,14 +239,21 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
     }
 
   //-------------------------------------------------------------------
-
+  
   if(cfg->InternetServices_GetUpdateTimeByNTPCadence() > 0)
-    {
+    {       
       for(XDWORD c=0; c<cfg->InternetServices_GetUpdateTimeNTPServers()->GetSize(); c++)
         {
-          this->NTPservers.Add(cfg->InternetServices_GetUpdateTimeNTPServer(c));
+          XSTRING* server = new XSTRING();
+          if(server)
+            {               
+              server->Set(cfg->InternetServices_GetUpdateTimeNTPServer(c)->Get());
+              NTPservers.Add(server);
+              
+              server = NULL;
+            }
         }
-
+     
       xtask = new XSCHEDULERTASK( xscheduler);
       if(!xtask) return false;
 
@@ -270,7 +271,7 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
 
       xscheduler->Task_Add(xtask);
     }
-
+  
   //-------------------------------------------------------------------
 
   SubscribeEvent(XEVENT_TYPE_SCHEDULER, xscheduler);
@@ -295,7 +296,8 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
           GEN_XFACTORY.DeleteTimer(timeout);    
         }         
     }
-   
+ 
+
   return true;
 }
 
@@ -431,7 +433,7 @@ XDATETIME* APPINTERNETSERVICES::DateTime_GetUTC()
     {
         int meridian;
 
-       if(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() == APP_CFG_INTERNETSERVICES__UPDATETIMENTPMERIDIANDIFFERENCE_AUTO)
+       if(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() == APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE_AUTO)
          {
            meridian = xdatetime_utc->GetMeridianDifference();  
          }
@@ -473,7 +475,7 @@ int APPINTERNETSERVICES::DateTime_GetMeridian()
 {
   int meridian = 0;
   
-  if(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() == APP_CFG_INTERNETSERVICES__UPDATETIMENTPMERIDIANDIFFERENCE_AUTO)
+  if(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() == APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE_AUTO)
     {
       meridian = xdatetime_actual->GetMeridianDifference();  
     }
@@ -570,7 +572,6 @@ bool APPINTERNETSERVICES::End()
       dyndnsmanager = NULL;
     }
   #endif
-
 
   if(scraperwebpublicIP)
     {
@@ -674,13 +675,13 @@ bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
               status = ntp->GetTime((*url), 15, GEN_XSYSTEM.HardwareUseLittleEndian(), (*xdatetime_actual));
               if(status)
                 {                        
-                  if(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() == APP_CFG_INTERNETSERVICES__UPDATETIMENTPMERIDIANDIFFERENCE_AUTO)
+                  if(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() == APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE_AUTO)
                     {                      
-                      xdatetime_actual->AddSeconds(xdatetime_actual->GetMeridianDifference()*3600);  
+                      xdatetime_actual->AddSeconds(xdatetime_actual->GetMeridianDifference() * 3600);  
                     }
                    else 
                     {
-                      xdatetime_actual->AddSeconds(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference()*3600);  
+                      xdatetime_actual->AddSeconds(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() * 3600);  
                     }
                     
                   if(cfg->InternetServices_GetUpdateTimeNTPUseDayLightSaving())
