@@ -154,7 +154,7 @@ bool DIOREMOTEFILECFG::Ini()
         }
     }
 
-  ReAjustIni();
+  LoadReadjustment();
 
   status[1] = Save();
 

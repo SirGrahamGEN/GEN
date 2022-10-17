@@ -286,7 +286,7 @@ bool XFILECFG::Ini()
 
   status[0] = Load();  
 
-  ReAjustIni();
+  LoadReadjustment();
 
   status[1] = Save();
 
@@ -296,14 +296,14 @@ bool XFILECFG::Ini()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XFILECFG::ReAjustIni()
-* @brief      ReAjustIni
-* @ingroup    XUTILS
+* @fn          bool XFILECFG::LoadReadjustment()
+* @brief       LoadReadjustment
+* @ingroup     XUTILS
 * 
-* @return     bool : true if is succesful. 
+* @return      bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XFILECFG::ReAjustIni()
+bool XFILECFG::LoadReadjustment()
 {
   return true;
 }
@@ -907,7 +907,7 @@ int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, XCHAR* mask, int maxcoun
                           keymask.Format(__L("%s%s"), IDbase, mask);
                           key.Format(keymask.Get(), c);
 
-                        } else key.Format(__L("%s%c"), IDbase, mask);
+                        } else key.Format(__L("%s%d"), IDbase, c);
 
                       XFILEINIKEY* inikey = GetFileINI()->GetKey(section, key);
                       if(inikey) enumeratekeys++;

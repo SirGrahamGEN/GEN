@@ -95,7 +95,7 @@ class XFILECFG : public XSUBJECT
 
     virtual bool                        Ini                       ();
 
-    virtual bool                        ReAjustIni                ();        
+    virtual bool                        LoadReadjustment          ();        
 
     bool                                Load                      ();
     virtual bool                        Load                      (XPATH& xpath);
