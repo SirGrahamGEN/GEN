@@ -1243,8 +1243,12 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
 
                                   mainprocwindows.GetXPathExec()->Set(xpathexecutable);
                                   xpathexecutable.Empty();
-
+                                  
+                                  #ifdef APP_ACTIVE
+                                  mainprocwindows.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_DINAMICLIBRARY);
+                                  #else
                                   mainprocwindows.Ini();
+                                  #endif
                                 }
                                 break;
 

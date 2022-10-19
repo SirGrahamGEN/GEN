@@ -696,7 +696,11 @@ static void LIBRARY_Ini(void)
   if(rb >= 0) xpathexecutable[rb] = '\0';
 
   mainproclinux.GetXPathExec()->Set(xpathexecutable);
-  mainproclinux.Ini();
+  #ifdef APP_ACTIVE
+  mainprocwindows.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_DINAMICLIBRARY);
+  #else
+  mainprocwindows.Ini();
+  #endif
 
   libmainproclinux = true;
 }
