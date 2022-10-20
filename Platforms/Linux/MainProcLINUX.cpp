@@ -683,7 +683,7 @@ __attribute__((constructor))
 * --------------------------------------------------------------------------------------------------------------------*/
 static void LIBRARY_Ini(void)
 {
-  XMemory_Control.Activate(true);
+  XMEMORY_CONTROL_ACTIVATED 
 
   char  xpathexecutable[_MAXPATH];
   int   status = 0;
@@ -696,7 +696,11 @@ static void LIBRARY_Ini(void)
   if(rb >= 0) xpathexecutable[rb] = '\0';
 
   mainproclinux.GetXPathExec()->Set(xpathexecutable);
+  #ifdef APP_ACTIVE
+  mainproclinux.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_DINAMICLIBRARY);
+  #else
   mainproclinux.Ini();
+  #endif
 
   libmainproclinux = true;
 }

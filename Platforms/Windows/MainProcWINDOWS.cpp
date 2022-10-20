@@ -339,11 +339,7 @@ bool MAINPROCWINDOWS::End()
     }
 
   #endif
-
-  DeleteAllExecParams();
-
-  Factorys_End();
-
+  
   #ifdef APP_ACTIVE
 
   if(appmain) appmain->Delete();
@@ -356,6 +352,10 @@ bool MAINPROCWINDOWS::End()
     }
 
   #endif
+
+  Factorys_End();
+  
+  DeleteAllExecParams();  
 
   VERSION::DelInstance();
 
@@ -1227,14 +1227,8 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
 {
   switch(fdwReason)
     {
-      case DLL_PROCESS_ATTACH : { XMEMORY_CONTROL_ACTIVATED
-                                  if(!XFACTORY::SetInstance(new XWINDOWSFACTORY())) return false;
-  
-                                  #ifdef XSYSTEM_ACTIVE  
-                                  if(!XSYSTEM::SetInstance(new XWINDOWSSYSTEM()))  return false;
-                                  XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
-                                  #endif
-
+      case DLL_PROCESS_ATTACH : { XMEMORY_CONTROL_ACTIVATED                                  
+      
                                   XPATH xpathexecutable;
 
                                   xpathexecutable.AdjustSize(_MAXPATH);
@@ -1243,8 +1237,12 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
 
                                   mainprocwindows.GetXPathExec()->Set(xpathexecutable);
                                   xpathexecutable.Empty();
-
+                                  
+                                  #ifdef APP_ACTIVE
+                                  mainprocwindows.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_DINAMICLIBRARY);
+                                  #else
                                   mainprocwindows.Ini();
+                                  #endif
                                 }
                                 break;
 
