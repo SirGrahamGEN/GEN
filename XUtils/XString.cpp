@@ -2707,7 +2707,7 @@ int XSTRING::Replace(XCHAR* findwhat, XCHAR* replaceby)
 
   do{ found = ReplaceFirst(what.Get(),replace.Get());
 
-      if (found!=NOTFOUND)
+      if (found!=XSTRING_NOTFOUND)
         coincidences++;
       else
         break;
@@ -2740,8 +2740,8 @@ int XSTRING::ReplaceFirst(XCHAR* findwhat, XCHAR* replaceby)
   int whatsize = what.GetSize();
   int found    = 0;
 
-  found         = this->Find(findwhat, false, found);
-  if(found!=NOTFOUND)
+  found = Find(findwhat, false, found);
+  if(found != XSTRING_NOTFOUND)
     {
       DeleteCharacters(found, whatsize);
       Insert(replace, found);
@@ -4770,7 +4770,7 @@ bool XSTRING::Explode(XCHAR token, XVECTOR<XSTRING*>* receive)
   int start = 0;
 
   do{ int end = FindCharacter(token,start);
-      if(end==NOTFOUND) end = size;
+      if(end==XSTRING_NOTFOUND) end = size;
 
       if((end-start)>0)
         {

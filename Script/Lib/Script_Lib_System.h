@@ -48,7 +48,6 @@ class SCRIPT_LIB_SYSTEM : public SCRIPT_LIB
                           SCRIPT_LIB_SYSTEM         ();
     virtual              ~SCRIPT_LIB_SYSTEM         ();
 
-
     bool                  AddLibraryFunctions       (SCRIPT* script);
 
   private:
@@ -59,9 +58,11 @@ class SCRIPT_LIB_SYSTEM : public SCRIPT_LIB
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
-void    Call_SystemReboot                    (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void    Call_SystemPowerOff                  (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void    Call_SystemLogout                    (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_SystemReboot                   (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_SystemPowerOff                 (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_SystemLogout                   (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+
+void    Call_GetEnviromentVar               (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 
 #endif

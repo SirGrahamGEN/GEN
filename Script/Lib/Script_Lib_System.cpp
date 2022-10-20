@@ -40,6 +40,7 @@
 #include "XSystem.h"
 
 #include "Script.h"
+
 #include "Script_Lib_System.h"
 
 #include "XMemory_Control.h"
@@ -103,9 +104,10 @@ bool SCRIPT_LIB_SYSTEM::AddLibraryFunctions(SCRIPT* script)
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("System_Reboot")                      , Call_SystemReboot);
-  script->AddLibraryFunction(this, __L("System_PowerOff")                    , Call_SystemPowerOff);
-  script->AddLibraryFunction(this, __L("System_Logout")                      , Call_SystemLogout);
+  script->AddLibraryFunction(this, __L("System_Reboot")             , Call_SystemReboot);
+  script->AddLibraryFunction(this, __L("System_PowerOff")           , Call_SystemPowerOff);
+  script->AddLibraryFunction(this, __L("System_Logout")             , Call_SystemLogout);
+  script->AddLibraryFunction(this, __L("GetEnviromentVar")          , Call_GetEnviromentVar);
 
   return true;
 }
@@ -214,6 +216,47 @@ void Call_SystemLogout(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* 
   returnvalue->Set();
   
   (*returnvalue) = GEN_XSYSTEM.ShutDown(XSYSTEM_CHANGESTATUSTYPE_SESSION_LOGOFF);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_GetEnviromentVar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_GetEnviromentVar
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_GetEnviromentVar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(!params->GetSize())
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  XSTRING* namevar = (XSTRING*)params->Get(0)->GetData();    
+  if(!namevar)  return;
+
+  XCHAR* variable = GEN_XSYSTEM.GetEnviromentVariable(namevar->Get());
+  if(variable)
+    {
+      (*returnvalue) = variable;
+    }   
 }
 
 

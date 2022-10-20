@@ -99,6 +99,8 @@ bool SCRIPT_LIB_STRING::AddLibraryFunctions(SCRIPT* script)
   script->AddLibraryFunction(this, __L("FindString")                  , Call_FindString);
   script->AddLibraryFunction(this, __L("CompareString")               , Call_CompareString);
 
+  script->AddLibraryFunction(this, __L("ReplaceString")               , Call_ReplaceString);
+
   return true;
 }
 
@@ -252,5 +254,47 @@ void Call_CompareString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
     { 
       (*returnvalue) = false;
     }
+}
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_ReplaceString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_CompareString
+* @ingroup    SCRIPT
+*
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+void Call_ReplaceString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize() < 3)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  XSTRING* string     = (XSTRING*)params->Get(0)->GetData();
+  XSTRING* tofind     = (XSTRING*)params->Get(1)->GetData();
+  XSTRING* toreplace  = (XSTRING*)params->Get(2)->GetData();
+
+  if(string && tofind && toreplace) 
+    {
+      if(string->ReplaceFirst(tofind->Get(), toreplace->Get()) != XSTRING_NOTFOUND)
+        {
+          (*returnvalue) = (*string);
+        }
+    }   
 }
