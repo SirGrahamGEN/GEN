@@ -94,7 +94,35 @@ XSERIALIZE::~XSERIALIZE()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZE::SerializeData(XSERIALIZEPTR* ptr, int nptr,XBUFFER* buffer,bool load)
+bool XSERIALIZE::LoadBinary(XSERIALIZEPTR* ptr, int nptr, XBUFFER* buffer)
+{
+  if(!ptr)    return false;
+  if(!nptr)   return false;
+  if(!buffer) return false;
+
+  for(int c=0;c<nptr;c++)
+   {
+      buffer->Get(ptr[c].buffer, ptr[c].size);
+   }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn          bool XSERIALIZE::SaveBinary(XSERIALIZEPTR* ptr, int nptr, XBUFFER* buffer)
+* @brief       SaveBinary
+* @ingroup     XUTILS
+* 
+* @param[in]   ptr : 
+* @param[in]   nptr : 
+* @param[in]   buffer : 
+* 
+* @return      bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZE::SaveBinary(XSERIALIZEPTR* ptr, int nptr, XBUFFER* buffer)
 {
   if(!ptr)    return false;
   if(!nptr)   return false;
@@ -102,39 +130,29 @@ bool XSERIALIZE::SerializeData(XSERIALIZEPTR* ptr, int nptr,XBUFFER* buffer,bool
 
   int c;
 
-  if(load)
+  XDWORD size = 0;
+
+  for(int c=0; c<nptr; c++)
     {
-      for(c=0;c<nptr;c++)
-        {
-          buffer->Get(ptr[c].buffer,ptr[c].size);
-        }
+      size += ptr[c].size;
     }
-   else
+
+  XBUFFER* newbuffer = new XBUFFER((XDWORD)size, true);
+  if((!newbuffer)||(!newbuffer->Get()))
     {
-      XDWORD size = 0;
-
-      for(c=0;c<nptr;c++)
-        {
-          size += ptr[c].size;
-        }
-
-      XBUFFER* newbuffer = new XBUFFER((XDWORD)size, true);
-      if((!newbuffer)||(!newbuffer->Get()))
-        {
-          delete newbuffer;
-          return false;
-        }
-
-      for(c=0;c<nptr;c++)
-        {
-          newbuffer->Set(ptr[c].buffer,ptr[c].size);
-        }
-
-      buffer->Add(newbuffer);
-
       delete newbuffer;
+      return false;
     }
 
+  for(int c=0; c<nptr; c++)
+    {
+      newbuffer->Set(ptr[c].buffer,ptr[c].size);
+    }
+
+  buffer->Add(newbuffer);
+
+  delete newbuffer;
+    
   return true;
 }
 

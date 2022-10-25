@@ -926,7 +926,7 @@ bool XVARIANT::ToString(XSTRING& to)
 
       case XVARIANT_TYPE_NULL             : to.Format(__L("NULL"));                                                                                               break;
 
-      case XVARIANT_TYPE_SERIALIZABLE     : to.Format(__L("[Object]"));
+      case XVARIANT_TYPE_SERIALIZABLE     : to.Format(__L("[Object]"));                                                                                           break;
 
       case XVARIANT_TYPE_BOOLEAN          : to.Format(__L("%s"), (*(bool*)this->data)?__L("true"):__L("false"));                                                  break;                                                                                           break;
       case XVARIANT_TYPE_INTEGER          : to.Format(__L("%d"),*(int*)this->data);                                                                               break;
@@ -1011,6 +1011,7 @@ bool XVARIANT::Destroy()
           case XVARIANT_TYPE_FLOAT          : delete (float*)(data);        break;
           case XVARIANT_TYPE_DOUBLE         : delete (float*)(data);        break;
           case XVARIANT_TYPE_STRING         : delete (XSTRING*)(data);      break;
+
           case XVARIANT_TYPE_SERIALIZABLE   : delete [] (XBYTE*)data;       break;
 
           case XVARIANT_TYPE_DATE           :
