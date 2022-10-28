@@ -58,7 +58,7 @@ enum XVARIANT_TYPE
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class XSERIALIZABLE;
+class XSERIALIZABLEBUFFER;
 
 class XVARIANT
 {
@@ -67,7 +67,7 @@ class XVARIANT
                                     XVARIANT                (const XVARIANT& variant);
     virtual                        ~XVARIANT                ();
     
-    const XVARIANT&                 operator =              (const XSERIALIZABLE& serializable);
+    const XVARIANT&                 operator =              (const XSERIALIZABLEBUFFER& serializable);
     const XVARIANT&                 operator =              (bool boolean);
     const XVARIANT&                 operator =              (int integer);
     const XVARIANT&                 operator =              (XDWORD integer);
@@ -95,8 +95,9 @@ class XVARIANT
     operator                        XDATETIME               ();
     
 
-    void                            GetSerializable         (XSERIALIZABLE& serializable);
-    void                            GetSerializable         (XSERIALIZABLE* serializable);
+    void                            GetSerializable         (XSERIALIZABLEBUFFER& serializable);
+    void                            GetSerializable         (XSERIALIZABLEBUFFER* serializable);
+
     bool                            GetDataFromString       (XCHAR* string);
 
     XVARIANT_TYPE                   GetType                 ();
@@ -131,9 +132,6 @@ class XVARIANT
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
-//#ifdef _MSC_VER
-//#pragma warning(pop)
-//#endif
 
 #endif
 

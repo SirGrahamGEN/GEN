@@ -1531,7 +1531,7 @@ void XBER::Clean()
   contextspecificvalue  = 0;
   unusedbits            = 0;
 
-  value                 = NULL;
+  value.Set();
 
   sequences.DeleteContents();
   sequences.DeleteAll();

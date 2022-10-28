@@ -3,7 +3,7 @@
 * @file       XSerializable.h
 * 
 * @class      XSERIALIZABLE
-* @brief      eXtended Serializable virtual class
+* @brief      eXtended Serializable base class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -31,27 +31,189 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+//#include "nameof.hpp"
+
+#include "XBase.h"
+#include "XString.h"
+#include "XBuffer.h"
+#include "XVector.h"
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class XBUFFER;
+class XSERIALIZATIONMETHOD
+{
+  public:
+                                   XSERIALIZATIONMETHOD ();
+    virtual                       ~XSERIALIZATIONMETHOD ();
+
+    virtual bool                   Add                  (bool var)        = 0; 
+    virtual bool                   Add                  (char var)        = 0;  
+    virtual bool                   Add                  (int var)         = 0;  
+    virtual bool                   Add                  (float var)       = 0;  
+    virtual bool                   Add                  (double var)      = 0; 
+    virtual bool                   Add                  (long var)        = 0; 
+    virtual bool                   Add                  (long long var)   = 0;  
+
+    virtual bool                   Add                  (XBYTE var)       = 0;  
+    virtual bool                   Add                  (XWORD var)       = 0;  
+    virtual bool                   Add                  (XDWORD var)      = 0; 
+    virtual bool                   Add                  (XQWORD var)      = 0; 
+    
+    virtual bool                   Add                  (XSTRING& var)    = 0;       
+    virtual bool                   Add                  (XBUFFER& var)    = 0;
+
+
+    virtual bool                   Extract              (bool var)        = 0; 
+    virtual bool                   Extract              (char var)        = 0;  
+    virtual bool                   Extract              (int var)         = 0;  
+    virtual bool                   Extract              (float var)       = 0;  
+    virtual bool                   Extract              (double var)      = 0; 
+    virtual bool                   Extract              (long var)        = 0; 
+    virtual bool                   Extract              (long long var)   = 0;  
+
+    virtual bool                   Extract              (XBYTE var)       = 0;  
+    virtual bool                   Extract              (XWORD var)       = 0;  
+    virtual bool                   Extract              (XDWORD var)      = 0; 
+    virtual bool                   Extract              (XQWORD var)      = 0; 
+    
+    virtual bool                   Extract              (XSTRING& var)    = 0;       
+    virtual bool                   Extract              (XBUFFER& var)    = 0;
+    
+  private:
+
+    void                           Clean                ();   
+};
+
 
 class XSERIALIZABLE
 {
   public:
-                        XSERIALIZABLE   ()
-                        {  
-                        }
 
-    virtual            ~XSERIALIZABLE   ()                              
-                        {  
-                        }
+                                   XSERIALIZABLE        ();
+    virtual                       ~XSERIALIZABLE        ();
 
-    virtual bool        DeSerialize     (XBUFFER* buffer) const = 0;
-    virtual bool        Serialize       (XBUFFER* buffer)       = 0;
+    static XSERIALIZATIONMETHOD*   CreateBinary         (XBUFFER& databinary);    
+
+    template<class T>
+    bool                           Primitive_Add        (T var, XCHAR* name)
+                                   {                               
+                                     serialization->Add(var);
+                                 
+                                     return true;
+                                   }
+
+    template<class T>
+    bool                           Primitive_Extract    (T var, XCHAR* name)
+                                   {
+                                     serialization->Extract(var);
+                               
+                                     return true; 
+                                   }
+
+    template<class T>
+    bool                           Class_Add            (T* var, XCHAR* name)
+                                   {                                        
+                                     if(!dynamic_cast<XSERIALIZABLE*>(var))
+                                       {
+                                         return false;
+                                       }
+
+                                     if(var)
+                                       {
+                                         return false;
+                                       }
+                                
+                                     var->SetSerialization(serialization);
+                                     return var->Serialize();                                 
+                                   }
+
+    template<class T>
+    bool                           Class_Extract        (T* var, XCHAR* name)
+                                   {
+                                     if(!var)
+                                       {
+                                         return false;
+                                       }
+
+                                     if(!dynamic_cast<XSERIALIZABLE*>(var))
+                                       {
+                                         return false;
+                                       }
+                            
+                                     var->SetSerialization(serialization);
+                                     return var->Deserialize();                                 
+                                   }                              
+  
+    template<class T>
+    bool                           XVector_Add          (XVECTOR<T*>* var, XCHAR* name)
+                                   { 
+                                     if(!dynamic_cast<XSERIALIZABLE*>(var->Get(0)))  
+                                       {
+                                         return false;
+                                       }
+                                     
+                                     for(XDWORD c=0; c<var->GetSize(); c++)
+                                       {
+                                         T* element = var->Get(c);
+                                         if(element)
+                                           {
+                                             element->SetSerialization(serialization);
+                                             element->Serialize();               
+                                           }                                       
+                                       }
+
+                                     return true;                               
+                                   }
+
+    template<class T>
+    bool                           XVector_Extract      (XVECTOR<T*>* var, XCHAR* name)
+                                   {
+                                     if(!dynamic_cast<XSERIALIZABLE*>(var->Get(0)))  
+                                       {
+                                         return false;
+                                       }
+                                     
+                                     for(XDWORD c=0; c<var->GetSize(); c++)
+                                       {
+                                         T* element = var->Get(c);
+                                         if(element)
+                                           {
+                                             element->SetSerialization(serialization);
+                                             element->Deserialize();               
+                                           }                                       
+                                       } 
+
+                                     return true;                           
+                                   }                             
+
+    XSERIALIZATIONMETHOD*          GetSerialization     ();
+    void                           SetSerialization     (XSERIALIZATIONMETHOD* serialization);
+
+    bool                           InitSerialize        (XSERIALIZATIONMETHOD* serialization);    
+    bool                           InitDeserialize      (XSERIALIZATIONMETHOD* serialization);   
+
+    virtual bool                   Serialize            ();    
+    virtual bool                   Deserialize          ();  
+    
+
+  protected:
+
+    bool                           Serialize            (XSERIALIZATIONMETHOD* serialization);    
+    bool                           Deserialize          (XSERIALIZATIONMETHOD* serialization);   
+
+  private:
+
+    void                           Clean                ();   
+
+    XSERIALIZATIONMETHOD*          serialization; 
+       
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
+

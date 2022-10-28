@@ -34,7 +34,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XFactory.h"
-#include "XSerializable.h"
+#include "XSerializableBuffer.h"
 #include "XTrace.h"
 
 #include "XVariant.h"
@@ -104,17 +104,17 @@ XVARIANT::~XVARIANT()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         const XVARIANT& XVARIANT::operator=(const XSERIALIZABLE& serializable)
+* 
+* @fn         const XVARIANT& XVARIANT::operator=(const XSERIALIZABLEBUFFER& serializable)
 * @brief      operator=
 * @ingroup    XUTILS
-*
-* @param[in]  XSERIALIZABLE& serializable :
-*
-* @return     const :
-*
+* 
+* @param[in]  XSERIALIZABLEBUFFER& serializable : 
+* 
+* @return     const : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-const XVARIANT& XVARIANT::operator=(const XSERIALIZABLE& serializable)
+const XVARIANT& XVARIANT::operator=(const XSERIALIZABLEBUFFER& serializable)
 {
   XBUFFER xbuffer;
 
@@ -463,11 +463,13 @@ const XVARIANT& XVARIANT::operator = (const XVARIANT& origin)
       case XVARIANT_TYPE_DOUBLE         : (*this) = (double)(XVARIANT&)origin;    break;
       case XVARIANT_TYPE_XCHAR          : (*this) = (XCHAR)(XVARIANT&)origin;     break;
       case XVARIANT_TYPE_STRING         : (*this) = (XCHAR*)(XVARIANT&)origin;    break;
+      
       case XVARIANT_TYPE_SERIALIZABLE   : {
                                             data = new XBYTE[size];
                                             memcpy(data, origin.data, size);
                                           }
                                           break;
+      
       case XVARIANT_TYPE_TIME           :
       case XVARIANT_TYPE_DATETIME       :
       case XVARIANT_TYPE_DATE           : {
@@ -724,19 +726,18 @@ XVARIANT::operator XDATETIME()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XVARIANT::GetSerializable(XSERIALIZABLE& serializable)
+* 
+* @fn         void XVARIANT::GetSerializable(XSERIALIZABLEBUFFER& serializable)
 * @brief      GetSerializable
 * @ingroup    XUTILS
-*
-* @param[in]  serializable :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  serializable : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XVARIANT::GetSerializable(XSERIALIZABLE& serializable)
+void XVARIANT::GetSerializable(XSERIALIZABLEBUFFER& serializable)
 {
   XBUFFER xbuffer;
 
@@ -747,20 +748,18 @@ void XVARIANT::GetSerializable(XSERIALIZABLE& serializable)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XVARIANT::GetSerializable(XSERIALIZABLE* serializable)
+* 
+* @fn         void XVARIANT::GetSerializable(XSERIALIZABLEBUFFER* serializable)
 * @brief      GetSerializable
 * @ingroup    XUTILS
-*
-* @param[in]  serializable :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  serializable : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XVARIANT::GetSerializable(XSERIALIZABLE* serializable)
+void XVARIANT::GetSerializable(XSERIALIZABLEBUFFER* serializable)
 {
   XBUFFER xbuffer;
 
@@ -769,8 +768,6 @@ void XVARIANT::GetSerializable(XSERIALIZABLE* serializable)
 
   serializable->Serialize(&xbuffer);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -926,7 +923,7 @@ bool XVARIANT::ToString(XSTRING& to)
 
       case XVARIANT_TYPE_NULL             : to.Format(__L("NULL"));                                                                                               break;
 
-      case XVARIANT_TYPE_SERIALIZABLE     : to.Format(__L("[Object]"));
+      case XVARIANT_TYPE_SERIALIZABLE     : to.Format(__L("[Object]"));                                                                                           break;
 
       case XVARIANT_TYPE_BOOLEAN          : to.Format(__L("%s"), (*(bool*)this->data)?__L("true"):__L("false"));                                                  break;                                                                                           break;
       case XVARIANT_TYPE_INTEGER          : to.Format(__L("%d"),*(int*)this->data);                                                                               break;
@@ -1011,6 +1008,7 @@ bool XVARIANT::Destroy()
           case XVARIANT_TYPE_FLOAT          : delete (float*)(data);        break;
           case XVARIANT_TYPE_DOUBLE         : delete (float*)(data);        break;
           case XVARIANT_TYPE_STRING         : delete (XSTRING*)(data);      break;
+
           case XVARIANT_TYPE_SERIALIZABLE   : delete [] (XBYTE*)data;       break;
 
           case XVARIANT_TYPE_DATE           :
@@ -1048,6 +1046,4 @@ void XVARIANT::Clean()
   size      = 0;
   data      = NULL;
 }
-
-
 
