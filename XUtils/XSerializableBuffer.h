@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XSerialize.h
+* @file       XSerializableBuffer.h
 * 
-* @class      XSERIALIZE
-* @brief      eXtended Serializate class
+* @class      XSERIALIZABLEBUFFER
+* @brief      eXtended Serializable virtual class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,48 +26,32 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XSERIALIZE_H_
-#define _XSERIALIZE_H_
+#ifndef _XSERIALIZABLEBUFFER_H_
+#define _XSERIALIZABLEBUFFER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XBuffer.h"
-
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
-
-#define XSERIALIZE_ELEMENT_SIZE(element,size)    { (XBYTE*)&element  , size            }
-#define XSERIALIZE_ELEMENT(element)              { (XBYTE*)&element  , sizeof(element) }
-
-#define XSERIALIZE_SIZEPTR(ptr)                   sizeof(ptr)/sizeof(XSERIALIZEPTR)
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
+class XBUFFER;
 
-class XSERIALIZEPTR
+class XSERIALIZABLEBUFFER
 {
   public:
+                        XSERIALIZABLEBUFFER   ()
+                        {  
+                        }
 
-    XBYTE*                   buffer;
-    int                      size;
+    virtual            ~XSERIALIZABLEBUFFER   ()                              
+                        {  
+                        }
+
+    virtual bool        DeSerialize           (XBUFFER* buffer) const = 0;
+    virtual bool        Serialize             (XBUFFER* buffer)       = 0;
 };
-
-
-class XSERIALIZE
-{
-  public:
-                             XSERIALIZE       ();
-    virtual                 ~XSERIALIZE       ();
-
-    bool                     LoadBinary       (XSERIALIZEPTR* ptr, int nptr, XBUFFER* buffer);
-    bool                     SaveBinary       (XSERIALIZEPTR* ptr, int nptr, XBUFFER* buffer);
-
-  private:
-
-    bool                     Clean            ();   
-};
-
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-

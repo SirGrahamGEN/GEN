@@ -75,14 +75,15 @@ set(XFILE_DFU_FEATURE                                   false   CACHE BOOL "Acti
 set(XFILE_TXT_FEATURE                                   false   CACHE BOOL "Activate XFile Text format"                                   FORCE)
 set(XFILE_FEATURE                                       false   CACHE BOOL "Activate XFile"                                               FORCE)
 
-set(XASN_FEATURE                                        false   CACHE BOOL "Activate ANS.1 functions"                                     FORCE)
+set(XASN_FEATURE                                        false   CACHE BOOL "Activate ANS.1"                                               FORCE)
 
-set(XLICENSE_FEATURE                                    false   CACHE BOOL "Activate License functions"                                   FORCE)
+set(XLICENSE_FEATURE                                    false   CACHE BOOL "Activate License"                                             FORCE)
 
 set(XTHREADCOLLECTED_FEATURE                            false   CACHE BOOL "Activate Thread Collected"                                    FORCE)
 set(XUUID_FEATURE                                       false   CACHE BOOL "Activate UUID functions"                                      FORCE)
 
-set(XSERIALIZE_FEATURE                                  false   CACHE BOOL "Activate Serialize functions"                                 FORCE)
+set(XSERIALIZABLE_BINARY_FEATURE                        false   CACHE BOOL "Activate Serializable Binary"                                 FORCE)
+set(XSERIALIZABLE_JSON_FEATURE                          false   CACHE BOOL "Activate Serializable JSON"                                   FORCE)
 
 set(XSLEEP_FEATURE                                      false   CACHE BOOL "Activate Sleep functions"                                     FORCE)
 set(XSYSTEM_FEATURE                                     false   CACHE BOOL "Activate System functions"                                    FORCE)

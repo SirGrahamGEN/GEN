@@ -297,22 +297,23 @@ bool DIOLINUXNETWORKMANAGER::GetDevices(XVECTOR<DIOSTREAMDEVICEIP*>& devices)
               case NM_DEVICE_TYPE_VXLAN         : // a VXLAN interface
               case NM_DEVICE_TYPE_VETH          : // a VETH interface
             //case NM_DEVICE_TYPE_MACSE         : // a MACsec interface
-              case NM_DEVICE_TYPE_DUMMY         : // a dummy interface                                                  
+            //case NM_DEVICE_TYPE_DUMMY         : // a dummy interface                                                  
                                                   break;
-
+              /*    
               case NM_DEVICE_TYPE_PPP           : // a PPP interface
                                                   deviceIP->SetIPType(DIOSTREAMIPDEVICE_TYPE_PPP);
                                                   break;
-
+                  
               case NM_DEVICE_TYPE_OVS_INTERFACE : // a Open vSwitch interface
               case NM_DEVICE_TYPE_OVS_PORT      : // a Open vSwitch port
               case NM_DEVICE_TYPE_OVS_BRIDGE    : // a Open vSwitch bridge
               case NM_DEVICE_TYPE_WPAN          : // a IEEE 802.15.4 (WPAN) MAC Layer Device
               case NM_DEVICE_TYPE_6LOWPAN       : // 6LoWPAN interface
               case NM_DEVICE_TYPE_WIREGUARD     : // a WireGuard interface
-            //case NM_DEVICE_TYPE_WIFI_P2P      : // an 802.11 Wi-Fi P2P device. Since: 1.16.
-            //case NM_DEVICE_TYPE_VRF           : // A VRF (Virtual Routing and Forwarding) interface. Since: 1.24.
+              case NM_DEVICE_TYPE_WIFI_P2P      : // an 802.11 Wi-Fi P2P device. Since: 1.16.
+              case NM_DEVICE_TYPE_VRF           : // A VRF (Virtual Routing and Forwarding) interface. Since: 1.24.
                                                   break;
+              */
             }
 
           GetProperty(DIOLINUXNETWORKMANAGER_DEFAULT_DBUS_IFACE_DEVICE, pathdevices.Get(c)->Get(), __L("Interface")  , value); 
