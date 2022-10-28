@@ -1359,6 +1359,7 @@ bool XBER::CalculeSize(XBUFFER& buffer, XDWORD& sizedataber, XBYTE& sizehead)
       case  3 : // Indefinite mode;                               
                 sizehead    = 2;
                 sizedataber = 0;
+                /*
                 for(XDWORD c=2; c<data.GetSize()-1; c++)
                   {
                     if(!data.Get()[c] && !data.Get()[c+1])  
@@ -1366,6 +1367,7 @@ bool XBER::CalculeSize(XBUFFER& buffer, XDWORD& sizedataber, XBYTE& sizehead)
                         sizedataber++;
                       }
                   }  
+                */
                 break;
 
       default : break;
