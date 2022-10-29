@@ -222,7 +222,11 @@ class APPCFG
                          APPCFG                                                   (XCHAR* namefile);
     virtual             ~APPCFG                                                   ();
 
-    virtual bool         Default                                                  ();
+    virtual bool         DoVariableMapping                                        (); 
+    virtual bool         DoDefault                                                ();
+
+    virtual bool         Ini                                                      ();    
+    virtual bool         End                                                      ();  
 
 
     #ifdef APP_CFG_GENERAL_ACTIVE
@@ -239,19 +243,16 @@ class APPCFG
 
 
     #ifdef APP_CFG_CHECKRESOURCESHARDWARE_ACTIVE
-
     int                  CheckResourcesHardware_GetMemStatusCheckCadence          ();
     int                  CheckResourcesHardware_GetMemStatusLimitPercent          ();
 
     int                  CheckResourcesHardware_GetCPUUsageCheckCadence           ();
     int                  CheckResourcesHardware_GetCPUUsageLimitPercent           ();
     XSTRING*             CheckResourcesHardware_GetCPUUsageProcessName            ();
-
     #endif
 
 
     #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
-
     int                  InternetServices_GetCheckInternetStatusCadence           ();
     int                  InternetServices_GetCheckIPsChangeCadence                ();
     int                  InternetServices_GetUpdateTimeByNTPCadence               ();
@@ -259,48 +260,38 @@ class APPCFG
     XSTRING*             InternetServices_GetUpdateTimeNTPServer                  (int index);
     int                  InternetServices_GetUpdateTimeNTPMeridianDifference      ();
     bool                 InternetServices_GetUpdateTimeNTPUseDayLightSaving       ();
-
     #ifdef APP_CFG_DNSRESOLVED_ACTIVE
     bool                 DNSResolved_GetHostResolved                              (int index, XSTRING& host, XSTRING& IPresolved);
     XSTRING*             DNSResolved_GetDNSserver                                 (int index);
     bool                 SetAutomaticDNSResolved                                  ();
-
     #endif
-
-
     #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
     XVECTOR<XSTRING*>*   DNSManager_GetURLs                                       ();      
     XSTRING*             DNSManager_GetURL                                        (int index);
     #endif
-
     #endif
 
 
     #ifdef APP_CFG_LOCATION_ACTIVE
-
     XSTRING*             Location_GetStreet                                       ();
     XSTRING*             Location_GetCity                                         ();
     XSTRING*             Location_GetState                                        ();
     XSTRING*             Location_GetCountry                                      ();
     int                  Location_GetPostalCode                                   ();
-
     #endif
 
 
     #ifdef APP_CFG_APPUPDATE_ACTIVE
-
     bool                 ApplicationUpdate_IsActive                               ();
     int                  ApplicationUpdate_GetPort                                ();
     XSTRING*             ApplicationUpdate_GetURL                                 ();
     int                  ApplicationUpdate_GetCheckCadence                        ();
     XSTRING*             ApplicationUpdate_GetCheckTime                           ();
     int                  ApplicationUpdate_GetMaxRestorations                     ();
-
     #endif
 
 
     #ifdef APP_CFG_ALERTS_ACTIVE
-
     bool                 Alerts_IsActive                                          ();
     XVECTOR<XSTRING*>*   Alerts_GetConditions                                     ();
     XSTRING*             Alerts_GetCondition                                      (int index);
@@ -313,27 +304,21 @@ class APPCFG
     XSTRING*             Alerts_GetSMTPSender                                     ();
     XVECTOR<XSTRING*>*   Alerts_GetSMTPRecipients                                 ();
     XSTRING*             Alerts_GetSMTPRecipient                                  (int index);
-
     bool                 Alerts_IsActiveSMS                                       ();
     XVECTOR<XSTRING*>*   Alerts_GetSMSRecipients                                  ();
     XSTRING*             Alerts_GetSMSRecipient                                   (int index);
-
     bool                 Alerts_IsActiveWEB                                       ();
     bool                 Alerts_GetWEBIsUseGet                                    ();
     XVECTOR<XSTRING*>*   Alerts_GetWEBRecipients                                  ();
     XSTRING*             Alerts_GetWEBRecipient                                   (int index);
-
     bool                 Alerts_IsActiveUDP                                       ();
     int                  Alerts_GetUDPPort                                        ();
     XVECTOR<XSTRING*>*   Alerts_GetUDPRecipients                                  ();
     XSTRING*             Alerts_GetUDPRecipient                                   (int index);
-
     #endif
 
 
-
     #ifdef APP_CFG_WEBSERVER_ACTIVE
-
     XSTRING*             WebServer_GetLocalAddress                                ();
     int                  WebServer_GetPort                                        ();
     int                  WebServer_GetTimeoutToServerPage                         ();
@@ -341,13 +326,10 @@ class APPCFG
     XSTRING*             WebServer_GetPassword                                    ();
     XPATH*               WebServer_PathResources                                  ();
     XPATH*               WebServer_PathPHP                                        ();
-
     #endif
 
 
-
     #ifdef APP_CFG_LOG_ACTIVE
-
     bool                 Log_IsActive                                             ();
     bool                 Log_Backup_IsActive                                      ();
     int                  Log_Backup_GetMaxFiles                                   ();
@@ -356,36 +338,31 @@ class APPCFG
     XBYTE                Log_LevelMask                                            ();
     int                  Log_MaxSize                                              ();
     int                  Log_ReductionPercent                                     ();
-
     #endif
 
   protected:
 
 
     #ifdef APP_CFG_GENERAL_ACTIVE
-
     XSTRING              scraperwebscripturldownload;
     XSTRING              showdetailinfo;
     #ifdef XTRACE_ACTIVE
-    XSTRING              tracetarget[XTRACE_MAXNTARGETS];
+    int                  ntracetargets;
+    XVECTOR<XSTRING*>    tracetargets;
     #endif
-
     #endif
 
 
     #ifdef APP_CFG_CHECKRESOURCESHARDWARE_ACTIVE
-
     int                  checkresourceshardware_memstatuscheckcadence;
     int                  checkresourceshardware_memstatuslimitpercent;
     int                  checkresourceshardware_cpuusagecheckcadence;
     int                  checkresourceshardware_cpuusagelimitpercent;
     XSTRING              checkresourceshardware_cpuusageprocessname; 
-
     #endif
 
 
     #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
-
     int                  internetservices_checkinternetstatuscadence;
     int                  internetservices_checkipschangecadence;
     int                  internetservices_updatetimebyntpcadence;
@@ -393,53 +370,39 @@ class APPCFG
     XVECTOR<XSTRING*>    internetservices_updatetimentpservers;    
     int                  internetservices_updatetimentpmeridiandifference;
     bool                 internetservices_updatetimentpusedaylightsaving;
-
-
-
     #ifdef APP_CFG_DNSRESOLVED_ACTIVE
-
     int                  nhostsresolved; 
     XVECTOR<XSTRING*>    hostsresolved;
     int                  nDNSservers;
     XVECTOR<XSTRING*>    DNSservers;
-
     #endif
-
-
     #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
     int                  dnsmanager_nurls;
     XVECTOR<XSTRING*>    dnsmanager_urls;      
     #endif
-
     #endif
 
 
     #ifdef APP_CFG_LOCATION_ACTIVE
-
     XSTRING              location_street;
     XSTRING              location_city;
     XSTRING              location_state;
     XSTRING              location_country;
     int                  location_postalcode;
-
     #endif
 
 
     #ifdef APP_CFG_APPUPDATE_ACTIVE
-
     bool                 applicationupdate_isactive;
     XSTRING              applicationupdate_URL;
     int                  applicationupdate_port;
     int                  applicationupdate_checkcadence;
     XSTRING              applicationupdate_checktime;
     int                  applicationupdate_maxrestorations;
-
     #endif
 
 
-
     #ifdef APP_CFG_WEBSERVER_ACTIVE
-
     XSTRING              webserver_localaddr;
     int                  webserver_port;
     int                  webserver_timeouttoserverpage;
@@ -447,12 +410,10 @@ class APPCFG
     XSTRING              webserver_password;
     XPATH                webserver_path_resources;
     XPATH                webserver_path_PHP;
-
     #endif
 
 
     #ifdef APP_CFG_ALERTS_ACTIVE
-
     bool                 alerts_isactive;
     int                  alerts_nconditions;
     XVECTOR<XSTRING*>    alerts_conditions;
@@ -464,26 +425,21 @@ class APPCFG
     XSTRING              alerts_SMTP_sender;
     int                  alerts_SMTP_nrecipients;
     XVECTOR<XSTRING*>    alerts_SMTP_recipients;
-
     bool                 alerts_SMS_isactive;
     int                  alerts_SMS_nrecipients;
     XVECTOR<XSTRING*>    alerts_SMS_recipients;
-
     bool                 alerts_WEB_isactive;
     bool                 alerts_WEB_isuseget;
     int                  alerts_WEB_nrecipients;
     XVECTOR<XSTRING*>    alerts_WEB_recipients;
-
     bool                 alerts_UDP_isactive;
     int                  alerts_UDP_port;
     int                  alerts_UDP_nrecipients;
     XVECTOR<XSTRING*>    alerts_UDP_recipients;
-
     #endif
 
 
     #ifdef APP_CFG_LOG_ACTIVE
-
     bool                 log_isactive;
     bool                 log_backupisactive;
     int                  log_backupmaxfiles;
@@ -492,13 +448,11 @@ class APPCFG
     int                  log_levelmask;
     int                  log_maxsize;
     int                  log_reductionpercent;
-
     #endif
 
   private:
 
     void                 Clean                                                    ();
-
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
