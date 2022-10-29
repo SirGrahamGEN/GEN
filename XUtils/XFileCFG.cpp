@@ -258,16 +258,31 @@ XFILECFG::~XFILECFG()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn          XPATH* XFILECFG::GetPathFile()
-* @brief       GetPathFile
-* @ingroup     XUTILS
+* @fn         bool XFILECFG::DoVariableMapping()
+* @brief      DoVariableMapping
+* @ingroup    XUTILS
 * 
-* @return      XPATH* : 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XPATH* XFILECFG::GetPathFile()
+bool XFILECFG::DoVariableMapping()
 {
-   return &xpathfile;
+  return true;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILECFG::DoDefault()
+* @brief      DoDefault
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILECFG::DoDefault()
+{
+  return true;
 }
 
 
@@ -283,6 +298,10 @@ XPATH* XFILECFG::GetPathFile()
 bool XFILECFG::Ini()
 { 
   bool status[2];
+
+  DoVariableMapping();
+
+  DoDefault();
 
   status[0] = Load();  
 
@@ -513,18 +532,34 @@ bool XFILECFG::Save(XPATH& xpath)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XFILECFG::End()
-* @brief      End file config
+* @brief      End
 * @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECFG::End()
 {
   return true;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn          XPATH* XFILECFG::GetPathFile()
+* @brief       GetPathFile
+* @ingroup     XUTILS
+* 
+* @return      XPATH* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XPATH* XFILECFG::GetPathFile()
+{
+   return &xpathfile;
+}
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -575,6 +610,21 @@ bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* 
 XVECTOR<XFILECFGVALUE*>* XFILECFG::GetValues()
 {
   return &values;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XFILEINI* XFILECFG::GetFileINI()
+* @brief      GetFileINI
+* @ingroup    XUTILS
+* 
+* @return     XFILEINI* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XFILEINI* XFILECFG::GetFileINI()
+{
+  return fileini;
 }
 
 
@@ -922,20 +972,6 @@ int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, XCHAR* mask, int maxcoun
     }
 
   return enumeratekeys;
-}
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XFILEINI* XFILECFG::GetFileINI()
-* @brief      GetFileINI
-* @ingroup    XUTILS
-* 
-* @return     XFILEINI* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XFILEINI* XFILECFG::GetFileINI()
-{
-  return fileini;
 }
 
 

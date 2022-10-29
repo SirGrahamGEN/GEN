@@ -109,7 +109,7 @@ bool DIOREMOTEFILECFG::Ini()
   XPATH  xpathroot;
   XPATH  xpathremotefile;
   DIOURL downloadURL;
-  bool   status[2];
+  bool   status[2] = { false, false };
 
   AddValue(XFILECFG_VALUETYPE_STRING, DIOREMOTEFILECFG_SECTIONGENERAL, DIOREMOTEFILECFG_URLREMOTECFG, &URLremoteCFG);
 

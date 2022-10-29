@@ -91,9 +91,11 @@ class XFILECFG : public XSUBJECT
                                         XFILECFG                  (XCHAR* namefile = NULL);
     virtual                            ~XFILECFG                  ();
 
-    XPATH*                              GetPathFile               ();
+    
+    virtual bool                        DoVariableMapping         (); 
+    virtual bool                        DoDefault                 ();
 
-    virtual bool                        Ini                       ();
+    virtual bool                        Ini                       ();    
 
     virtual bool                        LoadReadjustment          ();        
 
@@ -103,8 +105,12 @@ class XFILECFG : public XSUBJECT
     bool                                Save                      ();
     virtual bool                        Save                      (XPATH& xpath);
 
-    virtual bool                        End                       ();
+    virtual bool                        End                       ();    
 
+
+    XPATH*                              GetPathFile               ();
+    XFILEINI*                           GetFileINI                ();
+    
     bool                                AddValue                  (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value, XCHAR* remark_text = NULL, XDWORD remark_xpos = 0);
     XVECTOR<XFILECFGVALUE*>*            GetValues                 ();   
     XVARIANT*                           GetValue                  (XCHAR* group, XCHAR* ID);   
@@ -152,11 +158,7 @@ class XFILECFG : public XSUBJECT
                                             }
 
                                           return true;
-                                        }
-
-
-    XFILEINI*                           GetFileINI                ();
-     
+                                        }     
   protected:
 
     XPATH                               xpathfile;
