@@ -105,12 +105,11 @@ bool APPCFG::DoVariableMapping()
       return false;
     }
 
-
   //---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   #ifdef APP_CFG_GENERAL_ACTIVE  
   AddRemark(APP_CFG_SECTION_GENERAL, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
-  AddRemark(APP_CFG_SECTION_GENERAL, __L(" General section of configuration")                          , 0, 2);
+  AddRemark(APP_CFG_SECTION_GENERAL, __L(" General section of configuration"), 0, 2);
 
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_GENERAL                   , APP_CFG_SCRAPERWEBSCRIPTURLDOWNLOAD                         , &scraperwebscripturldownload);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_GENERAL                   , APP_CFG_SHOWDETAILINFO                                      , &showdetailinfo);
@@ -124,7 +123,7 @@ bool APPCFG::DoVariableMapping()
 
   #ifdef APP_CFG_CHECKRESOURCESHARDWARE_ACTIVE
   AddRemark(APP_CFG_SECTION_CHECKRESOURCESHARDWARE, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
-  AddRemark(APP_CFG_SECTION_CHECKRESOURCESHARDWARE, __L(" Check resources section of configuration")                          , 0, 2);
+  AddRemark(APP_CFG_SECTION_CHECKRESOURCESHARDWARE, __L(" Check resources section of configuration"), 0, 2);
 
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_MEMSTATUSCHECKCADENCE        , &checkresourceshardware_memstatuscheckcadence);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_MEMSTATUSLIMITPERCENT        , &checkresourceshardware_memstatuslimitpercent);
@@ -137,28 +136,30 @@ bool APPCFG::DoVariableMapping()
 
   #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
   AddRemark(APP_CFG_SECTION_INTERNETSERVICES, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
-  AddRemark(APP_CFG_SECTION_INTERNETSERVICES, __L(" Internet services section of configuration")                          , 0, 2);
+  AddRemark(APP_CFG_SECTION_INTERNETSERVICES, __L(" Internet services section of configuration"), 0, 2);
 
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_CHECKINTERNETSTATUSCADENCE         , &internetservices_checkinternetstatuscadence);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_CHECKIPSCHANGECADENCE              , &internetservices_checkipschangecadence);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMEBYNTPCADENCE             , &internetservices_updatetimebyntpcadence);
-  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_INTERNETSERVICES,  APP_CFG_INTERNETSERVICES_UPDATETIMENTPSERVER, __L("%02d"), 3, 99, internetservices_updatetimentpservers, internetservices_nupdatetimentpservers); 
+
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_INTERNETSERVICES,  APP_CFG_INTERNETSERVICES_UPDATETIMENTPSERVER, __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS, internetservices_updatetimentpservers, internetservices_nupdatetimentpservers); 
+
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE    , &internetservices_updatetimentpmeridiandifference);
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPUSEDAYLIGHTSAVING     , &internetservices_updatetimentpusedaylightsaving);
 
   #ifdef APP_CFG_DNSRESOLVED_ACTIVE
   AddRemark(APP_CFG_SECTION_DNSRESOLVED, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
-  AddRemark(APP_CFG_SECTION_DNSRESOLVED, __L(" DNS resolved section of configuration")                          , 0, 2); 
+  AddRemark(APP_CFG_SECTION_DNSRESOLVED, __L(" DNS resolved section of configuration"), 0, 2); 
 
-  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DNSRESOLVED, APP_CFG_DNSRESOLVED_HOSTRESOLVED, __L("%02d"), 3, 99, hostsresolved, nhostsresolved);
-  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DNSRESOLVED, APP_CFG_DNSRESOLVED_DNSSERVER, __L("%02d"), 3, 99, DNSservers, nDNSservers);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DNSRESOLVED, APP_CFG_DNSRESOLVED_HOSTRESOLVED, __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS, hostsresolved, nhostsresolved);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DNSRESOLVED, APP_CFG_DNSRESOLVED_DNSSERVER, __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS, DNSservers, nDNSservers);
   #endif
 
   #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
   AddRemark(APP_CFG_DYNDNSMANAGER_URL, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
-  AddRemark(APP_CFG_DYNDNSMANAGER_URL, __L(" Location info section of configuration")                          , 0, 2);
+  AddRemark(APP_CFG_DYNDNSMANAGER_URL, __L(" Location info section of configuration"), 0, 2);
 
-  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DYNDNSMANAGER,  APP_CFG_DYNDNSMANAGER_URL, __L("%02d"), 3, 99, dnsmanager_urls, dnsmanager_nurls);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DYNDNSMANAGER,  APP_CFG_DYNDNSMANAGER_URL, __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS, dnsmanager_urls, dnsmanager_nurls);
   #endif
   #endif
 
@@ -166,7 +167,7 @@ bool APPCFG::DoVariableMapping()
 
   #ifdef APP_CFG_LOCATION_ACTIVE
   AddRemark(APP_CFG_SECTION_LOCATION, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
-  AddRemark(APP_CFG_SECTION_LOCATION, __L(" Location info section of configuration")                          , 0, 2);
+  AddRemark(APP_CFG_SECTION_LOCATION, __L(" Location info section of configuration"), 0, 2);
   
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_LOCATION                  , APP_CFG_LOCATION_STREET                                     , &location_street);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_LOCATION                  , APP_CFG_LOCATION_TOWN                                       , &location_city);
@@ -179,7 +180,7 @@ bool APPCFG::DoVariableMapping()
 
   #ifdef APP_CFG_APPUPDATE_ACTIVE
   AddRemark(APP_CFG_SECTION_APPLICATIONUPDATE, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
-  AddRemark(APP_CFG_SECTION_APPLICATIONUPDATE, __L(" Application Update section of configuration")                          , 0, 2);
+  AddRemark(APP_CFG_SECTION_APPLICATIONUPDATE, __L(" Application Update section of configuration"), 0, 2);
 
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_APPLICATIONUPDATE         , APP_CFG_APPLICATIONUPDATE_ISACTIVE                          , &applicationupdate_isactive);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_APPLICATIONUPDATE         , APP_CFG_APPLICATIONUPDATE_URL                               , &applicationupdate_URL);
@@ -192,7 +193,7 @@ bool APPCFG::DoVariableMapping()
 
   #ifdef APP_CFG_WEBSERVER_ACTIVE
   AddRemark(APP_CFG_SECTION_WEBSERVER, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
-  AddRemark(APP_CFG_SECTION_WEBSERVER, __L(" Web server section of configuration")                          , 0, 2);
+  AddRemark(APP_CFG_SECTION_WEBSERVER, __L(" Web server section of configuration"), 0, 2);
 
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_LOCALADDR                                 , &webserver_localaddr);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_PORT                                      , &webserver_port);
@@ -206,35 +207,35 @@ bool APPCFG::DoVariableMapping()
 
   #ifdef APP_CFG_ALERTS_ACTIVE
   AddRemark(APP_CFG_SECTION_ALERTS, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
-  AddRemark(APP_CFG_SECTION_ALERTS, __L(" Alerts section of configuration")                          , 0, 2);
+  AddRemark(APP_CFG_SECTION_ALERTS, __L(" Alerts section of configuration"), 0, 2);
   
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_ISACTIVE                                     , &alerts_isactive);
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_SMTP_ISACTIVE                                , &alerts_SMTP_isactive);
-  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS,  APP_CFG_ALERTS_CONDITION, __L("%02d"), 3, 99, alerts_conditions, alerts_nconditions);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS,  APP_CFG_ALERTS_CONDITION, __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS, alerts_conditions, alerts_nconditions);
 
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_SMTP_URL                                     , &alerts_SMTP_URL);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_SMTP_PORT                                    , &alerts_SMTP_port);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_SMTP_LOGIN                                   , &alerts_SMTP_login);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_SMTP_PASSWORD                                , &alerts_SMTP_password);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_SMTP_SENDER                                  , &alerts_SMTP_sender);
-  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, APP_CFG_ALERTS_SMTP_RECIPIENT, __L("%02d"), 3, 99, alerts_SMTP_recipients, alerts_SMTP_nrecipients);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, APP_CFG_ALERTS_SMTP_RECIPIENT, __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS, alerts_SMTP_recipients, alerts_SMTP_nrecipients);
   
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_SMS_ISACTIVE                                 , &alerts_SMS_isactive);
-  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, APP_CFG_ALERTS_SMS_RECIPIENT, __L("%02d"), 3, 99, alerts_SMS_recipients, alerts_SMS_nrecipients);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, APP_CFG_ALERTS_SMS_RECIPIENT, __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS, alerts_SMS_recipients, alerts_SMS_nrecipients);
 
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_WEB_ISACTIVE                                 , &alerts_WEB_isactive);
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_WEB_UISUSEGET                                , &alerts_WEB_isuseget);
-  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, APP_CFG_ALERTS_WEB_RECIPIENT, __L("%02d"), 3, 99, alerts_WEB_recipients, alerts_WEB_nrecipients);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, APP_CFG_ALERTS_WEB_RECIPIENT, __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS, alerts_WEB_recipients, alerts_WEB_nrecipients);
 
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_UDP_ISACTIVE                                 , &alerts_UDP_isactive);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_ALERTS                    , APP_CFG_ALERTS_UDP_PORT                                     , &alerts_UDP_port);
-  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, APP_CFG_ALERTS_UDP_RECIPIENT, __L("%02d"), 3, 99, alerts_UDP_recipients, alerts_UDP_nrecipients);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_ALERTS, APP_CFG_ALERTS_UDP_RECIPIENT, __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS, alerts_UDP_recipients, alerts_UDP_nrecipients);
   #endif
 
 
   #ifdef APP_CFG_LOG_ACTIVE
   AddRemark(APP_CFG_SECTION_LOG, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
-  AddRemark(APP_CFG_SECTION_LOG, __L(" Log section of configuration")                          , 0, 2);
+  AddRemark(APP_CFG_SECTION_LOG, __L(" Log section of configuration"), 0, 2);
   
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_ISACTIVE                                          , &log_isactive             , __L("Activate log generation")                                        , 64);
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_LOG                     , APP_CFG_LOG_BACKUPISACTIVE                                    , &log_backupisactive       , __L("Activate backup for the log")                                    , 64);
@@ -339,7 +340,12 @@ bool APPCFG::DoDefault()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPCFG::Ini()
 {
+  #ifdef APP_CFG_REMOTEFILE_ACTIVE
+  return DIOREMOTEFILECFG::Ini();
+  #else
   return XFILECFG::Ini();
+  #endif
+
 }
 
 
@@ -394,7 +400,11 @@ bool APPCFG::End()
   alerts_UDP_recipients.DeleteAll();
   #endif
 
-  return XFILECFG::End();  
+  #ifdef APP_CFG_REMOTEFILE_ACTIVE
+  return DIOREMOTEFILECFG::End();
+  #else
+  return XFILECFG::End();
+  #endif
 }
 
 

@@ -48,7 +48,10 @@ enum XFILECFG_VALUETYPE
   XFILECFG_VALUETYPE_BOOLEAN
 };
 
-#define XFILECFG_EXTENSIONFILE  __L(".ini")
+#define XFILECFG_EXTENSIONFILE              __L(".ini")
+
+#define XFILECFG_DEFAULTMAXSECUENCEENTRYS   100
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -125,17 +128,16 @@ class XFILECFG : public XSUBJECT
     bool                                EndFile                   ();
     bool                                AjustRemarks              (); 
 
-    int                                 GetCountKeys              (XCHAR* group, XCHAR* IDbase, XCHAR* mask = NULL, int maxcount = 99); 
+    int                                 GetCountKeys              (XCHAR* group, XCHAR* IDbase, XCHAR* mask = NULL, int maxcount = XFILECFG_DEFAULTMAXSECUENCEENTRYS); 
 
     template<typename T>
     bool                                AddValueSecuence          (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* IDbasic, XCHAR* mask, int mincount, int maxcount, XVECTOR<T*>& values, int& nkeys, XCHAR* remark_text = NULL, XDWORD remark_xpos = 0)
                                         {
                                           XSTRING key;
                                           
-                                          nkeys = GetCountKeys(group, IDbasic, mask);    
+                                          nkeys = GetCountKeys(group, IDbasic, mask, maxcount);    
 
-                                          if(nkeys < 0) nkeys = 0;
-
+                                          if(nkeys < 0)         nkeys = 0;
                                           if(nkeys < mincount)  nkeys = mincount;
 
                                           values.DeleteContents();

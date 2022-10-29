@@ -111,7 +111,11 @@ bool DIOREMOTEFILECFG::Ini()
   DIOURL downloadURL;
   bool   status[2] = { false, false };
 
+  DoVariableMapping();
+
   AddValue(XFILECFG_VALUETYPE_STRING, DIOREMOTEFILECFG_SECTIONGENERAL, DIOREMOTEFILECFG_URLREMOTECFG, &URLremoteCFG);
+
+  DoDefault();
 
   GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathroot);
   xpathfile.Set(xpathroot.Get());
@@ -120,6 +124,8 @@ bool DIOREMOTEFILECFG::Ini()
   xpathfile.Add(XFILECFG_EXTENSIONFILE);
 
   status[0] = Load();
+
+  LoadReadjustment();
 
   if(!URLremoteCFG.IsEmpty())
     {
@@ -141,7 +147,19 @@ bool DIOREMOTEFILECFG::Ini()
 
       if(webclient->Get(downloadURL, xpathremotefile))
         {
-          status[0] = Load(xpathremotefile);
+          XPATH localpath = GetPathFile()->Get();      
+    
+          GetPathFile()->Set(xpathremotefile);     
+
+          DeleteAllRemarks();
+          DeleteAllValues(); 
+
+          DoVariableMapping();    
+
+          status[0] = Load();
+
+          GetPathFile()->Set(localpath);
+
           if(status[0])
             {
               XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
@@ -151,10 +169,10 @@ bool DIOREMOTEFILECFG::Ini()
                   GEN_XFACTORY.Delete_File(xfile);
                 }
             }
+
+          
         }
     }
-
-  LoadReadjustment();
 
   status[1] = Save();
 

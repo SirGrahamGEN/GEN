@@ -249,7 +249,6 @@ XFILECFG::~XFILECFG()
   if(fileini) delete fileini;
 
   DeleteAllRemarks();
-
   DeleteAllValues();
   
   Clean();
@@ -941,9 +940,9 @@ int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, XCHAR* mask, int maxcoun
     {
       if(inifile->Open(xpathfile, true))
         {
-          if(inifile->ReadAllFile()) 
+          //if(inifile->ReadAllFile()) 
             {
-              if(inifile->ConvertFromLines())
+          //    if(inifile->ConvertFromLines())
                 {  
                   enumeratekeys = 0;
 
@@ -965,7 +964,7 @@ int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, XCHAR* mask, int maxcoun
                 }
             }
 
-          inifile->DeleteAllLines();           
+          //inifile->DeleteAllLines();           
 
           inifile->Close();
         }
