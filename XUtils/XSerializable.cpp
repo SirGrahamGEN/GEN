@@ -33,7 +33,10 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XSerializableBinary.h"
+#include "XSerializationMethodBinary.h"
+#ifdef XSERIALIZABLE_JSON_ACTIVE
+#include "XSerializationMethodJSON.h"
+#endif
 
 #include "XSerializable.h"
 
@@ -44,53 +47,6 @@
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XSERIALIZATIONMETHOD::XSERIALIZATIONMETHOD()
-* @brief      Constructor
-* @ingroup    XUTILS
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XSERIALIZATIONMETHOD::XSERIALIZATIONMETHOD()
-{
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XSERIALIZATIONMETHOD::~XSERIALIZATIONMETHOD()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    XUTILS
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XSERIALIZATIONMETHOD::~XSERIALIZATIONMETHOD()
-{
-  Clean();
-}
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void XSERIALIZATIONMETHOD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    XUTILS
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void XSERIALIZATIONMETHOD::Clean()
-{
-
-}
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -135,7 +91,7 @@ XSERIALIZABLE::~XSERIALIZABLE()
 * @return     XSERIALIZATIONMETHOD* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateBinary(XBUFFER& databinary)
+XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XBUFFER& databinary)
 {
   XSERIALIZATIONMETHODBINARY* serializable  = new XSERIALIZATIONMETHODBINARY();
   if(serializable)
@@ -147,6 +103,32 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateBinary(XBUFFER& databinary)
 }
 
 
+
+#ifdef XSERIALIZABLE_JSON_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XFILEJSON& fileJSON)
+* @brief      CreateInstance
+* @ingroup    XUTILS
+* 
+* @param[in]  fileJSON : 
+* 
+* @return     XSERIALIZATIONMETHOD* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XFILEJSON& fileJSON)
+{
+  XSERIALIZATIONMETHODJSON* serializable  = new XSERIALIZATIONMETHODJSON();
+  if(serializable)
+    {
+      serializable->SetFileJSON(&fileJSON);
+    }
+
+  return (XSERIALIZATIONMETHOD*)serializable;
+}
+#endif
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerialization()
@@ -156,43 +138,43 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateBinary(XBUFFER& databinary)
 * @return     XSERIALIZATIONMETHOD* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerialization()
+XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerializationMethod()
 {
-  return serialization; 
+  return serializationmethod; 
 }
     
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void XSERIALIZABLE::SetSerialization(XSERIALIZATIONMETHOD* serialization)
-* @brief      SetSerialization
+* @fn         void XSERIALIZABLE::SetSerializationMethod(XSERIALIZATIONMETHOD* serializationmethod)
+* @brief      SetSerializationMethod
 * @ingroup    XUTILS
 * 
-* @param[in]  serialization : 
+* @param[in]  serializationmethod : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XSERIALIZABLE::SetSerialization(XSERIALIZATIONMETHOD* serialization)
+void XSERIALIZABLE::SetSerializationMethod(XSERIALIZATIONMETHOD* serializationmethod)
 {
-  this->serialization = serialization;
+  this->serializationmethod = serializationmethod;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZABLE::InitSerialize(XSERIALIZATIONMETHOD* serialization)
+* @fn         bool XSERIALIZABLE::InitSerialize(XSERIALIZATIONMETHOD* serializationmethod)
 * @brief      InitSerialize
 * @ingroup    XUTILS
 * 
-* @param[in]  serialization : 
+* @param[in]  serializationmethod : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZABLE::InitSerialize(XSERIALIZATIONMETHOD* serialization)
+bool XSERIALIZABLE::InitSerialize(XSERIALIZATIONMETHOD* serializationmethod)
 {
-  SetSerialization(serialization);
+  SetSerializationMethod(serializationmethod);
 
   return Serialize();
 }
@@ -200,18 +182,18 @@ bool XSERIALIZABLE::InitSerialize(XSERIALIZATIONMETHOD* serialization)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZABLE::InitDeserialize(XSERIALIZATIONMETHOD* serialization)
+* @fn         bool XSERIALIZABLE::InitDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
 * @brief      InitDeserialize
 * @ingroup    XUTILS
 * 
-* @param[in]  serialization : 
+* @param[in]  serializationmethod : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZABLE::InitDeserialize(XSERIALIZATIONMETHOD* serialization)
+bool XSERIALIZABLE::InitDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
 {
-  SetSerialization(serialization);
+  SetSerializationMethod(serializationmethod);
 
   return Deserialize();
 }
@@ -228,7 +210,7 @@ bool XSERIALIZABLE::InitDeserialize(XSERIALIZATIONMETHOD* serialization)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZABLE::Serialize()
 {
-  if(!serialization) return false;
+  if(!serializationmethod) return false;
 
   return true;
 }
@@ -245,7 +227,7 @@ bool XSERIALIZABLE::Serialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZABLE::Deserialize()
 {
-  if(!serialization) return false;
+  if(!serializationmethod) return false;
 
   return true;
 }
@@ -263,5 +245,5 @@ bool XSERIALIZABLE::Deserialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSERIALIZABLE::Clean()
 {
-  serialization = NULL;
+  serializationmethod = NULL;
 }

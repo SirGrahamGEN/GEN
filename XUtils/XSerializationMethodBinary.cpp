@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XSerializableBinary.cpp
+* @file       XSerializationMethodBinary.cpp
 * 
-* @class      XSERIALIZABLEBINARY
-* @brief      eXtended Serializable Binary class
+* @class      XSERIALIZATIONMETHODBINARY
+* @brief      eXtended Serialization method binary class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -36,7 +36,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "XSerializableBinary.h"
+#include "XSerializationMethodBinary.h"
 
 #include "XMemory_Control.h"
 
@@ -80,22 +80,27 @@ XSERIALIZATIONMETHODBINARY::~XSERIALIZATIONMETHODBINARY()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(bool var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(bool var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(bool var)
+bool XSERIALIZATIONMETHODBINARY::Add(bool var, XCHAR* name)
 {
   if(!bufferdata) 
     {
       return false;
     }
 
+ 
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_BOOLEAN);
+  
+ 
   bufferdata->Add(var);  
 
   return true;
@@ -104,22 +109,24 @@ bool XSERIALIZATIONMETHODBINARY::Add(bool var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(char var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(char var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(char var)
+bool XSERIALIZATIONMETHODBINARY::Add(char var, XCHAR* name)
 {
   if(!bufferdata) 
     {
       return false;
     }
 
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_CHAR);
   bufferdata->Add((XBYTE)var); 
 
   return true;
@@ -128,22 +135,24 @@ bool XSERIALIZATIONMETHODBINARY::Add(char var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(int var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(int var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(int var)
+bool XSERIALIZATIONMETHODBINARY::Add(int var, XCHAR* name)
 {
   if(!bufferdata) 
     {
       return false;
     }
-
+  
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_INTEGER);
   bufferdata->Add((XDWORD)var); 
 
   return true;
@@ -152,22 +161,24 @@ bool XSERIALIZATIONMETHODBINARY::Add(int var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(float var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(float var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(float var)  
+bool XSERIALIZATIONMETHODBINARY::Add(float var, XCHAR* name)  
 {
   if(!bufferdata) 
     {
       return false;
     }
 
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_FLOAT);
   bufferdata->Add((float)var); 
 
   return true;
@@ -176,22 +187,24 @@ bool XSERIALIZATIONMETHODBINARY::Add(float var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(double var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(double var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(double var) 
+bool XSERIALIZATIONMETHODBINARY::Add(double var, XCHAR* name) 
 {
   if(!bufferdata) 
     {
       return false;
     }
 
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_DOUBLE);
   bufferdata->Add((double)var); 
 
   return true;
@@ -200,22 +213,24 @@ bool XSERIALIZATIONMETHODBINARY::Add(double var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(long var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(long var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(long var) 
+bool XSERIALIZATIONMETHODBINARY::Add(long var, XCHAR* name) 
 {
   if(!bufferdata) 
     {
       return false;
     }
 
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_LONG);
   bufferdata->Add((XDWORD)var); 
   
   return true;
@@ -224,22 +239,24 @@ bool XSERIALIZATIONMETHODBINARY::Add(long var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(long long var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(long long var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  long var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(long long var) 
+bool XSERIALIZATIONMETHODBINARY::Add(long long var, XCHAR* name) 
 {
   if(!bufferdata) 
     {
       return false;
     }
 
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_LONGLONG);
   bufferdata->Add((XQWORD)var); 
 
   return true;
@@ -248,22 +265,24 @@ bool XSERIALIZATIONMETHODBINARY::Add(long long var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XBYTE var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XBYTE var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(XBYTE var)
+bool XSERIALIZATIONMETHODBINARY::Add(XBYTE var, XCHAR* name)
 {
   if(!bufferdata) 
     {
       return false;
     }
-
+ 
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_XBYTE);
   bufferdata->Add(var); 
 
   return true;
@@ -272,22 +291,24 @@ bool XSERIALIZATIONMETHODBINARY::Add(XBYTE var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XWORD var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XWORD var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(XWORD var)
+bool XSERIALIZATIONMETHODBINARY::Add(XWORD var, XCHAR* name)
 {
   if(!bufferdata) 
     {
       return false;
     }
 
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_XWORD);
   bufferdata->Add((XWORD)var); 
 
   return true;
@@ -296,23 +317,24 @@ bool XSERIALIZATIONMETHODBINARY::Add(XWORD var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XDWORD var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XDWORD var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(XDWORD var)
+bool XSERIALIZATIONMETHODBINARY::Add(XDWORD var, XCHAR* name)
 {
-
   if(!bufferdata) 
     {
       return false;
     }
-
+    
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_XDWORD);  
   bufferdata->Add((XDWORD)var); 
 
   return true;
@@ -321,75 +343,145 @@ bool XSERIALIZATIONMETHODBINARY::Add(XDWORD var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XQWORD var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XQWORD var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(XQWORD var)
+bool XSERIALIZATIONMETHODBINARY::Add(XQWORD var, XCHAR* name)
 {
   if(!bufferdata) 
     {
       return false;
     }
 
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_XQWORD);  
   bufferdata->Add((XQWORD)var); 
 
   return true;
 }
 
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XSTRING& var, XCHAR* name)
+* @brief      Add
+* @ingroup    XUTILS
+* 
+* @param[in]  var : 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZATIONMETHODBINARY::Add(XSTRING& var, XCHAR* name)
+{
+  if(!bufferdata) 
+    {
+      return false;
+    }
+
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_XSTRING);
+  
+  XBUFFER buffer;
+  
+  var.ConvertToXBUFFER(buffer);
+
+  bufferdata->Add(buffer); 
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XBUFFER& var, XCHAR* name)
+* @brief      Add
+* @ingroup    XUTILS
+* 
+* @param[in]  var : 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZATIONMETHODBINARY::Add(XBUFFER& var, XCHAR* name)
+{
+  bufferdata->Add((XBYTE)XSERIALIZATIONMETHODBINARY_TYPEELEMENT_XBUFFER);
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSERIALIZATIONMETHODBINARY::AddStruct(XCHAR* name)
+* @brief      AddStruct
+* @ingroup    XUTILS
+* 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZATIONMETHODBINARY::AddStruct(XCHAR* name)
+{
+  if(!bufferdata) 
+    {
+      return false;
+    }
+  
+  bufferdata->Add((XWORD)XSERIALIZATIONMETHOD_STRUCT_ID); 
+  
+  return true;
+}
 
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XSTRING& var)
-* @brief      Add
+* @fn         bool XSERIALIZATIONMETHODBINARY::AddArray(XDWORD nelements, XCHAR* name)
+* @brief      AddArray
 * @ingroup    XUTILS
 * 
-* @param[in]  var : 
+* @param[in]  nelements : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(XSTRING& var)
+bool XSERIALIZATIONMETHODBINARY::AddArray(XDWORD nelements, XCHAR* name)
 {
+  if(!bufferdata) 
+    {
+      return false;
+    }
+  
+  bufferdata->Add((XWORD)XSERIALIZATIONMETHOD_ARRAY_ID); 
+  bufferdata->Add((XDWORD)nelements); 
+
   return true;
 }
 
 
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XBUFFER& var)
-* @brief      Add
-* @ingroup    XUTILS
-* 
-* @param[in]  var : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Add(XBUFFER& var)
-{
-  return true;
-}
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(bool var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(bool var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(bool var)
+bool XSERIALIZATIONMETHODBINARY::Extract(bool var, XCHAR* name)
 {
   return true;
 }
@@ -397,16 +489,17 @@ bool XSERIALIZATIONMETHODBINARY::Extract(bool var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(char var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(char var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(char var)
+bool XSERIALIZATIONMETHODBINARY::Extract(char var, XCHAR* name)
 {
   return true;
 }
@@ -414,16 +507,17 @@ bool XSERIALIZATIONMETHODBINARY::Extract(char var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(int var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(int var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(int var)
+bool XSERIALIZATIONMETHODBINARY::Extract(int var, XCHAR* name)
 {
   return true;
 }
@@ -431,16 +525,17 @@ bool XSERIALIZATIONMETHODBINARY::Extract(int var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(float var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(float var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(float var)
+bool XSERIALIZATIONMETHODBINARY::Extract(float var, XCHAR* name)
 {
   return true;
 }
@@ -448,16 +543,17 @@ bool XSERIALIZATIONMETHODBINARY::Extract(float var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(double var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(double var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(double var)
+bool XSERIALIZATIONMETHODBINARY::Extract(double var, XCHAR* name)
 {
   return true;
 }
@@ -465,16 +561,17 @@ bool XSERIALIZATIONMETHODBINARY::Extract(double var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(long var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(long var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(long var)
+bool XSERIALIZATIONMETHODBINARY::Extract(long var, XCHAR* name)
 {
   return true;
 }
@@ -482,16 +579,17 @@ bool XSERIALIZATIONMETHODBINARY::Extract(long var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(long long var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(long long var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  long var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(long long var)
+bool XSERIALIZATIONMETHODBINARY::Extract(long long var, XCHAR* name)
 {
   return true;
 }
@@ -499,16 +597,17 @@ bool XSERIALIZATIONMETHODBINARY::Extract(long long var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XBYTE var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XBYTE var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(XBYTE var)
+bool XSERIALIZATIONMETHODBINARY::Extract(XBYTE var, XCHAR* name)
 {
   return true;
 }
@@ -516,16 +615,17 @@ bool XSERIALIZATIONMETHODBINARY::Extract(XBYTE var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XWORD var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XWORD var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(XWORD var)
+bool XSERIALIZATIONMETHODBINARY::Extract(XWORD var, XCHAR* name)
 {
   return true;
 }
@@ -533,16 +633,17 @@ bool XSERIALIZATIONMETHODBINARY::Extract(XWORD var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XDWORD var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XDWORD var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(XDWORD var)
+bool XSERIALIZATIONMETHODBINARY::Extract(XDWORD var, XCHAR* name)
 {
   return true;
 }
@@ -550,16 +651,17 @@ bool XSERIALIZATIONMETHODBINARY::Extract(XDWORD var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XQWORD var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XQWORD var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(XQWORD var)
+bool XSERIALIZATIONMETHODBINARY::Extract(XQWORD var, XCHAR* name)
 {
   return true;
 }
@@ -567,16 +669,17 @@ bool XSERIALIZATIONMETHODBINARY::Extract(XQWORD var)
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XSTRING& var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XSTRING& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(XSTRING& var)
+bool XSERIALIZATIONMETHODBINARY::Extract(XSTRING& var, XCHAR* name)
 {
   return true;
 }
@@ -584,18 +687,54 @@ bool XSERIALIZATIONMETHODBINARY::Extract(XSTRING& var)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XBUFFER& var)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XBUFFER& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
+* @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::Extract(XBUFFER& var)
+bool XSERIALIZATIONMETHODBINARY::Extract(XBUFFER& var, XCHAR* name)
 {
    return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSERIALIZATIONMETHODBINARY::ExtractStruct(XCHAR* name)
+* @brief      ExtractStruct
+* @ingroup    XUTILS
+* 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZATIONMETHODBINARY::ExtractStruct(XCHAR* name)
+{
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSERIALIZATIONMETHODBINARY::ExtractArray(XDWORD nelements, XCHAR* name)
+* @brief      ExtractArray
+* @ingroup    XUTILS
+* 
+* @param[in]  nelements : 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZATIONMETHODBINARY::ExtractArray(XDWORD nelements, XCHAR* name)
+{
+  return true;
 }
 
 
@@ -643,5 +782,5 @@ void XSERIALIZATIONMETHODBINARY::SetBufferData(XBUFFER* bufferdata)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSERIALIZATIONMETHODBINARY::Clean()
 {
-  bufferdata = NULL;
+  bufferdata = NULL; 
 }

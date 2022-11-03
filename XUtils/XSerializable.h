@@ -38,56 +38,16 @@
 #include "XBuffer.h"
 #include "XVector.h"
 
+#ifdef XSERIALIZABLE_JSON_FEATURE
+#include "XFileJSON.h"
+#endif
+
+#include "XSerializationMethod.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
-class XSERIALIZATIONMETHOD
-{
-  public:
-                                   XSERIALIZATIONMETHOD ();
-    virtual                       ~XSERIALIZATIONMETHOD ();
-
-    virtual bool                   Add                  (bool var)        = 0; 
-    virtual bool                   Add                  (char var)        = 0;  
-    virtual bool                   Add                  (int var)         = 0;  
-    virtual bool                   Add                  (float var)       = 0;  
-    virtual bool                   Add                  (double var)      = 0; 
-    virtual bool                   Add                  (long var)        = 0; 
-    virtual bool                   Add                  (long long var)   = 0;  
-
-    virtual bool                   Add                  (XBYTE var)       = 0;  
-    virtual bool                   Add                  (XWORD var)       = 0;  
-    virtual bool                   Add                  (XDWORD var)      = 0; 
-    virtual bool                   Add                  (XQWORD var)      = 0; 
-    
-    virtual bool                   Add                  (XSTRING& var)    = 0;       
-    virtual bool                   Add                  (XBUFFER& var)    = 0;
-
-
-    virtual bool                   Extract              (bool var)        = 0; 
-    virtual bool                   Extract              (char var)        = 0;  
-    virtual bool                   Extract              (int var)         = 0;  
-    virtual bool                   Extract              (float var)       = 0;  
-    virtual bool                   Extract              (double var)      = 0; 
-    virtual bool                   Extract              (long var)        = 0; 
-    virtual bool                   Extract              (long long var)   = 0;  
-
-    virtual bool                   Extract              (XBYTE var)       = 0;  
-    virtual bool                   Extract              (XWORD var)       = 0;  
-    virtual bool                   Extract              (XDWORD var)      = 0; 
-    virtual bool                   Extract              (XQWORD var)      = 0; 
-    
-    virtual bool                   Extract              (XSTRING& var)    = 0;       
-    virtual bool                   Extract              (XBUFFER& var)    = 0;
-    
-  private:
-
-    void                           Clean                ();   
-};
-
 
 class XSERIALIZABLE
 {
@@ -96,12 +56,16 @@ class XSERIALIZABLE
                                    XSERIALIZABLE        ();
     virtual                       ~XSERIALIZABLE        ();
 
-    static XSERIALIZATIONMETHOD*   CreateBinary         (XBUFFER& databinary);    
+    static XSERIALIZATIONMETHOD*   CreateInstance       (XBUFFER& databinary); 
+
+    #ifdef XSERIALIZABLE_JSON_ACTIVE
+    static XSERIALIZATIONMETHOD*   CreateInstance       (XFILEJSON& fileJSON);    
+    #endif
 
     template<class T>
     bool                           Primitive_Add        (T var, XCHAR* name)
                                    {                               
-                                     serialization->Add(var);
+                                     serializationmethod->Add(var);
                                  
                                      return true;
                                    }
@@ -109,7 +73,7 @@ class XSERIALIZABLE
     template<class T>
     bool                           Primitive_Extract    (T var, XCHAR* name)
                                    {
-                                     serialization->Extract(var);
+                                     serializationmethod->Extract(var);
                                
                                      return true; 
                                    }
@@ -122,12 +86,12 @@ class XSERIALIZABLE
                                          return false;
                                        }
 
-                                     if(var)
+                                     if(!var)
                                        {
                                          return false;
                                        }
                                 
-                                     var->SetSerialization(serialization);
+                                     var->SetSerializationMethod(serializationmethod);
                                      return var->Serialize();                                 
                                    }
 
@@ -144,7 +108,9 @@ class XSERIALIZABLE
                                          return false;
                                        }
                             
-                                     var->SetSerialization(serialization);
+                                     serializationmethod->AddStruct(name);
+                                    
+                                     var->SetSerializationMethod(serializationmethod);
                                      return var->Deserialize();                                 
                                    }                              
   
@@ -155,13 +121,15 @@ class XSERIALIZABLE
                                        {
                                          return false;
                                        }
+                                       
+                                     serializationmethod->AddArray(var->GetSize(), name);                                                                               
                                      
                                      for(XDWORD c=0; c<var->GetSize(); c++)
                                        {
                                          T* element = var->Get(c);
                                          if(element)
                                            {
-                                             element->SetSerialization(serialization);
+                                             element->SetSerializationMethod(serializationmethod);
                                              element->Serialize();               
                                            }                                       
                                        }
@@ -182,7 +150,7 @@ class XSERIALIZABLE
                                          T* element = var->Get(c);
                                          if(element)
                                            {
-                                             element->SetSerialization(serialization);
+                                             element->SetSerializationMethod(serializationmethod);
                                              element->Deserialize();               
                                            }                                       
                                        } 
@@ -190,26 +158,20 @@ class XSERIALIZABLE
                                      return true;                           
                                    }                             
 
-    XSERIALIZATIONMETHOD*          GetSerialization     ();
-    void                           SetSerialization     (XSERIALIZATIONMETHOD* serialization);
+    XSERIALIZATIONMETHOD*          GetSerializationMethod     ();
+    void                           SetSerializationMethod     (XSERIALIZATIONMETHOD* serializationmethod);
 
-    bool                           InitSerialize        (XSERIALIZATIONMETHOD* serialization);    
-    bool                           InitDeserialize      (XSERIALIZATIONMETHOD* serialization);   
+    bool                           InitSerialize              (XSERIALIZATIONMETHOD* serializationmethod);    
+    bool                           InitDeserialize            (XSERIALIZATIONMETHOD* serializationmethod);   
 
-    virtual bool                   Serialize            ();    
-    virtual bool                   Deserialize          ();  
+    virtual bool                   Serialize                  ();    
+    virtual bool                   Deserialize                ();  
     
-
-  protected:
-
-    bool                           Serialize            (XSERIALIZATIONMETHOD* serialization);    
-    bool                           Deserialize          (XSERIALIZATIONMETHOD* serialization);   
-
   private:
 
     void                           Clean                ();   
 
-    XSERIALIZATIONMETHOD*          serialization; 
+    XSERIALIZATIONMETHOD*          serializationmethod; 
        
 };
 
