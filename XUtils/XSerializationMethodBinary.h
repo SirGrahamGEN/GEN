@@ -79,8 +79,8 @@ class XSERIALIZATIONMETHODBINARY : public XSERIALIZATIONMETHOD
     virtual bool             Add                            (XSTRING& var, XCHAR* name = NULL);       
     virtual bool             Add                            (XBUFFER& var, XCHAR* name = NULL);
 
-    virtual bool             AddStruct                      (XCHAR* name = NULL);
-    virtual bool             AddArray                       (XDWORD nelements, XCHAR* name = NULL);
+    virtual bool             AddStruct                      (XCHAR* name = NULL, bool open = false);
+    virtual bool             AddArray                       (XDWORD nelements, XCHAR* name = NULL, bool open = false);
 
 
     virtual bool             Extract                        (bool var, XCHAR* name = NULL); 

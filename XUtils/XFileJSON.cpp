@@ -225,6 +225,20 @@ float XFILEJSONVALUE::GetValueFloating()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         double XFILEJSONVALUE::GetValueDoubleFloat()
+* @brief      GetValueDoubleFloat
+* @ingroup    XUTILS
+* 
+* @return     double : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+double XFILEJSONVALUE::GetValueDoubleFloat()
+{
+  return value.doublefloat;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -309,11 +323,30 @@ bool XFILEJSONVALUE::Set(int number)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILEJSONVALUE::Set(float number)
 {
-  //if(sizeof(float) != sizeof(void*)) return false;
-
-  type =  XFILEJSONVALUETYPE_NUMBERSPECIAL;
+  type =  XFILEJSONVALUETYPE_NUMBERSPECIAL1;
 
   value.floating = number;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILEJSONVALUE::Set(double number)
+* @brief      Set
+* @ingroup    XUTILS
+* 
+* @param[in]  number : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILEJSONVALUE::Set(double number)
+{  
+  type =  XFILEJSONVALUETYPE_NUMBERSPECIAL2;
+
+  value.doublefloat = number;
 
   return true;
 }
@@ -474,30 +507,36 @@ bool XFILEJSONVALUE::Delete()
 
   switch(type)
     {
-      case XFILEJSONVALUETYPE_UNKNOWN        : return false;
+      case XFILEJSONVALUETYPE_UNKNOWN         : return false;
 
-      case XFILEJSONVALUETYPE_STRING        : { XSTRING* string = (XSTRING*)value.pointer;
-                                                delete string;
-                                                value.pointer = NULL;
-                                              }
-                                              break;
+      case XFILEJSONVALUETYPE_STRING          : { XSTRING* string = (XSTRING*)value.pointer;
+                                                  delete string;
+                                                  value.pointer = NULL;
+                                                }
+                                                break;
 
-      case XFILEJSONVALUETYPE_OBJECT        : { XFILEJSONOBJECT* object = (XFILEJSONOBJECT*)value.pointer;
-                                                delete object;
-                                                value.pointer = NULL;
-                                              }
-                                              break;
+      case XFILEJSONVALUETYPE_OBJECT          : { XFILEJSONOBJECT* object = (XFILEJSONOBJECT*)value.pointer;
+                                                  delete object;
+                                                  value.pointer = NULL;
+                                                }
+                                                break;
 
-      case XFILEJSONVALUETYPE_ARRAY         : { XFILEJSONARRAY* array = (XFILEJSONARRAY*)value.pointer;
-                                                delete array;
-                                                value.pointer = NULL;
-                                              }
-                                              break;
+      case XFILEJSONVALUETYPE_ARRAY           : { XFILEJSONARRAY* array = (XFILEJSONARRAY*)value.pointer;
+                                                  delete array;
+                                                  value.pointer = NULL;
+                                                }
+                                                break;
 
-      case XFILEJSONVALUETYPE_NUMBER        : value.integer = 0;     break;
-      case XFILEJSONVALUETYPE_NUMBERSPECIAL : value.integer = 0;     break;
-      case XFILEJSONVALUETYPE_BOOLEAN       : value.boolean = false; break;
-      case XFILEJSONVALUETYPE_NULL          : value.pointer = NULL;  break;
+      case XFILEJSONVALUETYPE_NUMBER          : value.integer     = 0;     break;
+
+      case XFILEJSONVALUETYPE_NUMBERSPECIAL1  : value.floating    = 0.0f;     
+                                                break; 
+
+      case XFILEJSONVALUETYPE_NUMBERSPECIAL2  : value.doublefloat = 0.0f;     
+                                                break;
+
+      case XFILEJSONVALUETYPE_BOOLEAN         : value.boolean     = false; break;
+      case XFILEJSONVALUETYPE_NULL            : value.pointer     = NULL;  break;
     }
 
   return true;
@@ -545,7 +584,10 @@ XFILEJSONVALUE* XFILEJSONVALUE::Clone()
       case XFILEJSONVALUETYPE_NUMBER          : newvalue->Set(value.integer);
                                                 break;
 
-      case XFILEJSONVALUETYPE_NUMBERSPECIAL   : newvalue->Set(value.floating);
+      case XFILEJSONVALUETYPE_NUMBERSPECIAL1  : newvalue->Set(value.floating);
+                                                break;
+
+      case XFILEJSONVALUETYPE_NUMBERSPECIAL2  : newvalue->Set(value.doublefloat);
                                                 break;
 
       case XFILEJSONVALUETYPE_BOOLEAN         : newvalue->Set(value.boolean);
@@ -699,6 +741,8 @@ bool XFILEJSONOBJECT::Add(XCHAR* name, XFILEJSONARRAY* array)
 {
   if(!array) return false;
 
+  array->SetFather(this);
+
   XFILEJSONVALUE* value = new XFILEJSONVALUE();
   if(!value) return false;
 
@@ -726,7 +770,7 @@ bool XFILEJSONOBJECT::Add(XCHAR* name, XFILEJSONARRAY* array)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILEJSONOBJECT::Add(XSTRING& name, XFILEJSONARRAY* array)
 {
-  return Add(name.Get(),array);
+  return Add(name.Get(), array);
 }
 
 
@@ -746,6 +790,8 @@ bool XFILEJSONOBJECT::Add(XSTRING& name, XFILEJSONARRAY* array)
 bool XFILEJSONOBJECT::Add(XCHAR* name, XFILEJSONOBJECT* object)
 {
   if(!object) return false;
+
+  object->SetFather(this);
 
   XFILEJSONVALUE* value = new XFILEJSONVALUE();
   if(!value) return false;
@@ -778,6 +824,37 @@ bool XFILEJSONOBJECT::Add(XSTRING& name, XFILEJSONOBJECT* object)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XFILEJSONOBJECT* XFILEJSONOBJECT::GetFather()
+* @brief      GetFather
+* @ingroup    XUTILS
+* 
+* @return     XFILEJSONOBJECT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XFILEJSONOBJECT* XFILEJSONOBJECT::GetFather()
+{
+  return father;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XFILEJSONOBJECT::SetFather(XFILEJSONOBJECT* father)
+* @brief      SetFather
+* @ingroup    XUTILS
+* 
+* @param[in]  father : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XFILEJSONOBJECT::SetFather(XFILEJSONOBJECT* father)
+{
+  this->father = father;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -792,7 +869,6 @@ XVECTOR<XFILEJSONVALUE*>* XFILEJSONOBJECT::GetValues()
 {
   return &values;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -815,7 +891,6 @@ bool XFILEJSONOBJECT::DeleteAllValues()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONOBJECT* XFILEJSONOBJECT::Clone()
@@ -830,6 +905,7 @@ XFILEJSONOBJECT* XFILEJSONOBJECT::Clone()
   XFILEJSONOBJECT* cloneobj = new XFILEJSONOBJECT();
   if(!cloneobj) return NULL;
 
+  cloneobj->SetFather(father);
   cloneobj->SetIsArray(isarray);
 
   for(XDWORD c=0; c<GetValues()->GetSize(); c++)
@@ -848,8 +924,6 @@ XFILEJSONOBJECT* XFILEJSONOBJECT::Clone()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEJSONOBJECT::Clean()
@@ -862,6 +936,7 @@ XFILEJSONOBJECT* XFILEJSONOBJECT::Clone()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEJSONOBJECT::Clean()
 {
+  father  = NULL;
   isarray = false;
 }
 
@@ -1263,64 +1338,8 @@ bool XFILEJSON::DeleteAllObjects()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEJSONOBJECT* XFILEJSON::GetObject(XCHAR* name, XFILEJSONOBJECT* startobject)
-{
-
-  /*
+{  
   XFILEJSONOBJECT* _startobject  = startobject?startobject:GetRoot();
-  if(!_startobject)  return NULL;
-
-  if(_startobject->IsArray())
-    {
-      XFILEJSONARRAY* array = (XFILEJSONARRAY*)(_startobject);
-      if(!array) return NULL;
-
-      if(!array->GetValues()) return NULL;
-
-      for(int c=0; c<(int)array->GetValues()->GetSize();c++)
-        {
-          XFILEJSONVALUE* value = (XFILEJSONVALUE*)array->GetValues()->Get(c);
-          if(value)
-            {
-              switch(value->GetType())
-                {
-                  case XFILEJSONVALUETYPE_OBJECT  :
-                  case XFILEJSONVALUETYPE_ARRAY   : { XFILEJSONOBJECT* subobject = GetObjectSubValue(name, value);
-                                                      if(subobject) return subobject;
-                                                    }
-                                                    break;
-                }
-            }
-        }
-    }
-   else
-    {
-      XFILEJSONOBJECT* object = _startobject;
-      if(!object) return NULL;
-
-      if(!object->GetValues()) return NULL;
-
-      for(int c=0; c<(int)object->GetValues()->GetSize();c++)
-        {
-          XFILEJSONVALUE* value = (XFILEJSONVALUE*)object->GetValues()->Get(c);
-          if(value)
-            {
-              switch(value->GetType())
-                {
-                  case XFILEJSONVALUETYPE_OBJECT  :
-                  case XFILEJSONVALUETYPE_ARRAY   : { XFILEJSONOBJECT* subobject = GetObjectSubValue(name, value);
-                                                      if(subobject) return subobject;
-                                                    }
-                                                    break;
-
-                                         //default  : return object; 
-
-                }              
-            }
-        }
-    }
-  */
-  
- XFILEJSONOBJECT* _startobject  = startobject?startobject:GetRoot();
   if(!_startobject)  return NULL;
 
   if(_startobject->IsArray())
@@ -1483,6 +1502,34 @@ XFILEJSONVALUE* XFILEJSON::GetValue(int index, XFILEJSONOBJECT* startobject)
   return (XFILEJSONVALUE*)object->GetValues()->Get(index);  
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILEJSON::ShowTraceJSON(XBYTE color, bool istabulatedline, XFILETXTTYPELF typeLF)
+* @brief      ShowTraceJSON
+* @ingroup    XUTILS
+* 
+* @param[in]  color : 
+* @param[in]  istabulatedline : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILEJSON::ShowTraceJSON(XBYTE color, bool istabulatedline)
+{
+  EncodeAllLines(istabulatedline);
+  
+  for(int c=0; c<GetNLines(); c++)
+    {      
+      XSTRING* line = GetLine(c);
+      if(line) 
+        {
+          XTRACE_PRINTCOLOR(color, line->Get());          
+        }
+    }
+
+  return true;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2181,7 +2228,6 @@ bool XFILEJSON::EncodeObject(bool isobject, XFILEJSONOBJECT* object, bool istabu
 
   AddControlCharacter(isobject?XFILEJSONCONTROLCHAR_OPENBRACE:XFILEJSONCONTROLCHAR_OPENBRACKET, line);
   AddLine(line);
-
   //XTRACE_PRINTCOLOR(0,line.Get());
 
   for(int c=0;c<(int)object->GetValues()->GetSize();c++)
@@ -2206,67 +2252,74 @@ bool XFILEJSON::EncodeObject(bool isobject, XFILEJSONOBJECT* object, bool istabu
 
           switch(value->GetType())
             {
-              case XFILEJSONVALUETYPE_UNKNOWN        : break;
+              case XFILEJSONVALUETYPE_UNKNOWN         : break;
 
-              case XFILEJSONVALUETYPE_NUMBER        : { XSTRING  valuestring;
+              case XFILEJSONVALUETYPE_NUMBER          : { XSTRING valuestring;
 
-                                                        valuestring.Format(__L("%d"),value->GetValueInteger());
-                                                        line+=valuestring.Get();
-                                                      }
-                                                      break;
+                                                          valuestring.Format(__L("%d"),value->GetValueInteger());
+                                                          line+=valuestring.Get();
+                                                        }
+                                                        break;
 
-              case XFILEJSONVALUETYPE_NUMBERSPECIAL : { XSTRING  valuestring;
+              case XFILEJSONVALUETYPE_NUMBERSPECIAL1  : { XSTRING valuestring;
 
-                                                        valuestring.Format(__L("%f"),value->GetValueFloating());
-                                                        line+=valuestring.Get();
-                                                      }
-                                                      break;
+                                                          valuestring.Format(__L("%f"),value->GetValueFloating());
+                                                          line+=valuestring.Get();
+                                                        }
+                                                        break;
 
-              case XFILEJSONVALUETYPE_STRING        : { XSTRING* ptrvaluestring = (XSTRING*)(value->GetValuePointer());
-                                                        XSTRING  valuestring;
+              case XFILEJSONVALUETYPE_NUMBERSPECIAL2  : { XSTRING valuestring;
 
-                                                        if(!ptrvaluestring) return false;
+                                                          valuestring.Format(__L("%f"),value->GetValueDoubleFloat());
+                                                          line+=valuestring.Get();
+                                                        }
+                                                        break;
 
-                                                        valuestring.Format(__L("%c%s%c"), GetControlCharacter(XFILEJSONCONTROLCHAR_QUOTE), ptrvaluestring->Get(), GetControlCharacter(XFILEJSONCONTROLCHAR_QUOTE));
-                                                        line+=valuestring.Get();
-                                                      }
-                                                      break;
+              case XFILEJSONVALUETYPE_STRING          : { XSTRING* ptrvaluestring = (XSTRING*)(value->GetValuePointer());
+                                                          XSTRING  valuestring;
 
-              case XFILEJSONVALUETYPE_OBJECT        : { XFILEJSONOBJECT* newobject = (XFILEJSONOBJECT*)(value->GetValuePointer());
-                                                        if(newobject)
-                                                          {
-                                                            if((!line.IsEmpty()) && line.HaveCharacters())
-                                                              {
-                                                                AddLine(line);
-                                                                //XTRACE_PRINTCOLOR(0,line.Get());
-                                                              }
+                                                          if(!ptrvaluestring) return false;
 
-                                                            if(!EncodeObject(true,newobject,istabulatedline)) return false;
-                                                            line.Empty();
-                                                          }
-                                                      }
-                                                      break;
+                                                          valuestring.Format(__L("%c%s%c"), GetControlCharacter(XFILEJSONCONTROLCHAR_QUOTE), ptrvaluestring->Get(), GetControlCharacter(XFILEJSONCONTROLCHAR_QUOTE));
+                                                          line+=valuestring.Get();
+                                                        }
+                                                        break;
 
-              case XFILEJSONVALUETYPE_ARRAY         : { XFILEJSONARRAY* newarray = (XFILEJSONARRAY*)(value->GetValuePointer());
-                                                        if(newarray)
-                                                          {
-                                                            if((!line.IsEmpty()) && line.HaveCharacters())
-                                                              {
-                                                                AddLine(line);
-                                                                //XTRACE_PRINTCOLOR(0,line.Get());
-                                                              }
+              case XFILEJSONVALUETYPE_OBJECT          : { XFILEJSONOBJECT* newobject = (XFILEJSONOBJECT*)(value->GetValuePointer());
+                                                          if(newobject)
+                                                            {
+                                                              if((!line.IsEmpty()) && line.HaveCharacters())
+                                                                {
+                                                                  AddLine(line);
+                                                                  //XTRACE_PRINTCOLOR(0,line.Get());
+                                                                }
 
-                                                            if(!EncodeObject(false,(XFILEJSONOBJECT*)newarray,istabulatedline)) return false;
-                                                            line.Empty();
-                                                          }
-                                                      }
-                                                      break;
+                                                              if(!EncodeObject(true,newobject,istabulatedline)) return false;
+                                                              line.Empty();
+                                                            }
+                                                        }
+                                                        break;
 
-              case XFILEJSONVALUETYPE_BOOLEAN       : line += (value->GetValueBoolean()?__L("true"):__L("false"));
-                                                      break;
+              case XFILEJSONVALUETYPE_ARRAY           : { XFILEJSONARRAY* newarray = (XFILEJSONARRAY*)(value->GetValuePointer());
+                                                          if(newarray)
+                                                            {
+                                                              if((!line.IsEmpty()) && line.HaveCharacters())
+                                                                {
+                                                                  AddLine(line);
+                                                                  //XTRACE_PRINTCOLOR(0,line.Get());
+                                                                }
 
-              case XFILEJSONVALUETYPE_NULL          : line += __L("null");
-                                                      break;
+                                                              if(!EncodeObject(false,(XFILEJSONOBJECT*)newarray,istabulatedline)) return false;
+                                                              line.Empty();
+                                                            }
+                                                        }
+                                                        break;
+
+              case XFILEJSONVALUETYPE_BOOLEAN         : line += (value->GetValueBoolean()?__L("true"):__L("false"));
+                                                        break;
+
+              case XFILEJSONVALUETYPE_NULL            : line += __L("null");
+                                                        break;
             }
         }
 

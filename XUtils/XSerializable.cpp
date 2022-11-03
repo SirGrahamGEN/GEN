@@ -124,6 +124,26 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XFILEJSON& fileJSON)
       serializable->SetFileJSON(&fileJSON);
     }
 
+  XFILEJSONOBJECT* root =  fileJSON.GetRoot();
+  if(!root)
+    {
+      root = new XFILEJSONOBJECT();
+      if(root) 
+        {
+          fileJSON.SetRoot(root);
+        }
+    }
+
+  if(!root) 
+    {
+      delete serializable;
+      serializable = NULL;
+    }
+   else
+    {      
+      serializable->SetActualObject(root);
+    }
+
   return (XSERIALIZATIONMETHOD*)serializable;
 }
 #endif

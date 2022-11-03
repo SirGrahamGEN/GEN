@@ -40,14 +40,15 @@
 
 enum XFILEJSONVALUETYPE
 {
-  XFILEJSONVALUETYPE_UNKNOWN          =  0 ,
-  XFILEJSONVALUETYPE_NUMBER               ,
-  XFILEJSONVALUETYPE_NUMBERSPECIAL        ,
-  XFILEJSONVALUETYPE_STRING               ,
-  XFILEJSONVALUETYPE_OBJECT               ,
-  XFILEJSONVALUETYPE_ARRAY                ,
-  XFILEJSONVALUETYPE_BOOLEAN              ,
-  XFILEJSONVALUETYPE_NULL                 ,
+  XFILEJSONVALUETYPE_UNKNOWN          =  0  ,
+  XFILEJSONVALUETYPE_NUMBER                 ,
+  XFILEJSONVALUETYPE_NUMBERSPECIAL1         ,
+  XFILEJSONVALUETYPE_NUMBERSPECIAL2         ,
+  XFILEJSONVALUETYPE_STRING                 ,
+  XFILEJSONVALUETYPE_OBJECT                 ,
+  XFILEJSONVALUETYPE_ARRAY                  ,
+  XFILEJSONVALUETYPE_BOOLEAN                ,
+  XFILEJSONVALUETYPE_NULL                   ,
 };
 
 
@@ -68,9 +69,9 @@ enum XFILEJSONCONTROLCHAR
 };
 
 
-#define XFILEJSON_SPACETABS                           2
+#define XFILEJSON_SPACETABS                             2
 
-#define XFILEJSON_ADDVALUE(node, name, value)           {  XFILEJSONVALUE* jsonvalue = new XFILEJSONVALUE();            \
+#define XFILEJSON_ADDVALUE(node, name, value)           { XFILEJSONVALUE* jsonvalue = new XFILEJSONVALUE();             \
                                                           if(jsonvalue)                                                 \
                                                             {                                                           \
                                                               jsonvalue->SetName(name);                                 \
@@ -79,7 +80,7 @@ enum XFILEJSONCONTROLCHAR
                                                             }                                                           \
                                                         }
 
-#define XFILEJSON_ADDVALUE_NULL(node, name)             {  XFILEJSONVALUE* jsonvalue = new XFILEJSONVALUE();            \
+#define XFILEJSON_ADDVALUE_NULL(node, name)             { XFILEJSONVALUE* jsonvalue = new XFILEJSONVALUE();             \
                                                           if(jsonvalue)                                                 \
                                                             {                                                           \
                                                               jsonvalue->SetName(name);                                 \
@@ -95,6 +96,7 @@ union XFILEJSONVALUEDATA
     void*                       pointer;
     int                         integer;
     float                       floating;
+    double                      doublefloat;
     bool                        boolean;
 };
 
@@ -120,12 +122,14 @@ class XFILEJSONVALUE
     void*                       GetValuePointer               ();
     int                         GetValueInteger               ();
     float                       GetValueFloating              ();
+    double                      GetValueDoubleFloat           ();
     bool                        GetValueBoolean               ();
     XFILEJSONOBJECT*            GetValueObject                ();
     XFILEJSONARRAY*             GetValueArray                 ();
 
     bool                        Set                           (int number);
     bool                        Set                           (float number);
+    bool                        Set                           (double number);
     bool                        Set                           (XSTRING& string);
     bool                        Set                           (XCHAR* string);
     bool                        Set                           (XFILEJSONOBJECT* object);
@@ -163,6 +167,9 @@ class XFILEJSONOBJECT
     bool                        Add                           (XCHAR* name,XFILEJSONOBJECT* object);
     bool                        Add                           (XSTRING& name,XFILEJSONOBJECT* object);
 
+    XFILEJSONOBJECT*            GetFather                     ();  
+    void                        SetFather                     (XFILEJSONOBJECT* father);  
+
     XVECTOR<XFILEJSONVALUE*>*   GetValues                     ();
     bool                        DeleteAllValues               ();
 
@@ -170,6 +177,7 @@ class XFILEJSONOBJECT
 
   protected:
 
+    XFILEJSONOBJECT*            father;  
     bool                        isarray;
     XVECTOR<XFILEJSONVALUE*>    values;
 
@@ -228,10 +236,9 @@ class XFILEJSON : public XFILETXT
     XFILEJSONVALUE*             GetValue                      (XSTRING& name, XFILEJSONOBJECT* startobject = NULL);
     XFILEJSONVALUE*             GetValue                      (int index, XFILEJSONOBJECT* startobject = NULL);
 
+    bool                        ShowTraceJSON                 (XBYTE color, bool istabulatedline = true);
 
   private:
-
-
 
     XFILEJSONOBJECT*            GetObjectSubValue             (XCHAR* name, XFILEJSONVALUE* value);
 

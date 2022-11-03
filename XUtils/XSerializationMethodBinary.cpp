@@ -400,12 +400,13 @@ bool XSERIALIZATIONMETHODBINARY::Add(XSTRING& var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XBUFFER& var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XBUFFER& var, XCHAR* name, bool open)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
 * @param[in]  name : 
+* @param[in]  open : 
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -420,16 +421,17 @@ bool XSERIALIZATIONMETHODBINARY::Add(XBUFFER& var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::AddStruct(XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODBINARY::AddStruct(XCHAR* name, bool open)
 * @brief      AddStruct
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
+* @param[in]  open : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::AddStruct(XCHAR* name)
+bool XSERIALIZATIONMETHODBINARY::AddStruct(XCHAR* name, bool open)
 {
   if(!bufferdata) 
     {
@@ -454,7 +456,7 @@ bool XSERIALIZATIONMETHODBINARY::AddStruct(XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODBINARY::AddArray(XDWORD nelements, XCHAR* name)
+bool XSERIALIZATIONMETHODBINARY::AddArray(XDWORD nelements, XCHAR* name, bool open)
 {
   if(!bufferdata) 
     {

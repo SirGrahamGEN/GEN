@@ -543,12 +543,29 @@ bool XFILETXT::GetLF(XBUFFER& lfdata)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XFILETXT::GetLF()
+{  
+  return GetLF(typeLF);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* XFILETXT::GetLF(XFILETXTTYPELF typeLF)
+* @brief      GetLF
+* @ingroup    XUTILS
+* 
+* @param[in]  typeLF : 
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* XFILETXT::GetLF(XFILETXTTYPELF typeLF)
 {
   LF.Empty();
 
   switch(typeLF)
     {
-      case XFILETXTTYPELF_UNKNOWN  : break;
+      case XFILETXTTYPELF_UNKNOWN : break;
       case XFILETXTTYPELF_0A      : LF = __L("\n");    break;
       case XFILETXTTYPELF_0D      : LF = __L("\r");    break;
       case XFILETXTTYPELF_0A0D    : LF = __L("\n\r");  break;
@@ -663,19 +680,20 @@ XCHAR* XFILETXT::GetLineText(int index)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end)
+* 
+* @fn         bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end, XFILETXTTYPELF typeLF)
 * @brief      GetAllInOneLine
 * @ingroup    XUTILS
-*
-* @param[in]  alllines :
-* @param[in]  start :
-* @param[in]  end :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  alllines : 
+* @param[in]  start : 
+* @param[in]  end : 
+* @param[in]  typeLF : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end)
+bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end, XFILETXTTYPELF typeLF)
 {
   alllines.Empty();
 
@@ -683,9 +701,18 @@ bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end)
   if(_end == XFILETXT_TOLASTLINE) _end = GetNLines();
 
   for(int c=start; c<_end; c++)
-    {
+    {      
       XSTRING* line = GetLine(c);
-      if(line) alllines += line->Get();
+      if(line) 
+        {
+          XSTRING  LF = GetLF(typeLF)->Get();
+          if(!LF.IsEmpty()) 
+            {
+              line->Add(LF.Get());
+            }
+
+          alllines += line->Get();          
+        }
     }
 
   if(alllines.IsEmpty()) return false;
@@ -695,19 +722,20 @@ bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XDWORD start, XDWORD end)
+* 
+* @fn         bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XDWORD start, XDWORD end, XFILETXTTYPELF typeLF)
 * @brief      GetAllInBuffer
 * @ingroup    XUTILS
-*
-* @param[in]  xbuffer :
-* @param[in]  start :
-* @param[in]  end :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  xbuffer : 
+* @param[in]  start : 
+* @param[in]  end : 
+* @param[in]  typeLF : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XDWORD start, XDWORD end)
+bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XDWORD start, XDWORD end, XFILETXTTYPELF typeLF)
 {
   xbuffer.Delete();
 
@@ -717,8 +745,16 @@ bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XDWORD start, XDWORD end)
   for(int c=start; c<_end; c++)
     {
       XSTRING* line = GetLine(c);
+      if(line) 
+        {
+          XSTRING LF = GetLF(typeLF)->Get();
+          if(!LF.IsEmpty()) 
+            {
+              line->Add(LF.Get());
+            }
 
-      if(line) xbuffer.Add((*line));
+          xbuffer.Add((*line));         
+        } 
     }
 
   if(!xbuffer.GetSize()) return false;

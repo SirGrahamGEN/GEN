@@ -96,6 +96,7 @@ class XFILETXT : public XFILECONTAINER
     bool                  CreateTypeLF            (XFILETXTFORMATCHAR formatchar, XFILETXTTYPELF typeLF, XBYTE* LF, XDWORD& sizeLF);
     bool                  GetLF                   (XBUFFER& lfdata);
     XSTRING*              GetLF                   ();
+    XSTRING*              GetLF                   (XFILETXTTYPELF typeLF);
 
     bool                  IsBinaryFile            ();
 
@@ -103,8 +104,8 @@ class XFILETXT : public XFILECONTAINER
     XSTRING*              GetLine                 (int index);
     XCHAR*                GetLineText             (int index);
 
-    bool                  GetAllInOneLine         (XSTRING& alllines , XDWORD start = 0, XDWORD end = XFILETXT_TOLASTLINE);
-    bool                  GetAllInBuffer          (XBUFFER& xbuffer  , XDWORD start = 0, XDWORD end = XFILETXT_TOLASTLINE);
+    bool                  GetAllInOneLine         (XSTRING& alllines , XDWORD start = 0, XDWORD end = XFILETXT_TOLASTLINE, XFILETXTTYPELF typeLF = XFILETXTTYPELF_UNKNOWN);
+    bool                  GetAllInBuffer          (XBUFFER& xbuffer  , XDWORD start = 0, XDWORD end = XFILETXT_TOLASTLINE, XFILETXTTYPELF typeLF = XFILETXTTYPELF_UNKNOWN);
 
     bool                  ReadAllFile             ();
     bool                  WriteAllFile            ();

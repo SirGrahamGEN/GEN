@@ -352,7 +352,16 @@ bool DIOSCRAPERWEB::Do(XCHAR* namewebservice, int timeoutforurl, XSTRING* localI
                                                                                         }
                                                                                         break;
 
-                                              case XFILEJSONVALUETYPE_NUMBERSPECIAL   : { float   pvalue = (float)jsonvalue->GetValueFloating();
+                                              case XFILEJSONVALUETYPE_NUMBERSPECIAL1  : { float   pvalue = (float)jsonvalue->GetValueFloating();
+                                                                                          XSTRING string;
+
+                                                                                          string.Format(__L("%f"),pvalue);
+
+                                                                                          AddValue(name, string);
+                                                                                        }
+                                                                                        break;
+
+                                              case XFILEJSONVALUETYPE_NUMBERSPECIAL2  : { double  pvalue = (float)jsonvalue->GetValueDoubleFloat();
                                                                                           XSTRING string;
 
                                                                                           string.Format(__L("%f"),pvalue);

@@ -97,6 +97,7 @@ bool XSERIALIZATIONMETHODJSON::Add(bool var, XCHAR* name)
       return false;
     }
 
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (bool)var);
   
   return true;
 }
@@ -116,11 +117,12 @@ bool XSERIALIZATIONMETHODJSON::Add(bool var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Add(char var, XCHAR* name)
 {
-  if(!fileJSON) 
+  if(!CheckHandleActive()) 
     {
       return false;
     }
 
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (char)var);
 
   return true;
 }
@@ -140,11 +142,12 @@ bool XSERIALIZATIONMETHODJSON::Add(char var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Add(int var, XCHAR* name)
 {
-  if(!fileJSON) 
+  if(!CheckHandleActive()) 
     {
       return false;
     }
 
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (int)var);
 
   return true;
 }
@@ -164,12 +167,12 @@ bool XSERIALIZATIONMETHODJSON::Add(int var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Add(float var, XCHAR* name)  
 {
-  if(!fileJSON) 
+  if(!CheckHandleActive()) 
     {
       return false;
     }
 
-
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (float)var);
 
   return true;
 }
@@ -189,11 +192,12 @@ bool XSERIALIZATIONMETHODJSON::Add(float var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Add(double var, XCHAR* name) 
 {
-  if(!fileJSON) 
+  if(!CheckHandleActive()) 
     {
       return false;
     }
 
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (double)var);
   
   return true;
 }
@@ -213,11 +217,12 @@ bool XSERIALIZATIONMETHODJSON::Add(double var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Add(long var, XCHAR* name) 
 {
-  if(!fileJSON) 
+  if(!CheckHandleActive()) 
     {
       return false;
     }
 
+  //XFILEJSON_ADDVALUE(GetActualObject(), name, (long)var);
   
   return true;
 }
@@ -237,11 +242,12 @@ bool XSERIALIZATIONMETHODJSON::Add(long var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Add(long long var, XCHAR* name) 
 {
-  if(!fileJSON) 
+  if(!CheckHandleActive()) 
     {
       return false;
     }
 
+  //XFILEJSON_ADDVALUE(GetActualObject(), name, (long long)var);
 
   return true;
 }
@@ -261,11 +267,12 @@ bool XSERIALIZATIONMETHODJSON::Add(long long var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Add(XBYTE var, XCHAR* name)
 {
-  if(!fileJSON) 
+  if(!CheckHandleActive()) 
     {
       return false;
     }
 
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (XBYTE)var);
 
   return true;
 }
@@ -285,11 +292,12 @@ bool XSERIALIZATIONMETHODJSON::Add(XBYTE var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Add(XWORD var, XCHAR* name)
 {
-  if(!fileJSON) 
+  if(!CheckHandleActive()) 
     {
       return false;
     }
 
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (XWORD)var);
 
   return true;
 }
@@ -309,11 +317,12 @@ bool XSERIALIZATIONMETHODJSON::Add(XWORD var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Add(XDWORD var, XCHAR* name)
 {
-  if(!fileJSON) 
+  if(!CheckHandleActive()) 
     {
       return false;
     }
 
+  //XFILEJSON_ADDVALUE(GetActualObject(), name, (XDWORD)var);
 
   return true;
 }
@@ -333,11 +342,12 @@ bool XSERIALIZATIONMETHODJSON::Add(XDWORD var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Add(XQWORD var, XCHAR* name)
 {
-  if(!fileJSON) 
+  if(!CheckHandleActive()) 
     {
       return false;
     }
 
+  //XFILEJSON_ADDVALUE(GetActualObject(), name, (XQWORD)var);
 
   return true;
 }
@@ -357,11 +367,12 @@ bool XSERIALIZATIONMETHODJSON::Add(XQWORD var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Add(XSTRING& var, XCHAR* name)
 {
-  if(!fileJSON) 
+  if(!CheckHandleActive()) 
     {
       return false;
     }
 
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (XCHAR*)var.Get());
 
   return true;
 }
@@ -381,41 +392,96 @@ bool XSERIALIZATIONMETHODJSON::Add(XSTRING& var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Add(XBUFFER& var, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
+  //XFILEJSON_ADDVALUE(GetActualObject(), name, (XBYTE*)var.Get());
+
   return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::AddStruct(XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::AddStruct(XCHAR* name, bool open)
 * @brief      AddStruct
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
+* @param[in]  open : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::AddStruct(XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::AddStruct(XCHAR* name, bool open)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
+  if(open)
+    {
+      XFILEJSONOBJECT* structnode =  new XFILEJSONOBJECT();
+      if(!structnode)
+        {
+          return false;
+        }
+
+      fathers.Add(GetActualObject());      
+      SetActualObject(structnode);
+    }
+   else
+    {
+      fathers.GetLast()->Add(name, GetActualObject());  
+      SetActualObject(fathers.GetLast());      
+      fathers.DeleteLast();
+    }
+
   return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::AddArray(XDWORD nelements, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::AddArray(XDWORD nelements, XCHAR* name, bool open)
 * @brief      AddArray
 * @ingroup    XUTILS
 * 
 * @param[in]  nelements : 
 * @param[in]  name : 
+* @param[in]  open : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::AddArray(XDWORD nelements, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::AddArray(XDWORD nelements, XCHAR* name, bool open)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }  
+
+  if(open)
+    {
+      XFILEJSONARRAY* arraynode =  new XFILEJSONARRAY();
+      if(!arraynode)
+        {
+          return false;
+        }
+
+      fathers.Add(GetActualObject());      
+      SetActualObject(arraynode);
+    }
+   else
+    {
+      fathers.GetLast()->Add(name, GetActualObject());  
+      SetActualObject(fathers.GetLast());      
+      fathers.DeleteLast();
+    }
+
   return true;
 }
 
@@ -452,6 +518,11 @@ bool XSERIALIZATIONMETHODJSON::Extract(bool var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Extract(char var, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -470,6 +541,11 @@ bool XSERIALIZATIONMETHODJSON::Extract(char var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Extract(int var, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -488,6 +564,11 @@ bool XSERIALIZATIONMETHODJSON::Extract(int var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Extract(float var, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -506,6 +587,11 @@ bool XSERIALIZATIONMETHODJSON::Extract(float var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Extract(double var, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -524,6 +610,11 @@ bool XSERIALIZATIONMETHODJSON::Extract(double var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Extract(long var, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -542,6 +633,11 @@ bool XSERIALIZATIONMETHODJSON::Extract(long var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Extract(long long var, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -560,6 +656,11 @@ bool XSERIALIZATIONMETHODJSON::Extract(long long var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Extract(XBYTE var, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -578,6 +679,11 @@ bool XSERIALIZATIONMETHODJSON::Extract(XBYTE var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Extract(XWORD var, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -596,6 +702,11 @@ bool XSERIALIZATIONMETHODJSON::Extract(XWORD var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Extract(XDWORD var, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -614,6 +725,11 @@ bool XSERIALIZATIONMETHODJSON::Extract(XDWORD var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Extract(XQWORD var, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -632,6 +748,11 @@ bool XSERIALIZATIONMETHODJSON::Extract(XQWORD var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Extract(XSTRING& var, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -649,8 +770,13 @@ bool XSERIALIZATIONMETHODJSON::Extract(XSTRING& var, XCHAR* name)
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::Extract(XBUFFER& var, XCHAR* name)
-{
-   return true;
+{ 
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
+  return true;
 }
 
 
@@ -667,6 +793,11 @@ bool XSERIALIZATIONMETHODJSON::Extract(XBUFFER& var, XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::ExtractStruct(XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -685,6 +816,11 @@ bool XSERIALIZATIONMETHODJSON::ExtractStruct(XCHAR* name)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODJSON::ExtractArray(XDWORD nelements, XCHAR* name)
 {
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -723,6 +859,63 @@ void XSERIALIZATIONMETHODJSON::SetFileJSON(XFILEJSON* fileJSON)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XFILEJSONOBJECT* XSERIALIZATIONMETHODJSON::GetActualObject()
+* @brief      GetActualObject
+* @ingroup    XUTILS
+* 
+* @return     XFILEJSONOBJECT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XFILEJSONOBJECT* XSERIALIZATIONMETHODJSON::GetActualObject()
+{
+  return actualobject;
+}
+    
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XSERIALIZATIONMETHODJSON::SetActualObject(XFILEJSONOBJECT* actualobject)
+* @brief      SetActualObject
+* @ingroup    XUTILS
+* 
+* @param[in]  actualobject : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XSERIALIZATIONMETHODJSON::SetActualObject(XFILEJSONOBJECT* actualobject)
+{
+  this->actualobject = actualobject;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSERIALIZATIONMETHODJSON::CheckHandleActive()
+* @brief      CheckHandleActive
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZATIONMETHODJSON::CheckHandleActive()
+{
+  if(!fileJSON)
+    {
+      return false;
+    }
+
+  if(!actualobject)
+    {
+      return false;    
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void XSERIALIZATIONMETHODJSON::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -733,5 +926,9 @@ void XSERIALIZATIONMETHODJSON::SetFileJSON(XFILEJSON* fileJSON)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSERIALIZATIONMETHODJSON::Clean()
 {
-  fileJSON = NULL;
+  fileJSON      = NULL;
+
+  fathers.DeleteAll();
+
+  actualobject  = NULL;
 }

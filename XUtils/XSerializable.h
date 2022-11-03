@@ -65,7 +65,7 @@ class XSERIALIZABLE
     template<class T>
     bool                           Primitive_Add        (T var, XCHAR* name)
                                    {                               
-                                     serializationmethod->Add(var);
+                                     serializationmethod->Add(var, name);
                                  
                                      return true;
                                    }
@@ -73,7 +73,7 @@ class XSERIALIZABLE
     template<class T>
     bool                           Primitive_Extract    (T var, XCHAR* name)
                                    {
-                                     serializationmethod->Extract(var);
+                                     serializationmethod->Extract(var, name);
                                
                                      return true; 
                                    }
@@ -91,8 +91,14 @@ class XSERIALIZABLE
                                          return false;
                                        }
                                 
+                                     serializationmethod->AddStruct(name, true);
+
                                      var->SetSerializationMethod(serializationmethod);
-                                     return var->Serialize();                                 
+                                     bool status = var->Serialize();            
+                                     
+                                     serializationmethod->AddStruct(name, false);
+
+                                     return status;
                                    }
 
     template<class T>
@@ -107,11 +113,11 @@ class XSERIALIZABLE
                                        {
                                          return false;
                                        }
-                            
-                                     serializationmethod->AddStruct(name);
-                                    
+                                                                 
                                      var->SetSerializationMethod(serializationmethod);
-                                     return var->Deserialize();                                 
+                                     bool status = var->Deserialize(); 
+                                                             
+                                     return status;
                                    }                              
   
     template<class T>
@@ -122,7 +128,7 @@ class XSERIALIZABLE
                                          return false;
                                        }
                                        
-                                     serializationmethod->AddArray(var->GetSize(), name);                                                                               
+                                     serializationmethod->AddArray(var->GetSize(), name, true);                                                                               
                                      
                                      for(XDWORD c=0; c<var->GetSize(); c++)
                                        {
@@ -134,6 +140,8 @@ class XSERIALIZABLE
                                            }                                       
                                        }
 
+                                      serializationmethod->AddArray(var->GetSize(), name, false); 
+
                                      return true;                               
                                    }
 
@@ -143,7 +151,7 @@ class XSERIALIZABLE
                                      if(!dynamic_cast<XSERIALIZABLE*>(var->Get(0)))  
                                        {
                                          return false;
-                                       }
+                                       }                                   
                                      
                                      for(XDWORD c=0; c<var->GetSize(); c++)
                                        {
