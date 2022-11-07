@@ -31,7 +31,12 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "XFactory.h"
+#include "XFile.h"
 #include "XFileCFG.h"
+
+#include "DIOURL.h"
+#include "DIOWebClient.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
@@ -42,16 +47,124 @@
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIOURL;
-class DIOWEBCLIENT;
-
 class DIOREMOTEFILECFG : public XFILECFG
 {
   public:
                                         DIOREMOTEFILECFG          (XCHAR* namefile = NULL);
     virtual                            ~DIOREMOTEFILECFG          ();
 
-    virtual bool                        Ini                       ();
+    template<class T>
+    bool                                Ini                       (bool remoteactive = true)
+                                        {
+                                          if(!webclient)         return false;
+
+                                          if(remoteactive)
+                                            {
+                                              if(namefile.IsEmpty()) return false;
+                                            }
+
+                                          XPATH  xpathroot;
+                                          XPATH  xpathremotefile;
+                                          DIOURL downloadURL;
+                                          bool   status[2] = { false, false };
+
+                                          DoVariableMapping();
+
+                                          AddValue(XFILECFG_VALUETYPE_STRING, DIOREMOTEFILECFG_SECTIONGENERAL, DIOREMOTEFILECFG_URLREMOTECFG, &URLremoteCFG);
+
+                                          DoDefault();
+
+                                          if(remoteactive) 
+                                            {
+                                              GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathroot);
+                                              xpathfile.Set(xpathroot.Get());
+                                              if(!xpathfile.IsEmpty()) xpathfile.Slash_Add();
+                                              xpathfile.Add(namefile.Get());
+                                              xpathfile.Add(XFILECFG_EXTENSIONFILE);                                                                                  
+                                            }   
+
+                                          status[0] = Load();
+                                           
+                                          LoadReadjustment();
+
+                                          if(remoteactive)
+                                            {
+                                              if(!URLremoteCFG.IsEmpty())
+                                                {
+                                                  downloadURL.Set(URLremoteCFG.Get());      
+                                                  if(downloadURL.Find(__L("?"), false) == XSTRING_NOTFOUND)
+                                                    {      
+                                                      downloadURL.Slash_Add();
+                                                      downloadURL.Add(DIOREMOTEFILECFG_PREFIXNAMEFILE);
+                                                      downloadURL.Add(namefile.Get());
+                                                      downloadURL.Add(XFILECFG_EXTENSIONFILE);
+                                                    }
+
+                                                  GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathroot);
+                                                  xpathremotefile.Set(xpathroot.Get());
+                                                  if(!xpathremotefile.IsEmpty()) xpathremotefile.Slash_Add();
+                                                  xpathremotefile.Add(DIOREMOTEFILECFG_PREFIXNAMEFILE);
+                                                  xpathremotefile.Add(namefile.Get());
+                                                  xpathremotefile.Add(XFILECFG_EXTENSIONFILE);
+
+                                                  if(webclient->Get(downloadURL, xpathremotefile))
+                                                    {
+    
+                                                      /*
+                                                      XPATH localpath = GetPathFile()->Get();      
+    
+                                                      GetPathFile()->Set(xpathremotefile);     
+
+                                                      DeleteAllRemarks();
+                                                      DeleteAllValues(); 
+
+                                                      DoVariableMapping();    
+
+                                                      status[0] = Load();
+
+                                                      GetPathFile()->Set(localpath);
+                                                      */
+
+                                                      T* remotefileCFG = &T::GetInstance(false);
+                                                      if(remotefileCFG)
+                                                        {
+                                                          remotefileCFG->GetPathFile()->Set(xpathremotefile); 
+
+                                                          if(remotefileCFG->Ini<T>(false))
+                                                            {
+           
+
+
+                                                              remotefileCFG->End();
+                                                            }
+
+                                                          T::DelInstance();
+                                                        }    
+     
+                                                      if(status[0])
+                                                        {
+                                                          XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
+                                                          if(xfile)
+                                                            {
+                                                              xfile->Erase(xpathremotefile, true);
+                                                              GEN_XFACTORY.Delete_File(xfile);
+                                                            }
+                                                        }          
+                                                    }
+                                                }
+                                             }
+
+                                          if(remoteactive) 
+                                            {
+                                              status[1] = Save();
+                                            }
+                                           else
+                                            {
+                                              status[1] = true;                        
+                                            }
+
+                                          return (status[0] && status[1]);
+                                        }
     XSTRING*                            GetURLRemoteCFG           ();
 
   protected:

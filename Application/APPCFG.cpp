@@ -331,26 +331,6 @@ bool APPCFG::DoDefault()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool APPCFG::Ini()
-* @brief      Ini
-* @ingroup    APPLICATION
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool APPCFG::Ini()
-{
-  #ifdef APP_CFG_REMOTEFILE_ACTIVE
-  return DIOREMOTEFILECFG::Ini();
-  #else
-  return XFILECFG::Ini();
-  #endif
-
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         bool APPCFG::End()
 * @brief      End
 * @ingroup    APPLICATION

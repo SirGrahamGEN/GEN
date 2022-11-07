@@ -67,7 +67,6 @@ DIOREMOTEFILECFG::DIOREMOTEFILECFG(XCHAR* namefile): XFILECFG(namefile)
   Clean();
 
   webclient = new DIOWEBCLIENT();
-
 }
 
 
@@ -101,6 +100,7 @@ DIOREMOTEFILECFG::~DIOREMOTEFILECFG()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
+/*
 bool DIOREMOTEFILECFG::Ini()
 {
   if(!webclient)         return false;
@@ -147,19 +147,38 @@ bool DIOREMOTEFILECFG::Ini()
 
       if(webclient->Get(downloadURL, xpathremotefile))
         {
-          XPATH localpath = GetPathFile()->Get();      
     
-          GetPathFile()->Set(xpathremotefile);     
+          
+    //      XPATH localpath = GetPathFile()->Get();      
+    //
+    //      GetPathFile()->Set(xpathremotefile);     
 
-          DeleteAllRemarks();
-          DeleteAllValues(); 
+    //      DeleteAllRemarks();
+    //      DeleteAllValues(); 
 
-          DoVariableMapping();    
+    //      DoVariableMapping();    
 
-          status[0] = Load();
+    //      status[0] = Load();
 
-          GetPathFile()->Set(localpath);
+    //      GetPathFile()->Set(localpath);
+          
 
+          XFILECFG* remotefileCFG = new XFILECFG();
+          if(remotefileCFG)
+            {
+              remotefileCFG->GetPathFile()->Set(xpathremotefile); 
+
+              if(remotefileCFG->Ini())
+                {
+           
+
+
+                  remotefileCFG->End();
+                }
+
+              delete remotefileCFG;
+            }    
+     
           if(status[0])
             {
               XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
@@ -168,9 +187,7 @@ bool DIOREMOTEFILECFG::Ini()
                   xfile->Erase(xpathremotefile, true);
                   GEN_XFACTORY.Delete_File(xfile);
                 }
-            }
-
-          
+            }          
         }
     }
 
@@ -178,7 +195,7 @@ bool DIOREMOTEFILECFG::Ini()
 
   return (status[0] && status[1]);
 }
-
+*/
 
  /**-------------------------------------------------------------------------------------------------------------------
  *

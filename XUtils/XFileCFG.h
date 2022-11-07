@@ -98,7 +98,23 @@ class XFILECFG : public XSUBJECT
     virtual bool                        DoVariableMapping         (); 
     virtual bool                        DoDefault                 ();
 
-    virtual bool                        Ini                       ();    
+    template<class T>
+    bool                                Ini                       ()
+                                        { 
+                                          bool status[2];
+
+                                          DoVariableMapping();
+
+                                          DoDefault();
+
+                                          status[0] = Load();  
+
+                                          LoadReadjustment();
+
+                                          status[1] = Save();
+
+                                          return (status[0] && status[1]);  
+                                        }    
 
     virtual bool                        LoadReadjustment          ();        
 

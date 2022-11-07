@@ -225,7 +225,6 @@ class APPCFG
     virtual bool         DoVariableMapping                                        (); 
     virtual bool         DoDefault                                                ();
 
-    virtual bool         Ini                                                      ();    
     virtual bool         End                                                      ();  
 
 

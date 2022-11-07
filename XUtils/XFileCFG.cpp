@@ -294,6 +294,7 @@ bool XFILECFG::DoDefault()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
+/*
 bool XFILECFG::Ini()
 { 
   bool status[2];
@@ -310,7 +311,7 @@ bool XFILECFG::Ini()
 
   return (status[0] && status[1]);  
 }
-
+*/
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -360,6 +361,11 @@ bool XFILECFG::Load(XPATH& xpath)
   bool status = false;
 
   if(values.IsEmpty()) return status;
+
+  if(fileini->IsOpen())
+    {
+      EndFile();
+    }
     
   if(IniFile(xpath)) 
     {
@@ -461,70 +467,74 @@ bool XFILECFG::Save(XPATH& xpath)
 {
   bool status = false;
 
-  if(!values.IsEmpty())
+  if(values.IsEmpty()) return status;
+  
+  if(fileini->IsOpen())
     {
-      if(IniFile(xpath))
-        {
-          AjustRemarks();    
-
-          fileini->DeleteAllSections();
-
-          for(int c=0;c<(int)values.GetSize();c++)
-            {
-              XSTRING strvalue;
-
-              XFILECFGVALUE* cfgvalue = (XFILECFGVALUE*)values.Get(c);
-              if(cfgvalue)
-                {
-                  switch(cfgvalue->GetType())
-                    {
-                      case XFILECFG_VALUETYPE_UNKNOWN : break;
-
-                      case XFILECFG_VALUETYPE_INT     : { int* value = (int*)cfgvalue->GetValue();
-                                                          if(!value) return false;
-
-                                                          strvalue.Format(__L("%d"), (*value));
-                                                        }
-                                                        break;
-
-                      case XFILECFG_VALUETYPE_MASK    : { XWORD* value = (XWORD*)cfgvalue->GetValue();
-                                                          if(!value) return false;
-
-                                                          strvalue.Format(__L("%04X"), (*value));
-                                                        }
-                                                        break;
-
-                      case XFILECFG_VALUETYPE_FLOAT   : { float* value = (float*)cfgvalue->GetValue();
-                                                          if(!value) return false;
-
-                                                          strvalue.Format(__L("%f"), (*value));
-                                                        }
-                                                        break;
-
-                      case XFILECFG_VALUETYPE_STRING  : { XSTRING* value = (XSTRING*)cfgvalue->GetValue();
-                                                          if(!value) return false;
-
-                                                          strvalue = value->Get();
-                                                        }
-                                                        break;
-
-                      case XFILECFG_VALUETYPE_BOOLEAN : { bool* value = (bool*)cfgvalue->GetValue();
-                                                          if(!value) return false;
-
-                                                          strvalue = (*value)?__L("yes"):__L("no");
-                                                        }
-                                                        break;
-                    }
-
-                  status = fileini->WriteValue(cfgvalue->GetGroup()->Get(), cfgvalue->GetID()->Get() , strvalue);
-                  if(!status) break;
-
-                }
-            }
-
-          status = EndFile();
-        }
+      EndFile();
     }
+
+  if(IniFile(xpath))
+    {
+      AjustRemarks();    
+
+      fileini->DeleteAllSections();
+
+      for(int c=0;c<(int)values.GetSize();c++)
+        {
+          XSTRING strvalue;
+
+          XFILECFGVALUE* cfgvalue = (XFILECFGVALUE*)values.Get(c);
+          if(cfgvalue)
+            {
+              switch(cfgvalue->GetType())
+                {
+                  case XFILECFG_VALUETYPE_UNKNOWN : break;
+
+                  case XFILECFG_VALUETYPE_INT     : { int* value = (int*)cfgvalue->GetValue();
+                                                      if(!value) return false;
+
+                                                      strvalue.Format(__L("%d"), (*value));
+                                                    }
+                                                    break;
+
+                  case XFILECFG_VALUETYPE_MASK    : { XWORD* value = (XWORD*)cfgvalue->GetValue();
+                                                      if(!value) return false;
+
+                                                      strvalue.Format(__L("%04X"), (*value));
+                                                    }
+                                                    break;
+
+                  case XFILECFG_VALUETYPE_FLOAT   : { float* value = (float*)cfgvalue->GetValue();
+                                                      if(!value) return false;
+
+                                                      strvalue.Format(__L("%f"), (*value));
+                                                    }
+                                                    break;
+
+                  case XFILECFG_VALUETYPE_STRING  : { XSTRING* value = (XSTRING*)cfgvalue->GetValue();
+                                                      if(!value) return false;
+
+                                                      strvalue = value->Get();
+                                                    }
+                                                    break;
+
+                  case XFILECFG_VALUETYPE_BOOLEAN : { bool* value = (bool*)cfgvalue->GetValue();
+                                                      if(!value) return false;
+
+                                                      strvalue = (*value)?__L("yes"):__L("no");
+                                                    }
+                                                    break;
+                }
+
+              status = fileini->WriteValue(cfgvalue->GetGroup()->Get(), cfgvalue->GetID()->Get() , strvalue);
+              if(!status) break;
+
+            }
+        }
+
+      status = EndFile();
+    }    
 
   return status;
 }
@@ -934,41 +944,32 @@ int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, XCHAR* mask, int maxcoun
 {
   XSTRING   section       = group;      
   int       enumeratekeys = -1;
-  XFILEINI* inifile       = GetFileINI();
-
-  if(inifile) 
+  
+  if(!fileini->IsOpen())
     {
-      if(inifile->Open(xpathfile, true))
+      if(!fileini->Open(xpathfile, true))
         {
-          //if(inifile->ReadAllFile()) 
-            {
-          //    if(inifile->ConvertFromLines())
-                {  
-                  enumeratekeys = 0;
-
-                  for(int c=0; c<maxcount; c++)
-                    {    
-                      XSTRING keymask;      
-                      XSTRING key;      
-
-                      if(mask)  
-                        {
-                          keymask.Format(__L("%s%s"), IDbase, mask);
-                          key.Format(keymask.Get(), c);
-
-                        } else key.Format(__L("%s%d"), IDbase, c);
-
-                      XFILEINIKEY* inikey = GetFileINI()->GetKey(section, key);
-                      if(inikey) enumeratekeys++;
-                    }
-                }
-            }
-
-          //inifile->DeleteAllLines();           
-
-          inifile->Close();
+          return 0;
         }
     }
+
+  enumeratekeys = 0;
+
+  for(int c=0; c<maxcount; c++)
+    {    
+      XSTRING keymask;      
+      XSTRING key;      
+
+      if(mask)  
+        {
+          keymask.Format(__L("%s%s"), IDbase, mask);
+          key.Format(keymask.Get(), c);
+
+        } else key.Format(__L("%s%d"), IDbase, c);
+
+      XFILEINIKEY* inikey = GetFileINI()->GetKey(section, key);
+      if(inikey) enumeratekeys++;
+    }      
 
   return enumeratekeys;
 }
