@@ -34,6 +34,7 @@
 #include "XFactory.h"
 #include "XFile.h"
 #include "XFileCFG.h"
+#include "XVariant.h"
 
 #include "DIOURL.h"
 #include "DIOWebClient.h"
@@ -70,7 +71,10 @@ class DIOREMOTEFILECFG : public XFILECFG
 
                                           DoVariableMapping();
 
-                                          AddValue(XFILECFG_VALUETYPE_STRING, DIOREMOTEFILECFG_SECTIONGENERAL, DIOREMOTEFILECFG_URLREMOTECFG, &URLremoteCFG);
+                                          if(remoteactive)
+                                            {
+                                              AddValue(XFILECFG_VALUETYPE_STRING, DIOREMOTEFILECFG_SECTIONGENERAL, DIOREMOTEFILECFG_URLREMOTECFG, &URLremoteCFG);
+                                            }
 
                                           DoDefault();
 
@@ -109,32 +113,15 @@ class DIOREMOTEFILECFG : public XFILECFG
 
                                                   if(webclient->Get(downloadURL, xpathremotefile))
                                                     {
-    
-                                                      /*
-                                                      XPATH localpath = GetPathFile()->Get();      
-    
-                                                      GetPathFile()->Set(xpathremotefile);     
-
-                                                      DeleteAllRemarks();
-                                                      DeleteAllValues(); 
-
-                                                      DoVariableMapping();    
-
-                                                      status[0] = Load();
-
-                                                      GetPathFile()->Set(localpath);
-                                                      */
-
                                                       T* remotefileCFG = &T::GetInstance(false);
                                                       if(remotefileCFG)
                                                         {
                                                           remotefileCFG->GetPathFile()->Set(xpathremotefile); 
 
-                                                          if(remotefileCFG->Ini<T>(false))
-                                                            {
-           
-
-
+                                                          if(remotefileCFG->template Ini<T>(false))
+                                                            {                                                               
+                                                              AjustValuesFromRemote<T>(remotefileCFG); 
+                                                              
                                                               remotefileCFG->End();
                                                             }
 
@@ -165,7 +152,94 @@ class DIOREMOTEFILECFG : public XFILECFG
 
                                           return (status[0] && status[1]);
                                         }
+
     XSTRING*                            GetURLRemoteCFG           ();
+
+    template<class T>
+    bool                                AjustValuesFromRemote     (XFILECFG* remotefileCFG)
+                                        {
+                                          if(!remotefileCFG)
+                                            {
+                                              return false;
+                                            }
+  
+                                          // Copy existing values
+
+                                          for(XDWORD c=0; c<GetValues()->GetSize(); c++)
+                                            {  
+                                              XFILECFGVALUE* localvalue = GetValues()->Get(c);
+                                              if(localvalue)
+                                                {
+                                                  XFILECFGVALUE* remotevalue = remotefileCFG->GetCFGValue(localvalue->GetGroup()->Get(), localvalue->GetID()->Get());
+                                                  if(remotevalue)
+                                                    {
+                                                      XVARIANT* value = remotefileCFG->GetValue(remotevalue);
+                                                      if(value)
+                                                        {
+                                                          SetValue(localvalue, value);
+
+                                                          value->Set();
+  
+                                                          delete value;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                          for(XDWORD c=0; c<remotefileCFG->GetValues()->GetSize(); c++)
+                                            {  
+                                              XFILECFGVALUE* remotevalue = remotefileCFG->GetValues()->Get(c);
+                                              if(remotevalue)
+                                                {
+                                                  if(!remotevalue->GetIDBasic()->IsEmpty() && remotevalue->GetIndexSecuence() == 1)           
+                                                    {
+                                                      XFILECFGVALUE* localvalue = GetCFGValue(remotevalue->GetGroup()->Get(), remotevalue->GetID()->Get());  
+                                                      if(localvalue)
+                                                        {             
+                                                          if(!localvalue->GetIDBasic()->Compare(remotevalue->GetIDBasic()->Get(), true))
+                                                            {   
+                                                              int difference = (remotevalue->GetNSecuences() - localvalue->GetNSecuences());
+
+                                                              if(difference < 0)
+                                                                {
+                                                                  for(int c=0; c<abs(difference); c++) 
+                                                                    {
+                                                                      XSTRING key;
+                                                                      key.Format(__L("%s%02d"), remotevalue->GetIDBasic()->Get(), remotevalue->GetNSecuences()+c+1);
+
+                                                                      DelCFGValue(localvalue->GetGroup()->Get(), key.Get());
+                                                                    }
+                                                                }
+                                                               else
+                                                                {
+                                                                  if(difference > 0)
+                                                                    {
+                                                                      for(int c=0; c<abs(difference); c++) 
+                                                                        {
+                                                                          XSTRING key;
+                                                                          T*      value = NULL;
+
+                                                                          key.Format(__L("%s%02d"), remotevalue->GetIDBasic()->Get(), remotevalue->GetNSecuences()+c-1);
+                                                                                                                                              
+                                                                          AddValueSecuence<T>(localvalue->GetType(), remotevalue->GetNSecuences()+c-1
+                                                                                                                   , localvalue->GetGroup()->Get()
+                                                                                                                   , localvalue->GetIDBasic()->Get() 
+                                                                                                                   , localvalue->GetMask()->Get()
+                                                                                                                   , value
+                                                                                                                   , NULL //XCHAR* remark_text = NULL
+                                                                                                                   , 0    //XDWORD remark_xpos = 0
+                                                                                                                   );
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }  
+                                                    }
+                                                }
+                                            }
+
+                                          return true;
+                                        }
 
   protected:
 

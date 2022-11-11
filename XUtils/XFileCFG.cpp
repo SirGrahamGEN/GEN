@@ -180,6 +180,132 @@ bool XFILECFGVALUE::SetValue(void* value)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* XFILECFGVALUE::GetIDBasic()
+* @brief      GetIDBasic
+* @ingroup    XUTILS
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* XFILECFGVALUE::GetIDBasic()
+{
+  return &IDbasic;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* XFILECFGVALUE::GetMask()
+* @brief      GetMask
+* @ingroup    XUTILS
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* XFILECFGVALUE::GetMask()
+{
+  return &mask;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int XFILECFGVALUE::GetIndexSecuence()
+* @brief      GetIndexSecuence
+* @ingroup    XUTILS
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int XFILECFGVALUE::GetIndexSecuence()
+{
+  return indexsecuence;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XFILECFGVALUE::SetIndexSecuence(int index)
+* @brief      SetIndexSecuence
+* @ingroup    XUTILS
+* 
+* @param[in]  index : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XFILECFGVALUE::SetIndexSecuence(int index)
+{
+  this->indexsecuence = index;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD XFILECFGVALUE::GetNSecuences()
+* @brief      GetNSecuences
+* @ingroup    XUTILS
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD XFILECFGVALUE::GetNSecuences()
+{
+  return nsecuences;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XFILECFGVALUE::SetNSecuences(XDWORD nsecuences)
+* @brief      SetNSecuences
+* @ingroup    XUTILS
+* 
+* @param[in]  nsecuences : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XFILECFGVALUE::SetNSecuences(XDWORD nsecuences)
+{
+  this->nsecuences = nsecuences;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void* XFILECFGVALUE::GetValuesVector()
+* @brief      GetValuesVector
+* @ingroup    XUTILS
+* 
+* @return     void* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void* XFILECFGVALUE::GetValuesVector()
+{
+  return valuesvector;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XFILECFGVALUE::SetValuesVector(void* valuesvector)
+* @brief      SetValuesVector
+* @ingroup    XUTILS
+* 
+* @param[in]  valuesvector : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XFILECFGVALUE::SetValuesVector(void* valuesvector)
+{
+  this->valuesvector = valuesvector;  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECFGVALUE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
@@ -191,11 +317,18 @@ bool XFILECFGVALUE::SetValue(void* value)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECFGVALUE::Clean()
 {
-  type = XFILECFG_VALUETYPE_UNKNOWN;
-  value = NULL;
+  type          = XFILECFG_VALUETYPE_UNKNOWN;
+  value         = NULL;
+
+  IDbasic.Empty();
+  mask.Empty();
+  indexsecuence = XFILECFG_INVALIDINDEXSECUENCE;
+  nsecuences    = 0;
+  valuesvector  = NULL;            
 }
 
 #pragma endregion 
+
 
 
 #pragma region XFILECFG
@@ -284,34 +417,6 @@ bool XFILECFG::DoDefault()
   return true;
 }
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XFILECFG::Ini()
-* @brief      Ini xfile Config
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-/*
-bool XFILECFG::Ini()
-{ 
-  bool status[2];
-
-  DoVariableMapping();
-
-  DoDefault();
-
-  status[0] = Load();  
-
-  LoadReadjustment();
-
-  status[1] = Save();
-
-  return (status[0] && status[1]);  
-}
-*/
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -696,6 +801,132 @@ XVARIANT* XFILECFG::GetValue(XCHAR* group, XCHAR* ID)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT* XFILECFG::GetValue(XFILECFGVALUE* cfgvalue)
+* @brief      GetValue
+* @ingroup    XUTILS
+* 
+* @param[in]  cfgvalue : 
+* 
+* @return     XVARIANT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT* XFILECFG::GetValue(XFILECFGVALUE* CFGvalue)
+{
+  XVARIANT* value = NULL;
+
+  if(!CFGvalue)
+    {
+      return NULL;
+    }
+
+  value = new XVARIANT();
+  if(!value) return NULL;
+      
+  switch(CFGvalue->GetType())
+    {
+      case XFILECFG_VALUETYPE_UNKNOWN :
+                              default  : delete value; 
+                                        value = NULL;
+                                        break;
+
+      case XFILECFG_VALUETYPE_INT     : (*value) = (*(int*)  (CFGvalue->GetValue()));     break; 
+      case XFILECFG_VALUETYPE_MASK    : (*value) = (*(XWORD*)(CFGvalue->GetValue()));   break;
+      case XFILECFG_VALUETYPE_FLOAT   : (*value) = (*(float*)(CFGvalue->GetValue()));   break;                                                        
+
+      case XFILECFG_VALUETYPE_STRING  : { XSTRING* _value = (XSTRING*)(CFGvalue->GetValue());                                                        
+                                          (*value) = _value->Get(); 
+                                        }
+                                        break;
+
+      case XFILECFG_VALUETYPE_BOOLEAN : (*value) = (*(bool*)(CFGvalue->GetValue()));    break; 
+    }
+ 
+  return value;
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XFILECFGVALUE* XFILECFG::GetCFGValue(XCHAR* group, XCHAR* ID)
+* @brief      GetCFGValue
+* @ingroup    XUTILS
+* 
+* @param[in]  group : 
+* @param[in]  ID : 
+* 
+* @return     XFILECFGVALUE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XFILECFGVALUE* XFILECFG::GetCFGValue(XCHAR* group, XCHAR* ID)
+{
+  if((!group) || (!ID))
+    {
+      return NULL;
+    }
+
+  for(XDWORD c=0; c<values.GetSize(); c++)
+    {
+      XFILECFGVALUE* CFGvalue = values.Get(c);
+      if(CFGvalue)
+        {
+          if( (!CFGvalue->GetGroup()->Compare(group, true)) &&
+              (!CFGvalue->GetID()->Compare(ID, true)))
+           {
+              return CFGvalue;
+           }          
+        }
+    }
+
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILECFG::SetValue(XFILECFGVALUE* CFGvalue, XVARIANT* value)
+* @brief      SetValue
+* @ingroup    XUTILS
+* 
+* @param[in]  CFGvalue : 
+* @param[in]  value : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILECFG::SetValue(XFILECFGVALUE* CFGvalue, XVARIANT* value)
+{
+  if((!CFGvalue) || (!value))
+    {
+      return NULL;
+    }
+
+   switch(CFGvalue->GetType())
+    {
+      case XFILECFG_VALUETYPE_UNKNOWN :
+                              default : delete (void*)CFGvalue->GetValue();
+                                        CFGvalue->SetValue(NULL);                                          
+                                        break;
+
+      case XFILECFG_VALUETYPE_INT     : (*(int*)  CFGvalue->GetValue()) = (*(int*)  (value->GetData()));   break; 
+      case XFILECFG_VALUETYPE_MASK    : (*(XWORD*)CFGvalue->GetValue()) = (*(XWORD*)(value->GetData()));   break;
+      case XFILECFG_VALUETYPE_FLOAT   : (*(float*)CFGvalue->GetValue()) = (*(float*)(value->GetData()));   break;                                                        
+
+      case XFILECFG_VALUETYPE_STRING  : { XSTRING* _value = (XSTRING*)(CFGvalue->GetValue());                                                        
+                                          (*_value) = ((XSTRING*)value->GetData())->Get();
+                                        }
+                                        break;
+
+      case XFILECFG_VALUETYPE_BOOLEAN : (*(bool*)CFGvalue->GetValue()) = (*(bool*)(value->GetData()));    break; 
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFG::DeleteAllValues()
 * @brief      Delete All Values
@@ -798,6 +1029,31 @@ bool XFILECFG::AddRemark(XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWO
 XVECTOR<XFILEINIREMARK*>* XFILECFG::GetRemarks()
 {
   return &remarks;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILECFG::DelCFGValue(XCHAR* group, XCHAR* ID)
+* @brief      DelCFGValue
+* @ingroup    XUTILS
+* 
+* @param[in]  group : 
+* @param[in]  ID : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILECFG::DelCFGValue(XCHAR* group, XCHAR* ID)
+{
+  XFILECFGVALUE* CFGvalue = XFILECFG::GetCFGValue(group, ID);
+  if(!CFGvalue) return false;
+
+  values.Delete(CFGvalue);
+
+  delete CFGvalue;
+  
+  return true;
 }
 
 
