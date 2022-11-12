@@ -215,20 +215,88 @@ class DIOREMOTEFILECFG : public XFILECFG
                                                                   if(difference > 0)
                                                                     {
                                                                       for(int c=0; c<abs(difference); c++) 
-                                                                        {
+                                                                        {                                                                                           
                                                                           XSTRING key;
-                                                                          T*      value = NULL;
-
                                                                           key.Format(__L("%s%02d"), remotevalue->GetIDBasic()->Get(), remotevalue->GetNSecuences()+c-1);
-                                                                                                                                              
-                                                                          AddValueSecuence<T>(localvalue->GetType(), remotevalue->GetNSecuences()+c-1
-                                                                                                                   , localvalue->GetGroup()->Get()
-                                                                                                                   , localvalue->GetIDBasic()->Get() 
-                                                                                                                   , localvalue->GetMask()->Get()
-                                                                                                                   , value
-                                                                                                                   , NULL //XCHAR* remark_text = NULL
-                                                                                                                   , 0    //XDWORD remark_xpos = 0
-                                                                                                                   );
+                                                       
+                                                                          XVARIANT* value = remotefileCFG->GetValue(remotevalue->GetGroup()->Get(), key.Get());
+                                                                          if(value)
+                                                                            {                                                                               
+                                                                              void* _value  = NULL;
+
+                                                                              switch(localvalue->GetType())
+                                                                                {
+                                                                                  case XFILECFG_VALUETYPE_UNKNOWN   : break;
+
+                                                                                  case XFILECFG_VALUETYPE_INT       : { XVECTOR<int*>* vector = (XVECTOR<int*>*)(localvalue->GetValuesVector());
+                                                                                                                        if(vector) 
+                                                                                                                          {
+                                                                                                                            int* integer = new int();  
+                                                                                                                            if(integer)
+                                                                                                                              {
+                                                                                                                                (*integer) = (*(int*)(value->GetData()));
+                                                                                                                                vector->Add(integer);
+                                                                                                                                _value = (void*)(vector->GetLast());                                                                                                                                 
+                                                                                                                              }
+                                                                                                                          }
+                                                                                                                      }
+                                                                                                                      break;                                                                                 
+
+                                                                                  case XFILECFG_VALUETYPE_FLOAT     : { XVECTOR<float*>* vector = (XVECTOR<float*>*)(localvalue->GetValuesVector());
+                                                                                                                        if(vector) 
+                                                                                                                          {
+                                                                                                                            float* numberfloat = new float();  
+                                                                                                                            if(numberfloat)
+                                                                                                                              {
+                                                                                                                                (*numberfloat) = (*(float*)(value->GetData()));
+                                                                                                                                vector->Add(numberfloat);                                                                                                                            
+                                                                                                                                _value = (void*)(vector->GetLast());                                                                                                                                 
+                                                                                                                              }
+                                                                                                                          }
+                                                                                                                      }
+                                                                                                                      break;
+
+                                                                                  case XFILECFG_VALUETYPE_STRING    : { XVECTOR<XSTRING*>* vector = (XVECTOR<XSTRING*>*)(localvalue->GetValuesVector());
+                                                                                                                        if(vector) 
+                                                                                                                          { 
+                                                                                                                            XSTRING* string = new XSTRING();
+                                                                                                                            if(string)
+                                                                                                                              {
+                                                                                                                                XSTRING* string2 = (XSTRING*)value->GetData();  
+                                                                                                                                string->Set(string2->Get());          
+                                                                                                                                vector->Add(string);                                                                                                                            
+                                                                                                                                _value = (void*)(vector->GetLast());                                                                                                                                 
+                                                                                                                              }
+                                                                                                                          }
+                                                                                                                      }
+                                                                                                                      break;
+
+                                                                                  case XFILECFG_VALUETYPE_BOOLEAN   : { XVECTOR<bool*>* vector = (XVECTOR<bool*>*)(localvalue->GetValuesVector());
+                                                                                                                        if(vector) 
+                                                                                                                          { 
+                                                                                                                            bool* boolean = new bool();  
+                                                                                                                            if(boolean)
+                                                                                                                              {      
+                                                                                                                                (*boolean) = (*(bool*)(value->GetData()));        
+                                                                                                                                vector->Add(boolean);                                                                                                                            
+                                                                                                                                _value = (void*)(vector->GetLast());                                                                                                                                 
+                                                                                                                              }
+                                                                                                                          }
+                                                                                                                      }
+                                                                                                                      break;
+                                                                                }
+
+                                                                              if(_value)
+                                                                                {
+                                                                                  AddValue(localvalue->GetType(), remotevalue->GetGroup()->Get()
+                                                                                                                , key.Get()
+                                                                                                                , _value
+                                                                                                                , remotevalue->GetRemarkText()->IsEmpty()?NULL:remotevalue->GetRemarkText()->Get()
+                                                                                                                , remotevalue->GetRemarkXPos()); 
+                                                                                }
+
+                                                                              delete value;                                                                              
+                                                                            }
                                                                         }
                                                                     }
                                                                 }

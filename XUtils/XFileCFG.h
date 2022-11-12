@@ -86,6 +86,10 @@ class XFILECFGVALUE
     
     XDWORD                              GetNSecuences             ();
     void                                SetNSecuences             (XDWORD nsecuences = 0);
+
+    XSTRING*                            GetRemarkText             ();
+    XDWORD                              GetRemarkXPos             ();
+    void                                SetRemarkXPos             (XDWORD remark_xpos);
     
     void*                               GetValuesVector           ();
     void                                SetValuesVector           (void* valuesvector);
@@ -103,6 +107,8 @@ class XFILECFGVALUE
     XSTRING                             mask;
     int                                 indexsecuence;
     XDWORD                              nsecuences; 
+    XSTRING                             remark_text;
+    XDWORD                              remark_xpos;
     void*                               valuesvector;            
 };
 
@@ -207,6 +213,8 @@ class XFILECFG : public XSUBJECT
                                                   CFGvalue->GetIDBasic()->Set(IDbasic);
                                                   CFGvalue->GetMask()->Set(mask);
                                                   CFGvalue->SetIndexSecuence(c+1);
+                                                  CFGvalue->GetRemarkText()->Set(remark_text);
+                                                  CFGvalue->SetRemarkXPos(remark_xpos);
                                                 }
                                   
                                             }
@@ -226,26 +234,7 @@ class XFILECFG : public XSUBJECT
 
                                           return true;
                                         }     
-    template<typename T>
-    bool                                AddValueSecuence          (XFILECFG_VALUETYPE type, int index, XCHAR* group, XCHAR* IDbasic, XCHAR* mask, T* value, XCHAR* remark_text = NULL, XDWORD remark_xpos = 0)
-                                        {
-                                          XSTRING key;
-                                                                                  
-                                          //values.Add(value);
-       
-                                          key.Format(__L("%s%02d"), IDbasic, index);
-                                          AddValue(type , group, key.Get(), value, remark_text, remark_xpos);
-
-                                          XFILECFGVALUE* CFGvalue = GetCFGValue(group, key.Get()); 
-                                          if(CFGvalue) 
-                                            {
-                                              CFGvalue->GetIDBasic()->Set(IDbasic);
-                                              CFGvalue->GetMask()->Set(mask);
-                                              CFGvalue->SetIndexSecuence(index);                                              
-                                            }
-
-                                          return true;
-                                        }     
+    
   protected:
 
     XPATH                               xpathfile;

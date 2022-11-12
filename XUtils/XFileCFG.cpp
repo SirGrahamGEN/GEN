@@ -275,6 +275,53 @@ void XFILECFGVALUE::SetNSecuences(XDWORD nsecuences)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XSTRING* XFILECFGVALUE::GetRemarkText()
+* @brief      GetRemarkText
+* @ingroup    XUTILS
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* XFILECFGVALUE::GetRemarkText()
+{
+  return &remark_text;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD XFILECFGVALUE::GetRemarkXPos()
+* @brief      GetRemarkXPos
+* @ingroup    XUTILS
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD XFILECFGVALUE::GetRemarkXPos()
+{
+  return remark_xpos;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XFILECFGVALUE::SetRemarkXPos(XDWORD remark_xpos)
+* @brief      SetRemarkXPos
+* @ingroup    XUTILS
+* 
+* @param[in]  remark_xpos : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XFILECFGVALUE::SetRemarkXPos(XDWORD remark_xpos)
+{
+  this->remark_xpos = remark_xpos;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void* XFILECFGVALUE::GetValuesVector()
 * @brief      GetValuesVector
 * @ingroup    XUTILS
@@ -324,6 +371,8 @@ void XFILECFGVALUE::Clean()
   mask.Empty();
   indexsecuence = XFILECFG_INVALIDINDEXSECUENCE;
   nsecuences    = 0;
+  remark_text.Empty();
+  remark_xpos   = 0;
   valuesvector  = NULL;            
 }
 
@@ -826,7 +875,7 @@ XVARIANT* XFILECFG::GetValue(XFILECFGVALUE* CFGvalue)
   switch(CFGvalue->GetType())
     {
       case XFILECFG_VALUETYPE_UNKNOWN :
-                              default  : delete value; 
+                              default : delete value; 
                                         value = NULL;
                                         break;
 
