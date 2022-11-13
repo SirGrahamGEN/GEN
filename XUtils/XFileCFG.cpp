@@ -955,8 +955,9 @@ bool XFILECFG::SetValue(XFILECFGVALUE* CFGvalue, XVARIANT* value)
    switch(CFGvalue->GetType())
     {
       case XFILECFG_VALUETYPE_UNKNOWN :
-                              default : delete (void*)CFGvalue->GetValue();
-                                        CFGvalue->SetValue(NULL);                                          
+                              default : { delete (XBYTE*)(CFGvalue->GetValue());
+                                          CFGvalue->SetValue(NULL);                                          
+                                        }
                                         break;
 
       case XFILECFG_VALUETYPE_INT     : (*(int*)  CFGvalue->GetValue()) = (*(int*)  (value->GetData()));   break; 

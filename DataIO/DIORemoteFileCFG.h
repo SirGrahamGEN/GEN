@@ -31,6 +31,8 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include <stdlib.h> 
+
 #include "XFactory.h"
 #include "XFile.h"
 #include "XFileCFG.h"
@@ -214,7 +216,7 @@ class DIOREMOTEFILECFG : public XFILECFG
                                                                 {
                                                                   if(difference > 0)
                                                                     {
-                                                                      for(int c=0; c<abs(difference); c++) 
+                                                                      for(int c=0; c<difference; c++) 
                                                                         {                                                                                           
                                                                           XSTRING key;
                                                                           key.Format(__L("%s%02d"), remotevalue->GetIDBasic()->Get(), remotevalue->GetNSecuences()+c-1);
