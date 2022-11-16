@@ -91,10 +91,10 @@ class DIOREMOTEFILECFG : public XFILECFG
 
                                           status[0] = Load();
                                            
-                                          LoadReadjustment();
-
                                           if(remoteactive)
                                             {
+                                              LoadReadjustment();
+
                                               if(!URLremoteCFG.IsEmpty())
                                                 {
                                                   downloadURL.Set(URLremoteCFG.Get());      
