@@ -90,11 +90,11 @@ class DIOREMOTEFILECFG : public XFILECFG
                                             }   
 
                                           status[0] = Load();
+
+                                          LoadReadjustment();
                                            
                                           if(remoteactive)
-                                            {
-                                              LoadReadjustment();
-
+                                            {                                           
                                               if(!URLremoteCFG.IsEmpty())
                                                 {
                                                   downloadURL.Set(URLremoteCFG.Get());      
@@ -216,17 +216,17 @@ class DIOREMOTEFILECFG : public XFILECFG
                                                                 {
                                                                   if(difference > 0)
                                                                     {
-                                                                      for(int c=0; c<difference; c++) 
+                                                                      for(int c=localvalue->GetNSecuences(); c<remotevalue->GetNSecuences(); c++) 
                                                                         {                                                                                           
                                                                           XSTRING key;
-                                                                          key.Format(__L("%s%02d"), remotevalue->GetIDBasic()->Get(), remotevalue->GetNSecuences()+c-1);
+                                                                          key.Format(__L("%s%02d"), remotevalue->GetIDBasic()->Get(), c+1);
                                                        
                                                                           XVARIANT* value = remotefileCFG->GetValue(remotevalue->GetGroup()->Get(), key.Get());
                                                                           if(value)
                                                                             {                                                                               
                                                                               void* _value  = NULL;
 
-                                                                              switch(localvalue->GetType())
+                                                                              switch(remotevalue->GetType())
                                                                                 {
                                                                                   case XFILECFG_VALUETYPE_UNKNOWN   : break;
 
