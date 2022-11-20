@@ -435,7 +435,7 @@ bool XSERIALIZATIONMETHODJSON::AddStruct(XCHAR* name, bool open)
     }
    else
     {
-      fathers.GetLast()->Add(name, GetActualObject());  
+      fathers.GetLast()->Add(name, (XFILEJSONOBJECT*)GetActualObject());  
       SetActualObject(fathers.GetLast());      
       fathers.DeleteLast();
     }
@@ -477,7 +477,7 @@ bool XSERIALIZATIONMETHODJSON::AddArray(XDWORD nelements, XCHAR* name, bool open
     }
    else
     {
-      fathers.GetLast()->Add(name, GetActualObject());  
+      fathers.GetLast()->Add(name, (XFILEJSONARRAY*)GetActualObject());  
       SetActualObject(fathers.GetLast());      
       fathers.DeleteLast();
     }
