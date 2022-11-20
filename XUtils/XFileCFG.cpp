@@ -211,6 +211,70 @@ XSTRING* XFILECFGVALUE::GetMask()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD XFILECFGVALUE::GetMinSecuences()
+* @brief      GetMinSecuences
+* @ingroup    XUTILS
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD XFILECFGVALUE::GetMinSecuences()
+{
+  return minsecuences;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XFILECFGVALUE::SetMinSecuences(XDWORD minsecuences)
+* @brief      SetMinSecuences
+* @ingroup    XUTILS
+* 
+* @param[in]  minsecuences : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XFILECFGVALUE::SetMinSecuences(XDWORD minsecuences)
+{
+  this->minsecuences = minsecuences;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD XFILECFGVALUE::GetMaxSecuences()
+* @brief      GetMaxSecuences
+* @ingroup    XUTILS
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD XFILECFGVALUE::GetMaxSecuences()
+{
+  return maxsecuences;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XFILECFGVALUE::SetMaxSecuences(XDWORD maxsecuences)
+* @brief      SetMaxSecuences
+* @ingroup    XUTILS
+* 
+* @param[in]  maxsecuences : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XFILECFGVALUE::SetMaxSecuences(XDWORD maxsecuences)
+{
+  this->maxsecuences = maxsecuences;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         int XFILECFGVALUE::GetIndexSecuence()
 * @brief      GetIndexSecuence
 * @ingroup    XUTILS
@@ -353,6 +417,38 @@ void XFILECFGVALUE::SetValuesVector(void* valuesvector)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XFILECFG_MODEREMOTEMIX XFILECFGVALUE::GetModeRemoteMix()
+* @brief      GetModeRemoteMix
+* @ingroup    XUTILS
+* 
+* @return     XFILECFG_MODEREMOTEMIX : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XFILECFG_MODEREMOTEMIX XFILECFGVALUE::GetModeRemoteMix()
+{
+  return moderemotemix;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XFILECFGVALUE::SetModeRemoteMix(XFILECFG_MODEREMOTEMIX moderemotemix)
+* @brief      SetModeRemoteMix
+* @ingroup    XUTILS
+* 
+* @param[in]  moderemotemix : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XFILECFGVALUE::SetModeRemoteMix(XFILECFG_MODEREMOTEMIX moderemotemix)
+{
+  this->moderemotemix = moderemotemix;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECFGVALUE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
@@ -364,16 +460,18 @@ void XFILECFGVALUE::SetValuesVector(void* valuesvector)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECFGVALUE::Clean()
 {
-  type          = XFILECFG_VALUETYPE_UNKNOWN;
-  value         = NULL;
+  type            = XFILECFG_VALUETYPE_UNKNOWN;
+  value           = NULL;
 
   IDbasic.Empty();
   mask.Empty();
-  indexsecuence = XFILECFG_INVALIDINDEXSECUENCE;
-  nsecuences    = 0;
+  indexsecuence   = XFILECFG_INVALIDINDEXSECUENCE;
+  nsecuences      = 0;
   remark_text.Empty();
-  remark_xpos   = 0;
-  valuesvector  = NULL;            
+  remark_xpos     = 0;
+  valuesvector    = NULL;  
+
+  moderemotemix   = XFILECFG_MODEREMOTEMIX_NONE;
 }
 
 #pragma endregion 
@@ -726,30 +824,32 @@ XPATH* XFILECFG::GetPathFile()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value)
-* @brief      Add Value to file config
+* 
+* @fn         XFILECFGVALUE* XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value, XCHAR* remark_text, XDWORD remark_xpos)
+* @brief      AddValue
 * @ingroup    XUTILS
-*
-* @param[in]  type : type of value
-* @param[in]  group : group of value
-* @param[in]  ID : ID of value
-* @param[in]  value : data value
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  type : 
+* @param[in]  group : 
+* @param[in]  ID : 
+* @param[in]  value : 
+* @param[in]  remark_text : 
+* @param[in]  remark_xpos : 
+* 
+* @return     XFILECFGVALUE* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value, XCHAR* remark_text, XDWORD remark_xpos)
+XFILECFGVALUE* XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value, XCHAR* remark_text, XDWORD remark_xpos)
 {
-  XFILECFGVALUE* cfgvalue = new XFILECFGVALUE();
-  if(!cfgvalue) return false;
+  XFILECFGVALUE* CFGvalue = new XFILECFGVALUE();
+  if(!CFGvalue) return NULL;
 
-  cfgvalue->SetType(type);
-  cfgvalue->GetGroup()->Set(group);
-  cfgvalue->GetID()->Set(ID);
-  cfgvalue->SetValue(value);
+  CFGvalue->SetType(type);
+  CFGvalue->GetGroup()->Set(group);
+  CFGvalue->GetID()->Set(ID);
+  CFGvalue->SetValue(value);
 
-  if(values.Add(cfgvalue))
+  if(values.Add(CFGvalue))
     {
       if(remark_text)
         {
@@ -757,7 +857,7 @@ bool XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* 
         }
     }
 
-  return true;
+  return CFGvalue;
 }
 
 
@@ -1261,7 +1361,7 @@ int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, XCHAR* mask, int maxcoun
 
   enumeratekeys = 0;
 
-  for(int c=0; c<maxcount; c++)
+  for(int c=1; c<maxcount+1; c++)
     {    
       XSTRING keymask;      
       XSTRING key;      

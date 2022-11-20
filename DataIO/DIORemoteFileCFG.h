@@ -167,7 +167,7 @@ class DIOREMOTEFILECFG : public XFILECFG
   
                                           // Copy existing values
 
-                                          for(XDWORD c=0; c<GetValues()->GetSize(); c++)
+                                          for(XDWORD c=1; c<GetValues()->GetSize()+1; c++)
                                             {  
                                               XFILECFGVALUE* localvalue = GetValues()->Get(c);
                                               if(localvalue)
@@ -188,7 +188,7 @@ class DIOREMOTEFILECFG : public XFILECFG
                                                 }
                                             }
 
-                                          for(XDWORD c=0; c<remotefileCFG->GetValues()->GetSize(); c++)
+                                          for(XDWORD c=1; c<remotefileCFG->GetValues()->GetSize()+1; c++)
                                             {  
                                               XFILECFGVALUE* remotevalue = remotefileCFG->GetValues()->Get(c);
                                               if(remotevalue)
@@ -204,22 +204,28 @@ class DIOREMOTEFILECFG : public XFILECFG
 
                                                               if(difference < 0)
                                                                 {
-                                                                  for(int c=0; c<abs(difference); c++) 
+                                                                  bool activedelete = (localvalue->GetModeRemoteMix() & XFILECFG_MODEREMOTEMIX_NOTDELADDKEYS)?false:true;
+                                                                  if(activedelete)
                                                                     {
-                                                                      XSTRING key;
-                                                                      key.Format(__L("%s%02d"), remotevalue->GetIDBasic()->Get(), remotevalue->GetNSecuences()+c+1);
+                                                                      difference = abs(difference);                                                                      
 
-                                                                      DelCFGValue(localvalue->GetGroup()->Get(), key.Get());
+                                                                      for(int c=0; c<difference; c++) 
+                                                                        {
+                                                                          XSTRING key;
+                                                                          key.Format(__L("%s%02d"), remotevalue->GetIDBasic()->Get(), remotevalue->GetNSecuences()+c+1);
+
+                                                                          DelCFGValue(localvalue->GetGroup()->Get(), key.Get());
+                                                                        }
                                                                     }
                                                                 }
                                                                else
                                                                 {
                                                                   if(difference > 0)
                                                                     {
-                                                                      for(int c=localvalue->GetNSecuences(); c<remotevalue->GetNSecuences(); c++) 
+                                                                      for(int c=localvalue->GetNSecuences(); c<remotevalue->GetNSecuences()+1; c++) 
                                                                         {                                                                                           
                                                                           XSTRING key;
-                                                                          key.Format(__L("%s%02d"), remotevalue->GetIDBasic()->Get(), c+1);
+                                                                          key.Format(__L("%s%02d"), remotevalue->GetIDBasic()->Get(), c);
                                                        
                                                                           XVARIANT* value = remotefileCFG->GetValue(remotevalue->GetGroup()->Get(), key.Get());
                                                                           if(value)

@@ -115,10 +115,15 @@ bool APPCFG::DoVariableMapping()
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_GENERAL                   , APP_CFG_SHOWDETAILINFO                                      , &showdetailinfo                                                     , __L("Show Detail info")                                                   , APP_CFG_DEFAULT_REMARK_COLUMN);
 
   #ifdef XTRACE_ACTIVE
-  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_GENERAL, APP_CFG_TRACETARGET, __L("%02d"), XTRACE_MINNTARGETS
+  XFILECFGVALUE* CFGvalue = AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_GENERAL, APP_CFG_TRACETARGET, __L("%02d"), XTRACE_MINNTARGETS
                                                                                                                 , XTRACE_MAXNTARGETS
                                                                                                                 , tracetargets
                                                                                                                 , ntracetargets                                                                                       , __L("eXtended Trace Aim ")                                                , APP_CFG_DEFAULT_REMARK_COLUMN);
+  if(CFGvalue) 
+    { 
+      CFGvalue->SetModeRemoteMix((XFILECFG_MODEREMOTEMIX)(CFGvalue->GetModeRemoteMix() | XFILECFG_MODEREMOTEMIX_NOTDELADDKEYS));
+    }
+
   #endif  
   #endif
 
@@ -206,7 +211,7 @@ bool APPCFG::DoVariableMapping()
   AddRemark(APP_CFG_SECTION_WEBSERVER, __L(" Web server section of configuration"), 0, 2);
 
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_LOCALADDR                                 , &webserver_localaddr                                                , __L("Local IP for the WEB server")                                        , APP_CFG_DEFAULT_REMARK_COLUMN);
-  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_PORT                                      , &webserver_port                                                     , __L("Port for the WEB server")                                            , APP_CFG_DEFAULT_REMARK_COLUMN
+  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_PORT                                      , &webserver_port                                                     , __L("Port for the WEB server")                                            , APP_CFG_DEFAULT_REMARK_COLUMN);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_TIMEOUTTOSERVERPAGE                       , &webserver_timeouttoserverpage                                      , __L("Timeout for the WEB server")                                         , APP_CFG_DEFAULT_REMARK_COLUMN);
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_AUTHENTICATEDACCESS                       , &webserver_isauthenticatedaccess                                    , __L("Authenticate access for the WEB server")                             , APP_CFG_DEFAULT_REMARK_COLUMN);
   AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_WEBSERVER                 , APP_CFG_WEBSERVER_PASSWORD                                  , &webserver_password                                                 , __L("Password for the WEB server")                                        , APP_CFG_DEFAULT_REMARK_COLUMN);
