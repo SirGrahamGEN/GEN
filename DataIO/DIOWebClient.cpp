@@ -1396,7 +1396,7 @@ bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFE
             {
               if(timerout->GetMeasureSeconds()>(XDWORD)timeout)
                 {
-                  status = false;
+                  if(!totalsizeread) status = false;
                   break;
                 }
 

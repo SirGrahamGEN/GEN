@@ -54,6 +54,9 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 
+#define APP_CFG_DEFAULT_REMARK_COLUMN                                             64
+
+
 #ifdef APP_CFG_GENERAL_ACTIVE
 
 #define APP_CFG_SECTION_GENERAL                                                   __L("general")
@@ -225,7 +228,6 @@ class APPCFG
     virtual bool         DoVariableMapping                                        (); 
     virtual bool         DoDefault                                                ();
 
-    virtual bool         Ini                                                      ();    
     virtual bool         End                                                      ();  
 
 

@@ -33,8 +33,11 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include <math.h>
+
 #include "XFactory.h"
 #include "XFile.h"
+#include "XVariant.h"
 
 #include "DIOFactory.h"
 #include "DIOURL.h"
@@ -67,9 +70,7 @@ DIOREMOTEFILECFG::DIOREMOTEFILECFG(XCHAR* namefile): XFILECFG(namefile)
   Clean();
 
   webclient = new DIOWEBCLIENT();
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -90,113 +91,22 @@ DIOREMOTEFILECFG::~DIOREMOTEFILECFG()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOREMOTEFILECFG::Ini()
-* @brief      Ini remote file config
-* @ingroup    DATAIO
+*  @fn         XSTRING* DIOREMOTEFILECFG::GetURLRemoteCFG()
+*  @brief      Get URL Remote CFG
+*  @ingroup    DATAIO
 *
-* @return     bool : true if is succesful.
+*  ""
+*  ""
+*
+*  @return     XSTRING* : URL remote Config
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOREMOTEFILECFG::Ini()
-{
-  if(!webclient)         return false;
-  if(namefile.IsEmpty()) return false;
-
-  XPATH  xpathroot;
-  XPATH  xpathremotefile;
-  DIOURL downloadURL;
-  bool   status[2] = { false, false };
-
-  DoVariableMapping();
-
-  AddValue(XFILECFG_VALUETYPE_STRING, DIOREMOTEFILECFG_SECTIONGENERAL, DIOREMOTEFILECFG_URLREMOTECFG, &URLremoteCFG);
-
-  DoDefault();
-
-  GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathroot);
-  xpathfile.Set(xpathroot.Get());
-  if(!xpathfile.IsEmpty()) xpathfile.Slash_Add();
-  xpathfile.Add(namefile.Get());
-  xpathfile.Add(XFILECFG_EXTENSIONFILE);
-
-  status[0] = Load();
-
-  LoadReadjustment();
-
-  if(!URLremoteCFG.IsEmpty())
-    {
-      downloadURL.Set(URLremoteCFG.Get());      
-      if(downloadURL.Find(__L("?"), false) == XSTRING_NOTFOUND)
-        {      
-          downloadURL.Slash_Add();
-          downloadURL.Add(DIOREMOTEFILECFG_PREFIXNAMEFILE);
-          downloadURL.Add(namefile.Get());
-          downloadURL.Add(XFILECFG_EXTENSIONFILE);
-        }
-
-      GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathroot);
-      xpathremotefile.Set(xpathroot.Get());
-      if(!xpathremotefile.IsEmpty()) xpathremotefile.Slash_Add();
-      xpathremotefile.Add(DIOREMOTEFILECFG_PREFIXNAMEFILE);
-      xpathremotefile.Add(namefile.Get());
-      xpathremotefile.Add(XFILECFG_EXTENSIONFILE);
-
-      if(webclient->Get(downloadURL, xpathremotefile))
-        {
-          XPATH localpath = GetPathFile()->Get();      
-    
-          GetPathFile()->Set(xpathremotefile);     
-
-          DeleteAllRemarks();
-          DeleteAllValues(); 
-
-          DoVariableMapping();    
-
-          status[0] = Load();
-
-          GetPathFile()->Set(localpath);
-
-          if(status[0])
-            {
-              XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
-              if(xfile)
-                {
-                  xfile->Erase(xpathremotefile, true);
-                  GEN_XFACTORY.Delete_File(xfile);
-                }
-            }
-
-          
-        }
-    }
-
-  status[1] = Save();
-
-  return (status[0] && status[1]);
-}
-
-
- /**-------------------------------------------------------------------------------------------------------------------
- *
- *  @fn         XSTRING* DIOREMOTEFILECFG::GetURLRemoteCFG()
- *  @brief      Get URL Remote CFG
- *  @ingroup    DATAIO
- *
- *  ""
- *  ""
- *
- *  @return     XSTRING* : URL remote Config
- *
- * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOREMOTEFILECFG::GetURLRemoteCFG()
- {
-   return &URLremoteCFG;
- }
-
+{
+  return &URLremoteCFG;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------

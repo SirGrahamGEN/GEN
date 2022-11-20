@@ -41,16 +41,25 @@
 enum XFILECFG_VALUETYPE
 {
   XFILECFG_VALUETYPE_UNKNOWN          = 0 ,
-  XFILECFG_VALUETYPE_INT                ,
-  XFILECFG_VALUETYPE_MASK               ,
-  XFILECFG_VALUETYPE_FLOAT              ,
-  XFILECFG_VALUETYPE_STRING             ,
+  XFILECFG_VALUETYPE_INT                  ,
+  XFILECFG_VALUETYPE_MASK                 ,
+  XFILECFG_VALUETYPE_FLOAT                ,
+  XFILECFG_VALUETYPE_STRING               ,
   XFILECFG_VALUETYPE_BOOLEAN
 };
 
+
+enum XFILECFG_MODEREMOTEMIX
+{
+  XFILECFG_MODEREMOTEMIX_NONE            = 0x00 ,
+  XFILECFG_MODEREMOTEMIX_NOTDELADDKEYS   = 0x01 ,
+};
+
+
 #define XFILECFG_EXTENSIONFILE              __L(".ini")
 
-#define XFILECFG_DEFAULTMAXSECUENCEENTRYS   100
+#define XFILECFG_DEFAULTMAXSECUENCEENTRYS    99
+#define XFILECFG_INVALIDINDEXSECUENCE        -1  
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
@@ -76,6 +85,32 @@ class XFILECFGVALUE
     void*                               GetValue                  ();
     bool                                SetValue                  (void* value);
 
+
+    XSTRING*                            GetIDBasic                ();
+    XSTRING*                            GetMask                   (); 
+
+    XDWORD                              GetMinSecuences           ();
+    void                                SetMinSecuences           (XDWORD minsecuences = 1);
+
+    XDWORD                              GetMaxSecuences           ();
+    void                                SetMaxSecuences           (XDWORD maxsecuences = 1);
+
+    int                                 GetIndexSecuence          ();
+    void                                SetIndexSecuence          (int index = XFILECFG_INVALIDINDEXSECUENCE);
+   
+    XDWORD                              GetNSecuences             ();
+    void                                SetNSecuences             (XDWORD nsecuences = 0);
+    
+    XSTRING*                            GetRemarkText             ();
+    XDWORD                              GetRemarkXPos             ();
+    void                                SetRemarkXPos             (XDWORD remark_xpos);
+    
+    void*                               GetValuesVector           ();
+    void                                SetValuesVector           (void* valuesvector);
+
+    XFILECFG_MODEREMOTEMIX              GetModeRemoteMix          ();
+    void                                SetModeRemoteMix          (XFILECFG_MODEREMOTEMIX moderemotemix);
+
   private:
 
     void                                Clean                     ();
@@ -84,7 +119,20 @@ class XFILECFGVALUE
     XSTRING                             group;
     XSTRING                             ID;
     void*                               value;
+
+    XSTRING                             IDbasic;
+    XSTRING                             mask;
+    int                                 minsecuences;    
+    int                                 maxsecuences;    
+    int                                 indexsecuence;
+    XDWORD                              nsecuences; 
+    XSTRING                             remark_text;
+    XDWORD                              remark_xpos;
+    void*                               valuesvector;            
+    XFILECFG_MODEREMOTEMIX              moderemotemix;
 };
+
+
 
 
 
@@ -98,7 +146,23 @@ class XFILECFG : public XSUBJECT
     virtual bool                        DoVariableMapping         (); 
     virtual bool                        DoDefault                 ();
 
-    virtual bool                        Ini                       ();    
+    template<class T>
+    bool                                Ini                       ()
+                                        { 
+                                          bool status[2];
+
+                                          DoVariableMapping();
+
+                                          DoDefault();
+
+                                          status[0] = Load();  
+
+                                          LoadReadjustment();
+
+                                          status[1] = Save();
+
+                                          return (status[0] && status[1]);  
+                                        }    
 
     virtual bool                        LoadReadjustment          ();        
 
@@ -114,14 +178,19 @@ class XFILECFG : public XSUBJECT
     XPATH*                              GetPathFile               ();
     XFILEINI*                           GetFileINI                ();
     
-    bool                                AddValue                  (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value, XCHAR* remark_text = NULL, XDWORD remark_xpos = 0);
+    XFILECFGVALUE*                      AddValue                  (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value, XCHAR* remark_text = NULL, XDWORD remark_xpos = 0);
     XVECTOR<XFILECFGVALUE*>*            GetValues                 ();   
-    XVARIANT*                           GetValue                  (XCHAR* group, XCHAR* ID);   
+    XVARIANT*                           GetValue                  (XCHAR* group, XCHAR* ID);
+    XVARIANT*                           GetValue                  (XFILECFGVALUE* cfgvalue);
+    XFILECFGVALUE*                      GetCFGValue               (XCHAR* group, XCHAR* ID);
+    bool                                SetValue                  (XFILECFGVALUE* CFGvalue, XVARIANT* value);
     bool                                DeleteAllValues           ();
    
     bool                                AddRemark                 (XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
     bool                                AddRemark                 (XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
     XVECTOR<XFILEINIREMARK*>*           GetRemarks                ();
+
+    bool                                DelCFGValue               (XCHAR* group, XCHAR* ID);
     bool                                DeleteAllRemarks          ();  
     
     bool                                IniFile                   (XPATH& xpath);
@@ -131,19 +200,19 @@ class XFILECFG : public XSUBJECT
     int                                 GetCountKeys              (XCHAR* group, XCHAR* IDbase, XCHAR* mask = NULL, int maxcount = XFILECFG_DEFAULTMAXSECUENCEENTRYS); 
 
     template<typename T>
-    bool                                AddValueSecuence          (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* IDbasic, XCHAR* mask, int mincount, int maxcount, XVECTOR<T*>& values, int& nkeys, XCHAR* remark_text = NULL, XDWORD remark_xpos = 0)
+    XFILECFGVALUE*                      AddValueSecuence          (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* IDbasic, XCHAR* mask, int mincount, int maxcount, XVECTOR<T*>& values, int& nkeys, XCHAR* remark_text = NULL, XDWORD remark_xpos = 0)
                                         {
-                                          XSTRING key;
+                                          XSTRING         key;
+                                          XFILECFGVALUE*  CFGvalue = NULL;
                                           
                                           nkeys = GetCountKeys(group, IDbasic, mask, maxcount);    
-
-                                          if(nkeys < 0)         nkeys = 0;
+                                        
                                           if(nkeys < mincount)  nkeys = mincount;
 
                                           values.DeleteContents();
                                           values.DeleteAll();
 
-                                          for(int c=0; c<nkeys; c++)
+                                          for(int c=1; c<nkeys+1; c++)
                                             {
                                               T* value = new T();
                                               if(!value) 
@@ -151,16 +220,44 @@ class XFILECFG : public XSUBJECT
                                                   values.DeleteContents();
                                                   values.DeleteAll();
 
-                                                  return false;
+                                                  return NULL;
 
                                                 } else values.Add(value);
        
-                                              key.Format(__L("%s%02d"), IDbasic, c+1);
+                                              key.Format(__L("%s%02d"), IDbasic, c);
                                               AddValue(type , group, key.Get(), value, remark_text, remark_xpos);
+
+                                              XFILECFGVALUE* _CFGvalue = GetCFGValue(group, key.Get()); 
+                                              if(_CFGvalue) 
+                                                {
+                                                  _CFGvalue->GetIDBasic()->Set(IDbasic);
+                                                  _CFGvalue->GetMask()->Set(mask);
+                                                  _CFGvalue->SetMinSecuences(mincount);
+                                                  _CFGvalue->SetMaxSecuences(maxcount);
+                                                  _CFGvalue->SetIndexSecuence(c);
+                                                  _CFGvalue->GetRemarkText()->Set(remark_text);
+                                                  _CFGvalue->SetRemarkXPos(remark_xpos);
+                                                }  
+
+                                              if(c==1) CFGvalue = _CFGvalue;
                                             }
 
-                                          return true;
+                                          for(int c=1; c<nkeys+1; c++)
+                                            {
+                                              XSTRING key;
+                                              key.Format(__L("%s%02d"), IDbasic, c);
+
+                                              XFILECFGVALUE* _CFGvalue = GetCFGValue(group, key.Get()); 
+                                              if(_CFGvalue) 
+                                                {
+                                                  _CFGvalue->SetValuesVector((void*)&values);  
+                                                  _CFGvalue->SetNSecuences(nkeys);                                  
+                                                }
+                                            }
+
+                                          return CFGvalue;
                                         }     
+    
   protected:
 
     XPATH                               xpathfile;
