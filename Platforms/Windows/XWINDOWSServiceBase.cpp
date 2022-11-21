@@ -1091,7 +1091,7 @@ void XWINDOWSSERVICEBASE::Pause()
         #ifdef XLOG_ACTIVE
         GEN_XLOG.AddEntry(XLOGLEVEL_ERROR, XWINDOWSSERVICEBASE_LOG_SECTIONID_SERVICE, false, __L("%s: Service failed to pause Error[%08X]."), servicename, error);
         #else
-        error++;
+        //error++;
         #endif
         SetServiceStatus(SERVICE_RUNNING);
       }
@@ -1127,7 +1127,7 @@ void XWINDOWSSERVICEBASE::Continue()
         #ifdef XLOG_ACTIVE
         GEN_XLOG.AddEntry(XLOGLEVEL_ERROR, XWINDOWSSERVICEBASE_LOG_SECTIONID_SERVICE, false, __L("%s: Service failed to continue Error[%08X]."), servicename, error);
         #else
-        error++;
+        //error++;
         #endif
         SetServiceStatus(SERVICE_PAUSED);
       }
@@ -1162,7 +1162,7 @@ void XWINDOWSSERVICEBASE::Shutdown()
         #ifdef XLOG_ACTIVE
         GEN_XLOG.AddEntry(XLOGLEVEL_ERROR, XWINDOWSSERVICEBASE_LOG_SECTIONID_SERVICE, false, __L("%s: Service failed to shutdown Error[%08X]."), servicename, error);
         #else
-        error++;
+        //error++;
         #endif
       }
      catch (...)

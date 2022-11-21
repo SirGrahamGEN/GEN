@@ -929,9 +929,7 @@ bool XFILETXT::ReadNLines(int nlines)
       br      = XFILETXT_MAXBUFFER;
       endfile = !file->Read(readbuffer, &br);
       if(!br) break;
-
-      XDWORD counter = 0;
-
+      
       do{ XFILETXTTYPELF  _typeLF   = XFILETXTTYPELF_UNKNOWN;
           XDWORD          sizeLF    = 0;
           XDWORD          sizeline  = 0;
@@ -944,8 +942,6 @@ bool XFILETXT::ReadNLines(int nlines)
               dataline.Add(&readbuffer[bufferpos], sizebytescharacter*sizeline);
               AddLine(formatchar, dataline.Get(), (int)(dataline.GetSize()/sizebytescharacter));
               dataline.Delete();
-
-              //counter++;
 
               sizeline  *= sizebytescharacter;
               sizeline  += (sizeLF*sizebytescharacter);
@@ -961,8 +957,6 @@ bool XFILETXT::ReadNLines(int nlines)
                 {
                   AddLine(formatchar, dataline.Get(), (int)(lack/sizebytescharacter));
                   dataline.Delete();
-
-                  counter++;
                 }
             }
 
