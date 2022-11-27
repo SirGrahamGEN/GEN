@@ -164,6 +164,52 @@ class XSERIALIZABLE
                                        } 
 
                                      return true;                           
+                                   }  
+                                   
+    template<class T>
+    bool                           XVectorClass_Add          (XVECTOR<T*>* var, XCHAR* name, XCHAR* nameclass)
+                                   { 
+                                     if(!dynamic_cast<XSERIALIZABLE*>(var->Get(0)))  
+                                       {
+                                         return false;
+                                       }
+                                       
+                                     serializationmethod->AddArray(var->GetSize(), name, true);                                                                               
+                                     
+                                     for(XDWORD c=0; c<var->GetSize(); c++)
+                                       {
+                                         T* element = var->Get(c);
+                                         if(element)
+                                           {
+                                            element->SetSerializationMethod(serializationmethod);
+                                            Class_Add<T>(element, nameclass);
+                                           }                                       
+                                       }
+
+                                      serializationmethod->AddArray(var->GetSize(), name, false); 
+
+                                     return true;                               
+                                   }
+
+    template<class T>
+    bool                           XVectorClass_Extract      (XVECTOR<T*>* var, XCHAR* name, XCHAR* nameclass)
+                                   {
+                                     if(!dynamic_cast<XSERIALIZABLE*>(var->Get(0)))  
+                                       {
+                                         return false;
+                                       }                                   
+                                     
+                                     for(XDWORD c=0; c<var->GetSize(); c++)
+                                       {
+                                         T* element = var->Get(c);
+                                         if(element)
+                                           {
+                                             element->SetSerializationMethod(serializationmethod);
+                                             Class_Extract<T>(element, nameclass);
+                                           }                                       
+                                       } 
+
+                                     return true;                           
                                    }                             
 
     XSERIALIZATIONMETHOD*          GetSerializationMethod     ();
