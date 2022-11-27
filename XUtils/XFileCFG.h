@@ -197,13 +197,22 @@ class XFILECFG : public XSUBJECT
     bool                                EndFile                   ();
     bool                                AjustRemarks              (); 
 
-    int                                 GetCountKeys              (XCHAR* group, XCHAR* IDbase, XCHAR* mask = NULL, int maxcount = XFILECFG_DEFAULTMAXSECUENCEENTRYS); 
+    int                                 GetCountKeys              (XCHAR* group, XCHAR* IDbasic, XCHAR* mask = NULL, int maxcount = XFILECFG_DEFAULTMAXSECUENCEENTRYS); 
 
     template<typename T>
     XFILECFGVALUE*                      AddValueSecuence          (XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* IDbasic, XCHAR* mask, int mincount, int maxcount, XVECTOR<T*>& values, int& nkeys, XCHAR* remark_text = NULL, XDWORD remark_xpos = 0)
                                         {
                                           XSTRING         key;
                                           XFILECFGVALUE*  CFGvalue = NULL;
+
+                                          XSTRING str = __L("item");
+
+
+                                          if(!str.Compare(IDbasic, true))
+                                            {
+                                               int a=0;
+                                               a++;      
+                                            }  
                                           
                                           nkeys = GetCountKeys(group, IDbasic, mask, maxcount);    
                                         
@@ -224,7 +233,8 @@ class XFILECFG : public XSUBJECT
 
                                                 } else values.Add(value);
        
-                                              key.Format(__L("%s%02d"), IDbasic, c);
+                                              GenerateKeySecuence(IDbasic, mask, c, key);
+                                              
                                               AddValue(type , group, key.Get(), value, remark_text, remark_xpos);
 
                                               XFILECFGVALUE* _CFGvalue = GetCFGValue(group, key.Get()); 
@@ -245,7 +255,8 @@ class XFILECFG : public XSUBJECT
                                           for(int c=1; c<nkeys+1; c++)
                                             {
                                               XSTRING key;
-                                              key.Format(__L("%s%02d"), IDbasic, c);
+                                               
+                                              GenerateKeySecuence(IDbasic, mask, c, key);
 
                                               XFILECFGVALUE* _CFGvalue = GetCFGValue(group, key.Get()); 
                                               if(_CFGvalue) 
@@ -260,13 +271,14 @@ class XFILECFG : public XSUBJECT
     
   protected:
 
+    bool                                GenerateKeySecuence       (XCHAR* IDbase, XCHAR* mask, int index, XSTRING& key);
+
     XPATH                               xpathfile;
     XSTRING                             namefile;
     XFILEINI*                           fileini;
 
   private:
-    
-  
+       
     void                                Clean                     ();
  
     XVECTOR<XFILECFGVALUE*>             values;

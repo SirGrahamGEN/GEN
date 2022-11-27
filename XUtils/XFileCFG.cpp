@@ -460,11 +460,15 @@ void XFILECFGVALUE::SetModeRemoteMix(XFILECFG_MODEREMOTEMIX moderemotemix)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECFGVALUE::Clean()
 {
-  type            = XFILECFG_VALUETYPE_UNKNOWN;
+  type            = XFILECFG_VALUETYPE_UNKNOWN;;
+  group.Empty();
+  ID.Empty();
   value           = NULL;
-
+    
   IDbasic.Empty();
   mask.Empty();
+  minsecuences    = 0;    
+  maxsecuences    = 0;    
   indexsecuence   = XFILECFG_INVALIDINDEXSECUENCE;
   nsecuences      = 0;
   remark_text.Empty();
@@ -1346,7 +1350,7 @@ bool XFILECFG::AjustRemarks()
 * @return     int : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, XCHAR* mask, int maxcount)
+int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbasic, XCHAR* mask, int maxcount)
 {
   XSTRING   section       = group;      
   int       enumeratekeys = -1;
@@ -1363,21 +1367,47 @@ int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, XCHAR* mask, int maxcoun
 
   for(int c=1; c<maxcount+1; c++)
     {    
-      XSTRING keymask;      
-      XSTRING key;      
-
-      if(mask)  
-        {
-          keymask.Format(__L("%s%s"), IDbase, mask);
-          key.Format(keymask.Get(), c);
-
-        } else key.Format(__L("%s%d"), IDbase, c);
-
+      XSTRING key;       
+      GenerateKeySecuence(IDbasic, mask, c, key);
+      
       XFILEINIKEY* inikey = GetFileINI()->GetKey(section, key);
       if(inikey) enumeratekeys++;
     }      
 
   return enumeratekeys;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILECFG::GenerateKeySecuence(XCHAR* IDbase, XCHAR* mask, int index, XSTRING& key)
+* @brief      GenerateKeySecuence
+* @ingroup    XUTILS
+* 
+* @param[in]  IDbase : 
+* @param[in]  mask : 
+* @param[in]  index : 
+* @param[in]  key : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILECFG::GenerateKeySecuence(XCHAR* IDbase, XCHAR* mask, int index, XSTRING& key)
+{
+  XSTRING keymask;      
+  
+  key.Empty();     
+  
+  if(!IDbase) return false;
+    
+  if(mask)  
+    {
+      keymask.Format(__L("%s%s"), IDbase, mask);
+      key.Format(keymask.Get(), index);
+
+    } else key.Format(__L("%s%d"), IDbase, index);
+  
+  return true;
 }
 
 

@@ -180,8 +180,7 @@ class DIOREMOTEFILECFG : public XFILECFG
                                                         {
                                                           SetValue(localvalue, value);
 
-                                                          value->Set();
-  
+                                                          value->Set();  
                                                           delete value;
                                                         }
                                                     }
@@ -212,7 +211,8 @@ class DIOREMOTEFILECFG : public XFILECFG
                                                                       for(int c=0; c<difference; c++) 
                                                                         {
                                                                           XSTRING key;
-                                                                          key.Format(__L("%s%02d"), remotevalue->GetIDBasic()->Get(), remotevalue->GetNSecuences()+c+1);
+                                                                          
+                                                                          GenerateKeySecuence(remotevalue->GetIDBasic()->Get(), remotevalue->GetMask()->Get(), c, key);
 
                                                                           DelCFGValue(localvalue->GetGroup()->Get(), key.Get());
                                                                         }
@@ -225,7 +225,7 @@ class DIOREMOTEFILECFG : public XFILECFG
                                                                       for(int c=localvalue->GetNSecuences(); c<remotevalue->GetNSecuences()+1; c++) 
                                                                         {                                                                                           
                                                                           XSTRING key;
-                                                                          key.Format(__L("%s%02d"), remotevalue->GetIDBasic()->Get(), c);
+                                                                          GenerateKeySecuence(remotevalue->GetIDBasic()->Get(), remotevalue->GetMask()->Get(), c, key);
                                                        
                                                                           XVARIANT* value = remotefileCFG->GetValue(remotevalue->GetGroup()->Get(), key.Get());
                                                                           if(value)
