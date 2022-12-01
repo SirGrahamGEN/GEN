@@ -212,7 +212,7 @@ class DIOREMOTEFILECFG : public XFILECFG
                                                                         {
                                                                           XSTRING key;
                                                                           
-                                                                          GenerateKeySecuence(remotevalue->GetIDBasic()->Get(), remotevalue->GetMask()->Get(), c, key);
+                                                                          GenerateKeySecuence(remotevalue->GetIDBasic()->Get(), remotevalue->GetMask()->Get(), remotevalue->GetNSecuences()+c+1, key);
 
                                                                           DelCFGValue(localvalue->GetGroup()->Get(), key.Get());
                                                                         }
