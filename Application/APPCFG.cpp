@@ -724,8 +724,8 @@ XVECTOR<XSTRING*>* APPCFG::InternetServices_GetUpdateTimeNTPServers()
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPCFG::InternetServices_GetUpdateTimeNTPServer(int index)
 {  
-  if(index < 0)                                                 return NULL;
-  if(index >= internetservices_updatetimentpservers.GetSize())  return NULL;
+  if(index < 0)                                                      return NULL;
+  if(index >= (int)internetservices_updatetimentpservers.GetSize())  return NULL;
 
   return internetservices_updatetimentpservers.Get(index);
 }

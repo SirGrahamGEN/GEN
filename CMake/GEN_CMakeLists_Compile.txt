@@ -4,39 +4,39 @@
 
 #--- Set features to false -------------------------------------------
 
- set(COMPILE_TO_WINDOWS                                  false   CACHE BOOL "Compile to Windows General"                                 FORCE)
- set(COMPILE_TO_WINDOWS_PC_32                            false   CACHE BOOL "Compile to Windows PC 32 Bits"                              FORCE)
- set(COMPILE_TO_WINDOWS_PC_64                            false   CACHE BOOL "Compile to Windows PC 64 Bits"                              FORCE)
- set(COMPILE_TO_LINUX                                    false   CACHE BOOL "Compile to Linux   General"                                 FORCE)
- set(COMPILE_TO_LINUX_PC_64                              false   CACHE BOOL "Compile to Linux   PC 64 Bits"                              FORCE)
- set(COMPILE_TO_LINUX_ARM_RASPBERRYPI                    false   CACHE BOOL "Compile to Linux   Rapsberry Pi"                            FORCE)
- set(COMPILE_TO_LINUX_ARM_NXP_IMX6                       false   CACHE BOOL "Compile to Linux   ARM NXP imx6"                            FORCE)
- set(COMPILE_TO_LINUX_ARM_NXP_IMX8                       false   CACHE BOOL "Compile to Linux   ARM NXP imx8"                            FORCE)
- set(COMPILE_TO_ANDROID                                  false   CACHE BOOL "Compile to Android General"                                 FORCE)
- set(COMPILE_TO_STM32                                    false   CACHE BOOL "Compile to STM32   Genral"                                  FORCE)
+#option(COMPILE_TO_WINDOWS                                  "Compile to Windows General"                                 false )
+#option(COMPILE_TO_WINDOWS_PC_32                            "Compile to Windows PC 32 Bits"                              false )
+#option(COMPILE_TO_WINDOWS_PC_64                            "Compile to Windows PC 64 Bits"                              false )
+#option(COMPILE_TO_LINUX                                    "Compile to Linux   General"                                 false )
+#option(COMPILE_TO_LINUX_PC_64                              "Compile to Linux   PC 64 Bits"                              false )
+#option(COMPILE_TO_LINUX_ARM_RASPBERRYPI                    "Compile to Linux   Rapsberry Pi"                            false )
+#option(COMPILE_TO_LINUX_ARM_NXP_IMX6                       "Compile to Linux   ARM NXP imx6"                            false )
+#option(COMPILE_TO_LINUX_ARM_NXP_IMX8                       "Compile to Linux   ARM NXP imx8"                            false )
+#option(COMPILE_TO_ANDROID                                  "Compile to Android General"                                 false )
+#option(COMPILE_TO_STM32                                    "Compile to STM32   Genral"                                  false )
 
- set(COMPILE_WITH_MSVC                                   false   CACHE BOOL "Compile with Microsoft Compiler (MSVC)"                     FORCE)
- set(COMPILE_WITH_GCC                                    false   CACHE BOOL "Compile with GNU Compiler Collection (GCC)"                 FORCE)
- set(COMPILE_WITH_CLANG                                  false   CACHE BOOL "Compile with CLang (front-end of LLVM)"                     FORCE)
+#option(COMPILE_WITH_MSVC                                   "Compile with Microsoft Compiler (MSVC)"                     false )
+#option(COMPILE_WITH_GCC                                    "Compile with GNU Compiler Collection (GCC)"                 false )
+#option(COMPILE_WITH_CLANG                                  "Compile with CLang (front-end of LLVM)"                     false )
 
 
 #--- Compile in Windows Platform -------------------------------------
 
  if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
-   set(COMPILE_TO_WINDOWS                                true    CACHE BOOL "Compile to Windows General"                                 FORCE)
+   option(COMPILE_TO_WINDOWS "Compile to Windows General"  true )
 
    if(${TARGET} MATCHES "pc")   
 
      if(CMAKE_SIZEOF_VOID_P EQUAL 8)
 
-       set(COMPILE_TO_WINDOWS_PC_64                      true    CACHE BOOL "Compile to Windows PC 64 Bits"                              FORCE)
+       option(COMPILE_TO_WINDOWS_PC_64 "Compile to Windows PC 64 Bits" true )
 
      else()
 
        if(CMAKE_SIZEOF_VOID_P EQUAL 4)
 
-         set(COMPILE_TO_WINDOWS_PC_32                    true    CACHE BOOL "Compile to Windows PC 32 Bits"                              FORCE)
+         option(COMPILE_TO_WINDOWS_PC_32 "Compile to Windows PC 32 Bits" true )
 
       endif()
 
@@ -47,16 +47,16 @@
 
    if(${TARGET} MATCHES "Android")   
 
-     set(COMPILE_TO_WINDOWS                              false   CACHE BOOL "Compile to Windows General"                                 FORCE)
-     set(COMPILE_TO_ANDROID                              true    CACHE BOOL "Compile to Android"                                         FORCE)
+     option(COMPILE_TO_WINDOWS "Compile to Windows General" false )
+     option(COMPILE_TO_ANDROID "Compile to Android"         true  )
 
    endif()
 
 
    if(${TARGET} MATCHES "STM32")
 
-     set(COMPILE_TO_WINDOWS                              false   CACHE BOOL "Compile to Windows General"                                 FORCE)
-     set(COMPILE_TO_STM32_ARM                            true    CACHE BOOL "Compile to STM32"                                           FORCE)     
+     option(COMPILE_TO_WINDOWS   "Compile to Windows General" false )
+     option(COMPILE_TO_STM32_ARM "Compile to STM32"           true  )
 
    endif()
 
@@ -69,29 +69,29 @@
 
  if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
-   set(COMPILE_TO_LINUX                                  true    CACHE BOOL "Compile to Linux   General"                                 FORCE)  
+   option(COMPILE_TO_LINUX    "Compile to Linux   General" true )  
 
    if(${TARGET} MATCHES "pc")
 
-     set(COMPILE_TO_LINUX_PC_64                          true    CACHE BOOL "Compile to Linux   PC 64 Bits"                              FORCE)
+     option(COMPILE_TO_LINUX_PC_64 "Compile to Linux   PC 64 Bits" true )
 
    endif()
 
    if(${TARGET} MATCHES "raspberrypi")
 
-     set(COMPILE_TO_LINUX_ARM_RASPBERRYPI                true    CACHE BOOL "Compile to Linux   Rapsberry Pi"                            FORCE)
+     option(COMPILE_TO_LINUX_ARM_RASPBERRYPI  "Compile to Linux   Rapsberry Pi" true )
 
    endif()
 
    if(${TARGET} MATCHES "nxp_imx6")
 
-     set(COMPILE_TO_LINUX_ARM_NXP_IMX6                   true    CACHE BOOL "Compile to Linux   ARM NXP imx6"                            FORCE)
+     option(COMPILE_TO_LINUX_ARM_NXP_IMX6     "Compile to Linux   ARM NXP imx6" true )
 
    endif()
 
    if(${TARGET} MATCHES "nxp_imx8")
 
-     set(COMPILE_TO_LINUX_ARM_NXP_IMX6                   true    CACHE BOOL "Compile to Linux   ARM NXP imx6"                            FORCE)
+     option(COMPILE_TO_LINUX_ARM_NXP_IMX6     "Compile to Linux   ARM NXP imx6" true )
 
    endif()
 
@@ -100,16 +100,19 @@
 # --------------------------------------------------------------------
 
 if(("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC"))
-  set(COMPILE_WITH_MSVC true CACHE BOOL "Compile with Microsoft Compiler (MSVC)" FORCE)
+  option(COMPILE_WITH_MSVC   "Compile with Microsoft Compiler (MSVC)"     true )
   message(STATUS "[Select for compile with Microsoft Compiler (MSVC)]")
 endif()
 
 if(("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU"))
-  set(COMPILE_WITH_GCC true CACHE BOOL "Compile with GNU Compiler Collection (GCC)" FORCE)
+  option(COMPILE_WITH_GCC    "Compile with GNU Compiler Collection (GCC)" true )
   message(STATUS "[Select for compile with GNU Compiler Collection (GCC)]")
 endif()
 
 if(("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang"))
-  set(COMPILE_WITH_CLANG true CACHE BOOL "Compile with CLang (front-end of LLVM)" FORCE)
+  option(COMPILE_WITH_CLANG  "Compile with CLang (front-end of LLVM)"     true )
   message(STATUS "[Select for compile with CLang (front-end of LLVM)]")
 endif()
+
+
+

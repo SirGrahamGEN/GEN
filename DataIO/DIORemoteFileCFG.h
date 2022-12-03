@@ -222,7 +222,7 @@ class DIOREMOTEFILECFG : public XFILECFG
                                                                 {
                                                                   if(difference > 0)
                                                                     {
-                                                                      for(int c=localvalue->GetNSecuences(); c<remotevalue->GetNSecuences()+1; c++) 
+                                                                      for(XDWORD c=localvalue->GetNSecuences(); c<remotevalue->GetNSecuences()+1; c++) 
                                                                         {                                                                                           
                                                                           XSTRING key;
                                                                           GenerateKeySecuence(remotevalue->GetIDBasic()->Get(), remotevalue->GetMask()->Get(), c, key);

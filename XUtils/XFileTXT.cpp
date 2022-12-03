@@ -962,7 +962,7 @@ bool XFILETXT::ReadNLines(int nlines)
 
           if(nlines != XFILETXT_ALLLINES)
             {
-              if(lines.GetSize() > nlines)
+              if(lines.GetSize() > (XDWORD)nlines)
                 {
                   break;
                 }
