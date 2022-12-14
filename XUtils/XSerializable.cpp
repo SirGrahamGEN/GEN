@@ -33,7 +33,10 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#ifdef XSERIALIZABLE_BINARY_ACTIVE
 #include "XSerializationMethodBinary.h"
+#endif
+
 #ifdef XSERIALIZABLE_JSON_ACTIVE
 #include "XSerializationMethodJSON.h"
 #endif
@@ -63,6 +66,7 @@ XSERIALIZABLE::XSERIALIZABLE()
   Clean();
 }
     
+
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -80,6 +84,8 @@ XSERIALIZABLE::~XSERIALIZABLE()
 }
 
 
+
+#ifdef XSERIALIZABLE_BINARY_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHOD* XSERIALIZATIONMETHOD::CreateInstance(XBUFFER& databinary)
@@ -101,6 +107,7 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XBUFFER& databinary)
 
   return (XSERIALIZATIONMETHOD*)serializable;
 }
+#endif
 
 
 
@@ -149,6 +156,7 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XFILEJSON& fileJSON)
 #endif
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerialization()
@@ -163,6 +171,7 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerializationMethod()
   return serializationmethod; 
 }
     
+
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -179,6 +188,7 @@ void XSERIALIZABLE::SetSerializationMethod(XSERIALIZATIONMETHOD* serializationme
 {
   this->serializationmethod = serializationmethod;
 }
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -200,6 +210,7 @@ bool XSERIALIZABLE::InitSerialize(XSERIALIZATIONMETHOD* serializationmethod)
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZABLE::InitDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
@@ -219,6 +230,7 @@ bool XSERIALIZABLE::InitDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn          bool XSERIALIZATIONMETHOD::Serialize()
@@ -234,6 +246,7 @@ bool XSERIALIZABLE::Serialize()
 
   return true;
 }
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -253,6 +266,7 @@ bool XSERIALIZABLE::Deserialize()
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSERIALIZABLE::Clean()
@@ -267,3 +281,4 @@ void XSERIALIZABLE::Clean()
 {
   serializationmethod = NULL;
 }
+

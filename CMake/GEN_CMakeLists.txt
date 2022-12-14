@@ -181,15 +181,11 @@
    if(DIO_PCAP_FEATURE)
     list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPCAP})
    endif()  
-
-   if(COMPILE_TO_LINUX_ARM_RASPBERRYPI)  
-
-     if(DIO_LEDNEOPIXELWS2812B_FEATURE)
-       list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_RPI_WS281X})
-     endif()
-
-   endif()  
-
+   
+   if(DIO_LEDNEOPIXELWS2812B_FEATURE)
+     list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_RPI_WS281X})
+   endif()
+   
  endif()
 
  if(COMPILE_TO_ANDROID)
@@ -417,17 +413,15 @@
      add_definitions(-DHW_PC)    
    endif()
 
+
    # ----------------------------------------
    # Platform Raspberry Pi
    
-   if(COMPILE_TO_LINUX_ARM_RASPBERRYPI)
-
-     # Define our host system
-     set(CMAKE_SYSTEM_NAME Linux)
-     set(CMAKE_SYSTEM_PROCESSOR arm)
-               
-     add_definitions(-DLINUX)
+   if(COMPILE_TO_LINUX_ARM_RPI)             
      add_definitions(-DHW_RASPBERRYPI) 
+     
+     set(CMAKE_SYSTEM_PROCESSOR arm)  
+     set(CMAKE_SYSTEM_VERSION 1)
      
      list(APPEND INCLUDES_DIR "/usr/local/pi/tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/")     
      
@@ -445,26 +439,60 @@
      
      # Search for libraries and headers in the target directories only
      set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
-     set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
-             
+     set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)         
    endif()
 
+
    # ----------------------------------------
-   # Platform NXP iMX6
-   
-   if(COMPILE_TO_LINUX_ARM_NXP_IMX6)
+   # Platform Raspberry Pi 64
+         
+   if(COMPILE_TO_LINUX_ARM_RPI_64)
+     add_definitions(-DHW_RASPBERRYPI) 
      
-     set(CMAKE_SYSTEM_NAME Linux)
      set(CMAKE_SYSTEM_PROCESSOR arm)  
-       
-     add_definitions(-DLINUX)
-     add_definitions(-DHW_NXP_IMX6)          
-                
+     set(CMAKE_SYSTEM_VERSION 1)
+
+     set(RPI64_TOOLS "/usr/rpi64")
+
+     #list(APPEND INCLUDES_DIR "${RPI64_TOOLS}/rootfs/include/")     
+    
+     set(CMAKE_C_COMPILER   "${RPI64_TOOLS}/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc")
+     set(CMAKE_CXX_COMPILER "${RPI64_TOOLS}/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-g++")
+
+     # Where is the target environment
+     
+     SET(CMAKE_EXE_LINKER_FLAGS    "${CMAKE_EXE_LINKER_FLAGS}    --sysroot=${CMAKE_FIND_ROOT_PATH}")
+     SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} --sysroot=${CMAKE_FIND_ROOT_PATH}")
+     SET(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} --sysroot=${CMAKE_FIND_ROOT_PATH}")
+
+     set(CMAKE_CXX_FLAGS           "${CMAKE_CXX_FLAGS}           -std=gnu++11")
+
+     # Define the sysroot path for the RaspberryPi distribution in our tools folder 
+     set(CMAKE_FIND_ROOT_PATH "${RPI64_TOOLS}/rootfs/")
+     
+     # Search for programs only in the build host directories
+     SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+
+     # Search for libraries and headers only in the target directories
+     SET(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+     SET(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)     
+   endif()
+
+
+   # ----------------------------------------
+   # Platform ARM
+   
+   if(COMPILE_TO_LINUX_ARM)     
+     add_definitions(-DHW_ARM)   
+
+     set(CMAKE_SYSTEM_PROCESSOR arm)  
+                              
      # Define the cross compiler locations
-     list(APPEND INCLUDES_DIR "/usr/")    
-     set(NXPIMX "/usr")
-     set(CMAKE_C_COMPILER   "${NXPIMX}/bin/arm-linux-gnueabihf-gcc")
-     set(CMAKE_CXX_COMPILER "${NXPIMX}/bin/arm-linux-gnueabihf-g++")
+     set(ARM_TOOLS "/usr")
+     list(APPEND INCLUDES_DIR "${ARM_TOOLS}/include/")   
+     
+     set(CMAKE_C_COMPILER   "${ARM_TOOLS}/bin/arm-linux-gnueabihf-gcc")
+     set(CMAKE_CXX_COMPILER "${ARM_TOOLS}/bin/arm-linux-gnueabihf-g++")
                
      # Use our definitions for compiler tools
      set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
@@ -475,35 +503,36 @@
 
     endif() 
     
-    # ----------------------------------------
-    # Platform NXP iMX8
-   
-    if(COMPILE_TO_LINUX_ARM_NXP_IMX8)
-     
-     set(CMAKE_SYSTEM_NAME Linux)
-     set(CMAKE_SYSTEM_PROCESSOR arm)  
-       
-     add_definitions(-DLINUX)
-     add_definitions(-DHW_NXP_IMX8) 
-                                
-     list(APPEND INCLUDES_DIR "/usr/include/")    
-     
-     set(NXPIMX "/usr")
-     set(CMAKE_C_COMPILER   "${NXPIMX}/bin/aarch64-linux-gnu-gcc")
-     set(CMAKE_CXX_COMPILER "${NXPIMX}/bin/aarch64-linux-gnu-g++")
-         
-     # Use our definitions for compiler tools
-     set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
-     
-     # Search for libraries and headers in the target directories only
-     set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
-     set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
+    # ----------------------------------------
+    # Platform ARM 64
+   
+    if(COMPILE_TO_LINUX_ARM_64)     
+      add_definitions(-DHW_ARM64) 
+
+      set(CMAKE_SYSTEM_PROCESSOR aarch64)  
+                                        
+      list(APPEND INCLUDES_DIR "/usr/include/")    
+     
+      set(ARM64_TOOLS "/usr")
+      set(CMAKE_C_COMPILER   "${ARM64_TOOLS}/bin/aarch64-linux-gnu-gcc")
+      set(CMAKE_CXX_COMPILER "${ARM64_TOOLS}/bin/aarch64-linux-gnu-g++")
+         
+      # Use our definitions for compiler tools
+      set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+     
+      # Search for libraries and headers in the target directories only
+      set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+      set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
     endif()
 
+
+    # ----------------------------------------
+    # Compile clang LINUX
+   
     if(COMPILE_WITH_CLANG)
-       set(CMAKE_C_FLAGS "-fdeclspec --std=c++0x")
-       set(CMAKE_CXX_FLAGS "-fdeclspec --std=c++0x")
+      set(CMAKE_C_FLAGS   "-fdeclspec --std=c++0x")
+      set(CMAKE_CXX_FLAGS "-fdeclspec --std=c++0x")
     endif()
     
  endif()
@@ -2172,25 +2201,21 @@
    if(DIO_GPIO_FEATURE)    
      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXGPIO.cpp")
 
-     if(${TARGET} MATCHES "raspberrypi")
+     if((${TARGET} MATCHES "raspberrypi") OR (${TARGET} MATCHES "raspberrypi_64"))       
        list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXGPIORaspberryPi.cpp")
-     else()
+     endif()  
 
-       if((${TARGET} MATCHES "nxp_imx6") OR (${TARGET} MATCHES "nxp_imx8"))       
-         list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXGPIONXPiMX.cpp")
-       endif()  
+     if((${TARGET} MATCHES "arm") OR (${TARGET} MATCHES "arm_64"))       
+       list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXGPIOARM.cpp")
+     endif()  
 
-       if(DIO_GPIO_PCPARALLEL_FEATURE)
-         list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXGPIOPCParallel.cpp")
-       endif()  
-
-     endif()   
-
+     if(DIO_GPIO_PCPARALLEL_FEATURE)
+       list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXGPIOPCParallel.cpp")
+     endif()     
    endif()
 
    if(DIO_LEDNEOPIXELWS2812B_FEATURE)
-
-     if(${TARGET} MATCHES "raspberrypi")
+     if((${TARGET} MATCHES "raspberrypi") OR (${TARGET} MATCHES "raspberrypi_64"))       
        list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/DIOLINUXLedNeoPixelWS2812BRaspberryPi.cpp")
      endif()
 
@@ -2475,12 +2500,12 @@
    list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/pngwtran.c")
    list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/pngwutil.c")	 
    
-   if(COMPILE_TO_LINUX_ARM_RASPBERRYPI)
+   if(COMPILE_TO_LINUX_ARM_RPI)
      list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/arm/arm_init.c")
      list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/arm/filter_neon_intrinsics.c")
    endif()
 
-   if(COMPILE_TO_LINUX_ARM_NXP_IMX8)
+   if(COMPILE_TO_LINUX_ARM_64 OR COMPILE_TO_LINUX_ARM_RPI_64)
      list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/arm/arm_init.c")
      list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPNG}/arm/filter_neon_intrinsics.c")
    endif()

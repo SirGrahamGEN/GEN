@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @file       DIOLINUXGPIONXPIMX.cpp
+* @file       DIOLINUXGPIOARM.cpp
 *
-* @class      DIOLINUXGPIONXPIMX
-* @brief      Data Input/Output LINUX GPIO (General Purpose Input/Output) NXP iMX x
+* @class      DIOLINUXGPIOARM
+* @brief      Data Input/Output LINUX GPIO (General Purpose Input/Output) ARM
 * @ingroup    PLATFORM_LINUX
 *
 * @copyright  GEN Group. All rights reserved.
@@ -30,7 +30,7 @@
 
 #include "GEN_Defines.h"
 
-#if defined(HW_NXP_IMX6) || defined(HW_NXP_IMX8)
+#if defined(HW_ARM) || defined(HW_ARM64)
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -50,7 +50,7 @@
 #include "XFile.h"
 #include "XTrace.h"
 
-#include "DIOLINUXGPIONXPiMX.h"
+#include "DIOLINUXGPIOARM.h"
 
 #include "XMemory_Control.h"
 
@@ -62,14 +62,14 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOLINUXGPIONXPIMX::DIOLINUXGPIONXPIMX()
+* @fn         DIOLINUXGPIOARM::DIOLINUXGPIOARM()
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
 * @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOLINUXGPIONXPIMX::DIOLINUXGPIONXPIMX() : DIOLINUXGPIO()
+DIOLINUXGPIOARM::DIOLINUXGPIOARM() : DIOLINUXGPIO()
 {
   Clean();
 }
@@ -78,7 +78,7 @@ DIOLINUXGPIONXPIMX::DIOLINUXGPIONXPIMX() : DIOLINUXGPIO()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOLINUXGPIONXPIMX::~DIOLINUXGPIONXPIMX()
+* @fn         DIOLINUXGPIOARM::~DIOLINUXGPIOARM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
@@ -86,7 +86,7 @@ DIOLINUXGPIONXPIMX::DIOLINUXGPIONXPIMX() : DIOLINUXGPIO()
 * @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOLINUXGPIONXPIMX::~DIOLINUXGPIONXPIMX()
+DIOLINUXGPIOARM::~DIOLINUXGPIOARM()
 {
   Clean();
 }
@@ -96,7 +96,7 @@ DIOLINUXGPIONXPIMX::~DIOLINUXGPIONXPIMX()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void DIOLINUXGPIONXPIMX::Clean()
+* @fn         void DIOLINUXGPIOARM::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
@@ -104,7 +104,7 @@ DIOLINUXGPIONXPIMX::~DIOLINUXGPIONXPIMX()
 * @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOLINUXGPIONXPIMX::Clean()
+void DIOLINUXGPIOARM::Clean()
 {
 
 }

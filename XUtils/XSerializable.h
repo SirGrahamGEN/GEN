@@ -56,7 +56,9 @@ class XSERIALIZABLE
                                    XSERIALIZABLE        ();
     virtual                       ~XSERIALIZABLE        ();
 
+    #ifdef XSERIALIZABLE_BINARY_ACTIVE
     static XSERIALIZATIONMETHOD*   CreateInstance       (XBUFFER& databinary); 
+    #endif
 
     #ifdef XSERIALIZABLE_JSON_ACTIVE
     static XSERIALIZATIONMETHOD*   CreateInstance       (XFILEJSON& fileJSON);    

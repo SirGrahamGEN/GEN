@@ -1,13 +1,10 @@
-#pragma once/**-------------------------------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
 
 @file       UI_Manager.h
 
 @class      UI_MANAGER
 @brief      User Interface Manager class
 @ingroup    USERINTERFACE
-
-""
-""
 
 @copyright  GEN Group. All rights reserved.
 
