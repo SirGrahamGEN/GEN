@@ -1517,6 +1517,8 @@ XFILEJSONVALUE* XFILEJSON::GetValue(int index, XFILEJSONOBJECT* startobject)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILEJSON::ShowTraceJSON(XBYTE color, bool istabulatedline)
 {
+  DeleteAllLines();
+
   EncodeAllLines(istabulatedline);
   
   for(int c=0; c<GetNLines(); c++)

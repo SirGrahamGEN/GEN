@@ -38,7 +38,7 @@
 #define VERSION_NAME         "GEN FrameWork"
 #define VERSION_VERSION      0
 #define VERSION_SUBVERSION   12
-#define VERSION_SUBERROR     3
+#define VERSION_SUBERROR     4
 #define VERSION_CODENAME     "Danchel"
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
