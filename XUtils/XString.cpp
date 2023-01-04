@@ -5059,14 +5059,14 @@ bool XSTRING::Base64_Encode(XBYTE* buffer, XDWORD buffersize, XSTRING& line)
 	*in   = (XBYTE) 0;
 	*out  = (XBYTE) 0;
 
-  while(cin < buffersize) 
+  while((XDWORD)cin < buffersize) 
     {
       len = 0;
       for(i = 0; i < 3; i++) 
         {
           in[i] = (XBYTE)buffer[cin++];
 
-          if(cin <= buffersize) 
+          if((XDWORD)cin <= buffersize) 
             {
               len++;
             }

@@ -120,7 +120,7 @@
   #include "DIOLINUXLedNeoPixelWS2812BRaspberryPi.h"
   #endif
   
-  #if defined(HW_NXP_IMX6) || defined(HW_NXP_IMX8)  
+  #if defined(HW_ARM) || defined(HW_ARM64)  
   #endif
 
 #endif

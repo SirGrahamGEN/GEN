@@ -1086,6 +1086,7 @@ void XWINDOWSSERVICEBASE::Pause()
 
         SetServiceStatus(SERVICE_PAUSED);
       }
+    /*
     catch(DWORD error)
       {
         #ifdef XLOG_ACTIVE
@@ -1095,6 +1096,7 @@ void XWINDOWSSERVICEBASE::Pause()
         #endif
         SetServiceStatus(SERVICE_RUNNING);
       }
+    */
     catch(...)
       {
         #ifdef XLOG_ACTIVE
@@ -1122,6 +1124,7 @@ void XWINDOWSSERVICEBASE::Continue()
         On_Continue();
         SetServiceStatus(SERVICE_RUNNING);
       }
+    /*
     catch(DWORD error)
       {
         #ifdef XLOG_ACTIVE
@@ -1131,6 +1134,7 @@ void XWINDOWSSERVICEBASE::Continue()
         #endif
         SetServiceStatus(SERVICE_PAUSED);
       }
+    */
     catch(...)
       {
         #ifdef XLOG_ACTIVE
@@ -1157,6 +1161,7 @@ void XWINDOWSSERVICEBASE::Shutdown()
 
         SetServiceStatus(SERVICE_STOPPED);
       }
+     /*
      catch (DWORD error)
       {
         #ifdef XLOG_ACTIVE
@@ -1165,6 +1170,7 @@ void XWINDOWSSERVICEBASE::Shutdown()
         //error++;
         #endif
       }
+     */
      catch (...)
       {
         #ifdef XLOG_ACTIVE

@@ -2,61 +2,79 @@
 # CMakeLists_Compile.txt to GEN FrameWork
 # --------------------------------------------------------------------
 
-#--- Set features to false -------------------------------------------
-
- set(COMPILE_TO_WINDOWS                                  false   CACHE BOOL "Compile to Windows General"                                 FORCE)
- set(COMPILE_TO_WINDOWS_PC_32                            false   CACHE BOOL "Compile to Windows PC 32 Bits"                              FORCE)
- set(COMPILE_TO_WINDOWS_PC_64                            false   CACHE BOOL "Compile to Windows PC 64 Bits"                              FORCE)
- set(COMPILE_TO_LINUX                                    false   CACHE BOOL "Compile to Linux   General"                                 FORCE)
- set(COMPILE_TO_LINUX_PC_64                              false   CACHE BOOL "Compile to Linux   PC 64 Bits"                              FORCE)
- set(COMPILE_TO_LINUX_ARM_RASPBERRYPI                    false   CACHE BOOL "Compile to Linux   Rapsberry Pi"                            FORCE)
- set(COMPILE_TO_LINUX_ARM_NXP_IMX6                       false   CACHE BOOL "Compile to Linux   ARM NXP imx6"                            FORCE)
- set(COMPILE_TO_LINUX_ARM_NXP_IMX8                       false   CACHE BOOL "Compile to Linux   ARM NXP imx8"                            FORCE)
- set(COMPILE_TO_ANDROID                                  false   CACHE BOOL "Compile to Android General"                                 FORCE)
- set(COMPILE_TO_STM32                                    false   CACHE BOOL "Compile to STM32   Genral"                                  FORCE)
-
- set(COMPILE_WITH_MSVC                                   false   CACHE BOOL "Compile with Microsoft Compiler (MSVC)"                     FORCE)
- set(COMPILE_WITH_GCC                                    false   CACHE BOOL "Compile with GNU Compiler Collection (GCC)"                 FORCE)
- set(COMPILE_WITH_CLANG                                  false   CACHE BOOL "Compile with CLang (front-end of LLVM)"                     FORCE)
 
 
-#--- Compile in Windows Platform -------------------------------------
+
+# --------------------------------------------------------------------
+# Variables assignated
+
+# COMPILE_TO_WINDOWS               "Compile to Windows  General"
+# COMPILE_TO_WINDOWS_PC_32         "Compile to Windows  PC 32 Bits"
+# COMPILE_TO_WINDOWS_PC_64         "Compile to Windows  PC 64 Bits"
+
+# COMPILE_TO_LINUX                 "Compile to Linux    General"
+# COMPILE_TO_LINUX_PC_64           "Compile to Linux    PC 64"
+# COMPILE_TO_LINUX_RPI             "Compile to Linux    Rapsberry Pi"
+# COMPILE_TO_LINUX_RPI_64          "Compile to Linux    Rapsberry Pi 64"
+# COMPILE_TO_LINUX_ARM             "Compile to Linux    ARM"
+# COMPILE_TO_LINUX_ARM_64          "Compile to Linux    ARM 64"
+
+# COMPILE_TO_ANDROID               "Compile to Android  General"
+
+# COMPILE_TO_STM32                 "Compile to STM32    General"
+
+# --------------------------------------------------------------------
+
+# COMPILE_WITH_MSVC                "Compile Microsoft Compiler (MSVC)"
+# COMPILE_WITH_GCC                 "Compile GNU Compiler Collection (GCC)"
+# COMPILE_WITH_CLANG               "Compile CLang (front-end of LLVM)"
+
+# --------------------------------------------------------------------
+
+
+
+
+# --- Compile in Windows Platform ------------------------------------
 
  if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
-   set(COMPILE_TO_WINDOWS                                true    CACHE BOOL "Compile to Windows General"                                 FORCE)
+   option(COMPILE_TO_WINDOWS "Compile to Windows General"  true )
 
-   if(${TARGET} MATCHES "pc")   
+   if(${TARGET} STREQUAL "pc")
 
      if(CMAKE_SIZEOF_VOID_P EQUAL 8)
 
-       set(COMPILE_TO_WINDOWS_PC_64                      true    CACHE BOOL "Compile to Windows PC 64 Bits"                              FORCE)
+       option(COMPILE_TO_WINDOWS_PC_64 "Compile to Windows PC 64 Bits" true )
+       message(STATUS "[Select platform Windows PC 64 Bits]")
 
      else()
 
        if(CMAKE_SIZEOF_VOID_P EQUAL 4)
 
-         set(COMPILE_TO_WINDOWS_PC_32                    true    CACHE BOOL "Compile to Windows PC 32 Bits"                              FORCE)
+         option(COMPILE_TO_WINDOWS_PC_32 "Compile to Windows PC 32 Bits" true )
+         message(STATUS "[Select platform Windows PC 32 Bits]")
 
-      endif()
+       endif()
 
-    endif()
-
- endif()
-
-
-   if(${TARGET} MATCHES "Android")   
-
-     set(COMPILE_TO_WINDOWS                              false   CACHE BOOL "Compile to Windows General"                                 FORCE)
-     set(COMPILE_TO_ANDROID                              true    CACHE BOOL "Compile to Android"                                         FORCE)
+     endif()
 
    endif()
 
 
-   if(${TARGET} MATCHES "STM32")
+   if(${TARGET} STREQUAL "Android")   
 
-     set(COMPILE_TO_WINDOWS                              false   CACHE BOOL "Compile to Windows General"                                 FORCE)
-     set(COMPILE_TO_STM32_ARM                            true    CACHE BOOL "Compile to STM32"                                           FORCE)     
+     option(COMPILE_TO_WINDOWS "Compile to Windows General" false )
+     option(COMPILE_TO_ANDROID "Compile to Android"         true  )
+     message(STATUS "[Select platform Android]")
+
+   endif()
+
+
+   if(${TARGET} STREQUAL "STM32")
+
+     option(COMPILE_TO_WINDOWS   "Compile to Windows General" false )
+     option(COMPILE_TO_STM32_ARM "Compile to STM32"           true  )
+     message(STATUS "[Select platform STM32]")
 
    endif()
 
@@ -65,33 +83,45 @@
 # --------------------------------------------------------------------
 
 
-#--- Compile in Linux Platform ---------------------------------------
+
+# --- Compile in Linux Platform ---------------------------------------
 
  if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
-   set(COMPILE_TO_LINUX                                  true    CACHE BOOL "Compile to Linux   General"                                 FORCE)  
+   option(COMPILE_TO_LINUX    "Compile to Linux   General" true )  
 
-   if(${TARGET} MATCHES "pc")
+   if(${TARGET} STREQUAL "pc") 
 
-     set(COMPILE_TO_LINUX_PC_64                          true    CACHE BOOL "Compile to Linux   PC 64 Bits"                              FORCE)
-
-   endif()
-
-   if(${TARGET} MATCHES "raspberrypi")
-
-     set(COMPILE_TO_LINUX_ARM_RASPBERRYPI                true    CACHE BOOL "Compile to Linux   Rapsberry Pi"                            FORCE)
+     option(COMPILE_TO_LINUX_PC_64 "Compile to Linux PC 64 Bits" true )
+     message(STATUS "[Select platform Linux PC 64 Bits]")
 
    endif()
 
-   if(${TARGET} MATCHES "nxp_imx6")
+   if(${TARGET} STREQUAL "raspberrypi")
 
-     set(COMPILE_TO_LINUX_ARM_NXP_IMX6                   true    CACHE BOOL "Compile to Linux   ARM NXP imx6"                            FORCE)
+     option(COMPILE_TO_LINUX_ARM_RPI "Compile to Linux Rapsberry Pi" true )
+     message(STATUS "[Select platform Linux Raspberry Pi]")
 
    endif()
 
-   if(${TARGET} MATCHES "nxp_imx8")
+   if(${TARGET} STREQUAL "raspberrypi_64")
 
-     set(COMPILE_TO_LINUX_ARM_NXP_IMX6                   true    CACHE BOOL "Compile to Linux   ARM NXP imx6"                            FORCE)
+     option(COMPILE_TO_LINUX_ARM_RPI_64 "Compile to Linux Rapsberry Pi 64" true )
+     message(STATUS "[Select platform Linux Raspberry Pi 64 Bits]")
+
+   endif()   
+
+   if(${TARGET} STREQUAL "arm")
+
+     option(COMPILE_TO_LINUX_ARM "Compile to Linux ARM" true )
+     message(STATUS "[Select platform Linux ARM]")
+
+   endif()
+
+   if(${TARGET} STREQUAL "arm_64")
+
+     option(COMPILE_TO_LINUX_ARM_64 "Compile to Linux ARM 64" true )
+     message(STATUS "[Select platform Linux ARM 64 Bits]")
 
    endif()
 
@@ -99,17 +129,24 @@
 
 # --------------------------------------------------------------------
 
+
+
+# --- Type of compile ------------------------------------------------
+
 if(("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC"))
-  set(COMPILE_WITH_MSVC true CACHE BOOL "Compile with Microsoft Compiler (MSVC)" FORCE)
+  option(COMPILE_WITH_MSVC   "Compile with Microsoft Compiler (MSVC)"     true )
   message(STATUS "[Select for compile with Microsoft Compiler (MSVC)]")
 endif()
 
 if(("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU"))
-  set(COMPILE_WITH_GCC true CACHE BOOL "Compile with GNU Compiler Collection (GCC)" FORCE)
+  option(COMPILE_WITH_GCC    "Compile with GNU Compiler Collection (GCC)" true )
   message(STATUS "[Select for compile with GNU Compiler Collection (GCC)]")
 endif()
 
 if(("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang"))
-  set(COMPILE_WITH_CLANG true CACHE BOOL "Compile with CLang (front-end of LLVM)" FORCE)
+  option(COMPILE_WITH_CLANG  "Compile with CLang (front-end of LLVM)"     true )
   message(STATUS "[Select for compile with CLang (front-end of LLVM)]")
 endif()
+
+# --------------------------------------------------------------------
+

@@ -140,7 +140,7 @@ DWORD WINAPI            Service_WorkerThread          (LPVOID lpParam);
 
 bool                    Exception_Printf              (bool iserror, XCHAR* title, XCHAR* mask, ...);
 BOOL                    Exception_ConsoleHandler      (DWORD fdwctrltype);
-bool                    Exception_ShutDown            (XSYSTEM_CHANGESTATUSTYPE type);
+//bool                    Exception_ShutDown            (XSYSTEM_CHANGESTATUSTYPE type);
 
 
 
@@ -1644,122 +1644,5 @@ bool Exception_Printf(bool iserror, XCHAR* title, XCHAR* mask, ...)
   return true;
 }
 
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         static bool Exception_PrintfStackTrace(const CONTEXT* context)
-* @brief      Exception Printf Stack Trace
-* @note       INTERNAL
-* @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  CONTEXT* context :
-*
-* @return     static :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-/*
-static bool Exception_PrintfStackTrace(const CONTEXT* context)
-{
-  static const int MAX_TRACES     = 60;
-  static const int MAX_LENGTH     = 256;
-  static const int BUFFER_LENGTH  = (sizeof(SYMBOL_INFO) + MAX_LENGTH * sizeof(wchar_t) + sizeof(ULONG64) - 1) / sizeof(ULONG64);
-
-  SymSetOptions(SYMOPT_DEFERRED_LOADS | SYMOPT_UNDNAME | SYMOPT_LOAD_LINES | SYMOPT_LOAD_ANYTHING | SYMOPT_AUTO_PUBLICS | SYMOPT_OMAP_FIND_NEAREST | SYMOPT_DEBUG);
-  if (!SymInitialize(GetCurrentProcess(), "http://msdl.microsoft.com/download/symbols", TRUE )) return false;
-
-  void* trace[MAX_TRACES];
-  int   count = CaptureStackBackTrace(0, MAX_TRACES , trace, NULL);
-
-  Exception_Printf(true, NULL, __L("Stack trace: (%d) calls :"), count);
-
-  for(int i=0; i<count; ++i)
-    {
-      ULONG64         buffer[BUFFER_LENGTH];
-      DWORD_PTR       frame               = reinterpret_cast<DWORD_PTR>(trace[i]);
-    //DWORD64         sym_displacement    = 0;
-      PSYMBOL_INFO    symbol              = reinterpret_cast<PSYMBOL_INFO>(&buffer[0]);
-
-      symbol->SizeOfStruct = sizeof(SYMBOL_INFO);
-      symbol->MaxNameLen   = MAX_LENGTH;
-
-    //BOOL            has_symbol          = SymFromAddr(GetCurrentProcess(), frame, &sym_displacement, symbol);
-      DWORD           line_displacement   = 0;
-      IMAGEHLP_LINE64 line                = {};
-
-      line.SizeOfStruct = sizeof(IMAGEHLP_LINE64);
-      BOOL has_line                       = SymGetLineFromAddr64(GetCurrentProcess(), frame, &line_displacement, &line);
-
-      XSTRING symbolname;
-      XSTRING filename;
-      XSTRING string;
-      XSTRING mask;
-
-      symbolname = symbol->Name;
-
-      string.Format(__L(" [%02d] - 0x%08X : %-48s "), (count-i-1), (XDWORD)symbol->Address, symbolname.Get());
-      if(has_line)
-        {
-          filename = line.FileName;
-          mask.Format(__L("line (%02d) %s "), line.LineNumber, filename.Get());
-          string += mask;
-        }
-
-      Exception_Printf(true, NULL, string.Get());
-    }
-
-  return true;
-}
-*/
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool Exception_ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
-* @brief      Exception ShutDown
-* @note       INTERNAL
-* @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  type :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool Exception_ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
-{
-  if(type == XSYSTEM_CHANGESTATUSTYPE_UNKNOWN) return false;
-
-  HANDLE            hToken;
-  TOKEN_PRIVILEGES  tkp;
-
-  // Get a token for this process.
-  if(!OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, &hToken))  return false;
-
-  // Get the LUID for the shutdown privilege.
-  LookupPrivilegeValue(NULL, SE_SHUTDOWN_NAME, &tkp.Privileges[0].Luid);
-
-  tkp.PrivilegeCount            = 1;  // one privilege to set
-  tkp.Privileges[0].Attributes  = SE_PRIVILEGE_ENABLED;
-
-  // Get the shutdown privilege for this process.
-  AdjustTokenPrivileges(hToken, FALSE, &tkp, 0, (PTOKEN_PRIVILEGES)NULL, 0);
-  if(GetLastError() != ERROR_SUCCESS) return false;
-
-  switch(type)
-    {
-      case XSYSTEM_CHANGESTATUSTYPE_REBOOT          : if(!ExitWindowsEx(EWX_REBOOT   | EWX_FORCE, SHTDN_REASON_MAJOR_OPERATINGSYSTEM | SHTDN_REASON_MINOR_UPGRADE | SHTDN_REASON_FLAG_PLANNED)) return false;
-                                                      break;
-
-      case XSYSTEM_CHANGESTATUSTYPE_SESSION_LOGOFF  : if(!ExitWindowsEx(EWX_LOGOFF   | EWX_FORCE, SHTDN_REASON_MAJOR_OPERATINGSYSTEM | SHTDN_REASON_MINOR_UPGRADE | SHTDN_REASON_FLAG_PLANNED)) return false;
-                                                      break;
-
-      case XSYSTEM_CHANGESTATUSTYPE_POWEROFF        : if(!ExitWindowsEx(EWX_POWEROFF | EWX_FORCE, SHTDN_REASON_MAJOR_OPERATINGSYSTEM | SHTDN_REASON_MINOR_UPGRADE | SHTDN_REASON_FLAG_PLANNED)) return false;
-                                                      break;
-
-                                          default   : return false;
-    }
-
-  return true;
-}
 
 

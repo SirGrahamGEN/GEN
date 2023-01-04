@@ -116,8 +116,8 @@
     #include "DIOLINUXGPIORaspberryPi.h"
     #endif
     
-    #if defined(HW_NXP_IMX6) || defined(HW_NXP_IMX8)
-    #include "DIOLINUXGPIONXPIMX.h"
+    #if defined(HW_ARM) || defined(HW_ARM64)
+    #include "DIOLINUXGPIOARM.h"
     #endif
 
   #endif
@@ -424,8 +424,8 @@ bool MAINPROCLINUX::Factorys_Ini()
       if(!DIOGPIO::SetInstance(new DIOLINUXGPIORASPBERRYPI())) return false;
       #endif
 
-      #if defined(HW_NXP_IMX6) || defined(HW_NXP_IMX8)
-      if(!DIOGPIO::SetInstance(new DIOLINUXGPIONXPIMX())) return false;
+      #if defined(HW_ARM) || defined(HW_ARM64)
+      if(!DIOGPIO::SetInstance(new DIOLINUXGPIOARM())) return false;
       #endif
     
     if(!DIOGPIO::GetInstance().Ini()) return false;

@@ -303,7 +303,7 @@ bool VERSION::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subv
   if(!xdatetime) return false;
 
   xdatetime->Read();
-  string2.Format((xdatetime->GetYear()>app_creationyear)?__L("%d-%d "):__L("%d "), app_creationyear, xdatetime->GetYear());
+  string2.Format(((XDWORD)xdatetime->GetYear()>app_creationyear)?__L("%d-%d "):__L("%d "), app_creationyear, xdatetime->GetYear());
 
   GEN_XFACTORY.DeleteDateTime(xdatetime);
 

@@ -215,11 +215,11 @@ XSYSTEM_HARDWARETYPE XLINUXSYSTEM::GetTypeHardware(int* revision)
   return XSYSTEM_HARDWARETYPE_BEAGLEBONE;
   #endif
   
-  #ifdef HW_NXP_IMX6
+  #ifdef HW_ARM
   return XSYSTEM_HARDWARETYPE_NXP_IMX6;
   #endif
 
-  #ifdef HW_NXP_IMX8
+  #ifdef HW_ARM64
   return XSYSTEM_HARDWARETYPE_NXP_IMX8;
   #endif
 
@@ -273,7 +273,7 @@ XSYSTEM_PLATFORM XLINUXSYSTEM::GetPlatform(XSTRING* namestring)
   return XSYSTEM_PLATFORM_LINUX_EMBEDDED;
   #endif
 
-  #if defined(HW_NXP_IMX6) || defined(HW_NXP_IMX8)
+  #if defined(HW_ARM) || defined(HW_ARM64)
   if(namestring)  namestring->Set(__L("Linux Embedded"));
   return XSYSTEM_PLATFORM_LINUX_EMBEDDED;  
   #endif

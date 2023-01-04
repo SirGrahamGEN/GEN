@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @file       DIOLINUXGPIONXPiMX.h
+* @file       DIOLINUXGPIOARM.h
 *
 * @class      DIOLINUXGPIOSOLIDRUNIMX6
-* @brief      Data Input/Output LINUX GPIO (General Purpose Input/Output) NXP iMX x
+* @brief      Data Input/Output LINUX GPIO (General Purpose Input/Output) ARM
 * @ingroup    PLATFORM_LINUX
 *
 * @copyright  GEN Group. All rights reserved.
@@ -26,10 +26,10 @@
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#if defined(HW_NXP_IMX6) || defined(HW_NXP_IMX8)
+#if defined(HW_ARM) || defined(HW_ARM64)
 
-#ifndef _DIOLINUXGPIONXPIMX_H_
-#define _DIOLINUXGPIONXPIMX_H_
+#ifndef _DIOLINUXGPIOARM_H_
+#define _DIOLINUXGPIOARM_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -40,16 +40,16 @@
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIOLINUXGPIONXPIMX: public DIOLINUXGPIO
+class DIOLINUXGPIOARM: public DIOLINUXGPIO
 {
   public:
-                          DIOLINUXGPIONXPIMX                ();
-    virtual              ~DIOLINUXGPIONXPIMX                ();
+                          DIOLINUXGPIOARM                ();
+    virtual              ~DIOLINUXGPIOARM                ();
 
   
   private:  
 
-    void                  Clean                             ();
+    void                  Clean                          ();
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
