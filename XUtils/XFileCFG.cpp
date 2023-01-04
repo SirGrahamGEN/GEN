@@ -1053,7 +1053,7 @@ bool XFILECFG::SetValue(XFILECFGVALUE* CFGvalue, XVARIANT* value)
 {
   if((!CFGvalue) || (!value))
     {
-      return NULL;
+      return false;
     }
 
    switch(CFGvalue->GetType())
