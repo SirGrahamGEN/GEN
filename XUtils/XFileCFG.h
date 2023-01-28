@@ -204,16 +204,7 @@ class XFILECFG : public XSUBJECT
                                         {
                                           XSTRING         key;
                                           XFILECFGVALUE*  CFGvalue = NULL;
-
-                                          XSTRING str = __L("item");
-
-
-                                          if(!str.Compare(IDbasic, true))
-                                            {
-                                               int a=0;
-                                               a++;      
-                                            }  
-                                          
+                                                                                 
                                           nkeys = GetCountKeys(group, IDbasic, mask, maxcount);    
                                         
                                           if(nkeys < mincount)  nkeys = mincount;
