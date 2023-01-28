@@ -288,7 +288,7 @@ LRESULT CALLBACK INPWINDOWSKEYBOARDHOOK::LowLevelKeyboardProc(int ncode, WPARAM 
 
   KBDLLHOOKSTRUCT* keydata = (KBDLLHOOKSTRUCT*)lparam;
 
-  XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[Windows Hook keyboard] vkCode %04X, scanCode %08X, flags %08X [%c]"), keydata->vkCode, keydata->scanCode, keydata->flags, keydata->scanCode);
+  //XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[Windows Hook keyboard] vkCode %04X, scanCode %08X, flags %08X [%c]"), keydata->vkCode, keydata->scanCode, keydata->flags, keydata->vkCode);
   
   INPWINDOWSKEYBOARDHOOK_XEVENT xevent(&INPWINDOWSKEYBOARDHOOK::GetInstance(), (keydown?INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_PRESSKEY:INPWINDOWSKEYBOARDHOOK_XEVENT_TYPE_UNPRESSKEY));
 

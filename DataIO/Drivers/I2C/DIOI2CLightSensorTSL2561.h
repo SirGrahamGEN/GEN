@@ -194,8 +194,6 @@ class DIOI2CLIGHTSENSORTSL2561 : public DIODEVICEI2C
     DIOI2CLIGHTSENSORTSL2561INTEGRATIONTIME     integrationtime;
     DIOI2CLIGHTSENSORTSL2561GAIN                gain;
 
-    DIOSTREAMI2C*                               diostream;
-
   private:
 
     bool                                        IniDevice                     ();

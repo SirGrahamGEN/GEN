@@ -31,6 +31,9 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "XVector.h"
+#include "XString.h"
+
 #include "DIOIP.h"
 #include "DIOMAC.h"
 
@@ -63,6 +66,8 @@ class DIOSTREAMDEVICEIP : public DIOSTREAMDEVICE
     DIOSTREAMIPDEVICE_TYPE        GetIPType               ();
     bool                          SetIPType               (DIOSTREAMIPDEVICE_TYPE iptype);
 
+    XVECTOR<XSTRING*>*            GetDNSservers           ();
+
     virtual bool                  DebugPrintInfo          ();
 
   protected:
@@ -70,6 +75,7 @@ class DIOSTREAMDEVICEIP : public DIOSTREAMDEVICE
     DIOMAC                        MAC;
     DIOIP                         IP;
     DIOSTREAMIPDEVICE_TYPE        iptype;
+    XVECTOR<XSTRING*>             DNSservers;
 
   private:
 

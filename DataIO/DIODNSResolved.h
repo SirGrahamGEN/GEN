@@ -101,6 +101,7 @@ class DIODNSRESOLVED
     bool                                    DNSServer_AddDNSServer          (XSTRING& server);
     bool                                    DNSServer_AddDNSServer          (XBYTE* serverIP, XWORD port);
     bool                                    DNSServer_AddDNSServer          (DIOIP& serverIP, XWORD port);
+    bool                                    DNSServer_IsIPonList            (DIOIP& serverIP);
     XVECTOR<DIODNSRESOLVED_DNSSERVER*>*     DNSServer_GetList               ();
     bool                                    DNSServer_DeleteAllList         ();
 
@@ -122,8 +123,9 @@ class DIODNSRESOLVED
 
     static DIODNSRESOLVED*                  instance;
 
-    XVECTOR<DIODNSRESOLVED_HOSTRESOLVED*>   listhostresolved;
     XVECTOR<DIODNSRESOLVED_DNSSERVER*>      listDNSservers;
+    XVECTOR<DIODNSRESOLVED_HOSTRESOLVED*>   listhostresolved;
+    
 };
 
 

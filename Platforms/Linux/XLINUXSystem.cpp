@@ -59,8 +59,6 @@
 #include <sys/resource.h>
 #include <linux/reboot.h>
 
-
-
 #ifndef ANDROID
 #include <alsa/asoundlib.h>
 #endif

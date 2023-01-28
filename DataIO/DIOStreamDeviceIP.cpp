@@ -62,15 +62,18 @@ DIOSTREAMDEVICEIP::DIOSTREAMDEVICEIP()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMDEVICEIP::~ DIOSTREAMDEVICEIP()
+* @fn         DIOSTREAMDEVICEIP::~DIOSTREAMDEVICEIP()
 * @brief      IOSTREAMDEVICEIP
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMDEVICEIP::~ :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMDEVICEIP::~ DIOSTREAMDEVICEIP()
+DIOSTREAMDEVICEIP::~DIOSTREAMDEVICEIP()
 {
+  DNSservers.DeleteContents();
+  DNSservers.DeleteAll();
+
   Clean();
 }
 
@@ -142,6 +145,20 @@ bool DIOSTREAMDEVICEIP::SetIPType(DIOSTREAMIPDEVICE_TYPE iptype)
   return true;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* DIOSTREAMDEVICEIP::GetDNSservers()
+* @brief      GetDNSservers
+* @ingroup    DATAIO
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* DIOSTREAMDEVICEIP::GetDNSservers()
+{
+  return &DNSservers;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------

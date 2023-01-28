@@ -68,16 +68,16 @@ endif()
 # Linux
 
 if(COMPILE_TO_LINUX)
+  
+  if((COMPILE_TO_LINUX_ARM_RPI) OR (COMPILE_TO_LINUX_ARM_RPI64))   
+    target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC "${RPI_SYSROOT}/lib/arm-linux-gnueabihf"  "${RPI_SYSROOT}/usr/lib/arm-linux-gnueabihf")     
+  endif() 
+  
   target_link_libraries(${CMAKE_PROJECT_NAME} stdc++)  
   target_link_libraries(${CMAKE_PROJECT_NAME} pthread)  
   target_link_libraries(${CMAKE_PROJECT_NAME} rt)  
   target_link_libraries(${CMAKE_PROJECT_NAME} dl) 
-  target_link_libraries(${CMAKE_PROJECT_NAME} m)   
-
-  if((COMPILE_TO_LINUX_ARM_RPI) OR (COMPILE_TO_LINUX_ARM_RPI64))
-    target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC /usr/local/pi/tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/lib/arm-linux-gnueabihf)
-    target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC /usr/local/pi/tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/lib/arm-linux-gnueabihf)    
-  endif()
+  target_link_libraries(${CMAKE_PROJECT_NAME} m)         
 
   if(DIO_STREAMUSB_FEATURE)
     target_link_libraries(${CMAKE_PROJECT_NAME} udev)  

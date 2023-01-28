@@ -90,6 +90,8 @@ class DIOLINUXGPIORASPBERRYPI : public DIOGPIO
     bool                                RPI_GPIORead                (XQWORD GPIO);
     bool                                RPI_GPIOWrite               (XQWORD GPIO, bool isactive);
 
+    bool                                RPI_CheckHandle             (uint32_t* RPI_gpio);
+
     void                                Clean                       ();
 
     RASPBERRYPI_MODEL                   RPI_model;

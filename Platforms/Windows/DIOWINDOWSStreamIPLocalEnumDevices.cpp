@@ -71,7 +71,7 @@ DIOWINDOWSSTREAMIPLOCALENUMDEVICES::DIOWINDOWSSTREAMIPLOCALENUMDEVICES() : DIOST
 /*-----------------------------------------------------------------*/
 DIOWINDOWSSTREAMIPLOCALENUMDEVICES::~DIOWINDOWSSTREAMIPLOCALENUMDEVICES()
 {
-
+   
 }
 
 
@@ -146,6 +146,47 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
 
                 device->GetIP()->Set(IP);
                 device->GetIP()->GetMask()->Set(mask);
+
+                { GUID                    interfaceGUID;
+                  DNS_INTERFACE_SETTINGS  interfacesettings { 0 };
+                  XSTRING                 strGUID = padapterinfo->AdapterName;
+                  XSTRING                 nameservers;
+                                                 
+                  IIDFromString(strGUID.Get(), &interfaceGUID);
+                  
+                  interfacesettings.Version = DNS_INTERFACE_SETTINGS_VERSION1;   
+                  
+                  GetInterfaceDnsSettings(interfaceGUID, &interfacesettings);
+
+                  nameservers = interfacesettings.NameServer;
+                 
+                  FreeInterfaceDnsSettings(&interfacesettings);  
+
+                  XSTRING* DNSserver = NULL;
+                  int      start     = 0;
+
+                  for(int c=0; c<nameservers.GetSize(); c++)
+                    {
+                      if(nameservers.Get()[c] == __C(','))
+                        {
+                          DNSserver = new XSTRING();
+                          if(DNSserver)
+                            {
+                              nameservers.Copy(start, c, (*DNSserver)); 
+                              start = c+1;
+                              device->GetDNSservers()->Add(DNSserver);
+                            }  
+                        }    
+                    } 
+
+                  DNSserver = new XSTRING();
+                  if(DNSserver)
+                    {
+                      nameservers.Copy(start, nameservers.GetSize(), (*DNSserver));                       
+                      device->GetDNSservers()->Add(DNSserver);
+                    }                   
+                }
+
 
                // if((IP.Compare(__L("0.0.0.0"))))
                   {

@@ -57,7 +57,7 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
-static volatile uint32_t* RPI_gpio;
+static uint32_t* RPI_gpio;
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
@@ -382,7 +382,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
   if((fd = open ("/dev/mem", O_RDWR | O_SYNC | O_CLOEXEC)) < 0) return false;
 
   RPI_gpio = (uint32_t *)mmap(0, RPI_BLOCK_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, RPI_gpio_base) ;
-  if ((int32_t)RPI_gpio == -1) return false;
+  if (!RPI_CheckHandle(RPI_gpio)) return false;
 
   return true;
 }
@@ -400,7 +400,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIORASPBERRYPI::RPI_End()
 {
-  if ((int32_t)RPI_gpio == -1) return false;
+  if(!RPI_CheckHandle(RPI_gpio)) return false;
 
   //fixme - set all gpios back to input
   //munmap((caddr_t)RPI_gpio, RPI_BLOCK_SIZE);
@@ -462,8 +462,8 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
   int     fsel;
   int     shift;
 
-  if((int32_t)RPI_gpio == -1) return false;
-  if(!RPI_IsGPIOValid(GPIO))  return false;
+  if(!RPI_CheckHandle(RPI_gpio))  return false;
+  if(!RPI_IsGPIOValid(GPIO))      return false;
 
   //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("RPI Data Port Mode: GPIO %lld -> %s "), GPIO, isinput?__L("input"):__L("output"));
 
@@ -496,8 +496,8 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIORead(XQWORD GPIO)
                               14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
                            };
 
-  if((int32_t)RPI_gpio == -1) return false;
-  if(!RPI_IsGPIOValid(GPIO)) return false; 
+  if(!RPI_CheckHandle(RPI_gpio))  return false;
+  if(!RPI_IsGPIOValid(GPIO))      return false; 
 
   //XTRACE_PRINTCOLOR(1, __L("RPI Data Port Read: GPIO %lld"), GPIO);
 
@@ -535,8 +535,8 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
                            };
 
 
-  if((int32_t)RPI_gpio == -1) return false;
-  if(!RPI_IsGPIOValid(GPIO)) return false;
+  if(!RPI_CheckHandle(RPI_gpio))  return false;
+  if(!RPI_IsGPIOValid(GPIO))      return false;
 
   //XTRACE_PRINTCOLOR(1, __L("RPI Data Port Write: GPIO %lld ->%s"), GPIO, isactive?__L("on"):__L("off"));
 
@@ -547,6 +547,26 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
   return true;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_CheckHandle(uint32_t* RPI_gpio)
+* @brief      RPI_CheckHandle
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  RPI_gpio : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOLINUXGPIORASPBERRYPI::RPI_CheckHandle(uint32_t* RPI_gpio)
+{
+  long long result = (long long)(RPI_gpio);
+
+  if(result == -1) return false;
+
+  return true;
+} 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
