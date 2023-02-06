@@ -407,7 +407,11 @@
     endif()
    
     if(LINUX_VISUALSTUDIOCODEPAGE_FEATURE)
-      set(CMAKE_CXX_FLAGS "-finput-charset=CP1252")
+      set(CMAKE_CXX_FLAGS "-finput-charset=CP1252")      
+    endif()
+
+    if(LINUX_VISUALSTUDIOUTF8_FEATURE)
+      set(CMAKE_CXX_FLAGS "-finput-charset=UTF-8")
     endif()
 
     option(XTRANSLATION_FEATURE "Activate Translation"  true )   

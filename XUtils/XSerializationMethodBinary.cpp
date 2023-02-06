@@ -390,7 +390,7 @@ bool XSERIALIZATIONMETHODBINARY::Add(XSTRING& var, XCHAR* name)
   
   XBUFFER buffer;
   
-  var.ConvertToXBUFFER(buffer);
+  var.ConvertToXBuffer(buffer);
 
   bufferdata->Add(buffer); 
 

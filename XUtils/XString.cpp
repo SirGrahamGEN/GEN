@@ -312,6 +312,32 @@ XDWORD XSTRING::GetSize(XWORD* string)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRINGCODING XSTRING::GetTypeCoding()
+* @brief      GetTypeCoding
+* @ingroup    XUTILS
+* 
+* @return     XSTRINGCODING : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRINGCODING XSTRING::GetTypeCoding()
+{
+  XSTRINGCODING coding = XSTRINGCODING_UNKWOWN;
+
+  switch(sizeof(XCHAR)) 
+    {
+      case 02 : coding = XSTRINGCODING_UTF16; 
+                break;
+
+      case 04 : coding = XSTRINGCODING_UTF32; 
+                break;
+    }
+
+  return coding;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::IsOEM()
 * @brief      IsOEM
@@ -420,7 +446,6 @@ bool XSTRING::CreateNormalize(XWORD*& _textnormalize, bool inverse)
     }
 
   return true;
-
 }
 
 
@@ -3027,26 +3052,6 @@ bool XSTRING::ConvertFromBoolean(bool boolean, bool uppercase)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTRING::ConvertFromXBUFFER(XBUFFER& buffer)
-* @brief      ConvertFromXBUFFER
-* @ingroup    XUTILS
-*
-* @param[in]  buffer :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::ConvertFromXBUFFER(XBUFFER& buffer)
-{
-  if(!this->AdjustSize(buffer.GetSize()/sizeof(XDWORD))) return false;
-  if(!buffer.Get(*this, this->size, 0)) return false;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         bool XSTRING::ConvertHexFormatChars()
 * @brief      ConvertHexFormatChars
 * @ingroup    XUTILS
@@ -3399,28 +3404,6 @@ double XSTRING::ConvertToDouble(int index, const XCHAR* mask, bool checkvalidcha
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTRING::ConvertToXBUFFER(XBUFFER& buffer)
-* @brief      ConvertToXBUFFER
-* @ingroup    XUTILS
-*
-* @param[in]  buffer :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::ConvertToXBUFFER(XBUFFER& buffer)
-{
-  if(IsEmpty()) return true;
-
-  if(!buffer.Resize(GetSize()*sizeof(XDWORD))) return false;
-  if(!buffer.Set(*this)) return false;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         bool XSTRING::ConvertToBoolean()
 * @brief      ConvertToBoolean
 * @ingroup    XUTILS
@@ -3476,6 +3459,335 @@ bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD maxsize)
     }
   
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertToASCII(XBUFFER& xbuffer)
+* @brief      ConvertToASCII
+* @ingroup    XUTILS
+* 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertToASCII(XBUFFER& xbuffer)
+{   
+  if(IsEmpty()) return size;
+
+  xbuffer.Empty();
+
+  for(XDWORD c=0; c<size; c++)
+    {    
+      if((text[c]>=0x20) && (text[c]<0x7F)) 
+        {                    
+          xbuffer.Add((XBYTE)(text[c]));
+        }
+       else
+        {
+          xbuffer.Add((XBYTE)'_');
+        } 
+    }
+
+  return true;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertFromASCII(XBUFFER& xbuffer)
+* @brief      ConvertFromASCII
+* @ingroup    XUTILS
+* 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertFromASCII(XBUFFER& xbuffer)
+{
+  if(xbuffer.IsEmpty()) return false;
+
+  Empty();
+
+  for(XDWORD c=0; c<xbuffer.GetSize(); c++)
+    {
+      XCHAR character = (XCHAR)(xbuffer.Get()[c]);
+
+      Add((XCHAR)character);      
+    }
+  
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertToXBuffer(XBUFFER& xbuffer)
+* @brief      ConvertToXBuffer
+* @ingroup    XUTILS
+* 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertToXBuffer(XBUFFER& xbuffer)
+{
+  bool status = false;
+
+  if(IsEmpty()) return size;
+
+  xbuffer.Empty();
+
+  switch(GetTypeCoding())
+    {
+      case XSTRINGCODING_UTF16  : { for(XDWORD c=0; c<size; c++)
+                                      {
+                                        xbuffer.Add((XWORD)text[c]);
+                                      }
+                                  
+                                    status = true;  
+                                  }
+                                  break;  
+
+      case XSTRINGCODING_UTF32  : { for(XDWORD c=0; c<size; c++)
+                                      {
+                                        xbuffer.Add((XDWORD)text[c]);
+                                      }
+                                  
+                                    status = true;  
+                                  }
+                                  break;  
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertFromXBuffer(XBUFFER& xbuffer, XSTRINGCODING buffercoding)
+* @brief      ConvertFromXBuffer
+* @ingroup    XUTILS
+* 
+* @param[in]  xbuffer : 
+* @param[in]  buffercoding : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertFromXBuffer(XBUFFER& xbuffer, XSTRINGCODING buffercoding)
+{  
+  bool status = false;
+
+  if(xbuffer.IsEmpty()) return false;
+
+  Empty();
+
+  switch(GetTypeCoding())
+    {
+      case XSTRINGCODING_UTF16  : switch(buffercoding)
+                                    {
+                                      case XSTRINGCODING_UNKWOWN  : { xbuffer.ResetPosition();
+
+                                                                      for(XDWORD c=0; c<xbuffer.GetSize(); c++)
+                                                                        {
+                                                                          XBYTE character;
+
+                                                                          xbuffer.Get(character);
+                                                                          Add((XCHAR)character);
+                                                                        }                                                                                                        
+                                                                    }
+                                                                    status = true; 
+                                                                    break;
+
+                                      case XSTRINGCODING_UTF8     : ConvertFromUTF8(xbuffer);
+                                                                    status = true;
+                                                                    break;
+
+                                      case XSTRINGCODING_UTF16    : { xbuffer.ResetPosition();
+
+                                                                      for(XDWORD c=0; c<xbuffer.GetSize(); c++)
+                                                                        {
+                                                                          XWORD character;
+
+                                                                          xbuffer.Get(character);
+                                                                          Add((XCHAR)character);
+                                                                        }                                                                                                        
+                                                                    }
+                                                                    status = true;  
+                                                                    break;
+
+                                      case XSTRINGCODING_UTF32    : { xbuffer.ResetPosition();
+
+                                                                      for(size_t c=0; c<xbuffer.GetSize(); c++) 
+                                                                        {
+                                                                          XDWORD value = 0;
+
+                                                                          xbuffer.Get(value);
+                                                                          if (value > 0xFFFF) 
+                                                                            {
+                                                                              value -= 0x10000;
+
+                                                                              XDWORD lo = ((XWORD)(0xD800 | (value >> 10)));   
+                                                                              XDWORD hi = ((XWORD)(0xDC00 | (value & 0x3FF)));
+
+                                                                              //XCHAR character = ((hi<<16) | lo);  
+                                                                              //Add((XCHAR)character);
+
+                                                                              Add((XCHAR)(0xD800 | (value >> 10)));
+                                                                              Add((XCHAR)(0xDC00 | (value & 0x3FF)));
+                                                                            } 
+                                                                           else 
+                                                                            {
+                                                                              Add((XCHAR)value);
+                                                                            }
+                                                                        }                                                                       
+                                                                    } 
+                                                                    status = true;              
+                                                                    break;
+
+                                    }
+                                  break;
+  
+      case XSTRINGCODING_UTF32  : switch(buffercoding)
+                                    {
+                                      case XSTRINGCODING_UNKWOWN  : { xbuffer.ResetPosition();
+
+                                                                      for(XDWORD c=0; c<xbuffer.GetSize(); c++)
+                                                                        {
+                                                                          XBYTE character;
+
+                                                                          xbuffer.Get(character);
+                                                                          Add((XCHAR)character);
+                                                                        }                                                                                                        
+                                                                    }
+                                                                    status = true;  
+                                                                    break;    
+
+                                      case XSTRINGCODING_UTF8     : ConvertFromUTF8(xbuffer);
+                                                                    status = true;  
+                                                                    break;
+
+                                      case XSTRINGCODING_UTF16    : { xbuffer.ResetPosition();
+
+                                                                      for(size_t c=0; c<xbuffer.GetSize(); c++) 
+                                                                        {
+                                                                          XWORD value;
+                                                                          xbuffer.Get(value);
+
+                                                                          if(value >= 0xD800 && value <= 0xDBFF && c + 1 < xbuffer.GetSize()) 
+                                                                            {
+                                                                              XWORD low;
+                                                                              xbuffer.Get(low);
+
+                                                                              if(low >= 0xDC00 && low <= 0xDFFF) 
+                                                                                {
+                                                                                  XDWORD value2 = ((value - 0xD800) << 10) + (low - 0xDC00) + 0x10000;
+                                                                                  Add((XCHAR)value2);
+                                                                                  c++;
+                                                                                } 
+                                                                               else 
+                                                                                {
+                                                                                  Add((XCHAR)value);
+                                                                                }
+                                                                            } 
+                                                                           else 
+                                                                            {
+                                                                              Add((XCHAR)value);
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    status = true;  
+                                                                    break;                                                                    
+
+                                      case XSTRINGCODING_UTF32    : { xbuffer.ResetPosition();
+
+                                                                      for(XDWORD c=0; c<xbuffer.GetSize(); c++)
+                                                                        {
+                                                                          XDWORD character;
+
+                                                                          xbuffer.Get(character);
+                                                                          Add((XCHAR)character);
+                                                                        }                                                                                                          
+                                                                    }
+                                                                    status = true;
+                                                                    break;
+
+                                    }
+                                  break;
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int XSTRING::GetSizeConvertToUTF8()
+* @brief      GetSizeConvertToUTF8
+* @ingroup    XUTILS
+*
+* @return     int :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int XSTRING::GetSizeConvertToUTF8()
+{
+  XDWORD size = 0;
+
+  if(IsEmpty()) return size;
+
+  int i = 0;
+  int j = 0;
+  int c = (int)text[i++];
+
+  while(c)
+    {
+      if(c<0)
+        {
+          j++;
+        }
+       else
+        {
+          if(c<128)
+            {
+              j++;
+            }
+           else
+            {
+                if(c< 2048)
+                  {
+                    j++;
+                    j++;
+                  }
+                 else
+                  {
+                    if(c<65536)
+                      {
+                        j++;
+                        j++;
+                        j++;
+                      }
+                     else
+                      {
+                        j++;
+                        j++;
+                        j++;
+                        j++;
+                      }
+                  }
+            }
+        }
+
+      c = text[i++];
+    }
+
+  size = j;
+
+  return size;
 }
 
 
@@ -3589,85 +3901,19 @@ bool XSTRING::ConvertFromUTF8(XBUFFER& xbuffer)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int XSTRING::GetSizeConvertToUTF8()
-* @brief      GetSizeConvertToUTF8
-* @ingroup    XUTILS
-*
-* @return     int :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-int XSTRING::GetSizeConvertToUTF8()
-{
-  XDWORD size = 0;
-
-  if(IsEmpty()) return size;
-
-  int i = 0;
-  int j = 0;
-  int c = (int)text[i++];
-
-  while(c)
-    {
-      if(c<0)
-        {
-          j++;
-        }
-       else
-        {
-          if(c<128)
-            {
-              j++;
-            }
-           else
-            {
-                if(c< 2048)
-                  {
-                    j++;
-                    j++;
-                  }
-                 else
-                  {
-                    if(c<65536)
-                      {
-                        j++;
-                        j++;
-                        j++;
-                      }
-                     else
-                      {
-                        j++;
-                        j++;
-                        j++;
-                        j++;
-                      }
-                  }
-            }
-        }
-
-      c = text[i++];
-    }
-
-
-  size = j;
-
-  return size;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSTRING::ConvertToUTF8(XBYTE* data, int& size)
+* 
+* @fn         bool XSTRING::ConvertToUTF8(XBYTE* data, int& size, bool addzeroatend)
 * @brief      ConvertToUTF8
 * @ingroup    XUTILS
-*
-* @param[in]  data :
-* @param[in]  size :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  data : 
+* @param[in]  size : 
+* @param[in]  addzeroatend : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::ConvertToUTF8(XBYTE* data, int& size)
+bool XSTRING::ConvertToUTF8(XBYTE* data, int& size, bool addzeroatend)
 {
   size = 0;
   if(!data) return false;
@@ -3721,8 +3967,15 @@ bool XSTRING::ConvertToUTF8(XBYTE* data, int& size)
       c = text[i++];
     }
 
-  data[j]=0;
-
+  if(addzeroatend)
+    {
+      data[j]=0;     
+    }
+   else 
+    {
+      j--;
+    }
+ 
   size = j;
 
   return true;
@@ -3730,21 +3983,27 @@ bool XSTRING::ConvertToUTF8(XBYTE* data, int& size)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSTRING::ConvertToUTF8(XBUFFER& xbuffer)
+* 
+* @fn         bool XSTRING::ConvertToUTF8(XBUFFER& xbuffer, bool addzeroatend)
 * @brief      ConvertToUTF8
 * @ingroup    XUTILS
-*
-* @param[in]  xbuffer :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  xbuffer : 
+* @param[in]  addzeroatend : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::ConvertToUTF8(XBUFFER& xbuffer)
+bool XSTRING::ConvertToUTF8(XBUFFER& xbuffer, bool addzeroatend)
 {
   if(IsEmpty()) return false;
 
-  XDWORD sizeUTF8 = GetSizeConvertToUTF8()+1;
+  XDWORD sizeUTF8 = GetSizeConvertToUTF8();
+
+  if(addzeroatend) 
+    {
+      sizeUTF8++;
+    }
 
   xbuffer.Delete();
   xbuffer.Resize(sizeUTF8);
@@ -3752,7 +4011,153 @@ bool XSTRING::ConvertToUTF8(XBUFFER& xbuffer)
 
   int _size  = xbuffer.GetSize();
 
-  return ConvertToUTF8(xbuffer.Get(),  _size);
+  return ConvertToUTF8(xbuffer.Get(),  _size, addzeroatend);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertFromUTF16(XBUFFER& xbuffer)
+* @brief      ConvertFromUTF16
+* @ingroup    XUTILS
+* 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertFromUTF16(XBUFFER& xbuffer)
+{
+  return ConvertFromXBuffer(xbuffer, XSTRINGCODING_UTF16);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertToUTF16(XBUFFER& xbuffer)
+* @brief      ConvertToUTF16
+* @ingroup    XUTILS
+* 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertToUTF16(XBUFFER& xbuffer)
+{
+  if(IsEmpty()) return false;
+
+  bool status = false;
+
+  xbuffer.Empty();
+
+  switch(GetTypeCoding())
+    {
+      case XSTRINGCODING_UTF16  : { for(XDWORD c=0; c<size; c++)
+                                      {
+                                        xbuffer.Add((XWORD)text[c]);
+                                      }
+                                  
+                                    status = true;  
+                                  }
+                                  break;  
+  
+      case XSTRINGCODING_UTF32  : { for(size_t c=0; c<size; c++) 
+                                      {
+                                        XDWORD value = text[c];
+                                        if (value > 0xFFFF) 
+                                          {
+                                            value -= 0x10000;
+                                            xbuffer.Add((XWORD)(0xD800 | (value >> 10)));
+                                            xbuffer.Add((XWORD)(0xDC00 | (value & 0x3FF)));
+                                          } 
+                                         else 
+                                          {
+                                            xbuffer.Add((XWORD)value);
+                                          }
+                                      }
+
+                                    status = true;  
+                                  }                               
+                                  break;
+    }
+   
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertFromUTF32(XBUFFER& xbuffer)
+* @brief      ConvertFromUTF32
+* @ingroup    XUTILS
+* 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertFromUTF32(XBUFFER& xbuffer)
+{
+  return ConvertFromXBuffer(xbuffer, XSTRINGCODING_UTF32);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertToUTF32(XBUFFER& xbuffer)
+* @brief      ConvertToUTF32
+* @ingroup    XUTILS
+* 
+* @param[in]  xbuffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertToUTF32(XBUFFER& xbuffer)
+{
+  bool status = false;
+
+  xbuffer.Empty();
+
+  switch(GetTypeCoding())
+    {
+      case XSTRINGCODING_UTF16  : { for(size_t c=0; c<size; c++) 
+                                      {
+                                        XDWORD value = text[c];
+                                        if(value >= 0xD800 && value <= 0xDBFF && c + 1 < size) 
+                                          {
+                                            XWORD low = text[c + 1];
+                                            if(low >= 0xDC00 && low <= 0xDFFF) 
+                                              {
+                                                value = ((value - 0xD800) << 10) + (low - 0xDC00) + 0x10000;
+                                                xbuffer.Add((XDWORD)value);
+                                                c++;
+                                              } 
+                                             else 
+                                              {
+                                                xbuffer.Add((XDWORD)value);
+                                              }
+                                          } 
+                                         else 
+                                          {
+                                            xbuffer.Add((XDWORD)value);
+                                          }
+                                      }
+                                  }
+                                  status = true;  
+                                  break;
+  
+      case XSTRINGCODING_UTF32  : { for(XDWORD c=0; c<size; c++)
+                                      {
+                                        xbuffer.Add((XDWORD)text[c]);
+                                      }
+                                  }
+                                  status = true;  
+                                  break;
+    }
+   
+  return status;
 }
 
 

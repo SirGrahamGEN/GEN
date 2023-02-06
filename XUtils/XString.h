@@ -45,13 +45,22 @@ typedef wchar_t XCHAR;
 
 #define XSTRING_NOTFOUND     NOTFOUND
 
+
+enum XSTRINGCODING
+{
+  XSTRINGCODING_UNKWOWN        = 0 ,
+  XSTRINGCODING_UTF8               ,
+  XSTRINGCODING_UTF16              ,
+  XSTRINGCODING_UTF32              ,
+};
+
+
 enum XSTRINGCONTEXT
 {
   XSTRINGCONTEXT_FROM_FIRST    = 0 ,
   XSTRINGCONTEXT_TO_END            ,
   XSTRINGCONTEXT_ALLSTRING         ,
 };
-
 
 #pragma pack(push, r1, 1)
 typedef struct
@@ -64,23 +73,31 @@ typedef struct
 
 
 #ifdef MICROCONTROLLER
-#define XSTRING_BLOCKMEM          8
-#define XSTRING_MAXTEMPOSTR       128
-#define XSTRING_STANDARDSIZE      64
+#define XSTRING_BLOCKMEM                8
+#define XSTRING_MAXTEMPOSTR             128
+#define XSTRING_STANDARDSIZE            64
 #else
-#define XSTRING_BLOCKMEM          128
-#define XSTRING_MAXTEMPOSTR       1024
-#define XSTRING_STANDARDSIZE      256
+#define XSTRING_BLOCKMEM                128
+#define XSTRING_MAXTEMPOSTR             1024
+#define XSTRING_STANDARDSIZE            256
 #endif
 
-#define XSTRING_SIZETABLE64BITS   64
-#define XSTRING_TABLE64BITS       __L("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/")
+#define XSTRING_SIZETABLE64BITS         64
+#define XSTRING_TABLE64BITS             __L("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/")
 
-#define XSTRING_VALIDCHARSINT     __L("0123456789-+");
-#define XSTRING_VALIDCHARSFLOAT   __L("0123456789-+.eE");
+#define XSTRING_VALIDCHARSINT           __L("0123456789-+");
+#define XSTRING_VALIDCHARSFLOAT         __L("0123456789-+.eE");
 
-#define __L(x)          (XCHAR*)(L##x)
-#define __C(x)          (XCHAR)(L##x)
+
+#define XSTRING_UNICODE_SUR_HIGH_START  (XDWORD)0xD800
+#define XSTRING_UNICODE_SUR_HIGH_END    (XDWORD)0xDBFF
+#define XSTRING_UNICODE_SUR_LOW_START   (XDWORD)0xDC00
+#define XSTRING_UNICODE_SUR_LOW_END     (XDWORD)0xDFFF
+
+
+
+#define __L(x)                          (XCHAR*)(L##x)
+#define __C(x)                          (XCHAR)(L##x)
 
 #if (defined(LINUX) || defined(ANDROID))
   #define SPRINTF(str, ...)       sprintf(str, ## __VA_ARGS__)
@@ -148,6 +165,8 @@ class GEN_API_LIB XSTRING
     XDWORD                GetSize                         () const;
     static XDWORD         GetSize                         (const XCHAR* string);
     static XDWORD         GetSize                         (XWORD* string);
+
+    XSTRINGCODING         GetTypeCoding                   ();
 
     bool                  IsOEM                           ();
     bool                  CreateOEM                       (char*& text) const;
@@ -260,8 +279,7 @@ class GEN_API_LIB XSTRING
     bool                  ConvertFromFloat                (float value, const XCHAR* mask = NULL);
     bool                  ConvertFromDouble               (double value, const XCHAR* mask = NULL);
     bool                  ConvertFromBoolean              (bool boolean, bool uppercase = false);
-    bool                  ConvertFromXBUFFER              (XBUFFER& buffer);
-
+    
     bool                  ConvertHexFormatChars           ();
     bool                  ConvertToHexString              (XSTRING& string, bool uppercase = true);
     bool                  ConvertHexStringToBuffer        (XBUFFER& xbuffer);
@@ -272,17 +290,28 @@ class GEN_API_LIB XSTRING
     XQWORD                ConvertToQWord                  (int index = 0, const XCHAR* mask = NULL, bool checkvalidchars = true);
     float                 ConvertToFloat                  (int index = 0, const XCHAR* mask = NULL, bool checkvalidchars = true);
     double                ConvertToDouble                 (int index = 0, const XCHAR* mask = NULL, bool checkvalidchars = true);
-    bool                  ConvertToXBUFFER                (XBUFFER& buffer);
     bool                  ConvertToBoolean                ();
 
     bool                  ConvertFromWide                 (XWORD* widechars, XDWORD maxsize);
 
-    bool                  ConvertFromUTF8                 (XBYTE* data, XDWORD size);
-    bool                  ConvertFromUTF8                 (XBUFFER& xbuffer);
-    int                   GetSizeConvertToUTF8            ();
-    bool                  ConvertToUTF8                   (XBYTE* data, int& size);
-    bool                  ConvertToUTF8                   (XBUFFER& xbuffer);
+    bool                  ConvertToASCII                  (XBUFFER& xbuffer);
+    bool                  ConvertFromASCII                (XBUFFER& xbuffer);
+    
+    bool                  ConvertToXBuffer                (XBUFFER& xbuffer);
+    bool                  ConvertFromXBuffer              (XBUFFER& xbuffer, XSTRINGCODING buffercoding);
 
+    int                   GetSizeConvertToUTF8            ();
+    bool                  ConvertFromUTF8                 (XBYTE* data, XDWORD size);
+    bool                  ConvertFromUTF8                 (XBUFFER& xbuffer);    
+    bool                  ConvertToUTF8                   (XBYTE* data, int& size, bool addzeroatend = true);
+    bool                  ConvertToUTF8                   (XBUFFER& xbuffer, bool addzeroatend = true);
+
+    bool                  ConvertFromUTF16                (XBUFFER& xbuffer);    
+    bool                  ConvertToUTF16                  (XBUFFER& xbuffer);    
+
+    bool                  ConvertFromUTF32                (XBUFFER& xbuffer);
+    bool                  ConvertToUTF32                  (XBUFFER& xbuffer);
+       
     bool                  ConvertToBase64                 (XSTRING& string);
     bool                  ConvertBinaryToBase64           (XBUFFER& inbuffer);
     bool                  ConvertBase64ToBinary           (XBUFFER& outbuffer);
@@ -312,9 +341,8 @@ class GEN_API_LIB XSTRING
 
     bool                  GetTypeOfLineEnd                (XSTRING& lineend);
     
-
   protected: 
-
+    
     bool                  ReAllocBuffer                   (XDWORD size);
     bool                  FreeBuffer                      ();
 
