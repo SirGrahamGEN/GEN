@@ -559,9 +559,11 @@ bool CIPHERKEYSFILEGKF::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
     {
       if(xfile->Create(xpath))
         {
-          XSTRING_CREATEOEM(publicPEM, charstr)
-          xfile->Write((XBYTE*)charstr, publicPEM.GetSize());
-          XSTRING_DELETEOEM(publicPEM, charstr)
+          
+          XBUFFER charstr;
+          publicPEM.ConvertToASCII(charstr);
+          xfile->Write((XBYTE*)charstr.Get(), publicPEM.GetSize());
+          
           xfile->Close();
 
           return true;

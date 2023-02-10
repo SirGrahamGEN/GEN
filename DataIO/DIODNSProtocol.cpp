@@ -247,10 +247,10 @@ bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 
       ChangetoDNSNameFormat(origin, target);
 
-      XSTRING_CREATEOEM(target, targetOEM);
-      buffer.Add((XBYTE*)targetOEM, target.GetSize()+1);
-      XSTRING_DELETEOEM(target, targetOEM);
-
+      XBUFFER chartarget;
+      target.ConvertToASCII(chartarget);      
+      buffer.Add((XBYTE*)chartarget.Get(), target.GetSize()+1);
+      
       question.qtype  = SwapWORD(querytype);   // htons(querytype);
       question.qclass = SwapWORD(1);           // htons(1);
 

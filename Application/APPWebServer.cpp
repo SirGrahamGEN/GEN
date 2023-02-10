@@ -314,10 +314,11 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
   XBUFFER xbuffer(size);
   bool    status = false;
 
-  XSTRING_CREATEOEM(data, charstr);
-  memcpy(xbuffer.Get(), (XBYTE*)charstr, size);
+  
+  XBUFFER charstr;
+  data.ConvertToASCII(charstr);
+  memcpy(xbuffer.Get(), charstr.Get(), size);
   status = SendRequest(connection, headerresult, &xbuffer, timeout, addhead);
-  XSTRING_DELETEOEM(data, charstr);
 
   return status;
 }

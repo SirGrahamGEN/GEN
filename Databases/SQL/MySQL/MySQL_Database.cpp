@@ -224,10 +224,10 @@ bool MYSQL_DATABASE::Rollback(XCHAR* savepointname)
         {
           DB_SQL_STRING text;
           text.Format(__L("ROLLBACK TO SAVEPOINT %s"),savepointname);
-
-          XSTRING_CREATEOEM(text, rollbacktext);
-          int rc=mysql_query(conn, rollbacktext);
-          XSTRING_DELETEOEM(text, rollbacktext);
+          
+          XBUFFER rollbacktext;
+          text.ConvertToASCII(rollbacktext);
+          int rc = mysql_query(conn, rollbacktext.GetPtrChar());
 
           if(rc != DB_SQL_MYSQL_OK)
             {
@@ -266,10 +266,10 @@ bool MYSQL_DATABASE::Savepoint(XCHAR* savepoint)
 
   text.Format(__L("SAVEPOINT %s"),savepoint);
 
-  XSTRING_CREATEOEM(text, savetext);
-  int rc = mysql_query(conn, savetext);
-  XSTRING_DELETEOEM(text, savetext);
-
+  XBUFFER savetext;
+  text.ConvertToASCII(savetext); 
+  int rc = mysql_query(conn, savetext.GetPtrChar());
+  
   if(rc != DB_SQL_MYSQL_OK)
     {
       Error((char*)mysql_error(conn));
@@ -300,10 +300,10 @@ bool MYSQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
   DB_SQL_STRING text;
   text.Format(__L("RELEASE %s"),savepoint);
 
-  XSTRING_CREATEOEM(text, savetext);
-  int rc=mysql_query(conn, savetext);
-  XSTRING_DELETEOEM(text, savetext);
-
+  XBUFFER savetext;
+  text.ConvertToASCII(savetext); 
+  int rc = mysql_query(conn, savetext.GetPtrChar());
+  
   if(rc != DB_SQL_MYSQL_OK)
     {
       Error((char*)mysql_error(conn));

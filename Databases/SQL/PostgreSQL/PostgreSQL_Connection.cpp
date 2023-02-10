@@ -171,10 +171,10 @@ bool POSTGRESQL_CONNECTION::Connect()
       connectionstring.Add(__L(" "));
     }
 
-
-  XSTRING_CREATEOEM(connectionstring, conninfo);
-
-  connection = PQconnectdb(conninfo);
+  XBUFFER conninfo;
+  connectionstring.ConvertToASCII(conninfo);
+  
+  connection = PQconnectdb(conninfo.GetPtrChar());
 
   bool status = true;
 
@@ -187,9 +187,7 @@ bool POSTGRESQL_CONNECTION::Connect()
 
       status = false;
     }
-
-  XSTRING_DELETEOEM(connectionstring, conninfo);
-
+  
   return status;
 }
 

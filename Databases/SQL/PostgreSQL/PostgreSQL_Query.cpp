@@ -286,13 +286,12 @@ bool POSTGRESQL_QUERY::ClearCursor()
       DB_SQL_STRING close;
       close.Format(__L("CLOSE %s"),this->cursorname.Get());
 
-      XSTRING_CREATEOEM(close,oem);
-
-      PGresult* res = PQexec(conn, oem);
+      XBUFFER oem;
+      close.ConvertToASCII(oem);
+      
+      PGresult* res = PQexec(conn, oem.GetPtrChar());
       if(PQresultStatus(res) != PGRES_COMMAND_OK) success=false; else success=true;
       PQclear(res);
-
-      XSTRING_DELETEOEM(close, oem);
     }
 
   return success;

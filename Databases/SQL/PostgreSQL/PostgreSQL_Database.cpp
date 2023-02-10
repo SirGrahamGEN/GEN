@@ -224,9 +224,10 @@ bool POSTGRESQL_DATABASE::Savepoint(XCHAR* savepoint)
 
   savepointstring.Format(__L("SAVEPOINT %s"),savepoint);
 
-  XSTRING_CREATEOEM(savepointstring, oem);
-
-  PGresult* res = PQexec(conn, oem);
+  XBUFFER oem;
+  savepointstring.ConvertToASCII(oem);
+ 
+  PGresult* res = PQexec(conn, oem.GetPtrChar());
   if(PQresultStatus(res) != PGRES_COMMAND_OK)
     {
       Error(PQerrorMessage(conn));
@@ -235,8 +236,6 @@ bool POSTGRESQL_DATABASE::Savepoint(XCHAR* savepoint)
    else success=true;
 
   PQclear(res);
-
-  XSTRING_DELETEOEM(savepointstring, oem);
 
   return success;
 }
@@ -262,8 +261,10 @@ bool POSTGRESQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 
   savepointstring.Format(__L("RELEASE %s"),savepoint);
 
-  XSTRING_CREATEOEM(savepointstring,oem);
-  PGresult* res = PQexec(conn, oem);
+  XBUFFER oem;
+  savepointstring.ConvertToASCII(oem);
+  
+  PGresult* res = PQexec(conn, oem.GetPtrChar());
 
   if(PQresultStatus(res) != PGRES_COMMAND_OK)
     {
@@ -273,8 +274,6 @@ bool POSTGRESQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
     } else success=true;
 
   PQclear(res);
-
-  XSTRING_DELETEOEM(savepointstring, oem);
 
   return success;
 }

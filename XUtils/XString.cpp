@@ -3491,6 +3491,8 @@ bool XSTRING::ConvertToASCII(XBUFFER& xbuffer)
         } 
     }
 
+  xbuffer.Add((XBYTE)0x00);
+
   return true;
 }
     
@@ -3512,7 +3514,7 @@ bool XSTRING::ConvertFromASCII(XBUFFER& xbuffer)
 
   Empty();
 
-  for(XDWORD c=0; c<xbuffer.GetSize(); c++)
+  for(XDWORD c=0; c<xbuffer.GetSize()-1; c++)
     {
       XCHAR character = (XCHAR)(xbuffer.Get()[c]);
 

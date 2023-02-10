@@ -471,10 +471,10 @@ bool DIOPROTOCOLCLI::SendCommandArg(XCHAR* command, XSTRING* target, XSTRING* an
     { 
       HASHCRC32 CRC32;
 
-      XSTRING_CREATEOEM(tosend, str)
-      CRC32.Do((XBYTE*)str, tosend.GetSize());
-      XSTRING_DELETEOEM(tosend, str)
-
+      XBUFFER charstr;
+      tosend.ConvertToASCII(charstr);
+      CRC32.Do((XBYTE*)charstr.Get(), tosend.GetSize());
+      
       XDWORD CRC32result = CRC32.GetResultCRC32();
       tosend.AddFormat(__L("%s%08X"), DIOPROTOCOLCLI_MARK_CRC32, CRC32result);
     }

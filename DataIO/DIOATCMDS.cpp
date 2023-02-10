@@ -844,12 +844,11 @@ DIOATCMD_ERROR DIOATCMDS::SendCommand(XDWORD type,XCHAR* param)
 
   if(mutexreadwriteprocess) mutexreadwriteprocess->Lock();
 
-  XSTRING_CREATEOEM(command, charOEM)
-  bool status = diostream->WriteStr(charOEM);
-  XSTRING_DELETEOEM(command, charOEM)
-
+  XBUFFER charstr;
+  command.ConvertToASCII(charstr);
+ 
+  bool status = diostream->WriteStr(charstr.GetPtrChar());  
   if(status) status = diostream->WaitToFlushOutXBuffer(10);
-
 
   if(mutexreadwriteprocess) mutexreadwriteprocess->UnLock();
 
@@ -905,10 +904,11 @@ DIOATCMD_ERROR DIOATCMDS::SendParam(XCHAR* param)
 
   if(mutexreadwriteprocess) mutexreadwriteprocess->Lock();
 
-  XSTRING_CREATEOEM(_param, charOEM)
-  bool status = diostream->WriteStr(charOEM);
-  XSTRING_DELETEOEM(_param, charOEM)
+  XBUFFER charstr;
+  _param.ConvertToASCII(charstr);
 
+  bool status = diostream->WriteStr(charstr.GetPtr());
+  
   if(mutexreadwriteprocess) mutexreadwriteprocess->UnLock();
 
   if(!status) return DIOATCMD_ERROR_WRITECMD;
@@ -1775,10 +1775,10 @@ bool DIOATCMDS::CheckUnsolicitedAnswer(XSTRING& answer)
                                                                             {
                                                                               if(!line.IsEmpty())
                                                                                 {
-                                                                                  XSTRING_CREATEOEM(line, charOEM)
-                                                                                  additionalparam.Add((XBYTE*)charOEM, (XDWORD)line.GetSize());
-                                                                                  XSTRING_DELETEOEM(line, charOEM)
-
+                                                                                  XBUFFER charstr;
+                                                                                  line.ConvertToASCII(charstr);
+                                                                                  additionalparam.Add((XBYTE*)charstr.Get(), (XDWORD)line.GetSize());
+                                                                                  
                                                                                   d++;
                                                                                 }
                                                                             }

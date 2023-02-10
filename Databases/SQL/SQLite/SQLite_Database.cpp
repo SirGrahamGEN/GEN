@@ -190,11 +190,12 @@ bool SQLITE_DATABASE::Rollback(XCHAR* savepoint)
           DB_SQL_STRING text;
           text.Format(__L("ROLLBACK TO SAVEPOINT %s"), savepoint);
 
-          XSTRING_CREATEOEM(text,rollbacktext);
-          int rc = sqlite3_exec(sqlite3database, rollbacktext, 0, 0, 0);
-          transactionstarted = false;
-          XSTRING_DELETEOEM(text, rollbacktext);
+          XBUFFER rollbacktext;
+          text.ConvertToASCII(rollbacktext);
 
+          int rc = sqlite3_exec(sqlite3database, rollbacktext.GetPtrChar(), 0, 0, 0);
+          transactionstarted = false;
+          
           return (rc==SQLITE_OK);
         }
     }
@@ -220,10 +221,11 @@ bool SQLITE_DATABASE::Savepoint(XCHAR* savepoint)
   DB_SQL_STRING text;
   text.Format(__L("SAVEPOINT %s"),savepoint);
 
-  XSTRING_CREATEOEM(text,rollbacktext);
-  int rc=sqlite3_exec(sqlite3database, rollbacktext, 0, 0, 0);
-  XSTRING_DELETEOEM(text, rollbacktext);
-
+  XBUFFER rollbacktext;
+  text.ConvertToASCII(rollbacktext);
+          
+  int rc=sqlite3_exec(sqlite3database, rollbacktext.GetPtrChar(), 0, 0, 0);
+  
   return (rc==SQLITE_OK);
 }
 
@@ -245,10 +247,11 @@ bool SQLITE_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
   DB_SQL_STRING text;
   text.Format(__L("RELEASE %s"),savepoint);
 
-  XSTRING_CREATEOEM(text,rollbacktext);
-  int rc=sqlite3_exec(sqlite3database, rollbacktext, 0, 0, 0);
-  XSTRING_DELETEOEM(text, rollbacktext);
-
+  XBUFFER rollbacktext;
+  text.ConvertToASCII(rollbacktext);
+  
+  int rc=sqlite3_exec(sqlite3database, rollbacktext.GetPtrChar(), 0, 0, 0);
+  
   return (rc==SQLITE_OK);
 }
 

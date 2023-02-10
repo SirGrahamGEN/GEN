@@ -88,14 +88,6 @@ typedef struct
 #define XSTRING_VALIDCHARSINT           __L("0123456789-+");
 #define XSTRING_VALIDCHARSFLOAT         __L("0123456789-+.eE");
 
-
-#define XSTRING_UNICODE_SUR_HIGH_START  (XDWORD)0xD800
-#define XSTRING_UNICODE_SUR_HIGH_END    (XDWORD)0xDBFF
-#define XSTRING_UNICODE_SUR_LOW_START   (XDWORD)0xDC00
-#define XSTRING_UNICODE_SUR_LOW_END     (XDWORD)0xDFFF
-
-
-
 #define __L(x)                          (XCHAR*)(L##x)
 #define __C(x)                          (XCHAR)(L##x)
 

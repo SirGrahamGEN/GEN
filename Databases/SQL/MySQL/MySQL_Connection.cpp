@@ -130,11 +130,16 @@ bool MYSQL_CONNECTION::Connect()
 
   FindOption(__L("DATABASE")  , &databasename);
   FindOption(__L("PORT")      , &databaseport);
-
-  XSTRING_CREATEOEM(databaseurl, url);
-  XSTRING_CREATEOEM(databaseuser, user);
-  XSTRING_CREATEOEM(databasepassword, pswd);
-  XSTRING_CREATEOEM(databasename, name);
+  
+  XBUFFER url;
+  XBUFFER user;
+  XBUFFER pswd;
+  XBUFFER name;
+  
+  databaseurl.ConvertToASCII(url);
+  databaseuser.ConvertToASCII(user);
+  databasepassword.ConvertToASCII(pswd);
+  databasename.ConvertToASCII(name);
 
   unsigned int port = databaseport.ConvertToDWord();
 
@@ -157,7 +162,7 @@ bool MYSQL_CONNECTION::Connect()
       mysql_options(connection,MYSQL_OPT_CONNECT_TIMEOUT ,&timeoutseconds);
   }
 
-  if(mysql_real_connect(connection, url, user, pswd, name, port, NULL, 0) == NULL)
+  if(mysql_real_connect(connection, url.GetPtrChar(), user.GetPtrChar(), pswd.GetPtrChar(), name.GetPtrChar(), port, NULL, 0) == NULL)
     {
       DB_SQL_STRING error;
 
@@ -167,12 +172,7 @@ bool MYSQL_CONNECTION::Connect()
 
       success = false;
     }
-
-  XSTRING_DELETEOEM(databaseurl, url);
-  XSTRING_DELETEOEM(databaseuser, user);
-  XSTRING_DELETEOEM(databasepassword, pswd);
-  XSTRING_DELETEOEM(databasename, name);
-
+  
   return success;
 }
 

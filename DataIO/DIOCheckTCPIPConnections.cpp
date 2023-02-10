@@ -499,10 +499,10 @@ XDWORD DIOCHECKTCPIPCONNECTION::CreateID()
   HASHCRC32 hashcrc32;
   XDWORD    _ID = 0;
 
-  XSTRING_CREATEOEM((*url), charstr)
-  if(hashcrc32.Do((XBYTE*)charstr, url->GetSize())) _ID += hashcrc32.GetResultCRC32();
-  XSTRING_DELETEOEM((*url), charstr)
-
+  XBUFFER charstr;
+  url->ConvertToASCII(charstr);
+  if(hashcrc32.Do((XBYTE*)charstr.Get(), url->GetSize())) _ID += hashcrc32.GetResultCRC32();
+  
   return _ID;
 }
 

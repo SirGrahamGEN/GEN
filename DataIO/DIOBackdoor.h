@@ -354,9 +354,9 @@ class DIOBACKDOOR
 
                                                             string.Add(__L("\n\r"));
 
-                                                            XSTRING_CREATEOEM(string, line)
-                                                            backdoor->diostream->Write((XBYTE*)line, string.GetSize());
-                                                            XSTRING_DELETEOEM(string, line)
+                                                            XBUFFER line;
+                                                            string.ConvertToASCII(charstr);
+                                                            backdoor->diostream->Write((XBYTE*)line.Get(), string.GetSize());                                                            
                                                           }
                                                       }
 
