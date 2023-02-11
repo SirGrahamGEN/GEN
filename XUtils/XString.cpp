@@ -3483,8 +3483,6 @@ bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD maxsize)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSTRING::ConvertToASCII(XBUFFER& xbuffer)
 {   
-  if(IsEmpty()) return size;
-
   xbuffer.Empty();
 
   for(XDWORD c=0; c<size; c++)
