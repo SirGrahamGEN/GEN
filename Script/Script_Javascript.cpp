@@ -135,78 +135,16 @@ int SCRIPT_JAVASCRIPT::Run(int* returnval)
       _script.AddFormat(__L("\n%s()\n"), mainfunctionname.Get());
     }
 
-  XSTRING_CREATEOEM(_script, charscript);
-  duk_int_t error =  duk_peval_string(context, charscript);
-  if(error) HaveError(DUK_ERR_ERROR);
-  XSTRING_DELETEOEM(_script, charscript)
-
+  XBUFFER charstr;
+  
+  _script.ConvertToASCII(charstr);
+   
+  duk_int_t error =  duk_peval_string(context, charstr.GetPtrChar());
+  if(error) HaveError(DUK_ERR_ERROR);  
+  
   if(returnval) (*returnval) =  duk_require_int(context, 0);
 
   duk_pop(context);
-
-
-  /*
-  XSTRING _script;
-  _script = script;
-
-  if(HaveMainFunction())
-    {
-      XSTRING mainfunctionname = SCRIPT_JAVASCRIPT_MAINFUNCTIONNAME;
-      _script.AddFormat(__L("\n%s()\n"), mainfunctionname.Get());
-    }
-
-  XSTRING_CREATEOEM(_script, charscript);
-  if(duk_pcompile_string(context, 0, charscript) != 0)
-    {
-      HaveError(DUK_ERR_ERROR);
-    }
-   else
-    {
-      if(duk_pcall(context, 0) == DUK_EXEC_ERROR) HaveError(DUK_ERR_ERROR);
-    }
-
-  duk_pop(context);
-  XSTRING_DELETEOEM(_script, charscript)
-  */
-
-
-  /* test 2
-  for(XDWORD c=0; c<scriptlines.GetSize(); c++)
-    {
-      XSTRING line = scriptlines.Get(c)->Get();
-
-      if(line.IsEmpty()) line = __L("//");
-
-      XSTRING_CREATEOEM(line, charscript);
-      duk_push_string(context, charscript);
-      XSTRING_DELETEOEM(line, charscript)
-    }
-
-  if(HaveMainFunction())
-    {
-      XSTRING mainfunctionnameliteral;
-      XSTRING mainfunctionname;
-
-      mainfunctionnameliteral = SCRIPT_JAVASCRIPT_MAINFUNCTIONNAME;
-      mainfunctionname.Format(__L("%s();"), mainfunctionnameliteral.Get());
-
-      XSTRING_CREATEOEM(mainfunctionname, charscript);
-      duk_push_string(context, charscript);
-      XSTRING_DELETEOEM(mainfunctionname, charscript)
-    }
-
-  if(duk_pcompile(context, DUK_COMPILE_EVAL) != 0)
-    {
-      HaveError(DUK_ERR_ERROR);
-    }
-   else
-    {
-      duk_call(context, 0);
-    }
-
-  duk_pop(context);
- */
-
 
   return errorcode;
 }
@@ -234,15 +172,15 @@ bool SCRIPT_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCR
 
   namefunction = name;
 
-  XSTRING_CREATEOEM(namefunction, charname)
-
+  XBUFFER charstr;
+  
+  namefunction.ConvertToASCII(charstr);
+  
   duk_push_c_function(context, SCRIPT_JAVASCRIPT::LibraryCallBack, DUK_VARARGS);
 
   duk_push_pointer(context, (void *)ptrfunction);
   duk_put_prop_string(context, -2, "\xFF""_ptr");
-  duk_put_global_string(context, charname);
-
-  XSTRING_DELETEOEM(namefunction, charname)
+  duk_put_global_string(context, charstr.GetPtrChar());
 
   return SCRIPT::AddLibraryFunction(library, name, ptrfunction);
 }
@@ -473,10 +411,11 @@ duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
 
                                            stringreturnvalue = returnvalue;
 
-                                           XSTRING_CREATEOEM(stringreturnvalue, charstr)
-                                           duk_push_string(context, charstr);
-                                           XSTRING_DELETEOEM(stringreturnvalue, charstr);
-
+                                           XBUFFER charstr;
+ 
+                                           stringreturnvalue.ConvertToASCII(charstr); 
+                                           duk_push_string(context, charstr.GetPtrChar());
+                                           
                                            nreturnvalues++;
                                          }
                                          break;

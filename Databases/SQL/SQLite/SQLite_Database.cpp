@@ -191,8 +191,8 @@ bool SQLITE_DATABASE::Rollback(XCHAR* savepoint)
           text.Format(__L("ROLLBACK TO SAVEPOINT %s"), savepoint);
 
           XBUFFER rollbacktext;
+          
           text.ConvertToASCII(rollbacktext);
-
           int rc = sqlite3_exec(sqlite3database, rollbacktext.GetPtrChar(), 0, 0, 0);
           transactionstarted = false;
           
@@ -222,8 +222,8 @@ bool SQLITE_DATABASE::Savepoint(XCHAR* savepoint)
   text.Format(__L("SAVEPOINT %s"),savepoint);
 
   XBUFFER rollbacktext;
-  text.ConvertToASCII(rollbacktext);
-          
+  
+  text.ConvertToASCII(rollbacktext);         
   int rc=sqlite3_exec(sqlite3database, rollbacktext.GetPtrChar(), 0, 0, 0);
   
   return (rc==SQLITE_OK);
@@ -248,8 +248,8 @@ bool SQLITE_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
   text.Format(__L("RELEASE %s"),savepoint);
 
   XBUFFER rollbacktext;
-  text.ConvertToASCII(rollbacktext);
   
+  text.ConvertToASCII(rollbacktext);  
   int rc=sqlite3_exec(sqlite3database, rollbacktext.GetPtrChar(), 0, 0, 0);
   
   return (rc==SQLITE_OK);

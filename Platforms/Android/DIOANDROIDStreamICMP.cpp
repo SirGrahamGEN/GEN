@@ -451,11 +451,11 @@ void DIOANDROIDSTREAMICMP::ThreadRunFunction(void* thread)
                                                                                     tmpremoteaddress = diostream->remoteaddress.Get();
                                                                               else  tmpremoteaddress = datagram->GetAddress()->Get();
 
-                                                                            XSTRING_CREATEOEM(tmpremoteaddress, charstr)
-                                                                            target_addr.sin_addr.s_addr   = inet_addr(charstr);
-                                                                            XSTRING_DELETEOEM(tmpremoteaddress, charstr)
-
-                                                                            target_addr.sin_port  = 0;
+                                                                            XBUFFER charstr;
+                                                                            
+                                                                            tmpremoteaddress.ConvertToASCII(charstr);                                                                            
+                                                                            target_addr.sin_addr.s_addr = inet_addr(charstr.GetPtrChar());                                                                            
+                                                                            target_addr.sin_port        = 0;
 
                                                                             size = sendto(diostream->handle,(char*)datagram->GetData()->Get(), datagram->GetData()->GetSize(), 0, (sockaddr*)&target_addr, size_addr);
 
@@ -515,9 +515,10 @@ void DIOANDROIDSTREAMICMP::ThreadRunFunction(void* thread)
 
                                                                     if(!diostream->config->GetLocalIP()->IsEmpty())
                                                                       {
-                                                                        XSTRING_CREATEOEM(IPstring, charOEM)
-                                                                        loc_addr.sin_addr.s_addr  = inet_addr(charOEM);
-                                                                        XSTRING_DELETEOEM(IPstring,charOEM)
+                                                                        XBUFFER charstr;
+                                                                        
+                                                                        string.ConvertToASCII(charstr);                                                                        
+                                                                        loc_addr.sin_addr.s_addr  = inet_addr(charstr.GetPtrChar());
 
                                                                       } else loc_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 

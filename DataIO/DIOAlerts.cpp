@@ -482,8 +482,9 @@ XDWORD DIOALERT::CalculateID(bool withdatetime)
   IDstring += __L(" ");   IDstring += message;
   IDstring += levelstring;
 
-  XBUFFER charstrs;
-  IDstring.ConvertToASCII(rollbacktext);         
+  XBUFFER charstr;
+  
+  IDstring.ConvertToASCII(charstr);         
   status = hashcrc32->Do(charstr.Get(), IDstring.GetSize());
 
   if(status) ID = hashcrc32->GetResultCRC32(); else ID = 0;
@@ -1784,8 +1785,8 @@ bool DIOALERTS::Sender_WEBSend(DIOALERT* alert)
           //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("%s"), contents.Get());
 
           XBUFFER postdata;
-          contents.ConvertToASCII(postdata);
           
+          contents.ConvertToASCII(postdata);          
           postbuffer.Add(postdata.Get(), contents.GetSize());
           
           status = WEBdiowebclient->Post(url.Get(), webpage, &postbuffer);      

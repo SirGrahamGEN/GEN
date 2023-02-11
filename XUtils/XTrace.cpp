@@ -304,11 +304,13 @@ bool XTRACE_TARGET::ResolvedIPTarget()
 
       #endif
     }
-
-  XSTRING_CREATEOEM(_IPstring, charstr)
-  memcpy(IP, charstr, strlen(charstr)+1);
-  XSTRING_DELETEOEM(_IPstring, charstr)
-
+    
+    
+  XBUFFER charstr;
+ 
+  _IPstring.ConvertToASCII(charstr);    
+  memcpy(IP, charstr.GetPtrChar(), strlen(charstr.GetPtrChar())+1);
+  
   return true;
 }
 

@@ -312,23 +312,24 @@ bool DIOLINUXGPIO::GPIO_Export(XDWORD GPIO, bool isexport)
 
 	xpath.Format(__L("%s/%s"), DIOLINUXGPIO_PATH, (isexport?__L("export"):__L("unexport")));
 
-	XSTRING_CREATEOEM(xpath, pathchar);	
-	int fd = open(pathchar, O_WRONLY);
+  XBUFFER pathchar;
+  
+  xpath.ConvertToASCII(pathchar);	
+	int fd = open(pathchar.GetPtrChar(), O_WRONLY);
 	if(fd >= 0) 
 		{					
 			GPIOdatastr.Format(__L("%d"), GPIO);
 			
-			XSTRING_CREATEOEM(GPIOdatastr, GPIOdatachar);	
-			write(fd, (char*)GPIOdatachar, GPIOdatastr.GetSize());
-			XSTRING_DELETEOEM(GPIOdatastr, GPIOdatachar);	
-
+      XBUFFER GPIOdatachar;
+      
+      GPIOdatastr.ConvertToASCII(GPIOdatachar);      
+			write(fd, (char*)GPIOdatachar.Get(), GPIOdatastr.GetSize());
+			
 			close(fd);
 			
 			status = true;
 		} 
-
-	XSTRING_DELETEOEM(xpath, pathchar);	
-
+	
 	XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Linux GPIO] Export %s %s"), xpath.Get(), GPIOdatastr.Get());
 
 	return status;
@@ -356,24 +357,25 @@ bool DIOLINUXGPIO::GPIO_SetDirection(XDWORD GPIO, bool isinput)
 	bool			status = false;
 		
 	xpath.Format(__L("%s/gpio%d/direction"), DIOLINUXGPIO_PATH, GPIO);
-	
-	XSTRING_CREATEOEM(xpath, pathchar);	
-	int fd = open(pathchar, O_WRONLY);
+	  
+  XBUFFER pathchar;
+  
+  xpath.ConvertToASCII(pathchar);	
+	int fd = open(pathchar.GetPtrChar(), O_WRONLY);
 	if(fd >= 0) 
 		{					
 			GPIOdatastr.Format(__L("%s"), (isinput?__L("in"):__L("out")));
-			
-			XSTRING_CREATEOEM(GPIOdatastr, GPIOdatachar);	
-			write(fd, (char*)GPIOdatachar, GPIOdatastr.GetSize());
-			XSTRING_DELETEOEM(GPIOdatastr, GPIOdatachar);	
 
+      XBUFFER GPIOdatachar;
+      
+      GPIOdatastr.ConvertToASCII(GPIOdatachar);			      
+			write(fd, (char*)GPIOdatachar.Get(), GPIOdatastr.GetSize());
+			
 			close(fd);
 	
 			status = true;
 		}
-
-	XSTRING_DELETEOEM(xpath, pathchar);		
-
+	
 	XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Linux GPIO] Set Direction %s %s"), xpath.Get(), GPIOdatastr.Get());
 
 	return status;
@@ -400,8 +402,10 @@ bool DIOLINUXGPIO::GPIO_GetData(XDWORD GPIO)
 	
 	xpath.Format(__L("%s/gpio%d/value"), DIOLINUXGPIO_PATH, GPIO);
 	
-	XSTRING_CREATEOEM(xpath, pathchar);	
-	int fd = open(pathchar, O_RDONLY);
+  XBUFFER pathchar;
+  
+  xpath.ConvertToASCII(pathchar);  
+	int fd = open(pathchar.GetPtrChar(), O_RDONLY);
 	if(fd >= 0) 
 		{
 			char ch;
@@ -417,9 +421,7 @@ bool DIOLINUXGPIO::GPIO_GetData(XDWORD GPIO)
 
 			status = true;	
 		}
-
-	XSTRING_DELETEOEM(xpath, pathchar);		
-
+	
 	XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Linux GPIO] Get Data %s %s"), xpath.Get(), status?__L("1"):__L("0"));
 
 	return status;
@@ -447,22 +449,23 @@ bool DIOLINUXGPIO::GPIO_SetData(XDWORD GPIO, bool on)
 			
 	xpath.Format(__L("%s/gpio%d/value"), DIOLINUXGPIO_PATH, GPIO);
 
-	XSTRING_CREATEOEM(xpath, pathchar);	
-	int fd = open(pathchar, O_WRONLY);
+  XBUFFER pathchar;
+  
+  xpath.ConvertToASCII(pathchar);
+	int fd = open(pathchar.GetPtrChar(), O_WRONLY);
 	if(fd >= 0) 
 		{		
 			GPIOdatastr.Format(__L("%s"), (on?__L("1"):__L("0")));
 
-			XSTRING_CREATEOEM(GPIOdatastr, GPIOdatachar);	
-			write(fd, (char*)GPIOdatachar, GPIOdatastr.GetSize());
-			XSTRING_DELETEOEM(GPIOdatastr, GPIOdatachar);	
+      XBUFFER GPIOdatachar;
+      
+      GPIOdatastr.ConvertToASCII(GPIOdatachar);			
+			write(fd, (char*)GPIOdatachar.Get(), GPIOdatastr.GetSize());
 
 			close(fd);
 			
 			status = true;
 		}
-
-	XSTRING_DELETEOEM(xpath, pathchar);	
 
 	XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Linux GPIO] Set Data %s %s"), xpath.Get(), GPIOdatastr.Get());		
 

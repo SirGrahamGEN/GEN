@@ -518,10 +518,12 @@ bool XBER::SetOCTETSTRING(XCHAR* string)
 
   _string = string;
 
-  XSTRING_CREATEOEM(_string, charOEM)
-  data.Add((XBYTE*)charOEM, _string.GetSize());
-  XSTRING_DELETEOEM(_string, charOEM)
-
+  XBUFFER charstr;
+  
+  _string.ConvertToASCII(charstr);
+ 
+  data.Add((XBYTE*)charstr.Get(), _string.GetSize());
+  
   tagtype = XBER_TAGTYPE_OCTET_STRING;
   size    = _string.GetSize();
 

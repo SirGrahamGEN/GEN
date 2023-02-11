@@ -248,6 +248,7 @@ bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
       ChangetoDNSNameFormat(origin, target);
 
       XBUFFER chartarget;
+      
       target.ConvertToASCII(chartarget);      
       buffer.Add((XBYTE*)chartarget.Get(), target.GetSize()+1);
       

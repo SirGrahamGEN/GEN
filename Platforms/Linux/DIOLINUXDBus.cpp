@@ -162,12 +162,17 @@ bool DIOLINUXDBUS_MESSAGE::Create()
 {
   bool status = false;
 
-  XSTRING_CREATEOEM(destination , _destination);
-  XSTRING_CREATEOEM(path        , _path);
-  XSTRING_CREATEOEM(iface       , _iface);
-  XSTRING_CREATEOEM(method      , _method);
+  XBUFFER _destination;
+  XBUFFER _path;
+  XBUFFER _iface;
+  XBUFFER _method;
   
-  handler = dbus_message_new_method_call(_destination, _path, _iface, _method);
+  destination.ConvertToASCII(_destination);
+  path.ConvertToASCII(_path);
+  iface.ConvertToASCII(_iface);
+  method.ConvertToASCII(_method);
+ 
+  handler = dbus_message_new_method_call(_destination.GetPtrChar(), _path.GetPtrChar(), _iface.GetPtrChar(), _method.GetPtrChar());
   if(handler) 
     {
       status = true;
@@ -177,10 +182,6 @@ bool DIOLINUXDBUS_MESSAGE::Create()
       XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DBUS] ERROR: Unable to allocate memory for the message!"));
     }
 
-  XSTRING_DELETEOEM(destination , _destination);
-  XSTRING_DELETEOEM(path        , _path);
-  XSTRING_DELETEOEM(iface       , _iface);
-  XSTRING_DELETEOEM(method      , _method);
 
   return status;
 }
@@ -498,19 +499,21 @@ bool DIOLINUXDBUS_ARGUMENTS::Append(bool value)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXDBUS_ARGUMENTS::Append(XCHAR* value)
 {
-  XSTRING     _value;     
-  bool        status  = false;
+  XSTRING _value;     
+  bool    status  = false;
 
   if(!in)                     return false; 
   if(!message->GetHandler())  return false;
  
   _value = value;
 
-  XSTRING_CREATEOEM(_value, strchar);
-  status = dbus_message_append_args(message->GetHandler(), DBUS_TYPE_STRING, &strchar, DBUS_TYPE_INVALID);
-  XSTRING_DELETEOEM(_value, strchar);
+  XBUFFER charstr;
+  
+  _value.ConvertToASCII(charstr);
 
-  return status;
+  char* charstr2 = charstr.GetPtrChar();
+ 
+  return dbus_message_append_args(message->GetHandler(), DBUS_TYPE_STRING, &charstr2, DBUS_TYPE_INVALID);
 }
 
 
@@ -556,19 +559,21 @@ bool DIOLINUXDBUS_ARGUMENTS::AppendIterator(bool value)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXDBUS_ARGUMENTS::AppendIterator(XCHAR* value)
 {
-  XSTRING     _value;     
-  bool        status  = false;
+  XSTRING _value;     
+  bool    status  = false;
 
   if(!in)                     return false; 
   if(!message->GetHandler())  return false;
    
   _value = value;
+  
+  XBUFFER charstr;
+  
+  _value.ConvertToASCII(charstr);
 
-  XSTRING_CREATEOEM(_value, strchar);
-  status = dbus_message_iter_append_basic(&iter, DBUS_TYPE_STRING, &strchar);
-  XSTRING_DELETEOEM(_value, strchar);  
+  char* charstr2 = charstr.GetPtrChar();
 
-  return status;
+  return dbus_message_iter_append_basic(&iter, DBUS_TYPE_STRING, &charstr2);  
 }
 
 
@@ -896,10 +901,11 @@ bool DIOLINUXDBUS::Signal_Add(XCHAR* type, XCHAR* name)
     {
       typestr.Format(__L("type='signal', interface='%s'"), type); 
 
-      XSTRING_CREATEOEM(typestr, typechar);
-      dbus_bus_add_match(connection, typechar,  &error);    // see signals from the given interface
-      XSTRING_DELETEOEM(typestr, typechar);
-
+      XBUFFER charstr;
+      
+      typestr.ConvertToASCII(charstr);      
+      dbus_bus_add_match(connection, charstr.GetPtrChar(), &error);    // see signals from the given interface
+      
       dbus_connection_flush(connection);
 
       if(dbus_error_is_set(&error)) 
@@ -1102,17 +1108,17 @@ void DIOLINUXDBUS::Thread_Signals(void* param)
           // ---------------------------------------------------------------------------------------
           // check if the message is a signal from the correct interface and with the correct name
 
-          XSTRING_CREATEOEM((*signal->GetType()), typechar);
-          XSTRING_CREATEOEM((*signal->GetName()), namechar);
+          XBUFFER typechar;
+          XBUFFER namechar;
+ 
+          (*signal->GetType()).ConvertToASCII(typechar);
+          (*signal->GetName()).ConvertToASCII(namechar);
 
-          if(dbus_message_is_signal(handler_message, typechar, namechar))  
+          if(dbus_message_is_signal(handler_message, typechar.GetPtrChar(), namechar.GetPtrChar()))  
             {
               found_signal = true;  
             }
-
-          XSTRING_DELETEOEM((*signal->GetType()), typechar);
-          XSTRING_DELETEOEM((*signal->GetName()), namechar);
-
+          
           if(found_signal) 
             {
               break;

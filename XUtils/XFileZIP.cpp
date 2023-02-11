@@ -147,9 +147,11 @@ bool XFILECMPZIP::Open(XSTRING& password)
 
        if(!password.IsEmpty())
          {
-           XSTRING_CREATEOEM(password, charstr)
-           err = unzOpenCurrentFilePassword((unzFile)filehdl, charstr);
-           XSTRING_DELETEOEM(password, charstr)
+           
+           XBUFFER charstr;
+           
+           password.ConvertToASCII(charstr); 
+           err = unzOpenCurrentFilePassword((unzFile)filehdl, charstr.GetPtrChar());           
          }
         else err = unzOpenCurrentFile((unzFile)filehdl);
 
@@ -186,22 +188,22 @@ bool XFILECMPZIP::Create(XDWORD crcfile,zip_fileinfo* zfinfo,XCHAR* password)
 
   XSTRING _password(password);
 
-
-  XSTRING_CREATEOEM(name, namestr)
-  XSTRING_CREATEOEM(_password, passwordstr)
-
-  err = zipOpenNewFileInZip3(filehdl, namestr
+  XBUFFER namestr; 
+  XBUFFER passwordstr;
+  
+  name.ConvertToASCII(namestr); 
+  _password.ConvertToASCII(passwordstr);
+  
+  err = zipOpenNewFileInZip3(filehdl, namestr.GetPtrChar()
                                     , zfinfo
                                     , NULL,0,NULL,0,NULL /* comment*/
                                     ,(opt_compress_level != 0) ? Z_DEFLATED : 0
                                     , opt_compress_level,0
                                     , -MAX_WBITS, DEF_MEM_LEVEL, Z_DEFAULT_STRATEGY
-                                    , password?passwordstr:NULL
+                                    , passwordstr.GetPtrChar()?passwordstr.GetPtrChar():NULL
                                     , crcfile);
 
-  XSTRING_DELETEOEM(_password, passwordstr)
-  XSTRING_DELETEOEM(name, namestr)
-
+ 
   if(err!=ZIP_OK) return false;
 
   return true;
@@ -541,14 +543,13 @@ void XFILECMPZIP::Clean()
 bool XFILECMPZIP::SelectCurrenFile()
 {
   int err;
-
-  XSTRING_CREATEOEM(name, charstr)
-
-  err=unzLocateFile((unzFile)filehdl, charstr, 0);
+  
+  XBUFFER charstr;
+  
+  name.ConvertToASCII(charstr);  
+  err=unzLocateFile((unzFile)filehdl, charstr.GetPtrChar(), 0);
   if(err!=UNZ_OK) return false;
-
-  XSTRING_DELETEOEM(name, charstr)
-
+  
   return true;
 }
 
@@ -648,11 +649,14 @@ void XFILEZIP::SetMaxSizeBuffer(XDWORD maxsizebuffer)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILEZIP::Open(XPATH& xpath)
 {
-  XSTRING_CREATEOEM(xpath, charstr)
-  filehdl=zipOpen(charstr, APPEND_STATUS_ADDINZIP);
-  if(!filehdl)  filehdl = zipOpen(charstr, APPEND_STATUS_CREATE);
-  XSTRING_DELETEOEM(xpath, charstr)
-
+  
+  XBUFFER charstr;
+  
+  xpath.ConvertToASCII(charstr);
+   
+  filehdl=zipOpen(charstr.GetPtrChar(), APPEND_STATUS_ADDINZIP);
+  if(!filehdl)  filehdl = zipOpen(charstr.GetPtrChar(), APPEND_STATUS_CREATE);
+  
   lastoperationpercent  = filehdl ? 100.0f : 0.0f;
   lasterror             = filehdl ? XFILEZIP_ERROR_NONE : XFILEZIP_ERROR_ZIP_OPEN;
 
@@ -1015,10 +1019,11 @@ bool XFILEUNZIP::Open(XPATH& xpath)
 {
   if(xpath.IsEmpty()) return false;
 
-  XSTRING_CREATEOEM(xpath, charstr)
-  filehdl = unzOpen(charstr);
-  XSTRING_DELETEOEM(xpath, charstr)
-
+  XBUFFER charstr;
+  
+  xpath.ConvertToASCII(charstr);
+  filehdl = unzOpen(charstr.GetPtrChar());
+ 
   lastoperationpercent  = filehdl ? 100.0f : 0.0f;
   lasterror             = filehdl ? XFILEZIP_ERROR_NONE : XFILEZIP_ERROR_UNZIP_OPEN;
 
@@ -1106,10 +1111,11 @@ XFILECMPZIP* XFILEUNZIP::GotoFile(XPATH& xpath)
 {
   int err;
 
-  XSTRING_CREATEOEM(xpath, charstr)
-  err=unzLocateFile(filehdl, charstr, 0);
-  XSTRING_DELETEOEM(xpath, charstr)
 
+  XBUFFER charstr;
+  
+  xpath.ConvertToASCII(charstr); 
+  err=unzLocateFile(filehdl, charstr.GetPtrChar(), 0);  
   if(err!=UNZ_OK) return NULL;
 
   return CreateCurrentFile();

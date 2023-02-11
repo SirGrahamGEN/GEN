@@ -169,10 +169,10 @@ bool DIOANDROIDSTREAMUART::Open()
       ttyS.Format(__L("/dev/ttyS%d"),config->GetPort());
     }
 
-  XSTRING_CREATEOEM(ttyS, charOEM)
-  fd= open(charOEM, O_RDWR | O_NOCTTY | O_NONBLOCK);
-  XSTRING_DELETEOEM(ttyS, charOEM)
-
+  XBUFFER charstr;
+  
+  ttyS.ConvertToASCII(charstr); 
+  fd= open(charstr.GetPtrChar(), O_RDWR | O_NOCTTY | O_NONBLOCK);  
   if(fd<0) return false;
 
   SetRTS(false);

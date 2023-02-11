@@ -108,12 +108,13 @@ bool XLINUXPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
   bool      status = false;
 
   _command = command;
-
-  XSTRING_CREATEOEM(_command, cmdchar)
-  //printf(" -- %s\n", cmdchar);
-  if(system(cmdchar) == -1) status = false; else status = true;
-  XSTRING_DELETEOEM(_command, cmdchar)
   
+  XBUFFER cmdchar;
+  
+  _command.ConvertToASCII(cmdchar);  
+  //printf(" -- %s\n", cmdchar.GetPtrChar());
+  if(system(cmdchar.GetPtrChar()) == -1) status = false; else status = true;
+    
   return status;
 }
 
@@ -141,11 +142,12 @@ bool XLINUXPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* return
 
   _command = command;
 
-  XSTRING_CREATEOEM(_command, charOEM)
-  pipe = popen(charOEM, "rt" );
+  XBUFFER cmdchar;
+  
+  _command.ConvertToASCII(cmdchar);   
+  pipe = popen(cmdchar.GetPtrChar(), "rt" );
   if(pipe == NULL) status = false;
-  XSTRING_DELETEOEM(_command, charOEM)
-
+  
   if(!status) return false;
 
   if(out)
@@ -168,291 +170,6 @@ bool XLINUXPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* return
 
   return true;
 }
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* command, XCHAR* params, XSTRING& in, XSTRING& out, int* returncode)
-* @brief      ExecuteApplication
-* @ingroup    PLATFORM_LINUX
-*
-* @param[in]  command : 
-* @param[in]  params : 
-* @param[in]  in : 
-* @param[in]  out : 
-* @param[in]  returncode : 
-*
-* @return     bool : true if is succesful. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-/*
-bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* command, XCHAR* params, XSTRING& in, XSTRING& out, int* returncode)
-{
-  #define PIPE_READ   0
-  #define PIPE_WRITE  1
-
-  int stdinpipe[2]  = { 0 , 0 };
-  int stdoutpipe[2] = { 0 , 0 };
-  int nchild;
-  int nresult = 0;
-
-  if(pipe(stdinpipe) < 0)
-    {
-      return -1;
-    }
-
-  if(pipe(stdoutpipe) < 0)
-    {
-      close(stdinpipe[PIPE_READ]);
-      close(stdinpipe[PIPE_WRITE]);
-
-      return -1;
-    }
-
-  nchild = fork();
-  if(!nchild)
-    {
-      // child continues here
-
-      // redirect stdin
-      if(dup2(stdinpipe[PIPE_READ], STDIN_FILENO) == -1)
-        {
-          exit(errno);
-        }
-
-       // redirect stdout
-      if(dup2(stdoutpipe[PIPE_WRITE], STDOUT_FILENO) == -1)
-        {
-          exit(errno);
-        }
-
-      // redirect stderr
-      if(dup2(stdoutpipe[PIPE_WRITE], STDERR_FILENO) == -1)
-        {
-          exit(errno);
-        }
-
-      // all these are for use by parent only
-      close(stdinpipe[PIPE_READ]);
-      close(stdinpipe[PIPE_WRITE]);
-      close(stdoutpipe[PIPE_READ]);
-      close(stdoutpipe[PIPE_WRITE]);
-
-      // run child process image
-      // replace this with any exec* function find easier to use ("man exec")
-
-      XSTRING _command;
-      _command = command;
-
-      if(!params)
-        {
-          XSTRING_CREATEOEM(_command, charcommand)
-          nresult = execl(charcommand , charcommand,  NULL);
-          XSTRING_DELETEOEM(_command, charcommand)
-        }
-       else
-        {
-          XSTRING _params;
-
-          _params= params;
-
-          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("1-[%s] [%s] [%d]"), _command.Get(), _params.Get(), nresult);
-
-          XSTRING_CREATEOEM(_command, charcommand)
-          XSTRING_CREATEOEM(_params, charparams)
-          nresult = execl(charcommand , charcommand, charparams, NULL);
-          XSTRING_DELETEOEM(_params, charparams)
-          XSTRING_DELETEOEM(_command, charcommand)
-
-          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("2-[%s] [%s] [%d]"), _command.Get(), _params.Get(), nresult);
-        }
-
-      // if we get here at all, an error occurred, but we are in the child
-      // process, so just exit
-      exit(nresult);
-    }
-   else
-    {
-      if(nchild > 0)
-        {
-          char nchar;
-
-          //parent continues here
-
-          // close unused file descriptors, these are for child only
-          close(stdinpipe[PIPE_READ]);
-          close(stdoutpipe[PIPE_WRITE]);     
-
-          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("3- [%s] [%s] "), in.Get(), out.Get());     
-
-          if(in.GetSize())
-            {
-              XSTRING_CREATEOEM(in, charin)
-              write(stdinpipe[PIPE_WRITE], charin, in.GetSize());
-              XSTRING_DELETEOEM(in, charin)
-            }
-
-          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("4- [%s] [%s] "), in.Get(), out.Get());     
-
-          // Just a char by char read here, you can change it accordingly
-          while(read(stdoutpipe[PIPE_READ], &nchar, 1) == 1)
-            {
-              out.Add(nchar);              
-            }
-
-          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("5- [%s] [%s]"), in.Get(), out.Get());
-
-          // done with these in this example program, you would normally keep these
-          // open of course as long as you want to talk to the child
-          close(stdinpipe[PIPE_WRITE]);
-          close(stdoutpipe[PIPE_READ]);
-        }
-       else
-        {
-          // failed to create child
-          close(stdinpipe[PIPE_READ]);
-          close(stdinpipe[PIPE_WRITE]);
-
-          close(stdoutpipe[PIPE_READ]);
-          close(stdoutpipe[PIPE_WRITE]);
-        }
-    }
-
-  return (nchild<0)?false:true;
-}
-*/
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params)
-* @brief      ExecuteApplication
-* @ingroup    PLATFORM_LINUX
-*
-* @param[in]  applicationpath : application path + name to exec
-* @param[in]  params : params to exec with application
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-/*
-bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params)
-{
-  if(!applicationpath) return false;
-
-  pid_t pID;
-  bool  exist  = false;
-  bool  status = false;
-
-  XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
-  if(xfile)
-    {
-      exist = xfile->Open(applicationpath);
-      xfile->Close();
-    }
-
-  GEN_XFACTORY.Delete_File(xfile);
-
-  if(!exist) return false;
-
-  //-----------------------------------------
-  // exec attributtes
-
-  XSTRING cmd;
-
-  cmd  = __L("chmod 775 ");
-  cmd += applicationpath;
-
-  XSTRING_CREATEOEM(cmd, charOEM)
-  status = system(charOEM);
-  XSTRING_DELETEOEM(cmd, charOEM)
-
-  //if(status == -1) return false;
-
-  //------------------------------------------
-
-  XSTRING _params;
-
-  cmd     = applicationpath;
-
-  _params.Add(cmd);
-  if(params)
-    {
-      _params.Add(" ");
-      _params.Add(params);
-    }
-
-  #define MAXNPARAMS  20
-
-  char* param[MAXNPARAMS] = { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-                              NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
-                            };
-  int   start             = 0;
-  bool  endfound          = false;
-
-  for(int c=0; c<MAXNPARAMS; c++)
-    {
-      XSTRING string;
-      int     found = _params.Find(__L(" "), true, start);
-
-      if(found == XSTRING_NOTFOUND)
-        {
-          _params.Copy(start, string);
-          endfound = true;
-        }
-       else
-        {
-          _params.Copy(start, found, string);
-          start = found+1;
-        }
-
-      string.CreateOEM(param[c]);
-
-      //XTRACE_PRINTCOLOR(3, __L("EXEC PARAMS: param%02d [%s]"), c, string.Get());
-
-      if(endfound) break;
-    }
-
-  pID = fork();
-
-  switch(pID)
-    {
-      case -1 : break;
-
-      case  0 : { // Child
-                  XSTRING_CREATEOEM(cmd, charcmd)
-
-                  int _status = execl(charcmd , param[ 0], param[ 1], param[ 2], param[ 3], param[ 4], param[ 5], param[ 6], param[ 7], param[ 8], param[ 9]
-                                              , param[10], param[11], param[12], param[13], param[14], param[15], param[16], param[17], param[18], param[19]
-                                              , NULL);
-
-                  if(_status == -1)
-                    {
-                     XTRACE_PRINTCOLOR(4,__L("Error en EXEC: %d"), errno);
-                    }
-                  else
-                   {
-                     status = true;
-                    }
-
-                  XSTRING_DELETEOEM(cmd, charcmd)
-                }
-                break;
-
-      default : status = true;
-                break;
-    }
-
-  for(int c=0; c<MAXNPARAMS; c++)
-    {
-      delete [] param[c];
-    }
-
-  return status;
-}
-*/
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -517,17 +234,19 @@ bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* par
   cmd  = __L("chmod 775 ");
   cmd += applicationpath;
 
-  XSTRING_CREATEOEM(cmd, charOEM)
-  status = system(charOEM);
-  XSTRING_DELETEOEM(cmd, charOEM)
 
+  XBUFFER charstr;
+  
+  cmd.ConvertToASCII(charstr);
+  status = system(charstr.GetPtrChar());
+  
   //if(status == -1) return false;
 
   //------------------------------------------
 
   XSTRING _params;
 
-  cmd     = applicationpath;
+  cmd = applicationpath;
 
   _params.Add(cmd);
   if(params)
@@ -611,12 +330,13 @@ bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* par
                   // replace this with any exec* function find easier to use ("man exec")
 
                   // Child
-                  XSTRING_CREATEOEM(cmd, charcmd)
-
-                  int result = execl(charcmd  , param[ 0], param[ 1], param[ 2], param[ 3], param[ 4], param[ 5], param[ 6], param[ 7], param[ 8], param[ 9]
-                                              , param[10], param[11], param[12], param[13], param[14], param[15], param[16], param[17], param[18], param[19]
-                                              , NULL);
-
+                  
+                  XBUFFER charstr;
+                  
+                  cmd.ConvertToASCII(charstr);                                
+                  int result = execl(charstr.GetPtrChar() , param[ 0], param[ 1], param[ 2], param[ 3], param[ 4], param[ 5], param[ 6], param[ 7], param[ 8], param[ 9]
+                                                          , param[10], param[11], param[12], param[13], param[14], param[15], param[16], param[17], param[18], param[19]
+                                                          , NULL);
                   if(result == -1)
                     {
                       //XTRACE_PRINTCOLOR(4,__L("Error en EXEC: %d"), errno);
@@ -626,8 +346,7 @@ bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* par
                       if(returncode) (*returncode) = result;
                       status = true;
                     }
-
-                  XSTRING_DELETEOEM(cmd, charcmd)
+                  
                   exit(result);
                 }
                 break;
@@ -644,9 +363,10 @@ bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* par
                     {
                       if(in->GetSize())
                         {
-                          XSTRING_CREATEOEM((*in), charin)
-                          write(stdinpipe[PIPE_WRITE], charin, in->GetSize());
-                          XSTRING_DELETEOEM((*in), charin)
+                          XBUFFER charstr;
+                          
+                          (*in).ConvertToASCII(charstr);                           
+                          write(stdinpipe[PIPE_WRITE], charstr.Get(), in->GetSize()); 
                         }
                     }
 

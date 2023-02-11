@@ -133,11 +133,11 @@ bool DIOWINDOWSPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirs
 
   unsigned long targetaddr;
 
-  XSTRING_CREATEOEM(targetIP, charstr)
-  inet_pton(AF_INET, charstr, &targetaddr);
-  //targetaddr = inet_addr(charstr);
-  XSTRING_DELETEOEM(targetIP, charstr)
-
+  XBUFFER charstr;
+  
+  targetIP.ConvertToASCII(charstr);  
+  inet_pton(AF_INET, charstr.GetPtrChar(), &targetaddr);
+    
   DIOWINDOWSPING_ECHODATA echorequest;
   int                     nloop = nretries;
 

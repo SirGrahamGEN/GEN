@@ -168,14 +168,15 @@ void XLINUXTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string
   XSTRING line;
 
   line = string;
+  
+  XBUFFER charstr;
+  
+  line.ConvertToASCII(charstr);
 
-  XSTRING_CREATEOEM(line, charOEM)
-  write(filehdl, charOEM, line.GetSize());
-  XSTRING_DELETEOEM(line, charOEM)
-
+  write(filehdl, charstr.Get(), line.GetSize());  
   write(filehdl,__L("\n\r"),2);
+  
   fsync(filehdl);
-
 
   close(filehdl);
 
@@ -257,10 +258,10 @@ void XLINUXTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 
   line = string;
 
-  XSTRING_CREATEOEM(line, charOEM)
-  fwrite(charOEM, 1, line.GetSize(), file);
-  XSTRING_DELETEOEM(line, charOEM)
-
+  XBUFFER charstr;
+  
+  line.ConvertToASCII(charstr);
+  fwrite(charstr.Get(), 1, line.GetSize(), file);  
   fwrite(__L("\n\r"),1,1,file);
 
   fclose(file);

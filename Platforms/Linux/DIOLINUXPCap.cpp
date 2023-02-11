@@ -95,17 +95,15 @@ bool DIOLINUXPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promisc
 
   char errbuf[PCAP_ERRBUF_SIZE];
 
-
-  XSTRING_CREATEOEM((*netinterface->GetName()), ni)
-
-  handle= pcap_open_live(ni                                , // name of the device
-                         65536                             , // portion of the packet to capture.  65536 grants that the whole packet will be captured on all the MACs.
-                         promiscuousmode?1:0               , // promiscuous mode (nonzero means promiscuous)
-                         timeout                           , // read timeout
-                         errbuf);                            // error buffer
-
-  XSTRING_DELETEOEM((*netinterface->GetName()), ni)
-
+  XBUFFER ni;
+  
+  (*netinterface->GetName()).ConvertToASCII(ni);
+  handle= pcap_open_live(ni.GetPtrChar()         , // name of the device
+                         65536                   , // portion of the packet to capture.  65536 grants that the whole packet will be captured on all the MACs.
+                         promiscuousmode?1:0     , // promiscuous mode (nonzero means promiscuous)
+                         timeout                 , // read timeout
+                         errbuf);                  // error buffer
+  
   if(handle == NULL) return false;
 
 

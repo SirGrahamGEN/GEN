@@ -70,6 +70,7 @@
 #include "XBase.h"
 #include "XString.h"
 #include "XPath.h"
+#include "XBuffer.h"
 #include "XMap.h"
 
 #include "GRPFactory.h"
@@ -910,10 +911,11 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                       case  4 : gren = agg::glyph_ren_agg_gray8;    break;
                                                                                     }
 
-                                                                                  XSTRING_CREATEOEM(fontnamefile, charnamefont)
-                                                                                  status = vectorfont_engine.load_font(charnamefont, 0, gren);
-                                                                                  XSTRING_DELETEOEM(fontnamefile, charnamefont);
-
+                                                                                  XBUFFER charstr;
+                                                                                  
+                                                                                  fontnamefile.ConvertToASCII(charstr);                                                                                 
+                                                                                  status = vectorfont_engine.load_font(charstr.GetPtrChar(), 0, gren);
+                                                                                  
                                                                                   return status;    
                                                                                 }        
                                               
@@ -934,10 +936,11 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                   vectorfont_engine.width(vectorfont_config.GetWidth());
                                                                                   vectorfont_engine.flip_y(true);
                                                                                                                                                                  
-
-                                                                                  XSTRING_CREATEOEM(_string, text);
-
-                                                                                  const  char* p = text;
+                                                                                  XBUFFER charstr;
+                                                                                  
+                                                                                  _string.ConvertToASCII(charstr);
+                                                                                                                                                                    
+                                                                                  const  char* p = charstr.GetPtrChar();
 
                                                                                   for(XDWORD c=0; c<_string.GetSize(); c++)
                                                                                   //while(*p)
@@ -959,9 +962,7 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                     }
 
                                                                                   AGG_SOLIDFILL_END
-
-                                                                                  XSTRING_DELETEOEM(_string, text);  
-
+                                                                                  
                                                                                   return _width;                      
                                                                                 }
 
@@ -982,9 +983,11 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                   vectorfont_engine.width(vectorfont_config.GetWidth());
                                                                                   vectorfont_engine.flip_y(true);
                                                                                 
-                                                                                  XSTRING_CREATEOEM(_string, text);
-
-                                                                                  const  char* p = text;
+                                                                                  XBUFFER charstr;
+                                                                                  
+                                                                                  _string.ConvertToASCII(charstr);
+                                                                                                                                                                  
+                                                                                  const char* p = charstr.GetPtrChar();
 
                                                                                   for(XDWORD c=0; c<_string.GetSize(); c++)
                                                                                   //while(*p)
@@ -1013,8 +1016,6 @@ class GRPCANVASAGG: public GRPCANVAS
 
                                                                                   AGG_SOLIDFILL_END
 
-                                                                                  XSTRING_DELETEOEM(_string, text);  
-
                                                                                   return _height;                      
                                                                                 }
 
@@ -1038,10 +1039,8 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                   vectorfont_engine.hinting(true);
                                                                                   vectorfont_engine.height(vectorfont_config.GetHeight());
                                                                                   vectorfont_engine.width(vectorfont_config.GetWidth());
-                                                                                  vectorfont_engine.flip_y(true);                                                                                  
-
-                                                                                  XSTRING_CREATEOEM(outstring, text);
-
+                                                                                  vectorfont_engine.flip_y(true); 
+                                                                                  
                                                                                   double x      = _x;
                                                                                   double y      = _y+1;
                                                                                   
@@ -1102,9 +1101,7 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                           }                                                                                        
                                                                                     }
 
-                                                                                  AGG_SOLIDFILL_END
-
-                                                                                  XSTRING_DELETEOEM(outstring, text);  
+                                                                                  AGG_SOLIDFILL_END                                                                                  
                                                                               
                                                                                   return true;
                                                                                 }
@@ -1123,84 +1120,7 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                   va_end(arg);
 
 
-                                                                                  return VectorFont_Print(_x, _y, outstring.Get());
-
-                                                                                  
-                                                                                  /*    
-                                                                                  XDWORD  num_glyphs = 0;
-                                                                                  
-                                                                                  AGG_SOLIDFILL_INI  
-
-                                                                                  vectorfont_engine.hinting(true);
-                                                                                  vectorfont_engine.height(vectorfont_config.GetHeight());
-                                                                                  vectorfont_engine.width(vectorfont_config.GetWidth());
-                                                                                  vectorfont_engine.flip_y(true);                                                                                  
-
-                                                                                  XSTRING_CREATEOEM(outstring, text);
-
-                                                                                  double x      = _x;
-                                                                                  double y      = _y+1;
-                                                                                  
-                                                                                  for(XDWORD c=0; c<outstring.GetSize(); c++)
-                                                                                    {
-                                                                                      XCHAR character = outstring.Get()[c];
-
-                                                                                      const agg::glyph_cache* glyph = vectorfont_manager->glyph(character);
-
-                                                                                      if(glyph)
-                                                                                        {
-                                                                                          if(vectorfont_config.IsKerning()) 
-                                                                                            {
-                                                                                              vectorfont_manager->add_kerning(&x, &y);
-                                                                                            }
-                                                                                                                                                                              
-                                                                                          vectorfont_manager->init_embedded_adaptors(glyph, x, y);
-
-                                                                                          switch(glyph->data_type)
-                                                                                            {
-                                                                                                                  default      : break;
-
-                                                                                              case agg::glyph_data_mono       : ren_bin.color((*vectorfont_config.GetColor()));
-                                                                                                                                agg::render_scanlines(vectorfont_manager->mono_adaptor(), vectorfont_manager->mono_scanline(), ren_bin);
-                                                                                                                                break;
-
-                                                                                              case agg::glyph_data_gray8      : ren.color((*vectorfont_config.GetColor()));
-                                                                                                                                agg::render_scanlines(vectorfont_manager->gray8_adaptor(), vectorfont_manager->gray8_scanline(), ren);
-                                                                                                                                break;
-
-                                                                                              case agg::glyph_data_outline    : ras.reset();
-                                                                                                                                                                                                                                                                
-                                                                                                                                //if(fabs(m_weight.value()) <= 0.01)
-                                                                                                                                //  {
-                                                                                                                                //    // For the sake of efficiency skip the
-                                                                                                                                //    // contour converter if the weight is about zero.
-                                                                                                                                //    //-----------------------
-                                                                                                                                //    ras.add_path(m_curves);
-                                                                                                                                //  }
-                                                                                                                                // else
-                                                                                                                                //  {
-                                                                                                                                //    ras.add_path(m_contour);
-                                                                                                                                //  }
-                                                                                                                                
-                                                                                                                                renderer_scanline->color((*vectorfont_config.GetColor()));
-                                                                                                                                agg::render_scanlines(ras, sl, ren);                                                                                  
-                                                                                                                                break;
-                                                                                              }
-
-                                                                                            // increment pen position
-                                                                                            x += glyph->advance_x;
-                                                                                            y += glyph->advance_y;  
-
-                                                                                            ++num_glyphs;
-                                                                                          }                                                                                        
-                                                                                    }
-
-                                                                                  AGG_SOLIDFILL_END
-
-                                                                                  XSTRING_DELETEOEM(outstring, text);  
-                                                                              
-                                                                                  return true;
-                                                                                  */
+                                                                                  return VectorFont_Print(_x, _y, outstring.Get());                                                                                                                                                                 
                                                                                 }
 
 

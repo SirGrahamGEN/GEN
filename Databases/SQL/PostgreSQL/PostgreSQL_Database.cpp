@@ -225,8 +225,8 @@ bool POSTGRESQL_DATABASE::Savepoint(XCHAR* savepoint)
   savepointstring.Format(__L("SAVEPOINT %s"),savepoint);
 
   XBUFFER oem;
-  savepointstring.ConvertToASCII(oem);
- 
+  
+  savepointstring.ConvertToASCII(oem); 
   PGresult* res = PQexec(conn, oem.GetPtrChar());
   if(PQresultStatus(res) != PGRES_COMMAND_OK)
     {
@@ -262,8 +262,8 @@ bool POSTGRESQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
   savepointstring.Format(__L("RELEASE %s"),savepoint);
 
   XBUFFER oem;
-  savepointstring.ConvertToASCII(oem);
   
+  savepointstring.ConvertToASCII(oem);  
   PGresult* res = PQexec(conn, oem.GetPtrChar());
 
   if(PQresultStatus(res) != PGRES_COMMAND_OK)

@@ -355,12 +355,13 @@ bool DIOBUSPIRATE::WriteCommand(XCHAR* command, int timeout)
 
   _command  = command;
   _command += __L("\r");
-
-  XSTRING_CREATEOEM(_command, charvar)
-  status = diostream->Write((XBYTE*)charvar, _command.GetSize())?true:false;
+  
+  XBUFFER charstr;
+  
+  _command.ConvertToASCII(charstr);
+  status = diostream->Write((XBYTE*)charstr.Get(), _command.GetSize())?true:false;
   if(status)  status = diostream->WaitToFlushOutXBuffer(timeout);
-  XSTRING_DELETEOEM(_command, charvar)
-
+  
   return status;
 }
 

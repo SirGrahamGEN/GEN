@@ -257,10 +257,11 @@ void XWINDOWSTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 
   if(file)
     {
-      XSTRING_CREATEOEM(line, charstr)
-      fwrite(charstr, 1, line.GetSize(), file);
-      XSTRING_DELETEOEM(line, charstr)
-
+      
+      XBUFFER charstr;
+      
+      line.ConvertToASCII(charstr); 
+      fwrite(charstr.Get(), 1, line.GetSize(), file);      
       fwrite(__L("\n\r"),1,1,file);
 
       fclose(file);

@@ -343,18 +343,18 @@ bool XFILEDBF_RECORD::SetDataString(int indexfield, XSTRING& string)
   XDWORD sizestring = string.GetSize();
   if(sizestring > field->size) sizestring = field->size;
 
-  XSTRING_CREATEOEM(string, charstr);
 
-  memset((XBYTE*)(&datarec[offset]), ' '     , field->size);
-//memcpy((XBYTE*)(&datarec[offset]), charstr , size);
+  XBUFFER charstr;
+  
+  string.ConvertToASCII(charstr);
+
+  memset((XBYTE*)(&datarec[offset]), ' ', field->size);
 
   for(XDWORD c=0; c<sizestring; c++)
     {
-      datarec[offset+c] = charstr[c];
+      datarec[offset+c] = charstr.Get()[c];
     }
-
-  XSTRING_DELETEOEM(string, charstr)
-
+  
   return true;
 }
 
@@ -382,13 +382,13 @@ bool XFILEDBF_RECORD::SetCharacterType(int indexfield,XCHAR* data)
 
   XSTRING _data(data);
   int        size = field->size;
-
-  XSTRING_CREATEOEM(_data, charstr);
-
+  
+  XBUFFER charstr;
+  
+  _data.ConvertToASCII(charstr);
+  
   memset((XBYTE*)(&datarec[offset]), ' ', size);
-  memcpy((char*)(&datarec[offset]), charstr, _data.GetSize());
-
-  XSTRING_DELETEOEM(_data, charstr)
+  memcpy((char*)(&datarec[offset]), charstr.GetPtrChar(), _data.GetSize());
 
   return true;
 }
@@ -699,15 +699,16 @@ bool XFILEDBF_HEADER::Create(XFILE* fileb)
         {
           memset(&headerdata[index],0,XFILEDBF_FIELDSIZE);
 
-          XSTRING_CREATEOEM(field->name, charstr)
 
+          XBUFFER charstr;
+          
+          field->name.ConvertToASCII(charstr);
+         
           XDWORD size = (int)strlen(charstr);
           if(size>XFILEDBF_FIELDSIZE) size = XFILEDBF_FIELDSIZE;
 
-          memcpy((char*)(&headerdata[index]), charstr, size);
-
-          XSTRING_DELETEOEM(field->name, charstr)
-
+          memcpy((char*)(&headerdata[index]), charstr.Get(), size);
+                  
           switch(field->type)
             {
               case XFILEDBF_FIELDTYPE_CHARACTER : type='C'; break;

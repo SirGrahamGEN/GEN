@@ -468,9 +468,10 @@ void DIOANDROIDSTREAMUDP::ThreadRunFunction(void* thread)
                                                                                         tmpremoteaddress = diostream->remoteaddress.Get();
                                                                                   else  tmpremoteaddress = datagram->GetAddress()->Get();
 
-                                                                                XSTRING_CREATEOEM(tmpremoteaddress, charstr)
-                                                                                target_addr.sin_addr.s_addr   = inet_addr(charstr);
-                                                                                XSTRING_DELETEOEM(tmpremoteaddress, charstr)
+                                                                                XBUFFER charstr;
+                                                                                
+                                                                                tmpremoteaddress.ConvertToASCII(charstr);                                                                                
+                                                                                target_addr.sin_addr.s_addr   = inet_addr(charstr.GetPtrChar());                                                                                
                                                                               }
 
                                                                             target_addr.sin_port  = htons(datagram->GetPort()?datagram->GetPort():diostream->config->GetRemotePort());
@@ -519,9 +520,11 @@ void DIOANDROIDSTREAMUDP::ThreadRunFunction(void* thread)
                                                                          else
                                                                           {
                                                                             tmpremoteaddress = diostream->remoteaddress.Get();
-                                                                            XSTRING_CREATEOEM(tmpremoteaddress, charstr)
-                                                                            target_addr.sin_addr.s_addr   = inet_addr(charstr);
-                                                                            XSTRING_DELETEOEM(tmpremoteaddress, charstr)
+                                                                            
+                                                                            XBUFFER charstr;
+                                                                            
+                                                                            tmpremoteaddress.ConvertToASCII(charstr);                                                                            
+                                                                            target_addr.sin_addr.s_addr   = inet_addr(charstr.GetPtrChar());                                                                            
                                                                           }
 
                                                                         target_addr.sin_port  = htons(diostream->config->GetRemotePort());
@@ -590,9 +593,10 @@ void DIOANDROIDSTREAMUDP::ThreadRunFunction(void* thread)
 
                                                                   if(!diostream->config->GetLocalIP()->IsEmpty())
                                                                     {
-                                                                      XSTRING_CREATEOEM(IPstring, charOEM)
-                                                                      loc_addr.sin_addr.s_addr  = inet_addr(charOEM);
-                                                                      XSTRING_DELETEOEM(IPstring, charOEM)
+                                                                      XBUFFER charstr;
+                                                                      
+                                                                      IPstring.ConvertToASCII(charstr);                                                                                                                                            
+                                                                      loc_addr.sin_addr.s_addr  = inet_addr(charstr.GetPtrChar());                                                                      
 
                                                                     } else loc_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 

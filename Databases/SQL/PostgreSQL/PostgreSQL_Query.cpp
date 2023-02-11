@@ -287,8 +287,8 @@ bool POSTGRESQL_QUERY::ClearCursor()
       close.Format(__L("CLOSE %s"),this->cursorname.Get());
 
       XBUFFER oem;
-      close.ConvertToASCII(oem);
       
+      close.ConvertToASCII(oem);      
       PGresult* res = PQexec(conn, oem.GetPtrChar());
       if(PQresultStatus(res) != PGRES_COMMAND_OK) success=false; else success=true;
       PQclear(res);

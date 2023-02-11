@@ -1235,10 +1235,11 @@ bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFE
      
       { calculatehash.Format(__L("%s:%s:%s"), login.Get(), realm_str.Get(), password.Get());
        
-        XSTRING_CREATEOEM(calculatehash, chash);
-        md5.Do((XBYTE*)chash, calculatehash.GetSize());
-        XSTRING_DELETEOEM(calculatehash, chash);
-
+        XBUFFER charhash;
+        
+        calculatehash.ConvertToASCII(charhash);       
+        md5.Do((XBYTE*)charhash.Get(), calculatehash.GetSize());
+        
         md5.GetResultString(HA1);
       }
 
@@ -1246,10 +1247,11 @@ bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFE
 
       { calculatehash.Format(__L("%s:%s"), methodstring.Get(), resource.Get());
   
-        XSTRING_CREATEOEM(calculatehash, chash);
-        md5.Do((XBYTE*)chash, calculatehash.GetSize());
-        XSTRING_DELETEOEM(calculatehash, chash);
-      
+        XBUFFER charhash;
+        
+        calculatehash.ConvertToASCII(charhash);       
+        md5.Do((XBYTE*)charhash.Get(), calculatehash.GetSize());
+        
         md5.GetResultString(HA2);
       }
 
@@ -1257,10 +1259,11 @@ bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFE
 
       { calculatehash.Format(__L("%s:%s:%s:%s:%s:%s"), HA1.Get(), nonce_str.Get(), nc_str.Get(), cnonce_str.Get(), auth_str.Get(), HA2.Get());
   
-        XSTRING_CREATEOEM(calculatehash, chash);
-        md5.Do((XBYTE*)chash, calculatehash.GetSize());
-        XSTRING_DELETEOEM(calculatehash, chash);
-      
+        XBUFFER charhash;
+        
+        calculatehash.ConvertToASCII(charhash);       
+        md5.Do((XBYTE*)charhash.Get(), calculatehash.GetSize());
+        
         md5.GetResultString(response);
       }
      

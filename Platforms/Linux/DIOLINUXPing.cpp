@@ -142,10 +142,11 @@ bool DIOLINUXPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstg
 
   targetaddr.sin_family = AF_INET;
 
-  XSTRING_CREATEOEM(targetIP, charstr)
-  targetaddr.sin_addr.s_addr = inet_addr(charstr);
-  XSTRING_DELETEOEM(targetIP, charstr)
-
+  XBUFFER charstr;
+  
+  targetIP.ConvertToASCII(charstr);  
+  targetaddr.sin_addr.s_addr = inet_addr(charstr.GetPtrChar());
+  
   DIOPING_ECHOREQUEST echorequest;
   int                 ID    = 0xCAFE;
   int                 nseq  = 2;

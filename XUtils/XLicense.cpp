@@ -520,9 +520,11 @@ bool XLICENSE::GetBufferKeyFromMachineID(XSTRING& applicationID, XBUFFER& xbuffe
 
   xbufferkey.Delete();
 
-  XSTRING_CREATEOEM(applicationID, keychar)
-  xbufferkey.Add((XBYTE*)keychar, applicationID.GetSize());
-  XSTRING_DELETEOEM(applicationID, keychar)
+  
+  XBUFFER charstr;
+    
+  applicationID.ConvertToASCII(charstr);
+  xbufferkey.Add((XBYTE*)charstr.Get(), applicationID.GetSize());
 
   sha1.Do(xbufferkey);
 
@@ -566,10 +568,11 @@ bool XLICENSE::CipherExpirationDate(bool cipher, XSTRING& applicationID, XSTRING
 
   if(cipher)
     {
-      XSTRING_CREATEOEM(expirationdate, expirationdatechar)
-      status = cipherAES.Cipher((XBYTE*)expirationdatechar, expirationdate.GetSize());
-      XSTRING_DELETEOEM(expirationdate, expirationdatechar)
-
+      XBUFFER charstr;
+      
+      expirationdate.ConvertToASCII(charstr);
+   
+      status = cipherAES.Cipher((XBYTE*)charstr.Get(), expirationdate.GetSize());
       if(status)
         {
           cipherAES.GetResult()->ConvertToBase64(expirationdate);

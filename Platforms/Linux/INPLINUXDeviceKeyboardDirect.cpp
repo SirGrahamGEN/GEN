@@ -397,10 +397,11 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::CreateDevices()
      
           event.Format(__L("/dev/input/event%d"), deviceID->GetEventIndex());
 
-          XSTRING_CREATEOEM(event, keyboard_char_oem);
-          filedescriptor = open(keyboard_char_oem, O_RDONLY | O_NONBLOCK);
-          XSTRING_DELETEOEM(event, keyboard_char_oem);
-
+          XBUFFER charstr;
+          
+          event.ConvertToASCII(charstr); 
+          filedescriptor = open(charstr.GetPtrChar(), O_RDONLY | O_NONBLOCK);
+          
           if(filedescriptor != -1)
             {
               char    keyboardOEMname[_MAXSTR];
@@ -423,96 +424,6 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::CreateDevices()
   devicesID.DeleteAll();
   
   return keyboards.GetSize()?true:false;
- 
-      
-  /*
-
-  XPATH     xpathdevices;
-  bool      status          = true;
-
-  XFILETXT* xfiletxtdevices =  new XFILETXT();
-  if(xfiletxtdevices)
-    {
-      XPATH xpathdevices;
-
-      xpathdevices = INPLINUXDEVICEID_HANDLEFILE;
-
-      //-------------------------------------------------------------------------------------
-      // We open the device list so we can get additional data on our devices attached to kbd & mousedev
-
-      if(xfiletxtdevices->Open(xpathdevices))
-        {
-          xfiletxtdevices->ReadAllFile();
-
-          for(int e=0;e<xfiletxtdevices->GetNLines();e++)
-            {
-              // check if kbd handler
-              XSTRING*          string         = xfiletxtdevices->GetLine(e);
-              XSTRING           toscan;
-              int               pos            = string->Find(__L("kbd "),0);
-              int               eventnumber    = INPLINUXDEVICEID_INVALID;
-              int               filedescriptor = INPLINUXDEVICEID_INVALID;
-              XSTRING           event;
-              char              keyboardOEMname[_MAXSTR];
-              XSTRING           namehardware;
-              INPLINUXDEVICEID* deviceID = NULL;
-
-              if(pos != NOTFOUND) // ID of keyboard
-                {
-                  //if(string) XTRACE_PRINTCOLOR(1,__L("line [%s]"), string->Get());
-
-                  pos=string->Find(__L(" event"),0);
-
-                  if(string->Find(__L("sysrq"),0)!=NOTFOUND)
-                    {
-                      if(pos != NOTFOUND) // Valid ID
-                        {
-                          XSTRING event;
-
-                          toscan= &(string->Get()[pos]);
-                          toscan.UnFormat(__L(" event%d"), &eventnumber);
-
-                          event.Format(__L("/dev/input/event%d"), eventnumber);
-
-                          XSTRING_CREATEOEM(event, keyboard_char_oem);
-                          filedescriptor = open(keyboard_char_oem, O_RDONLY | O_NONBLOCK);
-                          XSTRING_DELETEOEM(event, keyboard_char_oem);
-
-                          if(filedescriptor != -1)
-                            {
-                              // we get the keyboard name
-                              memset(keyboardOEMname, 0, _MAXSTR);
-
-                              ioctl(filedescriptor, EVIOCGNAME(_MAXSTR), keyboardOEMname);
-                              namehardware.Set(keyboardOEMname);
-
-                              deviceID = new INPLINUXDEVICEID();
-                              if(!deviceID)
-                                {
-                                  status = false;
-                                  break;
-                                }
-
-                              deviceID->SetFileDescriptor(filedescriptor);
-                              deviceID->GetName()->Set(namehardware);
-
-                              keyboards.Add(deviceID);
-                            }
-
-                          XTRACE_PRINTCOLOR((deviceID?1:4),__L("Keyboard : (%s) on Event[%d] %s"), namehardware.Get(), eventnumber, event.Get());
-                        }
-                    }
-                }
-            }
-
-          xfiletxtdevices->Close();
-        }
-
-      delete xfiletxtdevices;
-    }
-
-  return keyboards.GetSize()?true:false;
-  */
 }
 
 

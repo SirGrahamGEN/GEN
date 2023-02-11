@@ -1779,11 +1779,12 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_Write(XCHAR* string, int timeout)
   _string = string;
 
   WebSocket_CreateHeader(DIOWEBSERVER_WEBSOCKET_OPCODE_TEXT_FRAME, _string.GetSize(), data);
-
-  XSTRING_CREATEOEM(_string, charvar);
-  data.Add((XBYTE*)charvar, _string.GetSize());
-  XSTRING_DELETEOEM(_string, charvar);
-
+       
+  XBUFFER charstr;
+  
+  _string.ConvertToASCII(charstr); 
+  data.Add((XBYTE*)charstr.Get(), _string.GetSize());
+  
   return Send(data, timeout);
 }
 
@@ -1871,10 +1872,11 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_WritePingPong(bool isping, XCHAR* string
 
   WebSocket_CreateHeader((isping?DIOWEBSERVER_WEBSOCKET_OPCODE_PING:DIOWEBSERVER_WEBSOCKET_OPCODE_PONG), _string.GetSize(), data);
 
-  XSTRING_CREATEOEM(_string, charvar);
-  data.Add((XBYTE*)charvar, _string.GetSize());
-  XSTRING_DELETEOEM(_string, charvar);
-
+  XBUFFER charstr;
+  
+  _string.ConvertToASCII(charstr);
+  data.Add((XBYTE*)charstr.Get(), _string.GetSize());
+  
   return Send(data, timeout);
 }
 
@@ -2193,10 +2195,11 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_CreateAcceptKey(XSTRING& key, XSTRING& r
   HASHSHA1* sha1 = new HASHSHA1();
   if(!sha1) return false;
 
-  XSTRING_CREATEOEM(resultbrute, charresult);
-  status = sha1->Do((XBYTE*)charresult, resultbrute.GetSize());
-  XSTRING_DELETEOEM(resultbrute, charresult);
-
+  XBUFFER charstr;
+  
+  resultbrute.ConvertToASCII(charstr);
+  status = sha1->Do((XBYTE*)charstr.Get(), resultbrute.GetSize());
+  
   sha1->GetResult()->ConvertToBase64(result);
 
   delete sha1;

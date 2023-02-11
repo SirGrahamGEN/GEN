@@ -337,15 +337,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_RevisionBoard(RASPBERRYPI_MODEL& model, int& m
                       if(!line->Compare(__L("b03112") , true))  { model = RASPBERRYPI_MODEL_B_4;              megabytes = 2048;     revision = 1.2f; }
                       if(!line->Compare(__L("c03111") , true))  { model = RASPBERRYPI_MODEL_B_4;              megabytes = 4096;     revision = 1.1f; }
                       if(!line->Compare(__L("c03112") , true))  { model = RASPBERRYPI_MODEL_B_4;              megabytes = 4096;     revision = 1.2f; }
-                     
-                      /*
-                      XSTRING_CREATEOEM((*line), _line);
-                      printf(_line);
-                      printf("\n");
-                      XSTRING_DELETEOEM((*line), _line);
-                      GEN_XSLEEP.Seconds(4);  
-                      */
-  
+                                            
                       if(model != RASPBERRYPI_MODEL_UNKNOWN)
                         {
                           status = true;

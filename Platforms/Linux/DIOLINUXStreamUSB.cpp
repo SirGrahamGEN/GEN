@@ -156,10 +156,10 @@ bool DIOLINUXSTREAMUSB::Open()
 {
   if(!config) return false;
 
-  XSTRING_CREATEOEM((*config->GetResource()), charOEM)
-  fd= open(charOEM, O_RDWR | O_NOCTTY | O_NONBLOCK);
-  XSTRING_DELETEOEM((*config->GetResource()), charOEM)
-
+  XBUFFER charstr;
+  
+  (*config->GetResource()).ConvertToASCII(charstr);  
+  fd= open(charstr.GetPtrChar(), O_RDWR | O_NOCTTY | O_NONBLOCK);  
   if(fd<0) return false;
 
   //fcntl(fd, F_SETFL, FNDELAY);

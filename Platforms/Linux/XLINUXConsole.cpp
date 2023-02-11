@@ -198,10 +198,11 @@ bool XLINUXCONSOLE::Print(XCHAR* string)
 
   _string = string;
 
-  XSTRING_CREATEOEM(_string, charstr)
-  printf(charstr);
-  XSTRING_DELETEOEM(_string, charstr);
-
+  XBUFFER charstr;
+  
+  _string.ConvertToASCII(charstr);  
+  printf(charstr.GetPtrChar());
+  
   fflush(stdout);
 
 

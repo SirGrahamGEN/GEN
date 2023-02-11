@@ -104,12 +104,13 @@ bool XSTM32DIR::Exist(XCHAR* path)
  
   pathstring = path;
   if(pathstring.IsEmpty()) return false; 
-    
-  XSTRING_CREATEOEM(pathstring, charpath) 
-  fresult = f_opendir(&dir, charpath);						
+   
+  XBUFFER charstr;
+  
+  pathstring.ConvertToASCII(charstr);  
+  fresult = f_opendir(&dir, charstr.GetPtrChar());						
   if(fresult) fresult = f_closedir(&dir);	
-  XSTRING_DELETEOEM(pathstring, charpath) 
-
+  
   return (fresult == FR_OK)?true:false;  
 }
 
@@ -160,10 +161,11 @@ bool XSTM32DIR::Make(XCHAR* path, bool recursive)
                       
                   xpathsequence.Slash_Delete();
                       
-                  XSTRING_CREATEOEM(xpathsequence, charpath);
-                  fresult = f_mkdir(charpath);						
-                  XSTRING_DELETEOEM(charpath);
-  
+                  XBUFFER charstr;
+                  
+                  xpathsequence.ConvertToASCII(charstr);                  
+                  fresult = f_mkdir(charpath.GetPtrChar());						
+                  
                   if(fresult != FR_OK) return false;  
                 }
                 
@@ -174,11 +176,11 @@ bool XSTM32DIR::Make(XCHAR* path, bool recursive)
         } while(1);
     }
    else
-    {
-      XSTRING_CREATEOEM(xpath, charpath);
-      fresult = f_mkdir(charpath);						
-      XSTRING_DELETEOEM(xpath, charpath);
-  
+    {      
+      XBUFFER charstr;
+      
+      xpath.ConvertToASCII(charstr);
+      fresult = f_mkdir(charstr.GetPtrChar());						      
       if(fresult != FR_OK) return false;  
     }
 
@@ -210,11 +212,11 @@ bool XSTM32DIR::ChangeTo(XCHAR* path)
   xpath = path;
 
   xpath.Slash_Normalize(true);
-
-  XSTRING_CREATEOEM(xpath, charpath);
-  fresult = f_chdir(charpath);	
-  XSTRING_DELETEOEM(xpath, charpath);
-
+  
+  XBUFFER charstr;
+  
+  xpath.ConvertToASCII(charstr);
+  fresult = f_chdir(charstr.GetPtrChar());	  
   if(fresult != FR_OK) return false;  
 
   return true;
@@ -275,11 +277,11 @@ bool XSTM32DIR::Delete(XCHAR* path, bool all)
   xpath = path;
 
   xpath.Slash_Normalize(true);
-
-  XSTRING_CREATEOEM(xpath, charpath);
-  fresult = f_rmdir(charpath);	
-  XSTRING_DELETEOEM(xpath, charpath);
-
+  
+  XBUFFER charstr;
+  
+  xpath.ConvertToASCII(charstr);
+  fresult = f_rmdir(charstr.GetPtrChar());	
   if(fresult != FR_OK) return false;  
  
   return true;
@@ -355,12 +357,13 @@ bool XSTM32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* sea
     
   XSTM32DIR_SEARCHINFO* searchinfo = (XSTM32DIR_SEARCHINFO*)searchelement->GetFindFileData();
 
-  XSTRING_CREATEOEM(pathsearch, charpathsearch)
-  XSTRING_CREATEOEM(_patternsearch, charpatternsearch)    
-  fresult = f_findfirst(&searchinfo->dir, &searchinfo->fileinfo, (const TCHAR*)charpathsearch, (const TCHAR*)charpatternsearch);
-  XSTRING_DELETEOEM(_patternsearch, charpatternsearch);
-  XSTRING_DELETEOEM(pathsearch, charpathsearch)
+  XBUFFER charpathsearch;
+  XBUFFER charpatternsearch;
+  
+  pathsearch.ConvertToASCII(charpathsearch);
+  _patternsearch.ConvertToASCII(charpatternsearch);
 
+  fresult = f_findfirst(&searchinfo->dir, &searchinfo->fileinfo, (const TCHAR*)charpathsearch.GetPtrChar(), (const TCHAR*)charpatternsearch.GetPtrChar());  
   if(fresult != FR_OK || !searchinfo->fileinfo.fname[0]) 
     {      
       searchelement->DeleteFindFileData();
@@ -398,10 +401,11 @@ bool XSTM32DIR::NextSearch(XDIRELEMENT* searchelement)
   XSTM32DIR_SEARCHINFO* searchinfo = (XSTM32DIR_SEARCHINFO*)searchelement->GetFindFileData();
   if(!searchinfo) return false;
   
-  XSTRING_CREATEOEM((*searchelement->GetPatternSearch()), charpatternsearch)    
-  searchinfo->dir.pat = charpatternsearch; 
-  fresult = f_findnext(&searchinfo->dir, &searchinfo->fileinfo);
-  XSTRING_DELETEOEM((*searchelement->GetPatternSearch()), charpatternsearch);
+  XBUFFER charstr;
+  
+  (*searchelement->GetPatternSearch()).ConvertToASCII(charstr);  
+  searchinfo->dir.pat = charstr.GetPtrChar(); 
+  fresult = f_findnext(&searchinfo->dir, &searchinfo->fileinfo);  
   if(fresult != FR_OK || !searchinfo->fileinfo.fname[0]) 
     {
       searchelement->DeleteFindFileData();

@@ -500,6 +500,7 @@ XDWORD DIOCHECKTCPIPCONNECTION::CreateID()
   XDWORD    _ID = 0;
 
   XBUFFER charstr;
+  
   url->ConvertToASCII(charstr);
   if(hashcrc32.Do((XBYTE*)charstr.Get(), url->GetSize())) _ID += hashcrc32.GetResultCRC32();
   

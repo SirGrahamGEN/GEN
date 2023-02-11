@@ -155,10 +155,10 @@ bool DIOANDROIDSTREAMUSB::Open()
 {
   if(!config) return false;
 
-  XSTRING_CREATEOEM((*config->GetDeviceID()), charOEM)
-  fd= open(charOEM, O_RDWR | O_NOCTTY | O_NONBLOCK);
-  XSTRING_DELETEOEM((*config->GetDeviceID()), charOEM)
+  XBUFFER charstr;
 
+  (*config->GetDeviceID()).ConvertToASCII(charstr); 
+  fd= open(charstr.GetPtrChar(), O_RDWR | O_NOCTTY | O_NONBLOCK);  
   if(fd<0) return false;
 
   //fcntl(fd, F_SETFL, FNDELAY);

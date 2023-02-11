@@ -472,6 +472,7 @@ bool DIOPROTOCOLCLI::SendCommandArg(XCHAR* command, XSTRING* target, XSTRING* an
       HASHCRC32 CRC32;
 
       XBUFFER charstr;
+      
       tosend.ConvertToASCII(charstr);
       CRC32.Do((XBYTE*)charstr.Get(), tosend.GetSize());
       
@@ -481,9 +482,11 @@ bool DIOPROTOCOLCLI::SendCommandArg(XCHAR* command, XSTRING* target, XSTRING* an
 
   tosend += __L("\n\r");
 
-  XSTRING_CREATEOEM(tosend, charstr);
-  diostream->Write((XBYTE*)charstr, tosend.GetSize());
-  XSTRING_DELETEOEM(tosend, charstr);
+
+  XBUFFER charstr;
+  
+  tosend.ConvertToASCII(charstr); 
+  diostream->Write((XBYTE*)charstr.Get(), tosend.GetSize());
 
   tosend.DeleteCharacter(__C('\n'));
   tosend.DeleteCharacter(__C('\r'));
@@ -642,10 +645,10 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
                       strCRC32.UnFormat(__L("%08X"), &CRC32send);                    
 
                       { HASHCRC32 CRC32;
-
-                        XSTRING_CREATEOEM(laststringreceived, str)
-                        CRC32.Do((XBYTE*)str, laststringreceived.GetSize());
-                        XSTRING_DELETEOEM(laststringreceived, str)
+                        XBUFFER   charstr;
+                        
+                        laststringreceived.ConvertToASCII(charstr);                        
+                        CRC32.Do((XBYTE*)charstr.Get(), laststringreceived.GetSize());                        
 
                         CRC32result = CRC32.GetResultCRC32();                    
                       }
@@ -723,11 +726,11 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
                                   if(activeCRC)
                                     { 
                                       HASHCRC32 CRC32;
-
-                                      XSTRING_CREATEOEM(result, str)
-                                      CRC32.Do((XBYTE*)str, result.GetSize());
-                                      XSTRING_DELETEOEM(result, str)
-
+                                      XBUFFER   charstr;
+                                      
+                                      result.ConvertToASCII(charstr);                                                                           
+                                      CRC32.Do((XBYTE*)charstr.Get(), result.GetSize());
+                                      
                                       XDWORD CRC32result = CRC32.GetResultCRC32();
                                       result.AddFormat(__L("%s%08X"), DIOPROTOCOLCLI_MARK_CRC32, CRC32result);
                                     }                                  
@@ -736,9 +739,10 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
 
                                   result.Add(__L("\n\r"));
 
-                                  XSTRING_CREATEOEM(result, charstr);
-                                  diostream->Write((XBYTE*)charstr, result.GetSize());
-                                  XSTRING_DELETEOEM(result, charstr);
+                                  XBUFFER charstr;
+                                  
+                                  result.ConvertToASCII(charstr);                                  
+                                  diostream->Write((XBYTE*)charstr.Get(), result.GetSize());                                  
                                 }
 
                               params.DeleteContents();

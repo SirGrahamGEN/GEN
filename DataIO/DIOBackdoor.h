@@ -355,6 +355,7 @@ class DIOBACKDOOR
                                                             string.Add(__L("\n\r"));
 
                                                             XBUFFER line;
+                                                            
                                                             string.ConvertToASCII(charstr);
                                                             backdoor->diostream->Write((XBYTE*)line.Get(), string.GetSize());                                                            
                                                           }

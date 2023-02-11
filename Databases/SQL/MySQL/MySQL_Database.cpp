@@ -226,6 +226,7 @@ bool MYSQL_DATABASE::Rollback(XCHAR* savepointname)
           text.Format(__L("ROLLBACK TO SAVEPOINT %s"),savepointname);
           
           XBUFFER rollbacktext;
+          
           text.ConvertToASCII(rollbacktext);
           int rc = mysql_query(conn, rollbacktext.GetPtrChar());
 
@@ -267,6 +268,7 @@ bool MYSQL_DATABASE::Savepoint(XCHAR* savepoint)
   text.Format(__L("SAVEPOINT %s"),savepoint);
 
   XBUFFER savetext;
+  
   text.ConvertToASCII(savetext); 
   int rc = mysql_query(conn, savetext.GetPtrChar());
   
@@ -301,6 +303,7 @@ bool MYSQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
   text.Format(__L("RELEASE %s"),savepoint);
 
   XBUFFER savetext;
+  
   text.ConvertToASCII(savetext); 
   int rc = mysql_query(conn, savetext.GetPtrChar());
   

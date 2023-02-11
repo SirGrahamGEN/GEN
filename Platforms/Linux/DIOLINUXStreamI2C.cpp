@@ -119,10 +119,11 @@ bool DIOLINUXSTREAMI2C::Open()
   if(!config) return false;
 
   if(!threadconnection)  return false;
-
-  XSTRING_CREATEOEM((*config->GetLocalDeviceName()), charOEM)
-  handle = open(charOEM, O_RDWR);
-  XSTRING_DELETEOEM((*config->GetLocalDeviceName()), charOEM)
+  
+  XBUFFER charstr;
+  
+  (*config->GetLocalDeviceName()).ConvertToASCII(charstr);
+  handle = open(charstr.GetPtrChar(), O_RDWR);  
   if(handle<0) return false;
 
   switch(config->GetAddressSize())

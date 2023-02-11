@@ -447,10 +447,11 @@ bool DIOSTREAM::ReadStr(char* str)
   XSTRING string;
   bool    status = ReadStr(string);
 
-  XSTRING_CREATEOEM(string, charstr)
-  memcpy(str, charstr, string.GetSize());
-  XSTRING_DELETEOEM(string, charstr)
-
+  XBUFFER charstr;
+  
+  string.ConvertToASCII(charstr);  
+  memcpy(str, charstr.Get(), string.GetSize());
+  
   return status;
 }
 
@@ -597,11 +598,11 @@ bool DIOSTREAM::WriteStr(XCHAR* string)
 {
   XSTRING str(string);
 
-  XSTRING_CREATEOEM(str, charstr)
-  bool status = WriteStr(charstr);
-  XSTRING_DELETEOEM(str, charstr)
-
-  return status;
+  XBUFFER charstr;
+  
+  str.ConvertToASCII(charstr);
+  
+  return WriteStr(charstr.GetPtrChar());
 }
 
 
@@ -619,11 +620,11 @@ bool DIOSTREAM::WriteStr(XCHAR* string)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAM::WriteStr(XSTRING& string)
 {
-  XSTRING_CREATEOEM(string, charstr)
-  bool status = WriteStr(charstr);
-  XSTRING_DELETEOEM(string, charstr)
-
-  return status;
+  XBUFFER charstr;
+  
+  string.ConvertToASCII(charstr);
+  
+  return WriteStr(charstr.GetPtrChar());  
 }
 
 

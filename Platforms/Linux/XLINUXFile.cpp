@@ -510,15 +510,21 @@ bool XLINUXFILE::DeleteStructHandle()
 void XLINUXFILE::ChangeAttributes(XCHAR* attributes)
 {
   XSTRING mode;
+  
   mode.Set(attributes);
-  XSTRING_CREATEOEM(mode, charOEM0)
-  int i = strtol(charOEM0, 0, 8);
-  XSTRING_DELETEOEM(mode, charOEM0)
-
+  
+  XBUFFER charstr0;
+  
+  mode.ConvertToASCII(charstr0);
+  
+  int i = strtol(charstr0.GetPtrChar(), 0, 8);
+  
   XSTRING str(xpathnamefile.Get());
-  XSTRING_CREATEOEM(str, charOEM)
-  chmod(charOEM, i);
-  XSTRING_DELETEOEM(str, charOEM)
+  
+  XBUFFER charstr1;
+  
+  str.ConvertToASCII(charstr1);  
+  chmod(charstr1.GetPtrChar(), i);  
 }
 
 

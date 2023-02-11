@@ -108,11 +108,12 @@ bool XSTM32FILE::Exist(XCHAR* path)
   pathstring = path;
   if(pathstring.IsEmpty()) return false; 
 
-  XSTRING_CREATEOEM(pathstring, charpath) 
-  fresult = f_stat (charpath, &fileinfo);			
+  XBUFFER charstr;
+  
+  pathstring.ConvertToASCII(charstr);
+  fresult = f_stat (charstr.GetPtrChar(), &fileinfo);			
   cachesize =0;
   if(fresult == FR_OK) cachesize = (XQWORD)fileinfo.fsize;  
-  XSTRING_DELETEOEM(pathstring, charpath);
   
   status = (fresult == FR_OK)?true:false;  
    
@@ -147,12 +148,14 @@ bool XSTM32FILE::Open(XCHAR* path, bool isreadonly)
     
   if(!isreadonly) mode |= FA_WRITE;
  
-  XSTRING_CREATEOEM(pathstring, charpath) 
-  fresult = f_open(&file, charpath , mode);
+  XBUFFER charstr;
+  
+  pathstring.ConvertToASCII(charstr);
+ 
+  fresult = f_open(&file, charstr.GetPtrChar(), mode);
   cachesize = 0;   
   if(fresult == FR_OK) cachesize = (XQWORD)f_size(&file);
-  XSTRING_DELETEOEM(pathstring, charpath);
-
+  
   status = (fresult == FR_OK)?true:false;  
   if(status) 
     {
@@ -188,11 +191,12 @@ bool XSTM32FILE::Create(XCHAR* path)
 
   XBYTE mode  = (FA_CREATE_ALWAYS | FA_CREATE_ALWAYS | FA_READ | FA_WRITE);
       
-  XSTRING_CREATEOEM(pathstring, charpath) 
-  fresult = f_open(&file, charpath , mode);  
-  cachesize = 0;  
-  XSTRING_DELETEOEM(pathstring, charpath);
-
+  XBUFFER charstr;
+  
+  pathstring.ConvertToASCII(charstr); 
+  
+  fresult = f_open(&file, charstr.GetPtrChar(), mode);  
+  cachesize = 0;    
   status = (fresult == FR_OK)?true:false;  
   if(status) 
     {
@@ -450,10 +454,10 @@ bool XSTM32FILE::Erase(XCHAR* path, bool overwrite)
   pathstring = path;
   if(pathstring.IsEmpty()) return false; 
     
-  XSTRING_CREATEOEM(pathstring, charpath) 
-  fresult = f_unlink(charpath);				
-  XSTRING_DELETEOEM(pathstring, charpath);
+  XBUFFER charstr;
   
+  pathstring.ConvertToASCII(charstr);     
+  fresult = f_unlink(charstr.GetPtrChar());				  
   status = (fresult == FR_OK)?true:false;  
   
   return status;
@@ -483,14 +487,13 @@ bool XSTM32FILE::Rename(XCHAR* pathold, XCHAR* pathnew)
   pathstring[0] = pathold;
   pathstring[1] = pathnew;
   
-  XSTRING_CREATEOEM(pathstring[0], charpathold) 
-  XSTRING_CREATEOEM(pathstring[1], charpathnew) 
- 
-  fresult = f_rename(charpathold, charpathnew);	
+  XBUFFER charpathold;
+  XBUFFER charpathnew;
   
-  XSTRING_DELETEOEM(pathstring[0], charpathold);
-  XSTRING_DELETEOEM(pathstring[1], charpathnew);
-  
+  pathstring[0].ConvertToASCII(charpathold);
+  pathstring[1].ConvertToASCII(charpathnew);
+   
+  fresult = f_rename(charpathold.GetPtrChar(), charpathnew.GetPtrChar());	   
   status = (fresult == FR_OK)?true:false;  
 
   return status;

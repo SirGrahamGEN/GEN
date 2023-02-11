@@ -435,14 +435,16 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleServer()
       loc_addr.sin_family = AF_INET;
       if(!config->GetLocalIP()->IsEmpty())
         {
-          XSTRING_CREATEOEM(IPstring, charstr)
+          XBUFFER charstr;
+          
+          IPstring.ConvertToASCII(charstr);
+                    
           #ifndef BUILDER
-          inet_pton(loc_addr.sin_family, charstr, &loc_addr.sin_addr.s_addr);
+          inet_pton(loc_addr.sin_family, charstr.GetPtrChar(), &loc_addr.sin_addr.s_addr);
           #else
-          loc_addr.sin_addr.s_addr  = inet_addr(charstr);
+          loc_addr.sin_addr.s_addr  = inet_addr(charstr.GetPtrChar());
           #endif
-          XSTRING_DELETEOEM(IPstring, charstr)
-
+          
         } else loc_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 
       loc_addr.sin_port = htons(config->GetRemotePort());
@@ -575,14 +577,16 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleClient()
 
       loc_addr.sin_family      = AF_INET;
 
-      XSTRING_CREATEOEM(IPstring, charstr)
+      XBUFFER charstr;
+      
+      IPstring.ConvertToASCII(charstr);
+ 
       #ifndef BUILDER
-      inet_pton(loc_addr.sin_family, charstr, &loc_addr.sin_addr.s_addr);
+      inet_pton(loc_addr.sin_family, charstr.GetPtrChar(), &loc_addr.sin_addr.s_addr);
       #else
-      loc_addr.sin_addr.s_addr = inet_addr(charstr);
+      loc_addr.sin_addr.s_addr = inet_addr(charstr.GetPtrChar());
       #endif
-      XSTRING_DELETEOEM(IPstring, charstr)
-
+      
       loc_addr.sin_port        = 0; //htons(diostream->config->GetRemotePort());
 
       if(bind(handlesocket, (LPSOCKADDR)&loc_addr, sizeof(SOCKADDR_IN)) == SOCKET_ERROR)
@@ -610,15 +614,19 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleClient()
   remoteIP.GetXString(IPstring);
 
   rem_addr.sin_family       = AF_INET;
-  XSTRING_CREATEOEM(IPstring, charstr)
+  
+  XBUFFER charstr;
+  
+  IPstring.ConvertToASCII(charstr);
+  
   #ifndef BUILDER
-  inet_pton(rem_addr.sin_family, charstr, &rem_addr.sin_addr.s_addr);
-  clientIP.Set(charstr);
+  inet_pton(rem_addr.sin_family, charstr.GetPtrChar(), &rem_addr.sin_addr.s_addr);
+  clientIP.Set(charstr.GetPtrChar());
   #else
-  rem_addr.sin_addr.s_addr  = inet_addr(charstr);
+  rem_addr.sin_addr.s_addr  = inet_addr(charstr.GetPtrChar());
   clientIP.Set(charstr);
   #endif
-  XSTRING_DELETEOEM(IPstring, charstr)
+  
   rem_addr.sin_port         = htons(config->GetRemotePort());
 
   int opt = 1;

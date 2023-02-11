@@ -555,10 +555,11 @@ XDWORD XFILERIFF::GetTypeFromString(XCHAR* string)
 
   str = string;
 
-  XSTRING_CREATEOEM(str, charstr);
-  memcpy((XBYTE*)&result, (XBYTE*)charstr, sizeof(XDWORD));  
-  XSTRING_DELETEOEM(str, charstr);
-
+  XBUFFER charstr;
+  
+  str.ConvertToASCII(charstr);  
+  memcpy((XBYTE*)&result, (XBYTE*)charstr.Get(), sizeof(XDWORD));  
+  
   return result;  
 }
 

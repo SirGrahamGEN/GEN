@@ -353,11 +353,12 @@ bool INPLINUXDEVICEMOUSEDIRECT::OpenAllDevicesID()
           int     filedescriptor = INPLINUXDEVICEID_INVALID;
      
           event.Format(__L("/dev/input/event%d"), deviceID->GetEventIndex());
-
-          XSTRING_CREATEOEM(event, keyboard_char_oem);
-          filedescriptor = open(keyboard_char_oem, O_RDONLY | O_NONBLOCK);
-          XSTRING_DELETEOEM(event, keyboard_char_oem);
-
+                     
+          XBUFFER charstr;
+          
+          event.ConvertToASCII(charstr);          
+          filedescriptor = open(charstr.GetPtrChar(), O_RDONLY | O_NONBLOCK);
+          
           if(filedescriptor != -1)
             {
               char    mouseOEMname[_MAXSTR];
@@ -395,102 +396,6 @@ bool INPLINUXDEVICEMOUSEDIRECT::OpenAllDevicesID()
   devicesID.DeleteAll();
 
   return mice.GetSize()?true:false;
-
-
-  /*
-  XPATH     xpathdevices;
-  bool      status          = true;
-
-  XFILETXT* xfiletxtdevices =  new XFILETXT();
-  if(!xfiletxtdevices) return false;
-
-  xpathdevices = INPLINUXDEVICEID_HANDLEFILE;
-
-  //-------------------------------------------------------------------------------------
-  // We open the device list so we can get additional data on our devices attached to kbd & mousedev
-  if(xfiletxtdevices->Open(xpathdevices))
-    {
-      xfiletxtdevices->ReadAllFile();
-
-      for(int e=0; e<xfiletxtdevices->GetNLines(); e++)
-        {
-          // check if kbd handler
-          XSTRING* string         = xfiletxtdevices->GetLine(e);
-          XSTRING  toscan;
-          int      pos            = string->Find(__L("mouse"),0);
-          XSTRING  namehardware;
-          int      filedescriptor = INPLINUXDEVICEID_INVALID;
-          int      eventnumber    = INPLINUXDEVICEID_INVALID;
-          char     mouseOEMname[_MAXSTR];
-
-          if(pos != NOTFOUND) // ID of Mouse
-            {
-              pos = string->Find(__L(" event"),0);
-
-              if(pos != NOTFOUND)  // Valid ID
-                {
-                  XSTRING event;
-
-                  toscan=&(string->Get()[pos]);
-                  toscan.UnFormat(__L(" event%d"), &eventnumber);
-
-                  event.Format(__L("/dev/input/event%d"), eventnumber);
-
-                  XSTRING_CREATEOEM(event, mouse_char_oem);
-                  filedescriptor = open(mouse_char_oem, O_RDONLY | O_NONBLOCK);
-                  XSTRING_DELETEOEM(event, mouse_char_oem);
-                  if(filedescriptor == -1)
-                    {
-                      status = false;
-                      break;
-                    }
-
-                  //we get the keyboard name
-                  ioctl(filedescriptor, EVIOCGNAME(_MAXSTR), mouseOEMname);
-                  namehardware.Set(mouseOEMname);
-
-                  // get max/min values on each axis
-                  int abs[6] = {0};
-                  ioctl(filedescriptor, EVIOCGABS(ABS_X), abs);
-                  minx = abs[1];
-                  maxx = abs[2];
-
-                  ioctl(filedescriptor, EVIOCGABS(ABS_Y), abs);
-                  miny = abs[1];
-                  maxy = abs[2];
-
-                  ioctl(filedescriptor, EVIOCGABS(ABS_Z), abs);
-                  minz = abs[1];
-                  maxz = abs[2];
-
-                  XTRACE_PRINTCOLOR(0,__L("Device %s x(%d,%d) y(%d,%d) z(%d,%d)"),namehardware.Get(),minx,maxx,miny,maxy,minz,maxz);
-
-                  INPLINUXDEVICEID* deviceID = new INPLINUXDEVICEID();
-                  if(!deviceID)
-                    {
-                      status = false;
-                      break;
-                    }
-
-                  deviceID->SetFileDescriptor(filedescriptor);
-                  deviceID->GetName()->Set(namehardware);
-
-                  mice.Add(deviceID);
-                }
-            }
-        }
-
-      xfiletxtdevices->Close();
-
-    } else status = false;
-
-  delete xfiletxtdevices;
-  
-  return status;
-  */
-
-
-
 }
 
 

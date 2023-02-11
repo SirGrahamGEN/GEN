@@ -228,11 +228,12 @@ bool XLINUXTHREAD::Ini(bool run)
   int _status = pthread_create(&thhandle, &attr, Callback, this);
   if(!_status)
     {
-      XSTRING_CREATEOEM(ID, charstr)
-      if(ID.GetSize()>=16) charstr[15] = 0;
-      //pthread_setname_np(thhandle, charstr);
-      XSTRING_DELETEOEM(ID, charstr)
-
+       XBUFFER charstr;
+       
+       ID.ConvertToASCII(charstr);
+            
+      // pthread_setname_np(thhandle, charstr.GetPtrChar());
+     
       if(run)
         {
           if(!Run(true)) return false;

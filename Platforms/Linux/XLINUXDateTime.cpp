@@ -175,16 +175,16 @@ bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
   xpathfile = xpath;
 
   xpathfile.Slash_Delete();
-
-  XSTRING_CREATEOEM(xpathfile, charvar)
-
-  if(stat(charvar, &s)==0)
+  
+  XBUFFER charstr;
+  
+  xpathfile.ConvertToASCII(charstr);
+  
+  if(stat(charstr.GetPtrChar(), &s)==0)
     {
       tm_t = s.st_mtime;
       status = true;
     }
-
-  XSTRING_DELETEOEM(xpathfile, charvar)
 
   filedate = localtime(&tm_t);
   
@@ -224,13 +224,14 @@ bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath)
 
   xpathfile.Slash_Delete();
 
-  XSTRING_CREATEOEM(xpathfile, charvar)
-  if(stat(charvar,&s)==0)
+  XBUFFER charstr;
+  
+  xpathfile.ConvertToASCII(charstr);  
+  if(stat(charstr.GetPtrChar(), &s)==0)
     {
       tm_t = s.st_mtime;
       status = true;
     }
-  XSTRING_DELETEOEM(xpathfile, charvar)
 
   filedate = localtime(&tm_t);
 

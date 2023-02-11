@@ -211,10 +211,11 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
 
           MAC->GetXString(MACstr);
       
-          XSTRING_CREATEOEM(MACstr, MACchar);
-          hcideviceID = hci_devid(MACchar);
-          XSTRING_DELETEOEM(MACstr, MACchar);
-
+          XBUFFER charstr;
+          
+          MACstr.ConvertToASCII(charstr);          
+          hcideviceID = hci_devid(charstr.GetPtrChar());
+          
           //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Blueooth LE enum Remote]  Select local bluetooth: %s"), MACstr.Get());
         }
        else 

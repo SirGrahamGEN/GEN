@@ -97,10 +97,10 @@ bool DIOANDROIDSTREAMSPI::Open()
 {
   if(!config) return false;
 
-  XSTRING_CREATEOEM((*config->GetDeviceName()), charOEM)
-  handle = open(charOEM, O_RDWR);
-  XSTRING_DELETEOEM((*config->GetDeviceName()), charOEM)
-
+  XBUFFER charstr;
+  
+  string.ConvertToASCII(charstr); 
+  handle = open(charstr.GetPtrChar(), O_RDWR);
   if(handle<0) return false;
 
   //  Set SPI parameters.

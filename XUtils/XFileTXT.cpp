@@ -834,9 +834,11 @@ bool XFILETXT::WriteAllFile()
 
                   case XFILETXTFORMATCHAR_ASCII     : { bw = string->GetSize();
 
-                                                        XSTRING_CREATEOEM((*string), charstr);
-                                                        memcpy(buffer,(XBYTE*)charstr, bw);
-                                                        XSTRING_DELETEOEM((*string), charstr);                                                        
+                                                        XBUFFER charstr;
+                                                        
+                                                        (*string).ConvertToASCII(charstr); 
+                                                        memcpy(buffer,(XBYTE*)charstr.Get(), bw);
+                                                        
                                                       }
                                                       break;
 
@@ -1198,9 +1200,10 @@ bool XFILETXT::AddLineAlready(XSTRING& line, XDWORD* resultsizeline, XDWORD* res
 
           case XFILETXTFORMATCHAR_ASCII     : { bw = line.GetSize();
 
-                                                XSTRING_CREATEOEM(line, charstr)
-                                                memcpy(buffer, (XBYTE*)charstr, bw);
-                                                XSTRING_DELETEOEM(line, charstr)
+                                                XBUFFER charstr;
+                                                
+                                                line.ConvertToASCII(charstr); 
+                                                memcpy(buffer, (XBYTE*)charstr.Get(), bw);                                                
                                               }
                                               break;
 

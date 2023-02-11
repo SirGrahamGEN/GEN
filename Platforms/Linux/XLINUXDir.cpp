@@ -107,33 +107,16 @@ XLINUXDIR::~XLINUXDIR()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXDIR::Exist(XCHAR* path)
 {
-  /*
-  XPATH   xpath;
-  XBUFFER actualpath( (XDWORD)_MAXPATH);
-  XBUFFER newpath;
-  bool    status = false;
-
-  getcwd((char*)actualpath.Get(),_MAXPATH);
-
-  xpath = path;
-  xpath.ConvertToUTF8(newpath);
-
-  if(!chdir((char*)newpath.Get())) status = true;
-
-  chdir((char*)actualpath.Get());
-
-  return status;
-  */
-
   DIR*    dir    = NULL;
   XPATH   xpath;
   bool    status = false;
 
   xpath = path;
   
-  XSTRING_CREATEOEM(xpath, pathstr);
-  dir  = opendir(pathstr);
-  XSTRING_DELETEOEM(xpath, pathstr);
+  XBUFFER pathchar;
+  
+  xpath.ConvertToASCII(pathchar);    
+  dir  = opendir(pathchar.GetPtrChar());  
   if(dir) 
     {    
       status = true; 

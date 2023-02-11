@@ -731,10 +731,10 @@ void DIOANDROIDSTREAMBLUETOOTH::ThreadRunFunction(void* param)
                                                                 loc_addr.rc_family  = AF_BLUETOOTH;
                                                                 loc_addr.rc_channel = (uint8_t)0;
 
-                                                                {
-                                                                  XSTRING_CREATEOEM(localMACstring, charOEM)
-                                                                  str2ba(charOEM, &loc_addr.rc_bdaddr);
-                                                                  XSTRING_DELETEOEM(localMACstring,charOEM)
+                                                                { XBUFFER charstr;
+                                                                
+                                                                  localMACstring.ConvertToASCII(charstr);                                                                  
+                                                                  str2ba(charOEM.GetPtrChar(), &loc_addr.rc_bdaddr);                                                                  
                                                                 }
 
                                                                 int error = bind(diostream->handlesocket, (struct sockaddr *)&loc_addr, sizeof(loc_addr));
@@ -744,14 +744,13 @@ void DIOANDROIDSTREAMBLUETOOTH::ThreadRunFunction(void* param)
                                                                     break;
                                                                   }
 
-
                                                                 rem_addr.rc_family = AF_BLUETOOTH;
                                                                 rem_addr.rc_channel = (uint8_t) diostream->config->GetRemoteChannel();
 
-                                                                {
-                                                                  XSTRING_CREATEOEM(remoteMACstring, charOEM)
-                                                                  str2ba(charOEM, &rem_addr.rc_bdaddr);
-                                                                  XSTRING_DELETEOEM(remoteMACstring, charOEM)
+                                                                { XBUFFER charstr;
+                                                                  
+                                                                  remoteMACstring.ConvertToASCII(charstr);                                                                  
+                                                                  str2ba(charstr.GetPtrChar(), &rem_addr.rc_bdaddr);                                                                  
                                                                 }
 
                                                                 diostream->SetIsRefusedConnection(false);

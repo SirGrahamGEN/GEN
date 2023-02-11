@@ -97,14 +97,12 @@ bool DIOLINUXSTREAMSPI::Open()
 {
   if(!config) return false;
 
-  XSTRING_CREATEOEM((*config->GetLocalDeviceName()), charOEM)
-  handle = open(charOEM, O_RDWR);
-  XSTRING_DELETEOEM((*config->GetLocalDeviceName()), charOEM)
-
+  XBUFFER charstr;
+  
+  (*config->GetLocalDeviceName()).ConvertToASCII(charstr);
+  handle = open(charstr.GetPtrChar(), O_RDWR);  
   //XTRACE_PRINTCOLOR(((handle<0)?4:1), __L("SPI Open %s : %s"), config->GetLocalDeviceName()->Get(), ((handle<0)?__L("Error"):__L("Ok")));
-
   if(handle<0) return false;
-
 
   //  Set SPI parameters.
   //  Why are we reading it afterwriting it? I've no idea, but for now I'm blindly

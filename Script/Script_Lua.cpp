@@ -106,13 +106,13 @@ bool SCRIPT_LUA::Load(XPATH& xpath)
 
   if(!SCRIPT::Load(xpath)) return false;
 
-  XSTRING_CREATEOEM(namescript, charnamescript)
-  XSTRING_CREATEOEM(script, charscript)
+  XBUFFER charnamescript;
+  XBUFFER charscript;
+  
+  namescript.ConvertToASCII(charnamescript);
+  script.ConvertToASCII(charscript);
 
-  int status = luaL_loadbuffer(state, charscript, strlen(charscript), charnamescript);
-
-  XSTRING_DELETEOEM(script, charscript)
-  XSTRING_DELETEOEM(namescript, charnamescript)
+  int status = luaL_loadbuffer(state, charscript.GetPtrChar(), strlen(charscript.GetPtrChar()), charnamescript.GetPtrChar());
 
   return (status == LUA_OK )?true:false;
 }
@@ -199,10 +199,11 @@ bool SCRIPT_LUA::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCION
 
   namefunction = name;
 
-  XSTRING_CREATEOEM(namefunction, charname)
-  lua_register(state, charname, LUA_LibraryCallBack);
-  XSTRING_DELETEOEM(namefunction, charname)
-
+  XBUFFER charstr;
+  
+  namefunction.ConvertToASCII(charstr); 
+  lua_register(state, charstr.GetPtrChar(), LUA_LibraryCallBack);
+  
   return SCRIPT::AddLibraryFunction(library, name, ptrfunction);
 }
 
@@ -451,10 +452,11 @@ int LUA_LibraryCallBack(lua_State* state)
 
                                            stringreturnvalue = returnvalue;
 
-                                           XSTRING_CREATEOEM(stringreturnvalue, charstr)
-                                           lua_pushstring(state, charstr);
-                                           XSTRING_DELETEOEM(stringreturnvalue, charstr);
-
+                                           XBUFFER charstr;
+                                           
+                                           stringreturnvalue.ConvertToASCII(charstr);                                           
+                                           lua_pushstring(state, charstr.GetPtrChar());
+                                           
                                            nreturnvalues++;
                                          }
                                          break;

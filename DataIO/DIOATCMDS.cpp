@@ -845,8 +845,8 @@ DIOATCMD_ERROR DIOATCMDS::SendCommand(XDWORD type,XCHAR* param)
   if(mutexreadwriteprocess) mutexreadwriteprocess->Lock();
 
   XBUFFER charstr;
-  command.ConvertToASCII(charstr);
- 
+  
+  command.ConvertToASCII(charstr); 
   bool status = diostream->WriteStr(charstr.GetPtrChar());  
   if(status) status = diostream->WaitToFlushOutXBuffer(10);
 
@@ -905,9 +905,9 @@ DIOATCMD_ERROR DIOATCMDS::SendParam(XCHAR* param)
   if(mutexreadwriteprocess) mutexreadwriteprocess->Lock();
 
   XBUFFER charstr;
+  
   _param.ConvertToASCII(charstr);
-
-  bool status = diostream->WriteStr(charstr.GetPtr());
+  bool status = diostream->WriteStr(charstr.GetPtrChar());
   
   if(mutexreadwriteprocess) mutexreadwriteprocess->UnLock();
 
@@ -1776,6 +1776,7 @@ bool DIOATCMDS::CheckUnsolicitedAnswer(XSTRING& answer)
                                                                               if(!line.IsEmpty())
                                                                                 {
                                                                                   XBUFFER charstr;
+                                                                                  
                                                                                   line.ConvertToASCII(charstr);
                                                                                   additionalparam.Add((XBYTE*)charstr.Get(), (XDWORD)line.GetSize());
                                                                                   

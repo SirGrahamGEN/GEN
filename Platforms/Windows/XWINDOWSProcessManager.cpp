@@ -192,11 +192,12 @@ bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* p
       _command.Format(__L("\"%s\""), applicationpath);
       
       if(params) _command.AddFormat(__L(" %s"), params);
-    
-      XSTRING_CREATEOEM(_command, chrcommand)
-      memcpy(cmdline, chrcommand, strlen(chrcommand)+1);
-      XSTRING_DELETEOEM(_command, chrcommand)
-
+      
+      XBUFFER charstr;
+      
+      _command.ConvertToASCII(charstr);
+      memcpy(cmdline, charstr.GetPtrChar(), _command.GetSize()+1);
+      
       memset(&saattr, 0, sizeof(saattr));
       saattr.nLength              = sizeof(SECURITY_ATTRIBUTES);
       saattr.bInheritHandle       = TRUE;
@@ -233,10 +234,11 @@ bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* p
                 {
                   DWORD bytes_write;
 
-                  XSTRING_CREATEOEM((*in), chrin)
-                  WriteFile(stdhandle_in_write, chrin, in->GetSize(), &bytes_write, NULL);
-                  XSTRING_DELETEOEM((*in), chrin)
-
+                  XBUFFER charstr;
+                  
+                  (*in).ConvertToASCII(charstr); 
+                  WriteFile(stdhandle_in_write, charstr.Get(), in->GetSize(), &bytes_write, NULL);
+                  
                   FlushFileBuffers(stdhandle_in_write);
                 }
             }

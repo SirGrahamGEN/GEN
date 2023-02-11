@@ -114,17 +114,19 @@ void XANDROIDDEBUGTRACE::PrintSpecial(XDEBUGTRACE_TARGET* target, XBYTE level, X
 
   const char test[] = "prueba";
 
-  XSTRING_CREATEOEM(line, charOEM)
+  XBUFFER charstr;
+
+  line.ConvertToASCII(charstr);
+  
   switch(level)
     {
-      case  0 : XANDROIDDEBUG_LOG_INFO((const char*)charOEM);      break;
-      case  1 : XANDROIDDEBUG_LOG_ERROR((const char*)charOEM);     break;
-      case  2 : XANDROIDDEBUG_LOG_WARNING((const char*)charOEM);   break;
+      case  0 : XANDROIDDEBUG_LOG_INFO((const char*)charstr.GetPtrChar());      break;
+      case  1 : XANDROIDDEBUG_LOG_ERROR((const char*)charstr.GetPtrChar());     break;
+      case  2 : XANDROIDDEBUG_LOG_WARNING((const char*)charstr.GetPtrChar());   break;
       case  3 :
-      default : XANDROIDDEBUG_LOG_DEBUG((char*)charOEM);           break;
+      default : XANDROIDDEBUG_LOG_DEBUG((char*)charstr.GetPtrChar());           break;
     }
-  XSTRING_DELETEOEM(line, charOEM)
-
+  
   UnLock();
 }
 

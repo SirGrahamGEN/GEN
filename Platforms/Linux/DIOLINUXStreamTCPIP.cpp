@@ -494,11 +494,12 @@ bool DIOLINUXSTREAMTCPIP::GetHandleServer()
 
       loc_addr.sin_family = AF_INET;
       if(!config->GetLocalIP()->IsEmpty())
-        {
-          XSTRING_CREATEOEM(IPstring, charstr)
-          loc_addr.sin_addr.s_addr  = inet_addr(charstr);
-          XSTRING_DELETEOEM(IPstring, charstr)
-
+        {          
+          XBUFFER charstr;
+          
+          IPstring.ConvertToASCII(charstr);
+          loc_addr.sin_addr.s_addr  = inet_addr(charstr.GetPtrChar());
+          
         } else loc_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 
       loc_addr.sin_port = htons(config->GetRemotePort());
@@ -621,10 +622,10 @@ bool DIOLINUXSTREAMTCPIP::GetHandleClient()
 
       loc_addr.sin_family      = AF_INET;
 
-      XSTRING_CREATEOEM(IPstring, charstr)
-      loc_addr.sin_addr.s_addr = inet_addr(charstr);
-      XSTRING_DELETEOEM(IPstring, charstr)
-
+      XBUFFER charstr;
+      
+      IPstring.ConvertToASCII(charstr);      
+      loc_addr.sin_addr.s_addr = inet_addr(charstr.GetPtrChar());      
       loc_addr.sin_port        = 0; //htons(diostream->config->GetRemotePort());
 
       if(bind(handlesocket, (struct sockaddr *)&loc_addr, sizeof(loc_addr)) < 0 )
@@ -651,12 +652,13 @@ bool DIOLINUXSTREAMTCPIP::GetHandleClient()
   remoteIP.GetXString(IPstring);
 
   rem_addr.sin_family       = AF_INET;
-  XSTRING_CREATEOEM(IPstring, charstr)
-  rem_addr.sin_addr.s_addr  = inet_addr(charstr);
-  clientIP.Set(charstr);
-  XSTRING_DELETEOEM(IPstring, charstr)
+  
+  XBUFFER charstr;
+  
+  IPstring.ConvertToASCII(charstr);  
+  rem_addr.sin_addr.s_addr  = inet_addr(charstr.GetPtrChar());
+  clientIP.Set(charstr.GetPtrChar());  
   rem_addr.sin_port         = htons(config->GetRemotePort());
-
 
   int opt = 1;
   if(setsockopt(handlesocket, SOL_SOCKET, SO_KEEPALIVE , &opt, sizeof(opt)) < 0)

@@ -172,8 +172,8 @@ bool POSTGRESQL_CONNECTION::Connect()
     }
 
   XBUFFER conninfo;
-  connectionstring.ConvertToASCII(conninfo);
   
+  connectionstring.ConvertToASCII(conninfo);  
   connection = PQconnectdb(conninfo.GetPtrChar());
 
   bool status = true;

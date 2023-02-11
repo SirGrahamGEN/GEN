@@ -311,10 +311,11 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::OpenAllDevicesID()
      
           event.Format(__L("/dev/input/event%d"), deviceID->GetEventIndex());
 
-          XSTRING_CREATEOEM(event, keyboard_char_oem);
-          filedescriptor = open(keyboard_char_oem, O_RDONLY | O_NONBLOCK);
-          XSTRING_DELETEOEM(event, keyboard_char_oem);
-
+          XBUFFER charstr;
+          
+          event.ConvertToASCII(charstr);          
+          filedescriptor = open(charstr.GetPtrChar(), O_RDONLY | O_NONBLOCK);
+          
           if(filedescriptor != -1)
             {
               char    mouseOEMname[_MAXSTR];

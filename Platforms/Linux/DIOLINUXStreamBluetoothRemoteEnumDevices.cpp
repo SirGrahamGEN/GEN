@@ -422,10 +422,11 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName(DIOSTREAMDEVICEBL
 
   device->GetMAC()->GetXString(MACstring);
 
-  XSTRING_CREATEOEM(MACstring, charOEM)
-  str2ba(charOEM, &bdaddr);
-  XSTRING_DELETEOEM(MACstring, charOEM)
-
+  XBUFFER charstr;
+  
+  MACstring.ConvertToASCII(charstr);  
+  str2ba(charstr.GetPtrChar(), &bdaddr);
+  
   int handlesocket = hci_open_dev(0);
   if(handlesocket>=0)
     {
@@ -523,16 +524,15 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEVIC
 
   if(!GetAddrFromLocalDevice(0, addrlocaldevice)) return false;
 
-  XSTRING  MACstring;
+  XSTRING MACstring;
+  XBUFFER charstr;
 
-  device->GetMAC()->GetXString(MACstring);
-
-  str2ba(addrlocaldevice    , &origin);
-
-  XSTRING_CREATEOEM(MACstring, charOEM)
-  str2ba(charOEM , &target);
-  XSTRING_DELETEOEM(MACstring, charOEM)
-
+  device->GetMAC()->GetXString(MACstring);  
+  str2ba(addrlocaldevice, &origin);  
+  
+  MACstring.ConvertToASCII(charstr); 
+  str2ba(charstr.GetPtrChar(), &target);
+  
   // ----------------------------------------------------------------------
   // Special version Blocking
   session = sdp_connect(&origin, &target, SDP_RETRY_IF_BUSY);

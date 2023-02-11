@@ -106,11 +106,12 @@ XBYTE* XLINUXSHAREDMEMORYMANAGER::Create(XCHAR* ID, XDWORD size, bool ispublic)
   this->ID   = ID;
   this->size = (size +  sizeof(XDWORD));
 
-  // create the shared memory segment
-  XSTRING_CREATEOEM(this->ID, namefile);
-  handlefile = shm_open(namefile, O_CREAT | O_RDWR, 0755);
-  XSTRING_DELETEOEM(this->ID, namefile);
 
+  XBUFFER charstr;
+  this->ID.ConvertToASCII(charstr);
+  
+  // create the shared memory segment  
+  handlefile = shm_open(charstr.GetPtrChar(), O_CREAT | O_RDWR, 0755);  
   if(handlefile < 0) return NULL;
 
   // configure the size of the shared memory segment
@@ -154,16 +155,15 @@ XBYTE* XLINUXSHAREDMEMORYMANAGER::Open(XCHAR* ID, XDWORD& size)
   this->ID   = ID;
   this->size = 0;
 
+  XBUFFER charstr;
+  this->ID.ConvertToASCII(charstr);
+  
   // open the shared memory segment as if it was a file
-  XSTRING_CREATEOEM(this->ID, namefile);
-  handlefile = shm_open(namefile, O_RDWR, 0755);
-  XSTRING_DELETEOEM(this->ID, namefile);
-
+  handlefile = shm_open(charstr.GetPtrChar(), O_RDWR, 0755);
   if(handlefile < 0) return NULL;
 
   // map the shared memory segment to the address space of the process */
   base = (XBYTE*)mmap(0, sizeof(XDWORD), PROT_READ | PROT_WRITE, MAP_SHARED, handlefile, 0);
-
   if(base)
     {
        size = (XDWORD)(*base);
@@ -206,15 +206,6 @@ bool XLINUXSHAREDMEMORYMANAGER::Close()
 
   if(!isserver) munmap(base, size);
   close(handlefile);
-
-  /*
-  if(!isserver)
-    {
-      XSTRING_CREATEOEM(ID, namefile);
-      shm_unlink(namefile);
-      XSTRING_DELETEOEM(ID, namefile);
-    }
-  */
 
   handlefile = -1;
 

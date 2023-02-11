@@ -108,9 +108,10 @@ bool DIOLINUXSTREAMUARTLOCALENUMDEVICES::Search()
 
   sysdir = __L("/sys/class/tty/");
 
-  XSTRING_CREATEOEM(sysdir, charOEM)
-  ndevices = scandir(charOEM, &namelist, NULL, NULL);
-  XSTRING_DELETEOEM(sysdir, charOEM)
+  XBUFFER charstr;
+  
+  sysdir.ConvertToASCII(charstr);
+  ndevices = scandir(charstr.GetPtrChar(), &namelist, NULL, NULL);  
   if(ndevices >= 0)
     {
       while(ndevices--)
@@ -125,9 +126,11 @@ bool DIOLINUXSTREAMUARTLOCALENUMDEVICES::Search()
 
               devicedir += __L("/device");
 
-              XSTRING_CREATEOEM(devicedir, charOEM)
-              bool result = (lstat(charOEM, &st)==0) && (S_ISLNK(st.st_mode));
-              XSTRING_DELETEOEM(devicedir, charOEM)
+              XBUFFER charstr;
+              
+              devicedir.ConvertToASCII(charstr);
+                            
+              bool result = (lstat(charstr.GetPtrChar(), &st)==0) && (S_ISLNK(st.st_mode));                          
               if(result)
                 {
                   char buffer[1024];
@@ -136,9 +139,10 @@ bool DIOLINUXSTREAMUARTLOCALENUMDEVICES::Search()
 
                   devicedir += __L("/driver");
 
-                  XSTRING_CREATEOEM(devicedir, charOEM)
-                  result = (readlink(charOEM, buffer, sizeof(buffer)) > 0);
-                  XSTRING_DELETEOEM(devicedir, charOEM)
+                  XBUFFER charstr;
+                  
+                  devicedir.ConvertToASCII(charstr);                                   
+                  result = (readlink(charstr.GetPtrChar(), buffer, sizeof(buffer)) > 0);                  
                   if(result)
                     {
                       XSTRING tty;
@@ -163,9 +167,10 @@ bool DIOLINUXSTREAMUARTLOCALENUMDEVICES::Search()
                         {
                            struct serial_struct serinfo;
 
-                           XSTRING_CREATEOEM(devicepath, charOEM)
-                           int fd = open(charOEM, O_RDWR | O_NONBLOCK | O_NOCTTY);
-                           XSTRING_DELETEOEM(devicedir, charOEM)
+                           XBUFFER charstr;
+                           
+                           devicepath.ConvertToASCII(charstr);                           
+                           int fd = open(charstr.GetPtrChar(), O_RDWR | O_NONBLOCK | O_NOCTTY);                           
                            if(fd >= 0)
                             {
                               // Get serial_info

@@ -128,10 +128,9 @@ bool SQLITE_CONNECTION::Connect()
   xpathdatabase.Add(databasename);
   
   XBUFFER dbname;
-  xpathdatabase.ConvertToASCII(dbname);
-
-  int returncode = sqlite3_open(dbname.GetPtrChar(), &static_cast<SQLITE_DATABASE*>(database)->sqlite3database);
   
+  xpathdatabase.ConvertToASCII(dbname);
+  int returncode = sqlite3_open(dbname.GetPtrChar(), &static_cast<SQLITE_DATABASE*>(database)->sqlite3database);  
   if(returncode)
     {
       database->Error((char*)sqlite3_errmsg(static_cast<SQLITE_DATABASE*>(database)->sqlite3database));

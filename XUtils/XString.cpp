@@ -2836,10 +2836,12 @@ bool XSTRING::ConvertFromInt(int value, const XCHAR* mask)
 
   if(mask) _mask = mask; else _mask = __L("%d");
 
-  XSTRING_CREATEOEM(_mask, charstr)
-  SPRINTF(str, charstr, value);
-  XSTRING_DELETEOEM(_mask, charstr)
 
+  XBUFFER charstr;
+  
+  _mask.ConvertToASCII(charstr);
+  SPRINTF(str, charstr.GetPtrChar(), value);
+  
   Set(str);
 
   delete [] str;
@@ -2872,9 +2874,10 @@ bool XSTRING::ConvertFromDWord(XDWORD value, const XCHAR* mask)
 
   if(mask) _mask = mask; else _mask = __L("%d");
 
-  XSTRING_CREATEOEM(_mask, charstr)
-  SPRINTF(str, charstr, (XDWORD)value);
-  XSTRING_DELETEOEM(_mask, charstr)
+  XBUFFER charstr;
+  
+  _mask.ConvertToASCII(charstr);
+  SPRINTF(str, charstr.GetPtrChar(), value);
 
   Set(str);
 
@@ -2908,9 +2911,10 @@ bool XSTRING::ConvertFromQWord(XQWORD value, const XCHAR* mask)
 
   if(mask) _mask = mask; else _mask = __L("%u");
 
-  XSTRING_CREATEOEM(_mask, charstr)
-  SPRINTF(str, charstr, (XDWORD)value);
-  XSTRING_DELETEOEM(_mask, charstr)
+  XBUFFER charstr;
+  
+  _mask.ConvertToASCII(charstr);
+  SPRINTF(str, charstr.GetPtrChar(), value);
 
   Set(str);
 
@@ -2944,10 +2948,11 @@ bool XSTRING::ConvertFromLongLong(long long value, const XCHAR* mask)
 
   if(mask) _mask = mask; else _mask = __L("%lld");
 
-  XSTRING_CREATEOEM(_mask, charstr)
-  SPRINTF(str, charstr, (long long)value);
-  XSTRING_DELETEOEM(_mask, charstr)
-
+  XBUFFER charstr;
+  
+  _mask.ConvertToASCII(charstr); 
+  SPRINTF(str, charstr.GetPtrChar(), (long long)value);
+  
   Set(str);
 
   delete [] str;
@@ -2980,10 +2985,11 @@ bool XSTRING::ConvertFromFloat(float value, const XCHAR* mask)
 
   if(mask) _mask = mask; else _mask = __L("%f");
 
-  XSTRING_CREATEOEM(_mask, charstr);
-  SPRINTF(str, charstr, value);
-  XSTRING_DELETEOEM(_mask, charstr)
-
+  XBUFFER charstr;
+  
+  _mask.ConvertToASCII(charstr); 
+  SPRINTF(str, charstr.GetPtrChar(), value);
+  
   Set(str);
 
   delete [] str;
@@ -3015,11 +3021,12 @@ bool XSTRING::ConvertFromDouble(double value, const XCHAR* mask)
   memset(str,0,XSTRING_MAXTEMPOSTR);
 
   if(mask) _mask = mask; else _mask = __L("%g");
-
-  XSTRING_CREATEOEM(_mask, charstr)
-  SPRINTF(str, charstr, value);
-  XSTRING_DELETEOEM(_mask, charstr)
-
+  
+  XBUFFER charstr;
+  
+  _mask.ConvertToASCII(charstr); 
+  SPRINTF(str, charstr.GetPtrChar(), value);
+  
   Set(str);
 
   delete [] str;
@@ -3225,15 +3232,16 @@ int XSTRING::ConvertToInt(int index, const XCHAR* mask, bool checkvalidchars)
   if(mask)
          _mask = mask;
     else _mask = __L("%d");
-
-  XSTRING_CREATEOEM(_mask, charstr)
-  XSTRING_CREATEOEM((*this), charstr2)
-
-  SSCANF(&charstr2[index], charstr, &data);
-
-  XSTRING_DELETEOEM((*this), charstr2)
-  XSTRING_DELETEOEM(_mask, charstr)
-
+    
+    
+  XBUFFER charstr;
+  XBUFFER charstr2;
+  
+  _mask.ConvertToASCII(charstr);     
+  (*this).ConvertToASCII(charstr2);         
+  
+  SSCANF(&charstr2.GetPtrChar()[index], charstr.GetPtrChar(), &data);
+ 
   return data;
 }
 
@@ -3266,14 +3274,14 @@ XDWORD XSTRING::ConvertToDWord(int index, const XCHAR* mask, bool checkvalidchar
   XDWORD   data = 0;
 
   if(mask) _mask = mask; else _mask = __L("%d");
+  
+  XBUFFER charstr;
+  XBUFFER charstr2;
+  
+  _mask.ConvertToASCII(charstr);     
+  (*this).ConvertToASCII(charstr2);   
 
-  XSTRING_CREATEOEM(_mask, charstr)
-  XSTRING_CREATEOEM((*this), charstr2)
-
-  SSCANF(&charstr2[index], charstr, &data);
-
-  XSTRING_DELETEOEM((*this), charstr2)
-  XSTRING_DELETEOEM(_mask, charstr)
+  SSCANF(&charstr2.GetPtrChar()[index], charstr.GetPtrChar(), &data);
 
   return data;
 }
@@ -3308,13 +3316,13 @@ XQWORD XSTRING::ConvertToQWord(int index, const XCHAR* mask, bool checkvalidchar
 
   if(mask) _mask = mask; else _mask = __L("%lld");
 
-  XSTRING_CREATEOEM(_mask, charstr)
-  XSTRING_CREATEOEM((*this), charstr2)
+  XBUFFER charstr;
+  XBUFFER charstr2;
+  
+  _mask.ConvertToASCII(charstr);     
+  (*this).ConvertToASCII(charstr2);   
 
-  SSCANF(&charstr2[index], charstr, &data);
-
-  XSTRING_DELETEOEM((*this), charstr2)
-  XSTRING_DELETEOEM(_mask, charstr)
+  SSCANF(&charstr2.GetPtrChar()[index], charstr.GetPtrChar(), &data);
 
   return data;
 }
@@ -3349,13 +3357,13 @@ float XSTRING::ConvertToFloat(int index, const XCHAR* mask, bool checkvalidchars
 
   if(mask) _mask = mask; else _mask = __L("%f");
 
-  XSTRING_CREATEOEM(_mask, charstr)
-  XSTRING_CREATEOEM((*this), charstr2)
+  XBUFFER charstr;
+  XBUFFER charstr2;
+  
+  _mask.ConvertToASCII(charstr);     
+  (*this).ConvertToASCII(charstr2);   
 
-  SSCANF(&charstr2[index], charstr, &data);
-
-  XSTRING_DELETEOEM((*this), charstr2)
-  XSTRING_DELETEOEM(_mask, charstr)
+  SSCANF(&charstr2.GetPtrChar()[index], charstr.GetPtrChar(), &data);
 
   return data;
 }
@@ -3390,13 +3398,13 @@ double XSTRING::ConvertToDouble(int index, const XCHAR* mask, bool checkvalidcha
 
   if(mask) _mask = mask; else _mask = __L("%lf");
 
-  XSTRING_CREATEOEM(_mask, charstr)
-  XSTRING_CREATEOEM((*this), charstr2)
+  XBUFFER charstr;
+  XBUFFER charstr2;
+  
+  _mask.ConvertToASCII(charstr);     
+  (*this).ConvertToASCII(charstr2);   
 
-  SSCANF(&charstr2[index], charstr, &data);
-
-  XSTRING_DELETEOEM((*this), charstr2)
-  XSTRING_DELETEOEM(_mask, charstr)
+  SSCANF(&charstr2.GetPtrChar()[index], charstr.GetPtrChar(), &data);
 
   return data;
 }
@@ -4177,13 +4185,11 @@ bool XSTRING::ConvertToUTF32(XBUFFER& xbuffer)
 bool XSTRING::ConvertToBase64(XSTRING& string)
 {
   XBUFFER data;
-
-  XSTRING_CREATEOEM((*this), charOEM)
-
-  data.Add((XBYTE*)charOEM, GetSize());  
-
-  XSTRING_DELETEOEM((*this), charOEM)
-
+  XBUFFER charstr;
+ 
+  (*this).ConvertToASCII(charstr);  
+  data.Add((XBYTE*)charstr.Get(), GetSize());  
+  
   string.ConvertBinaryToBase64(data);
 
   return string.GetSize()?true:false;
@@ -4220,17 +4226,15 @@ bool XSTRING::ConvertBinaryToBase64(XBUFFER& inbuffer)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSTRING::ConvertBase64ToBinary(XBUFFER& outbuffer)
 {
-  int     size  = GetSize();
+  int size  = GetSize();
   
   if(!size) return false;
-
-  XSTRING_CREATEOEM((*this), charstr)
- 
-  bool status = Base64_Decode(charstr, GetSize(), outbuffer); 
   
-  XSTRING_DELETEOEM((*this), charstr)
-
-  return status;
+  XBUFFER charstr;
+ 
+  (*this).ConvertToASCII(charstr); 
+  
+  return Base64_Decode(charstr.GetPtrChar(), GetSize(), outbuffer); 
 }
 
 
@@ -4251,10 +4255,11 @@ bool XSTRING::ConvertToPascal(SHORTSTRING& pascalstring)
 
   pascalstring.size = (XBYTE)(GetSize()>255)?255:GetSize();
 
-  XSTRING_CREATEOEM((*this), charstr)
-  memcpy(&pascalstring.data, charstr, pascalstring.size);
-  XSTRING_DELETEOEM((*this), charstr)
-
+  XBUFFER charstr;
+  
+  (*this).ConvertToASCII(charstr); 
+  memcpy(&pascalstring.data, charstr.Get(), pascalstring.size);
+  
   return true;
 }
 
@@ -5403,14 +5408,14 @@ bool XSTRING::ConvertStringWithMask(XCHAR* mask, XCHAR* string, XCHAR* result)
   if(!resultchar) return false;
 
   memset(resultchar, 0, XSTRING_MAXTEMPOSTR);
-
-  XSTRING_CREATEOEM(_mask   , maskchar)
-  XSTRING_CREATEOEM(_string , stringchar)
-
-  SSCANF(stringchar, maskchar, resultchar, XSTRING_MAXTEMPOSTR);
-
-  XSTRING_DELETEOEM(_mask, maskchar)
-  XSTRING_DELETEOEM(_string, stringchar)
+  
+  XBUFFER maskchar;
+  XBUFFER stringchar;
+ 
+  _mask.ConvertToASCII(maskchar);
+  _string.ConvertToASCII(stringchar);
+ 
+  SSCANF(stringchar.GetPtrChar(), maskchar.GetPtrChar(), resultchar, XSTRING_MAXTEMPOSTR);
 
   _result = resultchar;
 

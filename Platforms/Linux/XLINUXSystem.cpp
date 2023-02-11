@@ -567,10 +567,11 @@ XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* variablename)
   XSTRING        _variablename = variablename;
   static XSTRING result;
 
-  XSTRING_CREATEOEM(_variablename, varchar);
-  result = getenv(varchar);
-  XSTRING_DELETEOEM(_variablename, varchar);
-
+  XBUFFER charstr;
+  
+  _variablename.ConvertToASCII(charstr); 
+  result = getenv(charstr.GetPtrChar());
+  
   return result.Get();
 }
 
@@ -596,12 +597,14 @@ bool XLINUXSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
   _variablename = variablename;
   _value        = value;
 
-  XSTRING_CREATEOEM(_variablename, varchar1);
-  XSTRING_CREATEOEM(_value, valchar2);
-  int status = setenv(varchar1, valchar2, 1);
-  XSTRING_DELETEOEM(_variablename, varchar1);
-  XSTRING_DELETEOEM(_value, valchar2);
+  XBUFFER charstr1;  
+  XBUFFER charstr2;
+  
+  _variablename.ConvertToASCII(charstr1);  
+  _value.ConvertToASCII(charstr2);
 
+  int status = setenv(charstr1.GetPtrChar(), charstr2.GetPtrChar(), 1);
+  
   return status?false:true;
 }
 
@@ -624,10 +627,12 @@ bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* variablename)
 
   _variablename = variablename;
 
-  XSTRING_CREATEOEM(_variablename, varchar);
-  int status = unsetenv(varchar);
-  XSTRING_DELETEOEM(_variablename, varchar);
+  XBUFFER charstr;
+  
+  _variablename.ConvertToASCII(charstr);
 
+  int status = unsetenv(charstr.GetPtrChar());
+  
   return status?false:true;
 }
 
