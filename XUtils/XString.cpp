@@ -3487,7 +3487,7 @@ bool XSTRING::ConvertToASCII(XBUFFER& xbuffer)
 
   for(XDWORD c=0; c<size; c++)
     {    
-      if((text[c]>=0x20) && (text[c]<0x7F)) 
+      if(text[c]<0x80) 
         {                    
           xbuffer.Add((XBYTE)(text[c]));
         }
