@@ -244,20 +244,17 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::SendSignal()
     {
       XSTRING     string;
       XBUFFER     xbuffer;
+      XBUFFER     xbufferUTF16;
       HASHCRC32   crc32;
 
       string.Format(DIOSTREAMUDPLOCALENUMSERVERSID,ID);
 
-      XSTRING_CREATENORMALIZE(string, buffnormalize, false)
-
-      crc32.Do((XBYTE*)buffnormalize,  string.GetSize()*sizeof(XWORD));
+      string.ConvertToExchangeXBuffer(xbufferUTF16, true);
+      crc32.Do(xbufferUTF16.Get(), xbufferUTF16.GetSize());
 
       xbuffer.Add((XDWORD)crc32.GetResultCRC32());
-      xbuffer.Add((XBYTE*)buffnormalize, string.GetSize()*sizeof(XWORD));
-      xbuffer.Add((XWORD)0);
-
-      XSTRING_DELETENORMALIZE(string, buffnormalize)
-
+      xbuffer.Add(xbufferUTF16.Get(), xbufferUTF16.GetSize());
+      
       diostreamudp->Write(xbuffer.Get(),xbuffer.GetSize());
 
       diostreamudp->WaitToFlushXBuffers(5);
@@ -393,10 +390,11 @@ void DIOSTREAMUDPLOCALENUMSERVERS::ThreadDiscoveryLocalServer(void* data)
 
                 if(!string.Compare(string2))
                   {
-                    XSTRING_CREATENORMALIZE(string2, buffnormalize, false)
-                    crc32.Do((XBYTE*)buffnormalize, string2.GetSize()*sizeof(XWORD));
-                    XSTRING_DELETENORMALIZE(string2, buffnormalize)
-
+                    XBUFFER bufferUTF16;
+    
+                    string2.ConvertToExchangeXBuffer(bufferUTF16, true);  
+                    crc32.Do(bufferUTF16.Get(), bufferUTF16.GetSize());
+                                          
                     crc32result[1] = crc32.GetResultCRC32();
 
                     if(crc32result[0] == crc32result[1])

@@ -170,7 +170,7 @@ bool XFILESENTENCES::ConvertFileFromDBF(XPATH& xpath)
 
           XDWORD size = (XDWORD)fsentence->GetSize();
           GetPrimaryFile()->Write((XBYTE*)&size,sizeof(XDWORD));
-
+      
           XSTRING_CREATENORMALIZE((*fsentence), buffnormalize, false)
           GetPrimaryFile()->Write((XBYTE*)buffnormalize, (fsentence->GetSize()+1)*sizeof(XWORD));
           XSTRING_DELETENORMALIZE((*fsentence), buffnormalize)

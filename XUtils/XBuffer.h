@@ -137,6 +137,7 @@ class XBUFFER
     XBYTE                    GetLastByte                    ();
 
     char*                    GetPtrChar                     ();
+    XWORD*                   GetPtrWord                     ();
 
     bool                     Get                            (XBYTE* pbuffer,int psize, int frompos = XBUFFER_INVALIDPOSITION);
     bool                     Get                            (XBYTE& data, int frompos = XBUFFER_INVALIDPOSITION);

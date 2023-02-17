@@ -1429,6 +1429,21 @@ char* XBUFFER::GetPtrChar()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XWORD* XBUFFER::GetPtrWord()
+* @brief      GetPtrWord
+* @ingroup    XUTILS
+* 
+* @return     XWORD* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XWORD* XBUFFER::GetPtrWord()
+{
+  return (XWORD*)Get();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Get(XBYTE* pbuffer,int psize,int frompos)
 * @brief      Get array of bytes from buffer
@@ -3096,12 +3111,11 @@ bool XBUFFER::AddXBufferWithMask(XBUFFER& xbuffer, XCHAR* mask, va_list& arg)
                     }
                     break;
 
-          case 'S': { XSTRING* svar = va_arg(arg, XSTRING*);
-                      XDWORD size = (svar->GetSize()+1)*sizeof(XWORD);
+          case 'S': { XSTRING*  svar = va_arg(arg, XSTRING*);                      
+                      XBUFFER   bufferUTF16;
 
-                      XSTRING_CREATENORMALIZE((*svar), buffnormalize, false)
-                      xbuffer.Add((XBYTE*)buffnormalize, size);
-                      XSTRING_DELETENORMALIZE((*svar), buffnormalize)
+                      (*svar).ConvertToExchangeXBuffer(bufferUTF16, true);
+                      xbuffer.Add(bufferUTF16);                        
                     }
                     break;
 

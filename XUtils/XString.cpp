@@ -3734,6 +3734,46 @@ bool XSTRING::ConvertFromXBuffer(XBUFFER& xbuffer, XSTRINGCODING buffercoding)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertToExchangeXBuffer(XBUFFER& xbuffer, bool addzeroatend, bool inverse)
+* @brief      ConvertToExchangeXBuffer
+* @ingroup    XUTILS
+* 
+* @param[in]  xbuffer : 
+* @param[in]  addzeroatend : 
+* @param[in]  inverse : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertToExchangeXBuffer(XBUFFER& xbuffer, bool addzeroatend, bool inverse)
+{
+  if(!ConvertToUTF16(xbuffer)) return false;
+
+  if(addzeroatend)
+    {
+      xbuffer.Add((XWORD)0);
+    }
+
+  if(inverse)
+    {
+      XWORD* data = (XWORD*)xbuffer.Get();
+      if(data)
+        {
+          for(XDWORD c=0; c<(xbuffer.GetSize()/2); c++)
+            {
+              SWAPWORD(data[c])  
+            }
+        }
+    }
+
+  return true;
+
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::GetSizeConvertToUTF8()
 * @brief      GetSizeConvertToUTF8
@@ -4040,6 +4080,7 @@ bool XSTRING::ConvertFromUTF16(XBUFFER& xbuffer)
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertToUTF16(XBUFFER& xbuffer)
@@ -4089,7 +4130,7 @@ bool XSTRING::ConvertToUTF16(XBUFFER& xbuffer)
                                   }                               
                                   break;
     }
-   
+ 
   return status;
 }
 

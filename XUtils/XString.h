@@ -292,6 +292,8 @@ class GEN_API_LIB XSTRING
     bool                  ConvertToXBuffer                (XBUFFER& xbuffer);
     bool                  ConvertFromXBuffer              (XBUFFER& xbuffer, XSTRINGCODING buffercoding);
 
+    bool                  ConvertToExchangeXBuffer        (XBUFFER& xbuffer, bool addzeroatend = false, bool inverse = false);
+
     int                   GetSizeConvertToUTF8            ();
     bool                  ConvertFromUTF8                 (XBYTE* data, XDWORD size);
     bool                  ConvertFromUTF8                 (XBUFFER& xbuffer);    

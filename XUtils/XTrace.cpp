@@ -2005,23 +2005,6 @@ XDWORD XTRACE::GetTraceFromXBuffer(XBUFFER& xbufferpacket, XDWORD& publicIP, XDW
   data.Empty();
   data.Add(&xbuffer.Get()[xbuffer.GetPosition()], sizestr);
 
-  
-/*  
-  XDWORD sizestr = sizepacketread - sizeheader;        // CRC16
-  sizestr /= sizeof(XWORD);
-
-  data.Empty();
-
-  for(XDWORD c=0; c<sizestr-1; c++)
-    {
-      XWORD  word = 0;
-
-      if(!xbuffer.Get(word)) break;
-
-      data.Add((XWORD)word);
-    }
-
-  */
 
   return 0;
 }
@@ -2154,32 +2137,27 @@ bool XTRACE::SetTraceToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level, XDW
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::SetTraceTextToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level, XDWORD sequence, XDATETIME* xtime, XCHAR* string, XBUFFER& xbufferpacket)
-{  
+{     
   if(!string) return false;
-   
+  
   XSTRING  line;
+  XBUFFER  bufferline;
 
-  line = string;
-
-  XDWORD  sizepacket = ((line.GetSize()+1)*sizeof(XWORD));    // Line (WORD) each character.
-
+  line = string;  
+  line.ConvertToExchangeXBuffer(bufferline);
+  
+  XDWORD sizepacket = bufferline.GetSize();    // Line (WORD) each character.
+  
   if(!SetTraceToXBuffer(publicIP, localIP, level, sequence, xtime, sizepacket, xbufferpacket)) return false;
   
-  XSTRING_CREATENORMALIZE(line, charstr, false)
-
-  for(int c=0; c<(int)line.GetSize()+1; c++)
-    {
-      xbufferpacket.Set((XWORD)charstr[c]);
-    }
-
-  XSTRING_DELETENORMALIZE(line, charstr)
-
+  xbufferpacket.Set(bufferline.Get(), bufferline.GetSize());
+  
   XWORD crc16;
   XTRACE_CRC16(xbufferpacket.Get(), (xbufferpacket.GetSize()-sizeof(XWORD)), crc16)
 
   xbufferpacket.Set((XWORD)crc16);
-
-  return true;
+    
+  return true; 
 }
 
 
