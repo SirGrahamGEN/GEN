@@ -67,9 +67,9 @@ XSTM32DIR::XSTM32DIR(): XDIR()
   
   root = __L("/");
   
-  XSTRING_CREATENORMALIZE(root, buffer, false); 
-  fresult = f_mount(&userFATFS, buffer, 1);
-  XSTRING_DELETENORMALIZE(root, buffer); 
+  XBUFFER xbufferexchange;
+  root.ConvertToBufferExchange(xbufferexchange);
+  fresult = f_mount(&userFATFS, xbufferexchange.Get(), 1);
   
   if(fresult == FR_OK) ismount = true; 
 }
@@ -115,11 +115,11 @@ bool XSTM32DIR::Exist(XCHAR* path)
   pathstring.Slash_Delete();
   
   pathstring.Slash_Normalize(true);
-    
-  XSTRING_CREATENORMALIZE(pathstring, buffer, false); 
-  fresult = f_opendir(&dir, buffer);						
-  XSTRING_DELETENORMALIZE(pathstring, buffer);
   
+  XBUFFER xbufferexchange;
+  pathstring.ConvertToBufferExchange(xbufferexchange);
+  fresult = f_opendir(&dir, xbufferexchange.Get());					
+      
   if(fresult == FR_OK) fresult = f_closedir(&dir);	
   
   return (fresult == FR_OK)?true:false;  
@@ -173,9 +173,9 @@ bool XSTM32DIR::Make(XCHAR* path, bool recursive)
                       
                   xpathsequence.Slash_Delete(); 
                   
-                  XSTRING_CREATENORMALIZE(xpathsequence, buffer, false); 
-                  fresult = f_mkdir(buffer);
-                  XSTRING_DELETENORMALIZE(xpathsequence, buffer);
+                  XBUFFER xbufferexchange;
+                  xpathsequence.ConvertToBufferExchange(xbufferexchange);                  
+                  fresult = f_mkdir(xbufferexchange.Get());
                   
                   xpathsequence.Slash_Add(); 
                   
@@ -190,9 +190,10 @@ bool XSTM32DIR::Make(XCHAR* path, bool recursive)
     }
    else
     {
-      XSTRING_CREATENORMALIZE(xpath, buffer, false); 
-      fresult = f_mkdir(buffer);	
-      XSTRING_DELETENORMALIZE(xpath, buffer);
+      XBUFFER xbufferexchange;
+      xpath.ConvertToBufferExchange(xbufferexchange);      
+      fresult = f_mkdir(xbufferexchange.Get());	
+      
       if(fresult != FR_OK) return false;  
     }
 
@@ -224,9 +225,9 @@ bool XSTM32DIR::ChangeTo(XCHAR* path)
   xpath = path;
   xpath.Slash_Normalize(true);
 
-  XSTRING_CREATENORMALIZE(xpath, buffer, false); 
-  fresult = f_chdir(buffer);	
-  XSTRING_DELETENORMALIZE(xpath, buffer);
+  XBUFFER xbufferexchange;
+  xpath.ConvertToBufferExchange(xbufferexchange);  
+  fresult = f_chdir(xbufferexchange.Get());	 
   
   if(fresult != FR_OK) return false;  
 
@@ -288,9 +289,9 @@ bool XSTM32DIR::Delete(XCHAR* path, bool all)
   xpath = path;
   xpath.Slash_Normalize(true);
   
-  XSTRING_CREATENORMALIZE(xpath, buffer, false); 
-  fresult = f_unlink(buffer);	
-  XSTRING_DELETENORMALIZE(xpath, buffer); 
+  XBUFFER xbufferexchange;
+  xpath.ConvertToBufferExchange(xbufferexchange);  
+  fresult = f_unlink(xbufferexchange.Get());	
   
   if(fresult != FR_OK) return false;  
  
@@ -369,14 +370,15 @@ bool XSTM32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* sea
     
   searchelement->GetPathSearch()->Set(pathsearch_str);
     
-  XSTM32DIR_SEARCHINFO* searchinfo = (XSTM32DIR_SEARCHINFO*)searchelement->GetFindFileData();
+  XSTM32DIR_SEARCHINFO* searchinfo = (XSTM32DIR_SEARCHINFO*)searchelement->GetFindFileData();    
+  XBUFFER               xbufferexchange_pathsearch;
+  XBUFFER               xbufferexchange_patternsearch;
   
-  XSTRING_CREATENORMALIZE(pathsearch_str    , bufferpath, false); 
-  XSTRING_CREATENORMALIZE(patternsearch_str , bufferpattern, false); 
-  fresult = f_findfirst(&searchinfo->dir, &searchinfo->fileinfo, bufferpath, bufferpattern);  
-  XSTRING_DELETENORMALIZE(pathsearch_str    , bufferpath); 
-  XSTRING_DELETENORMALIZE(patternsearch_str , bufferpattern); 
+  pathsearch_str.ConvertToBufferExchange(xbufferexchange_pathsearch);
+  patternsearch_str.ConvertToBufferExchange(xbufferexchange_patternsearch);
   
+  fresult = f_findfirst(&searchinfo->dir, &searchinfo->fileinfo, xbufferexchange_pathsearch.Get(), xbufferexchange_patternsearch.Get());  
+    
   if(fresult != FR_OK || !searchinfo->fileinfo.fname[0]) 
     {      
       searchelement->DeleteFindFileData();
@@ -414,10 +416,11 @@ bool XSTM32DIR::NextSearch(XDIRELEMENT* searchelement)
   XSTM32DIR_SEARCHINFO* searchinfo = (XSTM32DIR_SEARCHINFO*)searchelement->GetFindFileData();
   if(!searchinfo) return false;
   
-  XSTRING_CREATENORMALIZE((*searchelement->GetPatternSearch()) , bufferpattern, false); 
-  searchinfo->dir.pat = bufferpattern;   
+  XBUFFER xbufferexchange;
+  (*searchelement->GetPatternSearch()).ConvertToBufferExchange(xbufferexchange);
+   
+  searchinfo->dir.pat = xbufferexchange.Get();   
   fresult = f_findnext(&searchinfo->dir, &searchinfo->fileinfo);
-  XSTRING_DELETENORMALIZE((*searchelement->GetPatternSearch()), bufferpattern);
   
   if(fresult != FR_OK || !searchinfo->fileinfo.fname[0]) 
     {

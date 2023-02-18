@@ -336,6 +336,8 @@ bool DIODNSRESOLVED::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
             {
               GEN_DIODNSRESOLVED.DNSServer_AddDNSServer(__L("8.8.8.8"));
               GEN_DIODNSRESOLVED.DNSServer_AddDNSServer(__L("8.8.4.4"));
+              GEN_DIODNSRESOLVED.DNSServer_AddDNSServer(__L("64.6.64.6"));
+              GEN_DIODNSRESOLVED.DNSServer_AddDNSServer(__L("64.6.65.6"));
             }
 
           DIODNSPROTOCOL* dnsprotocol = new DIODNSPROTOCOL();

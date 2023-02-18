@@ -1058,10 +1058,9 @@ bool DIOOBEXPUSH::CheckSending()
                                                           wsize += (XWORD)((obexpushfile->GetNameSend()->GetSize()+1)*2);
                                                           sendbuffer->Add((XWORD)wsize);
 
-                                                          { XSTRING_CREATENORMALIZE((*obexpushfile->GetNameSend()), buffnormalize, true)
-                                                            sendbuffer->Add((XBYTE*)buffnormalize, wsize);
-                                                            XSTRING_DELETENORMALIZE(((*obexpushfile->GetNameSend()), buffnormalize)
-                                                          }
+                                                          XBUFFER xbufferexchange;
+                                                          (*obexpushfile->GetNameSend())->ConvertToBufferExchange(xbufferexchange, true, true);
+                                                          sendbuffer->Add(xbufferexchange->Get(), wsize);  
 
                                                           sendbuffer->Add((XBYTE)0xC3);
                                                           sendbuffer->Add((XDWORD)filesize);

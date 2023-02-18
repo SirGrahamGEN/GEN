@@ -66,13 +66,13 @@ XSTM32FILE::XSTM32FILE(): XFILE()
   XSTRING root;
   
   root = __L("/");
+    
+  XBUFFER xbufferexchange;
+  root.ConvertToBufferExchange(xbufferexchange);
   
-  XSTRING_CREATENORMALIZE(root, buffer, false); 
-  fresult = f_mount(&userFATFS, buffer, 1);
-  XSTRING_DELETENORMALIZE(root, buffer); 
-  
+  fresult = f_mount(&userFATFS, xbufferexchange.Get(), 1);
+    
   if(fresult == FR_OK) ismount = true; 
-
 }
 
 
@@ -114,10 +114,11 @@ bool XSTM32FILE::Exist(XCHAR* path)
 
   pathstring = path;
   if(pathstring.IsEmpty()) return false; 
+  
+  XBUFFER xbufferexchange;
+  pathstring.ConvertToBufferExchange(xbufferexchange);
 
-  XSTRING_CREATENORMALIZE(pathstring, buffer, false); 
-  fresult = f_stat(buffer, &fileinfo);			
-  XSTRING_DELETENORMALIZE(pathstring, buffer)
+  fresult = f_stat(xbufferexchange.Get(), &fileinfo);			
   
   cachesize =0;
   if(fresult == FR_OK) cachesize = (XQWORD)fileinfo.fsize;  
@@ -154,10 +155,10 @@ bool XSTM32FILE::Open(XCHAR* path, bool isreadonly)
   XBYTE mode  = (FA_OPEN_ALWAYS | FA_READ);
     
   if(!isreadonly) mode |= FA_WRITE;
- 
-  XSTRING_CREATENORMALIZE(pathstring, buffer, false); 
-  fresult = f_open(&file, buffer , mode);
-  XSTRING_DELETENORMALIZE(pathstring, buffer)
+   
+  XBUFFER xbufferexchange;
+  pathstring.ConvertToBufferExchange(xbufferexchange);
+  fresult = f_open(&file, xbufferexchange.Get() , mode);
     
   cachesize = 0;   
   if(fresult == FR_OK) cachesize = (XQWORD)f_size(&file);
@@ -196,11 +197,13 @@ bool XSTM32FILE::Create(XCHAR* path)
   if(pathstring.IsEmpty()) return false; 
 
   XBYTE mode  = (FA_CREATE_ALWAYS | FA_CREATE_ALWAYS | FA_READ | FA_WRITE);
-      
-  XSTRING_CREATENORMALIZE(pathstring, buffer, false); 
-  fresult = f_open(&file, buffer, mode);  
-  XSTRING_DELETENORMALIZE(pathstring, buffer)
-  cachesize = 0;    
+  
+  XBUFFER xbufferexchange;
+  pathstring.ConvertToBufferExchange(xbufferexchange);
+  fresult = f_open(&file, xbufferexchange.Get() , mode);
+    
+  cachesize = 0;   
+  
   status = (fresult == FR_OK)?true:false;  
   if(status) 
     {
@@ -459,10 +462,11 @@ bool XSTM32FILE::Erase(XCHAR* path, bool overwrite)
 
   pathstring = path;
   if(pathstring.IsEmpty()) return false; 
+  
+  XBUFFER xbufferexchange;
+  pathstring.ConvertToBufferExchange(xbufferexchange);
+  fresult = f_unlink(xbufferexchange.Get());
     
-  XSTRING_CREATENORMALIZE(pathstring, buffer, false); 
-  fresult = f_unlink(buffer);				  
-  XSTRING_DELETENORMALIZE(pathstring, buffer); 
   status = (fresult == FR_OK)?true:false;  
   
   return status;
@@ -492,12 +496,14 @@ bool XSTM32FILE::Rename(XCHAR* pathold, XCHAR* pathnew)
   
   pathold_str = pathold;
   pathnew_str = pathnew;
+    
+  XBUFFER xbufferexchange_pathold;
+  XBUFFER xbufferexchange_pathnew;
+  
+  pathold_str.ConvertToBufferExchange(xbufferexchange_pathold);
+  pathnew_str.ConvertToBufferExchange(xbufferexchange_pathnew);
      
-  XSTRING_CREATENORMALIZE(pathold_str, bufferold, false);
-  XSTRING_CREATENORMALIZE(pathnew_str, buffernew, false);
-  fresult = f_rename(bufferold, buffernew);	
-  XSTRING_DELETENORMALIZE(pathold_str, bufferold); 
-  XSTRING_DELETENORMALIZE(pathnew_str, buffernew); 
+  fresult = f_rename(xbufferexchange_pathold.Get(), xbufferexchange_pathnew.Get());	
     
   status = (fresult == FR_OK)?true:false;  
 

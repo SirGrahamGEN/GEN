@@ -339,139 +339,6 @@ XSTRINGCODING XSTRING::GetTypeCoding()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTRING::IsOEM()
-* @brief      IsOEM
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::IsOEM()
-{
-  for(int c=0;c<(int)size;c++)
-    {
-      if((text[c]<0x20) || (text[c]>0x7F)) return false;
-    }
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSTRING::CreateOEM(char*& _textOEM) const
-* @brief      CreateOEM
-* @ingroup    XUTILS
-*
-* @param[in]  _textOEM) cons :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::CreateOEM(char*& _textOEM) const
-{
-  XDWORD sizeOEM = GetSize();
-
-  _textOEM = new char[sizeOEM+1];
-  if(!_textOEM) return false;
-
-  for(int c=sizeOEM-1;c>=0;c--)
-    {
-      _textOEM[c] = (XBYTE)text[c];
-    }
-
-  _textOEM[sizeOEM]=0;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XSTRING::DeleteOEM(char* text)
-* @brief      DeleteOEM
-* @ingroup    XUTILS
-*
-* @param[in]  text : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::DeleteOEM(char* text)
-{
-  if(!text) return false;
-
-  delete [] text; 
-
-  return true;                                                 
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSTRING::CreateNormalize(XWORD*& _textnormalize, bool inverse)
-* @brief      CreateNormalize
-* @ingroup    XUTILS
-*
-* @param[in]  _textnormalize :
-* @param[in]  inverse :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::CreateNormalize(XWORD*& _textnormalize, bool inverse)
-{
-  XDWORD sizenormalize = GetSize()+1;
-
-  _textnormalize = new XWORD[sizenormalize];
-  if(!_textnormalize) return false;
-
-  memset(_textnormalize, 0, (sizenormalize)*sizeof(XWORD));
-
-  if(sizenormalize>1)
-    {
-      for(XDWORD c=0; c<sizenormalize; c++)
-        {
-          if(inverse)
-            {
-              _textnormalize[c]  = (text[c]>>8);
-              _textnormalize[c] |= ((text[c]&0x00FF)<<8);
-
-            }
-           else
-            {
-              _textnormalize[c] = (XWORD)text[c];
-            }
-        }
-    }
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XSTRING::DeleteNormalize(XWORD*& _textnormalize)
-* @brief      DeleteNormalize
-* @ingroup    XUTILS
-*
-* @param[in]  _textnormalize : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::DeleteNormalize(XWORD*& _textnormalize)
-{
-  if(!_textnormalize) return false;
-
-  delete [] _textnormalize;
-  
-  return true; 
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         bool XSTRING::Set(XDWORD size)
 * @brief      Set
 * @ingroup    XUTILS
@@ -3466,6 +3333,26 @@ bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD maxsize)
       Add((XCHAR)widechars[c]);
     }
   
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::IsValidASCII()
+* @brief      IsValidASCII
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::IsValidASCII()
+{
+  for(int c=0;c<(int)size;c++)
+    {
+      if((text[c]<0x20) || (text[c]>0x7F)) return false;
+    }
+
   return true;
 }
 

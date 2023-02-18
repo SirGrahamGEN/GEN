@@ -215,12 +215,11 @@ bool XFILEHASH::Create(XPATH& pathname, bool checkHASH)
   XDWORD sizeIDstring  = IDstring.GetSize();
 
   XSTRING IDini;
-
-  IDini = XFILE_ID;
-
-  XSTRING_CREATENORMALIZE(IDini, buffnormalize, false)
-  if(!file->Write((XBYTE*)buffnormalize, IDini.GetSize()*sizeof(XWORD)+1)) return false;
-  XSTRING_DELETENORMALIZE(IDini, buffnormalize)
+  XBUFFER xbufferexchange;
+  
+  IDini = XFILE_ID;  
+  IDini->ConvertToBufferExchange(xbufferexchange);
+  if(!file->Write(xbufferexchange.Get(), xbufferexchange.GetSize())) return false;
 
   type |= XFILE_FEATURES_HASH;
 
@@ -230,9 +229,8 @@ bool XFILEHASH::Create(XPATH& pathname, bool checkHASH)
   if(!file->Write((XBYTE*)&sizeIDstring     , sizeof(XDWORD)))  return false;
   if(sizeIDstring)
     {
-      XSTRING_CREATENORMALIZE(IDstring, buffnormalize, false)
-      if(!file->Write((XBYTE*)buffnormalize, sizeof(XWORD)*sizeIDstring))   return false;
-      XSTRING_DELETENORMALIZE(IDstring, buffnormalize)
+      IDstring->ConvertToBufferExchange(xbufferexchange);
+      if(!file->Write(xbufferexchange.Get(), xbufferexchange.GetSize())) return false;
     }
 
   if(!file->Write((XBYTE*)hashbuffer.Get()  , hash->GetDefaultSize()))  return false;

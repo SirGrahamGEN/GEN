@@ -371,10 +371,11 @@ bool DIOMACMANUFACTURED::File_Convert(XBUFFER& xbuffer, XPATH& xpath)
 
                   xfilexdb->GetPrimaryFile()->Write((XBYTE*)&size                 , sizeof(XDWORD));
 
-                  XSTRING_CREATENORMALIZE((*name), buffnormalize, false)
-                  xfilexdb->GetPrimaryFile()->Write((XBYTE*)buffnormalize , size);
-                  XSTRING_DELETENORMALIZE((*name), buffnormalize)
+                  XBUFFER xbufferexchange;            
 
+                  (*name)->ConvertToBufferExchange(xbufferexchange, true);
+                  xfilexdb->GetPrimaryFile()->Write(xbufferexchange->Get(), size);
+                                        
                   idmapindex.Add(ID,filepos);
 
                   delete name;

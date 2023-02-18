@@ -113,27 +113,6 @@ typedef struct
   #define SSCANF(str, ...)        sscanf(str, ## __VA_ARGS__)
 #endif
 
-#define XSTRING_CREATEOEM(xstring, variable)                          char* variable = NULL;                    \
-                                                                      xstring.CreateOEM(variable);
-
-#define XSTRING_DELETEOEM(xstring, variable)                          xstring.DeleteOEM(variable);              \
-                                                                      variable = NULL;
-
-#define XSTRING_CREATENORMALIZE(xstring, buffernormalize, inverse)    XWORD* buffernormalize = NULL;            \
-                                                                      xstring.CreateNormalize(buffernormalize, inverse);
-
-#define XSTRING_DELETENORMALIZE(xstring, buffernormalize)             xstring.DeleteNormalize(buffernormalize); \
-                                                                      buffernormalize = NULL;
-
-#define XSTRING_COPYOEMMAXSIZE(xstring, charstr, maxsize)             { XSTRING_CREATEOEM(xstring, charstrbase)                                                       \
-                                                                        memcpy(charstr, charstrbase, (xstring.GetSize()>(maxsize-1)?(maxsize-1):xstring.GetSize()));  \
-                                                                        XSTRING_DELETEOEM(xstring, charstrbase)                                                       \
-                                                                      }
-
-#define XSTRING_COPYOEMARRAYMAXSIZE(xstring, chararray, maxsize)      { XSTRING_CREATEOEM(xstring, chararraybase)                                                     \
-                                                                        memcpy(chararray, chararraybase, (xstring.GetSize()>=maxsize?maxsize:xstring.GetSize()));     \
-                                                                        XSTRING_DELETEOEM(xstring, chararraybase)                                                     \
-                                                                      }
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -159,13 +138,7 @@ class GEN_API_LIB XSTRING
     static XDWORD         GetSize                         (XWORD* string);
 
     XSTRINGCODING         GetTypeCoding                   ();
-
-    bool                  IsOEM                           ();
-    bool                  CreateOEM                       (char*& text) const;
-    bool                  DeleteOEM                       (char* test);
-    bool                  CreateNormalize                 (XWORD*& text, bool inverse = false);
-    bool                  DeleteNormalize                 (XWORD*& _textnormalize);
-
+    
     bool                  Set                             (XDWORD size);
     bool                  Set                             (const char* string);
     bool                  Set                             (const XCHAR* string);
@@ -286,13 +259,14 @@ class GEN_API_LIB XSTRING
 
     bool                  ConvertFromWide                 (XWORD* widechars, XDWORD maxsize);
 
+    bool                  IsValidASCII                    ();
     bool                  ConvertToASCII                  (XBUFFER& xbuffer);
     bool                  ConvertFromASCII                (XBUFFER& xbuffer);
     
     bool                  ConvertToXBuffer                (XBUFFER& xbuffer);
     bool                  ConvertFromXBuffer              (XBUFFER& xbuffer, XSTRINGCODING buffercoding);
 
-    bool                  ConvertToExchangeXBuffer        (XBUFFER& xbuffer, bool addzeroatend = false, bool inverse = false);
+    bool                  ConvertToExchangeXBuffer        (XBUFFER& xbuffer, bool addzeroatend = true, bool inverse = false);
 
     int                   GetSizeConvertToUTF8            ();
     bool                  ConvertFromUTF8                 (XBYTE* data, XDWORD size);

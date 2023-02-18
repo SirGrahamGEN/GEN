@@ -557,11 +557,12 @@ void DIOWINDOWSSTREAMBLUETOOTH::ThreadConnection(void* param)
                                                                       WCHAR pass[BLUETOOTH_MAX_PASSKEY_SIZE];
 
                                                                       memset(pass, 0 , (BLUETOOTH_MAX_PASSKEY_SIZE*sizeof(WCHAR)));
+                                                                      
+                                                                      XBUFFER xbufferexchange;
 
-                                                                      XSTRING_CREATENORMALIZE((*diostream->config->GetPIN()), buffnormalize, false)
-                                                                      wcsncpy_s(pass, (WCHAR*)buffnormalize, BLUETOOTH_MAX_PASSKEY_SIZE-sizeof(WCHAR));
-                                                                      XSTRING_DELETENORMALIZE((*diostream->config->GetPIN()), buffnormalize)
-
+                                                                      diostream->config->GetPIN()->ConvertToExchangeXBuffer(xbufferexchange);
+                                                                      wcsncpy_s(pass, (WCHAR*)xbufferexchange.Get(), BLUETOOTH_MAX_PASSKEY_SIZE-sizeof(WCHAR));
+                                                                      
                                                                       BLUETOOTH_DEVICE_INFO btdi;
 
                                                                       ZeroMemory(&btdi, sizeof(BLUETOOTH_DEVICE_INFO));

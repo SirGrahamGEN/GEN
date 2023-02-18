@@ -244,16 +244,16 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::SendSignal()
     {
       XSTRING     string;
       XBUFFER     xbuffer;
-      XBUFFER     xbufferUTF16;
+      XBUFFER     xbufferexchange;
       HASHCRC32   crc32;
 
       string.Format(DIOSTREAMUDPLOCALENUMSERVERSID,ID);
 
-      string.ConvertToExchangeXBuffer(xbufferUTF16, true);
-      crc32.Do(xbufferUTF16.Get(), xbufferUTF16.GetSize());
+      string.ConvertToExchangeXBuffer(xbufferexchange);
+      crc32.Do(xbufferexchange.Get(), xbufferexchange.GetSize());
 
       xbuffer.Add((XDWORD)crc32.GetResultCRC32());
-      xbuffer.Add(xbufferUTF16.Get(), xbufferUTF16.GetSize());
+      xbuffer.Add(xbufferexchange.Get(), xbufferexchange.GetSize());
       
       diostreamudp->Write(xbuffer.Get(),xbuffer.GetSize());
 
@@ -390,10 +390,10 @@ void DIOSTREAMUDPLOCALENUMSERVERS::ThreadDiscoveryLocalServer(void* data)
 
                 if(!string.Compare(string2))
                   {
-                    XBUFFER bufferUTF16;
+                    XBUFFER xbufferexchange;
     
-                    string2.ConvertToExchangeXBuffer(bufferUTF16, true);  
-                    crc32.Do(bufferUTF16.Get(), bufferUTF16.GetSize());
+                    string2.ConvertToExchangeXBuffer(xbufferexchange);  
+                    crc32.Do(xbufferexchange.Get(), xbufferexchange.GetSize());
                                           
                     crc32result[1] = crc32.GetResultCRC32();
 

@@ -3112,10 +3112,10 @@ bool XBUFFER::AddXBufferWithMask(XBUFFER& xbuffer, XCHAR* mask, va_list& arg)
                     break;
 
           case 'S': { XSTRING*  svar = va_arg(arg, XSTRING*);                      
-                      XBUFFER   bufferUTF16;
+                      XBUFFER   bufferexchange;
 
-                      (*svar).ConvertToExchangeXBuffer(bufferUTF16, true);
-                      xbuffer.Add(bufferUTF16);                        
+                      (*svar).ConvertToExchangeXBuffer(bufferexchange);
+                      xbuffer.Add(bufferexchange);                        
                     }
                     break;
 
