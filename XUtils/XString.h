@@ -256,9 +256,7 @@ class GEN_API_LIB XSTRING
     float                 ConvertToFloat                  (int index = 0, const XCHAR* mask = NULL, bool checkvalidchars = true);
     double                ConvertToDouble                 (int index = 0, const XCHAR* mask = NULL, bool checkvalidchars = true);
     bool                  ConvertToBoolean                ();
-
-    bool                  ConvertFromWide                 (XWORD* widechars, XDWORD maxsize);
-
+    
     bool                  IsValidASCII                    ();
     bool                  ConvertToASCII                  (XBUFFER& xbuffer);
     bool                  ConvertFromASCII                (XBUFFER& xbuffer);

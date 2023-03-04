@@ -3312,33 +3312,6 @@ bool XSTRING::ConvertToBoolean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD maxsize)
-* @brief      ConvertFromWide
-* @ingroup    XUTILS
-*
-* @param[in]  widechars : 
-* @param[in]  maxsize : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::ConvertFromWide(XWORD* widechars, XDWORD maxsize)
-{
-  Empty();
-
-  for(XDWORD c=0; c<maxsize; c++)
-    {
-      if(!(XCHAR)widechars[c]) break;
-
-      Add((XCHAR)widechars[c]);
-    }
-  
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         bool XSTRING::IsValidASCII()
 * @brief      IsValidASCII
 * @ingroup    XUTILS

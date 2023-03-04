@@ -290,6 +290,7 @@ bool XWINDOWSACCESSCONTROLLISTS::SetFilePermissionForEveryone(XCHAR* filename)
 
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSACCESSCONTROLLISTS::Clean()

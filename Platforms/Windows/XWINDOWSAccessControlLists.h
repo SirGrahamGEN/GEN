@@ -66,10 +66,9 @@ class XWINDOWSACCESSCONTROLLISTS
     bool                    SetFileOnlyPermissionForSystemUser    (XCHAR* filename);
     bool                    SetFilePermissionForEveryone          (XCHAR* filename);
 
-
   private:
 
-    void                    Clean                                  ();
+    void                    Clean                                 ();
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

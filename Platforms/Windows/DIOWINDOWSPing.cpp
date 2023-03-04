@@ -3,7 +3,7 @@
 * @file       DIOWINDOWSPing.cpp
 * 
 * @class      DIOWINDOWSPING
-* @brief      WINDOWS Data Input/Output WINDOWS Ping class
+* @brief      Data Input/Output WINDOWS Ping class
 * @ingroup    PLATFORM_WINDOWS
 *
 * @copyright  GEN Group. All rights reserved.

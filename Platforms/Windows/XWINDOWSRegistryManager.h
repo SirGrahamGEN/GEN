@@ -102,6 +102,8 @@ class XWINDOWSREGISTRYMANAGER
     bool                        DeleteKey                 (HKEY handlekey, XSTRING& subkeystring);
 
 
+    
+
   private:
 
     void                        Clean                     ();

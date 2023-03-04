@@ -48,7 +48,6 @@ XPATHSMANAGER*  XPATHSMANAGER::instance = NULL;
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATHSMANAGERSECTION::XPATHSMANAGERSECTION()
@@ -64,7 +63,6 @@ XPATHSMANAGERSECTION::XPATHSMANAGERSECTION()
 
   xpath = new XPATH();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -85,7 +83,6 @@ XPATHSMANAGERSECTION::~XPATHSMANAGERSECTION()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPATHSMANAGERSECTION::Clean()
@@ -103,11 +100,9 @@ void XPATHSMANAGERSECTION::Clean()
 }
 
 
-
 /* --------------------------------------------------------------------------------------------------------------------*/
 /* XPATHSMANAGER                                                                                                       */
 /* --------------------------------------------------------------------------------------------------------------------*/
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -125,7 +120,6 @@ bool XPATHSMANAGER::GetIsInstanced()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATHSMANAGER& XPATHSMANAGER::GetInstance()
@@ -140,7 +134,6 @@ XPATHSMANAGER& XPATHSMANAGER::GetInstance()
   if(!instance) instance = new XPATHSMANAGER();
   return (*instance);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -161,7 +154,6 @@ bool XPATHSMANAGER::DelInstance()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -215,7 +207,6 @@ bool XPATHSMANAGER::GetPathOfSection(XPATHSMANAGERSECTIONTYPE sectiontype, XPATH
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* XPATHSMANAGER::GetAppExecPath()
@@ -229,8 +220,6 @@ XPATH* XPATHSMANAGER::GetAppExecPath()
 {
   return appexecpath;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -266,9 +255,6 @@ bool XPATHSMANAGER::GetAppExecPathWithoutAsset(XCHAR* assetlevel, XPATH& xpath)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATHSMANAGERSECTION* XPATHSMANAGER::GetPathSection(XPATHSMANAGERSECTIONTYPE sectiontype)
@@ -298,7 +284,6 @@ XPATHSMANAGERSECTION* XPATHSMANAGER::GetPathSection(XPATHSMANAGERSECTIONTYPE sec
 
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -343,7 +328,6 @@ bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype, XSTRING
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype,const XCHAR* string)
@@ -362,7 +346,6 @@ bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype,const XC
 
   return AddPathSection(sectiontype,path);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -384,7 +367,6 @@ bool XPATHSMANAGER::DeleteAllPathSections()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -433,106 +415,6 @@ bool XPATHSMANAGER::CreateAllPathSectionOnDisk()
 
   return status;
 }
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* nameapp, XCHAR* recopilatedir)
-* @brief      AdjustRootPathDefault
-* @ingroup    XUTILS
-*
-* @param[in]  nameapp :
-* @param[in]  recopilatedir :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-/*
-bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* nameapp, XCHAR* recopilatedir)
-{
-  XDIR* GEN_XFACTORY_CREATE(xdir, Create_Dir())
-  if(!xdir) return false;
-
-  XPATH xpathroot;
-  XPATH xpathtest;
-  bool  status;
-
-  GetPathOfSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathroot);
-  status = xdir->Exist(xpathroot);
-
-  if(!recopilatedir)     return status;
-  if(!recopilatedir[0])  return status;
-  if(!status)            return status;
-
-  xpathtest.Set(xpathroot);
-  xpathtest.Add(recopilatedir);
-  xpathtest.Slash_Add();
-
-  status = xdir->Exist(xpathtest);
-
-  AddPathSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathtest.Get());
-
-  #ifndef BUILDER
-
-  //----------------------------------------------------------------------------------------
-  // Exec application in debug mode. Valid for Visual Studio and GEN Linux directory.
-
-  if(status)
-    {
-      GEN_XFACTORY.Delete_Dir(xdir);
-      return status;
-    }
-
-  XPATH   developedpath;
-  XDWORD  ndirtodelete = 2;
-  XDWORD  nslashfound  = 0;
-
-  #ifdef WINDOWS
-  ndirtodelete++;
-  #endif
-
-  developedpath = xpathroot;
-
-  for(int c=developedpath.GetSize(); c>0 ; c--)
-    {
-      if((developedpath.Get()[c] == '\\') || (developedpath.Get()[c] == '/'))
-        {
-          if(nslashfound == ndirtodelete)
-            {
-              developedpath.DeleteCharacters(c+1, developedpath.GetSize());
-              break;
-            }
-
-          nslashfound++;
-        }
-    }
-
-  developedpath.Slash_Add();
-
-  xpathtest.Set(developedpath);
-  xpathtest.Add(recopilatedir);
-  xpathtest.Slash_Add();
-  status = xdir->Exist(xpathtest);
-  if(status)
-    {
-      AddPathSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathtest.Get());
-    }
-   else
-    {
-      #ifdef _DEBUG
-      AddPathSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathtest.Get());
-      #endif
-    }
-
-  #endif
-
-  GEN_XFACTORY.Delete_Dir(xdir);
-
-  return status;
-}
-*/
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -603,7 +485,6 @@ bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* assetsdirname)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATHSMANAGER::XPATHSMANAGER()
@@ -619,7 +500,6 @@ XPATHSMANAGER::XPATHSMANAGER()
 
   appexecpath = new XPATH;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -645,7 +525,6 @@ XPATHSMANAGER::~XPATHSMANAGER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPATHSMANAGER::Clean()
@@ -660,5 +539,3 @@ void XPATHSMANAGER::Clean()
 {
   appexecpath = NULL;
 }
-
-
