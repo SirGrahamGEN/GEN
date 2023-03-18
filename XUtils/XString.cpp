@@ -4085,6 +4085,8 @@ bool XSTRING::ConvertToBase64(XSTRING& string)
 {
   XBUFFER data;
   XBUFFER charstr;
+
+  string.Empty();
  
   (*this).ConvertToASCII(charstr);  
   data.Add((XBYTE*)charstr.Get(), GetSize());  

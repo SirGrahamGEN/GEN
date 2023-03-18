@@ -309,31 +309,6 @@ bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* p
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
 {
-  /*
-  PROCESSENTRY32 entry;
-  HANDLE         snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
-  bool           exists = false;
-
-  entry.dwSize = sizeof(PROCESSENTRY32);
-
-  if(Process32First(snapshot, &entry))
-    {
-      while(Process32Next(snapshot, &entry))
-        {
-          XSTRING nameapp  = entry.szExeFile;
-          XSTRING _applicationname = applicationname;
-
-          if(_applicationname.Find(nameapp, true) != XSTRING_NOTFOUND)
-            {
-              if(ID) (*ID) = entry.th32ProcessID;
-              exists = true;
-            }
-        }
-    }
-
-  CloseHandle(snapshot);
-  */
-
   XVECTOR<XPROCESS*>  applist;
   bool                status = GEN_XPROCESSMANAGER.GetApplicationRunningList(applist);
   bool                exists = false;
@@ -358,7 +333,6 @@ bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD
     
   applist.DeleteContents();
   applist.DeleteAll();
-
 
   return exists;
 }

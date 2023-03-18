@@ -108,14 +108,14 @@ bool XFILETXT::Open(XPATH& xpath, bool readonly)
 
   if(!file->Open(xpath,readonly)) return false;
 
-  GetFormatCharFromFile(NULL);
+  formatchar = GetFormatCharFromFile(NULL);
 
   if(formatchar == XFILETXTFORMATCHAR_UNKNOWN) formatchar = XFILETXTFORMATCHAR_ASCII;
   typeLF = XFILETXTTYPELF_DEFAULT;
   
   lines.SetAddInLimit((int)(file->GetSize()/15));
 
-  if(formatchar == XFILETXTFORMATCHAR_ASCII)
+  if((formatchar == XFILETXTFORMATCHAR_ASCII) || (formatchar == XFILETXTFORMATCHAR_UTF8))
     {
       if(IsBinaryFile()) 
         {

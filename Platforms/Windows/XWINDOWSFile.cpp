@@ -105,7 +105,8 @@ XWINDOWSFILE::~XWINDOWSFILE()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Exist(XCHAR* xpath)
 {
-  bool status = ExtendedOpen(xpath, (isreadonly)? XWINDOWSFILEMODE_READONLY: XWINDOWSFILEMODE_READWRITE);
+  //bool status = ExtendedOpen(xpath, (isreadonly)? XWINDOWSFILEMODE_READONLY: XWINDOWSFILEMODE_READWRITE);
+  bool status = ExtendedOpen(xpath, XWINDOWSFILEMODE_READONLY);
   if(status) Close();
 
   return status;
