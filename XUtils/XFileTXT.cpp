@@ -681,19 +681,19 @@ XCHAR* XFILETXT::GetLineText(int index)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end, XFILETXTTYPELF typeLF)
+* @fn         bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XFILETXTTYPELF typeLF, XDWORD start, XDWORD end)
 * @brief      GetAllInOneLine
 * @ingroup    XUTILS
 * 
 * @param[in]  alllines : 
+* @param[in]  typeLF : 
 * @param[in]  start : 
 * @param[in]  end : 
-* @param[in]  typeLF : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end, XFILETXTTYPELF typeLF)
+bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XFILETXTTYPELF typeLF, XDWORD start, XDWORD end)
 {
   alllines.Empty();
 
@@ -723,19 +723,19 @@ bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XDWORD start, XDWORD end, XFIL
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XDWORD start, XDWORD end, XFILETXTTYPELF typeLF)
+* @fn         bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XFILETXTTYPELF typeLF, XDWORD start, XDWORD end)
 * @brief      GetAllInBuffer
 * @ingroup    XUTILS
 * 
 * @param[in]  xbuffer : 
+* @param[in]  typeLF : 
 * @param[in]  start : 
 * @param[in]  end : 
-* @param[in]  typeLF : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XDWORD start, XDWORD end, XFILETXTTYPELF typeLF)
+bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XFILETXTTYPELF typeLF, XDWORD start, XDWORD end)
 {
   xbuffer.Delete();
 

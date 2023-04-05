@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------
-# CMakeLists_Librarys.txt to GEN FrameWork
+# CMakeLists_Libraries.txt to GEN FrameWork
 # --------------------------------------------------------------------
 
 

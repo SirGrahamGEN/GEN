@@ -63,6 +63,8 @@ class VERSION
     
     XSTRING*                GetAppTitle                   ();
     XSTRING*                GetAppVersion                 ();
+    bool                    GetAppVersionStatus           (XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& statusstr);
+    bool                    GetAppVersion                 (XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& versionstr);
     bool                    SetAppVersion                 (XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror,XCHAR* app_owner, XDWORD app_creationyear);
    
   private:

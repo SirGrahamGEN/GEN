@@ -172,11 +172,13 @@ bool XRAND::DelInstance()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XRAND::Ini()
 {
-  const int prime1 = 42;
-  const int prime2 = 89;
+  static int counter  = 0;
+  const int prime1    = counter + 42;
+  const int prime2    = counter + 89;
+
+  counter++;
   
   initialvalue = (unsigned)time(NULL);
-
   initialvalue += (initialvalue * prime1) + prime2;
 
   srand(initialvalue);

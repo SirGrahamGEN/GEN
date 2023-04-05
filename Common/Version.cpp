@@ -120,11 +120,9 @@ XSTRING* VERSION::GetName()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* VERSION::GetVersion();
+* @fn         XSTRING* VERSION::GetVersion()
 * @brief      GetVersion
 * @ingroup    PLATFORM_COMMON
-* 
-* @param[in]  ) : 
 * 
 * @return     XSTRING* : 
 * 
@@ -256,6 +254,68 @@ XSTRING* VERSION::GetAppVersion()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool VERSION::GetAppVersionStatus(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& statusstr)
+* @brief      GetAppVersionStatus
+* @ingroup    PLATFORM_COMMON
+* 
+* @param[in]  app_version : 
+* @param[in]  app_subversion : 
+* @param[in]  app_versionerror : 
+* @param[in]  statusstr : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool VERSION::GetAppVersionStatus(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& statusstr)
+{
+  statusstr.Empty();
+
+  if((app_version < 1) && (app_subversion <  1)) statusstr += __L(" (Alpha)");
+  if((app_version < 1) && (app_subversion >= 1)) statusstr += __L(" (Beta)");
+      
+  #ifdef _DEBUG
+  statusstr += __L(" [Debug]");
+  #endif
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool VERSION::GetAppVersion(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& versionstr)
+* @brief      GetAppVersion
+* @ingroup    PLATFORM_COMMON
+* 
+* @param[in]  app_version : 
+* @param[in]  app_subversion : 
+* @param[in]  app_versionerror : 
+* @param[in]  versionstr : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool VERSION::GetAppVersion(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& versionstr)
+{
+  XSTRING statusstr;
+
+  versionstr.Format(__L("%d.%d.%d"), app_version, app_subversion, app_versionerror);
+ 
+  if((app_version < 1) && (app_subversion <  1)) statusstr += __L(" (Alpha)");
+  if((app_version < 1) && (app_subversion >= 1)) statusstr += __L(" (Beta)");
+      
+  #ifdef _DEBUG
+  statusstr += __L(" [Debug]");
+  #endif
+
+  versionstr += statusstr;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void VERSION::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror,XCHAR* app_owner, XDWORD app_creationyear)
 * @brief      SetAppVersion
 * @ingroup    PLATFORM_COMMON
@@ -270,30 +330,18 @@ XSTRING* VERSION::GetAppVersion()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool VERSION::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror,XCHAR* app_owner, XDWORD app_creationyear)
+bool VERSION::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XCHAR* app_owner, XDWORD app_creationyear)
 {
   app_titlestr.Empty();
   app_versionstr.Empty();
 
-  app_versionstr.Format(__L("%s %d.%d.%d "), app_name?app_name:NULL, app_version, app_subversion, app_versionerror);
-
+  app_versionstr.Format(__L("%s %d.%d.%d"), app_name?app_name:__L(""), app_version, app_subversion, app_versionerror);
+ 
   XSTRING statusstr;
 
-  if(version<1) statusstr += __L("Beta");
-
-  #ifdef _DEBUG
-  if(statusstr.GetSize()) statusstr += __L("+");
-  statusstr += __L("Debug");
-  #endif
-
-  if(statusstr.GetSize())
-    {
-      app_versionstr += __L("(");
-      app_versionstr += statusstr;
-      app_versionstr += __L(")");
-    }
-
-
+  GetAppVersionStatus(app_version, app_subversion, app_versionerror, statusstr);
+  app_versionstr += statusstr;
+ 
   app_titlestr = app_versionstr;
   app_titlestr += __L(" Copyright (c) ");
 

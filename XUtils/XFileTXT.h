@@ -104,8 +104,8 @@ class XFILETXT : public XFILECONTAINER
     XSTRING*              GetLine                 (int index);
     XCHAR*                GetLineText             (int index);
 
-    bool                  GetAllInOneLine         (XSTRING& alllines , XDWORD start = 0, XDWORD end = XFILETXT_TOLASTLINE, XFILETXTTYPELF typeLF = XFILETXTTYPELF_UNKNOWN);
-    bool                  GetAllInBuffer          (XBUFFER& xbuffer  , XDWORD start = 0, XDWORD end = XFILETXT_TOLASTLINE, XFILETXTTYPELF typeLF = XFILETXTTYPELF_UNKNOWN);
+    bool                  GetAllInOneLine         (XSTRING& alllines, XFILETXTTYPELF typeLF = XFILETXTTYPELF_UNKNOWN, XDWORD start = 0, XDWORD end = XFILETXT_TOLASTLINE);
+    bool                  GetAllInBuffer          (XBUFFER& xbuffer, XFILETXTTYPELF typeLF = XFILETXTTYPELF_UNKNOWN, XDWORD start = 0, XDWORD end = XFILETXT_TOLASTLINE);
 
     bool                  ReadAllFile             ();
     bool                  WriteAllFile            ();

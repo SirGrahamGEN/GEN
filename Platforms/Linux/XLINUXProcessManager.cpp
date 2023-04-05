@@ -278,11 +278,7 @@ bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* par
           _params.Copy(start, found, string);
           start = found+1;
         }
-
-      string.CreateOEM(param[c]);
-
-      //XTRACE_PRINTCOLOR(3, __L("EXEC PARAMS: param%02d [%s]"), c, string.Get());
-
+            
       if(endfound) break;
     }
 
