@@ -31,43 +31,43 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeElement.h"
+#include "DIONodeItem.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum DIONODESENSOR_TYPE
 {
-  DIONODESENSOR_TYPE_UNKNOWN           = 0 ,
-  DIONODESENSOR_TYPE_HUMIDITY              ,
-  DIONODESENSOR_TYPE_TEMPERATURE           ,
-  DIONODESENSOR_TYPE_TEMP_HUM              ,
-  DIONODESENSOR_TYPE_LIGHT                 ,
+  DIONODESENSOR_TYPE_UNKNOWN                    = 0 ,
+  DIONODESENSOR_TYPE_HUMIDITY                       ,
+  DIONODESENSOR_TYPE_TEMPERATURE                    ,
+  DIONODESENSOR_TYPE_TEMPERATURE_HUMIDITY           ,
+  DIONODESENSOR_TYPE_LIGHT                          ,
 };
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODESENSOR : public DIONODEELEMENT
+class DIONODESENSOR : public DIONODEITEM
 {
   public:
-                           DIONODESENSOR              ();
-    virtual               ~DIONODESENSOR              ();
+                                  DIONODESENSOR               ();
+    virtual                      ~DIONODESENSOR               ();
 
-    DIONODESENSOR_TYPE     GetSensorType              ();
-    void                   SetSensorType              (DIONODESENSOR_TYPE type); 
+    DIONODESENSOR_TYPE            GetSensorType               ();
+    void                          SetSensorType               (DIONODESENSOR_TYPE type); 
 
-    bool                   GetSensorTypeDescription   (XSTRING& typedescription);              
-
-    virtual bool           Serialize                  ();                                          
-    virtual bool           Deserialize                (); 
+    bool                          GetSensorTypeDescription    (XSTRING& typedescription);              
+   
+    virtual bool                  Serialize                   ();                                          
+    virtual bool                  Deserialize                 (); 
 
   protected: 
     
-    DIONODESENSOR_TYPE     sensortype;   
+    DIONODESENSOR_TYPE            sensortype;   
 
   private:
 
-    void                   Clean                      ();
+    void                          Clean                       ();
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

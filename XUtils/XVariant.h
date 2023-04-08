@@ -35,25 +35,25 @@
 #include "XString.h"
 #include "XDateTime.h"
 #include "XTrace.h"
+#include "XSerializable.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum XVARIANT_TYPE
 {
-  XVARIANT_TYPE_NULL                        = 0     ,
-  XVARIANT_TYPE_SERIALIZABLE                        ,
-  XVARIANT_TYPE_INTEGER                             ,
-  XVARIANT_TYPE_DOUBLEINTEGER                       ,
-  XVARIANT_TYPE_FLOAT                               ,
-  XVARIANT_TYPE_DOUBLE                              ,
-  XVARIANT_TYPE_CHAR                                ,
-  XVARIANT_TYPE_XCHAR                               ,
-  XVARIANT_TYPE_STRING                              ,
-  XVARIANT_TYPE_DATE                                ,
-  XVARIANT_TYPE_TIME                                ,
-  XVARIANT_TYPE_DATETIME                            ,
+  XVARIANT_TYPE_NULL                        = 0 ,
+  XVARIANT_TYPE_SERIALIZABLE                    ,
+  XVARIANT_TYPE_INTEGER                         ,
+  XVARIANT_TYPE_DOUBLEINTEGER                   ,
+  XVARIANT_TYPE_FLOAT                           ,
+  XVARIANT_TYPE_DOUBLE                          ,
+  XVARIANT_TYPE_CHAR                            ,
+  XVARIANT_TYPE_XCHAR                           ,
+  XVARIANT_TYPE_STRING                          ,
+  XVARIANT_TYPE_DATE                            ,
+  XVARIANT_TYPE_TIME                            ,
+  XVARIANT_TYPE_DATETIME                        ,
   XVARIANT_TYPE_BOOLEAN                                  
-
 };
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
@@ -94,7 +94,6 @@ class XVARIANT
     operator                        const XCHAR*            ();
     operator                        XDATETIME               ();
     
-
     void                            GetSerializable         (XSERIALIZABLEBUFFER& serializable);
     void                            GetSerializable         (XSERIALIZABLEBUFFER* serializable);
 
@@ -108,7 +107,6 @@ class XVARIANT
     virtual bool                    Set                     (XVARIANT_TYPE type = XVARIANT_TYPE_NULL, void* data = NULL, XDWORD size = 0);
 
     virtual bool                    ToString                (XSTRING& to);
-
 
     bool                            IsNull                  ();
 

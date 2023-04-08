@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeSensorTempHum.cpp
+* @file       DIONodeDeviceDriver_Actuator_GPIO.cpp
 * 
-* @class      DIONODESENSORTEMPHUM
-* @brief      Data Input/Output Node Sensor Temperature + Humidity.
+* @class      DIONODEDEVICEDRIVER_ACTUATOR_GPIO
+* @brief      Data Input/Output Node Device Driver actuator GPIO
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -33,7 +33,9 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeSensorTempHum.h"
+#include "DIONodeActuator.h"
+
+#include "DIONodeDeviceDriver_Actuator_GPIO.h"
 
 #include "XMemory_Control.h"
 
@@ -46,72 +48,79 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODESENSORTEMPHUM::DIONODESENSORTEMPHUM()
+* @fn         DIONODEDEVICEDRIVER_ACTUATOR_GPIO::DIONODEDEVICEDRIVER_ACTUATOR_GPIO()
 * @brief      Constructor
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODESENSORTEMPHUM::DIONODESENSORTEMPHUM() : DIONODESENSOR()
+DIONODEDEVICEDRIVER_ACTUATOR_GPIO::DIONODEDEVICEDRIVER_ACTUATOR_GPIO()
 {
   Clean();
-
-  sensortype = DIONODESENSOR_TYPE_TEMP_HUM;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODESENSORTEMPHUM::~DIONODESENSORTEMPHUM()
+* @fn         DIONODEDEVICEDRIVER_ACTUATOR_GPIO::~DIONODEDEVICEDRIVER_ACTUATOR_GPIO()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODESENSORTEMPHUM::~DIONODESENSORTEMPHUM()
+DIONODEDEVICEDRIVER_ACTUATOR_GPIO::~DIONODEDEVICEDRIVER_ACTUATOR_GPIO()
 {
+  Close();
+
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODESENSORTEMPHUM::Serialize()
-* @brief      Serialize
+* @fn         bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Open()
+* @brief      Open
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODESENSORTEMPHUM::Serialize()
+bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Open()
 {
-  DIONODESENSOR::Serialize(); 
-
-  Primitive_Add<double>(temperature , __L("temperature"));
-  Primitive_Add<double>(humidity    , __L("humidity")); 
-
-  return true;
+  return isopen;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODESENSORTEMPHUM::Deserialize()
-* @brief      Deserialize
+* @fn         bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Update()
+* @brief      Update
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODESENSORTEMPHUM::Deserialize()
-{   
-  DIONODESENSOR::Deserialize();
+bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Update()
+{
+  return false;
+}
 
-  Primitive_Extract<double>(temperature , __L("temperature"));
-  Primitive_Extract<double>(humidity    , __L("humidity")); 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Close()
+* @brief      Close
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Close()
+{        
+  isopen = false;
 
   return true;
 }
@@ -119,16 +128,59 @@ bool DIONODESENSORTEMPHUM::Deserialize()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODESENSORTEMPHUM::Clean()
+* @fn         bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
+* @brief      SetNodeItem
+* @ingroup    DATAIO
+* 
+* @param[in]  nodeitem : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
+{
+  if(!DIONODEDEVICEDRIVER::SetNodeItem(nodeitem)) 
+    {
+      return false;
+    }
+  
+  DIONODEACTUATOR* nodeactuator = (DIONODEACTUATOR*)nodeitem;
+  if(!nodeactuator)
+    {
+      return false;
+    }
+
+  nodeactuator->SetItemType(DIONODEITEM_TYPE_ACTUATOR);
+  nodeactuator->SetActuatorType(DIONODEITEM_TYPE_ACTUATOR_GPIO); 
+
+  DIONODEITEMVALUE* value = new DIONODEITEMVALUE();
+  if(!value)
+    {
+      return false;
+    }
+    
+  value->SetType(DIONODEITEMVALUE_TYPE_BOOLEAN); 
+    
+  (*value->GetValue())    =    false;                    
+  value->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_BOOLEAN);
+       
+  nodeitem->GetValues()->Add(value);
+  
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODESENSORTEMPHUM::Clean()
+void DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Clean()
 {
-  temperature = 0.0f;
-  humidity    = 0.0f;
+  
 }

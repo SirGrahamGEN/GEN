@@ -31,8 +31,8 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XVector.h"
-#include "XSerializable.h"
+#include "XSerializationMethod.h"
+#include "XFileJSON.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
@@ -59,8 +59,9 @@ class XSERIALIZATIONMETHODJSON : public XSERIALIZATIONMETHOD
     virtual bool                Add                            (XDWORD var, XCHAR* name = NULL); 
     virtual bool                Add                            (XQWORD var, XCHAR* name = NULL); 
     
-    virtual bool                Add                            (XSTRING& var, XCHAR* name = NULL);       
-    virtual bool                Add                            (XBUFFER& var, XCHAR* name = NULL);
+    virtual bool                Add                            (XSTRING* var, XCHAR* name = NULL);       
+    virtual bool                Add                            (XBUFFER* var, XCHAR* name = NULL);
+    virtual bool                Add                            (XVARIANT* var, XCHAR* name = NULL);
 
     virtual bool                AddStruct                      (XCHAR* name = NULL, bool open = true);
     virtual bool                AddArray                       (XDWORD nelements, XCHAR* name = NULL, bool open = true);
@@ -79,8 +80,9 @@ class XSERIALIZATIONMETHODJSON : public XSERIALIZATIONMETHOD
     virtual bool                Extract                        (XDWORD var, XCHAR* name = NULL); 
     virtual bool                Extract                        (XQWORD var, XCHAR* name = NULL); 
     
-    virtual bool                Extract                        (XSTRING& var, XCHAR* name = NULL);       
-    virtual bool                Extract                        (XBUFFER& var, XCHAR* name = NULL);
+    virtual bool                Extract                        (XSTRING* var, XCHAR* name = NULL);       
+    virtual bool                Extract                        (XBUFFER* var, XCHAR* name = NULL);
+    virtual bool                Extract                        (XVARIANT* var, XCHAR* name = NULL);
 
     virtual bool                ExtractStruct                  (XCHAR* name = NULL);
     virtual bool                ExtractArray                   (XDWORD nelements, XCHAR* name = NULL);

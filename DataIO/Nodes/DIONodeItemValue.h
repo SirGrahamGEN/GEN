@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeActuatorLight.h
+* @file       DIONodeItemValue.h
 * 
-* @class      DIONODEACTUATORLIGHT
-* @brief      Data Input/Output Node Actuator Light
+* @class      DIONODEITEMVALUE
+* @brief      Data Input/Output Node Item Value 
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,32 +26,60 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEACTUATORLIGHT_H_
-#define _DIONODEACTUATORLIGHT_H_
+#ifndef _DIONODEITEMVALUE_H_
+#define _DIONODEITEMVALUE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeActuator.h"
+#include "XVariant.h"
+#include "XSerializable.h"
+
+#include "DIONodeItemValueUnitFormat.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+
+enum DIONODEITEMVALUE_TYPE
+{
+  DIONODEITEMVALUE_TYPE_UNKNOWN           = 0 ,
+  DIONODEITEMVALUE_TYPE_BOOLEAN               ,
+  DIONODEITEMVALUE_TYPE_TEMPERATURE           ,
+  DIONODEITEMVALUE_TYPE_HUMIDITY              ,
+  DIONODEITEMVALUE_TYPE_LIGHTLEVEL            ,
+};
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEACTUATORLIGHT :  public DIONODEACTUATOR
+class DIONODEITEMVALUE : public XSERIALIZABLE
 {
   public:
-                              DIONODEACTUATORLIGHT          ();
-    virtual                  ~DIONODEACTUATORLIGHT          ();
+                                        DIONODEITEMVALUE    ();
+    virtual                            ~DIONODEITEMVALUE    ();
 
-    virtual bool              Serialize                     ();                                          
-    virtual bool              Deserialize                   (); 
- 
+    DIONODEITEMVALUE_TYPE               GetType             ();
+    void                                SetType             (DIONODEITEMVALUE_TYPE type);
+
+    bool                                GetDescription      (XSTRING& typedescription);
+
+    XVARIANT*                           GetValue            ();
+
+    XVARIANT*                           GetMinValue         ();
+    XVARIANT*                           GetMaxValue         ();    
+
+    DIONODEITEMVALUEUNITFORMAT*         GetUnitFormat       ();
+
+    virtual bool                        Serialize           ();                                          
+    virtual bool                        Deserialize         ();
+
   private:
 
-    void                      Clean                         (); 
+    void                                Clean               ();
 
-    int                       level;   
+    DIONODEITEMVALUE_TYPE               type;
+    XVARIANT                            value; 
+    XVARIANT                            minvalue;
+    XVARIANT                            maxvalue;    
+    DIONODEITEMVALUEUNITFORMAT          unitformat;
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

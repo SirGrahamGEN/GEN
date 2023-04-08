@@ -53,11 +53,11 @@
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODESENSOR::DIONODESENSOR() : DIONODEELEMENT()
+DIONODESENSOR::DIONODESENSOR() : DIONODEITEM()
 {
   Clean();
 
-  elementtype = DIONODEELEMENT_TYPE_SENSOR;
+  itemtype = DIONODEITEM_TYPE_SENSOR;
 }
 
 
@@ -126,15 +126,15 @@ bool DIONODESENSOR::GetSensorTypeDescription(XSTRING& typedescription)
  
    switch(sensortype) 
     {
-      case DIONODESENSOR_TYPE_UNKNOWN     : 
-                                default   : typedescription = __L("Unknown sensor");                      
-                                            return false;  
-                                            break;
+      case DIONODESENSOR_TYPE_UNKNOWN                 : 
+                                          default     : typedescription = __L("Unknown");                      
+                                                        return false;  
+                                                        break;
 
-      case DIONODESENSOR_TYPE_HUMIDITY    : typedescription = __L("Humidity sensor");                     break;
-      case DIONODESENSOR_TYPE_TEMPERATURE : typedescription = __L("Temperature sensor");                  break;
-      case DIONODESENSOR_TYPE_TEMP_HUM    : typedescription = __L("Temperature/Humidity sensor");         break;
-      case DIONODESENSOR_TYPE_LIGHT       : typedescription = __L("Light sensor");                        break;
+      case DIONODESENSOR_TYPE_HUMIDITY                : typedescription = __L("Humidity");                     break;
+      case DIONODESENSOR_TYPE_TEMPERATURE             : typedescription = __L("Temperature");                  break;
+      case DIONODESENSOR_TYPE_TEMPERATURE_HUMIDITY    : typedescription = __L("Temperature/Humidity");         break;
+      case DIONODESENSOR_TYPE_LIGHT                   : typedescription = __L("Light");                        break;
     }
 
   return true;
@@ -152,14 +152,16 @@ bool DIONODESENSOR::GetSensorTypeDescription(XSTRING& typedescription)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIONODESENSOR::Serialize()
 {
-  DIONODEELEMENT::Serialize();
+  DIONODEITEM::Serialize();
 
   XSTRING typedescription;
  
   GetSensorTypeDescription(typedescription);  
 
   Primitive_Add<int>(sensortype, __L("sensor_type"));
-  Primitive_Add<XSTRING>(typedescription, __L("sensor_description"));
+  Primitive_Add<XSTRING*>(&typedescription, __L("sensor_description"));
+
+  XVectorClass_Add<DIONODEITEMVALUE>(GetValues(), __L("values"), __L("value"));
   
   return true;
 }
@@ -176,9 +178,11 @@ bool DIONODESENSOR::Serialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIONODESENSOR::Deserialize()
 {   
-  DIONODEELEMENT::Deserialize();
+  DIONODEITEM::Deserialize();
 
   Primitive_Extract<int>(sensortype, __L("sensor_type"));
+
+  XVectorClass_Extract<DIONODEITEMVALUE>(GetValues(), __L("values"), __L("value"));
 
   return true;
 }

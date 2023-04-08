@@ -254,11 +254,11 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
             }
 		      
     	    memset(buffer, 0, BUFSIZ);
-	        WideCharToMultiByte(CP_ACP, 0, aa->FriendlyName, wcslen(aa->FriendlyName), buffer, BUFSIZ, NULL, NULL);    
+	        WideCharToMultiByte(CP_ACP, 0, aa->FriendlyName, (int)wcslen(aa->FriendlyName), buffer, BUFSIZ, NULL, NULL);    
           device->GetName()->Set(buffer);
 
           memset(buffer, 0, BUFSIZ);
-	        WideCharToMultiByte(CP_ACP, 0, aa->Description, wcslen(aa->Description), buffer, BUFSIZ, NULL, NULL);    
+	        WideCharToMultiByte(CP_ACP, 0, aa->Description, (int)wcslen(aa->Description), buffer, BUFSIZ, NULL, NULL);    
           device->GetDescription()->Set(buffer);
 
           device->GetMAC()->Set((XBYTE*)aa->PhysicalAddress);

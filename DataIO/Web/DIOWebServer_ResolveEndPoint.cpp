@@ -34,6 +34,7 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "XFileJSON.h"
 
 #include "DIOWebServer_ResolveEndPoint.h"
 

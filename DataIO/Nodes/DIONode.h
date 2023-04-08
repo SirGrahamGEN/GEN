@@ -40,7 +40,7 @@
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEELEMENT;
+class DIONODEITEM;
 
 class DIONODE : public XSERIALIZABLE
 {
@@ -51,7 +51,7 @@ class DIONODE : public XSERIALIZABLE
     XUUID&                          GetID           ();
     void                            SetID           (XUUID& UUID);
 
-    XVECTOR<DIONODEELEMENT*>*       GetElements     ();
+    XVECTOR<DIONODEITEM*>*          GetElements     ();
 
     virtual bool                    Serialize       ();                                          
     virtual bool                    Deserialize     ();
@@ -63,7 +63,7 @@ class DIONODE : public XSERIALIZABLE
     void                            Clean           ();
 
     XUUID                           UUID;  
-    XVECTOR<DIONODEELEMENT*>        elements;
+    XVECTOR<DIONODEITEM*>           items;
 };
 
 

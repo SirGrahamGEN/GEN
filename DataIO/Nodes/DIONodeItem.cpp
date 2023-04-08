@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeElement.cpp
+* @file       DIONodeItem.cpp
 * 
-* @class      DIONODEELEMENT
-* @brief      Data Input/Output Node element (Base for DIONODESENSOR, DIONODEACTUATOR, ...)
+* @class      DIONODEITEM
+* @brief      Data Input/Output Node Item (Base for DIONODESENSOR, DIONODEACTUATOR, ...)
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -35,7 +35,7 @@
 
 #include "DIONodeDeviceDriver.h"
 
-#include "DIONodeElement.h"
+#include "DIONodeItem.h"
 
 #include "XMemory_Control.h"
 
@@ -48,14 +48,14 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEELEMENT::DIONODEELEMENT()
+* @fn         DIONODEITEM::DIONODEITEM()
 * @brief      Constructor
 * @ingroup    
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEELEMENT::DIONODEELEMENT()
+DIONODEITEM::DIONODEITEM()
 {
   Clean();
 
@@ -65,7 +65,7 @@ DIONODEELEMENT::DIONODEELEMENT()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEELEMENT::~DIONODEELEMENT()
+* @fn         DIONODEITEM::~DIONODEITEM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    
@@ -73,9 +73,12 @@ DIONODEELEMENT::DIONODEELEMENT()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEELEMENT::~DIONODEELEMENT()
+DIONODEITEM::~DIONODEITEM()
 {
-  DeviceDriver_Close();      
+  DeviceDriver_Close();  
+
+  values.DeleteContents();
+  values.DeleteAll();    
 
   Clean();
 }
@@ -83,22 +86,22 @@ DIONODEELEMENT::~DIONODEELEMENT()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEELEMENT_TYPE DIONODEELEMENT::GetElementType()
-* @brief      GetElementType
+* @fn         DIONODEITEM_TYPE DIONODEITEM::GetItemType()
+* @brief      GetItemType
 * @ingroup    DATAIO
 * 
-* @return     DIONODEELEMENT_TYPE : 
+* @return     DIONODEITEM_TYPE : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEELEMENT_TYPE DIONODEELEMENT::GetElementType()
+DIONODEITEM_TYPE DIONODEITEM::GetItemType()
 {
-  return elementtype;
+  return itemtype;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEELEMENT::SetElementType(DIONODEELEMENT_TYPE type)
+* @fn         void DIONODEITEM::SetElementType(DIONODEITEM_TYPE type)
 * @brief      SetElementType
 * @ingroup    DATAIO
 * 
@@ -107,16 +110,16 @@ DIONODEELEMENT_TYPE DIONODEELEMENT::GetElementType()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEELEMENT::SetElementType(DIONODEELEMENT_TYPE type)
+void DIONODEITEM::SetItemType(DIONODEITEM_TYPE type)
 {
-  this->elementtype = type;
+  this->itemtype = type;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEELEMENT::GetElementTypeDescription(XSTRING& typedescription)
-* @brief      GetElementTypeDescription
+* @fn         bool DIONODEITEM::GetElementTypeDescription(XSTRING& typedescription)
+* @brief      GetItemTypeDescription
 * @ingroup    DATAIO
 * 
 * @param[in]  typedescription : 
@@ -124,19 +127,19 @@ void DIONODEELEMENT::SetElementType(DIONODEELEMENT_TYPE type)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEELEMENT::GetElementTypeDescription(XSTRING& typedescription)
+bool DIONODEITEM::GetItemTypeDescription(XSTRING& typedescription)
 {
    typedescription.Empty();
  
-   switch(elementtype) 
+   switch(itemtype) 
     {
-      case DIONODEELEMENT_TYPE_UNKNOWN    : 
-                                default   : typedescription = __L("Unknown");                      
+      case DIONODEITEM_TYPE_UNKNOWN    : 
+                             default   : typedescription = __L("Unknown");                      
                                             return false;  
                                             break;
 
-      case DIONODEELEMENT_TYPE_SENSOR     : typedescription = __L("Sensor");                      break;
-      case DIONODEELEMENT_TYPE_ACTUATOR   : typedescription = __L("Actuator");                    break;
+      case DIONODEITEM_TYPE_SENSOR     : typedescription = __L("Sensor");                      break;
+      case DIONODEITEM_TYPE_ACTUATOR   : typedescription = __L("Actuator");                    break;
     
     }
 
@@ -146,14 +149,14 @@ bool DIONODEELEMENT::GetElementTypeDescription(XSTRING& typedescription)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XUUID& DIONODEELEMENT::GetID()
+* @fn         XUUID& DIONODEITEM::GetID()
 * @brief      GetID
 * @ingroup    DATAIO
 * 
 * @return     XUUID& : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XUUID& DIONODEELEMENT::GetID()
+XUUID& DIONODEITEM::GetID()
 {
   return UUID;
 }
@@ -161,7 +164,7 @@ XUUID& DIONODEELEMENT::GetID()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEELEMENT::SetID(XUUID& UUID)
+* @fn         void DIONODEITEM::SetID(XUUID& UUID)
 * @brief      SetID
 * @ingroup    DATAIO
 * 
@@ -170,7 +173,7 @@ XUUID& DIONODEELEMENT::GetID()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEELEMENT::SetID(XUUID& UUID)
+void DIONODEITEM::SetID(XUUID& UUID)
 {
   UUID.CopyTo(this->UUID);
 }
@@ -178,14 +181,14 @@ void DIONODEELEMENT::SetID(XUUID& UUID)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEDEVICEDRIVER* DIONODEELEMENT::DeviceDriver_Get()
+* @fn         DIONODEDEVICEDRIVER* DIONODEITEM::DeviceDriver_Get()
 * @brief      DeviceDriver_Get
 * @ingroup    DATAIO
 * 
 * @return     DIONODEDEVICEDRIVER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEDEVICEDRIVER* DIONODEELEMENT::DeviceDriver_Get()
+DIONODEDEVICEDRIVER* DIONODEITEM::DeviceDriver_Get()
 {
   return devicedriver;
 }
@@ -193,7 +196,7 @@ DIONODEDEVICEDRIVER* DIONODEELEMENT::DeviceDriver_Get()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEELEMENT::DeviceDriver_Set(DIONODEDEVICEDRIVER* devicedriver)
+* @fn         bool DIONODEITEM::DeviceDriver_Set(DIONODEDEVICEDRIVER* devicedriver)
 * @brief      DeviceDriver_Set
 * @ingroup    DATAIO
 * 
@@ -202,9 +205,14 @@ DIONODEDEVICEDRIVER* DIONODEELEMENT::DeviceDriver_Get()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEELEMENT::DeviceDriver_Set(DIONODEDEVICEDRIVER* devicedriver)
+bool DIONODEITEM::DeviceDriver_Set(DIONODEDEVICEDRIVER* devicedriver)
 {
   this->devicedriver = devicedriver;
+
+  if(!devicedriver->SetNodeItem(this))
+    { 
+      return false;
+    }
 
   if(!DeviceDriver_Open())       
     {
@@ -217,14 +225,14 @@ bool DIONODEELEMENT::DeviceDriver_Set(DIONODEDEVICEDRIVER* devicedriver)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEELEMENT::DeviceDriver_Open()
+* @fn         bool DIONODEITEM::DeviceDriver_Open()
 * @brief      DeviceDriver_Open
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEELEMENT::DeviceDriver_Open()
+bool DIONODEITEM::DeviceDriver_Open()
 {
   if(!devicedriver)               
     {
@@ -252,14 +260,14 @@ bool DIONODEELEMENT::DeviceDriver_Open()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEELEMENT::DeviceDriver_Close()
+* @fn         bool DIONODEITEM::DeviceDriver_Close()
 * @brief      DeviceDriver_Close
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEELEMENT::DeviceDriver_Close()
+bool DIONODEITEM::DeviceDriver_Close()
 {
   if(!devicedriver)              
     {
@@ -282,24 +290,40 @@ bool DIONODEELEMENT::DeviceDriver_Close()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEELEMENT::Serialize()
+* @fn         XVECTOR<DIONODEITEMVALUE*>* DIONODEITEM::GetValues()
+* @brief      GetValues
+* @ingroup    DATAIO
+* 
+* @return     XVECTOR<DIONODEITEMVALUE*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<DIONODEITEMVALUE*>* DIONODEITEM::GetValues()
+{
+  return &values;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEITEM::Serialize()
 * @brief      Serialize
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEELEMENT::Serialize()
+bool DIONODEITEM::Serialize()
 {
   XSTRING ID;
   XSTRING typedescription;
  
   UUID.GetToString(ID); 
-  GetElementTypeDescription(typedescription);
+  GetItemTypeDescription(typedescription);
 
-  Primitive_Add<int>(elementtype, __L("element_type"));
-  Primitive_Add<XSTRING>(typedescription, __L("element_description"));
-  Primitive_Add<XSTRING>(ID, __L("ID"));
+  Primitive_Add<XSTRING*>(&ID, __L("ID"));
+
+  Primitive_Add<int>(itemtype, __L("element_type"));
+  Primitive_Add<XSTRING*>(&typedescription, __L("element_description"));
   
   return true;
 }
@@ -307,19 +331,19 @@ bool DIONODEELEMENT::Serialize()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEELEMENT::Deserialize()
+* @fn         bool DIONODEITEM::Deserialize()
 * @brief      Deserialize
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEELEMENT::Deserialize()
+bool DIONODEITEM::Deserialize()
 {   
   XSTRING ID;
 
-  Primitive_Extract<int>(elementtype, __L("element_type"));
-  Primitive_Extract<XSTRING>(ID, __L("ID"));
+  Primitive_Extract<XSTRING*>(&ID, __L("ID"));
+  Primitive_Extract<int>(itemtype, __L("element_type"));
   
   UUID.SetFromString(ID);
 
@@ -329,7 +353,7 @@ bool DIONODEELEMENT::Deserialize()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEELEMENT::Clean()
+* @fn         void DIONODEITEM::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    
@@ -337,8 +361,8 @@ bool DIONODEELEMENT::Deserialize()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEELEMENT::Clean()
+void DIONODEITEM::Clean()
 {
-  elementtype   = DIONODEELEMENT_TYPE_UNKNOWN;
+  itemtype   = DIONODEITEM_TYPE_UNKNOWN;
   devicedriver  = NULL;
 }

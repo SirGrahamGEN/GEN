@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeActuator.cpp
+* @file       DIONodeDeviceDriver_SensorAM2315.cpp
 * 
-* @class      DIONODEACTUATOR
-* @brief      Data Input/Output Node Actuator
+* @class      DIONODEDEVICEDRIVER_SENSOR_AM2315
+* @brief      Data Input/Output Node Device Driver Sensor AM2315
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -33,7 +33,9 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeActuator.h"
+#include "DIONodeSensor.h"
+
+#include "DIONodeDeviceDriver_Sensor_AM2315.h"
 
 #include "XMemory_Control.h"
 
@@ -46,95 +48,165 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         NODEACTUATOR::NODEACTUATOR()
+* @fn         DIONODEDEVICEDRIVER_SENSOR_AM2315::DIONODEDEVICEDRIVER_SENSOR_AM2315(int port, int remotedeviceaddress, int timeout)
 * @brief      Constructor
-* @ingroup    
+* @ingroup    DATAIO
+* 
+* @param[in]  int : 
+* @param[in]  int remotedeviceaddress : 
+* @param[in]  int timeout : 
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEACTUATOR::DIONODEACTUATOR() : DIONODEITEM()
+DIONODEDEVICEDRIVER_SENSOR_AM2315::DIONODEDEVICEDRIVER_SENSOR_AM2315(int port, int remotedeviceaddress, int timeout)
 {
   Clean();
 
-  itemtype = DIONODEITEM_TYPE_ACTUATOR;
+  am2315 = new DIOI2CTEMHUMSENSORAM2315();
+
+  this->port                = port; 
+  this->remotedeviceaddress = remotedeviceaddress; 
+  this->timeout             = timeout;    
+
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEACTUATOR::~DIONODEACTUATOR()
+* @fn         DIONODEDEVICEDRIVER_SENSOR_AM2315::~DIONODEDEVICEDRIVER_SENSOR_AM2315()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEACTUATOR::~DIONODEACTUATOR()
+DIONODEDEVICEDRIVER_SENSOR_AM2315::~DIONODEDEVICEDRIVER_SENSOR_AM2315()
 {
+  Close();
+
+  if(am2315)
+    {
+      delete am2315;  
+    }
+
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEACTUATOR_TYPE DIONODEACTUATOR::GetActuatorType()
-* @brief      GetActuatorType
+* @fn         bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Open()
+* @brief      Open
 * @ingroup    DATAIO
-* 
-* @return     DIONODEACTUATOR_TYPE : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIONODEACTUATOR_TYPE DIONODEACTUATOR::GetActuatorType()
-{
-  return actuatortype;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIONODEACTUATOR::SetActuatorType(DIONODEACTUATOR_TYPE type)
-* @brief      SetActuatorType
-* @ingroup    DATAIO
-* 
-* @param[in]  type : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEACTUATOR::SetActuatorType(DIONODEACTUATOR_TYPE type)
-{
-  actuatortype = type;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIONODEACTUATOR::GetActuatorTypeDescription(XSTRING& typedescription)
-* @brief      GetActuatorTypeDescription
-* @ingroup    DATAIO
-* 
-* @param[in]  typedescription : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEACTUATOR::GetActuatorTypeDescription(XSTRING& typedescription)
+bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Open()
 {
-   typedescription.Empty();
- 
-   switch(actuatortype) 
+  if(!am2315)
     {
-      case DIONODEITEM_TYPE_ACTUATOR_UNKNOWN   : 
-                                     default   : typedescription = __L("Unknown");                      
-                                                 return false;  
-                                                 break;
+      return false;
+    }
+  
+  isopen = am2315->Ini(port, remotedeviceaddress, timeout);
 
-      case DIONODEITEM_TYPE_ACTUATOR_GPIO      : typedescription = __L("GPIO");                break;
-      case DIONODEITEM_TYPE_ACTUATOR_LIGHT     : typedescription = __L("Light");               break;
-      case DIONODEITEM_TYPE_ACTUATOR_ENGINE    : typedescription = __L("Engine");              break;
+  return isopen;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Update()
+* @brief      Update
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Update()
+{
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Close()
+* @brief      Close
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Close()
+{
+  am2315->End();
+        
+  isopen = false;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEDEVICEDRIVER_SENSOR_AM2315::SetNodeItem(DIONODEITEM* nodeitem)
+* @brief      SetNodeItem
+* @ingroup    DATAIO
+* 
+* @param[in]  nodeitem : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEDEVICEDRIVER_SENSOR_AM2315::SetNodeItem(DIONODEITEM* nodeitem)
+{
+  if(!DIONODEDEVICEDRIVER::SetNodeItem(nodeitem)) 
+    {
+      return false;
+    }
+
+  DIONODESENSOR* nodesensor = (DIONODESENSOR*)nodeitem;
+  if(!nodesensor)
+    {
+      return false;
+    }
+
+  nodesensor->SetItemType(DIONODEITEM_TYPE_SENSOR);
+  nodesensor->SetSensorType(DIONODESENSOR_TYPE_TEMPERATURE_HUMIDITY); 
+
+  DIONODEITEMVALUE* value[2];
+
+  for(XDWORD c=0; c<2; c++)
+    {
+      value[c] = new DIONODEITEMVALUE();
+      if(value[c])
     
+      switch(c)
+        {
+          case  0 : value[c]->SetType(DIONODEITEMVALUE_TYPE_TEMPERATURE); 
+    
+                    (*value[c]->GetValue())    =    0.00f;
+                    (*value[c]->GetMinValue()) =  -50.00f;
+                    (*value[c]->GetMaxValue()) =   50.00f;
+
+                    value[c]->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_CELSIUSDEGREE);
+                    break;
+
+          case  1 : value[c]->SetType(DIONODEITEMVALUE_TYPE_HUMIDITY); 
+
+                    (*value[c]->GetValue())    =   0.00f; 
+                    (*value[c]->GetMinValue()) =   0.00f; 
+                    (*value[c]->GetMaxValue()) = 100.00f;   
+
+                    value[c]->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_RELATIVEHUMIDITY);
+                    break;
+        }
+
+      nodeitem->GetValues()->Add(value[c]);
     }
 
   return true;
@@ -143,63 +215,19 @@ bool DIONODEACTUATOR::GetActuatorTypeDescription(XSTRING& typedescription)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEACTUATOR::Serialize()
-* @brief      Serialize
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEACTUATOR::Serialize()
-{
-  DIONODEITEM::Serialize();
-
-  XSTRING typedescription;
- 
-  GetActuatorTypeDescription(typedescription);  
-
-  Primitive_Add<int>(actuatortype, __L("actuator_type"));
-  Primitive_Add<XSTRING*>(&typedescription, __L("actuator_description"));
-
-  XVectorClass_Add<DIONODEITEMVALUE>(GetValues(), __L("values"), __L("value"));
-  
-  
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIONODEACTUATOR::Deserialize()
-* @brief      Deserialize
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEACTUATOR::Deserialize()
-{   
-  DIONODEITEM::Deserialize();
-
-  Primitive_Extract<int>(actuatortype, __L("actuator_type"));
-
-  XVectorClass_Extract<DIONODEITEMVALUE>(GetValues(), __L("values"), __L("value"));
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIONODEACTUATOR::Clean()
+* @fn         void DIONODEDEVICEDRIVER_SENSOR_AM2315::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEACTUATOR::Clean()
+void DIONODEDEVICEDRIVER_SENSOR_AM2315::Clean()
 {
-  actuatortype = DIONODEITEM_TYPE_ACTUATOR_UNKNOWN;
+  am2315                = NULL;
+
+  port                  = 0;
+  remotedeviceaddress   = 0;
+  timeout               = 0;
 }

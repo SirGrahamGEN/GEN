@@ -31,21 +31,22 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeElement.h"
+#include "DIONodeItem.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum DIONODEACTUATOR_TYPE
 {
-  DIONODEACTUATOR_TYPE_UNKNOWN           = 0 ,
-  DIONODEACTUATOR_TYPE_LIGHT                 ,
-  DIONODEACTUATOR_TYPE_ENGINE                ,
+  DIONODEITEM_TYPE_ACTUATOR_UNKNOWN           = 0 ,
+  DIONODEITEM_TYPE_ACTUATOR_GPIO                  ,
+  DIONODEITEM_TYPE_ACTUATOR_LIGHT                 ,
+  DIONODEITEM_TYPE_ACTUATOR_ENGINE                ,
 };
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEACTUATOR :  public DIONODEELEMENT
+class DIONODEACTUATOR :  public DIONODEITEM
 {
   public:
                               DIONODEACTUATOR               ();

@@ -40,10 +40,11 @@
 
 enum XFILEJSONVALUETYPE
 {
-  XFILEJSONVALUETYPE_UNKNOWN          =  0  ,
-  XFILEJSONVALUETYPE_NUMBER                 ,
-  XFILEJSONVALUETYPE_NUMBERSPECIAL1         ,
-  XFILEJSONVALUETYPE_NUMBERSPECIAL2         ,
+  XFILEJSONVALUETYPE_UNKNOWN            = 0 ,
+  XFILEJSONVALUETYPE_INTEGER                ,
+  XFILEJSONVALUETYPE_DOUBLEINTEGER          ,
+  XFILEJSONVALUETYPE_FLOAT                  ,
+  XFILEJSONVALUETYPE_DOUBLEFLOAT            ,
   XFILEJSONVALUETYPE_STRING                 ,
   XFILEJSONVALUETYPE_OBJECT                 ,
   XFILEJSONVALUETYPE_ARRAY                  ,
@@ -54,18 +55,18 @@ enum XFILEJSONVALUETYPE
 
 enum XFILEJSONCONTROLCHAR
 {
-  XFILEJSONCONTROLCHAR_NOTCONTROL         , // All other Not control or number
-  XFILEJSONCONTROLCHAR_OPENBRACE          , // {
-  XFILEJSONCONTROLCHAR_CLOSEBRACE         , // }
-  XFILEJSONCONTROLCHAR_OPENBRACKET        , // [
-  XFILEJSONCONTROLCHAR_CLOSEBRACKET       , // ]
-  XFILEJSONCONTROLCHAR_QUOTE              , // "
-  XFILEJSONCONTROLCHAR_COMMA              , // ,
-  XFILEJSONCONTROLCHAR_COLON              , // :
-  XFILEJSONCONTROLCHAR_BLACKSLASH         , // (the other slash /)
-  XFILEJSONCONTROLCHAR_NUMBER             , // '012345789' '-'
-  XFILEJSONCONTROLCHAR_NUMBERSPECIAL      , //  '+' 'E' 'e' '.'
-  XFILEJSONCONTROLCHAR_TEXT                 //  (All Chars except control,Space,TAB,Return o Line Feed).
+  XFILEJSONCONTROLCHAR_NOTCONTROL           , // All other Not control or number
+  XFILEJSONCONTROLCHAR_OPENBRACE            , // {
+  XFILEJSONCONTROLCHAR_CLOSEBRACE           , // }
+  XFILEJSONCONTROLCHAR_OPENBRACKET          , // [
+  XFILEJSONCONTROLCHAR_CLOSEBRACKET         , // ]
+  XFILEJSONCONTROLCHAR_QUOTE                , // "
+  XFILEJSONCONTROLCHAR_COMMA                , // ,
+  XFILEJSONCONTROLCHAR_COLON                , // :
+  XFILEJSONCONTROLCHAR_BLACKSLASH           , // (the other slash /)
+  XFILEJSONCONTROLCHAR_NUMBER               , // '012345789' '-'
+  XFILEJSONCONTROLCHAR_NUMBERSPECIAL        , //  '+' 'E' 'e' '.'
+  XFILEJSONCONTROLCHAR_TEXT                   //  (All Chars except control,Space,TAB,Return o Line Feed).
 };
 
 
@@ -95,6 +96,7 @@ union XFILEJSONVALUEDATA
 {
     void*                       pointer;
     int                         integer;
+    long                        doubleinteger;
     float                       floating;
     double                      doublefloat;
     bool                        boolean;
@@ -102,6 +104,7 @@ union XFILEJSONVALUEDATA
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
+class XVARIANT;
 class XFILEJSONOBJECT;
 class XFILEJSONARRAY;
 
@@ -121,6 +124,7 @@ class XFILEJSONVALUE
 
     void*                       GetValuePointer               ();
     int                         GetValueInteger               ();
+    long                        GetValueDoubleInteger         ();
     float                       GetValueFloating              ();
     double                      GetValueDoubleFloat           ();
     bool                        GetValueBoolean               ();
@@ -128,6 +132,7 @@ class XFILEJSONVALUE
     XFILEJSONARRAY*             GetValueArray                 ();
 
     bool                        Set                           (int number);
+    bool                        Set                           (long number);
     bool                        Set                           (float number);
     bool                        Set                           (double number);
     bool                        Set                           (XSTRING& string);
@@ -136,6 +141,7 @@ class XFILEJSONVALUE
     bool                        Set                           (XFILEJSONARRAY* array);
     bool                        Set                           (bool boolean);
     bool                        Set                           (void);
+    bool                        Set                           (XVARIANT* variant);
 
     bool                        Delete                        ();
 
@@ -188,7 +194,6 @@ class XFILEJSONOBJECT
 
 
 
-
 class XFILEJSONARRAY  : public XFILEJSONOBJECT
 {
   public:
@@ -207,7 +212,6 @@ class XFILEJSONARRAY  : public XFILEJSONOBJECT
 
     XSTRING                     name;
 };
-
 
 
 

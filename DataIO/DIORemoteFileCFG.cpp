@@ -35,10 +35,6 @@
 
 #include <math.h>
 
-#include "XFactory.h"
-#include "XFile.h"
-#include "XVariant.h"
-
 #include "DIOFactory.h"
 #include "DIOURL.h"
 #include "DIOStreamTCPIPConfig.h"

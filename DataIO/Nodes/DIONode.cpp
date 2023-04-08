@@ -33,7 +33,7 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeElement.h"
+#include "DIONodeItem.h"
 
 #include "DIONode.h"
 
@@ -75,8 +75,8 @@ DIONODE::DIONODE()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODE::~DIONODE()
 {
-  elements.DeleteContents();
-  elements.DeleteAll();
+  items.DeleteContents();
+  items.DeleteAll();
 
   Clean();
 }
@@ -116,16 +116,16 @@ void DIONODE::SetID(XUUID& UUID)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XVECTOR<DIONODEELEMENT*>* DIONODE::GetElements()
+* @fn         XVECTOR<DIONODEITEM*>* DIONODE::GetElements()
 * @brief      GetElements
 * @ingroup    DATAIO
 * 
-* @return     XVECTOR<DIONODEELEMENT*>* : 
+* @return     XVECTOR<DIONODEITEM*>* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XVECTOR<DIONODEELEMENT*>* DIONODE::GetElements()
+XVECTOR<DIONODEITEM*>* DIONODE::GetElements()
 {
-  return &elements;
+  return &items;
 }
 
 
@@ -144,8 +144,8 @@ bool DIONODE::Serialize()
  
   UUID.GetToString(ID); 
 
-  Primitive_Add<XSTRING>(ID, __L("ID"));
-  XVectorClass_Add<DIONODEELEMENT>(&elements, __L("elements"), __L("element"));
+  Primitive_Add<XSTRING*>(&ID, __L("ID"));
+  XVectorClass_Add<DIONODEITEM>(&items, __L("items"), __L("item"));
 
   return true;
 }
@@ -164,8 +164,8 @@ bool DIONODE::Deserialize()
 {
   XSTRING ID;
 
-  Primitive_Extract<XSTRING>(ID, __L("ID"));
-  XVectorClass_Extract<DIONODEELEMENT>(&elements, __L("elements"), __L("element"));
+  Primitive_Extract<XSTRING*>(&ID, __L("ID"));
+  XVectorClass_Extract<DIONODEITEM>(&items, __L("items"), __L("item"));
 
   UUID.SetFromString(ID);
 

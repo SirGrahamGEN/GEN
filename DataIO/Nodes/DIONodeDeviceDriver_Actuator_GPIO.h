@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeDeviceDriver_AM2315.h
+* @file       DIONodeDeviceDriver_Actuator_GPIO.h
 * 
-* @class      DIONODEDEVICEDRIVER_AM2315
-* @brief      Data Input/Output Node Device Driver with AM2315
+* @class      DIONODEDEVICEDRIVER_ACTUATOR_GPIO
+* @brief      Data Input/Output Node Device Driver actuator GPIO
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEDEVICEDRIVER_AM2315_H_
-#define _DIONODEDEVICEDRIVER_AM2315_H_
+#ifndef _DIONODEDEVICEDRIVER_ACTUATOR_GPIO_H_
+#define _DIONODEDEVICEDRIVER_ACTUATOR_GPIO_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -38,19 +38,22 @@
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEDEVICEDRIVER_AM2315 : public DIONODEDEVICEDRIVER
+class DIONODEDEVICEDRIVER_ACTUATOR_GPIO : public DIONODEDEVICEDRIVER
 {
   public:
-                            DIONODEDEVICEDRIVER_AM2315    ();
-    virtual                ~DIONODEDEVICEDRIVER_AM2315    ();
+                                  DIONODEDEVICEDRIVER_ACTUATOR_GPIO     ();
+    virtual                      ~DIONODEDEVICEDRIVER_ACTUATOR_GPIO     ();
 
-    bool                    Open                          ();
-    bool                    Update                        ();
-    bool                    Close                         ();
+    bool                          Open                                  ();
+    bool                          Update                                ();
+    bool                          Close                                 ();
+
+    bool                          SetNodeItem                           (DIONODEITEM* nodeitem);    
     
   private:
 
-    void                    Clean                         ();
+    void                          Clean                                 ();
+  
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

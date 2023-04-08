@@ -39,7 +39,6 @@
 
 #include "XVariant.h"
 
-
 #include "XMemory_Control.h"
 
 
@@ -956,7 +955,6 @@ bool XVARIANT::IsNull()
 {
   return (data == NULL);
 }
-
 
 
 #ifdef XTRACE_ACTIVE

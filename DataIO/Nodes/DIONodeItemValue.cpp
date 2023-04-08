@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeActuator.cpp
+* @file       DIONodeItemValue.cpp
 * 
-* @class      DIONODEACTUATOR
-* @brief      Data Input/Output Node Actuator
+* @class      DIONODEITEMVALUE
+* @brief      Data Input/Output Node Item Value
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -33,7 +33,7 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeActuator.h"
+#include "DIONodeItemValue.h"
 
 #include "XMemory_Control.h"
 
@@ -46,56 +46,69 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         NODEACTUATOR::NODEACTUATOR()
+* @fn         DIONODEITEMVALUE::DIONODEITEMVALUE()
 * @brief      Constructor
-* @ingroup    
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIONODEACTUATOR::DIONODEACTUATOR() : DIONODEITEM()
-{
-  Clean();
-
-  itemtype = DIONODEITEM_TYPE_ACTUATOR;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIONODEACTUATOR::~DIONODEACTUATOR()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIONODEACTUATOR::~DIONODEACTUATOR()
-{
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIONODEACTUATOR_TYPE DIONODEACTUATOR::GetActuatorType()
-* @brief      GetActuatorType
 * @ingroup    DATAIO
 * 
-* @return     DIONODEACTUATOR_TYPE : 
+* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEACTUATOR_TYPE DIONODEACTUATOR::GetActuatorType()
+DIONODEITEMVALUE::DIONODEITEMVALUE()
 {
-  return actuatortype;
+  Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEACTUATOR::SetActuatorType(DIONODEACTUATOR_TYPE type)
-* @brief      SetActuatorType
+* @fn         DIONODEITEMVALUE::~DIONODEITEMVALUE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIONODEITEMVALUE::~DIONODEITEMVALUE()
+{
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIONODEITEMVALUE_TYPE DIONODEITEMVALUE::GetType()
+* @brief      GetType
+* @ingroup    DATAIO
+* 
+* @return     DIONODEITEMVALUE_TYPE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIONODEITEMVALUE_TYPE DIONODEITEMVALUE::GetType()
+{
+  return type;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT* DIONODEITEMVALUE::GetValue()
+* @brief      GetValue
+* @ingroup    DATAIO
+* 
+* @return     XVARIANT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT* DIONODEITEMVALUE::GetValue()
+{
+  return &value;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMVALUE::SetType(DIONODEITEMVALUE_TYPE type)
+* @brief      SetType
 * @ingroup    DATAIO
 * 
 * @param[in]  type : 
@@ -103,16 +116,16 @@ DIONODEACTUATOR_TYPE DIONODEACTUATOR::GetActuatorType()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEACTUATOR::SetActuatorType(DIONODEACTUATOR_TYPE type)
+void DIONODEITEMVALUE::SetType(DIONODEITEMVALUE_TYPE type)
 {
-  actuatortype = type;
+  this->type = type;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEACTUATOR::GetActuatorTypeDescription(XSTRING& typedescription)
-* @brief      GetActuatorTypeDescription
+* @fn         bool DIONODEITEMVALUE::GetDescription(XSTRING& typedescription)
+* @brief      GetDescription
 * @ingroup    DATAIO
 * 
 * @param[in]  typedescription : 
@@ -120,49 +133,90 @@ void DIONODEACTUATOR::SetActuatorType(DIONODEACTUATOR_TYPE type)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEACTUATOR::GetActuatorTypeDescription(XSTRING& typedescription)
+bool DIONODEITEMVALUE::GetDescription(XSTRING& typedescription)
 {
-   typedescription.Empty();
- 
-   switch(actuatortype) 
+  switch(type)
     {
-      case DIONODEITEM_TYPE_ACTUATOR_UNKNOWN   : 
-                                     default   : typedescription = __L("Unknown");                      
-                                                 return false;  
-                                                 break;
-
-      case DIONODEITEM_TYPE_ACTUATOR_GPIO      : typedescription = __L("GPIO");                break;
-      case DIONODEITEM_TYPE_ACTUATOR_LIGHT     : typedescription = __L("Light");               break;
-      case DIONODEITEM_TYPE_ACTUATOR_ENGINE    : typedescription = __L("Engine");              break;
-    
+      case DIONODEITEMVALUE_TYPE_UNKNOWN        :
+                                 default        : typedescription = __L("unknown"); 
+                                                  return true;
+      
+      case DIONODEITEMVALUE_TYPE_BOOLEAN        : typedescription = __L("boolean");         return true;
+      case DIONODEITEMVALUE_TYPE_TEMPERATURE    : typedescription = __L("temperature");     return true;
+      case DIONODEITEMVALUE_TYPE_HUMIDITY       : typedescription = __L("humidity");        return true;
+      case DIONODEITEMVALUE_TYPE_LIGHTLEVEL     : typedescription = __L("light level");     return true;
     }
 
-  return true;
+  return false;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEACTUATOR::Serialize()
+* @fn         XVARIANT* DIONODEITEMVALUE::GetMinValue()
+* @brief      GetMinValue
+* @ingroup    DATAIO
+* 
+* @return     XVARIANT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT* DIONODEITEMVALUE::GetMinValue()
+{
+  return &minvalue;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT* DIONODEITEMVALUE::GetMaxValue()
+* @brief      GetMaxValue
+* @ingroup    DATAIO
+* 
+* @return     XVARIANT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT* DIONODEITEMVALUE::GetMaxValue()
+{
+  return &maxvalue;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIONODEITEMVALUEUNITFORMAT* DIONODEITEMVALUE::GetUnitFormat()
+* @brief      GetUnitFormat
+* @ingroup    DATAIO
+* 
+* @return     DIONODEITEMVALUEUNITFORMAT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIONODEITEMVALUEUNITFORMAT* DIONODEITEMVALUE::GetUnitFormat()
+{
+  return &unitformat;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEITEMVALUE::Serialize()
 * @brief      Serialize
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEACTUATOR::Serialize()
-{
-  DIONODEITEM::Serialize();
-
+bool DIONODEITEMVALUE::Serialize()
+{   
   XSTRING typedescription;
- 
-  GetActuatorTypeDescription(typedescription);  
 
-  Primitive_Add<int>(actuatortype, __L("actuator_type"));
-  Primitive_Add<XSTRING*>(&typedescription, __L("actuator_description"));
+  GetDescription(typedescription);
 
-  XVectorClass_Add<DIONODEITEMVALUE>(GetValues(), __L("values"), __L("value"));
-  
+  Primitive_Add<int>(type, __L("type"));
+  Primitive_Add<XSTRING*>(&typedescription, __L("description"));
+  Primitive_Add<XVARIANT*>(&value, __L("value")); 
+  Primitive_Add<XVARIANT*>(&minvalue, __L("minvalue"));
+  Primitive_Add<XVARIANT*>(&maxvalue, __L("maxvalue"));  
+  Class_Add<DIONODEITEMVALUEUNITFORMAT>(&unitformat, __L("unitformat"));
   
   return true;
 }
@@ -170,36 +224,36 @@ bool DIONODEACTUATOR::Serialize()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEACTUATOR::Deserialize()
+* @fn         bool DIONODEITEMVALUE::Deserialize()
 * @brief      Deserialize
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEACTUATOR::Deserialize()
+bool DIONODEITEMVALUE::Deserialize()
 {   
-  DIONODEITEM::Deserialize();
-
-  Primitive_Extract<int>(actuatortype, __L("actuator_type"));
-
-  XVectorClass_Extract<DIONODEITEMVALUE>(GetValues(), __L("values"), __L("value"));
-
+  Primitive_Extract<int>(type, __L("type"));
+  Primitive_Extract<XVARIANT*>(&value, __L("value")); 
+  Primitive_Extract<XVARIANT*>(&minvalue, __L("minvalue"));
+  Primitive_Extract<XVARIANT*>(&maxvalue, __L("maxvalue"));  
+  Class_Extract<DIONODEITEMVALUEUNITFORMAT>(&unitformat, __L("unitformat"));
+  
   return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEACTUATOR::Clean()
+* @fn         void DIONODEITEMVALUE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEACTUATOR::Clean()
+void DIONODEITEMVALUE::Clean()
 {
-  actuatortype = DIONODEITEM_TYPE_ACTUATOR_UNKNOWN;
+  
 }

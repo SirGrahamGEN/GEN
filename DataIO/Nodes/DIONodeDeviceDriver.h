@@ -31,6 +31,10 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "XBase.h"
+#include "XVector.h"
+
+#include "DIONodeItem.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
@@ -40,24 +44,29 @@
 class DIONODEDEVICEDRIVER
 {
   public:
-                            DIONODEDEVICEDRIVER     ();
-    virtual                ~DIONODEDEVICEDRIVER     ();
+                                  DIONODEDEVICEDRIVER     ();
+    virtual                      ~DIONODEDEVICEDRIVER     ();
 
-    virtual bool            Open                    ();
-    virtual bool            Update                  ();
-    virtual bool            Close                   ();
+    virtual bool                  Open                    ();
+    virtual bool                  Update                  ();
+    virtual bool                  Close                   ();
 
-    bool                    IsOpen                  ();
-    bool                    IsWorking               ();
+    bool                          IsOpen                  ();
+    bool                          IsWorking               ();
+
+    DIONODEITEM*                  GetNodeItem             ();
+    virtual bool                  SetNodeItem             (DIONODEITEM* nodeitem);    
 
   protected:
 
-    bool                    isopen;   
-    bool                    isworking;
+    bool                          isopen;   
+    bool                          isworking;
 
   private:
 
-    void                    Clean                   ();    
+    void                          Clean                   (); 
+
+    DIONODEITEM*                  nodeitem;    
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

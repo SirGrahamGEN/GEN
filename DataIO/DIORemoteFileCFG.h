@@ -36,7 +36,6 @@
 #include "XFactory.h"
 #include "XFile.h"
 #include "XFileCFG.h"
-#include "XVariant.h"
 
 #include "DIOURL.h"
 #include "DIOWebClient.h"

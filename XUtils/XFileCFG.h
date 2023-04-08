@@ -35,6 +35,7 @@
 #include "XPath.h"
 #include "XSubject.h"
 #include "XVector.h"
+#include "XVariant.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
@@ -67,8 +68,6 @@ enum XFILECFG_MODEREMOTEMIX
 class XPATHS;
 class XFILEINI;
 class XFILEINIREMARK;
-class XVARIANT;
-
 
 class XFILECFGVALUE
 {

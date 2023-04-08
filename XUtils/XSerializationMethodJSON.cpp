@@ -355,7 +355,7 @@ bool XSERIALIZATIONMETHODJSON::Add(XQWORD var, XCHAR* name)
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Add(XSTRING& var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Add(XSTRING* var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
@@ -365,14 +365,14 @@ bool XSERIALIZATIONMETHODJSON::Add(XQWORD var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Add(XSTRING& var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Add(XSTRING* var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
       return false;
     }
 
-  XFILEJSON_ADDVALUE(GetActualObject(), name, (XCHAR*)var.Get());
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (XCHAR*)var->Get());
 
   return true;
 }
@@ -380,7 +380,7 @@ bool XSERIALIZATIONMETHODJSON::Add(XSTRING& var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Add(XBUFFER& var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Add(XBUFFER* var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
@@ -390,7 +390,7 @@ bool XSERIALIZATIONMETHODJSON::Add(XSTRING& var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Add(XBUFFER& var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Add(XBUFFER* var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
@@ -398,6 +398,31 @@ bool XSERIALIZATIONMETHODJSON::Add(XBUFFER& var, XCHAR* name)
     }
 
   //XFILEJSON_ADDVALUE(GetActualObject(), name, (XBYTE*)var.Get());
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSERIALIZATIONMETHODJSON::Add(XVARIANT* var, XCHAR* name)
+* @brief      Add
+* @ingroup    XUTILS
+* 
+* @param[in]  var : 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZATIONMETHODJSON::Add(XVARIANT* var, XCHAR* name)
+{
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (XVARIANT*)(var));
 
   return true;
 }
@@ -736,7 +761,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(XQWORD var, XCHAR* name)
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XSTRING& var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XSTRING* var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -746,7 +771,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(XQWORD var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(XSTRING& var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(XSTRING* var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
@@ -759,7 +784,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(XSTRING& var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XBUFFER& var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XBUFFER* var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -769,7 +794,30 @@ bool XSERIALIZATIONMETHODJSON::Extract(XSTRING& var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(XBUFFER& var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(XBUFFER* var, XCHAR* name)
+{ 
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XVARIANT* var, XCHAR* name)
+* @brief      Extract
+* @ingroup    XUTILS
+* 
+* @param[in]  var : 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZATIONMETHODJSON::Extract(XVARIANT* var, XCHAR* name)
 { 
   if(!CheckHandleActive()) 
     {

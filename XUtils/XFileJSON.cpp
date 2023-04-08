@@ -37,6 +37,7 @@
 #include <string.h>
 
 #include "XTrace.h"
+#include "XVariant.h"
 
 #include "XFileJSON.h"
 
@@ -209,6 +210,20 @@ int XFILEJSONVALUE::GetValueInteger()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         long XFILEJSONVALUE::GetValueDoubleInteger()
+* @brief      GetValueDoubleInteger
+* @ingroup    XUTILS
+* 
+* @return     long : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+long XFILEJSONVALUE::GetValueDoubleInteger()
+{
+  return value.doubleinteger;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -287,7 +302,6 @@ XFILEJSONARRAY* XFILEJSONVALUE::GetValueArray()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSONVALUE::Set(int number)
@@ -301,13 +315,33 @@ XFILEJSONARRAY* XFILEJSONVALUE::GetValueArray()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILEJSONVALUE::Set(int number)
 {
-  type =  XFILEJSONVALUETYPE_NUMBER;
+  type =  XFILEJSONVALUETYPE_INTEGER;
 
   value.integer = number;
 
   return true;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILEJSONVALUE::Set(long number)
+* @brief      Set
+* @ingroup    XUTILS
+* 
+* @param[in]  number : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILEJSONVALUE::Set(long number)
+{
+  type =  XFILEJSONVALUETYPE_DOUBLEINTEGER;
+
+  value.doubleinteger = number;
+
+  return true;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -323,7 +357,7 @@ bool XFILEJSONVALUE::Set(int number)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILEJSONVALUE::Set(float number)
 {
-  type =  XFILEJSONVALUETYPE_NUMBERSPECIAL1;
+  type =  XFILEJSONVALUETYPE_FLOAT;
 
   value.floating = number;
 
@@ -344,7 +378,7 @@ bool XFILEJSONVALUE::Set(float number)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILEJSONVALUE::Set(double number)
 {  
-  type =  XFILEJSONVALUETYPE_NUMBERSPECIAL2;
+  type =  XFILEJSONVALUETYPE_DOUBLEFLOAT;
 
   value.doublefloat = number;
 
@@ -487,6 +521,72 @@ bool XFILEJSONVALUE::Set(void)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILEJSONVALUE::Set(XVARIANT* variant)
+* @brief      Set
+* @ingroup    XUTILS
+* 
+* @param[in]  variant : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILEJSONVALUE::Set(XVARIANT* variant)
+{
+  if(!variant) return false;
+
+  switch(variant->GetType())
+    {
+      case XVARIANT_TYPE_NULL           : Set();                      
+                                          break;
+
+      case XVARIANT_TYPE_SERIALIZABLE   : break;
+
+      case XVARIANT_TYPE_INTEGER        : Set((int)(*variant));
+                                          break;
+
+      case XVARIANT_TYPE_DOUBLEINTEGER  : { void* dataptr = variant->GetData(); 
+                                            long data = (*(long*)dataptr); 
+                                            Set(data);      
+                                          }
+                                          break;
+
+      case XVARIANT_TYPE_FLOAT          : Set((float)(*variant));     
+                                          break;
+
+      case XVARIANT_TYPE_DOUBLE         : Set((double)(*variant));    
+                                          break;
+
+      case XVARIANT_TYPE_CHAR           : { XSTRING str;
+                                            str.Add((char)(*variant));        
+                                            Set(str);     
+                                          }
+                                          Set((char)(*variant));      
+                                          break;                                         
+
+      case XVARIANT_TYPE_XCHAR          : { XSTRING str;
+                                            str.Add((XCHAR)(*variant));        
+                                            Set(str);     
+                                          }
+                                          break;
+
+      case XVARIANT_TYPE_STRING         : { XSTRING str = (XCHAR*)(*variant);                                            
+                                            Set(str);     
+                                          }
+                                          break;
+
+      case XVARIANT_TYPE_DATE           : break;
+      case XVARIANT_TYPE_TIME           : break;
+      case XVARIANT_TYPE_DATETIME       : break;
+
+      case XVARIANT_TYPE_BOOLEAN        : Set((bool)(*variant));      
+                                          break;
+    } 
+
+  return true;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -527,16 +627,23 @@ bool XFILEJSONVALUE::Delete()
                                                 }
                                                 break;
 
-      case XFILEJSONVALUETYPE_NUMBER          : value.integer     = 0;     break;
-
-      case XFILEJSONVALUETYPE_NUMBERSPECIAL1  : value.floating    = 0.0f;     
-                                                break; 
-
-      case XFILEJSONVALUETYPE_NUMBERSPECIAL2  : value.doublefloat = 0.0f;     
+      case XFILEJSONVALUETYPE_INTEGER         : value.integer = 0;     
                                                 break;
 
-      case XFILEJSONVALUETYPE_BOOLEAN         : value.boolean     = false; break;
-      case XFILEJSONVALUETYPE_NULL            : value.pointer     = NULL;  break;
+      case XFILEJSONVALUETYPE_DOUBLEINTEGER   : value.doubleinteger = 0;     
+                                                break;
+
+      case XFILEJSONVALUETYPE_FLOAT           : value.floating = 0.0f;     
+                                                break; 
+
+      case XFILEJSONVALUETYPE_DOUBLEFLOAT     : value.doublefloat = 0.0f;     
+                                                break;
+
+      case XFILEJSONVALUETYPE_BOOLEAN         : value.boolean = false; 
+                                                break;
+
+      case XFILEJSONVALUETYPE_NULL            : value.pointer = NULL;  
+                                                break;
     }
 
   return true;
@@ -581,13 +688,16 @@ XFILEJSONVALUE* XFILEJSONVALUE::Clone()
                                                 }                                                
                                                 break;
 
-      case XFILEJSONVALUETYPE_NUMBER          : newvalue->Set(value.integer);
+      case XFILEJSONVALUETYPE_INTEGER         : newvalue->Set(value.integer);
                                                 break;
 
-      case XFILEJSONVALUETYPE_NUMBERSPECIAL1  : newvalue->Set(value.floating);
+      case XFILEJSONVALUETYPE_DOUBLEINTEGER   : newvalue->Set(value.doubleinteger);
                                                 break;
 
-      case XFILEJSONVALUETYPE_NUMBERSPECIAL2  : newvalue->Set(value.doublefloat);
+      case XFILEJSONVALUETYPE_FLOAT           : newvalue->Set(value.floating);
+                                                break;
+
+      case XFILEJSONVALUETYPE_DOUBLEFLOAT     : newvalue->Set(value.doublefloat);
                                                 break;
 
       case XFILEJSONVALUETYPE_BOOLEAN         : newvalue->Set(value.boolean);
@@ -614,14 +724,15 @@ XFILEJSONVALUE* XFILEJSONVALUE::Clone()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEJSONVALUE::Clean()
 {
-  type           = XFILEJSONVALUETYPE_UNKNOWN;
+  type                  = XFILEJSONVALUETYPE_UNKNOWN;
 
-  name           = NULL;
+  name                  = NULL;
 
-  value.pointer  = NULL;
-  value.integer  = 0;
-  value.floating = 0L;
-  value.boolean  = false;
+  value.pointer         = NULL;
+  value.integer         = 0;
+  value.doubleinteger   = 0;
+  value.floating        = 0L;
+  value.boolean         = false;
 }
 
 
@@ -1578,7 +1689,6 @@ XFILEJSONOBJECT* XFILEJSON::GetObjectSubValue(XCHAR* name, XFILEJSONVALUE* value
                                                   XFILEJSONVALUE* subvalue = (XFILEJSONVALUE*)subarray->GetValues()->Get(d);
                                                   if(subvalue)
                                                     {
-                                                      //XFILEJSONOBJECT* subobject = GetObject(name, (XFILEJSONOBJECT*)subvalue->GetValuePointer());
                                                       XFILEJSONOBJECT* subobject = GetObjectSubValue(name, subvalue);
                                                       if(subobject) return subobject;
                                                     }
@@ -1625,8 +1735,7 @@ bool XFILEJSON::DecodeObject(int& position, bool isobject, XFILEJSONOBJECT* obje
           int     checkposition = position;
 
           ctrlchar = SearchNextControlCharacter(checkposition);
-          if(ctrlchar == XFILEJSONCONTROLCHAR_QUOTE)
-          //if(SearchControlCharacter(XFILEJSONCONTROLCHAR_QUOTE, checkposition))
+          if(ctrlchar == XFILEJSONCONTROLCHAR_QUOTE)         
             {
               if(GetString(checkposition, name))
                 {
@@ -1724,8 +1833,6 @@ bool XFILEJSON::DecodeObject(int& position, bool isobject, XFILEJSONOBJECT* obje
                                                       if(!valuestring.Compare(__L("TRUE")))  value->Set(true);
                                                       if(!valuestring.Compare(__L("FALSE"))) value->Set(false);
                                                       if(!valuestring.Compare(__L("null")))  value->Set();
-
-                                                      //if(value->GetType()==XFILEJSONVALUETYPE_UNKNOWN) return false;
 
                                                       object->GetValues()->Add(value);
                                                     }
@@ -2256,21 +2363,28 @@ bool XFILEJSON::EncodeObject(bool isobject, XFILEJSONOBJECT* object, bool istabu
             {
               case XFILEJSONVALUETYPE_UNKNOWN         : break;
 
-              case XFILEJSONVALUETYPE_NUMBER          : { XSTRING valuestring;
+              case XFILEJSONVALUETYPE_INTEGER         : { XSTRING valuestring;
 
                                                           valuestring.Format(__L("%d"),value->GetValueInteger());
                                                           line+=valuestring.Get();
                                                         }
                                                         break;
 
-              case XFILEJSONVALUETYPE_NUMBERSPECIAL1  : { XSTRING valuestring;
+              case XFILEJSONVALUETYPE_DOUBLEINTEGER   : { XSTRING valuestring;
+
+                                                          valuestring.Format(__L("%ld"),value->GetValueDoubleInteger());
+                                                          line+=valuestring.Get();
+                                                        }
+                                                        break;
+
+              case XFILEJSONVALUETYPE_FLOAT           : { XSTRING valuestring;
 
                                                           valuestring.Format(__L("%f"),value->GetValueFloating());
                                                           line+=valuestring.Get();
                                                         }
                                                         break;
 
-              case XFILEJSONVALUETYPE_NUMBERSPECIAL2  : { XSTRING valuestring;
+              case XFILEJSONVALUETYPE_DOUBLEFLOAT     : { XSTRING valuestring;
 
                                                           valuestring.Format(__L("%f"),value->GetValueDoubleFloat());
                                                           line+=valuestring.Get();

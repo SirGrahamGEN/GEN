@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeElement.h
+* @file       DIONodeItemValueUnitFormat.h
 * 
-* @class      DIONODEELEMENT
-* @brief      Data Input/Output Node element (Base for DIONODESENSOR, DIONODEACTUATOR, ...)
+* @class      DIONODEITEMVALUEUNITFORMAT
+* @brief      
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,59 +26,55 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEELEMENT_H_
-#define _DIONODEELEMENT_H_
+#ifndef _DIONODEITEMVALUEUNITFORMAT_H_
+#define _DIONODEITEMVALUEUNITFORMAT_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XUUID.h"
+#include "XString.h"
 #include "XSerializable.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-enum DIONODEELEMENT_TYPE
+
+enum DIONODEITEMVALUE_UNITSFORMAT_TYPE
 {
-  DIONODEELEMENT_TYPE_UNKNOWN           = 0 ,
-  DIONODEELEMENT_TYPE_SENSOR                ,
-  DIONODEELEMENT_TYPE_ACTUATOR              ,  
+  DIONODEITEMVALUE_UNITSFORMAT_TYPE_UNKNOWN              = 0 ,
+
+  DIONODEITEMVALUE_UNITSFORMAT_TYPE_SIMPLE                   ,
+  DIONODEITEMVALUE_UNITSFORMAT_TYPE_BOOLEAN                  ,
+  
+  DIONODEITEMVALUE_UNITSFORMAT_TYPE_RELATIVEHUMIDITY         ,
+
+  DIONODEITEMVALUE_UNITSFORMAT_TYPE_CELSIUSDEGREE            ,            
+  DIONODEITEMVALUE_UNITSFORMAT_TYPE_FAHRENHEITDEGREE         ,   
+  DIONODEITEMVALUE_UNITSFORMAT_TYPE_KELVINDEGREE             ,
+
 };
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEDEVICEDRIVER;
-
-class DIONODEELEMENT : public XSERIALIZABLE
+class DIONODEITEMVALUEUNITFORMAT : public XSERIALIZABLE
 {
   public:
-                              DIONODEELEMENT                ();
-    virtual                  ~DIONODEELEMENT                ();
+                                              DIONODEITEMVALUEUNITFORMAT    ();
+    virtual                                  ~DIONODEITEMVALUEUNITFORMAT    ();
 
-    DIONODEELEMENT_TYPE       GetElementType                (); 
-    void                      SetElementType                (DIONODEELEMENT_TYPE type);     
+    DIONODEITEMVALUE_UNITSFORMAT_TYPE         GetType                       ();
+    void                                      SetType                       (DIONODEITEMVALUE_UNITSFORMAT_TYPE type);
 
-    bool                      GetElementTypeDescription     (XSTRING& typedescription);
+    bool                                      GetName                       (XSTRING& name);
+    bool                                      GetSymbol                     (XSTRING& symbol);
 
-    XUUID&                    GetID                         ();
-    void                      SetID                         (XUUID& UUID);
-
-    DIONODEDEVICEDRIVER*      DeviceDriver_Get              ();
-    bool                      DeviceDriver_Set              (DIONODEDEVICEDRIVER* devicedriver);
-    bool                      DeviceDriver_Open             ();
-    bool                      DeviceDriver_Close            ();
-
-    virtual bool              Serialize                     ();                                          
-    virtual bool              Deserialize                   ();
-
-  protected:
-
-    DIONODEELEMENT_TYPE       elementtype;
-    XUUID                     UUID;
-    DIONODEDEVICEDRIVER*      devicedriver;
-
+    virtual bool                              Serialize                     ();                                          
+    virtual bool                              Deserialize                   (); 
+  
   private:
 
-    void                      Clean                  ();   
+    void                                      Clean                         ();
+
+    DIONODEITEMVALUE_UNITSFORMAT_TYPE         type;       
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

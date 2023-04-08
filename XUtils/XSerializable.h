@@ -36,9 +36,11 @@
 #include "XBase.h"
 #include "XString.h"
 #include "XBuffer.h"
+#include "XVariant.h"
 #include "XVector.h"
 
-#ifdef XSERIALIZABLE_JSON_FEATURE
+
+#ifdef XSERIALIZABLE_JSON_ACTIVE
 #include "XFileJSON.h"
 #endif
 

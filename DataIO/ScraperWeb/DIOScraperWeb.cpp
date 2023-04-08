@@ -341,44 +341,53 @@ bool DIOSCRAPERWEB::Do(XCHAR* namewebservice, int timeoutforurl, XSTRING* localI
                                         {
                                           switch(jsonvalue->GetType())
                                             {
-                                              case XFILEJSONVALUETYPE_UNKNOWN          : break;
+                                              case XFILEJSONVALUETYPE_UNKNOWN           : break;
 
-                                              case XFILEJSONVALUETYPE_NUMBER          : { int     pvalue = (int)jsonvalue->GetValueInteger();
-                                                                                          XSTRING string;
+                                              case XFILEJSONVALUETYPE_INTEGER           : { int     pvalue = (int)jsonvalue->GetValueInteger();
+                                                                                            XSTRING string;
 
-                                                                                          string.Format(__L("%d"),pvalue);
+                                                                                            string.Format(__L("%d"),pvalue);
 
-                                                                                          AddValue(name, string);
-                                                                                        }
-                                                                                        break;
+                                                                                            AddValue(name, string);
+                                                                                          }
+                                                                                          break;
 
-                                              case XFILEJSONVALUETYPE_NUMBERSPECIAL1  : { float   pvalue = (float)jsonvalue->GetValueFloating();
-                                                                                          XSTRING string;
+                                              case XFILEJSONVALUETYPE_DOUBLEINTEGER     : { long pvalue = (long)jsonvalue->GetValueDoubleInteger();
+                                                                                            XSTRING string;
 
-                                                                                          string.Format(__L("%f"),pvalue);
+                                                                                            string.Format(__L("%ld"),pvalue);
 
-                                                                                          AddValue(name, string);
-                                                                                        }
-                                                                                        break;
+                                                                                            AddValue(name, string);
+                                                                                          }
+                                                                                          break;
 
-                                              case XFILEJSONVALUETYPE_NUMBERSPECIAL2  : { double  pvalue = (float)jsonvalue->GetValueDoubleFloat();
-                                                                                          XSTRING string;
+                                              case XFILEJSONVALUETYPE_FLOAT             : { float   pvalue = (float)jsonvalue->GetValueFloating();
+                                                                                            XSTRING string;
 
-                                                                                          string.Format(__L("%f"),pvalue);
+                                                                                            string.Format(__L("%f"),pvalue);
 
-                                                                                          AddValue(name, string);
-                                                                                        }
-                                                                                        break;
+                                                                                            AddValue(name, string);
+                                                                                          }
+                                                                                          break;
 
-                                              case XFILEJSONVALUETYPE_STRING          : { XSTRING* pvalue = (XSTRING*)jsonvalue->GetValuePointer();
-                                                                                          if(pvalue) AddValue(name, (*pvalue));
-                                                                                        }
-                                                                                        break;
+                                              case XFILEJSONVALUETYPE_DOUBLEFLOAT       : { double  pvalue = (float)jsonvalue->GetValueDoubleFloat();
+                                                                                            XSTRING string;
 
-                                              case XFILEJSONVALUETYPE_OBJECT          : break;
-                                              case XFILEJSONVALUETYPE_ARRAY           : break;
-                                              case XFILEJSONVALUETYPE_BOOLEAN         : break;
-                                              case XFILEJSONVALUETYPE_NULL            : break;
+                                                                                            string.Format(__L("%f"),pvalue);
+
+                                                                                            AddValue(name, string);
+                                                                                          }
+                                                                                          break;
+
+                                              case XFILEJSONVALUETYPE_STRING            : { XSTRING* pvalue = (XSTRING*)jsonvalue->GetValuePointer();
+                                                                                            if(pvalue) AddValue(name, (*pvalue));
+                                                                                          }
+                                                                                          break;
+
+                                              case XFILEJSONVALUETYPE_OBJECT            : break;
+                                              case XFILEJSONVALUETYPE_ARRAY             : break;
+                                              case XFILEJSONVALUETYPE_BOOLEAN           : break;
+                                              case XFILEJSONVALUETYPE_NULL              : break;
 
                                             }
                                         }

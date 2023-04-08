@@ -158,6 +158,45 @@ bool DIONODEDEVICEDRIVER::IsWorking()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         DIONODEITEM* DIONODEDEVICEDRIVER::GetNodeItem()
+* @brief      GetNodeItem
+* @ingroup    DATAIO
+* 
+* @return     DIONODEITEM* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIONODEITEM* DIONODEDEVICEDRIVER::GetNodeItem()
+{
+  return nodeitem;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEDEVICEDRIVER::SetNodeItem(DIONODEITEM* nodeitem)
+* @brief      SetNodeItem
+* @ingroup    DATAIO
+* 
+* @param[in]  nodeitem : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEDEVICEDRIVER::SetNodeItem(DIONODEITEM* nodeitem)
+{
+  if(!nodeitem) return false;
+
+  this->nodeitem = nodeitem;
+
+  nodeitem->GetValues()->DeleteContents();
+  nodeitem->GetValues()->DeleteAll();
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void DIONODEDEVICEDRIVER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -169,5 +208,7 @@ bool DIONODEDEVICEDRIVER::IsWorking()
 void DIONODEDEVICEDRIVER::Clean()
 {
   isopen      = false;
-  isworking   = false;
+  isworking   = false; 
+
+  nodeitem    = NULL;
 }

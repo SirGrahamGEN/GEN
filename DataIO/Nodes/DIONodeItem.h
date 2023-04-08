@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeSensorTempHum.h
+* @file       DIONodeItem.h
 * 
-* @class      DIONODESENSORTEMPHUM
-* @brief      
+* @class      DIONODEITEM
+* @brief      Data Input/Output Node item (Base for DIONODESENSOR, DIONODEACTUATOR, ...)
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,35 +26,67 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODESENSORTEMPHUM_H_
-#define _DIONODESENSORTEMPHUM_H_
+#ifndef _DIONODEITEM_H_
+#define _DIONODEITEM_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeSensor.h"
+#include "XUUID.h"
+#include "XSerializable.h"
+
+#include "DIONodeItemValue.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+enum DIONODEITEM_TYPE
+{
+  DIONODEITEM_TYPE_UNKNOWN           = 0 ,
+  DIONODEITEM_TYPE_SENSOR                ,
+  DIONODEITEM_TYPE_ACTUATOR              ,  
+};
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODESENSORTEMPHUM : public DIONODESENSOR
+class DIONODEDEVICEDRIVER;
+
+class DIONODEITEM : public XSERIALIZABLE
 {
   public:
-                           DIONODESENSORTEMPHUM       ();
-    virtual               ~DIONODESENSORTEMPHUM       ();
+                                  DIONODEITEM                   ();
+    virtual                      ~DIONODEITEM                   ();
 
-    
-    virtual bool           Serialize                  ();                                          
-    virtual bool           Deserialize                ();    
+    DIONODEITEM_TYPE              GetItemType                   (); 
+    void                          SetItemType                   (DIONODEITEM_TYPE type);     
+
+    bool                          GetItemTypeDescription        (XSTRING& typedescription);
+
+    XUUID&                        GetID                         ();
+    void                          SetID                         (XUUID& UUID);
+
+    DIONODEDEVICEDRIVER*          DeviceDriver_Get              ();
+    bool                          DeviceDriver_Set              (DIONODEDEVICEDRIVER* devicedriver);
+    bool                          DeviceDriver_Open             ();
+    bool                          DeviceDriver_Close            ();
+
+    XVECTOR<DIONODEITEMVALUE*>*   GetValues                     ();
+
+    virtual bool                  Serialize                     ();                                          
+    virtual bool                  Deserialize                   ();
+
+  protected:
+
+    DIONODEITEM_TYPE              itemtype;
+    XUUID                         UUID;
+    DIONODEDEVICEDRIVER*          devicedriver;
+    XVECTOR<DIONODEITEMVALUE*>    values;
 
   private:
 
-    void                   Clean                      ();
-
-    double                 temperature;
-    double                 humidity;
+    void                          Clean                  ();   
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
+
