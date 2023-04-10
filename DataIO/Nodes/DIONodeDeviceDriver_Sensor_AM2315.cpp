@@ -111,7 +111,9 @@ bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Open()
       return false;
     }
   
-  isopen = am2315->Ini(port, remotedeviceaddress, timeout);
+  // isopen = am2315->Ini(port, remotedeviceaddress, timeout);
+  isopen    = true;
+  isworking = true;
 
   return isopen;
 }
@@ -175,7 +177,6 @@ bool DIONODEDEVICEDRIVER_SENSOR_AM2315::SetNodeItem(DIONODEITEM* nodeitem)
       return false;
     }
 
-  nodesensor->SetItemType(DIONODEITEM_TYPE_SENSOR);
   nodesensor->SetSensorType(DIONODESENSOR_TYPE_TEMPERATURE_HUMIDITY); 
 
   DIONODEITEMVALUE* value[2];

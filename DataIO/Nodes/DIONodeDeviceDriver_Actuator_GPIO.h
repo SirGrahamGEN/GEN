@@ -35,13 +35,15 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+#define DIONODEDEVICEDRIVER_ACTUATOR_GPIOENTRYID     0x1234
+#define DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM    -1 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class DIONODEDEVICEDRIVER_ACTUATOR_GPIO : public DIONODEDEVICEDRIVER
 {
   public:
-                                  DIONODEDEVICEDRIVER_ACTUATOR_GPIO     ();
+                                  DIONODEDEVICEDRIVER_ACTUATOR_GPIO     (XDWORD entryID, int GPIO = DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM, int pin = DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM);
     virtual                      ~DIONODEDEVICEDRIVER_ACTUATOR_GPIO     ();
 
     bool                          Open                                  ();
@@ -53,6 +55,10 @@ class DIONODEDEVICEDRIVER_ACTUATOR_GPIO : public DIONODEDEVICEDRIVER
   private:
 
     void                          Clean                                 ();
+
+    XDWORD                        entryID;
+    int                           GPIO;
+    int                           pin;
   
 };
 

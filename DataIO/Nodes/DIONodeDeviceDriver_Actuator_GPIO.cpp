@@ -33,6 +33,8 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+
+#include "DIOGPIO.h"
 #include "DIONodeActuator.h"
 
 #include "DIONodeDeviceDriver_Actuator_GPIO.h"
@@ -55,9 +57,28 @@
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEDEVICEDRIVER_ACTUATOR_GPIO::DIONODEDEVICEDRIVER_ACTUATOR_GPIO()
+DIONODEDEVICEDRIVER_ACTUATOR_GPIO::DIONODEDEVICEDRIVER_ACTUATOR_GPIO(XDWORD entryID, int GPIO, int pin)
 {
   Clean();
+
+  // -----------------------------------------------------------------------
+
+  if(pin > DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM)  
+    {
+      if(!GEN_DIOGPIO.GPIOEntry_CreateByPin(entryID, pin))
+        {
+         
+        }
+    }
+
+  if(GPIO > DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM)  
+    {
+      if(!GEN_DIOGPIO.GPIOEntry_SetIDByGPIO( entryID, GPIO))
+        {
+          
+        }
+    }
+
 }
 
 
@@ -90,6 +111,15 @@ DIONODEDEVICEDRIVER_ACTUATOR_GPIO::~DIONODEDEVICEDRIVER_ACTUATOR_GPIO()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Open()
 {
+  isopen = true;
+  isworking = true;
+
+  GEN_DIOGPIO.SetMode(entryID, DIOGPIO_MODE_OUTPUT);  
+  
+  // GEN_DIOGPIO.GetValue(entryID);
+
+  // GEN_DIOGPIO.SetValue(entryID, true);
+
   return isopen;
 }
 
@@ -150,7 +180,6 @@ bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
       return false;
     }
 
-  nodeactuator->SetItemType(DIONODEITEM_TYPE_ACTUATOR);
   nodeactuator->SetActuatorType(DIONODEITEM_TYPE_ACTUATOR_GPIO); 
 
   DIONODEITEMVALUE* value = new DIONODEITEMVALUE();
@@ -182,5 +211,7 @@ bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Clean()
 {
-  
+  entryID = 0;
+  GPIO    = DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM;
+  int pin = DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM;
 }

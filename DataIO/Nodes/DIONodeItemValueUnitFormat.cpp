@@ -167,8 +167,13 @@ bool DIONODEITEMVALUEUNITFORMAT::GetSymbol(XSTRING& symbol)
 
       case DIONODEITEMVALUE_UNITSFORMAT_TYPE_RELATIVEHUMIDITY     : symbol = __L("%");           break; 
 
-      case DIONODEITEMVALUE_UNITSFORMAT_TYPE_CELSIUSDEGREE        : symbol = __L("\xA7C");        break;            
-      case DIONODEITEMVALUE_UNITSFORMAT_TYPE_FAHRENHEITDEGREE     : symbol = __L("\xA7F");        break;    
+      case DIONODEITEMVALUE_UNITSFORMAT_TYPE_CELSIUSDEGREE        : symbol.Add((XCHAR)0x00B0);        
+                                                                    symbol.Add(__C('C'));        
+                                                                    break;            
+
+      case DIONODEITEMVALUE_UNITSFORMAT_TYPE_FAHRENHEITDEGREE     : symbol.Add((XCHAR)0x00B0);        
+                                                                    symbol.Add(__C('F'));        
+                                                                    break;    
       case DIONODEITEMVALUE_UNITSFORMAT_TYPE_KELVINDEGREE         : symbol = __L("K");            break;   
     }
 
