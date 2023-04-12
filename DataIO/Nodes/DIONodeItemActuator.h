@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeActuator.h
+* @file       DIONodeItemActuator.h
 * 
-* @class      DIONODEACTUATOR
-* @brief      Data Input/Output Node Actuator
+* @class      DIONODEITEMACTUATOR
+* @brief      Data Input/Output Node Item Actuator
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEACTUATOR_H_
-#define _DIONODEACTUATOR_H_
+#ifndef _DIONODEITEMACTUATOR_H_
+#define _DIONODEITEMACTUATOR_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -35,7 +35,7 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-enum DIONODEACTUATOR_TYPE
+enum DIONODEITEMACTUATOR_TYPE
 {
   DIONODEITEM_TYPE_ACTUATOR_UNKNOWN           = 0 ,
   DIONODEITEM_TYPE_ACTUATOR_GPIO                  ,
@@ -46,27 +46,27 @@ enum DIONODEACTUATOR_TYPE
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEACTUATOR :  public DIONODEITEM
+class DIONODEITEMACTUATOR :  public DIONODEITEM
 {
   public:
-                              DIONODEACTUATOR               ();
-    virtual                  ~DIONODEACTUATOR               ();
+                                  DIONODEITEMACTUATOR             ();
+    virtual                      ~DIONODEITEMACTUATOR             ();
 
-    DIONODEACTUATOR_TYPE      GetActuatorType               ();
-    void                      SetActuatorType               (DIONODEACTUATOR_TYPE type); 
+    DIONODEITEMACTUATOR_TYPE      GetActuatorType                 ();
+    void                          SetActuatorType                 (DIONODEITEMACTUATOR_TYPE type); 
 
-    bool                      GetActuatorTypeDescription    (XSTRING& typedescription);
+    bool                          GetActuatorTypeDescription      (XSTRING& typedescription);
 
-    virtual bool              Serialize                     ();                                          
-    virtual bool              Deserialize                   ();  
+    virtual bool                  Serialize                       ();                                          
+    virtual bool                  Deserialize                     ();  
 
   protected:
 
-    DIONODEACTUATOR_TYPE      actuatortype;
+    DIONODEITEMACTUATOR_TYPE      actuatortype;
  
   private:
 
-    void                      Clean                         ();   
+    void                          Clean                           ();   
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

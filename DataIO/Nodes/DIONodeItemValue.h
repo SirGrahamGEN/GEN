@@ -53,32 +53,35 @@ enum DIONODEITEMVALUE_TYPE
 class DIONODEITEMVALUE : public XSERIALIZABLE
 {
   public:
-                                        DIONODEITEMVALUE    ();
-    virtual                            ~DIONODEITEMVALUE    ();
+                                        DIONODEITEMVALUE        ();
+    virtual                            ~DIONODEITEMVALUE        ();
 
-    DIONODEITEMVALUE_TYPE               GetType             ();
-    void                                SetType             (DIONODEITEMVALUE_TYPE type);
+    DIONODEITEMVALUE_TYPE               GetType                 ();
+    void                                SetType                 (DIONODEITEMVALUE_TYPE type);
 
-    bool                                GetDescription      (XSTRING& typedescription);
+    bool                                GetDescription          (XSTRING& typedescription);
 
-    XVARIANT*                           GetValue            ();
+    XVARIANT*                           GetValue                ();
+    XVARIANT*                           GetMinValue             ();
+    XVARIANT*                           GetMaxValue             ();
 
-    XVARIANT*                           GetMinValue         ();
-    XVARIANT*                           GetMaxValue         ();    
+    bool                                ValueHasChanged         ();
+    void                                SetValueHasChanged      (bool haschanged);
 
-    DIONODEITEMVALUEUNITFORMAT*         GetUnitFormat       ();
+    DIONODEITEMVALUEUNITFORMAT*         GetUnitFormat           ();
 
-    virtual bool                        Serialize           ();                                          
-    virtual bool                        Deserialize         ();
+    virtual bool                        Serialize               ();                                          
+    virtual bool                        Deserialize             ();
 
   private:
 
-    void                                Clean               ();
+    void                                Clean                   ();
 
     DIONODEITEMVALUE_TYPE               type;
     XVARIANT                            value; 
     XVARIANT                            minvalue;
     XVARIANT                            maxvalue;    
+    bool                                haschanged;
     DIONODEITEMVALUEUNITFORMAT          unitformat;
 };
 

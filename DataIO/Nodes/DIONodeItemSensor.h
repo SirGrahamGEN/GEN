@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeSensor.h
+* @file       DIONodeItemSensor.h
 * 
-* @class      DIONODESENSOR
-* @brief      Data Input/Output Node Sensor Temperature + Humidity.
+* @class      DIONODEITEMSENSOR
+* @brief      Data Input/Output Node Item Sensor
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODESENSOR_H_
-#define _DIONODESENSOR_H_
+#ifndef _DIONODEITEMSENSOR_H_
+#define _DIONODEITEMSENSOR_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -35,26 +35,26 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-enum DIONODESENSOR_TYPE
+enum DIONODEITEMSENSOR_TYPE
 {
-  DIONODESENSOR_TYPE_UNKNOWN                    = 0 ,
-  DIONODESENSOR_TYPE_HUMIDITY                       ,
-  DIONODESENSOR_TYPE_TEMPERATURE                    ,
-  DIONODESENSOR_TYPE_TEMPERATURE_HUMIDITY           ,
-  DIONODESENSOR_TYPE_LIGHT                          ,
+  DIONODEITEMSENSOR_TYPE_UNKNOWN                    = 0 ,
+  DIONODEITEMSENSOR_TYPE_HUMIDITY                       ,
+  DIONODEITEMSENSOR_TYPE_TEMPERATURE                    ,
+  DIONODEITEMSENSOR_TYPE_TEMPERATURE_HUMIDITY           ,
+  DIONODEITEMSENSOR_TYPE_LIGHT                          ,
 };
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODESENSOR : public DIONODEITEM
+class DIONODEITEMSENSOR : public DIONODEITEM
 {
   public:
-                                  DIONODESENSOR               ();
-    virtual                      ~DIONODESENSOR               ();
+                                  DIONODEITEMSENSOR           ();
+    virtual                      ~DIONODEITEMSENSOR           ();
 
-    DIONODESENSOR_TYPE            GetSensorType               ();
-    void                          SetSensorType               (DIONODESENSOR_TYPE type); 
+    DIONODEITEMSENSOR_TYPE        GetSensorType               ();
+    void                          SetSensorType               (DIONODEITEMSENSOR_TYPE type); 
 
     bool                          GetSensorTypeDescription    (XSTRING& typedescription);              
    
@@ -63,7 +63,7 @@ class DIONODESENSOR : public DIONODEITEM
 
   protected: 
     
-    DIONODESENSOR_TYPE            sensortype;   
+    DIONODEITEMSENSOR_TYPE        sensortype;   
 
   private:
 

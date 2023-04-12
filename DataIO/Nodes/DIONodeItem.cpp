@@ -290,6 +290,26 @@ bool DIONODEITEM::DeviceDriver_Close()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIONODEITEM::Update()
+* @brief      Update
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEITEM::Update()
+{
+  if(!devicedriver)              
+    {
+      return false;  
+    }
+
+  return devicedriver->Update();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XVECTOR<DIONODEITEMVALUE*>* DIONODEITEM::GetValues()
 * @brief      GetValues
 * @ingroup    DATAIO

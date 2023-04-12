@@ -116,14 +116,38 @@ void DIONODE::SetID(XUUID& UUID)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XVECTOR<DIONODEITEM*>* DIONODE::GetElements()
-* @brief      GetElements
+* @fn         bool DIONODE::Update()
+* @brief      Update
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODE::Update()
+{
+  for(XDWORD c=0; c<items.GetSize(); c++)
+    {
+      DIONODEITEM* item = items.Get(c);
+      if(item)
+        {
+          item->Update();
+        }
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<DIONODEITEM*>* DIONODE::GetItems()
+* @brief      GetItems
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<DIONODEITEM*>* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XVECTOR<DIONODEITEM*>* DIONODE::GetElements()
+XVECTOR<DIONODEITEM*>* DIONODE::GetItems()
 {
   return &items;
 }

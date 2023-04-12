@@ -1,6 +1,6 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeItemActuator.cpp
+* @file       DIONodeActuator.cpp
 * 
 * @class      DIONODEITEMACTUATOR
 * @brief      Data Input/Output Node Item Actuator

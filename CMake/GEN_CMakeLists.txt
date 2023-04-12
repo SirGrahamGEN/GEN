@@ -1651,9 +1651,10 @@
 
   if(DIO_NODEDEVICEDRIVER_SENSOR_AM2315_FEATURE)    
 
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeDeviceDriver_Sensor_AM2315.cpp")
-    option(DIO_NODES_FEATURE "Nodes modules" true)   
-    option(DIO_I2C_TEMHUMSENSOR_AM2315_FEATURE "Data I2C Temperature Humidity Sensor AM2315" true)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeDeviceDriver_Sensor_AM2315.cpp")    
+    option(DIO_STREAMI2C_FEATURE "Data Input/Output Stream I2C" true) 
+    option(DIO_I2C_TEMHUMSENSOR_AM2315_FEATURE "Data I2C Temperature Humidity Sensor AM2315" true) 
+    option(DIO_NODES_FEATURE "Nodes modules" true)
 
   endif()
 
@@ -1671,10 +1672,11 @@
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONode.cpp")
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItem.cpp")
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemValue.cpp")
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemValueUnitFormat.cpp")
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeDeviceDriver.cpp")
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeSensor.cpp")   
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeActuator.cpp")    
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemValueUnitFormat.cpp")   
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemSensor.cpp")   
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemActuator.cpp")  
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeDeviceDriver.cpp")  
+    option(XUUID_FEATURE "UUID functions" true)     
 
   endif()
 

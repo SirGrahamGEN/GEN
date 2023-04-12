@@ -69,6 +69,8 @@ class DIONODEITEM : public XSERIALIZABLE
     bool                          DeviceDriver_Open             ();
     bool                          DeviceDriver_Close            ();
 
+    virtual bool                  Update                        ();
+
     XVECTOR<DIONODEITEMVALUE*>*   GetValues                     ();
 
     virtual bool                  Serialize                     ();                                          

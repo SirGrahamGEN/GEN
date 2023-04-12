@@ -33,9 +33,8 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-
 #include "DIOGPIO.h"
-#include "DIONodeActuator.h"
+#include "DIONodeItemActuator.h"
 
 #include "DIONodeDeviceDriver_Actuator_GPIO.h"
 
@@ -61,19 +60,21 @@ DIONODEDEVICEDRIVER_ACTUATOR_GPIO::DIONODEDEVICEDRIVER_ACTUATOR_GPIO(XDWORD entr
 {
   Clean();
 
-  // -----------------------------------------------------------------------
+  this->entryID = entryID;
+  this->GPIO    = GPIO;
+  this->pin     = pin;  
 
-  if(pin > DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM)  
+  if(this->pin != DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM)  
     {
-      if(!GEN_DIOGPIO.GPIOEntry_CreateByPin(entryID, pin))
+      if(!GEN_DIOGPIO.GPIOEntry_CreateByPin(this->entryID, this->pin))
         {
          
         }
     }
 
-  if(GPIO > DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM)  
+  if(this->GPIO != DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM)  
     {
-      if(!GEN_DIOGPIO.GPIOEntry_SetIDByGPIO( entryID, GPIO))
+      if(!GEN_DIOGPIO.GPIOEntry_SetIDByGPIO(this->entryID, this->GPIO))
         {
           
         }
@@ -117,7 +118,6 @@ bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Open()
   GEN_DIOGPIO.SetMode(entryID, DIOGPIO_MODE_OUTPUT);  
   
   // GEN_DIOGPIO.GetValue(entryID);
-
   // GEN_DIOGPIO.SetValue(entryID, true);
 
   return isopen;
@@ -135,7 +135,32 @@ bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Open()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Update()
 {
-  return false;
+  DIONODEITEMACTUATOR* nodeitemactuator = (DIONODEITEMACTUATOR*)GetNodeItem();
+  if(!nodeitemactuator)
+    {
+      return false;
+    }
+
+  DIONODEITEMVALUE* itemvalue = nodeitemactuator->GetValues()->Get(0);
+  if(itemvalue)
+    {
+      XVARIANT* value = nodeitemactuator->GetValues()->Get(0)->GetValue();
+      if(value)
+        {
+          if(itemvalue->ValueHasChanged())
+            {
+              bool _value = (*value);
+                    
+              GEN_DIOGPIO.SetValue(entryID, _value);
+
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GPIO] value %s"), _value?__L("true"):__L("false"));
+
+              itemvalue->SetValueHasChanged(false);
+            }          
+        }
+    }
+
+  return true;
 }
 
 
@@ -174,13 +199,13 @@ bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
       return false;
     }
   
-  DIONODEACTUATOR* nodeactuator = (DIONODEACTUATOR*)nodeitem;
-  if(!nodeactuator)
+  DIONODEITEMACTUATOR* nodeitemactuator = (DIONODEITEMACTUATOR*)nodeitem;
+  if(!nodeitemactuator)
     {
       return false;
     }
 
-  nodeactuator->SetActuatorType(DIONODEITEM_TYPE_ACTUATOR_GPIO); 
+  nodeitemactuator->SetActuatorType(DIONODEITEM_TYPE_ACTUATOR_GPIO); 
 
   DIONODEITEMVALUE* value = new DIONODEITEMVALUE();
   if(!value)
@@ -212,6 +237,7 @@ bool DIONODEDEVICEDRIVER_ACTUATOR_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
 void DIONODEDEVICEDRIVER_ACTUATOR_GPIO::Clean()
 {
   entryID = 0;
+
   GPIO    = DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM;
   int pin = DIONODEDEVICEDRIVER_ACTUATOR_INVALIDPARAM;
 }

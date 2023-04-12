@@ -183,6 +183,38 @@ XVARIANT* DIONODEITEMVALUE::GetMaxValue()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIONODEITEMVALUE::ValueHasChanged()
+* @brief      ValueHasChanged
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEITEMVALUE::ValueHasChanged()
+{
+  return haschanged;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMVALUE::SetValueHasChanged(bool haschanged)
+* @brief      SetValueHasChanged
+* @ingroup    DATAIO
+* 
+* @param[in]  haschanged : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEMVALUE::SetValueHasChanged(bool haschanged)
+{
+  this->haschanged = haschanged;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         DIONODEITEMVALUEUNITFORMAT* DIONODEITEMVALUE::GetUnitFormat()
 * @brief      GetUnitFormat
 * @ingroup    DATAIO
@@ -255,5 +287,7 @@ bool DIONODEITEMVALUE::Deserialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMVALUE::Clean()
 {
-  
+  type        = DIONODEITEMVALUE_TYPE_UNKNOWN;   
+  haschanged  = false;
+
 }

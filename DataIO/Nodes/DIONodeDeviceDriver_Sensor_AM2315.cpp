@@ -33,7 +33,7 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeSensor.h"
+#include "DIONodeItemSensor.h"
 
 #include "DIONodeDeviceDriver_Sensor_AM2315.h"
 
@@ -171,13 +171,13 @@ bool DIONODEDEVICEDRIVER_SENSOR_AM2315::SetNodeItem(DIONODEITEM* nodeitem)
       return false;
     }
 
-  DIONODESENSOR* nodesensor = (DIONODESENSOR*)nodeitem;
-  if(!nodesensor)
+  DIONODEITEMSENSOR* nodeitemsensor = (DIONODEITEMSENSOR*)nodeitem;
+  if(!nodeitemsensor)
     {
       return false;
     }
 
-  nodesensor->SetSensorType(DIONODESENSOR_TYPE_TEMPERATURE_HUMIDITY); 
+  nodeitemsensor->SetSensorType(DIONODEITEMSENSOR_TYPE_TEMPERATURE_HUMIDITY); 
 
   DIONODEITEMVALUE* value[2];
 
