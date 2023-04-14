@@ -440,7 +440,7 @@
 
 
     # ----------------------------------------
-    # Platform Raspberry Pi
+    # Platform Raspberry Pi 32
    
     if(COMPILE_TO_LINUX_ARM_RPI)             
       
@@ -486,7 +486,7 @@
 
 
     # ----------------------------------------
-    # Platform ARM
+    # Platform ARM 32
    
     if(COMPILE_TO_LINUX_ARM)    
    
@@ -1661,7 +1661,17 @@
 
   if(DIO_NODEDEVICEDRIVER_ACTUATOR_GPIO_FEATURE)
   
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeDeviceDriver_GPIO.cpp")
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeDeviceDriver_Actuator_GPIO.cpp")
+    option(DIO_NODES_FEATURE "Nodes modules" true)   
+
+  endif()
+
+  
+  if(DIO_NODEDEVICEDRIVER_SENSOR_GPIO_FEATURE)
+  
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeDeviceDriver_GPIO.cpp")
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeDeviceDriver_Sensor_GPIO.cpp")
     option(DIO_NODES_FEATURE "Nodes modules" true)   
 
   endif()

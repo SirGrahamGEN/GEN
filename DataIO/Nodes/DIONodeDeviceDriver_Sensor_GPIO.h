@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeDeviceDriver_Actuator_GPIO.h
+* @file       DIONodeDeviceDriver_Sensor_GPIO.h
 * 
-* @class      DIONODEDEVICEDRIVER_ACTUATOR_GPIO
-* @brief      Data Input/Output Node Device Driver actuator GPIO
+* @class      DIONODEDEVICEDRIVER_SENSOR_GPIO
+* @brief      Data Input/Output Node Device Driver sensor GPIO
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEDEVICEDRIVER_ACTUATOR_GPIO_H_
-#define _DIONODEDEVICEDRIVER_ACTUATOR_GPIO_H_
+#ifndef _DIONODEDEVICEDRIVER_SENSOR_GPIO_H_
+#define _DIONODEDEVICEDRIVER_SENSOR_GPIO_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -38,11 +38,11 @@
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEDEVICEDRIVER_ACTUATOR_GPIO : public DIONODEDEVICEDRIVER_GPIO
+class DIONODEDEVICEDRIVER_SENSOR_GPIO : public DIONODEDEVICEDRIVER_GPIO
 {
   public:
-                                  DIONODEDEVICEDRIVER_ACTUATOR_GPIO     (XDWORD entryID, int GPIO = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM, int pin = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM);
-    virtual                      ~DIONODEDEVICEDRIVER_ACTUATOR_GPIO     ();
+                                  DIONODEDEVICEDRIVER_SENSOR_GPIO       (XDWORD entryID, int GPIO = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM, int pin = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM);
+    virtual                      ~DIONODEDEVICEDRIVER_SENSOR_GPIO       ();
 
     virtual bool                  Open                                  ();
     virtual bool                  Update                                ();

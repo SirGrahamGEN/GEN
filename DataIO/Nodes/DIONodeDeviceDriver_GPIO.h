@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeDeviceDriver_Actuator_GPIO.h
+* @file       DIONodeDeviceDriver_GPIO.h
 * 
-* @class      DIONODEDEVICEDRIVER_ACTUATOR_GPIO
-* @brief      Data Input/Output Node Device Driver actuator GPIO
+* @class      DIONODEDEVICEDRIVER_GPIO
+* @brief      Data Input/Output Node Device Driver GPIO
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,32 +26,54 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEDEVICEDRIVER_ACTUATOR_GPIO_H_
-#define _DIONODEDEVICEDRIVER_ACTUATOR_GPIO_H_
+#ifndef _DIONODEDEVICEDRIVER_GPIO_H_
+#define _DIONODEDEVICEDRIVER_GPIO_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeDeviceDriver_GPIO.h"
+#include "DIONodeDeviceDriver.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+#define DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM    -1 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEDEVICEDRIVER_ACTUATOR_GPIO : public DIONODEDEVICEDRIVER_GPIO
+class XTIMER;
+
+class DIONODEDEVICEDRIVER_GPIO : public DIONODEDEVICEDRIVER
 {
   public:
-                                  DIONODEDEVICEDRIVER_ACTUATOR_GPIO     (XDWORD entryID, int GPIO = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM, int pin = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM);
-    virtual                      ~DIONODEDEVICEDRIVER_ACTUATOR_GPIO     ();
+                                  DIONODEDEVICEDRIVER_GPIO        (XDWORD entryID, int GPIO = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM, int pin = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM);
+    virtual                      ~DIONODEDEVICEDRIVER_GPIO        ();
 
-    virtual bool                  Open                                  ();
-    virtual bool                  Update                                ();
+    virtual bool                  Open                            ();
+    virtual bool                  Update                          ();
+    bool                          Close                           ();
+
+    bool                          SetNodeItem                     (DIONODEITEM* nodeitem);  
+
+    XQWORD                        GetTimeLastActivation           (); 
+    XQWORD                        GetTimeLastDeactivation         (); 
+
+  protected:
+    void                          AdjustTimeInChange              (bool status);
+
+    XDWORD                        entryID;
+    int                           GPIO;
+    int                           pin;
+
+    XQWORD                        time_last_activation;
+    XQWORD                        time_last_deactivation;
+
+    XTIMER*                       timerstatus;
     
   private:
-
-    void                          Clean                                 ();      
+  
+    void                          Clean                           ();     
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
+

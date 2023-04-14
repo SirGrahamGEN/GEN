@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeDeviceDriver_SensorAM2315.cpp
+* @file       DIONodeDeviceDriver_GPIO.cpp
 * 
-* @class      DIONODEDEVICEDRIVER_SENSOR_AM2315
-* @brief      Data Input/Output Node Device Driver Sensor AM2315
+* @class      DIONODEDEVICEDRIVER_GPIO
+* @brief      Data Input/Output Node Device Driver GPIO
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -28,16 +28,18 @@
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
-#include "math.h"
-
 #include "GEN_Defines.h"
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeItemSensor.h"
+#include "XFactory.h"
+#include "XTimer.h"
 
-#include "DIONodeDeviceDriver_Sensor_AM2315.h"
+#include "DIOGPIO.h"
+#include "DIONodeItemActuator.h"
+
+#include "DIONodeDeviceDriver_GPIO.h"
 
 #include "XMemory_Control.h"
 
@@ -50,33 +52,38 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEDEVICEDRIVER_SENSOR_AM2315::DIONODEDEVICEDRIVER_SENSOR_AM2315(int port, int remotedeviceaddress, int timeout)
+* @fn         DIONODEDEVICEDRIVER_GPIO::DIONODEDEVICEDRIVER_GPIO()
 * @brief      Constructor
 * @ingroup    DATAIO
-* 
-* @param[in]  int : 
-* @param[in]  int remotedeviceaddress : 
-* @param[in]  int timeout : 
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEDEVICEDRIVER_SENSOR_AM2315::DIONODEDEVICEDRIVER_SENSOR_AM2315(int port, int remotedeviceaddress, int timeout)
+DIONODEDEVICEDRIVER_GPIO::DIONODEDEVICEDRIVER_GPIO(XDWORD entryID, int GPIO, int pin)
 {
   Clean();
 
-  am2315 = new DIOI2CTEMHUMSENSORAM2315();
+  this->entryID = entryID;
+  this->GPIO    = GPIO;
+  this->pin     = pin;  
 
-  this->port                = port; 
-  this->remotedeviceaddress = remotedeviceaddress; 
-  this->timeout             = timeout;    
+  if(this->pin != DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM)  
+    {
+      GEN_DIOGPIO.GPIOEntry_CreateByPin(this->entryID, this->pin);      
+    }
 
+  if(this->GPIO != DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM)  
+    {
+      GEN_DIOGPIO.GPIOEntry_SetIDByGPIO(this->entryID, this->GPIO);        
+    }
+
+  timerstatus = GEN_XFACTORY.CreateTimer();  
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEDEVICEDRIVER_SENSOR_AM2315::~DIONODEDEVICEDRIVER_SENSOR_AM2315()
+* @fn         DIONODEDEVICEDRIVER_GPIO::~DIONODEDEVICEDRIVER_GPIO()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
@@ -84,13 +91,13 @@ DIONODEDEVICEDRIVER_SENSOR_AM2315::DIONODEDEVICEDRIVER_SENSOR_AM2315(int port, i
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEDEVICEDRIVER_SENSOR_AM2315::~DIONODEDEVICEDRIVER_SENSOR_AM2315()
+DIONODEDEVICEDRIVER_GPIO::~DIONODEDEVICEDRIVER_GPIO()
 {
   Close();
 
-  if(am2315)
+  if(timerstatus)
     {
-      delete am2315;  
+      GEN_XFACTORY.DeleteTimer(timerstatus);
     }
 
   Clean();
@@ -99,86 +106,34 @@ DIONODEDEVICEDRIVER_SENSOR_AM2315::~DIONODEDEVICEDRIVER_SENSOR_AM2315()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Open()
+* @fn         bool DIONODEDEVICEDRIVER_GPIO::Open()
 * @brief      Open
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Open()
+bool DIONODEDEVICEDRIVER_GPIO::Open()
 {
-  if(!am2315)
-    {
-      return false;
-    }
-  
-  isopen = am2315->Ini(port, remotedeviceaddress, timeout);
-  
-  if(isopen)
-    {
-      isworking = true;
-    }
-
-  return isopen;
+  return false;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Update()
+* @fn         bool DIONODEDEVICEDRIVER_GPIO::Update()
 * @brief      Update
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Update()
+bool DIONODEDEVICEDRIVER_GPIO::Update()
 {
-  float value[2] = { 0.0f, 0.0f };
-  
-  isworking = am2315->Read(value[0], value[1]);
-
-  DIONODEITEM* nodeitem = GetNodeItem();
-  if(!nodeitem)
+  DIONODEITEMACTUATOR* nodeitemactuator = (DIONODEITEMACTUATOR*)GetNodeItem();
+  if(!nodeitemactuator)
     {
       return false;
-    }
-
-  if(nodeitem->GetValues()->GetSize() != 2) 
-    {
-      return false;
-    }
-
-  DIONODEITEMVALUE* nodeitemvalue;
-
-  for(int c=0; c<2; c++)
-    {
-      nodeitemvalue = nodeitem->GetValues()->Get(c);
-      if(nodeitemvalue)
-        {
-          float      differencevalue = 0.0f;
-          XVARIANT*  nodeitemdifferencevalue = nodeitemvalue->GetDifferenceForChange();
- 
-          if(nodeitemdifferencevalue)
-            {
-              if(!nodeitemdifferencevalue->IsNull())
-                {                  
-                   differencevalue = (float)(*nodeitemdifferencevalue);    
-                   differencevalue = fabs(differencevalue);
-                }
-            }
-
-          float difference = (value[c] - (float)(*nodeitemvalue->GetValue()));
-
-          if(fabs(difference) > differencevalue)
-            {
-              (*nodeitemvalue->GetValue()) = value[c];
-              nodeitemvalue->SetValueHasChanged(true); 
-
-              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[DIO Node Item AM2315 Sensor] %s value %f"), (!c)?__L("temperature"):__L("humidity") ,value[c]);  
-            }
-        }
     }
 
   return true;
@@ -187,17 +142,15 @@ bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Update()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Close()
+* @fn         bool DIONODEDEVICEDRIVER_GPIO::Close()
 * @brief      Close
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Close()
-{
-  am2315->End();
-        
+bool DIONODEDEVICEDRIVER_GPIO::Close()
+{        
   isopen = false;
 
   return true;
@@ -206,7 +159,7 @@ bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Close()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEDEVICEDRIVER_SENSOR_AM2315::SetNodeItem(DIONODEITEM* nodeitem)
+* @fn         bool DIONODEDEVICEDRIVER_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
 * @brief      SetNodeItem
 * @ingroup    DATAIO
 * 
@@ -215,59 +168,97 @@ bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Close()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEDEVICEDRIVER_SENSOR_AM2315::SetNodeItem(DIONODEITEM* nodeitem)
+bool DIONODEDEVICEDRIVER_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
 {
   if(!DIONODEDEVICEDRIVER::SetNodeItem(nodeitem)) 
     {
       return false;
     }
-
-  DIONODEITEMSENSOR* nodeitemsensor = (DIONODEITEMSENSOR*)nodeitem;
-  if(!nodeitemsensor)
+  
+  DIONODEITEMACTUATOR* nodeitemactuator = (DIONODEITEMACTUATOR*)nodeitem;
+  if(!nodeitemactuator)
     {
       return false;
     }
 
-  nodeitemsensor->SetSensorType(DIONODEITEMSENSOR_TYPE_TEMPERATURE_HUMIDITY); 
+  nodeitemactuator->SetActuatorType(DIONODEITEM_TYPE_ACTUATOR_GPIO); 
 
-  DIONODEITEMVALUE* value[2];
-
-  for(XDWORD c=0; c<2; c++)
+  DIONODEITEMVALUE* value = new DIONODEITEMVALUE();
+  if(!value)
     {
-      value[c] = new DIONODEITEMVALUE();
-      if(value[c])
-    
-      switch(c)
-        {
-          case  0 : value[c]->SetType(DIONODEITEMVALUE_TYPE_TEMPERATURE); 
-    
-                    (*value[c]->GetValue())    =    0.00f;
-                    (*value[c]->GetMinValue()) =  -50.00f;
-                    (*value[c]->GetMaxValue()) =   50.00f;
-
-                    value[c]->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_CELSIUSDEGREE);
-                    break;
-
-          case  1 : value[c]->SetType(DIONODEITEMVALUE_TYPE_HUMIDITY); 
-
-                    (*value[c]->GetValue())    =   0.00f; 
-                    (*value[c]->GetMinValue()) =   0.00f; 
-                    (*value[c]->GetMaxValue()) = 100.00f;   
-
-                    value[c]->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_RELATIVEHUMIDITY);
-                    break;
-        }
-
-      nodeitem->GetValues()->Add(value[c]);
+      return false;
     }
-
+    
+  value->SetType(DIONODEITEMVALUE_TYPE_BOOLEAN); 
+    
+  (*value->GetValue())    =    false;                    
+  value->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_BOOLEAN);
+       
+  nodeitem->GetValues()->Add(value);
+  
   return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEDEVICEDRIVER_SENSOR_AM2315::Clean()
+* @fn         XQWORD DIONODEDEVICEDRIVER_GPIO::GetTimeLastActivation()
+* @brief      GetTimeLastActivation
+* @ingroup    DATAIO
+* 
+* @return     XQWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XQWORD DIONODEDEVICEDRIVER_GPIO::GetTimeLastActivation()
+{
+  return time_last_activation;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XQWORD DIONODEDEVICEDRIVER_GPIO::GetTimeLastDeactivation()
+* @brief      GetTimeLastDeactivation
+* @ingroup    DATAIO
+* 
+* @return     XQWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XQWORD DIONODEDEVICEDRIVER_GPIO::GetTimeLastDeactivation()
+{
+  return time_last_deactivation;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEDEVICEDRIVER_GPIO::AdjustTimeInChange(bool boolean_status)
+* @brief      AdjustTimeInChange
+* @ingroup    DATAIO
+* 
+* @param[in]  boolean_status : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEDEVICEDRIVER_GPIO::AdjustTimeInChange(bool boolean_status)
+{
+  if(boolean_status)
+    {    
+      time_last_deactivation  = timerstatus->GetMeasureMilliSeconds();
+    }
+   else
+    {
+      time_last_activation    = timerstatus->GetMeasureMilliSeconds();  
+    }   
+
+  timerstatus->Reset();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEDEVICEDRIVER_GPIO::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
@@ -275,11 +266,15 @@ bool DIONODEDEVICEDRIVER_SENSOR_AM2315::SetNodeItem(DIONODEITEM* nodeitem)
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEDEVICEDRIVER_SENSOR_AM2315::Clean()
+void DIONODEDEVICEDRIVER_GPIO::Clean()
 {
-  am2315                = NULL;
+  entryID                 = 0;
 
-  port                  = 0;
-  remotedeviceaddress   = 0;
-  timeout               = 0;
+  GPIO                    = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM;
+  pin                     = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM;
+
+  time_last_activation    = 0;
+  time_last_deactivation  = 0;
+
+  timerstatus             = NULL;  
 }

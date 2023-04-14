@@ -183,6 +183,21 @@ XVARIANT* DIONODEITEMVALUE::GetMaxValue()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XVARIANT* DIONODEITEMVALUE::GetDifferenceForChange()
+* @brief      GetDifferenceForChange
+* @ingroup    DATAIO
+* 
+* @return     XVARIANT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT* DIONODEITEMVALUE::GetDifferenceForChange()
+{
+  return &differenceforchange;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIONODEITEMVALUE::ValueHasChanged()
 * @brief      ValueHasChanged
 * @ingroup    DATAIO
