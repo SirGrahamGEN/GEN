@@ -57,7 +57,7 @@ DIONODEITEMACTUATOR::DIONODEITEMACTUATOR() : DIONODEITEM()
 {
   Clean();
 
-  itemtype = DIONODEITEM_TYPE_ACTUATOR;
+  type = DIONODEITEM_TYPE_ACTUATOR;
 }
 
 
@@ -79,14 +79,14 @@ DIONODEITEMACTUATOR::~DIONODEITEMACTUATOR()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEITEMACTUATOR_TYPE DIONODEITEMACTUATOR::GetActuatorType()
+* @fn         XDWORD DIONODEITEMACTUATOR::GetActuatorType()
 * @brief      GetActuatorType
 * @ingroup    DATAIO
 * 
-* @return     DIONODEITEMACTUATOR_TYPE : 
+* @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEITEMACTUATOR_TYPE DIONODEITEMACTUATOR::GetActuatorType()
+XDWORD DIONODEITEMACTUATOR::GetActuatorType()
 {
   return actuatortype;
 }
@@ -94,50 +94,20 @@ DIONODEITEMACTUATOR_TYPE DIONODEITEMACTUATOR::GetActuatorType()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEITEMACTUATOR::SetActuatorType(DIONODEITEMACTUATOR_TYPE type)
+* @fn         void DIONODEITEMACTUATOR::SetActuatorType(XDWORD actuatortype)
 * @brief      SetActuatorType
 * @ingroup    DATAIO
 * 
-* @param[in]  type : 
+* @param[in]  actuatortype : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEITEMACTUATOR::SetActuatorType(DIONODEITEMACTUATOR_TYPE type)
+void DIONODEITEMACTUATOR::SetActuatorType(XDWORD actuatortype)
 {
-  actuatortype = type;
-}
+  this->actuatortype = actuatortype;
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIONODEITEMACTUATOR::GetActuatorTypeDescription(XSTRING& typedescription)
-* @brief      GetActuatorTypeDescription
-* @ingroup    DATAIO
-* 
-* @param[in]  typedescription : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEMACTUATOR::GetActuatorTypeDescription(XSTRING& typedescription)
-{
-   typedescription.Empty();
- 
-   switch(actuatortype) 
-    {
-      case DIONODEITEM_TYPE_ACTUATOR_UNKNOWN   : 
-                                     default   : typedescription = __L("Unknown");                      
-                                                 return false;  
-                                                 break;
-
-      case DIONODEITEM_TYPE_ACTUATOR_GPIO      : typedescription = __L("GPIO");                break;
-      case DIONODEITEM_TYPE_ACTUATOR_LIGHT     : typedescription = __L("Light");               break;
-      case DIONODEITEM_TYPE_ACTUATOR_ENGINE    : typedescription = __L("Engine");              break;
-    
-    }
-
-  return true;
+  GenerateActuatorDescription();
 }
 
 
@@ -154,15 +124,9 @@ bool DIONODEITEMACTUATOR::Serialize()
 {
   DIONODEITEM::Serialize();
 
-  XSTRING typedescription;
- 
-  GetActuatorTypeDescription(typedescription);  
-
   Primitive_Add<int>(actuatortype, __L("actuator_type"));
-  Primitive_Add<XSTRING*>(&typedescription, __L("actuator_description"));
-
+  Primitive_Add<XSTRING*>(&description, __L("description"));
   XVectorClass_Add<DIONODEITEMVALUE>(GetValues(), __L("values"), __L("value"));
-  
   
   return true;
 }
@@ -182,10 +146,49 @@ bool DIONODEITEMACTUATOR::Deserialize()
   DIONODEITEM::Deserialize();
 
   Primitive_Extract<int>(actuatortype, __L("actuator_type"));
-
+  Primitive_Extract<XSTRING*>(&description, __L("description"));
   XVectorClass_Extract<DIONODEITEMVALUE>(GetValues(), __L("values"), __L("value"));
 
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMACTUATOR::GenerateActuatorDescription()
+* @brief      GenerateActuatorDescription
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEMACTUATOR::GenerateActuatorDescription()
+{
+  description.Empty();
+
+  GetPrimaryDescription(description);
+
+  if(!description.IsEmpty())
+    {
+      description += __L(" ");
+    }
+ 
+   switch(actuatortype) 
+    {
+      case DIONODEITEMACTUATOR_TYPE_UNKNOWN     : description += __L("Unknown");                      
+                                                  break;
+
+      case DIONODEITEMACTUATOR_TYPE_GPIO        : description += __L("GPIO");                
+                                                  break;
+
+      case DIONODEITEMACTUATOR_TYPE_LIGHT       : description += __L("light");               
+                                                  break;
+
+      case DIONODEITEMACTUATOR_TYPE_ENGINE      : description += __L("engine");              
+                                                  break;
+  
+                                    default     : break;   
+    }
 }
 
 
@@ -201,5 +204,5 @@ bool DIONODEITEMACTUATOR::Deserialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMACTUATOR::Clean()
 {
-  actuatortype = DIONODEITEM_TYPE_ACTUATOR_UNKNOWN;
+  actuatortype = DIONODEITEMACTUATOR_TYPE_UNKNOWN;
 }

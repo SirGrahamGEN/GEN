@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeDeviceDriver_GPIO.h
+* @file       DIONodeItemDriver_GPIO.h
 * 
-* @class      DIONODEDEVICEDRIVER_GPIO
-* @brief      Data Input/Output Node Device Driver GPIO
+* @class      DIONODEITEMDRIVER_GPIO
+* @brief      Data Input/Output Node Item Driver GPIO
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,26 +26,26 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEDEVICEDRIVER_GPIO_H_
-#define _DIONODEDEVICEDRIVER_GPIO_H_
+#ifndef _DIONODEITEMDRIVER_GPIO_H_
+#define _DIONODEITEMDRIVER_GPIO_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeDeviceDriver.h"
+#include "DIONodeItemDriver.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-#define DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM    -1 
+#define DIONODEITEMDRIVER_GPIO_INVALIDPARAM    -1 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XTIMER;
 
-class DIONODEDEVICEDRIVER_GPIO : public DIONODEDEVICEDRIVER
+class DIONODEITEMDRIVER_GPIO : public DIONODEITEMDRIVER
 {
   public:
-                                  DIONODEDEVICEDRIVER_GPIO        (XDWORD entryID, int GPIO = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM, int pin = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM);
-    virtual                      ~DIONODEDEVICEDRIVER_GPIO        ();
+                                  DIONODEITEMDRIVER_GPIO        (XDWORD entryID, int GPIO = DIONODEITEMDRIVER_GPIO_INVALIDPARAM, int pin = DIONODEITEMDRIVER_GPIO_INVALIDPARAM);
+    virtual                      ~DIONODEITEMDRIVER_GPIO        ();
 
     virtual bool                  Open                            ();
     virtual bool                  Update                          ();
@@ -57,6 +57,7 @@ class DIONODEDEVICEDRIVER_GPIO : public DIONODEDEVICEDRIVER
     XQWORD                        GetTimeLastDeactivation         (); 
 
   protected:
+
     void                          AdjustTimeInChange              (bool status);
 
     XDWORD                        entryID;

@@ -37,10 +37,13 @@
 
 enum DIONODEITEMACTUATOR_TYPE
 {
-  DIONODEITEM_TYPE_ACTUATOR_UNKNOWN           = 0 ,
-  DIONODEITEM_TYPE_ACTUATOR_GPIO                  ,
-  DIONODEITEM_TYPE_ACTUATOR_LIGHT                 ,
-  DIONODEITEM_TYPE_ACTUATOR_ENGINE                ,
+  DIONODEITEMACTUATOR_TYPE_UNKNOWN           = 0 ,
+  
+  DIONODEITEMACTUATOR_TYPE_GPIO                  ,
+  DIONODEITEMACTUATOR_TYPE_LIGHT                 ,
+  DIONODEITEMACTUATOR_TYPE_ENGINE                ,
+
+  DIONODEITEMACTUATOR_TYPE_OWNER 
 };
 
 
@@ -52,17 +55,18 @@ class DIONODEITEMACTUATOR :  public DIONODEITEM
                                   DIONODEITEMACTUATOR             ();
     virtual                      ~DIONODEITEMACTUATOR             ();
 
-    DIONODEITEMACTUATOR_TYPE      GetActuatorType                 ();
-    void                          SetActuatorType                 (DIONODEITEMACTUATOR_TYPE type); 
+    XDWORD                        GetActuatorType                 ();
+    void                          SetActuatorType                 (XDWORD type); 
 
-    bool                          GetActuatorTypeDescription      (XSTRING& typedescription);
-
+   
     virtual bool                  Serialize                       ();                                          
     virtual bool                  Deserialize                     ();  
 
   protected:
 
-    DIONODEITEMACTUATOR_TYPE      actuatortype;
+    void                          GenerateActuatorDescription     ();
+
+    XDWORD                        actuatortype;
  
   private:
 

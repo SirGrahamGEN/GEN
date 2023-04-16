@@ -38,10 +38,14 @@
 enum DIONODEITEMSENSOR_TYPE
 {
   DIONODEITEMSENSOR_TYPE_UNKNOWN                    = 0 ,
+
+  DIONODEITEMSENSOR_TYPE_GPIO                           ,
   DIONODEITEMSENSOR_TYPE_HUMIDITY                       ,
   DIONODEITEMSENSOR_TYPE_TEMPERATURE                    ,
   DIONODEITEMSENSOR_TYPE_TEMPERATURE_HUMIDITY           ,
   DIONODEITEMSENSOR_TYPE_LIGHT                          ,
+
+  DIONODEITEMSENSOR_TYPE_OWNER
 };
 
 
@@ -53,19 +57,19 @@ class DIONODEITEMSENSOR : public DIONODEITEM
                                   DIONODEITEMSENSOR           ();
     virtual                      ~DIONODEITEMSENSOR           ();
 
-    DIONODEITEMSENSOR_TYPE        GetSensorType               ();
-    void                          SetSensorType               (DIONODEITEMSENSOR_TYPE type); 
-
-    bool                          GetSensorTypeDescription    (XSTRING& typedescription);              
+    XDWORD                        GetSensorType               ();
+    void                          SetSensorType               (XDWORD sensortype); 
    
     virtual bool                  Serialize                   ();                                          
     virtual bool                  Deserialize                 (); 
 
   protected: 
     
-    DIONODEITEMSENSOR_TYPE        sensortype;   
+    XDWORD                        sensortype;   
 
   private:
+
+    void                          GenerateSensorDescription   ();
 
     void                          Clean                       ();
 };

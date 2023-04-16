@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeDeviceDriver_Actuator_GPIO.h
+* @file       DIONodeItemDriver_Sensor_GPIO.h
 * 
-* @class      DIONODEDEVICEDRIVER_ACTUATOR_GPIO
-* @brief      Data Input/Output Node Device Driver actuator GPIO
+* @class      DIONODEITEMDRIVER_SENSOR_GPIO
+* @brief      Data Input/Output Node Item Driver sensor GPIO
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,23 +26,23 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEDEVICEDRIVER_ACTUATOR_GPIO_H_
-#define _DIONODEDEVICEDRIVER_ACTUATOR_GPIO_H_
+#ifndef _DIONODEITEMDRIVER_SENSOR_GPIO_H_
+#define _DIONODEITEMDRIVER_SENSOR_GPIO_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeDeviceDriver_GPIO.h"
+#include "DIONodeItemDriver_GPIO.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEDEVICEDRIVER_ACTUATOR_GPIO : public DIONODEDEVICEDRIVER_GPIO
+class DIONODEITEMDRIVER_SENSOR_GPIO : public DIONODEITEMDRIVER_GPIO
 {
   public:
-                                  DIONODEDEVICEDRIVER_ACTUATOR_GPIO     (XDWORD entryID, int GPIO = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM, int pin = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM);
-    virtual                      ~DIONODEDEVICEDRIVER_ACTUATOR_GPIO     ();
+                                  DIONODEITEMDRIVER_SENSOR_GPIO       (XDWORD entryID, int GPIO = DIONODEITEMDRIVER_GPIO_INVALIDPARAM, int pin = DIONODEITEMDRIVER_GPIO_INVALIDPARAM);
+    virtual                      ~DIONODEITEMDRIVER_SENSOR_GPIO       ();
 
     virtual bool                  Open                                  ();
     virtual bool                  Update                                ();

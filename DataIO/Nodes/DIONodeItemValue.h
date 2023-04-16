@@ -41,10 +41,13 @@
 enum DIONODEITEMVALUE_TYPE
 {
   DIONODEITEMVALUE_TYPE_UNKNOWN           = 0 ,
+
   DIONODEITEMVALUE_TYPE_BOOLEAN               ,
   DIONODEITEMVALUE_TYPE_TEMPERATURE           ,
   DIONODEITEMVALUE_TYPE_HUMIDITY              ,
   DIONODEITEMVALUE_TYPE_LIGHTLEVEL            ,
+
+  DIONODEITEMVALUE_TYPE_OWNER                 ,
 };
 
 
@@ -56,10 +59,10 @@ class DIONODEITEMVALUE : public XSERIALIZABLE
                                         DIONODEITEMVALUE          ();
     virtual                            ~DIONODEITEMVALUE          ();
 
-    DIONODEITEMVALUE_TYPE               GetType                   ();
-    void                                SetType                   (DIONODEITEMVALUE_TYPE type);
+    XDWORD                              GetType                   ();
+    void                                SetType                   (XDWORD type);
 
-    bool                                GetDescription            (XSTRING& typedescription);
+    virtual bool                        GetDescription            (XSTRING& description);
 
     XVARIANT*                           GetValue                  ();
     XVARIANT*                           GetMinValue               ();
@@ -78,7 +81,7 @@ class DIONODEITEMVALUE : public XSERIALIZABLE
 
     void                                Clean                     ();
 
-    DIONODEITEMVALUE_TYPE               type;
+    XDWORD                              type;
 
     XVARIANT                            value; 
     XVARIANT                            minvalue;

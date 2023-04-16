@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeDeviceDriver_Sensor_GPIO.h
+* @file       DIONodeItemDriver.h
 * 
-* @class      DIONODEDEVICEDRIVER_SENSOR_GPIO
-* @brief      Data Input/Output Node Device Driver sensor GPIO
+* @class      DIONODEITEMDRIVER
+* @brief      Data Input/Output Node Item Driver
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,32 +26,66 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEDEVICEDRIVER_SENSOR_GPIO_H_
-#define _DIONODEDEVICEDRIVER_SENSOR_GPIO_H_
+#ifndef _DIONODEITEMDRIVER_H_
+#define _DIONODEITEMDRIVER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeDeviceDriver_GPIO.h"
+#include "XBase.h"
+#include "XVector.h"
+
+#include "DIONodeItem.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+enum DIONODEITEMDRIVER_TYPE
+{
+  DIONODEITEMDRIVER_TYPE_UNKNOWN            = 0 ,
+
+  DIONODEITEMDRIVER_TYPE_SENSOR_GPIO            ,
+  DIONODEITEMDRIVER_TYPE_ACTUATOR_GPIO          ,
+  DIONODEITEMDRIVER_TYPE_SENSOR_AM2315          ,   
+
+  DIONODEITEMDRIVER_TYPE_OWNER                          
+};
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEDEVICEDRIVER_SENSOR_GPIO : public DIONODEDEVICEDRIVER_GPIO
+class DIONODEITEMDRIVER
 {
   public:
-                                  DIONODEDEVICEDRIVER_SENSOR_GPIO       (XDWORD entryID, int GPIO = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM, int pin = DIONODEDEVICEDRIVER_GPIO_INVALIDPARAM);
-    virtual                      ~DIONODEDEVICEDRIVER_SENSOR_GPIO       ();
+                                  DIONODEITEMDRIVER     ();
+    virtual                      ~DIONODEITEMDRIVER     ();
 
-    virtual bool                  Open                                  ();
-    virtual bool                  Update                                ();
+    XDWORD                        GetType                 ();      
+    virtual XSTRING*              GetDescription          ();      
+
+    virtual bool                  Open                    ();
+    virtual bool                  Update                  ();
+    virtual bool                  Close                   ();
+
+    bool                          IsOpen                  ();
+    bool                          IsWorking               ();
+
+    DIONODEITEM*                  GetNodeItem             ();
+    virtual bool                  SetNodeItem             (DIONODEITEM* nodeitem);    
+
+  protected:
+
+    XDWORD                        type;      
+    XSTRING                       description; 
     
+    bool                          isopen;   
+    bool                          isworking;
+
   private:
 
-    void                          Clean                                 ();      
+    void                          Clean                   (); 
+
+    DIONODEITEM*                  nodeitem;    
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
+

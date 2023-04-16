@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeDeviceDriver_SensorAM2315.cpp
+* @file       DIONodeItemDriver.cpp
 * 
-* @class      DIONODEDEVICEDRIVER_SENSOR_AM2315
-* @brief      Data Input/Output Node Device Driver Sensor AM2315
+* @class      DIONODEITEMDRIVER
+* @brief      Data Input/Output Node Item Driver
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -28,16 +28,12 @@
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
-#include "math.h"
-
 #include "GEN_Defines.h"
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeItemSensor.h"
-
-#include "DIONodeDeviceDriver_Sensor_AM2315.h"
+#include "DIONodeItemDriver.h"
 
 #include "XMemory_Control.h"
 
@@ -50,33 +46,22 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEDEVICEDRIVER_SENSOR_AM2315::DIONODEDEVICEDRIVER_SENSOR_AM2315(int port, int remotedeviceaddress, int timeout)
+* @fn         DIONODEITEMDRIVER::DIONODEITEMDRIVER()
 * @brief      Constructor
 * @ingroup    DATAIO
-* 
-* @param[in]  int : 
-* @param[in]  int remotedeviceaddress : 
-* @param[in]  int timeout : 
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEDEVICEDRIVER_SENSOR_AM2315::DIONODEDEVICEDRIVER_SENSOR_AM2315(int port, int remotedeviceaddress, int timeout)
+DIONODEITEMDRIVER::DIONODEITEMDRIVER()
 {
   Clean();
-
-  am2315 = new DIOI2CTEMHUMSENSORAM2315();
-
-  this->port                = port; 
-  this->remotedeviceaddress = remotedeviceaddress; 
-  this->timeout             = timeout;    
-
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEDEVICEDRIVER_SENSOR_AM2315::~DIONODEDEVICEDRIVER_SENSOR_AM2315()
+* @fn         DIONODEITEMDRIVER::~DIONODEITEMDRIVER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
@@ -84,14 +69,9 @@ DIONODEDEVICEDRIVER_SENSOR_AM2315::DIONODEDEVICEDRIVER_SENSOR_AM2315(int port, i
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEDEVICEDRIVER_SENSOR_AM2315::~DIONODEDEVICEDRIVER_SENSOR_AM2315()
+DIONODEITEMDRIVER::~DIONODEITEMDRIVER()
 {
   Close();
-
-  if(am2315)
-    {
-      delete am2315;  
-    }
 
   Clean();
 }
@@ -99,105 +79,77 @@ DIONODEDEVICEDRIVER_SENSOR_AM2315::~DIONODEDEVICEDRIVER_SENSOR_AM2315()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Open()
+* @fn         XDWORD DIONODEITEMDRIVER::GetType()
+* @brief      GetType
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIONODEITEMDRIVER::GetType()
+{
+  return type;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIONODEITEMDRIVER::GetDescription()
+* @brief      GetDescription
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIONODEITEMDRIVER::GetDescription()
+{
+  return &description;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEITEMDRIVER::Open()
 * @brief      Open
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Open()
+bool DIONODEITEMDRIVER::Open()
 {
-  if(!am2315)
-    {
-      return false;
-    }
-  
-  isopen = am2315->Ini(port, remotedeviceaddress, timeout);
-  
-  if(isopen)
-    {
-      isworking = true;
-    }
+  isopen = true;
 
-  return isopen;
+  return false;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Update()
+* @fn         bool DIONODEITEMDRIVER::Update()
 * @brief      Update
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Update()
+bool DIONODEITEMDRIVER::Update()
 {
-  float value[2] = { 0.0f, 0.0f };
-  
-  isworking = am2315->Read(value[0], value[1]);
-
-  DIONODEITEM* nodeitem = GetNodeItem();
-  if(!nodeitem)
-    {
-      return false;
-    }
-
-  if(nodeitem->GetValues()->GetSize() != 2) 
-    {
-      return false;
-    }
-
-  DIONODEITEMVALUE* nodeitemvalue;
-
-  for(int c=0; c<2; c++)
-    {
-      nodeitemvalue = nodeitem->GetValues()->Get(c);
-      if(nodeitemvalue)
-        {
-          float      differencevalue = 0.0f;
-          XVARIANT*  nodeitemdifferencevalue = nodeitemvalue->GetDifferenceForChange();
- 
-          if(nodeitemdifferencevalue)
-            {
-              if(!nodeitemdifferencevalue->IsNull())
-                {                  
-                   differencevalue = (float)(*nodeitemdifferencevalue);    
-                   differencevalue = fabs(differencevalue);
-                }
-            }
-
-          float difference = (value[c] - (float)(*nodeitemvalue->GetValue()));
-
-          if(fabs(difference) > differencevalue)
-            {
-              (*nodeitemvalue->GetValue()) = value[c];
-              nodeitemvalue->SetValueHasChanged(true); 
-
-              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[DIO Node Item AM2315 Sensor] %s value %f"), (!c)?__L("temperature"):__L("humidity") ,value[c]);  
-            }
-        }
-    }
-
-  return true;
+  return false;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Close()
+* @fn         bool DIONODEITEMDRIVER::Close()
 * @brief      Close
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Close()
+bool DIONODEITEMDRIVER::Close()
 {
-  am2315->End();
-        
   isopen = false;
 
   return true;
@@ -206,7 +158,52 @@ bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Close()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEDEVICEDRIVER_SENSOR_AM2315::SetNodeItem(DIONODEITEM* nodeitem)
+* @fn         bool DIONODEITEMDRIVER::IsOpen()
+* @brief      IsOpen
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEITEMDRIVER::IsOpen()
+{
+  return isopen;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEITEMDRIVER::IsWorking()
+* @brief      IsWorking
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEITEMDRIVER::IsWorking()
+{
+  return isworking;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIONODEITEM* DIONODEITEMDRIVER::GetNodeItem()
+* @brief      GetNodeItem
+* @ingroup    DATAIO
+* 
+* @return     DIONODEITEM* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIONODEITEM* DIONODEITEMDRIVER::GetNodeItem()
+{
+  return nodeitem;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEITEMDRIVER::SetNodeItem(DIONODEITEM* nodeitem)
 * @brief      SetNodeItem
 * @ingroup    DATAIO
 * 
@@ -215,51 +212,14 @@ bool DIONODEDEVICEDRIVER_SENSOR_AM2315::Close()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEDEVICEDRIVER_SENSOR_AM2315::SetNodeItem(DIONODEITEM* nodeitem)
+bool DIONODEITEMDRIVER::SetNodeItem(DIONODEITEM* nodeitem)
 {
-  if(!DIONODEDEVICEDRIVER::SetNodeItem(nodeitem)) 
-    {
-      return false;
-    }
+  if(!nodeitem) return false;
 
-  DIONODEITEMSENSOR* nodeitemsensor = (DIONODEITEMSENSOR*)nodeitem;
-  if(!nodeitemsensor)
-    {
-      return false;
-    }
+  this->nodeitem = nodeitem;
 
-  nodeitemsensor->SetSensorType(DIONODEITEMSENSOR_TYPE_TEMPERATURE_HUMIDITY); 
-
-  DIONODEITEMVALUE* value[2];
-
-  for(XDWORD c=0; c<2; c++)
-    {
-      value[c] = new DIONODEITEMVALUE();
-      if(value[c])
-    
-      switch(c)
-        {
-          case  0 : value[c]->SetType(DIONODEITEMVALUE_TYPE_TEMPERATURE); 
-    
-                    (*value[c]->GetValue())    =    0.00f;
-                    (*value[c]->GetMinValue()) =  -50.00f;
-                    (*value[c]->GetMaxValue()) =   50.00f;
-
-                    value[c]->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_CELSIUSDEGREE);
-                    break;
-
-          case  1 : value[c]->SetType(DIONODEITEMVALUE_TYPE_HUMIDITY); 
-
-                    (*value[c]->GetValue())    =   0.00f; 
-                    (*value[c]->GetMinValue()) =   0.00f; 
-                    (*value[c]->GetMaxValue()) = 100.00f;   
-
-                    value[c]->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_RELATIVEHUMIDITY);
-                    break;
-        }
-
-      nodeitem->GetValues()->Add(value[c]);
-    }
+  nodeitem->GetValues()->DeleteContents();
+  nodeitem->GetValues()->DeleteAll();
 
   return true;
 }
@@ -267,7 +227,7 @@ bool DIONODEDEVICEDRIVER_SENSOR_AM2315::SetNodeItem(DIONODEITEM* nodeitem)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEDEVICEDRIVER_SENSOR_AM2315::Clean()
+* @fn         void DIONODEITEMDRIVER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
@@ -275,11 +235,10 @@ bool DIONODEDEVICEDRIVER_SENSOR_AM2315::SetNodeItem(DIONODEITEM* nodeitem)
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEDEVICEDRIVER_SENSOR_AM2315::Clean()
+void DIONODEITEMDRIVER::Clean()
 {
-  am2315                = NULL;
+  isopen      = false;
+  isworking   = false; 
 
-  port                  = 0;
-  remotedeviceaddress   = 0;
-  timeout               = 0;
+  nodeitem    = NULL;
 }

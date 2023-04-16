@@ -1,24 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  DIOLINUXSTREAMI2C.CPP
-//
-//  LINUX Data Input/Output Stream I2C class
-//
-//
-//  ""
-//  @version 12/3/2003
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
-
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOLINUXStreamI2C.cpp
+* 
+* @class      DIOLINUXSTREAMI2C
+* @brief      Linux Data Input/Output Stream I2C class
+* @ingroup    PLATFORM_LINUX
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-#if defined(DIO_ACTIVE) && defined(DIOI2C_ACTIVE)
-
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,25 +59,22 @@
 
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMI2C::DIOLINUXSTREAMI2C
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 7:51:23
-//
-//  @return
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOLINUXSTREAMI2C::DIOLINUXSTREAMI2C()
+* @brief      Constructor
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+*
+--------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMI2C::DIOLINUXSTREAMI2C() : DIOSTREAMI2C()
 {
   Clean();
@@ -73,19 +83,16 @@ DIOLINUXSTREAMI2C::DIOLINUXSTREAMI2C() : DIOSTREAMI2C()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMI2C::~DIOLINUXSTREAMI2C
-/**
-//
-//
-//  ""
-//  @version      20/11/2003 10:19:33
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMI2C::~DIOLINUXSTREAMI2C()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMI2C::~DIOLINUXSTREAMI2C()
 {
   if(threadconnection)
@@ -99,21 +106,15 @@ DIOLINUXSTREAMI2C::~DIOLINUXSTREAMI2C()
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMI2C::Open
-*/
-/**
-//
-//
-//  ""
-//  @version      07/10/2012 10:03:42
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMI2C::Open()
+* @brief      Open
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMI2C::Open()
 {
   if(!config) return false;
@@ -147,24 +148,18 @@ bool DIOLINUXSTREAMI2C::Open()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMI2C::WaitToFilledReadingBuffer
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      09/06/2014 23:37:38
-//
-//  @return       bool :
-//
-//  @param        DIOSTREAM_SOMETHINGTOREAD :
-//  @param        XTIMER_INFINITE :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMI2C::WaitToFilledReadingBuffer(int filledto, int timeout)
+* @brief      WaitToFilledReadingBuffer
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  filledto : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMI2C::WaitToFilledReadingBuffer(int filledto, int timeout)
 {
   if(filledto == DIOSTREAM_SOMETHINGTOREAD) sizeread = 1; else sizeread = filledto;
@@ -175,24 +170,18 @@ bool DIOLINUXSTREAMI2C::WaitToFilledReadingBuffer(int filledto, int timeout)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMI2C::ReadDirect
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      15/09/2016 13:23:30
-//
-//  @return       XDWORD :
-//
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOLINUXSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
+* @brief      ReadDirect
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOLINUXSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config) return false;
@@ -218,26 +207,18 @@ XDWORD DIOLINUXSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 }
 
 
-
-
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMI2C::WriteDirect
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      15/09/2016 13:23:44
-//
-//  @return       XDWORD :
-//
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOLINUXSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
+* @brief      WriteDirect
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOLINUXSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config) return false;
@@ -266,19 +247,15 @@ XDWORD DIOLINUXSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMI2C::Close
-*/
-/**
-//
-//
-//  ""
-//  @version      07/10/2012 10:03:47
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMI2C::Close()
+* @brief      Close
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMI2C::Close()
 {
   if(!threadconnection) return false;
@@ -296,19 +273,16 @@ bool DIOLINUXSTREAMI2C::Close()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMI2C::Clean
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      26/04/2014 21:05:24
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMI2C::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMI2C::Clean()
 {
   handle   = -1;
@@ -316,20 +290,17 @@ void DIOLINUXSTREAMI2C::Clean()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMI2C::ThreadConnection
-*/
-/**
-//
-//
-//  ""
-//  @version      22/09/2012 16:59:27
-//
-//  @return       void :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMI2C::ThreadConnection(void* data)
+* @brief      ThreadConnection
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMI2C::ThreadConnection(void* data)
 {
   DIOLINUXSTREAMI2C* diostream = (DIOLINUXSTREAMI2C*)data;
@@ -426,8 +397,3 @@ void DIOLINUXSTREAMI2C::ThreadConnection(void* data)
 }
 
 
-
-
-
-
-#endif

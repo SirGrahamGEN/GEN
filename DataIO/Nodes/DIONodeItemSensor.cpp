@@ -57,7 +57,7 @@ DIONODEITEMSENSOR::DIONODEITEMSENSOR() : DIONODEITEM()
 {
   Clean();
 
-  itemtype = DIONODEITEM_TYPE_SENSOR;
+  type = DIONODEITEM_TYPE_SENSOR;
 }
 
 
@@ -79,65 +79,35 @@ DIONODEITEMSENSOR::~DIONODEITEMSENSOR()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEITEMSENSOR_TYPE DIONODEITEMSENSOR::GetSensorType()
+* @fn         XDWORD DIONODEITEMSENSOR::GetSensorType()
 * @brief      GetSensorType
 * @ingroup    DATAIO
 * 
-* @return     DIONODEITEMSENSOR_TYPE : 
+* @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEITEMSENSOR_TYPE DIONODEITEMSENSOR::GetSensorType()
+XDWORD DIONODEITEMSENSOR::GetSensorType()
 {
   return sensortype;
 }
-    
 
+    
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEITEMSENSOR::SetSensorType(DIONODEITEMSENSOR_TYPE type)
+* @fn         void DIONODEITEMSENSOR::SetSensorType(XDWORD sensortype)
 * @brief      SetSensorType
 * @ingroup    DATAIO
 * 
-* @param[in]  type : 
+* @param[in]  sensortype : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEITEMSENSOR::SetSensorType(DIONODEITEMSENSOR_TYPE type)
+void DIONODEITEMSENSOR::SetSensorType(XDWORD sensortype)
 {
-  this->sensortype = type;
-}
+  this->sensortype = sensortype;
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIONODEITEMSENSOR::GetSensorTypeDescription(XSTRING& typedescription)
-* @brief      GetSensorTypeDescription
-* @ingroup    DATAIO
-* 
-* @param[in]  typedescription : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEMSENSOR::GetSensorTypeDescription(XSTRING& typedescription)
-{
-   typedescription.Empty();
- 
-   switch(sensortype) 
-    {
-      case DIONODEITEMSENSOR_TYPE_UNKNOWN               : 
-                                              default   : typedescription = __L("Unknown");                      
-                                                            return false;  
-                                                            break;
-
-      case DIONODEITEMSENSOR_TYPE_HUMIDITY              : typedescription = __L("Humidity");                     break;
-      case DIONODEITEMSENSOR_TYPE_TEMPERATURE           : typedescription = __L("Temperature");                  break;
-      case DIONODEITEMSENSOR_TYPE_TEMPERATURE_HUMIDITY  : typedescription = __L("Temperature/Humidity");         break;
-      case DIONODEITEMSENSOR_TYPE_LIGHT                 : typedescription = __L("Light");                        break;
-    }
-
-  return true;
+  GenerateSensorDescription();
 }
 
 
@@ -153,14 +123,9 @@ bool DIONODEITEMSENSOR::GetSensorTypeDescription(XSTRING& typedescription)
 bool DIONODEITEMSENSOR::Serialize()
 {
   DIONODEITEM::Serialize();
-
-  XSTRING typedescription;
- 
-  GetSensorTypeDescription(typedescription);  
-
-  Primitive_Add<int>(sensortype, __L("sensor_type"));
-  Primitive_Add<XSTRING*>(&typedescription, __L("sensor_description"));
-
+  
+  Primitive_Add<int>(sensortype, __L("sensor_type")); 
+  Primitive_Add<XSTRING*>(&description, __L("description"));
   XVectorClass_Add<DIONODEITEMVALUE>(GetValues(), __L("values"), __L("value"));
   
   return true;
@@ -181,10 +146,55 @@ bool DIONODEITEMSENSOR::Deserialize()
   DIONODEITEM::Deserialize();
 
   Primitive_Extract<int>(sensortype, __L("sensor_type"));
-
+  Primitive_Extract<XSTRING*>(&description, __L("description"));
   XVectorClass_Extract<DIONODEITEMVALUE>(GetValues(), __L("values"), __L("value"));
 
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMSENSOR::GenerateSensorDescription()
+* @brief      GenerateSensorDescription
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEMSENSOR::GenerateSensorDescription()
+{
+  description.Empty();
+
+  GetPrimaryDescription(description);
+
+  if(!description.IsEmpty())
+    {
+      description += __L(" ");
+    }
+
+  switch(sensortype) 
+    {
+      case DIONODEITEMSENSOR_TYPE_UNKNOWN               : description += __L("Unknown");                            
+                                                          break;
+
+      case DIONODEITEMSENSOR_TYPE_GPIO                  : description += __L("GPIO");                     
+                                                          break;
+
+      case DIONODEITEMSENSOR_TYPE_HUMIDITY              : description += __L("humidity");                     
+                                                          break;
+
+      case DIONODEITEMSENSOR_TYPE_TEMPERATURE           : description += __L("temperature");                  
+                                                          break;
+
+      case DIONODEITEMSENSOR_TYPE_TEMPERATURE_HUMIDITY  : description += __L("temperature / humidity");       
+                                                          break;
+
+      case DIONODEITEMSENSOR_TYPE_LIGHT                 : description += __L("light");                        
+                                                          break;
+
+                                             default    : break;                                
+    }
 }
 
 

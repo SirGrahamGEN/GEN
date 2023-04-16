@@ -41,14 +41,17 @@
 enum DIONODEITEM_TYPE
 {
   DIONODEITEM_TYPE_UNKNOWN           = 0 ,
+
   DIONODEITEM_TYPE_SENSOR                ,
   DIONODEITEM_TYPE_ACTUATOR              ,  
+
+  DIONODEITEM_TYPE_OWNER
 };
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEDEVICEDRIVER;
+class DIONODEITEMDRIVER;
 
 class DIONODEITEM : public XSERIALIZABLE
 {
@@ -56,18 +59,25 @@ class DIONODEITEM : public XSERIALIZABLE
                                   DIONODEITEM                   ();
     virtual                      ~DIONODEITEM                   ();
 
-    DIONODEITEM_TYPE              GetItemType                   (); 
-    void                          SetItemType                   (DIONODEITEM_TYPE type);     
+    XDWORD                        GetType                       (); 
+    void                          SetType                       (XDWORD type);     
 
-    bool                          GetItemTypeDescription        (XSTRING& typedescription);
+    XSTRING*                      GetDescription                (); 
+    virtual bool                  GetPrimaryDescription         (XSTRING& primarydescription);
+    bool                          SetDescription                (XCHAR* description, bool addprimarydescription = true);
 
     XUUID&                        GetID                         ();
     void                          SetID                         (XUUID& UUID);
 
-    DIONODEDEVICEDRIVER*          DeviceDriver_Get              ();
-    bool                          DeviceDriver_Set              (DIONODEDEVICEDRIVER* devicedriver);
-    bool                          DeviceDriver_Open             ();
-    bool                          DeviceDriver_Close            ();
+    DIONODEITEMDRIVER*          ItemDriver_Get              ();
+    bool                          ItemDriver_Set              (DIONODEITEMDRIVER* itemdriver);
+    bool                          ItemDriver_Open             ();
+    bool                          ItemDriver_Close            ();
+
+    XQWORD                        GetTimeToUpdate               ();
+    void                          SetTimeToUpdate               (XQWORD timetoupdate);
+    
+    XTIMER*                       GetUpdateTimer                ();
 
     virtual bool                  Update                        ();
 
@@ -78,14 +88,17 @@ class DIONODEITEM : public XSERIALIZABLE
 
   protected:
 
-    DIONODEITEM_TYPE              itemtype;
+    XDWORD                        type;
+    XSTRING                       description;
     XUUID                         UUID;
-    DIONODEDEVICEDRIVER*          devicedriver;
+    DIONODEITEMDRIVER*          itemdriver;
     XVECTOR<DIONODEITEMVALUE*>    values;
+    XQWORD                        timetoupdate;
+    XTIMER*                       updatetimer;
 
   private:
-
-    void                          Clean                  ();   
+   
+    void                          Clean                         ();   
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

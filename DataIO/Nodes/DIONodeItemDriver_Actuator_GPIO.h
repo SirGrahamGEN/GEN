@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeItemValueUnitFormat.h
+* @file       DIONodeItemDriver_Actuator_GPIO.h
 * 
-* @class      DIONODEITEMVALUEUNITFORMAT
-* @brief      
+* @class      DIONODEITEMDRIVER_ACTUATOR_GPIO
+* @brief      Data Input/Output Node Item Driver actuator GPIO
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,60 +26,32 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEITEMVALUEUNITFORMAT_H_
-#define _DIONODEITEMVALUEUNITFORMAT_H_
+#ifndef _DIONODEITEMDRIVER_ACTUATOR_GPIO_H_
+#define _DIONODEITEMDRIVER_ACTUATOR_GPIO_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XString.h"
-#include "XSerializable.h"
+#include "DIONodeItemDriver_GPIO.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 
-enum DIONODEITEMVALUE_UNITSFORMAT_TYPE
-{
-  DIONODEITEMVALUE_UNITSFORMAT_TYPE_UNKNOWN              = 0 ,
-
-  DIONODEITEMVALUE_UNITSFORMAT_TYPE_SIMPLE                   ,
-  DIONODEITEMVALUE_UNITSFORMAT_TYPE_BOOLEAN                  ,
-  
-  DIONODEITEMVALUE_UNITSFORMAT_TYPE_RELATIVEHUMIDITY         ,
-
-  DIONODEITEMVALUE_UNITSFORMAT_TYPE_CELSIUSDEGREE            ,            
-  DIONODEITEMVALUE_UNITSFORMAT_TYPE_FAHRENHEITDEGREE         ,   
-  DIONODEITEMVALUE_UNITSFORMAT_TYPE_KELVINDEGREE             ,
-
-  DIONODEITEMVALUE_UNITSFORMAT_TYPE_OWNER                   
-
-};
-
-
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEITEMVALUEUNITFORMAT : public XSERIALIZABLE
+class DIONODEITEMDRIVER_ACTUATOR_GPIO : public DIONODEITEMDRIVER_GPIO
 {
   public:
-                               DIONODEITEMVALUEUNITFORMAT    ();
-    virtual                   ~DIONODEITEMVALUEUNITFORMAT    ();
+                                  DIONODEITEMDRIVER_ACTUATOR_GPIO     (XDWORD entryID, int GPIO = DIONODEITEMDRIVER_GPIO_INVALIDPARAM, int pin = DIONODEITEMDRIVER_GPIO_INVALIDPARAM);
+    virtual                      ~DIONODEITEMDRIVER_ACTUATOR_GPIO     ();
 
-    XDWORD                     GetType                       ();
-    void                       SetType                       (XDWORD type);
-
-    virtual bool               GetName                       (XSTRING& name);
-    virtual bool               GetSymbol                     (XSTRING& symbol);
-
-    virtual bool               Serialize                     ();                                          
-    virtual bool               Deserialize                   (); 
-  
+    virtual bool                  Open                                  ();
+    virtual bool                  Update                                ();
+    
   private:
 
-    void                       Clean                         ();
-
-    XDWORD                     type;       
+    void                          Clean                                 ();      
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-

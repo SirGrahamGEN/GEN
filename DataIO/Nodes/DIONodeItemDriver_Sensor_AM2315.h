@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeDeviceDriver.h
+* @file       DIONodeItemDriver_Sensor_AM2315.h
 * 
-* @class      DIONODEDEVICEDRIVER
-* @brief      Data Input/Output Node Device Driver
+* @class      DIONODEITEMDRIVER_SENSOR_AM2315
+* @brief      Data Input/Output Node Item Driver Sensor AM2315
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,47 +26,41 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEDEVICEDRIVER_H_
-#define _DIONODEDEVICEDRIVER_H_
+#ifndef _DIONODEITEMDRIVER_SENSOR_AM2315_H_
+#define _DIONODEITEMDRIVER_SENSOR_AM2315_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XBase.h"
-#include "XVector.h"
+#include "DIOI2CTemHumSensorAM2315.h"  
 
-#include "DIONodeItem.h"
+#include "DIONodeItemDriver.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEDEVICEDRIVER
+class DIONODEITEMDRIVER_SENSOR_AM2315 : public DIONODEITEMDRIVER
 {
   public:
-                                  DIONODEDEVICEDRIVER     ();
-    virtual                      ~DIONODEDEVICEDRIVER     ();
+                                  DIONODEITEMDRIVER_SENSOR_AM2315     (int port, int remoteitemaddress, int timeout);
+    virtual                      ~DIONODEITEMDRIVER_SENSOR_AM2315     ();
 
-    virtual bool                  Open                    ();
-    virtual bool                  Update                  ();
-    virtual bool                  Close                   ();
+    bool                          Open                                  ();
+    bool                          Update                                ();
+    bool                          Close                                 ();
 
-    bool                          IsOpen                  ();
-    bool                          IsWorking               ();
-
-    DIONODEITEM*                  GetNodeItem             ();
-    virtual bool                  SetNodeItem             (DIONODEITEM* nodeitem);    
-
-  protected:
-
-    bool                          isopen;   
-    bool                          isworking;
-
+    bool                          SetNodeItem                           (DIONODEITEM* nodeitem);    
+    
   private:
 
-    void                          Clean                   (); 
+    void                          Clean                                 ();
 
-    DIONODEITEM*                  nodeitem;    
+    DIOI2CTEMHUMSENSORAM2315*     am2315;
+
+    int                           port;
+    int                           remoteitemaddress;
+    int                           timeout;
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

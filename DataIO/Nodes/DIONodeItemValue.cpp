@@ -77,16 +77,74 @@ DIONODEITEMVALUE::~DIONODEITEMVALUE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEITEMVALUE_TYPE DIONODEITEMVALUE::GetType()
+* @fn         XDWORD DIONODEITEMVALUE::GetType()
 * @brief      GetType
 * @ingroup    DATAIO
 * 
-* @return     DIONODEITEMVALUE_TYPE : 
+* @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEITEMVALUE_TYPE DIONODEITEMVALUE::GetType()
+XDWORD DIONODEITEMVALUE::GetType()
 {
   return type;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMVALUE::SetType(DIONODEITEMVALUE_TYPE type)
+* @brief      SetType
+* @ingroup    DATAIO
+* 
+* @param[in]  type : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEMVALUE::SetType(XDWORD type)
+{
+  this->type = type;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEITEMVALUE::GetDescription(XSTRING& description)
+* @brief      GetDescription
+* @ingroup    DATAIO
+* 
+* @param[in]  description : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEITEMVALUE::GetDescription(XSTRING& description)
+{
+  description.Empty();
+
+  switch(type)
+    {
+      case DIONODEITEMVALUE_TYPE_UNKNOWN        : description = __L("unknown"); 
+                                                  break;
+      
+      case DIONODEITEMVALUE_TYPE_BOOLEAN        : description = __L("boolean");         
+                                                  break;
+
+      case DIONODEITEMVALUE_TYPE_TEMPERATURE    : description = __L("temperature");     
+                                                  break;
+
+      case DIONODEITEMVALUE_TYPE_HUMIDITY       : description = __L("humidity");        
+                                                  break;  
+
+      case DIONODEITEMVALUE_TYPE_LIGHTLEVEL     : description = __L("light level");     
+                                                  break;
+
+                                      default   : break; 
+    }
+
+  if(description.IsEmpty()) return false;
+
+  return true;
 }
 
 
@@ -102,52 +160,6 @@ DIONODEITEMVALUE_TYPE DIONODEITEMVALUE::GetType()
 XVARIANT* DIONODEITEMVALUE::GetValue()
 {
   return &value;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIONODEITEMVALUE::SetType(DIONODEITEMVALUE_TYPE type)
-* @brief      SetType
-* @ingroup    DATAIO
-* 
-* @param[in]  type : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEITEMVALUE::SetType(DIONODEITEMVALUE_TYPE type)
-{
-  this->type = type;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIONODEITEMVALUE::GetDescription(XSTRING& typedescription)
-* @brief      GetDescription
-* @ingroup    DATAIO
-* 
-* @param[in]  typedescription : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEMVALUE::GetDescription(XSTRING& typedescription)
-{
-  switch(type)
-    {
-      case DIONODEITEMVALUE_TYPE_UNKNOWN        :
-                                 default        : typedescription = __L("unknown"); 
-                                                  return true;
-      
-      case DIONODEITEMVALUE_TYPE_BOOLEAN        : typedescription = __L("boolean");         return true;
-      case DIONODEITEMVALUE_TYPE_TEMPERATURE    : typedescription = __L("temperature");     return true;
-      case DIONODEITEMVALUE_TYPE_HUMIDITY       : typedescription = __L("humidity");        return true;
-      case DIONODEITEMVALUE_TYPE_LIGHTLEVEL     : typedescription = __L("light level");     return true;
-    }
-
-  return false;
 }
 
 
@@ -262,7 +274,8 @@ bool DIONODEITEMVALUE::Serialize()
   Primitive_Add<XSTRING*>(&typedescription, __L("description"));
   Primitive_Add<XVARIANT*>(&value, __L("value")); 
   Primitive_Add<XVARIANT*>(&minvalue, __L("minvalue"));
-  Primitive_Add<XVARIANT*>(&maxvalue, __L("maxvalue"));  
+  Primitive_Add<XVARIANT*>(&maxvalue, __L("maxvalue")); 
+  Primitive_Add<XVARIANT*>(&differenceforchange, __L("differenceforchange"));
   Class_Add<DIONODEITEMVALUEUNITFORMAT>(&unitformat, __L("unitformat"));
   
   return true;
@@ -284,6 +297,7 @@ bool DIONODEITEMVALUE::Deserialize()
   Primitive_Extract<XVARIANT*>(&value, __L("value")); 
   Primitive_Extract<XVARIANT*>(&minvalue, __L("minvalue"));
   Primitive_Extract<XVARIANT*>(&maxvalue, __L("maxvalue"));  
+  Primitive_Extract<XVARIANT*>(&differenceforchange, __L("differenceforchange"));
   Class_Extract<DIONODEITEMVALUEUNITFORMAT>(&unitformat, __L("unitformat"));
   
   return true;

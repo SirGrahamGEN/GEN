@@ -33,7 +33,9 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeDeviceDriver.h"
+#include "XFactory.h"
+
+#include "DIONodeItemDriver.h"
 
 #include "DIONodeItem.h"
 
@@ -60,6 +62,8 @@ DIONODEITEM::DIONODEITEM()
   Clean();
 
   UUID.GenerateRandom();
+
+  updatetimer = GEN_XFACTORY.CreateTimer();
 }
 
 
@@ -75,10 +79,15 @@ DIONODEITEM::DIONODEITEM()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEM::~DIONODEITEM()
 {
-  DeviceDriver_Close();  
+  ItemDriver_Close();  
 
   values.DeleteContents();
   values.DeleteAll();    
+
+  if(updatetimer)
+    {
+      GEN_XFACTORY.DeleteTimer(updatetimer);
+    }
 
   Clean();
 }
@@ -86,23 +95,23 @@ DIONODEITEM::~DIONODEITEM()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEITEM_TYPE DIONODEITEM::GetItemType()
-* @brief      GetItemType
+* @fn         XDWORD DIONODEITEM::GetType()
+* @brief      GetType
 * @ingroup    DATAIO
 * 
-* @return     DIONODEITEM_TYPE : 
+* @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEITEM_TYPE DIONODEITEM::GetItemType()
+XDWORD DIONODEITEM::GetType()
 {
-  return itemtype;
+  return type;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEITEM::SetElementType(DIONODEITEM_TYPE type)
-* @brief      SetElementType
+* @fn         void DIONODEITEM::SetType(XDWORD type)
+* @brief      SetType
 * @ingroup    DATAIO
 * 
 * @param[in]  type : 
@@ -110,38 +119,88 @@ DIONODEITEM_TYPE DIONODEITEM::GetItemType()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEITEM::SetItemType(DIONODEITEM_TYPE type)
+void DIONODEITEM::SetType(XDWORD type)
 {
-  this->itemtype = type;
+  this->type = type;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEM::GetElementTypeDescription(XSTRING& typedescription)
-* @brief      GetItemTypeDescription
+* @fn         XSTRING* DIONODEITEM::GetDescription()
+* @brief      GetDescription
 * @ingroup    DATAIO
 * 
-* @param[in]  typedescription : 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIONODEITEM::GetDescription()
+{
+  return &description;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEITEM::GetPrimaryDescription(XSTRING& primarydescription)
+* @brief      GetPrimaryDescription
+* @ingroup    DATAIO
+* 
+* @param[in]  description : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEM::GetItemTypeDescription(XSTRING& typedescription)
+bool DIONODEITEM::GetPrimaryDescription(XSTRING& primarydescription)
 {
-   typedescription.Empty();
+  primarydescription.Empty();
  
-   switch(itemtype) 
+  switch(type) 
     {
-      case DIONODEITEM_TYPE_UNKNOWN    : 
-                             default   : typedescription = __L("Unknown");                      
-                                            return false;  
-                                            break;
+      case DIONODEITEM_TYPE_UNKNOWN     : primarydescription = __L("unknown");                      
+                                          break;
 
-      case DIONODEITEM_TYPE_SENSOR     : typedescription = __L("Sensor");                      break;
-      case DIONODEITEM_TYPE_ACTUATOR   : typedescription = __L("Actuator");                    break;
-    
+      case DIONODEITEM_TYPE_SENSOR      : primarydescription = __L("sensor");                      
+                                          break;
+
+      case DIONODEITEM_TYPE_ACTUATOR    : primarydescription = __L("actuator");                    
+                                          break;    
+
+      case DIONODEITEM_TYPE_OWNER       : primarydescription = __L("owner");                    
+                                          break;
+
+                             default    : break;
     }
+
+  if(primarydescription.IsEmpty()) return false;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEITEM::SetDescription(XCHAR* description, bool addprimarydescription)
+* @brief      SetDescription
+* @ingroup    DATAIO
+* 
+* @param[in]  description : 
+* @param[in]  addprimarydescription : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEITEM::SetDescription(XCHAR* description, bool addprimarydescription)
+{
+  this->description.Empty();  
+
+  if(addprimarydescription)
+    {
+      GetPrimaryDescription(this->description);
+      this->description += __L(" ");
+    }
+
+  this->description += description; 
 
   return true;
 }
@@ -181,40 +240,40 @@ void DIONODEITEM::SetID(XUUID& UUID)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEDEVICEDRIVER* DIONODEITEM::DeviceDriver_Get()
-* @brief      DeviceDriver_Get
+* @fn         DIONODEITEMDRIVER* DIONODEITEM::ItemDriver_Get()
+* @brief      ItemDriver_Get
 * @ingroup    DATAIO
 * 
-* @return     DIONODEDEVICEDRIVER* : 
+* @return     DIONODEITEMDRIVER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEDEVICEDRIVER* DIONODEITEM::DeviceDriver_Get()
+DIONODEITEMDRIVER* DIONODEITEM::ItemDriver_Get()
 {
-  return devicedriver;
+  return itemdriver;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEM::DeviceDriver_Set(DIONODEDEVICEDRIVER* devicedriver)
-* @brief      DeviceDriver_Set
+* @fn         bool DIONODEITEM::ItemDriver_Set(DIONODEITEMDRIVER* itemdriver)
+* @brief      ItemDriver_Set
 * @ingroup    DATAIO
 * 
-* @param[in]  devicedriver : 
+* @param[in]  itemdriver : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEM::DeviceDriver_Set(DIONODEDEVICEDRIVER* devicedriver)
+bool DIONODEITEM::ItemDriver_Set(DIONODEITEMDRIVER* itemdriver)
 {
-  this->devicedriver = devicedriver;
+  this->itemdriver = itemdriver;
 
-  if(!devicedriver->SetNodeItem(this))
+  if(!itemdriver->SetNodeItem(this))
     { 
       return false;
     }
 
-  if(!DeviceDriver_Open())       
+  if(!ItemDriver_Open())       
     {
       return false;      
     }
@@ -225,31 +284,31 @@ bool DIONODEITEM::DeviceDriver_Set(DIONODEDEVICEDRIVER* devicedriver)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEM::DeviceDriver_Open()
-* @brief      DeviceDriver_Open
+* @fn         bool DIONODEITEM::ItemDriver_Open()
+* @brief      ItemDriver_Open
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEM::DeviceDriver_Open()
+bool DIONODEITEM::ItemDriver_Open()
 {
-  if(!devicedriver)               
+  if(!itemdriver)               
     {
       return false;  
     }
   
-  if(devicedriver->IsOpen())      
+  if(itemdriver->IsOpen())      
     {
-      devicedriver->Close();      
+      itemdriver->Close();      
     }
 
-  if(!devicedriver->Open())       
+  if(!itemdriver->Open())       
     {
       return false;
     }
 
-  if(!devicedriver->IsWorking())  
+  if(!itemdriver->IsWorking())  
     {
       return false;      
     }
@@ -260,31 +319,84 @@ bool DIONODEITEM::DeviceDriver_Open()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEM::DeviceDriver_Close()
-* @brief      DeviceDriver_Close
+* @fn         bool DIONODEITEM::ItemDriver_Close()
+* @brief      ItemDriver_Close
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEM::DeviceDriver_Close()
+bool DIONODEITEM::ItemDriver_Close()
 {
-  if(!devicedriver)              
+  if(!itemdriver)              
     {
       return false;  
     }
 
-  if(!devicedriver->Close())     
+  if(!itemdriver->Close())     
     {
       return false;
     }
 
-  if(devicedriver->IsWorking())  
+  if(itemdriver->IsWorking())  
     {
       return false;      
     }
   
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XQWORD DIONODEITEM::GetTimeToUpdate()
+* @brief      GetTimeToUpdate
+* @ingroup    DATAIO
+* 
+* @return     XQWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XQWORD DIONODEITEM::GetTimeToUpdate()
+{
+  return timetoupdate;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEM::SetTimeToUpdate(XQWORD timetoupdate)
+* @brief      SetTimeToUpdate
+* @ingroup    DATAIO
+* 
+* @param[in]  timetoupdate : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEM::SetTimeToUpdate(XQWORD timetoupdate)
+{
+  this->timetoupdate = timetoupdate;
+
+  if(updatetimer)
+    {
+      updatetimer->Reset();
+      updatetimer->AddMilliSeconds(timetoupdate);
+    }
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XTIMER* DIONODEITEM::GetUpdateTimer()
+* @brief      GetUpdateTimer
+* @ingroup    DATAIO
+* 
+* @return     XTIMER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XTIMER* DIONODEITEM::GetUpdateTimer()
+{
+  return updatetimer;
 }
 
 
@@ -299,12 +411,23 @@ bool DIONODEITEM::DeviceDriver_Close()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIONODEITEM::Update()
 {
-  if(!devicedriver)              
+  if(!itemdriver)              
     {
       return false;  
     }
 
-  return devicedriver->Update();
+  bool status = false;  
+  
+  if(updatetimer)
+    {
+      if(updatetimer->GetMeasureMilliSeconds() > timetoupdate)  
+        {
+          status = itemdriver->Update();
+          updatetimer->Reset();
+        }
+    }
+
+  return status;
 }
 
 
@@ -335,15 +458,19 @@ XVECTOR<DIONODEITEMVALUE*>* DIONODEITEM::GetValues()
 bool DIONODEITEM::Serialize()
 {
   XSTRING ID;
-  XSTRING typedescription;
- 
+  
   UUID.GetToString(ID); 
-  GetItemTypeDescription(typedescription);
-
+  
   Primitive_Add<XSTRING*>(&ID, __L("ID"));
+  Primitive_Add<int>(type, __L("type"));
 
-  Primitive_Add<int>(itemtype, __L("element_type"));
-  Primitive_Add<XSTRING*>(&typedescription, __L("element_description"));
+  DIONODEITEMDRIVER* itemdriver =  ItemDriver_Get();
+  if(itemdriver)
+    {
+      Primitive_Add<int>(itemdriver->GetType(), __L("driver_type"));
+      Primitive_Add<XSTRING*>(itemdriver->GetDescription(), __L("driver_name"));
+    }
+  
   
   return true;
 }
@@ -363,7 +490,14 @@ bool DIONODEITEM::Deserialize()
   XSTRING ID;
 
   Primitive_Extract<XSTRING*>(&ID, __L("ID"));
-  Primitive_Extract<int>(itemtype, __L("element_type"));
+  Primitive_Extract<int>(type, __L("type"));
+
+  DIONODEITEMDRIVER* itemdriver =  ItemDriver_Get();
+  if(itemdriver)
+    {
+      Primitive_Extract<int>(itemdriver->GetType(), __L("driver_type"));
+      Primitive_Extract<XSTRING*>(itemdriver->GetDescription(), __L("driver_name"));
+    }
   
   UUID.SetFromString(ID);
 
@@ -383,6 +517,10 @@ bool DIONODEITEM::Deserialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEM::Clean()
 {
-  itemtype   = DIONODEITEM_TYPE_UNKNOWN;
-  devicedriver  = NULL;
+  type          = DIONODEITEM_TYPE_UNKNOWN;
+
+  itemdriver  = NULL;
+
+  timetoupdate  = 0;
+  updatetimer   = NULL;
 }
