@@ -396,7 +396,7 @@ duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
   switch(returnvalue.GetType())
     {
       case XVARIANT_TYPE_NULL          :                                                                    break;
-      case XVARIANT_TYPE_SERIALIZABLE  :                                                                    break;
+      
       case XVARIANT_TYPE_INTEGER       :  duk_push_int(context, (int)(returnvalue));     nreturnvalues++;   break;
       case XVARIANT_TYPE_CHAR          :  duk_push_int(context, (int)(returnvalue));     nreturnvalues++;   break;
       case XVARIANT_TYPE_XCHAR         :                                                                    break;
@@ -409,7 +409,7 @@ duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
 
       case XVARIANT_TYPE_STRING        : { XSTRING stringreturnvalue;
 
-                                           stringreturnvalue = returnvalue;
+                                           stringreturnvalue = (const XSTRING&)returnvalue;
 
                                            XBUFFER charstr;
  

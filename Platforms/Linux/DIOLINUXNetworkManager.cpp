@@ -512,12 +512,8 @@ bool DIOLINUXNETWORKMANAGER::GetProperty(XCHAR* iface, XCHAR* pathdevice, XCHAR*
 
           switch(result.GetType())
             {
-              case XVARIANT_TYPE_NULL           : {
-                                                  }
-                                                  break;
-  
-              case XVARIANT_TYPE_SERIALIZABLE   : break;
-
+              case XVARIANT_TYPE_NULL           : break;
+                
               case XVARIANT_TYPE_INTEGER        : { XDWORD value;
                                                     value = (XDWORD)result;
 

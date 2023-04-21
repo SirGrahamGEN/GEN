@@ -137,8 +137,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, int& value)
   switch(variant->GetType())
     {
       case XVARIANT_TYPE_NULL           :
-      case XVARIANT_TYPE_SERIALIZABLE   : return false;
-
+      
       case XVARIANT_TYPE_INTEGER        : value = (*variant);
                                           break;
 
@@ -211,7 +210,6 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, float& value)
   switch(variant->GetType())
     {
       case XVARIANT_TYPE_NULL           :
-      case XVARIANT_TYPE_SERIALIZABLE   : return false;
 
       case XVARIANT_TYPE_INTEGER        : { int ivalue = (*variant);
                                             value = (float)ivalue;
@@ -260,8 +258,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, double& value)
   switch(variant->GetType())
     {
       case XVARIANT_TYPE_NULL           :
-      case XVARIANT_TYPE_SERIALIZABLE   : return false;
-
+      
       case XVARIANT_TYPE_INTEGER        : { int ivalue = (*variant);
                                             value = (double)ivalue;
                                           }

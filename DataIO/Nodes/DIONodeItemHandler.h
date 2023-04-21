@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeItemDriver_Sensor_AM2315.h
+* @file       DIONodeItemHandler.h
 * 
-* @class      DIONODEITEMDRIVER_SENSOR_AM2315
-* @brief      Data Input/Output Node Item Driver Sensor AM2315
+* @class      DIONODEITEMHANDLER
+* @brief      Data Input/Output Node Item Handler
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,41 +26,64 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEITEMDRIVER_SENSOR_AM2315_H_
-#define _DIONODEITEMDRIVER_SENSOR_AM2315_H_
+#ifndef _DIONODEITEMHANDLER_H_
+#define _DIONODEITEMHANDLER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIOI2CTemHumSensorAM2315.h"  
+#include "XBase.h"
+#include "XVector.h"
+#include "XSubject.h"
 
-#include "DIONodeItemDriver.h"
+#include "DIONodeItem.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+enum DIONODEITEMHANDLER_TYPE
+{
+  DIONODEITEMHANDLER_TYPE_UNKNOWN            = 0 ,
+
+  DIONODEITEMHANDLER_TYPE_SENSOR_GPIO            ,
+  DIONODEITEMHANDLER_TYPE_ACTUATOR_GPIO          ,
+  DIONODEITEMHANDLER_TYPE_SENSOR_AM2315          ,   
+
+  DIONODEITEMHANDLER_TYPE_OWNER                          
+};
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEITEMDRIVER_SENSOR_AM2315 : public DIONODEITEMDRIVER
+class DIONODEITEMHANDLER : public XSUBJECT
 {
   public:
-                                  DIONODEITEMDRIVER_SENSOR_AM2315     (int port, int remoteitemaddress, int timeout);
-    virtual                      ~DIONODEITEMDRIVER_SENSOR_AM2315     ();
+                                  DIONODEITEMHANDLER     ();
+    virtual                      ~DIONODEITEMHANDLER     ();
 
-    bool                          Open                                  ();
-    bool                          Update                                ();
-    bool                          Close                                 ();
+    XDWORD                        GetType                 ();      
+    virtual XSTRING*              GetDescription          ();      
 
-    bool                          SetNodeItem                           (DIONODEITEM* nodeitem);    
+    virtual bool                  Open                    ();
+    virtual bool                  Update                  ();
+    virtual bool                  Close                   ();
+
+    bool                          IsOpen                  ();
+    bool                          IsWorking               ();
+
+    DIONODEITEM*                  GetNodeItem             ();
+    virtual bool                  SetNodeItem             (DIONODEITEM* nodeitem);    
+
+  protected:
+
+    XDWORD                        type;      
+    XSTRING                       description; 
     
+    bool                          isopen;   
+    bool                          isworking;
+
   private:
 
-    void                          Clean                                 ();
+    void                          Clean                   (); 
 
-    DIOI2CTEMHUMSENSORAM2315*     am2315;
-
-    int                           port;
-    int                           remoteitemaddress;
-    int                           timeout;
+    DIONODEITEM*                  nodeitem;    
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

@@ -41,15 +41,16 @@
 enum XFILEJSONVALUETYPE
 {
   XFILEJSONVALUETYPE_UNKNOWN            = 0 ,
+  XFILEJSONVALUETYPE_NULL                   ,
+  XFILEJSONVALUETYPE_BOOLEAN                ,
   XFILEJSONVALUETYPE_INTEGER                ,
   XFILEJSONVALUETYPE_DOUBLEINTEGER          ,
+  XFILEJSONVALUETYPE_QUADINTEGER            ,
   XFILEJSONVALUETYPE_FLOAT                  ,
   XFILEJSONVALUETYPE_DOUBLEFLOAT            ,
   XFILEJSONVALUETYPE_STRING                 ,
   XFILEJSONVALUETYPE_OBJECT                 ,
-  XFILEJSONVALUETYPE_ARRAY                  ,
-  XFILEJSONVALUETYPE_BOOLEAN                ,
-  XFILEJSONVALUETYPE_NULL                   ,
+  XFILEJSONVALUETYPE_ARRAY                  ,  
 };
 
 
@@ -97,6 +98,7 @@ union XFILEJSONVALUEDATA
     void*                       pointer;
     int                         integer;
     long                        doubleinteger;
+    long long                   quadinteger;
     float                       floating;
     double                      doublefloat;
     bool                        boolean;
@@ -125,6 +127,7 @@ class XFILEJSONVALUE
     void*                       GetValuePointer               ();
     int                         GetValueInteger               ();
     long                        GetValueDoubleInteger         ();
+    long long                   GetValueQuadInteger           ();
     float                       GetValueFloating              ();
     double                      GetValueDoubleFloat           ();
     bool                        GetValueBoolean               ();
@@ -133,6 +136,7 @@ class XFILEJSONVALUE
 
     bool                        Set                           (int number);
     bool                        Set                           (long number);
+    bool                        Set                           (long long number);
     bool                        Set                           (float number);
     bool                        Set                           (double number);
     bool                        Set                           (XSTRING& string);

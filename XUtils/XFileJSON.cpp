@@ -226,6 +226,21 @@ long XFILEJSONVALUE::GetValueDoubleInteger()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         long long XFILEJSONVALUE::GetValueQuadInteger()
+* @brief      GetValueQuadInteger
+* @ingroup    XUTILS
+* 
+* @return     long : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+long long XFILEJSONVALUE::GetValueQuadInteger()
+{
+  return value.quadinteger;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float XFILEJSONVALUE::GetValueFloating()
 * @brief      GetValueFloating
@@ -339,6 +354,27 @@ bool XFILEJSONVALUE::Set(long number)
   type =  XFILEJSONVALUETYPE_DOUBLEINTEGER;
 
   value.doubleinteger = number;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILEJSONVALUE::Set(long long number)
+* @brief      Set
+* @ingroup    XUTILS
+* 
+* @param[in]  long number : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILEJSONVALUE::Set(long long number)
+{
+  type =  XFILEJSONVALUETYPE_QUADINTEGER;
+
+  value.quadinteger = number;
 
   return true;
 }
@@ -541,7 +577,8 @@ bool XFILEJSONVALUE::Set(XVARIANT* variant)
       case XVARIANT_TYPE_NULL           : Set();                      
                                           break;
 
-      case XVARIANT_TYPE_SERIALIZABLE   : break;
+      case XVARIANT_TYPE_BOOLEAN        : Set((bool)(*variant));      
+                                          break;
 
       case XVARIANT_TYPE_INTEGER        : Set((int)(*variant));
                                           break;
@@ -580,8 +617,7 @@ bool XFILEJSONVALUE::Set(XVARIANT* variant)
       case XVARIANT_TYPE_TIME           : break;
       case XVARIANT_TYPE_DATETIME       : break;
 
-      case XVARIANT_TYPE_BOOLEAN        : Set((bool)(*variant));      
-                                          break;
+      
     } 
 
   return true;
@@ -609,6 +645,12 @@ bool XFILEJSONVALUE::Delete()
     {
       case XFILEJSONVALUETYPE_UNKNOWN         : return false;
 
+      case XFILEJSONVALUETYPE_NULL            : value.pointer = NULL;  
+                                                break;
+
+      case XFILEJSONVALUETYPE_BOOLEAN         : value.boolean = false; 
+                                                break;
+   
       case XFILEJSONVALUETYPE_STRING          : { XSTRING* string = (XSTRING*)value.pointer;
                                                   delete string;
                                                   value.pointer = NULL;
@@ -639,11 +681,6 @@ bool XFILEJSONVALUE::Delete()
       case XFILEJSONVALUETYPE_DOUBLEFLOAT     : value.doublefloat = 0.0f;     
                                                 break;
 
-      case XFILEJSONVALUETYPE_BOOLEAN         : value.boolean = false; 
-                                                break;
-
-      case XFILEJSONVALUETYPE_NULL            : value.pointer = NULL;  
-                                                break;
     }
 
   return true;
@@ -671,7 +708,13 @@ XFILEJSONVALUE* XFILEJSONVALUE::Clone()
   switch(type)
     {
       case XFILEJSONVALUETYPE_UNKNOWN         : newvalue->Set();
-                                                break;     
+                                                break;    
+
+      case XFILEJSONVALUETYPE_NULL            : newvalue->Set();
+                                                break;  
+
+      case XFILEJSONVALUETYPE_BOOLEAN         : newvalue->Set(value.boolean);
+                                                break;         
 
       case XFILEJSONVALUETYPE_STRING          : { XSTRING* string = (XSTRING*)value.pointer;
                                                   newvalue->Set((XCHAR*)string->Get());                                                
@@ -698,13 +741,7 @@ XFILEJSONVALUE* XFILEJSONVALUE::Clone()
                                                 break;
 
       case XFILEJSONVALUETYPE_DOUBLEFLOAT     : newvalue->Set(value.doublefloat);
-                                                break;
-
-      case XFILEJSONVALUETYPE_BOOLEAN         : newvalue->Set(value.boolean);
-                                                break;     
-
-      case XFILEJSONVALUETYPE_NULL            : newvalue->Set();
-                                                break;     
+                                                break;      
     }
 
   return newvalue;
@@ -2363,6 +2400,12 @@ bool XFILEJSON::EncodeObject(bool isobject, XFILEJSONOBJECT* object, bool istabu
             {
               case XFILEJSONVALUETYPE_UNKNOWN         : break;
 
+              case XFILEJSONVALUETYPE_NULL            : line += __L("null");
+                                                        break;
+
+              case XFILEJSONVALUETYPE_BOOLEAN         : line += (value->GetValueBoolean()?__L("true"):__L("false"));
+                                                        break;
+
               case XFILEJSONVALUETYPE_INTEGER         : { XSTRING valuestring;
 
                                                           valuestring.Format(__L("%d"),value->GetValueInteger());
@@ -2429,13 +2472,7 @@ bool XFILEJSON::EncodeObject(bool isobject, XFILEJSONOBJECT* object, bool istabu
                                                               line.Empty();
                                                             }
                                                         }
-                                                        break;
-
-              case XFILEJSONVALUETYPE_BOOLEAN         : line += (value->GetValueBoolean()?__L("true"):__L("false"));
-                                                        break;
-
-              case XFILEJSONVALUETYPE_NULL            : line += __L("null");
-                                                        break;
+                                                        break;          
             }
         }
 

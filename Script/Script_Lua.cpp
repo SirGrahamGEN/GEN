@@ -442,7 +442,7 @@ int LUA_LibraryCallBack(lua_State* state)
   switch(returnvalue.GetType())
     {
       case XVARIANT_TYPE_NULL          :                                                                    break;
-      case XVARIANT_TYPE_SERIALIZABLE  :                                                                    break;
+      
       case XVARIANT_TYPE_INTEGER       : lua_pushnumber(state, (int)(returnvalue));    nreturnvalues++;     break;
       case XVARIANT_TYPE_CHAR          : lua_pushnumber(state, (int)(returnvalue));    nreturnvalues++;     break;
       case XVARIANT_TYPE_XCHAR         :                                                                    break;
@@ -450,7 +450,7 @@ int LUA_LibraryCallBack(lua_State* state)
 
       case XVARIANT_TYPE_STRING        : { XSTRING stringreturnvalue;
 
-                                           stringreturnvalue = returnvalue;
+                                           stringreturnvalue = (const XSTRING&)returnvalue;
 
                                            XBUFFER charstr;
                                            

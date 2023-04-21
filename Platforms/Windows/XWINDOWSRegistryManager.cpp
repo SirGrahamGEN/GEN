@@ -191,7 +191,7 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XCHAR* name, XVARIANT& data)
                                               break;
 
       case REG_BINARY                       : // Free form binary
-                                              data.Set(XVARIANT_TYPE_SERIALIZABLE, databuffer.Get(), size);
+                                              data = databuffer;
                                               break;
 
       case REG_DWORD                        : { // 32-bit number
@@ -216,7 +216,7 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XCHAR* name, XVARIANT& data)
                                               break;
 
       case REG_MULTI_SZ                     : // Multiple Unicode strings
-                                              data.Set(XVARIANT_TYPE_SERIALIZABLE, databuffer.Get(), size);
+                                              data = databuffer;
                                               break;
 
       case REG_RESOURCE_LIST                : // Resource list in the resource map
@@ -314,15 +314,14 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
       switch(data.GetType())
         {
           case XVARIANT_TYPE_NULL            :
-          case XVARIANT_TYPE_BOOLEAN         :
-          case XVARIANT_TYPE_SERIALIZABLE    :
-
+          case XVARIANT_TYPE_BOOLEAN         :          
           case XVARIANT_TYPE_DOUBLEINTEGER   :
           case XVARIANT_TYPE_FLOAT           :
 
           case XVARIANT_TYPE_DATE            :
           case XVARIANT_TYPE_TIME            :
-          case XVARIANT_TYPE_DATETIME        : break;
+          case XVARIANT_TYPE_DATETIME        :
+          case XVARIANT_TYPE_BUFFER          : break;
 
           case XVARIANT_TYPE_INTEGER         : type = REG_DWORD;
                                                break;

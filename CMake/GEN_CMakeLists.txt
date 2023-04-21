@@ -245,16 +245,17 @@
   if(GOOGLETEST_FEATURE)    
 
     add_definitions(-DGOOGLETEST_ACTIVE) 
-    
+  
     # GoogleTest requires at least C++14
     set(CMAKE_CXX_STANDARD 14)
 
-    # For Windows: Prevent overriding the parent project's compiler/linker settings
-    set(gtest_force_shared_crt ON CACHE BOOL ""   FORCE)    
+    enable_testing()
+
+    include(GoogleTest)    
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)    
 
     list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_GOOGLETEST_SOURCES}/gtest-all.cc")
-    enable_testing()   
-
+    
   endif()
 
 
@@ -1063,9 +1064,9 @@
   endif()
 
 
-  if(DIO_NODEITEMDRIVER_SENSOR_AM2315_FEATURE)    
+  if(DIO_NODEITEMHANDLER_SENSORAM2315_FEATURE)    
 
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemDriver_Sensor_AM2315.cpp")   
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemHandler_SensorAM2315.cpp")   
     option(DIO_STREAM_FEATURE, "Data Input/Output Stream" true)
     option(DIO_STREAMI2C_FEATURE "Data Input/Output Stream I2C" true) 
     option(DIO_I2C_TEMHUMSENSOR_AM2315_FEATURE "Data I2C Temperature Humidity Sensor AM2315" true) 
@@ -1074,19 +1075,19 @@
   endif()
 
 
-  if(DIO_NODEITEMDRIVER_ACTUATOR_GPIO_FEATURE)
+  if(DIO_NODEITEMHANDLER_ACTUATOR_GPIO_FEATURE)
   
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemDriver_GPIO.cpp")
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemDriver_Actuator_GPIO.cpp")
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemHandler_GPIO.cpp")
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemHandler_Actuator_GPIO.cpp")
     option(DIO_NODES_FEATURE "Nodes modules" true)   
 
   endif()
 
   
-  if(DIO_NODEITEMDRIVER_SENSOR_GPIO_FEATURE)
+  if(DIO_NODEITEMHANDLER_SENSOR_GPIO_FEATURE)
   
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemDriver_GPIO.cpp")
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemDriver_Sensor_GPIO.cpp")
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemHandler_GPIO.cpp")
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemHandler_Sensor_GPIO.cpp")
     option(DIO_NODES_FEATURE "Nodes modules" true)   
 
   endif()
@@ -1101,7 +1102,7 @@
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemValueUnitFormat.cpp")   
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemSensor.cpp")   
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemActuator.cpp")  
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemDriver.cpp")  
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemHandler.cpp") 
     option(XUUID_FEATURE "UUID functions" true)     
 
   endif()

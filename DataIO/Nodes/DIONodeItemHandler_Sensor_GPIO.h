@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeItemDriver.h
+* @file       DIONodeItemHandler_Sensor_GPIO.h
 * 
-* @class      DIONODEITEMDRIVER
-* @brief      Data Input/Output Node Item Driver
+* @class      DIONODEITEMHANDLER_SENSOR_GPIO
+* @brief      Data Input/Output Node Item Handler sensor GPIO
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,66 +26,32 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEITEMDRIVER_H_
-#define _DIONODEITEMDRIVER_H_
+#ifndef _DIONODEITEMHANDLER_SENSOR_GPIO_H_
+#define _DIONODEITEMHANDLER_SENSOR_GPIO_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XBase.h"
-#include "XVector.h"
-
-#include "DIONodeItem.h"
+#include "DIONodeItemHandler_GPIO.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-enum DIONODEITEMDRIVER_TYPE
-{
-  DIONODEITEMDRIVER_TYPE_UNKNOWN            = 0 ,
-
-  DIONODEITEMDRIVER_TYPE_SENSOR_GPIO            ,
-  DIONODEITEMDRIVER_TYPE_ACTUATOR_GPIO          ,
-  DIONODEITEMDRIVER_TYPE_SENSOR_AM2315          ,   
-
-  DIONODEITEMDRIVER_TYPE_OWNER                          
-};
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEITEMDRIVER
+class DIONODEITEMHANDLER_SENSOR_GPIO : public DIONODEITEMHANDLER_GPIO
 {
   public:
-                                  DIONODEITEMDRIVER     ();
-    virtual                      ~DIONODEITEMDRIVER     ();
+                                  DIONODEITEMHANDLER_SENSOR_GPIO        (XDWORD entryID, int GPIO = DIONODEITEMHANDLER_GPIO_INVALIDPARAM, int pin = DIONODEITEMHANDLER_GPIO_INVALIDPARAM);
+    virtual                      ~DIONODEITEMHANDLER_SENSOR_GPIO        ();
 
-    XDWORD                        GetType                 ();      
-    virtual XSTRING*              GetDescription          ();      
-
-    virtual bool                  Open                    ();
-    virtual bool                  Update                  ();
-    virtual bool                  Close                   ();
-
-    bool                          IsOpen                  ();
-    bool                          IsWorking               ();
-
-    DIONODEITEM*                  GetNodeItem             ();
-    virtual bool                  SetNodeItem             (DIONODEITEM* nodeitem);    
-
-  protected:
-
-    XDWORD                        type;      
-    XSTRING                       description; 
+    virtual bool                  Open                                  ();
+    virtual bool                  Update                                ();
     
-    bool                          isopen;   
-    bool                          isworking;
-
   private:
 
-    void                          Clean                   (); 
-
-    DIONODEITEM*                  nodeitem;    
+    void                          Clean                                 ();      
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
-

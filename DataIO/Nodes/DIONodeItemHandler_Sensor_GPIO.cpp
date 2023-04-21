@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeItemDriver_Actuator_GPIO.cpp
+* @file       DIONodeItemHandler_Sensor_GPIO.cpp
 * 
-* @class      DIONODEITEMDRIVER_ACTUATOR_GPIO
-* @brief      Data Input/Output Node Item Driver actuator GPIO
+* @class      DIONODEITEMHANDLER_SENSOR_GPIO
+* @brief      Data Input/Output Node Item Handler sensor GPIO
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -34,9 +34,10 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "DIOGPIO.h"
-#include "DIONodeItemActuator.h"
 
-#include "DIONodeItemDriver_Actuator_GPIO.h"
+#include "DIONodeItemSensor.h"
+
+#include "DIONodeItemHandler_Sensor_GPIO.h"
 
 #include "XMemory_Control.h"
 
@@ -49,25 +50,25 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEITEMDRIVER_ACTUATOR_GPIO::DIONODEITEMDRIVER_ACTUATOR_GPIO()
+* @fn         DIONODEITEMHANDLER_SENSOR_GPIO::DIONODEITEMHANDLER_SENSOR_GPIO()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEITEMDRIVER_ACTUATOR_GPIO::DIONODEITEMDRIVER_ACTUATOR_GPIO(XDWORD entryID, int GPIO, int pin) : DIONODEITEMDRIVER_GPIO(entryID, GPIO, pin)
+DIONODEITEMHANDLER_SENSOR_GPIO::DIONODEITEMHANDLER_SENSOR_GPIO(XDWORD entryID, int GPIO, int pin) : DIONODEITEMHANDLER_GPIO(entryID, GPIO, pin)
 {
   Clean();
 
-  type        = DIONODEITEMDRIVER_TYPE_ACTUATOR_GPIO;
-  description = __L("GPIO Output");
+  type        = DIONODEITEMHANDLER_TYPE_SENSOR_GPIO;
+  description = __L("GPIO Input");
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEITEMDRIVER_ACTUATOR_GPIO::~DIONODEITEMDRIVER_ACTUATOR_GPIO()
+* @fn         DIONODEITEMHANDLER_SENSOR_GPIO::~DIONODEITEMHANDLER_SENSOR_GPIO()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
@@ -75,7 +76,7 @@ DIONODEITEMDRIVER_ACTUATOR_GPIO::DIONODEITEMDRIVER_ACTUATOR_GPIO(XDWORD entryID,
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEITEMDRIVER_ACTUATOR_GPIO::~DIONODEITEMDRIVER_ACTUATOR_GPIO()
+DIONODEITEMHANDLER_SENSOR_GPIO::~DIONODEITEMHANDLER_SENSOR_GPIO()
 {
   Close();
 
@@ -85,74 +86,75 @@ DIONODEITEMDRIVER_ACTUATOR_GPIO::~DIONODEITEMDRIVER_ACTUATOR_GPIO()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEMDRIVER_ACTUATOR_GPIO::Open()
+* @fn         bool DIONODEITEMHANDLER_SENSOR_GPIO::Open()
 * @brief      Open
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEMDRIVER_ACTUATOR_GPIO::Open()
+bool DIONODEITEMHANDLER_SENSOR_GPIO::Open()
 {
-  DIONODEITEMACTUATOR* nodeitemactuator = (DIONODEITEMACTUATOR*)GetNodeItem();
-  if(nodeitemactuator)
+  DIONODEITEMSENSOR* nodeitemsensor = (DIONODEITEMSENSOR*)GetNodeItem();
+  if(nodeitemsensor)
     {  
-      nodeitemactuator->SetActuatorType(DIONODEITEMACTUATOR_TYPE_GPIO); 
+      nodeitemsensor->SetSensorType(DIONODEITEMSENSOR_TYPE_GPIO); 
     }
 
-  isopen = GEN_DIOGPIO.SetMode(entryID, DIOGPIO_MODE_OUTPUT); 
- 
-  isworking = true; 
+  isopen = GEN_DIOGPIO.SetMode(entryID, DIOGPIO_MODE_INPUT);    
 
+  isworking = true;
+   
   return isopen;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEMDRIVER_ACTUATOR_GPIO::Update()
+* @fn         bool DIONODEITEMHANDLER_SENSOR_GPIO::Update()
 * @brief      Update
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEMDRIVER_ACTUATOR_GPIO::Update()
+bool DIONODEITEMHANDLER_SENSOR_GPIO::Update()
 {
-  DIONODEITEMACTUATOR* nodeitemactuator = (DIONODEITEMACTUATOR*)GetNodeItem();
-  if(!nodeitemactuator)
+  DIONODEITEMSENSOR* nodeitemsensor = (DIONODEITEMSENSOR*)GetNodeItem();
+  if(!nodeitemsensor)
     {
       return false;
     }
 
-  DIONODEITEMVALUE* itemvalue = nodeitemactuator->GetValues()->Get(0);
-  if(itemvalue)
+  DIONODEITEMVALUE* itemvalue = nodeitemsensor->GetValues()->Get(0);
+  if(!itemvalue) 
     {
-      XVARIANT* value = nodeitemactuator->GetValues()->Get(0)->GetValue();
-      if(value)
-        {
-          if(itemvalue->ValueHasChanged())
-            {
-              bool _value = (*value);
-                    
-              GEN_DIOGPIO.SetValue(entryID, _value);
-          
-              AdjustTimeInChange(_value);
+      return false;
+    }
+    
+  XVARIANT* value = itemvalue->GetValue();
+  if(value)
+    {
+      bool value_GPIO = GEN_DIOGPIO.GetValue(entryID);
 
-              itemvalue->SetValueHasChanged(false);
+      if((bool)(*value) != value_GPIO)
+        {     
+          (*value) = value_GPIO;
+        
+          AdjustTimeInChange(value_GPIO);
+          itemvalue->SetValueHasChanged(true);
 
-              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[DIONODE item driver %s] %s value %s"), GetDescription()->Get(), nodeitemactuator->GetDescription()->Get(), _value?__L("true"):__L("false"));
-            }          
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[DIONODE item handler %s] %s value %s"), GetDescription()->Get(), nodeitemsensor->GetDescription()->Get(), value_GPIO?__L("true"):__L("false"));    
         }
     }
-
+    
   return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEITEMDRIVER_ACTUATOR_GPIO::Clean()
+* @fn         void DIONODEITEMHANDLER_SENSOR_GPIO::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
@@ -160,7 +162,7 @@ bool DIONODEITEMDRIVER_ACTUATOR_GPIO::Update()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEITEMDRIVER_ACTUATOR_GPIO::Clean()
+void DIONODEITEMHANDLER_SENSOR_GPIO::Clean()
 {
 
 }

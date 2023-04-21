@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeItemDriver_Sensor_GPIO.h
+* @file       DIONodeItemHandler_Sensor_AM2315.h
 * 
-* @class      DIONODEITEMDRIVER_SENSOR_GPIO
-* @brief      Data Input/Output Node Item Driver sensor GPIO
+* @class      DIONODEITEMHANDLER_SENSOR_AM2315
+* @brief      Data Input/Output Node Item Handler Sensor AM2315
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,32 +26,44 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEITEMDRIVER_SENSOR_GPIO_H_
-#define _DIONODEITEMDRIVER_SENSOR_GPIO_H_
+#ifndef _DIONODEITEMHANDLER_SENSOR_AM2315_H_
+#define _DIONODEITEMHANDLER_SENSOR_AM2315_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "DIONodeItemDriver_GPIO.h"
+#include "DIOI2CTemHumSensorAM2315.h"  
+
+#include "DIONodeItemHandler.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEITEMDRIVER_SENSOR_GPIO : public DIONODEITEMDRIVER_GPIO
+
+class DIONODEITEMHANDLER_SENSORAM2315 : public DIONODEITEMHANDLER
 {
   public:
-                                  DIONODEITEMDRIVER_SENSOR_GPIO       (XDWORD entryID, int GPIO = DIONODEITEMDRIVER_GPIO_INVALIDPARAM, int pin = DIONODEITEMDRIVER_GPIO_INVALIDPARAM);
-    virtual                      ~DIONODEITEMDRIVER_SENSOR_GPIO       ();
+                                  DIONODEITEMHANDLER_SENSORAM2315                 (int port, int remoteitemaddress, int timeout);
+    virtual                      ~DIONODEITEMHANDLER_SENSORAM2315                 ();
 
-    virtual bool                  Open                                  ();
-    virtual bool                  Update                                ();
+    bool                          Open                                            ();
+    bool                          Update                                          ();
+    bool                          Close                                           ();
+
+    bool                          SetNodeItem                                     (DIONODEITEM* nodeitem);    
     
   private:
 
-    void                          Clean                                 ();      
+    void                          Clean                                           ();
+
+    DIOI2CTEMHUMSENSORAM2315*     am2315;
+
+    int                           port;
+    int                           remoteitemaddress;
+    int                           timeout;
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
 #endif
+

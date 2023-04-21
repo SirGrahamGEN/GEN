@@ -51,7 +51,7 @@ enum DIONODEITEM_TYPE
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class DIONODEITEMDRIVER;
+class DIONODEITEMHANDLER;
 
 class DIONODEITEM : public XSERIALIZABLE
 {
@@ -69,10 +69,13 @@ class DIONODEITEM : public XSERIALIZABLE
     XUUID&                        GetID                         ();
     void                          SetID                         (XUUID& UUID);
 
-    DIONODEITEMDRIVER*          ItemDriver_Get              ();
-    bool                          ItemDriver_Set              (DIONODEITEMDRIVER* itemdriver);
-    bool                          ItemDriver_Open             ();
-    bool                          ItemDriver_Close            ();
+    DIONODEITEMHANDLER*           ItemHandler_Get               ();
+    bool                          ItemHandler_Set               (DIONODEITEMHANDLER* itemhandler);
+    bool                          ItemHandler_Open              ();
+    bool                          ItemHandler_Close             ();
+
+    bool                          IsSimulated                   ();
+    void                          SetIsSimulated                (bool issimulated);
 
     XQWORD                        GetTimeToUpdate               ();
     void                          SetTimeToUpdate               (XQWORD timetoupdate);
@@ -91,8 +94,9 @@ class DIONODEITEM : public XSERIALIZABLE
     XDWORD                        type;
     XSTRING                       description;
     XUUID                         UUID;
-    DIONODEITEMDRIVER*          itemdriver;
+    DIONODEITEMHANDLER*           itemhandler;
     XVECTOR<DIONODEITEMVALUE*>    values;
+    bool                          issimulated;
     XQWORD                        timetoupdate;
     XTIMER*                       updatetimer;
 

@@ -35,7 +35,7 @@
 
 #include "XFactory.h"
 
-#include "DIONodeItemDriver.h"
+#include "DIONodeItemHandler.h"
 
 #include "DIONodeItem.h"
 
@@ -79,7 +79,7 @@ DIONODEITEM::DIONODEITEM()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEM::~DIONODEITEM()
 {
-  ItemDriver_Close();  
+  ItemHandler_Close();  
 
   values.DeleteContents();
   values.DeleteAll();    
@@ -240,40 +240,40 @@ void DIONODEITEM::SetID(XUUID& UUID)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEITEMDRIVER* DIONODEITEM::ItemDriver_Get()
-* @brief      ItemDriver_Get
+* @fn         DIONODEITEMHANDLER* DIONODEITEM::ItemHandler_Get()
+* @brief      ItemHandler_Get
 * @ingroup    DATAIO
 * 
-* @return     DIONODEITEMDRIVER* : 
+* @return     DIONODEITEMHANDLER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEITEMDRIVER* DIONODEITEM::ItemDriver_Get()
+DIONODEITEMHANDLER* DIONODEITEM::ItemHandler_Get()
 {
-  return itemdriver;
+  return itemhandler;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEM::ItemDriver_Set(DIONODEITEMDRIVER* itemdriver)
-* @brief      ItemDriver_Set
+* @fn         bool DIONODEITEM::ItemHandler_Set(DIONODEITEMHANDLER* itemhandler)
+* @brief      ItemHandler_Set
 * @ingroup    DATAIO
 * 
-* @param[in]  itemdriver : 
+* @param[in]  itemhandler : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEM::ItemDriver_Set(DIONODEITEMDRIVER* itemdriver)
+bool DIONODEITEM::ItemHandler_Set(DIONODEITEMHANDLER* itemhandler)
 {
-  this->itemdriver = itemdriver;
+  this->itemhandler = itemhandler;
 
-  if(!itemdriver->SetNodeItem(this))
+  if(!itemhandler->SetNodeItem(this))
     { 
       return false;
     }
 
-  if(!ItemDriver_Open())       
+  if(!ItemHandler_Open())       
     {
       return false;      
     }
@@ -284,31 +284,31 @@ bool DIONODEITEM::ItemDriver_Set(DIONODEITEMDRIVER* itemdriver)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEM::ItemDriver_Open()
-* @brief      ItemDriver_Open
+* @fn         bool DIONODEITEM::ItemHandler_Open()
+* @brief      ItemHandler_Open
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEM::ItemDriver_Open()
+bool DIONODEITEM::ItemHandler_Open()
 {
-  if(!itemdriver)               
+  if(!itemhandler)               
     {
       return false;  
     }
   
-  if(itemdriver->IsOpen())      
+  if(itemhandler->IsOpen())      
     {
-      itemdriver->Close();      
+      itemhandler->Close();      
     }
 
-  if(!itemdriver->Open())       
+  if(!itemhandler->Open())       
     {
       return false;
     }
 
-  if(!itemdriver->IsWorking())  
+  if(!itemhandler->IsWorking())  
     {
       return false;      
     }
@@ -319,31 +319,63 @@ bool DIONODEITEM::ItemDriver_Open()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEM::ItemDriver_Close()
-* @brief      ItemDriver_Close
+* @fn         bool DIONODEITEM::ItemHandler_Close()
+* @brief      ItemHandler_Close
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEM::ItemDriver_Close()
+bool DIONODEITEM::ItemHandler_Close()
 {
-  if(!itemdriver)              
+  if(!itemhandler)              
     {
       return false;  
     }
 
-  if(!itemdriver->Close())     
+  if(!itemhandler->Close())     
     {
       return false;
     }
 
-  if(itemdriver->IsWorking())  
+  if(itemhandler->IsWorking())  
     {
       return false;      
     }
   
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEITEM::IsSimulated()
+* @brief      IsSimulated
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEITEM::IsSimulated()
+{
+  return issimulated;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEM::SetIsSimulated(bool issimulated)
+* @brief      SetIsSimulated
+* @ingroup    DATAIO
+* 
+* @param[in]  issimulated : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEM::SetIsSimulated(bool issimulated)
+{
+  this->issimulated = issimulated;
 }
 
 
@@ -411,7 +443,7 @@ XTIMER* DIONODEITEM::GetUpdateTimer()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIONODEITEM::Update()
 {
-  if(!itemdriver)              
+  if(!itemhandler)              
     {
       return false;  
     }
@@ -422,7 +454,7 @@ bool DIONODEITEM::Update()
     {
       if(updatetimer->GetMeasureMilliSeconds() > timetoupdate)  
         {
-          status = itemdriver->Update();
+          status = itemhandler->Update();
           updatetimer->Reset();
         }
     }
@@ -463,12 +495,14 @@ bool DIONODEITEM::Serialize()
   
   Primitive_Add<XSTRING*>(&ID, __L("ID"));
   Primitive_Add<int>(type, __L("type"));
+  Primitive_Add<bool>(issimulated, __L("simulated"));
+  Primitive_Add<XQWORD>(timetoupdate, __L("timetoupdate"));
 
-  DIONODEITEMDRIVER* itemdriver =  ItemDriver_Get();
-  if(itemdriver)
+  DIONODEITEMHANDLER* itemhandler =  ItemHandler_Get();
+  if(itemhandler)
     {
-      Primitive_Add<int>(itemdriver->GetType(), __L("driver_type"));
-      Primitive_Add<XSTRING*>(itemdriver->GetDescription(), __L("driver_name"));
+      Primitive_Add<int>(itemhandler->GetType(), __L("handler_type"));
+      Primitive_Add<XSTRING*>(itemhandler->GetDescription(), __L("handler_name"));
     }
   
   
@@ -491,12 +525,14 @@ bool DIONODEITEM::Deserialize()
 
   Primitive_Extract<XSTRING*>(&ID, __L("ID"));
   Primitive_Extract<int>(type, __L("type"));
+  Primitive_Extract<bool>(issimulated, __L("simulated"));
+  Primitive_Extract<XQWORD>(timetoupdate, __L("timetoupdate"));
 
-  DIONODEITEMDRIVER* itemdriver =  ItemDriver_Get();
-  if(itemdriver)
+  DIONODEITEMHANDLER* itemhandler =  ItemHandler_Get();
+  if(itemhandler)
     {
-      Primitive_Extract<int>(itemdriver->GetType(), __L("driver_type"));
-      Primitive_Extract<XSTRING*>(itemdriver->GetDescription(), __L("driver_name"));
+      Primitive_Extract<int>(itemhandler->GetType(), __L("handler_type"));
+      Primitive_Extract<XSTRING*>(itemhandler->GetDescription(), __L("handler_name"));
     }
   
   UUID.SetFromString(ID);
@@ -519,7 +555,9 @@ void DIONODEITEM::Clean()
 {
   type          = DIONODEITEM_TYPE_UNKNOWN;
 
-  itemdriver  = NULL;
+  itemhandler    = NULL;
+
+  issimulated   = false;
 
   timetoupdate  = 0;
   updatetimer   = NULL;

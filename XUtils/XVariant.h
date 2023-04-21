@@ -35,16 +35,19 @@
 #include "XString.h"
 #include "XDateTime.h"
 #include "XTrace.h"
-#include "XSerializable.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum XVARIANT_TYPE
 {
   XVARIANT_TYPE_NULL                        = 0 ,
-  XVARIANT_TYPE_SERIALIZABLE                    ,
-  XVARIANT_TYPE_INTEGER                         ,
-  XVARIANT_TYPE_DOUBLEINTEGER                   ,
+  XVARIANT_TYPE_BOOLEAN                         ,  
+  XVARIANT_TYPE_SHORT                           ,
+  XVARIANT_TYPE_XWORD                           ,
+  XVARIANT_TYPE_INTEGER                         , 
+  XVARIANT_TYPE_XDWORD                          ,
+  XVARIANT_TYPE_DOUBLEINTEGER                   , 
+  XVARIANT_TYPE_XQWORD                          ,
   XVARIANT_TYPE_FLOAT                           ,
   XVARIANT_TYPE_DOUBLE                          ,
   XVARIANT_TYPE_CHAR                            ,
@@ -52,51 +55,82 @@ enum XVARIANT_TYPE
   XVARIANT_TYPE_STRING                          ,
   XVARIANT_TYPE_DATE                            ,
   XVARIANT_TYPE_TIME                            ,
-  XVARIANT_TYPE_DATETIME                        ,
-  XVARIANT_TYPE_BOOLEAN                                  
+  XVARIANT_TYPE_DATETIME                        ,  
+  XVARIANT_TYPE_BUFFER                              
 };
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class XSERIALIZABLEBUFFER;
+#define XVARIANT_CONSTRUCTOR                      Clean();  \
+                                                  (*this) = value;
+
+#define XVARIANT_ASSIGN(vartype, ctype)           if(data) Destroy(); \
+                                                  type  = vartype; \
+                                                  size  = sizeof(ctype); \
+                                                  data = (void*)new ctype; \
+                                                  if(data) *((ctype*)data) = value; \
+                                                  return *this;
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XVARIANT
 {
   public:
                                     XVARIANT                ();
-                                    XVARIANT                (const XVARIANT& variant);
+                                    XVARIANT                (const bool value);
+                                    XVARIANT                (const short value); 
+                                    XVARIANT                (const XWORD value);
+                                    XVARIANT                (const int value);
+                                    XVARIANT                (const XDWORD value);
+                                    XVARIANT                (const long long value);
+                                    XVARIANT                (const XQWORD value);
+                                    XVARIANT                (const float value);
+                                    XVARIANT                (const double value);
+                                    XVARIANT                (const XCHAR value);
+                                    XVARIANT                (const XCHAR* value);
+                                    XVARIANT                (const XSTRING& value);
+                                    XVARIANT                (const char* value);
+                                    XVARIANT                (const char value);    
+                                    XVARIANT                (const XDATETIME& value);
+                                    XVARIANT                (const XBUFFER& value);
+                                    XVARIANT                (const XVARIANT& value);                                    
     virtual                        ~XVARIANT                ();
-    
-    const XVARIANT&                 operator =              (const XSERIALIZABLEBUFFER& serializable);
-    const XVARIANT&                 operator =              (bool boolean);
-    const XVARIANT&                 operator =              (int integer);
-    const XVARIANT&                 operator =              (XDWORD integer);
-    const XVARIANT&                 operator =              (XQWORD integer);
+        
+    const XVARIANT&                 operator =              (bool value);
+    const XVARIANT&                 operator =              (short value);
+    const XVARIANT&                 operator =              (XWORD value);
+    const XVARIANT&                 operator =              (int value);
+    const XVARIANT&                 operator =              (XDWORD value);
+    const XVARIANT&                 operator =              (long long value);
+    const XVARIANT&                 operator =              (XQWORD value);
     const XVARIANT&                 operator =              (float value);
     const XVARIANT&                 operator =              (double value);
     const XVARIANT&                 operator =              (XCHAR value);
-    const XVARIANT&                 operator =              (XCHAR* string);
-    const XVARIANT&                 operator =              (XSTRING& string);
-    const XVARIANT&                 operator =              (char* string);
-    const XVARIANT&                 operator =              (char character);
-    const XVARIANT&                 operator =              (const XVARIANT& variant);  
-    const XVARIANT&                 operator =              (XDATETIME datetime);
+    const XVARIANT&                 operator =              (XCHAR* value);
+    const XVARIANT&                 operator =              (const XSTRING& value);
+    const XVARIANT&                 operator =              (char* value);
+    const XVARIANT&                 operator =              (char value);    
+    const XVARIANT&                 operator =              (const XDATETIME& value);
+    const XVARIANT&                 operator =              (const XBUFFER& value);
+    const XVARIANT&                 operator =              (const XVARIANT& value);  
    
     operator                        bool                    ();
+    operator                        short                   ();
+    operator                        XWORD                   ();
     operator                        int                     ();
     operator                        XDWORD                  ();
+    operator                        long long               ();
     operator                        XQWORD                  ();
     operator                        float                   ();
     operator                        double                  ();
     operator                        XCHAR                   ();
     operator                        XCHAR*                  ();
     operator                        char                    ();
-    operator                        const XCHAR*            ();
+    operator                        char*                   ();
+    operator                        XSTRING                 ();
     operator                        XDATETIME               ();
-    
-    void                            GetSerializable         (XSERIALIZABLEBUFFER& serializable);
-    void                            GetSerializable         (XSERIALIZABLEBUFFER* serializable);
-
+    operator                        XBUFFER                 ();
+    //operator                        XVARIANT                ();
+   
     bool                            GetDataFromString       (XCHAR* string);
 
     XVARIANT_TYPE                   GetType                 ();
@@ -125,7 +159,6 @@ class XVARIANT
   private:
 
     void                            Clean                   ();
-
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

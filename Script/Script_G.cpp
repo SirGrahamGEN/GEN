@@ -656,9 +656,7 @@ bool SCRIPT_G_VAR::ConvertFromXVariant(XVARIANT& variant)
   switch(variant.GetType())
     {
       case XVARIANT_TYPE_NULL           : break;
-
-      case XVARIANT_TYPE_SERIALIZABLE   : return false;
-
+      
       case XVARIANT_TYPE_INTEGER        : SetType(SCRIPT_G_TOKENIREPS_INT);
                                           SetValueInteger(variant);
                                           break;
@@ -666,7 +664,7 @@ bool SCRIPT_G_VAR::ConvertFromXVariant(XVARIANT& variant)
       case XVARIANT_TYPE_CHAR           : { XSTRING str;
                                             XCHAR   character = 0x000;
 
-                                            str = variant;
+                                            str = (const XSTRING&)variant;
 
                                             if(!str.IsEmpty())
                                               {
@@ -682,7 +680,7 @@ bool SCRIPT_G_VAR::ConvertFromXVariant(XVARIANT& variant)
       case XVARIANT_TYPE_STRING         : { XSTRING* string = new XSTRING();
                                             if(!string) break;
 
-                                            (*string) = variant;
+                                            (*string) = (const XSTRING&)variant;
                                             SetType(SCRIPT_G_TOKENIREPS_STRING);
                                             SetValueString(string);
                                           }
