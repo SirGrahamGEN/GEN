@@ -41,7 +41,7 @@
 class DIONODEITEMHANDLER_SENSOR_GPIO : public DIONODEITEMHANDLER_GPIO
 {
   public:
-                                  DIONODEITEMHANDLER_SENSOR_GPIO        (XDWORD entryID, int GPIO = DIONODEITEMHANDLER_GPIO_INVALIDPARAM, int pin = DIONODEITEMHANDLER_GPIO_INVALIDPARAM);
+                                  DIONODEITEMHANDLER_SENSOR_GPIO        (XDWORD entryID, int GPIO = DIONODEITEMHANDLER_INVALIDPARAM, int pin = DIONODEITEMHANDLER_INVALIDPARAM);
     virtual                      ~DIONODEITEMHANDLER_SENSOR_GPIO        ();
 
     virtual bool                  Open                                  ();

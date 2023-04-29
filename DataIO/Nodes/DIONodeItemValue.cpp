@@ -150,6 +150,71 @@ bool DIONODEITEMVALUE::GetDescription(XSTRING& description)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         DIONODEITEMVALUE_MODE DIONODEITEMVALUE::GetMode()
+* @brief      GetMode
+* @ingroup    DATAIO
+* 
+* @return     DIONODEITEMVALUE_MODE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIONODEITEMVALUE_MODE DIONODEITEMVALUE::GetMode()
+{
+  return mode;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMVALUE::SetMode(DIONODEITEMVALUE_MODE mode)
+* @brief      SetMode
+* @ingroup    DATAIO
+* 
+* @param[in]  mode : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEMVALUE::SetMode(DIONODEITEMVALUE_MODE mode)
+{
+  this->mode = mode;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMVALUE::GetModeString(XSTRING& modestring)
+* @brief      GetModeString
+* @ingroup    DATAIO
+* 
+* @param[in]  modestring : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEMVALUE::GetModeString(XSTRING& modestring)
+{
+  modestring.Empty();
+
+  switch(mode)
+    {
+      case DIONODEITEMVALUE_MODE_NONE       :
+                            default         : modestring = __L("none");
+                                              break;
+
+      case DIONODEITEMVALUE_MODE_READ       : modestring = __L("only read");
+                                              break;
+
+      case DIONODEITEMVALUE_MODE_WRITE      : modestring = __L("only write");
+                                              break;
+
+      case DIONODEITEMVALUE_MODE_READWRITE  : modestring = __L("read/write");
+                                              break;
+    }
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XVARIANT* DIONODEITEMVALUE::GetValue()
 * @brief      GetValue
 * @ingroup    DATAIO
@@ -316,7 +381,9 @@ bool DIONODEITEMVALUE::Deserialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMVALUE::Clean()
 {
-  type        = DIONODEITEMVALUE_TYPE_UNKNOWN;   
+  type        = DIONODEITEMVALUE_TYPE_UNKNOWN;  
+  mode        = DIONODEITEMVALUE_MODE_NONE;
+ 
   haschanged  = false;
 
 }

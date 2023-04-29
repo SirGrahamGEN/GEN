@@ -1,21 +1,37 @@
-//------------------------------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP.CPP
-//
-//  LINUX Data Input/Output Stream IP Local Enum Devices class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOLINUXStreamIPLocalEnumDevices.cpp
+* 
+* @class      DIOLINUXSTREAMIPLOCALENUMDEVICES
+* @brief      Data Input/Output LINUX Stream IP Local Enum Devices class
+* @ingroup    PLATFORM_LINUX
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
 
 #include "GEN_Defines.h"
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <unistd.h>
@@ -36,66 +52,52 @@
 #include "XMemory_Control.h"
 
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIPLOCALENUMDEVICES::DIOLINUXSTREAMTCPIPLOCALENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:01
-//
-//  @return
-
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMIPLOCALENUMDEVICES::DIOLINUXSTREAMIPLOCALENUMDEVICES()
+* @brief      Constructor
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMIPLOCALENUMDEVICES::DIOLINUXSTREAMIPLOCALENUMDEVICES() : DIOSTREAMIPLOCALENUMDEVICES()
 {
 
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIPLOCALENUMDEVICES::~DIOLINUXSTREAMTCPIPLOCALENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:12
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMIPLOCALENUMDEVICES::~DIOLINUXSTREAMIPLOCALENUMDEVICES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMIPLOCALENUMDEVICES::~DIOLINUXSTREAMIPLOCALENUMDEVICES()
 {
 
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIPLOCALENUMDEVICES::Search
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:27
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMIPLOCALENUMDEVICES::Search()
+* @brief      Search
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMIPLOCALENUMDEVICES::Search()
 {
   DelAllDevices();
@@ -153,6 +155,8 @@ bool DIOLINUXSTREAMIPLOCALENUMDEVICES::Search()
         DIOSTREAMDEVICEIP* device = new DIOSTREAMDEVICEIP();
         if(device)
           {
+            device->SetIsActive(true);
+
             device->SetIndex(c);
 
             device->GetName()->Set(ifreq[c].ifr_name);
@@ -160,30 +164,24 @@ bool DIOLINUXSTREAMIPLOCALENUMDEVICES::Search()
             device->GetMAC()->Set((XBYTE*)ifreq[c].ifr_hwaddr.sa_data);            
 
             device->SetIPType(DIOSTREAMIPDEVICE_TYPE_UNKNOWN);
-
-            //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("   %d Interface: %s"), c, device->GetName()->Get());
-
-            /*  
-            if(ifreq[c].ifr_flags & IFF_LOOPBACK)
-              {
-                device->SetIPType(DIOSTREAMIPDEVICE_TYPE_LOOPBACK);
-              }
-             else
-            */
-              {                            
-                if(device->GetName()->Find(__L("eth") , true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_ETHERNET);
-                if(device->GetName()->Find(__L("enx") , true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_ETHERNET);   // Debian Stretch form
-                if(device->GetName()->Find(__L("ens") , true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_ETHERNET);   // Cent OS 7
-                if(device->GetName()->Find(__L("ppp") , true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_PPP);        // Modem / ppp
-                if(device->GetName()->Find(__L("wlan"), true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_WIFI);
-                if(device->GetName()->Find(__L("wwan"), true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_WWAN);
-                if(device->GetName()->Find(__L("lo")  , true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_LOOPBACK);
-              }
+          
+            if(device->GetName()->Find(__L("eth") , true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_ETHERNET);
+            if(device->GetName()->Find(__L("enx") , true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_ETHERNET);   // Debian Stretch form
+            if(device->GetName()->Find(__L("ens") , true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_ETHERNET);   // Cent OS 7
+            if(device->GetName()->Find(__L("ppp") , true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_PPP);        // Modem / ppp
+            if(device->GetName()->Find(__L("wlan"), true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_WIFI);
+            if(device->GetName()->Find(__L("wwan"), true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_WWAN);
+            if(device->GetName()->Find(__L("lo")  , true) != XSTRING_NOTFOUND)  device->SetIPType(DIOSTREAMIPDEVICE_TYPE_LOOPBACK);
 
             XSTRING IP;
             IP.Set(ip);
             device->GetIP()->Set(IP);
             device->GetIP()->GetMask()->Set(mask);
+
+            if(device->GetIP()->IsEmpty()) 
+              {
+                device->SetIsActive(false);
+              }
 
             devices.Add(device);
 

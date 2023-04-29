@@ -60,6 +60,9 @@ class DIOSTREAMDEVICEIP : public DIOSTREAMDEVICE
                                   DIOSTREAMDEVICEIP       ();
     virtual                      ~DIOSTREAMDEVICEIP       ();
 
+    bool                          IsActive                ();  
+    void                          SetIsActive             (bool isactive);      
+
     DIOMAC*                       GetMAC                  ();
     DIOIP*                        GetIP                   ();
 
@@ -72,6 +75,7 @@ class DIOSTREAMDEVICEIP : public DIOSTREAMDEVICE
 
   protected:
 
+    bool                          isactive;  
     DIOMAC                        MAC;
     DIOIP                         IP;
     DIOSTREAMIPDEVICE_TYPE        iptype;

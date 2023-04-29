@@ -61,13 +61,14 @@ DIOSTREAMDEVICEIP::DIOSTREAMDEVICEIP()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOSTREAMDEVICEIP::~DIOSTREAMDEVICEIP()
-* @brief      IOSTREAMDEVICEIP
+* @brief      Destructor
+* @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     DIOSTREAMDEVICEIP::~ :
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEIP::~DIOSTREAMDEVICEIP()
 {
@@ -75,6 +76,38 @@ DIOSTREAMDEVICEIP::~DIOSTREAMDEVICEIP()
   DNSservers.DeleteAll();
 
   Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSTREAMDEVICEIP::IsActive()
+* @brief      IsActive
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOSTREAMDEVICEIP::IsActive()
+{
+  return isactive;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMDEVICEIP::SetIsActive(bool isactive)
+* @brief      SetIsActive
+* @ingroup    DATAIO
+* 
+* @param[in]  isactive : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMDEVICEIP::SetIsActive(bool isactive)
+{
+  this->isactive = isactive;
 }
 
 
@@ -214,9 +247,9 @@ bool DIOSTREAMDEVICEIP::DebugPrintInfo()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEIP::Clean()
 {
-  type   = DIOSTREAMDEVICE_TYPE_IP;
-
-  iptype = DIOSTREAMIPDEVICE_TYPE_UNKNOWN;
+  isactive  = false;
+  type      = DIOSTREAMDEVICE_TYPE_IP;
+  iptype    = DIOSTREAMIPDEVICE_TYPE_UNKNOWN;
 }
 
 

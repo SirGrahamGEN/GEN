@@ -38,6 +38,15 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+enum DIONODEITEMVALUE_MODE
+{
+  DIONODEITEMVALUE_MODE_NONE              = 0 ,
+  DIONODEITEMVALUE_MODE_READ              = 1 ,
+  DIONODEITEMVALUE_MODE_WRITE             = 2 ,
+  DIONODEITEMVALUE_MODE_READWRITE         = 3 
+};
+
+
 enum DIONODEITEMVALUE_TYPE
 {
   DIONODEITEMVALUE_TYPE_UNKNOWN           = 0 ,
@@ -49,7 +58,6 @@ enum DIONODEITEMVALUE_TYPE
 
   DIONODEITEMVALUE_TYPE_OWNER                 ,
 };
-
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -63,6 +71,10 @@ class DIONODEITEMVALUE : public XSERIALIZABLE
     void                                SetType                   (XDWORD type);
 
     virtual bool                        GetDescription            (XSTRING& description);
+
+    DIONODEITEMVALUE_MODE               GetMode                   ();
+    void                                SetMode                   (DIONODEITEMVALUE_MODE mode);
+    void                                GetModeString             (XSTRING& modestring);
 
     XVARIANT*                           GetValue                  ();
     XVARIANT*                           GetMinValue               ();
@@ -82,6 +94,8 @@ class DIONODEITEMVALUE : public XSERIALIZABLE
     void                                Clean                     ();
 
     XDWORD                              type;
+
+    DIONODEITEMVALUE_MODE               mode;
 
     XVARIANT                            value; 
     XVARIANT                            minvalue;

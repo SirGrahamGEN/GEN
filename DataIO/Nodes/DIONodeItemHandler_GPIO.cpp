@@ -50,6 +50,214 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*  DIONODEITEMHANDLER_ENTRYGPIO                                                                                      */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO()
+{
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO(XDWORD entryID, bool writemode, int GPIO, int pin)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]  XDWORD : 
+* @param[in]   bool writemode : 
+* @param[in]   int GPIO : 
+* @param[in]   int pin : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO(XDWORD entryID, bool writemode, int GPIO, int pin)
+{
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIONODEITEMHANDLER_ENTRYGPIO::~DIONODEITEMHANDLER_ENTRYGPIO()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIONODEITEMHANDLER_ENTRYGPIO::~DIONODEITEMHANDLER_ENTRYGPIO()
+{
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIONODEITEMHANDLER_ENTRYGPIO::GetEntryID()
+* @brief      GetEntryID
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIONODEITEMHANDLER_ENTRYGPIO::GetEntryID()
+{
+  return entryID;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMHANDLER_ENTRYGPIO::SetEntryID(XDWORD entryID)
+* @brief      SetEntryID
+* @ingroup    DATAIO
+* 
+* @param[in]  entryID : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEMHANDLER_ENTRYGPIO::SetEntryID(XDWORD entryID)
+{
+  this->entryID = entryID;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEITEMHANDLER_ENTRYGPIO::GetWriteMode()
+* @brief      GetWriteMode
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEITEMHANDLER_ENTRYGPIO::GetWriteMode()
+{
+  return writemode;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMHANDLER_ENTRYGPIO::SetWriteMode(bool writemode)
+* @brief      SetWriteMode
+* @ingroup    DATAIO
+* 
+* @param[in]  writemode : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEMHANDLER_ENTRYGPIO::SetWriteMode(bool writemode)
+{
+  this->writemode = writemode;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIONODEITEMHANDLER_ENTRYGPIO::GetGPIO()
+* @brief      GetGPIO
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIONODEITEMHANDLER_ENTRYGPIO::GetGPIO() 
+{
+  return GPIO;
+}
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMHANDLER_ENTRYGPIO::SetGPIO(int GPIO)
+* @brief      SetGPIO
+* @ingroup    DATAIO
+* 
+* @param[in]  GPIO : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEMHANDLER_ENTRYGPIO::SetGPIO(int GPIO)
+{
+  this->GPIO = GPIO;
+} 
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIONODEITEMHANDLER_ENTRYGPIO::GetPin()
+* @brief      GetPin
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIONODEITEMHANDLER_ENTRYGPIO::GetPin()
+{
+  return pin;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMHANDLER_ENTRYGPIO::SetPin(int pin)
+* @brief      SetPin
+* @ingroup    DATAIO
+* 
+* @param[in]  pin : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEMHANDLER_ENTRYGPIO::SetPin(int pin)
+{
+  this->pin = pin;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMHANDLER_ENTRYGPIO::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEMHANDLER_ENTRYGPIO::Clean()
+{
+  entryID     = 0;
+  writemode   = false;
+  GPIO        = DIONODEITEMHANDLER_INVALIDPARAM; 
+  pin         = DIONODEITEMHANDLER_INVALIDPARAM;  
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*  DIONODEITEMHANDLER_GPIO                                                                                           */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMHANDLER_GPIO::DIONODEITEMHANDLER_GPIO()
@@ -67,7 +275,7 @@ DIONODEITEMHANDLER_GPIO::DIONODEITEMHANDLER_GPIO(XDWORD entryID, int GPIO, int p
   this->GPIO    = GPIO;
   this->pin     = pin;  
 
-  if(this->pin != DIONODEITEMHANDLER_GPIO_INVALIDPARAM)  
+  if(this->pin != DIONODEITEMHANDLER_INVALIDPARAM)  
     {
       if(!GEN_DIOGPIO.GPIOEntry_SetIDByPin(this->entryID, this->GPIO))
         {
@@ -75,7 +283,7 @@ DIONODEITEMHANDLER_GPIO::DIONODEITEMHANDLER_GPIO(XDWORD entryID, int GPIO, int p
         }
     }
 
-  if(this->GPIO != DIONODEITEMHANDLER_GPIO_INVALIDPARAM)  
+  if(this->GPIO != DIONODEITEMHANDLER_INVALIDPARAM)  
     {
       if(!GEN_DIOGPIO.GPIOEntry_SetIDByGPIO(this->entryID, this->GPIO))
         {
@@ -274,8 +482,8 @@ void DIONODEITEMHANDLER_GPIO::Clean()
 {
   entryID                 = 0;
 
-  GPIO                    = DIONODEITEMHANDLER_GPIO_INVALIDPARAM;
-  pin                     = DIONODEITEMHANDLER_GPIO_INVALIDPARAM;
+  GPIO                    = DIONODEITEMHANDLER_INVALIDPARAM;
+  pin                     = DIONODEITEMHANDLER_INVALIDPARAM;
 
   time_last_activation    = 0;
   time_last_deactivation  = 0;

@@ -50,6 +50,8 @@ enum DIONODEITEMHANDLER_TYPE
   DIONODEITEMHANDLER_TYPE_OWNER                          
 };
 
+#define DIONODEITEMHANDLER_INVALIDPARAM    -1 
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class DIONODEITEMHANDLER : public XSUBJECT

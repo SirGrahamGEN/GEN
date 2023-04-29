@@ -35,30 +35,61 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-#define DIONODEITEMHANDLER_GPIO_INVALIDPARAM    -1 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XTIMER;
 
+class DIONODEITEMHANDLER_ENTRYGPIO
+{
+  public: 
+                                  DIONODEITEMHANDLER_ENTRYGPIO      ();
+                                  DIONODEITEMHANDLER_ENTRYGPIO      (XDWORD entryID, bool writemode, int GPIO = DIONODEITEMHANDLER_INVALIDPARAM, int pin = DIONODEITEMHANDLER_INVALIDPARAM);
+    virtual                      ~DIONODEITEMHANDLER_ENTRYGPIO      ();
+
+
+    XDWORD                        GetEntryID                        ();
+    void                          SetEntryID                        (XDWORD entryID);
+
+    bool                          GetWriteMode                      ();
+    void                          SetWriteMode                      (bool writemode);
+
+    int                           GetGPIO                           (); 
+    void                          SetGPIO                           (int GPIO = DIONODEITEMHANDLER_INVALIDPARAM); 
+
+    int                           GetPin                            ();
+    void                          SetPin                            (int pin = DIONODEITEMHANDLER_INVALIDPARAM);
+
+  private:
+
+    void                          Clean                             ();     
+
+    XDWORD                        entryID;
+    bool                          writemode;
+    int                           GPIO; 
+    int                           pin;
+
+};
+
+
 class DIONODEITEMHANDLER_GPIO : public DIONODEITEMHANDLER
 {
   public:
-                                  DIONODEITEMHANDLER_GPIO          (XDWORD entryID, int GPIO = DIONODEITEMHANDLER_GPIO_INVALIDPARAM, int pin = DIONODEITEMHANDLER_GPIO_INVALIDPARAM);
-    virtual                      ~DIONODEITEMHANDLER_GPIO          ();
+                                  DIONODEITEMHANDLER_GPIO           (XDWORD entryID, int GPIO = DIONODEITEMHANDLER_INVALIDPARAM, int pin = DIONODEITEMHANDLER_INVALIDPARAM);
+    virtual                      ~DIONODEITEMHANDLER_GPIO           ();
 
-    virtual bool                  Open                            ();
-    virtual bool                  Update                          ();
-    bool                          Close                           ();
+    virtual bool                  Open                              ();
+    virtual bool                  Update                            ();
+    bool                          Close                             ();
 
-    bool                          SetNodeItem                     (DIONODEITEM* nodeitem);  
+    bool                          SetNodeItem                       (DIONODEITEM* nodeitem);  
 
-    XQWORD                        GetTimeLastActivation           (); 
-    XQWORD                        GetTimeLastDeactivation         (); 
+    XQWORD                        GetTimeLastActivation             (); 
+    XQWORD                        GetTimeLastDeactivation           (); 
 
   protected:
 
-    void                          AdjustTimeInChange              (bool status);
+    void                          AdjustTimeInChange                (bool status);
 
     XDWORD                        entryID;
     int                           GPIO;

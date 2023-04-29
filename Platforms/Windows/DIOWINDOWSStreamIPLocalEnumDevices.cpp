@@ -205,7 +205,6 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
   PIP_ADAPTER_ADDRESSES               adapter_addresses;
   PIP_ADAPTER_ADDRESSES               aa;
 	PIP_ADAPTER_UNICAST_ADDRESS         ua;
-//PIP_ADAPTER_GATEWAY_ADDRESS_LH      ga;
   PIP_ADAPTER_DNS_SERVER_ADDRESS_XP   dnsa;
   XDWORD                              index = 0;      
   DWORD                               size;
@@ -227,10 +226,12 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
 	  }
 
 	for(aa = adapter_addresses; aa != NULL; aa = aa->Next) 
-    { 
+    {       
       DIOSTREAMDEVICEIP* device = new DIOSTREAMDEVICEIP();
       if(device)
         {
+          device->SetIsActive((aa->OperStatus == IfOperStatusUp?true:false));
+                
           char buffer[BUFSIZ];
 
           device->SetIndex(index++);
@@ -247,9 +248,7 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
               case IF_TYPE_IEEE80211          : device->SetIPType(DIOSTREAMIPDEVICE_TYPE_WIFI);       
                                                 break;
 
-                                  default     : { int a =0;
-                                                  a++;    
-                                                }
+                                  default     : device->SetIPType(DIOSTREAMIPDEVICE_TYPE_UNKNOWN);
                                                 break;
             }
 		      
@@ -262,38 +261,27 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
           device->GetDescription()->Set(buffer);
 
           device->GetMAC()->Set((XBYTE*)aa->PhysicalAddress);
-     
+         
 		      for(ua = aa->FirstUnicastAddress; ua != NULL; ua = ua->Next) 
             {
 			        int family = ua->Address.lpSockaddr->sa_family;
 	            if(family == AF_INET)
                 {
                   XDWORD  mask;
-                  // XSTRING strmask;
-                       
-	                memset(buffer, 0, BUFSIZ);
-	                getnameinfo(ua->Address.lpSockaddr, ua->Address.iSockaddrLength, buffer, sizeof(buffer), NULL, 0,NI_NUMERICHOST);
 
-                  ConvertLengthToIpv4Mask(ua->OnLinkPrefixLength, (ULONG*)&mask);                  
+                  memset(buffer, 0, BUFSIZ);
 
-                  SWAPDWORD(mask);
-                  device->GetIP()->Set(buffer);
+	                if(!getnameinfo(ua->Address.lpSockaddr, ua->Address.iSockaddrLength, buffer, sizeof(buffer), NULL, 0,NI_NUMERICHOST))
+                    {
+                      ConvertLengthToIpv4Mask(ua->OnLinkPrefixLength, (ULONG*)&mask);                  
 
-                  // strmask.Format(__L("%d.%d.%d.%d"), (XBYTE)(mask >> 24),(XBYTE)(mask >> 16),(XBYTE)(mask >> 8),(XBYTE)(mask));
-
-                  device->GetIP()->GetMask()->Set((XBYTE)(mask >> 24),(XBYTE)(mask >> 16),(XBYTE)(mask >> 8),(XBYTE)(mask));   
-                  break;
+                      SWAPDWORD(mask);
+                      device->GetIP()->Set(buffer);                     
+                      device->GetIP()->GetMask()->Set((XBYTE)(mask >> 24),(XBYTE)(mask >> 16),(XBYTE)(mask >> 8),(XBYTE)(mask));   
+                      break;
+                    }
                 }
-		        }
-
-           /*
-           //for(ga = aa->FirstGatewayAddress; ga != NULL; ga = ga->Next) 
-           ga = aa->FirstGatewayAddress;
-            {
-			        memset(buffer, 0, BUFSIZ);
-	            getnameinfo(ga->Address.lpSockaddr, ga->Address.iSockaddrLength, buffer, sizeof(buffer), NULL, 0,NI_NUMERICHOST);             
-		        }
-           */
+		        }          
 
           for(dnsa = aa->FirstDnsServerAddress; dnsa != NULL; dnsa = dnsa->Next) 
             {
@@ -311,7 +299,7 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
                             {
                               device->GetDNSservers()->Add(DNSserver);         
                             }
-                           else 
+                            else 
                             {
                               delete DNSserver;     
                             }
@@ -322,6 +310,7 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
 
           devices.Add(device);
         }
+        
 	  }
 
 	free(adapter_addresses);
