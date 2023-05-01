@@ -140,7 +140,6 @@ DWORD WINAPI            Service_WorkerThread          (LPVOID lpParam);
 
 bool                    Exception_Printf              (bool iserror, XCHAR* title, XCHAR* mask, ...);
 BOOL                    Exception_ConsoleHandler      (DWORD fdwctrltype);
-//bool                    Exception_ShutDown            (XSYSTEM_CHANGESTATUSTYPE type);
 
 
 

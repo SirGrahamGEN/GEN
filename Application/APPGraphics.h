@@ -33,7 +33,6 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XSubject.h"
 #include "XObserver.h"
 #include "XVector.h"
 
@@ -55,7 +54,7 @@ class GRPSCREEN;
 class GRPCANVAS;
 class INPDEVICE;
 
-class APPGRAPHICS : public APPBASE, public XOBSERVER, public XSUBJECT
+class APPGRAPHICS : public APPBASE, public XOBSERVER
 {
   public:
                               APPGRAPHICS                         ();

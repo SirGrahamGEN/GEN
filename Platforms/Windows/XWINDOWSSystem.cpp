@@ -859,7 +859,7 @@ bool XWINDOWSSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 {
-  if(type == XSYSTEM_CHANGESTATUSTYPE_UNKNOWN) return false;
+  if(type == XSYSTEM_CHANGESTATUSTYPE_NONE) return false;
 
   HANDLE            hToken;
   TOKEN_PRIVILEGES  tkp;

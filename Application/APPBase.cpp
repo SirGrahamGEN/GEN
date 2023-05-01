@@ -47,6 +47,7 @@
 #include "XObserver.h"
 #include "XSubject.h"
 
+#include "APP_XEvent.h"
 #include "APPLog.h"
 
 #include "APPBase.h"
@@ -71,6 +72,9 @@
 APPBASE::APPBASE()
 {
   Clean();
+
+  RegisterEvent(APP_XEVENT_TYPE_CHANGESTATUSTYPE);
+  
 }
 
 
@@ -86,6 +90,8 @@ APPBASE::APPBASE()
 * --------------------------------------------------------------------------------------------------------------------*/
 APPBASE::~APPBASE()
 {
+  DeRegisterEvent(APP_XEVENT_TYPE_CHANGESTATUSTYPE);
+
   Clean();
 }
 
@@ -433,19 +439,53 @@ XSYSTEM_CHANGESTATUSTYPE APPBASE::GetSystemChangeStatus()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void APPBASE::SetSystemChangeStatus(XSYSTEM_CHANGESTATUSTYPE type)
+* 
+* @fn         void APPBASE::SetSystemChangeStatus(XSYSTEM_CHANGESTATUSTYPE systemchangestatustype)
 * @brief      SetSystemChangeStatus
 * @ingroup    APPLICATION
-*
-* @param[in]  type :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  systemchangestatustype : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPBASE::SetSystemChangeStatus(XSYSTEM_CHANGESTATUSTYPE systemchangestatustype)
 {
+  if(this->systemchangestatustype == systemchangestatustype) 
+    {
+      return;
+    }
+
   this->systemchangestatustype = systemchangestatustype;
+
+  #ifdef _DEBUG
+
+  XSTRING statusstr;  
+
+  switch(systemchangestatustype)
+    {
+      case XSYSTEM_CHANGESTATUSTYPE_NONE                :
+                                  default               : statusstr = __L("normal");                break;
+      case XSYSTEM_CHANGESTATUSTYPE_REBOOT              : statusstr = __L("reboot");                break;
+      case XSYSTEM_CHANGESTATUSTYPE_CONSOLE_CONNECT     : statusstr = __L("console connect");       break;
+      case XSYSTEM_CHANGESTATUSTYPE_CONSOLE_DISCONNECT  : statusstr = __L("console disconnect");    break;
+      case XSYSTEM_CHANGESTATUSTYPE_SESSION_LOGON       : statusstr = __L("session logon");         break;
+      case XSYSTEM_CHANGESTATUSTYPE_SESSION_LOGOFF      : statusstr = __L("session logooff");       break;
+      case XSYSTEM_CHANGESTATUSTYPE_SESSION_LOCK        : statusstr = __L("session lock");          break;
+      case XSYSTEM_CHANGESTATUSTYPE_SESSION_UNLOCK      : statusstr = __L("session unlock");        break;
+      case XSYSTEM_CHANGESTATUSTYPE_POWEROFF            : statusstr = __L("power off");             break;
+      case XSYSTEM_CHANGESTATUSTYPE_SUSPEND             : statusstr = __L("suspend");               break;
+    }
+
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_GREEN, __L("[System] Mode change to [%s]"), statusstr.Get());
+  
+  #endif
+
+  APP_XEVENT  xevent(this, APP_XEVENT_TYPE_CHANGESTATUSTYPE);      
+  xevent.SetChangeStatusType(systemchangestatustype);
+  PostEvent(&xevent); 
+
+  SetSystemChangeStatus(xevent.GetChangeStatusType());
 }
 
 
@@ -596,5 +636,5 @@ void APPBASE::Clean()
   firstupdate             = false;
 
   exittype                = APPBASE_EXITTYPE_UNKNOWN;
-  systemchangestatustype  = XSYSTEM_CHANGESTATUSTYPE_UNKNOWN;
+  systemchangestatustype  = XSYSTEM_CHANGESTATUSTYPE_NONE;
 }

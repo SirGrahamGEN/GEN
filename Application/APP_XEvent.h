@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @file       APPConsole.h
+* @file       APP_XEvent.h
 *
-* @class      APPCONSOLE
-* @brief      Application Console class
+* @class      APP_XEVENT
+* @brief      Application eXtended Event class
 * @ingroup    APPLICATION
 *
 * @copyright  GEN Group. All rights reserved.
@@ -26,55 +26,47 @@
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _APPCONSOLE_H_
-#define _APPCONSOLE_H_
+#ifndef _APP_XEVENT_H_
+#define _APP_XEVENT_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XObserver.h"
-
-#include "APPBase.h"
+#include "XEvent.h"
+#include "XSubject.h"
+#include "XSystem.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-#define APPCONSOLE_DEFAULTMESSAGEMASK                   __L("%-36s ... ")
-#define APPCONSOLE_DEFAULTMESSAGEMASKWITHOUTPOINTS      __L("%-36s ")
+enum APP_XEVENT_TYPE
+{
+  APP_XEVENT_TYPE_UNKNOWN              = XEVENT_TYPE_APPLICATION  ,
+  APP_XEVENT_TYPE_CHANGESTATUSTYPE                                                      
+};
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XTIMER;
-class XCONSOLE;
+class XPUBLISHER;
 
-class APPCONSOLE : public APPBASE, public XOBSERVER
+class APP_XEVENT : public XEVENT
 {
   public:
+                                  APP_XEVENT              (XSUBJECT* subject, XDWORD type = APP_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_APPLICATION);
+    virtual                      ~APP_XEVENT              ();
 
-                                  APPCONSOLE            ();
-    virtual                      ~APPCONSOLE            ();
-
-    bool                          Ini                   (XVECTOR<XSTRING*>* execparams);
-  
-    bool                          Show_Line             (XSTRING& string, XSTRING& string2, int tab = 3, bool linefeed = true);
-    bool                          Show_LineDirect       (XSTRING& string, bool lf);
-    bool                          Show_Header           (bool separator);
-
-    bool                          End                   ();
-
-    virtual bool                  PrintExitMessage      (XSTRING& message);
-
-  protected:
-
-    XCONSOLE*                     console;
+    XSYSTEM_CHANGESTATUSTYPE      GetChangeStatusType     ();
+    void                          SetChangeStatusType     (XSYSTEM_CHANGESTATUSTYPE systemchangestatustype);
 
   private:
 
-    void                          Clean                 ();
-
+    void                          Clean                   ();
+    
+    XSYSTEM_CHANGESTATUSTYPE      changestatustype;
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
-#endif
 
+#endif
 
 

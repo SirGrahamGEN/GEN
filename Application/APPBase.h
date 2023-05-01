@@ -36,6 +36,7 @@
 #include "XString.h"
 #include "XTrace.h"
 #include "XSystem.h"
+#include "XSubject.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
@@ -84,7 +85,7 @@ enum APPBASE_APPLICATIONMODE_TYPE
 
 class XTIMER;
 
-class APPBASE
+class APPBASE : public XSUBJECT
 {
   public:
 

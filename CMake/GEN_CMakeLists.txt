@@ -1397,6 +1397,7 @@
   if(APP_FEATURE)
 
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPBase.cpp")                         
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APP_XEvent.cpp")                         
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_APPLICATION}/APPMain.cpp")
     option(XSYSTEM_FEATURE "System functions" true)
 
