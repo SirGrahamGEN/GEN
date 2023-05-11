@@ -36,7 +36,6 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "DIONode_XEvent.h"
-#include "DIONodeItemSensor.h"
 
 #include "DIONodeItemHandler_SensorAM2315.h"
 
@@ -73,7 +72,7 @@ DIONODEITEMHANDLER_SENSORAM2315::DIONODEITEMHANDLER_SENSORAM2315(int port, int r
   this->timeout             = timeout;   
 
   type                      = DIONODEITEMHANDLER_TYPE_SENSOR_AM2315;  
-  description               = __L("AOSONG AM2315");
+  name                      = __L("AOSONG AM2315");
 }
 
 
@@ -115,14 +114,7 @@ bool DIONODEITEMHANDLER_SENSORAM2315::Open()
     {
       return false;
     }
-
-  DIONODEITEMSENSOR* nodeitemsensor = (DIONODEITEMSENSOR*)GetNodeItem();
-  if(nodeitemsensor)
-    {  
-      nodeitemsensor->SetSensorType(DIONODEITEMSENSOR_TYPE_TEMPERATURE_HUMIDITY); 
-    }
-
-  
+    
   #ifndef WINDOWS
   isopen = am2315->Ini(port, remoteitemaddress, timeout);  
   #else
@@ -165,7 +157,7 @@ bool DIONODEITEMHANDLER_SENSORAM2315::Update()
 
   DIONODEITEMVALUE* nodeitemvalue;
 
-  for(int c=0; c<2; c++)
+  for(XDWORD c=0; c<2; c++)
     {
       nodeitemvalue = nodeitem->GetValues()->Get(c);
       if(nodeitemvalue)
@@ -186,13 +178,22 @@ bool DIONODEITEMHANDLER_SENSORAM2315::Update()
 
           if(fabs(difference) > differencevalue)
             {
+              XSTRING description;
+
+              nodeitemvalue->GetDescription(description);
               (*nodeitemvalue->GetValue()) = value[c];
               nodeitemvalue->SetValueHasChanged(true); 
 
-              DIONODE_XEVENT xevent(this, DIONODE_XEVENT_TYPE_UPDATEVALUE);              
+
+              DIONODE_XEVENT xevent(this, DIONODE_XEVENT_TYPE_UPDATEVALUE); 
+                  
+              xevent.SetNodeItem(nodeitem);
+              xevent.SetIndexValue(c);
+             
               PostEvent(&xevent);
               
-              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[DIONODE item handler %s] %s %s value %f"), GetDescription()->Get(), nodeitem->GetDescription()->Get(), (!c)?__L("temperature"):__L("humidity"), value[c]);  
+              
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[DIONODE item handler %s] %s %s [value %f]"), GetName()->Get(), nodeitem->GetDescription()->Get(), description.Get(), value[c]);  
             }
         }
     }
@@ -233,48 +234,48 @@ bool DIONODEITEMHANDLER_SENSORAM2315::Close()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIONODEITEMHANDLER_SENSORAM2315::SetNodeItem(DIONODEITEM* nodeitem)
 {
+  if(!nodeitem) 
+    {
+      return false;
+    }
+
   if(!DIONODEITEMHANDLER::SetNodeItem(nodeitem)) 
     {
       return false;
     }
 
-  DIONODEITEMSENSOR* nodeitemsensor = (DIONODEITEMSENSOR*)nodeitem;
-  if(!nodeitemsensor)
-    {
-      return false;
-    }
-
-  nodeitemsensor->SetSensorType(DIONODEITEMSENSOR_TYPE_TEMPERATURE_HUMIDITY); 
-
-  DIONODEITEMVALUE* value[2];
-
+  nodeitem->SetType(DIONODEITEM_TYPE_SENSORHUMIDITYTEMPERATURE); 
+  nodeitem->GetDescription()->Set(__L("Sensor Humidity/Temperature"));
+  
+ 
   for(XDWORD c=0; c<2; c++)
     {
-      value[c] = new DIONODEITEMVALUE();
-      if(value[c])
-    
-      switch(c)
+      DIONODEITEMVALUE* value = new DIONODEITEMVALUE();
+      if(value) 
         {
-          case  0 : value[c]->SetType(DIONODEITEMVALUE_TYPE_TEMPERATURE); 
+          switch(c)
+            {
+              case  0 : value->SetType(DIONODEITEMVALUE_TYPE_TEMPERATURE); 
     
-                    (*value[c]->GetValue())    =    0.00f;
-                    (*value[c]->GetMinValue()) =  -50.00f;
-                    (*value[c]->GetMaxValue()) =   50.00f;
+                        (*value->GetValue())    =    0.00f;
+                        (*value->GetMinValue()) =  -50.00f;
+                        (*value->GetMaxValue()) =   50.00f;
 
-                    value[c]->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_CELSIUSDEGREE);
-                    break;
+                        value->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_CELSIUSDEGREE);
+                        break;
 
-          case  1 : value[c]->SetType(DIONODEITEMVALUE_TYPE_HUMIDITY); 
+              case  1 : value->SetType(DIONODEITEMVALUE_TYPE_HUMIDITY); 
 
-                    (*value[c]->GetValue())    =   0.00f; 
-                    (*value[c]->GetMinValue()) =   0.00f; 
-                    (*value[c]->GetMaxValue()) = 100.00f;   
+                        (*value->GetValue())    =   0.00f; 
+                        (*value->GetMinValue()) =   0.00f; 
+                        (*value->GetMaxValue()) = 100.00f;   
 
-                    value[c]->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_RELATIVEHUMIDITY);
-                    break;
+                        value->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_RELATIVEHUMIDITY);
+                        break;
+            }
+
+          nodeitem->GetValues()->Add(value);
         }
-
-      nodeitem->GetValues()->Add(value[c]);
     }
 
   return true;
@@ -293,9 +294,9 @@ bool DIONODEITEMHANDLER_SENSORAM2315::SetNodeItem(DIONODEITEM* nodeitem)
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMHANDLER_SENSORAM2315::Clean()
 {
-  am2315                = NULL;
+  am2315              = NULL;
 
-  port                  = 0;
+  port                = 0;
   remoteitemaddress   = 0;
-  timeout               = 0;
+  timeout             = 0;
 }

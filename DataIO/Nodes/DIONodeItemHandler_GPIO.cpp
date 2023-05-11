@@ -37,7 +37,7 @@
 #include "XTimer.h"
 
 #include "DIOGPIO.h"
-#include "DIONodeItemActuator.h"
+#include "DIONode_XEvent.h"
 
 #include "DIONodeItemHandler_GPIO.h"
 
@@ -67,26 +67,37 @@
 DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO()
 {
   Clean();
+  
+  timerstatus = GEN_XFACTORY.CreateTimer();  
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO(XDWORD entryID, bool writemode, int GPIO, int pin)
+* @fn         DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO(XDWORD entryID, bool writemode, int GPIO, int pin, XCHAR* description)
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  XDWORD : 
-* @param[in]   bool writemode : 
-* @param[in]   int GPIO : 
-* @param[in]   int pin : 
+* @param[in]  entryID : 
+* @param[in]  writemode : 
+* @param[in]  GPIO : 
+* @param[in]  pin : 
+* @param[in]  description : 
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO(XDWORD entryID, bool writemode, int GPIO, int pin)
+DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO(XDWORD entryID, bool writemode, int GPIO, int pin, XCHAR* description)
 {
   Clean();
+
+  timerstatus = GEN_XFACTORY.CreateTimer();  
+
+  this->entryID     = entryID;
+  this->writemode   = writemode;
+  this->GPIO        = GPIO; 
+  this->pin         = pin;
+  this->description = description;
 }
 
 
@@ -102,6 +113,11 @@ DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO(XDWORD entryID, bool 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEMHANDLER_ENTRYGPIO::~DIONODEITEMHANDLER_ENTRYGPIO()
 {
+  if(timerstatus)
+    {
+      GEN_XFACTORY.DeleteTimer(timerstatus);
+    }
+
   Clean();
 }
 
@@ -233,6 +249,138 @@ void DIONODEITEMHANDLER_ENTRYGPIO::SetPin(int pin)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIONODEITEMHANDLER_ENTRYGPIO::GetDescription()
+* @brief      GetDescription
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIONODEITEMHANDLER_ENTRYGPIO::GetDescription()
+{
+  return &description;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XQWORD DIONODEITEMHANDLER_ENTRYGPIO::GetTimeLastActivation()
+* @brief      GetTimeLastActivation
+* @ingroup    DATAIO
+* 
+* @return     XQWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XQWORD DIONODEITEMHANDLER_ENTRYGPIO::GetTimeLastActivation()
+{
+  return time_last_activation;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XQWORD DIONODEITEMHANDLER_ENTRYGPIO::GetTimeLastDeactivation()
+* @brief      GetTimeLastDeactivation
+* @ingroup    DATAIO
+* 
+* @return     XQWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XQWORD DIONODEITEMHANDLER_ENTRYGPIO::GetTimeLastDeactivation()
+{
+  return time_last_deactivation;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEITEMHANDLER_ENTRYGPIO::CopyFrom(DIONODEITEMHANDLER_ENTRYGPIO* entryGPIO)
+* @brief      CopyFrom
+* @ingroup    DATAIO
+* 
+* @param[in]  entryGPIO : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEITEMHANDLER_ENTRYGPIO::CopyFrom(DIONODEITEMHANDLER_ENTRYGPIO* entryGPIO)
+{
+  if(!entryGPIO)
+    {
+      return false;
+    }
+  
+  entryID                   = entryGPIO->entryID;
+  writemode                 = entryGPIO->writemode;
+  GPIO                      = entryGPIO->GPIO; 
+  pin                       = entryGPIO->pin;
+  description               = entryGPIO->description;
+
+  time_last_activation      = entryGPIO->time_last_activation;
+  time_last_deactivation    = entryGPIO->time_last_deactivation;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEITEMHANDLER_ENTRYGPIO::CopyTo(DIONODEITEMHANDLER_ENTRYGPIO* entryGPIO)
+* @brief      CopyTo
+* @ingroup    DATAIO
+* 
+* @param[in]  entryGPIO : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEITEMHANDLER_ENTRYGPIO::CopyTo(DIONODEITEMHANDLER_ENTRYGPIO* entryGPIO)
+{
+  if(!entryGPIO)
+    {
+      return false;
+    }
+  
+  entryGPIO->entryID                   = entryID;
+  entryGPIO->writemode                 = writemode;
+  entryGPIO->GPIO                      = GPIO; 
+  entryGPIO->pin                       = pin;
+  entryGPIO->description               = description;
+
+  entryGPIO->time_last_activation      = time_last_activation;
+  entryGPIO->time_last_deactivation    = time_last_deactivation;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODEITEMHANDLER_ENTRYGPIO::AdjustTimeInChange(bool boolean_status)
+* @brief      AdjustTimeInChange
+* @ingroup    DATAIO
+* 
+* @param[in]  boolean_status : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEITEMHANDLER_ENTRYGPIO::AdjustTimeInChange(bool boolean_status)
+{
+  if(boolean_status)
+    {    
+      time_last_deactivation  = timerstatus->GetMeasureMilliSeconds();
+    }
+   else
+    {
+      time_last_activation    = timerstatus->GetMeasureMilliSeconds();  
+    }   
+
+  timerstatus->Reset();
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -246,10 +394,15 @@ void DIONODEITEMHANDLER_ENTRYGPIO::SetPin(int pin)
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMHANDLER_ENTRYGPIO::Clean()
 {
-  entryID     = 0;
-  writemode   = false;
-  GPIO        = DIONODEITEMHANDLER_INVALIDPARAM; 
-  pin         = DIONODEITEMHANDLER_INVALIDPARAM;  
+  entryID                 = 0;
+  writemode               = false;
+  GPIO                    = DIONODEITEMHANDLER_INVALIDPARAM; 
+  pin                     = DIONODEITEMHANDLER_INVALIDPARAM;  
+
+  time_last_activation    = 0;
+  time_last_deactivation  = 0;
+
+  timerstatus             = NULL;  
 }
 
 
@@ -258,40 +411,50 @@ void DIONODEITEMHANDLER_ENTRYGPIO::Clean()
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEITEMHANDLER_GPIO::DIONODEITEMHANDLER_GPIO()
+* @fn         DIONODEITEMHANDLER_GPIO::DIONODEITEMHANDLER_GPIO(XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* entrysGPIO)
 * @brief      Constructor
 * @ingroup    DATAIO
+* 
+* @param[in]  XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* : 
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEITEMHANDLER_GPIO::DIONODEITEMHANDLER_GPIO(XDWORD entryID, int GPIO, int pin)
+DIONODEITEMHANDLER_GPIO::DIONODEITEMHANDLER_GPIO(XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* entrysGPIO)
 {
   Clean();
 
-  this->entryID = entryID;
-  this->GPIO    = GPIO;
-  this->pin     = pin;  
+  type  = DIONODEITEMHANDLER_TYPE_GPIO;
+  name  = __L("GPIO digital");
 
-  if(this->pin != DIONODEITEMHANDLER_INVALIDPARAM)  
+  for(XDWORD c=0; c<entrysGPIO->GetSize(); c++)
     {
-      if(!GEN_DIOGPIO.GPIOEntry_SetIDByPin(this->entryID, this->GPIO))
+      DIONODEITEMHANDLER_ENTRYGPIO* entryGPIO = new DIONODEITEMHANDLER_ENTRYGPIO();
+      if(entryGPIO)
         {
-          GEN_DIOGPIO.GPIOEntry_CreateByPin(this->entryID, this->pin);      
+          entryGPIO->CopyFrom(entrysGPIO->Get(c));
+          this->entrysGPIO.Add(entryGPIO);        
+
+          if(entryGPIO->GetPin() != DIONODEITEMHANDLER_INVALIDPARAM)  
+            {
+              if(!GEN_DIOGPIO.GPIOEntry_SetIDByPin(entryGPIO->GetEntryID(), entryGPIO->GetGPIO()))
+                {
+                  GEN_DIOGPIO.GPIOEntry_CreateByPin(entryGPIO->GetEntryID(), entryGPIO->GetPin());      
+                }
+            }
+
+          if(entryGPIO->GetGPIO() != DIONODEITEMHANDLER_INVALIDPARAM)  
+            {
+              if(!GEN_DIOGPIO.GPIOEntry_SetIDByGPIO(entryGPIO->GetEntryID(), entryGPIO->GetGPIO()))
+                {
+                  GEN_DIOGPIO.GPIOEntry_CreateByGPIO(entryGPIO->GetEntryID(), entryGPIO->GetGPIO());
+                }
+            }      
         }
     }
-
-  if(this->GPIO != DIONODEITEMHANDLER_INVALIDPARAM)  
-    {
-      if(!GEN_DIOGPIO.GPIOEntry_SetIDByGPIO(this->entryID, this->GPIO))
-        {
-          GEN_DIOGPIO.GPIOEntry_CreateByGPIO(this->entryID, this->GPIO);
-        }
-    }
-
-  timerstatus = GEN_XFACTORY.CreateTimer();  
 }
 
 
@@ -309,10 +472,8 @@ DIONODEITEMHANDLER_GPIO::~DIONODEITEMHANDLER_GPIO()
 {
   Close();
 
-  if(timerstatus)
-    {
-      GEN_XFACTORY.DeleteTimer(timerstatus);
-    }
+  entrysGPIO.DeleteContents();
+  entrysGPIO.DeleteAll();
 
   Clean();
 }
@@ -329,7 +490,21 @@ DIONODEITEMHANDLER_GPIO::~DIONODEITEMHANDLER_GPIO()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIONODEITEMHANDLER_GPIO::Open()
 {
-  return false;
+  isopen = false;
+
+  for(XDWORD c=0; c<entrysGPIO.GetSize(); c++)
+    {
+      DIONODEITEMHANDLER_ENTRYGPIO* entryGPIO = entrysGPIO.Get(c);
+      if(entryGPIO)
+        {
+          isopen = GEN_DIOGPIO.SetMode(entryGPIO->GetEntryID(), entryGPIO->GetWriteMode()?DIOGPIO_MODE_OUTPUT:DIOGPIO_MODE_INPUT);             
+          if(!isopen) break;
+        }
+    }
+  
+  isworking = isopen;
+
+  return true;
 }
 
 
@@ -344,12 +519,79 @@ bool DIONODEITEMHANDLER_GPIO::Open()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIONODEITEMHANDLER_GPIO::Update()
 {
-  DIONODEITEMACTUATOR* nodeitemactuator = (DIONODEITEMACTUATOR*)GetNodeItem();
-  if(!nodeitemactuator)
+  DIONODEITEM* nodeitem = (DIONODEITEM*)GetNodeItem();
+  if(!nodeitem)
     {
       return false;
     }
 
+  for(XDWORD c=0; c<entrysGPIO.GetSize(); c++)
+    {
+      DIONODEITEMHANDLER_ENTRYGPIO* entryGPIO = entrysGPIO.Get(c);
+      if(entryGPIO)
+        {
+          DIONODEITEMVALUE* nodeitemvalue = nodeitem->GetValues()->Get(c);
+          if(!nodeitemvalue) 
+            {
+              return false;
+            }
+    
+          XVARIANT* value = nodeitemvalue->GetValue();
+          if(value)
+            {
+              if(entryGPIO->GetWriteMode())
+                {
+                  if(nodeitemvalue->ValueHasChanged())
+                   {               
+                      bool     _value       = (*value); 
+                      XSTRING description;
+                    
+                      GEN_DIOGPIO.SetValue(entryGPIO->GetEntryID(), _value);                                
+
+                      nodeitemvalue->GetDescription(description);
+                      entryGPIO->AdjustTimeInChange(_value);
+                      nodeitemvalue->SetValueHasChanged(false);
+
+                      /*
+                      DIONODE_XEVENT xevent(this, DIONODE_XEVENT_TYPE_UPDATEVALUE); 
+                  
+                      xevent.SetNodeItem(nodeitem);
+                      xevent.SetIndexValue(c);
+             
+                      PostEvent(&xevent);
+                      */
+                      
+                      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[DIONODE item handler %s] %s %s [value %s]"), GetName()->Get(), entryGPIO->GetDescription()->Get(), description.Get(), _value?__L("true"):__L("false"));
+                    }          
+                }
+               else
+                {
+                  bool value_GPIO = GEN_DIOGPIO.GetValue(entryGPIO->GetEntryID());
+
+                  if((bool)(*value) != value_GPIO)
+                    {     
+                      XSTRING description;  
+
+                      (*value) = value_GPIO;
+        
+                      nodeitemvalue->GetDescription(description);
+                      entryGPIO->AdjustTimeInChange(value_GPIO);
+                      nodeitemvalue->SetValueHasChanged(true);
+
+                      DIONODE_XEVENT xevent(this, DIONODE_XEVENT_TYPE_UPDATEVALUE); 
+                  
+                      xevent.SetNodeItem(nodeitem);
+                      xevent.SetIndexValue(c);
+             
+                      PostEvent(&xevent);
+                      
+                      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[DIONODE item handler %s] %s %s [value %s]"), GetName()->Get(), entryGPIO->GetDescription()->Get(), description.Get(), value_GPIO?__L("true"):__L("false"));    
+                    }
+                }
+            }
+        }
+    }
+    
   return true;
 }
 
@@ -365,7 +607,8 @@ bool DIONODEITEMHANDLER_GPIO::Update()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIONODEITEMHANDLER_GPIO::Close()
 {        
-  isopen = false;
+  isopen    = false;
+  isworking = false;
 
   return true;
 }
@@ -389,82 +632,22 @@ bool DIONODEITEMHANDLER_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
       return false;
     }
   
-  DIONODEITEMACTUATOR* nodeitemactuator = (DIONODEITEMACTUATOR*)nodeitem;
-  if(!nodeitemactuator)
-    {
-      return false;
-    }
+  nodeitem->SetType(DIONODEITEM_TYPE_GPIO); 
+  nodeitem->GetDescription()->Set(__L("GPIO digital"));
 
-  DIONODEITEMVALUE* value = new DIONODEITEMVALUE();
-  if(!value)
+  for(XDWORD c=0; c<2; c++)
     {
-      return false;
+      DIONODEITEMVALUE* value = new DIONODEITEMVALUE();
+      if(value)
+        {                    
+          (*value->GetValue())    =    false;                    
+          value->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_BOOLEAN);
+
+          nodeitem->GetValues()->Add(value);
+        }
     }
-    
-  value->SetType(DIONODEITEMVALUE_TYPE_BOOLEAN); 
-    
-  (*value->GetValue())    =    false;                    
-  value->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_BOOLEAN);
-       
-  nodeitem->GetValues()->Add(value);
   
   return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XQWORD DIONODEITEMHANDLER_GPIO::GetTimeLastActivation()
-* @brief      GetTimeLastActivation
-* @ingroup    DATAIO
-* 
-* @return     XQWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XQWORD DIONODEITEMHANDLER_GPIO::GetTimeLastActivation()
-{
-  return time_last_activation;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XQWORD DIONODEITEMHANDLER_GPIO::GetTimeLastDeactivation()
-* @brief      GetTimeLastDeactivation
-* @ingroup    DATAIO
-* 
-* @return     XQWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XQWORD DIONODEITEMHANDLER_GPIO::GetTimeLastDeactivation()
-{
-  return time_last_deactivation;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIONODEITEMHANDLER_GPIO::AdjustTimeInChange(bool boolean_status)
-* @brief      AdjustTimeInChange
-* @ingroup    DATAIO
-* 
-* @param[in]  boolean_status : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEITEMHANDLER_GPIO::AdjustTimeInChange(bool boolean_status)
-{
-  if(boolean_status)
-    {    
-      time_last_deactivation  = timerstatus->GetMeasureMilliSeconds();
-    }
-   else
-    {
-      time_last_activation    = timerstatus->GetMeasureMilliSeconds();  
-    }   
-
-  timerstatus->Reset();
 }
 
 
@@ -480,13 +663,5 @@ void DIONODEITEMHANDLER_GPIO::AdjustTimeInChange(bool boolean_status)
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMHANDLER_GPIO::Clean()
 {
-  entryID                 = 0;
-
-  GPIO                    = DIONODEITEMHANDLER_INVALIDPARAM;
-  pin                     = DIONODEITEMHANDLER_INVALIDPARAM;
-
-  time_last_activation    = 0;
-  time_last_deactivation  = 0;
-
-  timerstatus             = NULL;  
+  
 }

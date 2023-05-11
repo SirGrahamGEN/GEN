@@ -158,16 +158,29 @@ void* operator new[]    (size_t size, char const* namefile, int line);
 void  operator delete   (void* ptr) throw ();
 void  operator delete[] (void* ptr) throw ();
 
+void* ReAlloc           (void* assign, size_t size);
+
 #define new new(__FILE__, __LINE__)
+
+
+#define MALLOC(size)                            new XBYTE[size]
+#define CALLOC(nelements, elementsize)          new XBYTE[nelements * elementsize]
+#define REALLOC(assign, size)                   ReAlloc(assign, size)                      
+#define FREE(assign)                            delete [] assign;
 
 
 #else
 
-  #define XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
-  #define XMEMORY_CONTROL_GETMEMORYUSED           0
-  #define XMEMORY_CONTROL_GETMEMORYNBLOCKS        0
-  #define XMEMORY_CONTROL_ACTIVATED               
-  #define XMEMORY_CONTROL_DEACTIVATED
+#define MALLOC(size)                            malloc(size)
+#define CALLOC(nelements, elementsize)          calloc(nelements, elementsize)
+#define REALLOC(assign, size)                   realloc(assign, size)
+#define FREE(assign)                            free(assign);
+
+#define XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
+#define XMEMORY_CONTROL_GETMEMORYUSED           0
+#define XMEMORY_CONTROL_GETMEMORYNBLOCKS        0
+#define XMEMORY_CONTROL_ACTIVATED               
+#define XMEMORY_CONTROL_DEACTIVATED
 
 #endif
 

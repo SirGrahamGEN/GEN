@@ -33,6 +33,8 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "DIONodeItem.h"
+
 #include "DIONode_XEvent.h"
 
 #include "XMemory_Control.h"
@@ -78,6 +80,70 @@ DIONODE_XEVENT::~DIONODE_XEVENT()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIONODEITEM* DIONODE_XEVENT::GetNodeItem()
+* @brief      GetNodeItem
+* @ingroup    DATAIO
+* 
+* @return     DIONODEITEM* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIONODEITEM* DIONODE_XEVENT::GetNodeItem()
+{
+  return nodeitem;
+}
+ 
+   
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODE_XEVENT::SetNodeItem(DIONODEITEM* nodeitem)
+* @brief      SetNodeItem
+* @ingroup    DATAIO
+* 
+* @param[in]  nodeitem : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODE_XEVENT::SetNodeItem(DIONODEITEM* nodeitem)
+{
+  this->nodeitem = nodeitem;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIONODE_XEVENT::GetIndexValue()
+* @brief      GetIndexValue
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIONODE_XEVENT::GetIndexValue()
+{
+  return indexvalue;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODE_XEVENT::SetIndexValue(XDWORD indexvalue)
+* @brief      SetIndexValue
+* @ingroup    DATAIO
+* 
+* @param[in]  indexvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODE_XEVENT::SetIndexValue(XDWORD indexvalue)
+{
+  this->indexvalue = indexvalue;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIONODE_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
@@ -89,7 +155,8 @@ DIONODE_XEVENT::~DIONODE_XEVENT()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODE_XEVENT::Clean()
 {
-
+   nodeitem     = NULL;
+   indexvalue   = 0;  
 }
 
 

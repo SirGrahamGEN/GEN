@@ -126,15 +126,18 @@ bool DIONODEITEMVALUE::GetDescription(XSTRING& description)
     {
       case DIONODEITEMVALUE_TYPE_UNKNOWN        : description = __L("unknown"); 
                                                   break;
-      
-      case DIONODEITEMVALUE_TYPE_BOOLEAN        : description = __L("boolean");         
-                                                  break;
-
+           
       case DIONODEITEMVALUE_TYPE_TEMPERATURE    : description = __L("temperature");     
                                                   break;
 
       case DIONODEITEMVALUE_TYPE_HUMIDITY       : description = __L("humidity");        
-                                                  break;  
+                                                  break; 
+
+      case DIONODEITEMVALUE_TYPE_MOTIONDETECT   : description = __L("Motion Detect");        
+                                                  break;
+
+      case DIONODEITEMVALUE_TYPE_LIGHTSWITCH    : description = __L("Light Switch");        
+                                                  break;
 
       case DIONODEITEMVALUE_TYPE_LIGHTLEVEL     : description = __L("light level");     
                                                   break;
@@ -336,6 +339,12 @@ bool DIONODEITEMVALUE::Serialize()
   GetDescription(typedescription);
 
   Primitive_Add<int>(type, __L("type"));
+
+  XSTRING formatdata;
+  value.GetType(formatdata);
+
+  Primitive_Add<XSTRING*>(&formatdata, __L("formatdata"));
+
   Primitive_Add<XSTRING*>(&typedescription, __L("description"));
   Primitive_Add<XVARIANT*>(&value, __L("value")); 
   Primitive_Add<XVARIANT*>(&minvalue, __L("minvalue"));
@@ -359,6 +368,12 @@ bool DIONODEITEMVALUE::Serialize()
 bool DIONODEITEMVALUE::Deserialize()
 {   
   Primitive_Extract<int>(type, __L("type"));
+
+  XSTRING formatdata;
+  value.GetType(formatdata);
+
+  Primitive_Extract<XSTRING*>(&formatdata, __L("formatdata"));
+
   Primitive_Extract<XVARIANT*>(&value, __L("value")); 
   Primitive_Extract<XVARIANT*>(&minvalue, __L("minvalue"));
   Primitive_Extract<XVARIANT*>(&maxvalue, __L("maxvalue"));  

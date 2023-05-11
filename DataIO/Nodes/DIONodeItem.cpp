@@ -69,6 +69,25 @@ DIONODEITEM::DIONODEITEM()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         DIONODEITEM::DIONODEITEM(DIONODEITEMHANDLER* itemhandler)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]  DIONODEITEMHANDLER* : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIONODEITEM::DIONODEITEM(DIONODEITEMHANDLER* itemhandler)
+{
+  DIONODEITEM();
+
+  ItemHandler_Set(itemhandler);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         DIONODEITEM::~DIONODEITEM()
 * @brief      Destructor
 * @note       VIRTUAL
@@ -137,72 +156,6 @@ void DIONODEITEM::SetType(XDWORD type)
 XSTRING* DIONODEITEM::GetDescription()
 {
   return &description;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIONODEITEM::GetPrimaryDescription(XSTRING& primarydescription)
-* @brief      GetPrimaryDescription
-* @ingroup    DATAIO
-* 
-* @param[in]  description : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEM::GetPrimaryDescription(XSTRING& primarydescription)
-{
-  primarydescription.Empty();
- 
-  switch(type) 
-    {
-      case DIONODEITEM_TYPE_UNKNOWN     : primarydescription = __L("unknown");                      
-                                          break;
-
-      case DIONODEITEM_TYPE_SENSOR      : primarydescription = __L("sensor");                      
-                                          break;
-
-      case DIONODEITEM_TYPE_ACTUATOR    : primarydescription = __L("actuator");                    
-                                          break;    
-
-      case DIONODEITEM_TYPE_OWNER       : primarydescription = __L("owner");                    
-                                          break;
-
-                             default    : break;
-    }
-
-  if(primarydescription.IsEmpty()) return false;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIONODEITEM::SetDescription(XCHAR* description, bool addprimarydescription)
-* @brief      SetDescription
-* @ingroup    DATAIO
-* 
-* @param[in]  description : 
-* @param[in]  addprimarydescription : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEM::SetDescription(XCHAR* description, bool addprimarydescription)
-{
-  this->description.Empty();  
-
-  if(addprimarydescription)
-    {
-      GetPrimaryDescription(this->description);
-      this->description += __L(" ");
-    }
-
-  this->description += description; 
-
-  return true;
 }
 
 
@@ -434,6 +387,21 @@ XTIMER* DIONODEITEM::GetUpdateTimer()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XVECTOR<DIONODEITEMVALUE*>* DIONODEITEM::GetValues()
+* @brief      GetValues
+* @ingroup    DATAIO
+* 
+* @return     XVECTOR<DIONODEITEMVALUE*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<DIONODEITEMVALUE*>* DIONODEITEM::GetValues()
+{
+  return &values;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIONODEITEM::Update()
 * @brief      Update
 * @ingroup    DATAIO
@@ -465,21 +433,6 @@ bool DIONODEITEM::Update()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XVECTOR<DIONODEITEMVALUE*>* DIONODEITEM::GetValues()
-* @brief      GetValues
-* @ingroup    DATAIO
-* 
-* @return     XVECTOR<DIONODEITEMVALUE*>* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XVECTOR<DIONODEITEMVALUE*>* DIONODEITEM::GetValues()
-{
-  return &values;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         bool DIONODEITEM::Serialize()
 * @brief      Serialize
 * @ingroup    DATAIO
@@ -495,6 +448,7 @@ bool DIONODEITEM::Serialize()
   
   Primitive_Add<XSTRING*>(&ID, __L("ID"));
   Primitive_Add<int>(type, __L("type"));
+  Primitive_Add<XSTRING*>(&description, __L("description"));
   Primitive_Add<bool>(issimulated, __L("simulated"));
   Primitive_Add<XQWORD>(timetoupdate, __L("timetoupdate"));
 
@@ -502,9 +456,10 @@ bool DIONODEITEM::Serialize()
   if(itemhandler)
     {
       Primitive_Add<int>(itemhandler->GetType(), __L("handler_type"));
-      Primitive_Add<XSTRING*>(itemhandler->GetDescription(), __L("handler_name"));
+      Primitive_Add<XSTRING*>(itemhandler->GetName(), __L("handler_name"));
     }
-  
+
+  XVectorClass_Add<DIONODEITEMVALUE>(&values, __L("values"), __L("value"));  
   
   return true;
 }
@@ -525,6 +480,7 @@ bool DIONODEITEM::Deserialize()
 
   Primitive_Extract<XSTRING*>(&ID, __L("ID"));
   Primitive_Extract<int>(type, __L("type"));
+  Primitive_Extract<XSTRING*>(&description, __L("description"));
   Primitive_Extract<bool>(issimulated, __L("simulated"));
   Primitive_Extract<XQWORD>(timetoupdate, __L("timetoupdate"));
 
@@ -532,8 +488,10 @@ bool DIONODEITEM::Deserialize()
   if(itemhandler)
     {
       Primitive_Extract<int>(itemhandler->GetType(), __L("handler_type"));
-      Primitive_Extract<XSTRING*>(itemhandler->GetDescription(), __L("handler_name"));
+      Primitive_Extract<XSTRING*>(itemhandler->GetName(), __L("handler_name"));
     }
+
+  XVectorClass_Extract<DIONODEITEMVALUE>(&values, __L("values"), __L("value"));  
   
   UUID.SetFromString(ID);
 

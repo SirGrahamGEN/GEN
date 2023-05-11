@@ -458,7 +458,7 @@ void APPBASE::SetSystemChangeStatus(XSYSTEM_CHANGESTATUSTYPE systemchangestatust
 
   this->systemchangestatustype = systemchangestatustype;
 
-  #ifdef _DEBUG
+  //#ifdef _DEBUG
 
   XSTRING statusstr;  
 
@@ -479,13 +479,11 @@ void APPBASE::SetSystemChangeStatus(XSYSTEM_CHANGESTATUSTYPE systemchangestatust
 
   XTRACE_PRINTCOLOR(XTRACE_COLOR_GREEN, __L("[System] Mode change to [%s]"), statusstr.Get());
   
-  #endif
+  //#endif
 
   APP_XEVENT  xevent(this, APP_XEVENT_TYPE_CHANGESTATUSTYPE);      
   xevent.SetChangeStatusType(systemchangestatustype);
   PostEvent(&xevent); 
-
-  SetSystemChangeStatus(xevent.GetChangeStatusType());
 }
 
 

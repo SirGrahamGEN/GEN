@@ -45,16 +45,26 @@ enum DIONODE_XEVENT_TYPE
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
+class DIONODEITEM;
 
 class DIONODE_XEVENT : public XEVENT
 {
   public:
                                   DIONODE_XEVENT              (XSUBJECT* subject, XDWORD type = DIONODE_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_DIONODE);
     virtual                      ~DIONODE_XEVENT              ();
+
+    DIONODEITEM*                  GetNodeItem                 ();
+    void                          SetNodeItem                 (DIONODEITEM* nodeitem);
+
+    XDWORD                        GetIndexValue               ();
+    void                          SetIndexValue               (XDWORD indexvalue);
     
   private:
 
     void                          Clean                       ();
+
+    DIONODEITEM*                  nodeitem;
+    XDWORD                        indexvalue; 
 
 };
 

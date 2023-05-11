@@ -129,11 +129,12 @@ class XVARIANT
     operator                        XSTRING                 ();
     operator                        XDATETIME               ();
     operator                        XBUFFER                 ();
-    //operator                        XVARIANT                ();
    
     bool                            GetDataFromString       (XCHAR* string);
 
     XVARIANT_TYPE                   GetType                 ();
+    bool                            GetType                 (XSTRING& typestr);
+
     void                            SetType                 (XVARIANT_TYPE type);
     virtual XDWORD                  GetSize                 ();
     virtual void*                   GetData                 ();

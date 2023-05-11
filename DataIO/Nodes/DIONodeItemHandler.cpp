@@ -101,16 +101,16 @@ XDWORD DIONODEITEMHANDLER::GetType()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* DIONODEITEMHANDLER::GetDescription()
-* @brief      GetDescription
+* @fn         XSTRING* DIONODEITEMHANDLER::GetName()
+* @brief      GetName
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* DIONODEITEMHANDLER::GetDescription()
+XSTRING* DIONODEITEMHANDLER::GetName()
 {
-  return &description;
+  return &name;
 }
 
 

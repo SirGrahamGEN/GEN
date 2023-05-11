@@ -1002,27 +1002,6 @@ XVARIANT::operator XDATETIME()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XVARIANT::operator XVARIANT()
-* @brief      VARIANT
-* @ingroup    XUTILS
-* 
-* @return     XVARIANT::operator : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-/*
-XVARIANT::operator XVARIANT()
-{
-  XVARIANT xvar;
-
-  if(static_cast<XVARIANT*>(data))
-  xvar = *(static_cast<XVARIANT*>(this->data));
-
-  return xvar;
-}
-*/
-
-/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XVARIANT::GetDataFromString(XCHAR* string)
 * @brief      GetDataFromString
@@ -1065,6 +1044,44 @@ bool XVARIANT::GetDataFromString(XCHAR* string)
 XVARIANT_TYPE XVARIANT::GetType()
 {
   return type;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XVARIANT::GetType(XSTRING& typestr)
+* @brief      GetType
+* @ingroup    XUTILS
+* 
+* @param[in]  typestr : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XVARIANT::GetType(XSTRING& typestr)
+{
+  switch(type)
+    {
+      case XVARIANT_TYPE_NULL             : typestr = __L("null");            break;      
+      case XVARIANT_TYPE_BOOLEAN          : typestr = __L("boolean");         break;    
+      case XVARIANT_TYPE_SHORT            : typestr = __L("short");           break;
+      case XVARIANT_TYPE_XWORD            : typestr = __L("word");            break;
+      case XVARIANT_TYPE_INTEGER          : typestr = __L("integer");         break;
+      case XVARIANT_TYPE_XDWORD           : typestr = __L("double word");     break;
+      case XVARIANT_TYPE_DOUBLEINTEGER    : typestr = __L("double integer");  break;      
+      case XVARIANT_TYPE_XQWORD           : typestr = __L("quad word");       break;      
+      case XVARIANT_TYPE_CHAR             : typestr = __L("char");            break;
+      case XVARIANT_TYPE_FLOAT            : typestr = __L("float");           break;
+      case XVARIANT_TYPE_DOUBLE           : typestr = __L("double");          break;
+      case XVARIANT_TYPE_STRING           : typestr = __L("string");          break;
+      case XVARIANT_TYPE_TIME             : typestr = __L("time");            break;
+      case XVARIANT_TYPE_DATE             : typestr = __L("date");            break;
+      case XVARIANT_TYPE_DATETIME         : typestr = __L("date/time");       break;
+      case XVARIANT_TYPE_BUFFER           : typestr = __L("buffer");          break;      
+                        default           : return false;
+    }
+
+  return true;
 }
 
 
@@ -1167,7 +1184,6 @@ bool XVARIANT::ToString(XSTRING& to)
 {
   switch(type)
     {
-
       case XVARIANT_TYPE_NULL             : to.Format(__L("NULL"));                                                                                               break;      
       case XVARIANT_TYPE_BOOLEAN          : to.Format(__L("%s"), (*(bool*)this->data)?__L("true"):__L("false"));                                                  break;                                                                                           break;
       case XVARIANT_TYPE_SHORT            : to.Format(__L("%hd"),*(short*)this->data);                                                                            break;
@@ -1183,8 +1199,7 @@ bool XVARIANT::ToString(XSTRING& to)
       case XVARIANT_TYPE_TIME             : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_ADDTIME | XDATETIME_FORMAT_TIMEWITHSECONDS,  to);      break;
       case XVARIANT_TYPE_DATE             : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_YMD,                                         to);      break;
       case XVARIANT_TYPE_DATETIME         : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_STANDARD,                                    to);      break;
-      case XVARIANT_TYPE_BUFFER           : to.Format(__L("[Object]"));                                                                                           break;
-      
+      case XVARIANT_TYPE_BUFFER           : to.Format(__L("[Object]"));                                                                                           break;      
                         default           : return false;
     }
 

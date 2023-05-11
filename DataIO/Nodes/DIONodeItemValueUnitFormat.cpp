@@ -130,7 +130,7 @@ bool DIONODEITEMVALUEUNITFORMAT::GetName(XSTRING& name)
       case DIONODEITEMVALUE_UNITSFORMAT_TYPE_SIMPLE               : name = __L("simple");                   
                                                                     break; 
 
-      case DIONODEITEMVALUE_UNITSFORMAT_TYPE_BOOLEAN              : name = __L("boolean");                  
+      case DIONODEITEMVALUE_UNITSFORMAT_TYPE_BOOLEAN              : name = __L("active/deactive (boolean)");                  
                                                                     break;  
 
       case DIONODEITEMVALUE_UNITSFORMAT_TYPE_RELATIVEHUMIDITY     : name = __L("relative humidity");        

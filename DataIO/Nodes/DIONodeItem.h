@@ -40,12 +40,11 @@
 
 enum DIONODEITEM_TYPE
 {
-  DIONODEITEM_TYPE_UNKNOWN           = 0 ,
+  DIONODEITEM_TYPE_UNKNOWN                            = 0 ,  
+  DIONODEITEM_TYPE_SENSORHUMIDITYTEMPERATURE              ,
+  DIONODEITEM_TYPE_GPIO                                   ,  
 
-  DIONODEITEM_TYPE_SENSOR                ,
-  DIONODEITEM_TYPE_ACTUATOR              ,  
-
-  DIONODEITEM_TYPE_OWNER
+  DIONODEITEM_TYPE_OWER
 };
 
 
@@ -57,15 +56,14 @@ class DIONODEITEM : public XSERIALIZABLE
 {
   public:
                                   DIONODEITEM                   ();
+                                  DIONODEITEM                   (DIONODEITEMHANDLER* itemhandler);
     virtual                      ~DIONODEITEM                   ();
 
-    XDWORD                        GetType                       (); 
+    XDWORD                        GetType                       ();     
     void                          SetType                       (XDWORD type);     
 
     XSTRING*                      GetDescription                (); 
-    virtual bool                  GetPrimaryDescription         (XSTRING& primarydescription);
-    bool                          SetDescription                (XCHAR* description, bool addprimarydescription = true);
-
+    
     XUUID&                        GetID                         ();
     void                          SetID                         (XUUID& UUID);
 
@@ -82,9 +80,9 @@ class DIONODEITEM : public XSERIALIZABLE
     
     XTIMER*                       GetUpdateTimer                ();
 
-    virtual bool                  Update                        ();
-
     XVECTOR<DIONODEITEMVALUE*>*   GetValues                     ();
+
+    virtual bool                  Update                        ();
 
     virtual bool                  Serialize                     ();                                          
     virtual bool                  Deserialize                   ();
@@ -94,10 +92,10 @@ class DIONODEITEM : public XSERIALIZABLE
     XDWORD                        type;
     XSTRING                       description;
     XUUID                         UUID;
-    DIONODEITEMHANDLER*           itemhandler;
-    XVECTOR<DIONODEITEMVALUE*>    values;
+    DIONODEITEMHANDLER*           itemhandler;    
     bool                          issimulated;
     XQWORD                        timetoupdate;
+    XVECTOR<DIONODEITEMVALUE*>    values;
     XTIMER*                       updatetimer;
 
   private:

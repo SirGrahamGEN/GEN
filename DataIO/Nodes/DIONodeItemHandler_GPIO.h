@@ -35,6 +35,7 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+#include "XList.h"
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -43,66 +44,69 @@ class XTIMER;
 class DIONODEITEMHANDLER_ENTRYGPIO
 {
   public: 
-                                  DIONODEITEMHANDLER_ENTRYGPIO      ();
-                                  DIONODEITEMHANDLER_ENTRYGPIO      (XDWORD entryID, bool writemode, int GPIO = DIONODEITEMHANDLER_INVALIDPARAM, int pin = DIONODEITEMHANDLER_INVALIDPARAM);
-    virtual                      ~DIONODEITEMHANDLER_ENTRYGPIO      ();
+                                            DIONODEITEMHANDLER_ENTRYGPIO      ();
+                                            DIONODEITEMHANDLER_ENTRYGPIO      (XDWORD entryID, bool writemode, int GPIO = DIONODEITEMHANDLER_INVALIDPARAM, int pin = DIONODEITEMHANDLER_INVALIDPARAM, XCHAR* description = __L(""));
+    virtual                                ~DIONODEITEMHANDLER_ENTRYGPIO      ();
 
 
-    XDWORD                        GetEntryID                        ();
-    void                          SetEntryID                        (XDWORD entryID);
+    XDWORD                                  GetEntryID                        ();
+    void                                    SetEntryID                        (XDWORD entryID);
 
-    bool                          GetWriteMode                      ();
-    void                          SetWriteMode                      (bool writemode);
+    bool                                    GetWriteMode                      ();
+    void                                    SetWriteMode                      (bool writemode);
 
-    int                           GetGPIO                           (); 
-    void                          SetGPIO                           (int GPIO = DIONODEITEMHANDLER_INVALIDPARAM); 
+    int                                     GetGPIO                           (); 
+    void                                    SetGPIO                           (int GPIO = DIONODEITEMHANDLER_INVALIDPARAM); 
 
-    int                           GetPin                            ();
-    void                          SetPin                            (int pin = DIONODEITEMHANDLER_INVALIDPARAM);
+    int                                     GetPin                            ();
+    void                                    SetPin                            (int pin = DIONODEITEMHANDLER_INVALIDPARAM);
+
+    XSTRING*                                GetDescription                    ();
+
+    XQWORD                                  GetTimeLastActivation             (); 
+    XQWORD                                  GetTimeLastDeactivation           (); 
+
+    bool                                    CopyFrom                          (DIONODEITEMHANDLER_ENTRYGPIO* entryGPIO);
+    bool                                    CopyTo                            (DIONODEITEMHANDLER_ENTRYGPIO* entryGPIO);
+
+    void                                    AdjustTimeInChange                (bool status);
+
+  protected:
+
+    XDWORD                                  entryID;
+    bool                                    writemode;
+    int                                     GPIO; 
+    int                                     pin;
+    XSTRING                                 description;
+
+    XQWORD                                  time_last_activation;
+    XQWORD                                  time_last_deactivation;
 
   private:
+    
+    void                                    Clean                             ();     
 
-    void                          Clean                             ();     
-
-    XDWORD                        entryID;
-    bool                          writemode;
-    int                           GPIO; 
-    int                           pin;
-
+    XTIMER*                                 timerstatus;
 };
 
 
 class DIONODEITEMHANDLER_GPIO : public DIONODEITEMHANDLER
 {
   public:
-                                  DIONODEITEMHANDLER_GPIO           (XDWORD entryID, int GPIO = DIONODEITEMHANDLER_INVALIDPARAM, int pin = DIONODEITEMHANDLER_INVALIDPARAM);
-    virtual                      ~DIONODEITEMHANDLER_GPIO           ();
+                                            DIONODEITEMHANDLER_GPIO           (XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* entrysGPIO);
+    virtual                                ~DIONODEITEMHANDLER_GPIO           ();
 
-    virtual bool                  Open                              ();
-    virtual bool                  Update                            ();
-    bool                          Close                             ();
+    virtual bool                            Open                              ();
+    virtual bool                            Update                            ();
+    bool                                    Close                             ();
 
-    bool                          SetNodeItem                       (DIONODEITEM* nodeitem);  
-
-    XQWORD                        GetTimeLastActivation             (); 
-    XQWORD                        GetTimeLastDeactivation           (); 
-
-  protected:
-
-    void                          AdjustTimeInChange                (bool status);
-
-    XDWORD                        entryID;
-    int                           GPIO;
-    int                           pin;
-
-    XQWORD                        time_last_activation;
-    XQWORD                        time_last_deactivation;
-
-    XTIMER*                       timerstatus;
-    
+    bool                                    SetNodeItem                       (DIONODEITEM* nodeitem);  
+      
   private:
   
-    void                          Clean                           ();     
+    void                                    Clean                             (); 
+
+    XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>    entrysGPIO;
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

@@ -812,4 +812,26 @@ void operator delete[] (void* ptr) throw ()
 #define new new(__FILE__, __LINE__)
 
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void* ReAlloc(void* assign, size_t size)
+* @brief      eAlloc
+* @ingroup    XUTILS
+* 
+* @param[in]  assign : 
+* @param[in]  size : 
+* 
+* @return     void* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void* ReAlloc(void* assign, size_t size)
+{
+  FREE(assign);
+  
+  return MALLOC(size);
+}
+
+
+
 #endif
