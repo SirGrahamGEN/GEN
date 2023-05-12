@@ -244,9 +244,7 @@ bool DIONODEITEMHANDLER_SENSORAM2315::SetNodeItem(DIONODEITEM* nodeitem)
       return false;
     }
 
-  nodeitem->SetType(DIONODEITEM_TYPE_SENSORHUMIDITYTEMPERATURE); 
-  nodeitem->GetDescription()->Set(__L("Sensor Humidity/Temperature"));
-  
+  nodeitem->SetCategory(DIONODEITEM_CATEGORY_SENSORHUMIDITYTEMPERATURE);   
  
   for(XDWORD c=0; c<2; c++)
     {

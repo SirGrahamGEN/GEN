@@ -38,13 +38,13 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-enum DIONODEITEM_TYPE
+enum DIONODEITEM_CATEGORY
 {
-  DIONODEITEM_TYPE_UNKNOWN                            = 0 ,  
-  DIONODEITEM_TYPE_SENSORHUMIDITYTEMPERATURE              ,
-  DIONODEITEM_TYPE_GPIO                                   ,  
+  DIONODEITEM_CATEGORY_UNKNOWN                            = 0 ,  
+  DIONODEITEM_CATEGORY_SENSORHUMIDITYTEMPERATURE              ,
+  DIONODEITEM_CATEGORY_GPIO_DIGITAL                           ,  
 
-  DIONODEITEM_TYPE_OWER
+  DIONODEITEM_CATEGORY_OWER
 };
 
 
@@ -59,8 +59,8 @@ class DIONODEITEM : public XSERIALIZABLE
                                   DIONODEITEM                   (DIONODEITEMHANDLER* itemhandler);
     virtual                      ~DIONODEITEM                   ();
 
-    XDWORD                        GetType                       ();     
-    void                          SetType                       (XDWORD type);     
+    XDWORD                        GetCategory                   ();     
+    void                          SetCategory                   (XDWORD category);     
 
     XSTRING*                      GetDescription                (); 
     
@@ -89,7 +89,7 @@ class DIONODEITEM : public XSERIALIZABLE
 
   protected:
 
-    XDWORD                        type;
+    XDWORD                        category;
     XSTRING                       description;
     XUUID                         UUID;
     DIONODEITEMHANDLER*           itemhandler;    

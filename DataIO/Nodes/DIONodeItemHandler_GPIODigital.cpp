@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeItemHandler_GPIO.cpp
+* @file       DIONodeItemHandler_GPIODigital.cpp
 * 
-* @class      DIONODEITEMHANDLER_GPIO
-* @brief      Data Input/Output Node Item Handler GPIO
+* @class      DIONODEITEMHANDLER_GPIODIGITAL
+* @brief      Data Input/Output Node Item Handler GPIO Digital
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -39,7 +39,7 @@
 #include "DIOGPIO.h"
 #include "DIONode_XEvent.h"
 
-#include "DIONodeItemHandler_GPIO.h"
+#include "DIONodeItemHandler_GPIODigital.h"
 
 #include "XMemory_Control.h"
 
@@ -407,14 +407,14 @@ void DIONODEITEMHANDLER_ENTRYGPIO::Clean()
 
 
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIONODEITEMHANDLER_GPIO                                                                                           */
+/*  DIONODEITEMHANDLER_GPIODIGITAL                                                                                           */
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEITEMHANDLER_GPIO::DIONODEITEMHANDLER_GPIO(XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* entrysGPIO)
+* @fn         DIONODEITEMHANDLER_GPIODIGITAL::DIONODEITEMHANDLER_GPIODIGITAL(XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* entrysGPIO)
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
@@ -423,12 +423,12 @@ void DIONODEITEMHANDLER_ENTRYGPIO::Clean()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEITEMHANDLER_GPIO::DIONODEITEMHANDLER_GPIO(XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* entrysGPIO)
+DIONODEITEMHANDLER_GPIODIGITAL::DIONODEITEMHANDLER_GPIODIGITAL(XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* entrysGPIO)
 {
   Clean();
 
-  type  = DIONODEITEMHANDLER_TYPE_GPIO;
-  name  = __L("GPIO digital");
+  type  = DIONODEITEMHANDLER_TYPE_GPIODIGITAL;
+  name  = __L("GPIO Digital");
 
   for(XDWORD c=0; c<entrysGPIO->GetSize(); c++)
     {
@@ -460,7 +460,7 @@ DIONODEITEMHANDLER_GPIO::DIONODEITEMHANDLER_GPIO(XLIST<DIONODEITEMHANDLER_ENTRYG
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIONODEITEMHANDLER_GPIO::~DIONODEITEMHANDLER_GPIO()
+* @fn         DIONODEITEMHANDLER_GPIODIGITAL::~DIONODEITEMHANDLER_GPIODIGITAL()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
@@ -468,7 +468,7 @@ DIONODEITEMHANDLER_GPIO::DIONODEITEMHANDLER_GPIO(XLIST<DIONODEITEMHANDLER_ENTRYG
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONODEITEMHANDLER_GPIO::~DIONODEITEMHANDLER_GPIO()
+DIONODEITEMHANDLER_GPIODIGITAL::~DIONODEITEMHANDLER_GPIODIGITAL()
 {
   Close();
 
@@ -481,14 +481,14 @@ DIONODEITEMHANDLER_GPIO::~DIONODEITEMHANDLER_GPIO()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEMHANDLER_GPIO::Open()
+* @fn         bool DIONODEITEMHANDLER_GPIODIGITAL::Open()
 * @brief      Open
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEMHANDLER_GPIO::Open()
+bool DIONODEITEMHANDLER_GPIODIGITAL::Open()
 {
   isopen = false;
 
@@ -510,14 +510,14 @@ bool DIONODEITEMHANDLER_GPIO::Open()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEMHANDLER_GPIO::Update()
+* @fn         bool DIONODEITEMHANDLER_GPIODIGITAL::Update()
 * @brief      Update
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEMHANDLER_GPIO::Update()
+bool DIONODEITEMHANDLER_GPIODIGITAL::Update()
 {
   DIONODEITEM* nodeitem = (DIONODEITEM*)GetNodeItem();
   if(!nodeitem)
@@ -598,14 +598,14 @@ bool DIONODEITEMHANDLER_GPIO::Update()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEMHANDLER_GPIO::Close()
+* @fn         bool DIONODEITEMHANDLER_GPIODIGITAL::Close()
 * @brief      Close
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEMHANDLER_GPIO::Close()
+bool DIONODEITEMHANDLER_GPIODIGITAL::Close()
 {        
   isopen    = false;
   isworking = false;
@@ -616,7 +616,7 @@ bool DIONODEITEMHANDLER_GPIO::Close()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEMHANDLER_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
+* @fn         bool DIONODEITEMHANDLER_GPIODIGITAL::SetNodeItem(DIONODEITEM* nodeitem)
 * @brief      SetNodeItem
 * @ingroup    DATAIO
 * 
@@ -625,16 +625,15 @@ bool DIONODEITEMHANDLER_GPIO::Close()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEMHANDLER_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
+bool DIONODEITEMHANDLER_GPIODIGITAL::SetNodeItem(DIONODEITEM* nodeitem)
 {
   if(!DIONODEITEMHANDLER::SetNodeItem(nodeitem)) 
     {
       return false;
     }
   
-  nodeitem->SetType(DIONODEITEM_TYPE_GPIO); 
-  nodeitem->GetDescription()->Set(__L("GPIO digital"));
-
+  nodeitem->SetCategory(DIONODEITEM_CATEGORY_GPIO_DIGITAL); 
+  
   for(XDWORD c=0; c<2; c++)
     {
       DIONODEITEMVALUE* value = new DIONODEITEMVALUE();
@@ -653,7 +652,7 @@ bool DIONODEITEMHANDLER_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEITEMHANDLER_GPIO::Clean()
+* @fn         void DIONODEITEMHANDLER_GPIODIGITAL::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
@@ -661,7 +660,7 @@ bool DIONODEITEMHANDLER_GPIO::SetNodeItem(DIONODEITEM* nodeitem)
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEITEMHANDLER_GPIO::Clean()
+void DIONODEITEMHANDLER_GPIODIGITAL::Clean()
 {
   
 }

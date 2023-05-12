@@ -44,7 +44,7 @@ enum DIONODEITEMHANDLER_TYPE
   DIONODEITEMHANDLER_TYPE_UNKNOWN            = 0 ,
     
   DIONODEITEMHANDLER_TYPE_SENSOR_AM2315          ,
-  DIONODEITEMHANDLER_TYPE_GPIO                   ,   
+  DIONODEITEMHANDLER_TYPE_GPIODIGITAL            ,   
 
   DIONODEITEMHANDLER_TYPE_OWNER                          
 };
@@ -60,7 +60,7 @@ class DIONODEITEMHANDLER : public XSUBJECT
     virtual                      ~DIONODEITEMHANDLER     ();
 
     XDWORD                        GetType                 ();      
-    virtual XSTRING*              GetName                 ();      
+    XSTRING*                      GetName                 ();      
 
     virtual bool                  Open                    ();
     virtual bool                  Update                  ();

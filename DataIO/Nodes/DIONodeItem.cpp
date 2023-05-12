@@ -114,33 +114,40 @@ DIONODEITEM::~DIONODEITEM()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDWORD DIONODEITEM::GetType()
-* @brief      GetType
+* @fn         XDWORD DIONODEITEM::GetCategory()
+* @brief      GetCategory
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD DIONODEITEM::GetType()
+XDWORD DIONODEITEM::GetCategory()
 {
-  return type;
+  return category;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEITEM::SetType(XDWORD type)
-* @brief      SetType
+* @fn         void DIONODEITEM::SetCategory(XDWORD category)
+* @brief      SetCategory
 * @ingroup    DATAIO
 * 
-* @param[in]  type : 
+* @param[in]  category : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEITEM::SetType(XDWORD type)
+void DIONODEITEM::SetCategory(XDWORD category)
 {
-  this->type = type;
+  this->category = category;
+
+  switch(category)
+    {
+      case DIONODEITEM_CATEGORY_UNKNOWN                    : description = __L("unknown");                          break;
+      case DIONODEITEM_CATEGORY_SENSORHUMIDITYTEMPERATURE  : description = __L("Sensor Humidity/Temperature");      break;
+      case DIONODEITEM_CATEGORY_GPIO_DIGITAL               : description = __L("GPIO Digital");                     break; 
+    }
 }
 
 
@@ -447,7 +454,7 @@ bool DIONODEITEM::Serialize()
   UUID.GetToString(ID); 
   
   Primitive_Add<XSTRING*>(&ID, __L("ID"));
-  Primitive_Add<int>(type, __L("type"));
+  Primitive_Add<int>(category, __L("category"));
   Primitive_Add<XSTRING*>(&description, __L("description"));
   Primitive_Add<bool>(issimulated, __L("simulated"));
   Primitive_Add<XQWORD>(timetoupdate, __L("timetoupdate"));
@@ -479,7 +486,7 @@ bool DIONODEITEM::Deserialize()
   XSTRING ID;
 
   Primitive_Extract<XSTRING*>(&ID, __L("ID"));
-  Primitive_Extract<int>(type, __L("type"));
+  Primitive_Extract<int>(category, __L("category"));
   Primitive_Extract<XSTRING*>(&description, __L("description"));
   Primitive_Extract<bool>(issimulated, __L("simulated"));
   Primitive_Extract<XQWORD>(timetoupdate, __L("timetoupdate"));
@@ -511,9 +518,9 @@ bool DIONODEITEM::Deserialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEM::Clean()
 {
-  type          = DIONODEITEM_TYPE_UNKNOWN;
+  category      = DIONODEITEM_CATEGORY_UNKNOWN;
 
-  itemhandler    = NULL;
+  itemhandler   = NULL;
 
   issimulated   = false;
 

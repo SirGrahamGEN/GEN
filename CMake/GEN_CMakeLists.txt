@@ -1075,21 +1075,13 @@
   endif()
 
 
-  if(DIO_NODEITEMHANDLER_ACTUATOR_GPIO_FEATURE)
+  if(DIO_NODEITEMHANDLER_GPIODIGITAL_FEATURE)
   
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemHandler_GPIO.cpp")
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemHandler_GPIODigital.cpp")
     option(DIO_NODES_FEATURE "Nodes modules" true)   
 
   endif()
-
-  
-  if(DIO_NODEITEMHANDLER_SENSOR_GPIO_FEATURE)
-  
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_NODES}/DIONodeItemHandler_GPIO.cpp")
-    option(DIO_NODES_FEATURE "Nodes modules" true)   
-
-  endif()
-
+   
 
   if(DIO_NODES_FEATURE)    
 

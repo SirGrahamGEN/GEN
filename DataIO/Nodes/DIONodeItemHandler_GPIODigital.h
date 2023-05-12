@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeItemHandler_GPIO.h
+* @file       DIONodeItemHandler_GPIODigital.h
 * 
-* @class      DIONODEITEMHANDLER_GPIO
-* @brief      Data Input/Output Node Item Handler GPIO
+* @class      DIONODEITEMHANDLER_GPIODIGITAL
+* @brief      Data Input/Output Node Item Handler GPIO Digital
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIONODEITEMHANDLER_GPIO_H_
-#define _DIONODEITEMHANDLER_GPIO_H_
+#ifndef _DIONODEITEMHANDLER_GPIODIGITAL_H_
+#define _DIONODEITEMHANDLER_GPIODIGITAL_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -90,11 +90,11 @@ class DIONODEITEMHANDLER_ENTRYGPIO
 };
 
 
-class DIONODEITEMHANDLER_GPIO : public DIONODEITEMHANDLER
+class DIONODEITEMHANDLER_GPIODIGITAL : public DIONODEITEMHANDLER
 {
   public:
-                                            DIONODEITEMHANDLER_GPIO           (XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* entrysGPIO);
-    virtual                                ~DIONODEITEMHANDLER_GPIO           ();
+                                            DIONODEITEMHANDLER_GPIODIGITAL    (XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* entrysGPIO);
+    virtual                                ~DIONODEITEMHANDLER_GPIODIGITAL    ();
 
     virtual bool                            Open                              ();
     virtual bool                            Update                            ();
