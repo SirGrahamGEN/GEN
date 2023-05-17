@@ -35,17 +35,21 @@
 #include "XVector.h"
 #include "XString.h"
 #include "XFileTXT.h"
+#include "XVariant.h"
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 enum XFILEJSONVALUETYPE
-{
-  XFILEJSONVALUETYPE_UNKNOWN            = 0 ,
-  XFILEJSONVALUETYPE_NULL                   ,
+{  
+  XFILEJSONVALUETYPE_NULL               = 0 ,
   XFILEJSONVALUETYPE_BOOLEAN                ,
+  XFILEJSONVALUETYPE_SHORT                  ,
+  XFILEJSONVALUETYPE_WORD                   ,
   XFILEJSONVALUETYPE_INTEGER                ,
+  XFILEJSONVALUETYPE_DWORD                  ,
   XFILEJSONVALUETYPE_DOUBLEINTEGER          ,
-  XFILEJSONVALUETYPE_QUADINTEGER            ,
+  XFILEJSONVALUETYPE_QWORD                  ,
   XFILEJSONVALUETYPE_FLOAT                  ,
   XFILEJSONVALUETYPE_DOUBLEFLOAT            ,
   XFILEJSONVALUETYPE_STRING                 ,
@@ -91,19 +95,6 @@ enum XFILEJSONCONTROLCHAR
                                                             }                                                           \
                                                         }
 
-
-
-union XFILEJSONVALUEDATA
-{
-    void*                       pointer;
-    int                         integer;
-    long                        doubleinteger;
-    long long                   quadinteger;
-    float                       floating;
-    double                      doublefloat;
-    bool                        boolean;
-};
-
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XVARIANT;
@@ -124,27 +115,36 @@ class XFILEJSONVALUE
     bool                        SetName                       (XSTRING& name);
     bool                        SetName                       (XCHAR* name);
 
-    void*                       GetValuePointer               ();
-    int                         GetValueInteger               ();
-    long                        GetValueDoubleInteger         ();
-    long long                   GetValueQuadInteger           ();
-    float                       GetValueFloating              ();
-    double                      GetValueDoubleFloat           ();
+    XVARIANT*                   GetValue                      ();
     bool                        GetValueBoolean               ();
+    short                       GetValueShort                 ();
+    XWORD                       GetValueWord                  ();
+    int                         GetValueInteger               ();
+    XDWORD                      GetValueDWord                 ();
+    long long                   GetValueDoubleInteger         ();
+    XQWORD                      GetValueQWord                 ();
+    float                       GetValueFloating              ();
+    double                      GetValueDoubleFloat           ();    
+    XSTRING                     GetValueString                ();
     XFILEJSONOBJECT*            GetValueObject                ();
     XFILEJSONARRAY*             GetValueArray                 ();
-
+    void*                       GetValuePointer               ();
+    
+        
+    bool                        Set                           (void);
+    bool                        Set                           (bool boolean); 
+    bool                        Set                           (short number);
+    bool                        Set                           (XWORD number);
     bool                        Set                           (int number);
-    bool                        Set                           (long number);
+    bool                        Set                           (XDWORD number);
     bool                        Set                           (long long number);
+    bool                        Set                           (XQWORD number);
     bool                        Set                           (float number);
-    bool                        Set                           (double number);
-    bool                        Set                           (XSTRING& string);
+    bool                        Set                           (double number);    
     bool                        Set                           (XCHAR* string);
+    bool                        Set                           (XSTRING& string);
     bool                        Set                           (XFILEJSONOBJECT* object);
     bool                        Set                           (XFILEJSONARRAY* array);
-    bool                        Set                           (bool boolean);
-    bool                        Set                           (void);
     bool                        Set                           (XVARIANT* variant);
 
     bool                        Delete                        ();
@@ -157,7 +157,7 @@ class XFILEJSONVALUE
 
     XFILEJSONVALUETYPE          type;
     XSTRING*                    name;
-    XFILEJSONVALUEDATA          value;
+    XVARIANT                    value;
 };
 
 

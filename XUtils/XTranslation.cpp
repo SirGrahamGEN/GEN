@@ -329,34 +329,33 @@ bool XTRANSLATION::LoadLanguageAvailable()
             {
               if(value->GetType() == XFILEJSONVALUETYPE_STRING)
                 {
-                  XSTRING* strvalue = (XSTRING*)(value->GetValuePointer());
-                  if(strvalue)
+                  XSTRING strvalue = (XSTRING)(value->GetValueString());
+                  
+                  if(!strvalue.IsEmpty())
                     {
-                      if(!strvalue->IsEmpty())
+                      XDWORD code = ISO_639_3.Code_GetByCodeAlpha3(strvalue.Get());
+                      if(code != XLANGUAGE_ISO_639_3_CODE_INVALID)
                         {
-                          XDWORD code = ISO_639_3.Code_GetByCodeAlpha3(strvalue->Get());
+                          languageavailables.Add(code);
+                        }
+                        else
+                        {
+                          XDWORD code = ISO_639_3.Code_GetByEnglishName(strvalue.Get());
                           if(code != XLANGUAGE_ISO_639_3_CODE_INVALID)
                             {
                               languageavailables.Add(code);
                             }
-                           else
+                            else
                             {
-                              XDWORD code = ISO_639_3.Code_GetByEnglishName(strvalue->Get());
+                              XDWORD code = ISO_639_3.Code_GetByAlias(strvalue.Get());
                               if(code != XLANGUAGE_ISO_639_3_CODE_INVALID)
                                 {
                                   languageavailables.Add(code);
                                 }
-                               else
-                                {
-                                  XDWORD code = ISO_639_3.Code_GetByAlias(strvalue->Get());
-                                  if(code != XLANGUAGE_ISO_639_3_CODE_INVALID)
-                                    {
-                                      languageavailables.Add(code);
-                                    }
-                                }
                             }
                         }
                     }
+                    
                 }
             }
         }
@@ -481,9 +480,9 @@ bool XTRANSLATION::Translate_Load()
                       if(translationarray)
                         {
                           XDWORD   sizesentencefixed = (XDWORD)translationarray->GetValues()->Get(0)->GetValueInteger();
-                          XSTRING* sentence          = (XSTRING*)translationarray->GetValues()->Get(languageindex+1)->GetValuePointer();
+                          XSTRING  sentence          = (XSTRING)translationarray->GetValues()->Get(languageindex+1)->GetValueString();
 
-                          if(sentence) Translate_Add(ID, sentence->Get(), sizesentencefixed);
+                          Translate_Add(ID, sentence.Get(), sizesentencefixed);
                         }
                     }
                 }

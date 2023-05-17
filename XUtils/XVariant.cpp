@@ -74,7 +74,9 @@ XVARIANT::XVARIANT()
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const bool value)
 {
-  XVARIANT_CONSTRUCTOR
+  Clean();
+
+  XVARIANT_ASSIGN(XVARIANT_TYPE_BOOLEAN, bool, value)
 }
 
 
@@ -91,7 +93,9 @@ XVARIANT::XVARIANT(const bool value)
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const short value) 
 {
-  XVARIANT_CONSTRUCTOR
+  Clean();
+
+  XVARIANT_ASSIGN(XVARIANT_TYPE_SHORT, short, value)
 }
 
 
@@ -108,7 +112,9 @@ XVARIANT::XVARIANT(const short value)
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XWORD value)
 {
-  XVARIANT_CONSTRUCTOR
+  Clean();
+
+  XVARIANT_ASSIGN(XVARIANT_TYPE_WORD, XWORD, value)
 }
 
 
@@ -125,7 +131,9 @@ XVARIANT::XVARIANT(const XWORD value)
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const int value)
 {
-  XVARIANT_CONSTRUCTOR
+  Clean();
+
+  XVARIANT_ASSIGN(XVARIANT_TYPE_INTEGER, int, value)
 }
 
 
@@ -142,7 +150,9 @@ XVARIANT::XVARIANT(const int value)
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XDWORD value)
 {
-  XVARIANT_CONSTRUCTOR
+  Clean();
+
+  XVARIANT_ASSIGN(XVARIANT_TYPE_DWORD, XDWORD, value)
 }
 
 
@@ -159,7 +169,9 @@ XVARIANT::XVARIANT(const XDWORD value)
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const long long value)
 {
-  XVARIANT_CONSTRUCTOR
+  Clean();
+
+  XVARIANT_ASSIGN(XVARIANT_TYPE_DOUBLEINTEGER, long long,  value)
 }
 
 
@@ -176,7 +188,9 @@ XVARIANT::XVARIANT(const long long value)
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XQWORD value)
 {
-  XVARIANT_CONSTRUCTOR
+  Clean();
+
+  XVARIANT_ASSIGN(XVARIANT_TYPE_QWORD, XQWORD, value)
 }
 
 
@@ -193,7 +207,9 @@ XVARIANT::XVARIANT(const XQWORD value)
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const float value)
 {
-  XVARIANT_CONSTRUCTOR  
+  Clean();
+
+  XVARIANT_ASSIGN(XVARIANT_TYPE_FLOAT, float, value) 
 }
 
 
@@ -210,75 +226,9 @@ XVARIANT::XVARIANT(const float value)
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const double value)
 {
-  XVARIANT_CONSTRUCTOR  
-}
+  Clean();
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XVARIANT::XVARIANT(const XCHAR value)
-* @brief      Constructor
-* @ingroup    XUTILS
-* 
-* @param[in]  const XCHAR: 
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XVARIANT::XVARIANT(const XCHAR value)
-{
-  XVARIANT_CONSTRUCTOR  
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XVARIANT::XVARIANT(const XCHAR* value)
-* @brief      Constructor
-* @ingroup    XUTILS
-* 
-* @param[in]  const  XCHAR*: 
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XVARIANT::XVARIANT(const XCHAR* value)
-{
-  XVARIANT_CONSTRUCTOR  
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XVARIANT::XVARIANT(const XSTRING& value)
-* @brief      Constructor
-* @ingroup    XUTILS
-* 
-* @param[in]  const XSTRING&: 
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XVARIANT::XVARIANT(const XSTRING& value)
-{
-  XVARIANT_CONSTRUCTOR  
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XVARIANT::XVARIANT(const char* value)
-* @brief      Constructor
-* @ingroup    XUTILS
-* 
-* @param[in]  const char*: 
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XVARIANT::XVARIANT(const char* value)
-{
-  XVARIANT_CONSTRUCTOR  
+  XVARIANT_ASSIGN(XVARIANT_TYPE_DOUBLE, double, value)  
 }
 
 
@@ -295,7 +245,92 @@ XVARIANT::XVARIANT(const char* value)
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const char value)
 {
-  XVARIANT_CONSTRUCTOR  
+  XVARIANT_ASSIGN(XVARIANT_TYPE_CHAR, char,  value)     
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT::XVARIANT(const char* value)
+* @brief      Constructor
+* @ingroup    XUTILS
+* 
+* @param[in]  const char*: 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT::XVARIANT(const char* value)
+{
+  Clean();
+
+  if(data) Destroy();
+
+  data = new XSTRING();
+  if(data)
+    {
+      type = XVARIANT_TYPE_STRING;
+      size = sizeof(XSTRING);
+
+      if (static_cast<XSTRING*>(data)) static_cast<XSTRING*>(data)->Set(value);
+    }
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT::XVARIANT(const XCHAR value)
+* @brief      Constructor
+* @ingroup    XUTILS
+* 
+* @param[in]  const XCHAR: 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT::XVARIANT(const XCHAR value)
+{
+  Clean();
+
+  XVARIANT_ASSIGN(XVARIANT_TYPE_XCHAR, XCHAR, value)   
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT::XVARIANT(const XCHAR* value)
+* @brief      Constructor
+* @ingroup    XUTILS
+* 
+* @param[in]  const  XCHAR*: 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT::XVARIANT(const XCHAR* value)
+{
+  Clean();
+
+  GetDataFromString((XCHAR*)value);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT::XVARIANT(const XSTRING& value)
+* @brief      Constructor
+* @ingroup    XUTILS
+* 
+* @param[in]  const XSTRING&: 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT::XVARIANT(const XSTRING& value)
+{
+  Clean();
+
+  GetDataFromString(value.Get());
 }
 
 
@@ -312,13 +347,15 @@ XVARIANT::XVARIANT(const char value)
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XDATETIME& value)
 {
-  XVARIANT_CONSTRUCTOR  
+  Clean();
+
+  XVARIANT_ASSIGN(XVARIANT_TYPE_DATETIME, XDATETIME, value)     
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XVARIANT::XVARIANT(const XBUFFER& value)
+* @fn         XVARIANT::XVARIANT(const XBUFFER value)
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
@@ -329,13 +366,15 @@ XVARIANT::XVARIANT(const XDATETIME& value)
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XBUFFER& value)
 {
-  XVARIANT_CONSTRUCTOR
+  Clean();  
+
+  XVARIANT_ASSIGN(XVARIANT_TYPE_BUFFER, XBUFFER, value)   
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XVARIANT::XVARIANT(const XVARIANT& value)
+* @fn         XVARIANT::XVARIANT(const XVARIANT value)
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
@@ -346,7 +385,34 @@ XVARIANT::XVARIANT(const XBUFFER& value)
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XVARIANT& value)
 {
-  XVARIANT_CONSTRUCTOR  
+  Clean();
+
+  GetDataVariant((XVARIANT&)value);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT::XVARIANT(const void* value)
+* @brief      Constructor
+* @ingroup    XUTILS
+* 
+* @param[in]  const : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT::XVARIANT(const void* value)
+{
+  Clean();
+  
+  type  = XVARIANT_TYPE_POINTER; 
+  size  = sizeof(void*); 
+  data = (void*)new XBYTE[size];   
+  if(data) 
+    {
+      memcpy((XBYTE*)data, (void*)&value, size); 
+    }
 }
 
 
@@ -381,7 +447,9 @@ XVARIANT::~XVARIANT()
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (bool value)
 {
-  XVARIANT_ASSIGN(XVARIANT_TYPE_BOOLEAN, bool)
+  XVARIANT_ASSIGN(XVARIANT_TYPE_BOOLEAN, bool, value)
+
+  return *this;
 }
 
 
@@ -398,7 +466,9 @@ const XVARIANT& XVARIANT::operator = (bool value)
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (short value)
 {
-  XVARIANT_ASSIGN(XVARIANT_TYPE_SHORT, short)
+  XVARIANT_ASSIGN(XVARIANT_TYPE_SHORT, short, value)
+
+  return *this;
 }
 
 
@@ -415,7 +485,9 @@ const XVARIANT& XVARIANT::operator = (short value)
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (XWORD value)
 {
-  XVARIANT_ASSIGN(XVARIANT_TYPE_XWORD, XWORD)
+  XVARIANT_ASSIGN(XVARIANT_TYPE_WORD, XWORD, value)
+
+  return *this;
 }
 
 
@@ -432,7 +504,9 @@ const XVARIANT& XVARIANT::operator = (XWORD value)
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (int value)
 {
-  XVARIANT_ASSIGN(XVARIANT_TYPE_INTEGER, int)
+  XVARIANT_ASSIGN(XVARIANT_TYPE_INTEGER, int, value)
+
+  return *this;
 }
 
 
@@ -449,7 +523,9 @@ const XVARIANT& XVARIANT::operator = (int value)
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (XDWORD value)
 {
-  XVARIANT_ASSIGN(XVARIANT_TYPE_XDWORD, XDWORD)
+  XVARIANT_ASSIGN(XVARIANT_TYPE_DWORD, XDWORD, value)
+
+  return *this;
 }
 
 
@@ -466,7 +542,9 @@ const XVARIANT& XVARIANT::operator = (XDWORD value)
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (long long value)
 {
-  XVARIANT_ASSIGN(XVARIANT_TYPE_DOUBLEINTEGER, long long)  
+  XVARIANT_ASSIGN(XVARIANT_TYPE_DOUBLEINTEGER, long long, value)  
+  
+  return *this;
 }
 
 
@@ -483,7 +561,9 @@ const XVARIANT& XVARIANT::operator = (long long value)
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (XQWORD value)
 {
-  XVARIANT_ASSIGN(XVARIANT_TYPE_XQWORD, XQWORD)  
+  XVARIANT_ASSIGN(XVARIANT_TYPE_QWORD, XQWORD, value)  
+
+  return *this;
 }
 
 
@@ -500,7 +580,9 @@ const XVARIANT& XVARIANT::operator = (XQWORD value)
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (float value)
 {
-  XVARIANT_ASSIGN(XVARIANT_TYPE_FLOAT, float)  
+  XVARIANT_ASSIGN(XVARIANT_TYPE_FLOAT, float, value)  
+
+  return *this;
 }
 
 
@@ -517,7 +599,56 @@ const XVARIANT& XVARIANT::operator = (float value)
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (double value)
 {
-  XVARIANT_ASSIGN(XVARIANT_TYPE_DOUBLE, double)  
+  XVARIANT_ASSIGN(XVARIANT_TYPE_DOUBLE, double, value)  
+
+  return *this;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         const XVARIANT& XVARIANT::operator = (char value)
+* @brief      operator =
+* @ingroup    XUTILS
+* 
+* @param[in]  value : 
+* 
+* @return     const : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+const XVARIANT& XVARIANT::operator = (char value)
+{
+  XVARIANT_ASSIGN(XVARIANT_TYPE_CHAR, char, value)  
+
+  return *this;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         const XVARIANT& XVARIANT::operator = (char* value)
+* @brief      operator =
+* @ingroup    XUTILS
+* 
+* @param[in]  value : 
+* 
+* @return     const : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+const XVARIANT& XVARIANT::operator = (char* value)
+{
+  if(data) Destroy();
+
+  data = new XSTRING();
+  if(data)
+    {
+      type = XVARIANT_TYPE_STRING;
+      size = sizeof(XSTRING);
+
+      if (static_cast<XSTRING*>(data)) static_cast<XSTRING*>(data)->Set(value);
+    }
+
+  return (*this);
 }
 
 
@@ -534,7 +665,9 @@ const XVARIANT& XVARIANT::operator = (double value)
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (XCHAR value)
 {
-  XVARIANT_ASSIGN(XVARIANT_TYPE_XCHAR, XCHAR)  
+  XVARIANT_ASSIGN(XVARIANT_TYPE_XCHAR, XCHAR, value)  
+
+  return *this;
 }
 
 
@@ -578,51 +711,6 @@ const XVARIANT& XVARIANT::operator = (const XSTRING& value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         const XVARIANT& XVARIANT::operator = (char* value)
-* @brief      operator =
-* @ingroup    XUTILS
-* 
-* @param[in]  value : 
-* 
-* @return     const : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-const XVARIANT& XVARIANT::operator = (char* value)
-{
-  if(data) Destroy();
-
-  data = new XSTRING();
-  if(data)
-    {
-      type = XVARIANT_TYPE_STRING;
-      size = sizeof(XSTRING);
-
-      if (static_cast<XSTRING*>(data)) static_cast<XSTRING*>(data)->Set(value);
-    }
-
-  return (*this);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         const XVARIANT& XVARIANT::operator = (char value)
-* @brief      operator =
-* @ingroup    XUTILS
-* 
-* @param[in]  value : 
-* 
-* @return     const : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-const XVARIANT& XVARIANT::operator = (char value)
-{
-  XVARIANT_ASSIGN(XVARIANT_TYPE_CHAR, char)  
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         const XVARIANT& XVARIANT::operator = (const XDATETIME& value)
 * @brief      operator =
 * @ingroup    XUTILS
@@ -634,7 +722,9 @@ const XVARIANT& XVARIANT::operator = (char value)
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (const XDATETIME& value)
 {
-  XVARIANT_ASSIGN(XVARIANT_TYPE_DATETIME, XDATETIME)  
+  XVARIANT_ASSIGN(XVARIANT_TYPE_DATETIME, XDATETIME, value)  
+
+  return *this;
 }
 
 
@@ -651,7 +741,9 @@ const XVARIANT& XVARIANT::operator = (const XDATETIME& value)
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (const XBUFFER& value)
 {
-  XVARIANT_ASSIGN(XVARIANT_TYPE_BUFFER, XBUFFER)  
+  XVARIANT_ASSIGN(XVARIANT_TYPE_BUFFER, XBUFFER, value)  
+
+  return *this;
 }
 
 
@@ -668,44 +760,38 @@ const XVARIANT& XVARIANT::operator = (const XBUFFER& value)
 * --------------------------------------------------------------------------------------------------------------------*/
 const XVARIANT& XVARIANT::operator = (const XVARIANT& value)
 {
-  if(&value==this) return (*this);
-
-  if(value.data==this->data)  return (*this);
-
-  if(data) Destroy();
-
-  size    = value.size;
-  type    = value.type;
-  switch(type)
-    {
-      case XVARIANT_TYPE_BOOLEAN        : (*this) = (bool)(XVARIANT&)value;        break;
-      case XVARIANT_TYPE_SHORT          : (*this) = (int)(XVARIANT&)value;         break;
-      case XVARIANT_TYPE_XWORD          : (*this) = (XWORD)(XVARIANT&)value;       break;
-      case XVARIANT_TYPE_INTEGER        : (*this) = (int)(XVARIANT&)value;         break;
-      case XVARIANT_TYPE_XDWORD         : (*this) = (XDWORD)(XVARIANT&)value;      break;
-      case XVARIANT_TYPE_DOUBLEINTEGER  : (*this) = (long long)(XVARIANT&)value;   break;      
-      case XVARIANT_TYPE_XQWORD         : (*this) = (XQWORD)(XVARIANT&)value;      break;      
-      case XVARIANT_TYPE_CHAR           : (*this) = (char)(XVARIANT&)value;        break;
-      case XVARIANT_TYPE_FLOAT          : (*this) = (float)(XVARIANT&)value;       break;
-      case XVARIANT_TYPE_DOUBLE         : (*this) = (double)(XVARIANT&)value;      break;
-      case XVARIANT_TYPE_XCHAR          : (*this) = (XCHAR)(XVARIANT&)value;       break;
-      case XVARIANT_TYPE_STRING         : (*this) = (XCHAR*)(XVARIANT&)value;      break;
-
-      case XVARIANT_TYPE_TIME           :     
-      case XVARIANT_TYPE_DATE           :  
-      case XVARIANT_TYPE_DATETIME       : (*this) = (XDATETIME)(XVARIANT&)value;
-                                          type    = value.type;                                          
-                                          break;
-
-      case XVARIANT_TYPE_BUFFER         : (*this) = (const XBUFFER&)value;
-                                          type    = value.type;                                          
-                                          break;      
-
-                              default   : break;
-    }
+  GetDataVariant((XVARIANT&)value);
 
   return (*this);
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         const XVARIANT& XVARIANT::operator = (const void* value)
+* @brief      operator =
+* @ingroup    XUTILS
+* 
+* @param[in]  void* value : 
+* 
+* @return     const : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+const XVARIANT& XVARIANT::operator = (const void* value)
+{
+  if(data) Destroy(); 
+  
+  type  = XVARIANT_TYPE_POINTER; 
+  size  = sizeof(void*); 
+  data = (void*)new XBYTE[size];   
+  if(data) 
+    {
+      memcpy((XBYTE*)data, (void*)&value, size); 
+    }
+    
+  return *this;
+}
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -863,6 +949,40 @@ XVARIANT::operator double()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
+* @fn         XVARIANT::operator char()
+* @brief      har
+* @ingroup    XUTILS
+*
+* @return     XVARIANT::operator :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT::operator char()
+{
+  if(data) return *(char*)data;
+
+  return 0;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT::operator char*()
+* @brief      har*
+* @ingroup    XUTILS
+* 
+* @return     XVARIANT::operator : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT::operator char*()
+{
+  if(data) return (char*)data;
+
+  return 0;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
 * @fn         XVARIANT::operator XCHAR()
 * @brief      CHAR
 * @ingroup    XUTILS
@@ -906,40 +1026,6 @@ XVARIANT::operator XCHAR*()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XVARIANT::operator char()
-* @brief      har
-* @ingroup    XUTILS
-*
-* @return     XVARIANT::operator :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XVARIANT::operator char()
-{
-  if(data) return *(char*)data;
-
-  return 0;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XVARIANT::operator char*()
-* @brief      har*
-* @ingroup    XUTILS
-* 
-* @return     XVARIANT::operator : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XVARIANT::operator char*()
-{
-  if(data) return (char*)data;
-
-  return 0;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::operator XSTRING()
 * @brief      STRING
@@ -970,26 +1056,6 @@ XVARIANT::operator XSTRING()
 * @return     XVARIANT::operator :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XVARIANT::operator XBUFFER()
-{
-  XBUFFER buffer;
-
-  if(static_cast<XBUFFER*>(data))
-  buffer = *(static_cast<XBUFFER*>(this->data));
-
-  return buffer;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XVARIANT::operator XDATETIME()
-* @brief      DATETIME
-* @ingroup    XUTILS
-*
-* @return     XVARIANT::operator :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::operator XDATETIME()
 {
   XDATETIME time;
@@ -1003,32 +1069,45 @@ XVARIANT::operator XDATETIME()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XVARIANT::GetDataFromString(XCHAR* string)
-* @brief      GetDataFromString
+* @fn         XVARIANT::operator XDATETIME()
+* @brief      DATETIME
 * @ingroup    XUTILS
 *
-* @param[in]  string :
-*
-* @return     bool : true if is succesful.
+* @return     XVARIANT::operator :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XVARIANT::GetDataFromString(XCHAR* string)
+XVARIANT::operator XBUFFER()
 {
-  if(data) Destroy();
+  XBUFFER buffer;
 
-  data=new XSTRING();
-  if(!data) return false;
+  if(static_cast<XBUFFER*>(data))
+  buffer = *(static_cast<XBUFFER*>(this->data));
 
-  type = XVARIANT_TYPE_STRING;
-  size = sizeof(XSTRING);
+  return buffer;
+}
 
 
-  if(static_cast<XSTRING*>(data))
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT::operator void*()
+* @brief      oid*
+* @ingroup    XUTILS
+* 
+* @return     XVARIANT::operator : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT::operator void*()
+{
+  if(!data) 
     {
-      return static_cast<XSTRING*>(data)->Set(string);
+      return NULL;
     }
 
-  return false;
+ void* value = 0;
+
+  memcpy((void*)&value, (XBYTE*)data,  size); 
+
+  return value;
 }
 
 
@@ -1065,11 +1144,11 @@ bool XVARIANT::GetType(XSTRING& typestr)
       case XVARIANT_TYPE_NULL             : typestr = __L("null");            break;      
       case XVARIANT_TYPE_BOOLEAN          : typestr = __L("boolean");         break;    
       case XVARIANT_TYPE_SHORT            : typestr = __L("short");           break;
-      case XVARIANT_TYPE_XWORD            : typestr = __L("word");            break;
+      case XVARIANT_TYPE_WORD             : typestr = __L("word");            break;
       case XVARIANT_TYPE_INTEGER          : typestr = __L("integer");         break;
-      case XVARIANT_TYPE_XDWORD           : typestr = __L("double word");     break;
+      case XVARIANT_TYPE_DWORD            : typestr = __L("double word");     break;
       case XVARIANT_TYPE_DOUBLEINTEGER    : typestr = __L("double integer");  break;      
-      case XVARIANT_TYPE_XQWORD           : typestr = __L("quad word");       break;      
+      case XVARIANT_TYPE_QWORD            : typestr = __L("quad word");       break;      
       case XVARIANT_TYPE_CHAR             : typestr = __L("char");            break;
       case XVARIANT_TYPE_FLOAT            : typestr = __L("float");           break;
       case XVARIANT_TYPE_DOUBLE           : typestr = __L("double");          break;
@@ -1150,23 +1229,120 @@ bool XVARIANT::Set(XVARIANT_TYPE type, void* data, XDWORD size)
   if(this->data)  Destroy();
 
   if(type == XVARIANT_TYPE_NULL)
-    return true;
+    { 
+      return true;
+    }
 
   if(size)
     {
       this->data = new XBYTE[size];
       if(!this->data)
-        return false;
+        {
+          return false;
+        }
+
       this->type    = type;
     }
 
-  this->size    = size;
+  this->size = size;
 
   if(data && size)
-    memcpy(this->data, data, size);
+    {
+      memcpy(this->data, &data, size);
+    }
 
   return true;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XVARIANT::GetDataFromString(XCHAR* string)
+* @brief      GetDataFromString
+* @ingroup    XUTILS
+*
+* @param[in]  string :
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XVARIANT::GetDataFromString(XCHAR* string)
+{
+  if(data) Destroy();
+
+  data = new XSTRING();
+  if(!data) return false;
+
+  type = XVARIANT_TYPE_STRING;
+  size = sizeof(XSTRING);
+
+  if(static_cast<XSTRING*>(data))
+    {
+      return static_cast<XSTRING*>(data)->Set(string);
+    }  
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XVARIANT::GetDataVariant(XVARIANT& value)
+* @brief      GetDataVariant
+* @ingroup    XUTILS
+* 
+* @param[in]  XVARIANT& value : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XVARIANT::GetDataVariant(XVARIANT& value)
+{
+  if(&value==this) 
+    {
+      return false;
+    }
+
+  if(value.data==this->data) 
+    {
+      return false;
+    }
+
+  if(data) Destroy();
+
+  size    = value.size;
+  type    = value.type;
+  switch(type)
+    {
+      case XVARIANT_TYPE_BOOLEAN        : (*this) = (bool)(XVARIANT&)value;        break;
+      case XVARIANT_TYPE_SHORT          : (*this) = (int)(XVARIANT&)value;         break;
+      case XVARIANT_TYPE_WORD           : (*this) = (XWORD)(XVARIANT&)value;       break;
+      case XVARIANT_TYPE_INTEGER        : (*this) = (int)(XVARIANT&)value;         break;
+      case XVARIANT_TYPE_DWORD          : (*this) = (XDWORD)(XVARIANT&)value;      break;
+      case XVARIANT_TYPE_DOUBLEINTEGER  : (*this) = (long long)(XVARIANT&)value;   break;      
+      case XVARIANT_TYPE_QWORD          : (*this) = (XQWORD)(XVARIANT&)value;      break;      
+      case XVARIANT_TYPE_CHAR           : (*this) = (char)(XVARIANT&)value;        break;
+      case XVARIANT_TYPE_FLOAT          : (*this) = (float)(XVARIANT&)value;       break;
+      case XVARIANT_TYPE_DOUBLE         : (*this) = (double)(XVARIANT&)value;      break;
+      case XVARIANT_TYPE_XCHAR          : (*this) = (XCHAR)(XVARIANT&)value;       break;
+      case XVARIANT_TYPE_STRING         : (*this) = (XCHAR*)(XVARIANT&)value;      break;
+
+      case XVARIANT_TYPE_TIME           :     
+      case XVARIANT_TYPE_DATE           :  
+      case XVARIANT_TYPE_DATETIME       : (*this) = (XDATETIME)(XVARIANT&)value;
+                                          type    = value.type;                                          
+                                          break;
+
+      case XVARIANT_TYPE_BUFFER         : (*this) = (const XBUFFER&)value;
+                                          type    = value.type;                                          
+                                          break;        
+
+                              default   : break;
+    }
+
+  return true;
+}
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1187,11 +1363,11 @@ bool XVARIANT::ToString(XSTRING& to)
       case XVARIANT_TYPE_NULL             : to.Format(__L("NULL"));                                                                                               break;      
       case XVARIANT_TYPE_BOOLEAN          : to.Format(__L("%s"), (*(bool*)this->data)?__L("true"):__L("false"));                                                  break;                                                                                           break;
       case XVARIANT_TYPE_SHORT            : to.Format(__L("%hd"),*(short*)this->data);                                                                            break;
-      case XVARIANT_TYPE_XWORD            : to.Format(__L("%hu"),*(XWORD*)this->data);                                                                            break;
+      case XVARIANT_TYPE_WORD             : to.Format(__L("%hu"),*(XWORD*)this->data);                                                                            break;
       case XVARIANT_TYPE_INTEGER          : to.Format(__L("%d"),*(int*)this->data);                                                                               break;
-      case XVARIANT_TYPE_XDWORD           : to.Format(__L("%u"),*(XDWORD*)this->data);                                                                            break;
+      case XVARIANT_TYPE_DWORD            : to.Format(__L("%u"),*(XDWORD*)this->data);                                                                            break;
       case XVARIANT_TYPE_DOUBLEINTEGER    : to.Format(__L("%lld"),*(long long*)this->data);                                                                       break;      
-      case XVARIANT_TYPE_XQWORD           : to.Format(__L("%llu"),*(XQWORD*)this->data);                                                                          break;      
+      case XVARIANT_TYPE_QWORD            : to.Format(__L("%llu"),*(XQWORD*)this->data);                                                                          break;      
       case XVARIANT_TYPE_CHAR             : to.Format(__L("%c"),*(int*)this->data);                                                                               break;
       case XVARIANT_TYPE_FLOAT            : to.Format(__L("%f"),*(float*)this->data);                                                                             break;
       case XVARIANT_TYPE_DOUBLE           : to.Format(__L("%lf"),*(double*)this->data);                                                                           break;
@@ -1199,7 +1375,8 @@ bool XVARIANT::ToString(XSTRING& to)
       case XVARIANT_TYPE_TIME             : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_ADDTIME | XDATETIME_FORMAT_TIMEWITHSECONDS,  to);      break;
       case XVARIANT_TYPE_DATE             : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_YMD,                                         to);      break;
       case XVARIANT_TYPE_DATETIME         : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_STANDARD,                                    to);      break;
-      case XVARIANT_TYPE_BUFFER           : to.Format(__L("[Object]"));                                                                                           break;      
+      case XVARIANT_TYPE_BUFFER           : to.Format(__L("[Buffer]"));                                                                                           break;
+      case XVARIANT_TYPE_POINTER          : to.Format(__L("[%08X]"), *(XBYTE*)this->data);                                                                        break;      
                         default           : return false;
     }
 
@@ -1219,6 +1396,51 @@ bool XVARIANT::ToString(XSTRING& to)
 bool XVARIANT::IsNull()
 {
   return (data == NULL);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XVARIANT::Destroy()
+* @brief      Destroy
+* @ingroup    XUTILS
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XVARIANT::Destroy()
+{
+  if(data)
+    {
+      switch(this->type)
+        { 
+          case XVARIANT_TYPE_NULL           :                               break;
+          case XVARIANT_TYPE_BOOLEAN        : delete (bool*)data;           break;
+          case XVARIANT_TYPE_SHORT          : delete (short*)data;          break;
+          case XVARIANT_TYPE_WORD           : delete (XWORD*)data;          break;          
+          case XVARIANT_TYPE_INTEGER        : delete (int*)data;            break;
+          case XVARIANT_TYPE_DWORD          : delete (XDWORD*)data;         break;          
+          case XVARIANT_TYPE_DOUBLEINTEGER  : delete (long long*)data;      break;
+          case XVARIANT_TYPE_QWORD          : delete (XQWORD*)data;         break;
+          case XVARIANT_TYPE_CHAR           : delete (char*)(data);         break;
+          case XVARIANT_TYPE_XCHAR          : delete (char*)(data);         break;
+          case XVARIANT_TYPE_FLOAT          : delete (float*)(data);        break;
+          case XVARIANT_TYPE_DOUBLE         : delete (float*)(data);        break;
+          case XVARIANT_TYPE_STRING         : delete (XSTRING*)(data);      break;      
+          case XVARIANT_TYPE_DATE           :
+          case XVARIANT_TYPE_TIME           :
+          case XVARIANT_TYPE_DATETIME       : delete (XDATETIME*)(data);    break;
+          case XVARIANT_TYPE_BUFFER         : delete (XBUFFER*)(data);      break;
+          case XVARIANT_TYPE_POINTER        : delete [] (XBYTE*)(data);     break;           
+                                  default   : break;
+        }
+    }
+
+  type    = XVARIANT_TYPE_NULL;
+  size    = 0;
+  data    = NULL;
+
+  return true;
 }
 
 
@@ -1245,51 +1467,6 @@ void XVARIANT::PrintDebug()
 }
 
 #endif
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XVARIANT::Destroy()
-* @brief      Destroy
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XVARIANT::Destroy()
-{
-  if(data)
-    {
-      switch(this->type)
-        { 
-          case XVARIANT_TYPE_NULL           :                               break;
-          case XVARIANT_TYPE_BOOLEAN        : delete (bool*)data;           break;
-          case XVARIANT_TYPE_SHORT          : delete (short*)data;          break;
-          case XVARIANT_TYPE_XWORD          : delete (XWORD*)data;          break;          
-          case XVARIANT_TYPE_INTEGER        : delete (int*)data;            break;
-          case XVARIANT_TYPE_XDWORD         : delete (XDWORD*)data;         break;          
-          case XVARIANT_TYPE_DOUBLEINTEGER  : delete (long long*)data;      break;
-          case XVARIANT_TYPE_XQWORD         : delete (XQWORD*)data;         break;
-          case XVARIANT_TYPE_CHAR           : delete (char*)(data);         break;
-          case XVARIANT_TYPE_XCHAR          : delete (char*)(data);         break;
-          case XVARIANT_TYPE_FLOAT          : delete (float*)(data);        break;
-          case XVARIANT_TYPE_DOUBLE         : delete (float*)(data);        break;
-          case XVARIANT_TYPE_STRING         : delete (XSTRING*)(data);      break;      
-          case XVARIANT_TYPE_DATE           :
-          case XVARIANT_TYPE_TIME           :
-          case XVARIANT_TYPE_DATETIME       : delete (XDATETIME*)(data);    break;
-          case XVARIANT_TYPE_BUFFER         : delete (XBUFFER*)(data);      break;
-         
-                                  default   : break;
-        }
-    }
-
-  type    = XVARIANT_TYPE_NULL;
-  size    = 0;
-  data    = NULL;
-
-  return true;
-}
 
 
 /**-------------------------------------------------------------------------------------------------------------------

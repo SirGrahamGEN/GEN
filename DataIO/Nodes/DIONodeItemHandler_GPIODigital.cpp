@@ -634,15 +634,21 @@ bool DIONODEITEMHANDLER_GPIODIGITAL::SetNodeItem(DIONODEITEM* nodeitem)
   
   nodeitem->SetCategory(DIONODEITEM_CATEGORY_GPIO_DIGITAL); 
   
-  for(XDWORD c=0; c<2; c++)
+  for(XDWORD c=0; c<entrysGPIO.GetSize(); c++)
     {
-      DIONODEITEMVALUE* value = new DIONODEITEMVALUE();
-      if(value)
-        {                    
-          (*value->GetValue())    =    false;                    
-          value->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_BOOLEAN);
+      DIONODEITEMHANDLER_ENTRYGPIO* entryGPIO = entrysGPIO.Get(c);
+      if(entryGPIO)
+        {
+          DIONODEITEMVALUE* value = new DIONODEITEMVALUE();
+          if(value)
+            {                    
+              (*value->GetValue()) = false;                    
 
-          nodeitem->GetValues()->Add(value);
+              value->GetUnitFormat()->SetType(DIONODEITEMVALUE_UNITSFORMAT_TYPE_BOOLEAN);
+              value->SetMode(entryGPIO->GetWriteMode()?DIONODEITEMVALUE_MODE_WRITE:DIONODEITEMVALUE_MODE_READ);
+
+              nodeitem->GetValues()->Add(value);
+            }
         }
     }
   

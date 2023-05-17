@@ -205,31 +205,6 @@ bool XSERIALIZATIONMETHODJSON::Add(double var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Add(long var, XCHAR* name)
-* @brief      Add
-* @ingroup    XUTILS
-* 
-* @param[in]  var : 
-* @param[in]  name : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Add(long var, XCHAR* name) 
-{
-  if(!CheckHandleActive()) 
-    {
-      return false;
-    }
-
-  //XFILEJSON_ADDVALUE(GetActualObject(), name, (long)var);
-  
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         bool XSERIALIZATIONMETHODJSON::Add(long long var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
@@ -247,7 +222,7 @@ bool XSERIALIZATIONMETHODJSON::Add(long long var, XCHAR* name)
       return false;
     }
 
-  //XFILEJSON_ADDVALUE(GetActualObject(), name, (long long)var);
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (long long)var);
 
   return true;
 }
@@ -322,7 +297,7 @@ bool XSERIALIZATIONMETHODJSON::Add(XDWORD var, XCHAR* name)
       return false;
     }
 
-  //XFILEJSON_ADDVALUE(GetActualObject(), name, (XDWORD)var);
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (XDWORD)var);
 
   return true;
 }
@@ -347,7 +322,7 @@ bool XSERIALIZATIONMETHODJSON::Add(XQWORD var, XCHAR* name)
       return false;
     }
 
-  //XFILEJSON_ADDVALUE(GetActualObject(), name, (XQWORD)var);
+  XFILEJSON_ADDVALUE(GetActualObject(), name, (XQWORD)var);
 
   return true;
 }

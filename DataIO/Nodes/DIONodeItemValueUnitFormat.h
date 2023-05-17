@@ -66,17 +66,22 @@ class DIONODEITEMVALUEUNITFORMAT : public XSERIALIZABLE
     XDWORD                     GetType                       ();
     void                       SetType                       (XDWORD type);
 
-    virtual bool               GetName                       (XSTRING& name);
-    virtual bool               GetSymbol                     (XSTRING& symbol);
-
+    XVARIANT*                  GetName                       ();
+    XVARIANT*                  GetSymbol                     ();      
+    
     virtual bool               Serialize                     ();                                          
     virtual bool               Deserialize                   (); 
   
   private:
 
+    void                       GetDefaultName                ();
+    void                       GetDefaultSymbol              ();
+
     void                       Clean                         ();
 
-    XDWORD                     type;       
+    XDWORD                     type; 
+    XVARIANT                   name;
+    XVARIANT                   symbol;      
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

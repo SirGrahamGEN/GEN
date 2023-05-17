@@ -340,9 +340,7 @@ bool DIOSCRAPERWEB::Do(XCHAR* namewebservice, int timeoutforurl, XSTRING* localI
                                       if(jsonvalue)
                                         {
                                           switch(jsonvalue->GetType())
-                                            {
-                                              case XFILEJSONVALUETYPE_UNKNOWN           : break;
-
+                                            {                                              
                                               case XFILEJSONVALUETYPE_INTEGER           : { int     pvalue = (int)jsonvalue->GetValueInteger();
                                                                                             XSTRING string;
 
@@ -379,8 +377,8 @@ bool DIOSCRAPERWEB::Do(XCHAR* namewebservice, int timeoutforurl, XSTRING* localI
                                                                                           }
                                                                                           break;
 
-                                              case XFILEJSONVALUETYPE_STRING            : { XSTRING* pvalue = (XSTRING*)jsonvalue->GetValuePointer();
-                                                                                            if(pvalue) AddValue(name, (*pvalue));
+                                              case XFILEJSONVALUETYPE_STRING            : { XSTRING pvalue = (XSTRING)jsonvalue->GetValueString();
+                                                                                            AddValue(name, pvalue);
                                                                                           }
                                                                                           break;
 

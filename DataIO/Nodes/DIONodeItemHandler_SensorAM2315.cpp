@@ -254,7 +254,8 @@ bool DIONODEITEMHANDLER_SENSORAM2315::SetNodeItem(DIONODEITEM* nodeitem)
           switch(c)
             {
               case  0 : value->SetType(DIONODEITEMVALUE_TYPE_TEMPERATURE); 
-    
+                        value->SetMode(DIONODEITEMVALUE_MODE_READ);   
+
                         (*value->GetValue())    =    0.00f;
                         (*value->GetMinValue()) =  -50.00f;
                         (*value->GetMaxValue()) =   50.00f;
@@ -263,6 +264,7 @@ bool DIONODEITEMHANDLER_SENSORAM2315::SetNodeItem(DIONODEITEM* nodeitem)
                         break;
 
               case  1 : value->SetType(DIONODEITEMVALUE_TYPE_HUMIDITY); 
+                        value->SetMode(DIONODEITEMVALUE_MODE_READ);   
 
                         (*value->GetValue())    =   0.00f; 
                         (*value->GetMinValue()) =   0.00f; 
