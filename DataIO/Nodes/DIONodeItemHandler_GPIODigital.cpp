@@ -546,7 +546,8 @@ bool DIONODEITEMHANDLER_GPIODIGITAL::Update()
                       bool     _value       = (*value); 
                       XSTRING description;
                     
-                      GEN_DIOGPIO.SetValue(entryGPIO->GetEntryID(), _value);                                
+                      GEN_DIOGPIO.SetValue(entryGPIO->GetEntryID(), _value);    
+                      nodeitemvalue->ReadUpdateDateTime();
 
                       nodeitemvalue->GetDescription(description);
                       entryGPIO->AdjustTimeInChange(_value);
@@ -573,6 +574,8 @@ bool DIONODEITEMHANDLER_GPIODIGITAL::Update()
                       XSTRING description;  
 
                       (*value) = value_GPIO;
+                      
+                      nodeitemvalue->ReadUpdateDateTime();
         
                       nodeitemvalue->GetDescription(description);
                       entryGPIO->AdjustTimeInChange(value_GPIO);

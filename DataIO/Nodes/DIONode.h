@@ -45,26 +45,32 @@ class DIONODEITEM;
 class DIONODE : public XSERIALIZABLE
 {
   public:
-                                    DIONODE           ();
-    virtual                        ~DIONODE           ();
+                                    DIONODE                   ();
+    virtual                        ~DIONODE                   ();
 
-    XUUID&                          GetID             ();
-    void                            SetID             (XUUID& UUID);
+    XUUID&                          GetID                     ();
+    void                            SetID                     (XUUID& UUID);
 
-    bool                            Update            ();
+    bool                            IsLocal                   ();    
+    void                            SetIsLocal                (bool islocal);
 
-    XVECTOR<DIONODEITEM*>*          GetItems          ();
+    XVECTOR<DIONODEITEM*>*          GetItems                  ();   
 
-    virtual bool                    Serialize         ();                                          
-    virtual bool                    Deserialize       ();
+    bool                            CreateJSONSerialization   (); 
+
+    bool                            Update                    ();
+
+    virtual bool                    Serialize                 ();                                          
+    virtual bool                    Deserialize               ();
 
   protected:
 
   private:
 
-    void                            Clean             ();
+    void                            Clean                     ();
 
     XUUID                           UUID;  
+    bool                            islocal;
     XVECTOR<DIONODEITEM*>           items;
 };
 

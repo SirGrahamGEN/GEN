@@ -81,7 +81,7 @@ class DIONODEITEM : public XSERIALIZABLE
     XTIMER*                       GetUpdateTimer                ();
 
     XVECTOR<DIONODEITEMVALUE*>*   GetValues                     ();
-
+    
     virtual bool                  Update                        ();
 
     virtual bool                  Serialize                     ();                                          
@@ -100,7 +100,7 @@ class DIONODEITEM : public XSERIALIZABLE
 
   private:
    
-    void                          Clean                         ();   
+    void                          Clean                         ();     
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

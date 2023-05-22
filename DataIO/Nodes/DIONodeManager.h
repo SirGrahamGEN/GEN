@@ -38,21 +38,32 @@
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
+class XMUTEX;
+class XTHREADCOLLECTED;
 class DIONODE;
 
 class DIONODEMANAGER
 {
   public:
-                              DIONODEMANAGER     ();
-    virtual                  ~DIONODEMANAGER     ();
+                              DIONODEMANAGER      ();
+    virtual                  ~DIONODEMANAGER      ();
 
-    XVECTOR<DIONODE*>*        GetNodes           ();
+    virtual bool              Ini                 ();      
+    virtual bool              End                 ();
+
+    XVECTOR<DIONODE*>*        GetNodes            ();
 
   private:
 
-    void                      Clean              ();
+    static void               ThreadNodes         (void* data);
+
+    void                      Clean               ();
+
+    
     
     XVECTOR<DIONODE*>         nodes;
+    XMUTEX*                   xmutexnodes;
+    XTHREADCOLLECTED*         xthreadnodes;
 
 };
 

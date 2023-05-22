@@ -683,31 +683,91 @@ bool XFILEJSONVALUE::Set(XFILEJSONARRAY* array)
 bool XFILEJSONVALUE::Set(XVARIANT* variant)
 {
   if(!variant) return false;
+
+  XSTRING tempostr;
   
   switch(variant->GetType())
     {
-      case XVARIANT_TYPE_NULL           : type = XFILEJSONVALUETYPE_NULL;           break;
-      case XVARIANT_TYPE_BOOLEAN        : type = XFILEJSONVALUETYPE_BOOLEAN;        break;
-      case XVARIANT_TYPE_SHORT          : type = XFILEJSONVALUETYPE_SHORT;          break;
-      case XVARIANT_TYPE_WORD           : type = XFILEJSONVALUETYPE_WORD;           break;
-      case XVARIANT_TYPE_INTEGER        : type = XFILEJSONVALUETYPE_INTEGER;        break;
-      case XVARIANT_TYPE_DWORD          : type = XFILEJSONVALUETYPE_DWORD;          break;
-      case XVARIANT_TYPE_DOUBLEINTEGER  : type = XFILEJSONVALUETYPE_DOUBLEINTEGER;  break;
-      case XVARIANT_TYPE_QWORD          : type = XFILEJSONVALUETYPE_QWORD;          break;
-      case XVARIANT_TYPE_FLOAT          : type = XFILEJSONVALUETYPE_FLOAT;          break;
-      case XVARIANT_TYPE_DOUBLE         : type = XFILEJSONVALUETYPE_DOUBLEFLOAT;    break;
-      case XVARIANT_TYPE_CHAR           : type = XFILEJSONVALUETYPE_STRING;         break;
-      case XVARIANT_TYPE_XCHAR          : type = XFILEJSONVALUETYPE_STRING;         break;  
-      case XVARIANT_TYPE_STRING         : type = XFILEJSONVALUETYPE_STRING;         break;
-      case XVARIANT_TYPE_DATE           : type = XFILEJSONVALUETYPE_STRING;         break;
-      case XVARIANT_TYPE_TIME           : type = XFILEJSONVALUETYPE_STRING;         break;
-      case XVARIANT_TYPE_DATETIME       : type = XFILEJSONVALUETYPE_STRING;         break;
-      case XVARIANT_TYPE_BUFFER         : type = XFILEJSONVALUETYPE_STRING;         break;
-      case XVARIANT_TYPE_POINTER        : type = XFILEJSONVALUETYPE_STRING;         break;                     
+      case XVARIANT_TYPE_NULL           : type = XFILEJSONVALUETYPE_NULL;   
+                                          value = (*variant);        
+                                          break;
+
+      case XVARIANT_TYPE_BOOLEAN        : type = XFILEJSONVALUETYPE_BOOLEAN;        
+                                          value = (*variant);
+                                          break;
+
+      case XVARIANT_TYPE_SHORT          : type = XFILEJSONVALUETYPE_SHORT;          
+                                          value = (*variant);
+                                          break;
+
+      case XVARIANT_TYPE_WORD           : type = XFILEJSONVALUETYPE_WORD;           
+                                          value = (*variant);
+                                          break;
+
+      case XVARIANT_TYPE_INTEGER        : type = XFILEJSONVALUETYPE_INTEGER;        
+                                          value = (*variant);
+                                          break;
+
+      case XVARIANT_TYPE_DWORD          : type = XFILEJSONVALUETYPE_DWORD;          
+                                          value = (*variant);
+                                          break;
+
+      case XVARIANT_TYPE_DOUBLEINTEGER  : type = XFILEJSONVALUETYPE_DOUBLEINTEGER;  
+                                          value = (*variant);
+                                          break;
+
+      case XVARIANT_TYPE_QWORD          : type = XFILEJSONVALUETYPE_QWORD;          
+                                          value = (*variant);
+                                          break;
+
+      case XVARIANT_TYPE_FLOAT          : type = XFILEJSONVALUETYPE_FLOAT;          
+                                          value = (*variant);
+                                          break;
+
+      case XVARIANT_TYPE_DOUBLE         : type = XFILEJSONVALUETYPE_DOUBLEFLOAT;    
+                                          value = (*variant);
+                                          break;
+
+      case XVARIANT_TYPE_CHAR           : type = XFILEJSONVALUETYPE_STRING;                                                    
+                                          variant->ToString(tempostr);
+                                          value = tempostr;
+                                          break;
+
+      case XVARIANT_TYPE_XCHAR          : type = XFILEJSONVALUETYPE_STRING;         
+                                          variant->ToString(tempostr);
+                                          value = tempostr;
+                                          break;  
+
+      case XVARIANT_TYPE_STRING         : type = XFILEJSONVALUETYPE_STRING;         
+                                          value = (*variant);
+                                          break;
+
+      case XVARIANT_TYPE_DATE           : type = XFILEJSONVALUETYPE_STRING;         
+                                          variant->ToString(tempostr);
+                                          value = tempostr;
+                                          break;
+
+      case XVARIANT_TYPE_TIME           : type = XFILEJSONVALUETYPE_STRING;         
+                                          variant->ToString(tempostr);
+                                          value = tempostr;
+                                          break;
+
+      case XVARIANT_TYPE_DATETIME       : type = XFILEJSONVALUETYPE_STRING;         
+                                          variant->ToString(tempostr);
+                                          value = tempostr;
+                                          break;
+
+      case XVARIANT_TYPE_BUFFER         : type = XFILEJSONVALUETYPE_STRING;         
+                                          variant->ToString(tempostr);
+                                          value = tempostr;
+                                          break;
+
+      case XVARIANT_TYPE_POINTER        : type = XFILEJSONVALUETYPE_STRING;         
+                                          variant->ToString(tempostr);
+                                          value = tempostr;
+                                          break;                     
     }
   
-  value = (*variant);
-
   return true;
 }
 
@@ -2392,6 +2452,8 @@ bool XFILEJSON::EncodeObject(bool isobject, XFILEJSONOBJECT* object, bool istabu
             {              
               case XFILEJSONVALUETYPE_NULL            : line += __L("null");
                                                         break;
+
+
 
               case XFILEJSONVALUETYPE_STRING          : { XSTRING  ptrvaluestring = value->GetValueString();
                                                           XSTRING  valuestring;

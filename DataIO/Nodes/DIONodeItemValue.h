@@ -77,6 +77,7 @@ class DIONODEITEMVALUE : public XSERIALIZABLE
     void                                SetMode                   (DIONODEITEMVALUE_MODE mode);
     void                                GetModeString             (XSTRING& modestring);
 
+    XVARIANT*                           GetDateTimeLastUpdate     ();
     XVARIANT*                           GetValue                  ();
     XVARIANT*                           GetMinValue               ();
     XVARIANT*                           GetMaxValue               ();
@@ -86,6 +87,8 @@ class DIONODEITEMVALUE : public XSERIALIZABLE
     void                                SetValueHasChanged        (bool haschanged);
 
     DIONODEITEMVALUEUNITFORMAT*         GetUnitFormat             ();
+
+    bool                                ReadUpdateDateTime        ();  
 
     virtual bool                        Serialize                 ();                                          
     virtual bool                        Deserialize               ();
@@ -97,15 +100,16 @@ class DIONODEITEMVALUE : public XSERIALIZABLE
     XDWORD                              type;
 
     DIONODEITEMVALUE_MODE               mode;
-
+    XVARIANT                            datetimelastupdate;
     XVARIANT                            value; 
     XVARIANT                            minvalue;
     XVARIANT                            maxvalue;    
     XVARIANT                            differenceforchange;
-
     bool                                haschanged;
-
     DIONODEITEMVALUEUNITFORMAT          unitformat;
+    
+    XDATETIME*                          datetime;
+
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

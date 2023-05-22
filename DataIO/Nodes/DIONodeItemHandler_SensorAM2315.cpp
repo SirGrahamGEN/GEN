@@ -182,6 +182,8 @@ bool DIONODEITEMHANDLER_SENSORAM2315::Update()
 
               nodeitemvalue->GetDescription(description);
               (*nodeitemvalue->GetValue()) = value[c];
+
+              nodeitemvalue->ReadUpdateDateTime();
               nodeitemvalue->SetValueHasChanged(true); 
 
 

@@ -33,6 +33,8 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "XFactory.h"
+
 #include "DIONodeItemValue.h"
 
 #include "XMemory_Control.h"
@@ -56,6 +58,9 @@
 DIONODEITEMVALUE::DIONODEITEMVALUE()
 {
   Clean();
+
+  datetime = GEN_XFACTORY.CreateDateTime();
+ 
 }
 
 
@@ -71,6 +76,12 @@ DIONODEITEMVALUE::DIONODEITEMVALUE()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEMVALUE::~DIONODEITEMVALUE()
 {
+  if(datetime) 
+    {
+      GEN_XFACTORY.DeleteDateTime(datetime);
+      datetime = NULL;
+    }
+
   Clean();
 }
 
@@ -218,6 +229,21 @@ void DIONODEITEMVALUE::GetModeString(XSTRING& modestring)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XVARIANT* DIONODEITEMVALUE::GetDateTimeLastUpdate()
+* @brief      GetDateTimeLastUpdate
+* @ingroup    DATAIO
+* 
+* @return     XVARIANT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT* DIONODEITEMVALUE::GetDateTimeLastUpdate()
+{
+  return &datetimelastupdate;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XVARIANT* DIONODEITEMVALUE::GetValue()
 * @brief      GetValue
 * @ingroup    DATAIO
@@ -325,6 +351,30 @@ DIONODEITEMVALUEUNITFORMAT* DIONODEITEMVALUE::GetUnitFormat()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDATETIME* DIONODEITEMVALUE::GetDateTime()
+* @brief      GetDateTime
+* @ingroup    DATAIO
+* 
+* @return     XDATETIME* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEITEMVALUE::ReadUpdateDateTime()
+{
+  if(!datetime)
+    {
+      return false;
+    }
+
+  datetime->Read();
+
+  datetimelastupdate = (*datetime);
+
+  return datetime;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIONODEITEMVALUE::Serialize()
 * @brief      Serialize
 * @ingroup    DATAIO
@@ -352,6 +402,7 @@ bool DIONODEITEMVALUE::Serialize()
   GetModeString(modestr);
   Primitive_Add<XSTRING*>(&modestr, __L("modestr"));
 
+  Primitive_Add<XVARIANT*>(&datetimelastupdate, __L("lastupdate"));
   Primitive_Add<XVARIANT*>(&value, __L("value")); 
   Primitive_Add<XVARIANT*>(&minvalue, __L("minvalue"));
   Primitive_Add<XVARIANT*>(&maxvalue, __L("maxvalue")); 
@@ -375,6 +426,9 @@ bool DIONODEITEMVALUE::Deserialize()
 {   
   Primitive_Extract<XDWORD>(type, __L("type"));  
   Primitive_Extract<XDWORD>((XDWORD)mode, __L("mode"));
+  
+  //Primitive_Extract<XVARIANT*>(&datetimelastupdate, __L("lastupdate"));
+
   Primitive_Extract<XVARIANT*>(&value, __L("value")); 
   Primitive_Extract<XVARIANT*>(&minvalue, __L("minvalue"));
   Primitive_Extract<XVARIANT*>(&maxvalue, __L("maxvalue"));  
@@ -402,4 +456,5 @@ void DIONODEITEMVALUE::Clean()
  
   haschanged  = false;
 
+  datetime    = NULL;
 }

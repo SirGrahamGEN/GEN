@@ -116,6 +116,53 @@ void DIONODE::SetID(XUUID& UUID)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XVECTOR<DIONODEITEM*>* DIONODE::GetItems()
+* @brief      GetItems
+* @ingroup    DATAIO
+* 
+* @return     XVECTOR<DIONODEITEM*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<DIONODEITEM*>* DIONODE::GetItems()
+{
+  return &items;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODE::IsLocal()
+* @brief      IsLocal
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODE::IsLocal()
+{
+  return islocal;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIONODE::SetIsLocal(bool islocal)
+* @brief      SetIsLocal
+* @ingroup    DATAIO
+* 
+* @param[in]  islocal : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODE::SetIsLocal(bool islocal)
+{
+  this->islocal = islocal;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIONODE::Update()
 * @brief      Update
 * @ingroup    DATAIO
@@ -140,17 +187,43 @@ bool DIONODE::Update()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XVECTOR<DIONODEITEM*>* DIONODE::GetItems()
-* @brief      GetItems
+* @fn         bool DIONODE::CreateJSONSerialization()
+* @brief      CreateJSONSerialization
 * @ingroup    DATAIO
 * 
-* @return     XVECTOR<DIONODEITEM*>* : 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XVECTOR<DIONODEITEM*>* DIONODE::GetItems()
+bool DIONODE::CreateJSONSerialization()
 {
-  return &items;
+  XFILEJSON             xfileJSON;
+  XSERIALIZATIONMETHOD* serializationmethod;
+  XSTRING               string;
+
+  serializationmethod = XSERIALIZABLE::CreateInstance(xfileJSON);
+  if(!serializationmethod) return false;
+  
+  InitSerialize(serializationmethod);
+
+  XPATH path;
+  GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_ROOT, path);
+  path += __L("test.json");
+
+  if(xfileJSON.Create(path))
+    {
+      xfileJSON.WriteAndEncodeAllLines(true);
+      xfileJSON.Close();
+    }
+
+  xfileJSON.EncodeAllLines();
+  xfileJSON.GetAllInOneLine(string, XFILETXTTYPELF_DEFAULT);
+  xfileJSON.ShowTraceJSON(XTRACE_COLOR_PURPLE);
+
+  delete serializationmethod;
+  
+  return true;
 }
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -209,5 +282,6 @@ bool DIONODE::Deserialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODE::Clean()
 {
-
+  islocal = false;
+  
 }

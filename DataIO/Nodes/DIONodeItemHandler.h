@@ -84,7 +84,7 @@ class DIONODEITEMHANDLER : public XSUBJECT
 
     void                          Clean                   (); 
 
-    DIONODEITEM*                  nodeitem;    
+    DIONODEITEM*                  nodeitem;
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

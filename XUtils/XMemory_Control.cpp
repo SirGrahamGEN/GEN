@@ -827,7 +827,7 @@ void operator delete[] (void* ptr) throw ()
 * --------------------------------------------------------------------------------------------------------------------*/
 void* ReAlloc(void* assign, size_t size)
 {
-  FREE(assign);
+  FREE((XBYTE*)assign);
   
   return MALLOC(size);
 }

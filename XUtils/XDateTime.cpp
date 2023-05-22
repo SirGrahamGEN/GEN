@@ -1712,7 +1712,7 @@ int XDATETIME::GetWeekOfYear(int year, int month, int day, int hours, int minute
   // The basic calculation:
   // {Day of Year (1 to 366) + 10 - Day of Week (Mon = 1 to Sun = 7)} / 7
 
-  int mon_to_sun  = (GetDayOfWeek() == 0) ? 7 : GetDayOfWeek();                 // Adjust zero indexed week day
+  int mon_to_sun  = (GetDayOfWeek() == 0) ? 7 : GetDayOfWeek();      // Adjust zero indexed week day
   int week        = ((GetDaysOfYear() + 11 - mon_to_sun) / 7);       // Add 11 because yday is 0 to 365.
 
   // Now deal with special cases:

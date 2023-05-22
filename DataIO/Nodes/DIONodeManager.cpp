@@ -33,6 +33,10 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "XThreadCollected.h"
+
+#include "DIONode.h"
+
 #include "DIONodeManager.h"
 
 #include "XMemory_Control.h"
@@ -55,7 +59,7 @@
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEMANAGER::DIONODEMANAGER()
 {
-  Clean();
+  Clean();  
 }
 
 
@@ -71,7 +75,62 @@ DIONODEMANAGER::DIONODEMANAGER()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEMANAGER::~DIONODEMANAGER()
 {
+  End();
+
   Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEMANAGER::Ini()
+* @brief      Ini
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEMANAGER::Ini()
+{
+  GEN_XFACTORY_CREATE(xmutexnodes, Create_Mutex())
+  if(!xmutexnodes) return false;
+  
+  xthreadnodes = CREATEXTHREAD(XTHREADGROUPID_SCHEDULER, __L("DIONODEMANAGER::Ini"), ThreadNodes, (void*)this);
+  if(!xthreadnodes) return false;
+
+  return xthreadnodes->Ini();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODEMANAGER::End()
+* @brief      End
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODEMANAGER::End()
+{
+  if(xthreadnodes)
+    {
+      xthreadnodes->End();
+      DELETEXTHREAD(XTHREADGROUPID_SCHEDULER, xthreadnodes);
+
+      xthreadnodes = NULL;
+    }
+  
+  if(xmutexnodes)
+    {
+      GEN_XFACTORY.Delete_Mutex(xmutexnodes);
+      xmutexnodes = NULL;
+    }
+
+  nodes.DeleteContents();
+  nodes.DeleteAll();
+
+  return true;
 }
 
 
@@ -92,6 +151,36 @@ XVECTOR<DIONODE*>* DIONODEMANAGER::GetNodes()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         void DIONODEMANAGER::ThreadNodes(void* data)
+* @brief      ThreadNodes
+* @ingroup    DATAIO
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIONODEMANAGER::ThreadNodes(void* data)
+{
+  DIONODEMANAGER* nodemanager = (DIONODEMANAGER*)data;
+  if(!nodemanager) return;
+
+  for(XDWORD c=0; c< nodemanager->GetNodes()->GetSize(); c++)
+    {
+      DIONODE* node = (DIONODE*)nodemanager->GetNodes()->Get(c);
+      if(node)
+        {
+          if(node->IsLocal())
+            {
+              node->Update();
+            }
+        }
+    }  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void DIONODEMANAGER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -102,6 +191,9 @@ XVECTOR<DIONODE*>* DIONODEMANAGER::GetNodes()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEMANAGER::Clean()
 {
-
-
+  xmutexnodes   = NULL;
+  xthreadnodes  = NULL;
 }
+
+
+
