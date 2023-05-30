@@ -47,8 +47,8 @@ class XWINDOWSDATETIME : public XDATETIME
                                 XWINDOWSDATETIME                  ();
     virtual                    ~XWINDOWSDATETIME                  ();
 
-    bool                        Read                              ();
-    bool                        Write                             ();
+    bool                        Read                              (bool islocal = true);
+    bool                        Write                             (bool islocal = true);
 
     bool                        GetFileDateTime                   (XPATH& xpath, void* tmzip, XDWORD* dt);
     bool                        GetFileDateTime                   (XPATH& xpath);
@@ -59,8 +59,8 @@ class XWINDOWSDATETIME : public XDATETIME
 
   protected:
 
-    void                        GetActualDateTime                 (XWINDOWSDATETIME* time);
-    void                        SetActualDateTime                 (XWINDOWSDATETIME* time);
+    void                        GetActualDateTime                 (XWINDOWSDATETIME* time, bool islocal = true);
+    void                        SetActualDateTime                 (XWINDOWSDATETIME* time, bool islocal = true);
 };
 
 

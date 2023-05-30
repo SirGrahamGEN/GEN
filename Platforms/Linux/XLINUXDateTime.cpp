@@ -58,7 +58,6 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXDATETIME::XLINUXDATETIME()
@@ -82,7 +81,6 @@ XLINUXDATETIME::XLINUXDATETIME()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXDATETIME::~XLINUXDATETIME()
@@ -95,28 +93,33 @@ XLINUXDATETIME::XLINUXDATETIME()
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXDATETIME::~XLINUXDATETIME()
 {
-
-
+ 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLINUXDATETIME::Read()
-* @brief      Read date time
+* 
+* @fn         bool XLINUXDATETIME::Read(bool islocal)
+* @brief      Read
 * @ingroup    PLATFORM_LINUX
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  islocal : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLINUXDATETIME::Read()
+bool XLINUXDATETIME::Read(bool islocal)
 {
-  GetActualDateTime(this);
+  GetActualDateTime(this, islocal);
 
-  return true;
+  bool status = IsValidDate();
+  if(status)
+    {
+       SetIsLocal(islocal);
+    }
+
+  return IsValidDate();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -128,13 +131,17 @@ bool XLINUXDATETIME::Read()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLINUXDATETIME::Write()
+bool XLINUXDATETIME::Write(bool islocal)
 {
-  SetActualDateTime(this);
+  if(IsValidDate())
+    {
+      return false;
+    }
+
+  SetActualDateTime(this, islocal);
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -154,12 +161,12 @@ bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 {
   typedef struct tm_zip_s
   {
-    XDWORD tm_sec;            /* seconds after the minute - [0,59] */
-    XDWORD tm_min;            /* minutes after the hour - [0,59] */
-    XDWORD tm_hour;           /* hours since midnight - [0,23] */
-    XDWORD tm_mday;           /* day of the month - [1,31] */
-    XDWORD tm_mon;            /* months since January - [0,11] */
-    XDWORD tm_year;           /* years - [1980..2044] */
+    XDWORD tm_sec;      // seconds after the minute - [0,59]
+    XDWORD tm_min;      // minutes after the hour - [0,59]
+    XDWORD tm_hour;     // hours since midnight - [0,23]
+    XDWORD tm_mday;     // day of the month - [1,31]
+    XDWORD tm_mon;      // months since January - [0,11] 
+    XDWORD tm_year;     // years - [1980..2044] 
 
   } tm_zip;
 
@@ -197,7 +204,6 @@ bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
   
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -247,7 +253,6 @@ bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XLINUXDATETIME::GetMeridianDifference()
@@ -260,36 +265,12 @@ bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath)
 int XLINUXDATETIME::GetMeridianDifference()
 {
   time_t    t  = time(NULL);
-  struct tm lt =  { 0 };
+  struct tm lt = { 0 };
 
   localtime_r(&t, &lt);
 
-  return (lt.tm_gmtoff/3600) + (lt.tm_isdst?-1:0);
-
-  /*
-  time_t    t;
-  struct tm tm_local;
-  struct tm tm_gmt;
-  struct tm tm_aux;
-  long      diff;
-
-  tzset();
-
-  time(&t);
-
-  memcpy(&tm_gmt, gmtime(&t), sizeof(struct tm));
-
-  localtime_r(&t,&tm_aux);
-  memcpy(&tm_local,&tm_aux, sizeof(struct tm));
-
-  tm_local.tm_isdst = 0;
-
-  diff = -(mktime(&tm_gmt) - mktime(&tm_local));
-
-  return (int)(diff/3600);
-  */
+  return (lt.tm_gmtoff/60) + (lt.tm_isdst?-60:0);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -317,35 +298,41 @@ bool XLINUXDATETIME::IsDayLigthSavingTime(int* bias)
 
   if(dls)
     {
-      if(bias) (*bias) = -3600;
+      if(bias) (*bias) = -60;
     }
 
   return currentdate->tm_isdst?true:false;
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XLINUXDATETIME::GetActualDateTime(XLINUXDATETIME* timed)
+* 
+* @fn         void XLINUXDATETIME::GetActualDateTime(XLINUXDATETIME* timed, bool islocal)
 * @brief      GetActualDateTime
 * @ingroup    PLATFORM_LINUX
-* @note       INTERNAL
-*
-* @param[out] timed : timed struct
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  timed : 
+* @param[in]  islocal : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XLINUXDATETIME::GetActualDateTime(XLINUXDATETIME* timed)
+void XLINUXDATETIME::GetActualDateTime(XLINUXDATETIME* timed, bool islocal)
 {
   time_t      now;
   struct tm*  datatime;
 
   now = time(0);
 
-  datatime = localtime(&now);
+  if(islocal)
+    {
+      datatime = localtime(&now);
+    }
+   else 
+    {
+      datatime = gmtime(&now);
+    }
+
   if(!datatime) return;
 
   timed->year           = datatime->tm_year + 1900;
@@ -359,23 +346,22 @@ void XLINUXDATETIME::GetActualDateTime(XLINUXDATETIME* timed)
   gettimeofday(&tv, NULL);
 
   timed->milliseconds   = (tv.tv_usec /1000);
-};
-
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XLINUXDATETIME::SetActualDateTime(XLINUXDATETIME* timed)
+* 
+* @fn         void XLINUXDATETIME::SetActualDateTime(XLINUXDATETIME* timed, bool islocal)
 * @brief      SetActualDateTime
-* @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @param[in]  timed : timed struct
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  timed : 
+* @param[in]  islocal : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XLINUXDATETIME::SetActualDateTime(XLINUXDATETIME* timed)
+void XLINUXDATETIME::SetActualDateTime(XLINUXDATETIME* timed, bool islocal)
 {
   struct tm      mytime;
   struct timeval systime;
@@ -393,7 +379,4 @@ void XLINUXDATETIME::SetActualDateTime(XLINUXDATETIME* timed)
 
   settimeofday(&systime, NULL);
 }
-
-
-
 

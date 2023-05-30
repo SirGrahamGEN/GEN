@@ -227,6 +227,8 @@ XWORD   SwapWORD          (XWORD  data);
 XDWORD  SwapDWORD         (XDWORD data);
 XQWORD  SwapQWORD         (XQWORD data);
 
+int     InvertSign        (int number);
+
 float   RoundFloat        (float x);
 
 XQWORD  DWORDToBCD        (XDWORD dword);

@@ -426,8 +426,9 @@ XDATETIME* APPINTERNETSERVICES::DateTime_GetUTC()
 
   if(xmutex_datetime_utc)  xmutex_datetime_utc->Lock();
 
-  xdatetime_utc->Read();
+  xdatetime_utc->Read(false);
 
+  /*
   XQWORD seconds = xdatetime_utc->GetSeconsFromDate(false);
   if(seconds)
     {
@@ -442,7 +443,7 @@ XDATETIME* APPINTERNETSERVICES::DateTime_GetUTC()
            meridian = cfg->InternetServices_GetUpdateTimeNTPMeridianDifference();
          } 
 
-       seconds -= (meridian * 3600);           
+       seconds -= (meridian * 60);           
     
        if(cfg->InternetServices_GetUpdateTimeNTPUseDayLightSaving())
          {
@@ -455,6 +456,7 @@ XDATETIME* APPINTERNETSERVICES::DateTime_GetUTC()
        xdatetime_utc->SetDateToZero();
        xdatetime_utc->SetDateFromSeconds(seconds, false);                  
     }
+    */
 
  if(xmutex_datetime_utc)  xmutex_datetime_utc->UnLock();
 
@@ -677,11 +679,11 @@ bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
                 {                        
                   if(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() == APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE_AUTO)
                     {                      
-                      xdatetime_actual->AddSeconds(xdatetime_actual->GetMeridianDifference() * 3600);  
+                      xdatetime_actual->AddSeconds(xdatetime_actual->GetMeridianDifference() * 60);  
                     }
                    else 
                     {
-                      xdatetime_actual->AddSeconds(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() * 3600);  
+                      xdatetime_actual->AddSeconds(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() * 60);  
                     }
                     
                   if(cfg->InternetServices_GetUpdateTimeNTPUseDayLightSaving())

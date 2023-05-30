@@ -49,7 +49,6 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSDATETIME::XWINDOWSDATETIME()
@@ -63,7 +62,6 @@ XWINDOWSDATETIME::XWINDOWSDATETIME()
 {
   GetActualDateTime(this);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -82,7 +80,6 @@ XWINDOWSDATETIME::~XWINDOWSDATETIME()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDATETIME::Read()
@@ -92,13 +89,18 @@ XWINDOWSDATETIME::~XWINDOWSDATETIME()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSDATETIME::Read()
+bool XWINDOWSDATETIME::Read(bool islocal)
 {
-  GetActualDateTime(this);
+  GetActualDateTime(this, islocal);
 
-  return true;
+  bool status = IsValidDate();  
+  if(status)
+    {
+       SetIsLocal(islocal);
+    }
+
+  return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -110,13 +112,22 @@ bool XWINDOWSDATETIME::Read()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSDATETIME::Write()
+bool XWINDOWSDATETIME::Write(bool islocal)
 {
-  SetActualDateTime(this);
+  if(IsValidDate()) 
+    {
+      return false;
+    }
+
+  if(IsLocal() != islocal)
+    {
+      return false;
+    }
+
+  SetActualDateTime(this, islocal);
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -150,7 +161,6 @@ bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -194,7 +204,6 @@ bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XWINDOWSDATETIME:GetMeridianDifference()
@@ -210,12 +219,11 @@ int XWINDOWSDATETIME::GetMeridianDifference()
 
   ::GetTimeZoneInformation(&timezoneinfo);
 
-  float difference = -(float(timezoneinfo.Bias)/60);
+  //float difference = -(float(timezoneinfo.Bias)/60);
+  //return (int)difference;
 
-  return (int)difference;
+  return (int)-timezoneinfo.Bias;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -242,15 +250,13 @@ bool XWINDOWSDATETIME::IsDayLigthSavingTime(int* bias)
       case TIME_ZONE_ID_INVALID   :
       case TIME_ZONE_ID_STANDARD  : if(bias)
                                       {
-                                        (*bias)  = timezoneinfo.StandardBias;
-                                        (*bias) *= 60;
+                                        (*bias)  = timezoneinfo.StandardBias;                                       
                                       }
                                     break;
 
       case TIME_ZONE_ID_DAYLIGHT  : if(bias)
                                       {
-                                        (*bias)  = timezoneinfo.DaylightBias;
-                                        (*bias) *= 60;
+                                        (*bias)  = timezoneinfo.DaylightBias;                                        
                                       }
                                     return true;
     }
@@ -259,25 +265,31 @@ bool XWINDOWSDATETIME::IsDayLigthSavingTime(int* bias)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XWINDOWSDATETIME::GetActualDateTime(XWINDOWSDATETIME* time)
+* 
+* @fn         void XWINDOWSDATETIME::GetActualDateTime(XWINDOWSDATETIME* time, bool islocal)
 * @brief      GetActualDateTime
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  time :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  time : 
+* @param[in]  islocal : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XWINDOWSDATETIME::GetActualDateTime(XWINDOWSDATETIME* time)
+void XWINDOWSDATETIME::GetActualDateTime(XWINDOWSDATETIME* time, bool islocal)
 {
   SYSTEMTIME st;
 
-  GetLocalTime(&st);
-
+  if(islocal)
+    {
+      GetLocalTime(&st);
+    }
+   else
+    {
+      GetSystemTime(&st);
+    }
+  
   time->year          = st.wYear;
   time->month         = st.wMonth;
   time->day           = st.wDay;
@@ -286,22 +298,22 @@ void XWINDOWSDATETIME::GetActualDateTime(XWINDOWSDATETIME* time)
   time->minutes       = st.wMinute;
   time->seconds       = st.wSecond;
   time->milliseconds  = st.wMilliseconds;
-};
-
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XWINDOWSDATETIME::SetActualDateTime(XWINDOWSDATETIME* time)
+* 
+* @fn         void XWINDOWSDATETIME::SetActualDateTime(XWINDOWSDATETIME* time, bool islocal)
 * @brief      SetActualDateTime
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  time :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  time : 
+* @param[in]  islocal : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XWINDOWSDATETIME::SetActualDateTime(XWINDOWSDATETIME* time)
+void XWINDOWSDATETIME::SetActualDateTime(XWINDOWSDATETIME* time, bool islocal)
 {
   SYSTEMTIME st;
 
@@ -314,6 +326,13 @@ void XWINDOWSDATETIME::SetActualDateTime(XWINDOWSDATETIME* time)
   st.wSecond        = time->seconds;
   st.wMilliseconds  = time->milliseconds;
 
-  SetLocalTime(&st);
-};
+  if(islocal)
+    {
+      SetLocalTime(&st);
+    }
+   else
+    {
+      SetSystemTime(&st);
+    }
+}
 

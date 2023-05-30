@@ -43,8 +43,8 @@ class XLINUXDATETIME : public XDATETIME
                         XLINUXDATETIME                  ();
     virtual            ~XLINUXDATETIME                  ();
 
-    bool                Read                            ();
-    bool                Write                           ();
+    bool                Read                            (bool islocal = true);
+    bool                Write                           (bool islocal = true);
 
     bool                GetFileDateTime                 (XPATH& xpath,void* tmzip, XDWORD* dt);
     bool                GetFileDateTime                 (XPATH& xpath);
@@ -55,9 +55,8 @@ class XLINUXDATETIME : public XDATETIME
 
   protected:
 
-    void                GetActualDateTime               (XLINUXDATETIME* timed);
-    void                SetActualDateTime               (XLINUXDATETIME* timed);
-
+    void                GetActualDateTime               (XLINUXDATETIME* timed, bool islocal = true);
+    void                SetActualDateTime               (XLINUXDATETIME* timed, bool islocal = true);
 };
 
 
