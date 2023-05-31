@@ -71,7 +71,7 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
     XSTRING*                        GetAutomaticLocalIP             ();
     XSTRING*                        GetAlLLocalIP                   ();
     XSTRING*                        GetPublicIP                     ();
-    XDATETIME*                      DateTime_GetActual              (bool active_daylightsave =  true, bool active_meridian = true);
+    XDATETIME*                      DateTime_GetLocal               (bool active_daylightsave =  true, bool active_meridian = true);
     XDATETIME*                      DateTime_GetUTC                 ();
     int                             DateTime_GetMeridian            ();
     
@@ -110,11 +110,11 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
 
     XVECTOR<XSTRING*>               NTPservers;
 
-    XMUTEX*                         xmutex_datetime_actual;
-    XDATETIME*                      xdatetime_actual;
+    XMUTEX*                         xmutex_datetime_local;
+    XDATETIME*                      xdatetime_local;
 
-    XMUTEX*                         xmutex_datetime_utc;
-    XDATETIME*                      xdatetime_utc;
+    XMUTEX*                         xmutex_datetime_UTC;
+    XDATETIME*                      xdatetime_UTC;
 
     DIODYNDNS_MANAGER*              dyndnsmanager;
 };

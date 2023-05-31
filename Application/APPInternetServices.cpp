@@ -82,17 +82,17 @@ APPINTERNETSERVICES::APPINTERNETSERVICES()
   RegisterEvent(APPINTERNETSERVICES_XEVENT_TYPE_CHANGEIP);  
   RegisterEvent(APPINTERNETSERVICES_XEVENT_TYPE_ADJUSTDATETIME);
   
-  GEN_XFACTORY_CREATE(xmutex_datetime_actual, Create_Mutex())
-  if(!xmutex_datetime_actual) return;
+  GEN_XFACTORY_CREATE(xmutex_datetime_local, Create_Mutex())
+  if(!xmutex_datetime_local) return;
 
-  GEN_XFACTORY_CREATE(xmutex_datetime_utc, Create_Mutex())
-  if(!xmutex_datetime_utc) return;
+  GEN_XFACTORY_CREATE(xmutex_datetime_UTC, Create_Mutex())
+  if(!xmutex_datetime_UTC) return;
 
-  GEN_XFACTORY_CREATE(xdatetime_actual, CreateDateTime())
-  if(xdatetime_actual) xdatetime_actual->Read();
+  GEN_XFACTORY_CREATE(xdatetime_local, CreateDateTime())
+  if(xdatetime_local) xdatetime_local->Read();
 
-  GEN_XFACTORY_CREATE(xdatetime_utc, CreateDateTime())
-  if(xdatetime_utc) xdatetime_utc->Read();
+  GEN_XFACTORY_CREATE(xdatetime_UTC, CreateDateTime())
+  if(xdatetime_UTC) xdatetime_UTC->Read();
 }
 
 
@@ -113,28 +113,28 @@ APPINTERNETSERVICES::~APPINTERNETSERVICES()
   NTPservers.DeleteContents();
   NTPservers.DeleteAll();
 
-  if(xdatetime_actual)
+  if(xdatetime_local)
     {
-      GEN_XFACTORY.DeleteDateTime(xdatetime_actual);
-      xdatetime_actual = NULL;
+      GEN_XFACTORY.DeleteDateTime(xdatetime_local);
+      xdatetime_local = NULL;
     }
 
-  if(xdatetime_utc)
+  if(xdatetime_UTC)
     {
-      GEN_XFACTORY.DeleteDateTime(xdatetime_utc);
-      xdatetime_utc = NULL;
+      GEN_XFACTORY.DeleteDateTime(xdatetime_UTC);
+      xdatetime_UTC = NULL;
     }
 
-  if(xmutex_datetime_actual) 
+  if(xmutex_datetime_local) 
     {
-      GEN_XFACTORY.Delete_Mutex(xmutex_datetime_actual);
-      xmutex_datetime_actual = NULL;
+      GEN_XFACTORY.Delete_Mutex(xmutex_datetime_local);
+      xmutex_datetime_local = NULL;
     }
 
-  if(xmutex_datetime_utc) 
+  if(xmutex_datetime_UTC) 
     {
-      GEN_XFACTORY.Delete_Mutex(xmutex_datetime_utc);
-      xmutex_datetime_utc = NULL;
+      GEN_XFACTORY.Delete_Mutex(xmutex_datetime_UTC);
+      xmutex_datetime_UTC = NULL;
     }
 
   DeRegisterEvent(APPINTERNETSERVICES_XEVENT_TYPE_CHECKINTERNETCONNEXION);
@@ -364,8 +364,8 @@ XSTRING* APPINTERNETSERVICES::GetPublicIP()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XDATETIME* APPINTERNETSERVICES::DateTime_GetActual(bool active_daylightsave, bool active_meridian)
-* @brief      DateTime_GetActual
+* @fn         XDATETIME* APPINTERNETSERVICES::DateTime_GetLocal(bool active_daylightsave, bool active_meridian)
+* @brief      DateTime_GetLocal
 * @ingroup    APPLICATION
 *
 * @param[in]  active_daylightsave : 
@@ -374,15 +374,15 @@ XSTRING* APPINTERNETSERVICES::GetPublicIP()
 * @return     XDATETIME* : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XDATETIME* APPINTERNETSERVICES::DateTime_GetActual(bool active_daylightsave, bool active_meridian)
+XDATETIME* APPINTERNETSERVICES::DateTime_GetLocal(bool active_daylightsave, bool active_meridian)
 {
-  if(!xdatetime_actual) return NULL;
+  if(!xdatetime_local) return NULL;
 
-  if(xmutex_datetime_actual)  xmutex_datetime_actual->Lock();
+  if(xmutex_datetime_local)  xmutex_datetime_local->Lock();
 
-  xdatetime_actual->Read();
+  xdatetime_local->Read();
 
-  XQWORD seconds = xdatetime_actual->GetSeconsFromDate(false);
+  XQWORD seconds = xdatetime_local->GetSeconsFromDate(false);
   if(seconds)
     {
       if(!active_meridian)
@@ -394,20 +394,20 @@ XDATETIME* APPINTERNETSERVICES::DateTime_GetActual(bool active_daylightsave, boo
         {
           if(cfg->InternetServices_GetUpdateTimeNTPUseDayLightSaving())
             {
-               if(xdatetime_actual->IsDayLigthSavingTime()) 
+               if(xdatetime_local->IsDayLigthSavingTime()) 
                  {
                    seconds -= 3600;
                  }
             }
         }
 
-       xdatetime_actual->SetDateToZero();
-       xdatetime_actual->SetDateFromSeconds(seconds, false);                  
+       xdatetime_local->SetDateToZero();
+       xdatetime_local->SetDateFromSeconds(seconds, false);                  
     }
 
-  if(xmutex_datetime_actual)  xmutex_datetime_actual->UnLock();
+  if(xmutex_datetime_local)  xmutex_datetime_local->UnLock();
 
-  return xdatetime_actual;
+  return xdatetime_local;
 }
 
 
@@ -422,45 +422,15 @@ XDATETIME* APPINTERNETSERVICES::DateTime_GetActual(bool active_daylightsave, boo
 * --------------------------------------------------------------------------------------------------------------------*/
 XDATETIME* APPINTERNETSERVICES::DateTime_GetUTC()
 {
-  if(!xdatetime_utc) return NULL;
+  if(!xdatetime_UTC) return NULL;
 
-  if(xmutex_datetime_utc)  xmutex_datetime_utc->Lock();
+  if(xmutex_datetime_UTC)  xmutex_datetime_UTC->Lock();
 
-  xdatetime_utc->Read(false);
+  xdatetime_UTC->Read(false);
 
-  /*
-  XQWORD seconds = xdatetime_utc->GetSeconsFromDate(false);
-  if(seconds)
-    {
-        int meridian;
+  if(xmutex_datetime_UTC)  xmutex_datetime_UTC->UnLock();
 
-       if(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() == APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE_AUTO)
-         {
-           meridian = xdatetime_utc->GetMeridianDifference();  
-         }
-        else 
-         {
-           meridian = cfg->InternetServices_GetUpdateTimeNTPMeridianDifference();
-         } 
-
-       seconds -= (meridian * 60);           
-    
-       if(cfg->InternetServices_GetUpdateTimeNTPUseDayLightSaving())
-         {
-           if(xdatetime_utc->IsDayLigthSavingTime()) 
-             {
-               seconds -= 3600;
-             }            
-         }
-
-       xdatetime_utc->SetDateToZero();
-       xdatetime_utc->SetDateFromSeconds(seconds, false);                  
-    }
-    */
-
- if(xmutex_datetime_utc)  xmutex_datetime_utc->UnLock();
-
- return xdatetime_utc;
+ return xdatetime_UTC;
 }
 
 
@@ -479,7 +449,7 @@ int APPINTERNETSERVICES::DateTime_GetMeridian()
   
   if(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() == APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE_AUTO)
     {
-      meridian = xdatetime_actual->GetMeridianDifference();  
+      meridian = xdatetime_local->GetMeridianDifference();  
     }
    else 
     {
@@ -672,29 +642,29 @@ bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
             {
               (*url) = servers->Get(c)->Get();
 
-              xdatetime_actual->Read();
+              xdatetime_local->Read();
 
-              status = ntp->GetTime((*url), 15, GEN_XSYSTEM.HardwareUseLittleEndian(), (*xdatetime_actual));
+              status = ntp->GetTime((*url), 15, GEN_XSYSTEM.HardwareUseLittleEndian(), (*xdatetime_local));
               if(status)
                 {                        
                   if(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() == APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE_AUTO)
                     {                      
-                      xdatetime_actual->AddSeconds(xdatetime_actual->GetMeridianDifference() * 60);  
+                      xdatetime_local->AddSeconds(xdatetime_local->GetMeridianDifference() * 60);  
                     }
                    else 
                     {
-                      xdatetime_actual->AddSeconds(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() * 60);  
+                      xdatetime_local->AddSeconds(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() * 60);  
                     }
                     
                   if(cfg->InternetServices_GetUpdateTimeNTPUseDayLightSaving())
                     {
-                      if(xdatetime_actual->IsDayLigthSavingTime()) 
+                      if(xdatetime_local->IsDayLigthSavingTime()) 
                         {                      
-                          xdatetime_actual->AddSeconds(3600);
+                          xdatetime_local->AddSeconds(3600);
                         }
                     }
                  
-                  status = xdatetime_actual->Write();
+                  status = xdatetime_local->Write();
 
                   break;
                 } 
@@ -887,8 +857,8 @@ void APPINTERNETSERVICES::Clean()
 
   scraperwebpublicIP      = NULL;
 
-  xdatetime_actual        = NULL;
-  xdatetime_utc           = NULL;
+  xdatetime_local        = NULL;
+  xdatetime_UTC           = NULL;
 
   dyndnsmanager           = NULL;
 }
