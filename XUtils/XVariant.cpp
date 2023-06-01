@@ -1372,9 +1372,51 @@ bool XVARIANT::ToString(XSTRING& to)
       case XVARIANT_TYPE_FLOAT            : to.Format(__L("%f"),*(float*)this->data);                                                                             break;
       case XVARIANT_TYPE_DOUBLE           : to.Format(__L("%lf"),*(double*)this->data);                                                                           break;
       case XVARIANT_TYPE_STRING           : to.Format(__L("%s"),((XSTRING*)this->data)->Get());                                                                   break;
-      case XVARIANT_TYPE_TIME             : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_ADDTIME | XDATETIME_FORMAT_TIMEWITHSECONDS,  to);      break;
-      case XVARIANT_TYPE_DATE             : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_YMD,                                         to);      break;
-      case XVARIANT_TYPE_DATETIME         : ((XDATETIME*)this->data)->GetDateTimeToString(XDATETIME_FORMAT_STANDARD,                                    to);      break;
+
+      case XVARIANT_TYPE_TIME             : { XDATETIME* _datetime = GEN_XFACTORY.CreateDateTime();
+                                              if(_datetime) 
+                                                {
+                                                  _datetime->CopyFrom(((XDATETIME*)this->data));      
+
+                                                  _datetime->GetDateTimeToStringISO8601(XDATETIME_FORMAT_ADDTIME               | 
+                                                                                        XDATETIME_FORMAT_TIMEWITHSECONDS       |
+                                                                                        XDATETIME_FORMAT_TIMEWITHMILLISECONDS  |
+                                                                                        XDATETIME_FORMAT_ISO8601_ADDHOUROFFSET , 
+                                                                                        to);      
+
+                                                  GEN_XFACTORY.DeleteDateTime(_datetime);
+                                                }
+                                            }
+                                            break;
+
+      case XVARIANT_TYPE_DATE             :  { XDATETIME* _datetime = GEN_XFACTORY.CreateDateTime();
+                                              if(_datetime) 
+                                                {
+                                                  _datetime->CopyFrom(((XDATETIME*)this->data));      
+
+                                                  _datetime->GetDateTimeToStringISO8601(0, to);  
+
+                                                  GEN_XFACTORY.DeleteDateTime(_datetime);
+                                                }
+                                            }
+                                            break;
+    
+      case XVARIANT_TYPE_DATETIME         : { XDATETIME* _datetime = GEN_XFACTORY.CreateDateTime();
+                                              if(_datetime) 
+                                                {
+                                                  _datetime->CopyFrom(((XDATETIME*)this->data));      
+
+                                                  _datetime->GetDateTimeToStringISO8601(XDATETIME_FORMAT_ISO8601_STANDARD      |
+                                                                                        XDATETIME_FORMAT_TIMEWITHSECONDS       |
+                                                                                        XDATETIME_FORMAT_TIMEWITHMILLISECONDS  |
+                                                                                        XDATETIME_FORMAT_ISO8601_ADDHOUROFFSET , 
+                                                                                        to);      
+
+                                                  GEN_XFACTORY.DeleteDateTime(_datetime);
+                                                }
+                                            }
+                                            break;
+
       case XVARIANT_TYPE_BUFFER           : to.Format(__L("[Buffer]"));                                                                                           break;
       case XVARIANT_TYPE_POINTER          : to.Format(__L("[%08X]"), *(XBYTE*)this->data);                                                                        break;      
                         default           : return false;

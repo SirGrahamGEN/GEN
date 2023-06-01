@@ -365,7 +365,7 @@ bool DIONODEITEMVALUE::ReadUpdateDateTime()
       return false;
     }
 
-  datetime->Read();
+  datetime->Read(false);
 
   datetimelastupdate = (*datetime);
 

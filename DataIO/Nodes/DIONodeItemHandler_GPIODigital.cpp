@@ -569,6 +569,8 @@ bool DIONODEITEMHANDLER_GPIODIGITAL::Update()
                 {
                   bool value_GPIO = GEN_DIOGPIO.GetValue(entryGPIO->GetEntryID());
 
+                  nodeitemvalue->ReadUpdateDateTime();
+
                   if((bool)(*value) != value_GPIO)
                     {     
                       XSTRING description;  
