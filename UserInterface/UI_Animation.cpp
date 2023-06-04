@@ -37,6 +37,10 @@
 
 #include "GRPBitmapFile.h"
 
+#include "UI_Manager.h"
+
+#include "APPBase.h"
+
 #include "UI_Animation.h"
 
 #include "XMemory_Control.h"
@@ -61,7 +65,6 @@ UI_ANIMATION::UI_ANIMATION()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ANIMATION::~UI_ANIMATION()
@@ -78,7 +81,6 @@ UI_ANIMATION::~UI_ANIMATION()
 
   Clean();                            
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -129,18 +131,70 @@ bool UI_ANIMATION::LoadFromFile(XSTRING& resourcename, GRPPROPERTYMODE mode)
       xpathimg.Slash_Add();
       xpathimg.Add(namefile);
 
-      bitmap = bitmapfile.Load(xpathimg, mode);
-      if(bitmap) 
-        { 
-          bitmaps.Add(bitmap);                                                      
-          if(mask.IsEmpty()) break;                                                                                                            
-        } 
-       else break;        
+      if(GEN_USERINTERFACE.IsZippedFile())
+        {
+          XFILEUNZIP* unzipfile = GEN_USERINTERFACE.GetUnzipFile();
+          if(unzipfile)
+            {       
+              XPATH pathnamefilecmp = APPDEFAULT_DIRECTORY_GRAPHICS;
+              XPATH namefileonly;
+
+              pathnamefilecmp.Slash_Add();
+              pathnamefilecmp += namefile;
+
+              pathnamefilecmp.GetNamefileExt(namefileonly);
+           
+              bool status = unzipfile->DecompressFile(pathnamefilecmp, (*GEN_USERINTERFACE.GetUnzipPathFile()), namefileonly.Get());   
+              if(status)
+                {  
+                  XPATH unzippathfile_tmp;
+
+                  unzippathfile_tmp  = GEN_USERINTERFACE.GetUnzipPathFile()->Get();
+                  unzippathfile_tmp += namefileonly;
+
+                  bitmap = bitmapfile.Load(unzippathfile_tmp, mode);
+
+                  GEN_USERINTERFACE.DeleteTemporalUnZipFile(unzippathfile_tmp);  
+
+                  if(bitmap) 
+                    { 
+                      bitmaps.Add(bitmap);                                                      
+                      if(mask.IsEmpty()) 
+                        {
+                          break;                                                                                                            
+                        }
+                    } 
+                   else 
+                    {
+                      break;          
+                    }
+                }
+               else
+                {
+                  break;
+                }
+            }
+        }
+       else
+        {                            
+          bitmap = bitmapfile.Load(xpathimg, mode);
+          if(bitmap) 
+            { 
+              bitmaps.Add(bitmap);                                                      
+              if(mask.IsEmpty()) 
+                {
+                  break;                                                                                                            
+                }
+            } 
+            else 
+            {
+              break;          
+            }
+        }
     }                                                          
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -156,7 +210,6 @@ XSTRING* UI_ANIMATION::GetName()
 {
   return &name;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -189,7 +242,6 @@ XVECTOR<GRPBITMAP*>* UI_ANIMATION::GetBitmaps()
 }
     
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPBITMAP* UI_ANIMATION::GetBitmap(int index)
@@ -205,7 +257,6 @@ GRPBITMAP* UI_ANIMATION::GetBitmap(int index)
 {
   return bitmaps.Get(index);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -226,8 +277,6 @@ bool UI_ANIMATION::DeleteAll()
   
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

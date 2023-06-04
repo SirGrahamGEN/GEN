@@ -160,7 +160,7 @@ void  operator delete[] (void* ptr) throw ();
 
 void* ReAlloc           (void* assign, size_t size);
 
-#define new new(__FILE__, __LINE__)
+#define new new(GEN_MODULE_EXEC, GEN_LINE_EXEC)
 
 
 #define MALLOC(size)                            new XBYTE[size]

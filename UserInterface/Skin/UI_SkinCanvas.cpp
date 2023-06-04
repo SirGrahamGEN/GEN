@@ -63,6 +63,8 @@
 #include "UI_Layout.h"
 #include "UI_Manager.h"
 
+#include "APPBase.h"
+
 #include "UI_SkinCanvas.h"
 
 #include "XMemory_Control.h"
@@ -72,11 +74,9 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*  UI_SKINCANVAS_REBUILDAREAS                                                                                        */
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -107,7 +107,6 @@ UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen)
 }
 
  
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKINCANVAS_REBUILDAREAS::~UI_SKINCANVAS_REBUILDAREAS()
@@ -122,7 +121,6 @@ UI_SKINCANVAS_REBUILDAREAS::~UI_SKINCANVAS_REBUILDAREAS()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -215,7 +213,6 @@ bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas(UI_LAYOUT* layout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas(UI_ELEMENT* element)
@@ -292,8 +289,6 @@ bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas(UI_ELEMENT* element)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS_REBUILDAREAS::CreateRebuildArea(double x, double y, double width, double height, UI_ELEMENT* element)
@@ -313,7 +308,6 @@ bool UI_SKINCANVAS_REBUILDAREAS::CreateRebuildArea(double x, double y, double wi
 {  
   return GRP2DREBUILDAREAS::CreateRebuildArea(x, y, width+1, height+1, (void*)element);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -338,7 +332,6 @@ GRPBITMAP* UI_SKINCANVAS_REBUILDAREAS::GetBitmap(double x, double y, double widt
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKINCANVAS_REBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
@@ -358,7 +351,6 @@ void UI_SKINCANVAS_REBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP*
 
   canvas->PutBitmapNoAlpha(x, y, bitmap); 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -391,7 +383,6 @@ GRP2DREBUILDAREA* UI_SKINCANVAS_REBUILDAREAS::GetRebuildAreaByElement(UI_ELEMENT
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKINCANVAS_REBUILDAREAS::Clean()
@@ -409,11 +400,9 @@ void UI_SKINCANVAS_REBUILDAREAS::Clean()
 }
 
 
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*  UI_SKINCANVAS                                                                                                     */
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -437,7 +426,6 @@ UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen) : UI_SKIN(),  UI_SKINCANVAS_REBU
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKINCANVAS::~UI_SKINCANVAS()
@@ -450,11 +438,15 @@ UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen) : UI_SKIN(),  UI_SKINCANVAS_REBU
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS::~UI_SKINCANVAS()    
 { 
+  if(!fontpathfile.IsEmpty())
+    {
+      GEN_USERINTERFACE.DeleteTemporalUnZipFile(fontpathfile);  
+    }
+
   DeleteAllRebuildAreas();
 
   Clean();                            
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -490,7 +482,6 @@ GRPCANVAS* UI_SKINCANVAS::GetCanvas()
 }
 		
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::LoadFonts()
@@ -517,19 +508,48 @@ bool UI_SKINCANVAS::LoadFonts()
   if(status)
     {
       if(!vectorfontname.IsEmpty())
-        {                                                 
+        {          
           GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_FONTS, xpath);
           xpath.Slash_Add();
           xpath.Add(vectorfontname.Get());
 
-          status = canvas->VectorFont_Load(xpath);    
+          if(GEN_USERINTERFACE.IsZippedFile())
+            {             
+              XFILEUNZIP* unzipfile = GEN_USERINTERFACE.GetUnzipFile();
+              if(unzipfile)
+                {                  
+                  XPATH pathnamefilecmp = APPDEFAULT_DIRECTORY_FONTS;
+
+                  pathnamefilecmp.Slash_Add();
+                  pathnamefilecmp += vectorfontname;
+
+                  status = unzipfile->DecompressFile(pathnamefilecmp, (*GEN_USERINTERFACE.GetUnzipPathFile()), vectorfontname.Get());   
+                  if(status)
+                    {  
+                      XPATH unzippathfile_tmp;
+
+                      unzippathfile_tmp  = GEN_USERINTERFACE.GetUnzipPathFile()->Get();
+                      unzippathfile_tmp += vectorfontname;
+
+                      status = canvas->VectorFont_Load(unzippathfile_tmp);  
+
+                      //GEN_USERINTERFACE.DeleteTemporalUnZipFile(unzippathfile_tmp);  
+
+                      fontpathfile = unzippathfile_tmp;
+                    }
+                    
+                }
+            }
+           else
+            {                            
+              status = canvas->VectorFont_Load(xpath);    
+            }
 
         } else status = true;
     }
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -543,12 +563,11 @@ bool UI_SKINCANVAS::LoadFonts()
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::Background_LoadBitmap()
 {
-  bool status = false;
-
   if(!screen) return false;
 
   XPATH           xpath;
   GRPBITMAPFILE*  bitmapfile;
+  bool            status = false;
 
   bitmapfile = new GRPBITMAPFILE();
   if(!bitmapfile) false;
@@ -557,10 +576,41 @@ bool UI_SKINCANVAS::Background_LoadBitmap()
   xpath.Slash_Add();
   xpath.Add(background_namefile.Get());
 
-  background_bitmap = bitmapfile->Load(xpath, screen->GetMode());
-  if(background_bitmap) 
-    {            
-      status = true;
+  if(GEN_USERINTERFACE.IsZippedFile())
+    {
+      XFILEUNZIP* unzipfile = GEN_USERINTERFACE.GetUnzipFile();
+      if(unzipfile)
+        {                
+          XPATH pathnamefilecmp = APPDEFAULT_DIRECTORY_GRAPHICS;
+
+          pathnamefilecmp.Slash_Add();
+          pathnamefilecmp += background_namefile;
+ 
+          status = unzipfile->DecompressFile(pathnamefilecmp, (*GEN_USERINTERFACE.GetUnzipPathFile()), background_namefile.Get());   
+          if(status)
+            {  
+              XPATH unzippathfile_tmp;
+
+              unzippathfile_tmp  = GEN_USERINTERFACE.GetUnzipPathFile()->Get();
+              unzippathfile_tmp += background_namefile;
+
+              background_bitmap = bitmapfile->Load(unzippathfile_tmp, screen->GetMode());
+              if(background_bitmap) 
+                {            
+                  status = true;
+                }
+
+              GEN_USERINTERFACE.DeleteTemporalUnZipFile(unzippathfile_tmp);  
+            }
+        }
+    }
+   else
+    {                                          
+      background_bitmap = bitmapfile->Load(xpath, screen->GetMode());
+      if(background_bitmap) 
+        {            
+          status = true;
+        }
     }
 
   delete bitmapfile;
@@ -606,7 +656,6 @@ bool UI_SKINCANVAS::GetFatherSize(UI_ELEMENT* element, double& width, double& he
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_SKINCANVAS::GetPositionWithoutDefine(double position)
@@ -632,7 +681,6 @@ double UI_SKINCANVAS::GetPositionWithoutDefine(double position)
     
   return 0.0f;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -694,7 +742,6 @@ bool UI_SKINCANVAS::SetAroundFromSubElements(UI_ELEMENT* element)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -792,7 +839,6 @@ bool UI_SKINCANVAS::CalculePosition(UI_ELEMENT* element, double fatherwidth, dou
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_SKINCANVAS::GetWithString(XCHAR* string, XDWORD sizefont)
@@ -815,7 +861,6 @@ double UI_SKINCANVAS::GetWithString(XCHAR* string,  XDWORD sizefont)
 
   return (double)width;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -842,7 +887,6 @@ double  UI_SKINCANVAS::GetHeightString(XCHAR* string, XDWORD sizefont)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Scroll(UI_ELEMENT* element)
@@ -858,7 +902,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Scroll(UI_ELEMENT* element)
 {
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -932,7 +975,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Text(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_TextBox(UI_ELEMENT* element)
@@ -974,7 +1016,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_TextBox(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Image(UI_ELEMENT* element)
@@ -1014,7 +1055,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Image(UI_ELEMENT* element)
 
   return CalculePosition(element, fatherwidth, fatherheight);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1089,7 +1129,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Animation(UI_ELEMENT* element)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1267,7 +1306,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Button(UI_ELEMENT* element)
@@ -1285,7 +1323,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Button(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element)
@@ -1301,7 +1338,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element)
 {
   return CalculateBoundaryLine_Option(element);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1360,7 +1396,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_EditText(UI_ELEMENT* element)
 
   return CalculePosition(element, fatherwidth, fatherheight);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1430,7 +1465,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Form(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Menu(UI_ELEMENT* element)
@@ -1446,7 +1480,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Menu(UI_ELEMENT* element)
 {  
   return CalculateBoundaryLine_Form(element);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1505,7 +1538,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_ListBox(UI_ELEMENT* element)
 
   return CalculePosition(element, fatherwidth, fatherheight);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1642,7 +1674,6 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::SetElementPosition(UI_ELEMENT* element, double x_position, double y_position)
@@ -1677,7 +1708,6 @@ bool UI_SKINCANVAS::SetElementPosition(UI_ELEMENT* element, double x_position, d
 }
 
 
-  
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Scroll(UI_ELEMENT* element)
@@ -1693,7 +1723,6 @@ bool UI_SKINCANVAS::Draw_Scroll(UI_ELEMENT* element)
 {
   return true;
 }
-
 
   
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1739,7 +1768,6 @@ bool UI_SKINCANVAS::Draw_Text(UI_ELEMENT* element)
   
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1848,7 +1876,6 @@ bool UI_SKINCANVAS::Draw_TextBox(UI_ELEMENT* element)
   return true;
 }
 
-
   
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -1888,7 +1915,6 @@ bool UI_SKINCANVAS::Draw_Image(UI_ELEMENT* element)
     
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1958,7 +1984,6 @@ bool UI_SKINCANVAS::Draw_Animation(UI_ELEMENT* element)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2071,7 +2096,6 @@ bool UI_SKINCANVAS::Draw_Option(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_MultiOption(UI_ELEMENT* element)
@@ -2143,7 +2167,6 @@ bool UI_SKINCANVAS::Draw_MultiOption(UI_ELEMENT* element)
   return true;
 }
 
-
   
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -2161,7 +2184,6 @@ bool UI_SKINCANVAS::Draw_Button(UI_ELEMENT* element)
 {  
   return Draw_Option(element);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2188,7 +2210,6 @@ bool UI_SKINCANVAS::Draw_CheckBox(UI_ELEMENT* element)
 
   return Draw_Option(element);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2293,7 +2314,6 @@ bool UI_SKINCANVAS::Draw_EditText(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Form(UI_ELEMENT* element)
@@ -2368,7 +2388,6 @@ bool UI_SKINCANVAS::Draw_Form(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Menu(UI_ELEMENT* element)
@@ -2385,7 +2404,6 @@ bool UI_SKINCANVAS::Draw_Menu(UI_ELEMENT* element)
 {
   return Draw_Form(element);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2458,7 +2476,6 @@ bool UI_SKINCANVAS::Draw_ListBox(UI_ELEMENT* element)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2659,7 +2676,6 @@ bool UI_SKINCANVAS::Draw_ProgressBar(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::GetFontSize(XCHAR* text, XDWORD& width, XDWORD& height)
@@ -2685,7 +2701,6 @@ bool UI_SKINCANVAS::GetFontSize(XCHAR* text, XDWORD& width, XDWORD& height)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::SetFontSize(XDWORD size)
@@ -2706,7 +2721,6 @@ bool UI_SKINCANVAS::SetFontSize(XDWORD size)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2744,7 +2758,6 @@ bool UI_SKINCANVAS::DrawBackgroundColor(UI_ELEMENT* element, GRPCANVAS* canvas, 
 
   return true;  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2808,7 +2821,6 @@ bool UI_SKINCANVAS::PreDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XREC
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::PostDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XRECT& clip_rect, double x_position, double y_position)
@@ -2842,7 +2854,6 @@ bool UI_SKINCANVAS::PostDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XRE
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2904,7 +2915,6 @@ double UI_SKINCANVAS::TextBox_SizeLine(UI_ELEMENT_TEXTBOX* element_textbox, GRPC
 
   return sizeline;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3320,9 +3330,6 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
 }
 
 
-
-
-
 #ifdef USERINTERFACE_DEBUG 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3361,7 +3368,6 @@ bool UI_SKINCANVAS::Debug_Draw(UI_ELEMENT* element, double x_position, double y_
 #endif
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKINCANVAS::Clean()
@@ -3377,3 +3383,4 @@ void UI_SKINCANVAS::Clean()
   fontsize = 0;
   screen   = NULL;
 }
+

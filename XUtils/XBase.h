@@ -161,12 +161,8 @@ typedef void*                 POINTER;
 #endif
 
 
-
-
 typedef bool (*PROGRESS_FUNCTION)(void);
  
-
-
 
 #ifdef _MSC_VER    
   #define  TYPEDEF_STRUCT_ALIGNMENT_BYTE_INI                                            \
@@ -188,7 +184,22 @@ typedef bool (*PROGRESS_FUNCTION)(void);
 #endif
 
 
+#define GEN_MODULE_EXEC   __FILE__
+#define GEN_LINE_EXEC     __LINE__
 
+#ifdef COMPILER_MSVC
+  #define GEN_FUNCTION_EXEC  __FUNCSIG__
+#else
+  #ifdef COMPILER_GCC
+    #define GEN_FUNCTION_EXEC  __PRETTY_FUNCTION__
+  #else
+    #ifdef COMPILER_CLANG)
+      #define GEN_FUNCTION_EXEC  __PRETTY_FUNCTION__
+    #else 
+      #define GEN_FUNCTION_EXEC  ""  
+    #endif
+  #endif 
+#endif 
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/

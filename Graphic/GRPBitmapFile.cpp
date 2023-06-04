@@ -449,7 +449,8 @@ GRPBITMAP* GRPBITMAPFILE::Load(XCHAR* xpath, GRPPROPERTYMODE forcemode)
   if(grpfilebase)
     {
       bitmap = grpfilebase->CreateBitmapFromFile(_xpath, forcemode);
-       delete grpfilebase;
+
+      delete grpfilebase;
     }
 
   return bitmap;

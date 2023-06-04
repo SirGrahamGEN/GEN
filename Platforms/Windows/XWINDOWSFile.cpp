@@ -72,7 +72,6 @@ XWINDOWSFILE::XWINDOWSFILE(): XFILE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSFILE::~XWINDOWSFILE()
@@ -89,7 +88,6 @@ XWINDOWSFILE::~XWINDOWSFILE()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -113,7 +111,6 @@ bool XWINDOWSFILE::Exist(XCHAR* xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::Open(XCHAR* xpath, bool isreadonly)
@@ -135,7 +132,6 @@ bool XWINDOWSFILE::Open(XCHAR* xpath, bool isreadonly)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::Create(XCHAR* xpath)
@@ -153,7 +149,6 @@ bool XWINDOWSFILE::Create(XCHAR* xpath)
 
   return ExtendedOpen(xpath, XWINDOWSFILEMODE_CREATE);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -203,7 +198,6 @@ bool XWINDOWSFILE::GetPosition(XQWORD& position)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::SetPosition(XQWORD position)
@@ -236,7 +230,6 @@ bool XWINDOWSFILE::SetPosition(XQWORD position)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
@@ -264,7 +257,6 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -311,7 +303,6 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
@@ -350,7 +341,6 @@ bool XWINDOWSFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::Flush()
@@ -369,7 +359,6 @@ bool XWINDOWSFILE::Flush()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -408,7 +397,6 @@ bool XWINDOWSFILE::Close()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::Erase(XCHAR* xpath,bool overwrite)
@@ -423,19 +411,28 @@ bool XWINDOWSFILE::Close()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Erase(XCHAR* xpath,bool overwrite)
 {
-  bool status=true;
+  bool  status = true;
+  XPATH _xpath = xpath;
 
-  if(Exist(xpath)!=true)  return false;
+  _xpath.Slash_Normalize(true);
 
-  if(overwrite) status = OverwriteContent(xpath);
+  if(Exist(_xpath.Get()) != true)  
+    {
+      return false;
+    }
 
-  if(status) status = DeleteFile(xpath)?true:false;
+  if(overwrite) 
+    {
+      status = OverwriteContent(_xpath.Get());
+    }
+
+  if(status) 
+    {
+      status = DeleteFile(_xpath.Get())?true:false;
+    }
 
   return status;
-
-  return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -456,9 +453,6 @@ bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 
   return true;
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -496,8 +490,6 @@ FILE* XWINDOWSFILE::CreateStructHandle()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::DeleteStructHandle()
@@ -515,8 +507,6 @@ bool XWINDOWSFILE::DeleteStructHandle()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -547,8 +537,6 @@ bool XWINDOWSFILE::ActualizeSize()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -596,8 +584,6 @@ bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XWINDOWSFILEMODE mode)
   #endif
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

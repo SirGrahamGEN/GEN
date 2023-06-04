@@ -1,8 +1,6 @@
 # --------------------------------------------------------------------
-# CMakeLists_Compile.txt to GEN FrameWork
+# CMakeLists_Platform-Compiler.txt to GEN FrameWork
 # --------------------------------------------------------------------
-
-
 
 
 # --------------------------------------------------------------------
@@ -32,9 +30,10 @@
 # --------------------------------------------------------------------
 
 
-# --- CACHE CIOMPILER ------------------------------------------------
+# --- CACHE COMPILER ------------------------------------------------
 
  find_program(CCACHE_PROGRAM ccache)
+
  if(CCACHE_PROGRAM)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
  endif()
@@ -141,18 +140,27 @@
 # --- Type of compile ------------------------------------------------
 
 if(("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC"))
+
+  add_definitions(-DCOMPILER_MSVC)
   option(COMPILE_WITH_MSVC "Compile with Microsoft Compiler (MSVC)" true)
   message(STATUS "[Select for compile with Microsoft Compiler (MSVC)]")
+
 endif()
 
 if(("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU"))
+
+  add_definitions(-DCOMPILER_GCC)
   option(COMPILE_WITH_GCC "Compile with GNU Compiler Collection (GCC)" true)
   message(STATUS "[Select for compile with GNU Compiler Collection (GCC)]")
+
 endif()
 
 if(("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang"))
+
+  add_definitions(-DCOMPILER_CLANG)
   option(COMPILE_WITH_CLANG "Compile with CLang (front-end of LLVM)" true)
   message(STATUS "[Select for compile with CLang (front-end of LLVM)]")
+
 endif()
 
 # --------------------------------------------------------------------

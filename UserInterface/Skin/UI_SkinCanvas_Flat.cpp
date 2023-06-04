@@ -61,19 +61,16 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-
-@fn         UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPCANVAS* canvas)
-@brief      Constructor
-@ingroup    USERINTERFACE
-
-""
-""
-
-@param[in]  GRPCANVAS* : 
-
-@return     Does not return anything. 
-
----------------------------------------------------------------------------------------------------------------------*/
+* 
+* @fn         UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen) 
+* @brief      Constructor
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  GRPSCREEN* : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen) : UI_SKINCANVAS(screen)
 { 
   Clean();  

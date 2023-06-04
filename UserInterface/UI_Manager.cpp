@@ -40,7 +40,8 @@
 #include "XFactory.h"
 #include "XThread.h"
 #include "XTimer.h"
-#include "XFileXML.h"
+#include "XPath.h"
+#include "XFile.h"
 #include "XTrace.h"
 #include "XTranslation.h"
 #include "XSleep.h"
@@ -90,7 +91,6 @@ UI_MANAGER* UI_MANAGER::instance = NULL;
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::GetIsInstanced()
@@ -104,7 +104,6 @@ bool UI_MANAGER::GetIsInstanced()
 {
   return instance!=NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -122,7 +121,6 @@ UI_MANAGER& UI_MANAGER::GetInstance()
 
   return (*instance);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -152,7 +150,6 @@ bool UI_MANAGER::DelInstance()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Load(XPATH& pathfile)
@@ -166,9 +163,81 @@ bool UI_MANAGER::DelInstance()
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::Load(XPATH& pathfile)
 {
-  XFILEXML    xml;
-  bool        status = false;  
+  bool status = false;  
 
+  if(pathfile.Find(__L(".zip"), true) != XSTRING_NOTFOUND) 
+    {
+      iszippedfile = true;
+    }
+
+  if(!iszippedfile)
+    {
+      status = LoadLayout(pathfile);
+    }
+   else
+    {
+      unzipfile = new XFILEUNZIP();
+      if(!unzipfile) return false;
+
+      if(unzipfile->Open(pathfile))
+        {
+          XSTRING origin_drive;
+          XPATH   origin_path;
+          XSTRING origin_namefile;
+          XSTRING origin_ext;
+          
+          pathfile.GetDrive(origin_drive);
+          pathfile.GetPath(origin_path);
+          pathfile.GetNamefile(origin_namefile);
+          pathfile.GetExt(origin_ext);
+                          
+          unzippathfile  = origin_drive;
+          unzippathfile += origin_path; 
+
+          XSTRING namefile;
+
+          namefile    = origin_namefile;
+          namefile   += __L(".xml");
+                  
+          status = unzipfile->DecompressFile(namefile, unzippathfile, namefile.Get());
+          if(status)
+            {
+              XPATH unzippathfile_tmp;
+
+              unzippathfile_tmp  = unzippathfile;
+              unzippathfile_tmp += namefile;
+
+              status = LoadLayout(unzippathfile_tmp);                
+
+              DeleteTemporalUnZipFile(unzippathfile_tmp);                          
+            }
+        }
+       else 
+        {
+          CloseUnZipFile();        
+        }        
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_MANAGER::LoadLayout(XPATH& pathfile)
+* @brief      LoadLayout
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  pathfile : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::LoadLayout(XPATH& pathfile)
+{
+  XFILEXML xml;
+  bool     status = false;  
+      
   if(xml.Open(pathfile, true))
     {      
       CreateLayouts(xml);
@@ -181,6 +250,82 @@ bool UI_MANAGER::Load(XPATH& pathfile)
   return status;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_MANAGER::IsZippedFile()
+* @brief      IsZippedFile
+* @ingroup    USERINTERFACE
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::IsZippedFile()
+{
+  if(iszippedfile && unzipfile)
+    {
+      return true;
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XPATH* UI_MANAGER::GetUnzipPathFile()
+* @brief      GetUnzipPathFile
+* @ingroup    USERINTERFACE
+* 
+* @return     XPATH* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XPATH* UI_MANAGER::GetUnzipPathFile()
+{
+  return &unzippathfile;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XFILEUNZIP* UI_MANAGER::GetUnzipFile()
+* @brief      GetUnzipFile
+* @ingroup    USERINTERFACE
+* 
+* @return     XFILEUNZIP* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XFILEUNZIP* UI_MANAGER::GetUnzipFile()
+{
+  return unzipfile;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_MANAGER::DeleteTemporalUnZipFile(XPATH& pathfile)
+* @brief      DeleteTemporalUnZipFile
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  pathfile : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::DeleteTemporalUnZipFile(XPATH& pathfile)
+{
+  XFILE* xfile = GEN_XFACTORY.Create_File();
+  if(!xfile)
+    {
+      return false;
+    }
+                
+  xfile->Erase(pathfile);
+
+  GEN_XFACTORY.Delete_File(xfile);
+
+  return true;
+}      
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -204,7 +349,6 @@ bool UI_MANAGER::Layouts_Add(UI_LAYOUT* layout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<UI_LAYOUT*>* UI_MANAGER::Layouts_Get()
@@ -218,7 +362,6 @@ XVECTOR<UI_LAYOUT*>* UI_MANAGER::Layouts_Get()
 {
   return &layouts;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -239,7 +382,6 @@ UI_LAYOUT* UI_MANAGER::Layouts_Get(int index)
   
   return layouts.Get(index);    
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -270,7 +412,6 @@ UI_LAYOUT* UI_MANAGER::Layouts_Get(XCHAR* name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT* UI_MANAGER::Layouts_Get(XSTRING& name)
@@ -288,8 +429,6 @@ UI_LAYOUT* UI_MANAGER::Layouts_Get(XSTRING& name)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int UI_MANAGER::Layouts_GetSelected()
@@ -303,7 +442,6 @@ int UI_MANAGER::Layouts_GetSelected()
 {
   return selected_layout;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -361,7 +499,6 @@ bool UI_MANAGER::Layouts_SetSelected(XCHAR* name)
 
   return true;
 }
- 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -379,7 +516,6 @@ bool UI_MANAGER::Layouts_SetSelected(XSTRING& name)
 {
   return Layouts_SetSelected(name.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -402,7 +538,6 @@ bool UI_MANAGER::Layouts_DeleteAll()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT* UI_MANAGER::Layouts_GetSelectedLayout()
@@ -421,7 +556,6 @@ UI_LAYOUT* UI_MANAGER::Layouts_GetSelectedLayout()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT* UI_MANAGER::Layouts_GetInAllLayout()
@@ -438,7 +572,6 @@ UI_LAYOUT* UI_MANAGER::Layouts_GetInAllLayout()
 
   return layouts.Get(inall_layout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -475,16 +608,13 @@ bool UI_MANAGER::Skin_CreateAll(GRPSCREEN* screen, GRPCONTEXT* context)
           Skin_Add(skincanvas);
           skincanvas = NULL;
         }
-    }
-    
+    }  
 
   //--------------------------------------------------------------------------
   // Context Skins 
   
-
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -504,7 +634,6 @@ bool UI_MANAGER::Skin_Add(UI_SKIN* skin)
 
   return skins.Add(skin);  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -537,7 +666,6 @@ UI_SKIN* UI_MANAGER::Skin_Get(XCHAR* name, UI_SKIN_DRAWMODE drawmode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN* UI_MANAGER::Skin_Get(XSTRING& name)
@@ -555,7 +683,6 @@ UI_SKIN* UI_MANAGER::Skin_Get(XSTRING& name, UI_SKIN_DRAWMODE drawmode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN* UI_MANAGER::Skin_Selected()
@@ -569,8 +696,6 @@ UI_SKIN* UI_MANAGER::Skin_Selected()
 {
   return skin_selected;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -591,7 +716,6 @@ bool UI_MANAGER::Skin_DeleteAll()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -617,7 +741,6 @@ bool UI_MANAGER::SetModalElement(UI_ELEMENT* element_modal)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -674,7 +797,6 @@ bool UI_MANAGER::Update()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Background_Put()
@@ -693,7 +815,6 @@ bool UI_MANAGER::Background_Put()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -789,7 +910,6 @@ bool UI_MANAGER::Background_PutBitmap()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetElement(XCHAR* name, UI_ELEMENT_TYPE type)
@@ -825,7 +945,6 @@ UI_ELEMENT* UI_MANAGER::GetElement(XCHAR* name, UI_ELEMENT_TYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetElement(XSTRING& name, UI_ELEMENT_TYPE type)
@@ -842,8 +961,7 @@ UI_ELEMENT* UI_MANAGER::GetElement(XSTRING& name, UI_ELEMENT_TYPE type)
 {
   return GetElement(name.Get(), type);
 }
-    
-
+ 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -877,7 +995,6 @@ UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XCHAR* name, UI_ELEMENT_TYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XSTRING& name, UI_ELEMENT_TYPE type)
@@ -894,8 +1011,6 @@ UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XSTRING& name, UI_ELEMENT_TYPE type
 { 
   return GetElementAllLayouts(name.Get(), type);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -981,7 +1096,6 @@ UI_LAYOUT* UI_MANAGER::GetElementLayout(XCHAR* name, UI_ELEMENT_TYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT* UI_MANAGER::GetElementLayout(XSTRING& name, UI_ELEMENT_TYPE type)
@@ -998,7 +1112,6 @@ UI_LAYOUT* UI_MANAGER::GetElementLayout(XSTRING& name, UI_ELEMENT_TYPE type)
 {
   return GetElementLayout(name.Get(), type);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1049,7 +1162,6 @@ bool UI_MANAGER::PutElementLastPositionLayout(UI_ELEMENT* element)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1104,8 +1216,6 @@ bool UI_MANAGER::PutElementLastPositionLayout(XCHAR* name, UI_ELEMENT_TYPE type)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::PutElementLastPositionLayout(XSTRING& name, UI_ELEMENT_TYPE type)
@@ -1122,7 +1232,6 @@ bool UI_MANAGER::PutElementLastPositionLayout(XSTRING& name, UI_ELEMENT_TYPE typ
 {
   return PutElementLastPositionLayout(name.Get(), type);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1143,7 +1252,6 @@ bool UI_MANAGER::AddElementToLayout(XCHAR* layoutname, UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::AddElementToLayout(XSTRING& layoutname, UI_ELEMENT* element)
@@ -1160,7 +1268,6 @@ bool UI_MANAGER::AddElementToLayout(XSTRING& layoutname, UI_ELEMENT* element)
 {
   return AddElementToLayout(layoutname.Get(), element); 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1193,7 +1300,6 @@ bool UI_MANAGER::Elements_SetToRedraw()
   
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1231,7 +1337,6 @@ bool UI_MANAGER::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Elements_RebuildDrawAreas()
@@ -1263,7 +1368,6 @@ bool UI_MANAGER::Elements_RebuildDrawAreas()
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1301,7 +1405,6 @@ bool UI_MANAGER::Elements_RebuildDrawAreas(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int UI_MANAGER::GetOutputTextChangeID(XSTRING* text, int start, XSTRING& value)
@@ -1335,7 +1438,6 @@ int UI_MANAGER::GetOutputTextChangeID(XSTRING* text, int start, XSTRING& value)
 
   return XSTRING_NOTFOUND;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1373,7 +1475,10 @@ UI_ANIMATION* UI_MANAGER::GetOrAddAnimationCache(XCHAR* name, XCHAR* resource)
       case UI_SKIN_DRAWMODE_UNKNOWN   : break;
 
       case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)skin_selected; 
-                                          if(skincanvas) status = animation->LoadFromFile(resourcename, skincanvas->GetCanvas()->GetMode());                                                                           
+                                          if(skincanvas) 
+                                            {
+                                              status = animation->LoadFromFile(resourcename, skincanvas->GetCanvas()->GetMode());                                                                           
+                                            }
                                         }
                                         break;
 
@@ -1394,7 +1499,6 @@ UI_ANIMATION* UI_MANAGER::GetOrAddAnimationCache(XCHAR* name, XCHAR* resource)
 
   return NULL;  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1422,7 +1526,6 @@ bool UI_MANAGER::SetLevelAuto(UI_ELEMENT* element, UI_ELEMENT* father, XDWORD ad
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::SetPreselectElement(UI_ELEMENT* element)
@@ -1440,7 +1543,6 @@ bool UI_MANAGER::SetPreselectElement(UI_ELEMENT* element)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1462,7 +1564,6 @@ bool UI_MANAGER::ResetPreselect()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1609,7 +1710,6 @@ bool UI_MANAGER::SendEvent(UI_XEVENT_TYPE event, ...)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::ChangeAutomaticTextElementValue(UI_ELEMENT_TEXT* element_text, XSTRING* maskvalue, XSTRING* maskresolved)
@@ -1654,7 +1754,6 @@ bool UI_MANAGER::ChangeAutomaticTextElementValue(UI_ELEMENT* element, XSTRING* m
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1721,7 +1820,6 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, XSTRING* text, XSTR
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
@@ -1738,7 +1836,7 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
 {
   if(!element) return false;
 
-  bool change     = false;
+  bool change = false;
 
   switch(element->GetType())
     {
@@ -1827,8 +1925,6 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
  }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::ChangeTextElementValue(UI_LAYOUT* layout)
@@ -1852,7 +1948,6 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1884,7 +1979,6 @@ bool UI_MANAGER::SubscribeInputEvents(bool active)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::SubscribeOutputEvents(bool active, XOBSERVER* observer, XSUBJECT* subject)
@@ -1914,8 +2008,6 @@ bool UI_MANAGER::SubscribeOutputEvents(bool active, XOBSERVER* observer, XSUBJEC
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1970,7 +2062,6 @@ bool UI_MANAGER::DeleteVirtualKeyboard()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_MANAGER::UI_MANAGER()
@@ -1989,7 +2080,6 @@ UI_MANAGER::UI_MANAGER()
 
   RegisterEvents(true);                        
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2011,6 +2101,12 @@ UI_MANAGER::~UI_MANAGER()
   Layouts_DeleteAll(); 
   Skin_DeleteAll();
 
+  if(unzipfile)
+    {
+      delete unzipfile;
+      unzipfile = NULL;
+    }  
+
   if(xmutex_modal)
     {
       GEN_XFACTORY.Delete_Mutex(xmutex_modal);
@@ -2021,10 +2117,8 @@ UI_MANAGER::~UI_MANAGER()
       GEN_XFACTORY.Delete_Mutex(xmutex_UIevent);
     }
 
-
   Clean();                            
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2058,7 +2152,6 @@ bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, dou
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, XSTRING& value)
@@ -2085,7 +2178,6 @@ bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, XST
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2217,7 +2309,6 @@ bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* elemen
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element)
@@ -2249,7 +2340,6 @@ bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2430,7 +2520,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Text(XFILEXMLELEMENT* node, UI_ELEMENT*
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
@@ -2569,7 +2658,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_ELEME
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Image(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
@@ -2635,7 +2723,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Image(XFILEXMLELEMENT* node, UI_ELEMENT
   
   return element_image;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2776,7 +2863,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_ELE
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
@@ -2872,7 +2958,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_ELEMEN
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
@@ -2939,7 +3024,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_E
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Button(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
@@ -2962,8 +3046,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Button(XFILEXMLELEMENT* node, UI_ELEMEN
 
   return GetLayoutElement_Option(node, father, element_button);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2990,7 +3072,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_CheckBox(XFILEXMLELEMENT* node, UI_ELEM
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_EditText(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
@@ -3013,7 +3094,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_EditText(XFILEXMLELEMENT* node, UI_ELEM
 
   return GetLayoutElement_Text(node, father, element_edittext);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3129,7 +3209,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_ELEMENT*
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Menu(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
@@ -3152,7 +3231,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Menu(XFILEXMLELEMENT* node,  UI_ELEMENT
 
   return GetLayoutElement_Form(node, father, element_menu);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3201,7 +3279,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ListBox(XFILEXMLELEMENT* node, UI_ELEME
 
   return GetLayoutElement_Text(node, father, element_listbox);
 }
-
 
 
  /**-------------------------------------------------------------------------------------------------------------------
@@ -3371,7 +3448,6 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_E
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::CreatePartialLayout(XFILEXMLELEMENT* nodeelement, UI_ELEMENT* father)
@@ -3410,7 +3486,6 @@ UI_ELEMENT* UI_MANAGER::CreatePartialLayout(XFILEXMLELEMENT* nodeelement, UI_ELE
 
   return element;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3486,7 +3561,6 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml)
       if(!skin_selected->Background_LoadBitmap()) return false;
     }
 
-
   for(int c=0; c<root->GetNElements(); c++)
     {
       XFILEXMLELEMENT*  nodecacheelement = root->GetElement(c);
@@ -3495,7 +3569,6 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml)
           CreateCacheElements(nodecacheelement);
         }
     }
-
 
   for(int c=0; c<root->GetNElements(); c++)
     {
@@ -3552,7 +3625,6 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, bool recursive)
@@ -3574,28 +3646,49 @@ bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, bool recursiv
   if(!nodeelement->GetName().Compare(__L("color"), true))
     {                                                                  
       value = nodeelement->GetValueAttribute(__L("name"));
-      if(value) name = value;
+      if(value) 
+        {
+          name = value;
+        }
               
       value = nodeelement->GetValue().Get();
-      if(value) status = GEN_UI_COLORS.Add(name.Get(), value);                                                                       
+      if(value) 
+        {
+          status = GEN_UI_COLORS.Add(name.Get(), value);                                                                       
+        }
     }                  
     
   if(!nodeelement->GetName().Compare(__L("text"), true))
     {                                      
       value = nodeelement->GetValueAttribute(__L("name"));
-      if(value) name = value;
+      if(value) 
+        {
+          name = value;
+        }
               
       value = nodeelement->GetValue().Get();
-      if(value) status = GEN_UI_TEXTS.Add(name.Get(), value);                                                                       
+      if(value) 
+        {
+          status = GEN_UI_TEXTS.Add(name.Get(), value);                                                                       
+        }
     }                      
   
   if(!nodeelement->GetName().Compare(__L("animation"), true))
     {                     
       value = nodeelement->GetValueAttribute(__L("name"));
-      if(value) name = value;
+      if(value)        
+        { 
+          name = value;
+        }
               
       value = nodeelement->GetValue().Get();
-      if(value) if(GetOrAddAnimationCache(name.Get(), value)) status = true;
+      if(value) 
+        {
+          if(GetOrAddAnimationCache(name.Get(), value)) 
+            {
+              status = true;
+            }
+        }
     }
 
   if(recursive)
@@ -3603,13 +3696,15 @@ bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, bool recursiv
       for(int c=0; c<nodeelement->GetNElements(); c++)
         {
           XFILEXMLELEMENT* subnodeelement = nodeelement->GetElement(c);
-          if(subnodeelement) CreateCacheElements(subnodeelement, recursive);
+          if(subnodeelement) 
+            {
+              CreateCacheElements(subnodeelement, recursive);
+            }
         }
     }
                   
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3642,7 +3737,6 @@ bool UI_MANAGER::RegisterEvents(bool active)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3763,7 +3857,6 @@ bool UI_MANAGER::SelectElement(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::SelectedElement(UI_ELEMENT* element);
@@ -3849,7 +3942,6 @@ bool UI_MANAGER::SelectedElement(UI_ELEMENT* element)
 }                       
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::UnSelectedElement(UI_ELEMENT* element)
@@ -3899,7 +3991,6 @@ bool UI_MANAGER::UnSelectedElement(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::UnSelectedElement()
@@ -3932,7 +4023,6 @@ bool UI_MANAGER::UnSelectedElement()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -4007,7 +4097,6 @@ bool UI_MANAGER::UseMotionInElement(UI_ELEMENT* element, INPCURSORMOTION* cursor
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::UseMotion(INPCURSORMOTION* cursormotion)
@@ -4047,7 +4136,6 @@ bool UI_MANAGER::UseMotion(INPCURSORMOTION* cursormotion)
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -4166,7 +4254,6 @@ void UI_MANAGER::HandleEvent_UI(UI_XEVENT* event)
 } 
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_MANAGER::HandleEvent(XEVENT* xevent)
@@ -4195,6 +4282,30 @@ void UI_MANAGER::HandleEvent(XEVENT* xevent)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_MANAGER::CloseUnZipFile()
+* @brief      CloseUnZipFile
+* @ingroup    USERINTERFACE
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::CloseUnZipFile()
+{
+  if(!unzipfile) 
+    {
+      return false;
+    }
+
+  unzipfile->Close();
+  delete unzipfile;
+
+  unzipfile = NULL;
+
+  return true;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -4207,7 +4318,10 @@ void UI_MANAGER::HandleEvent(XEVENT* xevent)
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_MANAGER::Clean()
-{
+{  
+  iszippedfile        = false;
+  unzipfile           = NULL;  
+
   selected_layout     = UI_MANAGER_LAYOUT_NOTSELECTED;
   inall_layout        = UI_MANAGER_LAYOUT_NOTSELECTED;
 
@@ -4226,3 +4340,4 @@ void UI_MANAGER::Clean()
 
   virtualkeyboard     = NULL;
 }
+

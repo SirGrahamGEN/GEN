@@ -36,6 +36,7 @@ SOFTWARE.
 #include "XObserver.h"
 #include "XSubject.h"
 #include "XFileXML.h"
+#include "XFileZip.h"
 
 #include "UI_XEvent.h"
 #include "UI_Element.h"
@@ -72,6 +73,12 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
     static bool                     DelInstance                               ();
 
     bool                            Load                                      (XPATH& pathfile);
+    bool                            LoadLayout                                (XPATH& pathfile);
+
+    bool                            IsZippedFile                              (); 
+    XPATH*                          GetUnzipPathFile                          (); 
+    XFILEUNZIP*                     GetUnzipFile                              ();
+    bool                            DeleteTemporalUnZipFile                   (XPATH& pathfile);
 
     bool                            Layouts_Add                               (UI_LAYOUT* layout);
     XVECTOR<UI_LAYOUT*>*            Layouts_Get                               ();
@@ -192,11 +199,17 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
 
     void                            HandleEvent_UI                            (UI_XEVENT* event);
     void                            HandleEvent                               (XEVENT* xevent);
+   
+    bool                            CloseUnZipFile                            ();
 
     void                            Clean                                     ();   
 
     static UI_MANAGER*              instance; 
-    
+
+    bool                            iszippedfile;
+    XPATH                           unzippathfile;
+    XFILEUNZIP*                     unzipfile;
+        
     int                             selected_layout;
     int                             inall_layout;
     XVECTOR<UI_LAYOUT*>             layouts;

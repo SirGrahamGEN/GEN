@@ -163,6 +163,7 @@ class UI_SKINCANVAS : public UI_SKIN, public UI_SKINCANVAS_REBUILDAREAS
 
 		XDWORD														fontsize;
     GRPSCREEN*												screen;
+		XPATH															fontpathfile;
 
 	private:
 

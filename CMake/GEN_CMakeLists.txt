@@ -1485,6 +1485,7 @@
     option(XPUBLISHER_FEATURE "XPublisher" true)
     option(XFSMACHINE_FEATURE "XFSMachine" true)
     option(XFILE_XML_FEATURE "XFile XML format" true)
+    option(XFILE_ZIP_FEATURE "XFile Zip format" true)  
 
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_USERINTERFACE}/UI_Color.cpp")
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_USERINTERFACE}/UI_Colors.cpp")
