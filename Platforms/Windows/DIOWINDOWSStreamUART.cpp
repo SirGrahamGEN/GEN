@@ -219,20 +219,17 @@ bool DIOWINDOWSSTREAMUART::Open()
 
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::Config
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      24/09/2014 12:22:37
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUART::Config(XWORD mask)
+* @brief      Config
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  mask : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::Config(XWORD mask)
 {
   if(!config) return false;

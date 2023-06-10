@@ -80,7 +80,11 @@ DIONODEITEM::DIONODEITEM()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEM::DIONODEITEM(DIONODEITEMHANDLER* itemhandler)
 {
-  DIONODEITEM();
+  Clean();
+
+  UUID.GenerateRandom();
+
+  updatetimer = GEN_XFACTORY.CreateTimer();
 
   ItemHandler_Set(itemhandler);
 }

@@ -64,7 +64,6 @@ DIOSTREAMENUMDEVICES::DIOSTREAMENUMDEVICES()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMDEVICES::~DIOSTREAMENUMDEVICES()
@@ -85,7 +84,6 @@ DIOSTREAMENUMDEVICES::~DIOSTREAMENUMDEVICES()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMTYPE DIOSTREAMENUMDEVICES::GetType()
@@ -101,17 +99,16 @@ DIOSTREAMENUMTYPE DIOSTREAMENUMDEVICES::GetType()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOSTREAMENUMDEVICES::SetType(DIOSTREAMENUMTYPE type)
 * @brief      SetType
 * @ingroup    DATAIO
-*
-* @param[in]  type :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  type : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAMENUMDEVICES::SetType(DIOSTREAMENUMTYPE type)
 {
@@ -119,7 +116,6 @@ bool DIOSTREAMENUMDEVICES::SetType(DIOSTREAMENUMTYPE type)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -135,7 +131,6 @@ bool DIOSTREAMENUMDEVICES::Search()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -155,7 +150,6 @@ bool DIOSTREAMENUMDEVICES::StopSearch(bool waitend)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMDEVICES::IsSearching()
@@ -169,7 +163,6 @@ bool DIOSTREAMENUMDEVICES::IsSearching()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -191,7 +184,6 @@ bool DIOSTREAMENUMDEVICES::AddDevice(DIOSTREAMDEVICE* device)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOSTREAMDEVICE*>* DIOSTREAMENUMDEVICES::GetDevices()
@@ -205,7 +197,6 @@ XVECTOR<DIOSTREAMDEVICE*>* DIOSTREAMENUMDEVICES::GetDevices()
 {
   return &devices;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -226,7 +217,6 @@ bool DIOSTREAMENUMDEVICES::DelAllDevices()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -264,7 +254,6 @@ bool DIOSTREAMENUMDEVICES::IsDeviceAvailable(XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMDEVICES::AreDevicesAvailable()
@@ -278,7 +267,6 @@ bool DIOSTREAMENUMDEVICES::AreDevicesAvailable()
 {
   return devices.GetSize()?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -309,7 +297,6 @@ DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByName(XCHAR* name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByName(XSTRING& name)
@@ -325,8 +312,6 @@ DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByName(XSTRING& name)
 {
   return GetDeviceByName(name.Get());
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -355,7 +340,6 @@ DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByIndex(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMENUMDEVICES::Clean()
@@ -370,3 +354,4 @@ void DIOSTREAMENUMDEVICES::Clean()
 {
   xtimerout       = NULL;
 }
+

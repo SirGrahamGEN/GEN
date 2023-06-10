@@ -36,9 +36,17 @@
 
  if(CCACHE_PROGRAM)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
+    message(STATUS "[Found CCACHE]")
+
  endif()
 
+ message(STATUS "[Target: (${TARGET})]")
 
+ if("${TARGET}" STREQUAL "")
+
+    message(STATUS "[Target: Is Empty]")
+
+ endif()
 
 # --- Compile in Windows Platform ------------------------------------
 
@@ -46,7 +54,7 @@
 
    option(COMPILE_TO_WINDOWS "Compile to Windows General"  true)
 
-   if(${TARGET} STREQUAL "pc")
+   if("${TARGET}" STREQUAL "pc")
 
      if(CMAKE_SIZEOF_VOID_P EQUAL 8)
 
@@ -67,7 +75,7 @@
    endif()
 
 
-   if(${TARGET} STREQUAL "Android")   
+   if("${TARGET}" STREQUAL "Android")   
 
      option(COMPILE_TO_WINDOWS "Compile to Windows General" false)
      option(COMPILE_TO_ANDROID "Compile to Android"         true)
@@ -76,10 +84,10 @@
    endif()
 
 
-   if(${TARGET} STREQUAL "STM32")
+   if("${TARGET}" STREQUAL "STM32")
 
      option(COMPILE_TO_WINDOWS "Compile to Windows General" false)
-     option(COMPILE_TO_STM32_ARM "Compile to STM32"           true)
+     option(COMPILE_TO_STM32_ARM "Compile to STM32"         true)
      message(STATUS "[Select platform STM32]")
 
    endif()
@@ -96,35 +104,35 @@
 
    option(COMPILE_TO_LINUX    "Compile to Linux   General" true)  
 
-   if(${TARGET} STREQUAL "pc") 
+   if("${TARGET}" STREQUAL "pc") 
 
      option(COMPILE_TO_LINUX_PC_64 "Compile to Linux PC 64 Bits" true)
      message(STATUS "[Select platform Linux PC 64 Bits]")
 
    endif()
 
-   if(${TARGET} STREQUAL "raspberrypi")
+   if("${TARGET}" STREQUAL "raspberrypi")
 
      option(COMPILE_TO_LINUX_ARM_RPI "Compile to Linux Rapsberry Pi" true)
      message(STATUS "[Select platform Linux Raspberry Pi]")
 
    endif()
 
-   if(${TARGET} STREQUAL "raspberrypi_64")
+   if("${TARGET}" STREQUAL "raspberrypi_64")
 
      option(COMPILE_TO_LINUX_ARM_RPI_64 "Compile to Linux Rapsberry Pi 64" true)
      message(STATUS "[Select platform Linux Raspberry Pi 64 Bits]")
 
    endif()   
 
-   if(${TARGET} STREQUAL "arm")
+   if("${TARGET}" STREQUAL "arm")
 
      option(COMPILE_TO_LINUX_ARM "Compile to Linux ARM" true)
      message(STATUS "[Select platform Linux ARM]")
 
    endif()
 
-   if(${TARGET} STREQUAL "arm_64")
+   if("${TARGET}" STREQUAL "arm_64")
 
      option(COMPILE_TO_LINUX_ARM_64 "Compile to Linux ARM 64" true)
      message(STATUS "[Select platform Linux ARM 64 Bits]")
