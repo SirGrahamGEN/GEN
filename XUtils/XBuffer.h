@@ -67,11 +67,13 @@ enum XBUFFER_PADDINGTYPE
 class XFACTORY;
 class XMUTEX;
 
-class XBUFFER
+class GEN_API_LIB XBUFFER
 {
   public:
                              XBUFFER                        (bool threadsafe = XBUFFER_ISTHREADSAFE);
                              XBUFFER                        (XDWORD size, bool threadsafe = XBUFFER_ISTHREADSAFE);
+                             XBUFFER                        (const XBUFFER& xbuffer);
+
     virtual                 ~XBUFFER                        ();
 
     XDWORD                   GetSize                        ();
@@ -175,9 +177,17 @@ class XBUFFER
 
     bool                     Compare                        (XBYTE* pbuffer, XDWORD psize);
     bool                     Compare                        (XBUFFER* buffer);
+    bool                     Compare                        (XBUFFER& buffer);
 
     int                      Find                           (XBUFFER* buffer, int startindex = 0);
     int                      Find                           (XSTRING& string, bool normalize = false, int startindex = 0);
+
+    void                     operator  =                    (const XBUFFER& string);
+    bool                     operator  ==                   (XBUFFER buffer);
+    bool                     operator  !=                   (XBUFFER buffer);
+
+    bool                     CopyFrom                       (XBUFFER& buffer);
+    bool                     CopyTo                         (XBUFFER& buffer);   
 
     bool                     Padding_Add                    (XBYTE bitsadjust, XBUFFER_PADDINGTYPE type = XBUFFER_PADDINGTYPE_PKCS5);
     bool                     Padding_Has                    ();

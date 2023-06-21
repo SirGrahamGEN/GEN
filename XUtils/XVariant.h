@@ -57,16 +57,16 @@ enum XVARIANT_TYPE
   XVARIANT_TYPE_TIME                            ,
   XVARIANT_TYPE_DATETIME                        ,  
   XVARIANT_TYPE_BUFFER                          ,  
-  XVARIANT_TYPE_POINTER                             
+  XVARIANT_TYPE_POINTER                         ,
+
+  XVARIANT_TYPE_UNKNOWN                               
 };
 
-
-#define XVARIANT_ASSIGN(vtype, ctype, value)      if(data) Destroy(); \
+#define XVARIANT_CREATE(vtype, ctype, value)      if(data) Destroy(); \
                                                   type  = vtype; \
                                                   size  = sizeof(ctype); \
                                                   data = (void*)new ctype; \
-                                                  if(data) *((ctype*)data) = value;                                                   
-
+                                                  if(data) *((ctype*)data) = value;
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -89,47 +89,50 @@ class XVARIANT
                                     XVARIANT                (const XCHAR* value);
                                     XVARIANT                (const XSTRING& value);  
                                     XVARIANT                (const XDATETIME& value);
-                                    XVARIANT                (const XBUFFER& value);
-                                    XVARIANT                (const XVARIANT& value);                                    
-                                    XVARIANT                (const void* value);    
+                                    XVARIANT                (const XBUFFER& value);                                                                 
+                                    XVARIANT                (const void* value);
+
+                                    XVARIANT                (const XVARIANT& value);           
+
     virtual                        ~XVARIANT                ();
         
-    const XVARIANT&                 operator =              (bool value);
-    const XVARIANT&                 operator =              (short value);
-    const XVARIANT&                 operator =              (XWORD value);
-    const XVARIANT&                 operator =              (int value);
-    const XVARIANT&                 operator =              (XDWORD value);
-    const XVARIANT&                 operator =              (long long value);
-    const XVARIANT&                 operator =              (XQWORD value);
-    const XVARIANT&                 operator =              (float value);
-    const XVARIANT&                 operator =              (double value);    
-    const XVARIANT&                 operator =              (char value);   
-    const XVARIANT&                 operator =              (char* value);
-    const XVARIANT&                 operator =              (XCHAR value);
-    const XVARIANT&                 operator =              (XCHAR* value);
+    const XVARIANT&                 operator =              (const bool value);
+    const XVARIANT&                 operator =              (const short value);
+    const XVARIANT&                 operator =              (const XWORD value);
+    const XVARIANT&                 operator =              (const int value);
+    const XVARIANT&                 operator =              (const XDWORD value);
+    const XVARIANT&                 operator =              (const long long value);
+    const XVARIANT&                 operator =              (const XQWORD value);
+    const XVARIANT&                 operator =              (const float value);
+    const XVARIANT&                 operator =              (const double value);    
+    const XVARIANT&                 operator =              (const char value);   
+    const XVARIANT&                 operator =              (const char* value);
+    const XVARIANT&                 operator =              (const XCHAR value);
+    const XVARIANT&                 operator =              (const XCHAR* value);
     const XVARIANT&                 operator =              (const XSTRING& value);     
     const XVARIANT&                 operator =              (const XDATETIME& value);
-    const XVARIANT&                 operator =              (const XBUFFER& value);
-    const XVARIANT&                 operator =              (const XVARIANT& value);  
+    const XVARIANT&                 operator =              (const XBUFFER& value);    
     const XVARIANT&                 operator =              (const void* value);
+
+    const XVARIANT&                 operator =              (const XVARIANT& value);  
    
-    operator                        bool                    ();
-    operator                        short                   ();
-    operator                        XWORD                   ();
-    operator                        int                     ();
-    operator                        XDWORD                  ();
-    operator                        long long               ();
-    operator                        XQWORD                  ();
-    operator                        float                   ();
-    operator                        double                  ();    
-    operator                        char                    ();
-    operator                        char*                   ();
-    operator                        XCHAR                   ();
-    operator                        XCHAR*                  ();
-    operator                        XSTRING                 ();
-    operator                        XDATETIME               ();
-    operator                        XBUFFER                 ();
-    operator                        void*                   ();
+    operator                        bool                    () const;
+    operator                        short                   () const;
+    operator                        XWORD                   () const;
+    operator                        int                     () const;
+    operator                        XDWORD                  () const;
+    operator                        long long               () const;
+    operator                        XQWORD                  () const;
+    operator                        float                   () const;
+    operator                        double                  () const;    
+    operator                        char                    () const;
+    operator                        char*                   () const;
+    operator                        XCHAR                   () const;
+    operator                        XCHAR*                  () const;
+    operator                        XSTRING                 () const;
+    operator                        XDATETIME               () const;
+    operator                        XBUFFER                 () const;
+    operator                        void*                   () const;
      
     XVARIANT_TYPE                   GetType                 ();
     bool                            GetType                 (XSTRING& typestr);
@@ -138,11 +141,14 @@ class XVARIANT
     virtual XDWORD                  GetSize                 ();
     virtual void*                   GetData                 ();
  
+    bool                            GetDataFromString       (char* string);
     bool                            GetDataFromString       (XCHAR* string);
     bool                            GetDataVariant          (XVARIANT& value);
 
     virtual bool                    Set                     (XVARIANT_TYPE type = XVARIANT_TYPE_NULL, void* data = NULL, XDWORD size = 0);
+
     virtual bool                    ToString                (XSTRING& to);
+    bool                            FromString              (XSTRING& from, XVARIANT_TYPE from_type = XVARIANT_TYPE_UNKNOWN);
 
     bool                            IsNull                  ();  
 

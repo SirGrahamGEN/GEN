@@ -2147,7 +2147,7 @@ bool DIOWEBSERVER_CONNECTION::SendRequest()
 
   if(request.GetMethod() == DIOWEBHEADER_METHOD_UNKNOWN) return false;
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID , false, __L("[%08X] Server Page INI [%d] %s"), this, nresourcesprocessed, request.GetResource()->Get());
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("[%08X] Server Page INI [%d] %s"), this, nresourcesprocessed, request.GetResource()->Get());
 
   DIOWEBSERVER_XEVENT xevent(webserver, DIOWEBSERVER_XEVENT_TYPE_REQUEST);
   xevent.SetServer(webserver);
@@ -2156,7 +2156,7 @@ bool DIOWEBSERVER_CONNECTION::SendRequest()
 
   webserver->PostEvent(&xevent);
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID , false, __L("[%08X] Server Page END [%d] %s"), this, nresourcesprocessed, request.GetResource()->Get());
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("[%08X] Server Page END [%d] %s"), this, nresourcesprocessed, request.GetResource()->Get());
 
   nresourcesprocessed++;
  
@@ -2431,11 +2431,11 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Connected()
 
   if(xevent.GetStatus()) status = Websocket_ResolveConnection(&request);
 
-  GEN_XLOG.AddEntry((status?XLOGLEVEL_INFO:XLOGLEVEL_WARNING), DIOWEBSERVER_LOGSECTIONID  , false, __L("[%08X] Websocket %s %d %s %s")  , this
-                                                                                                                                        , (status?__L("Connected"):__L("No connected"))
-                                                                                                                                        , request.WebSocket_GetVersion()
-                                                                                                                                        , request.WebSocket_GetProtocol()->Get()
-                                                                                                                                        , request.GetResource()->Get());
+  GEN_XLOG.AddEntry((status?XLOGLEVEL_INFO:XLOGLEVEL_WARNING), DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("[%08X] Websocket %s %d %s %s")  , this
+                                                                                                                                              , (status?__L("Connected"):__L("No connected"))
+                                                                                                                                              , request.WebSocket_GetVersion()
+                                                                                                                                              , request.WebSocket_GetProtocol()->Get()
+                                                                                                                                              , request.GetResource()->Get());
 
   isrequestinprogress = false;
 
@@ -2468,10 +2468,10 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_ReadData(XBUFFER& data)
 
   webserver->PostEvent(&xevent);
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID , false, __L("[%08X] Websocket read data %d %s %s"), this
-                                                                                                                 , request.WebSocket_GetVersion()
-                                                                                                                 , request.WebSocket_GetProtocol()->Get()
-                                                                                                                 , request.GetResource()->Get());
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("[%08X] Websocket read data %d %s %s")  , this
+                                                                                                                          , request.WebSocket_GetVersion()
+                                                                                                                          , request.WebSocket_GetProtocol()->Get()
+                                                                                                                          , request.GetResource()->Get());
   return true;
 }
 
@@ -2501,10 +2501,10 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Pong(XBUFFER& data)
 
   webserver->PostEvent(&xevent);
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID , false, __L("[%08X] Websocket Ping Received %d %s %s"), this
-                                                                                                                     , request.WebSocket_GetVersion()
-                                                                                                                     , request.WebSocket_GetProtocol()->Get()
-                                                                                                                     , request.GetResource()->Get());
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("[%08X] Websocket Ping Received %d %s %s")  , this
+                                                                                                                              , request.WebSocket_GetVersion()
+                                                                                                                              , request.WebSocket_GetProtocol()->Get()
+                                                                                                                              , request.GetResource()->Get());
   return true;
 }
 
@@ -2531,10 +2531,10 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Disconnected()
 
   webserver->PostEvent(&xevent);
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID , false, __L("[%08X] Websocket disconnected %d %s %s")  , this
-                                                                                                                      , request.WebSocket_GetVersion()
-                                                                                                                      , request.WebSocket_GetProtocol()->Get()
-                                                                                                                      , request.GetResource()->Get());
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE , false, __L("[%08X] Websocket disconnected %d %s %s")  , this
+                                                                                                                              , request.WebSocket_GetVersion()
+                                                                                                                              , request.WebSocket_GetProtocol()->Get()
+                                                                                                                              , request.GetResource()->Get());
   return true;
 }
 
@@ -2797,7 +2797,7 @@ bool DIOWEBSERVER::Ini(int port, bool doinitialconnectitivitytest, int timeoutse
 
   if(!threadserver->Ini()) return false;
 
-  if(addrlocal) GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID , false , __L("Web Server [%08X]: %s in %s:%d "), this, status?__L("Active"):__L("Disable"),  addrlocal->IsEmpty()?__L("Default"):addrlocal->Get(), port);
+  if(addrlocal) GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE , false , __L("Web Server [%08X]: %s in %s:%d "), this, status?__L("Active"):__L("Disable"),  addrlocal->IsEmpty()?__L("Default"):addrlocal->Get(), port);
 
   return status;
 }
@@ -3537,11 +3537,11 @@ bool DIOWEBSERVER::End()
 {
   doexit = true;
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID , false , __L("Disable web server [%08X]."), this);
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("Disable web server [%08X]."), this);
 
   UnSubscribeAllPages();
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, NULL , false , __L("Delete main thread ... "));
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false , __L("Delete main thread ... "));
 
   if(threadserver)
     {
@@ -3550,16 +3550,16 @@ bool DIOWEBSERVER::End()
       threadserver = NULL;
     }
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, NULL  , false , __L("Wait to send all pages ..."));
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("Wait to send all pages ..."));
   WaitToSentAllPages();
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, NULL  , false , __L("Delete connections not use ..."));
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("Delete connections not use ..."));
   Connections_DeleteUsed();
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, NULL  , false , __L("Delete connections waiting ..."));
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("Delete connections waiting ..."));
   Connections_DeleteWaiting();
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, NULL , false , __L("Delete all connections ... "));
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("Delete all connections ... "));
   Connections_DeleteAll();
 
   if(xmutexconnections)
@@ -3568,7 +3568,7 @@ bool DIOWEBSERVER::End()
       xmutexconnections = NULL;
     }
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, NULL , false , __L("Delete resources ... "));
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("Delete resources ... "));
 
   if(xtimercontrol)
     {
@@ -3580,7 +3580,7 @@ bool DIOWEBSERVER::End()
 
   DelAllAuthentication();
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, NULL , false , __L("Delete events ... "));
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("Delete events ... "));
 
   DeRegisterEvent(DIOWEBSERVER_XEVENT_TYPE_REQUEST);
   DeRegisterEvent(DIOWEBSERVER_XEVENT_TYPE_WEBSOCKET_CONNECTED);
@@ -3588,7 +3588,7 @@ bool DIOWEBSERVER::End()
   DeRegisterEvent(DIOWEBSERVER_XEVENT_TYPE_WEBSOCKET_PONG);
   DeRegisterEvent(DIOWEBSERVER_XEVENT_TYPE_WEBSOCKET_DISCONNECTED);
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, NULL , false , __L("Delete stream config ... "));
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("Delete stream config ... "));
 
   if(diostreamcfg)
     {
@@ -3596,7 +3596,7 @@ bool DIOWEBSERVER::End()
       diostreamcfg = NULL;
     }
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, NULL , false , __L("End web server [%08X]."), this);
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("End web server [%08X]."), this);
 
   return true;
 }
@@ -3721,7 +3721,7 @@ bool DIOWEBSERVER::Connections_CreateNew()
               SubscribeEvent(DIOSTREAMXEVENT_TYPE_CONNECTED    , connection->GetDIOStream());
               SubscribeEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED , connection->GetDIOStream());
 
-              XTRACE_PRINTCOLOR(1, __L("Create Connexion: [%08X]"), connection);
+              // XTRACE_PRINTCOLOR(1, __L("Create Connexion: [%08X]"), connection);
 
               connections.Add(connection);
 
@@ -3769,7 +3769,7 @@ bool DIOWEBSERVER::Connections_DeleteUsed()
                   UnSubscribeEvent(DIOSTREAMXEVENT_TYPE_CONNECTED    , connection->GetDIOStream());
                   UnSubscribeEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED , connection->GetDIOStream());
 
-                  XTRACE_PRINTCOLOR(1, __L("Delete Connexion: [%08X]"), connection);
+                  // XTRACE_PRINTCOLOR(1, __L("Delete Connexion: [%08X]"), connection);
 
                   connections.Delete(connection);
                   delete connection;
@@ -3877,7 +3877,7 @@ void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAMXEVENT* event)
 
                                                             XSTRING IPstring;
                                                             connection->GetDIOStream()->GetClientIP()->GetXString(IPstring);
-                                                            GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID , false, __L("[%08X] Connection Active [%s]"), connection, IPstring.Get());
+                                                            GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("[%08X] Connection Active [%s]"), connection, IPstring.Get());
 
                                                             break;
                                                           }
@@ -3895,7 +3895,7 @@ void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAMXEVENT* event)
                                                           {
                                                             XSTRING IPstring;
                                                             connection->GetDIOStream()->GetClientIP()->GetXString(IPstring);
-                                                            GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID , false, __L("[%08X] Connection Deactive [%s]"), connection, IPstring.Get());
+                                                            GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("[%08X] Connection Deactive [%s]"), connection, IPstring.Get());
 
                                                             break;
                                                           }

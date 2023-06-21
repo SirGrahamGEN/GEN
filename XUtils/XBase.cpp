@@ -58,7 +58,6 @@ XBASE::XBASE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBASE::~XBASE()
@@ -75,7 +74,6 @@ XBASE::~XBASE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XBASE::Clean()
@@ -90,7 +88,6 @@ void XBASE::Clean()
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -133,7 +130,6 @@ double Fraction(double value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float RoundOff(float value, XBYTE prec)
@@ -157,11 +153,10 @@ float RoundOff(float value, XBYTE prec)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double RoundOff(double value, XBYTE prec)
-* @brief      oundOff
+* @brief      RoundOff
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -181,6 +176,59 @@ double RoundOff(double value, XBYTE prec)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float AdjustFloat(float valor, int decimals)
+* @brief      AdjustFloat
+* @ingroup    XUTILS
+* 
+* @param[in]  valor : 
+* @param[in]  decimals : 
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float AdjustFloat(float valor, int decimals) 
+{
+  float factor = 1.0f;
+  
+  for(int i = 0; i < decimals; ++i) 
+    {
+      factor *= 10.0f;
+    }
+    
+  float valorAjustado = (float)floor(valor * factor + 0.5f) / factor;
+  
+  return valorAjustado;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         double AdjustDouble(double valor, int decimals)
+* @brief      AdjustDouble
+* @ingroup    XUTILS
+* 
+* @param[in]  valor : 
+* @param[in]  decimals : 
+* 
+* @return     double : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+double AdjustDouble(double valor, int decimals) 
+{
+  double factor = 1.0;
+
+  for(int i = 0; i < decimals; ++i) 
+    {
+      factor *= 10.0;
+    }
+
+  double valorAjustado = floor(valor * factor + 0.5) / factor;
+
+  return valorAjustado;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -197,7 +245,6 @@ XBYTE High_WORD(XWORD data)
 {
   return ((data & 0xFF00) >> 8);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -270,7 +317,6 @@ XWORD Low_DWORD(XDWORD data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD Low_QWORD(XQWORD data);
@@ -286,9 +332,6 @@ XDWORD Low_QWORD(XQWORD data)
 {
   return (XDWORD)(data & 0x00000000FFFFFFFF);
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

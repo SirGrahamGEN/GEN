@@ -331,8 +331,6 @@ bool MAINPROCLINUX::End()
 
   DeleteAllExecParams();
 
-  Factorys_End();
-
   #ifdef APP_ACTIVE
 
   if(appmain) appmain->Delete();
@@ -347,6 +345,8 @@ bool MAINPROCLINUX::End()
   #endif
 
   GEN_VERSION.DelInstance();
+
+  Factorys_End();
 
   XFACTORY::DelInstance();
 

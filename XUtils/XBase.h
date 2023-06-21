@@ -220,34 +220,37 @@ class XBASE
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
-double  Truncate          (double value);
-double  Fraction          (double value);
+double    Truncate            (double value);
+double    Fraction            (double value);
 
-float   RoundOff          (float value , XBYTE prec);
-double  RoundOff          (double value, XBYTE prec);
+float     RoundOff            (float value , XBYTE prec);
+double    RoundOff            (double value, XBYTE prec);
 
-XBYTE   High_WORD         (XWORD  data);
-XWORD   High_DWORD        (XDWORD data);
-XDWORD  High_QWORD        (XQWORD data);
+float     AdjustFloat         (float valor, int decimals);
+double    AdjustDouble        (double valor, int decimals);
 
-XBYTE   Low_WORD          (XWORD  data);
-XWORD   Low_DWORD         (XDWORD data);
-XDWORD  Low_QWORD         (XQWORD data);
+XBYTE     High_WORD           (XWORD  data);
+XWORD     High_DWORD          (XDWORD data);
+XDWORD    High_QWORD          (XQWORD data);
 
-XWORD   SwapWORD          (XWORD  data);
-XDWORD  SwapDWORD         (XDWORD data);
-XQWORD  SwapQWORD         (XQWORD data);
+XBYTE     Low_WORD            (XWORD  data);
+XWORD     Low_DWORD           (XDWORD data);
+XDWORD    Low_QWORD           (XQWORD data);
 
-int     InvertSign        (int number);
+XWORD     SwapWORD            (XWORD  data);
+XDWORD    SwapDWORD           (XDWORD data);
+XQWORD    SwapQWORD           (XQWORD data);
 
-float   RoundFloat        (float x);
+int       InvertSign          (int number);
 
-XQWORD  DWORDToBCD        (XDWORD dword);
-XDWORD  BCDToDWORD        (XQWORD bcd);
+float     RoundFloat          (float x);
 
-XBYTE   RotateBitLeft     (XBYTE byte);
-XBYTE   RotateBitRight    (XBYTE byte);
-XBYTE   RotateBitReverse  (XBYTE byte);
+XQWORD    DWORDToBCD          (XDWORD dword);
+XDWORD    BCDToDWORD          (XQWORD bcd);
+
+XBYTE     RotateBitLeft       (XBYTE byte);
+XBYTE     RotateBitRight      (XBYTE byte);
+XBYTE     RotateBitReverse    (XBYTE byte);
 
 #endif
 

@@ -108,6 +108,7 @@ enum DIOWEBSERVER_WEBSOCKET_OPCODE
 
 #define DIOWEBSERVER_IDSERVER                     __L("GEN Web Server v2.0")
 #define DIOWEBSERVER_LOGSECTIONID                 __L("WEB Server")
+#define DIOWEBSERVER_LOGSECTIONID_VERBOSE         __L("WEB Server Verbose")
 
 
 #define DIOWEBSERVER_DEFAULTPORT                  80

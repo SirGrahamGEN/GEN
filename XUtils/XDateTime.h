@@ -236,6 +236,8 @@ class XDATETIME : public FACTORYBASE
     bool                    Set                             (XDATETIME* datetime);
     void                    Set                             (XDATETIME& datetime);
 
+    int                     Compare                         (XDATETIME& datetime);
+
   protected:
 
     bool                    islocal;

@@ -1564,6 +1564,35 @@ bool XSTRING::DeleteLastCharacter()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::DeleteLastZeros()
+* @brief      DeleteLastZeros
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::DeleteLastZeros()
+{
+  int  index  = GetSize()-1;
+  bool status = false;
+
+  if(index <= 0) 
+    {
+      return false;
+    }
+
+  while(Character_GetLast () == __C('0'))
+    {
+      DeleteLastCharacter();
+      status = true;
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Character_IsAlpha(XCHAR character) const
 * @brief      Character_IsAlpha
@@ -1628,15 +1657,15 @@ bool XSTRING::Character_IsLowerCase(XCHAR character)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XSTRING::Character_IsNumber(XCHAR character)
 * @brief      Character_IsNumber
 * @ingroup    XUTILS
-*
-* @param[in]  character :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  character : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSTRING::Character_IsNumber(XCHAR character)
 {  
@@ -1824,6 +1853,51 @@ bool XSTRING::IsNumber()
     }
 
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::IsDecimalNumber(int* ndecimals)
+* @brief      IsDecimalNumber
+* @ingroup    XUTILS
+* 
+* @param[in]  ndecimals : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::IsDecimalNumber(int* ndecimals)
+{
+  if(ndecimals)
+    {
+      (*ndecimals) = 0;
+    }
+
+  if(IsEmpty()) 
+    {
+      return false;
+    }
+
+  if(!IsNumber())
+    {
+      return false;
+    }
+  
+  bool found = false;
+
+  for(XDWORD c=0;c<size;c++)
+    {      
+      if((text[c] == __C('.')) || (text[c] == __C(',')))
+        {          
+          (*ndecimals) = (size - c);
+
+          found = true;
+          break;
+        }
+    }
+
+  return found;
 }
 
 
@@ -2680,6 +2754,121 @@ bool XSTRING::Insert(XSTRING str,XDWORD position)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertFromNULL(bool uppercase)
+* @brief      ConvertFromNULL
+* @ingroup    XUTILS
+* 
+* @param[in]  uppercase : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertFromNULL(bool uppercase)
+{
+  Set(uppercase? __L("NULL") : __L("null"));
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XSTRING::ConvertFromBoolean(bool boolean, bool uppercase)
+* @brief      ConvertFromBoolean
+* @ingroup    XUTILS
+*
+* @param[in]  boolean :
+* @param[in]  uppercase :
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertFromBoolean(bool boolean, bool uppercase)
+{
+  if(boolean)
+        Set(uppercase? __L("TRUE") : __L("true"));
+   else Set(uppercase? __L("FALSE")  : __L("false"));
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertFromShort(short value, const XCHAR* mask)
+* @brief      ConvertFromShort
+* @ingroup    XUTILS
+* 
+* @param[in]  value : 
+* @param[in]  XCHAR* mask : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertFromShort(short value, const XCHAR* mask)
+{
+  char*     str;
+  XSTRING  _mask;
+
+  str = new char[XSTRING_MAXTEMPOSTR];
+  if(!str) return false;
+
+  memset(str,0,XSTRING_MAXTEMPOSTR);
+
+  if(mask) _mask = mask; else _mask = __L("%hd");
+
+  XBUFFER charstr;
+  
+  _mask.ConvertToASCII(charstr);
+  SPRINTF(str, charstr.GetPtrChar(), value);
+  
+  Set(str);
+
+  delete [] str;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSTRING::ConvertFromWord(XWORD value, const XCHAR* mask)
+* @brief      ConvertFromWord
+* @ingroup    XUTILS
+* 
+* @param[in]  value : 
+* @param[in]  XCHAR* mask : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertFromWord(XWORD value, const XCHAR* mask)
+{
+  char*     str;
+  XSTRING  _mask;
+
+  str = new char[XSTRING_MAXTEMPOSTR];
+  if(!str) return false;
+
+  memset(str,0,XSTRING_MAXTEMPOSTR);
+
+  if(mask) _mask = mask; else _mask = __L("%hu");
+
+  XBUFFER charstr;
+  
+  _mask.ConvertToASCII(charstr);
+  SPRINTF(str, charstr.GetPtrChar(), value);
+  
+  Set(str);
+
+  delete [] str;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromInt(int value, const XCHAR* mask)
 * @brief      ConvertFromInt
@@ -2756,43 +2945,6 @@ bool XSTRING::ConvertFromDWord(XDWORD value, const XCHAR* mask)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTRING::ConvertFromQWord(XQWORD value, const XCHAR* mask)
-* @brief      ConvertFromQWord
-* @ingroup    XUTILS
-*
-* @param[in]  value :
-* @param[in]  mask :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::ConvertFromQWord(XQWORD value, const XCHAR* mask)
-{
-  char*    str;
-  XSTRING  _mask;
-
-  str = new char[XSTRING_MAXTEMPOSTR];
-  if(!str) return false;
-
-  memset(str,0,XSTRING_MAXTEMPOSTR);
-
-  if(mask) _mask = mask; else _mask = __L("%u");
-
-  XBUFFER charstr;
-  
-  _mask.ConvertToASCII(charstr);
-  SPRINTF(str, charstr.GetPtrChar(), value);
-
-  Set(str);
-
-  delete [] str;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         bool XSTRING::ConvertFromLongLong(long long value, const XCHAR* mask)
 * @brief      ConvertFromLongLong
 * @ingroup    XUTILS
@@ -2820,6 +2972,43 @@ bool XSTRING::ConvertFromLongLong(long long value, const XCHAR* mask)
   _mask.ConvertToASCII(charstr); 
   SPRINTF(str, charstr.GetPtrChar(), (long long)value);
   
+  Set(str);
+
+  delete [] str;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XSTRING::ConvertFromQWord(XQWORD value, const XCHAR* mask)
+* @brief      ConvertFromQWord
+* @ingroup    XUTILS
+*
+* @param[in]  value :
+* @param[in]  mask :
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertFromQWord(XQWORD value, const XCHAR* mask)
+{
+  char*    str;
+  XSTRING  _mask;
+
+  str = new char[XSTRING_MAXTEMPOSTR];
+  if(!str) return false;
+
+  memset(str,0,XSTRING_MAXTEMPOSTR);
+
+  if(mask) _mask = mask; else _mask = __L("%llu");
+
+  XBUFFER charstr;
+  
+  _mask.ConvertToASCII(charstr);
+  SPRINTF(str, charstr.GetPtrChar(), value);
+
   Set(str);
 
   delete [] str;
@@ -2861,6 +3050,8 @@ bool XSTRING::ConvertFromFloat(float value, const XCHAR* mask)
 
   delete [] str;
 
+  DeleteLastZeros();
+
   return true;
 }
 
@@ -2887,7 +3078,7 @@ bool XSTRING::ConvertFromDouble(double value, const XCHAR* mask)
 
   memset(str,0,XSTRING_MAXTEMPOSTR);
 
-  if(mask) _mask = mask; else _mask = __L("%g");
+  if(mask) _mask = mask; else _mask = __L("%lf");
   
   XBUFFER charstr;
   
@@ -2898,27 +3089,7 @@ bool XSTRING::ConvertFromDouble(double value, const XCHAR* mask)
 
   delete [] str;
 
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSTRING::ConvertFromBoolean(bool boolean, bool uppercase)
-* @brief      ConvertFromBoolean
-* @ingroup    XUTILS
-*
-* @param[in]  boolean :
-* @param[in]  uppercase :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::ConvertFromBoolean(bool boolean, bool uppercase)
-{
-  if(boolean)
-        Set(uppercase? __L("YES") : __L("yes"));
-   else Set(uppercase? __L("NO")  : __L("no"));
+  DeleteLastZeros();
 
   return true;
 }
@@ -3071,6 +3242,48 @@ bool XSTRING::ConvertHexStringFromBuffer(XBUFFER& xbuffer, bool uppercase)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
+* @fn         bool XSTRING::ConvertToBoolean()
+* @brief      ConvertToBoolean
+* @ingroup    XUTILS
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::ConvertToBoolean()
+{
+  bool result = false;
+
+  if(!Compare(__L("yes")  , true)  || 
+     !Compare(__L("true") , true)  || 
+     !Compare(__L("YES")  , true)  || 
+     !Compare(__L("TRUE") , true))
+    {
+      result = true;
+    }
+   else
+    {
+      if(!Compare(__L("no")    , true)    || 
+         !Compare(__L("false") , true)    || 
+         !Compare(__L("NO")    , true)    || 
+         !Compare(__L("FALSE") , true))
+        {
+          result = false;
+        }
+       else
+        {
+          if(Compare(__L("0")  , true)) 
+            {
+              result = true;
+            }
+        }
+    }
+
+  return result;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
 * @fn         int XSTRING::ConvertToInt(int index, const XCHAR* mask, bool checkvalidchars)
 * @brief      ConvertToInt
 * @ingroup    XUTILS
@@ -3155,6 +3368,47 @@ XDWORD XSTRING::ConvertToDWord(int index, const XCHAR* mask, bool checkvalidchar
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         long long XSTRING::ConvertToLongLong(int index, const XCHAR* mask, bool checkvalidchars)
+* @brief      ConvertToLongLong
+* @ingroup    XUTILS
+* 
+* @param[in]  index : 
+* @param[in]  XCHAR* mask : 
+* @param[in]  checkvalidchars : 
+* 
+* @return     long : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+long long XSTRING::ConvertToLongLong(int index, const XCHAR* mask, bool checkvalidchars)
+{
+  if(IsEmpty()) return 0;
+
+  if(checkvalidchars)
+    {
+      XSTRING  validcharacters;
+      validcharacters  = XSTRING_VALIDCHARSINT
+      if(!AreValidCharacters(validcharacters.Get())) return 0;
+    }
+
+  XSTRING  _mask;
+  long long  data = 0;
+
+  if(mask) _mask = mask; else _mask = __L("%lld");
+
+  XBUFFER charstr;
+  XBUFFER charstr2;
+  
+  _mask.ConvertToASCII(charstr);     
+  (*this).ConvertToASCII(charstr2);   
+
+  SSCANF(&charstr2.GetPtrChar()[index], charstr.GetPtrChar(), &data);
+
+  return data;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XSTRING::ConvertToQWord(int index, const XCHAR* mask, bool checkvalidchars)
 * @brief      ConvertToQWord
@@ -3179,7 +3433,7 @@ XQWORD XSTRING::ConvertToQWord(int index, const XCHAR* mask, bool checkvalidchar
     }
 
   XSTRING  _mask;
-  long long  data = 0;
+  XQWORD   data = 0;
 
   if(mask) _mask = mask; else _mask = __L("%lld");
 
@@ -3274,39 +3528,6 @@ double XSTRING::ConvertToDouble(int index, const XCHAR* mask, bool checkvalidcha
   SSCANF(&charstr2.GetPtrChar()[index], charstr.GetPtrChar(), &data);
 
   return data;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSTRING::ConvertToBoolean()
-* @brief      ConvertToBoolean
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::ConvertToBoolean()
-{
-  bool result = false;
-
-  if(!Compare(__L("yes") , true) || !Compare(__L("true") , true))
-    {
-      result = true;
-    }
-   else
-    {
-      if(!Compare(__L("no") , true) || !Compare(__L("false") , true))
-        {
-          result = false;
-        }
-       else
-        {
-          if(Compare(__L("0")  , true)) result = true;
-        }
-    }
-
-  return result;
 }
 
 
@@ -4484,8 +4705,7 @@ bool XSTRING::FormatArg(const XCHAR* mask, va_list* arg, bool isspecialweb)
         {
           switch(mask[c])
             {
-              case __C('%')   : {
-                                  int  nparam = 1;
+              case __C('%')   : { int  nparam = 1;
                                   bool end    = false;
 
                                   memset(param,0, 16*sizeof(XCHAR));
@@ -4512,11 +4732,9 @@ bool XSTRING::FormatArg(const XCHAR* mask, va_list* arg, bool isspecialweb)
                                                               end  = true ;
                                                             }
                                                             break;
-
-                                          case __C('d')   :
+   
                                           case __C('i')   :
-                                          case __C('o')   :
-                                          case __C('u')   :
+                                          case __C('o')   :                                         
                                           case __C('x')   :
                                           case __C('X')   : { bool large = false;
                                                               for(int l=0; l<(int)XSTRING::GetSize(param); l++)
@@ -4535,13 +4753,97 @@ bool XSTRING::FormatArg(const XCHAR* mask, va_list* arg, bool isspecialweb)
                                                                   str.ConvertFromLongLong((long long)va_arg((*arg), long long), param);
                                                                 }
                                                               end  = true;
+                                                            }                                                           
+                                                            break;
+
+                                          case __C('d')   :                                       
+                                          case __C('u')   : { bool large    = false;
+                                                              bool shortint = false;
+    
+                                                              for(int d=0; d<(int)XSTRING::GetSize(param); d++)
+                                                                {
+                                                                  if(param[d] == __C('l')) 
+                                                                    {
+                                                                      large = true;
+                                                                    }
+
+                                                                  if(param[d] == __C('h')) 
+                                                                    {
+                                                                      shortint = true;
+                                                                    }
+                                                                }
+
+                                                              if(shortint)
+                                                                {
+                                                                  if(mask[c] == __C('d')) 
+                                                                    {
+                                                                      short value = (short)va_arg((*arg), short);
+                                                                      str.ConvertFromShort(value, param);
+                                                                      end  = true;
+                                                                    }
+
+                                                                  if(mask[c] == __C('u')) 
+                                                                    {
+                                                                      XWORD value = (XWORD)va_arg((*arg), int);
+                                                                      str.ConvertFromWord(value, param);
+                                                                      end  = true;
+                                                                    }
+                                                                }  
+
+                                                              if((!shortint) && (!large))
+                                                                {
+                                                                  if(mask[c] == __C('d')) 
+                                                                    {
+                                                                      int value = (int)va_arg((*arg), int);
+                                                                      str.ConvertFromInt(value, param);
+                                                                      end  = true;
+                                                                    }
+
+                                                                  if(mask[c] == __C('u')) 
+                                                                    {
+                                                                      XDWORD value = (XDWORD)va_arg((*arg), int);
+                                                                      str.ConvertFromDWord(value, param);
+                                                                      end  = true;
+                                                                    }
+                                                                }  
+
+                                                              if(large)
+                                                                {
+                                                                  if(mask[c] == __C('d')) 
+                                                                    {
+                                                                      long long value = (long long)va_arg((*arg), long long);
+                                                                      str.ConvertFromLongLong(value, param);
+                                                                      end  = true;
+                                                                    }
+                                                              
+                                                                  if(mask[c] == __C('u')) 
+                                                                    {
+                                                                      XQWORD value = va_arg((*arg), long long);
+                                                                      str.ConvertFromLongLong(value, param);  
+                                                                      end  = true;
+                                                                    }
+                                                                }                                                                                                                                                                                       
                                                             }
                                                             break;
 
-                                          case __C('f')   : { double data = va_arg((*arg), double);
+                                          case __C('f')   : { bool large = false;
+                                                              for(int d=0; d<(int)XSTRING::GetSize(param); d++)
+                                                                {
+                                                                  if(param[d] == __C('l')) large = true;
+                                                                }
 
-                                                              str.ConvertFromFloat((float)(data), param);
-                                                              end  = true;
+                                                              if(!large)
+                                                                {  
+                                                                  double data = va_arg((*arg), double);
+                                                                  str.ConvertFromFloat((float)(data), param);
+                                                                  end  = true;
+                                                                }
+                                                               else                                                                
+                                                                { 
+                                                                  double data = va_arg((*arg), double);
+                                                                  str.ConvertFromDouble((double)data, param);
+                                                                  end  = true;
+                                                                }                                                                   
                                                             }
                                                             break;
 
@@ -4768,37 +5070,124 @@ bool XSTRING::UnFormat(const XCHAR* mask,...)
                                     switch(mask[c])
                                       {
                                         case __C('c')   :
-                                        case __C('C')   : { xcharvalue = (XCHAR*)va_arg(arg, XCHAR*);
-                                                            if(xcharvalue) (*xcharvalue) = Get()[indextext];
+                                        case __C('C')   : { value_xchar = (XCHAR*)va_arg(arg, XCHAR*);
+                                                            if(value_xchar) (*value_xchar) = Get()[indextext];
                                                             indextext++;
                                                             end  = true;
                                                           }
                                                           break;
 
-                                        case __C('d')   :
                                         case __C('i')   :
                                         case __C('o')   :
-                                        case __C('u')   :
                                         case __C('x')   :
-                                        case __C('X')   : { intvalue = (int*)va_arg(arg, int*);
+                                        case __C('X')   : { value_int = (int*)va_arg(arg, int*);
 
-                                                            if(intvalue) (*intvalue) = ConvertToInt(indextext,(XCHAR*)param, false);
+                                                            if(value_int) (*value_int) = ConvertToInt(indextext,(XCHAR*)param, false);
                                                             end  = true;
+                                                          }              
+                                                          break;
+
+                                        case __C('d')   :                                       
+                                        case __C('u')   : { bool large    = false;
+                                                            bool shortint = false;
+    
+                                                            for(int d=0; d<(int)XSTRING::GetSize(param); d++)
+                                                              {
+                                                                if(param[d] == __C('l')) 
+                                                                  {
+                                                                    large = true;
+                                                                  }
+
+                                                                if(param[d] == __C('h')) 
+                                                                  {
+                                                                    shortint = true;
+                                                                  }
+                                                              }
+
+                                                            if(shortint)
+                                                              {
+                                                                if(mask[c] == __C('d')) 
+                                                                  {
+                                                                    value_short = (short*)va_arg(arg, int*);
+
+                                                                    if(value_short) (*value_short) = ConvertToInt(indextext,(XCHAR*)param, false);
+                                                                    end  = true;
+                                                                  }
+
+                                                                if(mask[c] == __C('u')) 
+                                                                  {
+                                                                    value_word = (XWORD*)va_arg(arg, int*);
+
+                                                                    if(value_word) (*value_word) = ConvertToDWord(indextext,(XCHAR*)param, false);
+                                                                    end  = true;
+                                                                  }
+                                                              }  
+
+                                                            if((!shortint) && (!large))
+                                                              {
+                                                                if(mask[c] == __C('d')) 
+                                                                  {
+                                                                    value_int = (int*)va_arg(arg, int*);
+
+                                                                    if(value_int) (*value_int) = ConvertToInt(indextext,(XCHAR*)param, false);
+                                                                    end  = true;
+                                                                  }
+
+                                                                if(mask[c] == __C('u')) 
+                                                                  {
+                                                                    value_dword = (XDWORD*)va_arg(arg, int*);
+
+                                                                    if(value_dword) (*value_dword) = ConvertToDWord(indextext,(XCHAR*)param, false);
+                                                                    end  = true;
+                                                                  }
+                                                              }  
+
+                                                            if(large)
+                                                              {
+                                                                if(mask[c] == __C('d')) 
+                                                                  {
+                                                                    value_longlong = (long long*)va_arg(arg, long long*);
+
+                                                                    if(value_longlong) (*value_longlong) = ConvertToInt(indextext,(XCHAR*)param, false);
+                                                                    end  = true;
+                                                                  }
+
+                                                                if(mask[c] == __C('u')) 
+                                                                  {
+                                                                    value_qword = (XQWORD*)va_arg(arg, long long*);
+
+                                                                    if(value_qword) (*value_qword) = ConvertToDWord(indextext,(XCHAR*)param, false);
+                                                                    end  = true;
+                                                                  }
+                                                              }                                                                                                                                                                                    
                                                           }
                                                           break;
 
-                                        case __C('f')   : { doublevalue = (double*)va_arg(arg, double*);
+                                        case __C('f')   : { bool large = false;
+                                                            for(int d=0; d<(int)XSTRING::GetSize(param); d++)
+                                                              {
+                                                                if(param[d] == __C('l')) large = true;
+                                                              }
 
-                                                            if(doublevalue) (*doublevalue) = ConvertToFloat(indextext,(XCHAR*)param, false);
-
-                                                            end  = true;
+                                                            if(!large)
+                                                              {  
+                                                                value_float = (float*)va_arg(arg, double*);
+                                                                if(value_float) (*value_float) = ConvertToFloat(indextext,(XCHAR*)param, false);
+                                                                end  = true;
+                                                              }
+                                                              else                                                                
+                                                              { 
+                                                                value_double = (double*)va_arg(arg, double*);
+                                                                if(value_double) (*value_double) = ConvertToDouble(indextext,(XCHAR*)param, false);
+                                                                end  = true;
+                                                              }                                                                   
                                                           }
                                                           break;
 
                                         case __C('g')   :
-                                        case __C('G')   : { doublevalue = (double*)va_arg(arg, double*);
+                                        case __C('G')   : { value_double = (double*)va_arg(arg, double*);
 
-                                                            if(doublevalue) (*doublevalue) = ConvertToDouble(indextext,(XCHAR*)param, false);
+                                                            if(value_double) (*value_double) = ConvertToDouble(indextext,(XCHAR*)param, false);
 
                                                             end  = true;
                                                           }
@@ -4811,10 +5200,9 @@ bool XSTRING::UnFormat(const XCHAR* mask,...)
                                         case __C('p')   : end = true;
                                                           break;
 
-
                                         case __C('s')   :
-                                        case __C('S')   : { xcharvalue = (XCHAR*)va_arg(arg,XCHAR*);
-                                                            if(!xcharvalue) break;
+                                        case __C('S')   : { value_xchar = (XCHAR*)va_arg(arg,XCHAR*);
+                                                            if(!value_xchar) break;
 
                                                             XSTRING string;
 
@@ -4842,8 +5230,8 @@ bool XSTRING::UnFormat(const XCHAR* mask,...)
                                                                   }
                                                               }
 
-                                                            memcpy((XBYTE*)xcharvalue, (XBYTE*)string.Get(), (string.GetSize()*sizeof(XCHAR)));
-                                                            xcharvalue[string.GetSize()] = 0;
+                                                            memcpy((XBYTE*)value_xchar, (XBYTE*)string.Get(), (string.GetSize()*sizeof(XCHAR)));
+                                                            value_xchar[string.GetSize()] = 0;
 
                                                             indextext += string.GetSize();
 
@@ -4859,10 +5247,10 @@ bool XSTRING::UnFormat(const XCHAR* mask,...)
 
                                         case __C(']')   : if(inbrackets)
                                                             {
-                                                              xcharvalue = (XCHAR*)va_arg(arg, XCHAR*);
+                                                              value_xchar = (XCHAR*)va_arg(arg, XCHAR*);
 
-                                                              ConvertStringWithMask(param, &text[indextext], xcharvalue);
-                                                              indextext += GetSize(xcharvalue);
+                                                              ConvertStringWithMask(param, &text[indextext], value_xchar);
+                                                              indextext += GetSize(value_xchar);
 
                                                               if((mask[c+1] == __C('s')) || (mask[c+1] == __C('S'))) c++;
                                                               end = true;
@@ -5499,9 +5887,15 @@ void XSTRING::Clean()
 
   xmutexfreemen   = NULL;
 
-  intvalue        = NULL;
-  doublevalue     = NULL;
-  xcharvalue      = NULL;
+  value_short     = NULL;
+  value_word      = NULL;
+  value_int       = NULL;
+  value_dword     = NULL;
+  value_longlong  = NULL;
+  value_qword     = NULL;
+  value_float     = NULL;
+  value_double    = NULL;
+  value_xchar     = NULL;
 }
 
 #endif

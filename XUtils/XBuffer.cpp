@@ -74,7 +74,6 @@ XBUFFER::XBUFFER(bool threadsafe)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER::XBUFFER(XDWORD size, bool threadsafe)
@@ -101,6 +100,27 @@ XBUFFER::XBUFFER(XDWORD size, bool threadsafe)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBUFFER::XBUFFER(const XBUFFER& xbuffer)
+* @brief      Constructor
+* @ingroup    XUTILS
+* 
+* @param[in]  const : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBUFFER::XBUFFER(const XBUFFER& xbuffer)
+{
+  Clean();
+
+  GEN_XFACTORY_CREATE(xmutex, Create_Mutex())
+
+  CopyFrom((XBUFFER&)xbuffer);
+}
+
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -115,11 +135,13 @@ XBUFFER::~XBUFFER()
 {
   Delete();
 
-  if(xmutex) GEN_XFACTORY.Delete_Mutex(xmutex);
+  if(xmutex) 
+    {
+      GEN_XFACTORY.Delete_Mutex(xmutex);
+    }
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -141,7 +163,6 @@ XDWORD XBUFFER::GetSize()
 
   return rsize;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -167,7 +188,6 @@ bool XBUFFER::SetSize(XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::IsEmpty()
@@ -181,7 +201,6 @@ bool XBUFFER::IsEmpty()
 {
   return (!GetSize())?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -199,7 +218,6 @@ void XBUFFER::ResetPosition()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XBUFFER::GetPosition()
@@ -213,7 +231,6 @@ XDWORD XBUFFER::GetPosition()
 {
   return position;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -235,7 +252,6 @@ bool XBUFFER::SetPosition(XDWORD position)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::IsBlocked()
@@ -251,7 +267,6 @@ bool XBUFFER::IsBlocked()
 
   return xmutex->IsLock();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -271,7 +286,6 @@ bool XBUFFER::SetBlocked(bool blocked)
 
   return (blocked)?xmutex->Lock():xmutex->UnLock();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -312,7 +326,6 @@ bool XBUFFER::Add(XBYTE* pbuffer, XDWORD psize)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Add(XBUFFER* buffer)
@@ -328,7 +341,6 @@ bool XBUFFER::Add(XBUFFER* buffer)
 {
   return Add(buffer->buffer, buffer->size);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -348,7 +360,6 @@ bool XBUFFER::Add(XBUFFER& buffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Add(XBYTE data)
@@ -364,7 +375,6 @@ bool XBUFFER::Add(XBYTE data)
 {
   return Add((XBYTE*)&data, sizeof(XBYTE));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -386,7 +396,6 @@ bool XBUFFER::Add(bool data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Add(XWORD data)
@@ -404,7 +413,6 @@ bool XBUFFER::Add(XWORD data)
 
   return Add((XBYTE*)&data,sizeof(XWORD));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -426,7 +434,6 @@ bool XBUFFER::Add(XDWORD data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Add(XQWORD data)
@@ -446,8 +453,6 @@ bool XBUFFER::Add(XQWORD data)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Add(float data)
@@ -465,7 +470,6 @@ bool XBUFFER::Add(float data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Add(double data)
@@ -481,7 +485,6 @@ bool XBUFFER::Add(double data)
 {
   return Add((XBYTE*)&data, sizeof(XQWORD));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -520,7 +523,6 @@ bool XBUFFER::Add(XSTRING& string, bool normalize)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::AddWithMaskArg(XCHAR* mask, va_list& arg)
@@ -539,7 +541,6 @@ bool XBUFFER::AddWithMaskArg(XCHAR* mask, va_list& arg)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::AddWithMaskArg(XSTRING* mask, va_list& arg)
@@ -556,7 +557,6 @@ bool XBUFFER::AddWithMaskArg(XSTRING* mask, va_list& arg)
 {
   return AddXBufferWithMask((*this), mask, arg);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -587,7 +587,6 @@ bool XBUFFER::AddWithMask(XCHAR* mask, ...)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::AddWithMask(XSTRING* mask, ...)
@@ -614,7 +613,6 @@ bool XBUFFER::AddWithMask(XSTRING* mask, ...)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -653,7 +651,6 @@ bool XBUFFER::Insert(XBYTE* pbuffer, XDWORD psize, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Insert(XBUFFER* xbuffer, int frompos)
@@ -674,7 +671,6 @@ bool XBUFFER::Insert(XBUFFER* xbuffer, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Insert(XBUFFER& xbuffer, int frompos)
@@ -693,7 +689,6 @@ bool XBUFFER::Insert(XBUFFER& xbuffer, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Insert(XBYTE data, int frompos)
@@ -710,7 +705,6 @@ bool XBUFFER::Insert(XBYTE data, int frompos)
 {
   return Insert(&data, 1, frompos);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -733,7 +727,6 @@ bool XBUFFER::Insert(bool data, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Insert(XWORD data, int frompos)
@@ -752,7 +745,6 @@ bool XBUFFER::Insert(XWORD data, int frompos)
 
   return Insert((XBYTE*)&data, sizeof(XWORD), frompos);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -775,7 +767,6 @@ bool XBUFFER::Insert(XDWORD data, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Insert(XQWORD data, int frompos)
@@ -796,7 +787,6 @@ bool XBUFFER::Insert(XQWORD data, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Insert(float data, int frompos)
@@ -815,7 +805,6 @@ bool XBUFFER::Insert(float data, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Insert(double data, int frompos)
@@ -832,7 +821,6 @@ bool XBUFFER::Insert(double data, int frompos)
 {
   return Insert((XBYTE*)&data, sizeof(XQWORD), frompos);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -887,7 +875,6 @@ bool XBUFFER::InsertWithMaskArg(XCHAR* mask, int frompos, va_list& arg)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::InsertWithMaskArg(XSTRING* mask, int frompos, va_list& arg)
@@ -905,7 +892,6 @@ bool XBUFFER::InsertWithMaskArg(XSTRING* mask, int frompos, va_list& arg)
 {
   return InsertWithMaskArg(mask->Get(), frompos, arg);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -937,7 +923,6 @@ bool XBUFFER::InsertWithMask(XCHAR* mask, int frompos, ...)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::InsertWithMask(XSTRING* mask, int frompos, ...)
@@ -965,7 +950,6 @@ bool XBUFFER::InsertWithMask(XSTRING* mask, int frompos, ...)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1010,7 +994,6 @@ XDWORD XBUFFER::Extract(XBYTE* pbuffer, XDWORD ppos, XDWORD psize)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Extract(XBYTE& data, XDWORD ppos)
@@ -1030,7 +1013,6 @@ bool XBUFFER::Extract(XBYTE& data, XDWORD ppos)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1058,7 +1040,6 @@ bool XBUFFER::Extract(bool& data, XDWORD ppos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Extract(XWORD& data, XDWORD ppos)
@@ -1080,7 +1061,6 @@ bool XBUFFER::Extract(XWORD& data, XDWORD ppos)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1106,7 +1086,6 @@ bool XBUFFER::Extract(XDWORD& data, XDWORD ppos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Extract(XQWORD& data, XDWORD ppos)
@@ -1130,7 +1109,6 @@ bool XBUFFER::Extract(XQWORD& data, XDWORD ppos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Extract(float& data,XDWORD ppos)
@@ -1152,7 +1130,6 @@ bool XBUFFER::Extract(float& data,XDWORD ppos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Extract(double& data, XDWORD ppos)
@@ -1172,7 +1149,6 @@ bool XBUFFER::Extract(double& data, XDWORD ppos)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1211,7 +1187,6 @@ bool XBUFFER::Extract(XSTRING& string, XDWORD ppos, XDWORD psize)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1259,7 +1234,6 @@ bool XBUFFER::ExtractWithMaskArg(XCHAR* mask, int frompos, va_list& arg)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::ExtractWithMaskArg(XSTRING* mask, int frompos, va_list& arg)
@@ -1277,7 +1251,6 @@ bool XBUFFER::ExtractWithMaskArg(XSTRING* mask, int frompos, va_list& arg)
 {
   return ExtractWithMaskArg(mask->Get(), frompos, arg);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1309,7 +1282,6 @@ bool XBUFFER::ExtractWithMask(XCHAR* mask, int frompos, ...)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::ExtractWithMask(XSTRING* mask, int frompos, ...)
@@ -1339,7 +1311,6 @@ bool XBUFFER::ExtractWithMask(XSTRING* mask, int frompos, ...)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE* XBUFFER::Get()
@@ -1355,7 +1326,6 @@ XBYTE* XBUFFER::Get()
 
   return buffer;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1389,7 +1359,6 @@ XBYTE XBUFFER::GetByte(XDWORD index)
 
   return data;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1485,7 +1454,6 @@ bool XBUFFER::Get(XBYTE* pbuffer,int psize,int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Get(XBYTE& data, int frompos)
@@ -1521,7 +1489,6 @@ bool XBUFFER::Get(XBYTE& data, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Get(bool& data, int frompos)
@@ -1547,7 +1514,6 @@ bool XBUFFER::Get(bool& data, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Get(XWORD& data, int frompos)
@@ -1568,7 +1534,6 @@ bool XBUFFER::Get(XWORD& data, int frompos)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1593,7 +1558,6 @@ bool XBUFFER::Get(XDWORD& data, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Get(XQWORD& data, int frompos)
@@ -1616,7 +1580,6 @@ bool XBUFFER::Get(XQWORD& data, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Get(float& data, int frompos)
@@ -1637,7 +1600,6 @@ bool XBUFFER::Get(float& data, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Get(double& data, int frompos)
@@ -1656,7 +1618,6 @@ bool XBUFFER::Get(double& data, int frompos)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1694,7 +1655,6 @@ bool XBUFFER::Get(XSTRING& data, int psize, int frompos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::GetWithMaskArg(XCHAR* mask, int frompos, va_list& arg)
@@ -1724,7 +1684,6 @@ bool XBUFFER::GetWithMaskArg(XCHAR* mask, int frompos, va_list& arg)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::GetWithMaskArg(XSTRING* mask, int frompos, va_list& arg)
@@ -1744,7 +1703,6 @@ bool XBUFFER::GetWithMaskArg(XSTRING* mask, int frompos, va_list& arg)
 
   return GetWithMaskArg(mask->Get(), frompos, arg);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1776,7 +1734,6 @@ bool XBUFFER::GetWithMask(XCHAR* mask, int frompos, ...)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::GetWithMask(XSTRING* mask, int frompos, ...)
@@ -1804,7 +1761,6 @@ bool XBUFFER::GetWithMask(XSTRING* mask, int frompos, ...)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1845,7 +1801,6 @@ bool XBUFFER::Set(XBYTE* pbuffer, int psize, int topos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Set(XBYTE data, int topos)
@@ -1881,7 +1836,6 @@ bool XBUFFER::Set(XBYTE data, int topos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Set(bool data, int topos)
@@ -1899,9 +1853,7 @@ bool XBUFFER::Set(bool data, int topos)
   XBYTE _data = data?1:0;
 
   return Set(_data, topos);
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1924,7 +1876,6 @@ bool XBUFFER::Set(XWORD data, int topos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Set(XDWORD data, int topos)
@@ -1943,7 +1894,6 @@ bool XBUFFER::Set(XDWORD data, int topos)
 
   return Set((XBYTE*)&data, sizeof(XDWORD), topos);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1966,7 +1916,6 @@ bool XBUFFER::Set(XQWORD data, int topos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Set(float data, int topos)
@@ -1985,7 +1934,6 @@ bool XBUFFER::Set(float data, int topos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Set(double data, int topos)
@@ -2002,7 +1950,6 @@ bool XBUFFER::Set(double data, int topos)
 {
   return Set((XBYTE*)&data, sizeof(XQWORD), topos);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2040,7 +1987,6 @@ bool XBUFFER::Set(XSTRING& data, int topos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XBUFFER::SetWithMaskArg(XCHAR* mask, int topos, va_list& arg)
@@ -2066,7 +2012,6 @@ XDWORD XBUFFER::SetWithMaskArg(XCHAR* mask, int topos, va_list& arg)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XBUFFER::SetWithMaskArg(XSTRING* mask, int topos, va_list& arg)
@@ -2086,7 +2031,6 @@ XDWORD XBUFFER::SetWithMaskArg(XSTRING* mask, int topos, va_list& arg)
 
   return SetWithMaskArg(mask->Get(), topos, arg);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2118,7 +2062,6 @@ XDWORD XBUFFER::SetWithMask(XCHAR* mask, int topos, ...)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XBUFFER::SetWithMask(XSTRING* mask, int topos, ...)
@@ -2146,7 +2089,6 @@ XDWORD XBUFFER::SetWithMask(XSTRING* mask, int topos, ...)
 
   return result;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2230,7 +2172,6 @@ bool XBUFFER::Resize(XDWORD newsize, bool setblocked)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Delete(bool setblocked)
@@ -2244,7 +2185,10 @@ bool XBUFFER::Resize(XDWORD newsize, bool setblocked)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBUFFER::Delete(bool setblocked)
 {
-  if(setblocked) SetBlocked(true);
+  if(setblocked) 
+    {
+      SetBlocked(true);
+    }
 
   if(buffer) delete [] buffer;
 
@@ -2253,11 +2197,13 @@ bool XBUFFER::Delete(bool setblocked)
   sizeassign    = 0;
   position      = 0;
 
-  if(setblocked) SetBlocked(false);
+  if(setblocked) 
+    {
+      SetBlocked(false);
+    }
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2289,24 +2235,19 @@ bool XBUFFER::FillBuffer(XBYTE fillchar)
 }
 
 
-
- /**-------------------------------------------------------------------------------------------------------------------
- *
- *  @fn         bool XBUFFER::Empty()
- *  @brief      Delete Buffer (set blocked default)
- *  @ingroup    UTILS
- *
- *  ""
- *  ""
- *
- *  @return     bool : true if is succesful.
- *
- * --------------------------------------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBUFFER::Empty()
+* @brief      Empty
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XBUFFER::Empty()
  {
    return Delete();
  }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2335,7 +2276,6 @@ bool XBUFFER::Swap()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2373,7 +2313,6 @@ bool XBUFFER::Compare(XBYTE* pbuffer,XDWORD psize)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Compare(XBUFFER* buffer)
@@ -2392,6 +2331,22 @@ bool XBUFFER::Compare(XBUFFER* buffer)
   return Compare(buffer->Get(), buffer->GetSize());
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBUFFER::Compare(XBUFFER& buffer)
+* @brief      Compare buffer to buffer
+* @ingroup    XUTILS
+* 
+* @param[in]  buffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBUFFER::Compare(XBUFFER& buffer)
+{
+  return Compare(&buffer);
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2442,7 +2397,6 @@ int XBUFFER::Find(XBUFFER* buffer, int startindex)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XBUFFER::Find(XSTRING& string, bool normalize, int startindex)
@@ -2465,6 +2419,96 @@ int XBUFFER::Find(XSTRING& string, bool normalize, int startindex)
   return XBUFFER::Find(&buffer, startindex);
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XBUFFER::operator = (const XBUFFER& xbuffer)
+* @brief      operator =
+* @ingroup    XUTILS
+* 
+* @param[in]  XBUFFER& xbuffer : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XBUFFER::operator =  (const XBUFFER& xbuffer)
+{
+  CopyFrom((XBUFFER&)xbuffer);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XBUFFER::operator == (XBUFFER buffer)
+* @brief      operator ==
+* @ingroup    XUTILS
+*
+* @param[in]  buffer :
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBUFFER::operator == (XBUFFER buffer)
+{
+  
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XBUFFER::operator != (XBUFFER buffer)
+* @brief      operator !=
+* @ingroup    XUTILS
+*
+* @param[in]  buffer :
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBUFFER::operator != (XBUFFER buffer)
+{
+  
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBUFFER::CopyFrom(XBUFFER& buffer)
+* @brief      CopyFrom
+* @ingroup    XUTILS
+* 
+* @param[in]  buffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBUFFER::CopyFrom(XBUFFER& buffer)
+{
+  Empty();
+
+  return Add(buffer.Get(), buffer.GetSize());
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBUFFER::CopyTo(XBUFFER& buffer)
+* @brief      CopyTo
+* @ingroup    XUTILS
+* 
+* @param[in]  buffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBUFFER::CopyTo(XBUFFER& buffer)
+{
+  buffer.Empty();
+    
+  return buffer.Add(Get(), GetSize());
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2544,7 +2588,6 @@ bool XBUFFER::Padding_Add(XBYTE bitsadjust, XBUFFER_PADDINGTYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Padding_Has()
@@ -2558,7 +2601,6 @@ bool XBUFFER::Padding_Has()
 {
   return paddinghas;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2576,7 +2618,6 @@ XBUFFER_PADDINGTYPE XBUFFER::Padding_GetType()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE XBUFFER::Padding_GetSize()
@@ -2590,7 +2631,6 @@ XBYTE XBUFFER::Padding_GetSize()
 {
   return paddingsize;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2620,7 +2660,6 @@ bool XBUFFER::Padding_Delete()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE XBUFFER::Bit_GetNBits()
@@ -2634,7 +2673,6 @@ XBYTE XBUFFER::Bit_GetNBits()
 {
   return nbits;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2656,7 +2694,6 @@ bool XBUFFER::Bit_SetNBits(int nbits)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2742,7 +2779,6 @@ bool XBUFFER::Bit_AddData(XDWORD data, int nbits)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XBUFFER::Bit_GetData(int indexbit, int nbits)
@@ -2798,7 +2834,6 @@ XDWORD XBUFFER::Bit_GetData(int indexbit, int nbits)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::Bit_SetData(XDWORD data, int indexbit, int nbits)
@@ -2847,7 +2882,6 @@ bool XBUFFER::Bit_SetData(XDWORD data, int indexbit, int nbits)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE XBUFFER::Bit_GetBitsFree()
@@ -2861,7 +2895,6 @@ XBYTE XBUFFER::Bit_GetBitsFree()
 {
   return nbitsfree;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2950,8 +2983,6 @@ XDWORD XBUFFER::DecodeBCD(XDWORD ppos, XDWORD psize)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XBUFFER::DecodeBCDLong(XDWORD ppos,XDWORD psize)
@@ -2988,7 +3019,6 @@ XQWORD XBUFFER::DecodeBCDLong(XDWORD ppos,XDWORD psize)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::GetHardwareUseLittleEndian()
@@ -3002,7 +3032,6 @@ bool XBUFFER::GetHardwareUseLittleEndian()
 {
  return  XBUFFER::hardwareuselittleendian;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3021,7 +3050,6 @@ void XBUFFER::SetHardwareUseLittleEndian(bool hardwareuselittleendian)
 {
   XBUFFER::hardwareuselittleendian = hardwareuselittleendian;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3141,7 +3169,6 @@ bool XBUFFER::AddXBufferWithMask(XBUFFER& xbuffer, XCHAR* mask, va_list& arg)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::AddXBufferWithMask(XBUFFER& xbuffer, XSTRING* mask, va_list& arg)
@@ -3161,7 +3188,6 @@ bool XBUFFER::AddXBufferWithMask(XBUFFER& xbuffer, XSTRING* mask, va_list& arg)
 
   return AddXBufferWithMask(xbuffer, mask->Get(), arg);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3283,8 +3309,6 @@ XDWORD XBUFFER::CalculeExtractSizeArgWithMask(XBUFFER& xbuffer, int frompos, XCH
 
   return size;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3455,5 +3479,3 @@ void XBUFFER::Clean()
 
   xmutex              = NULL;
 }
-
-

@@ -194,6 +194,7 @@ class GEN_API_LIB XSTRING
     bool                  DeleteNoCharacters              (XSTRINGCONTEXT context);
     int                   DeleteNoCharacters              (XCHAR* needle=__L("\t\r\n"), int start=0, XSTRINGCONTEXT context= XSTRINGCONTEXT_ALLSTRING);
     bool                  DeleteLastCharacter             ();
+    bool                  DeleteLastZeros                 ();
 
     bool                  Character_IsAlpha               (XCHAR character) const;
     bool                  Character_IsUpperCase           (XCHAR character);
@@ -207,6 +208,7 @@ class GEN_API_LIB XSTRING
     bool                  Character_Change                (XCHAR source, XCHAR target);
 
     bool                  IsNumber                        ();               
+    bool                  IsDecimalNumber                 (int* ndecimals = NULL);               
 
     bool                  ToUpperCase                     ();
     bool                  ToLowerCase                     ();
@@ -237,26 +239,30 @@ class GEN_API_LIB XSTRING
     int                   ReplaceFirst                    (XCHAR* findWhat, XCHAR* replaceBy);
     bool                  Insert                          (XSTRING str, XDWORD position);
 
+    bool                  ConvertFromNULL                 (bool uppercase);
+    bool                  ConvertFromBoolean              (bool boolean, bool uppercase = false);
+    bool                  ConvertFromShort                (short value, const XCHAR* mask = NULL);
+    bool                  ConvertFromWord                 (XWORD value, const XCHAR* mask = NULL);
     bool                  ConvertFromInt                  (int value, const XCHAR* mask = NULL);
     bool                  ConvertFromDWord                (XDWORD value, const XCHAR* mask = NULL);
-    bool                  ConvertFromQWord                (XQWORD value, const XCHAR* mask = NULL);
     bool                  ConvertFromLongLong             (long long value, const XCHAR* mask = NULL);
+    bool                  ConvertFromQWord                (XQWORD value, const XCHAR* mask = NULL);    
     bool                  ConvertFromFloat                (float value, const XCHAR* mask = NULL);
     bool                  ConvertFromDouble               (double value, const XCHAR* mask = NULL);
-    bool                  ConvertFromBoolean              (bool boolean, bool uppercase = false);
-    
+        
     bool                  ConvertHexFormatChars           ();
     bool                  ConvertToHexString              (XSTRING& string, bool uppercase = true);
     bool                  ConvertHexStringToBuffer        (XBUFFER& xbuffer);
     bool                  ConvertHexStringFromBuffer      (XBUFFER& xbuffer, bool upercase = true);
-
+    
+    bool                  ConvertToBoolean                ();
     int                   ConvertToInt                    (int index = 0, const XCHAR* mask = NULL, bool checkvalidchars = true);
     XDWORD                ConvertToDWord                  (int index = 0, const XCHAR* mask = NULL, bool checkvalidchars = true);
+    long long             ConvertToLongLong               (int index = 0, const XCHAR* mask = NULL, bool checkvalidchars = true);
     XQWORD                ConvertToQWord                  (int index = 0, const XCHAR* mask = NULL, bool checkvalidchars = true);
     float                 ConvertToFloat                  (int index = 0, const XCHAR* mask = NULL, bool checkvalidchars = true);
     double                ConvertToDouble                 (int index = 0, const XCHAR* mask = NULL, bool checkvalidchars = true);
-    bool                  ConvertToBoolean                ();
-    
+        
     bool                  IsValidASCII                    ();
     bool                  ConvertToASCII                  (XBUFFER& xbuffer);
     bool                  ConvertFromASCII                (XBUFFER& xbuffer);
@@ -326,9 +332,15 @@ class GEN_API_LIB XSTRING
 
     XMUTEX*               xmutexfreemen;
 
-    int*                  intvalue;
-    double*               doublevalue;
-    XCHAR*                xcharvalue;
+    short*                value_short;
+    XWORD*                value_word;
+    int*                  value_int;
+    XDWORD*               value_dword;
+    long long*            value_longlong;
+    XQWORD*               value_qword;
+    float*                value_float;
+    double*               value_double;
+    XCHAR*                value_xchar;
 
     static const char     codetablebase64[];
     static const char     decodetablebase64[];

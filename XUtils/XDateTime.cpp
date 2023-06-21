@@ -1936,7 +1936,7 @@ bool XDATETIME::GetDateTimeFromStringISO8601(XSTRING& string, XWORD modificator)
       modificator |= XDATETIME_FORMAT_ISO8601_UTC;
     }
 
-  validcharacters  = __L("0123456789 -:.TZ");
+  validcharacters  = __L("0123456789 -+:.TZ");
   
   if(!string.AreValidCharacters(validcharacters.Get())) return false;
 
@@ -2306,6 +2306,93 @@ bool XDATETIME::Set(XDATETIME* datetime)
 void XDATETIME::Set(XDATETIME& datetime)
 {
   Set(&datetime);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int XDATETIME::Compare(XDATETIME& datetime)
+* @brief      Compare
+* @ingroup    XUTILS
+* 
+* @param[in]  datetime : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int XDATETIME::Compare(XDATETIME& datetime)
+{
+  if(datetime.GetYear() > GetYear()) 
+    {
+      return  1;
+    }
+
+  if(datetime.GetYear() < GetYear()) 
+    {
+      return -1;
+    }
+
+  if(datetime.GetMonth() > GetMonth()) 
+    {
+      return  1;
+    }
+
+  if(datetime.GetMonth() < GetMonth()) 
+    {
+      return -1;
+    }
+
+  if(datetime.GetDay() > GetDay()) 
+    {
+      return  1;
+    }
+
+  if(datetime.GetDay() < GetDay()) 
+    {
+      return -1;
+    }
+
+  if(datetime.GetHours() > GetHours()) 
+    {
+      return  1;
+    }
+
+  if(datetime.GetHours() < GetHours()) 
+    {
+      return -1;
+    }
+
+  if(datetime.GetMinutes() > GetMinutes()) 
+    {
+      return  1;
+    }
+
+  if(datetime.GetMinutes() < GetMinutes()) 
+    {
+      return -1;
+    }
+
+  if(datetime.GetSeconds() > GetSeconds()) 
+    {
+      return  1;
+    }
+
+  if(datetime.GetSeconds() < GetSeconds()) 
+    {
+      return -1;
+    }
+
+  if(datetime.GetMilliSeconds() > GetMilliSeconds()) 
+    {
+      return  1;
+    }
+
+  if(datetime.GetMilliSeconds() < GetMilliSeconds()) 
+    {
+      return -1;
+    }
+
+  return 0;
 }
 
 

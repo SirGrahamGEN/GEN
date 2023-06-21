@@ -163,6 +163,114 @@ void DIONODE::SetIsLocal(bool islocal)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XSTRING* DIONODE::GetGroup()
+* @brief      GetGroup
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIONODE::GetGroup()
+{
+  return &group;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODE::GetSubGroups(XVECTOR<XSTRING*>& listsubgroups)
+* @brief      GetSubGroups
+* @ingroup    DATAIO
+* 
+* @param[in]  listsubgroups : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODE::GetSubGroups(XVECTOR<XSTRING*>& listsubgroups)
+{  
+  XPATH pathgroup;  
+
+  pathgroup = group.Get();  
+  
+  pathgroup.Slash_Delete();
+
+  do{ XSTRING* _subgroup = new XSTRING();
+      if(_subgroup)
+        {
+          pathgroup.GetNamefileExt(*_subgroup);        
+          pathgroup.GetPath(pathgroup);
+
+          if(!_subgroup->Compare(pathgroup, true))
+            {
+              listsubgroups.Insert(0, _subgroup); 
+              break;
+            }
+
+          pathgroup.Slash_Delete();
+
+          if(_subgroup->IsEmpty())
+            {
+              delete _subgroup;
+              break;
+            }
+           else 
+            {
+              listsubgroups.Insert(0, _subgroup);
+            }       
+        } 
+       else 
+        {
+          break;
+        }
+
+   } while(1);
+
+  
+  return listsubgroups.IsEmpty()?false:true;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIONODE::GetSubGroup(XDWORD level, XSTRING& subgroup)
+* @brief      GetSubGroup
+* @ingroup    DATAIO
+* 
+* @param[in]  level : 
+* @param[in]  subgroup : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIONODE::GetSubGroup(XDWORD level, XSTRING& subgroup)
+{
+  subgroup.Empty();
+
+  XVECTOR<XSTRING*> listsubgroups;
+  bool              status;  
+
+  if(!GetSubGroups(listsubgroups))
+    {
+      return false;
+    }
+
+  if(level < listsubgroups.GetSize())
+    {
+      subgroup = listsubgroups.Get(level)->Get();
+      status = true;
+    }
+
+  listsubgroups.DeleteContents();
+  listsubgroups.DeleteAll();
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIONODE::Update()
 * @brief      Update
 * @ingroup    DATAIO
@@ -242,6 +350,7 @@ bool DIONODE::Serialize()
   UUID.GetToString(ID); 
 
   Primitive_Add<XSTRING*>(&ID, __L("ID"));
+  Primitive_Add<XSTRING*>(&group, __L("group"));
   XVectorClass_Add<DIONODEITEM>(&items, __L("items"), __L("item"));
 
   return true;
@@ -262,6 +371,7 @@ bool DIONODE::Deserialize()
   XSTRING ID;
 
   Primitive_Extract<XSTRING*>(&ID, __L("ID"));
+  Primitive_Extract<XSTRING*>(&group, __L("group"));
   XVectorClass_Extract<DIONODEITEM>(&items, __L("items"), __L("item"));
 
   UUID.SetFromString(ID);

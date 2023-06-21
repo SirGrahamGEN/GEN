@@ -54,6 +54,11 @@ class DIONODE : public XSERIALIZABLE
     bool                            IsLocal                   ();    
     void                            SetIsLocal                (bool islocal);
 
+    XSTRING*                        GetGroup                  ();
+
+    bool                            GetSubGroups              (XVECTOR<XSTRING*>& listsubgroups);
+    bool                            GetSubGroup               (XDWORD level, XSTRING& subgroup);
+
     XVECTOR<DIONODEITEM*>*          GetItems                  ();   
 
     bool                            CreateJSONSerialization   (); 
@@ -71,6 +76,7 @@ class DIONODE : public XSERIALIZABLE
 
     XUUID                           UUID;  
     bool                            islocal;
+    XSTRING                         group;
     XVECTOR<DIONODEITEM*>           items;
 };
 
