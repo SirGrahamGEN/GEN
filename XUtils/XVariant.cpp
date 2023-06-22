@@ -1742,7 +1742,7 @@ bool XVARIANT::Destroy()
                                               }
                                               break;
 
-          case XVARIANT_TYPE_POINTER        : delete (void*)(data);         break;           
+          case XVARIANT_TYPE_POINTER        : delete (XBYTE*)(data);         break;           
 
                                   default   : break;
         }

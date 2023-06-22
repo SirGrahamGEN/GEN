@@ -4777,7 +4777,7 @@ bool XSTRING::FormatArg(const XCHAR* mask, va_list* arg, bool isspecialweb)
                                                                 {
                                                                   if(mask[c] == __C('d')) 
                                                                     {
-                                                                      short value = (short)va_arg((*arg), short);
+                                                                      short value = (short)va_arg((*arg), int);
                                                                       str.ConvertFromShort(value, param);
                                                                       end  = true;
                                                                     }
