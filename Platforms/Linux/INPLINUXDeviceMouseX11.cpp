@@ -183,7 +183,7 @@ bool INPLINUXDEVICEMOUSEX11::Update()
   int          mousey = -1;
   unsigned int mask;
 
-  XQueryPointer(grpscreenx11->GetDisplay()  , (*grpscreenx11->GetWindow()) , &root,&child,&rootx,&rooty,&mousex,&mousey,&mask);
+  XQueryPointer(grpscreenx11->GetDisplay()  , (*grpscreenx11->GetWindow()) , &root, &child, &rootx, &rooty, &mousex, &mousey, &mask);
 
   INPCURSOR* cursor = GetCursor(INPCURSOR_ID_MOUSE);
   if(cursor)
