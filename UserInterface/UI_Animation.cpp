@@ -136,7 +136,7 @@ bool UI_ANIMATION::LoadFromFile(XSTRING& resourcename, GRPPROPERTYMODE mode)
           XFILEUNZIP* unzipfile = GEN_USERINTERFACE.GetUnzipFile();
           if(unzipfile)
             {       
-              XPATH pathnamefilecmp = APPDEFAULT_DIRECTORY_GRAPHICS;
+              XPATH pathnamefilecmp(APPDEFAULT_DIRECTORY_GRAPHICS);
               XPATH namefileonly;
 
               pathnamefilecmp.Slash_Add();

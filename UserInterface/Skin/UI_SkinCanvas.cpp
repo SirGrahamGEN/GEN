@@ -518,7 +518,7 @@ bool UI_SKINCANVAS::LoadFonts()
               XFILEUNZIP* unzipfile = GEN_USERINTERFACE.GetUnzipFile();
               if(unzipfile)
                 {                  
-                  XPATH pathnamefilecmp = APPDEFAULT_DIRECTORY_FONTS;
+                  XPATH pathnamefilecmp(APPDEFAULT_DIRECTORY_FONTS);
 
                   pathnamefilecmp.Slash_Add();
                   pathnamefilecmp += vectorfontname;
@@ -581,7 +581,7 @@ bool UI_SKINCANVAS::Background_LoadBitmap()
       XFILEUNZIP* unzipfile = GEN_USERINTERFACE.GetUnzipFile();
       if(unzipfile)
         {                
-          XPATH pathnamefilecmp = APPDEFAULT_DIRECTORY_GRAPHICS;
+          XPATH pathnamefilecmp(APPDEFAULT_DIRECTORY_GRAPHICS);
 
           pathnamefilecmp.Slash_Add();
           pathnamefilecmp += background_namefile;

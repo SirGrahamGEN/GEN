@@ -79,6 +79,7 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
     XPATH*                          GetUnzipPathFile                          (); 
     XFILEUNZIP*                     GetUnzipFile                              ();
     bool                            DeleteTemporalUnZipFile                   (XPATH& pathfile);
+    bool                            CloseUnZipFile                            ();
 
     bool                            Layouts_Add                               (UI_LAYOUT* layout);
     XVECTOR<UI_LAYOUT*>*            Layouts_Get                               ();
@@ -199,9 +200,7 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
 
     void                            HandleEvent_UI                            (UI_XEVENT* event);
     void                            HandleEvent                               (XEVENT* xevent);
-   
-    bool                            CloseUnZipFile                            ();
-
+    
     void                            Clean                                     ();   
 
     static UI_MANAGER*              instance; 

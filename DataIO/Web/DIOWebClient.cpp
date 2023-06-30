@@ -56,13 +56,9 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*  DIOWEBCLIENT_HEADER                                                                                               */
 /*--------------------------------------------------------------------------------------------------------------------*/
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -78,7 +74,6 @@ DIOWEBCLIENT_HEADER::DIOWEBCLIENT_HEADER()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -97,7 +92,6 @@ DIOWEBCLIENT_HEADER::~DIOWEBCLIENT_HEADER()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -119,7 +113,6 @@ bool DIOWEBCLIENT_HEADER::GetMethod(XSTRING& method)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT_HEADER::GetResource(XSTRING& resource)
@@ -137,7 +130,6 @@ bool DIOWEBCLIENT_HEADER::GetResource(XSTRING& resource)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -159,7 +151,6 @@ int DIOWEBCLIENT_HEADER::GetVersion()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBCLIENT_HEADER::GetSubVersion()
@@ -179,8 +170,6 @@ int DIOWEBCLIENT_HEADER::GetSubVersion()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBCLIENT_HEADER::GetResultServer()
@@ -198,7 +187,6 @@ int DIOWEBCLIENT_HEADER::GetResultServer()
 
   return data;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -237,7 +225,6 @@ XQWORD DIOWEBCLIENT_HEADER::GetContentLength()
 
   return contentlength;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -280,8 +267,6 @@ bool DIOWEBCLIENT_HEADER::GetETag(XSTRING& etag)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT_HEADER::GetAuthentication(XSTRING& authentication)
@@ -304,8 +289,6 @@ bool DIOWEBCLIENT_HEADER::GetWWWAuthenticate(XSTRING& authenticate)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBCLIENT_HEADER::Clean()
@@ -323,11 +306,9 @@ void DIOWEBCLIENT_HEADER::Clean()
 }
 
 
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*  DIOWEBCLIENT                                                                                                      */
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -342,7 +323,6 @@ void DIOWEBCLIENT_HEADER::Clean()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)
-
 {
   Clean();
 
@@ -360,7 +340,6 @@ DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)
   diostreamcfg = new DIOSTREAMTCPIPCONFIG();
   if(diostreamcfg) diostream = (DIOSTREAMTCPIP*)GEN_DIOFACTORY.CreateStreamIO(diostreamcfg);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -404,7 +383,6 @@ DIOWEBCLIENT::~DIOWEBCLIENT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBCLIENT::Get_Port()
@@ -418,7 +396,6 @@ int DIOWEBCLIENT::Get_Port()
 {
   return port;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -438,7 +415,6 @@ void DIOWEBCLIENT::Set_Port(int port)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL* DIOWEBCLIENT::GetProxyURL()
@@ -454,7 +430,6 @@ DIOURL* DIOWEBCLIENT::GetProxyURL()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBCLIENT::GetProxyPort()
@@ -468,7 +443,6 @@ int DIOWEBCLIENT::GetProxyPort()
 {
   return proxyport;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -488,8 +462,6 @@ void DIOWEBCLIENT::SetProxyPort(int port)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBCLIENT_AUTHENTICATION_METHOD DIOWEBCLIENT::GetAuthenticationMethod()
@@ -503,7 +475,6 @@ DIOWEBCLIENT_AUTHENTICATION_METHOD DIOWEBCLIENT::GetAuthenticationMethod()
 {
   return authenticationmethod;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -523,7 +494,6 @@ void DIOWEBCLIENT::SetAuthenticationMethod(DIOWEBCLIENT_AUTHENTICATION_METHOD au
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBCLIENT::GetLogin()
@@ -537,7 +507,6 @@ XSTRING*  DIOWEBCLIENT::GetLogin()
 {
   return &login;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -555,9 +524,6 @@ XSTRING*  DIOWEBCLIENT::GetPassword()
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTCPIPCONFIG* DIOWEBCLIENT::GetStreamCFG()
@@ -571,7 +537,6 @@ DIOSTREAMTCPIPCONFIG* DIOWEBCLIENT::GetStreamCFG()
 {
   return diostreamcfg;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -589,7 +554,6 @@ DIOWEBCLIENT_HEADER* DIOWEBCLIENT::GetHeader()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT::IsActiveDoStopHTTPError()
@@ -602,9 +566,7 @@ DIOWEBCLIENT_HEADER* DIOWEBCLIENT::GetHeader()
 bool DIOWEBCLIENT::IsActiveDoStopHTTPError()
 {
   return dostophttperror;
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -622,8 +584,6 @@ void DIOWEBCLIENT::DoStopHTTPError(bool activate)
 {
   dostophttperror = activate;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -645,7 +605,6 @@ bool DIOWEBCLIENT::Get(DIOURL& url, XBUFFER& tobuffer, XCHAR* addheader, int tim
 {
   return MakeOperation(DIOWEBHEADER_METHOD_GET, url, NULL, addheader, timeout, localIP, true, (void*)&tobuffer);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -670,7 +629,6 @@ bool DIOWEBCLIENT::Get(XCHAR* url, XBUFFER& tobuffer, XCHAR* addheader, int time
 
   return MakeOperation(DIOWEBHEADER_METHOD_GET, _url, NULL, addheader, timeout, localIP, true, (void*)&tobuffer);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -719,7 +677,6 @@ bool DIOWEBCLIENT::Get(DIOURL& url, XPATH& pathfile, XCHAR* addheader, int timeo
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT::Get(XCHAR* url, XPATH& pathfile, XCHAR* addheader, int timeout, XSTRING* localIP)
@@ -744,7 +701,6 @@ bool DIOWEBCLIENT::Get(XCHAR* url, XPATH& pathfile, XCHAR* addheader, int timeou
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT::Put(DIOURL& url, XBUFFER& tobuffer, XCHAR* addheader, int timeout, XSTRING* localIP)
@@ -764,7 +720,6 @@ bool DIOWEBCLIENT::Put(DIOURL& url, XBUFFER& tobuffer, XCHAR* addheader, int tim
 {
   return MakeOperation(DIOWEBHEADER_METHOD_PUT, url, NULL, addheader, timeout, localIP, true, (void*)&tobuffer);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -789,7 +744,6 @@ bool DIOWEBCLIENT::Put(XCHAR* url, XBUFFER& tobuffer, XCHAR* addheader, int time
 
   return MakeOperation(DIOWEBHEADER_METHOD_PUT, _url, NULL, addheader, timeout, localIP, true, (void*)&tobuffer);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -840,7 +794,6 @@ bool DIOWEBCLIENT::Put(DIOURL& url, XPATH& pathfile, XCHAR* addheader, int timeo
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT::Put(XCHAR* url, XPATH& pathfile, XCHAR* addheader, int timeout, XSTRING* localIP)
@@ -865,7 +818,6 @@ bool DIOWEBCLIENT::Put(XCHAR* url, XPATH& pathfile, XCHAR* addheader, int timeou
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT::Post(DIOURL& url, XBUFFER& tobuffer, XBUFFER* postdata, XCHAR* addheader, int timeout, XSTRING* localIP)
@@ -886,7 +838,6 @@ bool DIOWEBCLIENT::Post(DIOURL& url, XBUFFER& tobuffer, XBUFFER* postdata, XCHAR
 {
   return MakeOperation(DIOWEBHEADER_METHOD_POST, url, postdata, addheader, timeout, localIP, true, (void*)&tobuffer);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -912,7 +863,6 @@ bool DIOWEBCLIENT::Post(XCHAR* url, XBUFFER& tobuffer, XBUFFER* postdata, XCHAR*
 
   return MakeOperation(DIOWEBHEADER_METHOD_POST, _url, postdata, addheader, timeout, localIP, true, (void*)&tobuffer);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -956,7 +906,6 @@ bool DIOWEBCLIENT::Post(DIOURL& url, XPATH& pathfile, XBUFFER* postdata, XCHAR* 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT::Post(XCHAR* url, XPATH& pathfile, XBUFFER* postdata, XCHAR* addheader, int timeout, XSTRING* localIP)
@@ -980,7 +929,6 @@ bool DIOWEBCLIENT::Post(XCHAR* url, XPATH& pathfile, XBUFFER* postdata, XCHAR* a
 
   return Post(_url, pathfile, postdata, addheader, timeout, localIP);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1430,7 +1378,6 @@ bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFE
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT::GetSubStringWWWWAuthenticate(XSTRING& www_authenticate, XCHAR* field, XSTRING& value, bool betweenquotation)
@@ -1481,7 +1428,6 @@ bool DIOWEBCLIENT::GetSubStringWWWWAuthenticate(XSTRING& www_authenticate, XCHAR
 
   return www_authenticate.Copy(start+1, end, value)?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
