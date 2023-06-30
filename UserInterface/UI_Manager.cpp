@@ -330,6 +330,31 @@ bool UI_MANAGER::DeleteTemporalUnZipFile(XPATH& pathfile)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool UI_MANAGER::CloseUnZipFile()
+* @brief      CloseUnZipFile
+* @ingroup    USERINTERFACE
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::CloseUnZipFile()
+{
+  if(!unzipfile) 
+    {
+      return false;
+    }
+
+  unzipfile->Close();
+  delete unzipfile;
+
+  unzipfile = NULL;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool UI_MANAGER::Layouts_Add(UI_LAYOUT* layout)
 * @brief      Layouts_Add
 * @ingroup    USERINTERFACE
@@ -4279,31 +4304,6 @@ void UI_MANAGER::HandleEvent(XEVENT* xevent)
                                           }
                                           break;
     }
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_MANAGER::CloseUnZipFile()
-* @brief      CloseUnZipFile
-* @ingroup    USERINTERFACE
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::CloseUnZipFile()
-{
-  if(!unzipfile) 
-    {
-      return false;
-    }
-
-  unzipfile->Close();
-  delete unzipfile;
-
-  unzipfile = NULL;
-
-  return true;
 }
 
 
