@@ -36,6 +36,10 @@
 #include "INPCursor.h"
 #include "INPDevice.h"
 
+#include "GRPLINUXScreenX11.h"
+
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 #define INPLINUXDEVICEMOUSE11_EVRELEASED    0
@@ -43,8 +47,6 @@
 #define INPLINUXDEVICEMOUSE11_EVREPEAT      2
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
-class GRPLINUXSCREENX11;
 
 class INPLINUXDEVICEMOUSEX11 : public INPDEVICE
 {

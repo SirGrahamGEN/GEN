@@ -95,12 +95,15 @@ INPLINUXDEVICEMOUSEX11::INPLINUXDEVICEMOUSEX11() : INPDEVICE()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEMOUSEX11::~INPLINUXDEVICEMOUSEX11()
-{
-  DeleteAllButtons();
-  DeleteAllCursors();
-
+{  
+  // Window root = DefaultRootWindow(grpscreenx11->GetDisplay());
+  // XUngrabButton(grpscreenx11->GetDisplay(), AnyButton, AnyModifier, root);
+ 
   SetEnabled(false);
   created = false;
+
+  DeleteAllButtons();
+  DeleteAllCursors();
 
   Clean();
 }
@@ -118,62 +121,20 @@ INPLINUXDEVICEMOUSEX11::~INPLINUXDEVICEMOUSEX11()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEMOUSEX11::Update()
 {
-  if((!created)||(!enabled)) return false;
-
-  if(!grpscreenx11)               return false;
-  if(!grpscreenx11->HasFocus())   return false;
-
-  XEvent event;
-
-  for(int e=0; e<this->buttons.GetSize(); e++)
+  if(!created || !enabled) 
     {
-      INPBUTTON* button = this->buttons.FastGet(e);
-
-      if(button->GetState() == INPBUTTON_STATE_RELEASED)
-        {
-          button->SetState(INPBUTTON_STATE_UP);
-        }
-
-      if(button->GetState() == INPBUTTON_STATE_PRESSED) button->SetState(INPBUTTON_STATE_HOLD);
+      return false;
     }
 
-  if(XCheckWindowEvent(grpscreenx11->GetDisplay(),(*grpscreenx11->GetWindow()), ButtonPressMask | ButtonReleaseMask,&event))
+  if(!grpscreenx11)               
     {
-      switch(event.type)
-        {
-          case ButtonPress   : { INPBUTTON* button = GetButtonByCode(event.xbutton.button);
-                                 if(button)
-                                   {
-                                     switch (button->GetState())
-                                       {
-                                         case INPBUTTON_STATE_UP:       button->SetState(INPBUTTON_STATE_PRESSED);  break;
-                                         case INPBUTTON_STATE_HOLD:     button->SetState(INPBUTTON_STATE_HOLD);     break;
-                                         case INPBUTTON_STATE_PRESSED:  button->SetState(INPBUTTON_STATE_HOLD);     break;
-                                         case INPBUTTON_STATE_RELEASED: button->SetState(INPBUTTON_STATE_PRESSED);  break;
-                                       }
-
-                                     button->SetPressed(true);
-                                  }
-                               }
-                               break;
-
-          case ButtonRelease : { INPBUTTON* button = GetButtonByCode(event.xbutton.button);
-                                 if(button)
-                                  {
-                                    switch (button->GetState())
-                                      {
-                                        case INPBUTTON_STATE_UP:       button->SetState(INPBUTTON_STATE_UP);       break;
-                                        case INPBUTTON_STATE_HOLD:     button->SetState(INPBUTTON_STATE_RELEASED); break;
-                                        case INPBUTTON_STATE_PRESSED:  button->SetState(INPBUTTON_STATE_RELEASED); break;
-                                        case INPBUTTON_STATE_RELEASED: button->SetState(INPBUTTON_STATE_RELEASED); break;
-                                      }
-
-                                     button->SetPressed(false);
-                                  }
-                               }
-                               break;
-        }
+      return false;
     }
+
+  if(!grpscreenx11->HasFocus())   
+    {
+      return false;
+    }  
 
   Window       root;
   Window       child;
@@ -183,7 +144,7 @@ bool INPLINUXDEVICEMOUSEX11::Update()
   int          mousey = -1;
   unsigned int mask;
 
-  XQueryPointer(grpscreenx11->GetDisplay()  , (*grpscreenx11->GetWindow()) , &root,&child,&rootx,&rooty,&mousex,&mousey,&mask);
+  XQueryPointer(grpscreenx11->GetDisplay(), (*grpscreenx11->GetWindow()), &root, &child, &rootx, &rooty, &mousex, &mousey, &mask);
 
   INPCURSOR* cursor = GetCursor(INPCURSOR_ID_MOUSE);
   if(cursor)
@@ -212,9 +173,70 @@ bool INPLINUXDEVICEMOUSEX11::Update()
       if(button) cursor->AddPointToMotion(button->IsPressed());
     }
 
+  //-------------------------------------------------------------
+  // Read Buttons
+
+  for(XDWORD c=0; c<buttons.GetSize(); c++)
+    {
+      INPBUTTON* button=buttons.Get(c);
+      if(button)
+        {
+          if(button->GetState() == INPBUTTON_STATE_RELEASED)
+            {
+              button->SetState(INPBUTTON_STATE_UP);
+            }
+           else
+            {
+              if(button->GetState() == INPBUTTON_STATE_PRESSED) button->SetState(INPBUTTON_STATE_HOLD);
+           }
+        }
+    }
+    
+  XEvent event; 
+ 
+  if(XPending(grpscreenx11->GetDisplay()))
+    {       
+      XNextEvent(grpscreenx11->GetDisplay(), &event);
+    
+      switch(event.type)
+        {
+          case ButtonPress   : {  INPBUTTON* button = GetButtonByCode(event.xbutton.button);
+                                  if(button)
+                                    {
+                                      switch (button->GetState())
+                                        {
+                                          case INPBUTTON_STATE_UP:       button->SetState(INPBUTTON_STATE_PRESSED);  break;
+                                          case INPBUTTON_STATE_HOLD:     button->SetState(INPBUTTON_STATE_HOLD);     break;
+                                          case INPBUTTON_STATE_PRESSED:  button->SetState(INPBUTTON_STATE_HOLD);     break;
+                                          case INPBUTTON_STATE_RELEASED: button->SetState(INPBUTTON_STATE_PRESSED);  break;
+                                        }
+
+                                      button->SetPressed(true);
+                                    }
+                                }
+                                break;
+
+          case ButtonRelease : {  INPBUTTON* button = GetButtonByCode(event.xbutton.button);
+                                  if(button)
+                                    {
+                                      switch (button->GetState())
+                                        {
+                                          case INPBUTTON_STATE_UP:       button->SetState(INPBUTTON_STATE_UP);       break;
+                                          case INPBUTTON_STATE_HOLD:     button->SetState(INPBUTTON_STATE_RELEASED); break;
+                                          case INPBUTTON_STATE_PRESSED:  button->SetState(INPBUTTON_STATE_RELEASED); break;
+                                          case INPBUTTON_STATE_RELEASED: button->SetState(INPBUTTON_STATE_RELEASED); break;
+                                        }
+
+                                      button->SetPressed(false);
+                                    }
+                                }
+                                break;
+        }
+    }
+
+
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -231,9 +253,22 @@ bool INPLINUXDEVICEMOUSEX11::Update()
 bool INPLINUXDEVICEMOUSEX11::SetScreen(void* screenhandle)
 {
   grpscreenx11 = (GRPLINUXSCREENX11*)screenhandle;
-  if(!grpscreenx11) return false;
-
+  if(!grpscreenx11) 
+    {
+      return false;
+    }
+  
   XSelectInput(grpscreenx11->GetDisplay(), (*grpscreenx11->GetWindow()), KeyPressMask | KeyReleaseMask);
+
+  
+  Window root = DefaultRootWindow(grpscreenx11->GetDisplay());
+  XGrabButton(grpscreenx11->GetDisplay(), AnyButton, AnyModifier, root, False, ButtonPressMask | ButtonReleaseMask, GrabModeAsync, GrabModeAsync, None, None);  
+    
+  //XSetWindowAttributes attr;
+  //attr.event_mask = ButtonPressMask | ButtonReleaseMask;  
+  //XChangeWindowAttributes(grpscreenx11->GetDisplay(), root, CWEventMask, &attr);
+   
+  XFlush(grpscreenx11->GetDisplay());
 
   return true;
 }
@@ -251,8 +286,8 @@ bool INPLINUXDEVICEMOUSEX11::SetScreen(void* screenhandle)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEMOUSEX11::Clean()
-{
-  grpscreenx11 = NULL;
+{ 
+  grpscreenx11  = NULL;  
 }
 
 

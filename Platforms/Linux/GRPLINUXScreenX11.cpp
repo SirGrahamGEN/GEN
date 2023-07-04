@@ -106,12 +106,17 @@ GRPLINUXSCREENX11::GRPLINUXSCREENX11(): GRPSCREEN()
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPLINUXSCREENX11::~GRPLINUXSCREENX11()
 {
+  if(!display)
+    {
+      return;
+    }
+      
   ScreenResolution(display, root, originalwidth, originalheight, 60, false);
 
   Delete();
 
-  if(display) XCloseDisplay(display);
-
+  //XCloseDisplay(display);
+ 
   Clean();
 }
 

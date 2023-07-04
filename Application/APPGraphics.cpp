@@ -137,20 +137,23 @@ bool APPGRAPHICS::Ini(XVECTOR<XSTRING*>* execparams)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPGRAPHICS::End()
-{
+{ 
+  DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATING);
+  DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATED);
+  DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETING);
+  DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETED);
+
   DeleteMainScreenProcess();
 
   XSTRING exittypestring;
 
   GetExitTypeString(exittypestring);
-  if(!exittypestring.IsEmpty()) GEN_XLOG.AddEntry(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_GENERIC, false, exittypestring.Get());
+  if(!exittypestring.IsEmpty()) 
+    {
+      GEN_XLOG.AddEntry(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_GENERIC, false, exittypestring.Get());
+    }
 
   bool status = APPBASE::End();
-
-  DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATING);
-  DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATED);
-  DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETING);
-  DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETED);
 
   return status;
 }
@@ -307,6 +310,11 @@ bool APPGRAPHICS::CreateMainScreenProcess(bool show)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPGRAPHICS::DeleteMainScreenProcess()
 {
+  if(!mainscreen)
+    {
+      return false;
+    }
+
   GRPXEVENT grpeventini(this, GRPXEVENT_TYPE_SCREEN_DELETING);
   grpeventini.SetScreen(mainscreen);
   PostEvent(&grpeventini);
@@ -317,7 +325,6 @@ bool APPGRAPHICS::DeleteMainScreenProcess()
   if(mainscreen)
     {
       mainscreen->Delete();
-
       GRPFACTORY::GetInstance().DeleteScreen(mainscreen);
       mainscreen = NULL;
     }
