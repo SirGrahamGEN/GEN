@@ -221,8 +221,8 @@ bool XWINDOWSFILE::SetPosition(XQWORD position)
 
   //XQWORD mask1 = 0xFFFFFFFF00000000;
 
-  XDWORD high_position = High_QWORD(_position);
-  XDWORD low_position  = Low_QWORD(_position);
+  XDWORD high_position = HighQWORD(_position);
+  XDWORD low_position  = LowQWORD(_position);
 
   if(SetFilePointer(filehandle, low_position, (PLONG)&high_position, FILE_BEGIN) == INVALID_SET_FILE_POINTER) return false;
 

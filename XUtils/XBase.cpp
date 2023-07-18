@@ -1,46 +1,60 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XBase.cpp
-*
+* 
 * @class      XBASE
 * @brief      Basic functions and defines
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#include "XBase.h"
+
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <math.h>
 
-#include "XBase.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -177,6 +191,23 @@ double RoundOff(double value, XBYTE prec)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         float RoundFloat(float x)
+* @brief      Round float
+* @ingroup    XUTILS
+*
+* @param[in]  x : float to round
+*
+* @return     float : rounded float
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+float RoundFloat(float x)
+{
+  return float(x >= 0.0f ? floor(x + 0.5f) : ceil(x - 0.5f));
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float AdjustFloat(float valor, int decimals)
 * @brief      AdjustFloat
@@ -232,8 +263,8 @@ double AdjustDouble(double valor, int decimals)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XBYTE High_WORD(XWORD data)
-* @brief      igh_WORD
+* @fn         XBYTE HighWORD(XWORD data)
+* @brief      HighWORD
 * @ingroup    XUTILS
 *
 * @param[in]  data :
@@ -241,7 +272,7 @@ double AdjustDouble(double valor, int decimals)
 * @return     XBYTE :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XBYTE High_WORD(XWORD data)
+XBYTE HighWORD(XWORD data)
 {
   return ((data & 0xFF00) >> 8);
 }
@@ -249,8 +280,8 @@ XBYTE High_WORD(XWORD data)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XWORD High_DWORD(XDWORD data)
-* @brief      igh_DWORD
+* @fn         XWORD HighDWORD(XDWORD data)
+* @brief      HighDWORD
 * @ingroup    XUTILS
 *
 * @param[in]  data :
@@ -258,7 +289,7 @@ XBYTE High_WORD(XWORD data)
 * @return     XWORD :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XWORD High_DWORD(XDWORD data)
+XWORD HighDWORD(XDWORD data)
 {
   return ((data & 0xFFFF0000) >> 16);
 }
@@ -266,8 +297,8 @@ XWORD High_DWORD(XDWORD data)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XDWORD High_QWORD(XQWORD data)
-* @brief      igh_QWORD
+* @fn         XDWORD HighQWORD(XQWORD data)
+* @brief      HighQWORD
 * @ingroup    XUTILS
 *
 * @param[in]  data :
@@ -275,18 +306,16 @@ XWORD High_DWORD(XDWORD data)
 * @return     XDWORD :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD High_QWORD(XQWORD data)
+XDWORD HighQWORD(XQWORD data)
 {
   return ((data & 0xFFFFFFFF00000000) >> 32);
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XBYTE Low_WORD(XWORD data)
-* @brief      ow_WORD
+* @fn         XBYTE LowWORD(XWORD data)
+* @brief      LowWORD
 * @ingroup    XUTILS
 *
 * @param[in]  data :
@@ -294,7 +323,7 @@ XDWORD High_QWORD(XQWORD data)
 * @return     XBYTE :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XBYTE Low_WORD(XWORD  data)
+XBYTE LowWORD(XWORD data)
 {
   return (XBYTE)(data & 0x00FF);
 }
@@ -302,8 +331,8 @@ XBYTE Low_WORD(XWORD  data)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XWORD Low_DWORD(XDWORD data)
-* @brief      ow_DWORD
+* @fn         XWORD LowDWORD(XDWORD data)
+* @brief      LowDWORD
 * @ingroup    XUTILS
 *
 * @param[in]  data :
@@ -311,7 +340,7 @@ XBYTE Low_WORD(XWORD  data)
 * @return     XWORD :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XWORD Low_DWORD(XDWORD data)
+XWORD LowDWORD(XDWORD data)
 {
   return (XWORD)(data & 0x0000FFFF);
 }
@@ -319,8 +348,8 @@ XWORD Low_DWORD(XDWORD data)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XDWORD Low_QWORD(XQWORD data);
-* @brief      ow_QWORD
+* @fn         XDWORD LowQWORD(XQWORD data);
+* @brief      Low_QWORD
 * @ingroup    XUTILS
 *
 * @param[in]  data) :
@@ -328,7 +357,7 @@ XWORD Low_DWORD(XDWORD data)
 * @return     XDWORD :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD Low_QWORD(XQWORD data)
+XDWORD LowQWORD(XQWORD data)
 {
   return (XDWORD)(data & 0x00000000FFFFFFFF);
 }
@@ -354,7 +383,6 @@ XWORD SwapWORD(XWORD data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD SwapDWORD(XDWORD data)
@@ -375,7 +403,6 @@ XDWORD SwapDWORD(XDWORD data)
 
   return (hi1|lo1|hi2|lo2);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -424,24 +451,6 @@ int InvertSign(int number)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         float RoundFloat(float x)
-* @brief      Round float
-* @ingroup    XUTILS
-*
-* @param[in]  x : float to round
-*
-* @return     float : rounded float
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-float RoundFloat(float x)
-{
-  return float(x >= 0.0f ? floor(x + 0.5f) : ceil(x - 0.5f));
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         XQWORD DWORDToBCD(XDWORD dword)
 * @brief      Convert double word to BCD
 * @ingroup    XUTILS
@@ -464,7 +473,6 @@ XQWORD DWORDToBCD(XDWORD dword)
 
   return result;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -511,7 +519,6 @@ XBYTE RotateBitLeft(XBYTE byte)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE RotateBitRight(XBYTE byte)
@@ -527,7 +534,6 @@ XBYTE RotateBitRight(XBYTE byte)
 {
   return (byte >> 1) | (byte << 7);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -551,4 +557,5 @@ XBYTE RotateBitReverse(XBYTE byte)
 }
 
 
+#pragma endregion
 

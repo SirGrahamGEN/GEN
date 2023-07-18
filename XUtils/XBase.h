@@ -1,38 +1,44 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XBase.h
-*
+* 
 * @class      XBASE
 * @brief      Basic functions and defines
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XBASE_H_
 #define _XBASE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+
+#pragma endregion
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 #ifndef XBYTE
 typedef unsigned char         XBYTE;
@@ -202,7 +208,12 @@ typedef bool (*PROGRESS_FUNCTION)(void);
 #endif 
 
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class XBASE
 {
@@ -218,7 +229,12 @@ class XBASE
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
 
 double    Truncate            (double value);
 double    Fraction            (double value);
@@ -226,24 +242,24 @@ double    Fraction            (double value);
 float     RoundOff            (float value , XBYTE prec);
 double    RoundOff            (double value, XBYTE prec);
 
+float     RoundFloat          (float x);
+
 float     AdjustFloat         (float valor, int decimals);
 double    AdjustDouble        (double valor, int decimals);
 
-XBYTE     High_WORD           (XWORD  data);
-XWORD     High_DWORD          (XDWORD data);
-XDWORD    High_QWORD          (XQWORD data);
+XBYTE     HighWORD            (XWORD  data);
+XWORD     HighDWORD           (XDWORD data);
+XDWORD    HighQWORD           (XQWORD data);
 
-XBYTE     Low_WORD            (XWORD  data);
-XWORD     Low_DWORD           (XDWORD data);
-XDWORD    Low_QWORD           (XQWORD data);
+XBYTE     LowWORD             (XWORD  data);
+XWORD     LowDWORD            (XDWORD data);
+XDWORD    LowQWORD            (XQWORD data);
 
 XWORD     SwapWORD            (XWORD  data);
 XDWORD    SwapDWORD           (XDWORD data);
 XQWORD    SwapQWORD           (XQWORD data);
 
 int       InvertSign          (int number);
-
-float     RoundFloat          (float x);
 
 XQWORD    DWORDToBCD          (XDWORD dword);
 XDWORD    BCDToDWORD          (XQWORD bcd);
@@ -252,5 +268,8 @@ XBYTE     RotateBitLeft       (XBYTE byte);
 XBYTE     RotateBitRight      (XBYTE byte);
 XBYTE     RotateBitReverse    (XBYTE byte);
 
-#endif
 
+#pragma endregion
+
+
+#endif
