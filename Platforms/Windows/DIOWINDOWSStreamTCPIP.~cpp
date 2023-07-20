@@ -616,7 +616,7 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleClient()
   rem_addr.sin_family       = AF_INET;
   
   XBUFFER charstr;
-
+  
   IPstring.ConvertToASCII(charstr);
   
   #ifndef BUILDER
@@ -624,7 +624,7 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleClient()
   clientIP.Set(charstr.GetPtrChar());
   #else
   rem_addr.sin_addr.s_addr  = inet_addr(charstr.GetPtrChar());
-  clientIP.Set(charstr.GetPtrChar());
+  clientIP.Set(charstr);
   #endif
   
   rem_addr.sin_port         = htons(config->GetRemotePort());

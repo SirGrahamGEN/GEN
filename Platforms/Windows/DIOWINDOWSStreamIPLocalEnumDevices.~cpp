@@ -92,7 +92,7 @@ DIOWINDOWSSTREAMIPLOCALENUMDEVICES::~DIOWINDOWSSTREAMIPLOCALENUMDEVICES()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-#ifdef BUILDER
+/*
 bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
 {
   DelAllDevices();
@@ -104,7 +104,7 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
 
   if(status != ERROR_SUCCESS) return false;
 
-  PIP_ADAPTER_INFO padapterinfo = adapterinfo;
+  PIP_ADAPTER_INFO padapterinfo = adapterinfo;  
   do {  // Eliminate the virtual Wifi Adapter
         if(strcmp(padapterinfo->Description,"Microsoft Virtual WiFi Miniport Adapter"))
           {
@@ -139,6 +139,46 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
                 device->GetIP()->Set(IP);
                 device->GetIP()->GetMask()->Set(mask);
 
+                { GUID                    interfaceGUID;
+                  DNS_INTERFACE_SETTINGS  interfacesettings { 0 };
+                  XSTRING                 strGUID = padapterinfo->AdapterName;
+                  XSTRING                 nameservers;
+                                                 
+                  IIDFromString(strGUID.Get(), &interfaceGUID);
+                  
+                  interfacesettings.Version = DNS_INTERFACE_SETTINGS_VERSION1;   
+                  
+                  GetInterfaceDnsSettings(interfaceGUID, &interfacesettings);
+
+                  nameservers = interfacesettings.NameServer;
+                 
+                  FreeInterfaceDnsSettings(&interfacesettings);  
+
+                  XSTRING* DNSserver = NULL;
+                  int      start     = 0;
+
+                  for(int c=0; c<nameservers.GetSize(); c++)
+                    {
+                      if(nameservers.Get()[c] == __C(','))
+                        {
+                          DNSserver = new XSTRING();
+                          if(DNSserver)
+                            {
+                              nameservers.Copy(start, c, (*DNSserver)); 
+                              start = c+1;
+                              device->GetDNSservers()->Add(DNSserver);
+                            }  
+                        }    
+                    } 
+
+                  DNSserver = new XSTRING();
+                  if(DNSserver)
+                    {
+                      nameservers.Copy(start, nameservers.GetSize(), (*DNSserver));                       
+                      device->GetDNSservers()->Add(DNSserver);
+                    }                   
+                }
+
                 devices.Add(device);
               }
           }
@@ -149,7 +189,17 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
 
   return true;
 }
-#else
+*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
+* @brief      Search
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
 {
   PIP_ADAPTER_ADDRESSES               adapter_addresses;
@@ -212,7 +262,7 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
 
           device->GetMAC()->Set((XBYTE*)aa->PhysicalAddress);
          
-		      for(ua = aa->FirstUnicastAddress; ua != NULL; ua = ua->Next)
+		      for(ua = aa->FirstUnicastAddress; ua != NULL; ua = ua->Next) 
             {
 			        int family = ua->Address.lpSockaddr->sa_family;
 	            if(family == AF_INET)
@@ -226,14 +276,14 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
                       ConvertLengthToIpv4Mask(ua->OnLinkPrefixLength, (ULONG*)&mask);                  
 
                       SWAPDWORD(mask);
-                      device->GetIP()->Set(buffer);
+                      device->GetIP()->Set(buffer);                     
                       device->GetIP()->GetMask()->Set((XBYTE)(mask >> 24),(XBYTE)(mask >> 16),(XBYTE)(mask >> 8),(XBYTE)(mask));   
                       break;
                     }
                 }
 		        }          
 
-          for(dnsa = aa->FirstDnsServerAddress; dnsa != NULL; dnsa = dnsa->Next)
+          for(dnsa = aa->FirstDnsServerAddress; dnsa != NULL; dnsa = dnsa->Next) 
             {
               int family = dnsa->Address.lpSockaddr->sa_family;
 	            if(family == AF_INET)
@@ -247,11 +297,11 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
                           DNSserver->Set(buffer);
                           if(!DNSserver->IsEmpty())
                             {
-                              device->GetDNSservers()->Add(DNSserver);
+                              device->GetDNSservers()->Add(DNSserver);         
                             }
-                            else
+                            else 
                             {
-                              delete DNSserver;
+                              delete DNSserver;     
                             }
                         }
                     }
@@ -267,11 +317,11 @@ bool DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Search()
 
   return true;
 }
-#endif
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
