@@ -4,61 +4,81 @@
 
 
 # --------------------------------------------------------------------
-# Compile Info
-
-add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
-                   COMMAND echo Proyect ${CMAKE_PROJECT_NAME}
-                   COMMAND echo Mode ${CMAKE_BUILD_TYPE}
-                   COMMAND echo To ${CMAKE_CURRENT_BINARY_DIR}
-                   VERBATIM)
-
-
-# --------------------------------------------------------------------
 # Windows
 
- if(COMPILE_TO_WINDOWS)  
+if(COMPILE_TO_WINDOWS)  
  
-   if(APP_CONSOLE_FEATURE)    
-     set_target_properties(${CMAKE_PROJECT_NAME}  PROPERTIES LINK_FLAGS /SUBSYSTEM:CONSOLE)
-   else()
-     if(GRP_FEATURE)
-       set_target_properties(${CMAKE_PROJECT_NAME}  PROPERTIES LINK_FLAGS /SUBSYSTEM:WINDOWS )
-       # target_link_libraries(${CMAKE_PROJECT_NAME} shcore)
-     endif()
-   endif()
+  if(APP_CONSOLE_FEATURE)    
 
-   if(XTRACE_FEATURE OR DIO_FEATURE)    
-     target_link_libraries(${CMAKE_PROJECT_NAME} ws2_32) 
-     target_link_libraries(${CMAKE_PROJECT_NAME} iphlpapi)       
-   endif()
+    set_target_properties(${CMAKE_PROJECT_NAME}  PROPERTIES LINK_FLAGS /SUBSYSTEM:CONSOLE)
 
-   if(XSYSTEM_FEATURE)          
-      target_link_libraries(${CMAKE_PROJECT_NAME} secur32)      
-      target_link_libraries(${CMAKE_PROJECT_NAME} powrprof)
-   endif()
+  else()
 
-   if(DIO_STREAMUSB_FEATURE)      
-     target_link_libraries(${CMAKE_PROJECT_NAME} setupapi)
-   endif()  
+    if(GRP_FEATURE)
+
+      set_target_properties(${CMAKE_PROJECT_NAME}  PROPERTIES LINK_FLAGS /SUBSYSTEM:WINDOWS )
+      # target_link_libraries(${CMAKE_PROJECT_NAME} shcore)
+
+    endif()
+
+  endif()
+
+
+  if(XTRACE_FEATURE OR DIO_FEATURE)    
+
+    target_link_libraries(${CMAKE_PROJECT_NAME} ws2_32) 
+    target_link_libraries(${CMAKE_PROJECT_NAME} iphlpapi)       
+
+  endif()
+
+
+  if(XSYSTEM_FEATURE)          
+
+    target_link_libraries(${CMAKE_PROJECT_NAME} secur32)      
+    target_link_libraries(${CMAKE_PROJECT_NAME} powrprof)
+
+  endif()
+
+
+  if(DIO_STREAMUSB_FEATURE)      
+
+    target_link_libraries(${CMAKE_PROJECT_NAME} setupapi)
+
+  endif()  
+
   
-   if(DIO_STREAMBLUETOOTH_FEATURE OR DIO_STREAMBLUETOOTHLE_FEATURE)      
-     target_link_libraries(${CMAKE_PROJECT_NAME} bthprops.lib)
-   endif()  
+  if(DIO_STREAMBLUETOOTH_FEATURE OR DIO_STREAMBLUETOOTHLE_FEATURE)      
+
+    target_link_libraries(${CMAKE_PROJECT_NAME} bthprops.lib)
+
+  endif()  
+
   
-   if(SND_FEATURE)  
-     target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
-   endif()
+  if(SND_FEATURE)  
 
-   if(DATABASES_SQL_MYSQL_FEATURE)    
-     target_link_libraries(${CMAKE_PROJECT_NAME} libmysql.lib)
-   endif()
+    target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
 
-   if(DATABASES_SQL_POSTGRESQL_FEATURE)
-     target_link_libraries(${CMAKE_PROJECT_NAME} libpq.lib)
-   endif() 
+  endif()
 
-   if(DIO_PCAP_FEATURE)
-     target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_LIB})
+
+  if(DATABASES_SQL_MYSQL_FEATURE)    
+
+    target_link_libraries(${CMAKE_PROJECT_NAME} libmysql.lib)
+
+  endif()
+
+
+  if(DATABASES_SQL_POSTGRESQL_FEATURE)
+
+    target_link_libraries(${CMAKE_PROJECT_NAME} libpq.lib)
+
+  endif() 
+
+
+  if(DIO_PCAP_FEATURE)
+
+    target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_LIB})
+
    endif()  
 
 endif()
@@ -70,8 +90,11 @@ endif()
 if(COMPILE_TO_LINUX)
   
   if((COMPILE_TO_LINUX_ARM_RPI) OR (COMPILE_TO_LINUX_ARM_RPI64))   
+
     target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC "${RPI_SYSROOT}/lib/arm-linux-gnueabihf"  "${RPI_SYSROOT}/usr/lib/arm-linux-gnueabihf")     
+
   endif() 
+
   
   target_link_libraries(${CMAKE_PROJECT_NAME} stdc++)  
   target_link_libraries(${CMAKE_PROJECT_NAME} pthread)  
@@ -79,47 +102,77 @@ if(COMPILE_TO_LINUX)
   target_link_libraries(${CMAKE_PROJECT_NAME} dl) 
   target_link_libraries(${CMAKE_PROJECT_NAME} m)         
 
+
   if(DIO_STREAMUSB_FEATURE)
+
     target_link_libraries(${CMAKE_PROJECT_NAME} udev)  
+
   endif()
+
 
   if (DIO_STREAMBLUETOOTH_FEATURE OR DIO_STREAMBLUETOOTHLE_FEATURE)
+
     target_link_libraries(${CMAKE_PROJECT_NAME} bluetooth)
+
   endif()  
+
 
   if(DIO_STREAMWIFI_FEATURE)
+
     target_link_libraries(${CMAKE_PROJECT_NAME} iw)    
+
   endif()
+
 
   if(DIO_PCAP_FEATURE)   
+
     target_link_libraries(${CMAKE_PROJECT_NAME} pcap)
+
   endif()
+
   
   if(SND_FEATURE)  
+
     target_link_libraries(${CMAKE_PROJECT_NAME} asound)
     target_link_libraries(${CMAKE_PROJECT_NAME} openal)
+
   endif()  
 
+
   if(DATABASES_SQL_MYSQL_FEATURE)
-      target_link_libraries(${CMAKE_PROJECT_NAME} mysqlclient)
+
+    target_link_libraries(${CMAKE_PROJECT_NAME} mysqlclient)
+
   endif()
 
+
   if(DATABASES_SQL_POSTGRESQL_FEATURE)
+
     target_link_libraries(${CMAKE_PROJECT_NAME} pq)
+
   endif() 
 
   if(GRP_FEATURE)
+
     if(LINUX_X11_FEATURE)
+
       target_link_libraries(${CMAKE_PROJECT_NAME} X11)
       target_link_libraries(${CMAKE_PROJECT_NAME} Xext)
       target_link_libraries(${CMAKE_PROJECT_NAME} Xrandr)
       target_link_libraries(${CMAKE_PROJECT_NAME} Xxf86vm)
+
     endif()
+
   endif()
 
+
   if(DIO_LINUX_DBUS_FEATURE)
+
     target_link_libraries(${CMAKE_PROJECT_NAME} dbus-1)
+
   endif()
+
+
 endif()
 
 
@@ -127,7 +180,9 @@ endif()
 # Android
   
 if(COMPILE_TO_ANDROID)
+
   #target_link_libraries(${CMAKE_PROJECT_NAME}  android log)
+
 endif()
 
 
@@ -135,7 +190,9 @@ endif()
 # Google Tests
 
 if(GOOGLETEST_FEATURE)
+
   include(GoogleTest)
   gtest_discover_tests(${CMAKE_PROJECT_NAME})
+
 endif()
 

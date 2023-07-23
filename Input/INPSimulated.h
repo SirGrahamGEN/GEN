@@ -49,14 +49,16 @@
 class INPSIMULATED
 {
   public:
-                    INPSIMULATED    ();
-    virtual        ~INPSIMULATED    ();
+                        INPSIMULATED        ();
+    virtual            ~INPSIMULATED        ();
+
+    virtual bool        PressKey            (XBYTE key, int timepress = 100);
 
   protected:
 
   private:
 
-    void            Clean           ();
+    void                Clean               ();
 };
 
 #pragma endregion

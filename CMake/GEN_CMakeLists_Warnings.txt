@@ -18,7 +18,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     add_compile_options(/wd4251)                            # warning C4251: needs to have dll-interface to be used by clients of class 'xxxxxxxx'
   endif()
 
- #add_compile_options(/wd4172)                               # warning C4172: returning address of local variable or temporary: var
+ #add_compile_options(/wd4172)                              # warning C4172: returning address of local variable or temporary: var
 
 endif()
 

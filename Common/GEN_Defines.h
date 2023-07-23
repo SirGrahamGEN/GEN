@@ -147,10 +147,13 @@
 
 // --- Input Manager ------------------------------------------------------------------------------
 
+#ifndef GEN_INPFACTORY
+#define GEN_INPFACTORY                    INPFACTORY::GetInstance()
+#endif
+
 #ifndef GEN_INPMANAGER
 #define GEN_INPMANAGER                    INPMANAGER::GetInstance()
 #endif
-
 
 // --- User Interface manager ---------------------------------------------------------------------
 

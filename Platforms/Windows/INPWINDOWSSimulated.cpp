@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       INPSimulated.cpp
+* @file       INPWindowsSimulated.cpp
 * 
-* @class      INPSIMULATED
-* @brief      Input Simulated
+* @class      INPWINDOWSSIMULATED
+* @brief      Input WINDOWS Simulated
 * @ingroup    INPUT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -31,7 +31,7 @@
 
 #include "GEN_Defines.h"
 
-#include "INPSimulated.h"
+#include "INPWindowsSimulated.h"
 
 #pragma endregion
 
@@ -39,6 +39,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include <Windows.h>
 
 #include "XMemory_Control.h"
 
@@ -58,14 +59,14 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         INPSIMULATED::INPSIMULATED()
+* @fn         INPWINDOWSSIMULATED::INPWINDOWSSIMULATED()
 * @brief      Constructor
-* @ingroup    INPUT
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-INPSIMULATED::INPSIMULATED()
+INPWINDOWSSIMULATED::INPWINDOWSSIMULATED()
 {
   Clean();
 }
@@ -73,15 +74,15 @@ INPSIMULATED::INPSIMULATED()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         INPSIMULATED::~INPSIMULATED()
+* @fn         INPWINDOWSSIMULATED::~INPWINDOWSSIMULATED()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    INPUT
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-INPSIMULATED::~INPSIMULATED()
+INPWINDOWSSIMULATED::~INPWINDOWSSIMULATED()
 {
   Clean();
 }
@@ -89,9 +90,9 @@ INPSIMULATED::~INPSIMULATED()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPSIMULATED::PressKey(XBYTE key, int timepress)
+* @fn         bool INPWINDOWSSIMULATED::PressKey(XBYTE key, int timepress)
 * @brief      PressKey
-* @ingroup    INPUT
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  key : 
 * @param[in]  timepress : 
@@ -99,23 +100,29 @@ INPSIMULATED::~INPSIMULATED()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPSIMULATED::PressKey(XBYTE key, int timepress)
+bool INPWINDOWSSIMULATED::PressKey(XBYTE key, int timepress)
 {
-  return false;
+  keybd_event(key, 0, 0, 0);    
+    
+  Sleep(timepress);
+  
+  keybd_event(key, 0, KEYEVENTF_KEYUP, 0);
+
+  return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void INPSIMULATED::Clean()
+* @fn         void INPWINDOWSSIMULATED::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    INPUT
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void INPSIMULATED::Clean()
+void INPWINDOWSSIMULATED::Clean()
 {
 
 }

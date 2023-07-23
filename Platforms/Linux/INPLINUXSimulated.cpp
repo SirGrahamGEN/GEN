@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       INPSimulated.cpp
+* @file       INPLINUXSimulated.cpp
 * 
-* @class      INPSIMULATED
-* @brief      Input Simulated
+* @class      INPLINUXSIMULATED
+* @brief      Input LINUX Simulated
 * @ingroup    INPUT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -31,7 +31,7 @@
 
 #include "GEN_Defines.h"
 
-#include "INPSimulated.h"
+#include "INPLINUXSimulated.h"
 
 #pragma endregion
 
@@ -56,16 +56,17 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         INPSIMULATED::INPSIMULATED()
+* @fn         INPLINUXSIMULATED::INPLINUXSIMULATED()
 * @brief      Constructor
-* @ingroup    INPUT
+* @ingroup    PLATFORM_LINUX
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-INPSIMULATED::INPSIMULATED()
+INPLINUXSIMULATED::INPLINUXSIMULATED()
 {
   Clean();
 }
@@ -73,15 +74,15 @@ INPSIMULATED::INPSIMULATED()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         INPSIMULATED::~INPSIMULATED()
+* @fn         INPLINUXSIMULATED::~INPLINUXSIMULATED()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    INPUT
+* @ingroup    PLATFORM_LINUX
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-INPSIMULATED::~INPSIMULATED()
+INPLINUXSIMULATED::~INPLINUXSIMULATED()
 {
   Clean();
 }
@@ -89,33 +90,15 @@ INPSIMULATED::~INPSIMULATED()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPSIMULATED::PressKey(XBYTE key, int timepress)
-* @brief      PressKey
-* @ingroup    INPUT
-* 
-* @param[in]  key : 
-* @param[in]  timepress : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool INPSIMULATED::PressKey(XBYTE key, int timepress)
-{
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void INPSIMULATED::Clean()
+* @fn         void INPLINUXSIMULATED::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    INPUT
+* @ingroup    PLATFORM_LINUX
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void INPSIMULATED::Clean()
+void INPLINUXSIMULATED::Clean()
 {
 
 }

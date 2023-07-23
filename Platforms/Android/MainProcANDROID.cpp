@@ -1148,7 +1148,7 @@ bool MAINPROCANDROID::Factorys_Ini()
   #endif
 
   #ifdef INP_ACTIVE  
-  if(!INPFACTORYDEVICES::SetInstance(new INPANDROIDFACTORYDEVICES())) return false;
+  if(!INPFACTORY::SetInstance(new INPANDROIDFACTORYDEVICES())) return false;
   #endif
 
   #ifdef DIO_ACTIVE
@@ -1206,7 +1206,7 @@ bool MAINPROCANDROID::Factorys_End()
 
   #ifdef INP_ACTIVE
   INPMANAGER::DelInstance();
-  INPFACTORYDEVICES::DelInstance();
+  INPFACTORY::DelInstance();
   #endif
 
   #ifdef XTRACE_VIRTUALCLOCKTICK

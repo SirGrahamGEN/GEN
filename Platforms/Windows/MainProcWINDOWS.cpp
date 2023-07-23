@@ -79,9 +79,9 @@
 #ifdef INP_ACTIVE
 #include "INPWINDOWSDeviceKeyboard.h"
 #include "INPWINDOWSDeviceMouse.h"
-#include "INPWINDOWSFactoryDevices.h"
+#include "INPWINDOWSFactory.h"
 #include "INPManager.h"
-#include "INPFactoryDevices.h"
+#include "INPFactory.h"
 #endif
 
 #ifdef SND_ACTIVE
@@ -418,7 +418,7 @@ bool MAINPROCWINDOWS::Factorys_Ini()
   #endif
 
   #ifdef INP_ACTIVE
-  if(!INPFACTORYDEVICES::SetInstance(new INPWINDOWSFACTORYDEVICES())) return false;  
+  if(!INPFACTORY::SetInstance(new INPWINDOWSFACTORY())) return false;  
   #endif
 
   #ifdef DIO_ACTIVE
@@ -483,7 +483,7 @@ bool MAINPROCWINDOWS::Factorys_End()
 
   #ifdef INP_ACTIVE
   INPMANAGER::DelInstance();
-  INPFACTORYDEVICES::DelInstance();
+  INPFACTORY::DelInstance();
   #endif
 
   #ifdef XTRACE_VIRTUALCLOCKTICK

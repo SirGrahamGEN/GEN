@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       INPLINUXFactoryDevices.cpp
-*
-* @class      INPLINUXFACTORYDEVICES
-* @brief      Linux Input Factory Devices class
+* 
+* @file       INPLINUXFactory.cpp
+* 
+* @class      INPLINUXFACTORY
+* @brief      INPUT WINDOWS factory
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#include "INPLINUXFactory.h"
+
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XFileTXT.h"
 #include "XTrace.h"
@@ -48,19 +54,27 @@
 #include "INPLINUXDeviceMouseX11.h"
 #endif
 
-#include "INPLINUXFactoryDevices.h"
+#include "INPLINUXFactory.h"
 
 #include "XMemory_Control.h"
 
+
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_MEMBERS
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         INPDEVICE* INPLINUXFACTORYDEVICES::CreateDevice(XCHAR* devicename, void* param)
+* @fn         INPDEVICE* INPLINUXFACTORY::CreateDevice(XCHAR* devicename, void* param)
 * @brief      CreateDevice
 * @ingroup    PLATFORM_LINUX
 *
@@ -70,7 +84,7 @@
 * @return     INPDEVICE* : device input created
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-INPDEVICE* INPLINUXFACTORYDEVICES::CreateDevice(INPDEVICE_TYPE type, void* param)
+INPDEVICE* INPLINUXFACTORY::CreateDevice(INPDEVICE_TYPE type, void* param)
 {
   INPDEVICE* inpdevice    = NULL;
   GRPSCREEN* grpscreen    = (GRPSCREEN*)param;
@@ -151,10 +165,9 @@ INPDEVICE* INPLINUXFACTORYDEVICES::CreateDevice(INPDEVICE_TYPE type, void* param
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool INPLINUXFACTORYDEVICES::DeleteDevice(INPDEVICE* device)
+* @fn         bool INPLINUXFACTORY::DeleteDevice(INPDEVICE* device)
 * @brief      Delete Device
 * @ingroup    PLATFORM_LINUX
 *
@@ -163,7 +176,7 @@ INPDEVICE* INPLINUXFACTORYDEVICES::CreateDevice(INPDEVICE_TYPE type, void* param
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPLINUXFACTORYDEVICES::DeleteDevice(INPDEVICE* device)
+bool INPLINUXFACTORY::DeleteDevice(INPDEVICE* device)
 {
   if(!device)  return false;
 
@@ -173,10 +186,9 @@ bool INPLINUXFACTORYDEVICES::DeleteDevice(INPDEVICE* device)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPLINUXFACTORYDEVICES::GetDeviceHandlers(INPDEVICE_TYPE devicetype, XSTRING& handlers)
+* @fn         bool INPLINUXFACTORY::GetDeviceHandlers(INPDEVICE_TYPE devicetype, XSTRING& handlers)
 * @brief      GetDeviceHandlers
 * @ingroup    PLATFORM_LINUX
 *
@@ -186,7 +198,7 @@ bool INPLINUXFACTORYDEVICES::DeleteDevice(INPDEVICE* device)
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool INPLINUXFACTORYDEVICES::GetDeviceHandlers(INPDEVICE_TYPE devicetype, XVECTOR<INPLINUXDEVICEID*>& devices)
+bool INPLINUXFACTORY::GetDeviceHandlers(INPDEVICE_TYPE devicetype, XVECTOR<INPLINUXDEVICEID*>& devices)
 {
   bool status = false;
   
@@ -337,5 +349,5 @@ bool INPLINUXFACTORYDEVICES::GetDeviceHandlers(INPDEVICE_TYPE devicetype, XVECTO
   return status;
 }
 
-
+#pragma endregion
 

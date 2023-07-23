@@ -53,7 +53,7 @@
 
 #include "GRPScreen.h"
 
-#include "INPLINUXFactoryDevices.h"
+#include "INPLINUXFactory.h"
 
 #include "INPLINUXDeviceKeyboardDirect.h"
 
@@ -382,7 +382,7 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::CreateAllButtons()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEKEYBOARDDIRECT::CreateDevices()
 {
-  INPLINUXFACTORYDEVICES*     inpdevices = (INPLINUXFACTORYDEVICES*)(&INPFACTORYDEVICES::GetInstance());
+  INPLINUXFACTORY*     inpdevices = (INPLINUXFACTORY*)(&INPFACTORY::GetInstance());
   XVECTOR<INPLINUXDEVICEID*>  devicesID;
       
   if(inpdevices) inpdevices->GetDeviceHandlers(INPDEVICE_TYPE_KEYBOARD, devicesID);

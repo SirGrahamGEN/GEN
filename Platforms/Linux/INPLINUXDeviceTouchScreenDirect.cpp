@@ -48,7 +48,7 @@
 
 #include "GRPScreen.h"
 
-#include "INPLINUXFactoryDevices.h"
+#include "INPLINUXFactory.h"
 
 #include "INPLINUXDeviceTouchScreenDirect.h"
 
@@ -296,7 +296,7 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::CreateAllCursors()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICETOUCHSCREENDIRECT::OpenAllDevicesID()
 {
-  INPLINUXFACTORYDEVICES*     inpdevices = (INPLINUXFACTORYDEVICES*)(&INPFACTORYDEVICES::GetInstance());
+  INPLINUXFACTORY*     inpdevices = (INPLINUXFACTORY*)(&INPFACTORY::GetInstance());
   XVECTOR<INPLINUXDEVICEID*>  devicesID;
       
   if(inpdevices) inpdevices->GetDeviceHandlers(INPDEVICE_TYPE_TOUCHSCREEN, devicesID);

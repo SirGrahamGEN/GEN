@@ -39,7 +39,7 @@
 #include "XLog.h"
 
 #ifdef INP_ACTIVE
-#include "INPFactoryDevices.h"
+#include "INPFactory.h"
 #include "INPManager.h"
 #endif
 
@@ -272,21 +272,21 @@ bool APPGRAPHICS::CreateMainScreenProcess(bool show)
         keyboard = GEN_INPMANAGER.GetDevice(INPDEVICE_TYPE_KEYBOARD);
         if(!keyboard)
           {
-            keyboard = INPFACTORYDEVICES::GetInstance().CreateDevice(INPDEVICE_TYPE_KEYBOARD, mainscreen);
+            keyboard = INPFACTORY::GetInstance().CreateDevice(INPDEVICE_TYPE_KEYBOARD, mainscreen);
             if(keyboard)  GEN_INPMANAGER.AddDevice(keyboard);
           }
 
         mouse = GEN_INPMANAGER.GetDevice(INPDEVICE_TYPE_MOUSE);
         if(!mouse)
           {
-            mouse = INPFACTORYDEVICES::GetInstance().CreateDevice(INPDEVICE_TYPE_MOUSE, mainscreen);
+            mouse = INPFACTORY::GetInstance().CreateDevice(INPDEVICE_TYPE_MOUSE, mainscreen);
             if(mouse) GEN_INPMANAGER.AddDevice(mouse);
           }
 
         touchscreen = GEN_INPMANAGER.GetDevice(INPDEVICE_TYPE_TOUCHSCREEN);
         if(!touchscreen)
           {
-            touchscreen = INPFACTORYDEVICES::GetInstance().CreateDevice(INPDEVICE_TYPE_TOUCHSCREEN, mainscreen);
+            touchscreen = INPFACTORY::GetInstance().CreateDevice(INPDEVICE_TYPE_TOUCHSCREEN, mainscreen);
             if(touchscreen) GEN_INPMANAGER.AddDevice(touchscreen);
           }
 

@@ -47,7 +47,7 @@
 
 #include "GRPScreen.h"
 
-#include "INPLINUXFactoryDevices.h"
+#include "INPLINUXFactory.h"
 
 #include "INPLINUXDeviceMouseDirect.h"
 
@@ -339,7 +339,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::CreateAllCursors()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICEMOUSEDIRECT::OpenAllDevicesID()
 {
-  INPLINUXFACTORYDEVICES*     inpdevices = (INPLINUXFACTORYDEVICES*)(&INPFACTORYDEVICES::GetInstance());
+  INPLINUXFACTORY*     inpdevices = (INPLINUXFACTORY*)(&INPFACTORY::GetInstance());
   XVECTOR<INPLINUXDEVICEID*>  devicesID;
       
   if(inpdevices) inpdevices->GetDeviceHandlers(INPDEVICE_TYPE_MOUSE, devicesID);

@@ -89,8 +89,8 @@
 
 #ifdef INP_ACTIVE
 #include "INPManager.h"
-#include "INPFactoryDevices.h"
-#include "INPLINUXFactoryDevices.h"
+#include "INPFactory.h"
+#include "INPLINUXFactory.h"
 #endif
 
 #ifdef SND_ACTIVE
@@ -406,7 +406,7 @@ bool MAINPROCLINUX::Factorys_Ini()
   #endif
 
   #ifdef INP_ACTIVE
-  if(!INPFACTORYDEVICES::SetInstance(new INPLINUXFACTORYDEVICES())) return false;  
+  if(!INPFACTORY::SetInstance(new INPLINUXFACTORY())) return false;  
   #endif
 
   #ifdef DIO_ACTIVE
@@ -484,7 +484,7 @@ bool MAINPROCLINUX::Factorys_End()
 
   #ifdef INP_ACTIVE
   INPMANAGER::DelInstance();
-  INPFACTORYDEVICES::DelInstance();
+  INPFACTORY::DelInstance();
   #endif
 
   #ifdef XTRACE_VIRTUALCLOCKTICK

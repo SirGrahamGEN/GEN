@@ -571,103 +571,108 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
 
           switch(diostream->GetCurrentState())
             {
-              case DIOLINUXUDPFSMSTATE_NONE               : break;
+              case DIOLINUXUDPFSMSTATE_NONE                 : break;
 
-              case DIOLINUXUDPFSMSTATE_GETTINGCONNECTION   : { struct sockaddr_in loc_addr = { 0 };
+              case DIOLINUXUDPFSMSTATE_GETTINGCONNECTION    : { struct sockaddr_in loc_addr = { 0 };
 
-                                                              diostream->handle = socket(AF_INET, SOCK_DGRAM, 0);
-                                                              if(diostream->handle < 0)
-                                                                {
-                                                                  diostream->SetEvent(DIOLINUXUDPFSMEVENT_DISCONNECTING);
-                                                                  break;
-                                                                }
+                                                                diostream->handle = socket(AF_INET, SOCK_DGRAM, 0);
+                                                                if(diostream->handle < 0)
+                                                                  {
+                                                                    diostream->SetEvent(DIOLINUXUDPFSMEVENT_DISCONNECTING);
+                                                                    break;
+                                                                  }
 
-                                                              /*
-                                                              int options = 1;
-                                                              if(setsockopt(diostream->handle, SOL_SOCKET, SO_REUSEADDR, (const char *)&options, sizeof(options)) == -1)
-                                                                {
-                                                                  diostream->SetEvent(DIOLINUXUDPFSMEVENT_DISCONNECTING);
-                                                                  break;
-                                                                }
-                                                              */
+                                                                /*
+                                                                int options = 1;
+                                                                if(setsockopt(diostream->handle, SOL_SOCKET, SO_REUSEADDR, (const char *)&options, sizeof(options)) == -1)
+                                                                  {
+                                                                    diostream->SetEvent(DIOLINUXUDPFSMEVENT_DISCONNECTING);
+                                                                    break;
+                                                                  }
+                                                                */
 
-                                                              if(diostream->config->IsServer() || (!diostream->config->GetLocalIP()->IsEmpty()))
-                                                                {
-                                                                  XSTRING IPstring;
+                                                                if(!diostream->config)
+                                                                  { 
+                                                                    break;
+                                                                  }
 
-                                                                  diostream->config->GetLocalIP()->GetXString(IPstring);
+                                                                if(diostream->config->IsServer() || (!diostream->config->GetLocalIP()->IsEmpty()))
+                                                                  {
+                                                                    XSTRING IPstring;
 
-                                                                  loc_addr.sin_family = AF_INET;
+                                                                    diostream->config->GetLocalIP()->GetXString(IPstring);
 
-                                                                  if(!diostream->config->GetLocalIP()->IsEmpty())
-                                                                    {
-                                                                      XBUFFER charstr;
+                                                                    loc_addr.sin_family = AF_INET;
+
+                                                                    if(!diostream->config->GetLocalIP()->IsEmpty())
+                                                                      {
+                                                                        XBUFFER charstr;
                                                                       
-                                                                      IPstring.ConvertToASCII(charstr);                                                                      
-                                                                      loc_addr.sin_addr.s_addr = inet_addr(charstr.GetPtrChar());                                                                      
+                                                                        IPstring.ConvertToASCII(charstr);                                                                      
+                                                                        loc_addr.sin_addr.s_addr = inet_addr(charstr.GetPtrChar());                                                                      
 
-                                                                    } else loc_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+                                                                      } else loc_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 
-                                                                  loc_addr.sin_port = htons(diostream->config->GetRemotePort());
+                                                                    loc_addr.sin_port = htons(diostream->config->GetRemotePort());
 
-                                                                  if(bind(diostream->handle, (struct sockaddr *)&loc_addr, sizeof(loc_addr)) == -1)
-                                                                    {
-                                                                      diostream->SetEvent(DIOLINUXUDPFSMEVENT_DISCONNECTING);
-                                                                      break;
-                                                                    }
-                                                                }
+                                                                    if(bind(diostream->handle, (struct sockaddr *)&loc_addr, sizeof(loc_addr)) == -1)
+                                                                      {
+                                                                        diostream->SetEvent(DIOLINUXUDPFSMEVENT_DISCONNECTING);
+                                                                        break;
+                                                                      }
+                                                                  }
 
-                                                              if(!diostream->config->IsServer())
-                                                                {                                                                 
-                                                                  if(diostream->config->IsBroadcastModeActive())
-                                                                    {
-                                                                      int yes = 1;
-                                                                      setsockopt(diostream->handle, SOL_SOCKET, SO_BROADCAST, (char*)&yes, sizeof(yes));
-                                                                    }
-                                                                   else
-                                                                    {
-                                                                      if(diostream->config->GetRemoteURL()->GetSize()) 
-                                                                        {
-                                                                          diostream->config->GetRemoteURL()->ResolveURL(diostream->remoteaddress);
-                                                                        }
-                                                                    }
-                                                                }
+                                                                if(!diostream->config->IsServer())
+                                                                  {                                                                 
+                                                                    if(diostream->config->IsBroadcastModeActive())
+                                                                      {
+                                                                        int yes = 1;
+                                                                        setsockopt(diostream->handle, SOL_SOCKET, SO_BROADCAST, (char*)&yes, sizeof(yes));
+                                                                      }
+                                                                     else
+                                                                      {
+                                                                        if(diostream->config->GetRemoteURL()->GetSize()) 
+                                                                          {
+                                                                            diostream->config->GetRemoteURL()->ResolveURL(diostream->remoteaddress);
+                                                                          }
+                                                                      }
+                                                                  }
 
-                                                              if(diostream->config->GetSizeBufferSO())
-                                                                {
-                                                                  XDWORD sizebuffer = diostream->config->GetSizeBufferSO();
-                                                                  if(setsockopt(diostream->handle, SOL_SOCKET, SO_RCVBUF, (const char*)&sizebuffer, sizeof(XDWORD)) == -1)
-                                                                    {
-                                                                      //fprintf(stderr, "Error setting socket opts: %s\n", strerror(errno));
-                                                                    }
-                                                                }
+                                                                if(diostream->config->GetSizeBufferSO())
+                                                                  {
+                                                                    XDWORD sizebuffer = diostream->config->GetSizeBufferSO();
+                                                                    if(setsockopt(diostream->handle, SOL_SOCKET, SO_RCVBUF, (const char*)&sizebuffer, sizeof(XDWORD)) == -1)
+                                                                      {
+                                                                        //fprintf(stderr, "Error setting socket opts: %s\n", strerror(errno));
+                                                                      }
+                                                                  }
 
-                                                              fcntl(diostream->handle, F_SETFL, fcntl(diostream->handle, F_GETFL,0) | O_NONBLOCK);
+                                                                fcntl(diostream->handle, F_SETFL, fcntl(diostream->handle, F_GETFL,0) | O_NONBLOCK);
 
-                                                            }
-                                                            break;
+                                                              }
+                                                              break;
 
 
-              case DIOLINUXUDPFSMSTATE_CONNECTED          : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_CONNECTED);
-                                                              xevent.SetDIOStream(diostream);
-                                                              diostream->PostEvent(&xevent);
+              case DIOLINUXUDPFSMSTATE_CONNECTED            : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_CONNECTED);
+                                                                xevent.SetDIOStream(diostream);
+                                                                diostream->PostEvent(&xevent);
 
-                                                              diostream->SetEvent(DIOLINUXUDPFSMEVENT_WAITINGTOREAD);
-                                                            }
-                                                            break;
+                                                                diostream->SetEvent(DIOLINUXUDPFSMEVENT_WAITINGTOREAD);
+                                                              }
+                                                              break;
 
-              case DIOLINUXUDPFSMSTATE_WAITINGTOREAD      : break;
+              case DIOLINUXUDPFSMSTATE_WAITINGTOREAD        : break;
 
-              case DIOLINUXUDPFSMSTATE_SENDINGDATA        : break;
+              case DIOLINUXUDPFSMSTATE_SENDINGDATA          : break;
 
-              case DIOLINUXUDPFSMSTATE_DISCONNECTING      : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_DISCONNECTED);
-                                                              xevent.SetDIOStream(diostream);
-                                                              diostream->PostEvent(&xevent);
+              case DIOLINUXUDPFSMSTATE_DISCONNECTING        : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+                                                                xevent.SetDIOStream(diostream);
+                                                                diostream->PostEvent(&xevent);
 
-                                                              diostream->threadconnection->Run(false);
-                                                              diostream->status        = DIOSTREAMSTATUS_DISCONNECTED;
-                                                            }
-                                                            break;
+                                                                diostream->threadconnection->Run(false);
+                                                                diostream->status        = DIOSTREAMSTATUS_DISCONNECTED;
+                                                              }
+                                                              break;
 
             }
         }
