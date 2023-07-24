@@ -1605,6 +1605,7 @@ if(SCRIPT_FEATURE)
   option(XPUBLISHER_FEATURE "XPublisher" true)
   option(XFSMACHINE_FEATURE "XFSMachine" true)
   option(XCONSOLE_FEATURE "Console functions" true)
+  option(XPROCESSMANAGER_FEATURE "Process Manager" true)
 
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT}/Script.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT}/Script_XEvent.cpp")
@@ -1619,6 +1620,7 @@ if(SCRIPT_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT_LIB}/Script_Lib_String.cpp")  
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT_LIB}/Script_Lib_System.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT_LIB}/Script_Lib_Timer.cpp")
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT_LIB}/Script_Lib_Process.cpp")
 
   if(SCRIPT_LUA_FEATURE)
 

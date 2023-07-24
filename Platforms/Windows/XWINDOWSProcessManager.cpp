@@ -69,7 +69,6 @@ XWINDOWSPROCESSMANAGER::XWINDOWSPROCESSMANAGER() : XPROCESSMANAGER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSPROCESSMANAGER::~XWINDOWSPROCESSMANAGER()
@@ -84,7 +83,6 @@ XWINDOWSPROCESSMANAGER::~XWINDOWSPROCESSMANAGER()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -102,7 +100,6 @@ bool XWINDOWSPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 {
   return (_wsystem(command) == -1)?false:true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -145,6 +142,27 @@ bool XWINDOWSPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* retu
   return true;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSPROCESSMANAGER::OpenURL(XCHAR* url)
+* @brief      OpenURL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  url : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XWINDOWSPROCESSMANAGER::OpenURL(XCHAR* url)
+{
+  //HINSTANCE handle = ShellExecute(NULL, L"open", url ,NULL, NULL, SW_SHOWNORMAL); 
+  //if((int)handle <= 32) return false;
+
+  ShellExecute(NULL, L"open", url ,NULL, NULL, SW_SHOWNORMAL); 
+
+  return true;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -294,7 +312,6 @@ bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* p
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
@@ -336,7 +353,6 @@ bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD
 
   return exists;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -435,8 +451,6 @@ bool XWINDOWSPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& appli
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
@@ -467,8 +481,6 @@ bool XWINDOWSPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD  exit
   return true;
 }
   
-
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -541,8 +553,6 @@ BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowCallback(HWND hwnd, LPARAM lpara
 
   return TRUE;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

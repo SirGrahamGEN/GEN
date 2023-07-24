@@ -49,6 +49,8 @@ class XWINDOWSPROCESSMANAGER : public XPROCESSMANAGER
     bool                    MakeSystemCommand                 (XCHAR* command);    
     bool                    MakeCommand                       (XCHAR* command, XSTRING* out = NULL, int* returncode = NULL);
 
+    bool                    OpenURL                           (XCHAR* url);
+
     bool                    ExecuteApplication                (XCHAR* applicationpath, XCHAR* params = NULL, XSTRING* in = NULL, XSTRING* out = NULL, int* returncode = NULL);
 
     bool                    IsApplicationRunning              (XCHAR* command, XDWORD* ID = NULL);

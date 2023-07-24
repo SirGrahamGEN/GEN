@@ -83,6 +83,8 @@ class XPROCESSMANAGER
     virtual bool                    MakeSystemCommand               (XCHAR* command);    
     virtual bool                    MakeCommand                     (XCHAR* command, XSTRING* out = NULL, int* returncode = NULL);
 
+    virtual bool                    OpenURL                         (XCHAR* url);
+
     virtual bool                    ExecuteApplication              (XCHAR* applicationpath, XCHAR* params = NULL, XSTRING* in = NULL, XSTRING* out = NULL, int* returncode = NULL);
 
     virtual bool                    IsApplicationRunning            (XCHAR* command, XDWORD* ID = NULL);

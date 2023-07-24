@@ -173,6 +173,35 @@ bool XLINUXPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* return
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XLINUXPROCESSMANAGER::OpenURL(XCHAR* url)
+* @brief      OpenURL
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  url : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XLINUXPROCESSMANAGER::OpenURL(XCHAR* url)
+{
+  XSTRING command = __L("xdg-open ");
+  int     result  = -1;
+ 
+  command.Add(url);
+
+  result = MakeSystemCommand(command.Get());
+
+  if(result == -1) 
+    {
+      return false;
+    }
+        
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 * @brief      ExecuteApplication
