@@ -39,6 +39,9 @@
 #include <errno.h>
 #include <string.h>
 #include <dirent.h>
+#include <iostream>
+#include <sys/types.h>
+#include <signal.h>
 
 #include "XLINUXFactory.h"
 
@@ -203,8 +206,8 @@ bool XLINUXPROCESSMANAGER::OpenURL(XCHAR* url)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
-* @brief      ExecuteApplication
+* @fn         bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+* @brief      Application_Execute
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  applicationpath : 
@@ -216,7 +219,7 @@ bool XLINUXPROCESSMANAGER::OpenURL(XCHAR* url)
 * @return     bool : true if is succesful. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 { 
   #define PIPE_READ   0
   #define PIPE_WRITE  1
@@ -427,7 +430,7 @@ bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* par
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XLINUXPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
+* @fn         bool XLINUXPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD* ID)
 * @brief      Is Application Running
 * @ingroup    PLATFORM_LINUX
 *
@@ -437,7 +440,7 @@ bool XLINUXPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* par
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLINUXPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
+bool XLINUXPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD* ID)
 {
   DIR*            dir;
   struct dirent*  ent;
@@ -492,10 +495,103 @@ bool XLINUXPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* 
 
   closedir(dir);
 
-
   return false;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XLINUXPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist)
+* @brief      Application_GetRunningList
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  applist : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XLINUXPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist)
+{
+  DIR*            dir;
+  struct dirent*  ent;
+  char*           endptr;
+  char            buf[512];
+
+  if(!(dir = opendir("/proc"))) return -1;
+
+  while((ent = readdir(dir)) != NULL)
+    {
+      // if endptr is not a null character, the directory is not entirely numeric, so ignore it
+      long lpid = strtol(ent->d_name, &endptr, 10);
+      if(*endptr != '\0')
+        {
+          continue;
+        }
+
+      // try to open the cmdline file
+      snprintf(buf, sizeof(buf), "/proc/%ld/status", lpid);
+      FILE* fp = fopen(buf, "r");
+      if(fp)
+        {
+          if(fgets(buf, sizeof(buf), fp) != NULL)
+            {
+              // check the first token in the file, the program name
+              char* first = strtok(buf, " ");
+
+              XPATH nameall;
+              
+              nameall = first;
+              nameall.SetOnlyNamefile();
+              nameall.DeleteCharacter(__C(' ') , XSTRINGCONTEXT_FROM_FIRST);
+              nameall.DeleteCharacter(__C('\t'), XSTRINGCONTEXT_FROM_FIRST);
+              nameall.DeleteCharacter(__C('\n'), XSTRINGCONTEXT_TO_END);
+              nameall.DeleteCharacter(__C('\r'), XSTRINGCONTEXT_TO_END);
+
+              XPROCESS* xprocess = new XPROCESS();
+              if(xprocess)
+                {                  
+                  xprocess->SetID((XDWORD)lpid); 
+                  xprocess->GetPath()->Set(__L(""));
+                  xprocess->GetName()->Set(nameall); 
+                                
+                  applist.Add(xprocess); 
+                }                         
+            }
+
+          fclose(fp);
+        }
+    }
+
+  closedir(dir);
+  
+  return false;
+} 
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XLINUXPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD exitcode)
+* @brief      Application_Terminate
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  processID : 
+* @param[in]  exitcode : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XLINUXPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD exitcode)
+{
+  pid_t pid = (pid_t)processID;
+
+    // Send SIGTERM signal to terminate the process gracefully
+  if(kill(pid, SIGTERM) == 0) 
+    {
+      return true;
+    }
+
+  return false;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------

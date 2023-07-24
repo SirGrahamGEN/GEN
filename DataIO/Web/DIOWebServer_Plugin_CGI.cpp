@@ -180,7 +180,7 @@ bool DIOWEBSERVER_PLUGIN_CGI::ResolvedPageExtension(XPATH& pathfile, DIOWEBSERVE
 
   if(request->GetMethod() == DIOWEBHEADER_METHOD_GET) GEN_XSYSTEM.SetEnviromentVariable(__L("QUERY_STRING"), allparam.GetSize()?allparam.Get():__L("\"\""));
 
-  status = GEN_XPROCESSMANAGER.ExecuteApplication(pathexec.Get(), NULL, &in, &result, &returnerror);
+  status = GEN_XPROCESSMANAGER.Application_Execute(pathexec.Get(), NULL, &in, &result, &returnerror);
 
   GEN_XSYSTEM.DelEnviromentVariable(__L("GATEWAY_INTERFACE"));
   GEN_XSYSTEM.DelEnviromentVariable(__L("REQUEST_METHOD"));

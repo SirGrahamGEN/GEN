@@ -449,7 +449,7 @@ bool DIOSSHREVERSE::IsRunning()
 
   bool status = false;
 
-  //status = xsystem->IsApplicationRunning(DIOSSHREVERSE_DEFAULTAPPLICATION);
+  //status = xsystem->Application_IsRunning(DIOSSHREVERSE_DEFAULTAPPLICATION);
   //if(status)
     {
       //status = false;

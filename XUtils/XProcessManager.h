@@ -85,16 +85,14 @@ class XPROCESSMANAGER
 
     virtual bool                    OpenURL                         (XCHAR* url);
 
-    virtual bool                    ExecuteApplication              (XCHAR* applicationpath, XCHAR* params = NULL, XSTRING* in = NULL, XSTRING* out = NULL, int* returncode = NULL);
+    virtual bool                    Application_Execute             (XCHAR* applicationpath, XCHAR* params = NULL, XSTRING* in = NULL, XSTRING* out = NULL, int* returncode = NULL);
+    virtual bool                    Application_IsRunning           (XCHAR* command, XDWORD* ID = NULL);
+    virtual bool                    Application_GetRunningList      (XVECTOR<XPROCESS*>& applist);
+    virtual bool                    Application_Terminate           (XDWORD processID, XDWORD  exitcode = 0);
 
-    virtual bool                    IsApplicationRunning            (XCHAR* command, XDWORD* ID = NULL);
-
-    virtual bool                    GetApplicationRunningList       (XVECTOR<XPROCESS*>& applist);
-
-    virtual bool                    TerminateApplication            (XDWORD processID, XDWORD  exitcode = 0);
-    bool                            TerminateApplication            (XPROCESS& process, XDWORD exitcode = 0);
-    bool                            TerminateApplication            (XCHAR* processname, XDWORD exitcode = 0);
-    bool                            TerminateApplication            (XSTRING& processname, XDWORD exitcode = 0);
+    bool                            Application_Terminate           (XPROCESS& process, XDWORD exitcode = 0);
+    bool                            Application_Terminate           (XCHAR* processname, XDWORD exitcode = 0);
+    bool                            Application_Terminate           (XSTRING& processname, XDWORD exitcode = 0);
 
   private:
 

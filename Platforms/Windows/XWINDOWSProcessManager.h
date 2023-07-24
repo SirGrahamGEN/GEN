@@ -51,13 +51,10 @@ class XWINDOWSPROCESSMANAGER : public XPROCESSMANAGER
 
     bool                    OpenURL                           (XCHAR* url);
 
-    bool                    ExecuteApplication                (XCHAR* applicationpath, XCHAR* params = NULL, XSTRING* in = NULL, XSTRING* out = NULL, int* returncode = NULL);
-
-    bool                    IsApplicationRunning              (XCHAR* command, XDWORD* ID = NULL);
-
-    bool                    GetApplicationRunningList         (XVECTOR<XPROCESS*>& applist);
-
-    bool                    TerminateApplication              (XDWORD processID, XDWORD  exitcode = 0);
+    bool                    Application_Execute                (XCHAR* applicationpath, XCHAR* params = NULL, XSTRING* in = NULL, XSTRING* out = NULL, int* returncode = NULL);
+    bool                    Application_IsRunning              (XCHAR* command, XDWORD* ID = NULL);
+    bool                    Application_GetRunningList         (XVECTOR<XPROCESS*>& applist);
+    bool                    Application_Terminate              (XDWORD processID, XDWORD  exitcode = 0);
   
   private:
 

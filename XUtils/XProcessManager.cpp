@@ -389,8 +389,8 @@ bool XPROCESSMANAGER::OpenURL(XCHAR* url)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
-* @brief      ExecuteApplication
+* @fn         bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+* @brief      Application_Execute
 * @ingroup    XUTILS
 *
 * @param[in]  applicationpath : 
@@ -402,7 +402,7 @@ bool XPROCESSMANAGER::OpenURL(XCHAR* url)
 * @return     bool : true if is succesful. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 {
   return false;
 }
@@ -410,7 +410,7 @@ bool XPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
+* @fn         bool XPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD* ID)
 * @brief      Check if Is Application Running
 * @note       VIRTUAL
 * @ingroup    XUTILS
@@ -421,7 +421,7 @@ bool XPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, 
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
+bool XPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD* ID)
 {
   return false;
 }
@@ -429,8 +429,8 @@ bool XPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*> applist)
-* @brief      GetApplicationRunningList
+* @fn         bool XPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*> applist)
+* @brief      Application_GetRunningList
 * @ingroup    XUTILS
 *
 * @param[in]  applist : 
@@ -438,7 +438,7 @@ bool XPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& applist)
+bool XPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist)
 {
   return false;
 }
@@ -446,8 +446,8 @@ bool XPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& applist)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
-* @brief      TerminateApplication
+* @fn         bool XPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD exitcode)
+* @brief      Application_Terminate
 * @ingroup    XUTILS
 *
 * @param[in]  processID : 
@@ -456,7 +456,7 @@ bool XPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& applist)
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
+bool XPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD exitcode)
 {
   return false;
 }
@@ -464,8 +464,8 @@ bool XPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XPROCESSMANAGER::TerminateApplication(XPROCESS& process, XDWORD exitcode)
-* @brief      TerminateApplication
+* @fn         bool XPROCESSMANAGER::Application_Terminate(XPROCESS& process, XDWORD exitcode)
+* @brief      Application_Terminate
 * @ingroup    XUTILS
 *
 * @param[in]  process : 
@@ -474,16 +474,16 @@ bool XPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XPROCESSMANAGER::TerminateApplication(XPROCESS& process, XDWORD exitcode)
+bool XPROCESSMANAGER::Application_Terminate(XPROCESS& process, XDWORD exitcode)
 {
-  return TerminateApplication(process.GetID(), exitcode);
+  return Application_Terminate(process.GetID(), exitcode);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XPROCESSMANAGER::TerminateApplication(XCHAR* processname, XDWORD exitcode)
-* @brief      TerminateApplication
+* @fn         bool XPROCESSMANAGER::Application_Terminate(XCHAR* processname, XDWORD exitcode)
+* @brief      Application_Terminate
 * @ingroup    XUTILS
 *
 * @param[in]  processname : 
@@ -492,12 +492,12 @@ bool XPROCESSMANAGER::TerminateApplication(XPROCESS& process, XDWORD exitcode)
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XPROCESSMANAGER::TerminateApplication(XCHAR* processname, XDWORD exitcode)
+bool XPROCESSMANAGER::Application_Terminate(XCHAR* processname, XDWORD exitcode)
 {
   XVECTOR<XPROCESS*> apprunning; 
   bool               status = false;           
 
-  if(!GEN_XPROCESSMANAGER.GetApplicationRunningList(apprunning)) return false;
+  if(!GEN_XPROCESSMANAGER.Application_GetRunningList(apprunning)) return false;
 
   for(XDWORD c=0; c<apprunning.GetSize(); c++)
     {
@@ -506,7 +506,7 @@ bool XPROCESSMANAGER::TerminateApplication(XCHAR* processname, XDWORD exitcode)
         {
           if(!xprocess->GetName()->Compare(processname, true))
             {
-              status = TerminateApplication((*xprocess), exitcode);
+              status = Application_Terminate((*xprocess), exitcode);
               break;
             }
         }
@@ -521,8 +521,8 @@ bool XPROCESSMANAGER::TerminateApplication(XCHAR* processname, XDWORD exitcode)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XPROCESSMANAGER::TerminateApplication(XSTRING& processname, XDWORD exitcode)
-* @brief      TerminateApplication
+* @fn         bool XPROCESSMANAGER::Application_Terminate(XSTRING& processname, XDWORD exitcode)
+* @brief      Application_Terminate
 * @ingroup    XUTILS
 *
 * @param[in]  processname : 
@@ -531,9 +531,9 @@ bool XPROCESSMANAGER::TerminateApplication(XCHAR* processname, XDWORD exitcode)
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XPROCESSMANAGER::TerminateApplication(XSTRING& processname, XDWORD exitcode)
+bool XPROCESSMANAGER::Application_Terminate(XSTRING& processname, XDWORD exitcode)
 {
-  return TerminateApplication(processname.Get(), exitcode);
+  return Application_Terminate(processname.Get(), exitcode);
 }
 
 

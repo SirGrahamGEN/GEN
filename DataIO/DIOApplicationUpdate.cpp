@@ -1284,7 +1284,7 @@ bool DIOAPPLICATIONUPDATE::RestartApplication(DIOAPPLICATIONUPDATE_ERROR& error)
   command += __L(".exe");
   #endif
 
-  GEN_XPROCESSMANAGER.ExecuteApplication(command.Get(), NULL);
+  GEN_XPROCESSMANAGER.Application_Execute(command.Get(), NULL);
 
   return true;
 }

@@ -174,7 +174,7 @@ void Call_OpenURL(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
   
   if(string1)
     {      
-      //status = operative->OpenURL(string1->Get());      
+      status = GEN_XPROCESSMANAGER.OpenURL(string1->Get());      
     }
 
   (*returnvalue) = status;
@@ -220,7 +220,7 @@ void Call_ExecApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
   
   if(string)
     {      
-      status = GEN_XPROCESSMANAGER.ExecuteApplication(string->Get());                       
+      status = GEN_XPROCESSMANAGER.Application_Execute(string->Get());                       
     }
 
   (*returnvalue) = status;

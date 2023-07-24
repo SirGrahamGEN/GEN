@@ -471,8 +471,8 @@ int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
   params.Format(__L("-C %s -o %%cpu"), processname);  
   in.Format(__L("| tail -n 1"));
   
-  status = GEN_XPROCESSMANAGER.ExecuteApplication(__L("/usr/bin/ps"), params.Get(), &in, &out, &returncode);
-  if(!status) status = GEN_XPROCESSMANAGER.ExecuteApplication(__L("/bin/ps"), params.Get(), &in, &out, &returncode); 
+  status = GEN_XPROCESSMANAGER.Application_Execute(__L("/usr/bin/ps"), params.Get(), &in, &out, &returncode);
+  if(!status) status = GEN_XPROCESSMANAGER.Application_Execute(__L("/bin/ps"), params.Get(), &in, &out, &returncode); 
 
   if(!status) return -1;
 
@@ -523,8 +523,8 @@ int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
   params.Format(__L("-C -p %d -o %%cpu"), processID);  
   in.Format(__L("| tail -n 1"));
   
-  status = GEN_XPROCESSMANAGER.ExecuteApplication(__L("/usr/bin/ps"), params.Get(), &in, &out, &returncode);
-  if(!status) status = GEN_XPROCESSMANAGER.ExecuteApplication(__L("/bin/ps"), params.Get(), &in, &out, &returncode); 
+  status = GEN_XPROCESSMANAGER.Application_Execute(__L("/usr/bin/ps"), params.Get(), &in, &out, &returncode);
+  if(!status) status = GEN_XPROCESSMANAGER.Application_Execute(__L("/bin/ps"), params.Get(), &in, &out, &returncode); 
 
   if(!status) return -1;
 

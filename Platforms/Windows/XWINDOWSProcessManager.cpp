@@ -167,8 +167,8 @@ bool XWINDOWSPROCESSMANAGER::OpenURL(XCHAR* url)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
-* @brief      ExecuteApplication
+* @fn         bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+* @brief      Application_Execute
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  applicationpath : 
@@ -180,7 +180,7 @@ bool XWINDOWSPROCESSMANAGER::OpenURL(XCHAR* url)
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 {
   #define CMDLINE_SIZE  (10*1024)
   #define OUTBUF_SIZE   (10*1024*1024)
@@ -314,7 +314,7 @@ bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* p
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
+* @fn         bool XWINDOWSPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD* ID)
 * @brief      Is Application Running
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -324,10 +324,10 @@ bool XWINDOWSPROCESSMANAGER::ExecuteApplication(XCHAR* applicationpath, XCHAR* p
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD* ID)
+bool XWINDOWSPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD* ID)
 {
   XVECTOR<XPROCESS*>  applist;
-  bool                status = GEN_XPROCESSMANAGER.GetApplicationRunningList(applist);
+  bool                status = GEN_XPROCESSMANAGER.Application_GetRunningList(applist);
   bool                exists = false;
 
   if(status)
@@ -357,8 +357,8 @@ bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*> applist)
-* @brief      GetApplicationRunningList
+* @fn         bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*> applist)
+* @brief      Application_GetRunningList
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  applist : 
@@ -366,7 +366,7 @@ bool XWINDOWSPROCESSMANAGER::IsApplicationRunning(XCHAR* applicationname, XDWORD
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& applist)
+bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist)
 {
   PROCESSENTRY32 processentry;
   HANDLE         snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
@@ -453,8 +453,8 @@ bool XWINDOWSPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& appli
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD exitcode)
-* @brief      TerminateApplication
+* @fn         bool XWINDOWSPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD exitcode)
+* @brief      Application_Terminate
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  processID : 
@@ -463,7 +463,7 @@ bool XWINDOWSPROCESSMANAGER::GetApplicationRunningList(XVECTOR<XPROCESS*>& appli
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSPROCESSMANAGER::TerminateApplication(XDWORD processID, XDWORD  exitcode)
+bool XWINDOWSPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD  exitcode)
 {
   DWORD   desiredaccess   = PROCESS_TERMINATE;
   bool    inherithandle   = FALSE;
