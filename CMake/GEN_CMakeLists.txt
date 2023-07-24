@@ -294,6 +294,12 @@ if(SCRIPT_FEATURE)
 
   option(XPROCESSMANAGER_FEATURE "Process Manager" true)
 
+  if(SCRIPT_LIB_INPUTSIMULATED_FEATURE)
+    
+    option(INP_SIMULATED_FEATURE "Inputs Simulated" true)
+
+  endif()
+
 endif()
 
 
@@ -1410,6 +1416,13 @@ endif()
 # -------------------------------------------------
 # Input 
 
+if(INPUTSIMULATED_FEATURE)
+
+  option(INP_FEATURE "Inputs" true)
+
+endif()
+
+
 if(INP_FEATURE)
 
   add_definitions(-DINP_ACTIVE)
@@ -1630,6 +1643,14 @@ if(SCRIPT_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT_LIB}/Script_Lib_System.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT_LIB}/Script_Lib_Timer.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT_LIB}/Script_Lib_Process.cpp")
+
+
+  if(SCRIPT_LIB_INPUTSIMULATED_FEATURE)
+
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT_LIB}/Script_Lib_InputSimulated.cpp")
+
+  endif()
+
 
   if(SCRIPT_LUA_FEATURE)
 
