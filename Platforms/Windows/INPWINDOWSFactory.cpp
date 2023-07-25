@@ -131,6 +131,7 @@ bool INPWINDOWSFACTORY::DeleteDevice(INPDEVICE* device)
 }
 
 
+#ifdef INP_SIMULATED_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPSIMULATED* INPWINDOWSFACTORY::CreateSimulator()
@@ -172,7 +173,7 @@ bool INPWINDOWSFACTORY::DeleteSimulator(INPSIMULATED* inputsimulated)
 
   return true;
 }
-
+#endif
 
 
 #pragma endregion

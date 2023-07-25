@@ -55,8 +55,10 @@ class INPWINDOWSFACTORY : public INPFACTORY
     INPDEVICE*                  CreateDevice              (INPDEVICE_TYPE type, void* param = NULL);
     bool                        DeleteDevice              (INPDEVICE* device);
 
+    #ifdef INP_SIMULATED_ACTIVE
     INPSIMULATED*               CreateSimulator           ();
     bool                        DeleteSimulator           (INPSIMULATED* inputsimulated);
+    #endif
 };
 
 #pragma endregion

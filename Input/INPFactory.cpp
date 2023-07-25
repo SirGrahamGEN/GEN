@@ -199,7 +199,7 @@ bool INPFACTORY::DeleteDevice(INPDEVICE* device)
   return false;
 }
 
-
+#ifdef INP_SIMULATED_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPSIMULATED* INPFACTORY::CreateSimulator()
@@ -230,7 +230,7 @@ bool INPFACTORY::DeleteSimulator(INPSIMULATED* inputsimulated)
 {
   return false;
 }
-
+#endif
 
 /**-------------------------------------------------------------------------------------------------------------------
 *

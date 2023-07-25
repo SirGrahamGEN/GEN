@@ -1400,6 +1400,13 @@ endif()
 # -------------------------------------------------
 # Input 
 
+if(INP_SIMULATED_FEATURE)
+
+  add_definitions(-DINP_SIMULATED_ACTIVE)
+  
+endif()
+
+
 if(INP_FEATURE)
 
   add_definitions(-DINP_ACTIVE)
@@ -1723,6 +1730,12 @@ endif()
 # -------------------------------------------------
 # Inputs
 
+if(INP_SIMULATED_FEATURE)
+  
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPSimulated.cpp")  
+
+endif()
+
 if(INP_FEATURE)  
 
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPManager.cpp")  
@@ -1735,11 +1748,6 @@ if(INP_FEATURE)
 endif()
 
 
-if(INP_SIMULATED_FEATURE)
-  
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPSimulated.cpp")  
-
-endif()
 
 
 # -------------------------------------------------
