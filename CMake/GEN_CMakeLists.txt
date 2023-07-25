@@ -1417,7 +1417,7 @@ endif()
 # Input 
 
 
-if(INPUTSIMULATED_FEATURE)
+if(INP_SIMULATED_FEATURE)
 
   add_definitions(-DINP_SIMULATED_ACTIVE)
   option(INP_FEATURE "Inputs" true)
