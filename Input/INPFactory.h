@@ -64,8 +64,10 @@ class INPFACTORY
     virtual INPDEVICE*              CreateDevice              (INPDEVICE_TYPE type, void* param = NULL);
     virtual bool                    DeleteDevice              (INPDEVICE* device);
 
+    #ifdef INP_SIMULATED_ACTIVE
     virtual INPSIMULATED*           CreateSimulator           ();
     virtual bool                    DeleteSimulator           (INPSIMULATED* inputsimulated);
+    #endif
 
 
   private:
