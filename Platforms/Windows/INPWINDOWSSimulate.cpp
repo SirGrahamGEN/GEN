@@ -114,6 +114,26 @@ bool INPWINDOWSSIMULATE::PressKey(XBYTE key, int timepress)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool INPWINDOWSSIMULATE::SetPositionCursor(int x, int y)
+* @brief      SetPositionCursor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  x : 
+* @param[in]  y : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSSIMULATE::SetPositionCursor(int x, int y)
+{
+  SetCursorPos(x, y);
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void INPWINDOWSSIMULATE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -124,7 +144,7 @@ bool INPWINDOWSSIMULATE::PressKey(XBYTE key, int timepress)
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPWINDOWSSIMULATE::Clean()
 {
-
+  
 }
 
 

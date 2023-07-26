@@ -115,7 +115,8 @@ bool SCRIPT_LIB_INPUTSIMULATE::AddLibraryFunctions(SCRIPT* script)
   this->script = script;
 
   script->AddLibraryFunction(this, __L("PressKey")                  , Call_PressKey);
-  
+  script->AddLibraryFunction(this, __L("SetPositionCursor")         , Call_SetPositionCursor);
+      
   return true;
 }
 
@@ -172,18 +173,83 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
       return;
     }
 
-  XVARIANT* variant = params->Get(0);
+  XVARIANT* variant;
+  double    timepress = 0;
+
+  variant = params->Get(0);
   double key = (*variant);
   
-  INPSIMULATE* inpsimulated = GEN_INPFACTORY.CreateSimulator();
-  if(!inpsimulated)
+  variant = params->Get(1);
+  if(variant) 
+    {
+      timepress = (*variant);
+    }
+
+  INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
+  if(!inpsimulate)
     {
       (*returnvalue) = status;
       return;
     }
   
-  status = inpsimulated->PressKey((XBYTE)key);
+  status = inpsimulate->PressKey((XBYTE)key,(int)timepress);
 
+  GEN_INPFACTORY.DeleteSimulator(inpsimulate);
+
+  (*returnvalue) = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_SetPositionCursor(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_SetPositionCursor
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_SetPositionCursor(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  bool status  = false;
+
+  if(params->GetSize()<2)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  XVARIANT* variant;
+
+  variant = params->Get(0);
+  double x = (*variant);
+
+  variant = params->Get(1);
+  double y = (*variant);
+  
+  INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
+  if(!inpsimulate)
+    {
+      (*returnvalue) = status;
+      return;
+    }
+  
+  status = inpsimulate->SetPositionCursor((int)x, (int)y);
+
+  GEN_INPFACTORY.DeleteSimulator(inpsimulate);
+  
   (*returnvalue) = status;
 }
 

@@ -49,10 +49,11 @@
 class INPSIMULATE
 {
   public:
-                        INPSIMULATE        ();
-    virtual            ~INPSIMULATE        ();
+                        INPSIMULATE         ();
+    virtual            ~INPSIMULATE         ();
 
     virtual bool        PressKey            (XBYTE key, int timepress = 100);
+    virtual bool        SetPositionCursor   (int x, int y);
 
   protected:
 

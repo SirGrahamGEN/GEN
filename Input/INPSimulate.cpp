@@ -107,6 +107,25 @@ bool INPSIMULATE::PressKey(XBYTE key, int timepress)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool INPSIMULATE::SetPositionCursor(int x, int y)
+* @brief      SetPositionCursor
+* @ingroup    INPUT
+* 
+* @param[in]  x : 
+* @param[in]  y : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPSIMULATE::SetPositionCursor(int x, int y)
+{ 
+  return false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void INPSIMULATE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
