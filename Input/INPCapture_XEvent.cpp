@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       INPFactory.cpp
+* @file       INPCapture_XEvent.cpp
 * 
-* @class      INPFACTORY
-* @brief      INPUT Factory class
+* @class      INPCAPTURE_XEVENT
+* @brief      Input Capture eXtended Event class
 * @ingroup    INPUT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -31,7 +31,7 @@
 
 #include "GEN_Defines.h"
 
-#include "INPFactory.h"
+#include "INPCapture_XEvent.h"
 
 #pragma endregion
 
@@ -49,7 +49,6 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
-INPFACTORY* INPFACTORY::instance = NULL;
 
 #pragma endregion
 
@@ -57,239 +56,191 @@ INPFACTORY* INPFACTORY::instance = NULL;
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
+
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         INPFACTORY::INPFACTORY()
+* 
+* @fn         INPCAPTURE_XEVENT::INPCAPTURE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @brief      Constructor
 * @ingroup    INPUT
-*
-* @return     Does not return anything.
-*
+* 
+* @param[in]  XSUBJECT* : 
+* @param[in]   XDWORD type : 
+* @param[in]   XDWORD family : 
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-INPFACTORY::INPFACTORY()
+INPCAPTURE_XEVENT::INPCAPTURE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         INPFACTORY::~INPFACTORY()
+* 
+* @fn         INPCAPTURE_XEVENT::~INPCAPTURE_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-INPFACTORY::~INPFACTORY()
+INPCAPTURE_XEVENT::~INPCAPTURE_XEVENT()
+
 {
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool INPFACTORY::GetIsInstanced()
-* @brief      Get if Is Instanced
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool INPFACTORY::GetIsInstanced()
-{
-  return instance!=NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         INPFACTORY& INPFACTORY::GetInstance()
-* @brief      Get Instance of INPFACTORY
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @return     INPFACTORY& :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-INPFACTORY& INPFACTORY::GetInstance()
-{
-  if(!instance) instance = new INPFACTORY();
-
-  return (*instance);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool INPFACTORY::SetInstance(INPFACTORY* instance)
-* @brief      Set Instance of INPFACTORY
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @param[in]  _instance : new instance
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool INPFACTORY::SetInstance(INPFACTORY* _instance)
-{
-  if(!_instance) return false;
-
-  instance = _instance;
-
-  return (instance)?true:false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool INPFACTORY::DelInstance()
-* @brief      Delete Instance of INPFACTORY
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool INPFACTORY::DelInstance()
-{
-  if(!instance) return false;
-
-  delete instance;
-  instance = NULL;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         INPDEVICE* INPFACTORY::CreateDevice(XCHAR* device, void* param)
-* @brief      Create a input Device
-* @ingroup    INPUT
-*
-* @param[in]  type  : device type of the input device
-* @param[in]  param : param to create device (if is necessary)
-*
-* @return     INPDEVICE* : device input created
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-INPDEVICE* INPFACTORY::CreateDevice(INPDEVICE_TYPE type, void* param)
-{
-  return NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool INPFACTORY::DeleteDevice(INPDEVICE* device)
-* @brief      Delete Device
-* @ingroup    INPUT
-*
-* @param[in]  device : delete device
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool INPFACTORY::DeleteDevice(INPDEVICE* device)
-{
-  return false;
-}
-
-#ifdef INP_SIMULATE_ACTIVE
-/**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         INPSIMULATE* INPFACTORY::CreateSimulator()
-* @brief      CreateSimulator
+* @fn         XDWORD INPCAPTURE_XEVENT::GetVKCode()
+* @brief      GetVKCode
 * @ingroup    INPUT
 * 
-* @return     INPSIMULATE* : 
+* @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-INPSIMULATE* INPFACTORY::CreateSimulator()
+XDWORD INPCAPTURE_XEVENT::GetVKCode()
 {
-  return NULL;
+  return vkcode;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPFACTORY::DeleteSimulator(INPSIMULATE* inputsimulated)
-* @brief      DeleteSimulator
+* @fn         void INPCAPTURE_XEVENT::SetVKCode(XDWORD vkcode)
+* @brief      SetVKCode
 * @ingroup    INPUT
 * 
-* @param[in]  inputsimulated : 
+* @param[in]  vkcode : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void INPCAPTURE_XEVENT::SetVKCode(XDWORD vkcode)
+{
+  this->vkcode = vkcode;
+}
+ 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XWORD INPCAPTURE_XEVENT::GetScanCode()
+* @brief      GetScanCode
+* @ingroup    INPUT
+* 
+* @return     XWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XWORD INPCAPTURE_XEVENT::GetScanCode()
+{
+  return scancode;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPCAPTURE_XEVENT::SetScanCode(XWORD scancode)
+* @brief      SetScanCode
+* @ingroup    INPUT
+* 
+* @param[in]  scancode : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void INPCAPTURE_XEVENT::SetScanCode(XWORD scancode)
+{
+  this->scancode = scancode;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD INPCAPTURE_XEVENT::GetFlags()
+* @brief      GetFlags
+* @ingroup    INPUT
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD INPCAPTURE_XEVENT::GetFlags()
+{
+  return flags;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPCAPTURE_XEVENT::SetFlags(XWORD flags)
+* @brief      SetFlags
+* @ingroup    INPUT
+* 
+* @param[in]  flags : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void INPCAPTURE_XEVENT::SetFlags(XWORD flags)
+{
+  this->flags = flags;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPCAPTURE_XEVENT::IsKeyLocked()
+* @brief      IsKeyLocked
+* @ingroup    INPUT
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPFACTORY::DeleteSimulator(INPSIMULATE* inputsimulated)
+bool INPCAPTURE_XEVENT::IsKeyLocked()
 {
-  return false;
+  return iskeylocked;
 }
-#endif
 
-
-#ifdef INP_CAPTURE_ACTIVE
+    
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         INPCAPTURE* INPFACTORY::CreateCapture()
-* @brief      CreateCapture
+* @fn         void INPCAPTURE_XEVENT::SetIsKeyLocked(bool iskeylocked)
+* @brief      SetIsKeyLocked
 * @ingroup    INPUT
 * 
-* @return     INPCAPTURE* : 
+* @param[in]  iskeylocked : 
+* 
+* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-INPCAPTURE* INPFACTORY::CreateCapture()
+void INPCAPTURE_XEVENT::SetIsKeyLocked(bool iskeylocked)
 {
-  return NULL;
+  this->iskeylocked = iskeylocked;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPFACTORY::DeleteCapture(INPCAPTURE* inputcapture)
-* @brief      DeleteCapture
-* @ingroup    INPUT
-* 
-* @param[in]  inputcapture : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool INPFACTORY::DeleteCapture(INPCAPTURE* inputcapture)
-{
-  return false;
-}
-
-#endif
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void INPFACTORY::Clean()
+* @fn         void INPCAPTURE_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @return     void : does not return anything.
-*
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void INPFACTORY::Clean()
+void INPCAPTURE_XEVENT::Clean()
 {
-
+  vkcode        = 0; 
+  scancode      = 0;
+  flags         = 0;
+  iskeylocked   = false;
 }
 
 
+
 #pragma endregion
-
-
-
-
-
-
-
 

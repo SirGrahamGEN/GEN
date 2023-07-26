@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       INPSimulated.cpp
+* @file       INPWINDOWSSimulate.h
 * 
-* @class      INPSIMULATED
-* @brief      Input Simulated
+* @class      INPWINDOWSSIMULATE
+* @brief      Input WINDOWS Simulate
 * @ingroup    INPUT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,53 +26,53 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
-#pragma region PRECOMPILATION_INCLUDES
-
-#include "GEN_Defines.h"
-
-#include "INPSimulated.h"
-
-#pragma endregion
-
+#ifndef _INPWINDOWSSIMULATE_H_
+#define _INPWINDOWSSIMULATE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "INPSimulate.h"
 
-#include "XMemory_Control.h"
+#pragma endregion
+
+
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 
 #pragma endregion
 
 
-/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
-#pragma region GENERAL_VARIABLE
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
+class INPWINDOWSSIMULATE : public INPSIMULATE
+{
+  public:
+                    INPWINDOWSSIMULATE     ();
+    virtual        ~INPWINDOWSSIMULATE     ();
+
+    bool            PressKey                (XBYTE key, int timepress = 100);
+
+  protected:
+
+  private:
+
+    void            Clean                   ();
+};
+
+#pragma endregion
+
+
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
 
 
 #pragma endregion
 
 
-/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-#pragma region CLASS_MEMBERS
+#endif
 
-INPSIMULATED::INPSIMULATED()
-{
-  Clean();
-}
-
-
-INPSIMULATED::~INPSIMULATED()
-{
-  Clean();
-}
-
-
-void INPSIMULATED::Clean()
-{
-}
-
-
-#pragma endregion
 
 

@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Script_Lib_InputSimulated.cpp
+* @file       Script_Lib_InputSimulate.cpp
 * 
-* @class      SCRIPT_LIB_INPUTSIMULATED
-* @brief      Script Lib Input Simulated class
+* @class      SCRIPT_LIB_INPUTSIMULATE
+* @brief      Script Lib Input Simulate class
 * @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -31,7 +31,7 @@
 
 #include "GEN_Defines.h"
 
-#include "Script_Lib_InputSimulated.h"
+#include "Script_Lib_InputSimulate.h"
 
 #pragma endregion
 
@@ -45,7 +45,7 @@
 #include "APPMain.h"
 
 #include "INPFactory.h"
-#include "INPSimulated.h"
+#include "INPSimulate.h"
 
 #include "Script.h"
 
@@ -68,14 +68,14 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn        SCRIPT_LIB_INPUTSIMULATED::SCRIPT_LIB_INPUTSIMULATED()
+* @fn        SCRIPT_LIB_INPUTSIMULATE::SCRIPT_LIB_INPUTSIMULATE()
 * @brief      Constructor
 * @ingroup    SCRIPT
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIB_INPUTSIMULATED::SCRIPT_LIB_INPUTSIMULATED() : SCRIPT_LIB(SCRIPT_LIB_NAME_PROCESS)
+SCRIPT_LIB_INPUTSIMULATE::SCRIPT_LIB_INPUTSIMULATE() : SCRIPT_LIB(SCRIPT_LIB_NAME_PROCESS)
 {
   Clean();
 }
@@ -83,7 +83,7 @@ SCRIPT_LIB_INPUTSIMULATED::SCRIPT_LIB_INPUTSIMULATED() : SCRIPT_LIB(SCRIPT_LIB_N
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn        SCRIPT_LIB_INPUTSIMULATED::~SCRIPT_LIB_INPUTSIMULATED()
+* @fn        SCRIPT_LIB_INPUTSIMULATE::~SCRIPT_LIB_INPUTSIMULATE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
@@ -91,7 +91,7 @@ SCRIPT_LIB_INPUTSIMULATED::SCRIPT_LIB_INPUTSIMULATED() : SCRIPT_LIB(SCRIPT_LIB_N
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIB_INPUTSIMULATED::~SCRIPT_LIB_INPUTSIMULATED()
+SCRIPT_LIB_INPUTSIMULATE::~SCRIPT_LIB_INPUTSIMULATE()
 {
   Clean();
 }
@@ -99,7 +99,7 @@ SCRIPT_LIB_INPUTSIMULATED::~SCRIPT_LIB_INPUTSIMULATED()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         boolSCRIPT_LIB_INPUTSIMULATED::AddLibraryFunctions(SCRIPT* script)
+* @fn         boolSCRIPT_LIB_INPUTSIMULATE::AddLibraryFunctions(SCRIPT* script)
 * @brief      AddLibraryFunctions
 * @ingroup    SCRIPT
 * 
@@ -108,7 +108,7 @@ SCRIPT_LIB_INPUTSIMULATED::~SCRIPT_LIB_INPUTSIMULATED()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_LIB_INPUTSIMULATED::AddLibraryFunctions(SCRIPT* script)
+bool SCRIPT_LIB_INPUTSIMULATE::AddLibraryFunctions(SCRIPT* script)
 {
   if(!script) return false;
 
@@ -122,7 +122,7 @@ bool SCRIPT_LIB_INPUTSIMULATED::AddLibraryFunctions(SCRIPT* script)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         voidSCRIPT_LIB_INPUTSIMULATED::Clean()
+* @fn         voidSCRIPT_LIB_INPUTSIMULATE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
@@ -130,7 +130,7 @@ bool SCRIPT_LIB_INPUTSIMULATED::AddLibraryFunctions(SCRIPT* script)
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SCRIPT_LIB_INPUTSIMULATED::Clean()
+void SCRIPT_LIB_INPUTSIMULATE::Clean()
 {
 
 }
@@ -175,7 +175,7 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
   XVARIANT* variant = params->Get(0);
   double key = (*variant);
   
-  INPSIMULATED* inpsimulated = GEN_INPFACTORY.CreateSimulator();
+  INPSIMULATE* inpsimulated = GEN_INPFACTORY.CreateSimulator();
   if(!inpsimulated)
     {
       (*returnvalue) = status;

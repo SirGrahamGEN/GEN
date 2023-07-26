@@ -33,7 +33,8 @@
 #pragma region INCLUDES
 
 #include "INPDevice.h"
-#include "INPSimulated.h"
+#include "INPSimulate.h"
+#include "INPCapture.h"
 
 #pragma endregion
 
@@ -64,11 +65,15 @@ class INPFACTORY
     virtual INPDEVICE*              CreateDevice              (INPDEVICE_TYPE type, void* param = NULL);
     virtual bool                    DeleteDevice              (INPDEVICE* device);
 
-    #ifdef INP_SIMULATED_ACTIVE
-    virtual INPSIMULATED*           CreateSimulator           ();
-    virtual bool                    DeleteSimulator           (INPSIMULATED* inputsimulated);
+    #ifdef INP_SIMULATE_ACTIVE
+    virtual INPSIMULATE*            CreateSimulator           ();
+    virtual bool                    DeleteSimulator           (INPSIMULATE* inputsimulated);
     #endif
 
+    #ifdef INP_CAPTURE_ACTIVE  
+    virtual INPCAPTURE*             CreateCapture             ();
+    virtual bool                    DeleteCapture             (INPCAPTURE* inputcapture);  
+    #endif
 
   private:
 

@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       INPWINDOWSFactory.h
+* @file       INPSimulate.h
 * 
-* @class      INPWINDOWSFACTORY
-* @brief      INPUT WINDOWS factory 
-* @ingroup    PLATFORM_WINDOWS
+* @class      INPSIMULATE
+* @brief      Input Simulate
+* @ingroup    INPUT
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,14 +26,12 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _INPWINDOWSFACTORY_H_
-#define _INPWINDOWSFACTORY_H_
+#ifndef _INPSIMULATE_H_
+#define _INPSIMULATE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "INPFactory.h"
-#include "INPSimulate.h"
 
 #pragma endregion
 
@@ -48,23 +46,19 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class INPWINDOWSFACTORY : public INPFACTORY
+class INPSIMULATE
 {
   public:
+                        INPSIMULATE        ();
+    virtual            ~INPSIMULATE        ();
 
-    INPDEVICE*                  CreateDevice              (INPDEVICE_TYPE type, void* param = NULL);
-    bool                        DeleteDevice              (INPDEVICE* device);
+    virtual bool        PressKey            (XBYTE key, int timepress = 100);
 
-    #ifdef INP_SIMULATE_ACTIVE
-    INPSIMULATE*                CreateSimulator           ();
-    bool                        DeleteSimulator           (INPSIMULATE* inputsimulated);
-    #endif
+  protected:
 
-    #ifdef INP_CAPTURE_ACTIVE  
-    virtual INPCAPTURE*         CreateCapture             ();
-    virtual bool                DeleteCapture             (INPCAPTURE* inputcapture);  
-    #endif
+  private:
 
+    void                Clean               ();
 };
 
 #pragma endregion
@@ -78,4 +72,6 @@ class INPWINDOWSFACTORY : public INPFACTORY
 
 
 #endif
+
+
 

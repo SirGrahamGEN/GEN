@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       INPSimulated.h
+* @file       INPSimulate.h
 * 
-* @class      INPSIMULATED
-* @brief      Input Simulated
+* @class      INPSIMULATE
+* @brief      Input Simulate
 * @ingroup    INPUT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _INPSIMULATED_H_
-#define _INPSIMULATED_H_
+#ifndef _INPSIMULATE_H_
+#define _INPSIMULATE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -46,19 +46,17 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class INPSIMULATED
+class INPSIMULATE
 {
   public:
-                        INPSIMULATED        ();
-    virtual            ~INPSIMULATED        ();
-
-    virtual bool        PressKey            (XBYTE key, int timepress = 100);
+                    INPSIMULATE    ();
+    virtual        ~INPSIMULATE    ();
 
   protected:
 
   private:
 
-    void                Clean               ();
+    void            Clean           ();
 };
 
 #pragma endregion

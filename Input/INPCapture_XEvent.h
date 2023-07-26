@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       INPWINDOWSFactory.h
+* @file       INPCapture_XEvent.h
 * 
-* @class      INPWINDOWSFACTORY
-* @brief      INPUT WINDOWS factory 
-* @ingroup    PLATFORM_WINDOWS
+* @class      INPCAPTURE_XEVENT
+* @brief      Input Capture eXtended Event class
+* @ingroup    INPUT
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,14 +26,14 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _INPWINDOWSFACTORY_H_
-#define _INPWINDOWSFACTORY_H_
+#ifndef _INPCAPTURE_XEVENT_H_
+#define _INPCAPTURE_XEVENT_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "INPFactory.h"
-#include "INPSimulate.h"
+#include "XEvent.h"
+#include "XSubject.h"
 
 #pragma endregion
 
@@ -41,6 +41,12 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+enum INPCAPTURE_XEVENT_TYPE
+{
+  INPCAPTURE_XEVENT_TYPE_UNKNOWN          =  XEVENT_TYPE_INPUT_CAPTURE ,
+  INPCAPTURE_XEVENT_TYPE_PRESSKEY                                       ,
+  INPCAPTURE_XEVENT_TYPE_UNPRESSKEY
+};
 
 #pragma endregion
 
@@ -48,23 +54,35 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class INPWINDOWSFACTORY : public INPFACTORY
+class XTIMER;
+class XPUBLISHER;
+
+class INPCAPTURE_XEVENT : public XEVENT
 {
   public:
+                                INPCAPTURE_XEVENT               (XSUBJECT* subject, XDWORD type =INPCAPTURE_XEVENT_TYPE_UNKNOWN, XDWORD family =  XEVENT_TYPE_INPUT_CAPTURE);
+    virtual                    ~INPCAPTURE_XEVENT               ();
 
-    INPDEVICE*                  CreateDevice              (INPDEVICE_TYPE type, void* param = NULL);
-    bool                        DeleteDevice              (INPDEVICE* device);
+    XDWORD                      GetVKCode                       (); 
+    void                        SetVKCode                       (XDWORD vkcode); 
+   
+    XWORD                       GetScanCode                     ();
+    void                        SetScanCode                     (XWORD scancode);
 
-    #ifdef INP_SIMULATE_ACTIVE
-    INPSIMULATE*                CreateSimulator           ();
-    bool                        DeleteSimulator           (INPSIMULATE* inputsimulated);
-    #endif
+    XDWORD                      GetFlags                        ();
+    void                        SetFlags                        (XWORD flags);
 
-    #ifdef INP_CAPTURE_ACTIVE  
-    virtual INPCAPTURE*         CreateCapture             ();
-    virtual bool                DeleteCapture             (INPCAPTURE* inputcapture);  
-    #endif
+    bool                        IsKeyLocked                     ();           
+    void                        SetIsKeyLocked                  (bool iskeylocked);
+   
+  private:
 
+    void                        Clean                           ();
+
+    XDWORD                      vkcode;
+    XWORD                       scancode;
+    XDWORD                      flags;
+    bool                        iskeylocked;
 };
 
 #pragma endregion

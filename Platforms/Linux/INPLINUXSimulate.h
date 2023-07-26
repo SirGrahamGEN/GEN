@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Script_Lib_InputSimulated.h
+* @file       INPLINUXSimulate.h
 * 
-* @class      SCRIPT_LIB_INPUTSIMULATED
-* @brief      Script Lib Input Simulated class
-* @ingroup    SCRIPT
+* @class      INPLINUXSIMULATE
+* @brief      Input LINUX Simulate
+* @ingroup    INPUT
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,15 +26,12 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SCRIPT_LIB_INPUTSIMULATED_H_
-#define _SCRIPT_LIB_INPUTSIMULATED_H_
+#ifndef _INPLINUXSIMULATE_H_
+#define _INPLINUXSIMULATE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XPath.h"
-
-#include "Script_Lib.h"
 
 #pragma endregion
 
@@ -43,28 +40,23 @@
 #pragma region DEFINES_ENUMS
 
 
-#define SCRIPT_LIB_NAME_PROCESS   __L("Process")
-
 #pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class XVARIANT;
-class SCRIPT;
-
-class SCRIPT_LIB_INPUTSIMULATED : public SCRIPT_LIB
+class INPLINUXSIMULATE
 {
   public:
-                          SCRIPT_LIB_INPUTSIMULATED      ();
-    virtual              ~SCRIPT_LIB_INPUTSIMULATED      ();
+                    INPLINUXSIMULATE     ();
+    virtual        ~INPLINUXSIMULATE     ();
 
-    bool                  AddLibraryFunctions            (SCRIPT* script);
+  protected:
 
   private:
 
-    void                  Clean                          ();
+    void            Clean                 ();
 };
 
 #pragma endregion
@@ -73,11 +65,11 @@ class SCRIPT_LIB_INPUTSIMULATED : public SCRIPT_LIB
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 #pragma region FUNCTIONS_PROTOTYPES
 
-void      Call_PressKey                     (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 #pragma endregion
 
 
 #endif
+
 
 

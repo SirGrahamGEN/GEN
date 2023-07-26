@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       INPWINDOWSSimulated.h
+* @file       Script_Lib_InputSimulate.h
 * 
-* @class      INPWINDOWSSIMULATED
-* @brief      Input WINDOWS Simulated
-* @ingroup    INPUT
+* @class      SCRIPT_LIB_INPUTSIMULATE
+* @brief      Script Lib Input Simulate class
+* @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,13 +26,15 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _INPWINDOWSSIMULATED_H_
-#define _INPWINDOWSSIMULATED_H_
+#ifndef _SCRIPT_LIB_INPUTSIMULATE_H_
+#define _SCRIPT_LIB_INPUTSIMULATE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "INPSimulated.h"
+#include "XPath.h"
+
+#include "Script_Lib.h"
 
 #pragma endregion
 
@@ -41,25 +43,28 @@
 #pragma region DEFINES_ENUMS
 
 
+#define SCRIPT_LIB_NAME_PROCESS   __L("Process")
+
 #pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class INPWINDOWSSIMULATED : public INPSIMULATED
+class XVARIANT;
+class SCRIPT;
+
+class SCRIPT_LIB_INPUTSIMULATE : public SCRIPT_LIB
 {
   public:
-                    INPWINDOWSSIMULATED     ();
-    virtual        ~INPWINDOWSSIMULATED     ();
+                          SCRIPT_LIB_INPUTSIMULATE      ();
+    virtual              ~SCRIPT_LIB_INPUTSIMULATE      ();
 
-    bool            PressKey                (XBYTE key, int timepress = 100);
-
-  protected:
+    bool                  AddLibraryFunctions            (SCRIPT* script);
 
   private:
 
-    void            Clean                   ();
+    void                  Clean                          ();
 };
 
 #pragma endregion
@@ -68,11 +73,11 @@ class INPWINDOWSSIMULATED : public INPSIMULATED
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 #pragma region FUNCTIONS_PROTOTYPES
 
+void      Call_PressKey                     (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 #pragma endregion
 
 
 #endif
-
 
 

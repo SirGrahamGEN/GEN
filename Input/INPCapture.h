@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       INPWINDOWSFactory.h
+* @file       INPCapture.h
 * 
-* @class      INPWINDOWSFACTORY
-* @brief      INPUT WINDOWS factory 
-* @ingroup    PLATFORM_WINDOWS
+* @class      INPCAPTURE
+* @brief      Input Capture class
+* @ingroup    INPUT
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,14 +26,17 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _INPWINDOWSFACTORY_H_
-#define _INPWINDOWSFACTORY_H_
+#ifndef _INPCAPTURE_H_
+#define _INPCAPTURE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "INPFactory.h"
-#include "INPSimulate.h"
+#include <stdio.h>
+
+#include "XBase.h"
+#include "XString.h"
+#include "XSubject.h"
 
 #pragma endregion
 
@@ -48,23 +51,26 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class INPWINDOWSFACTORY : public INPFACTORY
+class INPCAPTURE : public XSUBJECT
 {
   public:
+                                      INPCAPTURE                  ();                                      
+    virtual                          ~INPCAPTURE                  ();
 
-    INPDEVICE*                  CreateDevice              (INPDEVICE_TYPE type, void* param = NULL);
-    bool                        DeleteDevice              (INPDEVICE* device);
+    void                              SetApplicationHandle        (void* applicationhandle);
 
-    #ifdef INP_SIMULATE_ACTIVE
-    INPSIMULATE*                CreateSimulator           ();
-    bool                        DeleteSimulator           (INPSIMULATE* inputsimulated);
-    #endif
+    virtual bool                      Activate                    ();
+    virtual bool                      Deactivate                  ();
 
-    #ifdef INP_CAPTURE_ACTIVE  
-    virtual INPCAPTURE*         CreateCapture             ();
-    virtual bool                DeleteCapture             (INPCAPTURE* inputcapture);  
-    #endif
+  protected: 
 
+    void*                             applicationhandle;
+
+  private:
+
+    void                              Clean                       ();
+
+    
 };
 
 #pragma endregion

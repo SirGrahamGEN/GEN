@@ -42,9 +42,8 @@
 #include "INPWINDOWSDeviceKeyboard.h"
 #include "INPWINDOWSDeviceMouse.h"
 
-#include "INPWINDOWSSimulated.h"
-
-#include "INPWINDOWSFactory.h"
+#include "INPWINDOWSSimulate.h"
+#include "INPWINDOWSCapture.h"
 
 #include "XMemory_Control.h"
 
@@ -131,19 +130,19 @@ bool INPWINDOWSFACTORY::DeleteDevice(INPDEVICE* device)
 }
 
 
-#ifdef INP_SIMULATED_ACTIVE
+#ifdef INP_SIMULATE_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         INPSIMULATED* INPWINDOWSFACTORY::CreateSimulator()
+* @fn         INPSIMULATE* INPWINDOWSFACTORY::CreateSimulator()
 * @brief      CreateSimulator
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     INPSIMULATED* : 
+* @return     INPSIMULATE* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-INPSIMULATED* INPWINDOWSFACTORY::CreateSimulator()
+INPSIMULATE* INPWINDOWSFACTORY::CreateSimulator()
 {
-  INPSIMULATED* inpsimulated = (INPSIMULATED*)new INPWINDOWSSIMULATED();
+  INPSIMULATE* inpsimulated = (INPSIMULATE*)new INPWINDOWSSIMULATE();
 
   return inpsimulated;
 }
@@ -151,7 +150,7 @@ INPSIMULATED* INPWINDOWSFACTORY::CreateSimulator()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPWINDOWSFACTORY::DeleteSimulator(INPSIMULATED* inputsimulated)
+* @fn         bool INPWINDOWSFACTORY::DeleteSimulator(INPSIMULATE* inputsimulated)
 * @brief      DeleteSimulator
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -160,9 +159,9 @@ INPSIMULATED* INPWINDOWSFACTORY::CreateSimulator()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSFACTORY::DeleteSimulator(INPSIMULATED* inputsimulated)
+bool INPWINDOWSFACTORY::DeleteSimulator(INPSIMULATE* inputsimulated)
 {
-  INPWINDOWSSIMULATED* inpsimulated = (INPWINDOWSSIMULATED*)inputsimulated;
+  INPWINDOWSSIMULATE* inpsimulated = (INPWINDOWSSIMULATE*)inputsimulated;
 
   if(!inpsimulated)
     {
@@ -174,6 +173,53 @@ bool INPWINDOWSFACTORY::DeleteSimulator(INPSIMULATED* inputsimulated)
   return true;
 }
 #endif
+
+
+#ifdef INP_CAPTURE_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         INPCAPTURE* INPWINDOWSFACTORY::CreateCapture()
+* @brief      CreateCapture
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     INPCAPTURE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+INPCAPTURE* INPWINDOWSFACTORY::CreateCapture()
+{
+  INPCAPTURE* inpcapture = (INPCAPTURE*)new INPWINDOWSCAPTURE();
+
+  return inpcapture;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSFACTORY::DeleteCapture(INPCAPTURE* inputcapture)
+* @brief      DeleteCapture
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  inputcapture : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSFACTORY::DeleteCapture(INPCAPTURE* inputcapture)
+{
+  INPWINDOWSCAPTURE* inpcapture = (INPWINDOWSCAPTURE*)inputcapture;
+
+  if(!inpcapture)
+    {
+      return false;
+    }
+
+  delete inpcapture;
+
+  return true;
+}
+
+#endif
+
 
 
 #pragma endregion

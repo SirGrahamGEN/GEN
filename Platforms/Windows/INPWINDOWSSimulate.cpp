@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       INPLINUXSimulated.cpp
+* @file       INPWindowsSimulate.cpp
 * 
-* @class      INPLINUXSIMULATED
-* @brief      Input LINUX Simulated
+* @class      INPWINDOWSSIMULATE
+* @brief      Input WINDOWS Simulate
 * @ingroup    INPUT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -31,7 +31,7 @@
 
 #include "GEN_Defines.h"
 
-#include "INPLINUXSimulated.h"
+#include "INPWindowsSimulate.h"
 
 #pragma endregion
 
@@ -39,6 +39,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include <Windows.h>
 
 #include "XMemory_Control.h"
 
@@ -56,17 +57,16 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         INPLINUXSIMULATED::INPLINUXSIMULATED()
+* @fn         INPWINDOWSSIMULATE::INPWINDOWSSIMULATE()
 * @brief      Constructor
-* @ingroup    PLATFORM_LINUX
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-INPLINUXSIMULATED::INPLINUXSIMULATED()
+INPWINDOWSSIMULATE::INPWINDOWSSIMULATE()
 {
   Clean();
 }
@@ -74,15 +74,15 @@ INPLINUXSIMULATED::INPLINUXSIMULATED()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         INPLINUXSIMULATED::~INPLINUXSIMULATED()
+* @fn         INPWINDOWSSIMULATE::~INPWINDOWSSIMULATE()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    PLATFORM_LINUX
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-INPLINUXSIMULATED::~INPLINUXSIMULATED()
+INPWINDOWSSIMULATE::~INPWINDOWSSIMULATE()
 {
   Clean();
 }
@@ -90,15 +90,39 @@ INPLINUXSIMULATED::~INPLINUXSIMULATED()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void INPLINUXSIMULATED::Clean()
+* @fn         bool INPWINDOWSSIMULATE::PressKey(XBYTE key, int timepress)
+* @brief      PressKey
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  key : 
+* @param[in]  timepress : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSSIMULATE::PressKey(XBYTE key, int timepress)
+{
+  keybd_event(key, 0, 0, 0);    
+    
+  Sleep(timepress);
+  
+  keybd_event(key, 0, KEYEVENTF_KEYUP, 0);
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPWINDOWSSIMULATE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    PLATFORM_LINUX
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void INPLINUXSIMULATED::Clean()
+void INPWINDOWSSIMULATE::Clean()
 {
 
 }

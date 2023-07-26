@@ -313,14 +313,14 @@ bool DIONODEITEM::ItemHandler_Close()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONODEITEM::IsSimulated()
-* @brief      IsSimulated
+* @fn         bool DIONODEITEM::IsSimulate()
+* @brief      IsSimulate
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONODEITEM::IsSimulated()
+bool DIONODEITEM::IsSimulate()
 {
   return issimulated;
 }
@@ -328,8 +328,8 @@ bool DIONODEITEM::IsSimulated()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIONODEITEM::SetIsSimulated(bool issimulated)
-* @brief      SetIsSimulated
+* @fn         void DIONODEITEM::SetIsSimulate(bool issimulated)
+* @brief      SetIsSimulate
 * @ingroup    DATAIO
 * 
 * @param[in]  issimulated : 
@@ -337,7 +337,7 @@ bool DIONODEITEM::IsSimulated()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONODEITEM::SetIsSimulated(bool issimulated)
+void DIONODEITEM::SetIsSimulate(bool issimulated)
 {
   this->issimulated = issimulated;
 }

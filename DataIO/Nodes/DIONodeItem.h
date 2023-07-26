@@ -72,8 +72,8 @@ class DIONODEITEM : public XSERIALIZABLE
     bool                          ItemHandler_Open              ();
     bool                          ItemHandler_Close             ();
 
-    bool                          IsSimulated                   ();
-    void                          SetIsSimulated                (bool issimulated);
+    bool                          IsSimulate                   ();
+    void                          SetIsSimulate                (bool issimulated);
 
     XQWORD                        GetTimeToUpdate               ();
     void                          SetTimeToUpdate               (XQWORD timetoupdate);

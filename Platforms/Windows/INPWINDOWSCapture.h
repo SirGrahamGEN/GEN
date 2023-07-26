@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       INPLINUXSimulated.h
+* @file       INPWINDOWSCapture.h
 * 
-* @class      INPLINUXSIMULATED
-* @brief      Input LINUX Simulated
-* @ingroup    INPUT
+* @class      INPWINDOWSCAPTURE
+* @brief      Input WINDOWS Capture class
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,12 +26,20 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _INPLINUXSIMULATED_H_
-#define _INPLINUXSIMULATED_H_
+#ifndef _INPWINDOWSCAPTURE_H_
+#define _INPWINDOWSCAPTURE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include <windows.h>
+#include <stdio.h>
+
+#include "XBase.h"
+#include "XString.h"
+#include "XSubject.h"
+
+#include "INPCapture.h"
 
 #pragma endregion
 
@@ -46,17 +54,24 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class INPLINUXSIMULATED
+class INPWINDOWSCAPTURE : public INPCAPTURE
 {
-  public:
-                    INPLINUXSIMULATED     ();
-    virtual        ~INPLINUXSIMULATED     ();
-
-  protected:
+  public:                                    
+                                      INPWINDOWSCAPTURE           ();                                     
+    virtual                          ~INPWINDOWSCAPTURE           ();
+    
+    bool                              Activate                    ();
+    bool                              Deactivate                  ();
 
   private:
+     
+    void                              Clean                       ();
 
-    void            Clean                 ();
+    static LRESULT CALLBACK           LowLevelKeyboardProc        (int ncode, WPARAM wparam, LPARAM lparam);
+
+    HHOOK                             keyhook;  
+    static INPWINDOWSCAPTURE*         capture;
+  
 };
 
 #pragma endregion
@@ -70,6 +85,4 @@ class INPLINUXSIMULATED
 
 
 #endif
-
-
 

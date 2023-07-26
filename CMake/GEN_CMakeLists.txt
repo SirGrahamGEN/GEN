@@ -294,9 +294,9 @@ if(SCRIPT_FEATURE)
 
   option(XPROCESSMANAGER_FEATURE "Process Manager" true)
 
-  if(SCRIPT_LIB_INPUTSIMULATED_FEATURE)
+  if(SCRIPT_LIB_INPUTSIMULATE_FEATURE)
     
-    option(INP_SIMULATED_FEATURE "Inputs Simulated" true)
+    option(INP_SIMULATE_FEATURE "Inputs Simulate" true)
 
   endif()
 
@@ -1417,11 +1417,19 @@ endif()
 # Input 
 
 
-if(INP_SIMULATED_FEATURE)
+if(INP_SIMULATE_FEATURE)
 
-  add_definitions(-DINP_SIMULATED_ACTIVE)
+  add_definitions(-DINP_SIMULATE_ACTIVE)
   option(INP_FEATURE "Inputs" true)
 
+endif()
+
+
+if(INP_CAPTURE_FEATURE)
+
+  add_definitions(-DINP_CAPTURE_ACTIVE)
+  option(INP_FEATURE "Inputs" true)
+  
 endif()
 
 
@@ -1647,9 +1655,9 @@ if(SCRIPT_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT_LIB}/Script_Lib_Process.cpp")
 
 
-  if(SCRIPT_LIB_INPUTSIMULATED_FEATURE)
+  if(SCRIPT_LIB_INPUTSIMULATE_FEATURE)
 
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT_LIB}/Script_Lib_InputSimulated.cpp")
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SCRIPT_LIB}/Script_Lib_InputSimulate.cpp")
 
   endif()
 
@@ -1757,11 +1765,20 @@ endif()
 # -------------------------------------------------
 # Inputs
 
-if(INP_SIMULATED_FEATURE)
+if(INP_SIMULATE_FEATURE)
   
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPSimulated.cpp")  
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPSimulate.cpp")  
 
 endif()
+
+
+if(INP_CAPTURE_FEATURE)
+  
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPCapture_XEvent.cpp")  
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPCapture.cpp")  
+
+endif()
+
 
 if(INP_FEATURE)  
 
@@ -1773,8 +1790,6 @@ if(INP_FEATURE)
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_INPUT}/INPCursorMotion.cpp")
 
 endif()
-
-
 
 
 # -------------------------------------------------
@@ -2679,9 +2694,16 @@ if(COMPILE_TO_WINDOWS)
   endif()
 
 
-  if(INP_SIMULATED_FEATURE)
+  if(INP_SIMULATE_FEATURE)
   
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/INPWINDOWSSimulated.cpp")  
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/INPWINDOWSSimulate.cpp")  
+
+  endif()
+
+
+  if(INP_CAPTURE_FEATURE)
+  
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_WINDOWS}/INPWINDOWSCapture.cpp")  
 
   endif()
 
@@ -2936,9 +2958,9 @@ if(COMPILE_TO_LINUX)
   endif()
 
 
-  if(INP_SIMULATED_FEATURE)
+  if(INP_SIMULATE_FEATURE)
   
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/INPLINUXSimulated.cpp")  
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/INPLINUXSimulate.cpp")  
 
   endif()
 
