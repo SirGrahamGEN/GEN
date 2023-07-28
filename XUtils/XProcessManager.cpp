@@ -145,6 +145,39 @@ XSTRING* XPROCESS::GetName()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         void* XPROCESS::GetWindowHandle()
+* @brief      GetWindowHandle
+* @ingroup    XUTILS
+* 
+* @return     void* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void* XPROCESS::GetWindowHandle()
+{
+  return windowhandle;
+
+}
+ 
+  
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XPROCESS::SetWindowHandle(void* windowhandle)
+* @brief      SetWindowHandle
+* @ingroup    XUTILS
+* 
+* @param[in]  windowhandle : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XPROCESS::SetWindowHandle(void* windowhandle)
+{
+  this->windowhandle = windowhandle;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XSTRING* XPROCESS::GetWindowTitle()
 * @brief      GetWindowTitle
 * @ingroup    XUTILS
@@ -214,7 +247,8 @@ bool XPROCESS::CopyFrom(XPROCESS& xprocess)
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XPROCESS::Clean()
 {
-  ID = 0xFFFFFFFF;
+  ID           = 0xFFFFFFFF;
+  windowhandle = NULL;
 }
 
 

@@ -40,6 +40,7 @@
 #pragma region INCLUDES
 
 #include "XVariant.h"
+#include "XProcessManager.h"
 
 #include "APPBase.h"
 #include "APPMain.h"
@@ -116,6 +117,7 @@ bool SCRIPT_LIB_INPUTSIMULATE::AddLibraryFunctions(SCRIPT* script)
 
   script->AddLibraryFunction(this, __L("PressKey")                  , Call_PressKey);
   script->AddLibraryFunction(this, __L("SetPositionCursor")         , Call_SetPositionCursor);
+  script->AddLibraryFunction(this, __L("GetWindowPosition")         , Call_GetWindowPosition);
       
   return true;
 }
@@ -250,6 +252,75 @@ void Call_SetPositionCursor(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
   
+  (*returnvalue) = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_GetWindowPosition(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_GetWindowPosition
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_GetWindowPosition(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  bool status  = false;
+
+  if(params->GetSize()<3)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+ 
+  XVECTOR<XPROCESS*>  applist;
+  XVARIANT*           variant;
+  void*               windows_handle; 
+  bool                exists = false;
+
+  variant = params->Get(0);
+
+  status = GEN_XPROCESSMANAGER.Application_GetRunningList(applist); 
+
+  if(status)
+    {
+      for(XDWORD c=0; c<applist.GetSize(); c++)
+        {
+          XSTRING nameapp;
+          XSTRING _applicationname = (*variant);
+
+          nameapp  = applist.Get(c)->GetName()->Get();
+                    
+          if(_applicationname.Find(nameapp, false) != XSTRING_NOTFOUND)
+            {
+              windows_handle = applist.Get(c)->GetWindowHandle();
+              exists = true;
+        
+              break;
+            }
+        }
+    }
+    
+  applist.DeleteContents();
+  applist.DeleteAll();
+
+  (*params->Get(1)) = 100;  
+  (*params->Get(2)) = 100;
+   
   (*returnvalue) = status;
 }
 

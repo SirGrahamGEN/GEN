@@ -415,35 +415,21 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
 
   EnumWindows(EnumWindowCallback, (LPARAM)&applist);
 
+  CloseHandle(snapshot);
 
   //------------------------------------------------------------------------
-  /* 
-  MODULEENTRY32  moduleentry;
+  #ifdef XTRACE_ACTIVE
 
-  memset(&moduleentry, 0, sizeof(MODULEENTRY32));
-  moduleentry.dwSize = sizeof(MODULEENTRY32);
-
-  if(Module32First(snapshot, &moduleentry))
-    {      
-      do{ XPROCESS* xprocess = new XPROCESS();
-          if(xprocess)
-            {
-              xprocess->SetID((XDWORD)moduleentry.th32ProcessID);
-              xprocess->GetPath()->Set(moduleentry.szExePath);
-              xprocess->GetName()->Set(moduleentry.szModule);  
-
-              applist.Add(xprocess);                             
-            }
-
-          memset(&moduleentry, 0, sizeof(MODULEENTRY32));
-          moduleentry.dwSize = sizeof(MODULEENTRY32);
-
-        } while(Module32Next(snapshot, &moduleentry));
+  for(XDWORD c = 0; c < applist.GetSize(); c++)
+    {
+      XPROCESS* process = applist.Get(c);
+      if(process)
+        {
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("ID: %08X, %s, %s, %s, %08X"), process->GetID(), process->GetName()->Get(), process->GetPath()->Get(), process->GetWindowTitle()->Get(), process->GetWindowHandle());
+        }
     }
-  */
 
-
-  CloseHandle(snapshot);
+  #endif  
 
   //------------------------------------------------------------------------
 
@@ -480,6 +466,7 @@ bool XWINDOWSPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD  exi
 
   return true;
 }
+
   
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -499,7 +486,6 @@ BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowCallback(HWND hwnd, LPARAM lpara
   XSTRING*            newtitlewindow  = NULL;
   int                 sizetitlewindow = GetWindowTextLength(hwnd);
   XVECTOR<XPROCESS*>* applist         = (XVECTOR<XPROCESS*>*)lparam;
-//bool                foundtask       = false;
 
   newtitlewindow = new XSTRING();
   if(!newtitlewindow) return FALSE;
@@ -512,20 +498,19 @@ BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowCallback(HWND hwnd, LPARAM lpara
  
   if(IsWindowVisible(hwnd) && newtitlewindow->GetSize()) 
     {          
-      unsigned long windows_process_id = 0;
+      XDWORD windows_process_id = 0;
       
-      GetWindowThreadProcessId(hwnd, &windows_process_id);
+      windows_process_id = GetWindowThreadProcessId(hwnd, NULL);
 
       if(windows_process_id)
         {
-          // foundtask = false; 
-
           for(XDWORD c=0; c<applist->GetSize(); c++)
             {
               if(applist->Get(c)->GetID() == windows_process_id)            
                 {
                   if(!applist->Get(c)->GetWindowTitle()->GetSize())
                     {
+                      applist->Get(c)->SetWindowHandle((void*)hwnd);
                       applist->Get(c)->GetWindowTitle()->Set(newtitlewindow->Get());
                     }
                    else
@@ -534,19 +519,18 @@ BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowCallback(HWND hwnd, LPARAM lpara
                       if(xprocess)
                         {              
                           xprocess->CopyFrom((*applist->Get(c)));              
+                          
+                          applist->Get(c)->SetWindowHandle((void*)hwnd);                          
                           applist->Get(c)->GetWindowTitle()->Set(newtitlewindow->Get());
 
                           applist->Add(xprocess); 
                         }                                                      
                     }
-                         
-                  // foundtask = true; 
+                                  
                   break;
                 }               
             }
-        } 
-      
-      // XTRACE_PRINTCOLOR((foundtask?XTRACE_COLOR_BLUE:XTRACE_COLOR_PURPLE), __L(">>> %6d [%s] "), windows_process_id, newtitlewindow->Get());       
+        }        
     }
 
   delete newtitlewindow;

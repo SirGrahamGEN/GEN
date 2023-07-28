@@ -75,6 +75,7 @@ class SCRIPT_LIB_INPUTSIMULATE : public SCRIPT_LIB
 
 void      Call_PressKey                     (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void      Call_SetPositionCursor            (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void      Call_GetWindowPosition            (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 #pragma endregion
 

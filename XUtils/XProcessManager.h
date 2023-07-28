@@ -49,9 +49,12 @@ class XPROCESS
 
     XDWORD                          GetID                           ();
     void                            SetID                           (XDWORD handle);
-
+  
     XPATH*                          GetPath                         ();
     XSTRING*                        GetName                         ();
+
+    void*                           GetWindowHandle                 ();
+    void                            SetWindowHandle                 (void* windowhandle);
     XSTRING*                        GetWindowTitle                  ();  
 
     bool                            CopyTo                          (XPROCESS& xprocess);    
@@ -61,9 +64,10 @@ class XPROCESS
 
     void                            Clean                           ();
 
-    XDWORD                          ID;
+    XDWORD                          ID;    
     XPATH                           path;  
     XSTRING                         name;  
+    void*                           windowhandle;
     XSTRING                         windowtitle;  
 };
 

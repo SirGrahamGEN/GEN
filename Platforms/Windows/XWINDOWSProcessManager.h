@@ -58,6 +58,7 @@ class XWINDOWSPROCESSMANAGER : public XPROCESSMANAGER
   
   private:
 
+    XDWORD                  GetMainThreadIdFromWindow         (HWND hwnd);
     static BOOL CALLBACK    EnumWindowCallback                (HWND hwnd, LPARAM lparam);
 
     void                    Clean                             ();
