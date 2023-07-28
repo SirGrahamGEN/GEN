@@ -31,6 +31,8 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include <windows.h>
+
 #include "XProcessManager.h"
 
 
@@ -40,26 +42,43 @@
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
+class XWINDOWSPROCESSMANAGER_PROCESSWINPAIR
+{
+  public:
+                            XWINDOWSPROCESSMANAGER_PROCESSWINPAIR       ();
+    virtual                ~XWINDOWSPROCESSMANAGER_PROCESSWINPAIR       ();
+
+    HWND                    hwnd;
+    XDWORD                  pID; 
+
+  private:
+  
+    void                    Clean                             ();
+};
+
+
+
 class XWINDOWSPROCESSMANAGER : public XPROCESSMANAGER
 {
   public:
-                            XWINDOWSPROCESSMANAGER            ();
-    virtual                ~XWINDOWSPROCESSMANAGER            ();
+                            XWINDOWSPROCESSMANAGER                      ();
+    virtual                ~XWINDOWSPROCESSMANAGER                      ();
 
-    bool                    MakeSystemCommand                 (XCHAR* command);    
-    bool                    MakeCommand                       (XCHAR* command, XSTRING* out = NULL, int* returncode = NULL);
+    bool                    MakeSystemCommand                           (XCHAR* command);    
+    bool                    MakeCommand                                 (XCHAR* command, XSTRING* out = NULL, int* returncode = NULL);
 
-    bool                    OpenURL                           (XCHAR* url);
+    bool                    OpenURL                                     (XCHAR* url);
 
-    bool                    Application_Execute                (XCHAR* applicationpath, XCHAR* params = NULL, XSTRING* in = NULL, XSTRING* out = NULL, int* returncode = NULL);
-    bool                    Application_IsRunning              (XCHAR* command, XDWORD* ID = NULL);
-    bool                    Application_GetRunningList         (XVECTOR<XPROCESS*>& applist);
-    bool                    Application_Terminate              (XDWORD processID, XDWORD  exitcode = 0);
+    bool                    Application_Execute                         (XCHAR* applicationpath, XCHAR* params = NULL, XSTRING* in = NULL, XSTRING* out = NULL, int* returncode = NULL);
+    bool                    Application_IsRunning                       (XCHAR* command, XDWORD* ID = NULL);
+    bool                    Application_GetRunningList                  (XVECTOR<XPROCESS*>& applist);
+    bool                    Application_Terminate                       (XDWORD processID, XDWORD  exitcode = 0);
   
   private:
 
-    XDWORD                  GetMainThreadIdFromWindow         (HWND hwnd);
-    static BOOL CALLBACK    EnumWindowCallback                (HWND hwnd, LPARAM lparam);
+    static bool             GetChildProcesses                           (DWORD parentProcessID, XVECTOR<XDWORD>& processIDs);
+    static BOOL CALLBACK    EnumWindowsProc                             (HWND hwnd, LPARAM lParam);
+    HWND                    FindTopWindow                               (DWORD pid);
 
     void                    Clean                             ();
 };
