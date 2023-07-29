@@ -31,14 +31,17 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include <windows.h>
+#include <Windows.h>
+
+#include "XVector.h"
+#include "XMap.h"
 
 #include "XProcessManager.h"
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-
+#define MAPWINPROCESS XMAP<HWND, XDWORD>
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
@@ -50,6 +53,7 @@ class XWINDOWSPROCESSMANAGER_PROCESSWINPAIR
 
     HWND                    hwnd;
     XDWORD                  pID; 
+    XVECTOR<XDWORD>         subprocessIDs;
 
   private:
   
@@ -76,9 +80,10 @@ class XWINDOWSPROCESSMANAGER : public XPROCESSMANAGER
   
   private:
 
-    static bool             GetChildProcesses                           (DWORD parentProcessID, XVECTOR<XDWORD>& processIDs);
-    static BOOL CALLBACK    EnumWindowsProc                             (HWND hwnd, LPARAM lParam);
-    HWND                    FindTopWindow                               (DWORD pid);
+    bool                    GetWindowTitle                              (HWND hwnd, XSTRING& title);    
+    static bool             GetChildProcesses                           (XDWORD mainproccessID, XVECTOR<XDWORD>& subprocessIDs);
+    static BOOL CALLBACK    EnumWindowsProc                             (HWND hwnd, LPARAM lparam);
+    static bool             GetMapOfWinProcess                          (MAPWINPROCESS& mapofwinprocess);
 
     void                    Clean                             ();
 };

@@ -82,6 +82,7 @@ XWINDOWSPROCESSMANAGER_PROCESSWINPAIR::XWINDOWSPROCESSMANAGER_PROCESSWINPAIR()
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSPROCESSMANAGER_PROCESSWINPAIR::~XWINDOWSPROCESSMANAGER_PROCESSWINPAIR()
 {
+  subprocessIDs.DeleteAll();
 
   Clean();
 }
@@ -455,38 +456,75 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
 
                   CloseHandle(processhandle);  
                 }
-
-              HWND hwnd = FindTopWindow(processentry.th32ProcessID);
-              if(hwnd)
-                {
-                  XSTRING*  newtitlewindow  = NULL;
-                  int       sizetitlewindow = GetWindowTextLength(hwnd);
-
-                  newtitlewindow = new XSTRING();
-                  if(!newtitlewindow) return FALSE;
-
-                  newtitlewindow->AdjustSize(sizetitlewindow+1);
-
-                  GetWindowText(hwnd, newtitlewindow->Get(), sizetitlewindow + 1);
-
-                  newtitlewindow->AdjustSize();
-
-                  xprocess->SetWindowHandle((void*)hwnd);                          
-                  xprocess->GetWindowTitle()->Set(newtitlewindow->Get());
-                }
               
-              applist.Add(xprocess); 
+              applist.Add(xprocess);               
             }
 
           memset(&processentry, 0, sizeof(PROCESSENTRY32));
           processentry.dwSize = sizeof(PROCESSENTRY32);
 
         } while(Process32Next(snapshot, &processentry));
-    }
+    }  
 
-  //EnumWindows(EnumWindowCallback, (LPARAM)&applist);
+  CloseHandle(snapshot);  
 
-  CloseHandle(snapshot);
+  MAPWINPROCESS mapofwinprocess;
+  GetMapOfWinProcess(mapofwinprocess);
+
+  XDWORD c = 0;
+
+  do{ XPROCESS* xprocess = applist.Get(c);
+      if(xprocess)
+        {
+          if(!xprocess->GetWindowHandle())      
+            {
+              XVECTOR<XDWORD> subprocessIDs;              
+              GetChildProcesses(xprocess->GetID(), subprocessIDs);
+
+              for(XDWORD d=0; d<mapofwinprocess.GetSize(); d++)
+                {
+                  HWND    hwnd      = mapofwinprocess.GetKey(d);
+                  XDWORD  processID = mapofwinprocess.GetElement(d);
+                  
+                  for(XDWORD e=0; e<subprocessIDs.GetSize(); e++)
+                    {                   
+                      if(processID == subprocessIDs.Get(e))
+                        {
+                          XSTRING title;
+         
+                          GetWindowTitle(hwnd, title);
+                          
+                          if(!xprocess->GetWindowHandle())                                  
+                            {                         
+                              xprocess->SetWindowHandle((void*)hwnd);         
+                              xprocess->GetWindowTitle()->Set(title.Get());                             
+                            }
+                           else
+                            {                                                                    
+                              XPROCESS* newxprocess = new XPROCESS();
+                              if(newxprocess)
+                                {
+                                  newxprocess->CopyFrom((*xprocess));  
+                                                              
+                                  newxprocess->SetWindowHandle((void*)hwnd);         
+                                  newxprocess->GetWindowTitle()->Set(title.Get());
+
+                                  applist.Add(newxprocess);                                  
+                                }                                                                                                                                                  
+                            } 
+
+                          break; 
+                        } 
+                    }                  
+                }
+            }
+        }
+      
+      c++;
+
+    } while(c<applist.GetSize());          
+
+  mapofwinprocess.DeleteAll();
 
   //------------------------------------------------------------------------
   #ifdef XTRACE_ACTIVE
@@ -506,7 +544,6 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -542,37 +579,108 @@ bool XWINDOWSPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD  exi
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSPROCESSMANAGER::GetChildProcesses(DWORD parentProcessID, XVECTOR<XDWORD>& processIDs)
-* @brief      GetChildProcesses
+* @fn         bool XWINDOWSPROCESSMANAGER::GetWindowTitle(HWND hwnd, XSTRING& title)
+* @brief      GetWindowTitle
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @param[in]  parentProcessID : 
-* @param[in]  processIDs : 
+* @param[in]  hwnd : 
+* @param[in]  title : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSPROCESSMANAGER::GetChildProcesses(DWORD parentProcessID, XVECTOR<XDWORD>& processIDs) 
-{    
-  HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-  if(snapshot != INVALID_HANDLE_VALUE) 
+bool XWINDOWSPROCESSMANAGER::GetWindowTitle(HWND hwnd, XSTRING& title)
+{           
+  title.Empty(); 
+
+  int sizetitlewindow = GetWindowTextLength(hwnd);                                   
+  if(!sizetitlewindow)
+    { 
+      return false;
+    }
+                  
+  title.AdjustSize(sizetitlewindow+1);
+  int size = GetWindowText(hwnd, title.Get(), sizetitlewindow + 1);
+  title.AdjustSize();
+
+  if(!size) 
     {
-      PROCESSENTRY32 pe32;
-      
-      pe32.dwSize = sizeof(PROCESSENTRY32);
+      title.Empty(); 
+      return false;
+    }
+  
+  return true;
+}
 
-      if(Process32First(snapshot, &pe32)) 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSPROCESSMANAGER::GetChildProcesses(XDWORD mainproccessID, XVECTOR<XDWORD>& subprocessIDs)
+* @brief      GetChildProcesses
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  mainproccessID : 
+* @param[in]  subprocessIDs : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XWINDOWSPROCESSMANAGER::GetChildProcesses(XDWORD mainproccessID, XVECTOR<XDWORD>& subprocessIDs) 
+{
+  subprocessIDs.DeleteAll();
+
+  subprocessIDs.Add(mainproccessID);
+
+  /*
+  HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+  if(snapshot == INVALID_HANDLE_VALUE) 
+    {      
+      CloseHandle(snapshot);  
+      return false;
+    }
+
+  PROCESSENTRY32 processEntry;
+  processEntry.dwSize = sizeof(PROCESSENTRY32);
+
+  if(!Process32First(snapshot, &processEntry)) 
+    {
+      return false;
+    }
+
+  do{ if(processEntry.th32ProcessID == mainproccessID) 
         {
-          do{ if(pe32.th32ParentProcessID == parentProcessID) 
-                {
-                  processIDs.Add(pe32.th32ProcessID);
-                }
-
-            } while (Process32Next(snapshot, &pe32));
+          break;
         }
 
-      CloseHandle(snapshot);
+    } while (Process32Next(snapshot, &processEntry));
+  */
+
+  HANDLE threadSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
+  if(threadSnapshot == INVALID_HANDLE_VALUE) 
+    {
+      //CloseHandle(snapshot);
+      return false;
     }
+
+  THREADENTRY32 threadEntry;
+  threadEntry.dwSize = sizeof(THREADENTRY32);
+
+  if(!Thread32First(threadSnapshot, &threadEntry)) 
+    {
+      //CloseHandle(snapshot);
+      CloseHandle(threadSnapshot);
+      return false;
+    }
+
+  do { if(threadEntry.th32OwnerProcessID == mainproccessID) 
+         {
+           subprocessIDs.Add(threadEntry.th32ThreadID);
+         }
+
+      } while (Thread32Next(threadSnapshot, &threadEntry));
+
+  //CloseHandle(snapshot);
+  CloseHandle(threadSnapshot);
 
   return true;
 }
@@ -580,49 +688,40 @@ bool XWINDOWSPROCESSMANAGER::GetChildProcesses(DWORD parentProcessID, XVECTOR<XD
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowsProc(HWND hwnd, LPARAM lParam)
+* @fn         BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowsProc(HWND hwnd, LPARAM lparam)
 * @brief      EnumWindowsProc
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  hwnd : 
-* @param[in]  lParam : 
+* @param[in]  lparam : 
 * 
 * @return     BOOL : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowsProc(HWND hwnd, LPARAM lParam)
+BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowsProc(HWND hwnd, LPARAM lparam)
 {
-  XWINDOWSPROCESSMANAGER_PROCESSWINPAIR* processwinpair = (XWINDOWSPROCESSMANAGER_PROCESSWINPAIR*)lParam;
-  if(!processwinpair)
+  MAPWINPROCESS* mapofwinprocess = (MAPWINPROCESS*)lparam;
+  if(!mapofwinprocess)
     {
       return FALSE;
     }
     
-  DWORD           processID;
-  XVECTOR<XDWORD> processIDs;
+  DWORD processID;  
+  DWORD subprocessID;
 
-  processIDs.Add(processwinpair->pID);
-
-  GetChildProcesses(processwinpair->pID, processIDs);
-
-  GetWindowThreadProcessId(hwnd, &processID);
+  subprocessID = GetWindowThreadProcessId(hwnd, &processID);
 
   if(processID)
     {
-      for(XDWORD c=0; c<processIDs.GetSize(); c++)
-        {
-          if(processIDs.Get(c) == processID)
-            {
-              SetLastError(-1);
-              processwinpair->hwnd = hwnd;  
-
-              processIDs.DeleteAll();
-              return FALSE;
-            }
-        }
+      mapofwinprocess->Add(hwnd, processID);
     }
 
-  processIDs.DeleteAll();
+  /*
+  if(subprocessID)
+    {
+      mapofwinprocess->Add(hwnd, subprocessID);
+    }
+  */
     
   return TRUE;
 }
@@ -630,32 +729,23 @@ BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowsProc(HWND hwnd, LPARAM lParam)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         HWND XWINDOWSPROCESSMANAGER::FindTopWindow(DWORD pID)
-* @brief      FindTopWindow
+* @fn         bool XWINDOWSPROCESSMANAGER::GetMapOfWinProcess(MAPWINPROCESS& mapofwinprocess)
+* @brief      GetMapOfWinProcess
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @param[in]  pID : 
+* @param[in]  mapofwinprocess : 
 * 
-* @return     HWND : 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-HWND XWINDOWSPROCESSMANAGER::FindTopWindow(DWORD pID)
-{
-  XWINDOWSPROCESSMANAGER_PROCESSWINPAIR processwinpair;
+bool XWINDOWSPROCESSMANAGER::GetMapOfWinProcess(MAPWINPROCESS& mapofwinprocess)
+{  
+  mapofwinprocess.DeleteAll();
 
-  processwinpair.pID = pID;
-
-  // Enumerate the windows using EnumWindowsProc function as the callback
-  BOOL bResult = EnumWindows(EnumWindowsProc, (LPARAM)(&processwinpair));
-
-  if (!bResult && GetLastError() == -1 && processwinpair.hwnd)
-  {
-      return processwinpair.hwnd;
-  }
-
-  return 0;
-}
-
+  BOOL result = EnumWindows(EnumWindowsProc, (LPARAM)(&mapofwinprocess));
+  
+  return result?true:false;
+ }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
