@@ -66,4 +66,3 @@ void    Call_GetEnviromentVar               (SCRIPT_LIB* library, SCRIPT* script
 
 
 #endif
-

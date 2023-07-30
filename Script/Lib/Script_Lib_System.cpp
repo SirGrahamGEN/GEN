@@ -258,7 +258,3 @@ void Call_GetEnviromentVar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT
       (*returnvalue) = variable;
     }   
 }
-
-
-
-

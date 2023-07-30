@@ -1,36 +1,51 @@
-/*------------------------------------------------------------------------------------------
-//  GRPRECT.H
-*/
-/**
-// \class
-//
-//  Graphics Rect Class
-//
-//  ""
-//  @version 04/08/2013 16:46:46
-*/
-/*  (C) Copyright Abraham J. Velez. All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPRect.h
+* 
+* @class      GRPRECT
+* @brief      Graphics Rect template
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _GRPRECT_H_
 #define _GRPRECT_H_
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
-
-#include "GEN_Defines.h"
-
-
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
 #include "XMemory_Control.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
+#pragma endregion
 
 
-/*---- CLASS -----------------------------------------------------------------------------*/
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 template<class T>
 class GRPRECTBASE
@@ -67,6 +82,7 @@ class GRPRECTBASE
                                 this->y2  = y2;
                               }
 
+
     const SELFTYPE&           Normalize                         ()
                               {
                                 T t;
@@ -93,6 +109,7 @@ class GRPRECTBASE
                                 return x1 <= x2 && y1 <= y2;
                               }
 
+
     bool                      IsHit                             (T x, T y) const
                               {
                                 return (x >= x1 && x <= x2 && y >= y1 && y <= y2);
@@ -115,6 +132,28 @@ class GRPRECTBASE
                               }
 
 
+    bool                      CopyFrom                          (GRPRECTBASE* rect)
+                              {
+                                x1 = rect->x1;
+                                y1 = rect->y1;
+                                x2 = rect->x2;
+                                y2 = rect->y2;
+
+                                return IsValid();                                  
+                              }
+
+
+    bool                      CopyTo                            (GRPRECTBASE* rect)
+                              {
+                                rect->x1 = x1;
+                                rect->y1 = y1;
+                                rect->x2 = x2;
+                                rect->y2 = y2;
+
+                                return IsValid();
+                              }
+
+
     T                         x1;
     T                         y1;
     T                         x2;
@@ -132,9 +171,11 @@ class GRPRECTBASE
                               }
 };
 
+#pragma endregion
 
-/*---- INLINE FUNCTIONS ------------------------------------------------------------------*/
 
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
 
 template<class R>
 inline R IntersectRectangles(const R& r1, const R& r2)
@@ -150,7 +191,6 @@ inline R IntersectRectangles(const R& r1, const R& r2)
 }
 
 
-
 template<class R>
 inline R UniteRectangles(const R& r1, const R& r2)
 {
@@ -164,10 +204,18 @@ inline R UniteRectangles(const R& r1, const R& r2)
   return r;
 }
 
+#pragma endregion
+
+
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS2
 
 typedef GRPRECTBASE<int>    GRPRECTINT;
 typedef GRPRECTBASE<float>  GRPRECTFLOAT;
 typedef GRPRECTBASE<double> GRPRECTDOUBLE;
+
+#pragma endregion
+
 
 
 #endif

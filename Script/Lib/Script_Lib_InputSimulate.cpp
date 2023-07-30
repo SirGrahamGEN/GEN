@@ -52,7 +52,6 @@
 
 #include "XMemory_Control.h"
 
-
 #pragma endregion
 
 
@@ -115,9 +114,11 @@ bool SCRIPT_LIB_INPUTSIMULATE::AddLibraryFunctions(SCRIPT* script)
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("PressKey")                  , Call_PressKey);
-  script->AddLibraryFunction(this, __L("SetPositionCursor")         , Call_SetPositionCursor);
-  script->AddLibraryFunction(this, __L("GetWindowPosition")         , Call_GetWindowPosition);
+  script->AddLibraryFunction(this, __L("PressKey")             , Call_PressKey);
+  script->AddLibraryFunction(this, __L("GetWindowPosX")        , Call_GetWindowPosX);
+  script->AddLibraryFunction(this, __L("GetWindowPosY")        , Call_GetWindowPosY);
+  script->AddLibraryFunction(this, __L("SetMousePos")          , Call_SetMousePos);
+  script->AddLibraryFunction(this, __L("SetMouseClick")        , Call_SetMouseClick);
       
   return true;
 }
@@ -147,7 +148,7 @@ void SCRIPT_LIB_INPUTSIMULATE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void Call_OpenURL(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_OpenURL
+* @brief      Call_OpenURL
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -204,8 +205,8 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_SetPositionCursor(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_SetPositionCursor
+* @fn         void Call_GetWindowPos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_GetWindowPos
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -216,7 +217,119 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_SetPositionCursor(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_GetWindowPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize()<2)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+ 
+  XVECTOR<XPROCESS*>  applist;
+  XSTRING             appname       = (*params->Get(0));
+  XSTRING             windowstitle  = (*params->Get(1));
+  int                 windowsposx   = 0; 
+  
+  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist))
+    {
+      for(XDWORD c=0; c<applist.GetSize(); c++)
+        {                              
+          if(applist.Get(c)->GetName()->Find(appname, false)!= XSTRING_NOTFOUND) 
+            {  
+              if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
+                {
+                  windowsposx = applist.Get(c)->GetWindowRect()->x1;                  
+                  break;
+                }
+            }
+        }
+    }
+    
+  applist.DeleteContents();
+  applist.DeleteAll();
+   
+  (*returnvalue) = windowsposx;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_GetWindowPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_GetWindowPosY
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_GetWindowPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize()<2)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+ 
+  XVECTOR<XPROCESS*>  applist;
+  XSTRING             appname       = (*params->Get(0));
+  XSTRING             windowstitle  = (*params->Get(1));
+  int                 windowsposy   = 0; 
+  
+  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist))
+    {
+      for(XDWORD c=0; c<applist.GetSize(); c++)
+        {                              
+          if(applist.Get(c)->GetName()->Find(appname, false)!= XSTRING_NOTFOUND) 
+            {  
+              if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
+                {
+                  windowsposy = applist.Get(c)->GetWindowRect()->y1;
+                  break;
+                }
+            }
+        }
+    }
+    
+  applist.DeleteContents();
+  applist.DeleteAll();
+   
+  (*returnvalue) = windowsposy;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_SetMousePos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_SetMousePos
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_SetMousePos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -248,7 +361,7 @@ void Call_SetPositionCursor(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
       return;
     }
   
-  status = inpsimulate->SetPositionCursor((int)x, (int)y);
+  status = inpsimulate->SetMousePos((int)x, (int)y);
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
   
@@ -258,8 +371,8 @@ void Call_SetPositionCursor(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_GetWindowPosition(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_GetWindowPosition
+* @fn         void Call_SetMouseClick(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_SetMouseClick
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -270,7 +383,7 @@ void Call_SetPositionCursor(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_GetWindowPosition(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_SetMouseClick(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -281,46 +394,31 @@ void Call_GetWindowPosition(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
 
   bool status  = false;
 
-  if(params->GetSize()<3)
+  if(params->GetSize()<2)
     {
       script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
       return;
     }
- 
-  XVECTOR<XPROCESS*>  applist;
-  XVARIANT*           variant;
-  void*               windows_handle; 
-  bool                exists = false;
+
+  XVARIANT* variant;
 
   variant = params->Get(0);
+  double x = (*variant);
 
-  status = GEN_XPROCESSMANAGER.Application_GetRunningList(applist); 
-
-  if(status)
+  variant = params->Get(1);
+  double y = (*variant);
+  
+  INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
+  if(!inpsimulate)
     {
-      for(XDWORD c=0; c<applist.GetSize(); c++)
-        {
-          XSTRING nameapp;
-          XSTRING _applicationname = (*variant);
-
-          nameapp  = applist.Get(c)->GetName()->Get();
-                    
-          if(_applicationname.Find(nameapp, false) != XSTRING_NOTFOUND)
-            {
-              windows_handle = applist.Get(c)->GetWindowHandle();
-              exists = true;
-        
-              break;
-            }
-        }
+      (*returnvalue) = status;
+      return;
     }
-    
-  applist.DeleteContents();
-  applist.DeleteAll();
+  
+  status = inpsimulate->SetMouseClick((int)x, (int)y);
 
-  (*params->Get(1)) = 100;  
-  (*params->Get(2)) = 100;
-   
+  GEN_INPFACTORY.DeleteSimulator(inpsimulate);
+  
   (*returnvalue) = status;
 }
 

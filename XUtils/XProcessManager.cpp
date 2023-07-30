@@ -1,55 +1,63 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XProcessManager.cpp
-*
+* 
 * @class      XPROCESSMANAGER
-* @brief      eXtended process manager class
-* @note       Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
+* @brief      
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
-/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-
 #include "XProcessManager.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
 
 #include "XMemory_Control.h"
 
+
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 XPROCESSMANAGER* XPROCESSMANAGER::instance = NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  XPROCESS                                                                                                          */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_XPROCESS
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPROCESS::XPROCESS()
@@ -77,7 +85,9 @@ XPROCESS::XPROCESS()
 * ---------------------------------------------------------------------------------------------------------------------*/
 XPROCESS::~XPROCESS()
 {
+  processIDs.DeleteAll();
 
+  Clean();
 }
 
 
@@ -110,6 +120,21 @@ XDWORD XPROCESS::GetID()
 void XPROCESS::SetID(XDWORD ID)
 {
   this->ID = ID;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XDWORD>* XPROCESS::GetProcessIDs()
+* @brief      GetProcessIDs
+* @ingroup    XUTILS
+* 
+* @return     XVECTOR<XDWORD>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XDWORD>* XPROCESS::GetProcessIDs()
+{
+  return &processIDs;
 }
 
 
@@ -193,6 +218,21 @@ XSTRING* XPROCESS::GetWindowTitle()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         GRPRECTINT* XPROCESS::GetWindowRect()
+* @brief      GetWindowRect
+* @ingroup    XUTILS
+* 
+* @return     GRPRECTINT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPRECTINT* XPROCESS::GetWindowRect()
+{
+  return &windowrect;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool XPROCESS::CopyTo(XPROCESS& xprocess)
 * @brief      CopyTo
 * @ingroup    XUTILS
@@ -251,11 +291,9 @@ void XPROCESS::Clean()
   windowhandle = NULL;
 }
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  XPROCESSMANAGER                                                                                                   */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_XPROCESSMANAGER
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -572,6 +610,36 @@ bool XPROCESSMANAGER::Application_Terminate(XSTRING& processname, XDWORD exitcod
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XPROCESS* XPROCESSMANAGER::Application_GetProcessByID(XDWORD processID, XVECTOR<XPROCESS*>& applist)
+* @brief      Application_GetProcessByID
+* @ingroup    XUTILS
+* 
+* @param[in]  processID : 
+* @param[in]  applist : 
+* 
+* @return     XPROCESS* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XPROCESS* XPROCESSMANAGER::Application_GetProcessByID(XDWORD processID, XVECTOR<XPROCESS*>& applist)
+{
+  for(XDWORD c=0; c<applist.GetSize(); c++)
+    {
+      XPROCESS* process =  applist.Get(c);
+      if(process)
+        {
+          if(process->GetID() == processID)
+            {
+              return process;
+            }
+        }
+    }
+
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPROCESSMANAGER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
@@ -585,3 +653,13 @@ void XPROCESSMANAGER::Clean()
 {
 
 }
+
+#pragma endregion
+
+#pragma endregion
+
+
+
+
+
+

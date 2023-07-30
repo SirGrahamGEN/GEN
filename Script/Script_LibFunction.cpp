@@ -41,7 +41,6 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIBFUNCTION::SCRIPT_LIBFUNCTION(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY functionlibrary)
@@ -88,7 +87,6 @@ SCRIPT_LIBFUNCTION::SCRIPT_LIBFUNCTION(SCRIPT_LIB* library, XSTRING& name, SCRFU
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIBFUNCTION::~SCRIPT_LIBFUNCTION()
@@ -105,7 +103,6 @@ SCRIPT_LIBFUNCTION::~SCRIPT_LIBFUNCTION()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB* SCRIPT_LIBFUNCTION::GetLibrary()
@@ -119,7 +116,6 @@ SCRIPT_LIB* SCRIPT_LIBFUNCTION::GetLibrary()
 {
   return library;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

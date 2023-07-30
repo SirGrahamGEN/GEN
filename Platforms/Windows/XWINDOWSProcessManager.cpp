@@ -1,44 +1,48 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XWINDOWSProcessManager.cpp
-*
+* 
 * @class      XWINDOWSPROCESSMANAGER
 * @brief      eXtended WINDOWS process manager class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
-/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#include "XWINDOWSProcessManager.h"
 
-#include <windows.h>
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
 #include <tlhelp32.h>
 #include <psapi.h> 
 #include <tchar.h>
 #include <process.h>
-
-#include <vector>
 
 
 #include "XFactory.h"
@@ -46,64 +50,20 @@
 #include "XSleep.h"
 #include "XTrace.h"
 
-#include "XWINDOWSProcessManager.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XWINDOWSPROCESSMANAGER_PROCESSWINPAIR::XWINDOWSPROCESSMANAGER_PROCESSWINPAIR()
-* @brief      Constructor
-* @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSPROCESSMANAGER_PROCESSWINPAIR::XWINDOWSPROCESSMANAGER_PROCESSWINPAIR()
-{
-  Clean();
-}
- 
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XWINDOWSPROCESSMANAGER_PROCESSWINPAIR::~XWINDOWSPROCESSMANAGER_PROCESSWINPAIR()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSPROCESSMANAGER_PROCESSWINPAIR::~XWINDOWSPROCESSMANAGER_PROCESSWINPAIR()
-{
-  subprocessIDs.DeleteAll();
-
-  Clean();
-}
-
-    
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void XWINDOWSPROCESSMANAGER_PROCESSWINPAIR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    PLATFORM_WINDOWS
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void XWINDOWSPROCESSMANAGER_PROCESSWINPAIR::Clean()
-{
-  hwnd = NULL;
-  pID  = 0;
-}
-
+#pragma region CLASS_MEMBERS
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -296,9 +256,7 @@ bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* 
       if(CreateProcessA(NULL, cmdline, NULL, NULL, TRUE, CREATE_NO_WINDOW, NULL, NULL, &startupinfo, &processinfo))
         {
           CloseHandle(stdhandle_out_write);
-
-          //-----------------------------------------------------------------------------
-
+          
           if(in)
             {
               if(in->GetSize())
@@ -315,8 +273,6 @@ bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* 
             }
 
           CloseHandle(stdhandle_in_write);
-
-          //-----------------------------------------------------------------------------
 
           if(out)
             {
@@ -425,13 +381,9 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
   HANDLE         snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
   
   if(snapshot == INVALID_HANDLE_VALUE) return false;
-
-  //------------------------------------------------------------------------
-
+  
   applist.DeleteContents();
   applist.DeleteAll();
-
-  //------------------------------------------------------------------------
 
   memset(&processentry, 0, sizeof(PROCESSENTRY32));
   processentry.dwSize = sizeof(PROCESSENTRY32);
@@ -468,6 +420,8 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
 
   CloseHandle(snapshot);  
 
+  GetChildProcesses(applist);
+
   MAPWINPROCESS mapofwinprocess;
   GetMapOfWinProcess(mapofwinprocess);
 
@@ -477,27 +431,26 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
       if(xprocess)
         {
           if(!xprocess->GetWindowHandle())      
-            {
-              XVECTOR<XDWORD> subprocessIDs;              
-              GetChildProcesses(xprocess->GetID(), subprocessIDs);
-
+            {              
               for(XDWORD d=0; d<mapofwinprocess.GetSize(); d++)
                 {
                   HWND    hwnd      = mapofwinprocess.GetKey(d);
                   XDWORD  processID = mapofwinprocess.GetElement(d);
                   
-                  for(XDWORD e=0; e<subprocessIDs.GetSize(); e++)
+                  for(XDWORD e=0; e<xprocess->GetProcessIDs()->GetSize(); e++)
                     {                   
-                      if(processID == subprocessIDs.Get(e))
+                      if(processID == xprocess->GetProcessIDs()->Get(e))
                         {
-                          XSTRING title;
+                          XSTRING    title;
+                          GRPRECTINT rect;
          
-                          GetWindowTitle(hwnd, title);
+                          GetWindowPropertys(hwnd, title, rect);
                           
                           if(!xprocess->GetWindowHandle())                                  
                             {                         
                               xprocess->SetWindowHandle((void*)hwnd);         
-                              xprocess->GetWindowTitle()->Set(title.Get());                             
+                              xprocess->GetWindowTitle()->Set(title.Get());
+                              xprocess->GetWindowRect()->CopyFrom(&rect);
                             }
                            else
                             {                                                                    
@@ -508,6 +461,7 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
                                                               
                                   newxprocess->SetWindowHandle((void*)hwnd);         
                                   newxprocess->GetWindowTitle()->Set(title.Get());
+                                  newxprocess->GetWindowRect()->CopyFrom(&rect);
 
                                   applist.Add(newxprocess);                                  
                                 }                                                                                                                                                  
@@ -527,19 +481,27 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
   mapofwinprocess.DeleteAll();
 
   //------------------------------------------------------------------------
+  /*
   #ifdef XTRACE_ACTIVE
-
   for(XDWORD c = 0; c < applist.GetSize(); c++)
     {
       XPROCESS* process = applist.Get(c);
       if(process)
         {
-          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("ID: %08X, %s, %s, %s, %08X"), process->GetID(), process->GetName()->Get(), process->GetPath()->Get(), process->GetWindowTitle()->Get(), process->GetWindowHandle());
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("ID: %08X, %s, %s, %08X, %s, [%d,%d,%d,%d]") , process->GetID()
+                                                                                                , process->GetName()->Get()
+                                                                                                , process->GetPath()->Get()                                                                                                
+                                                                                                , process->GetWindowHandle()
+                                                                                                , process->GetWindowTitle()->Get()
+                                                                                                , process->GetWindowRect()->x1
+                                                                                                , process->GetWindowRect()->y1
+                                                                                                , process->GetWindowRect()->x2
+                                                                                                , process->GetWindowRect()->y2
+                                                                                                );
         }
-    }
-
+    }  
   #endif  
-
+  */
   //------------------------------------------------------------------------
 
   return true;
@@ -579,17 +541,18 @@ bool XWINDOWSPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD  exi
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSPROCESSMANAGER::GetWindowTitle(HWND hwnd, XSTRING& title)
-* @brief      GetWindowTitle
+* @fn         bool XWINDOWSPROCESSMANAGER::GetWindowPropertys(HWND hwnd, XSTRING& title, GRPRECTINT& rect)
+* @brief      GetWindowPropertys
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  hwnd : 
 * @param[in]  title : 
+* @param[in]  rect : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSPROCESSMANAGER::GetWindowTitle(HWND hwnd, XSTRING& title)
+bool XWINDOWSPROCESSMANAGER::GetWindowPropertys(HWND hwnd, XSTRING& title, GRPRECTINT& rect)
 {           
   title.Empty(); 
 
@@ -608,6 +571,16 @@ bool XWINDOWSPROCESSMANAGER::GetWindowTitle(HWND hwnd, XSTRING& title)
       title.Empty(); 
       return false;
     }
+
+  RECT wrect;
+
+  if(GetWindowRect(hwnd, &wrect))
+    {
+      rect.x1 = wrect.left;
+      rect.y1 = wrect.top;
+      rect.x2 = wrect.right;
+      rect.y2 = wrect.bottom;
+    }
   
   return true;
 }
@@ -615,50 +588,20 @@ bool XWINDOWSPROCESSMANAGER::GetWindowTitle(HWND hwnd, XSTRING& title)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSPROCESSMANAGER::GetChildProcesses(XDWORD mainproccessID, XVECTOR<XDWORD>& subprocessIDs)
+* @fn         bool XWINDOWSPROCESSMANAGER::GetChildProcesses(XVECTOR<XPROCESS*>& applist)
 * @brief      GetChildProcesses
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @param[in]  mainproccessID : 
-* @param[in]  subprocessIDs : 
+* @param[in]  applist : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSPROCESSMANAGER::GetChildProcesses(XDWORD mainproccessID, XVECTOR<XDWORD>& subprocessIDs) 
+bool XWINDOWSPROCESSMANAGER::GetChildProcesses(XVECTOR<XPROCESS*>& applist) 
 {
-  subprocessIDs.DeleteAll();
-
-  subprocessIDs.Add(mainproccessID);
-
-  /*
-  HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-  if(snapshot == INVALID_HANDLE_VALUE) 
-    {      
-      CloseHandle(snapshot);  
-      return false;
-    }
-
-  PROCESSENTRY32 processEntry;
-  processEntry.dwSize = sizeof(PROCESSENTRY32);
-
-  if(!Process32First(snapshot, &processEntry)) 
-    {
-      return false;
-    }
-
-  do{ if(processEntry.th32ProcessID == mainproccessID) 
-        {
-          break;
-        }
-
-    } while (Process32Next(snapshot, &processEntry));
-  */
-
   HANDLE threadSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
   if(threadSnapshot == INVALID_HANDLE_VALUE) 
     {
-      //CloseHandle(snapshot);
       return false;
     }
 
@@ -667,19 +610,23 @@ bool XWINDOWSPROCESSMANAGER::GetChildProcesses(XDWORD mainproccessID, XVECTOR<XD
 
   if(!Thread32First(threadSnapshot, &threadEntry)) 
     {
-      //CloseHandle(snapshot);
       CloseHandle(threadSnapshot);
       return false;
     }
 
-  do { if(threadEntry.th32OwnerProcessID == mainproccessID) 
+  do { XPROCESS* mainprocess = Application_GetProcessByID(threadEntry.th32OwnerProcessID, applist);
+       if(mainprocess) 
          {
-           subprocessIDs.Add(threadEntry.th32ThreadID);
+           if(mainprocess->GetProcessIDs()->IsEmpty())
+             {
+               mainprocess->GetProcessIDs()->Add(threadEntry.th32OwnerProcessID); 
+             }
+
+           mainprocess->GetProcessIDs()->Add(threadEntry.th32ThreadID);
          }
 
       } while (Thread32Next(threadSnapshot, &threadEntry));
 
-  //CloseHandle(snapshot);
   CloseHandle(threadSnapshot);
 
   return true;
@@ -707,21 +654,13 @@ BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowsProc(HWND hwnd, LPARAM lparam)
     }
     
   DWORD processID;  
-  DWORD subprocessID;
 
-  subprocessID = GetWindowThreadProcessId(hwnd, &processID);
+  GetWindowThreadProcessId(hwnd, &processID);
 
   if(processID)
     {
       mapofwinprocess->Add(hwnd, processID);
     }
-
-  /*
-  if(subprocessID)
-    {
-      mapofwinprocess->Add(hwnd, subprocessID);
-    }
-  */
     
   return TRUE;
 }
@@ -763,4 +702,4 @@ void XWINDOWSPROCESSMANAGER::Clean()
 
 }
 
-
+#pragma endregion

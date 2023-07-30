@@ -164,4 +164,3 @@ void Call_Abs(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, X
   (*returnvalue) = abs(value);
 }
 
-

@@ -115,8 +115,6 @@ XFACTORY& XFACTORY::GetInstance()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::SetInstance(XFACTORY* _instance)

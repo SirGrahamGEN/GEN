@@ -42,7 +42,6 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-
 #define SCRIPT_LIB_NAME_PROCESS   __L("Process")
 
 #pragma endregion
@@ -75,10 +74,9 @@ class SCRIPT_LIB_PROCESS : public SCRIPT_LIB
 
 void      Call_OpenURL                      (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void      Call_ExecApplication              (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void      Call_TerminateApplication         (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 #pragma endregion
 
 
 #endif
-
-

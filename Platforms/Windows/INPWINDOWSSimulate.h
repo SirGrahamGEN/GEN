@@ -53,8 +53,9 @@ class INPWINDOWSSIMULATE : public INPSIMULATE
                     INPWINDOWSSIMULATE     ();
     virtual        ~INPWINDOWSSIMULATE     ();
 
-    bool            PressKey                (XBYTE key, int timepress = 100);
-    bool            SetPositionCursor       (int x, int y);
+    bool            PressKey               (XBYTE key, int timepress = 100);
+    bool            SetMousePos            (int x, int y);
+    bool            SetMouseClick          (int x, int y);
 
   protected:
 

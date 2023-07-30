@@ -99,7 +99,7 @@ bool SCRIPT_LIB_TIMER::AddLibraryFunctions(SCRIPT* script)
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("Delay")                    , Call_Delay);
+  script->AddLibraryFunction(this, __L("Sleep")                    , Call_Sleep);
 
   return true;
 }
@@ -129,8 +129,8 @@ void SCRIPT_LIB_TIMER::Clean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void Call_Delay(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_Delay
+* @fn         void Call_Sleep(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_Sleep
 * @ingroup    SCRIPT
 *
 * @param[in]  library :
@@ -141,7 +141,7 @@ void SCRIPT_LIB_TIMER::Clean()
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_Delay(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_Sleep(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;

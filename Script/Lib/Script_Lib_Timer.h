@@ -3,7 +3,7 @@
 * @file       Script_Lib_Timer.h
 *
 * @class      SCRIPT_LIB_TIMER
-* @brief      Script Library Timer (Delay)
+* @brief      Script Library Timer (Sleep)
 * @ingroup    SCRIPT
 *
 * @copyright  GEN Group. All rights reserved.
@@ -59,7 +59,7 @@ class SCRIPT_LIB_TIMER : public SCRIPT_LIB
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
-void    Call_Delay                    (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_Sleep                    (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 
 #endif

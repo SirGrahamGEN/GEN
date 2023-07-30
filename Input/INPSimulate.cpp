@@ -107,8 +107,8 @@ bool INPSIMULATE::PressKey(XBYTE key, int timepress)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPSIMULATE::SetPositionCursor(int x, int y)
-* @brief      SetPositionCursor
+* @fn         bool INPSIMULATE::SetMoudePos(int x, int y)
+* @brief      SetMousePos
 * @ingroup    INPUT
 * 
 * @param[in]  x : 
@@ -117,11 +117,28 @@ bool INPSIMULATE::PressKey(XBYTE key, int timepress)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPSIMULATE::SetPositionCursor(int x, int y)
+bool INPSIMULATE::SetMousePos(int x, int y)
 { 
   return false;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPSIMULATE::SetMouseClick(int x, int y)
+* @brief      SetMouseClick
+* @ingroup    INPUT
+* 
+* @param[in]  x : 
+* @param[in]  y : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPSIMULATE::SetMouseClick(int x, int y)
+{
+  return false;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------

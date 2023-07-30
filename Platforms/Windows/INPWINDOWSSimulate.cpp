@@ -114,7 +114,7 @@ bool INPWINDOWSSIMULATE::PressKey(XBYTE key, int timepress)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPWINDOWSSIMULATE::SetPositionCursor(int x, int y)
+* @fn         bool INPWINDOWSSIMULATE::SetMousePos(int x, int y)
 * @brief      SetPositionCursor
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -124,9 +124,32 @@ bool INPWINDOWSSIMULATE::PressKey(XBYTE key, int timepress)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSSIMULATE::SetPositionCursor(int x, int y)
+bool INPWINDOWSSIMULATE::SetMousePos(int x, int y)
 {
   SetCursorPos(x, y);
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSSIMULATE::SetMouseClick(int x, int y)
+* @brief      SetMouseClick
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  x : 
+* @param[in]  y : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSSIMULATE::SetMouseClick(int x, int y)
+{
+  SetCursorPos(x, y);
+  
+  mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+  mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
 
   return true;
 }

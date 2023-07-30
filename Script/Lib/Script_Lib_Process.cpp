@@ -114,7 +114,8 @@ bool SCRIPT_LIB_PROCESS::AddLibraryFunctions(SCRIPT* script)
 
   script->AddLibraryFunction(this, __L("OpenURL")                   , Call_OpenURL);
   script->AddLibraryFunction(this, __L("ExecApplication")           , Call_ExecApplication);
-  
+  script->AddLibraryFunction(this, __L("TerminateAplication")       , Call_TerminateApplication);
+
   return true;
 }
 
@@ -227,7 +228,91 @@ void Call_ExecApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_TerminateApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_TerminateApplication
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_TerminateApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  /*
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(!params->GetSize())
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  XSTRING* string  = NULL;
+  bool     status  = false;
+  
+  if(params->Get(0))
+    {
+      string = (XSTRING*)params->Get(0)->GetData();
+    }
+  
+  if(string)
+    {      
+      status = GEN_XPROCESSMANAGER.Application_Terminate(string->Get());                       
+    }
+
+  (*returnvalue) = status;
+  */
+
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize()<2)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+ 
+  XVECTOR<XPROCESS*>  applist;
+  XSTRING             appname       = (*params->Get(0));
+  XSTRING             windowstitle  = (*params->Get(1));
+  int                 windowsposx   = 0; 
+  bool                status        = false;
+
+  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist))
+    {
+      for(XDWORD c=0; c<applist.GetSize(); c++)
+        {                              
+          if(applist.Get(c)->GetName()->Find(appname, false)!= XSTRING_NOTFOUND) 
+            {  
+              if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
+                {
+                  status = GEN_XPROCESSMANAGER.Application_Terminate((*applist.Get(c)));                     
+                  break;
+                }
+            }
+        }
+    }
+    
+  applist.DeleteContents();
+  applist.DeleteAll();
+   
+  (*returnvalue) = status;
+}
+
 #pragma endregion
-
-
 

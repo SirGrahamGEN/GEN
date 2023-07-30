@@ -53,7 +53,8 @@ class INPSIMULATE
     virtual            ~INPSIMULATE         ();
 
     virtual bool        PressKey            (XBYTE key, int timepress = 100);
-    virtual bool        SetPositionCursor   (int x, int y);
+    virtual bool        SetMousePos         (int x, int y);
+    virtual bool        SetMouseClick       (int x, int y);
 
   protected:
 
@@ -73,6 +74,3 @@ class INPSIMULATE
 
 
 #endif
-
-
-
