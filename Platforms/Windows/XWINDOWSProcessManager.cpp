@@ -366,16 +366,17 @@ bool XWINDOWSPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWOR
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*> applist)
+* @fn         bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist, bool onlywithvalidwindow)
 * @brief      Application_GetRunningList
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @param[in]  applist : 
+* @param[in]  onlywithvalidwindow : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist, bool onlywithvalidwindow)
 {
   PROCESSENTRY32 processentry;
   HANDLE         snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
@@ -479,6 +480,35 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
     } while(c<applist.GetSize());          
 
   mapofwinprocess.DeleteAll();
+
+  //------------------------------------------------------------------------
+
+  if(onlywithvalidwindow)
+    {
+      XDWORD c = 0;
+
+      do{ XPROCESS* xprocess = applist.Get(c);
+          if(xprocess)
+            {
+              if(!xprocess->GetWindowHandle()           || 
+                  xprocess->GetWindowTitle()->IsEmpty() ||          
+                  xprocess->GetWindowRect()->IsEmpty())
+                {
+                  applist.Delete(xprocess);
+                  delete xprocess;
+                }
+               else
+                {
+                  c++;  
+                } 
+            } 
+           else
+            {
+              break;
+            }
+
+        } while(c<applist.GetSize());          
+    }
 
   //------------------------------------------------------------------------
   /*

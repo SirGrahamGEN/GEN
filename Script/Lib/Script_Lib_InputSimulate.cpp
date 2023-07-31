@@ -57,8 +57,7 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
-
-
+			
 #pragma endregion
 
 
@@ -114,11 +113,13 @@ bool SCRIPT_LIB_INPUTSIMULATE::AddLibraryFunctions(SCRIPT* script)
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("PressKey")             , Call_PressKey);
-  script->AddLibraryFunction(this, __L("GetWindowPosX")        , Call_GetWindowPosX);
-  script->AddLibraryFunction(this, __L("GetWindowPosY")        , Call_GetWindowPosY);
-  script->AddLibraryFunction(this, __L("SetMousePos")          , Call_SetMousePos);
-  script->AddLibraryFunction(this, __L("SetMouseClick")        , Call_SetMouseClick);
+  script->AddLibraryFunction(this, __L("InpSim_PressKey")             , Call_PressKey);
+  script->AddLibraryFunction(this, __L("InpSim_PressKeyByLiteral")    , Call_PressKeyByLiteral);
+  script->AddLibraryFunction(this, __L("InpSim_PressKeyByText")       , Call_PressKeyByText);
+  script->AddLibraryFunction(this, __L("InpSim_GetWindowPosX")        , Call_GetWindowPosX);
+  script->AddLibraryFunction(this, __L("InpSim_GetWindowPosY")        , Call_GetWindowPosY);
+  script->AddLibraryFunction(this, __L("InpSim_SetMousePos")          , Call_SetMousePos);
+  script->AddLibraryFunction(this, __L("InpSim_SetMouseClick")        , Call_SetMouseClick);
       
   return true;
 }
@@ -177,7 +178,7 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
     }
 
   XVARIANT* variant;
-  double    timepress = 0;
+  double    pressuretime = 0;
 
   variant = params->Get(0);
   double key = (*variant);
@@ -185,7 +186,7 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
   variant = params->Get(1);
   if(variant) 
     {
-      timepress = (*variant);
+      pressuretime = (*variant);
     }
 
   INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
@@ -195,7 +196,124 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
       return;
     }
   
-  status = inpsimulate->PressKey((XBYTE)key,(int)timepress);
+  status = inpsimulate->PressKey((XBYTE)key,(int)pressuretime);
+
+  GEN_INPFACTORY.DeleteSimulator(inpsimulate);
+
+  (*returnvalue) = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_PressKeyByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_PressKeyByLiteral
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_PressKeyByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  bool status  = false;
+
+  if(!params->GetSize())
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  XVARIANT* variant;
+  double    pressuretime = 0;
+
+  variant = params->Get(0);
+  XSTRING literal = (*variant);
+  
+  variant = params->Get(1);
+  if(variant) 
+    {
+      pressuretime = (*variant);
+    }
+
+  INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
+  if(!inpsimulate)
+    {
+      (*returnvalue) = status;
+      return;
+    }
+  
+  status = inpsimulate->PressKeyByLiteral(literal.Get(), (int)pressuretime);
+
+  GEN_INPFACTORY.DeleteSimulator(inpsimulate);
+
+  (*returnvalue) = status;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_PressKeyByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_PressKeyByText
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_PressKeyByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  bool status  = false;
+
+  if(!params->GetSize())
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  XVARIANT* variant;
+  double    pressuretime = 0;
+
+  variant = params->Get(0);
+  XSTRING text = (*variant);
+  
+  variant = params->Get(1);
+  if(variant) 
+    {
+      pressuretime = (*variant);
+    }
+
+  INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
+  if(!inpsimulate)
+    {
+      (*returnvalue) = status;
+      return;
+    }
+  
+  status = inpsimulate->PressKeyByText(text.Get(), (int)pressuretime);
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
 
@@ -237,7 +355,7 @@ void Call_GetWindowPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
   XSTRING             windowstitle  = (*params->Get(1));
   int                 windowsposx   = 0; 
   
-  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist))
+  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
     {
       for(XDWORD c=0; c<applist.GetSize(); c++)
         {                              
@@ -293,7 +411,7 @@ void Call_GetWindowPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
   XSTRING             windowstitle  = (*params->Get(1));
   int                 windowsposy   = 0; 
   
-  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist))
+  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
     {
       for(XDWORD c=0; c<applist.GetSize(); c++)
         {                              

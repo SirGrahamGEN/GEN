@@ -32,6 +32,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "XString.h"
 
 #pragma endregion
 
@@ -46,21 +47,33 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+typedef struct 
+{
+  XBYTE                   code;
+  XCHAR*                  literal;
+
+} INPUTSIMULATE_KDB_PC;
+
+
 class INPSIMULATE
 {
   public:
-                        INPSIMULATE         ();
-    virtual            ~INPSIMULATE         ();
+                        INPSIMULATE             ();
+    virtual            ~INPSIMULATE             ();
 
-    virtual bool        PressKey            (XBYTE key, int timepress = 100);
-    virtual bool        SetMousePos         (int x, int y);
-    virtual bool        SetMouseClick       (int x, int y);
+    virtual bool        PressKey                (XBYTE code, int pressuretime = 100);
+    virtual bool        PressKeyByLiteral       (XCHAR* literal, int pressuretime = 100);
+    virtual bool        PressKeyByText          (XCHAR* text, int pressuretimeinterval = 100);
+    virtual bool        SetMousePos             (int x, int y);
+    virtual bool        SetMouseClick           (int x, int y);
+
+    XBYTE               GetKDBCodeByLiteral     (XCHAR* literal);
 
   protected:
 
   private:
 
-    void                Clean               ();
+    void                Clean                   ();
 };
 
 #pragma endregion

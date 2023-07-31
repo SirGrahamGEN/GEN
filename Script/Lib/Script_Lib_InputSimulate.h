@@ -60,7 +60,7 @@ class SCRIPT_LIB_INPUTSIMULATE : public SCRIPT_LIB
                           SCRIPT_LIB_INPUTSIMULATE      ();
     virtual              ~SCRIPT_LIB_INPUTSIMULATE      ();
 
-    bool                  AddLibraryFunctions            (SCRIPT* script);
+    bool                  AddLibraryFunctions           (SCRIPT* script);
 
   private:
 
@@ -74,6 +74,8 @@ class SCRIPT_LIB_INPUTSIMULATE : public SCRIPT_LIB
 #pragma region FUNCTIONS_PROTOTYPES
 
 void      Call_PressKey                (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void      Call_PressKeyByLiteral       (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void      Call_PressKeyByText          (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void      Call_GetWindowPosX           (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void      Call_GetWindowPosY           (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void      Call_SetMousePos             (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);

@@ -41,6 +41,8 @@
 
 #include <Windows.h>
 
+#include "XString.h"
+
 #include "XMemory_Control.h"
 
 
@@ -90,25 +92,183 @@ INPWINDOWSSIMULATE::~INPWINDOWSSIMULATE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPWINDOWSSIMULATE::PressKey(XBYTE key, int timepress)
+* @fn         bool INPWINDOWSSIMULATE::PressKey(XBYTE code, int pressuretime)
 * @brief      PressKey
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @param[in]  key : 
-* @param[in]  timepress : 
+* @param[in]  code : 
+* @param[in]  pressuretime : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSSIMULATE::PressKey(XBYTE key, int timepress)
+bool INPWINDOWSSIMULATE::PressKey(XBYTE code, int pressuretime)
 {
-  keybd_event(key, 0, 0, 0);    
+  keybd_event(code, 0, 0, 0);    
     
-  Sleep(timepress);
+  Sleep(pressuretime);
   
-  keybd_event(key, 0, KEYEVENTF_KEYUP, 0);
+  keybd_event(code, 0, KEYEVENTF_KEYUP, 0);
 
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
+* @brief      PressKeyByLiteral
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  literal : 
+* @param[in]  pressuretime : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
+{
+  XBYTE code = GetKDBCodeByLiteral(literal);
+
+  if(code)
+    {
+      return PressKey(code, pressuretime);  
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
+* @brief      PressKeyByText
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  text : 
+* @param[in]  pressuretimeinterval : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
+{
+  XSTRING _text;
+
+  _text = text;
+
+  for(XDWORD c=0; c<_text.GetSize(); c++)
+    {
+      switch(_text.Get()[c])
+        {
+          case __C('A')   : 
+          case __C('B')   : 
+          case __C('C')   : 
+          case __C('D')   : 
+          case __C('E')   : 
+          case __C('F')   : 
+          case __C('G')   : 
+          case __C('H')   : 
+          case __C('I')   : 
+          case __C('J')   : 
+          case __C('K')   : 
+          case __C('L')   : 
+          case __C('M')   : 
+          case __C('N')   : 
+          case __C('O')   : 
+          case __C('P')   : 
+          case __C('Q')   : 
+          case __C('R')   : 
+          case __C('S')   : 
+          case __C('T')   : 
+          case __C('U')   : 
+          case __C('V')   : 
+          case __C('W')   : 
+          case __C('X')   : 
+          case __C('Y')   : 
+          case __C('Z')   : { XSTRING literal;
+                              literal.Add(_text.Get()[c]);
+
+                              PressKeyByLiteral(literal.Get(), pressuretimeinterval);
+                            }
+                            break;
+
+          case __C(' ')   : PressKeyByLiteral(__L("SPACEBAR"), pressuretimeinterval);                            
+                            break;
+
+          case __C('a')   : break;
+          case __C('b')   : break;
+          case __C('c')   : break;
+          case __C('d')   : break;
+          case __C('e')   : break;
+          case __C('f')   : break;
+          case __C('g')   : break;
+          case __C('h')   : break;
+          case __C('i')   : break;
+          case __C('j')   : break;
+          case __C('k')   : break;
+          case __C('l')   : break;
+          case __C('m')   : break;
+          case __C('n')   : break;
+          case __C('o')   : break;
+          case __C('p')   : break;
+          case __C('q')   : break;
+          case __C('r')   : break;
+          case __C('s')   : break;
+          case __C('t')   : break;
+          case __C('u')   : break;
+          case __C('v')   : break;
+          case __C('w')   : break;
+          case __C('x')   : break;
+          case __C('y')   : break;
+          case __C('z')   : break;    
+          case __C('1')   : break;
+          case __C('2')   : break;
+          case __C('3')   : break;
+          case __C('4')   : break;
+          case __C('5')   : break;
+          case __C('6')   : break;
+          case __C('7')   : break;
+          case __C('8')   : break;
+          case __C('9')   : break;
+          case __C('0')   : break;
+          case __C('!')   : break;
+          case __C('@')   : break;
+          case __C('#')   : break;
+          case __C('$')   : break;
+          case __C('%')   : break;
+          case __C('^')   : break;
+          case __C('&')   : break;
+          case __C('*')   : break;
+          case __C('(')   : break;
+          case __C(')')   : break;
+          case __C('_')   : break;
+          case __C('+')   : break;
+          case __C('-')   : break;
+          case __C('=')   : break;
+          case __C('[')   : break;
+          case __C(']')   : break;
+          case __C('{')   : break;
+          case __C('}')   : break;
+          case __C('|')   : break;
+          case __C(';')   : break;
+          case __C(':')   : break;
+          case __C('\'')  : break;
+          case __C(',')   : break;
+          case __C('.')   : break;
+          case __C('<')   : break;
+          case __C('>')   : break;
+          case __C('?')   : break;
+          case __C('/')   : break;
+          case __C('\\')  : break;
+          case __C('\"')  : break;
+
+          
+
+        }
+    }
+
+  return false;
 }
 
 

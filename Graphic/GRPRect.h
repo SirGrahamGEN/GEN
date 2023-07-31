@@ -104,10 +104,22 @@ class GRPRECTBASE
                               }
 
 
-    bool                      IsValid() const
+    bool                      IsValid                           () const
                               {
                                 return x1 <= x2 && y1 <= y2;
                               }
+
+
+    bool                      IsEmpty                           () const
+                              {
+                                if(x1 || y1 || x2 || y2) 
+                                  {
+                                    return false;
+                                  }
+
+                                return true;
+                              }
+
 
 
     bool                      IsHit                             (T x, T y) const

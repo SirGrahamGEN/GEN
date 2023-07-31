@@ -501,16 +501,17 @@ bool XPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD* ID)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*> applist)
+* @fn         bool XPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist, bool onlywithvalidwindow)
 * @brief      Application_GetRunningList
 * @ingroup    XUTILS
-*
+* 
 * @param[in]  applist : 
+* @param[in]  onlywithvalidwindow : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool XPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist, bool onlywithvalidwindow)
 {
   return false;
 }

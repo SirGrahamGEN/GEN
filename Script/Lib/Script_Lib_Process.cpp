@@ -112,9 +112,10 @@ bool SCRIPT_LIB_PROCESS::AddLibraryFunctions(SCRIPT* script)
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("OpenURL")                   , Call_OpenURL);
-  script->AddLibraryFunction(this, __L("ExecApplication")           , Call_ExecApplication);
-  script->AddLibraryFunction(this, __L("TerminateAplication")       , Call_TerminateApplication);
+  script->AddLibraryFunction(this, __L("OpenURL")                            , Call_OpenURL);
+  script->AddLibraryFunction(this, __L("ExecApplication")                    , Call_ExecApplication);
+  script->AddLibraryFunction(this, __L("TerminateAplication")                , Call_TerminateApplication);
+  script->AddLibraryFunction(this, __L("TerminateAplicationWithWindow")      , Call_TerminateApplicationWithWindow);
 
   return true;
 }
@@ -243,8 +244,7 @@ void Call_ExecApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_TerminateApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-{
-  /*
+{  
   if(!library)      return;
   if(!script)       return;
   if(!params)       return;
@@ -272,8 +272,25 @@ void Call_TerminateApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVAR
     }
 
   (*returnvalue) = status;
-  */
+}
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_TerminateApplicationWithWindow(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_TerminateApplicationWithWindow
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_TerminateApplicationWithWindow(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{   
   if(!library)      return;
   if(!script)       return;
   if(!params)       return;
@@ -293,7 +310,7 @@ void Call_TerminateApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVAR
   int                 windowsposx   = 0; 
   bool                status        = false;
 
-  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist))
+  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
     {
       for(XDWORD c=0; c<applist.GetSize(); c++)
         {                              
