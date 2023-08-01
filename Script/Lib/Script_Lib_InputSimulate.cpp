@@ -359,7 +359,7 @@ void Call_GetWindowPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
     {
       for(XDWORD c=0; c<applist.GetSize(); c++)
         {                              
-          if(applist.Get(c)->GetName()->Find(appname, false)!= XSTRING_NOTFOUND) 
+          if(applist.Get(c)->GetName()->Find(appname, true)!= XSTRING_NOTFOUND) 
             {  
               if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
                 {
@@ -415,7 +415,7 @@ void Call_GetWindowPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
     {
       for(XDWORD c=0; c<applist.GetSize(); c++)
         {                              
-          if(applist.Get(c)->GetName()->Find(appname, false)!= XSTRING_NOTFOUND) 
+          if(applist.Get(c)->GetName()->Find(appname, true)!= XSTRING_NOTFOUND) 
             {  
               if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
                 {
