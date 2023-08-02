@@ -61,7 +61,11 @@ class INPSIMULATE
                         INPSIMULATE             ();
     virtual            ~INPSIMULATE             ();
 
+    virtual bool        PressKeyDown            (XBYTE code);
+    virtual bool        PressKeyUp              (XBYTE code);
     virtual bool        PressKey                (XBYTE code, int pressuretime = 100);
+    bool                PressKeyDownByLiteral   (XCHAR* literal);
+    bool                PressKeyUpByLiteral     (XCHAR* literal);
     virtual bool        PressKeyByLiteral       (XCHAR* literal, int pressuretime = 100);
     virtual bool        PressKeyByText          (XCHAR* text, int pressuretimeinterval = 100);
     virtual bool        SetMousePos             (int x, int y);

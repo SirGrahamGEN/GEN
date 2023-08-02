@@ -92,6 +92,44 @@ INPWINDOWSSIMULATE::~INPWINDOWSSIMULATE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool INPWINDOWSSIMULATE::PressKeyDown(XBYTE code)
+* @brief      PressKeyDown
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  code : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSSIMULATE::PressKeyDown(XBYTE code)
+{
+  keybd_event(code, 0, 0, 0);    
+    
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSSIMULATE::PressKeyUp(XBYTE code)
+* @brief      PressKeyUp
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  code : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSSIMULATE::PressKeyUp(XBYTE code)
+{
+  keybd_event(code, 0, KEYEVENTF_KEYUP, 0);
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool INPWINDOWSSIMULATE::PressKey(XBYTE code, int pressuretime)
 * @brief      PressKey
 * @ingroup    PLATFORM_WINDOWS
@@ -104,13 +142,61 @@ INPWINDOWSSIMULATE::~INPWINDOWSSIMULATE()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSSIMULATE::PressKey(XBYTE code, int pressuretime)
 {
-  keybd_event(code, 0, 0, 0);    
+  PressKeyDown(code);    
     
   Sleep(pressuretime);
   
-  keybd_event(code, 0, KEYEVENTF_KEYUP, 0);
+  PressKeyUp(code);
 
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
+* @brief      PressKeyDownByLiteral
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  literal : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
+{
+  XBYTE code = GetKDBCodeByLiteral(literal);
+
+  if(code)
+    {    
+       return PressKeyDown(code);  
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
+* @brief      PressKeyUpByLiteral
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  literal : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
+{
+  XBYTE code = GetKDBCodeByLiteral(literal);
+
+  if(code)
+    {    
+       return PressKeyUp(code);  
+    }
+
+  return false;
 }
 
 
@@ -131,8 +217,8 @@ bool INPWINDOWSSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
   XBYTE code = GetKDBCodeByLiteral(literal);
 
   if(code)
-    {
-      return PressKey(code, pressuretime);  
+    {    
+       return PressKey(code, pressuretime);  
     }
 
   return false;
@@ -154,11 +240,15 @@ bool INPWINDOWSSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
 bool INPWINDOWSSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
 {
   XSTRING _text;
+  XSTRING literal;
 
   _text = text;
 
   for(XDWORD c=0; c<_text.GetSize(); c++)
     {
+      literal.Empty();
+      literal.Add(_text.Get()[c]);
+
       switch(_text.Get()[c])
         {
           case __C('A')   : 
@@ -186,85 +276,193 @@ bool INPWINDOWSSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
           case __C('W')   : 
           case __C('X')   : 
           case __C('Y')   : 
-          case __C('Z')   : { XSTRING literal;
-                              literal.Add(_text.Get()[c]);
+          case __C('Z')   : { bool changecapslock = false;      
+                              
+                              if(!IsCapsLockActive())
+                                {
+                                  PressKeyByLiteral(__L("CAPS LOCK"), pressuretimeinterval);
+                                  changecapslock = true;      
+                                }
 
                               PressKeyByLiteral(literal.Get(), pressuretimeinterval);
+
+                              if(changecapslock)
+                                {
+                                  PressKeyByLiteral(__L("CAPS LOCK"), pressuretimeinterval);                                  
+                                }    
                             }
                             break;
 
           case __C(' ')   : PressKeyByLiteral(__L("SPACEBAR"), pressuretimeinterval);                            
                             break;
 
-          case __C('a')   : break;
-          case __C('b')   : break;
-          case __C('c')   : break;
-          case __C('d')   : break;
-          case __C('e')   : break;
-          case __C('f')   : break;
-          case __C('g')   : break;
-          case __C('h')   : break;
-          case __C('i')   : break;
-          case __C('j')   : break;
-          case __C('k')   : break;
-          case __C('l')   : break;
-          case __C('m')   : break;
-          case __C('n')   : break;
-          case __C('o')   : break;
-          case __C('p')   : break;
-          case __C('q')   : break;
-          case __C('r')   : break;
-          case __C('s')   : break;
-          case __C('t')   : break;
-          case __C('u')   : break;
-          case __C('v')   : break;
-          case __C('w')   : break;
-          case __C('x')   : break;
-          case __C('y')   : break;
-          case __C('z')   : break;    
-          case __C('1')   : break;
-          case __C('2')   : break;
-          case __C('3')   : break;
-          case __C('4')   : break;
-          case __C('5')   : break;
-          case __C('6')   : break;
-          case __C('7')   : break;
-          case __C('8')   : break;
-          case __C('9')   : break;
-          case __C('0')   : break;
-          case __C('!')   : break;
-          case __C('@')   : break;
-          case __C('#')   : break;
-          case __C('$')   : break;
-          case __C('%')   : break;
+          case __C('a')   : 
+          case __C('b')   : 
+          case __C('c')   : 
+          case __C('d')   : 
+          case __C('e')   : 
+          case __C('f')   : 
+          case __C('g')   : 
+          case __C('h')   : 
+          case __C('i')   : 
+          case __C('j')   : 
+          case __C('k')   : 
+          case __C('l')   : 
+          case __C('m')   : 
+          case __C('n')   : 
+          case __C('o')   : 
+          case __C('p')   : 
+          case __C('q')   : 
+          case __C('r')   : 
+          case __C('s')   : 
+          case __C('t')   : 
+          case __C('u')   : 
+          case __C('v')   : 
+          case __C('w')   : 
+          case __C('x')   : 
+          case __C('y')   : 
+
+          case __C('z')   : { bool changecapslock = false;      
+                              
+                              if(IsCapsLockActive())
+                                {
+                                  PressKeyByLiteral(__L("CAPS LOCK"), pressuretimeinterval);
+                                  changecapslock = true;      
+                                }
+
+                              PressKeyByLiteral(literal.Get(), pressuretimeinterval);
+
+                              if(changecapslock)
+                                {
+                                  PressKeyByLiteral(__L("CAPS LOCK"), pressuretimeinterval);                                  
+                                }    
+                            }
+                            break;
+                                                                                          
+          case __C('1')   : 
+          case __C('2')   : 
+          case __C('3')   : 
+          case __C('4')   : 
+          case __C('5')   : 
+          case __C('6')   : 
+          case __C('7')   : 
+          case __C('8')   : 
+          case __C('9')   : 
+          case __C('0')   : PressKeyByLiteral(literal.Get(), pressuretimeinterval);                            
+                            break;                           
+
+          case __C('!')   : PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L("1"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;
+
+          case __C('@')   : PressKeyDownByLiteral(__L("Right ALT"));
+                            PressKeyByLiteral(__L("2"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("Right ALT"));
+                            break;
+
+          case __C('#')   : PressKeyDownByLiteral(__L("Right ALT"));
+                            PressKeyByLiteral(__L("3"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("Right ALT"));                            
+                            break;
+
+          case __C('$')   : PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L("4"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;
+
+          case __C('%')   : PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L("5"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;
+
           case __C('^')   : break;
-          case __C('&')   : break;
-          case __C('*')   : break;
-          case __C('(')   : break;
-          case __C(')')   : break;
-          case __C('_')   : break;
-          case __C('+')   : break;
-          case __C('-')   : break;
-          case __C('=')   : break;
+
+          case __C('&')   : PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L("6"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;
+
+          case __C('*')   : PressKeyByLiteral(__L("Multiply"), pressuretimeinterval); 
+                            break;
+
+          case __C('(')   : PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L("8"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;
+
+          case __C(')')   : PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L("9"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;
+
+          case __C('_')   : PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L("-"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;
+
+          case __C('+')   : PressKeyByLiteral(__L("Add"), pressuretimeinterval);  
+                            break;
+
+          case __C('-')   : PressKeyByLiteral(__L("Subtract"), pressuretimeinterval);  
+                            break;
+
+          case __C('=')   : PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L("0"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;
+
           case __C('[')   : break;
           case __C(']')   : break;
           case __C('{')   : break;
           case __C('}')   : break;
-          case __C('|')   : break;
-          case __C(';')   : break;
-          case __C(':')   : break;
-          case __C('\'')  : break;
-          case __C(',')   : break;
-          case __C('.')   : break;
+
+          case __C('|')   : PressKeyDownByLiteral(__L("Right ALT"));
+                            PressKeyByLiteral(__L("1"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("Right ALT"));                           
+                            break;
+
+          case __C(';')   : PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L(","), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;
+
+          case __C(':')   : PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L("."), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;
+
+          case __C('\'')  : PressKeyByLiteral(__L("?"), pressuretimeinterval); 
+                            break;
+
+          case __C(',')   : PressKeyByLiteral(__L(","), pressuretimeinterval); 
+                            break;
+
+          case __C('.')   : PressKeyByLiteral(__L("."), pressuretimeinterval); 
+                            break;
+
           case __C('<')   : break;
           case __C('>')   : break;
-          case __C('?')   : break;
-          case __C('/')   : break;
+
+          case __C('?')   : PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L("'"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;
+
+          case __C('/')   : PressKeyByLiteral(__L("Divide"), pressuretimeinterval);  
+                            break;
+
           case __C('\\')  : break;
-          case __C('\"')  : break;
 
-          
+          case __C('\"')  : PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L("2"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;       
 
+          case __C('·')  :  PressKeyDownByLiteral(__L("SHIFT"));
+                            PressKeyByLiteral(__L("3"), pressuretimeinterval); 
+                            PressKeyUpByLiteral(__L("SHIFT"));
+                            break;       
         }
     }
 
@@ -313,6 +511,64 @@ bool INPWINDOWSSIMULATE::SetMouseClick(int x, int y)
 
   return true;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSSIMULATE::IsCapsLockActive()
+* @brief      IsCapsLockActive
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSSIMULATE::IsCapsLockActive()
+{
+  short capslockstate = GetKeyState(VK_CAPITAL);
+
+  bool iscapslockon = (capslockstate & 0x0001) != 0;
+
+  return iscapslockon;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSSIMULATE::IsNumLockActive()
+* @brief      IsNumLockActive
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSSIMULATE::IsNumLockActive()
+{
+  short numlockstate = GetKeyState(VK_NUMLOCK);
+
+  bool isnumlockon = (numlockstate & 0x0001) != 0;
+
+  return isnumlockon;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPWINDOWSSIMULATE::IsScrollLockActive()
+* @brief      IsScrollLockActive
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPWINDOWSSIMULATE::IsScrollLockActive()
+{
+  short scrolllockstate = GetKeyState(VK_SCROLL);
+
+  bool isscrolllockon = (scrolllockstate & 0x0001) != 0;
+
+  return isscrolllockon;
+}
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------

@@ -50,18 +50,26 @@
 class INPWINDOWSSIMULATE : public INPSIMULATE
 {
   public:
-                    INPWINDOWSSIMULATE     ();
-    virtual        ~INPWINDOWSSIMULATE     ();
+                    INPWINDOWSSIMULATE      ();
+    virtual        ~INPWINDOWSSIMULATE      ();
 
-    bool            PressKey               (XBYTE code, int pressuretime = 100);
-    bool            PressKeyByLiteral      (XCHAR* literal, int pressuretime = 100);
-    bool            PressKeyByText         (XCHAR* text, int pressuretimeinterval = 100);
-    bool            SetMousePos            (int x, int y);
-    bool            SetMouseClick          (int x, int y);
+    bool            PressKeyDown            (XBYTE code);
+    bool            PressKeyUp              (XBYTE code);
+    bool            PressKey                (XBYTE code, int pressuretime = 100);
+    bool            PressKeyDownByLiteral   (XCHAR* literal);
+    bool            PressKeyUpByLiteral     (XCHAR* literal);
+    bool            PressKeyByLiteral       (XCHAR* literal, int pressuretime = 100);
+    bool            PressKeyByText          (XCHAR* text, int pressuretimeinterval = 100);
+    bool            SetMousePos             (int x, int y);
+    bool            SetMouseClick           (int x, int y);
 
   protected:
 
   private:
+
+    bool            IsCapsLockActive        ();
+    bool            IsNumLockActive         ();
+    bool            IsScrollLockActive      ();
 
     void            Clean                   ();
 };

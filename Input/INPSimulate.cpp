@@ -271,6 +271,40 @@ INPSIMULATE::~INPSIMULATE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool INPSIMULATE::PressKeyDown(XBYTE code)
+* @brief      PressKeyDown
+* @ingroup    INPUT
+* 
+* @param[in]  code : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPSIMULATE::PressKeyDown(XBYTE code)
+{
+	return false;
+}	
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPSIMULATE::PressKeyUp(XBYTE code)
+* @brief      PressKeyUp
+* @ingroup    INPUT
+* 
+* @param[in]  code : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPSIMULATE::PressKeyUp(XBYTE code)
+{
+	return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool INPSIMULATE::PressKey(XBYTE code, int pressuretime)
 * @brief      PressKey
 * @ingroup    INPUT
@@ -284,6 +318,40 @@ INPSIMULATE::~INPSIMULATE()
 bool INPSIMULATE::PressKey(XBYTE code, int pressuretime)
 {
   return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
+* @brief      PressKeyDownByLiteral
+* @ingroup    INPUT
+* 
+* @param[in]  literal : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
+{
+	return false;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
+* @brief      PressKeyUpByLiteral
+* @ingroup    INPUT
+* 
+* @param[in]  literal : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
+{
+	return false;
 }
 
 
