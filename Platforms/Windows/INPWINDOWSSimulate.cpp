@@ -165,11 +165,20 @@ bool INPWINDOWSSIMULATE::PressKey(XBYTE code, int pressuretime)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
 {
-  XBYTE code = GetKDBCodeByLiteral(literal);
+  ALTERNATIVE_KEY altkey  = ALTERNATIVE_KEY_NONE;
+  XBYTE           code    = GetKDBCodeByLiteral(literal, altkey);
 
   if(code)
     {    
-       return PressKeyDown(code);  
+      switch(altkey)
+        {
+          case ALTERNATIVE_KEY_NONE   : break;
+          case ALTERNATIVE_KEY_ALTGR  : PressKeyDownByLiteral(__L("Right ALT"));  break;
+          case ALTERNATIVE_KEY_SHIFT  : PressKeyDownByLiteral(__L("SHIFT"));      break;
+        }
+      
+      bool status = PressKeyDown(code);  
+      return status;   
     }
 
   return false;
@@ -189,11 +198,21 @@ bool INPWINDOWSSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
 {
-  XBYTE code = GetKDBCodeByLiteral(literal);
+  ALTERNATIVE_KEY altkey  = ALTERNATIVE_KEY_NONE;
+  XBYTE           code    = GetKDBCodeByLiteral(literal, altkey);
 
   if(code)
     {    
-       return PressKeyUp(code);  
+      bool status = PressKeyUp(code);  
+
+      switch(altkey)
+        {
+          case ALTERNATIVE_KEY_NONE   : break;
+          case ALTERNATIVE_KEY_ALTGR  : PressKeyUpByLiteral(__L("Right ALT"));  break;
+          case ALTERNATIVE_KEY_SHIFT  : PressKeyUpByLiteral(__L("SHIFT"));      break;
+        }
+      
+      return status;   
     }
 
   return false;
@@ -214,11 +233,28 @@ bool INPWINDOWSSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool INPWINDOWSSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
 {
-  XBYTE code = GetKDBCodeByLiteral(literal);
+  ALTERNATIVE_KEY altkey  = ALTERNATIVE_KEY_NONE;
+  XBYTE           code    = GetKDBCodeByLiteral(literal, altkey);
 
   if(code)
     {    
-       return PressKey(code, pressuretime);  
+      switch(altkey)
+        {
+          case ALTERNATIVE_KEY_NONE   : break;
+          case ALTERNATIVE_KEY_ALTGR  : PressKeyDownByLiteral(__L("Right ALT"));  break;
+          case ALTERNATIVE_KEY_SHIFT  : PressKeyDownByLiteral(__L("SHIFT"));      break;
+        }
+
+      bool status = PressKey(code, pressuretime);  
+
+      switch(altkey)
+        {
+          case ALTERNATIVE_KEY_NONE   : break;
+          case ALTERNATIVE_KEY_ALTGR  : PressKeyUpByLiteral(__L("Right ALT"));  break;
+          case ALTERNATIVE_KEY_SHIFT  : PressKeyUpByLiteral(__L("SHIFT"));      break;
+        }
+
+      return status;
     }
 
   return false;
@@ -348,121 +384,44 @@ bool INPWINDOWSSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
           case __C('7')   : 
           case __C('8')   : 
           case __C('9')   : 
-          case __C('0')   : PressKeyByLiteral(literal.Get(), pressuretimeinterval);                            
+          case __C('0')   : 
+
+          case __C('!')   : 
+          case __C('@')   : 
+          case __C('#')   : 
+          case __C('$')   : 
+          case __C('%')   : 
+          case __C('^')   : 
+          case __C('&')   : 
+          case __C('*')   : 
+          case __C('(')   : 
+          case __C(')')   : 
+          case __C('_')   : 
+          case __C('+')   : 
+          case __C('-')   : 
+          case __C('=')   : 
+          case __C('[')   : 
+          case __C(']')   : 
+          case __C('{')   : 
+          case __C('}')   : 
+          case __C('|')   : 
+          case __C(';')   : 
+          case __C(':')   : 
+          case __C('\'')  : 
+          case __C(',')   : 
+          case __C('.')   : 
+          case __C('<')   :    
+          case __C('?')   : 
+          case __C('/')   : 
+          case __C('\\')  : 
+          case __C('"')   :       
+
+          case __C('¿')   : 
+          case __C('¡')   : 
+          case __C('ñ')   : 
+          case __C('Ñ')   :   
+          case __C('·')   : PressKeyByLiteral(literal.Get(), pressuretimeinterval);                            
                             break;                           
-
-          case __C('!')   : PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L("1"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;
-
-          case __C('@')   : PressKeyDownByLiteral(__L("Right ALT"));
-                            PressKeyByLiteral(__L("2"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("Right ALT"));
-                            break;
-
-          case __C('#')   : PressKeyDownByLiteral(__L("Right ALT"));
-                            PressKeyByLiteral(__L("3"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("Right ALT"));                            
-                            break;
-
-          case __C('$')   : PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L("4"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;
-
-          case __C('%')   : PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L("5"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;
-
-          case __C('^')   : break;
-
-          case __C('&')   : PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L("6"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;
-
-          case __C('*')   : PressKeyByLiteral(__L("Multiply"), pressuretimeinterval); 
-                            break;
-
-          case __C('(')   : PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L("8"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;
-
-          case __C(')')   : PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L("9"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;
-
-          case __C('_')   : PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L("-"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;
-
-          case __C('+')   : PressKeyByLiteral(__L("Add"), pressuretimeinterval);  
-                            break;
-
-          case __C('-')   : PressKeyByLiteral(__L("Subtract"), pressuretimeinterval);  
-                            break;
-
-          case __C('=')   : PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L("0"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;
-
-          case __C('[')   : break;
-          case __C(']')   : break;
-          case __C('{')   : break;
-          case __C('}')   : break;
-
-          case __C('|')   : PressKeyDownByLiteral(__L("Right ALT"));
-                            PressKeyByLiteral(__L("1"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("Right ALT"));                           
-                            break;
-
-          case __C(';')   : PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L(","), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;
-
-          case __C(':')   : PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L("."), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;
-
-          case __C('\'')  : PressKeyByLiteral(__L("?"), pressuretimeinterval); 
-                            break;
-
-          case __C(',')   : PressKeyByLiteral(__L(","), pressuretimeinterval); 
-                            break;
-
-          case __C('.')   : PressKeyByLiteral(__L("."), pressuretimeinterval); 
-                            break;
-
-          case __C('<')   : break;
-          case __C('>')   : break;
-
-          case __C('?')   : PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L("'"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;
-
-          case __C('/')   : PressKeyByLiteral(__L("Divide"), pressuretimeinterval);  
-                            break;
-
-          case __C('\\')  : break;
-
-          case __C('\"')  : PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L("2"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;       
-
-          case __C('·')  :  PressKeyDownByLiteral(__L("SHIFT"));
-                            PressKeyByLiteral(__L("3"), pressuretimeinterval); 
-                            PressKeyUpByLiteral(__L("SHIFT"));
-                            break;       
         }
     }
 

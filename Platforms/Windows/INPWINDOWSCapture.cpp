@@ -201,7 +201,8 @@ LRESULT CALLBACK INPWINDOWSCAPTURE::LowLevelKeyboardProc(int ncode, WPARAM wpara
 
   KBDLLHOOKSTRUCT* keydata = (KBDLLHOOKSTRUCT*)lparam;
 
-//XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[Windows Hook keyboard] vkCode %04X, scanCode %08X, flags %08X [%c]"), keydata->vkCode, keydata->scanCode, keydata->flags, keydata->vkCode);
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[Windows Hook keyboard] vkCode %04X, scanCode %08X, flags %08X [%c]"), keydata->vkCode, keydata->scanCode, keydata->flags, keydata->vkCode);
+
   if(capture)
     { 
       INPCAPTURE_XEVENT xevent(capture, (keydown?INPCAPTURE_XEVENT_TYPE_PRESSKEY:INPCAPTURE_XEVENT_TYPE_UNPRESSKEY));

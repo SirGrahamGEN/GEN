@@ -40,6 +40,12 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+enum ALTERNATIVE_KEY
+{
+  ALTERNATIVE_KEY_NONE   = 0  ,
+  ALTERNATIVE_KEY_ALTGR       ,
+  ALTERNATIVE_KEY_SHIFT       ,
+};
 
 #pragma endregion
 
@@ -51,6 +57,7 @@ typedef struct
 {
   XBYTE                   code;
   XCHAR*                  literal;
+  ALTERNATIVE_KEY         altkey;
 
 } INPUTSIMULATE_KDB_PC;
 
@@ -71,7 +78,7 @@ class INPSIMULATE
     virtual bool        SetMousePos             (int x, int y);
     virtual bool        SetMouseClick           (int x, int y);
 
-    XBYTE               GetKDBCodeByLiteral     (XCHAR* literal);
+    XBYTE               GetKDBCodeByLiteral     (XCHAR* literal, ALTERNATIVE_KEY& altkey);
 
   protected:
 
