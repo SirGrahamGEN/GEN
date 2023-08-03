@@ -43,7 +43,7 @@
 #pragma region DEFINES_ENUMS
 
 
-#define SCRIPT_LIB_NAME_PROCESS   __L("Process")
+#define SCRIPT_LIB_NAME_INPSIMULATE   __L("InpSimulate")
 
 #pragma endregion
 
@@ -64,7 +64,7 @@ class SCRIPT_LIB_INPUTSIMULATE : public SCRIPT_LIB
 
   private:
 
-    void                  Clean                          ();
+    void                  Clean                         ();
 };
 
 #pragma endregion
@@ -76,8 +76,6 @@ class SCRIPT_LIB_INPUTSIMULATE : public SCRIPT_LIB
 void      Call_PressKey                (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void      Call_PressKeyByLiteral       (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void      Call_PressKeyByText          (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void      Call_GetWindowPosX           (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void      Call_GetWindowPosY           (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void      Call_SetMousePos             (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void      Call_SetMouseClick           (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 

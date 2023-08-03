@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Script_Lib_Process.h
+* @file       Script_Lib_Window.h
 * 
-* @class      SCRIPT_LIB_PROCESS
-* @brief      Script Lib Process class
+* @class      SCRIPT_LIB_WINDOW
+* @brief      Script Lib Window class
 * @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SCRIPT_LIB_PROCESS_H_
-#define _SCRIPT_LIB_PROCESS_H_
+#ifndef _SCRIPT_LIB_WINDOW_H_
+#define _SCRIPT_LIB_WINDOW_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -42,7 +42,8 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define SCRIPT_LIB_NAME_PROCESS   __L("Process")
+
+#define SCRIPT_LIB_NAME_WINDOW    __L("Window")
 
 #pragma endregion
 
@@ -53,17 +54,17 @@
 class XVARIANT;
 class SCRIPT;
 
-class SCRIPT_LIB_PROCESS : public SCRIPT_LIB
+class SCRIPT_LIB_WINDOW : public SCRIPT_LIB
 {
   public:
-                          SCRIPT_LIB_PROCESS      ();
-    virtual              ~SCRIPT_LIB_PROCESS      ();
+                          SCRIPT_LIB_WINDOW             ();
+    virtual              ~SCRIPT_LIB_WINDOW             ();
 
-    bool                  AddLibraryFunctions     (SCRIPT* script);
+    bool                  AddLibraryFunctions           (SCRIPT* script);
 
   private:
 
-    void                  Clean                   ();
+    void                  Clean                          ();
 };
 
 #pragma endregion
@@ -72,13 +73,12 @@ class SCRIPT_LIB_PROCESS : public SCRIPT_LIB
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 #pragma region FUNCTIONS_PROTOTYPES
 
-void      Call_OpenURL                            (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void      Call_MakeCommand                        (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void      Call_ExecApplication                    (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void      Call_TerminateApplication               (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void      Call_TerminateApplicationWithWindow     (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void      Call_Window_GetPosX           (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void      Call_Window_GetPosY           (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 #pragma endregion
 
 
 #endif
+
+

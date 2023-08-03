@@ -74,7 +74,7 @@
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIB_INPUTSIMULATE::SCRIPT_LIB_INPUTSIMULATE() : SCRIPT_LIB(SCRIPT_LIB_NAME_PROCESS)
+SCRIPT_LIB_INPUTSIMULATE::SCRIPT_LIB_INPUTSIMULATE() : SCRIPT_LIB(SCRIPT_LIB_NAME_INPSIMULATE)
 {
   Clean();
 }
@@ -116,8 +116,6 @@ bool SCRIPT_LIB_INPUTSIMULATE::AddLibraryFunctions(SCRIPT* script)
   script->AddLibraryFunction(this, __L("InpSim_PressKey")             , Call_PressKey);
   script->AddLibraryFunction(this, __L("InpSim_PressKeyByLiteral")    , Call_PressKeyByLiteral);
   script->AddLibraryFunction(this, __L("InpSim_PressKeyByText")       , Call_PressKeyByText);
-  script->AddLibraryFunction(this, __L("InpSim_GetWindowPosX")        , Call_GetWindowPosX);
-  script->AddLibraryFunction(this, __L("InpSim_GetWindowPosY")        , Call_GetWindowPosY);
   script->AddLibraryFunction(this, __L("InpSim_SetMousePos")          , Call_SetMousePos);
   script->AddLibraryFunction(this, __L("InpSim_SetMouseClick")        , Call_SetMouseClick);
       
@@ -141,9 +139,8 @@ void SCRIPT_LIB_INPUTSIMULATE::Clean()
 }
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* Library Functions                                                                                                  */
-/*--------------------------------------------------------------------------------------------------------------------*/
+/*---- LIBRARY FUNCTIONS ---------------------------------------------------------------------------------------------*/
+#pragma region LIBRARY_FUNCTIONS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -207,7 +204,7 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void Call_PressKeyByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_PressKeyByLiteral
+* @brief      Call_PressKeyByLiteral
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -262,11 +259,10 @@ void Call_PressKeyByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void Call_PressKeyByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_PressKeyByText
+* @brief      Call_PressKeyByText
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -318,118 +314,6 @@ void Call_PressKeyByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
 
   (*returnvalue) = status;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void Call_GetWindowPos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_GetWindowPos
-* @ingroup    SCRIPT
-* 
-* @param[in]  library : 
-* @param[in]  script : 
-* @param[in]  params : 
-* @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void Call_GetWindowPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-{
-  if(!library)      return;
-  if(!script)       return;
-  if(!params)       return;
-  if(!returnvalue)  return;
-
-  returnvalue->Set();
-
-  if(params->GetSize()<2)
-    {
-      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
-      return;
-    }
- 
-  XVECTOR<XPROCESS*>  applist;
-  XSTRING             appname       = (*params->Get(0));
-  XSTRING             windowstitle  = (*params->Get(1));
-  int                 windowsposx   = 0; 
-  
-  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
-    {
-      for(XDWORD c=0; c<applist.GetSize(); c++)
-        {                              
-          if(applist.Get(c)->GetName()->Find(appname, true)!= XSTRING_NOTFOUND) 
-            {  
-              if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
-                {
-                  windowsposx = applist.Get(c)->GetWindowRect()->x1;                  
-                  break;
-                }
-            }
-        }
-    }
-    
-  applist.DeleteContents();
-  applist.DeleteAll();
-   
-  (*returnvalue) = windowsposx;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void Call_GetWindowPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_GetWindowPosY
-* @ingroup    SCRIPT
-* 
-* @param[in]  library : 
-* @param[in]  script : 
-* @param[in]  params : 
-* @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void Call_GetWindowPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-{
-  if(!library)      return;
-  if(!script)       return;
-  if(!params)       return;
-  if(!returnvalue)  return;
-
-  returnvalue->Set();
-
-  if(params->GetSize()<2)
-    {
-      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
-      return;
-    }
- 
-  XVECTOR<XPROCESS*>  applist;
-  XSTRING             appname       = (*params->Get(0));
-  XSTRING             windowstitle  = (*params->Get(1));
-  int                 windowsposy   = 0; 
-  
-  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
-    {
-      for(XDWORD c=0; c<applist.GetSize(); c++)
-        {                              
-          if(applist.Get(c)->GetName()->Find(appname, true)!= XSTRING_NOTFOUND) 
-            {  
-              if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
-                {
-                  windowsposy = applist.Get(c)->GetWindowRect()->y1;
-                  break;
-                }
-            }
-        }
-    }
-    
-  applist.DeleteContents();
-  applist.DeleteAll();
-   
-  (*returnvalue) = windowsposy;
 }
 
 
@@ -490,7 +374,7 @@ void Call_SetMousePos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* p
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void Call_SetMouseClick(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_SetMouseClick
+* @brief      Call_SetMouseClick
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -543,5 +427,5 @@ void Call_SetMouseClick(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
 
 #pragma endregion
 
-
+#pragma endregion
 

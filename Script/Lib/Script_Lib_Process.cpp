@@ -114,6 +114,7 @@ bool SCRIPT_LIB_PROCESS::AddLibraryFunctions(SCRIPT* script)
 
   script->AddLibraryFunction(this, __L("OpenURL")                            , Call_OpenURL);
   script->AddLibraryFunction(this, __L("ExecApplication")                    , Call_ExecApplication);
+  script->AddLibraryFunction(this, __L("Call_MakeCommand")                   , Call_MakeCommand);
   script->AddLibraryFunction(this, __L("TerminateAplication")                , Call_TerminateApplication);
   script->AddLibraryFunction(this, __L("TerminateAplicationWithWindow")      , Call_TerminateApplicationWithWindow);
 
@@ -145,7 +146,7 @@ void SCRIPT_LIB_PROCESS::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void Call_OpenURL(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_OpenURL
+* @brief      Call_OpenURL
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -185,8 +186,54 @@ void Call_OpenURL(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         void Call_MakeCommand(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_MakeCommand
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_MakeCommand(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(!params->GetSize())
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  XSTRING* command    = NULL;
+  bool     status     = false;
+  
+  if(params->Get(0))
+    {
+      command = (XSTRING*)params->Get(0)->GetData();
+    }
+  
+  if(command)
+    {      
+      status = GEN_XPROCESSMANAGER.MakeCommand(command->Get());                       
+    }
+
+  (*returnvalue) = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void Call_ExecApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_ExecApplication
+* @brief      Call_ExecApplication
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -212,17 +259,23 @@ void Call_ExecApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
       return;
     }
 
-  XSTRING* string  = NULL;
-  bool     status  = false;
+  XSTRING* app_path   = NULL;
+  XSTRING* app_params = NULL;
+  bool     status     = false;
   
   if(params->Get(0))
     {
-      string = (XSTRING*)params->Get(0)->GetData();
+      app_path = (XSTRING*)params->Get(0)->GetData();
+    }
+
+  if(params->Get(1))
+    {
+      app_params = (XSTRING*)params->Get(1)->GetData();
     }
   
-  if(string)
+  if(app_path)
     {      
-      status = GEN_XPROCESSMANAGER.Application_Execute(string->Get());                       
+      status = GEN_XPROCESSMANAGER.Application_Execute(app_path->Get(), app_params?app_params->Get():__L(""));                       
     }
 
   (*returnvalue) = status;
@@ -232,7 +285,7 @@ void Call_ExecApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void Call_TerminateApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_TerminateApplication
+* @brief      Call_TerminateApplication
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -278,7 +331,7 @@ void Call_TerminateApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVAR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void Call_TerminateApplicationWithWindow(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_TerminateApplicationWithWindow
+* @brief      Call_TerminateApplicationWithWindow
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
