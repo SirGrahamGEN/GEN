@@ -202,6 +202,22 @@ if(COMPILE_TO_LINUX)
   endif()
 
 
+  if(SCRIPT_LIB_INPUTSIMULATE_FEATURE)  
+
+    option(GRP_FEATURE      "Graphics"                true )
+    option(GRP_2D_FEATURE   "Activate Graphics 2D"    true )
+  
+  endif()
+
+
+  if(SCRIPT_LIB_WINDOW_FEATURE)  
+
+    option(GRP_FEATURE      "Graphics"                true )
+    option(GRP_2D_FEATURE   "Activate Graphics 2D"    true )
+  
+  endif()
+
+
   if(DIO_LINUX_DBUS_FEATURE)  
   
     list(APPEND INCLUDES_DIR "/usr/include/dbus-1.0")
@@ -296,6 +312,7 @@ if(SCRIPT_FEATURE)
 
   if(SCRIPT_LIB_INPUTSIMULATE_FEATURE)
     
+    option(INP_FEATURE "Inputs" true )
     option(INP_SIMULATE_FEATURE "Inputs Simulate" true)
 
   endif()

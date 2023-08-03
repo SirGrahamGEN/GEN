@@ -115,6 +115,7 @@ bool SCRIPT_LIB_WINDOW::AddLibraryFunctions(SCRIPT* script)
 
   script->AddLibraryFunction(this, __L("Window_GetPosX")        , Call_Window_GetPosX);
   script->AddLibraryFunction(this, __L("Window_GetPosY")        , Call_Window_GetPosY);
+  script->AddLibraryFunction(this, __L("Window_SetFocus")       , Call_Window_SetFocus);
       
   return true;
 }
@@ -251,7 +252,66 @@ void Call_Window_GetPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
   (*returnvalue) = windowsposy;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_Window_SetFocus(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_Window_SetFocus
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Window_SetFocus(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize()<2)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+ 
+  XVECTOR<XPROCESS*>  applist;
+  XSTRING             appname       = (*params->Get(0));
+  XSTRING             windowstitle  = (*params->Get(1));
+  void*               windowshandle = NULL; 
+  
+  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
+    {
+      for(XDWORD c=0; c<applist.GetSize(); c++)
+        {                              
+          if(applist.Get(c)->GetName()->Find(appname, true)!= XSTRING_NOTFOUND) 
+            {  
+              if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
+                {
+                  windowshandle = applist.Get(c)->GetWindowHandle();
+                  break;
+                }
+            }
+        }
+    }
+    
+  applist.DeleteContents();
+  applist.DeleteAll();
+   
+  (*returnvalue) = windowshandle?true:false;
+}
+
+
 #pragma endregion
 
 #pragma endregion
+
+
 

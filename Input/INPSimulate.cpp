@@ -213,14 +213,14 @@ INPUTSIMULATE_KDB_PC  inputsimulare_KDB_PC[]						= { { 0x01	, __L("Left mouse")
                                                           };	
 
 
-INPUTSIMULATE_KDB_PC  inputsimulare_KDB_PC_Spanish[]		= { { 0xDC  , __L("º")												 , ALTERNATIVE_KEY_NONE       },
-																														{ 0xDC  , __L("ª")											   , ALTERNATIVE_KEY_SHIFT      },
+INPUTSIMULATE_KDB_PC  inputsimulare_KDB_PC_Spanish[]		= { { 0xDC  , __L("\xBA")								  		 , ALTERNATIVE_KEY_NONE       },
+																														{ 0xDC  , __L("\xAA")										   , ALTERNATIVE_KEY_SHIFT      },
 																														{ 0xDC  , __L("\\")											   , ALTERNATIVE_KEY_ALTGR      },
 																														{ 0x31  , __L("!")											   , ALTERNATIVE_KEY_SHIFT      },
 																														{ 0x31  , __L("|")											   , ALTERNATIVE_KEY_ALTGR      },
 																														{ 0x32  , __L("\"")											   , ALTERNATIVE_KEY_SHIFT      },
 																														{ 0x32  , __L("@")											   , ALTERNATIVE_KEY_ALTGR      },
-																														{ 0x33  , __L("·")											   , ALTERNATIVE_KEY_SHIFT      },
+																														{ 0x33  , __L("\x95")										   , ALTERNATIVE_KEY_SHIFT      },
 																														{ 0x33  , __L("#")											   , ALTERNATIVE_KEY_ALTGR      },
 																														{ 0x34  , __L("$")											   , ALTERNATIVE_KEY_SHIFT      },
 																														{ 0x35  , __L("%")											   , ALTERNATIVE_KEY_SHIFT      },
@@ -233,8 +233,8 @@ INPUTSIMULATE_KDB_PC  inputsimulare_KDB_PC_Spanish[]		= { { 0xDC  , __L("º")				
 																														{ 0xDB  , __L("'")											   , ALTERNATIVE_KEY_NONE	      },
 																														{ 0xDB  , __L("?")											   , ALTERNATIVE_KEY_SHIFT      },
 
-																														{ 0xDD  , __L("¡")											   , ALTERNATIVE_KEY_NONE	      },
-																														{ 0xDD  , __L("¿")											   , ALTERNATIVE_KEY_SHIFT      },
+																														{ 0xDD  , __L("\xA1")										   , ALTERNATIVE_KEY_NONE	      },
+																														{ 0xDD  , __L("\xBF")										   , ALTERNATIVE_KEY_SHIFT      },
 
 																														{ 0xBA  , __L("`")											   , ALTERNATIVE_KEY_NONE	      },
 																														{ 0xBA  , __L("^")											   , ALTERNATIVE_KEY_SHIFT      },
@@ -244,15 +244,15 @@ INPUTSIMULATE_KDB_PC  inputsimulare_KDB_PC_Spanish[]		= { { 0xDC  , __L("º")				
 																														{ 0xBB  , __L("*")											   , ALTERNATIVE_KEY_SHIFT      },
 																														{ 0xBB  , __L("]")											   , ALTERNATIVE_KEY_ALTGR      },
 
-																														{ 0xC0  , __L("ñ")											   , ALTERNATIVE_KEY_NONE	      },
-																														{ 0xC0  , __L("Ñ")											   , ALTERNATIVE_KEY_SHIFT      },
+																														{ 0xC0  , __L("\xF1")											 , ALTERNATIVE_KEY_NONE	      },
+																														{ 0xC0  , __L("\xD1")										   , ALTERNATIVE_KEY_SHIFT      },
 
-																														{ 0xDE  , __L("´")											   , ALTERNATIVE_KEY_NONE	      },
-																														{ 0xDE  , __L("¨")											   , ALTERNATIVE_KEY_SHIFT      },
+																														{ 0xDE  , __L("\xB4")										   , ALTERNATIVE_KEY_NONE	      },
+																														{ 0xDE  , __L("\xA8")										   , ALTERNATIVE_KEY_SHIFT      },
 																														{ 0xDE  , __L("{")											   , ALTERNATIVE_KEY_ALTGR      },
 
-																														{ 0xBF  , __L("ç")											   , ALTERNATIVE_KEY_NONE	      },
-																														{ 0xBF  , __L("Ç")											   , ALTERNATIVE_KEY_SHIFT      },
+																														{ 0xBF  , __L("\xE7")										   , ALTERNATIVE_KEY_NONE	      },
+																														{ 0xBF  , __L("\xC7")										   , ALTERNATIVE_KEY_SHIFT      },
 																														{ 0xBF  , __L("}")											   , ALTERNATIVE_KEY_ALTGR      },
 
 																														{ 0xE2  , __L("<")											   , ALTERNATIVE_KEY_NONE	      },
