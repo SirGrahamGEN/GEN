@@ -564,8 +564,6 @@ bool XWINDOWSPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD  exi
   CloseHandle(hprocess);
 
   return (result?true:false);
-
-  return true;
 }
 
 

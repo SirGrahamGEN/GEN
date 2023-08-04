@@ -524,7 +524,7 @@ void Call_XTRACE_PRINTCOLOR(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
       return;
     }
 
-    // first param is the colorç
+  // first param is the color
   XDWORD    color       = 0;
   library->GetParamConverted(params->Get(0), color);
 
