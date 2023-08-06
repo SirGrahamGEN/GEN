@@ -48,6 +48,9 @@
 #include "INPFactory.h"
 #include "INPSimulate.h"
 
+#include "GRPFactory.h"
+#include "GRPScreen.h"
+
 #include "Script.h"
 
 #include "XMemory_Control.h"
@@ -116,6 +119,8 @@ bool SCRIPT_LIB_WINDOW::AddLibraryFunctions(SCRIPT* script)
   script->AddLibraryFunction(this, __L("Window_GetPosX")        , Call_Window_GetPosX);
   script->AddLibraryFunction(this, __L("Window_GetPosY")        , Call_Window_GetPosY);
   script->AddLibraryFunction(this, __L("Window_SetFocus")       , Call_Window_SetFocus);
+  script->AddLibraryFunction(this, __L("Window_SetPosition")    , Call_Window_SetPosition);
+  script->AddLibraryFunction(this, __L("Window_Resize")         , Call_Window_Resize);
       
   return true;
 }
@@ -285,7 +290,7 @@ void Call_Window_SetFocus(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
   XVECTOR<XPROCESS*>  applist;
   XSTRING             appname       = (*params->Get(0));
   XSTRING             windowstitle  = (*params->Get(1));
-  void*               windowshandle = NULL; 
+  bool                status        = false;
   
   if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
     {
@@ -295,7 +300,22 @@ void Call_Window_SetFocus(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
             {  
               if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
                 {
-                  windowshandle = applist.Get(c)->GetWindowHandle();
+                  void* handle_windows = applist.Get(c)->GetWindowHandle();
+                  
+                  if(handle_windows)
+                    {  
+                      GRPSCREEN* screen = GEN_GRPFACTORY.CreateScreen();
+                      if(screen)
+                        {                          
+                          screen->SetHandle(handle_windows);
+                          screen->Set_Focus();
+                        
+                          GEN_GRPFACTORY.DeleteScreen(screen);  
+
+                          status = true;   
+                        }
+                    } 
+                    
                   break;
                 }
             }
@@ -305,7 +325,159 @@ void Call_Window_SetFocus(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
   applist.DeleteContents();
   applist.DeleteAll();
    
-  (*returnvalue) = windowshandle?true:false;
+  (*returnvalue) = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_Window_SetPosition(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_Window_SetPosition
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Window_SetPosition(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize()<4)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+ 
+  XVECTOR<XPROCESS*>  applist;
+  XSTRING             appname       = (*params->Get(0));
+  XSTRING             windowstitle  = (*params->Get(1));
+  int                 positionx     = 0;
+  int                 positiony     = 0;
+  bool                status        = false;
+
+  library->GetParamConverted(params->Get(2), positionx);
+  library->GetParamConverted(params->Get(3), positiony);
+  
+  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
+    {
+      for(XDWORD c=0; c<applist.GetSize(); c++)
+        {                              
+          if(applist.Get(c)->GetName()->Find(appname, true)!= XSTRING_NOTFOUND) 
+            {  
+              if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
+                {
+                  void* handle_windows = applist.Get(c)->GetWindowHandle();
+                  
+                  if(handle_windows)
+                    {  
+                      GRPSCREEN* screen = GEN_GRPFACTORY.CreateScreen();
+                      if(screen)
+                        {
+                          screen->SetHandle(handle_windows);
+                          screen->Set_Position(positionx, positiony);
+                        
+                          GEN_GRPFACTORY.DeleteScreen(screen);  
+
+                          status = true;   
+                        }
+                    } 
+                    
+                  break;
+                }
+            }
+        }
+    }
+    
+  applist.DeleteContents();
+  applist.DeleteAll();
+   
+  (*returnvalue) = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_Window_Resize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_Window_Resize
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Window_Resize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize()<4)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+ 
+  XVECTOR<XPROCESS*>  applist;
+  XSTRING             appname       = (*params->Get(0));
+  XSTRING             windowstitle  = (*params->Get(1));
+  int                 sizex         = 0;
+  int                 sizey         = 0;
+  bool                status        = false;
+
+  library->GetParamConverted(params->Get(2), sizex);
+  library->GetParamConverted(params->Get(3), sizey);
+  
+  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
+    {
+      for(XDWORD c=0; c<applist.GetSize(); c++)
+        {                              
+          if(applist.Get(c)->GetName()->Find(appname, true)!= XSTRING_NOTFOUND) 
+            {  
+              if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
+                {
+                  void* handle_windows = applist.Get(c)->GetWindowHandle();
+                  
+                  if(handle_windows)
+                    {  
+                      GRPSCREEN* screen = GEN_GRPFACTORY.CreateScreen();
+                      if(screen)
+                        {
+                          screen->SetHandle(handle_windows);
+                          screen->Resize(sizex,sizey);
+                        
+                          GEN_GRPFACTORY.DeleteScreen(screen);  
+
+                          status = true;   
+                        }
+                    } 
+                    
+                  break;
+                }
+            }
+        }
+    }
+    
+  applist.DeleteContents();
+  applist.DeleteAll();
+   
+  (*returnvalue) = status;
 }
 
 

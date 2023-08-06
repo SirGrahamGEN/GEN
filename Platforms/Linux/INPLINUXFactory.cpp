@@ -3,7 +3,7 @@
 * @file       INPLINUXFactory.cpp
 * 
 * @class      INPLINUXFACTORY
-* @brief      INPUT WINDOWS factory
+* @brief      INPUT LINUX factory
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -54,7 +54,7 @@
 #include "INPLINUXDeviceMouseX11.h"
 #endif
 
-#include "INPLINUXFactory.h"
+#include "INPLINUXSimulate.h"
 
 #include "XMemory_Control.h"
 
@@ -348,6 +348,52 @@ bool INPLINUXFACTORY::GetDeviceHandlers(INPDEVICE_TYPE devicetype, XVECTOR<INPLI
 
   return status;
 }
+
+
+#ifdef INP_SIMULATE_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         INPSIMULATE* INPLINUXFACTORY::CreateSimulator()
+* @brief      CreateSimulator
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     INPSIMULATE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+INPSIMULATE* INPLINUXFACTORY::CreateSimulator()
+{
+  INPSIMULATE* inpsimulated = (INPSIMULATE*)new INPLINUXSIMULATE();
+
+  return inpsimulated;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPLINUXFACTORY::DeleteSimulator(INPSIMULATE* inputsimulated)
+* @brief      DeleteSimulator
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  inputsimulated : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool INPLINUXFACTORY::DeleteSimulator(INPSIMULATE* inputsimulated)
+{
+  INPLINUXSIMULATE* inpsimulated = (INPLINUXSIMULATE*)inputsimulated;
+
+  if(!inpsimulated)
+    {
+      return false;
+    }
+
+  delete inpsimulated;
+
+  return true;
+}
+#endif
+
 
 #pragma endregion
 

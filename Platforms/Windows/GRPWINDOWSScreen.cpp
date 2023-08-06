@@ -1,36 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRPWINDOWSScreen.cpp
-*
+* 
 * @class      GRPWINDOWSSCREEN
-* @brief      WINDOWS Graphics Screen class
+* @brief      Graphics WINDOWS Screen class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#include "GRPWINDOWSScreen.h"
+
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XTrace.h"
 #include "XSystem.h"
@@ -39,16 +46,22 @@
 
 #include "GRPXEvent.h"
 #include "GRPCanvas.h"
-#include "GRPWINDOWSScreen.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 XMAP<HWND, GRPWINDOWSSCREEN*>  GRPWINDOWSSCREEN::listscreens;
 
-/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -82,26 +95,7 @@ GRPWINDOWSSCREEN::GRPWINDOWSSCREEN(): GRPSCREEN()
   SetMode(GRPPROPERTYMODE_32_BGRA_8888);
 
   SetIsBufferInverse(false);
-
- /*
-  HDC hscreen = GetDC(NULL);
-
-  double hpixelsperinch = GetDeviceCaps(hscreen, LOGPIXELSX);
-  double vpixelsperinch = GetDeviceCaps(hscreen, LOGPIXELSY);
-
-  ReleaseDC(NULL, hscreen);
-
-
-  HDC hscreen2 = GetDC(NULL);
-
-  double hnpixels = GetDeviceCaps(hscreen2, HORZRES);
-  double vnpixels = GetDeviceCaps(hscreen2, VERTRES);
-
-  ReleaseDC(NULL, hscreen2);
-*/
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -120,7 +114,6 @@ GRPWINDOWSSCREEN::~GRPWINDOWSSCREEN()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -142,7 +135,6 @@ bool GRPWINDOWSSCREEN::Create(bool show)
 
   return GRPSCREEN::Create(show);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -224,8 +216,6 @@ bool GRPWINDOWSSCREEN::Update(GRPCANVAS* canvas)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPWINDOWSSCREEN::Delete()
@@ -263,6 +253,47 @@ bool GRPWINDOWSSCREEN::Delete()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPWINDOWSSCREEN::Set_Position(int x, int y)
+* @brief      Set_Position
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  x : 
+* @param[in]  y : 
+* @param[in]  sizex : 
+* @param[in]  sizey : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPWINDOWSSCREEN::Set_Position(int x, int y)
+{
+  RECT    rect;
+  XDWORD  style;
+
+  GetClientRect(hwnd, &rect);
+
+  int width   = rect.right  - rect.left; 
+  int height  = rect.bottom - rect.top;  
+
+  rect.right  = x;  
+  rect.left   = x + width;
+
+  rect.top    = y;  
+  rect.bottom = y + height;
+
+  style = GetWindowLong(hwnd, GWL_STYLE);
+
+  SetPosition(x, y);
+
+  AdjustWindowRect(&rect,style,false);
+
+  SetWindowPos(hwnd,NULL, positionx, positiony, (rect.right-rect.left), (rect.bottom-rect.top)  , SWP_NOSIZE | SWP_NOZORDER);
+
+  return true;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -278,7 +309,7 @@ bool GRPWINDOWSSCREEN::Delete()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPWINDOWSSCREEN::Resize(int width, int height)
 {
-  RECT   rect;
+  RECT    rect;
   XDWORD  style;
 
   GetClientRect(hwnd, &rect);
@@ -294,7 +325,6 @@ bool GRPWINDOWSSCREEN::Resize(int width, int height)
 
   return UpdateSize(width, height);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -378,23 +408,50 @@ void* GRPWINDOWSSCREEN::GetHandle()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void GRPWINDOWSSCREEN::SetHandle(HWND hwnd)
+* 
+* @fn         void GRPWINDOWSSCREEN::SetHandle(XDWORD handle_window)
 * @brief      SetHandle
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  hwnd :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  handle_window : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void GRPWINDOWSSCREEN::SetHandle(HWND hwnd)
+void GRPWINDOWSSCREEN::SetHandle(void* handle_window)
 {
-  this->hwnd = hwnd;
+  this->hwnd = (HWND)handle_window;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPWINDOWSSCREEN::Set_Focus()
+* @brief      Set_Focus
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPWINDOWSSCREEN::Set_Focus()
+{
+  if(!hwnd)
+    {
+      return false;
+    }
+
+  if(!SetForegroundWindow(hwnd))
+    {
+      return false;
+    }
+
+  AttachThreadInput(GetCurrentThreadId(), GetWindowThreadProcessId(GetAncestor(hwnd, GA_ROOT), NULL), TRUE);
+
+  SetFocus(hwnd);
+    
+  return true;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -410,7 +467,6 @@ void* GRPWINDOWSSCREEN::GetHDC()
 {
   return (void*)hdc;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -430,7 +486,6 @@ void GRPWINDOWSSCREEN::SetHDC(HDC hdc)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         BITMAPINFO* GRPWINDOWSSCREEN::GetHInfo()
@@ -446,7 +501,6 @@ BITMAPINFO* GRPWINDOWSSCREEN::GetHInfo()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPWINDOWSSCREEN::IsBlockClose()
@@ -460,7 +514,6 @@ bool GRPWINDOWSSCREEN::IsBlockClose()
 {
   return isblockclose;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -480,7 +533,6 @@ void GRPWINDOWSSCREEN::SetIsBlockClose(bool activated)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMAP<HWND, GRPWINDOWSSCREEN*>* GRPWINDOWSSCREEN::GetListScreens()
@@ -494,52 +546,6 @@ XMAP<HWND, GRPWINDOWSSCREEN*>* GRPWINDOWSSCREEN::GetListScreens()
 {
   return &listscreens;
 }
-
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int GRPWINDOWSSCREEN::GetScaleFactor()
-* @brief      GetScaleFactor
-* @ingroup    PLATFORM_WINDOWS
-*
-* @return     int : 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-/*
-int GRPWINDOWSSCREEN::GetScaleFactor()
-{
-  
-  DEVICE_SCALE_FACTOR scale_factor = GetScaleFactorForDevice(DEVICE_PRIMARY);
-  int sf = 0;
-
-  switch(scale_factor)
-    {
-      case DEVICE_SCALE_FACTOR_INVALID    : sf =   0;         break;
-      case SCALE_100_PERCENT              : sf = 100;         break;
-      case SCALE_120_PERCENT              : sf = 120;         break;
-      case SCALE_125_PERCENT              : sf = 125;         break;
-      case SCALE_140_PERCENT              : sf = 140;         break;
-      case SCALE_150_PERCENT              : sf = 150;         break;
-      case SCALE_160_PERCENT              : sf = 160;         break;
-      case SCALE_175_PERCENT              : sf = 175;         break;
-      case SCALE_180_PERCENT              : sf = 180;         break;
-      case SCALE_200_PERCENT              : sf = 200;         break;
-      case SCALE_225_PERCENT              : sf = 225;         break;
-      case SCALE_250_PERCENT              : sf = 250;         break;
-      case SCALE_300_PERCENT              : sf = 300;         break;
-      case SCALE_350_PERCENT              : sf = 350;         break;
-      case SCALE_400_PERCENT              : sf = 400;         break;
-      case SCALE_450_PERCENT              : sf = 450;         break;
-      case SCALE_500_PERCENT              : sf = 500;         break;
-            default                       : sf = -1;          break;
-    }
-
-  return sf;
-}
-*/
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -558,7 +564,6 @@ void GRPWINDOWSSCREEN::Clean()
   hwnd            = NULL;
   hdc             = NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -803,5 +808,11 @@ LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wpara
 
   return DefWindowProc(hwnd, msg, wparam, lparam);
 }
+
+
+#pragma endregion
+
+
+
 
 

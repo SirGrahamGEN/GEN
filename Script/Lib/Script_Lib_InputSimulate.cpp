@@ -174,18 +174,12 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
       return;
     }
 
-  XVARIANT* variant;
-  double    pressuretime = 0;
+  int key          = 0;
+  int pressuretime = 0;
 
-  variant = params->Get(0);
-  double key = (*variant);
+  library->GetParamConverted(params->Get(0), key);
+  library->GetParamConverted(params->Get(1), pressuretime);
   
-  variant = params->Get(1);
-  if(variant) 
-    {
-      pressuretime = (*variant);
-    }
-
   INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
   if(!inpsimulate)
     {
@@ -193,7 +187,7 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
       return;
     }
   
-  status = inpsimulate->PressKey((XBYTE)key,(int)pressuretime);
+  status = inpsimulate->PressKey((XBYTE)key,pressuretime);
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
 
@@ -233,17 +227,13 @@ void Call_PressKeyByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
     }
 
   XVARIANT* variant;
-  double    pressuretime = 0;
-
   variant = params->Get(0);
-  XSTRING literal = (*variant);
-  
-  variant = params->Get(1);
-  if(variant) 
-    {
-      pressuretime = (*variant);
-    }
 
+  XSTRING literal      = (*variant);
+  int     pressuretime = 0;
+
+  library->GetParamConverted(params->Get(1), pressuretime);
+    
   INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
   if(!inpsimulate)
     {
@@ -251,7 +241,7 @@ void Call_PressKeyByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
       return;
     }
   
-  status = inpsimulate->PressKeyByLiteral(literal.Get(), (int)pressuretime);
+  status = inpsimulate->PressKeyByLiteral(literal.Get(), pressuretime);
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
 
@@ -291,17 +281,13 @@ void Call_PressKeyByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
     }
 
   XVARIANT* variant;
-  double    pressuretime = 0;
-
   variant = params->Get(0);
-  XSTRING text = (*variant);
-  
-  variant = params->Get(1);
-  if(variant) 
-    {
-      pressuretime = (*variant);
-    }
 
+  XSTRING text         = (*variant);
+  int     pressuretime = 0;
+
+  library->GetParamConverted(params->Get(1), pressuretime);
+    
   INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
   if(!inpsimulate)
     {
@@ -309,7 +295,7 @@ void Call_PressKeyByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
       return;
     }
   
-  status = inpsimulate->PressKeyByText(text.Get(), (int)pressuretime);
+  status = inpsimulate->PressKeyByText(text.Get(), pressuretime);
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
 
@@ -348,13 +334,11 @@ void Call_SetMousePos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* p
       return;
     }
 
-  XVARIANT* variant;
+  int x = 0;
+  int y = 0;
 
-  variant = params->Get(0);
-  double x = (*variant);
-
-  variant = params->Get(1);
-  double y = (*variant);
+  library->GetParamConverted(params->Get(0), x);
+  library->GetParamConverted(params->Get(1), y);
   
   INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
   if(!inpsimulate)
@@ -363,7 +347,7 @@ void Call_SetMousePos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* p
       return;
     }
   
-  status = inpsimulate->SetMousePos((int)x, (int)y);
+  status = inpsimulate->SetMousePos(x, y);
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
   
@@ -402,14 +386,12 @@ void Call_SetMouseClick(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
       return;
     }
 
-  XVARIANT* variant;
+  int x = 0;
+  int y = 0;
 
-  variant = params->Get(0);
-  double x = (*variant);
+  library->GetParamConverted(params->Get(0), x);
+  library->GetParamConverted(params->Get(1), y);
 
-  variant = params->Get(1);
-  double y = (*variant);
-  
   INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
   if(!inpsimulate)
     {
@@ -417,7 +399,7 @@ void Call_SetMouseClick(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
       return;
     }
   
-  status = inpsimulate->SetMouseClick((int)x, (int)y);
+  status = inpsimulate->SetMouseClick(x, y);
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
   

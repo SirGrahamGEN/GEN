@@ -59,10 +59,15 @@ class INPLINUXFACTORY : public INPFACTORY
 {
   public:
 
-    INPDEVICE*      CreateDevice            (INPDEVICE_TYPE type, void* param = NULL);
-    bool            DeleteDevice            (INPDEVICE* device);
+    INPDEVICE*                  CreateDevice              (INPDEVICE_TYPE type, void* param = NULL);
+    bool                        DeleteDevice              (INPDEVICE* device);
 
-    bool            GetDeviceHandlers       (INPDEVICE_TYPE devicetype, XVECTOR<INPLINUXDEVICEID*>& devices);
+    bool                        GetDeviceHandlers         (INPDEVICE_TYPE devicetype, XVECTOR<INPLINUXDEVICEID*>& devices);
+
+    #ifdef INP_SIMULATE_ACTIVE
+    INPSIMULATE*                CreateSimulator           ();
+    bool                        DeleteSimulator           (INPSIMULATE* inputsimulated);
+    #endif
 };
 
 #pragma endregion

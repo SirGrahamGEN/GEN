@@ -1,50 +1,63 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRPScreen.cpp
-*
+* 
 * @class      GRPSCREEN
 * @brief      Graphics Screen Class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#include "GRPScreen.h"
+
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "GRPXEvent.h"
 #include "GRPCanvas.h"
 #include "GRPViewPort.h"
 #include "GRPFrameRate.h"
 
-#include "GRPScreen.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -70,7 +83,6 @@ GRPSCREEN::GRPSCREEN()
 
   framerate = new GRPFRAMERATE();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -105,7 +117,6 @@ GRPSCREEN::~GRPSCREEN()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -153,7 +164,6 @@ bool GRPSCREEN::IsActive()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::SetPropertys(int width, int height, int stride, GRPPROPERTYMODE mode)
@@ -183,7 +193,6 @@ bool GRPSCREEN::SetPropertys(int width, int height, float DPIs, int stride, GRPP
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::IsFullScreen()
@@ -197,7 +206,6 @@ bool GRPSCREEN::IsFullScreen()
 {
   return isfullscreen;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -217,7 +225,6 @@ void GRPSCREEN::SetIsFullScreen(bool isfullscreen)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::CreateBuffers()
@@ -235,7 +242,6 @@ bool GRPSCREEN::CreateBuffers()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -260,7 +266,6 @@ bool GRPSCREEN::DeleteBuffers()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::GetBuffer()
@@ -274,7 +279,6 @@ XBYTE* GRPSCREEN::GetBuffer()
 {
   return buffer;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -298,7 +302,6 @@ bool GRPSCREEN::Create(bool show)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::Update()
@@ -312,7 +315,6 @@ bool GRPSCREEN::Update()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -332,7 +334,6 @@ bool GRPSCREEN::Update(GRPCANVAS* canvas)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::Delete()
@@ -347,6 +348,23 @@ bool GRPSCREEN::Delete()
   return false;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPSCREEN::SetPosition(int x, int y)
+* @brief      SetPosition
+* @ingroup    GRAPHIC
+* 
+* @param[in]  x : 
+* @param[in]  y : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPSCREEN::Set_Position(int x, int y)
+{
+  return false;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -363,9 +381,8 @@ bool GRPSCREEN::Delete()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::Resize(int width, int height)
 {
-  return true;
+  return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -381,7 +398,6 @@ bool GRPSCREEN::IsShow()
 {
   return isshow;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -403,9 +419,6 @@ bool GRPSCREEN::Show(bool active)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::ShowCursor(bool active)
@@ -421,7 +434,6 @@ bool GRPSCREEN::ShowCursor(bool active)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -441,8 +453,6 @@ bool GRPSCREEN::ShowTopMost(bool active)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* GRPSCREEN::GetHandle()
@@ -457,6 +467,37 @@ void* GRPSCREEN::GetHandle()
   return NULL;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPSCREEN::SetHandle(XDWORD handle_window)
+* @brief      SetHandle
+* @ingroup    GRAPHIC
+* 
+* @param[in]  handle_window : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPSCREEN::SetHandle(void* handle_window)
+{
+  return;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPSCREEN::Set_Focus()
+* @brief      Set_Focus
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPSCREEN::Set_Focus()
+{
+  return false;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -482,7 +523,6 @@ bool GRPSCREEN::UpdateSize(int width, int height)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<GRPVIEWPORT*>* GRPSCREEN::GetViewports()
@@ -496,7 +536,6 @@ XVECTOR<GRPVIEWPORT*>* GRPSCREEN::GetViewports()
 {
   return &viewports;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -514,7 +553,6 @@ GRPVIEWPORT* GRPSCREEN::GetViewport(int index)
 {
   return (viewports.Get(index));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -605,7 +643,6 @@ bool GRPSCREEN::CreateViewport(XCHAR* ID, float posx, float posy, float width, f
  }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::UpdateViewports(int width, int height)
@@ -619,8 +656,6 @@ bool GRPSCREEN::UpdateViewports()
 {
 
   #ifdef GRP_OPENGL_ACTIVE
-
-
 
 
   #else
@@ -644,7 +679,6 @@ bool GRPSCREEN::UpdateViewports()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::DeleteViewport(GRPVIEWPORT* viewport)
@@ -664,7 +698,6 @@ bool GRPSCREEN::DeleteViewport(GRPVIEWPORT* viewport)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -687,7 +720,6 @@ bool GRPSCREEN::DeleteAllViewports()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPFRAMERATE* GRPSCREEN::GetFrameRate()
@@ -701,7 +733,6 @@ GRPFRAMERATE* GRPSCREEN::GetFrameRate()
 {
   return framerate;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -735,4 +766,4 @@ void GRPSCREEN::Clean()
   isshow              = false;
 }
 
-
+#pragma endregion

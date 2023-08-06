@@ -29,6 +29,7 @@ endif()
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
  #add_compile_options(-Wreturn-local-addr)                  # warning: reference to local variable ‘var’ returned [-Wreturn-local-addr]
+  add_compile_options(-Wno-deprecated)                      # warning: Eliminate warning of functions deprecated
   
 endif()
 

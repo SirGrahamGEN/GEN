@@ -34,6 +34,7 @@
 
 #include "INPFactory.h"
 #include "INPSimulate.h"
+#include "INPCapture.h"
 
 #pragma endregion
 
