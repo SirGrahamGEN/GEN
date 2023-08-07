@@ -21,6 +21,8 @@
 
 # COMPILE_TO_STM32                 "Compile to STM32    General"
 
+# COMPILE_TO_ESP32                 "Compile to ESP32    General"
+
 # --------------------------------------------------------------------
 
 # COMPILE_WITH_MSVC                "Compile Microsoft Compiler (MSVC)"
@@ -95,6 +97,15 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     option(COMPILE_TO_WINDOWS "Compile to Windows General" false)
     option(COMPILE_TO_STM32_ARM "Compile to STM32"         true)
     message(STATUS "[Select platform STM32]")
+
+  endif()
+  
+  
+  if("${TARGET}" STREQUAL "ESP32")
+
+    option(COMPILE_TO_WINDOWS "Compile to Windows General" false)
+    option(COMPILE_TO_ESP32_ARM "Compile to ESP32"         true)
+    message(STATUS "[Select platform ESP32]")
 
   endif()
 

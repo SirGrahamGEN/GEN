@@ -53,8 +53,9 @@ enum XSYSTEM_HARDWARETYPE
   XSYSTEM_HARDWARETYPE_NXP_IMX8                           ,
 
   XSYSTEM_HARDWARETYPE_MICRO_STM32                        ,
+  XSYSTEM_HARDWARETYPE_MICRO_ESP32	    				  , 
   XSYSTEM_HARDWARETYPE_MICRO_SAMD5XE5X                    , 
-
+  
   XSYSTEM_HARDWARETYPE_END
 };
 
@@ -91,7 +92,9 @@ enum XSYSTEM_PLATFORM
   XSYSTEM_PLATFORM_LINUX                                  ,
   XSYSTEM_PLATFORM_LINUX_EMBEDDED                         ,
   XSYSTEM_PLATFORM_ANDROID                                ,
-  XSYSTEM_PLATFORM_STM32
+  XSYSTEM_PLATFORM_STM32								  ,
+  XSYSTEM_PLATFORM_ESP32								  ,
+  XSYSTEM_PLATFORM_SAMD5XE5X 									
 };
 
 
@@ -131,7 +134,7 @@ class XSYSTEM
         
     virtual XSYSTEM_PLATFORM        GetPlatform                     (XSTRING* namestring = NULL);
 
-    virtual bool										GetOperativeSystemID  					(XSTRING& ID);
+    virtual bool					          GetOperativeSystemID	          (XSTRING& ID);
 
     virtual XDWORD                  GetLanguageSO                   ();
 

@@ -214,6 +214,7 @@ bool XSYSTEM::HardwareUseLittleEndian()
       case XSYSTEM_HARDWARETYPE_NXP_IMX8        : return true;
 
       case XSYSTEM_HARDWARETYPE_MICRO_STM32     : return true;
+      case XSYSTEM_HARDWARETYPE_MICRO_ESP32     : return true;
       case XSYSTEM_HARDWARETYPE_MICRO_SAMD5XE5X : return true;
 
                                       default   : return true;

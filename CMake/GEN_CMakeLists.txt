@@ -726,6 +726,14 @@ if(COMPILE_TO_STM32)
 endif()
 
 
+# -------------------------------------------
+# Platform ESP32
+
+if(COMPILE_TO_ESP32)
+
+endif()
+
+
 # --------------------------------------------------------------------
 # Definitions application
 
