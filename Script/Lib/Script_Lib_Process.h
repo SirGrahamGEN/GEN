@@ -32,8 +32,6 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XPath.h"
-
 #include "Script_Lib.h"
 
 #pragma endregion

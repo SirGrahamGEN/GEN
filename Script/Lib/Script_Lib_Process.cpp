@@ -3,7 +3,7 @@
 * @file       Script_Lib_Process.cpp
 * 
 * @class      SCRIPT_LIB_PROCESS
-* @brief      Script Lib Process class
+* @brief      Script Lib Process
 * @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -39,16 +39,16 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "APPBase.h"
-#include "APPMain.h"
-
+#include "XPath.h"
 #include "XProcessManager.h"
 #include "XVariant.h"
+
+#include "APPBase.h"
+#include "APPMain.h"
 
 #include "Script.h"
 
 #include "XMemory_Control.h"
-
 
 #pragma endregion
 
@@ -138,9 +138,11 @@ void SCRIPT_LIB_PROCESS::Clean()
 }
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* Library Functions                                                                                                  */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
+
+
+/*---- LIBRARY FUNCTIONS ---------------------------------------------------------------------------------------------*/
+#pragma region LIBRARY_FUNCTIONS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -383,6 +385,7 @@ void Call_TerminateApplicationWithWindow(SCRIPT_LIB* library, SCRIPT* script, XV
    
   (*returnvalue) = status;
 }
+
 
 #pragma endregion
 

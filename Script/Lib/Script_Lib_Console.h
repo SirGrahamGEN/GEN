@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Script_Lib_System.h
+* @file       Script_Lib_Console.h
 * 
-* @class      SCRIPT_LIB_SYSTEM
-* @brief      Script Library System
+* @class      SCRIPT_LIB_CONSOLE
+* @brief      Script Library Console
 * @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SCRIPT_LIB_SYSTEM_H_
-#define _SCRIPT_LIB_SYSTEM_H_
+#ifndef _SCRIPT_LIB_CONSOLE_H_
+#define _SCRIPT_LIB_CONSOLE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -40,7 +40,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define SCRIPT_LIB_SYSTEM_NAME  __L("System")
+#define SCRIPT_LIB_NAME_CONSOLE  __L("Console")
 
 #pragma endregion
 
@@ -49,19 +49,24 @@
 #pragma region CLASS
 
 class XVARIANT;
+class XCONSOLE;
 class SCRIPT;
 
-class SCRIPT_LIB_SYSTEM : public SCRIPT_LIB
+class SCRIPT_LIB_CONSOLE : public SCRIPT_LIB
 {
   public:
-                          SCRIPT_LIB_SYSTEM         ();
-    virtual              ~SCRIPT_LIB_SYSTEM         ();
+                          SCRIPT_LIB_CONSOLE      ();
+    virtual              ~SCRIPT_LIB_CONSOLE      ();
 
-    bool                  AddLibraryFunctions       (SCRIPT* script);
+    bool                  AddLibraryFunctions     (SCRIPT* script);
+
+    XCONSOLE*             GetConsole              ();
 
   private:
 
-    void                  Clean                     ();
+    void                  Clean                   ();
+
+    XCONSOLE*             console;
 };
 
 #pragma endregion
@@ -70,11 +75,9 @@ class SCRIPT_LIB_SYSTEM : public SCRIPT_LIB
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 #pragma region FUNCTIONS_PROTOTYPES
 
-void    Call_SystemReboot                   (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void    Call_SystemPowerOff                 (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void    Call_SystemLogout                   (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-
-void    Call_GetEnviromentVar               (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_GetChar                  (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_PutChar                  (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_Printf                   (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 #pragma endregion
 
