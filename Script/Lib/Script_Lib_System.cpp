@@ -112,6 +112,7 @@ bool SCRIPT_LIB_SYSTEM::AddLibraryFunctions(SCRIPT* script)
 
   this->script = script;
 
+  script->AddLibraryFunction(this, __L("System_GetType")            , Call_SystemGetType);
   script->AddLibraryFunction(this, __L("System_Reboot")             , Call_SystemReboot);
   script->AddLibraryFunction(this, __L("System_PowerOff")           , Call_SystemPowerOff);
   script->AddLibraryFunction(this, __L("System_Logout")             , Call_SystemLogout);
@@ -142,6 +143,42 @@ void SCRIPT_LIB_SYSTEM::Clean()
 
 /*---- LIBRARY FUNCTIONS ---------------------------------------------------------------------------------------------*/
 #pragma region LIBRARY_FUNCTIONS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_SystemGetType(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_SystemGetType
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_SystemGetType(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  switch(GEN_XSYSTEM.GetPlatform())
+    {
+      case XSYSTEM_PLATFORM_UNKNOWN         :
+                      default               : (*returnvalue) = "";                    break;
+      case XSYSTEM_PLATFORM_WINDOWS         : (*returnvalue) = "Windows";             break; 
+      case XSYSTEM_PLATFORM_LINUX           : (*returnvalue) = "Linux";               break;
+      case XSYSTEM_PLATFORM_LINUX_EMBEDDED  : (*returnvalue) = "LinuxEmbedded";       break;
+      case XSYSTEM_PLATFORM_ANDROID         : (*returnvalue) = "Android";             break;
+      case XSYSTEM_PLATFORM_STM32           : (*returnvalue) = "STM32";               break;
+    };
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------

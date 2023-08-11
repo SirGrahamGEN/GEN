@@ -395,7 +395,19 @@ duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
 
   switch(returnvalue.GetType())
     {
-      case XVARIANT_TYPE_NULL          :                                                                    break;
+      case XVARIANT_TYPE_NULL          :  break;
+
+      case XVARIANT_TYPE_BOOLEAN       :  if((bool)returnvalue)
+                                            {
+                                              duk_push_true(context);
+                                            }
+                                           else
+                                            { 
+                                              duk_push_false(context);
+                                            }
+
+                                          nreturnvalues++;
+                                          break;
       
       case XVARIANT_TYPE_INTEGER       :  duk_push_int(context, (int)(returnvalue));     nreturnvalues++;   break;
       case XVARIANT_TYPE_CHAR          :  duk_push_int(context, (int)(returnvalue));     nreturnvalues++;   break;

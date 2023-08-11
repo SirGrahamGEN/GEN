@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Script_Lib_IO.h
+* @file       Script_Lib_Dir.h
 * 
-* @class      SCRIPT_LIB_IO
-* @brief      Script Library IO (input, output: Printf, Put, XTRACE_PRINTCOLOR, ...)
+* @class      SCRIPT_LIB_DIR
+* @brief      Script Library Dir
 * @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SCRIPT_LIB_IO_H_
-#define _SCRIPT_LIB_IO_H_
+#ifndef _SCRIPT_LIB_DIR_H_
+#define _SCRIPT_LIB_DIR_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -40,7 +40,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define SCRIPT_LIB_NAME_IO  __L("IO")
+#define SCRIPT_LIB_NAME_DIR  __L("Dir")
 
 #pragma endregion
 
@@ -52,21 +52,17 @@ class XVARIANT;
 class XCONSOLE;
 class SCRIPT;
 
-class SCRIPT_LIB_IO : public SCRIPT_LIB
+class SCRIPT_LIB_DIR : public SCRIPT_LIB
 {
   public:
-                          SCRIPT_LIB_IO           ();
-    virtual              ~SCRIPT_LIB_IO           ();
+                          SCRIPT_LIB_DIR          ();
+    virtual              ~SCRIPT_LIB_DIR          ();
 
     bool                  AddLibraryFunctions     (SCRIPT* script);
-
-    XCONSOLE*             GetConsole              ();
 
   private:
 
     void                  Clean                   ();
-
-    XCONSOLE*             console;
 };
 
 #pragma endregion
@@ -75,16 +71,8 @@ class SCRIPT_LIB_IO : public SCRIPT_LIB
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 #pragma region FUNCTIONS_PROTOTYPES
 
-void    Call_GetChar                  (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void    Call_PutChar                  (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-
-void    Call_SPrintf                  (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void    Call_Printf                   (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-
-void    Call_GetPathScript            (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-
-void    Call_LogAddEntry              (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-void    Call_XTRACE_PRINTCOLOR        (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_IsItExists             (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_ChangeDir              (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 #pragma endregion
 
