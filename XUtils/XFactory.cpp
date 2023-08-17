@@ -393,25 +393,21 @@ XMUTEX* XFACTORY::Create_Mutex()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XFACTORY::Delete_Mutex(XMUTEX* mutex)
-* @brief      Delete Mutex
-* @note       VIRTUAL
+* @brief      Delete_Mutex
 * @ingroup    XUTILS
-*
-* @param[in]  mutex : mutex to delete
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  mutex : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XFACTORY::Delete_Mutex(XMUTEX* phone)
+bool XFACTORY::Delete_Mutex(XMUTEX* mutex)
 {
   return false;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -432,7 +428,6 @@ XTHREAD* XFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFUNCTIO
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

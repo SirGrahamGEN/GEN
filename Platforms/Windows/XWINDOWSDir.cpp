@@ -113,7 +113,7 @@ bool XWINDOWSDIR::Exist(XCHAR* path)
       GetCurrentDirectory(size, xpath.Get());
     }
 
-  if(FirstSearch(xpath.Get(),patternsearch.Get(),&search))
+  if(FirstSearch(xpath.Get(), patternsearch.Get(), &search))
     {
       status = true;
 

@@ -217,12 +217,8 @@ XSTRING::~XSTRING()
 {
   FreeBuffer();
 
-  if(xmutexfreemen) 
-    {
-      //GEN_XFACTORY.Delete_Mutex(xmutexfreemen);
-      delete xmutexfreemen;
-    }
-
+  GEN_XFACTORY.Delete_Mutex(xmutexfreemen);
+  
   Clean();
 }
 
@@ -5650,7 +5646,10 @@ bool XSTRING::ReAllocBuffer(XDWORD size)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSTRING::FreeBuffer()
 {
-  if(xmutexfreemen) xmutexfreemen->Lock();
+  if(xmutexfreemen) 
+    {
+      xmutexfreemen->Lock();
+    }
 
   bool status = false;
 
@@ -5665,7 +5664,10 @@ bool XSTRING::FreeBuffer()
       status = true;
     }
 
-  if(xmutexfreemen) xmutexfreemen->UnLock();
+  if(xmutexfreemen) 
+    {
+      xmutexfreemen->UnLock();
+    }
 
   return status;
 }

@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Script_Lib_IO.cpp
+* @file       Script_Lib_Log.cpp
 * 
-* @class      SCRIPT_LIB_IO
-* @brief      Script Library IO (input, output: Printf, Put, XTRACE_PRINTCOLOR, ...)
+* @class      SCRIPT_LIB_Log
+* @brief      Script Library Log
 * @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -31,7 +31,7 @@
 
 #include "GEN_Defines.h"
 
-#include "Script_Lib_IO.h"
+#include "Script_Lib_Log.h"
 
 #pragma endregion
 
@@ -47,7 +47,6 @@
 #include "Script.h"
 
 #include "XMemory_Control.h"
-
 
 #pragma endregion
 
@@ -65,24 +64,22 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_LIB_IO::SCRIPT_LIB_IO()
+* @fn         SCRIPT_LIB_LOG::SCRIPT_LIB_LOG()
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIB_IO::SCRIPT_LIB_IO() : SCRIPT_LIB(SCRIPT_LIB_NAME_IO)
+SCRIPT_LIB_LOG::SCRIPT_LIB_LOG() : SCRIPT_LIB(SCRIPT_LIB_NAME_LOG)
 {
   Clean();
-
-  GEN_XFACTORY_CREATE(console, CreateConsole())
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_LIB_IO::~SCRIPT_LIB_IO()
+* @fn         SCRIPT_LIB_LOG::~SCRIPT_LIB_LOG()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
@@ -90,17 +87,15 @@ SCRIPT_LIB_IO::SCRIPT_LIB_IO() : SCRIPT_LIB(SCRIPT_LIB_NAME_IO)
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIB_IO::~SCRIPT_LIB_IO()
+SCRIPT_LIB_LOG::~SCRIPT_LIB_LOG()
 {
-  if(console) GEN_XFACTORY.DeleteConsole(console);
-
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_LIB_IO::AddLibraryFunctions(SCRIPT* script)
+* @fn         bool SCRIPT_LIB_LOG::AddLibraryFunctions(SCRIPT* script)
 * @brief      AddLibraryFunctions
 * @ingroup    SCRIPT
 *
@@ -109,19 +104,13 @@ SCRIPT_LIB_IO::~SCRIPT_LIB_IO()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_LIB_IO::AddLibraryFunctions(SCRIPT* script)
+bool SCRIPT_LIB_LOG::AddLibraryFunctions(SCRIPT* script)
 {
   if(!script) return false;
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("GetChar")                  , Call_GetChar);
-  script->AddLibraryFunction(this, __L("PutChar")                  , Call_PutChar);
-
-  script->AddLibraryFunction(this, __L("SPrintf")                  , Call_SPrintf);
-  script->AddLibraryFunction(this, __L("Printf")                   , Call_Printf);
-
-  script->AddLibraryFunction(this, __L("LogAddEntry")              , Call_LogAddEntry);
+  script->AddLibraryFunction(this, __L("Log_AddEntry")             , Call_Log_AddEntry);
   script->AddLibraryFunction(this, __L("XTRACE_PRINTCOLOR")        , Call_XTRACE_PRINTCOLOR);
 
   return true;
@@ -130,29 +119,7 @@ bool SCRIPT_LIB_IO::AddLibraryFunctions(SCRIPT* script)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XCONSOLE* SCRIPT_LIB_IO::GetConsole()
-* @brief      GetConsole
-* @ingroup    SCRIPT
-*
-* @return     XCONSOLE* :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XCONSOLE* SCRIPT_LIB_IO::GetConsole()
-{
-  if(!console) 
-    {
-      GEN_XFACTORY_CREATE(console, CreateConsole())
-    }
-    
-  if(!console) return NULL;
-
-  return console;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SCRIPT_LIB_IO::Clean()
+* @fn         void SCRIPT_LIB_LOG::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
@@ -160,10 +127,13 @@ XCONSOLE* SCRIPT_LIB_IO::GetConsole()
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void SCRIPT_LIB_IO::Clean()
+void SCRIPT_LIB_LOG::Clean()
 {
-  console = NULL;
+ 
 }
+
+
+#pragma endregion
 
 
 /*---- LIBRARY FUNCTIONS ---------------------------------------------------------------------------------------------*/
@@ -171,337 +141,9 @@ void SCRIPT_LIB_IO::Clean()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void Call_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_GetChar
-* @ingroup    SCRIPT
-*
-* @param[in]  library :
-* @param[in]  script :
-* @param[in]  params :
-* @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void Call_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-{
-  if(!library)      return;
-  if(!script)       return;
-  if(!params)       return;
-  if(!returnvalue)  return;
-
-  XCONSOLE* console = ((SCRIPT_LIB_IO*)library)->GetConsole();
-  if(!console) return;
-
-  (*returnvalue) = console->GetChar();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void Call_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_PutChar
-* @ingroup    SCRIPT
-*
-* @param[in]  library :
-* @param[in]  script :
-* @param[in]  params :
-* @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void Call_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-{
-  if(!library)      return;
-  if(!script)       return;
-  if(!params)       return;
-  if(!returnvalue)  return;
-
-  returnvalue->Set();
-
-  if(!params->GetSize())
-    {
-      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
-      return;
-    }
-
-  XCHAR character = (*params->Get(0));
-
-  XCONSOLE* console = ((SCRIPT_LIB_IO*)library)->GetConsole();
-  if(!console) return;
-
-  console->Printf(__L("%c"), character);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void Call_SPrintf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_SPrintf
-* @ingroup    SCRIPT
-*
-* @param[in]  library :
-* @param[in]  script :
-* @param[in]  params :
-* @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void Call_SPrintf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-{
-  if(!library)      return;
-  if(!script)       return;
-  if(!params)       return;
-  if(!returnvalue)  return;
-
-  returnvalue->Set();
-
-  if(!params->GetSize())
-    {
-      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
-      return;
-    }
-
-  XVARIANT  variantout = (*params->Get(0));
-  XCHAR*    out = variantout;
-  XSTRING  _out = out;
-
-  XVARIANT  variantmask = (*params->Get(1));
-  XCHAR*    mask = variantmask;
-
-  XSTRING outstring;
-  XSTRING string;
-
-  int paramindex = 2;
-  int c          = 0;
-
-  while(mask[c])
-    {
-      switch(mask[c])
-        {
-          case '%' : {
-                        #define MAXTEMPOSTR 32
-
-                        XCHAR param[MAXTEMPOSTR];
-
-                        int  nparam = 1;
-                        bool end    = false;
-
-                        memset(param,0,MAXTEMPOSTR*sizeof(XCHAR));
-                        param[0] = '%';
-
-                        c++;
-
-                        switch(mask[c])
-                              {
-                                case __C('c')   :
-                                case __C('C')   :
-                                case __C('d')   :
-                                case __C('i')   :
-                                case __C('o')   :
-                                case __C('u')   :
-                                case __C('x')   :
-                                case __C('X')   : { int value = 0;
-                                                    library->GetParamConverted(params->Get(paramindex), value);
-                                                    string.Format(param, value);
-                                                    paramindex++;
-                                                    end  = true;
-                                                  }
-                                                  break;
-
-                                case __C('f')   : { float value = 0;
-                                                    library->GetParamConverted(params->Get(paramindex), value);
-                                                    string.Format(param, value);
-                                                    paramindex++;
-                                                    end  = true;
-                                                  }
-                                                  break;
-
-                                case __C('g')   :
-                                case __C('G')   :
-
-                                case __C('e')   :
-                                case __C('E')   :
-
-                                case __C('n')   :
-                                case __C('p')   : end = true;
-                                                  break;
-
-                                case __C('s')   :
-                                case __C('S')   : { XVARIANT variantparam = (*params->Get(paramindex));
-                                                    paramindex++;
-                                                    string.Format(param,(XCHAR*)variantparam);
-                                                    end = true;
-                                                  }
-                                                  break;
-
-                                case __C('%')   : string = __L("%");
-                                                  end = true;
-                                                  break;
-
-                                case __C('\0')  : end = true;
-                                                  break;
-
-                                      default   : break;
-                              }
-
-                      }
-                      break;
-
-            default : string.Set(mask[c]);
-                      c++;
-                      break;
-        }
-
-      outstring += string;
-    }
-
-  _out = outstring;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void Call_Printf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_Printf
-* @ingroup    SCRIPT
-*
-* @param[in]  library :
-* @param[in]  script :
-* @param[in]  params :
-* @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void Call_Printf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-{
-  if(!library)      return;
-  if(!script)       return;
-  if(!params)       return;
-  if(!returnvalue)  return;
-
-  returnvalue->Set();
-
-  if(!params->GetSize())
-    {
-      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
-      return;
-    }
-
-  XVARIANT  variantmask = (*params->Get(0));
-  XCHAR*    mask = variantmask;
-  XSTRING   outstring;
-  XSTRING   string;
-
-  int paramindex = 1;
-  int c          = 0;
-
-  if(!mask) return;
-
-  while(mask[c])
-    {
-      switch(mask[c])
-        {
-          case '%' : {
-                        #define MAXTEMPOSTR 32
-
-                        XCHAR param[MAXTEMPOSTR];
-
-                        int  nparam = 1;
-                        bool end    = false;
-
-                        memset(param,0,MAXTEMPOSTR*sizeof(XCHAR));
-                        param[0] = '%';
-
-                        c++;
-
-                        do{ string.Empty();
-
-                            param[nparam] = mask[c];
-                            nparam++;
-
-                            switch(mask[c])
-                              {
-                                case __C('c')   :
-                                case __C('C')   :
-                                case __C('d')   :
-                                case __C('i')   :
-                                case __C('o')   :
-                                case __C('u')   :
-                                case __C('x')   :
-                                case __C('X')   : { int value = 0;
-                                                    library->GetParamConverted(params->Get(paramindex), value);
-                                                    string.Format(param, value);
-                                                    paramindex++;
-                                                    end  = true;
-                                                  }
-                                                  break;
-
-                                case __C('f')   : { float value = 0;
-                                                    library->GetParamConverted(params->Get(paramindex), value);
-                                                    string.Format(param, value);
-                                                    paramindex++;
-                                                    end  = true;
-                                                  }
-                                                  break;
-
-                                case __C('g')   :
-                                case __C('G')   :
-
-                                case __C('e')   :
-                                case __C('E')   :
-
-                                case __C('n')   :
-                                case __C('p')   : end = true;
-                                                  break;
-
-                                case __C('s')   :
-                                case __C('S')   : { XVARIANT variantparam = (*params->Get(paramindex));
-                                                    paramindex++;
-                                                    string.Format(param,(XCHAR*)variantparam);
-                                                    end = true;
-                                                  }
-                                                  break;
-
-                                case __C('%')   : string = __L("%");
-                                                  end = true;
-                                                  break;
-
-                                case __C('\0')  : end = true;
-                                                  break;
-
-                                      default   : break;
-                              }
-
-                            c++;
-
-                          } while(!end);
-                      }
-                      break;
-
-            default : string.Set(mask[c]);
-                      c++;
-                      break;
-        }
-
-      outstring += string;
-    }
-
-  XCONSOLE* console = ((SCRIPT_LIB_IO*)library)->GetConsole();
-  if(!console) return;
-
-  console->Printf(outstring.Get());
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_LogAddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_LogAddEntry
+* @fn         void Call_Log_AddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Log_AddEntry
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -512,7 +154,7 @@ void Call_Printf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_LogAddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_Log_AddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -769,8 +411,5 @@ void Call_XTRACE_PRINTCOLOR(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
 
  XTRACE_PRINTCOLOR(color, outstring.Get());
 }
-
-
-#pragma endregion
 
 #pragma endregion

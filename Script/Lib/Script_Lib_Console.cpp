@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Script_Lib_String.cpp
+* @file       Script_Lib_Console.cpp
 * 
-* @class      SCRIPT_LIB_STRING
-* @brief      Script Library String
+* @class      SCRIPT_LIB_CONSOLE
+* @brief      Script Library Console
 * @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -31,13 +31,18 @@
 
 #include "GEN_Defines.h"
 
-#include "Script_Lib_String.h"
+#include "Script_Lib_Console.h"
 
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "XFactory.h"
+#include "XTrace.h"
+#include "XLog.h"
+#include "XConsole.h"
 
 #include "Script.h"
 
@@ -56,25 +61,26 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_LIB_STRING::SCRIPT_LIB_STRING()
+* @fn         SCRIPT_LIB_CONSOLE::SCRIPT_LIB_CONSOLE()
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIB_STRING::SCRIPT_LIB_STRING() : SCRIPT_LIB(SCRIPT_LIB_NAME_STRING)
+SCRIPT_LIB_CONSOLE::SCRIPT_LIB_CONSOLE() : SCRIPT_LIB(SCRIPT_LIB_NAME_CONSOLE)
 {
   Clean();
+
+  GEN_XFACTORY_CREATE(console, CreateConsole())
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_LIB_STRING::~SCRIPT_LIB_STRING()
+* @fn         SCRIPT_LIB_CONSOLE::~SCRIPT_LIB_CONSOLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
@@ -82,15 +88,17 @@ SCRIPT_LIB_STRING::SCRIPT_LIB_STRING() : SCRIPT_LIB(SCRIPT_LIB_NAME_STRING)
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIB_STRING::~SCRIPT_LIB_STRING()
+SCRIPT_LIB_CONSOLE::~SCRIPT_LIB_CONSOLE()
 {
+  if(console) GEN_XFACTORY.DeleteConsole(console);
+
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_LIB_STRING::AddLibraryFunctions(SCRIPT* script)
+* @fn         bool SCRIPT_LIB_CONSOLE::AddLibraryFunctions(SCRIPT* script)
 * @brief      AddLibraryFunctions
 * @ingroup    SCRIPT
 *
@@ -99,17 +107,15 @@ SCRIPT_LIB_STRING::~SCRIPT_LIB_STRING()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_LIB_STRING::AddLibraryFunctions(SCRIPT* script)
+bool SCRIPT_LIB_CONSOLE::AddLibraryFunctions(SCRIPT* script)
 {
   if(!script) return false;
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("AddString")                   , Call_AddString);
-  script->AddLibraryFunction(this, __L("FindString")                  , Call_FindString);
-  script->AddLibraryFunction(this, __L("CompareString")               , Call_CompareString);
-  script->AddLibraryFunction(this, __L("ReplaceString")               , Call_ReplaceString);
-  script->AddLibraryFunction(this, __L("SPrintf")                     , Call_SPrintf);
+  script->AddLibraryFunction(this, __L("Console_GetChar")                  , Call_Console_GetChar);
+  script->AddLibraryFunction(this, __L("Console_PutChar")                  , Call_Console_PutChar);
+  script->AddLibraryFunction(this, __L("Console_Printf")                   , Call_Console_Printf);
 
   return true;
 }
@@ -117,7 +123,29 @@ bool SCRIPT_LIB_STRING::AddLibraryFunctions(SCRIPT* script)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void SCRIPT_LIB_STRING::Clean()
+* @fn         XCONSOLE* SCRIPT_LIB_CONSOLE::GetConsole()
+* @brief      GetConsole
+* @ingroup    SCRIPT
+*
+* @return     XCONSOLE* :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XCONSOLE* SCRIPT_LIB_CONSOLE::GetConsole()
+{
+  if(!console) 
+    {
+      GEN_XFACTORY_CREATE(console, CreateConsole())
+    }
+    
+  if(!console) return NULL;
+
+  return console;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void SCRIPT_LIB_CONSOLE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
@@ -125,9 +153,9 @@ bool SCRIPT_LIB_STRING::AddLibraryFunctions(SCRIPT* script)
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void SCRIPT_LIB_STRING::Clean()
+void SCRIPT_LIB_CONSOLE::Clean()
 {
-
+  console = NULL;
 }
 
 
@@ -139,178 +167,9 @@ void SCRIPT_LIB_STRING::Clean()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void Call_AddString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_AddString
-* @ingroup    SCRIPT
 *
-* @param[in]  library : 
-* @param[in]  script : 
-* @param[in]  params : 
-* @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-void Call_AddString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-{
-  if(!library)      return;
-  if(!script)       return;
-  if(!params)       return;
-  if(!returnvalue)  return;
-
-  returnvalue->Set();
-
-  if(params->GetSize() < 2)
-    {
-      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
-      return;
-    }
-
-  XSTRING* string1 = (XSTRING*)params->Get(0)->GetData();
-  XSTRING* string2 = (XSTRING*)params->Get(1)->GetData();
-
-  if(string1 && string2) (*string1)+=(*string2);
-
-  (*returnvalue) = (*string1);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void Call_FindString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_FindString
-* @ingroup    SCRIPT
-*
-* @param[in]  library : 
-* @param[in]  script : 
-* @param[in]  params : 
-* @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-void Call_FindString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-{
-  if(!library)      return;
-  if(!script)       return;
-  if(!params)       return;
-  if(!returnvalue)  return;
-
-  returnvalue->Set();
-
-  if(params->GetSize() < 3)
-    {
-      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
-      return;
-    }
-
-  XSTRING* string1    = (XSTRING*)params->Get(0)->GetData();
-  XSTRING* string2    = (XSTRING*)params->Get(1)->GetData();
-  bool     ignorecase = (bool)params->Get(2)->GetData(); 
-
-  if(string1 && string2) 
-    {
-      (*returnvalue) = string1->Find(string2->Get(), ignorecase);
-    }
-   else 
-    { 
-      (*returnvalue) = -1;
-    }
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void Call_CompareString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_CompareString
-* @ingroup    SCRIPT
-*
-* @param[in]  library : 
-* @param[in]  script : 
-* @param[in]  params : 
-* @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-void Call_CompareString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-{
-  if(!library)      return;
-  if(!script)       return;
-  if(!params)       return;
-  if(!returnvalue)  return;
-
-  returnvalue->Set();
-
-  if(params->GetSize() < 3)
-    {
-      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
-      return;
-    }
-
-  XSTRING* string1    = (XSTRING*)params->Get(0)->GetData();
-  XSTRING* string2    = (XSTRING*)params->Get(1)->GetData();
-  bool     ignorecase = (bool)params->Get(2)->GetData(); 
-
-  if(string1 && string2) 
-    {
-      (*returnvalue) = (bool)(string1->Compare(string2->Get(), ignorecase)==0?true:false);
-    }
-   else 
-    { 
-      (*returnvalue) = false;
-    }
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void Call_ReplaceString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_CompareString
-* @ingroup    SCRIPT
-*
-* @param[in]  library : 
-* @param[in]  script : 
-* @param[in]  params : 
-* @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-void Call_ReplaceString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-{
-  if(!library)      return;
-  if(!script)       return;
-  if(!params)       return;
-  if(!returnvalue)  return;
-
-  returnvalue->Set();
-
-  if(params->GetSize() < 3)
-    {
-      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
-      return;
-    }
-
-  XSTRING* string     = (XSTRING*)params->Get(0)->GetData();
-  XSTRING* tofind     = (XSTRING*)params->Get(1)->GetData();
-  XSTRING* toreplace  = (XSTRING*)params->Get(2)->GetData();
-
-  if(string && tofind && toreplace) 
-    {
-      if(string->ReplaceFirst(tofind->Get(), toreplace->Get()) != XSTRING_NOTFOUND)
-        {
-          (*returnvalue) = (*string);
-        }
-    }   
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void Call_SPrintf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_SPrintf
+* @fn         void Call_Console_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Console_GetChar
 * @ingroup    SCRIPT
 *
 * @param[in]  library :
@@ -321,7 +180,35 @@ void Call_ReplaceString(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_SPrintf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_Console_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  XCONSOLE* console = ((SCRIPT_LIB_CONSOLE*)library)->GetConsole();
+  if(!console) return;
+
+  (*returnvalue) = console->GetChar();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void Call_Console_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Console_PutChar
+* @ingroup    SCRIPT
+*
+* @param[in]  library :
+* @param[in]  script :
+* @param[in]  params :
+* @param[in]  returnvalue :
+*
+* @return     void : does not return anything.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Console_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -336,18 +223,53 @@ void Call_SPrintf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
       return;
     }
 
-  XVARIANT  variantout = (*params->Get(0));
-  XCHAR*    out = variantout;
-  XSTRING  _out = out;
+  XCHAR character = (*params->Get(0));
 
-  XVARIANT  variantmask = (*params->Get(1));
+  XCONSOLE* console = ((SCRIPT_LIB_CONSOLE*)library)->GetConsole();
+  if(!console) return;
+
+  console->Printf(__L("%c"), character);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void Call_Console_Printf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Console_Printf
+* @ingroup    SCRIPT
+*
+* @param[in]  library :
+* @param[in]  script :
+* @param[in]  params :
+* @param[in]  returnvalue :
+*
+* @return     void : does not return anything.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Console_Printf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(!params->GetSize())
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  XVARIANT  variantmask = (*params->Get(0));
   XCHAR*    mask = variantmask;
+  XSTRING   outstring;
+  XSTRING   string;
 
-  XSTRING outstring;
-  XSTRING string;
-
-  int paramindex = 2;
+  int paramindex = 1;
   int c          = 0;
+
+  if(!mask) return;
 
   while(mask[c])
     {
@@ -366,7 +288,12 @@ void Call_SPrintf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
 
                         c++;
 
-                        switch(mask[c])
+                        do{ string.Empty();
+
+                            param[nparam] = mask[c];
+                            nparam++;
+
+                            switch(mask[c])
                               {
                                 case __C('c')   :
                                 case __C('C')   :
@@ -419,6 +346,9 @@ void Call_SPrintf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
                                       default   : break;
                               }
 
+                            c++;
+
+                          } while(!end);
                       }
                       break;
 
@@ -430,7 +360,10 @@ void Call_SPrintf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
       outstring += string;
     }
 
-  _out = outstring;
+  XCONSOLE* console = ((SCRIPT_LIB_CONSOLE*)library)->GetConsole();
+  if(!console) return;
+
+  console->Printf(outstring.Get());
 }
 
 

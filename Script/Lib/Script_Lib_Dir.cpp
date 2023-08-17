@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Script_Lib_CFG.cpp
+* @file       Script_Lib_Dir.cpp
 * 
-* @class      SCRIPT_LIB_CFG
-* @brief      Script Library CFG
+* @class      SCRIPT_LIB_DIR
+* @brief      Script Library Dir
 * @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -31,7 +31,7 @@
 
 #include "GEN_Defines.h"
 
-#include "Script_Lib_CFG.h"
+#include "Script_Lib_Dir.h"
 
 #pragma endregion
 
@@ -39,11 +39,13 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XFileCFG.h"
+#include "XFactory.h"
+#include "XDir.h"
 
 #include "Script.h"
 
 #include "XMemory_Control.h"
+
 
 #pragma endregion
 
@@ -60,15 +62,15 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SCRIPT_LIB_CFG::SCRIPT_LIB_CFG()
+*
+* @fn         SCRIPT_LIB_DIR::SCRIPT_LIB_DIR()
 * @brief      Constructor
 * @ingroup    SCRIPT
-* 
-* @return     Does not return anything. 
-* 
+*
+* @return     Does not return anything.
+*
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIB_CFG::SCRIPT_LIB_CFG() : SCRIPT_LIB(SCRIPT_LIB_NAME_CFG)
+SCRIPT_LIB_DIR::SCRIPT_LIB_DIR() : SCRIPT_LIB(SCRIPT_LIB_NAME_DIR)
 {
   Clean();
 }
@@ -76,7 +78,7 @@ SCRIPT_LIB_CFG::SCRIPT_LIB_CFG() : SCRIPT_LIB(SCRIPT_LIB_NAME_CFG)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_LIB_CFG::~SCRIPT_LIB_CFG()
+* @fn         SCRIPT_LIB_DIR::~SCRIPT_LIB_DIR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
@@ -84,7 +86,7 @@ SCRIPT_LIB_CFG::SCRIPT_LIB_CFG() : SCRIPT_LIB(SCRIPT_LIB_NAME_CFG)
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIB_CFG::~SCRIPT_LIB_CFG()
+SCRIPT_LIB_DIR::~SCRIPT_LIB_DIR()
 {
   Clean();
 }
@@ -92,7 +94,7 @@ SCRIPT_LIB_CFG::~SCRIPT_LIB_CFG()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_LIB_CFG::AddLibraryFunctions(SCRIPT* script)
+* @fn         bool SCRIPT_LIB_DIR::AddLibraryFunctions(SCRIPT* script)
 * @brief      AddLibraryFunctions
 * @ingroup    SCRIPT
 *
@@ -101,53 +103,22 @@ SCRIPT_LIB_CFG::~SCRIPT_LIB_CFG()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_LIB_CFG::AddLibraryFunctions(SCRIPT* script)
+bool SCRIPT_LIB_DIR::AddLibraryFunctions(SCRIPT* script)
 {
   if(!script) return false;
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("GetFileCFGValue")            , Call_GetFileCFGValue);
-
+  script->AddLibraryFunction(this, __L("IsItExists")                        , Call_IsItExists);
+  script->AddLibraryFunction(this, __L("ChangeDir")                         , Call_ChangeDir);
+  
   return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XFILECFG* SCRIPT_LIB_CFG::GetXFileCFG()
-* @brief      GetXFileCFG
-* @ingroup    SCRIPT
-* 
-* @return     XFILECFG* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XFILECFG* SCRIPT_LIB_CFG::GetXFileCFG()
-{
-  return xfileCFG;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SCRIPT_LIB_CFG::SetXFileCFG(XFILECFG* xfileCFG)
-* @brief      SetXFileCFG
-* @ingroup    SCRIPT
-* 
-* @param[in]  xfileCFG : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SCRIPT_LIB_CFG::SetXFileCFG(XFILECFG* xfileCFG)
-{
-  this->xfileCFG = xfileCFG;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void SCRIPT_LIB_CFG::Clean()
+* @fn         void SCRIPT_LIB_DIR::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
@@ -155,13 +126,10 @@ void SCRIPT_LIB_CFG::SetXFileCFG(XFILECFG* xfileCFG)
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void SCRIPT_LIB_CFG::Clean()
+void SCRIPT_LIB_DIR::Clean()
 {
-  xfileCFG = NULL;
+  
 }
-
-
-#pragma endregion
 
 
 /*---- LIBRARY FUNCTIONS ---------------------------------------------------------------------------------------------*/
@@ -170,8 +138,8 @@ void SCRIPT_LIB_CFG::Clean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_GetFileCFGValue(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_GetFileCFGValue
+* @fn         void Call_IsItExists(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_IsItExists
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -182,40 +150,79 @@ void SCRIPT_LIB_CFG::Clean()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_GetFileCFGValue(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_IsItExists(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
-  if(!library)      return;
-  if(!script)       return;
-  if(!params)       return;
-  if(!returnvalue)  return;
-
-  returnvalue->Set();
-
-  if(params->GetSize() < 2)
-    {
-      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
-      return;
-    }
+  XDIR* dir     = NULL;
+  bool  status  = false;
   
-  XSTRING          datakey;
-  SCRIPT_LIB_CFG*  libraryCFG = (SCRIPT_LIB_CFG*)library;
-
-  if(libraryCFG->GetXFileCFG())
-    {
-      XSTRING* param1 = (XSTRING*)params->Get(0)->GetData();
-      XSTRING* param2 = (XSTRING*)params->Get(1)->GetData();
-
-      XVARIANT* variable = libraryCFG->GetXFileCFG()->GetValue(param1->Get(), param2->Get());
-      if(variable) 
+  dir = GEN_XFACTORY.Create_Dir();
+  if(dir)
+    {     
+      if(!params->GetSize())
         {
-          variable->ToString(datakey);        
-          delete variable;
+          script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+          return;
         }
 
+      XSTRING* string = (XSTRING*)params->Get(0)->GetData();  
+      if(string)
+        {
+          if(!string->IsEmpty())
+            {
+              status = dir->Exist(string->Get());
+            }        
+        }
+    
+      GEN_XFACTORY.Delete_Dir(dir);
     }
 
-  (*returnvalue) = datakey.Get();
+  (*returnvalue) = status;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_ChangeDir(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_ChangeDir
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_ChangeDir(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  XDIR* dir     = NULL;
+  bool  status  = false;
+  
+  dir = GEN_XFACTORY.Create_Dir();
+  if(dir)
+    {     
+      if(!params->GetSize())
+        {
+          script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+          return;
+        }
+
+      XSTRING* string = (XSTRING*)params->Get(0)->GetData();  
+      if(string)
+        {
+          if(!string->IsEmpty())
+            {
+              status = dir->ChangeTo(string->Get());
+            }        
+        }
+    
+      GEN_XFACTORY.Delete_Dir(dir);
+    }
+
+  (*returnvalue) = status;
+}
+
+#pragma endregion
 
 #pragma endregion

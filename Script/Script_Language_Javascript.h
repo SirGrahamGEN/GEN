@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @file       Script_LibFunction.h
+* @file       Script_Language_JavaScript.h
 *
-* @class      SCRIPT_LIBFUNCTION
-* @brief      Script Library Function class
+* @class      SCRIPT_LNG_JAVASCRIPT
+* @brief      Script Language Javascript interpreter class
 * @ingroup    SCRIPT
 *
 * @copyright  GEN Group. All rights reserved.
@@ -26,52 +26,67 @@
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SCRIPT_LIBFUNCTION_H_
-#define _SCRIPT_LIBFUNCTION_H_
+#ifndef _SCRIPT_LNG_JAVASCRIPT_H_
+#define _SCRIPT_LNG_JAVASCRIPT_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XVector.h"
-#include "XVariant.h"
+#include "duk_config.h"
+#include "duktape.h"
+
+#include "Script.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-
-class SCRIPT;
-class SCRIPT_LIB;
-class SCRIPT_LIBFUNCTION;
-
-typedef void (*SCRFUNCIONLIBRARY) (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
-
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
-class SCRIPT_LIBFUNCTION
+enum SCRIPT_LNG_JAVASCRIPT_ERRORCODE
 {
-  public:
-                                        SCRIPT_LIBFUNCTION          (SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY functionlibrary);
-                                        SCRIPT_LIBFUNCTION          (SCRIPT_LIB* library, XSTRING& name, SCRFUNCIONLIBRARY functionlibrary);
-    virtual                            ~SCRIPT_LIBFUNCTION          ();
-
-    SCRIPT_LIB*                         GetLibrary                  ();
-    bool                                SetLibrary                  (SCRIPT_LIB* library);
-
-    XSTRING*                            GetName                     ();
-
-    SCRFUNCIONLIBRARY                   GetFunctionLibrary          ();
-    bool                                SetFunctionLibrary          (SCRFUNCIONLIBRARY functionlibrary);
-
-  private:
-
-    void                                Clean                       ();
-
-    SCRIPT_LIB*                         library;
-    XSTRING                             name;
-    SCRFUNCIONLIBRARY                   functionlibrary;
+  SCRIPT_LNG_JAVASCRIPT_ERRORCODE_ERROR             = SCRIPT_ERRORCODE_OWN  ,  // Error
+  SCRIPT_LNG_JAVASCRIPT_ERRORCODE_EVAL_ERROR                                ,  // EvalError
+  SCRIPT_LNG_JAVASCRIPT_ERRORCODE_RANGE_ERROR                               ,  // RangeError
+  SCRIPT_LNG_JAVASCRIPT_ERRORCODE_REFERENCE_ERROR                           ,  // ReferenceError
+  SCRIPT_LNG_JAVASCRIPT_ERRORCODE_SYNTAX_ERROR                              ,  // SyntaxError
+  SCRIPT_LNG_JAVASCRIPT_ERRORCODE_TYPE_ERROR                                ,  // TypeError
+  SCRIPT_LNG_JAVASCRIPT_ERRORCODE_URI_ERROR                                 ,  // URIError
 };
 
 
+#define SCRIPT_LNG_JAVASCRIPT_MAINFUNCTIONNAME   "main"
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+
+class SCRIPT_LNG_JAVASCRIPT : public SCRIPT
+{
+  public:
+                                        SCRIPT_LNG_JAVASCRIPT       ();
+    virtual                            ~SCRIPT_LNG_JAVASCRIPT       ();
+
+    bool                                Load                        (XPATH& xpath);
+
+    int                                 Run                         (int* returnval = NULL);
+
+    bool                                AddLibraryFunction          (SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction);
+
+    bool                                HaveError                   (int errorcode);
+
+  private:
+
+    bool                                HaveMainFunction            ();
+
+    static duk_ret_t                    LibraryCallBack             (duk_context* context);
+    static void                         FatalErrorHandler           (void* udata, const char* msg);
+
+    void                                Clean                       ();
+
+    duk_context*                        context;
+
+};
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
+double __builtin_inf (void);
+
+
 #endif
+
 
 

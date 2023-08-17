@@ -329,8 +329,6 @@ bool MAINPROCLINUX::End()
 
   #endif
 
-  DeleteAllExecParams();
-
   #ifdef APP_ACTIVE
 
   if(appmain) appmain->Delete();
@@ -342,13 +340,13 @@ bool MAINPROCLINUX::End()
       if(!Main_Proc_PlatformEnd(this)) return false;
     }
 
-  #endif
+  #endif  
+
+  DeleteAllExecParams();
 
   GEN_VERSION.DelInstance();
 
   Factorys_End();
-
-  XFACTORY::DelInstance();
 
   XFILE_DISPLAYNOTCLOSEFILES
 

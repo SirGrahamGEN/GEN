@@ -1,77 +1,92 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       Script_Lua.cpp
-*
-* @class      SCRIPT_LUA
-* @brief      Script LUA interpreter class
+* 
+* @file       Script_Language_Lua.cpp
+* 
+* @class      SCRIPT_LANGUAGE_LUA
+* @brief      Script Language LUA interpreter class
 * @ingroup    SCRIPT
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#include "Script_Language_Lua.h"
+
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "math.h"
 
 #include "Script_XEvent.h"
 #include "Script_Lib.h"
 
-#include "Script_Lua.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_LUA::SCRIPT_LUA()
+* @fn         SCRIPT_LNG_LUA::SCRIPT_LNG_LUA()
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LUA::SCRIPT_LUA()
+SCRIPT_LNG_LUA::SCRIPT_LNG_LUA()
 {
   Clean();
+
+  type = SCRIPT_TYPE_LUA;
 
   state = luaL_newstate();
   if(state) luaL_openlibs(state);    // Load Lua libraries
 
-  *static_cast<SCRIPT_LUA**>(lua_getextraspace(state)) = this;
-}
+  *static_cast<SCRIPT_LNG_LUA**>(lua_getextraspace(state)) = this;
 
+  AddInternalLibraries();
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_LUA::~SCRIPT_LUA()
+* @fn         SCRIPT_LNG_LUA::~SCRIPT_LNG_LUA()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
@@ -79,7 +94,7 @@ SCRIPT_LUA::SCRIPT_LUA()
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LUA::~SCRIPT_LUA()
+SCRIPT_LNG_LUA::~SCRIPT_LNG_LUA()
 {
   if(state) lua_close(state);
 
@@ -87,11 +102,9 @@ SCRIPT_LUA::~SCRIPT_LUA()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_LUA::Load(XPATH& xpath)
+* @fn         bool SCRIPT_LNG_LUA::Load(XPATH& xpath)
 * @brief      Load
 * @ingroup    SCRIPT
 *
@@ -100,7 +113,7 @@ SCRIPT_LUA::~SCRIPT_LUA()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_LUA::Load(XPATH& xpath)
+bool SCRIPT_LNG_LUA::Load(XPATH& xpath)
 {
   if(!state) return false;
 
@@ -118,10 +131,9 @@ bool SCRIPT_LUA::Load(XPATH& xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_G_ERRORCODE SCRIPT_LUA::Run(int* returnval)
+* @fn         SCRIPT_G_ERRORCODE SCRIPT_LNG_LUA::Run(int* returnval)
 * @brief      Run
 * @ingroup    SCRIPT
 *
@@ -130,7 +142,7 @@ bool SCRIPT_LUA::Load(XPATH& xpath)
 * @return     SCRIPT_G_ERRORCODE :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-int SCRIPT_LUA::Run(int* returnval)
+int SCRIPT_LNG_LUA::Run(int* returnval)
 {
   errorcode  = SCRIPT_ERRORCODE_NONE;
   iscancelexec = false;
@@ -143,7 +155,7 @@ int SCRIPT_LUA::Run(int* returnval)
       lua_pcall(state, 0, LUA_MULTRET, 0);
     }
 
-  lua_getglobal(state, SCRIPT_LUA_MAINFUNCTIONNAME);
+  lua_getglobal(state, SCRIPT_LNG_LUA_MAINFUNCTIONNAME);
 
   status = lua_isfunction(state, lua_gettop(state));
   if(status)
@@ -152,7 +164,7 @@ int SCRIPT_LUA::Run(int* returnval)
     }
    else
     {
-      lua_setglobal(state, SCRIPT_LUA_MAINFUNCTIONNAME);
+      lua_setglobal(state, SCRIPT_LNG_LUA_MAINFUNCTIONNAME);
       status = lua_pcall(state, 0, LUA_MULTRET, 0);
     }
 
@@ -161,12 +173,12 @@ int SCRIPT_LUA::Run(int* returnval)
     {
       switch(status)
         {
-          case LUA_YIELD      : errorcode = SCRIPT_LUA_ERRORCODE_YIELD;          break;
-          case LUA_ERRRUN     : errorcode = SCRIPT_LUA_ERRORCODE_RUN;            break;
-          case LUA_ERRSYNTAX  : errorcode = SCRIPT_LUA_ERRORCODE_SYNTAX;         break;
-          case LUA_ERRMEM     : errorcode = SCRIPT_LUA_ERRORCODE_MEM;            break;
-          case LUA_ERRGCMM    : errorcode = SCRIPT_LUA_ERRORCODE_GCMM;           break;
-          case LUA_ERRERR     : errorcode = SCRIPT_LUA_ERRORCODE_ERRERR;         break;
+          case LUA_YIELD      : errorcode = SCRIPT_LNG_LUA_ERRORCODE_YIELD;          break;
+          case LUA_ERRRUN     : errorcode = SCRIPT_LNG_LUA_ERRORCODE_RUN;            break;
+          case LUA_ERRSYNTAX  : errorcode = SCRIPT_LNG_LUA_ERRORCODE_SYNTAX;         break;
+          case LUA_ERRMEM     : errorcode = SCRIPT_LNG_LUA_ERRORCODE_MEM;            break;
+          case LUA_ERRGCMM    : errorcode = SCRIPT_LNG_LUA_ERRORCODE_GCMM;           break;
+          case LUA_ERRERR     : errorcode = SCRIPT_LNG_LUA_ERRORCODE_ERRERR;         break;
         }
 
       HaveError(errorcode);
@@ -178,11 +190,9 @@ int SCRIPT_LUA::Run(int* returnval)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_LUA::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction)
+* @fn         bool SCRIPT_LNG_LUA::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction)
 * @brief      AddLibraryFunction
 * @ingroup    SCRIPT
 *
@@ -193,7 +203,7 @@ int SCRIPT_LUA::Run(int* returnval)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_LUA::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction)
+bool SCRIPT_LNG_LUA::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction)
 {
   XSTRING namefunction;
 
@@ -208,10 +218,9 @@ bool SCRIPT_LUA::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCION
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_LUA::HaveError(SCRIPT_G_ERRORCODE errorcode)
+* @fn         bool SCRIPT_LNG_LUA::HaveError(SCRIPT_G_ERRORCODE errorcode)
 * @brief      HaveError
 * @ingroup    SCRIPT
 *
@@ -220,7 +229,7 @@ bool SCRIPT_LUA::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCION
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_LUA::HaveError(int errorcode)
+bool SCRIPT_LNG_LUA::HaveError(int errorcode)
 {
   if(errorcode != SCRIPT_ERRORCODE_NONE)
     {
@@ -233,8 +242,6 @@ bool SCRIPT_LUA::HaveError(int errorcode)
                                   __L("memory allocation error")                          ,
                                   __L("error while running a __gc metamethod")            ,
                                   __L("error while running the error handler function")   ,
-
-
                                 };
       XSTRING   currenttoken;
       XPATH     namefile;
@@ -271,19 +278,16 @@ bool SCRIPT_LUA::HaveError(int errorcode)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_LUA::HaveMainFunction()
+* @fn         bool SCRIPT_LNG_LUA::HaveMainFunction()
 * @brief      HaveMainFunction
 * @ingroup    SCRIPT
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_LUA::HaveMainFunction()
+bool SCRIPT_LNG_LUA::HaveMainFunction()
 {
   XSTRING mainfunctionname;
   XSTRING script;
@@ -294,7 +298,7 @@ bool SCRIPT_LUA::HaveMainFunction()
   script = GetScript()->Get();
   if(script.IsEmpty()) return false;
 
-  mainfunctionname = SCRIPT_LUA_MAINFUNCTIONNAME;
+  mainfunctionname = SCRIPT_LNG_LUA_MAINFUNCTIONNAME;
 
   int index = GetScript()->Find(mainfunctionname, false);
   if(index == XSTRING_NOTFOUND) return false;
@@ -331,11 +335,9 @@ bool SCRIPT_LUA::HaveMainFunction()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void SCRIPT_LUA::Clean()
+* @fn         void SCRIPT_LNG_LUA::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
@@ -343,11 +345,10 @@ bool SCRIPT_LUA::HaveMainFunction()
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void SCRIPT_LUA::Clean()
+void SCRIPT_LNG_LUA::Clean()
 {
   state = NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -365,18 +366,31 @@ int LUA_LibraryCallBack(lua_State* state)
 {
   lua_Debug    ar;
   XSTRING      namefunction;
-  SCRIPT_LUA*  script = *static_cast<SCRIPT_LUA**>(lua_getextraspace(state));
+  SCRIPT_LNG_LUA*  script = *static_cast<SCRIPT_LNG_LUA**>(lua_getextraspace(state));
 
-  if(!script) return 0;
+  if(!script) 
+    {
+      return 0;
+    }
 
   lua_getstack (state, 0, &ar);
   if(lua_getinfo(state, "Snlu", &ar))  namefunction = ar.name;
 
-  if(namefunction.IsEmpty()) return 0;
+  if(namefunction.IsEmpty()) 
+    {
+      return 0;
+    }
 
-  SCRIPT_LIBFUNCTION* libfunction = script->GetLibraryFunction(namefunction.Get());
-  if(!libfunction) return 0;
-  if(!libfunction->GetFunctionLibrary()) return 0;
+  SCRIPT_LIB_FUNCTION* libfunction = script->GetLibraryFunction(namefunction.Get());
+  if(!libfunction) 
+    {
+      return 0;
+    }
+
+  if(!libfunction->GetFunctionLibrary()) 
+    {
+      return 0;
+    }
 
   XVECTOR<XVARIANT*> params;
   XVARIANT           returnvalue;
@@ -441,8 +455,8 @@ int LUA_LibraryCallBack(lua_State* state)
 
   switch(returnvalue.GetType())
     {
-      case XVARIANT_TYPE_NULL          :                                                                    break;
-      
+      case XVARIANT_TYPE_NULL          : lua_pushnil (state);                          nreturnvalues++;     break;
+      case XVARIANT_TYPE_BOOLEAN       : lua_pushboolean (state, (int)(returnvalue));  nreturnvalues++;     break;      
       case XVARIANT_TYPE_INTEGER       : lua_pushnumber(state, (int)(returnvalue));    nreturnvalues++;     break;
       case XVARIANT_TYPE_CHAR          : lua_pushnumber(state, (int)(returnvalue));    nreturnvalues++;     break;
       case XVARIANT_TYPE_XCHAR         :                                                                    break;
@@ -472,3 +486,4 @@ int LUA_LibraryCallBack(lua_State* state)
 }
 
 
+#pragma endregion

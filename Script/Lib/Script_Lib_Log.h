@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Script_XEvent.h
+* @file       Script_Lib_Log.h
 * 
-* @class      SCRIPT_XEVENT
-* @brief      Script XEvent
+* @class      SCRIPT_LIB_LOG
+* @brief      Script Library Log
 * @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,14 +26,13 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SCRIPT_XEVENT_H_
-#define _SCRIPT_XEVENT_H_
+#ifndef _SCRIPT_LIB_LOG_H_
+#define _SCRIPT_LIB_LOG_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XString.h"
-#include "XEvent.h"
+#include "Script_Lib.h"
 
 #pragma endregion
 
@@ -41,12 +40,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-enum SCRIPT_XEVENT_TYPE
-{
-  SCRIPT_XEVENT_TYPE_UNKNOWN      = XEVENT_TYPE_SCRIPT ,
-  SCRIPT_XEVENT_TYPE_ERROR                            ,
-  SCRIPT_XEVENT_TYPE_BREAK                            ,
-};
+#define SCRIPT_LIB_NAME_LOG  __L("Log")
 
 #pragma endregion
 
@@ -54,33 +48,21 @@ enum SCRIPT_XEVENT_TYPE
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SCRIPT_XEVENT : public XEVENT
+class XVARIANT;
+class XCONSOLE;
+class SCRIPT;
+
+class SCRIPT_LIB_LOG : public SCRIPT_LIB
 {
   public:
-                                        SCRIPT_XEVENT           (XSUBJECT* subject, XDWORD type = SCRIPT_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_SCRIPT);
-    virtual                            ~SCRIPT_XEVENT           ();
+                          SCRIPT_LIB_LOG          ();
+    virtual              ~SCRIPT_LIB_LOG          ();
 
-    XSTRING*                            GetNameScript           ();
-
-    int                                 GetError                ();
-    void                                SetError                (int error);
-
-    XSTRING*                            GetErrorText            ();
-
-    int                                 GetNLine                ();
-    void                                SetNLine                (int nline);
-
-    XSTRING*                            GetCurrentToken         ();
-
+    bool                  AddLibraryFunctions     (SCRIPT* script);
+    
   private:
 
-    void                                Clean                   ();
-
-    XSTRING                             namescript;
-    int                                 error;
-    XSTRING                             errortext;
-    XSTRING                             currenttoken;
-    int                                 nline;
+    void                  Clean                   ();
 };
 
 #pragma endregion
@@ -89,6 +71,8 @@ class SCRIPT_XEVENT : public XEVENT
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 #pragma region FUNCTIONS_PROTOTYPES
 
+void    Call_Log_AddEntry             (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_XTRACE_PRINTCOLOR        (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 #pragma endregion
 

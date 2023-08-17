@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Script_XEvent.h
+* @file       Script_Lib_Function.h
 * 
-* @class      SCRIPT_XEVENT
-* @brief      Script XEvent
+* @class      SCRIPT_LIB_FUNCTION
+* @brief      Script Library Function class
 * @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,14 +26,14 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SCRIPT_XEVENT_H_
-#define _SCRIPT_XEVENT_H_
+#ifndef _SCRIPT_LIB_FUNCTION_H_
+#define _SCRIPT_LIB_FUNCTION_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XString.h"
-#include "XEvent.h"
+#include "XVector.h"
+#include "XVariant.h"
 
 #pragma endregion
 
@@ -41,12 +41,11 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-enum SCRIPT_XEVENT_TYPE
-{
-  SCRIPT_XEVENT_TYPE_UNKNOWN      = XEVENT_TYPE_SCRIPT ,
-  SCRIPT_XEVENT_TYPE_ERROR                            ,
-  SCRIPT_XEVENT_TYPE_BREAK                            ,
-};
+class SCRIPT;
+class SCRIPT_LIB;
+class SCRIPT_LIB_FUNCTION;
+
+typedef void (*SCRFUNCIONLIBRARY) (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 #pragma endregion
 
@@ -54,33 +53,28 @@ enum SCRIPT_XEVENT_TYPE
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SCRIPT_XEVENT : public XEVENT
+class SCRIPT_LIB_FUNCTION
 {
   public:
-                                        SCRIPT_XEVENT           (XSUBJECT* subject, XDWORD type = SCRIPT_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_SCRIPT);
-    virtual                            ~SCRIPT_XEVENT           ();
+                                        SCRIPT_LIB_FUNCTION         (SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY functionlibrary);
+                                        SCRIPT_LIB_FUNCTION         (SCRIPT_LIB* library, XSTRING& name, SCRFUNCIONLIBRARY functionlibrary);
+    virtual                            ~SCRIPT_LIB_FUNCTION         ();
 
-    XSTRING*                            GetNameScript           ();
+    SCRIPT_LIB*                         GetLibrary                  ();
+    bool                                SetLibrary                  (SCRIPT_LIB* library);
 
-    int                                 GetError                ();
-    void                                SetError                (int error);
+    XSTRING*                            GetName                     ();
 
-    XSTRING*                            GetErrorText            ();
-
-    int                                 GetNLine                ();
-    void                                SetNLine                (int nline);
-
-    XSTRING*                            GetCurrentToken         ();
+    SCRFUNCIONLIBRARY                   GetFunctionLibrary          ();
+    bool                                SetFunctionLibrary          (SCRFUNCIONLIBRARY functionlibrary);
 
   private:
 
-    void                                Clean                   ();
+    void                                Clean                       ();
 
-    XSTRING                             namescript;
-    int                                 error;
-    XSTRING                             errortext;
-    XSTRING                             currenttoken;
-    int                                 nline;
+    SCRIPT_LIB*                         library;
+    XSTRING                             name;
+    SCRFUNCIONLIBRARY                   functionlibrary;
 };
 
 #pragma endregion
@@ -94,3 +88,4 @@ class SCRIPT_XEVENT : public XEVENT
 
 
 #endif
+

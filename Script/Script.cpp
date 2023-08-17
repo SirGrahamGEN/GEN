@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       Script.cpp
-*
+* 
 * @class      SCRIPT
-* @brief
+* @brief      Script base class
 * @ingroup    SCRIPT
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#include "Script.h"
+
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 #include <ctype.h>
@@ -39,31 +45,62 @@
 #include "XPath.h"
 #include "XFactory.h"
 #include "XFileTXT.h"
-#include "XThread.h"
 #include "XTrace.h"
-#include "XThreadCollected.h"
+
+#ifdef SCRIPT_G_ACTIVE
+#include "Script_Language_G.h"
+#endif
+
+#ifdef SCRIPT_LUA_ACTIVE
+#include "Script_Language_Lua.h"
+#endif
+
+#ifdef SCRIPT_JAVASCRIPT_ACTIVE
+#include "Script_Language_Javascript.h"
+#endif
 
 #include "Script_XEvent.h"
-#include "Script_Lib.h"
 
-#include "Script.h"
+#include "Script_Lib_Math.h"
+#include "Script_Lib_Rand.h"
+#include "Script_Lib_Timer.h"
+#include "Script_Lib_String.h"
+#include "Script_Lib_Path.h"
+#include "Script_Lib_Dir.h"
+
+#include "Script_Lib_System.h"
+#include "Script_Lib_Process.h"
+#include "Script_Lib_Log.h"
+#include "Script_Lib_Console.h"
+#include "Script_Lib_CFG.h"
+#include "Script_Lib_Window.h"
+#include "Script_Lib_InputSimulate.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         SCRIPT::SCRIPT()
 * @brief      Constructor
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT::SCRIPT()
 {
@@ -79,19 +116,20 @@ SCRIPT::SCRIPT()
   RegisterEvent(SCRIPT_XEVENT_TYPE_BREAK);
 
   thread = CREATEXTHREAD(XTHREADGROUPID_SCRIPT, __L("SCRIPT::SCRIPT"),ThreadFunction,(void*)this);
+
+  AddInternalLibraries();
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         SCRIPT::~SCRIPT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT::~SCRIPT()
 {
@@ -113,23 +151,62 @@ SCRIPT::~SCRIPT()
 
   DeleteLibraryFuncions();
 
-  librarys.DeleteAll();
+  DeleteAllLibrarys();
 
   Clean();
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SCRIPT* SCRIPT::Create(XCHAR* namefilescript)
+* @brief      Create
+* @ingroup    SCRIPT
+* 
+* @param[in]  namefilescript : 
+* 
+* @return     SCRIPT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SCRIPT* SCRIPT::Create(XCHAR* namefilescript)
+{
+  SCRIPT* script = NULL;
+  XSTRING ext;
+  XPATH   _namefilescript;
+                                            
+  _namefilescript = namefilescript;
+                                            
+  if(!_namefilescript.IsEmpty())
+    {
+      _namefilescript.GetExt(ext);
+
+      #ifdef SCRIPT_G_ACTIVE
+      if(!ext.Compare(__L(".g")   , true)) script = new SCRIPT_LNG_G();
+      #endif
+
+      #ifdef SCRIPT_LUA_ACTIVE
+      if(!ext.Compare(__L(".lua") , true)) script = new SCRIPT_LNG_LUA();
+      #endif
+
+      #ifdef SCRIPT_JAVASCRIPT_ACTIVE
+      if(!ext.Compare(__L(".js")  , true)) script = new SCRIPT_LNG_JAVASCRIPT();
+      #endif
+    }
+
+  return script;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SCRIPT::Load(XPATH& xpath)
 * @brief      Load
 * @ingroup    SCRIPT
-*
-* @param[in]  xpath :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  xpath : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT::Load(XPATH& xpath)
 {
@@ -150,7 +227,15 @@ bool SCRIPT::Load(XPATH& xpath)
       for(int c=0;c<xfiletxt->GetNLines();c++)
         {
           script += xfiletxt->GetLine(c)->Get();
-          script += __L("\n");
+
+          switch(type)
+            {
+              case SCRIPT_TYPE_UNKNOWN       : 
+                                   default   : script += __L("\r\n"); break;
+              case SCRIPT_TYPE_G             : script += __L("\r\n"); break;
+              case SCRIPT_TYPE_LUA           : script += __L("\r");   break;
+              case SCRIPT_TYPE_JAVASCRIPT    : script += __L("\r");   break;
+            }
         }
 
       xfiletxt->Close();
@@ -160,17 +245,16 @@ bool SCRIPT::Load(XPATH& xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SCRIPT::Save(XPATH& xpath)
 * @brief      Save
 * @ingroup    SCRIPT
-*
-* @param[in]  xpath :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  xpath : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT::Save(XPATH& xpath)
 {
@@ -190,18 +274,17 @@ bool SCRIPT::Save(XPATH& xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SCRIPT::IsScript(XPATH& xpath, XCHAR* extension)
 * @brief      IsScript
 * @ingroup    SCRIPT
-*
-* @param[in]  xpath :
-* @param[in]  extension :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  xpath : 
+* @param[in]  extension : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT::IsScript(XPATH& xpath, XCHAR* extension)
 {
@@ -213,15 +296,14 @@ bool SCRIPT::IsScript(XPATH& xpath, XCHAR* extension)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XSTRING* SCRIPT::GetNameScript()
 * @brief      GetNameScript
 * @ingroup    SCRIPT
-*
-* @return     XSTRING* :
-*
+* 
+* @return     XSTRING* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* SCRIPT::GetNameScript()
 {
@@ -229,15 +311,14 @@ XSTRING* SCRIPT::GetNameScript()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XSTRING* SCRIPT::GetScript()
 * @brief      GetScript
 * @ingroup    SCRIPT
-*
-* @return     XSTRING* :
-*
+* 
+* @return     XSTRING* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* SCRIPT::GetScript()
 {
@@ -245,15 +326,14 @@ XSTRING* SCRIPT::GetScript()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XPATH* SCRIPT::GetPath()
 * @brief      GetPath
 * @ingroup    SCRIPT
-*
-* @return     XPATH* :
-*
+* 
+* @return     XPATH* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH* SCRIPT::GetPath()
 {
@@ -261,19 +341,18 @@ XPATH* SCRIPT::GetPath()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SCRIPT_G_ERRORCODE SCRIPT::Run(int* returnval)
+* 
+* @fn         int SCRIPT::Run(int* returnval)
 * @brief      Run
 * @ingroup    SCRIPT
-*
-* @param[in]  returnval :
-*
-* @return     SCRIPT_G_ERRORCODE :
-*
+* 
+* @param[in]  returnval : 
+* 
+* @return     int : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-int  SCRIPT::Run(int* returnval)
+int SCRIPT::Run(int* returnval)
 {
   if(script.IsEmpty()) return SCRIPT_ERRORCODE_INTERNALERROR;
 
@@ -282,21 +361,19 @@ int  SCRIPT::Run(int* returnval)
 
   errorcode  = 0;
   iscancelexec = false;
- //breakfound  = false;
-
+ 
   return errorcode;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SCRIPT::RunWithThread()
 * @brief      RunWithThread
 * @ingroup    SCRIPT
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT::RunWithThread()
 {
@@ -320,7 +397,6 @@ bool SCRIPT::IsRunWithThread()
 {
   return isrunwiththread;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -357,15 +433,14 @@ bool SCRIPT::IsRunThread(int* error,int* returnvalue)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SCRIPT::CancelExecution()
 * @brief      CancelExecution
 * @ingroup    SCRIPT
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT::CancelExecution()
 {
@@ -377,15 +452,14 @@ bool SCRIPT::CancelExecution()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XTIMER* SCRIPT::GetTimer()
 * @brief      GetTimer
 * @ingroup    SCRIPT
-*
-* @return     XTIMER* :
-*
+* 
+* @return     XTIMER* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XTIMER* SCRIPT::GetTimer()
 {
@@ -393,21 +467,19 @@ XTIMER* SCRIPT::GetTimer()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XTHREADCOLLECTED* SCRIPT::GetThread()
 * @brief      GetThread
 * @ingroup    SCRIPT
-*
-* @return     XTHREADCOLLECTED* :
-*
+* 
+* @return     XTHREADCOLLECTED* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XTHREADCOLLECTED* SCRIPT::GetThread()
 {
   return thread;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -442,8 +514,6 @@ SCRIPT_LIB* SCRIPT::GetLibrary(XCHAR* ID)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT::AddLibrary(SCRIPT_LIB* scriptlib)
@@ -461,19 +531,18 @@ bool SCRIPT::AddLibrary(SCRIPT_LIB* scriptlib)
 
   librarys.Add(scriptlib);
 
-   return scriptlib->AddLibraryFunctions(this);
+  return scriptlib->AddLibraryFunctions(this);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SCRIPT::DeleteAllLibrarys()
 * @brief      DeleteAllLibrarys
 * @ingroup    SCRIPT
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT::DeleteAllLibrarys()
 {
@@ -486,24 +555,22 @@ bool SCRIPT::DeleteAllLibrarys()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SCRIPT_LIBFUNCTION* SCRIPT::GetLibraryFunction(XCHAR* name)
+* 
+* @fn         SCRIPT_LIB_FUNCTION* SCRIPT::GetLibraryFunction(XCHAR* name)
 * @brief      GetLibraryFunction
 * @ingroup    SCRIPT
-*
-* @param[in]  name :
-*
-* @return     SCRIPT_LIBFUNCTION* :
-*
+* 
+* @param[in]  name : 
+* 
+* @return     SCRIPT_LIB_FUNCTION* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIBFUNCTION* SCRIPT::GetLibraryFunction(XCHAR* name)
+SCRIPT_LIB_FUNCTION* SCRIPT::GetLibraryFunction(XCHAR* name)
 {
   for(XDWORD c=0;c<libraryfunctions.GetSize(); c++)
     {
-      SCRIPT_LIBFUNCTION* function = (SCRIPT_LIBFUNCTION*)libraryfunctions.Get(c);
+      SCRIPT_LIB_FUNCTION* function = (SCRIPT_LIB_FUNCTION*)libraryfunctions.Get(c);
       if(function)
         {
           if(!function->GetName()->Compare(name)) return function;
@@ -514,23 +581,22 @@ SCRIPT_LIBFUNCTION* SCRIPT::GetLibraryFunction(XCHAR* name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SCRIPT_LIBFUNCTION* SCRIPT::GetLibraryFunction(void* ptrfunction)
+* 
+* @fn         SCRIPT_LIB_FUNCTION* SCRIPT::GetLibraryFunction(void* ptrfunction)
 * @brief      GetLibraryFunction
 * @ingroup    SCRIPT
-*
-* @param[in]  ptrfunction :
-*
-* @return     SCRIPT_LIBFUNCTION* :
-*
+* 
+* @param[in]  ptrfunction : 
+* 
+* @return     SCRIPT_LIB_FUNCTION* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIBFUNCTION* SCRIPT::GetLibraryFunction(void* ptrfunction)
+SCRIPT_LIB_FUNCTION* SCRIPT::GetLibraryFunction(void* ptrfunction)
 {
   for(XDWORD c=0;c<libraryfunctions.GetSize(); c++)
     {
-      SCRIPT_LIBFUNCTION* function = (SCRIPT_LIBFUNCTION*)libraryfunctions.Get(c);
+      SCRIPT_LIB_FUNCTION* function = (SCRIPT_LIB_FUNCTION*)libraryfunctions.Get(c);
       if(function)
         {
           if((void*)(function->GetFunctionLibrary()) == ptrfunction) return function;
@@ -541,24 +607,22 @@ SCRIPT_LIBFUNCTION* SCRIPT::GetLibraryFunction(void* ptrfunction)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY libfunction)
 * @brief      AddLibraryFunction
 * @ingroup    SCRIPT
-*
-* @param[in]  library :
-* @param[in]  name :
-* @param[in]  libfunction :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  library : 
+* @param[in]  name : 
+* @param[in]  libfunction : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY libfunction)
 {
-  SCRIPT_LIBFUNCTION* function = new SCRIPT_LIBFUNCTION(library, name, libfunction);
+  SCRIPT_LIB_FUNCTION* function = new SCRIPT_LIB_FUNCTION(library, name, libfunction);
   if(!function) return false;
 
   libraryfunctions.Add(function);
@@ -567,15 +631,14 @@ bool SCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBR
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SCRIPT::DeleteLibraryFuncions()
 * @brief      DeleteLibraryFuncions
 * @ingroup    SCRIPT
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT::DeleteLibraryFuncions()
 {
@@ -588,15 +651,89 @@ bool SCRIPT::DeleteLibraryFuncions()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SCRIPT::AddInternalLibraries()
+* @brief      AddInternalLibraries
+* @ingroup    SCRIPT
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SCRIPT::AddInternalLibraries()
+{  
+  SCRIPT_LIB* lib;
+
+  for(int c=0; c<14; c++)
+    {
+      lib = NULL;
+
+      switch(c)
+        {
+          // Standard 
+          case  0 : lib = new SCRIPT_LIB_MATH();        break;
+          case  1 : lib = new SCRIPT_LIB_RAND();        break;
+          case  2 : lib = new SCRIPT_LIB_TIMER();       break;
+          case  3 : lib = new SCRIPT_LIB_STRING();      break;
+          case  4 : lib = new SCRIPT_LIB_PATH();        break;
+          case  5 : lib = new SCRIPT_LIB_DIR();         break;
+
+          // Optionals
+          case  6 :
+                    #ifdef SCRIPT_LIB_SYSTEM_ACTIVE
+                    lib = new SCRIPT_LIB_SYSTEM();        
+                    #endif
+                    break;
+          case  7 :
+                    #ifdef SCRIPT_LIB_PROCESS_ACTIVE
+                    lib = new SCRIPT_LIB_PROCESS();        
+                    #endif
+                    break;
+          case  8 :
+                    #ifdef SCRIPT_LIB_LOG_ACTIVE
+                    lib = new SCRIPT_LIB_LOG();        
+                    #endif
+                    break;
+          case  9 :
+                    #ifdef SCRIPT_LIB_CONSOLE_ACTIVE
+                    lib = new SCRIPT_LIB_CONSOLE();        
+                    #endif
+                    break;
+          case 10 :
+                    #ifdef SCRIPT_LIB_CFG_ACTIVE
+                    lib = new SCRIPT_LIB_CFG();                                
+                    #endif
+                    break;
+          case 11 :
+                    #ifdef SCRIPT_LIB_WINDOW_ACTIVE
+                    lib = new SCRIPT_LIB_WINDOW();        
+                    #endif
+                    break;
+          case 13 :
+                    #ifdef SCRIPT_LIB_INPUTSIMULATE_ACTIVE
+                    lib = new SCRIPT_LIB_INPUTSIMULATE();        
+                    #endif
+                    break;
+        } 
+
+      if(lib)
+        {
+          AddLibrary(lib);
+        }           
+    }      
+
+  return true;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SCRIPT_G_ERRORCODE SCRIPT::GetErrorScript()
+* 
+* @fn         int SCRIPT::GetErrorScript()
 * @brief      GetErrorScript
 * @ingroup    SCRIPT
-*
-* @return     int :
-*
+* 
+* @return     int : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 int SCRIPT::GetErrorScript()
 {
@@ -604,18 +741,16 @@ int SCRIPT::GetErrorScript()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SCRIPT::SetErrorScript(int errorcode)
 * @brief      SetErrorScript
 * @ingroup    SCRIPT
-*
-* @param[in]  errorcode :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  errorcode : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT::SetErrorScript(int errorcode)
 {
@@ -625,17 +760,16 @@ bool SCRIPT::SetErrorScript(int errorcode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool SCRIPT::HaveError(SCRIPT_G_ERRORCODE errorcode)
+* 
+* @fn         bool SCRIPT::HaveError(int errorcode)
 * @brief      HaveError
 * @ingroup    SCRIPT
-*
-* @param[in]  errorcode :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  errorcode : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SCRIPT::HaveError(int errorcode)
 {
@@ -643,17 +777,16 @@ bool SCRIPT::HaveError(int errorcode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void SCRIPT::ThreadFunction(void* data)
 * @brief      ThreadFunction
 * @ingroup    SCRIPT
-*
-* @param[in]  data :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT::ThreadFunction(void* data)
 {
@@ -664,26 +797,26 @@ void SCRIPT::ThreadFunction(void* data)
 
   script->SetErrorScript(script->Run(&returnvaluescript));
 
-  //script->SetReturnValueScript(returnvaluescript);
-
   script->GetThread()->Run(false);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void SCRIPT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @return     void : does not return anything.
-*
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT::Clean()
 {
+  type                = SCRIPT_TYPE_UNKNOWN;
+
   xpath.Empty();
+
   xfiletxt            = NULL;
   namescript          = __L("N/A");
   script.Empty();
@@ -700,5 +833,6 @@ void SCRIPT::Clean()
 }
 
 
+#pragma endregion
 
 
