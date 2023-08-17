@@ -112,11 +112,11 @@ bool SCRIPT_LIB_SYSTEM::AddLibraryFunctions(SCRIPT* script)
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("System_GetType")            , Call_SystemGetType);
-  script->AddLibraryFunction(this, __L("System_Reboot")             , Call_SystemReboot);
-  script->AddLibraryFunction(this, __L("System_PowerOff")           , Call_SystemPowerOff);
-  script->AddLibraryFunction(this, __L("System_Logout")             , Call_SystemLogout);
-  script->AddLibraryFunction(this, __L("GetEnviromentVar")          , Call_GetEnviromentVar);
+  script->AddLibraryFunction(this, __L("System_GetType")              , Call_System_GetType);
+  script->AddLibraryFunction(this, __L("System_Reboot")               , Call_System_Reboot);
+  script->AddLibraryFunction(this, __L("System_PowerOff")             , Call_System_PowerOff);
+  script->AddLibraryFunction(this, __L("System_Logout")               , Call_System_Logout);
+  script->AddLibraryFunction(this, __L("System_GetEnviromentVar")     , Call_System_GetEnviromentVar);
 
   return true;
 }
@@ -147,8 +147,8 @@ void SCRIPT_LIB_SYSTEM::Clean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_SystemGetType(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_SystemGetType
+* @fn         void Call_System_GetType(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_System_GetType
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -159,7 +159,7 @@ void SCRIPT_LIB_SYSTEM::Clean()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_SystemGetType(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_System_GetType(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -183,8 +183,8 @@ void Call_SystemGetType(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_SystemReboot(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_SystemReboot
+* @fn         void Call_System_Reboot(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_System_Reboot
 * @ingroup    SCRIPT
 *
 * @param[in]  library : 
@@ -195,7 +195,7 @@ void Call_SystemGetType(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-void Call_SystemReboot(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_System_Reboot(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -210,8 +210,8 @@ void Call_SystemReboot(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_SystemPowerOff(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_SystemPowerOff
+* @fn         void Call_System_PowerOff(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_System_PowerOff
 * @ingroup    SCRIPT
 *
 * @param[in]  library : 
@@ -222,7 +222,7 @@ void Call_SystemReboot(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* 
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-void Call_SystemPowerOff(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_System_PowerOff(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -237,8 +237,8 @@ void Call_SystemPowerOff(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_SystemLogout(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_SystemLogout
+* @fn         void Call_System_Logout(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_System_Logout
 * @ingroup    SCRIPT
 *
 * @param[in]  library : 
@@ -249,7 +249,7 @@ void Call_SystemPowerOff(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-void Call_SystemLogout(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_System_Logout(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -264,8 +264,8 @@ void Call_SystemLogout(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_GetEnviromentVar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_GetEnviromentVar
+* @fn         void Call_System_GetEnviromentVar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_System_GetEnviromentVar
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -276,7 +276,7 @@ void Call_SystemLogout(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_GetEnviromentVar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_System_GetEnviromentVar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;

@@ -43,7 +43,7 @@
 #pragma region DEFINES_ENUMS
 
 
-#define SCRIPT_LIB_NAME_INPSIMULATE   __L("InpSimulate")
+#define SCRIPT_LIB_NAME_INPUTSIMULATE   __L("InpSimulate")
 
 #pragma endregion
 

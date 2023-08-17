@@ -348,12 +348,12 @@ bool MAINPROCWINDOWS::End()
 
   #endif
 
+  DeleteAllExecParams(); 
+
+  GEN_VERSION.DelInstance();
+
   Factorys_End();
   
-  DeleteAllExecParams();  
-
-  VERSION::DelInstance();
-
   XFILE_DISPLAYNOTCLOSEFILES
 
   XMEMORY_CONTROL_DEACTIVATED

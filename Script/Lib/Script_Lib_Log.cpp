@@ -110,7 +110,7 @@ bool SCRIPT_LIB_LOG::AddLibraryFunctions(SCRIPT* script)
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("LogAddEntry")              , Call_LogAddEntry);
+  script->AddLibraryFunction(this, __L("Log_AddEntry")             , Call_Log_AddEntry);
   script->AddLibraryFunction(this, __L("XTRACE_PRINTCOLOR")        , Call_XTRACE_PRINTCOLOR);
 
   return true;
@@ -142,8 +142,8 @@ void SCRIPT_LIB_LOG::Clean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_LogAddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      all_LogAddEntry
+* @fn         void Call_Log_AddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Log_AddEntry
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -154,7 +154,7 @@ void SCRIPT_LIB_LOG::Clean()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_LogAddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_Log_AddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;

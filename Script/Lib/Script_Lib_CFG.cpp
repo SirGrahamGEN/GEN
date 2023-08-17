@@ -61,20 +61,16 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SCRIPT_LIB_CFG::SCRIPT_LIB_CFG(XFILECFG* xfileCFG) : SCRIPT_LIB(SCRIPT_LIB_NAME_PATH)
+* @fn         SCRIPT_LIB_CFG::SCRIPT_LIB_CFG()
 * @brief      Constructor
 * @ingroup    SCRIPT
-* 
-* @param[in]  XFILECFG* : 
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIB_CFG::SCRIPT_LIB_CFG(XFILECFG* xfileCFG) : SCRIPT_LIB(SCRIPT_LIB_NAME_CFG)
+SCRIPT_LIB_CFG::SCRIPT_LIB_CFG() : SCRIPT_LIB(SCRIPT_LIB_NAME_CFG)
 {
   Clean();
-
-  this->xfileCFG = xfileCFG;
 }
 
 
@@ -129,6 +125,23 @@ bool SCRIPT_LIB_CFG::AddLibraryFunctions(SCRIPT* script)
 XFILECFG* SCRIPT_LIB_CFG::GetXFileCFG()
 {
   return xfileCFG;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SCRIPT_LIB_CFG::SetXFileCFG(XFILECFG* xfileCFG)
+* @brief      SetXFileCFG
+* @ingroup    SCRIPT
+* 
+* @param[in]  xfileCFG : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SCRIPT_LIB_CFG::SetXFileCFG(XFILECFG* xfileCFG)
+{
+  this->xfileCFG = xfileCFG;
 }
 
 

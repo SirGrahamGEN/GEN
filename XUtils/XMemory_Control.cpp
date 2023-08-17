@@ -179,6 +179,12 @@ void* XMEMORY_CONTROL::Assign(XDWORD size, char* pathfile, int line)
 
   Lock();
 
+  if((size == 268) && (line == 78))
+    {
+      int a=0;
+      a++;
+    }
+
   void* ptr = NULL;
   ptr = malloc(size);
   if(!ptr)
@@ -189,7 +195,7 @@ void* XMEMORY_CONTROL::Assign(XDWORD size, char* pathfile, int line)
 
   if(!RegisterAssign(ptr, size, pathfile, line))
     {
-      //XTRACE_PRINTCOLOR(4, __L("XMEMORY ALERT: Make Malloc -> The memory allocation could not be registered!"));
+      // XTRACE_PRINTCOLOR(4, __L("[XMemory Control] ALERT: Make Malloc -> The memory allocation could not be registered!"));
     }
 
   nassigns++;
@@ -228,7 +234,7 @@ void XMEMORY_CONTROL::Free(void* ptr)
 
   if(!DeRegisterAssign(ptr, size))
     {
-      //XTRACE_PRINTCOLOR(4, __L("XMEMORY ALERT: Make Free -> The memory allocation has not been registered!"));
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[XMemory Control] ALERT: Make Free -> The memory allocation has not been registered!"));
     }
    else
     {
@@ -366,12 +372,12 @@ bool XMEMORY_CONTROL::DisplayAll(bool displaydata)
 
               //-----------------------------------------------------------------
 
-              count++;
+              count++;              
               if(count > XMEMORY_CONTROL_MAXIMUNLEAKSTODISPLAY)
                 {
                   XTRACE_PRINTCOLOR(XTRACE_LEVEL_COLOR(XTRACE_COLOR_RED), __L("Too many leaks: > %d and have %d. "), XMEMORY_CONTROL_MAXIMUNLEAKSTODISPLAY, nassigned);
                   break;
-                }
+                }              
             }
         }
 

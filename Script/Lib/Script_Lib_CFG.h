@@ -55,12 +55,13 @@ class SCRIPT;
 class SCRIPT_LIB_CFG : public SCRIPT_LIB
 {
   public:
-                          SCRIPT_LIB_CFG          (XFILECFG* xfileCFG);
+                          SCRIPT_LIB_CFG          ();
     virtual              ~SCRIPT_LIB_CFG          ();
 
     bool                  AddLibraryFunctions     (SCRIPT* script);
 
     XFILECFG*             GetXFileCFG             ();
+    void                  SetXFileCFG             (XFILECFG* xfileCFG);
 
   private:
 

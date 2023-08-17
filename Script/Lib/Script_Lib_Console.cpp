@@ -113,9 +113,9 @@ bool SCRIPT_LIB_CONSOLE::AddLibraryFunctions(SCRIPT* script)
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("GetChar")                  , Call_GetChar);
-  script->AddLibraryFunction(this, __L("PutChar")                  , Call_PutChar);
-  script->AddLibraryFunction(this, __L("Printf")                   , Call_Printf);
+  script->AddLibraryFunction(this, __L("Console_GetChar")                  , Call_Console_GetChar);
+  script->AddLibraryFunction(this, __L("Console_PutChar")                  , Call_Console_PutChar);
+  script->AddLibraryFunction(this, __L("Console_Printf")                   , Call_Console_Printf);
 
   return true;
 }
@@ -168,8 +168,8 @@ void SCRIPT_LIB_CONSOLE::Clean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void Call_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_GetChar
+* @fn         void Call_Console_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Console_GetChar
 * @ingroup    SCRIPT
 *
 * @param[in]  library :
@@ -180,7 +180,7 @@ void SCRIPT_LIB_CONSOLE::Clean()
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_Console_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -196,8 +196,8 @@ void Call_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void Call_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_PutChar
+* @fn         void Call_Console_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Console_PutChar
 * @ingroup    SCRIPT
 *
 * @param[in]  library :
@@ -208,7 +208,7 @@ void Call_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_Console_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -234,8 +234,8 @@ void Call_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void Call_Printf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_Printf
+* @fn         void Call_Console_Printf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Console_Printf
 * @ingroup    SCRIPT
 *
 * @param[in]  library :
@@ -246,7 +246,7 @@ void Call_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* param
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_Printf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_Console_Printf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;

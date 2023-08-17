@@ -82,7 +82,10 @@ XWINDOWSMUTEX::XWINDOWSMUTEX()
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSMUTEX::~XWINDOWSMUTEX()
 {
-  if(mxhandle) CloseHandle(mxhandle);
+  if(mxhandle) 
+    {
+      CloseHandle(mxhandle);
+    }
 
   Clean();
 }
@@ -103,12 +106,12 @@ bool XWINDOWSMUTEX::Lock()
   if(!mxhandle) return false;
 
   DWORD status = WaitForSingleObject(mxhandle, INFINITE);
-  if(status != WAIT_OBJECT_0) return false;
+  if(status != WAIT_OBJECT_0) 
+    {
+      return false;
+    }
 
   islock = true;
-
-  //HANDLE handles[1]= { mxhandle };
-  //if(MsgWaitForMultipleObjects(1,handles,FALSE, INFINITE, QS_ALLINPUT) != WAIT_OBJECT_0) return false;
 
   return true;
 }
@@ -126,8 +129,15 @@ bool XWINDOWSMUTEX::Lock()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSMUTEX::UnLock()
 {
-  if(!mxhandle)               return false;
-  if(!ReleaseMutex(mxhandle)) return false;
+  if(!mxhandle)               
+    {
+      return false;
+    }
+
+  if(!ReleaseMutex(mxhandle)) 
+    {
+      return false;
+    }
 
   islock = false;
 

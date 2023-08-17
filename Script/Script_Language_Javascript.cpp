@@ -1,36 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       Script_Javascript.cpp
-*
-* @class      SCRIPT_JAVASCRIPT
-* @brief      Script Javascript interpreter class
+* 
+* @file       Script_Language_Javascript.cpp
+* 
+* @class      SCRIPT_LANGUAGE_JAVASCRIPT
+* @brief      Script Language Javascript interpreter class
 * @ingroup    SCRIPT
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#include "Script_Language_Javascript.h"
+
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "math.h"
 
@@ -39,38 +46,48 @@
 #include "Script_XEvent.h"
 #include "Script_Lib.h"
 
-#include "Script_Javascript.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_JAVASCRIPT::SCRIPT_JAVASCRIPT()
+* @fn         SCRIPT_LNG_JAVASCRIPT::SCRIPT_LNG_JAVASCRIPT()
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_JAVASCRIPT::SCRIPT_JAVASCRIPT()
+SCRIPT_LNG_JAVASCRIPT::SCRIPT_LNG_JAVASCRIPT() : SCRIPT()
 {
   Clean();
 
-  //context = duk_create_heap(NULL, NULL, NULL, (void*)this, SCRIPT_JAVASCRIPT::FatalErrorHandler);
-  context = duk_create_heap(NULL, NULL, NULL, (void*)this, NULL);
-}
+  type = SCRIPT_TYPE_JAVASCRIPT;
 
+  //context = duk_create_heap(NULL, NULL, NULL, (void*)this, SCRIPT_LNG_JAVASCRIPT::FatalErrorHandler);
+  context = duk_create_heap(NULL, NULL, NULL, (void*)this, NULL);
+
+  AddInternalLibraries();
+
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_JAVASCRIPT::~SCRIPT_JAVASCRIPT()
+* @fn         SCRIPT_LNG_JAVASCRIPT::~SCRIPT_LNG_JAVASCRIPT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
@@ -78,7 +95,7 @@ SCRIPT_JAVASCRIPT::SCRIPT_JAVASCRIPT()
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_JAVASCRIPT::~SCRIPT_JAVASCRIPT()
+SCRIPT_LNG_JAVASCRIPT::~SCRIPT_LNG_JAVASCRIPT()
 {
   if(context)
     {
@@ -90,10 +107,9 @@ SCRIPT_JAVASCRIPT::~SCRIPT_JAVASCRIPT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_JAVASCRIPT::Load(XPATH& xpath)
+* @fn         bool SCRIPT_LNG_JAVASCRIPT::Load(XPATH& xpath)
 * @brief      Load
 * @ingroup    SCRIPT
 *
@@ -102,7 +118,7 @@ SCRIPT_JAVASCRIPT::~SCRIPT_JAVASCRIPT()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_JAVASCRIPT::Load(XPATH& xpath)
+bool SCRIPT_LNG_JAVASCRIPT::Load(XPATH& xpath)
 {
   if(!SCRIPT::Load(xpath)) return false;
 
@@ -110,10 +126,9 @@ bool SCRIPT_JAVASCRIPT::Load(XPATH& xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_G_ERRORCODE SCRIPT_JAVASCRIPT::Run(int* returnval)
+* @fn         SCRIPT_G_ERRORCODE SCRIPT_LNG_JAVASCRIPT::Run(int* returnval)
 * @brief      Run
 * @ingroup    SCRIPT
 *
@@ -122,7 +137,7 @@ bool SCRIPT_JAVASCRIPT::Load(XPATH& xpath)
 * @return     SCRIPT_G_ERRORCODE :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-int SCRIPT_JAVASCRIPT::Run(int* returnval)
+int SCRIPT_LNG_JAVASCRIPT::Run(int* returnval)
 {
   errorcode    = SCRIPT_ERRORCODE_NONE;
   iscancelexec = false;
@@ -131,7 +146,7 @@ int SCRIPT_JAVASCRIPT::Run(int* returnval)
 
   if(HaveMainFunction())
     {
-      XSTRING mainfunctionname = SCRIPT_JAVASCRIPT_MAINFUNCTIONNAME;
+      XSTRING mainfunctionname = SCRIPT_LNG_JAVASCRIPT_MAINFUNCTIONNAME;
       _script.AddFormat(__L("\n%s()\n"), mainfunctionname.Get());
     }
 
@@ -150,11 +165,9 @@ int SCRIPT_JAVASCRIPT::Run(int* returnval)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction)
+* @fn         bool SCRIPT_LNG_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction)
 * @brief      AddLibraryFunction
 * @ingroup    SCRIPT
 *
@@ -165,7 +178,7 @@ int SCRIPT_JAVASCRIPT::Run(int* returnval)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction)
+bool SCRIPT_LNG_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction)
 {
   XSTRING namefunction;
   XSTRING ptrfunctionstr;
@@ -176,7 +189,7 @@ bool SCRIPT_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCR
   
   namefunction.ConvertToASCII(charstr);
   
-  duk_push_c_function(context, SCRIPT_JAVASCRIPT::LibraryCallBack, DUK_VARARGS);
+  duk_push_c_function(context, SCRIPT_LNG_JAVASCRIPT::LibraryCallBack, DUK_VARARGS);
 
   duk_push_pointer(context, (void *)ptrfunction);
   duk_put_prop_string(context, -2, "\xFF""_ptr");
@@ -186,10 +199,9 @@ bool SCRIPT_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCR
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_JAVASCRIPT::HaveError(SCRIPT_G_ERRORCODE errorcode)
+* @fn         bool SCRIPT_LNG_JAVASCRIPT::HaveError(SCRIPT_G_ERRORCODE errorcode)
 * @brief      HaveError
 * @ingroup    SCRIPT
 *
@@ -198,7 +210,7 @@ bool SCRIPT_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCR
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_JAVASCRIPT::HaveError(int _errorcode)
+bool SCRIPT_LNG_JAVASCRIPT::HaveError(int _errorcode)
 {
   XSTRING   currenttoken;
   XPATH     namefile;
@@ -209,12 +221,12 @@ bool SCRIPT_JAVASCRIPT::HaveError(int _errorcode)
 
   currenttoken = duk_safe_to_string(context, -1);
 
-  if(currenttoken.Find(__L("EvalError")      , false) != XSTRING_NOTFOUND) errorcode = SCRIPT_JAVASCRIPT_ERRORCODE_EVAL_ERROR;
-  if(currenttoken.Find(__L("RangeError")     , false) != XSTRING_NOTFOUND) errorcode = SCRIPT_JAVASCRIPT_ERRORCODE_RANGE_ERROR;
-  if(currenttoken.Find(__L("ReferenceError") , false) != XSTRING_NOTFOUND) errorcode = SCRIPT_JAVASCRIPT_ERRORCODE_REFERENCE_ERROR;
-  if(currenttoken.Find(__L("SyntaxError")    , false) != XSTRING_NOTFOUND) errorcode = SCRIPT_JAVASCRIPT_ERRORCODE_SYNTAX_ERROR;
-  if(currenttoken.Find(__L("TypeError")      , false) != XSTRING_NOTFOUND) errorcode = SCRIPT_JAVASCRIPT_ERRORCODE_TYPE_ERROR;
-  if(currenttoken.Find(__L("URIError")       , false) != XSTRING_NOTFOUND) errorcode = SCRIPT_JAVASCRIPT_ERRORCODE_URI_ERROR;
+  if(currenttoken.Find(__L("EvalError")      , false) != XSTRING_NOTFOUND) errorcode = SCRIPT_LNG_JAVASCRIPT_ERRORCODE_EVAL_ERROR;
+  if(currenttoken.Find(__L("RangeError")     , false) != XSTRING_NOTFOUND) errorcode = SCRIPT_LNG_JAVASCRIPT_ERRORCODE_RANGE_ERROR;
+  if(currenttoken.Find(__L("ReferenceError") , false) != XSTRING_NOTFOUND) errorcode = SCRIPT_LNG_JAVASCRIPT_ERRORCODE_REFERENCE_ERROR;
+  if(currenttoken.Find(__L("SyntaxError")    , false) != XSTRING_NOTFOUND) errorcode = SCRIPT_LNG_JAVASCRIPT_ERRORCODE_SYNTAX_ERROR;
+  if(currenttoken.Find(__L("TypeError")      , false) != XSTRING_NOTFOUND) errorcode = SCRIPT_LNG_JAVASCRIPT_ERRORCODE_TYPE_ERROR;
+  if(currenttoken.Find(__L("URIError")       , false) != XSTRING_NOTFOUND) errorcode = SCRIPT_LNG_JAVASCRIPT_ERRORCODE_URI_ERROR;
 
   namefile.Set(namescript);
   namefile.SetOnlyNamefileExt();
@@ -239,18 +251,16 @@ bool SCRIPT_JAVASCRIPT::HaveError(int _errorcode)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_JAVASCRIPT::HaveMainFunction()
+* @fn         bool SCRIPT_LNG_JAVASCRIPT::HaveMainFunction()
 * @brief      HaveMainFunction
 * @ingroup    SCRIPT
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_JAVASCRIPT::HaveMainFunction()
+bool SCRIPT_LNG_JAVASCRIPT::HaveMainFunction()
 {
   XSTRING mainfunctionname;
   XSTRING script;
@@ -261,7 +271,7 @@ bool SCRIPT_JAVASCRIPT::HaveMainFunction()
   script = GetScript()->Get();
   if(script.IsEmpty()) return false;
 
-  mainfunctionname = SCRIPT_JAVASCRIPT_MAINFUNCTIONNAME;
+  mainfunctionname = SCRIPT_LNG_JAVASCRIPT_MAINFUNCTIONNAME;
 
   int index = GetScript()->Find(mainfunctionname, false);
   if(index == XSTRING_NOTFOUND) return false;
@@ -298,11 +308,9 @@ bool SCRIPT_JAVASCRIPT::HaveMainFunction()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
+* @fn         duk_ret_t SCRIPT_LNG_JAVASCRIPT::LibraryCallBack(duk_context* context)
 * @brief      LibraryCallBack
 * @ingroup    SCRIPT
 *
@@ -311,28 +319,39 @@ bool SCRIPT_JAVASCRIPT::HaveMainFunction()
 * @return     duk_ret_t :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
+duk_ret_t SCRIPT_LNG_JAVASCRIPT::LibraryCallBack(duk_context* context)
 {
   XVECTOR<XVARIANT*>    params;
   XVARIANT              returnvalue;
   int                   nreturnvalues = 0;
-  SCRIPT_JAVASCRIPT*    script        = NULL;
+  SCRIPT_LNG_JAVASCRIPT*    script        = NULL;
   duk_memory_functions  memoryfuncs;
   void*                 funcptr       = NULL;
 
   duk_get_memory_functions(context, &memoryfuncs);
 
-  script = (SCRIPT_JAVASCRIPT*)memoryfuncs.udata;
+  script = (SCRIPT_LNG_JAVASCRIPT*)memoryfuncs.udata;
   if(!script) return 0;
 
   duk_push_current_function(context);
   duk_get_prop_string(context, -1, "\xFF""_ptr");
   funcptr = (void*)duk_get_pointer(context, -1);
-  if(!funcptr) return 0;
+  if(!funcptr) 
+    {
+      return 0;
+    }
 
-  SCRIPT_LIBFUNCTION* libfunction = script->GetLibraryFunction(funcptr);
-  if(!libfunction) return 0;
-  if(!libfunction->GetFunctionLibrary()) return 0;
+  SCRIPT_LIB_FUNCTION* libfunction = script->GetLibraryFunction(funcptr);
+
+  if(!libfunction) 
+    {
+      return 0;
+    }
+
+  if(!libfunction->GetFunctionLibrary()) 
+    {
+      return 0;
+    }
 
   duk_pop_2(context);
 
@@ -395,7 +414,8 @@ duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
 
   switch(returnvalue.GetType())
     {
-      case XVARIANT_TYPE_NULL          :  break;
+      case XVARIANT_TYPE_NULL          :  duk_push_null(context); 
+                                          break;
 
       case XVARIANT_TYPE_BOOLEAN       :  if((bool)returnvalue)
                                             {
@@ -443,10 +463,9 @@ duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void SCRIPT_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
+* @fn         void SCRIPT_LNG_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
 * @brief      JS_FatalErrorHandler
 * @ingroup    SCRIPT
 *
@@ -456,9 +475,9 @@ duk_ret_t SCRIPT_JAVASCRIPT::LibraryCallBack(duk_context* context)
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void SCRIPT_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
+void SCRIPT_LNG_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
 {
-  SCRIPT_JAVASCRIPT* script  = (SCRIPT_JAVASCRIPT*)udata;
+  SCRIPT_LNG_JAVASCRIPT* script  = (SCRIPT_LNG_JAVASCRIPT*)udata;
   if(!script) return;
 
   XSTRING message;
@@ -469,10 +488,9 @@ void SCRIPT_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void SCRIPT_JAVASCRIPT::Clean()
+* @fn         void SCRIPT_LNG_JAVASCRIPT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
@@ -480,12 +498,10 @@ void SCRIPT_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void SCRIPT_JAVASCRIPT::Clean()
+void SCRIPT_LNG_JAVASCRIPT::Clean()
 {
   context = NULL;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -504,4 +520,6 @@ double __builtin_inf (void)
   return (double)0xFFFFFFFFFFFFFFFF;
 }
 
+
+#pragma endregion
 

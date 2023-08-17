@@ -79,7 +79,6 @@ CREATEFUNC(XWINDOWSFACTORY, XMUTEX    , XWINDOWSMUTEX     , Create_Mutex)
 DELETEFUNC(XWINDOWSFACTORY, XMUTEX    , XWINDOWSMUTEX     , Delete_Mutex)
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREAD* XWINDOWSFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param)
