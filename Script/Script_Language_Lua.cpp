@@ -31,13 +31,13 @@
 
 #include "GEN_Defines.h"
 
-#include "Script_Language_Lua.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "Script_Language_Lua.h"
 
 #include "math.h"
 

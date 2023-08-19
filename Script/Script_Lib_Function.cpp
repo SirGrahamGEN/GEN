@@ -31,17 +31,15 @@
 
 #include "GEN_Defines.h"
 
-#include "Script_Lib_Function.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "Script_Lib_Function.h"
 
 #include "XMemory_Control.h"
-
 
 #pragma endregion
 

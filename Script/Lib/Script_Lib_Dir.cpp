@@ -31,13 +31,13 @@
 
 #include "GEN_Defines.h"
 
-#include "Script_Lib_Dir.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "Script_Lib_Dir.h"
 
 #include "XFactory.h"
 #include "XDir.h"
@@ -45,7 +45,6 @@
 #include "Script.h"
 
 #include "XMemory_Control.h"
-
 
 #pragma endregion
 

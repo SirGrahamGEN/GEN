@@ -31,13 +31,13 @@
 
 #include "GEN_Defines.h"
 
-#include "Script_Lib_Log.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "Script_Lib_Log.h"
 
 #include "XFactory.h"
 #include "XTrace.h"

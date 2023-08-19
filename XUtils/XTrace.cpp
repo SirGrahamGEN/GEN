@@ -2027,6 +2027,7 @@ XDWORD XTRACE::GetTraceFromXBuffer(XBUFFER& xbufferpacket, XDWORD& publicIP, XDW
 * @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
+#ifdef DIO_ACTIVE
 XDWORD XTRACE::GetTraceFromDIOStream(DIOSTREAM* DIOstream, XDWORD& publicIP, XDWORD& localIP, XBYTE& level, XDWORD& sequence, XDATETIME* xtime, XBUFFER& data)
 {
   if(!DIOstream) return false;
@@ -2034,6 +2035,7 @@ XDWORD XTRACE::GetTraceFromDIOStream(DIOSTREAM* DIOstream, XDWORD& publicIP, XDW
 
   return GetTraceFromXBuffer((*DIOstream->GetInXBuffer()), publicIP, localIP, level, sequence, xtime, data);
 }
+#endif
 
 
 /**-------------------------------------------------------------------------------------------------------------------

@@ -31,18 +31,17 @@
 
 #include "GEN_Defines.h"
 
-#include "INPSimulate.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "INPSimulate.h"
+
 #include "XString.h"
 
 #include "XMemory_Control.h"
-
 
 #pragma endregion
 

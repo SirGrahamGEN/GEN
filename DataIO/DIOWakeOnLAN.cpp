@@ -105,6 +105,7 @@ bool DIOWAKEONLAN::SendActivation(DIOMAC* MAC, DIOIP* broadcastIP, int timeout)
   DIOSTREAMUDPCONFIG  diostreamudpcfg;
   DIOSTREAMUDP*       diostreamudp  = NULL;
   XSTRING             broadcastIPstring;
+  XBYTE               MACfull[DIOMAC_MAXSIZE] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
   bool                status        = false;  
 
   broadcastIP->GetXString(broadcastIPstring);
@@ -117,20 +118,26 @@ bool DIOWAKEONLAN::SendActivation(DIOMAC* MAC, DIOIP* broadcastIP, int timeout)
 
   diostreamudp = (DIOSTREAMUDP*)GEN_DIOFACTORY.CreateStreamIO(&diostreamudpcfg);
   if(!diostreamudp) return status;
-  
+
   if(diostreamudp->Open())
     {
-      XBYTE tosend[DIOWAKEONLAN_NPACKETS * DIOMAC_MAXSIZE];
+      #define SIZEALL (DIOWAKEONLAN_NPACKETS+1) * DIOMAC_MAXSIZE
+      XBYTE tosend[ SIZEALL];
 
-      memset(tosend, 0, (DIOWAKEONLAN_NPACKETS * DIOMAC_MAXSIZE));
+      memset(tosend, 0, SIZEALL);
                 
-      for(XDWORD c=0; c<DIOWAKEONLAN_NPACKETS; c++)
+      memcpy(&tosend[0], MACfull, DIOMAC_MAXSIZE);
+
+      for(XDWORD c=1; c<DIOWAKEONLAN_NPACKETS+1; c++)
         {
           memcpy(&tosend[c*DIOMAC_MAXSIZE], MAC->Get(), DIOMAC_MAXSIZE);
         }
 
-      status = diostreamudp->Write(tosend, (DIOWAKEONLAN_NPACKETS * DIOMAC_MAXSIZE));
-      if(status) status = diostreamudp->WaitToFlushOutXBuffer(timeout);
+      status = diostreamudp->Write(tosend, SIZEALL);
+      if(status) 
+        {
+          status = diostreamudp->WaitToFlushOutXBuffer(timeout);
+        }
       
       diostreamudp->Close();
     }

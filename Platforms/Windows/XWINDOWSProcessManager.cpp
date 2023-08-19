@@ -31,19 +31,18 @@
 
 #include "GEN_Defines.h"
 
-#include "XWINDOWSProcessManager.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "XWINDOWSProcessManager.h"
+
 #include <tlhelp32.h>
 #include <psapi.h> 
 #include <tchar.h>
 #include <process.h>
-
 
 #include "XFactory.h"
 #include "XFile.h"

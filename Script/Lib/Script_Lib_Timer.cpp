@@ -31,13 +31,13 @@
 
 #include "GEN_Defines.h"
 
-#include "Script_Lib_Timer.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "Script_Lib_Timer.h"
 
 #include "XSleep.h"
 #include "XTimer.h"

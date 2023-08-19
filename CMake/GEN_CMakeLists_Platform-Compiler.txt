@@ -60,9 +60,9 @@ endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
-  option(COMPILE_TO_WINDOWS "Compile to Windows General"  true)
+  if("${TARGET}" STREQUAL "pc") 
 
-  if("${TARGET}" STREQUAL "pc")
+    option(COMPILE_TO_WINDOWS "Compile to Windows General"  true)
 
     if(CMAKE_SIZEOF_VOID_P EQUAL 8)
 
@@ -85,27 +85,26 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
   if("${TARGET}" STREQUAL "Android")   
 
-    option(COMPILE_TO_WINDOWS "Compile to Windows General" false)
     option(COMPILE_TO_ANDROID "Compile to Android"         true)
     message(STATUS "[Select platform Android]")
 
   endif()
 
 
-  if("${TARGET}" STREQUAL "STM32")
+  if("${TARGET}" STREQUAL "stm32")
 
-    option(COMPILE_TO_WINDOWS "Compile to Windows General" false)
-    option(COMPILE_TO_STM32_ARM "Compile to STM32"         true)
+    option(COMPILE_TO_STM32 "Compile to STM32"         true)
     message(STATUS "[Select platform STM32]")
 
   endif()
   
   
-  if("${TARGET}" STREQUAL "ESP32")
+  if("${TARGET}" STREQUAL "esp32")
 
-    option(COMPILE_TO_WINDOWS "Compile to Windows General" false)
-    option(COMPILE_TO_ESP32_ARM "Compile to ESP32"         true)
+    option(COMPILE_TO_ESP32 "Compile to ESP32"         true)
     message(STATUS "[Select platform ESP32]")
+
+    add_definitions(-DMICROCONTROLLER)
 
   endif()
 
@@ -116,7 +115,7 @@ endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
-  option(COMPILE_TO_LINUX    "Compile to Linux   General" true)  
+  option(COMPILE_TO_LINUX "Compile to Linux General" true)  
 
   if("${TARGET}" STREQUAL "pc") 
 

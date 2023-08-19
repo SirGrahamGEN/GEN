@@ -31,20 +31,19 @@
 
 #include "GEN_Defines.h"
 
-#include "INPWindowsSimulate.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "INPWindowsSimulate.h"
+
 #include <Windows.h>
 
 #include "XString.h"
 
 #include "XMemory_Control.h"
-
 
 #pragma endregion
 

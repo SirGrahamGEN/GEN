@@ -31,13 +31,13 @@
 
 #include "GEN_Defines.h"
 
-#include "INPLINUXFactory.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "INPLINUXFactory.h"
 
 #include "XFileTXT.h"
 #include "XTrace.h"
@@ -57,7 +57,6 @@
 #include "INPLINUXSimulate.h"
 
 #include "XMemory_Control.h"
-
 
 #pragma endregion
 

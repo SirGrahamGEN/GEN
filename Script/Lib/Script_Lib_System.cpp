@@ -31,13 +31,13 @@
 
 #include "GEN_Defines.h"
 
-#include "Script_Lib_System.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "Script_Lib_System.h"
 
 #include <stdio.h>
 #include <stdlib.h>

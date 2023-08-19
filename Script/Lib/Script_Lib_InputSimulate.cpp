@@ -31,13 +31,13 @@
 
 #include "GEN_Defines.h"
 
-#include "Script_Lib_InputSimulate.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "Script_Lib_InputSimulate.h"
 
 #include "XVariant.h"
 #include "XProcessManager.h"

@@ -31,13 +31,13 @@
 
 #include "GEN_Defines.h"
 
-#include "GRPWINDOWSScreen.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "GRPWINDOWSScreen.h"
 
 #include "XTrace.h"
 #include "XSystem.h"

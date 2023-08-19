@@ -520,20 +520,20 @@ bool MAINPROCWINDOWS::Factorys_End()
   XTRANSLATION::DelInstance();
   XTRANSLATION_GEN::DelInstance();
 
+  XRAND::DelInstance();
+
   #ifdef XSLEEP_ACTIVE
   XSLEEP::DelInstance();
   #endif
 
-  XRAND::DelInstance();
-
-  #ifdef XSYSTEM_ACTIVE
+  #ifdef XSYSTEM_ACTIVE  
   XSYSTEM::DelInstance();
   #endif
-
+  
   #ifdef XPUBLISHER_ACTIVE
   XPUBLISHER::DelInstance();
   #endif
-
+    
   #ifdef XTHREADCOLLECTED_ACTIVE
   XTHREADSCOLLECTEDMANAGER::DelInstance();
   #endif

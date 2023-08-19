@@ -31,13 +31,13 @@
 
 #include "GEN_Defines.h"
 
-#include "INPWINDOWSFactory.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "INPWINDOWSFactory.h"
 
 #include "INPWINDOWSDeviceKeyboard.h"
 #include "INPWINDOWSDeviceMouse.h"

@@ -31,13 +31,13 @@
 
 #include "GEN_Defines.h"
 
-#include "GRPScreen.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "GRPScreen.h"
 
 #include "GRPXEvent.h"
 #include "GRPCanvas.h"

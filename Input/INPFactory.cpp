@@ -31,17 +31,15 @@
 
 #include "GEN_Defines.h"
 
-#include "INPFactory.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "INPFactory.h"
 
 #include "XMemory_Control.h"
-
 
 #pragma endregion
 

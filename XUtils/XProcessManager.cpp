@@ -31,17 +31,15 @@
 
 #include "GEN_Defines.h"
 
-#include "XProcessManager.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "XProcessManager.h"
 
 #include "XMemory_Control.h"
-
 
 #pragma endregion
 

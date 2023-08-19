@@ -31,17 +31,15 @@
 
 #include "GEN_Defines.h"
 
-#include "INPLINUXSimulate.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "INPLINUXSimulate.h"
 
 #include "XMemory_Control.h"
-
 
 #pragma endregion
 

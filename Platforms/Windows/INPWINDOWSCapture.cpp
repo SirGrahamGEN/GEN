@@ -31,13 +31,13 @@
 
 #include "GEN_Defines.h"
 
-#include "INPWINDOWSCapture.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "INPWINDOWSCapture.h"
 
 #include <shlwapi.h>
 

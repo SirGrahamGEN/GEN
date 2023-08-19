@@ -1,56 +1,61 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       MainProcSTM32.cpp
-*
-* @class      MAINPROCSTM32
-* @brief      Main Proc STM32 class
-* @ingroup    PLATFORM_STM32
-*
+* 
+* @file       MainProcESP32.cpp
+* 
+* @class      MAINPROCESP32
+* @brief      Main Proc ESP32 class
+* @ingroup    PLATFORM_ESP32
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "MainProcESP32.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
 
-#include "XSTM32_HAL.h"
-#include "XSTM32Factory.h"
-#include "XSTM32System.h"
-#include "XSTM32Rand.h"
-#include "XSTM32Sleep.h"
-#include "XSTM32Trace.h"
-#include "XSTM32EEPROMMemoryManager.h"
+#include "XESP32Factory.h"
+#include "XESP32System.h"
+#include "XESP32Rand.h"
+#include "XESP32Sleep.h"
+#include "XESP32Trace.h"
+#include "XESP32EEPROMMemoryManager.h"
 
 #ifdef DIO_ACTIVE
-#include "DIOSTM32Factory.h"
+#include "DIOESP32Factory.h"
 
   #ifdef DIOGPIO_ACTIVE
   #include "DIOGPIO.h"
-  #include "DIOSTM32GPIO.h"
+  #include "DIOESP32GPIO.h"
   #endif
 
 #endif
@@ -65,66 +70,68 @@
 #include "APPBase.h"
 #include "APPMain.h"
 
-#include "MainProcSTM32.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
+
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
+#pragma region GENERAL_VARIABLE
 #ifdef XTRACE_ACTIVE
-XSTM32TRACE      STM32trace;
+XESP32TRACE      ESP32trace;
 #endif
-MAINPROCSTM32    mainprocstm32;
+MAINPROCESP32    mainprocstm32;
+
+#pragma endregion
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         MAINPROCSTM32::MAINPROCSTM32()
+* 
+* @fn         MAINPROCESP32::MAINPROCESP32()
 * @brief      Constructor
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
-*
-* @return     Does not return anything.
-*
+* @ingroup    PLATFORM_ESP32
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-MAINPROCSTM32::MAINPROCSTM32()
+MAINPROCESP32::MAINPROCESP32()
 {
   Clean();
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         MAINPROCSTM32::~MAINPROCSTM32()
+* @fn         MAINPROCESP32::~MAINPROCESP32()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_ESP32 
 *
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-MAINPROCSTM32::~MAINPROCSTM32()
+MAINPROCESP32::~MAINPROCESP32()
 {
   Clean();
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool MAINPROCSTM32::Ini(APPMAIN* appmain)
+* @fn         bool MAINPROCESP32::Ini(APPMAIN* appmain)
 * @brief      Ini
-* @ingroup    PLATFORM_STM32
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  appmain :
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool MAINPROCSTM32::Ini(APPMAIN* appmain)
+bool MAINPROCESP32::Ini(APPMAIN* appmain)
 {
   this->appmain = appmain;
 
@@ -154,17 +161,16 @@ bool MAINPROCSTM32::Ini(APPMAIN* appmain)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool MAINPROCSTM32::Update()
+* @fn         bool MAINPROCESP32::Update()
 * @brief      Update
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_ESP32 
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool MAINPROCSTM32::Update()
+bool MAINPROCESP32::Update()
 {
   #ifdef APP_ACTIVE
   if(appmain)
@@ -182,17 +188,16 @@ bool MAINPROCSTM32::Update()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool MAINPROCSTM32::End()
+* @fn         bool MAINPROCESP32::End()
 * @brief      End
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_ESP32 
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool MAINPROCSTM32::End()
+bool MAINPROCESP32::End()
 {
   #ifdef APP_ACTIVE
 
@@ -235,43 +240,44 @@ bool MAINPROCSTM32::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool MAINPROCSTM32::Factorys_Ini(XSTRING* xpath)
+* @fn         bool MAINPROCESP32::Factorys_Ini(XSTRING* xpath)
 * @brief      Factorys Ini
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_ESP32 
 *
 * @param[in]  xpath : always NULL in this platform
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool MAINPROCSTM32::Factorys_Ini()
+bool MAINPROCESP32::Factorys_Ini()
 {
-  XFACTORY::SetInstance(new XSTM32FACTORY());
-  if(!XFACTORY::GetIsInstanced()) return false;
+  if(!XFACTORY::SetInstance(new XESP32FACTORY())) return false;
+  
+  #ifdef XSYSTEM_ACTIVE  
+  if(!XSYSTEM::SetInstance(new XESP32SYSTEM()))  return false;
+  XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
+  #endif
+  
+  #ifdef XSLEEP_ACTIVE
+  if(!XSLEEP::SetInstance(new XESP32SLEEP())) return false;
+  #endif
 
-  XRAND::SetInstance(new XSTM32RAND());
-  if(!XRAND::GetIsInstanced()) return false;
-
-  XSLEEP::SetInstance(new XSTM32SLEEP());
-  if(!XSLEEP::GetIsInstanced()) return false;
-
-  XSYSTEM::SetInstance(new XSTM32SYSTEM());
-  if(!XSYSTEM::GetIsInstanced()) return false;
+  if(!XRAND::SetInstance(new XESP32RAND())) return false;
+  
   
   #ifdef XEEPROMMEMORYMANAGER_ACTIVE  
-  XEEPROMMEMORYMANAGER::SetInstance(new XSTM32EEPROMMEMORYMANAGER());
+  XEEPROMMEMORYMANAGER::SetInstance(new XESP32EEPROMMEMORYMANAGER());
   if(!XEEPROMMEMORYMANAGER::GetIsInstanced()) return false;  
   #endif
 
   #ifdef DIO_ACTIVE
-  DIOFACTORY::SetInstance(new DIOSTM32FACTORY());
+  DIOFACTORY::SetInstance(new DIOESP32FACTORY());
   if(!DIOFACTORY::GetIsInstanced()) return false;
 
     #ifdef DIOGPIO_ACTIVE
-    DIOGPIO::SetInstance(new DIOSTM32GPIO());
+    DIOGPIO::SetInstance(new DIOESP32GPIO());
     if(!DIOGPIO::GetIsInstanced()) return false;
 
     if(!DIOGPIO::GetInstance().Ini()) return false;
@@ -283,18 +289,16 @@ bool MAINPROCSTM32::Factorys_Ini()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool MAINPROCSTM32::Factorys_End()
+* @fn         bool MAINPROCESP32::Factorys_End()
 * @brief      Factorys End
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_ESP32 
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool MAINPROCSTM32::Factorys_End()
+bool MAINPROCESP32::Factorys_End()
 {
   #ifdef DIO_ACTIVE
 
@@ -324,14 +328,18 @@ bool MAINPROCSTM32::Factorys_End()
   
   XRAND::DelInstance();
 
+  #ifdef XSLEEP_ACTIVE
   XSLEEP::DelInstance();
+  #endif
 
+  #ifdef XSYSTEM_ACTIVE  
   XSYSTEM::DelInstance();
+  #endif
   
+  #ifdef XPUBLISHER_ACTIVE
   XPUBLISHER::DelInstance();
-  
-  XTHREADLISTNONPREEMPTIVE::DelInstance();
-  
+  #endif
+    
   #ifdef XTHREADCOLLECTED_ACTIVE
   XTHREADSCOLLECTEDMANAGER::DelInstance();
   #endif
@@ -342,46 +350,38 @@ bool MAINPROCSTM32::Factorys_End()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void MAINPROCSTM32::Clean()
+* @fn         void MAINPROCESP32::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_ESP32 
 *
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void MAINPROCSTM32::Clean()
+void MAINPROCESP32::Clean()
 {
 
 }
 
+#pragma endregion
 
 
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* Main entrys: main
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-
-
+/*---- MAIN FUNCTIONS ------------------------------------------------------------------------------------------------*/
+#pragma region MAIN FUNCTIONS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int main()
 * @brief      main
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_ESP32 
 *
 * @return     int :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
- int main()
+int main()
 {
   int status = 0;
 
@@ -399,4 +399,4 @@ void MAINPROCSTM32::Clean()
   return status;
 }
 
-
+#pragma endregion

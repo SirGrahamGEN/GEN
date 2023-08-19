@@ -31,13 +31,13 @@
 
 #include "GEN_Defines.h"
 
-#include "XBase.h"
-
 #pragma endregion
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "XBase.h"
 
 #include <math.h>
 
