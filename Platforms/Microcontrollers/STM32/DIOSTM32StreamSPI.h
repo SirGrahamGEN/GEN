@@ -29,7 +29,7 @@
 #ifndef _DIOSTM32STREAMSPI_H_
 #define _DIOSTM32STREAMSPI_H_
 
-#if defined(DIO_ACTIVE) && defined(DIOSPI_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_SPI_ACTIVE)
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 

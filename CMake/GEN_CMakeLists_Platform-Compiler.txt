@@ -1,33 +1,37 @@
 # --------------------------------------------------------------------
-# CMakeLists_Platform-Compiler.txt to GEN FrameWork
+# GEN_CMakeLists_Libraries.txt
+# Main Part: Platform-Compiler of GEN 
 # --------------------------------------------------------------------
 
 
 # --------------------------------------------------------------------
 # Variables assignated
 
-# COMPILE_TO_WINDOWS               "Compile to Windows  General"
-# COMPILE_TO_WINDOWS_PC_32         "Compile to Windows  PC 32 Bits"
-# COMPILE_TO_WINDOWS_PC_64         "Compile to Windows  PC 64 Bits"
+# COMPILE_ON_WINDOWS              "Compile on Windows"
+# COMPILE_ON_LINUX                "Compile on Linux"
 
-# COMPILE_TO_LINUX                 "Compile to Linux    General"
-# COMPILE_TO_LINUX_PC_64           "Compile to Linux    PC 64"
-# COMPILE_TO_LINUX_RPI             "Compile to Linux    Rapsberry Pi"
-# COMPILE_TO_LINUX_RPI_64          "Compile to Linux    Rapsberry Pi 64"
-# COMPILE_TO_LINUX_ARM             "Compile to Linux    ARM"
-# COMPILE_TO_LINUX_ARM_64          "Compile to Linux    ARM 64"
+# COMPILE_FOR_WINDOWS             "Compile to Windows General"
+# COMPILE_FOR_WINDOWS_PC_32       "Compile to Windows PC 32 Bits"
+# COMPILE_FOR_WINDOWS_PC_64       "Compile to Windows PC 64 Bits"
 
-# COMPILE_TO_ANDROID               "Compile to Android  General"
+# COMPILE_FOR_LINUX               "Compile to Linux General"
+# COMPILE_FOR_LINUX_PC_64         "Compile to Linux PC 64"
+# COMPILE_FOR_LINUX_RPI           "Compile to Linux Rapsberry Pi"
+# COMPILE_FOR_LINUX_RPI_64        "Compile to Linux Rapsberry Pi 64"
+# COMPILE_FOR_LINUX_ARM           "Compile to Linux ARM"
+# COMPILE_FOR_LINUX_ARM_64        "Compile to Linux ARM 64"
 
-# COMPILE_TO_STM32                 "Compile to STM32    General"
+# COMPILE_FOR_ANDROID             "Compile to Android General"
 
-# COMPILE_TO_ESP32                 "Compile to ESP32    General"
+# COMPILE_FOR_STM32               "Compile to STM32 General"
+
+# COMPILE_FOR_ESP32               "Compile to ESP32 General"
 
 # --------------------------------------------------------------------
 
-# COMPILE_WITH_MSVC                "Compile Microsoft Compiler (MSVC)"
-# COMPILE_WITH_GCC                 "Compile GNU Compiler Collection (GCC)"
-# COMPILE_WITH_CLANG               "Compile CLang (front-end of LLVM)"
+# COMPILE_WITH_MSVC               "Compile Microsoft Compiler (MSVC)"
+# COMPILE_WITH_GCC                "Compile GNU Compiler Collection (GCC)"
+# COMPILE_WITH_CLANG              "Compile CLang (front-end of LLVM)"
 
 
 # --------------------------------------------------------------------
@@ -42,15 +46,15 @@ find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
 
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
-  message(STATUS "[Found CCACHE]")
+  message(STATUS "[GEN Found CCACHE]")
 
 endif()
 
-message(STATUS "[Target: (${TARGET})]")
+message(STATUS "[GEN Target for compile: ${TARGET}]")
 
 if("${TARGET}" STREQUAL "")
 
-  message(STATUS "[Target: Is Empty]")
+  message(STATUS "[GEN No Target for compile]")
 
 endif()
 
@@ -60,21 +64,27 @@ endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
-  if("${TARGET}" STREQUAL "pc") 
+  add_definitions(-DWINDOWS)
+ 
+  option(COMPILE_ON_WINDOWS "Compile on Windows"  true)
+  message(STATUS "[GEN Using Windows to compile]")
 
-    option(COMPILE_TO_WINDOWS "Compile to Windows General"  true)
+  if("${TARGET}" STREQUAL "PC") 
+
+    add_definitions(-DHW_PC)
+    option(COMPILE_FOR_WINDOWS "Compile to Windows General"  true)
 
     if(CMAKE_SIZEOF_VOID_P EQUAL 8)
 
-      option(COMPILE_TO_WINDOWS_PC_64 "Compile to Windows PC 64 Bits" true)
-      message(STATUS "[Select platform Windows PC 64 Bits]")
+      option(COMPILE_FOR_WINDOWS_PC_64 "Compile to Windows PC 64 Bits" true)
+      message(STATUS "[GEN Compile for platform Windows PC 64 Bits]")
 
     else()
 
       if(CMAKE_SIZEOF_VOID_P EQUAL 4)
 
-        option(COMPILE_TO_WINDOWS_PC_32 "Compile to Windows PC 32 Bits" true)
-        message(STATUS "[Select platform Windows PC 32 Bits]")
+        option(COMPILE_FOR_WINDOWS_PC_32 "Compile to Windows PC 32 Bits" true)
+        message(STATUS "[GEN Compile for platform Windows PC 32 Bits]")
 
       endif()
 
@@ -85,24 +95,27 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
   if("${TARGET}" STREQUAL "Android")   
 
-    option(COMPILE_TO_ANDROID "Compile to Android"         true)
-    message(STATUS "[Select platform Android]")
+    add_definitions(-DANDROID)  
+    option(COMPILE_FOR_ANDROID "Compile to Android" true)
+    message(STATUS "[GEN Compile for platform Android]")
 
   endif()
 
 
-  if("${TARGET}" STREQUAL "stm32")
+  if("${TARGET}" STREQUAL "STM32")
 
-    option(COMPILE_TO_STM32 "Compile to STM32"         true)
-    message(STATUS "[Select platform STM32]")
+    add_definitions(-DHW_STM32)
+    option(COMPILE_FOR_STM32 "Compile to STM32" true)
+    message(STATUS "[GEN Compile for platform STM32]")
 
   endif()
   
   
-  if("${TARGET}" STREQUAL "esp32")
+  if("${TARGET}" STREQUAL "ESP32")
 
-    option(COMPILE_TO_ESP32 "Compile to ESP32"         true)
-    message(STATUS "[Select platform ESP32]")
+    add_definitions(-DHW_ESP32)
+    option(COMPILE_FOR_ESP32 "Compile to ESP32" true)
+    message(STATUS "[GEN Compile for platform ESP32]")
 
     add_definitions(-DMICROCONTROLLER)
 
@@ -115,40 +128,50 @@ endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
-  option(COMPILE_TO_LINUX "Compile to Linux General" true)  
+  add_definitions(-DLINUX) 
 
-  if("${TARGET}" STREQUAL "pc") 
+  option(COMPILE_ON_LINUX "Compile on Linux" true)  
+  message(STATUS "[GEN Using Linux to compile]") 
 
-    option(COMPILE_TO_LINUX_PC_64 "Compile to Linux PC 64 Bits" true)
-    message(STATUS "[Select platform Linux PC 64 Bits]")
+  option(COMPILE_FOR_LINUX "Compile to Linux General" true)  
+
+  if("${TARGET}" STREQUAL "PC") 
+ 
+    add_definitions(-DHW_PC)    
+    option(COMPILE_FOR_LINUX_PC_64 "Compile to Linux PC 64 Bits" true)
+    message(STATUS "[GEN Compile for platform Linux PC 64 Bits]")
 
   endif()
 
-  if("${TARGET}" STREQUAL "raspberrypi")
+  if("${TARGET}" STREQUAL "Raspberrypi")
 
-    option(COMPILE_TO_LINUX_ARM_RPI "Compile to Linux Rapsberry Pi" true)
-    message(STATUS "[Select platform Linux Raspberry Pi]")
+    add_definitions(-DHW_RASPBERRYPI) 
+    option(COMPILE_FOR_LINUX_ARM_RPI "Compile to Linux Rapsberry Pi" true)
+    message(STATUS "[GEN Compile for platform Linux Raspberry Pi]")
 
   endif()
 
-  if("${TARGET}" STREQUAL "raspberrypi_64")
+  if("${TARGET}" STREQUAL "Raspberrypi_64")
 
-    option(COMPILE_TO_LINUX_ARM_RPI_64 "Compile to Linux Rapsberry Pi 64" true)
-    message(STATUS "[Select platform Linux Raspberry Pi 64 Bits]")
+    add_definitions(-DHW_RASPBERRYPI)   
+    option(COMPILE_FOR_LINUX_ARM_RPI_64 "Compile to Linux Rapsberry Pi 64" true)
+    message(STATUS "[GEN Compile for platform Linux Raspberry Pi 64 Bits]")
 
   endif()   
 
-  if("${TARGET}" STREQUAL "arm")
+  if("${TARGET}" STREQUAL "ARM")
 
-    option(COMPILE_TO_LINUX_ARM "Compile to Linux ARM" true)
-    message(STATUS "[Select platform Linux ARM]")
+    add_definitions(-DHW_ARM) 
+    option(COMPILE_FOR_LINUX_ARM "Compile to Linux ARM" true)
+    message(STATUS "[GEN Compile for platform Linux ARM]")
 
   endif()
 
-  if("${TARGET}" STREQUAL "arm_64")
+  if("${TARGET}" STREQUAL "ARM_64")
 
-    option(COMPILE_TO_LINUX_ARM_64 "Compile to Linux ARM 64" true)
-    message(STATUS "[Select platform Linux ARM 64 Bits]")
+    add_definitions(-DHW_ARM) 
+    option(COMPILE_FOR_LINUX_ARM_64 "Compile to Linux ARM 64" true)
+    message(STATUS "[GEN Compile for platform Linux ARM 64 Bits]")
 
   endif()
 
@@ -161,7 +184,7 @@ if(("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC") OR ("${CMAKE_CXX_COMPILER_ID}" STR
 
   add_definitions(-DCOMPILER_MSVC)
   option(COMPILE_WITH_MSVC "Compile with Microsoft Compiler (MSVC)" true)
-  message(STATUS "[Select for compile with Microsoft Compiler (MSVC)]")
+  message(STATUS "[GEN Select for compile: Microsoft Compiler (MSVC)]")
 
 endif()
 
@@ -169,7 +192,7 @@ if(("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU") OR ("${CMAKE_CXX_COMPILER_ID}" STRE
 
   add_definitions(-DCOMPILER_GCC)
   option(COMPILE_WITH_GCC "Compile with GNU Compiler Collection (GCC)" true)
-  message(STATUS "[Select for compile with GNU Compiler Collection (GCC)]")
+  message(STATUS "[GEN Select for compile: GNU Compiler Collection (GCC)]")
 
 endif()
 
@@ -177,6 +200,6 @@ if(("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" ST
 
   add_definitions(-DCOMPILER_CLANG)
   option(COMPILE_WITH_CLANG "Compile with CLang (front-end of LLVM)" true)
-  message(STATUS "[Select for compile with CLang (front-end of LLVM)]")
+  message(STATUS "[GEN Select for compile: CLang (front-end of LLVM)]")
 
 endif()

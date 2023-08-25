@@ -37,6 +37,8 @@
 #include <stdarg.h>
 #include <string.h>
 
+#include "XTranslation.h"
+
 #include "XTranslation_GEN.h"
 
 #include "XMemory_Control.h"

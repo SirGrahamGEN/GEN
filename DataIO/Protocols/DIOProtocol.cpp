@@ -998,7 +998,7 @@ DIOPROTOCOL::DIOPROTOCOL(DIOSTREAM* diostream)
   AddCommand(DIOPROTOCOL_CMDTYPE_DELETEDIR                  , __L("SB")               , __L("O")            , RCV_DeleteDir                     , __L("DeleteDir")                  );
   AddCommand(DIOPROTOCOL_CMDTYPE_GETFIRSTDIRELEMENT         , __L("SS")               , __L("SBDD")         , RCV_GetDirElement                 , __L("GetFirstDirElement")         );
   AddCommand(DIOPROTOCOL_CMDTYPE_GETNEXTDIRELEMENT          , __L("")                 , __L("SBDD")         , RCV_GetDirElement                 , __L("GetNextDirElement")          );
-  #ifdef DIOALERTS_ACTIVE
+  #ifdef DIO_ALERTS_ACTIVE
   AddCommand(DIOPROTOCOL_CMDTYPE_SENDALERT                  , __L("SSDDDDBSSS")       , __L("B")            , RCV_SendAlert                     , __L("SendAlert")                  );
   #endif
 
@@ -3749,7 +3749,7 @@ int DIOPROTOCOL::RCV_SendFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* c
 
 
 
-#ifdef DIOALERTS_ACTIVE
+#ifdef DIO_ALERTS_ACTIVE
 
 
 /**-------------------------------------------------------------------------------------------------------------------

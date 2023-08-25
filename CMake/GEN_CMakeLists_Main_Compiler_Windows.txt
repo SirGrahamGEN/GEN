@@ -1,0 +1,34 @@
+# --------------------------------------------------------------------
+# GEN_CMakeLists_Main_Compiler_Windows.txt
+# Main Part: Windows Compiler setup
+# --------------------------------------------------------------------
+
+
+add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+
+set(CompilerFlags CMAKE_C_FLAGS 
+                  CMAKE_C_FLAGS_DEBUG 
+                  CMAKE_C_FLAGS_RELEASE 
+                  CMAKE_C_FLAGS_MINSIZEREL 
+                  CMAKE_C_FLAGS_RELWITHDEBINFO
+
+                  CMAKE_CXX_FLAGS 
+                  CMAKE_CXX_FLAGS_DEBUG 
+                  CMAKE_CXX_FLAGS_RELEASE 
+                  CMAKE_CXX_FLAGS_MINSIZEREL 
+                  CMAKE_CXX_FLAGS_RELWITHDEBINFO)
+                
+foreach(CompilerFlag ${CompilerFlags})
+
+  if(APPMODE_WINDOWS_DINAMIC)  
+    string(REPLACE "/MT" "/MD" ${CompilerFlag} "${${CompilerFlag}}")
+  else()
+    string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
+  endif()  
+  
+  set(${CompilerFlag} "${${CompilerFlag}}" CACHE STRING "msvc compiler flags"   FORCE)
+  #message("MSVC flags: ${CompilerFlag}:${${CompilerFlag}}")
+
+endforeach()
+
+  

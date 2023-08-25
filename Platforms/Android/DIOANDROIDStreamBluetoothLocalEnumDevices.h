@@ -16,7 +16,7 @@
 #define _DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES_H_
 
 
-#if defined(DIO_ACTIVE) && defined(DIOBLUETOOTH_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_BLUETOOTH_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

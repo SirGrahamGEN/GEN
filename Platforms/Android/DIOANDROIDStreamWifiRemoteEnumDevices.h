@@ -15,7 +15,7 @@
 #ifndef _DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES_H_
 #define _DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES_H_
 
-#if defined(DIO_ACTIVE) && defined(DIOWIFI_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_WIFI_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

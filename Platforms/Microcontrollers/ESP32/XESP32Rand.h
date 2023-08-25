@@ -55,11 +55,10 @@ class XESP32RAND : public XRAND
 													XESP32RAND        ();
     virtual 				     ~XESP32RAND        ();
 
-    virtual bool          Ini               ();
-    virtual int           MaxElements       (int max);
-    virtual int           Max               (int max);
-    virtual int           Between           (int min, int max);
-
+    bool                  Ini               ();
+    int                   MaxElements       (int max);
+    int                   Max               (int max);
+    int                   Between           (int min, int max);
 
   private:
 

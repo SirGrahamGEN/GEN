@@ -83,7 +83,7 @@ DIOPROTOCOL_APPLICATIONDATA::~DIOPROTOCOL_APPLICATIONDATA()
 
 
 
-#ifdef DIOALERTS_ACTIVE
+#ifdef DIO_ALERTS_ACTIVE
 
 /**-------------------------------------------------------------------------------------------------------------------
 *

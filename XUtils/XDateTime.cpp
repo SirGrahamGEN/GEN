@@ -40,6 +40,7 @@
 
 #include "XBase.h"
 #include "XFactory.h"
+#include "XTranslation.h"
 #include "XTranslation_GEN.h"
 
 #include "XDateTime.h"

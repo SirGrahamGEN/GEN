@@ -1,12 +1,13 @@
 # --------------------------------------------------------------------
-# CMakeLists_Libraries.txt to GEN FrameWork
+# GEN_CMakeLists_Libraries.txt
+# Libraries of GEN 
 # --------------------------------------------------------------------
 
 
 # --------------------------------------------------------------------
 # Windows
 
-if(COMPILE_TO_WINDOWS)  
+if(COMPILE_FOR_WINDOWS)  
  
   if(APP_CONSOLE_FEATURE)    
 
@@ -87,9 +88,9 @@ endif()
 # --------------------------------------------------------------------
 # Linux
 
-if(COMPILE_TO_LINUX)
+if(COMPILE_FOR_LINUX)
   
-  if((COMPILE_TO_LINUX_ARM_RPI) OR (COMPILE_TO_LINUX_ARM_RPI64))   
+  if((COMPILE_FOR_LINUX_ARM_RPI) OR (COMPILE_FOR_LINUX_ARM_RPI64))   
 
     target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC "${RPI_SYSROOT}/lib/arm-linux-gnueabihf"  "${RPI_SYSROOT}/usr/lib/arm-linux-gnueabihf")     
 
@@ -179,7 +180,7 @@ endif()
 # ----------------------------------------
 # Android
   
-if(COMPILE_TO_ANDROID)
+if(COMPILE_FOR_ANDROID)
 
   #target_link_libraries(${CMAKE_PROJECT_NAME}  android log)
 

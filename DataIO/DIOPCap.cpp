@@ -31,7 +31,7 @@
 #include "GEN_Defines.h"
 
 
-#ifdef DIOPCAP_ACTIVE
+#ifdef DIO_PCAP_ACTIVE
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 

@@ -19,65 +19,65 @@
 
 //---- INCLUDES ----------------------------------------------------------------------------
 
-#ifdef DIOUART_ACTIVE
+#ifdef DIO_UART_ACTIVE
 #include "DIOStreamUARTConfig.h"
 #include "DIOANDROIDStreamUARTLocalEnumDevices.h"
 #include "DIOANDROIDStreamUART.h"
 #endif
 
-#ifdef DIOUSB_ACTIVE
+#ifdef DIO_USB_ACTIVE
 #include "DIOStreamUSBConfig.h"
 #include "DIOANDROIDStreamUSBLocalEnumDevices.h"
 #include "DIOANDROIDStreamUSB.h"
 #endif
 
-#if defined(DIOICMP_ACTIVE) || defined(DIOUDP_ACTIVE) || defined(DIOTCPIP_ACTIVE)
+#if defined(DIO_ICMP_ACTIVE) || defined(DIO_UDP_ACTIVE) || defined(DIO_TCPIP_ACTIVE)
 #include "DIOANDROIDStreamIPLocalEnumDevices.h"
 #endif
 
-#ifdef DIOICMP_ACTIVE
+#ifdef DIO_ICMP_ACTIVE
 #include "DIOStreamICMPConfig.h"
 #include "DIOANDROIDStreamICMP.h"
 #endif
 
-#ifdef DIOUDP_ACTIVE
+#ifdef DIO_UDP_ACTIVE
 #include "DIOStreamUDPConfig.h"
 #include "DIOANDROIDStreamUDP.h"
 #endif
 
-#ifdef DIOTCPIP_ACTIVE
+#ifdef DIO_TCPIP_ACTIVE
 #include "DIOStreamTCPIPConfig.h"
 #include "DIOANDROIDStreamTCPIP.h"
 #endif
 
-#ifdef DIOBLUETOOTH_ACTIVE
+#ifdef DIO_BLUETOOTH_ACTIVE
 #include "DIOStreamBluetoothConfig.h"
 #include "DIOANDROIDStreamBluetoothLocalEnumDevices.h"
 #include "DIOANDROIDStreamBluetoothRemoteEnumDevices.h"
 #include "DIOANDROIDStreamBluetooth.h"
 #endif
 
-#ifdef DIOWIFI_ACTIVE
+#ifdef DIO_WIFI_ACTIVE
 #include "DIOANDROIDStreamWifiRemoteEnumDevices.h"
 #endif
 
-#ifdef DIOSPI_ACTIVE
+#ifdef DIO_SPI_ACTIVE
 #include "DIOStreamSPIConfig.h"
 #include "DIOANDROIDStreamSPI.h"
 #endif
 
-#ifdef DIOI2C_ACTIVE
+#ifdef DIO_I2C_ACTIVE
 #include "DIOStreamI2CConfig.h"
 #include "DIOANDROIDStreamI2C.h"
 #endif
 
-#ifdef DIOPING_ACTIVE
+#ifdef DIO_PING_ACTIVE
 #include "DIOANDROIDPing.h"
 #endif
-#ifdef DIOPCAP_ACTIVE
+#ifdef DIO_PCAP_ACTIVE
 #include "DIOANDROIDPCap.h"
 #endif
-#ifdef DIOGPIO_ACTIVE
+#ifdef DIO_GPIO_ACTIVE
 #include "DIOANDROIDGPIO.h"
 #endif
 
@@ -115,24 +115,24 @@ DIOSTREAMENUMDEVICES* DIOANDROIDFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTY
 
   switch(type)
     {
-      #ifdef DIOUART_ACTIVE
+      #ifdef DIO_UART_ACTIVE
       case DIOSTREAMENUMTYPE_UART_LOCAL         : _class = new DIOANDROIDSTREAMUARTLOCALENUMDEVICES();                break;
       #endif
 
-      #ifdef DIOUSB_ACTIVE
+      #ifdef DIO_USB_ACTIVE
       case DIOSTREAMENUMTYPE_USB_LOCAL          : _class = new DIOANDROIDSTREAMUSBLOCALENUMDEVICES();                 break;
       #endif
 
-      #if defined(DIOUDP_ACTIVE) || defined(DIOTCPIP_ACTIVE)
+      #if defined(DIO_UDP_ACTIVE) || defined(DIO_TCPIP_ACTIVE)
       case DIOSTREAMENUMTYPE_IP_LOCAL           : _class = new DIOANDROIDSTREAMIPLOCALENUMDEVICES();                  break;
       #endif
 
-      #ifdef DIOBLUETOOTH_ACTIVE
+      #ifdef DIO_BLUETOOTH_ACTIVE
       case DIOSTREAMENUMTYPE_BLUETOOTH_LOCAL    : _class = new DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES();           break;
       case DIOSTREAMENUMTYPE_BLUETOOTH_REMOTE   : _class = new DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES();          break;
       #endif
 
-      #ifdef DIOWIFI_ACTIVE
+      #ifdef DIO_WIFI_ACTIVE
       case DIOSTREAMENUMTYPE_WIFI_REMOTE        : _class = new DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES();               break;
       #endif
     }
@@ -195,35 +195,35 @@ DIOSTREAM* DIOANDROIDFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
     {
       case DIOSTREAMTYPE_UNKNOWN    : return NULL;
 
-      #ifdef DIOUART_ACTIVE
+      #ifdef DIO_UART_ACTIVE
       case DIOSTREAMTYPE_UART       : _class = new DIOANDROIDSTREAMUART();        break;
       #endif
 
-      #ifdef DIOUSB_ACTIVE
+      #ifdef DIO_USB_ACTIVE
       case DIOSTREAMTYPE_USB        : _class = new DIOANDROIDSTREAMUSB();         break;
       #endif
 
-      #ifdef DIOICMP_ACTIVE
+      #ifdef DIO_ICMP_ACTIVE
       case DIOSTREAMTYPE_ICMP       : _class = new DIOANDROIDSTREAMICMP();        break;
       #endif
 
-      #ifdef DIOUDP_ACTIVE
+      #ifdef DIO_UDP_ACTIVE
       case DIOSTREAMTYPE_UDP        : _class = new DIOANDROIDSTREAMUDP();         break;
       #endif
 
-      #ifdef DIOTCPIP_ACTIVE
+      #ifdef DIO_TCPIP_ACTIVE
       case DIOSTREAMTYPE_TCPIP      : _class = new DIOANDROIDSTREAMTCPIP();       break;
       #endif
 
-      #ifdef DIOBLUETOOTH_ACTIVE
+      #ifdef DIO_BLUETOOTH_ACTIVE
       case DIOSTREAMTYPE_BLUETOOTH  : _class = new DIOANDROIDSTREAMBLUETOOTH();   break;
       #endif
 
-      #ifdef DIOSPI_ACTIVE
+      #ifdef DIO_SPI_ACTIVE
       case DIOSTREAMTYPE_SPI        : _class = new DIOANDROIDSTREAMSPI();         break;
       #endif
 
-      #ifdef DIOI2C_ACTIVE
+      #ifdef DIO_I2C_ACTIVE
       case DIOSTREAMTYPE_I2C        : _class = new DIOANDROIDSTREAMI2C();         break;
       #endif
     }
@@ -263,7 +263,7 @@ bool DIOANDROIDFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 
 
 
-#ifdef DIOPING_ACTIVE
+#ifdef DIO_PING_ACTIVE
 /*-------------------------------------------------------------------
 //  DIOANDROIDFACTORY::CreatePing
 */
@@ -315,7 +315,7 @@ bool DIOANDROIDFACTORY::DeletePing(DIOPING* ping)
 
 
 
-#ifdef DIOPCAP_ACTIVE
+#ifdef DIO_PCAP_ACTIVE
 /*-------------------------------------------------------------------
 //  DIOANDROIDFACTORY::CreatePCap
 */
@@ -366,7 +366,7 @@ bool DIOANDROIDFACTORY::DeletePCap(DIOPCAP* pcap)
 
 
 
-#ifdef DIOGPIO_ACTIVE
+#ifdef DIO_GPIO_ACTIVE
 /*-------------------------------------------------------------------
 //  DIOANDROIDFACTORY::CreateGPIO
 */

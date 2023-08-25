@@ -37,9 +37,9 @@
 
 #define VERSION_NAME         "GEN FrameWork"
 #define VERSION_VERSION      0
-#define VERSION_SUBVERSION   14
-#define VERSION_SUBERROR     1
-#define VERSION_CODENAME     "Abdora U6"
+#define VERSION_SUBVERSION   15
+#define VERSION_SUBERROR     0
+#define VERSION_CODENAME     "Deimos F3"
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 

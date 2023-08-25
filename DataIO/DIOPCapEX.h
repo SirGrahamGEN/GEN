@@ -26,7 +26,7 @@
 * 
 * * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifdef DIOPCAP_ACTIVE
+#ifdef DIO_PCAP_ACTIVE
 
 #ifndef _DIOPCAPEX_H_
 #define _DIOPCAPEX_H_

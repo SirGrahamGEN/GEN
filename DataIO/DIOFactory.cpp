@@ -246,7 +246,7 @@ bool DIOFACTORY::DeleteStreamIO(DIOSTREAM* streamio)
 
 
 
-#ifdef DIOWIFIMANAGERMODE_ACTIVE
+#ifdef DIO_WIFIMANAGERMODE_ACTIVE
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -285,7 +285,7 @@ bool DIOFACTORY::DeleteWifiManagerMode(DIOWIFIMANAGERMODE* wifimanagermode)
 
 
 
-#ifdef DIOPING_ACTIVE
+#ifdef DIO_PING_ACTIVE
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -325,7 +325,7 @@ bool DIOFACTORY::DeletePing(DIOPING* ping)
 
 
 
-#ifdef DIOPCAP_ACTIVE
+#ifdef DIO_PCAP_ACTIVE
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -399,7 +399,7 @@ bool DIOFACTORY::DeleteNotificationsManager(DIONOTIFICATIONSMANAGER* notificatio
 
 
 
-#ifdef DIOLEDNEOPIXELWS2812B_ACTIVE 
+#ifdef DIO_LEDNEOPIXELWS2812B_ACTIVE 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 

@@ -1,0 +1,9 @@
+# --------------------------------------------------------------------
+# GEN_CMakeLists_CreateProject.txt
+# Create project for CMake of GEN 
+# --------------------------------------------------------------------
+
+
+ include_directories(${INCLUDES_DIR})
+
+ add_executable(${CMAKE_PROJECT_NAME} ${SOURCES} ${APP_RESOURCE_FILE})

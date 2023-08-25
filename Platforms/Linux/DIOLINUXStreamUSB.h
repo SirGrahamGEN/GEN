@@ -16,7 +16,7 @@
 #define _DIOLINUXSTREAMUSB_H_
 
 
-#if defined(DIO_ACTIVE) && defined(DIOUSB_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_USB_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

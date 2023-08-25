@@ -34,28 +34,28 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#ifdef DIOUART_ACTIVE
+#ifdef DIO_UART_ACTIVE
 #include "DIOStreamUARTConfig.h"
 #include "DIOSTM32StreamUART.h"
 #endif
 
-#ifdef DIOUSB_ACTIVE
+#ifdef DIO_USB_ACTIVE
 #include "DIOStreamUSBConfig.h"
 #include "DIOSTM32StreamUSB.h"
 #endif
 
-#ifdef DIOSPI_ACTIVE
+#ifdef DIO_SPI_ACTIVE
 #include "DIOStreamSPIConfig.h"
 #include "DIOSTM32StreamSPI.h"
 #endif
 
-#ifdef DIOI2C_ACTIVE
+#ifdef DIO_I2C_ACTIVE
 #include "DIOStreamI2CConfig.h"
 #include "DIOSTM32StreamI2C.h"
 #endif
 
 
-#ifdef DIOLEDNEOPIXELWS2812B_ACTIVE 
+#ifdef DIO_LEDNEOPIXELWS2812B_ACTIVE 
 #include "DIOSTM32LedNeoPixelWS2812B.h"
 #endif
 
@@ -93,19 +93,19 @@ DIOSTREAM* DIOSTM32FACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
       case DIOSTREAMTYPE_UNKNOWN    :
                           default   : return NULL;
 
-      #ifdef DIOUART_ACTIVE
+      #ifdef DIO_UART_ACTIVE
       case DIOSTREAMTYPE_UART       : _class = new DIOSTM32STREAMUART();        break;
       #endif
 
-      #ifdef DIOUSB_ACTIVE
+      #ifdef DIO_USB_ACTIVE
       case DIOSTREAMTYPE_USB        : _class = new DIOSTM32STREAMUSB();         break;
       #endif
 
-      #ifdef DIOSPI_ACTIVE
+      #ifdef DIO_SPI_ACTIVE
       case DIOSTREAMTYPE_SPI        : _class = new DIOSTM32STREAMSPI();         break;
       #endif
 
-      #ifdef DIOI2C_ACTIVE
+      #ifdef DIO_I2C_ACTIVE
       case DIOSTREAMTYPE_I2C        : _class = new DIOSTM32STREAMI2C();         break;
       #endif
     }
@@ -143,7 +143,7 @@ bool DIOSTM32FACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 
 
 
-#ifdef DIOLEDNEOPIXELWS2812B_ACTIVE 
+#ifdef DIO_LEDNEOPIXELWS2812B_ACTIVE 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 

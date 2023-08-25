@@ -1,0 +1,37 @@
+# --------------------------------------------------------------------
+# GEN_CMakeLists_Main_Part_DebugMemCtrl.txt
+# Main Part: Debug management part and memory control
+# --------------------------------------------------------------------
+
+
+# --------------------------------------------------------------------
+# Debug / Release 
+  
+if(DEBUG_FEATURE)
+
+  add_definitions(-D_DEBUG)
+
+  set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build." FORCE)
+  set(CMAKE_CONFIGURATION_TYPES Debug CACHE STRING "Choose the type of build." FORCE)    
+
+else()
+
+  set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
+  set(CMAKE_CONFIGURATION_TYPES Release CACHE STRING "Choose the type of build." FORCE)      
+
+endif()
+  
+message(STATUS "[GEN Setting build type to ${CMAKE_BUILD_TYPE} specified]")
+
+
+# --------------------------------------------------------------------
+# Memory control 
+
+if(XMEMORY_CONTROL_FEATURE)
+
+  add_definitions(-DXMEMORY_CONTROL_ACTIVE)
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XMemory_Control.cpp")
+
+endif()
+
+

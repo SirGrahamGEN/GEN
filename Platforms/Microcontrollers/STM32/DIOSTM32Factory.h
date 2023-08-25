@@ -49,7 +49,7 @@ class DIOSTM32FACTORY : public DIOFACTORY
     virtual bool                          DeleteStreamIO                (DIOSTREAM* diostream);
     #endif
     
-    #ifdef DIOLEDNEOPIXELWS2812B_ACTIVE    
+    #ifdef DIO_LEDNEOPIXELWS2812B_ACTIVE    
     virtual DIOLEDNEOPIXELWS2812B*        CreateLedNeopixelWS2812B      ();
     virtual bool                          DeleteLedNeopixelWS2812B      (DIOLEDNEOPIXELWS2812B* ledneopixelws2812b);
     #endif

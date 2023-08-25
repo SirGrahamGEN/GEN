@@ -15,7 +15,7 @@
 #ifndef _DIOLINUXSTREAMWIFIREMOTEENUMDEVICES_H_
 #define _DIOLINUXSTREAMWIFIREMOTEENUMDEVICES_H_
 
-#if defined(DIO_ACTIVE) && defined(DIOWIFI_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_WIFI_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

@@ -39,17 +39,17 @@ class DIOANDROIDFACTORY : public DIOFACTORY
     bool                      DeleteStreamIO              (DIOSTREAM* diostream);
     #endif
 
-    #ifdef DIOPING_ACTIVE
+    #ifdef DIO_PING_ACTIVE
     DIOPING*                  CreatePing                  ();
     bool                      DeletePing                  (DIOPING* ping);
     #endif
 
-    #ifdef DIOPCAP_ACTIVE
+    #ifdef DIO_PCAP_ACTIVE
     virtual DIOPCAP*          CreatePCap                  ();
     virtual bool              DeletePCap                  (DIOPCAP* pcap);
     #endif
 
-    #ifdef DIOGPIO_ACTIVE
+    #ifdef DIO_GPIO_ACTIVE
     DIOGPIO*                  CreateGPIO                  ();
     bool                      DeleteGPIO                  (DIOGPIO* gpio);
     #endif

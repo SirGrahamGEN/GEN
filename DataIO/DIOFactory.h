@@ -40,7 +40,7 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-#if (defined(DIOUART_ACTIVE) || defined(DIOUSB_ACTIVE) || defined(DIOICMP_ACTIVE) || defined(DIOUDP_ACTIVE) || defined(DIOTCPIP_ACTIVE)  || defined(DIOBLUETOOTH_ACTIVE) || defined(DIOBLUETOOTHLE_ACTIVE) || defined(DIOSPI_ACTIVE) || defined(DIOI2C_ACTIVE))
+#if (defined(DIO_UART_ACTIVE) || defined(DIO_USB_ACTIVE) || defined(DIO_ICMP_ACTIVE) || defined(DIO_UDP_ACTIVE) || defined(DIO_TCPIP_ACTIVE)  || defined(DIO_BLUETOOTH_ACTIVE) || defined(DIO_BLUETOOTHLE_ACTIVE) || defined(DIO_SPI_ACTIVE) || defined(DIO_I2C_ACTIVE))
 #define ANYTYPEOFDIOSTREAMIO
 #endif
 
@@ -81,17 +81,17 @@ class DIOFACTORY
     virtual bool                          DeleteStreamIO              (DIOSTREAM* streamio);
     #endif
 
-    #ifdef DIOWIFIMANAGERMODE_ACTIVE
+    #ifdef DIO_WIFIMANAGERMODE_ACTIVE
     virtual DIOWIFIMANAGERMODE*           CreateWifiManagerMode       ();
     virtual bool                          DeleteWifiManagerMode       (DIOWIFIMANAGERMODE* wifimanagermode);
     #endif
 
-    #ifdef DIOPING_ACTIVE
+    #ifdef DIO_PING_ACTIVE
     virtual DIOPING*                      CreatePing                  ();
     virtual bool                          DeletePing                  (DIOPING* ping);
     #endif
 
-    #ifdef DIOPCAP_ACTIVE
+    #ifdef DIO_PCAP_ACTIVE
     virtual DIOPCAP*                      CreatePCap                  ();
     virtual bool                          DeletePCap                  (DIOPCAP* pcap);
     #endif
@@ -99,7 +99,7 @@ class DIOFACTORY
     virtual DIONOTIFICATIONSMANAGER*      CreateNotificationsManager  ();
     virtual bool                          DeleteNotificationsManager  (DIONOTIFICATIONSMANAGER* notificationsmanager);
 
-    #ifdef DIOLEDNEOPIXELWS2812B_ACTIVE    
+    #ifdef DIO_LEDNEOPIXELWS2812B_ACTIVE    
     virtual DIOLEDNEOPIXELWS2812B*        CreateLedNeopixelWS2812B    ();
     virtual bool                          DeleteLedNeopixelWS2812B    (DIOLEDNEOPIXELWS2812B* ledneopixelws2812b);
     #endif

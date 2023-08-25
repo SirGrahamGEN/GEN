@@ -295,7 +295,7 @@ class XTRACE_TARGET
     void                            AddNSendings                      ();
 
 
-    #if (defined(DIO_ACTIVE) && defined(DIOUDP_ACTIVE))
+    #if (defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
     
     XWORD                           GetPort                           ();
     void                            SetPort                           (XWORD port);
@@ -317,7 +317,7 @@ class XTRACE_TARGET
     XCHAR                           aim[_MAXSTR];
     XDWORD                          nsendings;
 
-    #if (defined(DIO_ACTIVE) && defined(DIOUDP_ACTIVE))
+    #if (defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
 
     XWORD                           port;
     char                            IP[_MAXSTR];

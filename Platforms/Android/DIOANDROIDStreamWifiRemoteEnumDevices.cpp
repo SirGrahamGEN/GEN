@@ -16,7 +16,7 @@
 #include "GEN_Defines.h"
 
 
-#if defined(DIO_ACTIVE) && defined(DIOWIFI_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_WIFI_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

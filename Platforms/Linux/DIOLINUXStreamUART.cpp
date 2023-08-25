@@ -15,7 +15,7 @@
 #include "GEN_Defines.h"
 
 
-#if defined(DIO_ACTIVE) && defined(DIOUART_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_UART_ACTIVE)
 
 
 //---- INCLUDES ----------------------------------------------------------------------------

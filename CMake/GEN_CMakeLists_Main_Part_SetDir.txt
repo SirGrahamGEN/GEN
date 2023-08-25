@@ -1,6 +1,6 @@
 # --------------------------------------------------------------------
-# GEN_Block_SetDir.txt
-# GEN FrameWork Set directories and Includes.
+# GEN__CMakeLists_Main_Part_SetDir.txt
+# Main Part: defining paths to includes, libraries and source modules
 # --------------------------------------------------------------------
 
 # --------------------------------------------------------------------
@@ -167,98 +167,58 @@ list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_GOOGLETEST_INCLUDE}
 list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_GOOGLETEST_SOURCES})
 list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NAMEOF})
 
-if(COMPILE_TO_WINDOWS)
 
-  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_TOAST})
-  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_STACKWALKER})
+# Windows
 
-
-  if(DIO_PCAP_FEATURE)
+ list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_TOAST})
+ list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_STACKWALKER})
   
-    list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_LIB})
-    list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_INCLUDE})
+ list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_LIB})
+ list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_INCLUDE})
 	
-  endif()
-
-endif()  
-
-if(COMPILE_TO_LINUX)
-
-  if(LINUX_X11_FEATURE)     
   
-    #list(APPEND INCLUDES_DIR "../../../../../../usr/include")
-    #message(${INCLUDES_DIR})
+# Linux
+
+ list(APPEND INCLUDES_DIR "/usr/include/dbus-1.0")
+ list(APPEND INCLUDES_DIR "/usr/lib/x86_64-linux-gnu/dbus-1.0/include")
+	 
+ list(APPEND INCLUDES_DIR "/usr/include/libnm")
+ list(APPEND INCLUDES_DIR "/usr/include/glib-2.0")
+ list(APPEND INCLUDES_DIR "/usr/lib/x86_64-linux-gnu/glib-2.0/include")
+	  
+ list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPCAP})
 	
-  endif()
-
-  
-  if(INP_FEATURE)  
-
-    option(GRP_FEATURE      "Graphics"                true )
-    option(GRP_2D_FEATURE   "Activate Graphics 2D"    true )
-  
-  endif()
-
-  if(DIO_LINUX_DBUS_FEATURE)  
-  
-    list(APPEND INCLUDES_DIR "/usr/include/dbus-1.0")
-    list(APPEND INCLUDES_DIR "/usr/lib/x86_64-linux-gnu/dbus-1.0/include")
+ list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_RPI_WS281X})
 	
-  endif()
-
-
-  if(DIO_LINUX_NETWORKMANAGER_FEATURE)         
-  
-    list(APPEND INCLUDES_DIR "/usr/include/libnm")
-    list(APPEND INCLUDES_DIR "/usr/include/glib-2.0")
-    list(APPEND INCLUDES_DIR "/usr/lib/x86_64-linux-gnu/glib-2.0/include")
-	
-  endif()
-
-  if(DIO_PCAP_FEATURE)
-  
-    list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_LIBPCAP})
-	
-  endif()  
  
-  if(DIO_LEDNEOPIXELWS2812B_FEATURE)
-  
-    list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_RPI_WS281X})
-	
-  endif()
+# Android
  
-endif()
-
-
-if(COMPILE_TO_ANDROID)
- 
-  list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_ANDROID_GLUE})
+ list(APPEND INCLUDES_DIR ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_ANDROID_GLUE})
 	
-endif()
-
 
 # --------------------------------------------------------------------
-# Add DIR Libraries of ThirdPartyLibraries
+# Add Directories Libraries of ThirdPartyLibraries
 
-if(COMPILE_TO_WINDOWS)
-
-  if(COMPILE_TO_WINDOWS_PC_32)
+ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+  
+  # Windows 32
+  if(CMAKE_SIZEOF_VOID_P EQUAL 4)
   
     list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/OpenAL/sdk/libs/Win32")
     list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/mysql-connector-c/libmysql/mysql-connector-c-6.1.11-win32/lib")
     list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/postgresql/Release/libpq/lib_32")  
-	
+
   endif()
-
-
-  if(COMPILE_TO_WINDOWS_PC_64)    
-  
+	
+  # Windows 64  
+  if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    
     list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/OpenAL/sdk/libs/Win64")
     list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/mysql-connector-c/libmysql/mysql-connector-c-6.1.11-winx64/lib")
     list(APPEND LIBRARIES_DIR  "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/postgresql/Release/libpq/lib_64")  
-	
-  endif()
 
+  endif()
+	
   link_directories(${LIBRARIES_DIR})
 
 endif()

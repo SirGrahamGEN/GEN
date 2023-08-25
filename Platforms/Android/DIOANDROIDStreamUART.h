@@ -15,7 +15,7 @@
 #ifndef _DIOANDROIDSTREAMUART_H_
 #define _DIOANDROIDSTREAMUART_H_
 
-#if defined(DIO_ACTIVE) && defined(DIOUART_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_UART_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

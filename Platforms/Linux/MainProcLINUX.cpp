@@ -102,7 +102,7 @@
 #include "DIODNSResolved.h"
 #include "DIOLINUXFactory.h"
 
-  #ifdef DIOGPIO_ACTIVE
+  #ifdef DIO_GPIO_ACTIVE
 
     #include "DIOLINUXGPIO.h"
 
@@ -122,7 +122,7 @@
 
   #endif
 
-  #ifdef DIOALERTS_ACTIVE
+  #ifdef DIO_ALERTS_ACTIVE
   #include "DIOAlerts.h"
   #endif
 #endif
@@ -410,7 +410,7 @@ bool MAINPROCLINUX::Factorys_Ini()
   #ifdef DIO_ACTIVE
   if(!DIOFACTORY::SetInstance(new DIOLINUXFACTORY())) return false;
   
-    #ifdef DIOGPIO_ACTIVE
+    #ifdef DIO_GPIO_ACTIVE
 
       #ifdef HW_PC
         #ifdef DIO_GPIO_PCPARALLEL_ACTIVE
@@ -465,7 +465,7 @@ bool MAINPROCLINUX::Factorys_End()
   #endif
 
   #ifdef DIO_ACTIVE
-  #ifdef DIOGPIO_ACTIVE
+  #ifdef DIO_GPIO_ACTIVE
   if(DIOGPIO::GetIsInstanced())
     {
       DIOGPIO::GetInstance().End();
@@ -473,7 +473,7 @@ bool MAINPROCLINUX::Factorys_End()
     }
   #endif
 
-  #ifdef DIOUDP_ACTIVE
+  #ifdef DIO_UDP_ACTIVE
   DIODNSRESOLVED::DelInstance();
   #endif
 
@@ -493,7 +493,7 @@ bool MAINPROCLINUX::Factorys_End()
     }
   #endif
 
-  #ifdef DIOALERTS_ACTIVE
+  #ifdef DIO_ALERTS_ACTIVE
   DIOALERTS::DelInstance();
   #endif 
 
@@ -915,7 +915,7 @@ static void Signal_Handler(int sig)
 
                           string.Format(__L("SIGNAL %s: %s"), signalstr.Get(), description.Get());
 
-                          #ifdef DIOALERTS_ACTIVE
+                          #ifdef DIO_ALERTS_ACTIVE
                           DIOALERT* alert = GEN_DIOALERTS.CreateAlert(DIOALERTLEVEL_DANGER, string.Get(), allexceptiontext.Get());
                           if(alert)
                             {

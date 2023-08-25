@@ -26,7 +26,7 @@
 * 
 * * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifdef DIOPCAP_ACTIVE
+#ifdef DIO_PCAP_ACTIVE
 
 #ifndef _DIOWINDOWSPCAP_H_
 #define _DIOWINDOWSPCAP_H_

@@ -51,22 +51,22 @@ class DIOLINUXFACTORY : public DIOFACTORY
     bool                                  DeleteStreamIO              (DIOSTREAM* diostream);
     #endif
 
-    #ifdef DIOWIFIMANAGERMODE_ACTIVE
+    #ifdef DIO_WIFIMANAGERMODE_ACTIVE
     DIOWIFIMANAGERMODE*                   CreateWifiManagerMode       ();
     virtual bool                          DeleteWifiManagerMode       (DIOWIFIMANAGERMODE* wifimanagermode);
     #endif
 
-    #ifdef DIOPING_ACTIVE
+    #ifdef DIO_PING_ACTIVE
     DIOPING*                              CreatePing                  ();
     bool                                  DeletePing                  (DIOPING* ping);
     #endif
 
-    #ifdef DIOPCAP_ACTIVE
+    #ifdef DIO_PCAP_ACTIVE
     virtual DIOPCAP*                      CreatePCap                  ();
     virtual bool                          DeletePCap                  (DIOPCAP* pcap);
     #endif   
 
-    #ifdef DIOLEDNEOPIXELWS2812B_ACTIVE    
+    #ifdef DIO_LEDNEOPIXELWS2812B_ACTIVE    
     virtual DIOLEDNEOPIXELWS2812B*        CreateLedNeopixelWS2812B    ();
     virtual bool                          DeleteLedNeopixelWS2812B    (DIOLEDNEOPIXELWS2812B* ledneopixelws2812b);
     #endif

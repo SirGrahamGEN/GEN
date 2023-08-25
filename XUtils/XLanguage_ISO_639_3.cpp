@@ -50,7 +50,7 @@ XLANGUAGE_ISO_639_3_ENTRY  iso_639_3_entry[] = {   {  XLANGUAGE_ISO_639_3_CODE_E
                                                    {  XLANGUAGE_ISO_639_3_CODE_AMH,  __L("amh")   ,  __L("am")   ,  __L("Amharic")               , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_ARA,  __L("ara")   ,  __L("ar")   ,  __L("Arabic")                , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_ARG,  __L("arg")   ,  __L("an")   ,  __L("Aragonese")             , __L("")                   , __L("")                       },
-                                                   {  XLANGUAGE_ISO_639_3_CODE_ARM,  __L("arm")   ,  __L("hy")   ,  __L("Armenia")               , __L("")                   , __L("")                       },
+                                                   {  XLANGUAGE_ISO_639_3_CODE_ARM,  __L("ARM")   ,  __L("hy")   ,  __L("Armenia")               , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_ASM,  __L("asm")   ,  __L("as")   ,  __L("Assamese")              , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_AVA,  __L("ava")   ,  __L("av")   ,  __L("Avaric")                , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_AVE,  __L("ave")   ,  __L("ae")   ,  __L("Avestan")               , __L("")                   , __L("")                       },

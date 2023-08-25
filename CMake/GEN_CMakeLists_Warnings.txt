@@ -1,5 +1,6 @@
 # --------------------------------------------------------------------
-# CMakeLists_Warning.txt to GEN FrameWork
+# GEN_CMakeLists_Libraries.txt
+# Main Part: Warning (for compile) of GEN 
 # --------------------------------------------------------------------
 
 

@@ -34,7 +34,7 @@
 #include "XBase.h"
 #include "XString.h"
 
-#ifdef DIOALERTS_ACTIVE
+#ifdef DIO_ALERTS_ACTIVE
 #include "DIOAlerts.h"
 #endif
 
@@ -51,7 +51,7 @@ class DIOPROTOCOL_APPLICATIONDATA
                                         DIOPROTOCOL_APPLICATIONDATA         ();
     virtual                            ~DIOPROTOCOL_APPLICATIONDATA         ();
 
-    #ifdef DIOALERTS_ACTIVE
+    #ifdef DIO_ALERTS_ACTIVE
     bool                                AddAlert                            (DIOALERT& alert);
     bool                                ExtractAlert                        (int index, DIOALERT& alert);
     bool                                DeleteAllAlerts                     ();
@@ -74,7 +74,7 @@ class DIOPROTOCOL_APPLICATIONDATA
 
     XMUTEX*                             xmutexalert;
 
-    #ifdef DIOALERTS_ACTIVE
+    #ifdef DIO_ALERTS_ACTIVE
     XVECTOR<DIOALERT*>                  alerts;
     #endif
 };

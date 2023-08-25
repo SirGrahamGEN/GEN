@@ -38,7 +38,7 @@
 #include <string.h>
 
 #include "XBase.h"
-#ifndef MICROCONTROLLER
+#ifdef XFILE_ACTIVE
 #include "XFileJSON.h"
 #endif
 #include "XTranslation_GEN.h"
@@ -123,7 +123,7 @@ bool XTRANSLATION::DelInstance()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-#ifndef MICROCONTROLLER
+#ifdef XFILE_ACTIVE
 bool XTRANSLATION::Ini(XPATH& xpath)
 {
    this->xpath = xpath;
@@ -311,7 +311,7 @@ XTRANSLATION::~XTRANSLATION()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::LoadLanguageAvailable()
 {
-  #ifndef MICROCONTROLLER
+  #ifdef XFILE_ACTIVE
 
   XFILEJSON xfilejson;
 
@@ -451,7 +451,7 @@ int XTRANSLATION::GetIndexLanguageByCode(XDWORD code)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::Translate_Load()
 {
-  #ifndef MICROCONTROLLER
+  #ifdef XFILE_ACTIVE
 
   XFILEJSON xfilejson;
 

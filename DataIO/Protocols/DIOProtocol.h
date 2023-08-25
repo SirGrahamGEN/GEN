@@ -40,7 +40,7 @@
 #include "XBuffer.h"
 
 #include "DIOStream.h"
-#ifdef DIOALERTS_ACTIVE
+#ifdef DIO_ALERTS_ACTIVE
 #include "DIOAlerts.h"
 #endif
 
@@ -398,7 +398,7 @@ class DIOPROTOCOL : public XSUBJECT
      bool                                     CMD_GetDirElement               (XCHAR* pathsearch, XCHAR* mask, XPATH& namefile, XBYTE& type, int& size, XDWORD& CRC32);
      static int                               RCV_GetDirElement               (DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param);
 
-     #ifdef DIOALERTS_ACTIVE
+     #ifdef DIO_ALERTS_ACTIVE
      bool                                     CMD_SendAlert                   (DIOALERT* alert);
      static int                               RCV_SendAlert                   (DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param);
      #endif

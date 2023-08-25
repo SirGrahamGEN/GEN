@@ -15,7 +15,7 @@
 #ifndef _DIOANDROIDSTREAMICMP_H_
 #define _DIOANDROIDSTREAMICMP_H_
 
-#if defined(DIO_ACTIVE) && defined(DIOICMP_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_ICMP_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

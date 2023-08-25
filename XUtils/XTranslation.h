@@ -65,7 +65,7 @@ class XTRANSLATION
     static XTRANSLATION&              GetInstance                         ();
     static bool                       DelInstance                         ();
 
-    #ifndef MICROCONTROLLER
+    #ifdef XFILE_ACTIVE
     bool                              Ini                                 (XPATH& xpath);
     #else
     bool                              Ini                                 ();
@@ -98,7 +98,7 @@ class XTRANSLATION
 
     static XTRANSLATION*              instance;
 
-    #ifndef MICROCONTROLLER
+    #ifdef XFILE_ACTIVE
     XPATH                             xpath;
     #endif
     XDWORD                            code;

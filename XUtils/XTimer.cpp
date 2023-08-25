@@ -41,6 +41,7 @@
 #include "XBase.h"
 #include "XFactory.h"
 #include "XDateTime.h"
+#include "XTranslation.h"
 #include "XTranslation_GEN.h"
 
 #include "XTimer.h"

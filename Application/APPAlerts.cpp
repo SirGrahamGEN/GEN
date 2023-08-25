@@ -31,7 +31,7 @@
 #include "GEN_Defines.h"
 
 
-#ifdef DIOALERTS_ACTIVE
+#ifdef DIO_ALERTS_ACTIVE
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -141,7 +141,7 @@ bool APPALERTS::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int app
       nrecipients[c] = 0;
     }
 
-  #ifdef DIOALERTS_ACTIVE
+  #ifdef DIO_ALERTS_ACTIVE
 
   if(!cfg->Alerts_IsActive()) return false;
   if(!GEN_DIOALERTS.Ini())    return false;

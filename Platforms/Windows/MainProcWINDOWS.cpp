@@ -93,14 +93,14 @@
 #include "DIODNSResolved.h"
 #include "DIOWINDOWSFactory.h"
 
-  #ifdef DIOGPIO_ACTIVE
+  #ifdef DIO_GPIO_ACTIVE
   #include "DIOGPIO.h"
     #ifdef DIO_GPIO_PCPARALLEL_ACTIVE
     #include "DIOWINDOWSGPIOPCParallel.h"
     #endif   
   #endif
 
-  #ifdef DIOALERTS_ACTIVE
+  #ifdef DIO_ALERTS_ACTIVE
   #include "DIOAlerts.h"
   #endif
 
@@ -197,7 +197,7 @@ bool MAINPROCWINDOWS::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applica
 
   //---------------------------------------------------------------------------
 
-  #if  defined(XTRACE_ACTIVE) ||  defined(DIO_ACTIVE) || defined(DIOUDP_ACTIVE) || defined(DIOTCPIP_ACTIVE) || defined(DIOBLUETOOTH_ACTIVE)
+  #if  defined(XTRACE_ACTIVE) ||  defined(DIO_ACTIVE) || defined(DIO_UDP_ACTIVE) || defined(DIO_TCPIP_ACTIVE) || defined(DIO_BLUETOOTH_ACTIVE)
   XWORD   versionrequested = WINSOCK_VERSION;
   WSADATA data;
   int     error = false;
@@ -359,7 +359,7 @@ bool MAINPROCWINDOWS::End()
   XMEMORY_CONTROL_DEACTIVATED
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
 
-  #if defined(XTRACE_ACTIVE) || defined(DIO_ACTIVE) || defined(DIOUDP_ACTIVE) || defined(DIOTCPIP_ACTIVE) || defined(DIOBLUETOOTH_ACTIVE)
+  #if defined(XTRACE_ACTIVE) || defined(DIO_ACTIVE) || defined(DIO_UDP_ACTIVE) || defined(DIO_TCPIP_ACTIVE) || defined(DIO_BLUETOOTH_ACTIVE)
   WSACleanup();
   #endif
 
@@ -420,7 +420,7 @@ bool MAINPROCWINDOWS::Factorys_Ini()
   #ifdef DIO_ACTIVE
   if(!DIOFACTORY::SetInstance(new DIOWINDOWSFACTORY())) return false;
   
-    #ifdef DIOGPIO_ACTIVE
+    #ifdef DIO_GPIO_ACTIVE
       #ifdef DIO_GPIO_PCPARALLEL_ACTIVE
       if(!DIOGPIO::SetInstance(new DIOWINDOWSGPIOPCPARALLEL())) return false;    
       if(!DIOGPIO::GetInstance().Ini()) return false;
@@ -462,7 +462,7 @@ bool MAINPROCWINDOWS::Factorys_End()
   #endif
 
   #ifdef DIO_ACTIVE
-  #ifdef DIOGPIO_ACTIVE
+  #ifdef DIO_GPIO_ACTIVE
   if(DIOGPIO::GetIsInstanced())
     {
       DIOGPIO::GetInstance().End();
@@ -470,7 +470,7 @@ bool MAINPROCWINDOWS::Factorys_End()
     }
   #endif
 
-  #ifdef DIOUDP_ACTIVE
+  #ifdef DIO_UDP_ACTIVE
   DIODNSRESOLVED::DelInstance();
   #endif
 
@@ -490,7 +490,7 @@ bool MAINPROCWINDOWS::Factorys_End()
     }
   #endif
 
-  #ifdef DIOALERTS_ACTIVE
+  #ifdef DIO_ALERTS_ACTIVE
   DIOALERTS::DelInstance();
   #endif 
 
@@ -517,8 +517,13 @@ bool MAINPROCWINDOWS::Factorys_End()
 
   XPATHSMANAGER::DelInstance();
 
+  #ifdef XTRANSLATION_ACTIVE
   XTRANSLATION::DelInstance();
+  #endif  
+  
+  #ifdef XTRANSLATION_GEN_ACTIVE
   XTRANSLATION_GEN::DelInstance();
+  #endif  
 
   XRAND::DelInstance();
 
@@ -1548,7 +1553,7 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
 
                                                   string.Format(__L("EXCEPTION %s"), exception.Get());
 
-                                                  #ifdef DIOALERTS_ACTIVE
+                                                  #ifdef DIO_ALERTS_ACTIVE
                                                   DIOALERT* alert = GEN_DIOALERTS.CreateAlert(DIOALERTLEVEL_DANGER, string.Get(), allexceptiontext->Get());
                                                   if(alert)
                                                     {

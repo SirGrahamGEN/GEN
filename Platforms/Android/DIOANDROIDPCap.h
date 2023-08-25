@@ -12,7 +12,7 @@
 /*  GEN  Copyright (C).  All right reserved.
 //----------------------------------------------------------------------------------------*/
 
-#ifdef DIOPCAP_ACTIVE
+#ifdef DIO_PCAP_ACTIVE
 
 #ifndef _DIOANDROIDPCAP_H_
 #define _DIOANDROIDPCAP_H_

@@ -48,7 +48,7 @@
 #ifdef DIO_ACTIVE
 #include "DIOSTM32Factory.h"
 
-  #ifdef DIOGPIO_ACTIVE
+  #ifdef DIO_GPIO_ACTIVE
   #include "DIOGPIO.h"
   #include "DIOSTM32GPIO.h"
   #endif
@@ -270,7 +270,7 @@ bool MAINPROCSTM32::Factorys_Ini()
   DIOFACTORY::SetInstance(new DIOSTM32FACTORY());
   if(!DIOFACTORY::GetIsInstanced()) return false;
 
-    #ifdef DIOGPIO_ACTIVE
+    #ifdef DIO_GPIO_ACTIVE
     DIOGPIO::SetInstance(new DIOSTM32GPIO());
     if(!DIOGPIO::GetIsInstanced()) return false;
 
@@ -298,7 +298,7 @@ bool MAINPROCSTM32::Factorys_End()
 {
   #ifdef DIO_ACTIVE
 
-    #ifdef DIOGPIO_ACTIVE
+    #ifdef DIO_GPIO_ACTIVE
     if(DIOGPIO::GetIsInstanced())
       {
         DIOGPIO::GetInstance().End();

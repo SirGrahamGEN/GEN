@@ -67,7 +67,7 @@
 #ifdef DIO_ACTIVE
 #include "DIODNSResolved.h"
 #include "DIOANDROIDFactory.h"
-  #ifdef DIOALERTS_ACTIVE
+  #ifdef DIO_ALERTS_ACTIVE
   #include "DIOAlerts.h"
   #endif
 #endif
@@ -1189,7 +1189,7 @@ bool MAINPROCANDROID::Factorys_End()
   #endif
 
   #ifdef DIO_ACTIVE
-  #ifdef DIOGPIO_ACTIVE
+  #ifdef DIO_GPIO_ACTIVE
   if(DIOGPIO::GetIsInstanced())
     {
       DIOGPIO::GetInstance().End();
@@ -1197,7 +1197,7 @@ bool MAINPROCANDROID::Factorys_End()
     }
   #endif
 	
-	#ifdef DIOUDP_ACTIVE
+	#ifdef DIO_UDP_ACTIVE
 	DIODNSRESOLVED::DelInstance();
 	#endif 
 	
@@ -1217,7 +1217,7 @@ bool MAINPROCANDROID::Factorys_End()
     }
   #endif
 
-  #ifdef DIOALERTS_ACTIVE
+  #ifdef DIO_ALERTS_ACTIVE
   DIOALERTS::DelInstance();
   #endif
 

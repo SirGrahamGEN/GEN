@@ -31,7 +31,7 @@
 #include "GEN_Defines.h"
 
 
-#ifdef DIOALERTS_ACTIVE
+#ifdef DIO_ALERTS_ACTIVE
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 

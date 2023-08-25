@@ -29,7 +29,7 @@
 #ifndef _DIOESP32STREAMI2C_H_
 #define _DIOESP32STREAMI2C_H_
 
-#if defined(DIO_ACTIVE) && defined(DIOI2C_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_I2C_ACTIVE)
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 

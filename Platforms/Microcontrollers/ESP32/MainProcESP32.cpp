@@ -53,7 +53,7 @@
 #ifdef DIO_ACTIVE
 #include "DIOESP32Factory.h"
 
-  #ifdef DIOGPIO_ACTIVE
+  #ifdef DIO_GPIO_ACTIVE
   #include "DIOGPIO.h"
   #include "DIOESP32GPIO.h"
   #endif
@@ -81,7 +81,7 @@
 #ifdef XTRACE_ACTIVE
 XESP32TRACE      ESP32trace;
 #endif
-MAINPROCESP32    mainprocstm32;
+MAINPROCESP32    mainprocesp32;
 
 #pragma endregion
 
@@ -276,7 +276,7 @@ bool MAINPROCESP32::Factorys_Ini()
   DIOFACTORY::SetInstance(new DIOESP32FACTORY());
   if(!DIOFACTORY::GetIsInstanced()) return false;
 
-    #ifdef DIOGPIO_ACTIVE
+    #ifdef DIO_GPIO_ACTIVE
     DIOGPIO::SetInstance(new DIOESP32GPIO());
     if(!DIOGPIO::GetIsInstanced()) return false;
 
@@ -302,7 +302,7 @@ bool MAINPROCESP32::Factorys_End()
 {
   #ifdef DIO_ACTIVE
 
-    #ifdef DIOGPIO_ACTIVE
+    #ifdef DIO_GPIO_ACTIVE
     if(DIOGPIO::GetIsInstanced())
       {
         DIOGPIO::GetInstance().End();
@@ -385,16 +385,21 @@ int main()
 {
   int status = 0;
 
-  if(mainprocstm32.Ini(&GEN_appmain))
+  
+  #ifdef APP_ACTIVE
+  if(!mainprocesp32.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_APPLICATION))
+  #else
+  if(!mainprocesp32.Ini())
+  #endif
     {
-      while(mainprocstm32.Update())
+      while(mainprocesp32.Update())
         {
 
         }
 
     } else status = 1;
 
-  if(!mainprocstm32.End()) status = 1;
+  if(!mainprocesp32.End()) status = 1;
 
   return status;
 }

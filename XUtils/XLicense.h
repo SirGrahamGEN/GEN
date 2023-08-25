@@ -81,7 +81,6 @@ enum XLICENSEXEVENT_TYPE
                                                                                                 if(status)  status = xlicense->LoadFromFile(xpath, appID, &license);                \
                                                                                                 if(status)  status = license.Compare(xlicense->Get());                              \
                                                                                                 if(!status) xlicense->SetEvent(XLICENSEXEVENT_TYPE_INVALID);                        \
-                                                                                                #endif                                                                              \
                                                                                               }
 
   #define CHECKLICENSEFULLLOCALEXPIRE(xlicense, xpath, applicationID)                         {                                                                                     \

@@ -29,7 +29,7 @@
 #ifndef _APPALERTS_H_
 #define _APPALERTS_H_
 
-#ifdef DIOALERTS_ACTIVE
+#ifdef DIO_ALERTS_ACTIVE
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 

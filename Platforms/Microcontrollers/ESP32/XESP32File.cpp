@@ -1,38 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XESP32File.cpp
-*
+* 
 * @class      XESP32FILE
-* @brief      eXtended ESP32 File class (Use FatFs - Generic FAT file system module)
+* @brief      eXtended ESP32 File class
 * @ingroup    PLATFORM_ESP32
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
+#include "XESP32File.h"
 
 #include "XPath.h"
 #include "XString.h"
@@ -40,14 +45,19 @@
 
 #include "Cipher.h"
 
-#include "XESP32File.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -62,19 +72,7 @@
 XESP32FILE::XESP32FILE(): XFILE()
 {
   Clean();
-  
-  XSTRING root;
-  
-  root = __L("/");
-    
-  XBUFFER xbufferexchange;
-  root.ConvertToBufferExchange(xbufferexchange);
-  
-  fresult = f_mount(&userFATFS, xbufferexchange.Get(), 1);
-    
-  if(fresult == FR_OK) ismount = true; 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -93,7 +91,6 @@ XESP32FILE::~XESP32FILE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XESP32FILE::Exist(XCHAR* path)
@@ -107,27 +104,10 @@ XESP32FILE::~XESP32FILE()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XESP32FILE::Exist(XCHAR* path)
 {  
-  if(!ismount) return false;
-  
-  XSTRING pathstring;
-  bool    status;
-
-  pathstring = path;
-  if(pathstring.IsEmpty()) return false; 
-  
-  XBUFFER xbufferexchange;
-  pathstring.ConvertToBufferExchange(xbufferexchange);
-
-  fresult = f_stat(xbufferexchange.Get(), &fileinfo);			
-  
-  cachesize =0;
-  if(fresult == FR_OK) cachesize = (XQWORD)fileinfo.fsize;  
-  
-  status = (fresult == FR_OK)?true:false;  
-   
+  bool status = false;
+ 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -144,35 +124,10 @@ bool XESP32FILE::Exist(XCHAR* path)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XESP32FILE::Open(XCHAR* path, bool isreadonly)
 {
-  if(!ismount) return false;
-  
-  XSTRING pathstring;
-  bool    status;
-
-  pathstring = path;
-  if(pathstring.IsEmpty()) return false; 
-
-  XBYTE mode  = (FA_OPEN_ALWAYS | FA_READ);
-    
-  if(!isreadonly) mode |= FA_WRITE;
-   
-  XBUFFER xbufferexchange;
-  pathstring.ConvertToBufferExchange(xbufferexchange);
-  fresult = f_open(&file, xbufferexchange.Get() , mode);
-    
-  cachesize = 0;   
-  if(fresult == FR_OK) cachesize = (XQWORD)f_size(&file);
-  
-  status = (fresult == FR_OK)?true:false;  
-  if(status) 
-    {
-      xpathnamefile = path;
-      isopen        = true;
-    }
+  bool status = false;;
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -188,32 +143,10 @@ bool XESP32FILE::Open(XCHAR* path, bool isreadonly)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XESP32FILE::Create(XCHAR* path)
 {
-  if(!ismount) return false;
-  
-  XSTRING pathstring;
-  bool    status;
-
-  pathstring = path;
-  if(pathstring.IsEmpty()) return false; 
-
-  XBYTE mode  = (FA_CREATE_ALWAYS | FA_CREATE_ALWAYS | FA_READ | FA_WRITE);
-  
-  XBUFFER xbufferexchange;
-  pathstring.ConvertToBufferExchange(xbufferexchange);
-  fresult = f_open(&file, xbufferexchange.Get() , mode);
-    
-  cachesize = 0;   
-  
-  status = (fresult == FR_OK)?true:false;  
-  if(status) 
-    {
-      xpathnamefile = path;
-      isopen        = true;
-    }
+  bool status = false;
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -229,18 +162,10 @@ bool XESP32FILE::Create(XCHAR* path)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XESP32FILE::SetSize(XQWORD size)
 {
-  if(!isopen)     return false;
-  if(isreadonly)  return false;
-  
-  if(!SetPosition(size)) return true;
-  
-  fresult = f_truncate(&file);
-  if(fresult == FR_OK) cachesize = (XQWORD)f_size(&file);
-  
-  return (fresult == FR_OK)?true:false;  
+  size = 0;
 
+  return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -257,16 +182,9 @@ bool XESP32FILE::SetSize(XQWORD size)
 bool XESP32FILE::GetPosition(XQWORD& position)
 {
   position = 0;
-  
-  if(!isopen) return false;
-   
-  FSIZE_t _position = f_tell(&file);
-  
-  position = (XQWORD)_position;   
  
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -282,17 +200,10 @@ bool XESP32FILE::GetPosition(XQWORD& position)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XESP32FILE::SetPosition(XQWORD position)
 {  
-  if(!isopen) return false;
-  
-  FSIZE_t   _position  = (FSIZE_t)position;
-  bool      status     = false;
-
-  fresult = f_lseek (&file, _position);  
-  status = (fresult == FR_OK)?true:false; 
+  bool status = false;
  
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -310,19 +221,10 @@ bool XESP32FILE::SetPosition(XQWORD position)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XESP32FILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 {
-  if(!isopen) return false;
+  bool  status = false;
 
-  UINT  sizetoread = (UINT)size;
-  UINT  readsize   = 0;
-  bool  status     = false;
-
-  fresult = f_read(&file, (void*)buffer, sizetoread, &readsize);	   
-  status = (fresult == FR_OK)?true:false;  
-  if(status) status = (sizetoread == readsize);
- 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -340,22 +242,10 @@ bool XESP32FILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XESP32FILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 { 
-  if(!isopen) return false;
-
-  UINT  sizetoread = (UINT)(*size);
-  UINT  readsize   = 0;
-  bool  status     = false;
-  
-  (*size) = 0;
-
-  fresult = f_read(&file, (void*)buffer, sizetoread, &readsize);	
-
-  status = (fresult == FR_OK)?true:false;  
-  if(status) (*size) = readsize;
-
+  bool  status = false;
+    
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -373,24 +263,10 @@ bool XESP32FILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XESP32FILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 {
-  if(!isopen) return false;
-
-  UINT  sizetowrite = (UINT)size;
-  UINT  writesize   = 0;
-  bool  status      = false;
+  bool  status = false;
     
-  fresult = f_write(&file, (void*)buffer, sizetowrite, &writesize);	/* Write data to the file */
-  
-  status = (fresult == FR_OK)?true:false;  
-  if(status) 
-    {
-      cachesize = (XQWORD)f_size(&file);
-      status = (sizetowrite == writesize);
-    }
-  
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -403,18 +279,11 @@ bool XESP32FILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XESP32FILE::Flush()
-{
-  if(!isopen) return false;
-  
-  bool status;
-  
-  fresult = f_sync(&file);											
-  status = (fresult == FR_OK)?true:false;  
-  if(status) cachesize = (XQWORD)f_size(&file);
+{  
+  bool status = false;
   
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -427,18 +296,9 @@ bool XESP32FILE::Flush()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XESP32FILE::Close()
-{
-  if(!isopen) return false;
-
-  fresult = f_close(&file);
-
-  xpathnamefile.Empty();
-  isopen    = false;
-  cachesize = 0;
-  
-  return  (fresult == FR_OK)?true:false;  
+{  
+  return false;  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -455,20 +315,8 @@ bool XESP32FILE::Close()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XESP32FILE::Erase(XCHAR* path, bool overwrite)
 {
-  if(!ismount) return false;
-  
-  XSTRING pathstring;
-  bool    status;
-
-  pathstring = path;
-  if(pathstring.IsEmpty()) return false; 
-  
-  XBUFFER xbufferexchange;
-  pathstring.ConvertToBufferExchange(xbufferexchange);
-  fresult = f_unlink(xbufferexchange.Get());
-    
-  status = (fresult == FR_OK)?true:false;  
-  
+  bool status = false;
+ 
   return status;
 }
 
@@ -488,29 +336,10 @@ bool XESP32FILE::Erase(XCHAR* path, bool overwrite)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XESP32FILE::Rename(XCHAR* pathold, XCHAR* pathnew)
 {  
-  if(!ismount) return false;
-  
-  XSTRING   pathold_str;
-  XSTRING   pathnew_str;
-  bool      status;
-  
-  pathold_str = pathold;
-  pathnew_str = pathnew;
+  bool status = false;
     
-  XBUFFER xbufferexchange_pathold;
-  XBUFFER xbufferexchange_pathnew;
-  
-  pathold_str.ConvertToBufferExchange(xbufferexchange_pathold);
-  pathnew_str.ConvertToBufferExchange(xbufferexchange_pathnew);
-     
-  fresult = f_rename(xbufferexchange_pathold.Get(), xbufferexchange_pathnew.Get());	
-    
-  status = (fresult == FR_OK)?true:false;  
-
   return status;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -526,7 +355,6 @@ FILE* XESP32FILE::CreateStructHandle()
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -560,7 +388,6 @@ bool XESP32FILE::ActualizeSize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XESP32FILE::Clean()
@@ -573,12 +400,9 @@ bool XESP32FILE::ActualizeSize()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32FILE::Clean()
 {
-  memset(&userFATFS, 0, sizeof(FATFS));
   
-  fresult = FR_OK; 
-  
-  memset(&file, 0, sizeof(FIL));
-  memset(&fileinfo, 0, sizeof(FILINFO));
-  
-  ismount = false;  
 }
+
+
+#pragma endregion
+

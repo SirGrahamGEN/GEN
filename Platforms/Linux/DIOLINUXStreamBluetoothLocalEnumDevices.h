@@ -29,7 +29,7 @@
 #ifndef _DIOLINUXSTREAMBLUETOOTHLOCALENUMDEVICES_H_
 #define _DIOLINUXSTREAMBLUETOOTHLOCALENUMDEVICES_H_
 
-#if defined(DIO_ACTIVE) && (defined(DIOBLUETOOTH_ACTIVE) || defined(DIOBLUETOOTHLE_ACTIVE))
+#if defined(DIO_ACTIVE) && (defined(DIO_BLUETOOTH_ACTIVE) || defined(DIO_BLUETOOTHLE_ACTIVE))
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
