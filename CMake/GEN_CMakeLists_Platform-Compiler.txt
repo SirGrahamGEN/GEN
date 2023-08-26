@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------
-# GEN_CMakeLists_Libraries.txt
+# GEN_CMakeLists_Platform-Compiler.txt
 # Main Part: Platform-Compiler of GEN 
 # --------------------------------------------------------------------
 
