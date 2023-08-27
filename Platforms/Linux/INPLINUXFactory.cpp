@@ -94,9 +94,6 @@ INPDEVICE* INPLINUXFACTORY::CreateDevice(INPDEVICE_TYPE type, void* param)
       if(grpscreen->GetType() == GRPSCREENTYPE_LINUX_X11) isX11 = true;
     }
 
-
-  
-
   #ifdef LINUX_X11_ACTIVE
 
   if(isX11)

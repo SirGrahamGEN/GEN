@@ -429,6 +429,41 @@ if(DATABASES_SQL_FEATURE)
 endif()
 
 
+
+
+# --------------------------------------------------------------------
+# Input 
+
+if(INP_SIMULATE_FEATURE)
+
+  add_definitions(-DINP_SIMULATE_ACTIVE)
+  option(INP_FEATURE "Inputs" true)
+
+endif()
+
+
+if(INP_CAPTURE_FEATURE)
+
+  add_definitions(-DINP_CAPTURE_ACTIVE)
+  option(INP_FEATURE "Inputs" true)
+  
+endif()
+
+
+if(INP_FEATURE)
+
+  add_definitions(-DINP_ACTIVE)
+
+  if(COMPILE_FOR_LINUX)
+
+    option(GRP_FEATURE "Graphics" true)
+    option(GRP_2D_FEATURE   "Activate Graphics 2D"    true)
+
+  endif()
+
+endif()
+
+
 # --------------------------------------------------------------------
 # Graphics 
 
@@ -459,32 +494,6 @@ endif()
 if(GRP_OPENGL_FEATURE)
 
   add_definitions(-DGRP_OPENGL_ACTIVE)
-
-endif()
-
-
-# --------------------------------------------------------------------
-# Input 
-
-if(INP_SIMULATE_FEATURE)
-
-  add_definitions(-DINP_SIMULATE_ACTIVE)
-  option(INP_FEATURE "Inputs" true)
-
-endif()
-
-
-if(INP_CAPTURE_FEATURE)
-
-  add_definitions(-DINP_CAPTURE_ACTIVE)
-  option(INP_FEATURE "Inputs" true)
-  
-endif()
-
-
-if(INP_FEATURE)
-
-  add_definitions(-DINP_ACTIVE)
 
 endif()
 

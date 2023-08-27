@@ -4,67 +4,77 @@
 # --------------------------------------------------------------------
 
 
+
+# Compile Selection
+include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Platform-Compiler.txt") 
+
+
+# Warnings control
+include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Warnings.txt") 
+
+
 # Set Directories
-include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Part_SetDir.txt") 
+include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Part_SetDir.txt") 
 
 
 # Debug management and memory control
-include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Part_DebugMemCtrl.txt") 
+include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Part_DebugMemCtrl.txt") 
 
 
 # Macros for Singletons
-include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Part_SingletonMacros.txt") 
+include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Part_SingletonMacros.txt") 
 
 
 # Dependencies for source 
-include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Part_Dependencies.txt") 
+include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Part_Dependencies.txt") 
 
 
 
 # --------------------------------------------------------------------
 # SOURCES
 
+
 # Sources
-include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Sources.txt") 
+include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Sources.txt") 
 
 
 if(COMPILE_FOR_WINDOWS)
     
-  include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Sources_Windows.txt") 
+  include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Sources_Windows.txt") 
      
 endif()
 
 
 if(COMPILE_FOR_LINUX)
  
-  include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Sources_Linux.txt")   
+  include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Sources_Linux.txt")   
   
 endif()
 
  
 if(COMPILE_FOR_ANDROID)      
 
-  include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Sources_Android.txt")           
+  include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Sources_Android.txt")           
 
 endif()   
 
 
 if(COMPILE_FOR_STM32)
 
-  include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Sources_STM32.txt")           
+  include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Sources_STM32.txt")           
 
 endif()
 
 
 if(COMPILE_FOR_ESP32)
 
-  include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Sources_ESP32.txt")           
+  include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Sources_ESP32.txt")           
 
 endif()
 
 
 # Sources Third Party Libraries
-include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Sources_ThirdPartyLibraries.txt") 
+include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Sources_ThirdPartyLibraries.txt") 
 
 
 
@@ -73,34 +83,34 @@ include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Sources_ThirdPartyLibrar
 
 if(COMPILE_FOR_WINDOWS)
     
-  include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Compiler_Windows.txt") 
+  include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Compiler_Windows.txt") 
      
 endif()
 
 
 if(COMPILE_FOR_LINUX)
  
-  include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Compiler_Linux.txt")   
+  include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Compiler_Linux.txt")   
   
 endif()
 
  
 if(COMPILE_FOR_ANDROID)      
 
-  include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Compiler_Android.txt")           
+  include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Compiler_Android.txt")           
 
 endif()   
 
 
 if(COMPILE_FOR_STM32)
 
-  include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Compiler_STM32.txt")           
+  include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Compiler_STM32.txt")           
 
 endif()
 
 
 if(COMPILE_FOR_ESP32)
 
-  include("${GEN_DIRECTORY}/GEN/CMake/GEN_CMakeLists_Main_Compiler_ESP32.txt")           
+  include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Compiler_ESP32.txt")           
 
 endif()

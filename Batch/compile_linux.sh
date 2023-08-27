@@ -1,7 +1,6 @@
 #!/bin/sh
 DIR=$1$2
 OLDPATH=$(pwd)
-OUTFILE="../../../../../Output.txt"
 
 if [ ! -d "$1" ]; then
   mkdir $1;
@@ -15,17 +14,18 @@ if [ ! -d "$DIR" ]; then
   mkdir $DIR;
 fi
 
+
 cd $DIR
  
-printf "Generate CMake    %-16s ..." $3 
-cmake -G "Ninja" -DTARGET=pc ../..  >> "$OUTFILE" 2>&1
+printf "Generate CMake    %-16s ... " $3 
+cmake -G "Ninja" -DTARGET=PC ../..  >> "$OUTFILE" 2>&1
 if [ $? -eq 0 ]; then
     printf " %s\n" [Ok]
 else
     printf " %s\n" [Error!]
 fi
 
-printf "Compilate project %-16s ..." $3
+printf "Compilate project %-16s ... " $3
 ninja  >> "$OUTFILE" 2>&1
 if [ $? -eq 0 ]; then    
     printf " %s\n" [Ok]
@@ -34,7 +34,7 @@ else
 fi
 
 if [ -e "$3tests" ]; then
-  printf "Test project      %-16s ..." $3
+  printf "Test project      %-16s ... " $3
   ./$3tests  >> "$OUTFILE" 2>&1
   if [ $? -eq 0 ]; then    
       printf " %s\n" [Ok]
