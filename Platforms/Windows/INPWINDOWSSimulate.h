@@ -53,15 +53,15 @@ class INPWINDOWSSIMULATE : public INPSIMULATE
                     INPWINDOWSSIMULATE      ();
     virtual        ~INPWINDOWSSIMULATE      ();
 
-    bool            PressKeyDown            (XBYTE code);
-    bool            PressKeyUp              (XBYTE code);
-    bool            PressKey                (XBYTE code, int pressuretime = 100);
-    bool            PressKeyDownByLiteral   (XCHAR* literal);
-    bool            PressKeyUpByLiteral     (XCHAR* literal);
-    bool            PressKeyByLiteral       (XCHAR* literal, int pressuretime = 100);
-    bool            PressKeyByText          (XCHAR* text, int pressuretimeinterval = 100);
-    bool            SetMousePos             (int x, int y);
-    bool            SetMouseClick           (int x, int y);
+    bool            Key_Press               (XBYTE code);
+    bool            Key_UnPress             (XBYTE code);
+    bool            Key_Click               (XBYTE code, int pressuretime = 100);
+    bool            Key_PressByLiteral      (XCHAR* literal);
+    bool            Key_UnPressByLiteral    (XCHAR* literal);
+    bool            Key_ClickByLiteral      (XCHAR* literal, int pressuretime = 100);
+    bool            Key_ClickByText         (XCHAR* text, int pressuretimeinterval = 100);
+    bool            Mouse_SetPos            (int x, int y);
+    bool            Mouse_Click             (int x, int y);
 
   protected:
 

@@ -91,8 +91,8 @@ INPWINDOWSSIMULATE::~INPWINDOWSSIMULATE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPWINDOWSSIMULATE::PressKeyDown(XBYTE code)
-* @brief      PressKeyDown
+* @fn         bool INPWINDOWSSIMULATE::Key_Press(XBYTE code)
+* @brief      Key_Press
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  code : 
@@ -100,7 +100,7 @@ INPWINDOWSSIMULATE::~INPWINDOWSSIMULATE()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSSIMULATE::PressKeyDown(XBYTE code)
+bool INPWINDOWSSIMULATE::Key_Press(XBYTE code)
 {
   keybd_event(code, 0, 0, 0);    
     
@@ -110,8 +110,8 @@ bool INPWINDOWSSIMULATE::PressKeyDown(XBYTE code)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPWINDOWSSIMULATE::PressKeyUp(XBYTE code)
-* @brief      PressKeyUp
+* @fn         bool INPWINDOWSSIMULATE::Key_UnPress(XBYTE code)
+* @brief      Key_UnPress
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  code : 
@@ -119,7 +119,7 @@ bool INPWINDOWSSIMULATE::PressKeyDown(XBYTE code)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSSIMULATE::PressKeyUp(XBYTE code)
+bool INPWINDOWSSIMULATE::Key_UnPress(XBYTE code)
 {
   keybd_event(code, 0, KEYEVENTF_KEYUP, 0);
 
@@ -129,8 +129,8 @@ bool INPWINDOWSSIMULATE::PressKeyUp(XBYTE code)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPWINDOWSSIMULATE::PressKey(XBYTE code, int pressuretime)
-* @brief      PressKey
+* @fn         bool INPWINDOWSSIMULATE::Key_Click(XBYTE code, int pressuretime)
+* @brief      Key_Click
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  code : 
@@ -139,13 +139,13 @@ bool INPWINDOWSSIMULATE::PressKeyUp(XBYTE code)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSSIMULATE::PressKey(XBYTE code, int pressuretime)
+bool INPWINDOWSSIMULATE::Key_Click(XBYTE code, int pressuretime)
 {
-  PressKeyDown(code);    
+  Key_Press(code);    
     
   Sleep(pressuretime);
   
-  PressKeyUp(code);
+  Key_UnPress(code);
 
   return true;
 }
@@ -153,8 +153,8 @@ bool INPWINDOWSSIMULATE::PressKey(XBYTE code, int pressuretime)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPWINDOWSSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
-* @brief      PressKeyDownByLiteral
+* @fn         bool INPWINDOWSSIMULATE::Key_PressByLiteral(XCHAR* literal)
+* @brief      Key_PressByLiteral
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  literal : 
@@ -162,7 +162,7 @@ bool INPWINDOWSSIMULATE::PressKey(XBYTE code, int pressuretime)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
+bool INPWINDOWSSIMULATE::Key_PressByLiteral(XCHAR* literal)
 {
   ALTERNATIVE_KEY altkey  = ALTERNATIVE_KEY_NONE;
   XBYTE           code    = GetKDBCodeByLiteral(literal, altkey);
@@ -172,11 +172,11 @@ bool INPWINDOWSSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
       switch(altkey)
         {
           case ALTERNATIVE_KEY_NONE   : break;
-          case ALTERNATIVE_KEY_ALTGR  : PressKeyDownByLiteral(__L("Right ALT"));  break;
-          case ALTERNATIVE_KEY_SHIFT  : PressKeyDownByLiteral(__L("SHIFT"));      break;
+          case ALTERNATIVE_KEY_ALTGR  : Key_PressByLiteral(__L("Right ALT"));  break;
+          case ALTERNATIVE_KEY_SHIFT  : Key_PressByLiteral(__L("SHIFT"));      break;
         }
       
-      bool status = PressKeyDown(code);  
+      bool status = Key_Press(code);  
       return status;   
     }
 
@@ -186,8 +186,8 @@ bool INPWINDOWSSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPWINDOWSSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
-* @brief      PressKeyUpByLiteral
+* @fn         bool INPWINDOWSSIMULATE::Key_UnPressByLiteral(XCHAR* literal)
+* @brief      Key_UnPressByLiteral
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  literal : 
@@ -195,20 +195,20 @@ bool INPWINDOWSSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
+bool INPWINDOWSSIMULATE::Key_UnPressByLiteral(XCHAR* literal)
 {
   ALTERNATIVE_KEY altkey  = ALTERNATIVE_KEY_NONE;
   XBYTE           code    = GetKDBCodeByLiteral(literal, altkey);
 
   if(code)
     {    
-      bool status = PressKeyUp(code);  
+      bool status = Key_UnPress(code);  
 
       switch(altkey)
         {
           case ALTERNATIVE_KEY_NONE   : break;
-          case ALTERNATIVE_KEY_ALTGR  : PressKeyUpByLiteral(__L("Right ALT"));  break;
-          case ALTERNATIVE_KEY_SHIFT  : PressKeyUpByLiteral(__L("SHIFT"));      break;
+          case ALTERNATIVE_KEY_ALTGR  : Key_UnPressByLiteral(__L("Right ALT"));  break;
+          case ALTERNATIVE_KEY_SHIFT  : Key_UnPressByLiteral(__L("SHIFT"));      break;
         }
       
       return status;   
@@ -220,8 +220,8 @@ bool INPWINDOWSSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPWINDOWSSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
-* @brief      PressKeyByLiteral
+* @fn         bool INPWINDOWSSIMULATE::Key_ClickByLiteral(XCHAR* literal, int pressuretime)
+* @brief      Key_ClickByLiteral
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  literal : 
@@ -230,7 +230,7 @@ bool INPWINDOWSSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
+bool INPWINDOWSSIMULATE::Key_ClickByLiteral(XCHAR* literal, int pressuretime)
 {
   ALTERNATIVE_KEY altkey  = ALTERNATIVE_KEY_NONE;
   XBYTE           code    = GetKDBCodeByLiteral(literal, altkey);
@@ -240,17 +240,17 @@ bool INPWINDOWSSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
       switch(altkey)
         {
           case ALTERNATIVE_KEY_NONE   : break;
-          case ALTERNATIVE_KEY_ALTGR  : PressKeyDownByLiteral(__L("Right ALT"));  break;
-          case ALTERNATIVE_KEY_SHIFT  : PressKeyDownByLiteral(__L("SHIFT"));      break;
+          case ALTERNATIVE_KEY_ALTGR  : Key_PressByLiteral(__L("Right ALT"));  break;
+          case ALTERNATIVE_KEY_SHIFT  : Key_PressByLiteral(__L("SHIFT"));      break;
         }
 
-      bool status = PressKey(code, pressuretime);  
+      bool status = Key_Click(code, pressuretime);  
 
       switch(altkey)
         {
           case ALTERNATIVE_KEY_NONE   : break;
-          case ALTERNATIVE_KEY_ALTGR  : PressKeyUpByLiteral(__L("Right ALT"));  break;
-          case ALTERNATIVE_KEY_SHIFT  : PressKeyUpByLiteral(__L("SHIFT"));      break;
+          case ALTERNATIVE_KEY_ALTGR  : Key_UnPressByLiteral(__L("Right ALT"));  break;
+          case ALTERNATIVE_KEY_SHIFT  : Key_UnPressByLiteral(__L("SHIFT"));      break;
         }
 
       return status;
@@ -262,8 +262,8 @@ bool INPWINDOWSSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPWINDOWSSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
-* @brief      PressKeyByText
+* @fn         bool INPWINDOWSSIMULATE::Key_ClickByText(XCHAR* text, int pressuretimeinterval)
+* @brief      Key_ClickByText
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  text : 
@@ -272,7 +272,7 @@ bool INPWINDOWSSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
+bool INPWINDOWSSIMULATE::Key_ClickByText(XCHAR* text, int pressuretimeinterval)
 {
   XSTRING _text;
   XSTRING literal;
@@ -315,20 +315,20 @@ bool INPWINDOWSSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
                               
                               if(!IsCapsLockActive())
                                 {
-                                  PressKeyByLiteral(__L("CAPS LOCK"), pressuretimeinterval);
+                                  Key_ClickByLiteral(__L("CAPS LOCK"), pressuretimeinterval);
                                   changecapslock = true;      
                                 }
 
-                              PressKeyByLiteral(literal.Get(), pressuretimeinterval);
+                              Key_ClickByLiteral(literal.Get(), pressuretimeinterval);
 
                               if(changecapslock)
                                 {
-                                  PressKeyByLiteral(__L("CAPS LOCK"), pressuretimeinterval);                                  
+                                  Key_ClickByLiteral(__L("CAPS LOCK"), pressuretimeinterval);                                  
                                 }    
                             }
                             break;
 
-          case __C(' ')   : PressKeyByLiteral(__L("SPACEBAR"), pressuretimeinterval);                            
+          case __C(' ')   : Key_ClickByLiteral(__L("SPACEBAR"), pressuretimeinterval);                            
                             break;
 
           case __C('a')   : 
@@ -361,15 +361,15 @@ bool INPWINDOWSSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
                               
                               if(IsCapsLockActive())
                                 {
-                                  PressKeyByLiteral(__L("CAPS LOCK"), pressuretimeinterval);
+                                  Key_ClickByLiteral(__L("CAPS LOCK"), pressuretimeinterval);
                                   changecapslock = true;      
                                 }
 
-                              PressKeyByLiteral(literal.Get(), pressuretimeinterval);
+                              Key_ClickByLiteral(literal.Get(), pressuretimeinterval);
 
                               if(changecapslock)
                                 {
-                                  PressKeyByLiteral(__L("CAPS LOCK"), pressuretimeinterval);                                  
+                                  Key_ClickByLiteral(__L("CAPS LOCK"), pressuretimeinterval);                                  
                                 }    
                             }
                             break;
@@ -419,7 +419,7 @@ bool INPWINDOWSSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
           case __C('¡')   : 
           case __C('ñ')   : 
           case __C('Ñ')   :   
-          case __C('·')   : PressKeyByLiteral(literal.Get(), pressuretimeinterval);                            
+          case __C('·')   : Key_ClickByLiteral(literal.Get(), pressuretimeinterval);                            
                             break;                           
         }
     }
@@ -430,7 +430,7 @@ bool INPWINDOWSSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPWINDOWSSIMULATE::SetMousePos(int x, int y)
+* @fn         bool INPWINDOWSSIMULATE::Mouse_SetPos(int x, int y)
 * @brief      SetPositionCursor
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -440,7 +440,7 @@ bool INPWINDOWSSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSSIMULATE::SetMousePos(int x, int y)
+bool INPWINDOWSSIMULATE::Mouse_SetPos(int x, int y)
 {
   SetCursorPos(x, y);
 
@@ -450,8 +450,8 @@ bool INPWINDOWSSIMULATE::SetMousePos(int x, int y)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPWINDOWSSIMULATE::SetMouseClick(int x, int y)
-* @brief      SetMouseClick
+* @fn         bool INPWINDOWSSIMULATE::Mouse_Click(int x, int y)
+* @brief      Mouse_Click
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  x : 
@@ -460,7 +460,7 @@ bool INPWINDOWSSIMULATE::SetMousePos(int x, int y)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPWINDOWSSIMULATE::SetMouseClick(int x, int y)
+bool INPWINDOWSSIMULATE::Mouse_Click(int x, int y)
 {
   SetCursorPos(x, y);
   

@@ -306,8 +306,8 @@ INPSIMULATE::~INPSIMULATE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPSIMULATE::PressKeyDown(XBYTE code)
-* @brief      PressKeyDown
+* @fn         bool INPSIMULATE::Key_Press(XBYTE code)
+* @brief      Key_Press
 * @ingroup    INPUT
 * 
 * @param[in]  code : 
@@ -315,7 +315,7 @@ INPSIMULATE::~INPSIMULATE()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPSIMULATE::PressKeyDown(XBYTE code)
+bool INPSIMULATE::Key_Press(XBYTE code)
 {
 	return false;
 }	
@@ -323,8 +323,8 @@ bool INPSIMULATE::PressKeyDown(XBYTE code)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPSIMULATE::PressKeyUp(XBYTE code)
-* @brief      PressKeyUp
+* @fn         bool INPSIMULATE::Key_UnPress(XBYTE code)
+* @brief      Key_UnPress
 * @ingroup    INPUT
 * 
 * @param[in]  code : 
@@ -332,7 +332,7 @@ bool INPSIMULATE::PressKeyDown(XBYTE code)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPSIMULATE::PressKeyUp(XBYTE code)
+bool INPSIMULATE::Key_UnPress(XBYTE code)
 {
 	return false;
 }
@@ -340,8 +340,8 @@ bool INPSIMULATE::PressKeyUp(XBYTE code)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPSIMULATE::PressKey(XBYTE code, int pressuretime)
-* @brief      PressKey
+* @fn         bool INPSIMULATE::Key_Click(XBYTE code, int pressuretime)
+* @brief      Key_Click
 * @ingroup    INPUT
 * 
 * @param[in]  code : 
@@ -350,7 +350,7 @@ bool INPSIMULATE::PressKeyUp(XBYTE code)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPSIMULATE::PressKey(XBYTE code, int pressuretime)
+bool INPSIMULATE::Key_Click(XBYTE code, int pressuretime)
 {
   return false;
 }
@@ -358,8 +358,8 @@ bool INPSIMULATE::PressKey(XBYTE code, int pressuretime)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
-* @brief      PressKeyDownByLiteral
+* @fn         bool INPSIMULATE::Key_PressByLiteral(XCHAR* literal)
+* @brief      Key_PressByLiteral
 * @ingroup    INPUT
 * 
 * @param[in]  literal : 
@@ -367,7 +367,7 @@ bool INPSIMULATE::PressKey(XBYTE code, int pressuretime)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
+bool INPSIMULATE::Key_PressByLiteral(XCHAR* literal)
 {
 	return false;
 }
@@ -375,8 +375,8 @@ bool INPSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
-* @brief      PressKeyUpByLiteral
+* @fn         bool INPSIMULATE::Key_UnPressByLiteral(XCHAR* literal)
+* @brief      Key_UnPressByLiteral
 * @ingroup    INPUT
 * 
 * @param[in]  literal : 
@@ -384,7 +384,7 @@ bool INPSIMULATE::PressKeyDownByLiteral(XCHAR* literal)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
+bool INPSIMULATE::Key_UnPressByLiteral(XCHAR* literal)
 {
 	return false;
 }
@@ -392,8 +392,8 @@ bool INPSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
-* @brief      PressKeyByLiteral
+* @fn         bool INPSIMULATE::Key_ClickByLiteral(XCHAR* literal, int pressuretime)
+* @brief      Key_ClickByLiteral
 * @ingroup    INPUT
 * 
 * @param[in]  literal : 
@@ -402,7 +402,7 @@ bool INPSIMULATE::PressKeyUpByLiteral(XCHAR* literal)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
+bool INPSIMULATE::Key_ClickByLiteral(XCHAR* literal, int pressuretime)
 {
 	return false;
 }
@@ -410,8 +410,8 @@ bool INPSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
-* @brief      PressKeyByText
+* @fn         bool INPSIMULATE::Key_ClickByText(XCHAR* text, int pressuretimeinterval)
+* @brief      Key_ClickByText
 * @ingroup    INPUT
 * 
 * @param[in]  text : 
@@ -420,7 +420,7 @@ bool INPSIMULATE::PressKeyByLiteral(XCHAR* literal, int pressuretime)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
+bool INPSIMULATE::Key_ClickByText(XCHAR* text, int pressuretimeinterval)
 {
 	return false;
 }
@@ -429,7 +429,7 @@ bool INPSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPSIMULATE::SetMoudePos(int x, int y)
-* @brief      SetMousePos
+* @brief      Mouse_SetPos
 * @ingroup    INPUT
 * 
 * @param[in]  x : 
@@ -438,7 +438,7 @@ bool INPSIMULATE::PressKeyByText(XCHAR* text, int pressuretimeinterval)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPSIMULATE::SetMousePos(int x, int y)
+bool INPSIMULATE::Mouse_SetPos(int x, int y)
 { 
   return false;
 }
@@ -446,8 +446,8 @@ bool INPSIMULATE::SetMousePos(int x, int y)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void INPSIMULATE::SetMouseClick(int x, int y)
-* @brief      SetMouseClick
+* @fn         void INPSIMULATE::Mouse_Click(int x, int y)
+* @brief      Mouse_Click
 * @ingroup    INPUT
 * 
 * @param[in]  x : 
@@ -456,7 +456,7 @@ bool INPSIMULATE::SetMousePos(int x, int y)
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool INPSIMULATE::SetMouseClick(int x, int y)
+bool INPSIMULATE::Mouse_Click(int x, int y)
 {
   return false;
 }

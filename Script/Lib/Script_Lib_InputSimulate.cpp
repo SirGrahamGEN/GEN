@@ -113,11 +113,13 @@ bool SCRIPT_LIB_INPUTSIMULATE::AddLibraryFunctions(SCRIPT* script)
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("InpSim_PressKey")             , Call_PressKey);
-  script->AddLibraryFunction(this, __L("InpSim_PressKeyByLiteral")    , Call_PressKeyByLiteral);
-  script->AddLibraryFunction(this, __L("InpSim_PressKeyByText")       , Call_PressKeyByText);
-  script->AddLibraryFunction(this, __L("InpSim_SetMousePos")          , Call_SetMousePos);
-  script->AddLibraryFunction(this, __L("InpSim_SetMouseClick")        , Call_SetMouseClick);
+  script->AddLibraryFunction(this, __L("InpSim_Key_Press")             , Call_Key_Press);
+  script->AddLibraryFunction(this, __L("InpSim_Key_UnPress")           , Call_Key_UnPress);
+  script->AddLibraryFunction(this, __L("InpSim_Key_Click")             , Call_Key_Click);
+  script->AddLibraryFunction(this, __L("InpSim_Key_ClickByLiteral")    , Call_Key_ClickByLiteral);
+  script->AddLibraryFunction(this, __L("InpSim_Key_ClickByText")       , Call_Key_ClickByText);
+  script->AddLibraryFunction(this, __L("InpSim_Mouse_SetPos")          , Call_Mouse_SetPos);
+  script->AddLibraryFunction(this, __L("InpSim_Mouse_Click")           , Call_Mouse_Click);
       
   return true;
 }
@@ -145,6 +147,107 @@ void SCRIPT_LIB_INPUTSIMULATE::Clean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         void Call_Key_Press(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Key_Press
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Key_Press(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  bool status  = false;
+
+  if(!params->GetSize())
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  int key = 0;
+  
+  library->GetParamConverted(params->Get(0), key);
+  
+  INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
+  if(!inpsimulate)
+    {
+      (*returnvalue) = status;
+      return;
+    }
+  
+  status = inpsimulate->Key_Press((XBYTE)key);
+
+  GEN_INPFACTORY.DeleteSimulator(inpsimulate);
+
+  (*returnvalue) = status;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_Key_Press(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Key_Press
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Key_UnPress(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  bool status  = false;
+
+  if(!params->GetSize())
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  int key = 0;
+  
+  library->GetParamConverted(params->Get(0), key);
+  
+  INPSIMULATE* inpsimulate = GEN_INPFACTORY.CreateSimulator();
+  if(!inpsimulate)
+    {
+      (*returnvalue) = status;
+      return;
+    }
+  
+  status = inpsimulate->Key_UnPress((XBYTE)key);
+
+  GEN_INPFACTORY.DeleteSimulator(inpsimulate);
+
+  (*returnvalue) = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void Call_OpenURL(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 * @brief      Call_OpenURL
 * @ingroup    SCRIPT
@@ -157,7 +260,7 @@ void SCRIPT_LIB_INPUTSIMULATE::Clean()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_Key_Click(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -187,7 +290,7 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
       return;
     }
   
-  status = inpsimulate->PressKey((XBYTE)key,pressuretime);
+  status = inpsimulate->Key_Click((XBYTE)key,pressuretime);
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
 
@@ -197,8 +300,8 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_PressKeyByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_PressKeyByLiteral
+* @fn         void Call_Key_ClickByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Key_ClickByLiteral
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -209,7 +312,7 @@ void Call_PressKey(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* para
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_PressKeyByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_Key_ClickByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -241,7 +344,7 @@ void Call_PressKeyByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
       return;
     }
   
-  status = inpsimulate->PressKeyByLiteral(literal.Get(), pressuretime);
+  status = inpsimulate->Key_ClickByLiteral(literal.Get(), pressuretime);
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
 
@@ -251,8 +354,8 @@ void Call_PressKeyByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_PressKeyByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_PressKeyByText
+* @fn         void Call_Key_ClickByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Key_ClickByText
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -263,7 +366,7 @@ void Call_PressKeyByLiteral(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIAN
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_PressKeyByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_Key_ClickByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -295,7 +398,7 @@ void Call_PressKeyByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
       return;
     }
   
-  status = inpsimulate->PressKeyByText(text.Get(), pressuretime);
+  status = inpsimulate->Key_ClickByText(text.Get(), pressuretime);
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
 
@@ -305,8 +408,8 @@ void Call_PressKeyByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_SetMousePos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_SetMousePos
+* @fn         void Call_Mouse_SetPos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Mouse_SetPos
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -317,7 +420,7 @@ void Call_PressKeyByText(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_SetMousePos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_Mouse_SetPos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -347,7 +450,7 @@ void Call_SetMousePos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* p
       return;
     }
   
-  status = inpsimulate->SetMousePos(x, y);
+  status = inpsimulate->Mouse_SetPos(x, y);
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
   
@@ -357,8 +460,8 @@ void Call_SetMousePos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* p
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_SetMouseClick(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_SetMouseClick
+* @fn         void Call_Mouse_Click(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Mouse_Click
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -369,7 +472,7 @@ void Call_SetMousePos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* p
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_SetMouseClick(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_Mouse_Click(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -399,7 +502,7 @@ void Call_SetMouseClick(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
       return;
     }
   
-  status = inpsimulate->SetMouseClick(x, y);
+  status = inpsimulate->Mouse_Click(x, y);
 
   GEN_INPFACTORY.DeleteSimulator(inpsimulate);
   
