@@ -348,8 +348,9 @@ if(SCRIPT_FEATURE)
   if(SCRIPT_LIB_WINDOW_FEATURE)
 
     add_definitions("-DSCRIPT_LIB_WINDOW_ACTIVE")
-    option(GRP_FEATURE      "Graphics"                true)
-    option(GRP_2D_FEATURE   "Activate Graphics 2D"    true)
+    option(GRP_FEATURE        "Graphics"                true)
+    option(GRP_2D_FEATURE     "Activate Graphics 2D"    true)
+    option(GRP_FILE_FEATURE   "Graphics File"           true)
     
   endif()
 

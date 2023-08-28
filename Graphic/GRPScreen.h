@@ -71,6 +71,7 @@ enum GRPSCREENTYPE
 class GRPCANVAS;
 class GRPVIEWPORT;
 class GRPFRAMERATE;
+class GRPBITMAP;
 
 class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
 {
@@ -105,6 +106,7 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     virtual void*                 GetHandle                     ();    
     virtual void                  SetHandle                     (void* handle_window);
     virtual bool                  Set_Focus                     ();
+    virtual GRPBITMAP*            CaptureContent                ();
 
     bool                          UpdateSize                    (int width, int height);
 

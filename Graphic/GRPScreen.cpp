@@ -501,6 +501,21 @@ bool GRPSCREEN::Set_Focus()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPBITMAP* GRPSCREEN::CaptureContent()
+* @brief      CaptureContent
+* @ingroup    GRAPHIC
+* 
+* @return     GRPBITMAP* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPBITMAP* GRPSCREEN::CaptureContent()
+{
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::UpdateSize(int width, int height)
 * @brief

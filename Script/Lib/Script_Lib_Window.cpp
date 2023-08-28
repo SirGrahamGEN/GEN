@@ -50,6 +50,8 @@
 
 #include "GRPFactory.h"
 #include "GRPScreen.h"
+#include "GRPBitmap.h"
+#include "GRPBitmapFile.h"
 
 #include "Script.h"
 
@@ -60,6 +62,9 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
+
+int windowsposx = 0;
+int windowsposy = 0;
 			
 #pragma endregion
 
@@ -138,7 +143,8 @@ bool SCRIPT_LIB_WINDOW::AddLibraryFunctions(SCRIPT* script)
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_WINDOW::Clean()
 {
-
+  windowsposx = 0;
+  windowsposy = 0;
 }
 
 
@@ -174,12 +180,14 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
       script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
       return;
     }
+
+  windowsposx = 0;
+  windowsposy = 0;
  
   XVECTOR<XPROCESS*>  applist;
   XSTRING             appname       = (*params->Get(0));
   XSTRING             windowstitle  = (*params->Get(1));
-  int                 windowsposx   = 0; 
-  
+    
   if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
     {
       for(XDWORD c=0; c<applist.GetSize(); c++)
@@ -188,7 +196,62 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
             {  
               if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
                 {
-                  windowsposx = applist.Get(c)->GetWindowRect()->x1;                  
+                  windowsposx = applist.Get(c)->GetWindowRect()->x1; 
+                  windowsposy = applist.Get(c)->GetWindowRect()->y1; 
+                  
+                  if(params->GetSize() == 3)
+                    {
+                      XSTRING bitmaprefname  = (*params->Get(2));
+                      if(!bitmaprefname.IsEmpty())
+                        {
+                          void* handle_windows = applist.Get(c)->GetWindowHandle();                  
+                          if(handle_windows)
+                            {  
+                              GRPSCREEN* screen = GEN_GRPFACTORY.CreateScreen();
+                              if(screen)
+                                {                          
+                                  screen->SetHandle(handle_windows);
+                                  screen->SetWidth(applist.Get(c)->GetWindowRect()->x2 - applist.Get(c)->GetWindowRect()->x1);
+                                  screen->SetHeight(applist.Get(c)->GetWindowRect()->y2 - applist.Get(c)->GetWindowRect()->y1);
+                              
+                                  GRPBITMAP* bitmapscreen = screen->CaptureContent();
+                                  if(bitmapscreen)
+                                    { 
+                                      XPATH  xpathbitmapref;  
+                                      
+                                      GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_GRAPHICS, xpathbitmapref);
+                                      xpathbitmapref.Slash_Add();
+                                      xpathbitmapref.Add(bitmaprefname);
+
+                                      GRPBITMAPFILE* bitmapfileref = new GRPBITMAPFILE(xpathbitmapref);
+                                      if(bitmapfileref)
+                                        {                                         
+                                          GRPBITMAP* bitmapref = bitmapfileref->Load();         
+                                          if(bitmapref)
+                                            {
+                                              int x;
+                                              int y;
+
+                                              if(SearchBitpmapInOther(bitmapscreen, bitmapref, x, y))
+                                                {
+                                                  windowsposx += x; 
+                                                  windowsposy += y; 
+                                                }      
+                                            }                                                 
+
+                                          delete bitmapref;
+                                          delete bitmapfileref;    
+                                        }
+
+                                      delete bitmapscreen;  
+                                    }
+
+                                  GEN_GRPFACTORY.DeleteScreen(screen);                                
+                                }
+                            } 
+                        }      
+                    }
+                
                   break;
                 }
             }
@@ -231,6 +294,7 @@ void Call_Window_GetPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
       return;
     }
  
+  /*
   XVECTOR<XPROCESS*>  applist;
   XSTRING             appname       = (*params->Get(0));
   XSTRING             windowstitle  = (*params->Get(1));
@@ -253,6 +317,7 @@ void Call_Window_GetPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
     
   applist.DeleteContents();
   applist.DeleteAll();
+  */
    
   (*returnvalue) = windowsposy;
 }
@@ -478,6 +543,33 @@ void Call_Window_Resize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
   applist.DeleteAll();
    
   (*returnvalue) = status;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SearchBitpmapInOther(GRPBITMAP* base, GRPBITMAP* ref, int& x, int& y)
+* @brief      earchBitpmapInOther
+* @ingroup    SCRIPT
+* 
+* @param[in]  base : 
+* @param[in]  ref : 
+* @param[in]  x : 
+* @param[in]  y : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SearchBitpmapInOther(GRPBITMAP* base, GRPBITMAP* ref, int& x, int& y)
+{
+  bool status = false;
+
+  x = 0;
+  y = 0;
+
+  
+  return status;
 }
 
 

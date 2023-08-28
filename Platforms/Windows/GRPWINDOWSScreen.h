@@ -70,6 +70,7 @@ class GRPWINDOWSSCREEN : public GRPSCREEN
     void*                                 GetHandle                   ();
     void                                  SetHandle                   (void* handle_window);
     bool                                  Set_Focus                   ();
+    GRPBITMAP*                            CaptureContent              ();
     
     void*                                 GetHDC                      ();
     void                                  SetHDC                      (HDC hdc);

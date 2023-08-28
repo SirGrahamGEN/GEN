@@ -46,6 +46,7 @@
 
 #include "GRPXEvent.h"
 #include "GRPCanvas.h"
+#include "GRPBitmap.h"
 
 #include "XMemory_Control.h"
 
@@ -451,6 +452,78 @@ bool GRPWINDOWSSCREEN::Set_Focus()
   SetFocus(hwnd);
     
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPBITMAP* GRPWINDOWSSCREEN::CaptureContent()
+* @brief      CaptureContent
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     GRPBITMAP* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPBITMAP* GRPWINDOWSSCREEN::CaptureContent()
+{
+  XBUFFER xbuffer;
+  HDC     hdcsource = GetDC(hwnd);
+  HDC     hdcmemory = CreateCompatibleDC(hdcsource);
+  int     capx      = GetWidth();
+  int     capy      = GetHeight();
+  bool    status    = false;
+
+  if(!hdcsource)
+    {
+      return NULL;  
+    }
+
+  if(!hdcmemory)
+    {
+      DeleteDC(hdcsource);
+      return NULL;        
+    }
+
+  HBITMAP hbitmap     = CreateCompatibleBitmap(hdcsource, capx, capy);
+  HBITMAP hbitmapold  = (HBITMAP)SelectObject(hdcmemory, hbitmap);
+  BITMAP  bitmap;
+
+  BitBlt(hdcmemory, 0, 0, capx, capy, hdcsource, 0, 0, SRCCOPY);
+  hbitmap = (HBITMAP)SelectObject(hdcmemory, hbitmapold);
+
+  DeleteDC(hdcsource);
+  DeleteDC(hdcmemory);
+
+  GetObject(hbitmap, sizeof(bitmap), (LPSTR)&bitmap);
+
+  HDC dcbitmap = CreateCompatibleDC(NULL);
+  SelectObject(dcbitmap, hbitmap);
+
+  BITMAPINFO bmpinfo;
+
+  bmpinfo.bmiHeader.biSize         = sizeof(BITMAPINFOHEADER);
+  bmpinfo.bmiHeader.biWidth        = bitmap.bmWidth;
+  bmpinfo.bmiHeader.biHeight       = bitmap.bmHeight;
+  bmpinfo.bmiHeader.biPlanes       = bitmap.bmPlanes;
+  bmpinfo.bmiHeader.biBitCount     = bitmap.bmBitsPixel;
+  bmpinfo.bmiHeader.biCompression  = BI_RGB;
+  bmpinfo.bmiHeader.biSizeImage    = 0;
+  bmpinfo.bmiHeader.biClrImportant = 0;
+  bmpinfo.bmiHeader.biClrUsed      = 0;
+
+  GRPBITMAP* grpbitmap = GRPFACTORY::GetInstance().CreateBitmap(bitmap.bmWidth, bitmap.bmHeight, GRPPROPERTYMODE_32_BGRA_8888);
+  if(grpbitmap)
+    {
+      status = GetDIBits(dcbitmap, hbitmap, 0, bitmap.bmHeight, grpbitmap->GetBuffer(), &bmpinfo, DIB_RGB_COLORS)?true:false;
+    }
+
+  if(!status)
+    {
+      delete grpbitmap;
+      grpbitmap = NULL;
+    }
+
+  return grpbitmap;
 }
 
 
