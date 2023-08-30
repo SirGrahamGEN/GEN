@@ -277,10 +277,9 @@ void Call_ExecApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
   
   if(app_path)
     {      
-      XSTRING out;
-      int     returncode = 0;
+      int returncode = 0;
 
-      status = GEN_XPROCESSMANAGER.Application_Execute(app_path->Get(), app_params?app_params->Get():__L(""), NULL, &out, &returncode);    
+      status = GEN_XPROCESSMANAGER.Application_Execute(app_path->Get(), app_params?app_params->Get():__L(""), NULL, NULL, &returncode);    
       if(status)
         {            
           (*returnvalue) = returncode?false:true; 

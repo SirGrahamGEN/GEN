@@ -83,12 +83,14 @@ class GRPBITMAP : public GRPPROPERTIES
     virtual bool                                          Crop                            (GRPRECTINT& rect);
 
     bool                                                  Compare                         (GRPBITMAP* bitmap);
-    bool                                                  FindSubBitmap                   (GRPBITMAP* ref, int& x, int& y);
+    bool                                                  FindSubBitmap                   (GRPBITMAP* ref, int& x, int& y, XBYTE difflimitpercent = 2);
 
     XDWORD                                                GetHandle                       ();
     void                                                  SetHandle                       (XDWORD handle);
 
   protected:
+
+    bool                                                  DifferencesPerCent              (XDWORD ndiff, XDWORD max, int limit);
 
     XBYTE*                                                buffer;
     int                                                   buffersize;
@@ -212,7 +214,7 @@ class GRPBITMAPPIXELFORMATBUFFER : public GRPBITMAP
                                                                 for(XDWORD x=0; x<width; x++)
                                                                   {
                                                                     color = (COLORTYPE*)GetPixel(x,y);
-                                                                    bitmap->PutBlendPixel(x, y, color, color->a);
+                                                                    bitmap->PutBlendPixel(x, y, color, color->a);                                                                    
                                                                   }
                                                               }
 

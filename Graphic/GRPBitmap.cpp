@@ -358,85 +358,19 @@ bool GRPBITMAP::Compare(GRPBITMAP* bitmap)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmap, int& x, int& y)
+* @fn         bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmap, int& x, int& y, XBYTE difflimitpercent)
 * @brief      FindSubBitmap
 * @ingroup    GRAPHIC
 * 
 * @param[in]  bitmap : 
 * @param[in]  x : 
 * @param[in]  y : 
+* @param[in]  difflimitpercent : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
-bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmap, int& x, int& y)
-{
-  bool found = false;
-
-  x = 67; 
-  y = 310;
-
-  if(!bitmap)
-    {
-      return false;
-    }
-
-  GRPBITMAP* _bitmap = bitmap->ConvertToMode(GetMode());
-  if(!_bitmap)
-    {
-      return false;
-    }
-
-  if(_bitmap->GetMode() != GetMode()) 
-    {
-      return false;
-    }
-
-  XBYTE bytesline = GetBytesperPixel();
-
-  
-
-//for(x=0; x<(GetWidth() - _bitmap->GetWidth()); x++)
-    {
-    //for(y=0; y<(GetHeight() - _bitmap->GetHeight()); y++)
-        {
-          GRPRECTINT  rect;
-          GRPBITMAP*  subbitmap;
-                  
-          rect.x1 = x;
-          rect.x2 = x + _bitmap->GetWidth();          
-
-          rect.y1 = y;
-          rect.y2 = y + _bitmap->GetHeight();          
-              
-          subbitmap = GetSubBitmap(rect);  
-          if(subbitmap)
-            {
-              if(_bitmap->Compare(subbitmap))
-                {
-                  found = true;                
-                }
-            }
-
-          delete subbitmap;
-        }
-    }
-
-  delete _bitmap;
-
-  if(!found)
-    {
-      x = 0;
-      y = 0;
-    }
-
-  return found;
-}
-*/
-
-
-bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmap, int& x, int& y)
+bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmap, int& x, int& y, XBYTE difflimitpercent)
 {
   x = 0; 
   y = 0;
@@ -457,6 +391,7 @@ bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmap, int& x, int& y)
       return false;
     }
 
+
   XDWORD  bytesperline_bmp  = GetBytesperPixel() * _bitmap->GetWidth();
   XBYTE*  bufferbitmap      = _bitmap->GetBuffer();
   bool    found             = true;
@@ -465,45 +400,52 @@ bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmap, int& x, int& y)
     {
       return false;
     }
-  XDWORD index = 0;
-  for(; index < (buffersize - bytesperline_bmp); index++)
+
+  XDWORD pos_base = 0;
+  XDWORD pos_bmp  = 0;   
+  XDWORD ndiff    = 0;
+
+  for(; pos_base < (buffersize - bytesperline_bmp); pos_base++)
     {
-      found = true;
+      ndiff = 0;
       for(XDWORD d=0; d < bytesperline_bmp; d++)
         {
-          if(buffer[index + d] != bufferbitmap[d])
-            {
-              found = false;
-              break;
+          if(buffer[pos_base + d] != bufferbitmap[d])
+            {       
+              ndiff++;             
             }
         } 
 
+      found = DifferencesPerCent(ndiff, bytesperline_bmp, difflimitpercent);
       if(found)
         {          
           XDWORD bytesperline_base = GetBytesperPixel() * GetWidth();
 
-          x =  (index % bytesperline_base) / GetBytesperPixel();
-          y =  GetHeight() - (index / bytesperline_base) - _bitmap->GetHeight();
+          x =  (pos_base % bytesperline_base) / GetBytesperPixel();
+          y =  GetHeight() - (pos_base / bytesperline_base) - _bitmap->GetHeight();
 
-          XDWORD position_base = index;  
-          XDWORD position_bmp  = 0;   
+          XDWORD pos_base_tmp = pos_base; 
 
+          pos_bmp  = 0; 
+          
           for(XDWORD line = 0; line < _bitmap->GetHeight(); line++)
-            {              
+            { 
+              ndiff = 0;     
+                    
               for(XDWORD d=0; d<bytesperline_bmp; d++)
                 {
-                  if(buffer[position_base + d] != bufferbitmap[position_bmp])
+                  if(buffer[pos_base_tmp + d] != bufferbitmap[pos_bmp])
                     {
-                      found = false;
-                      break;
+                      ndiff++;
                     }
 
-                  position_bmp++;
+                  pos_bmp++;
                 } 
-  
+
+              found = DifferencesPerCent(ndiff, bytesperline_bmp, difflimitpercent);  
               if(found)
                 {
-                  position_base -= (bytesperline_base - bytesperline_bmp);                   
+                  pos_base_tmp += bytesperline_base;                                   
                 }
                else
                 {
@@ -512,7 +454,12 @@ bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmap, int& x, int& y)
 
                   break;  
                 }  
-            }        
+            } 
+
+          if(found)
+            {
+              break;    
+            }       
         }
     }
   
@@ -566,6 +513,28 @@ void GRPBITMAP::SetHandle(XDWORD handle)
   this->handle = handle;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPBITMAP::DifferencesPerCent(XDWORD ndiff, XDWORD max, int limit)
+* @brief      DifferencesPerCent
+* @ingroup    GRAPHIC
+* 
+* @param[in]  ndiff : 
+* @param[in]  max : 
+* @param[in]  limit : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPBITMAP::DifferencesPerCent(XDWORD ndiff, XDWORD max, int limit)
+{
+  int actualdiff = ((ndiff*100)/max);
+
+  if(actualdiff > limit) return false;
+
+  return true;
+} 
 
 
 /**-------------------------------------------------------------------------------------------------------------------

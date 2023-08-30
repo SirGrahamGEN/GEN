@@ -232,10 +232,10 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
                                               int x;
                                               int y;
 
-                                              if(SearchBitpmapInOther(bitmapscreen, bitmapref, x, y))
+                                              if(bitmapscreen->FindSubBitmap(bitmapref, x, y))
                                                 {
-                                                  windowsposx += x; 
-                                                  windowsposy += y; 
+                                                  windowsposx += (x + (bitmapref->GetWidth() /2)); 
+                                                  windowsposy += (y + (bitmapref->GetHeight()/2)); 
                                                 }      
                                             }                                                 
 
@@ -544,34 +544,6 @@ void Call_Window_Resize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
    
   (*returnvalue) = status;
 }
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SearchBitpmapInOther(GRPBITMAP* base, GRPBITMAP* ref, int& x, int& y)
-* @brief      earchBitpmapInOther
-* @ingroup    SCRIPT
-* 
-* @param[in]  base : 
-* @param[in]  ref : 
-* @param[in]  x : 
-* @param[in]  y : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SearchBitpmapInOther(GRPBITMAP* base, GRPBITMAP* ref, int& x, int& y)
-{
-  bool status = false;
-
-  x = 0;
-  y = 0;
-
-  
-  return status;
-}
-
 
 #pragma endregion
 
