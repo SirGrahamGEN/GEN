@@ -49,18 +49,20 @@ class APPCONSOLE : public APPBASE, public XOBSERVER
 {
   public:
 
-                                  APPCONSOLE            ();
-    virtual                      ~APPCONSOLE            ();
+                                  APPCONSOLE                  ();
+    virtual                      ~APPCONSOLE                  ();
 
-    bool                          Ini                   (XVECTOR<XSTRING*>* execparams);
+    bool                          Ini                         (XVECTOR<XSTRING*>* execparams);
   
-    bool                          Show_Line             (XSTRING& string, XSTRING& string2, int tab = 3, bool linefeed = true);
-    bool                          Show_LineDirect       (XSTRING& string, bool lf);
-    bool                          Show_Header           (bool separator);
+    bool                          Show_Line                   (XSTRING& string, XSTRING& string2, int tab = 3, bool linefeed = true);
+    bool                          Show_BlankLine              ();
+    bool                          Show_LineDirect             (XSTRING& string, bool lf);
+    bool                          Show_Header                 (bool separator);
 
-    bool                          End                   ();
+    bool                          End                         ();
 
-    virtual bool                  PrintExitMessage      (XSTRING& message);
+    bool                          PrintExitMessage_Active     (bool isprintexitmessageactive);
+    virtual bool                  PrintExitMessage            (XSTRING& message);
 
   protected:
 
@@ -68,7 +70,9 @@ class APPCONSOLE : public APPBASE, public XOBSERVER
 
   private:
 
-    void                          Clean                 ();
+    void                          Clean                       ();
+
+   bool                           isprintexitmessageactive;
 
 };
 
