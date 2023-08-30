@@ -65,6 +65,8 @@
 APPCONSOLE::APPCONSOLE()
 {
   Clean();
+
+  isprintexitmessageactive = true;
 }
 
 
@@ -145,6 +147,24 @@ bool APPCONSOLE::Show_Line(XSTRING& string, XSTRING& string2, int tab, bool line
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool APPCONSOLE::Show_BlankLine()
+* @brief      Show_BlankLine
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPCONSOLE::Show_BlankLine()
+{
+  XSTRING string;
+  XSTRING string2;
+
+  return Show_Line(string, string2);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool APPCONSOLE::Show_LineDirect(XSTRING& string, bool lf)
 * @brief      Show_LineDirect
 * @ingroup    APPLICATION
@@ -203,19 +223,44 @@ bool APPCONSOLE::End()
   XSTRING exittypestring;
 
   GetExitTypeString(exittypestring);
-  if(!exittypestring.IsEmpty()) GEN_XLOG.AddEntry(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_GENERIC, false, exittypestring.Get());
+  if(!exittypestring.IsEmpty()) 
+    {
+      GEN_XLOG.AddEntry(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_GENERIC, false, exittypestring.Get());
+    }
 
   bool status = APPBASE::End();
 
   if(console)
     {
-      PrintExitMessage(exittypestring);
+      if(isprintexitmessageactive)
+        {
+          PrintExitMessage(exittypestring);
+        }
 
       GEN_XFACTORY.DeleteConsole(console);
       console = NULL;
     }
 
   return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPCONSOLE::PrintExitMessage_Active(bool isprintexitmessageactive)
+* @brief      PrintExitMessage_Active
+* @ingroup    APPLICATION
+* 
+* @param[in]  isprintexitmessageactive : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPCONSOLE::PrintExitMessage_Active(bool isprintexitmessageactive)
+{
+  this->isprintexitmessageactive = isprintexitmessageactive;
+
+  return true;
 }
 
 
@@ -255,5 +300,6 @@ bool APPCONSOLE::PrintExitMessage(XSTRING& exitmessage)
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCONSOLE::Clean()
 {
-  console = NULL;
+  console                  = NULL;
+  isprintexitmessageactive = false;
 }

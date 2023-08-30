@@ -41,6 +41,7 @@
 #include <dirent.h>
 #include <iostream>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <signal.h>
 
 #include "XLINUXFactory.h"
@@ -219,6 +220,7 @@ bool XLINUXPROCESSMANAGER::OpenURL(XCHAR* url)
 * @return     bool : true if is succesful. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
+/*
 bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 { 
   #define PIPE_READ   0
@@ -418,6 +420,245 @@ bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* pa
     }
 
   for(int c=0; c<MAXNPARAMS; c++)
+    {
+      delete [] param[c];
+    }
+
+  return status;
+}
+*/
+
+bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+{ 
+  #define PIPE_READ   0
+  #define PIPE_WRITE  1
+
+  if(!applicationpath) return false;
+
+  pid_t pID;
+  bool  exist  = false;
+  bool  status = false;
+  int   stdinpipe[2]  = { 0 , 0 };
+  int   stdoutpipe[2] = { 0 , 0 };
+  int   nresult = 0;
+
+  if(pipe(stdinpipe) < 0)
+    {
+      return -1;
+    }
+
+  if(pipe(stdoutpipe) < 0)
+    {
+      close(stdinpipe[PIPE_READ]);
+      close(stdinpipe[PIPE_WRITE]);
+
+      return -1;
+    }
+
+
+  XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
+  if(xfile)
+    {
+      exist = xfile->Open(applicationpath);
+      xfile->Close();
+    }
+
+  GEN_XFACTORY.Delete_File(xfile);
+
+  if(!exist) return false;
+
+  //-----------------------------------------
+  // exec attributtes
+
+  XSTRING cmd;
+
+  cmd  = __L("chmod 775 ");
+  cmd += applicationpath;
+
+
+  XBUFFER charstr;
+  
+  cmd.ConvertToASCII(charstr);
+  status = system(charstr.GetPtrChar());
+  
+  //if(status == -1) return false;
+
+  //------------------------------------------
+
+  XSTRING _params;
+
+  cmd = applicationpath;
+
+  _params.Add(cmd);
+  if(params)
+    {
+      _params.Add(" ");
+      _params.Add(params);
+    }
+
+  #define MAXNPARAMS  20
+
+  char* param[MAXNPARAMS] = { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+                              NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
+                            };
+  int   start             = 0;
+  bool  endfound          = false;
+
+  for(int c=0; c<MAXNPARAMS; c++)
+    {
+      XSTRING string;
+      int     found = _params.Find(__L(" "), true, start);
+
+      if(found == XSTRING_NOTFOUND)
+        {
+          _params.Copy(start, string);
+          endfound = true;
+        }
+       else
+        {
+          _params.Copy(start, found, string);
+          start = found+1;
+        }
+            
+      if(endfound) break;
+    }
+
+  pID = fork();
+  
+  if(pID == 0) 
+    {
+      // Child
+      // redirect stdin
+      if(dup2(stdinpipe[PIPE_READ], STDIN_FILENO)    == -1)
+        {
+          exit(errno);
+        }
+
+        // redirect stdout
+      if(dup2(stdoutpipe[PIPE_WRITE], STDOUT_FILENO) == -1)
+        {
+          exit(errno);
+        }
+
+      // redirect stderr
+      if(dup2(stdoutpipe[PIPE_WRITE], STDERR_FILENO) == -1)
+        {
+          exit(errno);
+        }
+
+      // all these are for use by parent only
+      close(stdinpipe[PIPE_READ]);
+      close(stdinpipe[PIPE_WRITE]);
+      close(stdoutpipe[PIPE_READ]);
+      close(stdoutpipe[PIPE_WRITE]);
+
+      // run child process image
+      // replace this with any exec* function find easier to use ("man exec")
+
+      // Child
+   
+      XBUFFER charstr;
+   
+      cmd.ConvertToASCII(charstr);                                
+      execl(charstr.GetPtrChar() , param[ 0], param[ 1], param[ 2], param[ 3], param[ 4], param[ 5], param[ 6], param[ 7], param[ 8], param[ 9]
+                                 , param[10], param[11], param[12], param[13], param[14], param[15], param[16], param[17], param[18], param[19]
+                                 , NULL);   
+      _exit(127);
+    } 
+   else 
+    {
+      if(pID > 0) 
+        {
+          // parent
+          
+          #define MAXOUTPIPECHARS  _MAXSTR    
+          char nchar[MAXOUTPIPECHARS];  
+          //char nchar;  
+          int  returnstatus = 0; 
+
+          // close unused file descriptors, these are for child only
+          close(stdinpipe[PIPE_READ]);
+          close(stdoutpipe[PIPE_WRITE]);     
+
+          if(in)
+            {
+              if(in->GetSize())
+                {
+                  XBUFFER charstr;
+                    
+                  (*in).ConvertToASCII(charstr);                           
+                  write(stdinpipe[PIPE_WRITE], charstr.Get(), in->GetSize()); 
+                }
+            }
+
+          if(waitpid(pID, &returnstatus, 0) > 0) 
+            {
+              if(WIFEXITED(returnstatus) && !WEXITSTATUS(returnstatus)) 
+                {
+                  status = true;
+                  if(returncode) (*returncode) = WEXITSTATUS(returnstatus);
+                } 
+               else 
+                {
+                  if(WIFEXITED(returnstatus) && WEXITSTATUS(returnstatus)) 
+                    {                      
+                      status = false;
+                      if(returncode) (*returncode) = WEXITSTATUS(returnstatus);                      
+                    } 
+                   else 
+                    {
+                      status = true;
+                      if(returncode) (*returncode) = WEXITSTATUS(returnstatus);
+                    }
+                }
+            } 
+           else 
+            {
+              status = false;
+              if(returncode) (*returncode) = 1;
+            }  
+
+          if(out)
+            {    
+              /*                             
+              // Just a char by char read here, you can change it accordingly
+              while(read(stdoutpipe[PIPE_READ], &nchar, 1) == 1)
+                {
+                  out->Add(nchar);              
+                }
+              */
+                
+              int nread;
+              do{ nread = read(stdoutpipe[PIPE_READ], nchar, MAXOUTPIPECHARS); 
+
+                  if(nread)
+                    {
+                      out->Add((XBYTE*)nchar, nread);
+                    }
+
+                } while(nread == MAXOUTPIPECHARS);
+                                
+            } 
+
+          close(stdinpipe[PIPE_WRITE]);
+          close(stdoutpipe[PIPE_READ]);
+                           
+        } 
+       else 
+        {
+          // Error fork 
+
+          close(stdinpipe[PIPE_READ]);
+          close(stdinpipe[PIPE_WRITE]);
+
+          close(stdoutpipe[PIPE_READ]);
+          close(stdoutpipe[PIPE_WRITE]);
+          
+          return false;
+        }
+    }
+
+   for(int c=0; c<MAXNPARAMS; c++)
     {
       delete [] param[c];
     }
