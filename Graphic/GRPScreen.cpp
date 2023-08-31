@@ -351,6 +351,24 @@ bool GRPSCREEN::Delete()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool GRPSCREEN::Get_Position(int &x, int &y)
+* @brief      Get_Position
+* @ingroup    GRAPHIC
+* 
+* @param[in]  &x : 
+* @param[in]  &y : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPSCREEN::Get_Position(int &x, int &y)
+{
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool GRPSCREEN::SetPosition(int x, int y)
 * @brief      SetPosition
 * @ingroup    GRAPHIC

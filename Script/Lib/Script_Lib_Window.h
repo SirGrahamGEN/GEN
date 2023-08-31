@@ -54,6 +54,7 @@
 class XVARIANT;
 class SCRIPT;
 class GRPBITMAP; 
+class APPGRAPHICS;
 
 class SCRIPT_LIB_WINDOW : public SCRIPT_LIB
 {
@@ -63,9 +64,15 @@ class SCRIPT_LIB_WINDOW : public SCRIPT_LIB
 
     bool                  AddLibraryFunctions           (SCRIPT* script);
 
+    static APPGRAPHICS*   GetAppGraphics                ();
+    static void           SetAppGraphics                (APPGRAPHICS* appgraphics);
+
   private:
 
     void                  Clean                         ();
+
+    static APPGRAPHICS*   appgraphics;
+
 };
 
 #pragma endregion

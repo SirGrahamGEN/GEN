@@ -256,6 +256,31 @@ bool GRPWINDOWSSCREEN::Delete()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool GRPWINDOWSSCREEN::Get_Position(int& x, int& y)
+* @brief      Get_Position
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  x : 
+* @param[in]  y : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPWINDOWSSCREEN::Get_Position(int& x, int& y)
+{
+  RECT    rect;
+
+  GetWindowRect(hwnd, &rect);
+
+  x = rect.left;  
+  y = rect.top;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool GRPWINDOWSSCREEN::Set_Position(int x, int y)
 * @brief      Set_Position
 * @ingroup    PLATFORM_WINDOWS
@@ -288,7 +313,7 @@ bool GRPWINDOWSSCREEN::Set_Position(int x, int y)
 
   SetPosition(x, y);
 
-  AdjustWindowRect(&rect,style,false);
+  AdjustWindowRect(&rect, style, false);
 
   SetWindowPos(hwnd,NULL, positionx, positiony, (rect.right-rect.left), (rect.bottom-rect.top)  , SWP_NOSIZE | SWP_NOZORDER);
 

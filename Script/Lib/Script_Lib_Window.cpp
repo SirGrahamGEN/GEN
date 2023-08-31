@@ -44,6 +44,7 @@
 
 #include "APPBase.h"
 #include "APPMain.h"
+#include "APPGraphics.h"
 
 #include "INPFactory.h"
 #include "INPSimulate.h"
@@ -52,6 +53,9 @@
 #include "GRPScreen.h"
 #include "GRPBitmap.h"
 #include "GRPBitmapFile.h"
+
+#include "GRPViewPort.h"
+#include "GRPCanvas.h"
 
 #include "Script.h"
 
@@ -63,8 +67,10 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
-int windowsposx = 0;
-int windowsposy = 0;
+int            windowsposx = 0;
+int            windowsposy = 0;
+
+APPGRAPHICS*   SCRIPT_LIB_WINDOW::appgraphics = NULL;
 			
 #pragma endregion
 
@@ -133,6 +139,38 @@ bool SCRIPT_LIB_WINDOW::AddLibraryFunctions(SCRIPT* script)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         APPGRAPHICS* SCRIPT_LIB_WINDOW::GetAppGraphics()
+* @brief      GetAppGraphics
+* @ingroup    SCRIPT
+* 
+* @return     APPGRAPHICS* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+APPGRAPHICS* SCRIPT_LIB_WINDOW::GetAppGraphics()
+{
+  return appgraphics;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SCRIPT_LIB_WINDOW::SetAppGraphics(APPGRAPHICS* appgraphics)
+* @brief      SetAppGraphics
+* @ingroup    SCRIPT
+* 
+* @param[in]  _appgraphics : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SCRIPT_LIB_WINDOW::SetAppGraphics(APPGRAPHICS* _appgraphics)
+{
+  appgraphics = _appgraphics;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         voidSCRIPT_LIB_WINDOW::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -145,6 +183,8 @@ void SCRIPT_LIB_WINDOW::Clean()
 {
   windowsposx = 0;
   windowsposy = 0;
+
+  appgraphics = NULL;
 }
 
 
@@ -217,6 +257,26 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
                                   GRPBITMAP* bitmapscreen = screen->CaptureContent();
                                   if(bitmapscreen)
                                     { 
+                                      // ----------------------------------------------------------------------------------
+
+                                      if(SCRIPT_LIB_WINDOW::GetAppGraphics())
+                                        {
+                                          GRPVIEWPORT* viewport = NULL;
+                                          GRPCANVAS*   canvas   = NULL;
+                                          GRPSCREEN*   screen   = SCRIPT_LIB_WINDOW::GetAppGraphics()->GetMainScreen();
+
+                                          if(screen) viewport = screen->GetViewport(0);
+                                          if(viewport) canvas = viewport->GetCanvas();
+
+                                          if(canvas)
+                                            {
+                                              canvas->PutBitmapNoAlpha(0, 0, bitmapscreen);  
+                                              screen->UpdateViewports();                                              
+                                            }
+                                        }
+
+                                      // ----------------------------------------------------------------------------------
+
                                       XPATH  xpathbitmapref;  
                                       
                                       GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_GRAPHICS, xpathbitmapref);
@@ -544,6 +604,7 @@ void Call_Window_Resize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
    
   (*returnvalue) = status;
 }
+
 
 #pragma endregion
 

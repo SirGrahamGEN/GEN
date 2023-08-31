@@ -61,6 +61,7 @@ class GRPWINDOWSSCREEN : public GRPSCREEN
     bool                                  Create                      (bool show);
     bool                                  Update                      ();
     bool                                  Update                      (GRPCANVAS* canvas);
+    bool                                  Get_Position                (int &x, int &y);
     bool                                  Set_Position                (int x, int y);
     bool                                  Delete                      ();
     bool                                  Resize                      (int width, int height);
