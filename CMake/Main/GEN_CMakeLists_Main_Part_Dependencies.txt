@@ -175,6 +175,13 @@ if(APP_CFG_REMOTEFILE_FEATURE               OR
   add_definitions(-DAPP_CFG_ACTIVE)
   option(APP_CFG_FEATURE "Application CFG" true) 
 
+
+  if(APP_CFG_SCRIPTS_FEATURE)
+
+    add_definitions(-DAPP_CFG_SCRIPTS_ACTIVE)
+    
+  endif()
+
  
   if(APP_CFG_LOG_FEATURE)
 

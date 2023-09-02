@@ -4,6 +4,15 @@
 # --------------------------------------------------------------------
 
 
- include_directories(${INCLUDES_DIR})
+include_directories(${INCLUDES_DIR})
 
- add_executable(${CMAKE_PROJECT_NAME} ${SOURCES} ${APP_RESOURCE_FILE})
+
+if("${APP_RESOURCE_FILE}" STREQUAL "")
+
+  add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
+
+else()
+
+  add_executable(${CMAKE_PROJECT_NAME} ${SOURCES} ${APP_RESOURCE_FILE})
+
+endif()

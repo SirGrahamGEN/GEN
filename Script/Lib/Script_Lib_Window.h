@@ -42,8 +42,9 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-
 #define SCRIPT_LIB_NAME_WINDOW    __L("Window")
+
+//#define SCRIPT_LIB_WINDOWS_DEBUG
 
 #pragma endregion
 
@@ -64,14 +65,18 @@ class SCRIPT_LIB_WINDOW : public SCRIPT_LIB
 
     bool                  AddLibraryFunctions           (SCRIPT* script);
 
+    #ifdef SCRIPT_LIB_WINDOWS_DEBUG
     static APPGRAPHICS*   GetAppGraphics                ();
     static void           SetAppGraphics                (APPGRAPHICS* appgraphics);
+    #endif
 
   private:
 
     void                  Clean                         ();
 
+    #ifdef SCRIPT_LIB_WINDOWS_DEBUG
     static APPGRAPHICS*   appgraphics;
+    #endif
 
 };
 

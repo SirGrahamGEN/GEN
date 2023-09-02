@@ -258,7 +258,22 @@ bool APPCFG::DoVariableMapping()
   #endif
 
 
+  #ifdef APP_CFG_SCRIPTS_ACTIVE
+
+  AddRemark(APP_CFG_SECTION_LOG, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APP_CFG_SECTION_LOG, __L(" Scripts list"), 0, 2);
+
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_SCRIPTS    , APP_CFG_SCRIPTS_SCRIPT                 , __L("%03d"), 3, 999 
+                                                                                                                           , scripts_list
+                                                                                                                           , scripts_nscripts                                                                         , __L("Scripts")                                                            , APP_CFG_DEFAULT_REMARK_COLUMN);
+
+
+
+  #endif
+
+
   #ifdef APP_CFG_LOG_ACTIVE
+
   AddRemark(APP_CFG_SECTION_LOG, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
   AddRemark(APP_CFG_SECTION_LOG, __L(" Log section of configuration"), 0, 2);
   
@@ -391,7 +406,6 @@ bool APPCFG::End()
   #endif
   #endif
 
-
   #ifdef APP_CFG_ALERTS_ACTIVE
   alerts_conditions.DeleteContents();
   alerts_conditions.DeleteAll();
@@ -403,6 +417,11 @@ bool APPCFG::End()
   alerts_WEB_recipients.DeleteAll();
   alerts_UDP_recipients.DeleteContents();
   alerts_UDP_recipients.DeleteAll();
+  #endif  
+
+  #ifdef APP_CFG_SCRIPTS_ACTIVE
+  scripts_list.DeleteContents();
+  scripts_list.DeleteAll();
   #endif
 
   #ifdef APP_CFG_REMOTEFILE_ACTIVE
@@ -1566,6 +1585,45 @@ XPATH* APPCFG::WebServer_PathPHP()
 #endif
 
 
+#ifdef APP_CFG_SCRIPTS_ACTIVE
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* CBUILDER_CFG::Scripts_GetAll()
+* @brief      Scripts_GetAll
+* @ingroup    APPLICATION
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPCFG::Scripts_GetAll()
+{
+  return &scripts_list;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* CBUILDER_CFG::Scripts_GetScript(int index)
+* @brief      Scripts_GetScript
+* @ingroup    APPLICATION
+* 
+* @param[in]  index : 
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPCFG::Scripts_GetScript(int index)
+{
+  if(index <  0)                        return NULL;
+  if(index >= scripts_list.GetSize())   return NULL;
+
+  return scripts_list.Get(index);
+}
+
+#endif
+
+
 #ifdef APP_CFG_LOG_ACTIVE
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1785,6 +1843,12 @@ void APPCFG::Clean()
   alerts_UDP_isactive                               = false;
   alerts_UDP_port                                   = 0;
   alerts_UDP_nrecipients                            = 0;
+  #endif
+
+  //-----------------------------------------------------------------------------------------------------
+
+  #ifdef APP_CFG_SCRIPTS_ACTIVE
+  scripts_nscripts                                  = 0;  
   #endif
 
   //-----------------------------------------------------------------------------------------------------

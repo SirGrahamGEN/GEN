@@ -90,12 +90,20 @@ class SCRIPT : public XSUBJECT
 {
   public:
                                         SCRIPT                        ();
-    virtual                            ~SCRIPT                        ();                                       
+    virtual                            ~SCRIPT                        ();  
+
+    SCRIPT_TYPE                         GetType                       (); 
+    static SCRIPT_TYPE                  GetTypeByExtension            (XCHAR* namefilescript);
 
     static SCRIPT*                      Create                        (XCHAR* namefilescript);
+    static SCRIPT*                      Create                        (SCRIPT_TYPE type);
 
-    virtual bool                        Load                          (XPATH& xpath);
-    virtual bool                        Save                          (XPATH& xpath);
+    bool                                Load                          (XPATH& xpath, bool add = false);
+    bool                                Save                          (XPATH& xpath);
+
+    static bool                         LoadScriptAndRun              (XVECTOR<XSTRING*>* listscripts);
+
+    bool                                AddReturnByType               ();
 
     static bool                         IsScript                      (XPATH& xpath, XCHAR* extension);
 

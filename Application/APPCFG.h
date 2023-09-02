@@ -62,7 +62,7 @@
 #define APP_CFG_SECTION_GENERAL                                                   __L("general")
 #define APP_CFG_SCRAPERWEBSCRIPTURLDOWNLOAD                                       __L("scraperwebscripturldownload")
 #define APP_CFG_SHOWDETAILINFO                                                    __L("showdetailinfo")
-#ifdef XTRACE_ACTIVE
+#ifdef  XTRACE_ACTIVE
 #define APP_CFG_TRACETARGET                                                       __L("trace_target")
 #endif
 
@@ -180,6 +180,14 @@
 #endif
 
 
+#ifdef APP_CFG_SCRIPTS_ACTIVE
+
+#define APP_CFG_SECTION_SCRIPTS                                                   __L("scriptslist")
+#define APP_CFG_SCRIPTS_SCRIPT                                                    __L("scripts")  
+
+#endif
+
+
 #ifdef APP_CFG_LOG_ACTIVE
 
 #define APP_CFG_SECTION_LOG                                                       __L("log")
@@ -192,7 +200,6 @@
 #define APP_CFG_LOG_MAXSIZE                                                       __L("maxsize")
 #define APP_CFG_LOG_REDUCTIONPERCENT                                              __L("reductionpercent")
 
-
 // ID Sections "generic" of LOG
 #define APP_CFG_LOG_SECTIONID_INITIATION                                          __L("Ini")
 #define APP_CFG_LOG_SECTIONID_GENERIC                                             __L("General")
@@ -200,6 +207,8 @@
 #define APP_CFG_LOG_SECTIONID_ENDING                                              __L("End")
 
 #endif
+
+
 
 #ifdef XTRACE_ACTIVE
   #define   APP_CFG_SETAUTOMATICTRACETARGETS                                      APP_CFG.SetAutomaticTraceTargets();
@@ -330,6 +339,10 @@ class APPCFG
     XPATH*               WebServer_PathPHP                                        ();
     #endif
 
+    #ifdef APP_CFG_SCRIPTS_ACTIVE
+    XVECTOR<XSTRING*>*   Scripts_GetAll                                           ();
+    XSTRING*             Scripts_GetScript                                        (int index);
+    #endif
 
     #ifdef APP_CFG_LOG_ACTIVE
     bool                 Log_IsActive                                             ();
@@ -438,6 +451,12 @@ class APPCFG
     int                  alerts_UDP_port;
     int                  alerts_UDP_nrecipients;
     XVECTOR<XSTRING*>    alerts_UDP_recipients;
+    #endif
+
+
+    #ifdef APP_CFG_SCRIPTS_ACTIVE
+    int                  scripts_nscripts;
+    XVECTOR<XSTRING*>    scripts_list;
     #endif
 
 

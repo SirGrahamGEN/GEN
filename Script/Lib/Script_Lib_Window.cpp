@@ -44,7 +44,10 @@
 
 #include "APPBase.h"
 #include "APPMain.h"
+
+#ifdef SCRIPT_LIB_WINDOWS_DEBUG
 #include "APPGraphics.h"
+#endif
 
 #include "INPFactory.h"
 #include "INPSimulate.h"
@@ -70,7 +73,9 @@
 int            windowsposx = 0;
 int            windowsposy = 0;
 
+#ifdef SCRIPT_LIB_WINDOWS_DEBUG
 APPGRAPHICS*   SCRIPT_LIB_WINDOW::appgraphics = NULL;
+#endif
 			
 #pragma endregion
 
@@ -137,6 +142,8 @@ bool SCRIPT_LIB_WINDOW::AddLibraryFunctions(SCRIPT* script)
 }
 
 
+#ifdef SCRIPT_LIB_WINDOWS_DEBUG
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPGRAPHICS* SCRIPT_LIB_WINDOW::GetAppGraphics()
@@ -168,6 +175,7 @@ void SCRIPT_LIB_WINDOW::SetAppGraphics(APPGRAPHICS* _appgraphics)
   appgraphics = _appgraphics;
 }
 
+#endif
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -184,7 +192,9 @@ void SCRIPT_LIB_WINDOW::Clean()
   windowsposx = 0;
   windowsposy = 0;
 
+  #ifdef SCRIPT_LIB_WINDOWS_DEBUG
   appgraphics = NULL;
+  #endif
 }
 
 
@@ -259,6 +269,8 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
                                     { 
                                       // ----------------------------------------------------------------------------------
 
+                                      #ifdef SCRIPT_LIB_WINDOWS_DEBUG
+
                                       if(SCRIPT_LIB_WINDOW::GetAppGraphics())
                                         {
                                           GRPVIEWPORT* viewport = NULL;
@@ -274,6 +286,8 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
                                               screen->UpdateViewports();                                              
                                             }
                                         }
+
+                                      #endif
 
                                       // ----------------------------------------------------------------------------------
 

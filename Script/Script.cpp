@@ -159,6 +159,68 @@ SCRIPT::~SCRIPT()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         SCRIPT_TYPE SCRIPT::GetType()
+* @brief      GetType
+* @ingroup    SCRIPT
+* 
+* @return     SCRIPT_TYPE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SCRIPT_TYPE SCRIPT::GetType()
+{
+  return type;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SCRIPT_TYPE SCRIPT::GetTypeByExtension(XCHAR* namefilescript)
+* @brief      GetTypeByExtension
+* @ingroup    SCRIPT
+* 
+* @param[in]  namefilescript : 
+* 
+* @return     SCRIPT_TYPE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SCRIPT_TYPE SCRIPT::GetTypeByExtension(XCHAR* namefilescript)
+{
+  XSTRING       ext;
+  SCRIPT_TYPE   type            = SCRIPT_TYPE_UNKNOWN;
+  XPATH         _namefilescript = namefilescript;
+                                                                                        
+  if(!_namefilescript.IsEmpty())
+    {
+      _namefilescript.GetExt(ext);
+
+      #ifdef SCRIPT_G_ACTIVE
+      if(!ext.Compare(__L(".g")   , true))  
+        {
+          type = SCRIPT_TYPE_G;
+        }
+      #endif
+
+      #ifdef SCRIPT_LUA_ACTIVE
+      if(!ext.Compare(__L(".lua") , true))
+        {
+          type = SCRIPT_TYPE_LUA;
+        }
+      #endif
+
+      #ifdef SCRIPT_JAVASCRIPT_ACTIVE
+      if(!ext.Compare(__L(".js")  , true)) 
+        {
+          type = SCRIPT_TYPE_JAVASCRIPT;
+        }
+      #endif
+    }
+
+  return type;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         SCRIPT* SCRIPT::Create(XCHAR* namefilescript)
 * @brief      Create
 * @ingroup    SCRIPT
@@ -170,27 +232,46 @@ SCRIPT::~SCRIPT()
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT* SCRIPT::Create(XCHAR* namefilescript)
 {
+  return Create(GetTypeByExtension(namefilescript));  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SCRIPT* SCRIPT::Create(SCRIPT_TYPE type)
+* @brief      Create
+* @ingroup    SCRIPT
+* 
+* @param[in]  type : 
+* 
+* @return     SCRIPT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SCRIPT* SCRIPT::Create(SCRIPT_TYPE type)
+{
   SCRIPT* script = NULL;
-  XSTRING ext;
-  XPATH   _namefilescript;
-                                            
-  _namefilescript = namefilescript;
-                                            
-  if(!_namefilescript.IsEmpty())
+
+  switch(type)
     {
-      _namefilescript.GetExt(ext);
+      case SCRIPT_TYPE_UNKNOWN      : break;
 
-      #ifdef SCRIPT_G_ACTIVE
-      if(!ext.Compare(__L(".g")   , true)) script = new SCRIPT_LNG_G();
-      #endif
+      case SCRIPT_TYPE_G            : 
+                                      #ifdef SCRIPT_G_ACTIVE
+                                      script = new SCRIPT_LNG_G();
+                                      #endif
+                                      break;  
 
-      #ifdef SCRIPT_LUA_ACTIVE
-      if(!ext.Compare(__L(".lua") , true)) script = new SCRIPT_LNG_LUA();
-      #endif
+      case SCRIPT_TYPE_LUA          : 
+                                      #ifdef SCRIPT_LUA_ACTIVE
+                                      script = new SCRIPT_LNG_LUA();
+                                      #endif
+                                      break;
 
-      #ifdef SCRIPT_JAVASCRIPT_ACTIVE
-      if(!ext.Compare(__L(".js")  , true)) script = new SCRIPT_LNG_JAVASCRIPT();
-      #endif
+      case SCRIPT_TYPE_JAVASCRIPT   :  
+                                      #ifdef SCRIPT_JAVASCRIPT_ACTIVE
+                                      script = new SCRIPT_LNG_JAVASCRIPT();
+                                      #endif
+                                      break;     
     }
 
   return script;
@@ -199,20 +280,27 @@ SCRIPT* SCRIPT::Create(XCHAR* namefilescript)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SCRIPT::Load(XPATH& xpath)
+* @fn         bool SCRIPT::Load(XPATH& xpath, bool add)
 * @brief      Load
 * @ingroup    SCRIPT
 * 
 * @param[in]  xpath : 
+* @param[in]  add : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT::Load(XPATH& xpath)
+bool SCRIPT::Load(XPATH& xpath, bool add)
 {
   if(!xfiletxt) return false;
 
   bool status = false;
+
+  if(add)
+    {
+      AddReturnByType();
+      AddReturnByType();
+    }
 
   this->xpath = xpath;
 
@@ -222,20 +310,16 @@ bool SCRIPT::Load(XPATH& xpath)
     {
       if(xfiletxt->ReadAllFile()) status = true;
 
-      script.Empty();
+      if(!add) 
+        {
+          script.Empty();
+        }
 
-      for(int c=0;c<xfiletxt->GetNLines();c++)
+      for(int c=0; c<xfiletxt->GetNLines(); c++)
         {
           script += xfiletxt->GetLine(c)->Get();
-
-          switch(type)
-            {
-              case SCRIPT_TYPE_UNKNOWN       : 
-                                   default   : script += __L("\r\n"); break;
-              case SCRIPT_TYPE_G             : script += __L("\r\n"); break;
-              case SCRIPT_TYPE_LUA           : script += __L("\r");   break;
-              case SCRIPT_TYPE_JAVASCRIPT    : script += __L("\r");   break;
-            }
+      
+          AddReturnByType();
         }
 
       xfiletxt->Close();
@@ -271,6 +355,108 @@ bool SCRIPT::Save(XPATH& xpath)
     }
 
   return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts)
+* @brief      LoadScriptAndRun
+* @ingroup    SCRIPT
+* 
+* @param[in]  listscripts : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts)
+{
+  if(!listscripts) 
+    {
+      return false;
+    }
+
+  bool status = false;
+                                                                                                     
+  for(XDWORD c=0; c<listscripts->GetSize(); c++)
+    {  
+      XSTRING* linescripts = listscripts->Get(c);    
+      if(linescripts)
+        {
+          if(!linescripts->IsEmpty())
+            {
+              XVECTOR<XSTRING*> namescripts;
+
+              linescripts->Split(__C(','), namescripts);
+
+              XSTRING* namescript = namescripts.Get(0);
+              if(namescript)
+                {
+                  SCRIPT* script = SCRIPT::Create(namescript->Get());
+                  if(script) 
+                    {
+                      for(XDWORD d=0; d<namescripts.GetSize(); d++)
+                        {  
+                          namescript = namescripts.Get(d);
+                          if(namescript)
+                            {                          
+                              XPATH xpath;     
+
+                              GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_SCRIPTS, xpath);
+                              xpath.Slash_Add();
+                              xpath += namescript->Get();
+
+                              status = script->Load(xpath, true);
+                              if(!status)  
+                                {
+                                  break;
+                                }  
+                            }
+                        } 
+
+                      if(status)
+                        {                               
+                          script->Run();                              
+                        }
+
+                      delete script;
+                      script = NULL;
+
+                    }                    
+                }
+
+              namescripts.DeleteContents();
+              namescripts.DeleteAll();              
+            
+            } 
+        } 
+    }
+  
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SCRIPT::AddReturnByType()
+* @brief      AddReturnByType
+* @ingroup    SCRIPT
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SCRIPT::AddReturnByType()
+{
+  switch(type)
+    {
+      case SCRIPT_TYPE_UNKNOWN       : 
+                           default   : script += __L("\r\n"); break;
+      case SCRIPT_TYPE_G             : script += __L("\r\n"); break;
+      case SCRIPT_TYPE_LUA           : script += __L("\r");   break;
+      case SCRIPT_TYPE_JAVASCRIPT    : script += __L("\r");   break;
+    }
+
+  return true;
 }
 
 

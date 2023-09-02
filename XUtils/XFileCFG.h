@@ -84,7 +84,6 @@ class XFILECFGVALUE
     void*                               GetValue                  ();
     bool                                SetValue                  (void* value);
 
-
     XSTRING*                            GetIDBasic                ();
     XSTRING*                            GetMask                   (); 
 
@@ -184,7 +183,7 @@ class XFILECFG : public XSUBJECT
     XFILECFGVALUE*                      GetCFGValue               (XCHAR* group, XCHAR* ID);
     bool                                SetValue                  (XFILECFGVALUE* CFGvalue, XVARIANT* value);
     bool                                DeleteAllValues           ();
-   
+    
     bool                                AddRemark                 (XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
     bool                                AddRemark                 (XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWORD relativeypos);
     XVECTOR<XFILEINIREMARK*>*           GetRemarks                ();
