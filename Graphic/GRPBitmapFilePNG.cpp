@@ -417,7 +417,7 @@ bool GRPBITMAPFILEPNG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
                                   ptr[0] = color->r;
                                   ptr[1] = color->g;
                                   ptr[2] = color->b;
-                                  ptr[3] = color->a;
+                                  ptr[3] = color->a;                                 
                                 }
 
                               index  += bytesppixel;

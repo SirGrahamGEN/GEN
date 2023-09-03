@@ -477,12 +477,6 @@ bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmap, int& x, int& y, XBYTE difflimit
 }
 
 
-
-
-
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPBITMAP::GetHandle()

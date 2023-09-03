@@ -266,28 +266,12 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
                               
                                   GRPBITMAP* bitmapscreen = screen->CaptureContent();
                                   if(bitmapscreen)
-                                    { 
+                                    {                                     
                                       // ----------------------------------------------------------------------------------
 
                                       #ifdef SCRIPT_LIB_WINDOWS_DEBUG
-
-                                      if(SCRIPT_LIB_WINDOW::GetAppGraphics())
-                                        {
-                                          GRPVIEWPORT* viewport = NULL;
-                                          GRPCANVAS*   canvas   = NULL;
-                                          GRPSCREEN*   screen   = SCRIPT_LIB_WINDOW::GetAppGraphics()->GetMainScreen();
-
-                                          if(screen) viewport = screen->GetViewport(0);
-                                          if(viewport) canvas = viewport->GetCanvas();
-
-                                          if(canvas)
-                                            {
-                                              canvas->PutBitmapNoAlpha(0, 0, bitmapscreen);  
-                                              screen->UpdateViewports();                                              
-                                            }
-                                        }
-
-                                      #endif
+                                      PutBitmap(0, 0, bitmapscreen);
+                                      #endif                             
 
                                       // ----------------------------------------------------------------------------------
 
@@ -299,14 +283,26 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
 
                                       GRPBITMAPFILE* bitmapfileref = new GRPBITMAPFILE(xpathbitmapref);
                                       if(bitmapfileref)
-                                        {                                         
+                                        {                                                 
+                                          XPATH  xpathbitmaptest;
+
+                                          GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_GRAPHICS, xpathbitmaptest);
+                                          xpathbitmaptest.Slash_Add();
+                                          xpathbitmaptest.Add(__L("back.png"));
+
+                                          bitmapfileref->Save(xpathbitmaptest, bitmapscreen);
+                            
                                           GRPBITMAP* bitmapref = bitmapfileref->Load();         
                                           if(bitmapref)
                                             {
-                                              int x;
-                                              int y;
+                                              int x = 0;
+                                              int y = 0;                                              
 
-                                              if(bitmapscreen->FindSubBitmap(bitmapref, x, y))
+                                              #ifdef SCRIPT_LIB_WINDOWS_DEBUG
+                                              if(FindSubBitmap(bitmapscreen, bitmapref, x, y, 2))    
+                                              #else                                                
+                                              if(bitmapscreen->FindSubBitmap(bitmapref, x, y, 2))
+                                              #endif    
                                                 {
                                                   windowsposx += (x + (bitmapref->GetWidth() /2)); 
                                                   windowsposy += (y + (bitmapref->GetHeight()/2)); 
@@ -619,6 +615,224 @@ void Call_Window_Resize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
   (*returnvalue) = status;
 }
 
+#ifdef SCRIPT_LIB_WINDOWS_DEBUG
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DifferencesPerCent(XDWORD ndiff, XDWORD max, int limit)
+* @brief      ifferencesPerCent
+* @ingroup    SCRIPT
+* 
+* @param[in]  ndiff : 
+* @param[in]  max : 
+* @param[in]  limit : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DifferencesPerCent(XDWORD ndiff, XDWORD max, int limit)
+{
+  int actualdiff = ((ndiff*100)/max);
+
+  if(actualdiff > limit) return false;
+
+  return true;
+} 
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent)
+* @brief      indSubBitmap
+* @ingroup    SCRIPT
+* 
+* @param[in]  bitmapscreen : 
+* @param[in]  bitmapref : 
+* @param[in]  x : 
+* @param[in]  y : 
+* @param[in]  difflimitpercent : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent)
+{
+  x = 0; 
+  y = 0;
+
+  if(!bitmapref)
+    {
+      return false;
+    }
+  
+  GRPBITMAP* _bitmap = bitmapref->ConvertToMode(bitmapscreen->GetMode());
+  if(!_bitmap)
+    {
+      return false;
+    }
+
+  if(_bitmap->GetMode() != bitmapscreen->GetMode()) 
+    {
+      return false;
+    }
+  
+  XDWORD  bytesperline_bmp  = bitmapscreen->GetBytesperPixel() * _bitmap->GetWidth();
+  XBYTE*  bufferbitmap      = _bitmap->GetBuffer();
+  bool    found             = true;
+
+  if(!bufferbitmap)
+    {
+      return false;
+    }
+
+  XDWORD pos_base = 0;
+  XDWORD pos_bmp  = 0;   
+  XDWORD ndiff    = 0;
+
+  for(; pos_base < (bitmapscreen->GetBufferSize() - bytesperline_bmp); pos_base++)
+    {
+      ndiff = 0;
+      for(XDWORD d=0; d < bytesperline_bmp; d++)
+        {
+          if(bitmapscreen->GetBuffer()[pos_base + d] != bufferbitmap[d])
+            {       
+              ndiff++;             
+            }
+           else
+            {
+              //bitmapscreen->GetBuffer()[pos_base + d] = 0x00;
+              //PutBitmap(0, 0, bitmapscreen);           
+            }
+        } 
+
+      found = DifferencesPerCent(ndiff, bytesperline_bmp, difflimitpercent);
+      if(found)
+        {          
+          XDWORD bytesperline_base = bitmapscreen->GetBytesperPixel() * bitmapscreen->GetWidth();
+
+          x =  (pos_base % bytesperline_base) / bitmapscreen->GetBytesperPixel();
+          y =  bitmapscreen->GetHeight() - (pos_base / bytesperline_base) - _bitmap->GetHeight();
+
+          XDWORD pos_base_tmp = pos_base; 
+
+          pos_bmp  = 0; 
+          
+          for(XDWORD line = 0; line < _bitmap->GetHeight(); line++)
+            { 
+              ndiff = 0;     
+                    
+              for(XDWORD d=0; d<bytesperline_bmp; d++)
+                {
+                  if(bitmapscreen->GetBuffer()[pos_base_tmp + d] != bufferbitmap[pos_bmp])
+                    {
+                      ndiff++;
+                    }
+                   else
+                    {
+                      // bitmapscreen->GetBuffer()[pos_base_tmp + d] = 0x00;
+                      // PutBitmap(0, 0, bitmapscreen);
+                    }     
+
+                  pos_bmp++;
+                } 
+
+              found = DifferencesPerCent(ndiff, bytesperline_bmp, difflimitpercent);  
+              if(found)
+                {
+                  pos_base_tmp += bytesperline_base;                                   
+                }
+               else
+                {
+                  // pos_base += bytesperline_base;
+  
+                  x = 0; 
+                  y = 0;
+
+                  break;  
+                }  
+            } 
+
+          if(found)
+            {
+              break;    
+            }       
+        }
+    }
+
+  if(!found)
+    {
+      x = 0;
+      y = 0;
+    }
+   else
+    {
+      GRPVIEWPORT* viewport = NULL;
+      GRPCANVAS*   canvas   = NULL;
+      GRPSCREEN*   screen   = SCRIPT_LIB_WINDOW::GetAppGraphics()->GetMainScreen();
+
+      if(screen) viewport = screen->GetViewport(0);
+      if(viewport) canvas = viewport->GetCanvas();
+
+      if(canvas)
+        {
+          GRP2DCOLOR_RGBA8  colorred(255, 0, 0);
+
+          canvas->SetLineWidth(1.0f);
+          canvas->SetLineColor(&colorred);
+
+          canvas->Rectangle(x, y, x + _bitmap->GetWidth(), y + _bitmap->GetHeight());  
+          canvas->PutPixel((x + _bitmap->GetWidth()/2), y + (_bitmap->GetHeight()/2), &colorred);
+
+          screen->UpdateViewports();
+        }      
+    }
+
+  delete _bitmap;
+
+  return found;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool PutBitmap(int x, int y, GRPBITMAP* bitmap)
+* @brief      utBitmap
+* @ingroup    SCRIPT
+* 
+* @param[in]  x : 
+* @param[in]  y : 
+* @param[in]  bitmap : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool PutBitmap(int x, int y, GRPBITMAP* bitmap)
+{
+  if(!SCRIPT_LIB_WINDOW::GetAppGraphics())
+    {
+      return false;
+    }
+                                        
+  GRPVIEWPORT* viewport = NULL;
+  GRPCANVAS*   canvas   = NULL;
+  GRPSCREEN*   screen   = SCRIPT_LIB_WINDOW::GetAppGraphics()->GetMainScreen();
+
+  if(screen) viewport = screen->GetViewport(0);
+  if(viewport) canvas = viewport->GetCanvas();
+
+  if(canvas)
+    {
+      canvas->PutBitmap(x, y, bitmap);  
+      screen->UpdateViewports();                                              
+    }
+  
+  return true;
+}
+
+
+#endif
 
 #pragma endregion
 

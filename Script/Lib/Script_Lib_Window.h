@@ -92,6 +92,14 @@ void      Call_Window_SetFocus          (SCRIPT_LIB* library, SCRIPT* script, XV
 void      Call_Window_SetPosition       (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void      Call_Window_Resize            (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
+#ifdef SCRIPT_LIB_WINDOWS_DEBUG
+
+bool      DifferencesPerCent            (XDWORD ndiff, XDWORD max, int limit);
+bool      FindSubBitmap                 (GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent = 2);
+bool      PutBitmap                     (int x, int y, GRPBITMAP* bitmap);
+
+#endif
+
 #pragma endregion
 
 

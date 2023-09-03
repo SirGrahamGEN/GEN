@@ -540,6 +540,13 @@ GRPBITMAP* GRPWINDOWSSCREEN::CaptureContent()
   if(grpbitmap)
     {
       status = GetDIBits(dcbitmap, hbitmap, 0, bitmap.bmHeight, grpbitmap->GetBuffer(), &bmpinfo, DIB_RGB_COLORS)?true:false;
+
+      XDWORD* buffer = (XDWORD*)grpbitmap->GetBuffer();
+      for(XDWORD c=0; c<(grpbitmap->GetBufferSize()/sizeof(XDWORD)); c++)
+        {
+          (*buffer) |= 0xFF000000;
+          buffer++;
+        }
     }
 
   if(!status)
