@@ -55,42 +55,42 @@
 class GRPWINDOWSSCREEN : public GRPSCREEN
 {
   public:
-                                          GRPWINDOWSSCREEN            ();
-    virtual                              ~GRPWINDOWSSCREEN            ();
+                                          GRPWINDOWSSCREEN              ();
+    virtual                              ~GRPWINDOWSSCREEN              ();
 
-    bool                                  Create                      (bool show);
-    bool                                  Update                      ();
-    bool                                  Update                      (GRPCANVAS* canvas);
-    bool                                  Get_Position                (int &x, int &y);
-    bool                                  Set_Position                (int x, int y);
-    bool                                  Delete                      ();
-    bool                                  Resize                      (int width, int height);
-    bool                                  Show                        (bool active);
-    bool                                  ShowCursor                  (bool active);
-    bool                                  ShowTopMost                 (bool active);
-    void*                                 GetHandle                   ();
-    void                                  SetHandle                   (void* handle_window);
-    bool                                  Set_Focus                   ();
-    GRPBITMAP*                            CaptureContent              ();
+    bool                                  Create                        (bool show);
+    bool                                  Update                        ();
+    bool                                  Update                        (GRPCANVAS* canvas);
+    bool                                  Get_Position                  (int &x, int &y);
+    bool                                  Set_Position                  (int x, int y);
+    bool                                  Delete                        ();
+    bool                                  Resize                        (int width, int height);
+    bool                                  Show                          (bool active);
+    bool                                  ShowCursor                    (bool active);
+    bool                                  ShowTopMost                   (bool active);
+    void*                                 GetHandle                     ();
+    void                                  SetHandle                     (void* handle_window);
+    bool                                  Set_Focus                     ();
+    GRPBITMAP*                            CaptureContent                ();
     
-    void*                                 GetHDC                      ();
-    void                                  SetHDC                      (HDC hdc);
+    void*                                 GetHDC                        ();
+    void                                  SetHDC                        (HDC hdc);
 
-    BITMAPINFO*                           GetHInfo                    ();
+    BITMAPINFO*                           GetHInfo                      ();
   
-    bool                                  IsBlockClose                ();
-    void                                  SetIsBlockClose             (bool activated);
+    bool                                  IsBlockClose                  ();
+    void                                  SetIsBlockClose               (bool activated);
 
-    static XMAP<HWND, GRPWINDOWSSCREEN*>* GetListScreens              ();
+    static XMAP<HWND, GRPWINDOWSSCREEN*>* GetListScreens                ();
 
   
   private:
 
-    void                                  Clean                       ();
+    void                                  Clean                         ();
 
-    bool                                  Create_Window               (bool show);
+    bool                                  Create_Window                 (bool show);
 
-    static  LRESULT CALLBACK              BaseWndProc                 (HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
+    static  LRESULT CALLBACK              BaseWndProc                   (HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
 
     WNDCLASSEX                            wndclass;
     XSTRING                               classname;

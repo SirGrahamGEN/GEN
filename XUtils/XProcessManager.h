@@ -69,6 +69,10 @@ class XPROCESS
     void                            SetWindowHandle                 (void* windowhandle);
     XSTRING*                        GetWindowTitle                  ();  
     GRPRECTINT*                     GetWindowRect                   ();      
+    int                             GetWindowTitleHeight            ();    
+    void                            SetWindowTitleHeight            (int windowtitleheight);    
+    int                             GetWindowBorderWidth            (); 
+    void                            SetWindowBorderWidth            (int windowborderwidth);     
 
     bool                            CopyTo                          (XPROCESS& xprocess);    
     bool                            CopyFrom                        (XPROCESS& xprocess);    
@@ -83,7 +87,9 @@ class XPROCESS
     XSTRING                         name;  
     void*                           windowhandle;
     XSTRING                         windowtitle; 
-    GRPRECTINT                      windowrect;     
+    GRPRECTINT                      windowrect; 
+    int                             windowtitleheight;    
+    int                             windowborderwidth;    
 };
 
 

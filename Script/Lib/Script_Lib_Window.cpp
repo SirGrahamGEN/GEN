@@ -283,7 +283,8 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
 
                                       GRPBITMAPFILE* bitmapfileref = new GRPBITMAPFILE(xpathbitmapref);
                                       if(bitmapfileref)
-                                        {                                                 
+                                        {                   
+                                          #ifdef SCRIPT_LIB_WINDOWS_DEBUG                              
                                           XPATH  xpathbitmaptest;
 
                                           GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_GRAPHICS, xpathbitmaptest);
@@ -291,6 +292,7 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
                                           xpathbitmaptest.Add(__L("back.png"));
 
                                           bitmapfileref->Save(xpathbitmaptest, bitmapscreen);
+                                          #endif
                             
                                           GRPBITMAP* bitmapref = bitmapfileref->Load();         
                                           if(bitmapref)
@@ -304,8 +306,8 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
                                               if(bitmapscreen->FindSubBitmap(bitmapref, x, y, 2))
                                               #endif    
                                                 {
-                                                  windowsposx += (x + (bitmapref->GetWidth() /2)); 
-                                                  windowsposy += (y + (bitmapref->GetHeight()/2)); 
+                                                  windowsposx += (x + (bitmapref->GetWidth() /2) + applist.Get(c)->GetWindowBorderWidth()); 
+                                                  windowsposy += (y + (bitmapref->GetHeight()/2) + applist.Get(c)->GetWindowTitleHeight()); 
                                                 }      
                                             }                                                 
 

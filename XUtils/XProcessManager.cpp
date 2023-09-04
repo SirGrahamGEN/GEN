@@ -231,6 +231,70 @@ GRPRECTINT* XPROCESS::GetWindowRect()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         int XPROCESS::GetWindowTitleHeight()
+* @brief      GetWindowTitleHeight
+* @ingroup    XUTILS
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int XPROCESS::GetWindowTitleHeight()
+{
+  return windowtitleheight;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XPROCESS::SetWindowTitleHeight(int windowtitleheight)
+* @brief      SetWindowTitleHeight
+* @ingroup    XUTILS
+* 
+* @param[in]  windowtitleheight : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XPROCESS::SetWindowTitleHeight(int windowtitleheight)
+{
+  this->windowtitleheight = windowtitleheight;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int XPROCESS::GetWindowBorderWidth()
+* @brief      GetWindowBorderWidth
+* @ingroup    XUTILS
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int XPROCESS::GetWindowBorderWidth()
+{
+  return windowborderwidth;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XPROCESS::SetWindowBorderWidth(int windowborderwidth)
+* @brief      SetWindowBorderWidth
+* @ingroup    XUTILS
+* 
+* @param[in]  windowborderwidth : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XPROCESS::SetWindowBorderWidth(int windowborderwidth)
+{
+  this->windowborderwidth = windowborderwidth;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool XPROCESS::CopyTo(XPROCESS& xprocess)
 * @brief      CopyTo
 * @ingroup    XUTILS
@@ -244,8 +308,13 @@ bool XPROCESS::CopyTo(XPROCESS& xprocess)
 {
   xprocess.SetID(ID);
   xprocess.GetPath()->Set(path);  
-  xprocess.GetName()->Set(name);  
+  xprocess.GetName()->Set(name);    
   xprocess.GetWindowTitle()->Set(windowtitle); 
+
+  xprocess.GetWindowRect()->CopyFrom(&windowrect);
+
+  xprocess.SetWindowTitleHeight(windowtitleheight);
+  xprocess.SetWindowBorderWidth(windowborderwidth);
 
   return true;
 }
@@ -264,10 +333,15 @@ bool XPROCESS::CopyTo(XPROCESS& xprocess)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool XPROCESS::CopyFrom(XPROCESS& xprocess)
 {
-  ID          = xprocess.GetID();
-  path        = xprocess.GetPath()->Get();  
-  name        = xprocess.GetName()->Get();  
-  windowtitle = xprocess.GetWindowTitle()->Get(); 
+  ID                = xprocess.GetID();
+  path              = xprocess.GetPath()->Get();  
+  name              = xprocess.GetName()->Get();  
+  windowtitle       = xprocess.GetWindowTitle()->Get(); 
+
+  GetWindowRect()->CopyFrom(xprocess.GetWindowRect());
+
+  windowtitleheight = xprocess.GetWindowTitleHeight();
+  windowborderwidth = xprocess.GetWindowBorderWidth();
 
   return true;
 }
@@ -285,11 +359,14 @@ bool XPROCESS::CopyFrom(XPROCESS& xprocess)
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XPROCESS::Clean()
 {
-  ID           = 0xFFFFFFFF;
-  windowhandle = NULL;
+  ID                  = 0xFFFFFFFF;
+  windowhandle        = NULL;
+  windowtitleheight   = 0;    
+  windowborderwidth   = 0;    
 }
 
 #pragma endregion
+
 
 #pragma region CLASS_XPROCESSMANAGER
 

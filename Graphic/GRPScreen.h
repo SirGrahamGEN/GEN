@@ -98,7 +98,7 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     virtual bool                  Update                        (GRPCANVAS* canvas);
     virtual bool                  Delete                        ();
     virtual bool                  Get_Position                  (int &x, int &y);
-    virtual bool                  Set_Position                  (int x, int y);
+    virtual bool                  Set_Position                  (int x, int y);    
     virtual bool                  Resize                        (int width, int height);
     virtual bool                  IsShow                        ();
     virtual bool                  Show                          (bool active);
@@ -108,7 +108,7 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     virtual void                  SetHandle                     (void* handle_window);
     virtual bool                  Set_Focus                     ();
     virtual GRPBITMAP*            CaptureContent                ();
-
+    
     bool                          UpdateSize                    (int width, int height);
 
     XVECTOR<GRPVIEWPORT*>*        GetViewports                  ();

@@ -71,7 +71,9 @@ class XWINDOWSPROCESSMANAGER : public XPROCESSMANAGER
   
   private:
 
-    bool                    GetWindowPropertys                          (HWND hwnd, XSTRING& title, GRPRECTINT& rect);        
+    bool                    GetWindowPropertys                          (HWND hwnd, XSTRING& title, GRPRECTINT& rect);  
+    int                     GetWindowTitleHeight                        (HWND hwnd);
+    int                     GetWindowBorderWidth                        (HWND hwnd);
     static bool             GetChildProcesses                           (XVECTOR<XPROCESS*>& applist);
     static BOOL CALLBACK    EnumWindowsProc                             (HWND hwnd, LPARAM lparam);
     static bool             GetMapOfWinProcess                          (MAPWINPROCESS& mapofwinprocess);

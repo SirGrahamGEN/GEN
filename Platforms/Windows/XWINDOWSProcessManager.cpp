@@ -451,6 +451,9 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
                               xprocess->SetWindowHandle((void*)hwnd);         
                               xprocess->GetWindowTitle()->Set(title.Get());
                               xprocess->GetWindowRect()->CopyFrom(&rect);
+                              xprocess->SetWindowTitleHeight(GetWindowTitleHeight(hwnd));
+                              xprocess->SetWindowBorderWidth(GetWindowBorderWidth(hwnd));
+
                             }
                            else
                             {                                                                    
@@ -462,6 +465,8 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
                                   newxprocess->SetWindowHandle((void*)hwnd);         
                                   newxprocess->GetWindowTitle()->Set(title.Get());
                                   newxprocess->GetWindowRect()->CopyFrom(&rect);
+                                  newxprocess->SetWindowTitleHeight(GetWindowTitleHeight(hwnd));
+                                  newxprocess->SetWindowBorderWidth(GetWindowBorderWidth(hwnd));
 
                                   applist.Add(newxprocess);                                  
                                 }                                                                                                                                                  
@@ -610,6 +615,57 @@ bool XWINDOWSPROCESSMANAGER::GetWindowPropertys(HWND hwnd, XSTRING& title, GRPRE
     }
   
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int XWINDOWSPROCESSMANAGER::GetWindowTitleHeight(HWND hwnd)
+* @brief      GetWindowTitleHeight
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  hwnd : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int XWINDOWSPROCESSMANAGER::GetWindowTitleHeight(HWND hwnd) 
+{
+  RECT window_rectangle; 
+  RECT client_rectangle;
+  int  height;
+  int  width;
+    
+  GetWindowRect(hwnd, &window_rectangle);
+  GetClientRect(hwnd, &client_rectangle);
+
+  height = (window_rectangle.bottom - window_rectangle.top) - (client_rectangle.bottom - client_rectangle.top);
+  width  = (window_rectangle.right - window_rectangle.left) - (client_rectangle.right - client_rectangle.left);
+    
+  return height - (width/2);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int XWINDOWSPROCESSMANAGER::GetWindowBorderWidth(HWND hwnd)
+* @brief      GetWindowBorderWidth
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  hwnd : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int XWINDOWSPROCESSMANAGER::GetWindowBorderWidth(HWND hwnd) 
+{
+  RECT window_rectangle; 
+  RECT client_rectangle;
+
+  GetWindowRect(hwnd, &window_rectangle);
+  GetClientRect(hwnd, &client_rectangle);
+
+  return ((window_rectangle.right - window_rectangle.left) - client_rectangle.right) / 2; 
 }
 
 
