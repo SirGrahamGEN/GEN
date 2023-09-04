@@ -730,8 +730,8 @@ bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y
                     }
                    else
                     {
-                      // bitmapscreen->GetBuffer()[pos_base_tmp + d] = 0x00;
-                      // PutBitmap(0, 0, bitmapscreen);
+                      //bitmapscreen->GetBuffer()[pos_base_tmp + d] = 0x00;
+                      //PutBitmap(0, 0, bitmapscreen);
                     }     
 
                   pos_bmp++;

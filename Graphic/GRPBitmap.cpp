@@ -448,9 +448,7 @@ bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmap, int& x, int& y, XBYTE difflimit
                   pos_base_tmp += bytesperline_base;                                   
                 }
                else
-                {
-                  pos_base = pos_base_tmp;
-  
+                {                  
                   x = 0; 
                   y = 0;
 
