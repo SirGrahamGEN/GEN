@@ -187,7 +187,9 @@ SCRIPT_TYPE SCRIPT::GetTypeByExtension(XCHAR* namefilescript)
 {
   XSTRING       ext;
   SCRIPT_TYPE   type            = SCRIPT_TYPE_UNKNOWN;
-  XPATH         _namefilescript = namefilescript;
+  XPATH         _namefilescript;
+
+  _namefilescript = namefilescript;
                                                                                         
   if(!_namefilescript.IsEmpty())
     {
@@ -273,6 +275,7 @@ SCRIPT* SCRIPT::Create(SCRIPT_TYPE type)
                                       #endif
                                       break;     
     }
+
 
   return script;
 }
@@ -360,16 +363,17 @@ bool SCRIPT::Save(XPATH& xpath)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts)
+* @fn         bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRARYS adjustlibrarys)
 * @brief      LoadScriptAndRun
 * @ingroup    SCRIPT
 * 
 * @param[in]  listscripts : 
+* @param[in]  adjustlibrarys : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts)
+bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRARYS adjustlibrarys)
 {
   if(!listscripts) 
     {
@@ -395,6 +399,11 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts)
                   SCRIPT* script = SCRIPT::Create(namescript->Get());
                   if(script) 
                     {
+                      if(adjustlibrarys)
+                        {
+                          adjustlibrarys(script);
+                        }
+
                       for(XDWORD d=0; d<namescripts.GetSize(); d++)
                         {  
                           namescript = namescripts.Get(d);
@@ -412,13 +421,13 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts)
                                   break;
                                 }  
                             }
-                        } 
+                        }                      
 
                       if(status)
                         {                               
                           script->Run();                              
                         }
-
+                      
                       delete script;
                       script = NULL;
 
@@ -691,7 +700,10 @@ SCRIPT_LIB* SCRIPT::GetLibrary(XCHAR* ID)
           XSTRING* IDlib = scriptlib->GetID();
           if(IDlib)
             {
-              if(!IDlib->Compare(ID)) return scriptlib;
+              if(!IDlib->Compare(ID)) 
+                {
+                  return scriptlib;
+                }
             }
         }
     }
@@ -960,6 +972,24 @@ bool SCRIPT::SetErrorScript(int errorcode)
 bool SCRIPT::HaveError(int errorcode)
 {
   return (!errorcode)?false:true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SCRIPT::HandleEvent(XEVENT* xevent)
+* @brief      Handle Event for the observer manager of this class
+* @note       INTERNAL
+* @ingroup    SCRIPT
+* 
+* @param[in]  xevent : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SCRIPT::HandleEvent(XEVENT* xevent)
+{
+  if(!xevent) return;
 }
 
 

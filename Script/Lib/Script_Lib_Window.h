@@ -44,7 +44,15 @@
 
 #define SCRIPT_LIB_NAME_WINDOW    __L("Window")
 
+#define SCRIPT_SET_LIB_APPGRAPHICS(script, appgraphics)     { SCRIPT_LIB_WINDOW* lib = (SCRIPT_LIB_WINDOW*)script->GetLibrary(SCRIPT_LIB_NAME_WINDOW); \
+                                                              if(lib) \
+                                                                { \
+                                                                  lib->SetAppGraphics(appgraphics); \
+                                                                } \
+                                                            }
+
 //#define SCRIPT_LIB_WINDOWS_DEBUG
+
 
 #pragma endregion
 

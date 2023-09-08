@@ -43,9 +43,9 @@
 
 enum SCRIPT_XEVENT_TYPE
 {
-  SCRIPT_XEVENT_TYPE_UNKNOWN      = XEVENT_TYPE_SCRIPT ,
-  SCRIPT_XEVENT_TYPE_ERROR                            ,
-  SCRIPT_XEVENT_TYPE_BREAK                            ,
+  SCRIPT_XEVENT_TYPE_UNKNOWN      = XEVENT_TYPE_SCRIPT  ,
+  SCRIPT_XEVENT_TYPE_ERROR                              ,
+  SCRIPT_XEVENT_TYPE_BREAK                              ,
 };
 
 #pragma endregion
@@ -54,11 +54,16 @@ enum SCRIPT_XEVENT_TYPE
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+class SCRIPT;
+
 class SCRIPT_XEVENT : public XEVENT
 {
   public:
                                         SCRIPT_XEVENT           (XSUBJECT* subject, XDWORD type = SCRIPT_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_SCRIPT);
     virtual                            ~SCRIPT_XEVENT           ();
+
+    SCRIPT*                             GetScript               ();
+    void                                SetScript               (SCRIPT* script);
 
     XSTRING*                            GetNameScript           ();
 
@@ -76,6 +81,7 @@ class SCRIPT_XEVENT : public XEVENT
 
     void                                Clean                   ();
 
+    SCRIPT*                             script;
     XSTRING                             namescript;
     int                                 error;
     XSTRING                             errortext;

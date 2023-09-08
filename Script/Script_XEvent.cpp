@@ -91,6 +91,38 @@ SCRIPT_XEVENT::~SCRIPT_XEVENT()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SCRIPT* SCRIPT_XEVENT::GetScript()
+* @brief      GetScript
+* @ingroup    SCRIPT
+* 
+* @return     SCRIPT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SCRIPT* SCRIPT_XEVENT::GetScript()
+{
+  return script;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SCRIPT_XEVENT::SetScript(SCRIPT* script)
+* @brief      SetScript
+* @ingroup    SCRIPT
+* 
+* @param[in]  script : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SCRIPT_XEVENT::SetScript(SCRIPT* script)
+{
+  this->script = script;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* SCRIPT_XEVENT::GetNameScript()
 * @brief      GetNameScript
@@ -211,7 +243,9 @@ XSTRING* SCRIPT_XEVENT::GetCurrentToken()
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_XEVENT::Clean()
 {
-  error = 0;
+  script    = NULL;
+  error     = 0;
+  nline     = 0;
 }
 
 

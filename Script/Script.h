@@ -35,6 +35,7 @@
 #include "XBase.h"
 #include "XVector.h"
 #include "XMap.h"
+#include "XObserver.h"
 #include "XSubject.h"
 #include "XString.h"
 #include "XPath.h"
@@ -64,16 +65,8 @@ enum SCRIPT_TYPE
 class SCRIPT;
 class SCRIPT_LIB;
 
-typedef void (*SCRFUNCIONLIBRARY) (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+typedef void (*SCRFUNCADJUSTLIBRARYS)             (SCRIPT* script);
 
-
-
-#define SCRIPT_SET_LIB_CFG(config)        { SCRIPT_LIB_CFG* lib = (SCRIPT_LIB_CFG*)script->GetLibrary(__L("Config")); \
-                                            if(lib) \
-                                              { \
-                                                lib->SetXFileCFG(&config); \
-                                              } \
-                                          }
 #pragma endregion
 
 
@@ -85,6 +78,7 @@ class XPUBLISHER;
 class XTHREADCOLLECTED;
 class XFILETXT;
 class SCRIPTVAR;
+
 
 class SCRIPT : public XSUBJECT
 {
@@ -101,7 +95,7 @@ class SCRIPT : public XSUBJECT
     bool                                Load                          (XPATH& xpath, bool add = false);
     bool                                Save                          (XPATH& xpath);
 
-    static bool                         LoadScriptAndRun              (XVECTOR<XSTRING*>* listscripts);
+    static bool                         LoadScriptAndRun              (XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRARYS adjustlibrarys = NULL);
 
     bool                                AddReturnByType               ();
 
@@ -160,6 +154,8 @@ class SCRIPT : public XSUBJECT
     XVECTOR<SCRIPT_LIB_FUNCTION*>       libraryfunctions;
 
   private:
+
+    void                                HandleEvent             (XEVENT* xevent);
 
     static void                         ThreadFunction          (void* data);
     void                                Clean                   ();
