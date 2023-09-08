@@ -249,74 +249,89 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
                   windowsposx = applist.Get(c)->GetWindowRect()->x1; 
                   windowsposy = applist.Get(c)->GetWindowRect()->y1; 
                   
-                  if(params->GetSize() == 3)
-                    {
-                      XSTRING bitmaprefname  = (*params->Get(2));
-                      if(!bitmaprefname.IsEmpty())
-                        {
-                          void* handle_windows = applist.Get(c)->GetWindowHandle();                  
-                          if(handle_windows)
-                            {  
-                              GRPSCREEN* screen = GEN_GRPFACTORY.CreateScreen();
-                              if(screen)
-                                {                          
-                                  screen->SetHandle(handle_windows);
-                                  screen->SetWidth(applist.Get(c)->GetWindowRect()->x2 - applist.Get(c)->GetWindowRect()->x1);
-                                  screen->SetHeight(applist.Get(c)->GetWindowRect()->y2 - applist.Get(c)->GetWindowRect()->y1);
+                  if(params->GetSize() >= 3)
+                    {                     
+                      void* handle_windows = applist.Get(c)->GetWindowHandle();                  
+                      if(handle_windows)
+                        {  
+                          GRPSCREEN* screen = GEN_GRPFACTORY.CreateScreen();
+                          if(screen)
+                            {                          
+                              screen->SetHandle(handle_windows);
+                              screen->SetWidth(applist.Get(c)->GetWindowRect()->x2 - applist.Get(c)->GetWindowRect()->x1);
+                              screen->SetHeight(applist.Get(c)->GetWindowRect()->y2 - applist.Get(c)->GetWindowRect()->y1);
                               
-                                  GRPBITMAP* bitmapscreen = screen->CaptureContent();
-                                  if(bitmapscreen)
-                                    {                                     
-                                      // ----------------------------------------------------------------------------------
+                              GRPBITMAP* bitmapscreen = screen->CaptureContent();
+                              if(bitmapscreen)
+                                {                                     
+                                  // ----------------------------------------------------------------------------------
 
-                                      #ifdef SCRIPT_LIB_WINDOWS_DEBUG
-                                      PutBitmap(0, 0, bitmapscreen);
-                                      #endif                             
+                                  #ifdef SCRIPT_LIB_WINDOWS_DEBUG
+                                  PutBitmap(0, 0, bitmapscreen);
+                                  #endif                             
 
-                                      // ----------------------------------------------------------------------------------
+                                  // ----------------------------------------------------------------------------------
 
-                                      XPATH  xpathbitmapref;  
+                                  bool found = false;
+
+                                  for(XDWORD d=2; d<params->GetSize(); d++)
+                                    { 
+                                      XSTRING bitmaprefname  = (*params->Get(d));
+                                      if(!bitmaprefname.IsEmpty())
+                                        {                                         
+                                          XPATH  xpathbitmapref;  
                                       
-                                      GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_GRAPHICS, xpathbitmapref);
-                                      xpathbitmapref.Slash_Add();
-                                      xpathbitmapref.Add(bitmaprefname);
+                                          GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_GRAPHICS, xpathbitmapref);
+                                          xpathbitmapref.Slash_Add();
+                                          xpathbitmapref.Add(bitmaprefname);
 
-                                      GRPBITMAPFILE* bitmapfileref = new GRPBITMAPFILE(xpathbitmapref);
-                                      if(bitmapfileref)
-                                        {                   
-                                          #ifdef SCRIPT_LIB_WINDOWS_DEBUG                              
-                                          XPATH  xpathbitmaptest;
+                                          GRPBITMAPFILE* bitmapfileref = new GRPBITMAPFILE(xpathbitmapref);
+                                          if(bitmapfileref)
+                                            {                   
+                                              #ifdef SCRIPT_LIB_WINDOWS_DEBUG                              
+                                              XPATH  xpathbitmaptest;
 
-                                          GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_GRAPHICS, xpathbitmaptest);
-                                          xpathbitmaptest.Slash_Add();
-                                          xpathbitmaptest.Add(__L("back.png"));
+                                              GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_GRAPHICS, xpathbitmaptest);
+                                              xpathbitmaptest.Slash_Add();
+                                              xpathbitmaptest.Add(__L("back.png"));
 
-                                          bitmapfileref->Save(xpathbitmaptest, bitmapscreen);
-                                          #endif
+                                              bitmapfileref->Save(xpathbitmaptest, bitmapscreen);
+                                              #endif
                             
-                                          GRPBITMAP* bitmapref = bitmapfileref->Load();         
-                                          if(bitmapref)
-                                            {
-                                              int x = 0;
-                                              int y = 0;                                              
-
-                                              #ifdef SCRIPT_LIB_WINDOWS_DEBUG
-                                              if(FindSubBitmap(bitmapscreen, bitmapref, x, y, 2))    
-                                              #else                                                
-                                              if(bitmapscreen->FindSubBitmap(bitmapref, x, y, 2))
-                                              #endif    
+                                              GRPBITMAP* bitmapref = bitmapfileref->Load();         
+                                              if(bitmapref)
                                                 {
-                                                  windowsposx += (x + (bitmapref->GetWidth() /2) + applist.Get(c)->GetWindowBorderWidth()); 
-                                                  windowsposy += (y + (bitmapref->GetHeight()/2) + applist.Get(c)->GetWindowTitleHeight()); 
-                                                }      
-                                            }                                                 
+                                                  int x = 0;
+                                                  int y = 0;                                              
 
-                                          delete bitmapref;
-                                          delete bitmapfileref;    
+                                                  #ifdef SCRIPT_LIB_WINDOWS_DEBUG
+                                                  if(FindSubBitmap(bitmapscreen, bitmapref, x, y, 2))    
+                                                  #else                                                
+                                                  if(bitmapscreen->FindSubBitmap(bitmapref, x, y, 2))
+                                                  #endif    
+                                                    {
+                                                      windowsposx += (x + (bitmapref->GetWidth() /2) + applist.Get(c)->GetWindowBorderWidth()); 
+                                                      windowsposy += (y + (bitmapref->GetHeight()/2) + applist.Get(c)->GetWindowTitleHeight()); 
+                                                      found = true;
+                                                    }      
+                                                }                                                 
+
+                                              delete bitmapref;
+                                              delete bitmapfileref;    
+                                            }                                            
                                         }
+                                       else  
+                                        {
+                                          break;
+                                        } 
+                                        
+                                      if(found)
+                                        {
+                                          break;    
+                                        }     
+                                     } 
 
-                                      delete bitmapscreen;  
-                                    }
+                                  delete bitmapscreen;
 
                                   GEN_GRPFACTORY.DeleteScreen(screen);                                
                                 }
