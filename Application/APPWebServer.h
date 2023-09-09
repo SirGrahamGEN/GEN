@@ -30,6 +30,7 @@
 #define _APPWEBSERVER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XString.h"
 #include "XPath.h"
@@ -39,10 +40,18 @@
 #include "DIOWebPageHTMLCreator.h"
 #include "DIOWebServer.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class APPCFG;
 class XEVENT;
@@ -99,8 +108,16 @@ class APPWEBSERVER : public XOBSERVER, public XSUBJECT
     DIOWEBSERVER_PLUGIN_PHP*    pluginPHP;
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
 

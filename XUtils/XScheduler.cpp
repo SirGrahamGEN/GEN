@@ -669,6 +669,35 @@ void XSCHEDULER::Activate(bool on)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XMUTEX* XSCHEDULER::GetMutexScheduler()
+* @brief      GetMutexScheduler
+* @ingroup    XUTILS
+* 
+* @return     XMUTEX* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XMUTEX* XSCHEDULER::GetMutexScheduler()
+{
+  return xmutexscheduler;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDATETIME* XSCHEDULER::GetDateTimeActual()
+* @brief      GetDateTimeActual
+* @ingroup    XUTILS
+* 
+* @return     XDATETIME* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDATETIME* XSCHEDULER::GetDateTimeActual()
+{
+  return xdatetimeactual;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *

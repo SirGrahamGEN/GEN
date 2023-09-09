@@ -138,6 +138,9 @@ class XSCHEDULER  : public XSUBJECT
     bool                        IsActive                        ();
     void                        Activate                        (bool on);
 
+    XMUTEX*                     GetMutexScheduler               ();
+    XDATETIME*                  GetDateTimeActual               ();
+
     bool                        Task_Add                        (XSCHEDULERTASK* task);
     XSCHEDULERTASK*             Task_Get                        (int index);
     XSCHEDULERTASK*             Task_GetForID                   (XDWORD ID);
