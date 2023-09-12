@@ -35,8 +35,6 @@
 
 #include "XPathsManager.h"
 
-#include "GRPBitmapFile.h"
-
 #include "UI_Manager.h"
 
 #include "APPBase.h"
@@ -96,12 +94,16 @@ UI_ANIMATION::~UI_ANIMATION()
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool UI_ANIMATION::LoadFromFile(XSTRING& resourcename, GRPPROPERTYMODE mode)
 {
-  XPATH           xpathimg;   
-  GRPBITMAPFILE   bitmapfile;
-  GRPBITMAP*      bitmap    = NULL; 
-  XSTRING         mask;
-  int             indexmask = 0;
-  int             indeximg  = 0;
+  XPATH               xpathimg;   
+  GRPBITMAPFILE       bitmapfile;
+  GRPBITMAP*          bitmap    = NULL; 
+  XSTRING             mask;
+  int                 indexmask = 0;
+  int                 indeximg  = 0;
+  GRPPROPERTYMODE     modealpha = mode;
+  GRPBITMAPFILE_TYPE  typefile  = bitmapfile.GetTypeFromExtenxion(resourcename.Get());
+
+  modealpha = ChangeModeWithAlpha(typefile, mode);
                                                                                                                                                                        
   while(1)
     {                                                                                                                               
@@ -150,9 +152,9 @@ bool UI_ANIMATION::LoadFromFile(XSTRING& resourcename, GRPPROPERTYMODE mode)
                   XPATH unzippathfile_tmp;
 
                   unzippathfile_tmp  = GEN_USERINTERFACE.GetUnzipPathFile()->Get();
-                  unzippathfile_tmp += namefileonly;
+                  unzippathfile_tmp += namefileonly;                    
 
-                  bitmap = bitmapfile.Load(unzippathfile_tmp, mode);
+                  bitmap = bitmapfile.Load(unzippathfile_tmp, modealpha);
 
                   GEN_USERINTERFACE.DeleteTemporalUnZipFile(unzippathfile_tmp);  
 
@@ -177,7 +179,7 @@ bool UI_ANIMATION::LoadFromFile(XSTRING& resourcename, GRPPROPERTYMODE mode)
         }
        else
         {                            
-          bitmap = bitmapfile.Load(xpathimg, mode);
+          bitmap = bitmapfile.Load(xpathimg, modealpha);
           if(bitmap) 
             { 
               bitmaps.Add(bitmap);                                                      
@@ -276,6 +278,56 @@ bool UI_ANIMATION::DeleteAll()
   bitmaps.DeleteAll();
   
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPPROPERTYMODE UI_ANIMATION::ChangeModeWithAlpha(GRPBITMAPFILE_TYPE typefile, GRPPROPERTYMODE modescreen)
+* @brief      ChangeModeWithAlpha
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  typefile : 
+* @param[in]  modescreen : 
+* 
+* @return     GRPPROPERTYMODE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPPROPERTYMODE UI_ANIMATION::ChangeModeWithAlpha(GRPBITMAPFILE_TYPE typefile, GRPPROPERTYMODE modescreen)
+{
+  GRPPROPERTYMODE mode = GRPPROPERTYMODE_XX_UNKNOWN;
+
+  if((typefile == GRPBITMAPFILE_TYPE_PNG) || (typefile == GRPBITMAPFILE_TYPE_TGA))
+    {
+      switch(modescreen)
+        {
+          case GRPPROPERTYMODE_XX_UNKNOWN      : break;
+          case GRPPROPERTYMODE_08_INDEX        : break;
+
+          case GRPPROPERTYMODE_16_RGBA_4444    : mode = modescreen;
+                                                 break;
+
+          case GRPPROPERTYMODE_16_RGBA_5551    : mode = modescreen;
+                                                 break;
+
+          case GRPPROPERTYMODE_16_RGB_565      : break;
+          case GRPPROPERTYMODE_16_SRGB_565     : break;
+          case GRPPROPERTYMODE_24_RGB_888      : break;
+          case GRPPROPERTYMODE_24_BGR_888      : break;
+
+          case GRPPROPERTYMODE_32_RGBA_8888    : mode = modescreen;
+                                                 break;
+
+          case GRPPROPERTYMODE_32_BGRA_8888    : mode = modescreen;
+                                                 break;
+        }
+    }
+   else
+    {
+      mode = modescreen;
+    }
+
+  return mode;
 }
 
 

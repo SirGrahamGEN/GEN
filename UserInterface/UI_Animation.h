@@ -35,6 +35,7 @@
 
 #include "GRPProperties.h"
 #include "GRPBitmap.h"
+#include "GRPBitmapFile.h"
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
@@ -61,6 +62,8 @@ class UI_ANIMATION
     bool                       DeleteAll            (); 
 
   private:
+
+    GRPPROPERTYMODE            ChangeModeWithAlpha  (GRPBITMAPFILE_TYPE typefile, GRPPROPERTYMODE modescreen);
     
     void                       Clean                ();
 

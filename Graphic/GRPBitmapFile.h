@@ -38,6 +38,15 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
+enum GRPBITMAPFILE_TYPE
+{
+  GRPBITMAPFILE_TYPE_UNKNOWN      = 0 ,
+  GRPBITMAPFILE_TYPE_JPG              ,
+  GRPBITMAPFILE_TYPE_PNG              ,
+  GRPBITMAPFILE_TYPE_BMP              ,
+  GRPBITMAPFILE_TYPE_TGA              
+};
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class GRPBITMAP;
@@ -83,6 +92,9 @@ class GRPBITMAPFILE
     XCHAR*                      GetPath                 ();
     void                        SetPath                 (XPATH& xpath);
     void                        SetPath                 (XCHAR* xpath);
+
+
+    GRPBITMAPFILE_TYPE          GetTypeFromExtenxion    (XCHAR* xpath);
 
     GRPBITMAP*                  Load                    (XCHAR* xpath, GRPPROPERTYMODE forcemode = GRPPROPERTYMODE_XX_UNKNOWN);
     GRPBITMAP*                  Load                    (XPATH& xpath, GRPPROPERTYMODE forcemode = GRPPROPERTYMODE_XX_UNKNOWN);

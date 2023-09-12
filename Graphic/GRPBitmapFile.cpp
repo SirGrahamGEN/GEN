@@ -412,6 +412,36 @@ void GRPBITMAPFILE::SetPath(XCHAR* xpath)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPBITMAPFILE_TYPE GRPBITMAPFILE::GetTypeFromExtenxion(XCHAR* xpath)
+* @brief      GetTypeFromExtenxion
+* @ingroup    GRAPHIC
+* 
+* @param[in]  xpath : 
+* 
+* @return     GRPBITMAPFILE_TYPE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPBITMAPFILE_TYPE GRPBITMAPFILE::GetTypeFromExtenxion(XCHAR* xpath)
+{
+  XPATH               _xpath;
+  XSTRING             ext;
+  GRPBITMAPFILE_TYPE  type = GRPBITMAPFILE_TYPE_UNKNOWN;
+
+  _xpath = xpath;
+
+  _xpath.GetExt(ext);
+  
+  if(!ext.Compare(__L(".jpg"),  true))  type = GRPBITMAPFILE_TYPE_JPG; 
+  if(!ext.Compare(__L(".jpeg"), true))  type = GRPBITMAPFILE_TYPE_JPG;
+  if(!ext.Compare(__L(".png"),  true))  type = GRPBITMAPFILE_TYPE_PNG;
+  if(!ext.Compare(__L(".bmp"),  true))  type = GRPBITMAPFILE_TYPE_BMP;
+  if(!ext.Compare(__L(".tga"),  true))  type = GRPBITMAPFILE_TYPE_TGA;
+
+  return type;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -429,23 +459,22 @@ GRPBITMAP* GRPBITMAPFILE::Load(XCHAR* xpath, GRPPROPERTYMODE forcemode)
 {
   if(!xpath) return NULL;
 
-  XPATH   _xpath;
-  XSTRING ext;
+  XPATH               _xpath;
+  GRPBITMAPFILE_TYPE  type          = GetTypeFromExtenxion(xpath);
+  GRPBITMAPFILEBASE*  grpfilebase   = NULL;
+  GRPBITMAP*          bitmap        = NULL;
 
   _xpath = xpath;
 
-  _xpath.GetExt(ext);
-  if(ext.IsEmpty())   return NULL;
-
-  GRPBITMAPFILEBASE*  grpfilebase = NULL;
-  GRPBITMAP*          bitmap      = NULL;
-
-  if(!ext.Compare(__L(".jpg"),  true))  grpfilebase = new GRPBITMAPFILEJPG();
-  if(!ext.Compare(__L(".jpeg"), true))  grpfilebase = new GRPBITMAPFILEJPG();
-  if(!ext.Compare(__L(".png"),  true))  grpfilebase = new GRPBITMAPFILEPNG();
-  if(!ext.Compare(__L(".bmp"),  true))  grpfilebase = new GRPBITMAPFILEBMP();
-  if(!ext.Compare(__L(".tga"),  true))  grpfilebase = new GRPBITMAPFILETGA();
-
+  switch(type)
+    {
+      case GRPBITMAPFILE_TYPE_UNKNOWN : break;
+      case GRPBITMAPFILE_TYPE_JPG     : grpfilebase = new GRPBITMAPFILEJPG(); break;
+      case GRPBITMAPFILE_TYPE_PNG     : grpfilebase = new GRPBITMAPFILEPNG(); break;
+      case GRPBITMAPFILE_TYPE_BMP     : grpfilebase = new GRPBITMAPFILEBMP(); break;
+      case GRPBITMAPFILE_TYPE_TGA     : grpfilebase = new GRPBITMAPFILETGA(); break;  
+    }
+  
   if(grpfilebase)
     {
       bitmap = grpfilebase->CreateBitmapFromFile(_xpath, forcemode);
@@ -455,8 +484,6 @@ GRPBITMAP* GRPBITMAPFILE::Load(XCHAR* xpath, GRPPROPERTYMODE forcemode)
 
   return bitmap;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -512,25 +539,25 @@ GRPBITMAP* GRPBITMAPFILE::Load(GRPPROPERTYMODE forcemode)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILE::Save(XCHAR* xpath, GRPBITMAP* bitmap, int quality)
-{
-  if(!xpath) return false;
+{  
+  if(!xpath) return NULL;
 
-  XPATH   _xpath;
-  XSTRING ext;
+  XPATH               _xpath;
+  GRPBITMAPFILE_TYPE  type        = GetTypeFromExtenxion(xpath);
+  GRPBITMAPFILEBASE*  grpfilebase = NULL;  
+  bool                status      = false;
 
   _xpath = xpath;
 
-  _xpath.GetExt(ext);
-  if(ext.IsEmpty()) return false;
-
-  GRPBITMAPFILEBASE* grpfilebase  = NULL;
-  bool         status       = false;
-
-  if(!ext.Compare(__L(".jpg"), true)) grpfilebase = new GRPBITMAPFILEJPG();
-  if(!ext.Compare(__L(".png"), true)) grpfilebase = new GRPBITMAPFILEPNG();
-  if(!ext.Compare(__L(".bmp"), true)) grpfilebase = new GRPBITMAPFILEBMP();
-  if(!ext.Compare(__L(".tga"), true)) grpfilebase = new GRPBITMAPFILETGA();
-
+  switch(type)
+    {
+      case GRPBITMAPFILE_TYPE_UNKNOWN : break;
+      case GRPBITMAPFILE_TYPE_JPG     : grpfilebase = new GRPBITMAPFILEJPG(); break;
+      case GRPBITMAPFILE_TYPE_PNG     : grpfilebase = new GRPBITMAPFILEPNG(); break;
+      case GRPBITMAPFILE_TYPE_BMP     : grpfilebase = new GRPBITMAPFILEBMP(); break;
+      case GRPBITMAPFILE_TYPE_TGA     : grpfilebase = new GRPBITMAPFILETGA(); break;  
+    }
+   
   if(grpfilebase)
     {
       status = grpfilebase->CreateFileFromBitmap(_xpath, bitmap, quality);
