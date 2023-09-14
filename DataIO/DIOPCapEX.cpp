@@ -3,9 +3,9 @@
 * @file       DIOPCapEX.cpp
 * 
 * @class      DIOPCAPEX
-* @brief      Interface PCap Extended Library class
+* @brief      Data Input/Output PCap Extended Library class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,15 +24,21 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 #ifdef DIO_PCAP_ACTIVE
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOPCapEX.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -40,14 +46,19 @@
 #include "XFactory.h"
 #include "XTrace.h"
 
-#include "DIOPCapEX.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -67,7 +78,6 @@ DIOPCAPFRAMEEX::DIOPCAPFRAMEEX(bool hardwareuselittleendian): DIOPCAPFRAME(hardw
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPCAPFRAMEEX::~DIOPCAPFRAMEEX()
@@ -82,7 +92,6 @@ DIOPCAPFRAMEEX::~DIOPCAPFRAMEEX()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -128,7 +137,6 @@ bool DIOPCAPFRAMEEX::GetDNSAsk(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSASK& ask)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -189,7 +197,6 @@ bool DIOPCAPFRAMEEX::GetDNSRequest(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSREQUES
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOPCAPFRAMEEX::DNSnameFormatToString(XBYTE* urlDNS,DIOURL& url)
@@ -225,7 +232,6 @@ int DIOPCAPFRAMEEX::DNSnameFormatToString(XBYTE* urlDNS,DIOURL& url)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAPFRAMEEX::StringToDNSNameFormat(XSTRING& name,XBUFFER& nameDNS)
@@ -251,8 +257,6 @@ bool DIOPCAPFRAMEEX::StringToDNSNameFormat(XSTRING& name,XBUFFER& nameDNS)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPCAPFRAMEEX::Clean()
@@ -269,7 +273,8 @@ void DIOPCAPFRAMEEX::Clean()
 }
 
 
+#pragma endregion
+
+
 #endif
-
-
 

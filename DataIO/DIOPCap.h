@@ -3,9 +3,9 @@
 * @file       DIOPCap.h
 * 
 * @class      DIOPCAP
-* @brief      Interface PCap Library class
+* @brief      Data Input/Output PCap Library class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,20 +24,25 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
-
-#ifdef DIO_PCAP_ACTIVE
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOPCAP_H_
 #define _DIOPCAP_H_
 
+#ifdef DIO_PCAP_ACTIVE
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XVector.h"
 #include "XString.h"
 #include "XBuffer.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define DIOPCAPETHERNETMACSIZE        6
 
@@ -48,13 +53,6 @@
 
 #define DIOPCAPIPPROTOCOLTYPE_TCP     6                   // TCP
 #define DIOPCAPIPPROTOCOLTYPE_UDP     17                  // UDP
-
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
-class XTHREADCOLLECTED;
-class XMUTEX;
-
-
 
 typedef struct
 {
@@ -114,6 +112,14 @@ typedef struct
 
 } DIOPCAPTCPHEADER;
 
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
+class XTHREADCOLLECTED;
+class XMUTEX;
 
 class DIOPCAPNETINTERFACE
 {
@@ -208,9 +214,18 @@ class DIOPCAP
     void                              Clean                         ();
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 
-
 #endif
+

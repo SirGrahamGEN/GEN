@@ -3,9 +3,9 @@
 * @file       DIOPCap.cpp
 * 
 * @class      DIOPCAP
-* @brief      Interface PCap Library class
+* @brief      Data Input/Output PCap Library class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,16 +24,21 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
 
 #ifdef DIO_PCAP_ACTIVE
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOPCap.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -43,13 +48,22 @@
 #include "XVector.h"
 #include "XSystem.h"
 
-#include "DIOPCap.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+#pragma region DIOPCAPNETINTERFACE_CLASS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -57,15 +71,14 @@
 * @fn         DIOPCAPNETINTERFACE::DIOPCAPNETINTERFACE()
 * @brief      Constructor
 * @ingroup    DATAIO
-*
+* 
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPNETINTERFACE::DIOPCAPNETINTERFACE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -74,15 +87,14 @@ DIOPCAPNETINTERFACE::DIOPCAPNETINTERFACE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
+* 
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPNETINTERFACE::~DIOPCAPNETINTERFACE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -100,7 +112,6 @@ XSTRING* DIOPCAPNETINTERFACE::GetName()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOPCAPNETINTERFACE::GetDescription()
@@ -114,7 +125,6 @@ XSTRING* DIOPCAPNETINTERFACE::GetDescription()
 {
   return &description;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -136,7 +146,6 @@ bool DIOPCAPNETINTERFACE::SetName(XCHAR* name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAPNETINTERFACE::SetName(XSTRING& name)
@@ -154,7 +163,6 @@ bool DIOPCAPNETINTERFACE::SetName(XSTRING& name)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -176,7 +184,6 @@ bool DIOPCAPNETINTERFACE::SetDescription(XCHAR* description)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAPNETINTERFACE::SetDescription(XSTRING& description)
@@ -196,8 +203,6 @@ bool DIOPCAPNETINTERFACE::SetDescription(XSTRING& description)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPCAPNETINTERFACE::Clean()
@@ -213,7 +218,10 @@ void DIOPCAPNETINTERFACE::Clean()
 
 }
 
+#pragma endregion
 
+
+#pragma region DIOPCAPFRAME_CLASS
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -248,7 +256,6 @@ DIOPCAPFRAME::DIOPCAPFRAME(bool hardwareuselittleendian)
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPFRAME::~DIOPCAPFRAME()
-
 {
   if(data)
     {
@@ -258,8 +265,6 @@ DIOPCAPFRAME::~DIOPCAPFRAME()
 
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -291,8 +296,6 @@ bool DIOPCAPFRAME::GetHeaderEthernet(DIOPCAPETHERNETHEADER& ethernetheader)
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -327,7 +330,6 @@ bool DIOPCAPFRAME::GetHeaderIP(DIOPCAPIPHEADER& ipheader)
 
   return true; //length of ethernet header
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -365,8 +367,6 @@ bool DIOPCAPFRAME::GetHeaderUDP(DIOPCAPUDPHEADER& udpheader)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAPFRAME::GetHeaderTCP(DIOPCAPTCPHEADER& tcpheader)
@@ -399,7 +399,6 @@ bool DIOPCAPFRAME::GetHeaderTCP(DIOPCAPTCPHEADER& tcpheader)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -443,7 +442,6 @@ XBYTE* DIOPCAPFRAME::UserData_Get()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOPCAPFRAME::UserData_GetSize()
@@ -485,7 +483,6 @@ int DIOPCAPFRAME::UserData_GetSize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* DIOPCAPFRAME::GetData()
@@ -499,7 +496,6 @@ XBUFFER* DIOPCAPFRAME::GetData()
 {
   return data;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -527,7 +523,6 @@ bool DIOPCAPFRAME::SetData(XBYTE* data, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPCAPFRAME::Clean()
@@ -544,7 +539,10 @@ void DIOPCAPFRAME::Clean()
   hardwareuselittleendian = false;
 }
 
+#pragma endregion
 
+
+#pragma region DIOPCAP_CLASS
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -559,7 +557,6 @@ DIOPCAP::DIOPCAP()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -580,7 +577,6 @@ DIOPCAP::~DIOPCAP()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<DIOPCAPNETINTERFACE*>* DIOPCAP::GetNetInterfaces()
@@ -594,7 +590,6 @@ XVECTOR<DIOPCAPNETINTERFACE*>* DIOPCAP::GetNetInterfaces()
 {
   return &netinterfaces;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -614,7 +609,6 @@ DIOPCAPNETINTERFACE* DIOPCAP::GetNetInterface(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAP::Ini()
@@ -632,8 +626,6 @@ bool DIOPCAP::Ini()
 
   return netinterfaces.GetSize()?true:false;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -656,8 +648,6 @@ bool DIOPCAP::Capture_Start(int index, bool promiscuousmode, int timeout)
 
   return Capture_Start(netinterface, promiscuousmode, timeout);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -684,7 +674,6 @@ DIOPCAPFRAME* DIOPCAP::Frames_Get(int index)
 
   return frame;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -718,7 +707,6 @@ bool DIOPCAP::Frames_Delete(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<DIOPCAPFRAME*>* DIOPCAP::Frames_Get()
@@ -732,7 +720,6 @@ XVECTOR<DIOPCAPFRAME*>* DIOPCAP::Frames_Get()
 {
   return &frames;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -760,8 +747,6 @@ bool DIOPCAP::Frames_DeleteAll()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAP::End()
@@ -785,7 +770,6 @@ bool DIOPCAP::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -829,8 +813,6 @@ bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPCAP::Clean()
@@ -845,7 +827,6 @@ void DIOPCAP::Clean()
 {
   xmutexframes    = NULL;  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -868,5 +849,9 @@ bool DIOPCAP::DeleteListNetInterfaces()
   return true;
 }
 
+#pragma endregion
+
+#pragma endregion
 
 #endif
+

@@ -3,9 +3,9 @@
 * @file       DIOPCapEX.h
 * 
 * @class      DIOPCAPEX
-* @brief      Interface PCap Extended Library class
+* @brief      Data Input/Output PCap Extended Library class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,14 +24,15 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
-
-#ifdef DIO_PCAP_ACTIVE
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOPCAPEX_H_
 #define _DIOPCAPEX_H_
 
+#ifdef DIO_PCAP_ACTIVE
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XVector.h"
 
@@ -39,10 +40,11 @@
 
 #include "DIOPCap.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
-
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
+#pragma region DEFINES_ENUMS
 
 typedef struct
 {
@@ -89,8 +91,11 @@ typedef struct
 
 } DIOPCAPEXDNSREQUEST;
 
+#pragma endregion
 
-/*---- CLASS -----------------------------------------------------------------------------*/
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class DIOPCAPFRAMEEX : public DIOPCAPFRAME
 {
@@ -110,10 +115,17 @@ class DIOPCAPFRAMEEX : public DIOPCAPFRAME
 };
 
 
+#pragma endregion
+
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 
-
 #endif
+

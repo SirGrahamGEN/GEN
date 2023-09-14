@@ -3,9 +3,9 @@
 * @file       DIOWINDOWSPCap.h
 * 
 * @class      DIOWINDOWSPCAP
-* @brief      WINDOWS Interface PCap Library (Capture Ethernet Packets) class
+* @brief      WINDOWS Data Input/Output PCap Library class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,27 +24,36 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
-
-#ifdef DIO_PCAP_ACTIVE
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOWINDOWSPCAP_H_
 #define _DIOWINDOWSPCAP_H_
 
+#ifdef DIO_PCAP_ACTIVE
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <pcap.h>
 
 #include "DIOPCap.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class XFACTORY;
+class XTHREAD;
 class XTHREADCOLLECTED;
-class XTHREADCOLLECTED;
-
 
 class  DIOWINDOWSPCAP : public DIOPCAP
 {
@@ -68,7 +77,15 @@ class  DIOWINDOWSPCAP : public DIOPCAP
     XTHREAD*                      threadcapture;
 };
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

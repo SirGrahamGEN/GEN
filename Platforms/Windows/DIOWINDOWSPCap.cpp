@@ -3,9 +3,9 @@
 * @file       DIOWINDOWSPCap.cpp
 * 
 * @class      DIOWINDOWSPCAP
-* @brief      WINDOWS Interface PCap Library (Capture Ethernet Packets) class
+* @brief      WINDOWS Data Input/Output PCap Library class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,17 +24,24 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
+
 
 #ifdef DIO_PCAP_ACTIVE
                      
 #pragma comment(lib,"wpcap.lib")
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOWINDOWSPCap.h"
 
 #include <winsock2.h>
 #include <windows.h>
@@ -44,31 +51,34 @@
 #include "XString.h"
 #include "XWINDOWSThread.h"
 
-#include "DIOWINDOWSPCap.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOWINDOWSPCAP::DIOWINDOWSPCAP() : DIOPCAP()
+* @fn         DIOWINDOWSPCAP::DIOWINDOWSPCAP()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-*  
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-DIOWINDOWSPCAP::DIOWINDOWSPCAP() :  DIOPCAP()
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOWINDOWSPCAP::DIOWINDOWSPCAP() : DIOPCAP()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -77,18 +87,16 @@ DIOWINDOWSPCAP::DIOWINDOWSPCAP() :  DIOPCAP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSPCAP::~DIOWINDOWSPCAP()
 {
   End();
 
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -128,7 +136,6 @@ bool DIOWINDOWSPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promi
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSPCAP::Capture_End()
@@ -159,7 +166,6 @@ bool DIOWINDOWSPCAP::Capture_End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSPCAP::Clean()
@@ -175,7 +181,6 @@ void DIOWINDOWSPCAP::Clean()
   handle        = NULL;
   threadcapture = NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -217,7 +222,6 @@ bool DIOWINDOWSPCAP::CreateListNetInterfaces()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSPCAP::ThreadCapture(void* data)
@@ -245,8 +249,6 @@ void DIOWINDOWSPCAP::ThreadCapture(void* data)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header, const u_char* data)
@@ -266,28 +268,10 @@ void DIOWINDOWSPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* head
   if(!diopcap) return;
 
   diopcap->Frames_Add((XBYTE*)data,header->len);
-
-
-  /*
-  struct tm *ltime;
-  char timestr[16];
-  time_t local_tv_sec;
-
-
-  //  unused parameters
-
-  //(VOID)(param);
-  //(VOID)(pkt_data);
-
-  // convert the timestamp to readable format
-  local_tv_sec = header->ts.tv_sec;
-  ltime=localtime(&local_tv_sec);
-  strftime( timestr, sizeof timestr, "%H:%M:%S", ltime);
-
-  printf("%s,%.6d len:%d\n", timestr, header->ts.tv_usec, header->len);
-  */
-
 }
+
+
+#pragma endregion
 
 
 #endif
