@@ -30,18 +30,27 @@
 #define _VERSION_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XString.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define VERSION_NAME         "GEN FrameWork"
 #define VERSION_VERSION      0
 #define VERSION_SUBVERSION   15
-#define VERSION_SUBERROR     0
+#define VERSION_SUBERROR     1
 #define VERSION_CODENAME     "Deimos F3"
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class VERSION
 {
@@ -93,7 +102,15 @@ class VERSION
     static VERSION*         instance;     
 };
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 
