@@ -151,8 +151,9 @@ bool XWINDOWSDIR::Make(XCHAR* path, bool recursive)
 
   xpath = path;
 
+  xpath.Slash_Add();
   xpath.Slash_Normalize(true);
-
+  
   if(recursive)
     {      
       XPATH   xpathsequence;

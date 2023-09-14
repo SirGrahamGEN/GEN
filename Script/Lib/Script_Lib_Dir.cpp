@@ -110,6 +110,8 @@ bool SCRIPT_LIB_DIR::AddLibraryFunctions(SCRIPT* script)
 
   script->AddLibraryFunction(this, __L("IsItExists")                        , Call_IsItExists);
   script->AddLibraryFunction(this, __L("ChangeDir")                         , Call_ChangeDir);
+  script->AddLibraryFunction(this, __L("RemoveDir")                         , Call_RemoveDir);
+  script->AddLibraryFunction(this, __L("MakeDir")                           , Call_MakeDir);
   
   return true;
 }
@@ -221,6 +223,95 @@ void Call_ChangeDir(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* par
 
   (*returnvalue) = status;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_RemoveDir(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_RemoveDir
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_RemoveDir(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  XDIR* dir     = NULL;
+  bool  status  = false;
+  
+  dir = GEN_XFACTORY.Create_Dir();
+  if(dir)
+    {     
+      if(!params->GetSize())
+        {
+          script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+          return;
+        }
+
+      XSTRING* string = (XSTRING*)params->Get(0)->GetData();  
+      if(string)
+        {
+          if(!string->IsEmpty())
+            {
+              status = dir->Delete(string->Get(), true);
+            }        
+        }
+    
+      GEN_XFACTORY.Delete_Dir(dir);
+    }
+
+  (*returnvalue) = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_MakeDir(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_MakeDir
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_MakeDir(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  XDIR* dir     = NULL;
+  bool  status  = false;
+  
+  dir = GEN_XFACTORY.Create_Dir();
+  if(dir)
+    {     
+      if(!params->GetSize())
+        {
+          script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+          return;
+        }
+
+      XSTRING* string = (XSTRING*)params->Get(0)->GetData();  
+      if(string)
+        {
+          if(!string->IsEmpty())
+            {
+              status = dir->Make(string->Get(), true);
+            }        
+        }
+    
+      GEN_XFACTORY.Delete_Dir(dir);
+    }
+
+  (*returnvalue) = status;
+}
+
 
 #pragma endregion
 
