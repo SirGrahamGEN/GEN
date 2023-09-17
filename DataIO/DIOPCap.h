@@ -38,6 +38,9 @@
 #include "XString.h"
 #include "XBuffer.h"
 
+#include "DIOMAC.h"
+#include "DIOIP.h"
+
 #pragma endregion
 
 
@@ -53,15 +56,6 @@
 
 #define DIOPCAPIPPROTOCOLTYPE_TCP     6                   // TCP
 #define DIOPCAPIPPROTOCOLTYPE_UDP     17                  // UDP
-
-typedef struct
-{
-  XBYTE                               byte1;
-  XBYTE                               byte2;
-  XBYTE                               byte3;
-  XBYTE                               byte4;
-
-} DIOPCAPIPADDRESS;
 
 
 typedef struct
@@ -83,8 +77,8 @@ typedef struct
   XBYTE                               ttl;                // Time to live
   XBYTE                               protocol;           // Protocol
   XWORD                               CRC;                // Header checksum
-  DIOPCAPIPADDRESS                    sourceaddr;         // Source address
-  DIOPCAPIPADDRESS                    targetaddr;         // Target address
+  XBYTE                               sourceaddr[4];      // Source address
+  XBYTE                               targetaddr[4];      // Target address
 
 } DIOPCAPIPHEADER;
 
@@ -112,6 +106,15 @@ typedef struct
 
 } DIOPCAPTCPHEADER;
 
+
+typedef struct
+{
+  XDWORD                              network;            // Network field (normaly 2)   
+  DIOPCAPIPHEADER                     IPheader;
+  DIOPCAPTCPHEADER                    TCPheader;  
+
+} DIOPCAPLOOPBACKHEADER;
+
 #pragma endregion
 
 
@@ -130,11 +133,17 @@ class DIOPCAPNETINTERFACE
     XSTRING*                          GetName                       ();
     XSTRING*                          GetDescription                ();
 
-    bool                              SetName                       (XCHAR* name);
-    bool                              SetName                       (XSTRING& name);
+    bool                              IsUp                          ();
+    void                              SetIsUp                       (bool isup);            
 
-    bool                              SetDescription                (XCHAR* name);
-    bool                              SetDescription                (XSTRING& name);
+    bool                              IsRunning                     ();
+    void                              SetIsRunning                  (bool isrunning);            
+
+    bool                              IsWireless                    ();
+    void                              SetIsWireless                 (bool iswireless);            
+
+    bool                              IsLoopBack                    ();      
+    void                              SetIsLoopBack                 (bool isloopback);      
 
   private:
 
@@ -142,36 +151,79 @@ class DIOPCAPNETINTERFACE
 
     XSTRING                           name;
     XSTRING                           description;
+
+    bool                              isup;  
+    bool                              isrunning;  
+    bool                              iswireless;  
+    bool                              isloopback;      
 };
 
 
 class DIOPCAPFRAME
 {
   public:
-                                      DIOPCAPFRAME                  (bool hardwareuselittleendian);
+                                      DIOPCAPFRAME                  (bool hardwareuselittleendian, bool isloopback);
     virtual                          ~DIOPCAPFRAME                  ();
 
-    bool                              GetHeaderEthernet             (DIOPCAPETHERNETHEADER& ethernetheader);
-    bool                              GetHeaderIP                   (DIOPCAPIPHEADER& ipheader);
-    bool                              GetHeaderUDP                  (DIOPCAPUDPHEADER& udpheader);
-    bool                              GetHeaderTCP                  (DIOPCAPTCPHEADER& tcpheader);
-
-    XBYTE*                            UserData_Get                  ();
-    int                               UserData_GetSize              ();
+    bool                              GetHeader                     (DIOPCAPETHERNETHEADER& header);    
+    bool                              GetHeader                     (DIOPCAPIPHEADER& header);
+    bool                              GetHeader                     (DIOPCAPUDPHEADER& header);
+    bool                              GetHeader                     (DIOPCAPTCPHEADER& header); 
 
     XBUFFER*                          GetData                       ();
     bool                              SetData                       (XBYTE* data, XDWORD size);
 
+    DIOMAC*                           GetSourceMAC                  ();   
+    DIOMAC*                           GetTargetMAC                  ();   
+
+    DIOIP*                            GetSourceIP                   ();   
+    DIOIP*                            GetTargetIP                   ();   
+
+    XWORD                             GetSourcePort                 ();
+    bool                              SetSourcePort                 (XWORD port);
+
+    XWORD                             GetTargetPort                 ();
+    bool                              SetTargetPort                 (XWORD port);
+
+    XBYTE*                            GetDataPayload                ();
+    int                               GetDataPayLoadSize            ();
+
+    bool                              Set                           (DIOPCAPETHERNETHEADER* ethernet_header); 
+    bool                              Set                           (DIOPCAPIPHEADER* IP_header);
+    bool                              Set                           (DIOPCAPUDPHEADER* UDP_header);
+    bool                              Set                           (DIOPCAPTCPHEADER* TCP_header);    
+    bool                              Set                           (XBYTE* data_payload, XDWORD size);
+
+    
+
+    
   protected:
 
     bool                              hardwareuselittleendian;
+    bool                              isloopback;  
 
   private:
 
     void                              Clean                         ();
 
-    XBUFFER*                          data;
+    XBUFFER*                          data; 
+ 
+    DIOPCAPETHERNETHEADER*            ethernet_header; 
+    DIOPCAPIPHEADER*                  IP_header;
+    DIOPCAPUDPHEADER*                 UDP_header;
+    DIOPCAPTCPHEADER*                 TCP_header;  
 
+    DIOMAC                            sourceMAC;   
+    DIOMAC                            targetMAC;   
+
+    DIOIP                             sourceIP;   
+    DIOIP                             targetIP;   
+
+    XWORD                             sourceport;
+    XWORD                             targetport;
+  
+    XBYTE*                            data_payload;
+    XDWORD                            data_payloadsize;  
 };
 
 
@@ -184,6 +236,7 @@ class DIOPCAP
 
     XVECTOR<DIOPCAPNETINTERFACE*>*    GetNetInterfaces              ();
     DIOPCAPNETINTERFACE*              GetNetInterface               (int index);
+    DIOPCAPNETINTERFACE*              GetNetInterfaceSelected       ();
 
     virtual bool                      Ini                           ();
 
@@ -200,12 +253,14 @@ class DIOPCAP
 
   protected:
 
-    bool                              Frames_Add                    (XBYTE* data,XDWORD size);
+    bool                              Frames_Add                    (XBYTE* data, XDWORD size, bool isloopback = false);
 
     virtual bool                      CreateListNetInterfaces       () = 0;
     bool                              DeleteListNetInterfaces       ();
 
+
     XVECTOR<DIOPCAPNETINTERFACE*>     netinterfaces;
+    DIOPCAPNETINTERFACE*              netinterfaceselected;
     XMUTEX*                           xmutexframes;
     XVECTOR<DIOPCAPFRAME*>            frames;    
 

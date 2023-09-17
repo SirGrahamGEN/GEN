@@ -119,6 +119,8 @@ bool DIOWINDOWSPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promi
   char errbuf[PCAP_ERRBUF_SIZE];
 
   XBUFFER charstr;
+
+  netinterfaceselected = netinterface;
   
   (*netinterface->GetName()).ConvertToASCII(charstr);
   handle= pcap_open_live(charstr.GetPtrChar()    , // name of the device
@@ -161,6 +163,8 @@ bool DIOWINDOWSPCAP::Capture_End()
       pcap_close(handle);
       handle = NULL;
     }
+
+  netinterfaceselected = NULL;
 
   return true;
 }
@@ -207,11 +211,29 @@ bool DIOWINDOWSPCAP::CreateListNetInterfaces()
       DIOPCAPNETINTERFACE* _netinterface = new DIOPCAPNETINTERFACE();
       if(_netinterface)
         {
-          XSTRING string;
+          _netinterface->GetName()->Set(netinterface->name);
+          _netinterface->GetDescription()->Set(netinterface->description);
 
-          string = netinterface->name;          _netinterface->SetName(string);
-          string = netinterface->description;   _netinterface->SetDescription(string);
+          if(netinterface->flags & PCAP_IF_UP)
+            {
+              _netinterface->SetIsUp(true);
+            }
 
+          if(netinterface->flags & PCAP_IF_RUNNING)
+            {
+              _netinterface->SetIsRunning(true);
+            }
+
+          if(netinterface->flags & PCAP_IF_WIRELESS)
+            {
+              _netinterface->SetIsWireless(true);
+            }
+
+          if(netinterface->flags & PCAP_IF_LOOPBACK)
+            {
+              _netinterface->SetIsLoopBack(true);
+            }
+      
           netinterfaces.Add(_netinterface);
         }
     }
@@ -267,7 +289,13 @@ void DIOWINDOWSPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* head
   DIOWINDOWSPCAP* diopcap = (DIOWINDOWSPCAP*)param;
   if(!diopcap) return;
 
-  diopcap->Frames_Add((XBYTE*)data,header->len);
+  bool isloopback = false;
+  if(diopcap->GetNetInterfaceSelected())
+    {
+      isloopback = diopcap->GetNetInterfaceSelected()->IsLoopBack();
+    }
+
+  diopcap->Frames_Add((XBYTE*)data, header->len, isloopback);
 }
 
 

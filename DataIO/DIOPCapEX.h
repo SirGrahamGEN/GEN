@@ -87,7 +87,7 @@ typedef struct
   XWORD            preference;
   XWORD            exchange;
   XWORD            answer;
-  DIOPCAPIPADDRESS address;
+  XBYTE            address[4];
 
 } DIOPCAPEXDNSREQUEST;
 

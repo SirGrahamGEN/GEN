@@ -72,7 +72,7 @@
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOPCAPFRAMEEX::DIOPCAPFRAMEEX(bool hardwareuselittleendian): DIOPCAPFRAME(hardwareuselittleendian)
+DIOPCAPFRAMEEX::DIOPCAPFRAMEEX(bool hardwareuselittleendian): DIOPCAPFRAME(hardwareuselittleendian, false)
 {
    Clean();
 }
@@ -108,7 +108,7 @@ DIOPCAPFRAMEEX::~DIOPCAPFRAMEEX()
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAMEEX::GetDNSAsk(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSASK& ask)
 {
-  DIOPCAPEXDNSHEADER* _header = (DIOPCAPEXDNSHEADER*)UserData_Get();
+  DIOPCAPEXDNSHEADER* _header = (DIOPCAPEXDNSHEADER*)GetDataPayload();
   if(!_header) return false;
 
   memcpy((XBYTE*)&header,(XBYTE*)(_header),sizeof(DIOPCAPEXDNSHEADER));
@@ -127,7 +127,7 @@ bool DIOPCAPFRAMEEX::GetDNSAsk(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSASK& ask)
 
   XDWORD size = DNSnameFormatToString(_url,ask.url);
 
-  XBYTE* data = (XBYTE*)(UserData_Get());
+  XBYTE* data = (XBYTE*)(GetDataPayload());
   data+=(sizeof(DIOPCAPEXDNSHEADER)+size);
 
   XWORD* data2 = (XWORD*)data;
@@ -153,7 +153,7 @@ bool DIOPCAPFRAMEEX::GetDNSAsk(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSASK& ask)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAMEEX::GetDNSRequest(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSREQUEST& request)
 {
-  DIOPCAPEXDNSHEADER* _header = (DIOPCAPEXDNSHEADER*)UserData_Get();
+  DIOPCAPEXDNSHEADER* _header = (DIOPCAPEXDNSHEADER*)GetDataPayload();
   if(!_header) return false;
 
   memcpy((XBYTE*)&header,(XBYTE*)(_header),sizeof(DIOPCAPEXDNSHEADER));
@@ -174,7 +174,7 @@ bool DIOPCAPFRAMEEX::GetDNSRequest(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSREQUES
     {
       XDWORD size = DNSnameFormatToString(_url,request.url);
 
-      XBYTE*  data = (XBYTE*)(UserData_Get());
+      XBYTE*  data = (XBYTE*)(GetDataPayload());
       data+=(sizeof(DIOPCAPEXDNSHEADER)+size);
 
       XWORD*  data2 = (XWORD*)data;
@@ -187,10 +187,10 @@ bool DIOPCAPFRAMEEX::GetDNSRequest(DIOPCAPEXDNSHEADER& header,DIOPCAPEXDNSREQUES
       request.exchange    = (*data2);  SWAPWORD(request.exchange);    data2++;
 
       data = (XBYTE*)data2;
-      request.address.byte1 = (*data); data++;
-      request.address.byte2 = (*data); data++;
-      request.address.byte3 = (*data); data++;
-      request.address.byte4 = (*data); data++;
+      request.address[0] = (*data); data++;
+      request.address[1] = (*data); data++;
+      request.address[2] = (*data); data++;
+      request.address[3] = (*data); data++;
     }
 
   return true;

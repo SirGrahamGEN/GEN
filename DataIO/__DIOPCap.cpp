@@ -338,22 +338,14 @@ DIOPCAPFRAME::~DIOPCAPFRAME()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAME::GetHeader(DIOPCAPETHERNETHEADER& header)
 {
-  if(!data) 
-    {
-      return false;
-    }
+  if(!data) return false;
 
-  if(data->GetSize() < (sizeof(DIOPCAPETHERNETHEADER))) 
-    {
-      return false;
-    }
+  if(data->GetSize() < (sizeof(DIOPCAPETHERNETHEADER))) return false;
 
-  if(!ethernet_header) 
-    {
-      return false;
-    }
+  DIOPCAPETHERNETHEADER* _ethernetheader = (DIOPCAPETHERNETHEADER*)(data->Get());
+  if(!_ethernetheader) return false;
 
-  memcpy((XBYTE*)&header,(XBYTE*)(ethernet_header),sizeof(DIOPCAPETHERNETHEADER));
+  memcpy((XBYTE*)&header,(XBYTE*)(_ethernetheader),sizeof(DIOPCAPETHERNETHEADER));
 
   if(hardwareuselittleendian)
     {
@@ -377,22 +369,14 @@ bool DIOPCAPFRAME::GetHeader(DIOPCAPETHERNETHEADER& header)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAME::GetHeader(DIOPCAPIPHEADER& header)
 {
-  if(!data) 
-    {
-      return false;
-    }
+  if(!data) return false;
 
-  if(data->GetSize() < (sizeof(DIOPCAPETHERNETHEADER) + sizeof(DIOPCAPIPHEADER))) 
-    {
-      return false;
-    }
- 
-  if(!IP_header) 
-    {
-      return false;
-    }
+  if(data->GetSize() < (sizeof(DIOPCAPETHERNETHEADER) + sizeof(DIOPCAPIPHEADER))) return false;
 
-  memcpy((XBYTE*)&header,(XBYTE*)(IP_header),sizeof(DIOPCAPIPHEADER));
+  DIOPCAPIPHEADER* _ipheader = (DIOPCAPIPHEADER*)(data->Get() + sizeof(DIOPCAPETHERNETHEADER));
+  if(!_ipheader) return false;
+
+  memcpy((XBYTE*)&header,(XBYTE*)(_ipheader),sizeof(DIOPCAPIPHEADER));
 
   if(hardwareuselittleendian)
     {
@@ -420,20 +404,14 @@ bool DIOPCAPFRAME::GetHeader(DIOPCAPIPHEADER& header)
 bool DIOPCAPFRAME::GetHeader(DIOPCAPUDPHEADER& header)
 {
   DIOPCAPIPHEADER ipheader;
-  if(!GetHeader(ipheader)) 
-    {
-      return false;
-    }
+  if(!GetHeader(ipheader)) return false;
 
   int iplen = (ipheader.ver_ihl & 0xf) * 4;
 
-  UDP_header = (DIOPCAPUDPHEADER*)((XBYTE*)data->Get() + sizeof(DIOPCAPETHERNETHEADER) + iplen);
-  if(!UDP_header) 
-    {
-      return false;
-    }
+  DIOPCAPUDPHEADER* _udpheader = (DIOPCAPUDPHEADER*)((XBYTE*)data->Get() + sizeof(DIOPCAPETHERNETHEADER) + iplen);
+  if(!_udpheader) return false;
 
-  memcpy((XBYTE*)&header,(XBYTE*)(UDP_header),sizeof(DIOPCAPUDPHEADER));
+  memcpy((XBYTE*)&header,(XBYTE*)(_udpheader),sizeof(DIOPCAPUDPHEADER));
 
   if(hardwareuselittleendian)
     {
@@ -460,9 +438,10 @@ bool DIOPCAPFRAME::GetHeader(DIOPCAPUDPHEADER& header)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPCAPFRAME::GetHeader(DIOPCAPTCPHEADER& header)
 {
-  if(!TCP_header) return false;
+  DIOPCAPTCPHEADER* _tcpheader = (DIOPCAPTCPHEADER*)(data->Get() + sizeof(DIOPCAPETHERNETHEADER) + sizeof(DIOPCAPIPHEADER));
+  if(!_tcpheader) return false;
 
-  memcpy((XBYTE*)&header,(XBYTE*)(TCP_header),sizeof(DIOPCAPTCPHEADER));
+  memcpy((XBYTE*)&header,(XBYTE*)(_tcpheader),sizeof(DIOPCAPTCPHEADER));
 
   if(hardwareuselittleendian)
     {
@@ -489,7 +468,6 @@ bool DIOPCAPFRAME::GetHeader(DIOPCAPTCPHEADER& header)
 * @return     XBYTE* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-/*
 XBYTE* DIOPCAPFRAME::UserData_Get()
 {
   XBYTE* userdata = data->Get();
@@ -529,7 +507,56 @@ XBYTE* DIOPCAPFRAME::UserData_Get()
 
   return userdata;
 }
-*/
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOPCAPFRAME::UserData_GetSize()
+* @brief      UserData_GetSize
+* @ingroup    DATAIO
+*
+* @return     int : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+int DIOPCAPFRAME::UserData_GetSize()
+{
+  int userdatasize = data->GetSize();
+
+  if(!isloopback)
+    {
+      DIOPCAPETHERNETHEADER ethernetheader;
+      if(GetHeader(ethernetheader))
+        {
+          userdatasize -= sizeof(DIOPCAPETHERNETHEADER);
+        }
+
+      if(ethernetheader.type == DIOPCAPETHERNETTYPE_IP)
+        {
+          return 0;
+        }
+    }
+   else
+    {
+      userdatasize += sizeof(XDWORD);
+    }  
+
+  DIOPCAPIPHEADER ipheader;
+  if(GetHeader(ipheader))
+    {
+      userdatasize -= sizeof(DIOPCAPIPHEADER);
+
+      switch(ipheader.protocol)
+        {
+          case DIOPCAPIPPROTOCOLTYPE_TCP : userdatasize -= sizeof(DIOPCAPTCPHEADER);
+                                           break;
+
+          case DIOPCAPIPPROTOCOLTYPE_UDP : userdatasize -= sizeof(DIOPCAPUDPHEADER);
+                                           break;
+        }
+    }
+        
+  return userdatasize;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -574,260 +601,6 @@ bool DIOPCAPFRAME::SetData(XBYTE* data, XDWORD size)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOMAC* DIOPCAPFRAME::GetSourceMAC()
-* @brief      GetSourceMAC
-* @ingroup    DATAIO
-* 
-* @return     DIOMAC* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOMAC* DIOPCAPFRAME::GetSourceMAC()
-{
-  return &sourceMAC;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOMAC* DIOPCAPFRAME::GetTargetMAC()
-* @brief      GetTargetMAC
-* @ingroup    DATAIO
-* 
-* @return     DIOMAC* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOMAC* DIOPCAPFRAME::GetTargetMAC()
-{
-  return &targetMAC;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOIP* DIOPCAPFRAME::GetSourceIP()
-* @brief      GetSourceIP
-* @ingroup    DATAIO
-* 
-* @return     DIOIP* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOIP* DIOPCAPFRAME::GetSourceIP()
-{
-  return &sourceIP;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOIP* DIOPCAPFRAME::GetTargetIP()
-* @brief      GetTargetIP
-* @ingroup    DATAIO
-* 
-* @return     DIOIP* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOIP* DIOPCAPFRAME::GetTargetIP()
-{
-  return &targetIP;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XWORD DIOPCAPFRAME::GetSourcePort()
-* @brief      GetSourcePort
-* @ingroup    DATAIO
-* 
-* @return     XWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XWORD DIOPCAPFRAME::GetSourcePort()
-{
-  return sourceport;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOPCAPFRAME::SetSourcePort(XWORD port)
-* @brief      SetSourcePort
-* @ingroup    DATAIO
-* 
-* @param[in]  port : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPCAPFRAME::SetSourcePort(XWORD port)
-{
-  this->sourceport = port;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XWORD DIOPCAPFRAME::GetTargetPort()
-* @brief      GetTargetPort
-* @ingroup    DATAIO
-* 
-* @return     XWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XWORD DIOPCAPFRAME::GetTargetPort()
-{
-  return targetport;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOPCAPFRAME::SetTargetPort(XWORD port)
-* @brief      SetTargetPort
-* @ingroup    DATAIO
-* 
-* @param[in]  port : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPCAPFRAME::SetTargetPort(XWORD port)
-{
-  this->targetport = port;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XBYTE* DIOPCAPFRAME::GetDataPayload()
-* @brief      GetDataPayload
-* @ingroup    DATAIO
-* 
-* @return     XBYTE* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XBYTE* DIOPCAPFRAME::GetDataPayload()
-{
-  return data_payload;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         int DIOPCAPFRAME::GetDataPayLoadSize()
-* @brief      GetDataPayLoadSize
-* @ingroup    DATAIO
-* 
-* @return     int : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-int DIOPCAPFRAME::GetDataPayLoadSize()
-{
-  return data_payloadsize;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOPCAPFRAME::Set(DIOPCAPETHERNETHEADER* ethernet_header)
-* @brief      Set
-* @ingroup    DATAIO
-* 
-* @param[in]  ethernet_header : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPCAPFRAME::Set(DIOPCAPETHERNETHEADER* ethernet_header)
-{
-  this->ethernet_header = ethernet_header;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOPCAPFRAME::Set(DIOPCAPIPHEADER* IP_header)
-* @brief      Set
-* @ingroup    DATAIO
-* 
-* @param[in]  IP_header : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPCAPFRAME::Set(DIOPCAPIPHEADER* IP_header)
-{
-  this->IP_header = IP_header;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOPCAPFRAME::Set(DIOPCAPUDPHEADER* UDP_header)
-* @brief      Set
-* @ingroup    DATAIO
-* 
-* @param[in]  UDP_header : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPCAPFRAME::Set(DIOPCAPUDPHEADER* UDP_header)
-{
-  this->UDP_header = UDP_header;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOPCAPFRAME::Set(DIOPCAPTCPHEADER* TCP_header)
-* @brief      Set
-* @ingroup    DATAIO
-* 
-* @param[in]  TCP_header : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPCAPFRAME::Set(DIOPCAPTCPHEADER* TCP_header)
-{
-  this->TCP_header = TCP_header;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOPCAPFRAME::Set(XBYTE* data_payload, XDWORD data_payloadsize)
-* @brief      Set
-* @ingroup    DATAIO
-* 
-* @param[in]  data_payload : 
-* @param[in]  data_payloadsize : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPCAPFRAME::Set(XBYTE* data_payload, XDWORD data_payloadsize)
-{
-  this->data_payload      = data_payload;
-  this->data_payloadsize  = data_payloadsize;  
-
-  return true;
-}
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         void DIOPCAPFRAME::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -838,23 +611,10 @@ bool DIOPCAPFRAME::Set(XBYTE* data_payload, XDWORD data_payloadsize)
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAPFRAME::Clean()
 {
-  hardwareuselittleendian = false;
-  isloopback              = false;
-
   data                    = NULL;
-
-  ethernet_header         = NULL; 
-  IP_header               = NULL;
-  UDP_header              = NULL;
-  TCP_header              = NULL;  
-
-  sourceport              = 0;
-  targetport              = 0;
-
-  data_payload            = NULL;
-  data_payloadsize        = 0;  
+  hardwareuselittleendian = false;
+  isloopback              = false;  
 }
-
 
 #pragma endregion
 
@@ -1128,101 +888,22 @@ bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size, bool isloopback)
 
   if(xmutexframes) xmutexframes->Lock();
 
-  XDWORD sizeheader = 0;
+  bool hardwareuselittleendian = true;
+  hardwareuselittleendian = GEN_XSYSTEM.HardwareUseLittleEndian();
 
-  DIOPCAPFRAME* frame = new DIOPCAPFRAME(GEN_XSYSTEM.HardwareUseLittleEndian(), isloopback);
+  DIOPCAPFRAME* frame = new DIOPCAPFRAME(hardwareuselittleendian, isloopback);
   if(frame)
     {
       if(frame->SetData(data,size))
         {
-          XBYTE* framedata = frame->GetData()->Get();
-          if(framedata)
-            {
-              if(!isloopback)
-                {
-                  DIOPCAPETHERNETHEADER* ethernet_header = (DIOPCAPETHERNETHEADER*)framedata;                  
-                  if(ethernet_header)
-                    {
-                      if(ethernet_header->type != DIOPCAPETHERNETTYPE_IP)
-                        { 
-                          frame->GetSourceMAC()->Set(ethernet_header->MACsource);
-                          frame->GetTargetMAC()->Set(ethernet_header->MACtarget);
 
-                          frame->Set((DIOPCAPETHERNETHEADER*)framedata);
 
-                          sizeheader = sizeof(DIOPCAPETHERNETHEADER);
-                          framedata += sizeof(DIOPCAPETHERNETHEADER); 
-                        }
-                    }
-                }
-               else
-                {
-                  sizeheader = sizeof(XDWORD);
-                  framedata += sizeof(XDWORD);
-                }
 
-              DIOPCAPIPHEADER* IP_header = (DIOPCAPIPHEADER*)framedata;             
-              if(IP_header)    
-                { 
-                  frame->GetSourceIP()->Set(IP_header->sourceaddr);
-                  frame->GetTargetIP()->Set(IP_header->targetaddr);
-
-                  frame->Set((DIOPCAPIPHEADER*)framedata);  
-
-                  sizeheader += sizeof(DIOPCAPIPHEADER);
-                  framedata  += sizeof(DIOPCAPIPHEADER);                 
-
-                  if(framedata)                                                          
-                    {
-                      switch(IP_header->protocol)
-                        { 
-                          case DIOPCAPIPPROTOCOLTYPE_UDP  : { DIOPCAPUDPHEADER* UDPheader = (DIOPCAPUDPHEADER*)framedata;
-                                                              if(UDPheader)
-                                                                {
-                                                                  frame->SetSourcePort(SwapWORD(UDPheader->sourceport));  
-                                                                  frame->SetTargetPort(SwapWORD(UDPheader->targetport));  
-
-                                                                  frame->Set((DIOPCAPUDPHEADER*)framedata);
-
-                                                                  sizeheader += sizeof(DIOPCAPUDPHEADER); 
-                                                                  framedata  += sizeof(DIOPCAPUDPHEADER);                 
-                                                                }
-                                                            }                                                           
-                                                            break;
-
-                          case DIOPCAPIPPROTOCOLTYPE_TCP  : { DIOPCAPTCPHEADER* TCPheader = (DIOPCAPTCPHEADER*)framedata;
-                                                              if(TCPheader)
-                                                                {
-                                                                  frame->SetSourcePort(SwapWORD(TCPheader->sourceport));  
-                                                                  frame->SetTargetPort(SwapWORD(TCPheader->targetport));  
-
-                                                                  frame->Set((DIOPCAPTCPHEADER*)framedata);  
-
-                                                                  sizeheader += sizeof(DIOPCAPTCPHEADER); 
-                                                                  framedata  += sizeof(DIOPCAPTCPHEADER);   
-                                                                }
-                                                            }                                                            
-                                                            break;                 
-                        }
-                    }
-                }
-
-              frame->Set(framedata, (XDWORD)(frame->GetData()->GetSize() - sizeheader));  
-
-              if(frame->GetDataPayload() && (frame->GetDataPayLoadSize() <= frame->GetData()->GetSize()))
-                {
-                  frames.Add(frame);
-                  status = true;
-                }
-               else
-                {
-                  delete frame; 
-                  frame = NULL;
-                }     
-            }   
+          frames.Add(frame);
+          status = true;
         }
     }
-    
+
   if(xmutexframes) xmutexframes->UnLock();
 
   return status;
