@@ -54,8 +54,17 @@
 #define DIOPCAPETHERNETTYPE_ARP       0x0860              // Address resolution
 #define DIOPCAPETHERNETTYPE_REVARP    0x8035              // Reverse ARP
 
+#define DIOPCAPIPPROTOCOLTYPE_ICMP    1                   // ICMP
 #define DIOPCAPIPPROTOCOLTYPE_TCP     6                   // TCP
 #define DIOPCAPIPPROTOCOLTYPE_UDP     17                  // UDP
+
+enum DIOPCAPPROTOCOL_TYPE
+{
+  DIOPCAPPROTOCOL_TYPE_UNKNOWN       =  0 ,
+  DIOPCAPPROTOCOL_TYPE_ICMP               ,
+  DIOPCAPPROTOCOL_TYPE_UDP                ,
+  DIOPCAPPROTOCOL_TYPE_TCP                ,
+};
 
 
 typedef struct
@@ -69,51 +78,43 @@ typedef struct
 
 typedef struct
 {
-  XBYTE                               ver_ihl;            // Version (4 bits) + Internet header length (4 bits)
-  XBYTE                               typeservice;        // Type of service
-  XWORD                               len;                // Total length
-  XWORD                               identification;     // Identification
-  XWORD                               flags_fo;           // Flags (3 bits) + Fragment offset (13 bits)
-  XBYTE                               ttl;                // Time to live
-  XBYTE                               protocol;           // Protocol
-  XWORD                               CRC;                // Header checksum
-  XBYTE                               sourceaddr[4];      // Source address
-  XBYTE                               targetaddr[4];      // Target address
+  XBYTE                               ver_ihl;                  // Version (4 bits) + Internet header length (4 bits)
+  XBYTE                               typeservice;              // Type of service
+  XWORD                               len;                      // Total length
+  XWORD                               identification;           // Identification
+  XWORD                               flags_fo;                 // Flags (3 bits) + Fragment offset (13 bits)
+  XBYTE                               ttl;                      // Time to live
+  XBYTE                               protocol;                 // Protocol  https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers
+  XWORD                               CRC;                      // Header checksum
+  XBYTE                               sourceaddr[4];            // Source address
+  XBYTE                               targetaddr[4];            // Target address
 
 } DIOPCAPIPHEADER;
 
 
 typedef struct
 {
-  XWORD                               sourceport;         // Source port
-  XWORD                               targetport;         // Target port
-  XWORD                               len;                // Datagram length
-  XWORD                               CRC;                // Checksum
+  XWORD                               sourceport;               // Source port
+  XWORD                               targetport;               // Target port
+  XWORD                               datagramlen;              // Datagram length
+  XWORD                               checksum;                 // Checksum
 
 } DIOPCAPUDPHEADER;
 
 
 typedef struct
 {
-  XWORD                               sourceport;
-  XWORD                               targetport;
-  XDWORD                              seq;
-  XDWORD                              ack_seq;
-  XWORD                               dataoffctrl;
-  XWORD                               window;
-  XWORD                               check;
-  XWORD                               urg_ptr;
+  XWORD                               sourceport;               // Source port
+  XWORD                               targetport;               // Target port
+  XDWORD                              sequencenumber;           // Sequence number    
+  XDWORD                              acknowledgementnumber;    // Acknowledgement Number
+  XWORD                               hlenflags;                // Header Length + Flags                 
+  XWORD                               windowsize;               // Windows size;
+  XWORD                               checksum;                 // CheckSum
+  XWORD                               urgentpointer;            // Urgent pointer
 
 } DIOPCAPTCPHEADER;
 
-
-typedef struct
-{
-  XDWORD                              network;            // Network field (normaly 2)   
-  DIOPCAPIPHEADER                     IPheader;
-  DIOPCAPTCPHEADER                    TCPheader;  
-
-} DIOPCAPLOOPBACKHEADER;
 
 #pragma endregion
 
@@ -165,14 +166,14 @@ class DIOPCAPFRAME
                                       DIOPCAPFRAME                  (bool hardwareuselittleendian, bool isloopback);
     virtual                          ~DIOPCAPFRAME                  ();
 
-    bool                              GetHeader                     (DIOPCAPETHERNETHEADER& header);    
-    bool                              GetHeader                     (DIOPCAPIPHEADER& header);
-    bool                              GetHeader                     (DIOPCAPUDPHEADER& header);
-    bool                              GetHeader                     (DIOPCAPTCPHEADER& header); 
-
+   
     XBUFFER*                          GetData                       ();
     bool                              SetData                       (XBYTE* data, XDWORD size);
 
+    DIOPCAPPROTOCOL_TYPE              GetProtocolType               ();
+    void                              GetProtocolTypeString         (XSTRING& protocoltypestr);
+    bool                              SetProtocolType               (DIOPCAPPROTOCOL_TYPE protocoltype);
+   
     DIOMAC*                           GetSourceMAC                  ();   
     DIOMAC*                           GetTargetMAC                  ();   
 
@@ -186,16 +187,21 @@ class DIOPCAPFRAME
     bool                              SetTargetPort                 (XWORD port);
 
     XBYTE*                            GetDataPayload                ();
-    int                               GetDataPayLoadSize            ();
+    int                               GetDataPayLoadSize            (); 
+ 
+    XDWORD                            GetHeaderSize                 ();
+    void                              SetHeaderSize                 (XDWORD sizeheader);
+
+    bool                              GetHeader                     (DIOPCAPETHERNETHEADER& header);    
+    bool                              GetHeader                     (DIOPCAPIPHEADER& header);
+    bool                              GetHeader                     (DIOPCAPUDPHEADER& header);
+    bool                              GetHeader                     (DIOPCAPTCPHEADER& header); 
 
     bool                              Set                           (DIOPCAPETHERNETHEADER* ethernet_header); 
     bool                              Set                           (DIOPCAPIPHEADER* IP_header);
     bool                              Set                           (DIOPCAPUDPHEADER* UDP_header);
     bool                              Set                           (DIOPCAPTCPHEADER* TCP_header);    
     bool                              Set                           (XBYTE* data_payload, XDWORD size);
-
-    
-
     
   protected:
 
@@ -213,6 +219,9 @@ class DIOPCAPFRAME
     DIOPCAPUDPHEADER*                 UDP_header;
     DIOPCAPTCPHEADER*                 TCP_header;  
 
+    DIOPCAPPROTOCOL_TYPE              protocoltype;
+    
+
     DIOMAC                            sourceMAC;   
     DIOMAC                            targetMAC;   
 
@@ -224,6 +233,8 @@ class DIOPCAPFRAME
   
     XBYTE*                            data_payload;
     XDWORD                            data_payloadsize;  
+
+    XDWORD                            headersize;
 };
 
 
