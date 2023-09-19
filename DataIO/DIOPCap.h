@@ -189,8 +189,8 @@ class DIOPCAPFRAME
     XBYTE*                            GetDataPayload                ();
     int                               GetDataPayLoadSize            (); 
  
-    XDWORD                            GetHeaderSize                 ();
-    void                              SetHeaderSize                 (XDWORD sizeheader);
+    XDWORD                            GetAllHeadersSize             ();
+    void                              SetAllHeadersSize             (XDWORD sizeheader);
 
     bool                              GetHeader                     (DIOPCAPETHERNETHEADER& header);    
     bool                              GetHeader                     (DIOPCAPIPHEADER& header);
@@ -234,7 +234,7 @@ class DIOPCAPFRAME
     XBYTE*                            data_payload;
     XDWORD                            data_payloadsize;  
 
-    XDWORD                            headersize;
+    XDWORD                            allheaderssize;
 };
 
 

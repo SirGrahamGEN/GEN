@@ -582,35 +582,36 @@ int DIOPCAPFRAME::GetDataPayLoadSize()
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDWORD DIOPCAPFRAME::GetHeaderSize()
-* @brief      GetHeaderSize
+* @fn         XDWORD DIOPCAPFRAME::GetAllHeadersSize()
+* @brief      GetAllHeadersSize
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD DIOPCAPFRAME::GetHeaderSize()
+XDWORD DIOPCAPFRAME::GetAllHeadersSize()
 {
-  return headersize;
+  return allheaderssize;
 }
     
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOPCAPFRAME::SetHeaderSize(XDWORD headersize)
-* @brief      SetHeaderSize
+* @fn         void DIOPCAPFRAME::SetAllHeadersSize(XDWORD allheaderssize)
+* @brief      SetAllHeadersSize
 * @ingroup    DATAIO
 * 
-* @param[in]  headersize : 
+* @param[in]  allheaderssize : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOPCAPFRAME::SetHeaderSize(XDWORD headersize)
+void DIOPCAPFRAME::SetAllHeadersSize(XDWORD allheaderssize)
 {
-  this->headersize = headersize; 
+  this->allheaderssize = allheaderssize; 
 }
 
 
@@ -895,7 +896,7 @@ void DIOPCAPFRAME::Clean()
   data_payload            = NULL;
   data_payloadsize        = 0;  
 
-  headersize              = 0;
+  allheaderssize              = 0;
 }
 
 
@@ -1171,7 +1172,7 @@ bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size, bool isloopback)
 
   if(xmutexframes) xmutexframes->Lock();
 
-  XDWORD headersize = 0;
+  XDWORD allheaderssize = 0;
 
   DIOPCAPFRAME* frame = new DIOPCAPFRAME(GEN_XSYSTEM.HardwareUseLittleEndian(), isloopback);
   if(frame)
@@ -1193,15 +1194,15 @@ bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size, bool isloopback)
 
                           frame->Set((DIOPCAPETHERNETHEADER*)framedata);
 
-                          headersize = sizeof(DIOPCAPETHERNETHEADER);
-                          framedata += sizeof(DIOPCAPETHERNETHEADER); 
+                          allheaderssize = sizeof(DIOPCAPETHERNETHEADER);
+                          framedata     += sizeof(DIOPCAPETHERNETHEADER); 
                         }
                     }
                 }
                else
                 {
-                  headersize = sizeof(XDWORD);
-                  framedata += sizeof(XDWORD);
+                  allheaderssize = sizeof(XDWORD);
+                  framedata     += sizeof(XDWORD);
                 }
 
               DIOPCAPIPHEADER* IP_header = (DIOPCAPIPHEADER*)framedata;             
@@ -1212,8 +1213,8 @@ bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size, bool isloopback)
 
                   frame->Set((DIOPCAPIPHEADER*)framedata);  
 
-                  headersize += sizeof(DIOPCAPIPHEADER);
-                  framedata  += sizeof(DIOPCAPIPHEADER);                 
+                  allheaderssize  += sizeof(DIOPCAPIPHEADER);
+                  framedata       += sizeof(DIOPCAPIPHEADER);                 
 
                   if(framedata)                                                          
                     {
@@ -1232,8 +1233,8 @@ bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size, bool isloopback)
 
                                                                     frame->Set((DIOPCAPUDPHEADER*)framedata);
 
-                                                                    headersize += sizeof(DIOPCAPUDPHEADER); 
-                                                                    framedata  += sizeof(DIOPCAPUDPHEADER);                 
+                                                                    allheaderssize  += sizeof(DIOPCAPUDPHEADER); 
+                                                                    framedata       += sizeof(DIOPCAPUDPHEADER);                 
                                                                   }
                                                               }                                                           
                                                               break;
@@ -1250,8 +1251,8 @@ bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size, bool isloopback)
 
                                                                     frame->Set((DIOPCAPTCPHEADER*)framedata);  
 
-                                                                    headersize += TCPheadersize; 
-                                                                    framedata  += TCPheadersize;   
+                                                                    allheaderssize  += TCPheadersize; 
+                                                                    framedata       += TCPheadersize;   
                                                                   }
                                                               }                                                            
                                                               break;                 
@@ -1260,11 +1261,11 @@ bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size, bool isloopback)
                 }
 
               
-              if(frame->GetData()->GetSize() >= headersize)
+              if(frame->GetData()->GetSize() >= allheaderssize)
                 {
-                  frame->SetHeaderSize(headersize);
+                  frame->SetAllHeadersSize(allheaderssize);
 
-                  XDWORD sizepayload = (XDWORD)(frame->GetData()->GetSize() - headersize);
+                  XDWORD sizepayload = (XDWORD)(frame->GetData()->GetSize() - allheaderssize);
                   if(sizepayload)
                     {
                       frame->Set(framedata, sizepayload);  
