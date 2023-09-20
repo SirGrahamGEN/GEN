@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XScheduler.cpp
-*
+* 
 * @class      XSCHEDULER
 * @brief      eXtended Scheduler class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XScheduler.h"
 
 #include "XFactory.h"
 #include "XSleep.h"
@@ -42,20 +48,22 @@
 
 #include "XScheduler_XEvent.h"
 
-#include "XScheduler.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XSCHEDULERTASK                                                                                                      */
-/* --------------------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_XSCHEDULERTASK                                                                                                     
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -77,7 +85,6 @@ XSCHEDULERTASK::XSCHEDULERTASK(XSCHEDULER* xscheduler)
 
   GEN_XFACTORY_CREATE(xtimer, CreateTimer())
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -173,7 +180,6 @@ void XSCHEDULERTASK::SetID(XDWORD ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* XSCHEDULERTASK::GetXTimer()
@@ -187,7 +193,6 @@ XTIMER* XSCHEDULERTASK::GetXTimer()
 {
   return xtimer;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -205,7 +210,6 @@ bool XSCHEDULERTASK::IsInValidTimeLimit()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* XSCHEDULERTASK::GetTimeLimitStart()
@@ -219,7 +223,6 @@ XDATETIME* XSCHEDULERTASK::GetTimeLimitStart()
 {
   return &xdatetimelimitstart;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -237,7 +240,6 @@ XDATETIME* XSCHEDULERTASK::GetTimeLimitEnd()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::IsCyclic()
@@ -253,7 +255,6 @@ bool XSCHEDULERTASK::IsCyclic()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSCHEDULERTASK::GetNCyclesTodo()
@@ -267,7 +268,6 @@ int XSCHEDULERTASK::GetNCyclesTodo()
 {
   return ncyclestodo;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -293,7 +293,6 @@ bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, XDATETIME* xdatetimecadence)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -324,7 +323,6 @@ bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, XQWORD cadenceinseconds)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, int cadenceinseconds)
@@ -343,7 +341,6 @@ bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, int cadenceinseconds)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::IsStartImmediatelyCycles()
@@ -357,7 +354,6 @@ bool XSCHEDULERTASK::IsStartImmediatelyCycles()
 {
   return isstartimmediatelycycles;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -375,7 +371,6 @@ void XSCHEDULERTASK::SetIsStartImmediatelyCycles(bool isstartimmediatelycycles)
 {
   this->isstartimmediatelycycles = isstartimmediatelycycles;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -415,6 +410,49 @@ void XSCHEDULERTASK::SetConditionDayWeek(XBYTE mask)
   conditiondayweekmask =  mask;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSCHEDULERTASK::ResetCondition()
+* @brief      ResetCondition
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSCHEDULERTASK::ResetCondition()
+{
+  if(!xtimer)
+    {
+      return false;      
+    }
+
+  xtimer->Reset();
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSCHEDULERTASK::StartConditionImmediately()
+* @brief      StartConditionImmediately
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSCHEDULERTASK::StartConditionImmediately()
+{
+  if(!xtimer)
+    {
+      return false;      
+    }
+
+  xtimer->AddSeconds(xdatetimecadence.GetSeconsFromDate() + 1);
+  
+  return true;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -492,7 +530,6 @@ bool XSCHEDULERTASK::CheckCondition(XDATETIME* xdatetimeactual, XTIMER* xtimerac
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE XSCHEDULERTASK::GetDayOfWeekMask(XDATETIME* xtimeactual)
@@ -525,7 +562,6 @@ XBYTE XSCHEDULERTASK::GetDayOfWeekMask(XDATETIME* xtimeactual)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSCHEDULERTASK::Clean()
@@ -556,12 +592,10 @@ void XSCHEDULERTASK::Clean()
 }
 
 
-
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XSCHEDULER                                                                                                          */
-/* --------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
 
+#pragma region CLASS_XSCHEDULER
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -581,7 +615,6 @@ XSCHEDULER::XSCHEDULER()
 
   GEN_XFACTORY_CREATE(xtimerwait, CreateTimer())
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -604,7 +637,6 @@ XSCHEDULER::~XSCHEDULER()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -635,7 +667,6 @@ bool XSCHEDULER::Ini()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULER::IsActive()
@@ -649,7 +680,6 @@ bool XSCHEDULER::IsActive()
 {
   return isactive;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -726,7 +756,6 @@ bool XSCHEDULER::Task_Add(XSCHEDULERTASK* task)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULERTASK* XSCHEDULER::Task_Get(int index)
@@ -744,7 +773,6 @@ XSCHEDULERTASK* XSCHEDULER::Task_Get(int index)
 
   return (XSCHEDULERTASK*)tasks.Get(index);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -784,7 +812,6 @@ XSCHEDULERTASK* XSCHEDULER::Task_GetForID(XDWORD ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULER::Task_Del(int index)
@@ -816,7 +843,6 @@ bool XSCHEDULER::Task_Del(int index)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -859,7 +885,6 @@ bool XSCHEDULER::Task_DelForID(XDWORD ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULER::Task_DelAll()
@@ -882,7 +907,6 @@ bool XSCHEDULER::Task_DelAll()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -922,7 +946,6 @@ bool XSCHEDULER::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -985,7 +1008,6 @@ void XSCHEDULER::ThreadScheduler(void* data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSCHEDULER::Clean ()
@@ -1008,4 +1030,9 @@ void XSCHEDULER::Clean ()
   indextask           = 0;
 }
 
+
+#pragma endregion
+
+
+#pragma endregion
 

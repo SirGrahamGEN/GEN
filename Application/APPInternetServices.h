@@ -46,8 +46,7 @@ enum APPINTERNETSERVICES_TASKID
 {
   APPINTERNETSERVICES_TASKID_UNKNOWN                      = 0 ,
   APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET          ,
-  APPINTERNETSERVICES_TASKID_GETPUBLICIP                      ,
-  APPINTERNETSERVICES_TASKID_GETAUTOMATICLOCALIP              ,
+  APPINTERNETSERVICES_TASKID_GETIPS                           ,  
   APPINTERNETSERVICES_TASKID_CHECKNTPDATETIME                 ,
 };
 
@@ -101,6 +100,7 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
 
     bool                            CheckInternetStatus             ();
     bool                            AdjustTimerByNTP                (XVECTOR<XSTRING*>* servers);
+    bool                            UpdateIPs                       ();
 
     void                            HandleEvent_Scheduler           (XSCHEDULER_XEVENT* xevent);
     void                            HandleEvent                     (XEVENT* xevent);

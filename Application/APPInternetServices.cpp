@@ -228,7 +228,7 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
           xtimercadence.GetMeasureToDate(&xdatetimecadence);
 
           xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, &xdatetimecadence);
-          xtask->SetID(APPINTERNETSERVICES_TASKID_GETPUBLICIP);
+          xtask->SetID(APPINTERNETSERVICES_TASKID_GETIPS);
           xtask->SetIsStartImmediatelyCycles(true);
           xtask->SetIsActive(true);
 
@@ -390,27 +390,19 @@ bool APPINTERNETSERVICES::ForceCheckIPs()
       return false;
     } 
 
+  XSCHEDULERTASK* task = NULL; 
+
   xscheduler->GetMutexScheduler()->Lock();
-
-  XSCHEDULERTASK* task[2]; 
-
-  task[0] = xscheduler->Task_GetForID(APPINTERNETSERVICES_TASKID_GETPUBLICIP);
-  task[1] = xscheduler->Task_GetForID(APPINTERNETSERVICES_TASKID_GETAUTOMATICLOCALIP);
-  
+  task = xscheduler->Task_GetForID(APPINTERNETSERVICES_TASKID_GETIPS);  
   xscheduler->GetMutexScheduler()->UnLock();
-
-  for(XDWORD c=0; c<2; c++)
+      
+  if(task) 
     {
-      XSCHEDULER_XEVENT xevent(xscheduler, XEVENT_TYPE_SCHEDULER);
-
-      xevent.SetScheduler(xscheduler);
-      xevent.SetTask(task[c]);
-      xevent.SetDateTime(xscheduler->GetDateTimeActual());
-
-      xscheduler->PostEvent(&xevent);
+      task->StartConditionImmediately();       
+      return true;
     }
           
-  return true;
+  return false;
 }
 
 
@@ -739,6 +731,95 @@ bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPINTERNETSERVICES::UpdateIPs()
+* @brief      UpdateIPs
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPINTERNETSERVICES::UpdateIPs()
+{
+  XSTRING                       actualautomaticlocalIP;
+  DIOSTREAMIPLOCALENUMDEVICES*  enumdevices     = (DIOSTREAMIPLOCALENUMDEVICES*)GEN_DIOFACTORY.CreateStreamEnumDevices(DIOSTREAMENUMTYPE_IP_LOCAL);
+  bool                          sendchangeevent = false;
+                                                                      
+  if(enumdevices)
+    {
+      DIOSTREAMDEVICEIP* device = (DIOSTREAMDEVICEIP*)enumdevices->GetFirstActiveDevice();
+      if(device)  device->GetIP()->GetXString(actualautomaticlocalIP);
+
+      alllocalIP.Empty();
+
+      for(XDWORD c=0; c<enumdevices->GetDevices()->GetSize(); c++)
+        {
+          device = (DIOSTREAMDEVICEIP*)enumdevices->GetDevices()->Get(c);
+          if(device)
+            {
+              if((!device->GetIP()->IsEmpty()) && 
+                  (!device->GetIP()->IsAPIPA()) &&
+                  ((device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_ETHERNET) ||
+                   (device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_WIFI)     ||
+                   (device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_PPP)))
+                  {
+                    XSTRING locaIPstring;
+
+                    if(!alllocalIP.IsEmpty()) alllocalIP.Add(",");                                                                                      
+
+                    device->GetIP()->GetXString(locaIPstring); 
+                    alllocalIP.Add(locaIPstring.Get());                                                                                      
+                  }
+            }  
+        }    
+
+      GEN_DIOFACTORY.DeleteStreamEnumDevices(enumdevices);
+    }
+
+  APPINTERNETSERVICES_XEVENT xevent(this, APPINTERNETSERVICES_XEVENT_TYPE_CHANGEIP);  
+
+  // Check Local IP changed
+  if(automaticlocalIP.Compare(actualautomaticlocalIP))
+    {                                                                      
+      xevent.SetIsChangeLocalIP(true);          
+      xevent.GetChangeLocalIP()->Set(actualautomaticlocalIP);
+
+      automaticlocalIP  = actualautomaticlocalIP;
+      sendchangeevent   = true;
+    }  
+                                                                  
+  if(haveinternetconnection)
+    {
+      DIOIP     ip;
+      XSTRING   actualpublicIP;                                                                  
+
+      if(scraperwebpublicIP->Get(ip, 5, NULL, false)) ip.GetXString(actualpublicIP);
+
+      // Check Public IP changed
+      if(publicIP.Compare(actualpublicIP))
+        {
+          xevent.SetIsChangePublicIP(true);          
+          xevent.GetChangePublicIP()->Set(actualpublicIP);
+
+          publicIP        = actualpublicIP;                                                                          
+          sendchangeevent = true;
+        }
+                                                                
+      #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+      if(dyndnsmanager) dyndnsmanager->AssingAll();
+      #endif                                                                      
+    } 
+
+  if(sendchangeevent)
+    {
+      PostEvent(&xevent);                                                                      
+    }
+
+  return true;  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 * @brief      Handle Event for the observer manager of this class
@@ -776,80 +857,7 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 
                                                                 break;
 
-      case APPINTERNETSERVICES_TASKID_GETPUBLICIP             : { XSTRING                       actualautomaticlocalIP;
-                                                                  DIOSTREAMIPLOCALENUMDEVICES*  enumdevices     = (DIOSTREAMIPLOCALENUMDEVICES*)GEN_DIOFACTORY.CreateStreamEnumDevices(DIOSTREAMENUMTYPE_IP_LOCAL);
-                                                                  bool                          sendchangeevent = false;
-                                                                      
-                                                                  if(enumdevices)
-                                                                    {
-                                                                      DIOSTREAMDEVICEIP* device = (DIOSTREAMDEVICEIP*)enumdevices->GetFirstActiveDevice();
-                                                                      if(device)  device->GetIP()->GetXString(actualautomaticlocalIP);
-
-                                                                      alllocalIP.Empty();
-
-                                                                      for(XDWORD c=0; c<enumdevices->GetDevices()->GetSize(); c++)
-                                                                        {
-                                                                          device = (DIOSTREAMDEVICEIP*)enumdevices->GetDevices()->Get(c);
-                                                                          if(device)
-                                                                            {
-                                                                              if((!device->GetIP()->IsEmpty()) && 
-                                                                                 (!device->GetIP()->IsAPIPA()) &&
-                                                                                 ((device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_ETHERNET) ||
-                                                                                  (device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_WIFI)     ||
-                                                                                  (device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_PPP)))
-                                                                                  {
-                                                                                    XSTRING locaIPstring;
-
-                                                                                    if(!alllocalIP.IsEmpty()) alllocalIP.Add(",");                                                                                      
-
-                                                                                    device->GetIP()->GetXString(locaIPstring); 
-                                                                                    alllocalIP.Add(locaIPstring.Get());                                                                                      
-                                                                                  }
-                                                                            }  
-                                                                        }    
-
-                                                                      GEN_DIOFACTORY.DeleteStreamEnumDevices(enumdevices);
-                                                                    }
-
-                                                                  APPINTERNETSERVICES_XEVENT xevent(this, APPINTERNETSERVICES_XEVENT_TYPE_CHANGEIP);  
-
-                                                                  // Check Local IP changed
-                                                                  if(automaticlocalIP.Compare(actualautomaticlocalIP))
-                                                                    {                                                                      
-                                                                      xevent.SetIsChangeLocalIP(true);          
-                                                                      xevent.GetChangeLocalIP()->Set(actualautomaticlocalIP);
-
-                                                                      automaticlocalIP  = actualautomaticlocalIP;
-                                                                      sendchangeevent   = true;
-                                                                    }  
-                                                                  
-                                                                  if(haveinternetconnection)
-                                                                    {
-                                                                      DIOIP     ip;
-                                                                      XSTRING   actualpublicIP;                                                                  
-
-                                                                      if(scraperwebpublicIP->Get(ip, 5, NULL, false)) ip.GetXString(actualpublicIP);
-
-                                                                      // Check Public IP changed
-                                                                      if(publicIP.Compare(actualpublicIP))
-                                                                        {
-                                                                          xevent.SetIsChangePublicIP(true);          
-                                                                          xevent.GetChangePublicIP()->Set(actualpublicIP);
-
-                                                                          publicIP        = actualpublicIP;                                                                          
-                                                                          sendchangeevent = true;
-                                                                        }
-                                                                
-                                                                      #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
-                                                                      if(dyndnsmanager) dyndnsmanager->AssingAll();
-                                                                      #endif                                                                      
-                                                                    } 
-
-                                                                  if(sendchangeevent)
-                                                                    {
-                                                                      PostEvent(&xevent);                                                                      
-                                                                    }
-                                                                }
+      case APPINTERNETSERVICES_TASKID_GETIPS                  : UpdateIPs();
                                                                 break;
 
       case APPINTERNETSERVICES_TASKID_CHECKNTPDATETIME        : if(haveinternetconnection) AdjustTimerByNTP(&NTPservers);                                                                  
