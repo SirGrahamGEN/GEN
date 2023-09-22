@@ -14,7 +14,7 @@ include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Warnings.txt")
 
 
 # Set Directories
-include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Part_SetDir.txt") 
+include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Part_SetDirectories.txt") 
 
 
 # Debug management and memory control

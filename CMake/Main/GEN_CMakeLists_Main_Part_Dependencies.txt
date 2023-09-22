@@ -94,7 +94,7 @@ if(APP_FEATURE)
   if(APP_CONSOLE_FEATURE)
     
     add_definitions(-DAPP_CONSOLE_ACTIVE)
-    option(XCONSOLE_FEATURE "Console functions" true)
+    option(XCONSOLE_FEATURE   "Console functions" true)
   
   endif()
         
@@ -102,7 +102,9 @@ if(APP_FEATURE)
   if(APP_GRAPHICS_FEATURE) 
 
     add_definitions(-DAPP_GRAPHICS_ACTIVE)
-    option(XFSMACHINE_FEATURE "XFSMachine" true)
+    option(XFSMACHINE_FEATURE "XFSMachine"        true)
+    option(GRP_FEATURE        "Graphics"          true)
+    option(GRP_2D_FEATURE     "Graphics 2D"       true)
   
   endif()
 
