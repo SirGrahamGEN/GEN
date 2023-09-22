@@ -158,6 +158,7 @@ class SCRIPT : public XSUBJECT
     void                                HandleEvent             (XEVENT* xevent);
 
     static void                         ThreadFunction          (void* data);
+
     void                                Clean                   ();
 };
 
