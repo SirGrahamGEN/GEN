@@ -1008,11 +1008,16 @@ DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
       service->SetMustRestartService(true);
     }
 
-  if(service->GetHandleStoppedEvent()) SetEvent(service->GetHandleStoppedEvent());
+  if(service->GetHandleStoppedEvent()) 
+    {
+      SetEvent(service->GetHandleStoppedEvent());
+    }
 
-  if(userstop) service->Stop();
+  if(userstop) 
+    {
+      service->Stop();
+    }
 
-  //return (exittype == APPBASE_EXITTYPE_BY_SERVICERELOAD)?ERROR_EXCEPTION_IN_SERVICE:ERROR_SUCCESS;
   return ERROR_SUCCESS;
 }
 
@@ -1130,8 +1135,6 @@ int wmain(int argc, wchar_t* argv[])
 
   return 0;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
