@@ -34,22 +34,22 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#ifdef DIO_UART_ACTIVE
+#ifdef DIO_STREAMUART_ACTIVE
 #include "DIOStreamUARTConfig.h"
 #include "DIOESP32StreamUART.h"
 #endif
 
-#ifdef DIO_USB_ACTIVE
+#ifdef DIO_STREAMUSB_ACTIVE
 #include "DIOStreamUSBConfig.h"
 #include "DIOESP32StreamUSB.h"
 #endif
 
-#ifdef DIO_SPI_ACTIVE
+#ifdef DIO_STREAMSPI_ACTIVE
 #include "DIOStreamSPIConfig.h"
 #include "DIOESP32StreamSPI.h"
 #endif
 
-#ifdef DIO_I2C_ACTIVE
+#ifdef DIO_STREAMI2C_ACTIVE
 #include "DIOStreamI2CConfig.h"
 #include "DIOESP32StreamI2C.h"
 #endif
@@ -93,19 +93,19 @@ DIOSTREAM* DIOESP32FACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
       case DIOSTREAMTYPE_UNKNOWN    :
                           default   : return NULL;
 
-      #ifdef DIO_UART_ACTIVE
+      #ifdef DIO_STREAMUART_ACTIVE
       case DIOSTREAMTYPE_UART       : _class = new DIOESP32STREAMUART();        break;
       #endif
 
-      #ifdef DIO_USB_ACTIVE
+      #ifdef DIO_STREAMUSB_ACTIVE
       case DIOSTREAMTYPE_USB        : _class = new DIOESP32STREAMUSB();         break;
       #endif
 
-      #ifdef DIO_SPI_ACTIVE
+      #ifdef DIO_STREAMSPI_ACTIVE
       case DIOSTREAMTYPE_SPI        : _class = new DIOESP32STREAMSPI();         break;
       #endif
 
-      #ifdef DIO_I2C_ACTIVE
+      #ifdef DIO_STREAMI2C_ACTIVE
       case DIOSTREAMTYPE_I2C        : _class = new DIOESP32STREAMI2C();         break;
       #endif
     }

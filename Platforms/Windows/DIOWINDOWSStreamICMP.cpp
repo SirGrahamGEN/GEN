@@ -15,7 +15,7 @@
 
 #include "GEN_Defines.h"
 
-#if defined(DIO_ACTIVE) && defined(DIO_ICMP_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMICMP_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

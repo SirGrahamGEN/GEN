@@ -1197,7 +1197,7 @@ bool MAINPROCANDROID::Factorys_End()
     }
   #endif
 	
-	#ifdef DIO_UDP_ACTIVE
+	#ifdef DIO_STREAMUDP_ACTIVE
 	DIODNSRESOLVED::DelInstance();
 	#endif 
 	

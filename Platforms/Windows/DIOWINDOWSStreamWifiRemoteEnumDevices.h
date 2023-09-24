@@ -29,7 +29,7 @@
 #ifndef _DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES_H_
 #define _DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES_H_
 
-#if defined(DIO_ACTIVE) && defined(DIO_WIFI_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMTWIFI_ACTIVE)
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/

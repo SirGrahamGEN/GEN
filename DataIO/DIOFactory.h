@@ -40,7 +40,7 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
-#if (defined(DIO_UART_ACTIVE) || defined(DIO_USB_ACTIVE) || defined(DIO_ICMP_ACTIVE) || defined(DIO_UDP_ACTIVE) || defined(DIO_TCPIP_ACTIVE)  || defined(DIO_BLUETOOTH_ACTIVE) || defined(DIO_BLUETOOTHLE_ACTIVE) || defined(DIO_SPI_ACTIVE) || defined(DIO_I2C_ACTIVE))
+#if (defined(DIO_STREAMUART_ACTIVE) || defined(DIO_STREAMUSB_ACTIVE) || defined(DIO_STREAMICMP_ACTIVE) || defined(DIO_STREAMUDP_ACTIVE) || defined(DIO_STREAMTCPIP_ACTIVE)  || defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE) || defined(DIO_STREAMSPI_ACTIVE) || defined(DIO_STREAMI2C_ACTIVE))
 #define ANYTYPEOFDIOSTREAMIO
 #endif
 
@@ -81,7 +81,7 @@ class DIOFACTORY
     virtual bool                          DeleteStreamIO              (DIOSTREAM* streamio);
     #endif
 
-    #ifdef DIO_WIFIMANAGERMODE_ACTIVE
+    #ifdef DIO_STREAMTWIFIMANAGERMODE_ACTIVE
     virtual DIOWIFIMANAGERMODE*           CreateWifiManagerMode       ();
     virtual bool                          DeleteWifiManagerMode       (DIOWIFIMANAGERMODE* wifimanagermode);
     #endif

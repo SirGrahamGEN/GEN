@@ -288,7 +288,7 @@ void XLINUXTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
   if(!target) return;
 
-  #if(defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+  #if(defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
   Lock();
 
@@ -328,7 +328,7 @@ void XLINUXTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXTRACE::GetHandleNet(XTRACE_TARGET* target)
 {
-  #if(defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+  #if(defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
   struct sockaddr_in  addr;
   int                 handle;
@@ -381,7 +381,7 @@ bool XLINUXTRACE::GetHandleNet(XTRACE_TARGET* target)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXTRACE::CloseHandleNet(XTRACE_TARGET* target)
 {
-  #if(defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+  #if(defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
   int handle = (int)target->GetNETHandle();
   if(!handle) return false;

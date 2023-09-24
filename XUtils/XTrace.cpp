@@ -233,7 +233,7 @@ void XTRACE_TARGET::AddNSendings()
 }
 
 
-#if (defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+#if (defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -385,7 +385,7 @@ void XTRACE_TARGET::Clean()
   memset(aim  , 0, (_MAXSTR * sizeof(XCHAR)));
   nsendings     = 0;
 
-  #if (defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+  #if (defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
   port          = 0;
   memset(IP, 0, _MAXSTR * sizeof(char));
@@ -1053,7 +1053,7 @@ bool XTRACE::SetTarget(int index, XTRACE_TYPE type, XCHAR* aim)
 
   if(type == XTRACE_TYPE_NET)
     {
-      #if(defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+      #if(defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
       XSTRING string;
       XSTRING url;
@@ -2193,7 +2193,7 @@ bool XTRACE::ObtainLocalIP()
 {
   bool status = false;
 
-  #if(defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+  #if(defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
   DIOSTREAMIPLOCALENUMDEVICES* enumdevices = (DIOSTREAMIPLOCALENUMDEVICES*)GEN_DIOFACTORY.CreateStreamEnumDevices(DIOSTREAMENUMTYPE_IP_LOCAL);
   if(enumdevices)
@@ -2302,7 +2302,7 @@ bool XTRACE::ObtainPublicIP()
 {
   bool  status = false;
 
-  #if(defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+  #if(defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
   DIOIP                  ip;
   DIOSCRAPERWEBPUBLICIP* publicip = new DIOSCRAPERWEBPUBLICIP();
@@ -2444,7 +2444,7 @@ bool XTRACE::ReConnectedAllNetTargets()
     {
       if(targets[c].GetType() == XTRACE_TYPE_NET)
         {
-          #if(defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+          #if(defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
           if(targets[c].GetNETHandle()) CloseHandleNet(&targets[c]);
 
@@ -2477,7 +2477,7 @@ bool XTRACE::ResolveAllNetTargets(bool& changed)
     {
       if(targets[c].GetType() == XTRACE_TYPE_NET)
         {
-          #if(defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+          #if(defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
           XSTRING IP;
 

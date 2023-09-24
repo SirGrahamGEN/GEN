@@ -15,7 +15,7 @@
 #include "GEN_Defines.h"
 
 
-#if defined(DIO_ACTIVE) && defined(DIO_BLUETOOTH_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMBLUETOOTH_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

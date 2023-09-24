@@ -15,7 +15,7 @@
 #ifndef _DIOWINDOWSSTREAMICMP_H_
 #define _DIOWINDOWSSTREAMICMP_H_
 
-#if defined(DIO_ACTIVE) && defined(DIO_ICMP_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMICMP_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

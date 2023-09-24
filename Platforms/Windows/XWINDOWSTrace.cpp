@@ -291,7 +291,7 @@ void XWINDOWSTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
   if(!target)  return;
 
-  #if(defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+  #if(defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
   Lock();
 
@@ -330,7 +330,7 @@ void XWINDOWSTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSTRACE::GetHandleNet(XTRACE_TARGET* target)
 {
-  #if(defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+  #if(defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
   SOCKADDR_IN  addr;
   SOCKET       handle;
@@ -386,7 +386,7 @@ bool XWINDOWSTRACE::GetHandleNet(XTRACE_TARGET* target)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSTRACE::CloseHandleNet(XTRACE_TARGET* target)
 {
-  #if(defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+  #if(defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
   SOCKET handle = (SOCKET)target->GetNETHandle();
   if(!handle) return false;

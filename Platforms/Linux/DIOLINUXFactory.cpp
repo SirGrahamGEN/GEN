@@ -36,66 +36,66 @@
 #include "XFactoryMacros.h"
 #include "XTrace.h"
 
-#ifdef DIO_UART_ACTIVE
+#ifdef DIO_STREAMUART_ACTIVE
 #include "DIOStreamUARTConfig.h"
 #include "DIOLINUXStreamUARTLocalEnumDevices.h"
 #include "DIOLINUXStreamUART.h"
 #endif
 
-#ifdef DIO_USB_ACTIVE
+#ifdef DIO_STREAMUSB_ACTIVE
 #include "DIOStreamUSBConfig.h"
 #include "DIOLINUXStreamUSBLocalEnumDevices.h"
 #include "DIOLINUXStreamUSB.h"
 #endif
 
-#if defined(DIO_ICMP_ACTIVE) || defined(DIO_UDP_ACTIVE) || defined(DIO_TCPIP_ACTIVE)
+#if defined(DIO_STREAMICMP_ACTIVE) || defined(DIO_STREAMUDP_ACTIVE) || defined(DIO_STREAMTCPIP_ACTIVE)
 #include "DIOLINUXStreamIPLocalEnumDevices.h"
 #endif
 
-#ifdef DIO_ICMP_ACTIVE
+#ifdef DIO_STREAMICMP_ACTIVE
 #include "DIOStreamICMPConfig.h"
 #include "DIOLINUXStreamICMP.h"
 #endif
 
-#ifdef DIO_UDP_ACTIVE
+#ifdef DIO_STREAMUDP_ACTIVE
 #include "DIOStreamUDPConfig.h"
 #include "DIOLINUXStreamUDP.h"
 #endif
 
-#ifdef DIO_TCPIP_ACTIVE
+#ifdef DIO_STREAMTCPIP_ACTIVE
 #include "DIOStreamTCPIPConfig.h"
 #include "DIOLINUXStreamTCPIP.h"
 #endif
 
-#if defined(DIO_BLUETOOTH_ACTIVE) || defined(DIO_BLUETOOTHLE_ACTIVE)
+#if defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE)
 #include "DIOStreamBluetoothConfig.h"
 #include "DIOLINUXStreamBluetooth.h"
 #include "DIOLINUXStreamBluetoothLocalEnumDevices.h"
 #endif
 
-#ifdef DIO_BLUETOOTH_ACTIVE
+#ifdef DIO_STREAMBLUETOOTH_ACTIVE
 #include "DIOLINUXStreamBluetoothRemoteEnumDevices.h"
 #endif
 
-#ifdef DIO_BLUETOOTHLE_ACTIVE
+#ifdef DIO_STREAMBLUETOOTHLE_ACTIVE
 #include "DIOLINUXStreamBluetoothLERemoteEnumDevices.h"
 #endif
 
-#ifdef DIO_WIFI_ACTIVE
+#ifdef DIO_STREAMTWIFI_ACTIVE
 #include "DIOLINUXStreamWifiRemoteEnumDevices.h"
 #endif
 
 
-#ifdef DIO_WIFIMANAGERMODE_ACTIVE
+#ifdef DIO_STREAMTWIFIMANAGERMODE_ACTIVE
 #include "DIOLINUXWifiManagerMode.h"
 #endif
 
-#ifdef DIO_SPI_ACTIVE
+#ifdef DIO_STREAMSPI_ACTIVE
 #include "DIOStreamSPIConfig.h"
 #include "DIOLINUXStreamSPI.h"
 #endif
 
-#ifdef DIO_I2C_ACTIVE
+#ifdef DIO_STREAMI2C_ACTIVE
 #include "DIOStreamI2CConfig.h"
 #include "DIOLINUXStreamI2C.h"
 #endif
@@ -155,31 +155,31 @@ DIOSTREAMENUMDEVICES* DIOLINUXFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE
 
   switch(type)
     {
-      #ifdef DIO_UART_ACTIVE
+      #ifdef DIO_STREAMUART_ACTIVE
       case DIOSTREAMENUMTYPE_UART_LOCAL           : _class = new DIOLINUXSTREAMUARTLOCALENUMDEVICES();                      break;
       #endif
 
-      #ifdef DIO_USB_ACTIVE
+      #ifdef DIO_STREAMUSB_ACTIVE
       case DIOSTREAMENUMTYPE_USB_LOCAL            : _class = new DIOLINUXSTREAMUSBLOCALENUMDEVICES();                       break;
       #endif
 
-      #if defined(DIO_UDP_ACTIVE) || defined(DIO_TCPIP_ACTIVE)
+      #if defined(DIO_STREAMUDP_ACTIVE) || defined(DIO_STREAMTCPIP_ACTIVE)
       case DIOSTREAMENUMTYPE_IP_LOCAL             :  _class = new DIOLINUXSTREAMIPLOCALENUMDEVICES();                       break;
       #endif
 
-      #if defined(DIO_BLUETOOTH_ACTIVE) || defined(DIO_BLUETOOTHLE_ACTIVE)
+      #if defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE)
       case DIOSTREAMENUMTYPE_BLUETOOTH_LOCAL      :  _class = new DIOLINUXSTREAMBLUETOOTHLOCALENUMDEVICES();                break;
       #endif
 
-      #if DIO_BLUETOOTH_ACTIVE
+      #if DIO_STREAMBLUETOOTH_ACTIVE
       case DIOSTREAMENUMTYPE_BLUETOOTH_REMOTE     :  _class = new DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES();               break;
       #endif
 
-      #if DIO_BLUETOOTHLE_ACTIVE
+      #if DIO_STREAMBLUETOOTHLE_ACTIVE
       case DIOSTREAMENUMTYPE_BLUETOOTHLE_REMOTE   :  _class = new DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES();             break;
       #endif
 
-      #ifdef DIO_WIFI_ACTIVE
+      #ifdef DIO_STREAMTWIFI_ACTIVE
       case DIOSTREAMENUMTYPE_WIFI_REMOTE          :  _class = new DIOLINUXSTREAMWIFIREMOTEENUMDEVICES();                    break;
       #endif
                                         default   : break;
@@ -236,35 +236,35 @@ DIOSTREAM* DIOLINUXFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
     {
       case DIOSTREAMTYPE_UNKNOWN    : return NULL;
 
-      #ifdef DIO_UART_ACTIVE
+      #ifdef DIO_STREAMUART_ACTIVE
       case DIOSTREAMTYPE_UART       : _class = new DIOLINUXSTREAMUART();        break;
       #endif
 
-      #ifdef DIO_USB_ACTIVE
+      #ifdef DIO_STREAMUSB_ACTIVE
       case DIOSTREAMTYPE_USB        : _class = new DIOLINUXSTREAMUSB();         break;
       #endif
 
-      #ifdef DIO_ICMP_ACTIVE
+      #ifdef DIO_STREAMICMP_ACTIVE
       case DIOSTREAMTYPE_ICMP       : _class = new DIOLINUXSTREAMICMP();        break;
       #endif
 
-      #ifdef DIO_UDP_ACTIVE
+      #ifdef DIO_STREAMUDP_ACTIVE
       case DIOSTREAMTYPE_UDP        : _class = new DIOLINUXSTREAMUDP();         break;
       #endif
 
-      #ifdef DIO_TCPIP_ACTIVE
+      #ifdef DIO_STREAMTCPIP_ACTIVE
       case DIOSTREAMTYPE_TCPIP      : _class = new DIOLINUXSTREAMTCPIP();       break;
       #endif
 
-      #if (defined(DIO_BLUETOOTH_ACTIVE) || defined(DIO_BLUETOOTHLE_ACTIVE))
+      #if (defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE))
       case DIOSTREAMTYPE_BLUETOOTH  : _class = new DIOLINUXSTREAMBLUETOOTH();   break;
       #endif
 
-      #ifdef DIO_SPI_ACTIVE
+      #ifdef DIO_STREAMSPI_ACTIVE
       case DIOSTREAMTYPE_SPI        : _class = new DIOLINUXSTREAMSPI();         break;
       #endif
 
-      #ifdef DIO_I2C_ACTIVE
+      #ifdef DIO_STREAMI2C_ACTIVE
       case DIOSTREAMTYPE_I2C        : _class = new DIOLINUXSTREAMI2C();         break;
       #endif
                           default   : break;
@@ -306,7 +306,7 @@ bool DIOLINUXFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 
 
 
-#ifdef DIO_WIFIMANAGERMODE_ACTIVE
+#ifdef DIO_STREAMTWIFIMANAGERMODE_ACTIVE
 
 CREATEFUNC(DIOLINUXFACTORY, DIOWIFIMANAGERMODE  , DIOLINUXWIFIMANAGERMODE    , CreateWifiManagerMode)
 DELETEFUNC(DIOLINUXFACTORY, DIOWIFIMANAGERMODE  , DIOLINUXWIFIMANAGERMODE    , DeleteWifiManagerMode)

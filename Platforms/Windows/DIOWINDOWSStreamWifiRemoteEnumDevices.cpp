@@ -31,7 +31,7 @@
 #include "GEN_Defines.h"
 
 
-#if defined(DIO_ACTIVE) && defined(DIO_WIFI_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMTWIFI_ACTIVE)
 
 #pragma comment(lib, "wlanapi.lib")
 #pragma comment(lib, "ole32.lib")

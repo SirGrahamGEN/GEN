@@ -614,9 +614,9 @@ if(DIO_FEATURE)
   endif()
 
 
-  if(DIO_WIFIMANAGERMODE_FEATURE)
+  if(DIO_STREAMTWIFIMANAGERMODE_FEATURE)
 
-    add_definitions(-DDIO_WIFIMANAGERMODE_ACTIVE)
+    add_definitions(-DDIO_STREAMTWIFIMANAGERMODE_ACTIVE)
     option(DIO_STREAMTCPIP_FEATURE "Stream TCPIP" true)
     
   endif()
@@ -724,7 +724,7 @@ if(DIO_FEATURE)
     add_definitions(-DDIO_NODEITEMHANDLER_SENSORAM2315_ACTIVE)
     option(DIO_STREAM_FEATURE                   "Stream"                                  true)
     option(DIO_STREAMI2C_FEATURE                "Stream I2C"                              true) 
-    option(DIO_I2C_TEMHUMSENSOR_AM2315_FEATURE  "I2C Temperature Humidity Sensor AM2315"  true) 
+    option(DIO_STREAMI2C_TEMHUMSENSOR_AM2315_FEATURE  "I2C Temperature Humidity Sensor AM2315"  true) 
     option(DIO_NODES_FEATURE                    "Nodes modules"                           true)
 
   endif()
@@ -847,21 +847,21 @@ if(DIO_FEATURE)
 
     if(DIO_STREAMUART_FEATURE)
 
-      add_definitions(-DDIO_UART_ACTIVE)
+      add_definitions(-DDIO_STREAMUART_ACTIVE)
 
     endif()
 
 
     if(DIO_STREAMUSB_FEATURE)
 
-      add_definitions(-DDIO_USB_ACTIVE)
+      add_definitions(-DDIO_STREAMUSB_ACTIVE)
 
     endif()
 
 
     if(DIO_STREAMBLUETOOTH_FEATURE)
 
-      add_definitions(-DDIO_BLUETOOTH_ACTIVE)  
+      add_definitions(-DDIO_STREAMBLUETOOTH_ACTIVE)  
       option(XUUID_FEATURE "UUID functions" true)
 
     endif()
@@ -869,125 +869,125 @@ if(DIO_FEATURE)
 
     if(DIO_STREAMBLUETOOTHLE_FEATURE)
 
-      add_definitions(-DDIO_BLUETOOTHLE_ACTIVE)
+      add_definitions(-DDIO_STREAMBLUETOOTHLE_ACTIVE)
 
     endif()
 
 
     if(DIO_STREAMI2C_FEATURE)
 
-      add_definitions(-DDIO_I2C_ACTIVE)  
+      add_definitions(-DDIO_STREAMI2C_ACTIVE)  
 
 
-      if(DIO_I2C_6AXISTRACKING_LSM303DLHC_FEATURE)
+      if(DIO_STREAMI2C_6AXISTRACKING_LSM303DLHC_FEATURE)
 
-        add_definitions(-DDIO_I2C_6AXISTRACKING_LSM303DLHC_ACTIVE)  
+        add_definitions(-DDIO_STREAMI2C_6AXISTRACKING_LSM303DLHC_ACTIVE)  
   
       endif()
 
 
-      if(DIO_I2C_6AXISTRACKING_BMI270_FEATURE)
+      if(DIO_STREAMI2C_6AXISTRACKING_BMI270_FEATURE)
 
-        add_definitions(-DDIO_I2C_6AXISTRACKING_BMI270_ACTIVE)  
+        add_definitions(-DDIO_STREAMI2C_6AXISTRACKING_BMI270_ACTIVE)  
   
       endif()
 
 
-      if(DIO_I2C_9AXISTRACKING_MPU9150_FEATURE)
+      if(DIO_STREAMI2C_9AXISTRACKING_MPU9150_FEATURE)
 
-        add_definitions(-DDIO_I2C_9AXISTRACKING_MPU9150_ACTIVE)  
+        add_definitions(-DDIO_STREAMI2C_9AXISTRACKING_MPU9150_ACTIVE)  
   
       endif()
 
 
-      if(DIO_I2C_ADDACONVERTER_PCF8591_FEATURE)
+      if(DIO_STREAMI2C_ADDACONVERTER_PCF8591_FEATURE)
 
-        add_definitions(-DDIO_I2C_ADDACONVERTER_PCF8591_ACTIVE)  
+        add_definitions(-DDIO_STREAMI2C_ADDACONVERTER_PCF8591_ACTIVE)  
   
       endif()
 
 
-      if(DIO_I2C_AIRQUALITY_CCS811_FEATURE)
+      if(DIO_STREAMI2C_AIRQUALITY_CCS811_FEATURE)
 
-        add_definitions(-DDIO_I2C_AIRQUALITY_CCS811_ACTIVE)    
+        add_definitions(-DDIO_STREAMI2C_AIRQUALITY_CCS811_ACTIVE)    
 
       endif()
 
 
-      if(DIO_I2C_EEPROM_24XXX_FEATURE)
+      if(DIO_STREAMI2C_EEPROM_24XXX_FEATURE)
 
-        add_definitions(-DDIO_I2C_EEPROM_24XXX_ACTIVE)    
+        add_definitions(-DDIO_STREAMI2C_EEPROM_24XXX_ACTIVE)    
   
       endif()
 
 
-      if(DIO_I2C_GPIO_MCP2317_FEATURE)
+      if(DIO_STREAMI2C_GPIO_MCP2317_FEATURE)
 
-        add_definitions(-DDIO_I2C_GPIO_MCP2317_ACTIVE)    
+        add_definitions(-DDIO_STREAMI2C_GPIO_MCP2317_ACTIVE)    
   
       endif()
 
 
-      if(DIO_I2C_GPIO_PCF8574_FEATURE)
+      if(DIO_STREAMI2C_GPIO_PCF8574_FEATURE)
 
-        add_definitions(-DDIO_I2C_GPIO_PCF8574_ACTIVE)    
+        add_definitions(-DDIO_STREAMI2C_GPIO_PCF8574_ACTIVE)    
   
       endif()
 
 
-      if(DIO_I2C_LIGHTSENSOR_TSL2561_FEATURE)
+      if(DIO_STREAMI2C_LIGHTSENSOR_TSL2561_FEATURE)
 
-        add_definitions(-DDIO_I2C_LIGHTSENSOR_TSL2561_ACTIVE)    
+        add_definitions(-DDIO_STREAMI2C_LIGHTSENSOR_TSL2561_ACTIVE)    
 
       endif()
 
 
-      if(DIO_I2C_OLEDDISPLAY_SSD1306_FEATURE)
+      if(DIO_STREAMI2C_OLEDDISPLAY_SSD1306_FEATURE)
 
-        add_definitions(-DDIO_I2C_OLEDDISPLAY_SSD1306_ACTIVE)    
+        add_definitions(-DDIO_STREAMI2C_OLEDDISPLAY_SSD1306_ACTIVE)    
         option(DIO_DISPLAYDEVICE_FEATURE "Display Device" true)
 
       endif()
 
 
-      if(DIO_I2C_PWMCONTROLER_PCA9685_FEATURE)
+      if(DIO_STREAMI2C_PWMCONTROLER_PCA9685_FEATURE)
 
-        add_definitions(-DDIO_I2C_PWMCONTROLER_PCA9685_ACTIVE)    
-
-      endif()
-
-
-      if(DIO_I2C_TEMHUMSENSOR_AM2315_FEATURE)
-
-        add_definitions(-DDIO_I2C_TEMHUMSENSOR_AM2315_ACTIVE)    
+        add_definitions(-DDIO_STREAMI2C_PWMCONTROLER_PCA9685_ACTIVE)    
 
       endif()
 
 
-      if(DIO_I2C_TEMHUMSENSOR_SHT20_FEATURE)
+      if(DIO_STREAMI2C_TEMHUMSENSOR_AM2315_FEATURE)
 
-        add_definitions(-DDIO_I2C_TEMHUMSENSOR_SHT20_ACTIVE)    
+        add_definitions(-DDIO_STREAMI2C_TEMHUMSENSOR_AM2315_ACTIVE)    
+
+      endif()
+
+
+      if(DIO_STREAMI2C_TEMHUMSENSOR_SHT20_FEATURE)
+
+        add_definitions(-DDIO_STREAMI2C_TEMHUMSENSOR_SHT20_ACTIVE)    
   
       endif()
 
 
-      if(DIO_I2C_MONITORGAUGE_LTC2942_FEATURE)
+      if(DIO_STREAMI2C_MONITORGAUGE_LTC2942_FEATURE)
 
-        add_definitions(-DDIO_I2C_MONITORGAUGE_LTC2942_ACTIVE)    
-
-      endif()
-
-
-      if(DIO_I2C_BATTERYCHARGER_BQ24295_FEATURE)
-
-        add_definitions(-DDIO_I2C_BATTERYCHARGER_BQ24295_ACTIVE)    
+        add_definitions(-DDIO_STREAMI2C_MONITORGAUGE_LTC2942_ACTIVE)    
 
       endif()
 
 
-      if(DIO_I2C_TOUCHSENSOR_AT42QT1060_FEATURE)
+      if(DIO_STREAMI2C_BATTERYCHARGER_BQ24295_FEATURE)
 
-        add_definitions(-DDIO_I2C_TOUCHSENSOR_AT42QT1060_ACTIVE)    
+        add_definitions(-DDIO_STREAMI2C_BATTERYCHARGER_BQ24295_ACTIVE)    
+
+      endif()
+
+
+      if(DIO_STREAMI2C_TOUCHSENSOR_AT42QT1060_FEATURE)
+
+        add_definitions(-DDIO_STREAMI2C_TOUCHSENSOR_AT42QT1060_ACTIVE)    
   
       endif()
   
@@ -996,59 +996,59 @@ if(DIO_FEATURE)
 
     if(DIO_STREAMSPI_FEATURE)
 
-      add_definitions(-DDIO_SPI_ACTIVE)
+      add_definitions(-DDIO_STREAMSPI_ACTIVE)
    
 
-      if(DIO_SPI_GPIO_MCP23S17_FEATURE)
+      if(DIO_STREAMSPI_GPIO_MCP23S17_FEATURE)
   
-        add_definitions(-DDIO_SPI_GPIO_MCP23S17_ACTIVE)    
+        add_definitions(-DDIO_STREAMSPI_GPIO_MCP23S17_ACTIVE)    
 
       endif()
 
 
-      if(DIO_SPI_LCDDISPLAY_PCF8833_FEATURE)
+      if(DIO_STREAMSPI_LCDDISPLAY_PCF8833_FEATURE)
 
-        add_definitions(-DDIO_SPI_LCDDISPLAY_PCF8833_ACTIVE)    
+        add_definitions(-DDIO_STREAMSPI_LCDDISPLAY_PCF8833_ACTIVE)    
         option(DIO_DISPLAYDEVICE_FEATURE "Display Device" true)
 
       endif()
 
 
-      if(DIO_SPI_OLEDDISPLAY_SSD1306_FEATURE)
+      if(DIO_STREAMSPI_OLEDDISPLAY_SSD1306_FEATURE)
 
-        add_definitions(-DDIO_SPI_OLEDDISPLAY_SSD1306_ACTIVE)    
+        add_definitions(-DDIO_STREAMSPI_OLEDDISPLAY_SSD1306_ACTIVE)    
         option(DIO_DISPLAYDEVICE_FEATURE "Display Device" true)
       
       endif()
 
 
-      if(DIO_SPI_OLEDDISPLAY_SSD1331_FEATURE)
+      if(DIO_STREAMSPI_OLEDDISPLAY_SSD1331_FEATURE)
 
-        add_definitions(-DDIO_SPI_OLEDDISPLAY_SSD1331_ACTIVE)    
+        add_definitions(-DDIO_STREAMSPI_OLEDDISPLAY_SSD1331_ACTIVE)    
         option(DIO_DISPLAYDEVICE_FEATURE "Display Device" true)
 
       endif()
 
 
-      if(DIO_SPI_TFTDISPLAY_ILI9341_FEATURE)
+      if(DIO_STREAMSPI_TFTDISPLAY_ILI9341_FEATURE)
 
-        add_definitions(-DDIO_SPI_TFTDISPLAY_ILI9341_ACTIVE) 
+        add_definitions(-DDIO_STREAMSPI_TFTDISPLAY_ILI9341_ACTIVE) 
         option(DIO_DISPLAYDEVICE_FEATURE "Display Device" true)
 
       endif()
 
 
-      if(DIO_SPI_TFTDISPLAY_ST7789_FEATURE)
+      if(DIO_STREAMSPI_TFTDISPLAY_ST7789_FEATURE)
 
-        add_definitions(-DDIO_SPI_TFTDISPLAY_ST7789_ACTIVE) 
+        add_definitions(-DDIO_STREAMSPI_TFTDISPLAY_ST7789_ACTIVE) 
         option(DIO_DISPLAYDEVICE_FEATURE "Display Device" true)
 
       endif()
 
 
-      if(DIO_SPI_TOUCHSCREEN_STMPE610_FEATURE)
+      if(DIO_STREAMSPI_TOUCHSCREEN_STMPE610_FEATURE)
 
-        add_definitions(-DDIO_SPI_TOUCHSCREEN_STMPE610_ACTIVE) 
+        add_definitions(-DDIO_STREAMSPI_TOUCHSCREEN_STMPE610_ACTIVE) 
 
       endif()
 
@@ -1057,14 +1057,14 @@ if(DIO_FEATURE)
 
     if(DIO_STREAMICMP_FEATURE)
 
-      add_definitions(-DDIO_ICMP_ACTIVE)
+      add_definitions(-DDIO_STREAMICMP_ACTIVE)
 
     endif()
 
 
     if(DIO_STREAMUDP_FEATURE)
 
-      add_definitions(-DDIO_UDP_ACTIVE)
+      add_definitions(-DDIO_STREAMUDP_ACTIVE)
       option(HASH_FEATURE         "HASH"          true)
       option(HASH_CRC32_FEATURE   "Hash CRC32"    true)
 
@@ -1073,14 +1073,14 @@ if(DIO_FEATURE)
 
     if(DIO_STREAMTCPIP_FEATURE)
 
-      add_definitions(-DDIO_TCPIP_ACTIVE)
+      add_definitions(-DDIO_STREAMTCPIP_ACTIVE)
 
     endif()
 
 
     if(DIO_STREAMWIFI_FEATURE)
 
-      add_definitions(-DDIO_WIFI_ACTIVE)
+      add_definitions(-DDIO_STREAMTWIFI_ACTIVE)
 
     endif()
 

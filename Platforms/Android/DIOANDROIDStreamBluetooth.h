@@ -15,7 +15,7 @@
 #ifndef _DIOANDROIDSTREAMBLUETOOTH_H_
 #define _DIOANDROIDSTREAMBLUETOOTH_H_
 
-#if defined(DIO_ACTIVE) && defined(DIO_BLUETOOTH_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMBLUETOOTH_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

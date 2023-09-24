@@ -15,7 +15,7 @@
 #ifndef _DIOWINDOWSSTREAMUSB_H_
 #define _DIOWINDOWSSTREAMUSB_H_
 
-#if defined(DIO_ACTIVE) && defined(DIO_USB_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMUSB_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

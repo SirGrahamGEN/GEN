@@ -197,7 +197,7 @@ bool MAINPROCWINDOWS::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applica
 
   //---------------------------------------------------------------------------
 
-  #if  defined(XTRACE_ACTIVE) ||  defined(DIO_ACTIVE) || defined(DIO_UDP_ACTIVE) || defined(DIO_TCPIP_ACTIVE) || defined(DIO_BLUETOOTH_ACTIVE)
+  #if  defined(XTRACE_ACTIVE) ||  defined(DIO_ACTIVE) || defined(DIO_STREAMUDP_ACTIVE) || defined(DIO_STREAMTCPIP_ACTIVE) || defined(DIO_STREAMBLUETOOTH_ACTIVE)
   XWORD   versionrequested = WINSOCK_VERSION;
   WSADATA data;
   int     error = false;
@@ -359,7 +359,7 @@ bool MAINPROCWINDOWS::End()
   XMEMORY_CONTROL_DEACTIVATED
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
 
-  #if defined(XTRACE_ACTIVE) || defined(DIO_ACTIVE) || defined(DIO_UDP_ACTIVE) || defined(DIO_TCPIP_ACTIVE) || defined(DIO_BLUETOOTH_ACTIVE)
+  #if defined(XTRACE_ACTIVE) || defined(DIO_ACTIVE) || defined(DIO_STREAMUDP_ACTIVE) || defined(DIO_STREAMTCPIP_ACTIVE) || defined(DIO_STREAMBLUETOOTH_ACTIVE)
   WSACleanup();
   #endif
 
@@ -470,7 +470,7 @@ bool MAINPROCWINDOWS::Factorys_End()
     }
   #endif
 
-  #ifdef DIO_UDP_ACTIVE
+  #ifdef DIO_STREAMUDP_ACTIVE
   DIODNSRESOLVED::DelInstance();
   #endif
 

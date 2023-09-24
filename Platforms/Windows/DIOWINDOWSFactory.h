@@ -52,7 +52,7 @@ class DIOWINDOWSFACTORY : public DIOFACTORY
     bool                      DeleteStreamIO                (DIOSTREAM* streamio);
     #endif
 
-    #ifdef DIO_WIFIMANAGERMODE_ACTIVE
+    #ifdef DIO_STREAMTWIFIMANAGERMODE_ACTIVE
     DIOWIFIMANAGERMODE*       CreateWifiManagerMode         ();
     virtual bool              DeleteWifiManagerMode         (DIOWIFIMANAGERMODE* wifimanagermode);
     #endif

@@ -30,7 +30,7 @@
 #define _DIOSTM32STREAMUART_H_
 
 
-#if defined(DIO_ACTIVE) && defined(DIO_UART_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMUART_ACTIVE)
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 

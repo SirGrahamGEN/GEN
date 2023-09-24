@@ -174,7 +174,9 @@ enum XTRACE_TYPE_STATUS_MSG
   #define XTRACE_PRINTSTATUSCODE(level, name, value)                                                      XTRACE::instance->PrintStatus((level|XTRACE_LEVEL_WITHCODE)      , name, value)
 
   #define XTRACE_SCREENCLEAR                                                                              XTRACE::instance->ScreenClear(0)
+  #define XTRACE_ALLSCREENCLEAR                                                                           XTRACE::instance->ScreenClear(1)
   #define XTRACE_STATUSCLEAR                                                                              XTRACE::instance->StatusClear(0)
+  #define XTRACE_ALLSTATUSCLEAR                                                                           XTRACE::instance->StatusClear(1)
 
   #ifdef BUILDER
 
@@ -223,8 +225,10 @@ enum XTRACE_TYPE_STATUS_MSG
   #define XTRACE_RESOLVEALLRESOURCES
   #define XTRACE_PRINTHEADER(header)
   
-  #define XTRACE_SCREENCLEAR                                                                              
-  #define XTRACE_STATUSCLEAR                                                                              
+  #define XTRACE_SCREENCLEAR  
+  #define XTRACE_ALLSCREENCLEAR                                                                              
+  #define XTRACE_STATUSCLEAR
+  #define XTRACE_ALLSTATUSCLEAR
   
   #ifdef BUILDER
 
@@ -295,7 +299,7 @@ class XTRACE_TARGET
     void                            AddNSendings                      ();
 
 
-    #if (defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+    #if (defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
     
     XWORD                           GetPort                           ();
     void                            SetPort                           (XWORD port);
@@ -317,7 +321,7 @@ class XTRACE_TARGET
     XCHAR                           aim[_MAXSTR];
     XDWORD                          nsendings;
 
-    #if (defined(DIO_ACTIVE) && defined(DIO_UDP_ACTIVE))
+    #if (defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
 
     XWORD                           port;
     char                            IP[_MAXSTR];

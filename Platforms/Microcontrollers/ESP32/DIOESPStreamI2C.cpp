@@ -30,7 +30,7 @@
 
 #include "GEN_Defines.h"
 
-#if defined(DIO_ACTIVE) && defined(DIO_I2C_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMI2C_ACTIVE)
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 

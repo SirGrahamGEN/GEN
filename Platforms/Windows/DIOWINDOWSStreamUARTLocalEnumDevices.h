@@ -15,7 +15,7 @@
 #ifndef _DIOWINDOWSSTREAMUARTLOCALENUMDEVICES_H_
 #define _DIOWINDOWSSTREAMUARTLOCALENUMDEVICES_H_
 
-#if defined(DIO_ACTIVE) && defined(DIO_UART_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMUART_ACTIVE)
 
 //---- INCLUDES ----------------------------------------------------------------------------
 

@@ -30,7 +30,7 @@
 #define _DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES_H_
 
 
-#if defined(DIO_ACTIVE) && defined(DIO_BLUETOOTHLE_ACTIVE)
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMBLUETOOTHLE_ACTIVE)
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/

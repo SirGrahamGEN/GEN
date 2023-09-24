@@ -30,7 +30,7 @@
 
 #include "GEN_Defines.h"
 
-#if defined(DIO_ACTIVE) && (defined(DIO_BLUETOOTH_ACTIVE) || defined(DIO_BLUETOOTHLE_ACTIVE))
+#if defined(DIO_ACTIVE) && (defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE))
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
