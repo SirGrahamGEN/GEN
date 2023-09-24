@@ -43,7 +43,7 @@
 #define VERSION_NAME         "GEN FrameWork"
 #define VERSION_VERSION      0
 #define VERSION_SUBVERSION   15
-#define VERSION_SUBERROR     2
+#define VERSION_SUBERROR     3
 #define VERSION_CODENAME     "Deimos F3"
 
 #pragma endregion
