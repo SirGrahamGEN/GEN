@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Script_Lib_Log.cpp
+* @file       Script_Lib_Trace.cpp
 * 
-* @class      SCRIPT_LIB_Log
-* @brief      Script Library Log
+* @class      SCRIPT_LIB_Trace
+* @brief      Script Library Trace
 * @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,7 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "Script_Lib_Log.h"
+#include "Script_Lib_Trace.h"
 
 #include "XFactory.h"
 #include "XTrace.h"
@@ -64,14 +64,14 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_LIB_LOG::SCRIPT_LIB_LOG()
+* @fn         SCRIPT_LIB_TRACE::SCRIPT_LIB_TRACE()
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIB_LOG::SCRIPT_LIB_LOG() : SCRIPT_LIB(SCRIPT_LIB_NAME_LOG)
+SCRIPT_LIB_TRACE::SCRIPT_LIB_TRACE() : SCRIPT_LIB(SCRIPT_LIB_NAME_TRACE)
 {
   Clean();
 }
@@ -79,7 +79,7 @@ SCRIPT_LIB_LOG::SCRIPT_LIB_LOG() : SCRIPT_LIB(SCRIPT_LIB_NAME_LOG)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         SCRIPT_LIB_LOG::~SCRIPT_LIB_LOG()
+* @fn         SCRIPT_LIB_TRACE::~SCRIPT_LIB_TRACE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
@@ -87,7 +87,7 @@ SCRIPT_LIB_LOG::SCRIPT_LIB_LOG() : SCRIPT_LIB(SCRIPT_LIB_NAME_LOG)
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-SCRIPT_LIB_LOG::~SCRIPT_LIB_LOG()
+SCRIPT_LIB_TRACE::~SCRIPT_LIB_TRACE()
 {
   Clean();
 }
@@ -95,7 +95,7 @@ SCRIPT_LIB_LOG::~SCRIPT_LIB_LOG()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_LIB_LOG::AddLibraryFunctions(SCRIPT* script)
+* @fn         bool SCRIPT_LIB_TRACE::AddLibraryFunctions(SCRIPT* script)
 * @brief      AddLibraryFunctions
 * @ingroup    SCRIPT
 *
@@ -104,21 +104,26 @@ SCRIPT_LIB_LOG::~SCRIPT_LIB_LOG()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_LIB_LOG::AddLibraryFunctions(SCRIPT* script)
+bool SCRIPT_LIB_TRACE::AddLibraryFunctions(SCRIPT* script)
 {
   if(!script) return false;
 
   this->script = script;
 
-  script->AddLibraryFunction(this, __L("Log_AddEntry")             , Call_Log_AddEntry);
-  
+  script->AddLibraryFunction(this, __L("TraceClearScreen")         , Call_TraceClearScreen);
+  script->AddLibraryFunction(this, __L("TraceClearMsgsStatus")     , Call_TraceClearMsgsStatus);
+  script->AddLibraryFunction(this, __L("TracePrintColor")          , Call_TracePrintColor);  
+
+  // Compatibility: eliminate in a future
+  script->AddLibraryFunction(this, __L("XTRACE_PRINTCOLOR")        , Call_TracePrintColor);
+
   return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void SCRIPT_LIB_LOG::Clean()
+* @fn         void SCRIPT_LIB_TRACE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
@@ -126,7 +131,7 @@ bool SCRIPT_LIB_LOG::AddLibraryFunctions(SCRIPT* script)
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void SCRIPT_LIB_LOG::Clean()
+void SCRIPT_LIB_TRACE::Clean()
 {
  
 }
@@ -141,8 +146,8 @@ void SCRIPT_LIB_LOG::Clean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_Log_AddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_Log_AddEntry
+* @fn         void Call_TraceClearScreen(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_TraceClearScreen
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -153,7 +158,7 @@ void SCRIPT_LIB_LOG::Clean()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void Call_Log_AddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+void Call_TraceClearScreen(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
   if(!library)      return;
   if(!script)       return;
@@ -162,24 +167,108 @@ void Call_Log_AddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* 
 
   returnvalue->Set();
 
-  if(params->GetSize()<3)
+  if(!params->GetSize())
     {
       script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
       return;
     }
 
-  int       level   = 0;
-  XVARIANT* variant = params->Get(1);
-  XSTRING   section = (*variant);  
-    
-  library->GetParamConverted(params->Get(0), level);
+  bool  recursive  = false;
+  library->GetParamConverted(params->Get(0), recursive);
+
+  if(recursive)
+    {
+      XTRACE_CLEARALLSCREENS;
+    }
+   else
+    {
+      XTRACE_CLEARSCREEN;
+    }
   
-  XVARIANT  variantmask = (*params->Get(2));
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_TraceClearMsgsStatus(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_TraceClearMsgsStatus
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_TraceClearMsgsStatus(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(!params->GetSize())
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  bool  recursive  = false;
+  library->GetParamConverted(params->Get(0), recursive);
+
+  if(recursive)
+    {
+      XTRACE_CLEARALLMSGSSTATUS;
+    }
+   else
+    {
+      XTRACE_CLEARMSGSSTATUS;
+    }
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_TracePrintColor(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_TracePrintColor
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_TracePrintColor(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(!params->GetSize())
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  XDWORD    color       = 0;
+  library->GetParamConverted(params->Get(0), color);
+
+  XVARIANT  variantmask = (*params->Get(1));
   XCHAR*    mask = variantmask;
   XSTRING   outstring;
   XSTRING   string;
 
-  int paramindex = 3;
+  int paramindex = 2;
   int c          = 0;
 
   if(!mask) return;
@@ -273,8 +362,7 @@ void Call_Log_AddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* 
       outstring += string;
     }
 
-  GEN_XLOG.AddEntry((XLOGLEVEL)level, section.Get(), false, outstring.Get());
+ XTRACE_PRINTCOLOR(color, outstring.Get());
 }
-
 
 #pragma endregion

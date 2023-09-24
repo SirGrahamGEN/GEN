@@ -125,6 +125,51 @@ bool SCRIPT_LIB::AddLibraryFunctions(SCRIPT* script)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, bool& value)
+* @brief      GetParamConverted
+* @ingroup    SCRIPT
+* 
+* @param[in]  variant : 
+* @param[in]  value : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, bool& value)
+{
+  if(!variant) return false;
+
+  value = 0;
+
+  switch(variant->GetType())
+    {
+      case XVARIANT_TYPE_NULL           : break;
+
+      case XVARIANT_TYPE_BOOLEAN        : value = (bool)(*variant)?true:false;
+      
+      case XVARIANT_TYPE_INTEGER        : value = (int)(*variant)?true:false;
+                                          break;
+
+      case XVARIANT_TYPE_FLOAT          : value = (float)(*variant)?true:false;;                                          
+                                          break;
+
+      case XVARIANT_TYPE_DOUBLE         : value = (double)(*variant)?true:false;;       
+                                          break;
+
+      case XVARIANT_TYPE_CHAR           :
+      case XVARIANT_TYPE_XCHAR          :
+      case XVARIANT_TYPE_STRING         :
+      case XVARIANT_TYPE_DATE           :
+      case XVARIANT_TYPE_TIME           :
+      case XVARIANT_TYPE_DATETIME       : return false;
+
+    }
+
+  return true;
+}
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, int& value)
 * @brief      GetParamConverted

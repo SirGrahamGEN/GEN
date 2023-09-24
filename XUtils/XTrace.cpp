@@ -1347,8 +1347,8 @@ void XTRACE::SetApplicationID(XSTRING& applicationID)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XTRACE::ScreenClear(XBYTE level)
-* @brief      ScreenClear
+* @fn         bool XTRACE::ClearScreen(XBYTE level)
+* @brief      ClearScreen
 * @ingroup    XUTILS
 *
 * @param[in]  level : 
@@ -1356,11 +1356,11 @@ void XTRACE::SetApplicationID(XSTRING& applicationID)
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XTRACE::ScreenClear(XBYTE level)
+bool XTRACE::ClearScreen(XBYTE level)
 {
   XSTRING string;
 
-  string.Format(__L("%s"), XTRACE_IDMSGSCREENCLEAR);
+  string.Format(__L("%s"), XTRACE_IDMSGCLEARSCREEN);
 
   return Print(level, string.Get());
 }
@@ -1623,8 +1623,8 @@ bool XTRACE::PrintDataBlock(XBYTE level, XBUFFER& data, XDWORD marginsize, XDWOR
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XTRACE::StatusClear(XBYTE level)
-* @brief      StatusClear
+* @fn         bool XTRACE::ClearMsgsStatus(XBYTE level)
+* @brief      ClearMsgsStatus
 * @ingroup    XUTILS
 *
 * @param[in]  level : 
@@ -1632,7 +1632,7 @@ bool XTRACE::PrintDataBlock(XBYTE level, XBUFFER& data, XDWORD marginsize, XDWOR
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XTRACE::StatusClear(XBYTE level)
+bool XTRACE::ClearMsgsStatus(XBYTE level)
 {
   XSTRING string;
 
@@ -1647,8 +1647,8 @@ bool XTRACE::StatusClear(XBYTE level)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, bool value)
-* @brief      PrintStatus
+* @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, bool value)
+* @brief      PrintMsgStatus
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -1658,7 +1658,7 @@ bool XTRACE::StatusClear(XBYTE level)
 * @return     bool : true if is succesful.
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, bool value)
+bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, bool value)
 {
   XSTRING string;
 
@@ -1671,8 +1671,8 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, bool value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, int value)
-* @brief      PrintStatus
+* @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, int value)
+* @brief      PrintMsgStatus
 * @ingroup    XUTILS
 *
 * @param[in]  level : 
@@ -1682,7 +1682,7 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, bool value)
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, int value)
+bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, int value)
 {
    XSTRING string;
 
@@ -1696,8 +1696,8 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, int value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XCHAR* value)
-* @brief      PrintStatus
+* @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XCHAR* value)
+* @brief      PrintMsgStatus
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -1707,7 +1707,7 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, int value)
 * @return     bool : true if is succesful.
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XCHAR* value)
+bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XCHAR* value)
 {
   XSTRING string;
 
@@ -1720,8 +1720,8 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XCHAR* value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XDWORD value)
-* @brief      PrintStatus
+* @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XDWORD value)
+* @brief      PrintMsgStatus
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -1731,7 +1731,7 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XCHAR* value)
 * @return     bool : true if is succesful.
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XDWORD value)
+bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XDWORD value)
 {
   XSTRING string;
 
@@ -1744,8 +1744,8 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XDWORD value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, float value)
-* @brief      PrintStatus
+* @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, float value)
+* @brief      PrintMsgStatus
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -1755,7 +1755,7 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XDWORD value)
 * @return     bool : true if is succesful.
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, float value)
+bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, float value)
 {
   XSTRING string;
 
@@ -1769,8 +1769,8 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, float value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XBYTE value[3])
-* @brief      PrintStatus
+* @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XBYTE value[3])
+* @brief      PrintMsgStatus
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -1780,7 +1780,7 @@ bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, float value)
 * @return     bool : true if is succesful.
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XTRACE::PrintStatus(XBYTE level, XCHAR* name, XBYTE value[3])
+bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XBYTE value[3])
 {
   XSTRING string;
 

@@ -111,7 +111,7 @@ enum XTRACE_TYPE_STATUS_MSG
 #define XTRACE_MAXAPPLICATIONIDSIZE         36
 
 #define XTRACE_IDPACKET                     0xAADEB055
-#define XTRACE_IDMSGSCREENCLEAR             __L("#[CLEAR_SCREEN]# :")    
+#define XTRACE_IDMSGCLEARSCREEN             __L("#[CLEAR_SCREEN]# :")    
 #define XTRACE_IDMSGSTATUS                  __L("#[CHANGE_STATUS]# :")    
 #define XTRACE_IDMSGSTATUSCLEAR             __L("#[CLEAR_STATUS]# :")    
 #define XTRACE_IDMSGSTATUS_BOOLEAN          __C('B')    
@@ -168,15 +168,12 @@ enum XTRACE_TYPE_STATUS_MSG
   #define XTRACE_RESOLVEALLRESOURCES                                                                      XTRACE::instance->ResolveAllResources()
   #define XTRACE_PRINTHEADER(header)                                                                      XTRACE::instance->PrintHeader(header)
 
-  #define XTRACE_PRINTSTATUS(name, value)                                                                 XTRACE::instance->PrintStatus(0                                  , name, value)
-  #define XTRACE_PRINTSTATUSCOLOR(level, name, value)                                                     XTRACE::instance->PrintStatus((level|XTRACE_LEVEL_WITHCOLOR)     , name, value)
-  #define XTRACE_PRINTSTATUSTAB(level, name, value)                                                       XTRACE::instance->PrintStatus((level|XTRACE_LEVEL_WITHTAB)       , name, value)
-  #define XTRACE_PRINTSTATUSCODE(level, name, value)                                                      XTRACE::instance->PrintStatus((level|XTRACE_LEVEL_WITHCODE)      , name, value)
-
-  #define XTRACE_SCREENCLEAR                                                                              XTRACE::instance->ScreenClear(0)
-  #define XTRACE_ALLSCREENCLEAR                                                                           XTRACE::instance->ScreenClear(1)
-  #define XTRACE_STATUSCLEAR                                                                              XTRACE::instance->StatusClear(0)
-  #define XTRACE_ALLSTATUSCLEAR                                                                           XTRACE::instance->StatusClear(1)
+  #define XTRACE_PRINTMSGSTATUS(name, value)                                                              XTRACE::instance->PrintMsgStatus(0, name, value)
+  
+  #define XTRACE_CLEARSCREEN                                                                              XTRACE::instance->ClearScreen(0)
+  #define XTRACE_CLEARALLSCREENS                                                                          XTRACE::instance->ClearScreen(1)
+  #define XTRACE_CLEARMSGSSTATUS                                                                          XTRACE::instance->ClearMsgsStatus(0)
+  #define XTRACE_CLEARALLMSGSSTATUS                                                                       XTRACE::instance->ClearMsgsStatus(1)
 
   #ifdef BUILDER
 
@@ -225,10 +222,10 @@ enum XTRACE_TYPE_STATUS_MSG
   #define XTRACE_RESOLVEALLRESOURCES
   #define XTRACE_PRINTHEADER(header)
   
-  #define XTRACE_SCREENCLEAR  
-  #define XTRACE_ALLSCREENCLEAR                                                                              
-  #define XTRACE_STATUSCLEAR
-  #define XTRACE_ALLSTATUSCLEAR
+  #define XTRACE_CLEARSCREEN  
+  #define XTRACE_CLEARALLSCREENS                                                                              
+  #define XTRACE_CLEARMSGSSTATUS
+  #define XTRACE_CLEARALLMSGSSTATUS
   
   #ifdef BUILDER
 
@@ -244,11 +241,8 @@ enum XTRACE_TYPE_STATUS_MSG
     #define XTRACE_PRINTDATABLOCKTAB
     #define XTRACE_PRINTDATABLOCKCODE
 
-    #define XTRACE_PRINTSTATUS
-    #define XTRACE_PRINTSTATUSCOLOR
-    #define XTRACE_PRINTSTATUSTAB
-    #define XTRACE_PRINTSTATUSCODE
-
+    #define XTRACE_PRINTMSGSTATUS
+    
   #else
 
     #define XTRACE_PRINT(level, mask, ...)
@@ -264,10 +258,10 @@ enum XTRACE_TYPE_STATUS_MSG
     #define XTRACE_PRINTDATABLOCKCODE(level, data, ...)
 
 
-    #define XTRACE_PRINTSTATUS(name, value)
-    #define XTRACE_PRINTSTATUSCOLOR(level, name, value)
-    #define XTRACE_PRINTSTATUSTAB(level, name, value)
-    #define XTRACE_PRINTSTATUSCODE(level, name, value)
+    #define XTRACE_PRINTMSGSTATUS(name, value)
+    #define XTRACE_PRINTMSGSTATUSCOLOR(level, name, value)
+    #define XTRACE_PRINTMSGSTATUSTAB(level, name, value)
+    #define XTRACE_PRINTMSGSTATUSCODE(level, name, value)
 
   #endif
 
@@ -432,19 +426,19 @@ class XTRACE
     void                            SetApplicationID                  (XCHAR* applicationID, XDWORD size);
     void                            SetApplicationID                  (XSTRING& applicationID);   
 
-    bool                            ScreenClear                       (XBYTE level);
+    bool                            ClearScreen                       (XBYTE level);
     void                            PrintHeader                       (XCHAR* header);
     bool                            Print                             (XBYTE level, XCHAR* mask,...);
     bool                            PrintDataBlock                    (XBYTE level, XBYTE* data, XDWORD _size, XDWORD marginsize = 0, XDWORD sizeline = 32, bool showoffset = true, bool showtext = true);
     bool                            PrintDataBlock                    (XBYTE level, XBUFFER& data, XDWORD marginsize = 0, XDWORD sizeline = 32, bool showoffset = true, bool showtext = true);
     
-    bool                            StatusClear                       (XBYTE level);
-    bool                            PrintStatus                       (XBYTE level, XCHAR* name, bool value);
-    bool                            PrintStatus                       (XBYTE level, XCHAR* name, int value);
-    bool                            PrintStatus                       (XBYTE level, XCHAR* name, XCHAR* value);
-    bool                            PrintStatus                       (XBYTE level, XCHAR* name, XDWORD value);
-    bool                            PrintStatus                       (XBYTE level, XCHAR* name, float value);
-    bool                            PrintStatus                       (XBYTE level, XCHAR* name, XBYTE value[3]);
+    bool                            ClearMsgsStatus                   (XBYTE level);
+    bool                            PrintMsgStatus                    (XBYTE level, XCHAR* name, bool value);
+    bool                            PrintMsgStatus                    (XBYTE level, XCHAR* name, int value);
+    bool                            PrintMsgStatus                    (XBYTE level, XCHAR* name, XCHAR* value);
+    bool                            PrintMsgStatus                    (XBYTE level, XCHAR* name, XDWORD value);
+    bool                            PrintMsgStatus                    (XBYTE level, XCHAR* name, float value);
+    bool                            PrintMsgStatus                    (XBYTE level, XCHAR* name, XBYTE value[3]);
 
     virtual void                    PrintSpecial                      (XTRACE_TARGET* target, XBYTE level, XCHAR* string);
     virtual void                    PrintFile                         (XTRACE_TARGET* target, XBYTE level, XCHAR* string);

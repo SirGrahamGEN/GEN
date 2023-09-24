@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Script_Lib_Log.h
+* @file       Script_Lib_Trace.h
 * 
-* @class      SCRIPT_LIB_LOG
-* @brief      Script Library Log
+* @class      SCRIPT_LIB_TRACE
+* @brief      Script Library Trace
 * @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SCRIPT_LIB_LOG_H_
-#define _SCRIPT_LIB_LOG_H_
+#ifndef _SCRIPT_LIB_TRACE_H_
+#define _SCRIPT_LIB_TRACE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -40,7 +40,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define SCRIPT_LIB_NAME_LOG  __L("Log")
+#define SCRIPT_LIB_NAME_TRACE  __L("Trace")
 
 #pragma endregion
 
@@ -52,17 +52,17 @@ class XVARIANT;
 class XCONSOLE;
 class SCRIPT;
 
-class SCRIPT_LIB_LOG : public SCRIPT_LIB
+class SCRIPT_LIB_TRACE : public SCRIPT_LIB
 {
   public:
-                          SCRIPT_LIB_LOG          ();
-    virtual              ~SCRIPT_LIB_LOG          ();
+                          SCRIPT_LIB_TRACE          ();
+    virtual              ~SCRIPT_LIB_TRACE          ();
 
-    bool                  AddLibraryFunctions     (SCRIPT* script);
+    bool                  AddLibraryFunctions       (SCRIPT* script);
     
   private:
 
-    void                  Clean                   ();
+    void                  Clean                     ();
 };
 
 #pragma endregion
@@ -71,7 +71,9 @@ class SCRIPT_LIB_LOG : public SCRIPT_LIB
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 #pragma region FUNCTIONS_PROTOTYPES
 
-void    Call_Log_AddEntry             (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_TraceClearScreen       (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_TraceClearMsgsStatus   (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_TracePrintColor        (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 #pragma endregion
 

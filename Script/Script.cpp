@@ -67,6 +67,7 @@
 #include "Script_Lib_String.h"
 #include "Script_Lib_Path.h"
 #include "Script_Lib_Dir.h"
+#include "Script_Lib_Trace.h"
 
 #include "Script_Lib_System.h"
 #include "Script_Lib_Process.h"
@@ -862,7 +863,7 @@ bool SCRIPT::AddInternalLibraries()
 {  
   SCRIPT_LIB* lib;
 
-  for(int c=0; c<14; c++)
+  for(int c=0; c<15; c++)
     {
       lib = NULL;
 
@@ -875,34 +876,35 @@ bool SCRIPT::AddInternalLibraries()
           case  3 : lib = new SCRIPT_LIB_STRING();      break;
           case  4 : lib = new SCRIPT_LIB_PATH();        break;
           case  5 : lib = new SCRIPT_LIB_DIR();         break;
+          case  6 : lib = new SCRIPT_LIB_TRACE();       break;
 
           // Optionals
-          case  6 :
+          case  7 :
                     #ifdef SCRIPT_LIB_SYSTEM_ACTIVE
                     lib = new SCRIPT_LIB_SYSTEM();        
                     #endif
                     break;
-          case  7 :
+          case  8 :
                     #ifdef SCRIPT_LIB_PROCESS_ACTIVE
                     lib = new SCRIPT_LIB_PROCESS();        
                     #endif
                     break;
-          case  8 :
+          case  9 :
                     #ifdef SCRIPT_LIB_LOG_ACTIVE
                     lib = new SCRIPT_LIB_LOG();        
                     #endif
                     break;
-          case  9 :
+          case 10 :
                     #ifdef SCRIPT_LIB_CONSOLE_ACTIVE
                     lib = new SCRIPT_LIB_CONSOLE();        
                     #endif
                     break;
-          case 10 :
+          case 11 :
                     #ifdef SCRIPT_LIB_CFG_ACTIVE
                     lib = new SCRIPT_LIB_CFG();                                
                     #endif
                     break;
-          case 11 :
+          case 12 :
                     #ifdef SCRIPT_LIB_WINDOW_ACTIVE
                     lib = new SCRIPT_LIB_WINDOW();        
                     #endif

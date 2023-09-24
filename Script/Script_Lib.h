@@ -60,6 +60,7 @@ class SCRIPT_LIB
 
     virtual bool          AddLibraryFunctions     (SCRIPT* script);
 
+    bool                  GetParamConverted       (XVARIANT* variant, bool& value);
     bool                  GetParamConverted       (XVARIANT* variant, int& value);
     bool                  GetParamConverted       (XVARIANT* variant, XDWORD& value);
     bool                  GetParamConverted       (XVARIANT* variant, float& value);

@@ -246,7 +246,7 @@ bool DIOFACTORY::DeleteStreamIO(DIOSTREAM* streamio)
 
 
 
-#ifdef DIO_STREAMTWIFIMANAGERMODE_ACTIVE
+#ifdef DIO_WIFIMANAGERMODE_ACTIVE
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
