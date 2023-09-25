@@ -106,6 +106,7 @@ bool SCRIPT_LIB_PATH::AddLibraryFunctions(SCRIPT* script)
   this->script = script;
 
   script->AddLibraryFunction(this, __L("GetPathScript")            , Call_GetPathScript);
+  script->AddLibraryFunction(this, __L("GetNameScript")            , Call_GetNameScript);
 
   return true;
 }
@@ -157,15 +158,44 @@ void Call_GetPathScript(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
 
   returnvalue->Set();
 
-  if(!params->GetSize())
-    {
-      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
-      return;
-    }
+  XSTRING path;
 
-  XVARIANT variantmask = (*params->Get(0));
-  variantmask  = script->GetPath()->Get();
+  script->GetPath()->GetDriveAndPath(path);
+  
+  (*returnvalue)  = path.Get();
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_GetNameScript(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_GetNameScript
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_GetNameScript(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  XSTRING namefile;
+
+  script->GetPath()->GetNamefile(namefile);
+  
+  (*returnvalue)  = namefile.Get();
+}
+
 
 
 #pragma endregion

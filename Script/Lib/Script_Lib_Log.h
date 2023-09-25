@@ -32,6 +32,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "XLog.h"
 #include "Script_Lib.h"
 
 #pragma endregion
@@ -49,7 +50,8 @@
 #pragma region CLASS
 
 class XVARIANT;
-class XCONSOLE;
+class XCONSOLE;    
+class XLOG;
 class SCRIPT;
 
 class SCRIPT_LIB_LOG : public SCRIPT_LIB
@@ -59,10 +61,16 @@ class SCRIPT_LIB_LOG : public SCRIPT_LIB
     virtual              ~SCRIPT_LIB_LOG          ();
 
     bool                  AddLibraryFunctions     (SCRIPT* script);
+
+    XLOGBASE*             GetLog                  ();
     
   private:
 
     void                  Clean                   ();
+
+    XLOGBASE              log;
+
+
 };
 
 #pragma endregion
@@ -71,6 +79,10 @@ class SCRIPT_LIB_LOG : public SCRIPT_LIB
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 #pragma region FUNCTIONS_PROTOTYPES
 
+void    Call_Log_Ini                  (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_Log_CFG_SetLimit         (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_Log_CFG_SetFilters       (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void    Call_Log_CFG_SetBackup        (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void    Call_Log_AddEntry             (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 #pragma endregion

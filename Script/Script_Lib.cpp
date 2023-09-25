@@ -258,7 +258,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, float& value)
 {
   if(!variant) return false;
 
-  value = 0;
+  value = 0.0f;
 
   switch(variant->GetType())
     {
@@ -306,7 +306,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, double& value)
 {
   if(!variant) return false;
 
-  value = 0;
+  value = 0.0f;
 
   switch(variant->GetType())
     {
@@ -328,6 +328,48 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, double& value)
       case XVARIANT_TYPE_CHAR           :
       case XVARIANT_TYPE_XCHAR          :
       case XVARIANT_TYPE_STRING         :
+      case XVARIANT_TYPE_DATE           :
+      case XVARIANT_TYPE_TIME           :
+      case XVARIANT_TYPE_DATETIME       : return false;
+
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, XSTRING& value)
+* @brief      GetParamConverted
+* @ingroup    SCRIPT
+* 
+* @param[in]  variant : 
+* @param[in]  value : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, XSTRING& value)
+{
+  if(!variant) return false;
+
+  value = __L("");
+
+  switch(variant->GetType())
+    {
+      case XVARIANT_TYPE_NULL           :      
+      case XVARIANT_TYPE_INTEGER        :                                           
+      case XVARIANT_TYPE_FLOAT          : 
+      case XVARIANT_TYPE_DOUBLE         : 
+      case XVARIANT_TYPE_CHAR           :
+      case XVARIANT_TYPE_XCHAR          : return false;
+
+      case XVARIANT_TYPE_STRING         : { XSTRING string = (*variant);
+                                            value = string.Get();
+                                          }
+                                          break; 
+
       case XVARIANT_TYPE_DATE           :
       case XVARIANT_TYPE_TIME           :
       case XVARIANT_TYPE_DATETIME       : return false;

@@ -65,6 +65,7 @@ class SCRIPT_LIB
     bool                  GetParamConverted       (XVARIANT* variant, XDWORD& value);
     bool                  GetParamConverted       (XVARIANT* variant, float& value);
     bool                  GetParamConverted       (XVARIANT* variant, double& value);
+    bool                  GetParamConverted       (XVARIANT* variant, XSTRING& value);
 
   protected:
 

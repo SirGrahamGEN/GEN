@@ -73,6 +73,7 @@ class SCRIPT_LIB_PATH : public SCRIPT_LIB
 #pragma region FUNCTIONS_PROTOTYPES
 
 void      Call_GetPathScript                        (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void      Call_GetNameScript                        (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 
 #pragma endregion
 

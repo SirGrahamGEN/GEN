@@ -156,32 +156,7 @@ bool APPLOG::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int appsub
     {     
       GEN_XLOG.SetLimit(XLOGTYPELIMIT_SIZE, cfg->Log_MaxSize()*1000, cfg->Log_ReductionPercent());
       GEN_XLOG.SetFilters(cfg->Log_ActiveSectionsID()->Get(), cfg->Log_LevelMask());
-      GEN_XLOG.SetBackup(cfg->Log_Backup_IsActive(), cfg->Log_Backup_GetMaxFiles(),  cfg->Log_Backup_IsCompress());
-      
-      /*
-      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, APP_LOG_SEPARATOR);
-
-      XSTRING appstatusstring;
-      #ifdef _DEBUG
-      appstatusstring = __L("Debug");
-      #endif
-                                                                                                                        
-      if(appversion < 1)
-        {
-          if(appstatusstring.GetSize() > 1) appstatusstring.AddFormat(__L(" + "));
-          appstatusstring.AddFormat(__L("Beta"));
-        }
-      
-
-      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, XT_L(XTRANSLATION_GEN_ID_APPLOG_INITMSG) , appversion, appsubversion, appsubversionerror
-                                                                                                                      , appstatusstring.Get());
-      XDWORD total = 0;
-      XDWORD free  = 0;
-
-      GEN_XSYSTEM.GetMemoryInfo(total,free);
-
-      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, XT_L(XTRANSLATION_GEN_ID_APPLOG_TOTALMEMORY), total, free, GEN_XSYSTEM.GetFreeMemoryPercent());
-      */   
+      GEN_XLOG.SetBackup(cfg->Log_Backup_IsActive(), cfg->Log_Backup_GetMaxFiles(),  cfg->Log_Backup_IsCompress());           
     }
 
   return status;

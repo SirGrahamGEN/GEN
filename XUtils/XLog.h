@@ -1,41 +1,47 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XLog.h
-*
+* 
 * @class      XLOG
 * @brief      eXtended LOG class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XLOG_H_
 #define _XLOG_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
 #include "XPath.h"
 #include "XBuffer.h"
 
+
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 enum XLOGLEVEL
 {
@@ -72,8 +78,11 @@ enum XLOGTYPELIMIT
 #define XLOG_MAXLEVELSIZE                8
 #define XLOG_MAXSECTIONIDSIZE           10
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class XFACTORY;
 class XMUTEX;
@@ -95,14 +104,12 @@ class XLOGENTRY
 };
 
 
-class XLOG
+class XLOGBASE
 {
   public:
-
-    static bool             GetIsInstanced                    ();
-    static XLOG&            GetInstance                       ();
-    static bool             DelInstance                       ();
-
+                            XLOGBASE                          ();
+    virtual                ~XLOGBASE                          ();
+  
     bool                    Ini                               (XCHAR* pathfile, XCHAR* nameapplication = NULL, bool isdumpintrace = true);
     bool                    Ini                               (XPATH& xpathfile, XCHAR* nameapplication = NULL, bool isdumpintrace = true);
     bool                    Ini                               (XPATH& xpathfile, XSTRING& nameapplication, bool isdumpintrace = true);
@@ -176,22 +183,37 @@ class XLOG
     XQWORD                  size;
     XVECTOR<XLOGENTRY*>     entrys;
     XLOGENTRY*              lastentry;
+    
+    void                    Clean                             ();    
+};
 
+
+class XLOG : public XLOGBASE
+{
+  public:
+
+    static bool             GetIsInstanced                    ();
+    static XLOG&            GetInstance                       ();
+    static bool             DelInstance                       ();
+  
   private:
                             XLOG                              ();
                             XLOG                              (XLOG const&);        // Don't implement
     virtual                ~XLOG                              ();
 
-    void                    operator =                        (XLOG const&);        // Don't implement
-
-    void                    Clean                             ();
+    void                    operator =                        (XLOG const&);        // Don't implement    
 
     static XLOG*            instance;
 };
 
+#pragma endregion
+
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-

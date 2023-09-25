@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XLog.cpp
-*
+* 
 * @class      XLOG
 * @brief      eXtended LOG class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XLog.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -45,27 +51,33 @@
 #include "XFileZIP.h"
 #include "XTrace.h"
 
-#include "XLog.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 XLOG* XLOG::instance = NULL;
 
-/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+#pragma region CLASS_XLOGENTRY
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XLOGENTRY::XLOGENTRY()
 * @brief      Constructor
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XLOGENTRY::XLOGENTRY()
 {
@@ -73,16 +85,15 @@ XLOGENTRY::XLOGENTRY()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XLOGENTRY::~XLOGENTRY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XLOGENTRY::~XLOGENTRY()
 {
@@ -90,16 +101,15 @@ XLOGENTRY::~XLOGENTRY()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void XLOGENTRY::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
-*
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLOGENTRY::Clean()
 {
@@ -108,84 +118,72 @@ void XLOGENTRY::Clean()
 }
 
 
-
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XLOG                                                                                                                */
-/* --------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
 
+#pragma region CLASS_XLOGBASE
 
+ 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::GetIsInstanced()
-* @brief      GetIsInstanced
+* 
+* @fn         XLOGBASE::XLOGBASE()
+* @brief      Constructor
 * @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::GetIsInstanced()
+XLOGBASE::XLOGBASE()
 {
-  return instance!=NULL;
+  Clean();
+
+  GEN_XFACTORY_CREATE(xdatetime, CreateDateTime())
+  GEN_XFACTORY_CREATE(xtimer, CreateTimer())
+  GEN_XFACTORY_CREATE(mutex, Create_Mutex())
+  
+  filelog = new XFILETXT();
 }
 
-
-
+    
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XLOG& XLOG::GetInstance()
-* @brief      GetInstance
+* 
+* @fn         XLOGBASE::~XLOGBASE()
+* @brief      Destructor
+* @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     XLOG& :
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XLOG& XLOG::GetInstance()
+XLOGBASE::~XLOGBASE()
 {
-  if(!instance) instance = new XLOG();
+  if(filelog)     filelog->Close();
+  if(filelog)     delete filelog;
+  if(mutex)       GEN_XFACTORY.Delete_Mutex(mutex);
+  if(xtimer)      GEN_XFACTORY.DeleteTimer(xtimer);
+  if(xdatetime)   GEN_XFACTORY.DeleteDateTime(xdatetime);
 
-  return (*instance);
+  this->entrys.DeleteContents();
+  this->entrys.DeleteAll();
+
+  Clean();
 }
-
+  
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::DelInstance()
-* @brief      DelInstance
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::DelInstance()
-{
-  if(instance)
-    {
-      delete instance;
-      instance = NULL;
-
-      return true;
-    }
-
-  return false;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::Ini(XCHAR* pathfile, XCHAR* nameapplication, bool isdumpintrace)
+* 
+* @fn         bool XLOGBASE::Ini(XCHAR* pathfile, XCHAR* nameapplication, bool isdumpintrace)
 * @brief      Ini
 * @ingroup    XUTILS
-*
-* @param[in]  pathfile :
-* @param[in]  nameapplication :
-* @param[in]  isdumpintrace :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  pathfile : 
+* @param[in]  nameapplication : 
+* @param[in]  isdumpintrace : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::Ini(XCHAR* pathfile, XCHAR* nameapplication, bool isdumpintrace)
+bool XLOGBASE::Ini(XCHAR* pathfile, XCHAR* nameapplication, bool isdumpintrace)
 {
   if(isactive) return false;
 
@@ -207,61 +205,58 @@ bool XLOG::Ini(XCHAR* pathfile, XCHAR* nameapplication, bool isdumpintrace)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::Ini(XPATH& xpathfile, XCHAR* nameapplication, bool isdumpintrace)
+* 
+* @fn         bool XLOGBASE::Ini(XPATH& xpathfile, XCHAR* nameapplication, bool isdumpintrace)
 * @brief      Ini
 * @ingroup    XUTILS
-*
-* @param[in]  xpathfile :
-* @param[in]  nameapplication :
-* @param[in]  isdumpintrace :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  xpathfile : 
+* @param[in]  nameapplication : 
+* @param[in]  isdumpintrace : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::Ini(XPATH& xpathfile, XCHAR* nameapplication, bool isdumpintrace)
+bool XLOGBASE::Ini(XPATH& xpathfile, XCHAR* nameapplication, bool isdumpintrace)
 {
   return Ini(xpathfile.Get(), nameapplication, isdumpintrace);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::Ini(XPATH& xpathfile, XSTRING& nameapplication, bool isdumpintrace)
+* 
+* @fn         bool XLOGBASE::Ini(XPATH& xpathfile, XSTRING& nameapplication, bool isdumpintrace)
 * @brief      Ini
 * @ingroup    XUTILS
-*
-* @param[in]  xpathfile :
-* @param[in]  nameapplication :
-* @param[in]  isdumpintrace :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  xpathfile : 
+* @param[in]  nameapplication : 
+* @param[in]  isdumpintrace : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::Ini(XPATH& xpathfile, XSTRING& nameapplication, bool isdumpintrace)
+bool XLOGBASE::Ini(XPATH& xpathfile, XSTRING& nameapplication, bool isdumpintrace)
 {
   return Ini(xpathfile.Get(), nameapplication.Get(), isdumpintrace);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::SetLimit(XLOGTYPELIMIT typelimit, int limit, int reductionpercent)
+* 
+* @fn         bool XLOGBASE::SetLimit(XLOGTYPELIMIT typelimit, int limit, int reductionpercent)
 * @brief      SetLimit
 * @ingroup    XUTILS
-*
-* @param[in]  typelimit :
-* @param[in]  limit :
-* @param[in]  reductionpercent :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  typelimit : 
+* @param[in]  limit : 
+* @param[in]  reductionpercent : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::SetLimit(XLOGTYPELIMIT typelimit, int limit, int reductionpercent)
+bool XLOGBASE::SetLimit(XLOGTYPELIMIT typelimit, int limit, int reductionpercent)
 {
   this->typelimit        = typelimit;
   this->limit            = limit;
@@ -271,21 +266,20 @@ bool XLOG::SetLimit(XLOGTYPELIMIT typelimit, int limit, int reductionpercent)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::SetBackup(bool isactive, int maxfiles, bool iscompress)
+* 
+* @fn         bool XLOGBASE::SetBackup(bool isactive, int maxfiles, bool iscompress)
 * @brief      SetBackup
 * @ingroup    XUTILS
-*
-* @param[in]  isactive :
-* @param[in]  maxfiles :
-* @param[in]  iscompress :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  isactive : 
+* @param[in]  maxfiles : 
+* @param[in]  iscompress : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::SetBackup(bool isactive, int maxfiles, bool iscompress)
+bool XLOGBASE::SetBackup(bool isactive, int maxfiles, bool iscompress)
 {
   this->backupisactive    = isactive;
   this->backupmaxfiles    = maxfiles;
@@ -295,20 +289,19 @@ bool XLOG::SetBackup(bool isactive, int maxfiles, bool iscompress)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::SetFilters(XCHAR* sectionsID, XBYTE level)
+* 
+* @fn         bool XLOGBASE::SetFilters(XCHAR* sectionsID, XBYTE level)
 * @brief      SetFilters
 * @ingroup    XUTILS
-*
-* @param[in]  sectionsID :
-* @param[in]  level :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  sectionsID : 
+* @param[in]  level : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::SetFilters(XCHAR* sectionsID, XBYTE level)
+bool XLOGBASE::SetFilters(XCHAR* sectionsID, XBYTE level)
 {
   if(sectionsID) filtersectionsID = sectionsID;
   filterlevel = level;
@@ -317,65 +310,61 @@ bool XLOG::SetFilters(XCHAR* sectionsID, XBYTE level)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XCHAR* XLOG::GetPathFile()
+* 
+* @fn         XCHAR* XLOGBASE::GetPathFile()
 * @brief      GetPathFile
 * @ingroup    XUTILS
-*
+* 
 * @return     XCHAR* : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XCHAR* XLOG::GetPathFile()                                                                    
+XCHAR* XLOGBASE::GetPathFile()
 { 
   return xpathfile.Get();                 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XSTRING* XLOG::GetNameApplication()
+* 
+* @fn         XSTRING* XLOGBASE::GetNameApplication()
 * @brief      GetNameApplication
 * @ingroup    XUTILS
-*
+* 
 * @return     XSTRING* : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XLOG::GetNameApplication()
+XSTRING* XLOGBASE::GetNameApplication()
 { 
   return &nameapplication;                
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XSTRING* XLOG::GetPrevLabel()
+* 
+* @fn         XSTRING* XLOGBASE::GetPrevLabel()
 * @brief      GetPrevLabel
 * @ingroup    XUTILS
-*
+* 
 * @return     XSTRING* : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XLOG::GetPrevLabel()                                                                    
+XSTRING* XLOGBASE::GetPrevLabel()                                                                    
 { 
   return &prevlabel;                      
 } 
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::IsActive()
+* 
+* @fn         bool XLOGBASE::IsActive()
 * @brief      IsActive
 * @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::IsActive()
+bool XLOGBASE::IsActive()
 {
   if(!filelog)            return false;
   if(!filelog->IsOpen())  return false;
@@ -385,87 +374,82 @@ bool XLOG::IsActive()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XLOG::SetIsActive(bool isactive)
+* 
+* @fn         void XLOGBASE::SetIsActive(bool isactive)
 * @brief      SetIsActive
 * @ingroup    XUTILS
-*
+* 
 * @param[in]  isactive : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XLOG::SetIsActive(bool isactive)                                                 
+void XLOGBASE::SetIsActive(bool isactive)                                                 
 { 
   this->isactive = isactive;              
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XDWORD XLOG::GetNEntrys()
+* 
+* @fn         XDWORD XLOGBASE::GetNEntrys()
 * @brief      GetNEntrys
 * @ingroup    XUTILS
-*
+* 
 * @return     XDWORD : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD XLOG::GetNEntrys()
+XDWORD XLOGBASE::GetNEntrys()
 { 
   return nentrys;                         
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XDWORD XLOG::GetNLines()
+* 
+* @fn         XDWORD XLOGBASE::GetNLines()
 * @brief      GetNLines
 * @ingroup    XUTILS
-*
+* 
 * @return     XDWORD : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD XLOG::GetNLines()
+XDWORD XLOGBASE::GetNLines()
 { 
   return nlines;                          
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XQWORD XLOG::GetSize()
+* 
+* @fn         XQWORD XLOGBASE::GetSize()
 * @brief      GetSize
 * @ingroup    XUTILS
-*
+* 
 * @return     XQWORD : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XQWORD XLOG::GetSize()                                                                    
+XQWORD XLOGBASE::GetSize()                                                                    
 { 
   return size;                            
 }
+
     
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::GetLevelString(XLOGLEVEL level, XSTRING& strlevel, XDWORD size)
+* 
+* @fn         bool XLOGBASE::GetLevelString(XLOGLEVEL level, XSTRING& strlevel, XDWORD size)
 * @brief      GetLevelString
 * @ingroup    XUTILS
-*
-* @param[in]  level :
-* @param[in]  strlevel :
-* @param[in]  size :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  level : 
+* @param[in]  strlevel : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::GetLevelString(XLOGLEVEL level, XSTRING& strlevel, XDWORD size)
+bool XLOGBASE::GetLevelString(XLOGLEVEL level, XSTRING& strlevel, XDWORD size)
 {
   strlevel.Empty();
 
@@ -485,36 +469,34 @@ bool XLOG::GetLevelString(XLOGLEVEL level, XSTRING& strlevel, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XSTRING* XLOG::GetSectionsIDFilter()
+* 
+* @fn         XSTRING* XLOGBASE::GetSectionsIDFilter()
 * @brief      GetSectionsIDFilter
 * @ingroup    XUTILS
-*
-* @return     XSTRING* :
-*
+* 
+* @return     XSTRING* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XLOG::GetSectionsIDFilter()
+XSTRING* XLOGBASE::GetSectionsIDFilter()
 {
   return &filtersectionsID;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::PassFilters(XLOGLEVEL level, XCHAR* sectionID)
+* 
+* @fn         bool XLOGBASE::PassFilters(XLOGLEVEL level, XCHAR* sectionID)
 * @brief      PassFilters
 * @ingroup    XUTILS
-*
-* @param[in]  level :
-* @param[in]  sectionID :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  level : 
+* @param[in]  sectionID : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::PassFilters(XLOGLEVEL level, XCHAR* sectionID)
+bool XLOGBASE::PassFilters(XLOGLEVEL level, XCHAR* sectionID)
 {
   if(!(filterlevel&level)) return false;
 
@@ -528,23 +510,22 @@ bool XLOG::PassFilters(XLOGLEVEL level, XCHAR* sectionID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XCHAR* mask,...)
+* 
+* @fn         bool XLOGBASE::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XCHAR* mask,...)
 * @brief      AddEntry
 * @ingroup    XUTILS
-*
-* @param[in]  level :
-* @param[in]  sectionID :
-* @param[in]  inmemory :
-* @param[in]  mask :
-* @param[in]  ... :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  level : 
+* @param[in]  sectionID : 
+* @param[in]  inmemory : 
+* @param[in]  mask : 
+* @param[in]  ... : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XCHAR* mask,...)
+bool XLOGBASE::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XCHAR* mask,...)
 {
   //XTRACE_PRINTCOLOR(3,__L(" XLOG::AddEntry %u"),XMEMORY_GETMEMORYUSED);
 
@@ -683,26 +664,25 @@ bool XLOG::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XCHAR* mas
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XBYTE* data, XDWORD size, XDWORD sizeline, bool showoffset, bool showtext)
+* 
+* @fn         bool XLOGBASE::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XBYTE* data, XDWORD size, XDWORD sizeline, bool showoffset, bool showtext)
 * @brief      AddEntry
 * @ingroup    XUTILS
-*
-* @param[in]  level :
-* @param[in]  sectionID :
-* @param[in]  inmemory :
-* @param[in]  data :
-* @param[in]  size :
-* @param[in]  sizeline :
-* @param[in]  showoffset :
-* @param[in]  showtext :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  level : 
+* @param[in]  sectionID : 
+* @param[in]  inmemory : 
+* @param[in]  data : 
+* @param[in]  size : 
+* @param[in]  sizeline : 
+* @param[in]  showoffset : 
+* @param[in]  showtext : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XBYTE* data, XDWORD size, XDWORD sizeline, bool showoffset, bool showtext)
+bool XLOGBASE::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XBYTE* data, XDWORD size, XDWORD sizeline, bool showoffset, bool showtext)
 {
   if(!IsActive()) return false;
   if(!mutex)      return false;
@@ -783,42 +763,39 @@ bool XLOG::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XBYTE* dat
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XBUFFER& data, XDWORD sizeline, bool showoffset, bool showtext)
+* 
+* @fn         bool XLOGBASE::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XBUFFER& data, XDWORD sizeline, bool showoffset, bool showtext)
 * @brief      AddEntry
 * @ingroup    XUTILS
-*
-* @param[in]  level :
-* @param[in]  sectionID :
-* @param[in]  inmemory :
-* @param[in]  data :
-* @param[in]  sizeline :
-* @param[in]  showoffset :
-* @param[in]  showtext :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  level : 
+* @param[in]  sectionID : 
+* @param[in]  inmemory : 
+* @param[in]  data : 
+* @param[in]  sizeline : 
+* @param[in]  showoffset : 
+* @param[in]  showtext : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XBUFFER& data, XDWORD sizeline, bool showoffset, bool showtext)
+bool XLOGBASE::AddEntry(XLOGLEVEL level, XCHAR* sectionID, bool inmemory, XBUFFER& data, XDWORD sizeline, bool showoffset, bool showtext)
 {
-  return XLOG::AddEntry(level, sectionID, inmemory, data.Get(), data.GetSize(), sizeline, showoffset, showtext);
+  return AddEntry(level, sectionID, inmemory, data.Get(), data.GetSize(), sizeline, showoffset, showtext);
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::Flush()
+* 
+* @fn         bool XLOGBASE::Flush()
 * @brief      Flush
 * @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::Flush()
+bool XLOGBASE::Flush()
 {
   if(!mutex)      return false;
   if(!IsActive()) return false;
@@ -833,19 +810,18 @@ bool XLOG::Flush()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::End(bool doflush)
+* 
+* @fn         bool XLOGBASE::End(bool doflush)
 * @brief      End
 * @ingroup    XUTILS
-*
-* @param[in]  doflush :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  doflush : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::End(bool doflush)
+bool XLOGBASE::End(bool doflush)
 {
   if(!isactive) return false;
 
@@ -870,17 +846,16 @@ bool XLOG::End(bool doflush)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::CalculateInitialStatus()
+* 
+* @fn         bool XLOGBASE::CalculateInitialStatus()
 * @brief      CalculateInitialStatus
 * @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::CalculateInitialStatus()
+bool XLOGBASE::CalculateInitialStatus()
 {
   XFILE* xfile = filelog->GetPrimaryFile();
   if(!xfile) return false;
@@ -972,17 +947,16 @@ bool XLOG::CalculateInitialStatus()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::FlushMemoryEntrys()
+* 
+* @fn         bool XLOGBASE::FlushMemoryEntrys()
 * @brief      FlushMemoryEntrys
 * @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::FlushMemoryEntrys()
+bool XLOGBASE::FlushMemoryEntrys()
 {
   int c=0;
   while(c<filelog->GetNLines())
@@ -1027,17 +1001,16 @@ bool XLOG::FlushMemoryEntrys()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int XLOG::Backup_GetNFiles()
+* 
+* @fn         int XLOGBASE::Backup_GetNFiles()
 * @brief      Backup_GetNFiles
 * @ingroup    XUTILS
-*
-* @return     int :
-*
+* 
+* @return     int : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-int XLOG::Backup_GetNFiles()
+int XLOGBASE::Backup_GetNFiles()
 {
   XPATH         xpathnamelog;
   XPATH         xpath;
@@ -1064,26 +1037,24 @@ int XLOG::Backup_GetNFiles()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::Backup_GetNameFileMoreOld(XPATH& xpathselect)
+* 
+* @fn         bool XLOGBASE::Backup_GetNameFileMoreOld(XPATH& xpathselect)
 * @brief      Backup_GetNameFileMoreOld
 * @ingroup    XUTILS
-*
-* @param[in]  xpathselect :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  xpathselect : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::Backup_GetNameFileMoreOld(XPATH& xpathselect)
+bool XLOGBASE::Backup_GetNameFileMoreOld(XPATH& xpathselect)
 {
   if(!xdatetime) return false;
 
   XPATH         xpathnamelog;
   XPATH         xpath;
   XPATH         selectnamefile;
-  //int           nfiles = 0;
   XDIRELEMENT   xdirelement;
   XQWORD        lastseconds = 0x8FFFFFFFFFFFFFFFULL;
 
@@ -1137,19 +1108,18 @@ bool XLOG::Backup_GetNameFileMoreOld(XPATH& xpathselect)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::Backup_CreateNameZIP(XPATH& xpathzipfile)
+* 
+* @fn         bool XLOGBASE::Backup_CreateNameZIP(XPATH& xpathzipfile)
 * @brief      Backup_CreateNameZIP
 * @ingroup    XUTILS
-*
-* @param[in]  xpathzipfile :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  xpathzipfile : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::Backup_CreateNameZIP(XPATH& xpathzipfile)
+bool XLOGBASE::Backup_CreateNameZIP(XPATH& xpathzipfile)
 {
   xpathzipfile.Empty();
 
@@ -1162,17 +1132,16 @@ bool XLOG::Backup_CreateNameZIP(XPATH& xpathzipfile)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::Backup_AdjustNFilesInCompressed()
+* 
+* @fn         bool XLOGBASE::Backup_AdjustNFilesInCompressed()
 * @brief      Backup_AdjustNFilesInCompressed
 * @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::Backup_AdjustNFilesInCompressed()
+bool XLOGBASE::Backup_AdjustNFilesInCompressed()
 {
   XFILEUNZIP xfileunzip;
   XPATH      xpathzipfile;
@@ -1196,21 +1165,19 @@ bool XLOG::Backup_AdjustNFilesInCompressed()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::Backup_AdjustNFiles(XCHAR* pathnamelog, bool iscompress)
+* 
+* @fn         bool XLOGBASE::Backup_AdjustNFiles(XCHAR* pathnamelog, bool iscompress)
 * @brief      Backup_AdjustNFiles
 * @ingroup    XUTILS
-*
-* @param[in]  pathnamelog :
-* @param[in]  iscompress :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  pathnamelog : 
+* @param[in]  iscompress : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::Backup_AdjustNFiles(XCHAR* pathnamelog, bool iscompress)
+bool XLOGBASE::Backup_AdjustNFiles(XCHAR* pathnamelog, bool iscompress)
 {
   XFILE* GEN_XFACTORY_CREATE(xfilebackup, Create_File())
   if(!xfilebackup)  return false;
@@ -1271,17 +1238,16 @@ bool XLOG::Backup_AdjustNFiles(XCHAR* pathnamelog, bool iscompress)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLOG::Backup_ControlLimits()
+* 
+* @fn         bool XLOGBASE::Backup_ControlLimits()
 * @brief      Backup_ControlLimits
 * @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLOG::Backup_ControlLimits()
+bool XLOGBASE::Backup_ControlLimits()
 {
   if(!IsActive()) return false;
 
@@ -1289,10 +1255,10 @@ bool XLOG::Backup_ControlLimits()
 
   switch(typelimit)
     {
-      case XLOGTYPELIMIT_NENTRYS  : if(nentrys<limit)  return false;
+      case XLOGTYPELIMIT_NENTRYS  : if(nentrys<limit)   return false;
                                     break;
 
-      case XLOGTYPELIMIT_SIZE     : if(size<limit)    return false;
+      case XLOGTYPELIMIT_SIZE     : if(size<limit)      return false;
                                     break;
       default: break;
     }
@@ -1358,65 +1324,17 @@ bool XLOG::Backup_ControlLimits()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XLOG::XLOG()
-* @brief      Constructor
-* @ingroup    XUTILS
-*
-* @return     Does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XLOG::XLOG()
-{
-  Clean();
-
-  GEN_XFACTORY_CREATE(xdatetime, CreateDateTime())
-  GEN_XFACTORY_CREATE(xtimer, CreateTimer())
-  GEN_XFACTORY_CREATE(mutex, Create_Mutex())
-  
-  filelog = new XFILETXT();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XLOG::~XLOG()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    XUTILS
-*
-* @return     Does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XLOG::~XLOG()
-{
-  if (filelog)    filelog->Close();
-  if(filelog)     delete filelog;
-  if(mutex)       GEN_XFACTORY.Delete_Mutex(mutex);
-  if(xtimer)      GEN_XFACTORY.DeleteTimer(xtimer);
-  if(xdatetime)   GEN_XFACTORY.DeleteDateTime(xdatetime);
-
-  this->entrys.DeleteContents();
-  this->entrys.DeleteAll();
-
-  Clean();
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XLOG::Clean()
+* 
+* @fn         void XLOGBASE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
-*
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XLOG::Clean()
+void XLOGBASE::Clean()
 {
   xdatetime        = NULL;
   xtimer           = NULL;
@@ -1446,4 +1364,99 @@ void XLOG::Clean()
   lastentry        = NULL;
 }
 
+#pragma endregion
 
+
+#pragma region CLASS_XLOGBASE
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XLOG::GetIsInstanced()
+* @brief      GetIsInstanced
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XLOG::GetIsInstanced()
+{
+  return instance!=NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XLOG& XLOG::GetInstance()
+* @brief      GetInstance
+* @ingroup    XUTILS
+* 
+* @return     XLOG& : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XLOG& XLOG::GetInstance()
+{
+  if(!instance) instance = new XLOG();
+
+  return (*instance);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XLOG::DelInstance()
+* @brief      DelInstance
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XLOG::DelInstance()
+{
+  if(instance)
+    {
+      delete instance;
+      instance = NULL;
+
+      return true;
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XLOG::XLOG()
+* @brief      Constructor
+* @ingroup    XUTILS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XLOG::XLOG() : XLOGBASE()
+{
+
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XLOG::~XLOG()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    XUTILS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XLOG::~XLOG()
+{
+  
+}
+
+
+#pragma endregion
+
+
+#pragma endregion

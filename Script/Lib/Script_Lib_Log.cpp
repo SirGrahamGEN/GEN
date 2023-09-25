@@ -54,7 +54,6 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
-
 #pragma endregion
 
 
@@ -73,7 +72,7 @@
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_LOG::SCRIPT_LIB_LOG() : SCRIPT_LIB(SCRIPT_LIB_NAME_LOG)
 {
-  Clean();
+  Clean();  
 }
 
 
@@ -110,9 +109,28 @@ bool SCRIPT_LIB_LOG::AddLibraryFunctions(SCRIPT* script)
 
   this->script = script;
 
+  script->AddLibraryFunction(this, __L("Log_Ini")                  , Call_Log_Ini);
+  script->AddLibraryFunction(this, __L("Log_CFG_SetLimit")         , Call_Log_CFG_SetLimit);
+  script->AddLibraryFunction(this, __L("Log_CFG_SetFilters")       , Call_Log_CFG_SetFilters);
+  script->AddLibraryFunction(this, __L("Log_CFG_SetBackup")        , Call_Log_CFG_SetBackup);
   script->AddLibraryFunction(this, __L("Log_AddEntry")             , Call_Log_AddEntry);
   
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XLOGBASE* SCRIPT_LIB_LOG::GetLog()
+* @brief      GetLog
+* @ingroup    SCRIPT
+* 
+* @return     XLOGBASE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XLOGBASE* SCRIPT_LIB_LOG::GetLog()
+{
+  return &log;
 }
 
 
@@ -128,7 +146,7 @@ bool SCRIPT_LIB_LOG::AddLibraryFunctions(SCRIPT* script)
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_LOG::Clean()
 {
- 
+  
 }
 
 
@@ -137,6 +155,200 @@ void SCRIPT_LIB_LOG::Clean()
 
 /*---- LIBRARY FUNCTIONS ---------------------------------------------------------------------------------------------*/
 #pragma region LIBRARY_FUNCTIONS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_Log_Ini(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Log_Ini
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Log_Ini(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize()<2)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  SCRIPT_LIB_LOG* liblog = (SCRIPT_LIB_LOG*)library;
+  if(!liblog->GetLog())
+    {
+      return;   
+    }
+
+  XSTRING  path;
+  XSTRING  nameapp;
+  bool     status  = false;
+
+  library->GetParamConverted(params->Get(0), path);
+  library->GetParamConverted(params->Get(1), nameapp);
+
+  status = liblog->GetLog()->Ini(path.Get(), nameapp.Get());
+
+  (*returnvalue) = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_Log_CFG_SetLimit(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_Log_CFG_SetLimit
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Log_CFG_SetLimit(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize()<2)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  SCRIPT_LIB_LOG* liblog = (SCRIPT_LIB_LOG*)library;
+  if(!liblog->GetLog())
+    {
+      return;   
+    }
+
+  int     limit             = 0;
+  int     reductionpercent  = 0;
+  bool    status            = false; 
+
+  library->GetParamConverted(params->Get(0), limit);
+  library->GetParamConverted(params->Get(1), reductionpercent);
+
+  status = liblog->GetLog()->SetLimit(XLOGTYPELIMIT_SIZE, limit, reductionpercent);
+  
+  (*returnvalue) = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_Log_CFG_SetFilters(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_Log_CFG_SetFilters
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Log_CFG_SetFilters(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize()<2)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  SCRIPT_LIB_LOG* liblog = (SCRIPT_LIB_LOG*)library;
+  if(!liblog->GetLog())
+    {
+      return;   
+    }
+
+  XSTRING sectionsID;
+  int     levelmask;
+  bool    status            = false; 
+
+  library->GetParamConverted(params->Get(0), sectionsID);
+  library->GetParamConverted(params->Get(1), levelmask);
+
+  status = liblog->GetLog()->SetFilters(sectionsID.Get(), levelmask);
+  
+  (*returnvalue) = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_Log_CFG_SetBackup(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_Log_CFG_SetBackup
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Log_CFG_SetBackup(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize()<3)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  SCRIPT_LIB_LOG* liblog = (SCRIPT_LIB_LOG*)library;
+  if(!liblog->GetLog())
+    {
+      return;   
+    }
+
+  bool activebackup  = false;
+  int  maxfiles      = 0; 
+  bool iscompress    = false;
+  bool status        = false;
+
+  library->GetParamConverted(params->Get(0), activebackup);
+  library->GetParamConverted(params->Get(1), maxfiles);
+  library->GetParamConverted(params->Get(1), iscompress);
+
+  status = liblog->GetLog()->SetBackup(activebackup, maxfiles, iscompress);     
+  
+  (*returnvalue) = status;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -166,6 +378,12 @@ void Call_Log_AddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* 
     {
       script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
       return;
+    }
+
+  SCRIPT_LIB_LOG* liblog = (SCRIPT_LIB_LOG*)library;
+  if(!liblog->GetLog())
+    {
+      return;   
     }
 
   int       level   = 0;
@@ -273,7 +491,14 @@ void Call_Log_AddEntry(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* 
       outstring += string;
     }
 
-  GEN_XLOG.AddEntry((XLOGLEVEL)level, section.Get(), false, outstring.Get());
+  if(liblog->GetLog())
+    {
+      liblog->GetLog()->AddEntry((XLOGLEVEL)level, section.Get(), false, outstring.Get());
+    }
+   else  
+    {
+      GEN_XLOG.AddEntry((XLOGLEVEL)level, section.Get(), false, outstring.Get());
+    }
 }
 
 
