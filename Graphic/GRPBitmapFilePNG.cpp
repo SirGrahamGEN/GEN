@@ -104,7 +104,7 @@ GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
   png_byte      colortype   = 0;
   int           bytesppixel = 0;
   int           rowbytes    = 0;
-  int           npasses     = 0;
+//int           npasses     = 0;
 
   if(file->Read(header, GRPBITMAPFILEPNG_HEADERSIZE))
     {
@@ -129,7 +129,7 @@ GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
                       colortype    = png_get_color_type(png, info);
                       bytesppixel  = png_get_channels(png, info);
                       rowbytes     = (int)png_get_rowbytes(png, info);
-                      npasses      = png_set_interlace_handling(png);
+                      //npasses      = png_set_interlace_handling(png);
 
                       png_read_update_info(png, info);
 

@@ -1059,7 +1059,7 @@ XVARIANT::operator XBUFFER() const
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::operator void*()
-* @brief      oid*
+* @brief      void*
 * @ingroup    XUTILS
 * 
 * @return     XVARIANT::operator : 

@@ -178,13 +178,7 @@ void* XMEMORY_CONTROL::Assign(XDWORD size, char* pathfile, int line)
   if(!size) return NULL;
 
   Lock();
-
-  if((size == 268) && (line == 78))
-    {
-      int a=0;
-      a++;
-    }
-
+ 
   void* ptr = NULL;
   ptr = malloc(size);
   if(!ptr)

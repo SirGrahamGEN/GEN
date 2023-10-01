@@ -41,15 +41,23 @@ endif()
 if(COMPILE_WITH_CLANG)
  
   list(APPEND WARNINGS_CLANG "-Wno-invalid-source-encoding")
+  list(APPEND WARNINGS_CLANG "-Wno-register")
+  list(APPEND WARNINGS_CLANG "-Wno-unused-variable") 
+  list(APPEND WARNINGS_CLANG "-Wno-unused-but-set-variable")
+  list(APPEND WARNINGS_CLANG "-Wno-deprecated-non-prototype")
+  list(APPEND WARNINGS_CLANG "-Wno-unused-function")
+  list(APPEND WARNINGS_CLANG "-Wno-switch")
+  list(APPEND WARNINGS_CLANG "-Wno-implicit-function-declaration")
+  list(APPEND WARNINGS_CLANG "-Wno-reorder-ctor")
+
  #list(APPEND WARNINGS_CLANG "-Wno-writable-strings")
  #list(APPEND WARNINGS_CLANG "-Wno-delete-incomplete")
  #list(APPEND WARNINGS_CLANG "-Wno-microsoft-extra-qualification")
- #list(APPEND WARNINGS_CLANG "-Wno-comment")  
-  
- #list(APPEND WARNINGS_CLANG "-Wno-unused-variable") 
+ #list(APPEND WARNINGS_CLANG "-Wno-comment")    
+ 
  #list(APPEND WARNINGS_CLANG "-ferror-limit=1000")
   
   add_compile_options(${WARNINGS_CLANG})  
-  message(STATUS "< Warnings CLANG deactivated: ${WARNINGS_CLANG} >")
+  message(STATUS "[GEN Warnings CLANG deactivated: ${WARNINGS_CLANG} ]")
 
 endif()

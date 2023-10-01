@@ -199,7 +199,7 @@ typedef bool (*PROGRESS_FUNCTION)(void);
   #ifdef COMPILER_GCC
     #define GEN_FUNCTION_EXEC  __PRETTY_FUNCTION__
   #else
-    #ifdef COMPILER_CLANG)
+    #ifdef COMPILER_CLANG
       #define GEN_FUNCTION_EXEC  __PRETTY_FUNCTION__
     #else 
       #define GEN_FUNCTION_EXEC  ""  

@@ -744,7 +744,10 @@ bool APPINTERNETSERVICES::UpdateIPs()
   XSTRING                       actualautomaticlocalIP;
   DIOSTREAMIPLOCALENUMDEVICES*  enumdevices     = (DIOSTREAMIPLOCALENUMDEVICES*)GEN_DIOFACTORY.CreateStreamEnumDevices(DIOSTREAMENUMTYPE_IP_LOCAL);
   bool                          sendchangeevent = false;
-                                                                      
+      
+
+  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Local IP... "));       
+                                                                
   if(enumdevices)
     {
       DIOSTREAMDEVICEIP* device = (DIOSTREAMDEVICEIP*)enumdevices->GetFirstActiveDevice();
@@ -778,6 +781,8 @@ bool APPINTERNETSERVICES::UpdateIPs()
 
   APPINTERNETSERVICES_XEVENT xevent(this, APPINTERNETSERVICES_XEVENT_TYPE_CHANGEIP);  
 
+  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Local IP : [%s] "), actualautomaticlocalIP.Get());       
+
   // Check Local IP changed
   if(automaticlocalIP.Compare(actualautomaticlocalIP))
     {                                                                      
@@ -791,23 +796,37 @@ bool APPINTERNETSERVICES::UpdateIPs()
   if(haveinternetconnection)
     {
       DIOIP     ip;
-      XSTRING   actualpublicIP;                                                                  
+      XSTRING   actualpublicIP; 
+
+      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Public IP... "));                                                                    
 
       if(scraperwebpublicIP->Get(ip, 5, NULL, false)) ip.GetXString(actualpublicIP);
 
-      // Check Public IP changed
-      if(publicIP.Compare(actualpublicIP))
+      if(!actualpublicIP.IsEmpty())
         {
-          xevent.SetIsChangePublicIP(true);          
-          xevent.GetChangePublicIP()->Set(actualpublicIP);
+          // Check Public IP changed
+          if(publicIP.Compare(actualpublicIP))
+            {
+              xevent.SetIsChangePublicIP(true);          
+              xevent.GetChangePublicIP()->Set(actualpublicIP);
 
-          publicIP        = actualpublicIP;                                                                          
-          sendchangeevent = true;
+              publicIP        = actualpublicIP;                                                                          
+              sendchangeevent = true;
+
+              #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+              if(dyndnsmanager) 
+                {
+                  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Update Dyndns URLs: [%s] "), actualpublicIP.Get());  
+
+                  bool status = dyndnsmanager->AssingAll();
+
+                  APP_LOG_ENTRY((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Update Dyndns URLs: [%s] (%s)"), actualpublicIP.Get(), xevent.IsChangePublicIP()?__L("Change"):__L("Not Change"));    
+                }
+              #endif                         
+            }
         }
-                                                                
-      #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
-      if(dyndnsmanager) dyndnsmanager->AssingAll();
-      #endif                                                                      
+
+      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Public IP: [%s] "), actualpublicIP.Get());                                                                                                                    
     } 
 
   if(sendchangeevent)
@@ -835,32 +854,20 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 {
   switch(event->GetTask()->GetID())
     {
-      case APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET : { CheckInternetStatus();
-                                                                  
-                                                                  //-------------------------------------------------------------------------------                                                              
-                                                                  #ifdef XTRACE_ACTIVE                                                                   
-                                                                  if(haveinternetconnection)
-                                                                    {
-                                                                      static int counter = 0;
-
-                                                                      counter++;
-                                                                      
-                                                                      if(counter > 100)
-                                                                        {
-                                                                          XTRACE_RESOLVEALLRESOURCES; 
-                                                                          counter = 0;
-                                                                        }
-                                                                    }                                                                  
-                                                                  #endif    
-                                                                  //-------------------------------------------------------------------------------                                                              
-                                                                }
-
+      case APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET : CheckInternetStatus();                                                                  
                                                                 break;
 
       case APPINTERNETSERVICES_TASKID_GETIPS                  : UpdateIPs();
+
+                                                                #ifdef XTRACE_ACTIVE                                                                   
+                                                                XTRACE_RESOLVEALLRESOURCES; 
+                                                                #endif    
                                                                 break;
 
-      case APPINTERNETSERVICES_TASKID_CHECKNTPDATETIME        : if(haveinternetconnection) AdjustTimerByNTP(&NTPservers);                                                                  
+      case APPINTERNETSERVICES_TASKID_CHECKNTPDATETIME        : if(haveinternetconnection) 
+                                                                 {
+                                                                   AdjustTimerByNTP(&NTPservers);                                                                  
+                                                                 }
                                                                 break;
     }
 }

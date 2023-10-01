@@ -93,7 +93,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
   endif()
 
 
-  if("${TARGET}" STREQUAL "Android")   
+  if("${TARGET}" STREQUAL "ANDROID")   
 
     add_definitions(-DANDROID)  
     option(COMPILE_FOR_ANDROID "Compile to Android" true)

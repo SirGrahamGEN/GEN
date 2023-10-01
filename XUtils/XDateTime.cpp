@@ -1928,8 +1928,8 @@ bool XDATETIME::GetDateTimeFromStringISO8601(XSTRING& string, XWORD modificator)
   XVECTOR<int>  typeblock;
   int           nblock           = 0;
   int           startindex       = 0;
-  XCHAR         dateseparator    = __C('-');
-  XCHAR         timeseparator    = __C(':');
+//XCHAR         dateseparator    = __C('-');
+//XCHAR         timeseparator    = __C(':');
   XSTRING       validcharacters;
 
 

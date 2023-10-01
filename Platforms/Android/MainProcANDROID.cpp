@@ -34,12 +34,12 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdlib.h>
-#include <unistd.h>
+//#include <unistd.h>
 #include <stdio.h>
 #include <fcntl.h>
-#include <linux/fb.h>
-#include <sys/mman.h>
-#include <sys/ioctl.h>
+//#include <linux/fb.h>
+//#include <sys/mman.h>
+//#include <sys/ioctl.h>
 
 #include "XANDROIDFactory.h"
 #include "XANDROIDRand.h"

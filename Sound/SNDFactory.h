@@ -26,6 +26,9 @@
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 
+
+#ifdef SND_ACTIVE
+
 #ifndef _SNDFACTORY_H_
 #define _SNDFACTORY_H_
 
@@ -91,5 +94,8 @@ class SNDFACTORY : public XSUBJECT
 
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+
+#endif
+
 
 #endif

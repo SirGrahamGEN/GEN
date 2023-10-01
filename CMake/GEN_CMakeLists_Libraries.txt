@@ -182,8 +182,9 @@ endif()
   
 if(COMPILE_FOR_ANDROID)
 
-  #target_link_libraries(${CMAKE_PROJECT_NAME}  android log)
-
+  target_link_libraries(${CMAKE_PROJECT_NAME}  android log)
+  
+  
 endif()
 
 

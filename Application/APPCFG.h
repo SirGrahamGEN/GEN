@@ -207,6 +207,7 @@
 // ID Sections "generic" of LOG
 #define APP_CFG_LOG_SECTIONID_INITIATION                                          __L("Ini")
 #define APP_CFG_LOG_SECTIONID_GENERIC                                             __L("General")
+#define APP_CFG_LOG_SECTIONID_CONNEXIONS                                          __L("Connexions")
 #define APP_CFG_LOG_SECTIONID_STATUSAPP                                           __L("Status")
 #define APP_CFG_LOG_SECTIONID_ENDING                                              __L("End")
 

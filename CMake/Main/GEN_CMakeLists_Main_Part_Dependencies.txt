@@ -12,25 +12,25 @@ add_definitions(-DUNICODE)
 
 if(COMPILE_FOR_WINDOWS)
   
-  option(XFILE_FEATURE          "XFile"           true)
-  option(XTRANSLATION_FEATURE   "Translation"     true)        
+  option(XFILE_FEATURE          "XFile"                 true)
+  option(XTRANSLATION_FEATURE   "Translation"           true)        
      
 endif()
 
 
 if(COMPILE_FOR_LINUX)
  
-  option(XFILE_FEATURE            "XFile"           true)
-  option(XTRANSLATION_FEATURE     "Translation"     true)  
+  option(XFILE_FEATURE            "XFile"               true)
+  option(XTRANSLATION_FEATURE     "Translation"         true)  
    
-  option(XPROCESSMANAGER_FEATURE  "Process Manager" true)    # TO REVISATED 
+  option(XPROCESSMANAGER_FEATURE  "Process Manager"     true)    # TO REVISATED 
   
 endif()
 
  
 if(COMPILE_FOR_ANDROID)      
 
-  option(XTRANSLATION_FEATURE "Translation" true)        
+  option(XTRANSLATION_FEATURE     "Translation"         true)  
  
 endif()   
 
@@ -42,9 +42,9 @@ endif()
 
 if(COMPILE_FOR_ESP32)
 
-  option(XSLEEP_FEATURE          "Sleep functions"       true)
-  option(XSYSTEM_FEATURE         "System functions"      true)
-  option(XTRANSLATION_FEATURE    "Translation"           true)
+  option(XSLEEP_FEATURE          "Sleep functions"      true)
+  option(XSYSTEM_FEATURE         "System functions"     true)
+  option(XTRANSLATION_FEATURE    "Translation"          true)
 
 endif()
 

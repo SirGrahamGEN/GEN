@@ -271,11 +271,17 @@ GRPBITMAP* GRPBITMAPFILEJPG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEJPG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
 {
-  if(!bitmap)        return false;
+  if(!bitmap)        
+    {
+      return false;
+    }
 
-  if(!Create(xpath)) return false;
+  if(!Create(xpath)) 
+    {
+      return false;
+    }
 
-  int size = bitmap->GetWidth() * bitmap->GetHeight() * 3;
+  int size    = bitmap->GetWidth() * bitmap->GetHeight() * 3;
   bool status = true;
 
   XBYTE* databuffer = new XBYTE[size];
@@ -299,7 +305,10 @@ bool GRPBITMAPFILEJPG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 
     } else status = false;
 
-  status = EncodeToFile(bitmap->GetWidth(), bitmap->GetHeight(),  databuffer, quality, false);
+  if(status)
+    {
+      status = EncodeToFile(bitmap->GetWidth(), bitmap->GetHeight(),  databuffer, quality, false);
+    }
 
   delete [] databuffer;
 
