@@ -231,8 +231,8 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
       return;
     }
 
-  windowsposx = 0;
-  windowsposy = 0;
+  windowsposx = 0xFFFFFF;
+  windowsposy = 0xFFFFFF;
  
   XVECTOR<XPROCESS*>  applist;
   XSTRING             appname       = (*params->Get(0));
@@ -331,6 +331,12 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
                                         }     
                                      } 
 
+                                  if(!found)
+                                    {
+                                      windowsposx = 0xFFFFFE;
+                                      windowsposy = 0xFFFFFE;
+                                    }
+
                                   delete bitmapscreen;
 
                                   GEN_GRPFACTORY.DeleteScreen(screen);                                
@@ -380,32 +386,7 @@ void Call_Window_GetPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
       script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
       return;
     }
- 
-  /*
-  XVECTOR<XPROCESS*>  applist;
-  XSTRING             appname       = (*params->Get(0));
-  XSTRING             windowstitle  = (*params->Get(1));
-  int                 windowsposy   = 0; 
-  
-  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
-    {
-      for(XDWORD c=0; c<applist.GetSize(); c++)
-        {                              
-          if(applist.Get(c)->GetName()->Find(appname, true)!= XSTRING_NOTFOUND) 
-            {  
-              if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
-                {
-                  windowsposy = applist.Get(c)->GetWindowRect()->y1;
-                  break;
-                }
-            }
-        }
-    }
-    
-  applist.DeleteContents();
-  applist.DeleteAll();
-  */
-   
+
   (*returnvalue) = windowsposy;
 }
 
