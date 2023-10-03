@@ -840,7 +840,7 @@ void WINDOWSSERVICE::On_Stop()
   
   if(MustRestartService())
     {
-      //XWINDOWSSERVICEBASE::Start(APPMODE_SERVICE_NAME);    
+     
     }
 }
 
