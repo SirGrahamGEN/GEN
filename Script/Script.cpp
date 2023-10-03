@@ -412,6 +412,9 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRA
                             {                          
                               XPATH xpath;     
 
+                              namescript->DeleteCharacter(__C(' '), XSTRINGCONTEXT_FROM_FIRST);
+                              namescript->DeleteCharacter(__C(' '), XSTRINGCONTEXT_TO_END);
+
                               GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_SCRIPTS, xpath);
                               xpath.Slash_Add();
                               xpath += namescript->Get();
