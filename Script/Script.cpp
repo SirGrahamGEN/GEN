@@ -397,6 +397,8 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRA
               XSTRING* namescript = namescripts.Get(0);
               if(namescript)
                 {
+                  SCRIPT::EliminateExtraChars(namescript);
+                  
                   SCRIPT* script = SCRIPT::Create(namescript->Get());
                   if(script) 
                     {
@@ -410,11 +412,10 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRA
                           namescript = namescripts.Get(d);
                           if(namescript)
                             {                          
-                              XPATH xpath;     
+                              XPATH xpath;   
 
-                              namescript->DeleteCharacter(__C(' '), XSTRINGCONTEXT_FROM_FIRST);
-                              namescript->DeleteCharacter(__C(' '), XSTRINGCONTEXT_TO_END);
-
+                              SCRIPT::EliminateExtraChars(namescript);
+                  
                               GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_SCRIPTS, xpath);
                               xpath.Slash_Add();
                               xpath += namescript->Get();
@@ -977,6 +978,39 @@ bool SCRIPT::SetErrorScript(int errorcode)
 bool SCRIPT::HaveError(int errorcode)
 {
   return (!errorcode)?false:true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SCRIPT::EliminateExtraChars(XSTRING* namescript)
+* @brief      EliminateExtraChars
+* @ingroup    SCRIPT
+* 
+* @param[in]  namescript : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SCRIPT::EliminateExtraChars(XSTRING* namescript)
+{
+  if(!namescript)
+    {
+      return false;
+    }
+
+  if(namescript->IsEmpty())
+    {
+      return false;
+    }
+
+  namescript->DeleteCharacter(__C(' '), XSTRINGCONTEXT_FROM_FIRST);
+  namescript->DeleteCharacter(__C(' '), XSTRINGCONTEXT_TO_END);
+
+  namescript->DeleteCharacter(__C('\t'), XSTRINGCONTEXT_FROM_FIRST);
+  namescript->DeleteCharacter(__C('\t'), XSTRINGCONTEXT_TO_END);
+  
+  return true;
 }
 
 

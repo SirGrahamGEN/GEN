@@ -155,6 +155,8 @@ class SCRIPT : public XSUBJECT
 
   private:
 
+    static bool                         EliminateExtraChars     (XSTRING* namescript);  
+
     void                                HandleEvent             (XEVENT* xevent);
 
     static void                         ThreadFunction          (void* data);
