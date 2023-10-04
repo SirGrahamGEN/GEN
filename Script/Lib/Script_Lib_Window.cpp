@@ -741,9 +741,7 @@ bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y
                   pos_base_tmp += bytesperline_base;                                   
                 }
                else
-                {
-                  // pos_base += bytesperline_base;
-  
+                {                 
                   x = 0; 
                   y = 0;
 
