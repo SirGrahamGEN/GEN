@@ -482,6 +482,50 @@ bool GRPWINDOWSSCREEN::Set_Focus()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool GRPWINDOWSSCREEN::Minimize(bool active)
+* @brief      Minimize
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  active : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPWINDOWSSCREEN::Minimize(bool active)
+{
+  if(!hwnd)
+    {
+      return false;
+    }
+
+  return ShowWindow(hwnd, active?SW_SHOWMINIMIZED:SW_NORMAL)?true:false; 
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPWINDOWSSCREEN::Maximize(bool active)
+* @brief      Maximize
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  active : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPWINDOWSSCREEN::Maximize(bool active)
+{
+  if(!hwnd)
+    {
+      return false;
+    }
+
+  return ShowWindow(hwnd, active?SW_SHOWMAXIMIZED:SW_NORMAL)?true:false; 
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         GRPBITMAP* GRPWINDOWSSCREEN::CaptureContent()
 * @brief      CaptureContent
 * @ingroup    PLATFORM_WINDOWS

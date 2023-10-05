@@ -520,6 +520,40 @@ bool GRPSCREEN::Set_Focus()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool GRPSCREEN::Minimize(bool active)
+* @brief      Minimize
+* @ingroup    GRAPHIC
+* 
+* @param[in]  active : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPSCREEN::Minimize(bool active)
+{
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPSCREEN::Maximize(bool active)
+* @brief      Maximize
+* @ingroup    GRAPHIC
+* 
+* @param[in]  active : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPSCREEN::Maximize(bool active)
+{
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         GRPBITMAP* GRPSCREEN::CaptureContent()
 * @brief      CaptureContent
 * @ingroup    GRAPHIC

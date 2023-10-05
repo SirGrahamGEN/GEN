@@ -81,7 +81,9 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
     XSTRING*                        GetAllLocalIP                   ();
     XSTRING*                        GetPublicIP                     ();
 
+    bool                            ChangeCadenceCheckInternet      (bool faster);
     bool                            ForceCheckIPs                   ();
+    bool                            DeactiveCheckIPs                ();
 
     XDATETIME*                      DateTime_GetLocal               (bool active_daylightsave =  true, bool active_meridian = true);
     XDATETIME*                      DateTime_GetUTC                 ();

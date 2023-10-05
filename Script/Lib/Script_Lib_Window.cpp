@@ -137,6 +137,8 @@ bool SCRIPT_LIB_WINDOW::AddLibraryFunctions(SCRIPT* script)
   script->AddLibraryFunction(this, __L("Window_SetFocus")       , Call_Window_SetFocus);
   script->AddLibraryFunction(this, __L("Window_SetPosition")    , Call_Window_SetPosition);
   script->AddLibraryFunction(this, __L("Window_Resize")         , Call_Window_Resize);
+  script->AddLibraryFunction(this, __L("Window_Minimize")       , Call_Window_Minimize);
+  script->AddLibraryFunction(this, __L("Window_Maximize")       , Call_Window_Maximize);
       
   return true;
 }
@@ -613,8 +615,152 @@ void Call_Window_Resize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
   (*returnvalue) = status;
 }
 
-#ifdef SCRIPT_LIB_WINDOWS_DEBUG
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_Window_Minimize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_Window_Minimize
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Window_Minimize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize()<3)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+ 
+  XVECTOR<XPROCESS*>  applist;
+  XSTRING             appname       = (*params->Get(0));
+  XSTRING             windowstitle  = (*params->Get(1));
+  bool                showstatus    = false;
+  bool                status        = false;
+
+  library->GetParamConverted(params->Get(2), showstatus);
+  
+  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
+    {
+      for(XDWORD c=0; c<applist.GetSize(); c++)
+        {                              
+          if(applist.Get(c)->GetName()->Find(appname, true)!= XSTRING_NOTFOUND) 
+            {  
+              if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
+                {
+                  void* handle_windows = applist.Get(c)->GetWindowHandle();
+                  
+                  if(handle_windows)
+                    {  
+                      GRPSCREEN* screen = GEN_GRPFACTORY.CreateScreen();
+                      if(screen)
+                        {
+                          screen->SetHandle(handle_windows);
+                          status = screen->Minimize(showstatus);
+                          
+                          GEN_GRPFACTORY.DeleteScreen(screen);  
+                        }
+                    } 
+                    
+                  break;
+                }
+            }
+        }
+    }
+    
+  applist.DeleteContents();
+  applist.DeleteAll();
+   
+  (*returnvalue) = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_Window_Maximize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      Call_Window_Maximize
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Window_Maximize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  returnvalue->Set();
+
+  if(params->GetSize()<3)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+ 
+  XVECTOR<XPROCESS*>  applist;
+  XSTRING             appname       = (*params->Get(0));
+  XSTRING             windowstitle  = (*params->Get(1));
+  bool                showstatus    = false;
+  bool                status        = false;
+
+  library->GetParamConverted(params->Get(2), showstatus);
+  
+  if(GEN_XPROCESSMANAGER.Application_GetRunningList(applist, true))
+    {
+      for(XDWORD c=0; c<applist.GetSize(); c++)
+        {                              
+          if(applist.Get(c)->GetName()->Find(appname, true)!= XSTRING_NOTFOUND) 
+            {  
+              if(applist.Get(c)->GetWindowTitle()->Find(windowstitle, false) != XSTRING_NOTFOUND)
+                {
+                  void* handle_windows = applist.Get(c)->GetWindowHandle();
+                  
+                  if(handle_windows)
+                    {  
+                      GRPSCREEN* screen = GEN_GRPFACTORY.CreateScreen();
+                      if(screen)
+                        {
+                          screen->SetHandle(handle_windows);
+                          status = screen->Maximize(showstatus);
+                          
+                          GEN_GRPFACTORY.DeleteScreen(screen);  
+                        }
+                    } 
+                    
+                  break;
+                }
+            }
+        }
+    }
+    
+  applist.DeleteContents();
+  applist.DeleteAll();
+   
+  (*returnvalue) = status;
+}
+
+
+#ifdef SCRIPT_LIB_WINDOWS_DEBUG
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 

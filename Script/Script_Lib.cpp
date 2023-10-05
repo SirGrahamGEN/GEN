@@ -147,6 +147,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, bool& value)
       case XVARIANT_TYPE_NULL           : break;
 
       case XVARIANT_TYPE_BOOLEAN        : value = (bool)(*variant)?true:false;
+                                          break;
       
       case XVARIANT_TYPE_INTEGER        : value = (int)(*variant)?true:false;
                                           break;

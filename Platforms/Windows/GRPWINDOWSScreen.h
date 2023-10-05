@@ -71,6 +71,8 @@ class GRPWINDOWSSCREEN : public GRPSCREEN
     void*                                 GetHandle                     ();
     void                                  SetHandle                     (void* handle_window);
     bool                                  Set_Focus                     ();
+    bool                                  Minimize                      (bool active);
+    bool                                  Maximize                      (bool active);
     GRPBITMAP*                            CaptureContent                ();
     
     void*                                 GetHDC                        ();

@@ -376,6 +376,58 @@ XSTRING* APPINTERNETSERVICES::GetPublicIP()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool APPINTERNETSERVICES::ChangeCadenceCheckInternet(bool faster)
+* @brief      ChangeCadenceCheckInternet
+* @ingroup    APPLICATION
+* 
+* @param[in]  faster : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPINTERNETSERVICES::ChangeCadenceCheckInternet(bool faster)
+{
+  if(xscheduler)
+    {
+      return false;
+    } 
+
+  if(cfg->InternetServices_GetCheckInternetStatusCadence() > 0)    
+    {
+      return false;
+    }
+
+  XSCHEDULERTASK* task = NULL; 
+
+  xscheduler->GetMutexScheduler()->Lock();
+  task = xscheduler->Task_GetForID(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET);  
+  xscheduler->GetMutexScheduler()->UnLock();
+      
+  if(task) 
+    {
+      XDATETIME xdatetimecadence;
+      XTIMER    xtimercadence;
+
+      xdatetimecadence.SetToZero();
+
+      xtimercadence.Reset();
+      xtimercadence.AddSeconds(faster?10:cfg->InternetServices_GetCheckInternetStatusCadence());
+
+      xtimercadence.GetMeasureToDate(&xdatetimecadence);
+
+      task->SetNCycles(XSCHEDULER_CYCLEFOREVER, &xdatetimecadence);
+      task->SetIsStartImmediatelyCycles(false);
+      task->SetIsActive(true);
+
+      return true;
+    }
+          
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool APPINTERNETSERVICES::ForceCheckIPs()
 * @brief      ForceCheckIPs
 * @ingroup    APPLICATION
@@ -390,6 +442,11 @@ bool APPINTERNETSERVICES::ForceCheckIPs()
       return false;
     } 
 
+  if(cfg->InternetServices_GetCheckIPsChangeCadence() > 0)
+    {
+      return false;
+    }
+
   XSCHEDULERTASK* task = NULL; 
 
   xscheduler->GetMutexScheduler()->Lock();
@@ -398,7 +455,45 @@ bool APPINTERNETSERVICES::ForceCheckIPs()
       
   if(task) 
     {
+      task->SetIsActive(true);
       task->StartConditionImmediately();       
+      return true;
+    }
+          
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPINTERNETSERVICES::DeactiveCheckIPs()
+* @brief      DeactiveCheckIPs
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPINTERNETSERVICES::DeactiveCheckIPs()
+{
+  if(xscheduler)
+    {
+      return false;
+    } 
+
+  if(cfg->InternetServices_GetCheckIPsChangeCadence() > 0)
+    {
+      return false;
+    }
+
+  XSCHEDULERTASK* task = NULL; 
+
+  xscheduler->GetMutexScheduler()->Lock();
+  task = xscheduler->Task_GetForID(APPINTERNETSERVICES_TASKID_GETIPS);  
+  xscheduler->GetMutexScheduler()->UnLock();
+      
+  if(task) 
+    {
+      task->SetIsActive(false);      
       return true;
     }
           
@@ -636,6 +731,9 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
               
               xevent.SetInternetConnexionState(APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_RESTORE);
               xevent.SetInternetConnextionCut(connectioncut);
+
+              ChangeCadenceCheckInternet(false);
+              ForceCheckIPs();
             }
            else
             {
@@ -645,6 +743,9 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
        else
         {
           xevent.SetInternetConnexionState(APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_CUT);
+
+          ChangeCadenceCheckInternet(true);
+          DeactiveCheckIPs();
         }              
     }
    else

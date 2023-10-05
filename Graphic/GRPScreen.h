@@ -107,6 +107,8 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     virtual void*                 GetHandle                     ();    
     virtual void                  SetHandle                     (void* handle_window);
     virtual bool                  Set_Focus                     ();
+    virtual bool                  Minimize                      (bool active);
+    virtual bool                  Maximize                      (bool active);
     virtual GRPBITMAP*            CaptureContent                ();
     
     bool                          UpdateSize                    (int width, int height);
