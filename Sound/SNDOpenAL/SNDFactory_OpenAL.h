@@ -59,7 +59,6 @@ class SNDELEMENT_OPENAL;
 class SNDSTREAMELEMENT_OPENAL;
 
 
-
 class SNDFACTORY_OPENAL : public SNDFACTORY
 {
   public:

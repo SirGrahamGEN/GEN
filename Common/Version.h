@@ -42,9 +42,9 @@
 
 #define VERSION_NAME         "GEN FrameWork"
 #define VERSION_VERSION      0
-#define VERSION_SUBVERSION   15
-#define VERSION_SUBERROR     3
-#define VERSION_CODENAME     "Deimos F3"
+#define VERSION_SUBVERSION   16
+#define VERSION_SUBERROR     0
+#define VERSION_CODENAME     "Dayan 4"
 
 #pragma endregion
 
