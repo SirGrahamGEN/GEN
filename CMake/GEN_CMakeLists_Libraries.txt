@@ -78,9 +78,21 @@ if(COMPILE_FOR_WINDOWS)
 
   if(DIO_PCAP_FEATURE)
 
-    target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_LIB})
+    if(COMPILE_FOR_WINDOWS_PC_32)
+    
+      target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_WINX32_LIB})
 
-   endif()  
+    endif()  
+
+   
+    if(COMPILE_FOR_WINDOWS_PC_64)
+    
+      target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_NPCAP_WINX64_LIB})
+
+    endif()  
+
+  endif()  
+
 
 endif()
 

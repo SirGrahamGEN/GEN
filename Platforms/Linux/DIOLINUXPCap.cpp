@@ -196,10 +196,28 @@ bool DIOLINUXPCAP::CreateListNetInterfaces()
       DIOPCAPNETINTERFACE* _netinterface = new DIOPCAPNETINTERFACE();
       if(_netinterface)
         {
-          XSTRING string;
+          _netinterface->GetName()->Set(netinterface->name);
+          _netinterface->GetDescription()->Set(netinterface->description);
 
-          string = netinterface->name;          _netinterface->SetName(string);
-          string = netinterface->description;   _netinterface->SetDescription(string);
+          if(netinterface->flags & PCAP_IF_UP)
+            {
+              _netinterface->SetIsUp(true);
+            }
+
+          if(netinterface->flags & PCAP_IF_RUNNING)
+            {
+              _netinterface->SetIsRunning(true);
+            }
+
+          if(netinterface->flags & PCAP_IF_WIRELESS)
+            {
+              _netinterface->SetIsWireless(true);
+            }
+
+          if(netinterface->flags & PCAP_IF_LOOPBACK)
+            {
+              _netinterface->SetIsLoopBack(true);
+            }
 
           netinterfaces.Add(_netinterface);
         }
