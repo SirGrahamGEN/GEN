@@ -63,15 +63,15 @@ endif()
 
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-
-  add_definitions(-DWINDOWS)
- 
+  
   option(COMPILE_ON_WINDOWS "Compile on Windows"  true)
   message(STATUS "[GEN Using Windows to compile]")
 
   if("${TARGET}" STREQUAL "PC") 
 
+    add_definitions(-DWINDOWS)
     add_definitions(-DHW_PC)
+
     option(COMPILE_FOR_WINDOWS "Compile to Windows General"  true)
 
     if(CMAKE_SIZEOF_VOID_P EQUAL 8)
@@ -96,6 +96,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
   if("${TARGET}" STREQUAL "ANDROID")   
 
     add_definitions(-DANDROID)  
+
     option(COMPILE_FOR_ANDROID "Compile to Android" true)
     message(STATUS "[GEN Compile for platform Android]")
 
@@ -104,7 +105,9 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
   if("${TARGET}" STREQUAL "STM32")
 
+    add_definitions(-DMICROCONTROLLER)
     add_definitions(-DHW_STM32)
+
     option(COMPILE_FOR_STM32 "Compile to STM32" true)
     message(STATUS "[GEN Compile for platform STM32]")
 
@@ -112,13 +115,13 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
   
   
   if("${TARGET}" STREQUAL "ESP32")
-
+ 
+    add_definitions(-DMICROCONTROLLER)
     add_definitions(-DHW_ESP32)
+
     option(COMPILE_FOR_ESP32 "Compile to ESP32" true)
     message(STATUS "[GEN Compile for platform ESP32]")
-
-    add_definitions(-DMICROCONTROLLER)
-
+ 
   endif()
 
 endif()

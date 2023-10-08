@@ -33,10 +33,7 @@
 
 #include "XVector.h"
 #include "XString.h"
-
-#ifndef MICROCONTROLLER
 #include "XPath.h"
-#endif
 
 #include "XLanguage_ISO_639_3.h"
 
@@ -101,6 +98,7 @@ class XTRANSLATION
     #ifdef XFILE_ACTIVE
     XPATH                             xpath;
     #endif
+
     XDWORD                            code;
 
     XLANGUAGE_ISO_639_3               ISO_639_3;

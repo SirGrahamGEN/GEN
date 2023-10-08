@@ -91,26 +91,38 @@ typedef struct
 #define __L(x)                          (XCHAR*)(L##x)
 #define __C(x)                          (XCHAR)(L##x)
 
+
 #if (defined(LINUX) || defined(ANDROID))
+
   #define SPRINTF(str, ...)       sprintf(str, ## __VA_ARGS__)
   #define SSCANF(str, ...)        sscanf(str, ## __VA_ARGS__)
+
 #else
 
   #if defined(WINDOWS)
+
     #if defined(BUILDER)
+
       #define SPRINTF             sprintf
       #define SSCANF              sscanf
+
     #else
+
       #define SPRINTF(str, ...)   sprintf_s(str, XSTRING_MAXTEMPOSTR-1, ## __VA_ARGS__)
       #define SSCANF(str, ...)    sscanf_s(str, ## __VA_ARGS__)
+
     #endif
+
   #endif
 
 #endif
 
-#ifdef MICROCONTROLLER
+
+#if defined(MICROCONTROLLER)
+
   #define SPRINTF(str, ...)       sprintf(str, ## __VA_ARGS__)
   #define SSCANF(str, ...)        sscanf(str, ## __VA_ARGS__)
+
 #endif
 
 
