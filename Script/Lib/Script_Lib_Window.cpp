@@ -298,6 +298,19 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
                                               xpathbitmaptest.Add(__L("back.png"));
 
                                               bitmapfileref->Save(xpathbitmaptest, bitmapscreen);
+
+                                              /*
+                                              GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_GRAPHICS, xpathbitmaptest);
+                                              xpathbitmaptest.Slash_Add();
+                                              xpathbitmaptest.Add(__L("image001.png"));
+
+                                              GRPBITMAP* bitmaprefcap = GetBitmap(10, 418, 74, 11);
+                                              if(bitmaprefcap)
+                                                {
+                                                  bitmapfileref->Save(xpathbitmaptest, bitmaprefcap);
+                                                  delete bitmaprefcap;
+                                                }
+                                              */  
                                               #endif
                             
                                               GRPBITMAP* bitmapref = bitmapfileref->Load();         
@@ -307,7 +320,7 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
                                                   int y = 0;                                              
 
                                                   #ifdef SCRIPT_LIB_WINDOWS_DEBUG
-                                                  if(FindSubBitmap(bitmapscreen, bitmapref, x, y, 2))    
+                                                  if(FindSubBitmap(bitmapscreen, bitmapref, x, y, 48))    
                                                   #else                                                
                                                   if(bitmapscreen->FindSubBitmap(bitmapref, x, y, 2))
                                                   #endif    
@@ -971,6 +984,45 @@ bool PutBitmap(int x, int y, GRPBITMAP* bitmap)
     }
   
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPBITMAP* GetBitmap(int x, int y, int sizex, int sizey)
+* @brief      etBitmap
+* @ingroup    SCRIPT
+* 
+* @param[in]  x : 
+* @param[in]  y : 
+* @param[in]  sizex : 
+* @param[in]  sizey : 
+* 
+* @return     GRPBITMAP* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPBITMAP* GetBitmap(int x, int y, int sizex, int sizey)
+{
+  if(!SCRIPT_LIB_WINDOW::GetAppGraphics())
+    {
+      return NULL;
+    }
+                                        
+  GRPVIEWPORT* viewport = NULL;
+  GRPCANVAS*   canvas   = NULL;
+  GRPSCREEN*   screen   = SCRIPT_LIB_WINDOW::GetAppGraphics()->GetMainScreen();
+  GRPBITMAP*   bitmap   = NULL;
+
+  if(screen) viewport = screen->GetViewport(0);
+  if(viewport) canvas = viewport->GetCanvas();
+
+  if(canvas)
+    {
+      bitmap = canvas->GetBitmap(x, y, sizex, sizey);  
+      screen->UpdateViewports();                                              
+    }
+  
+  return bitmap;
 }
 
 
