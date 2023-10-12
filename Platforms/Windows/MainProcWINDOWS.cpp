@@ -85,8 +85,7 @@
 #endif
 
 #ifdef SND_ACTIVE
-#include "SNDFactory_OpenAL.h"
-#include "SNDFactory.h"
+#include "SNDWINDOWSFactory.h"
 #endif
 
 #ifdef DIO_ACTIVE
@@ -429,7 +428,7 @@ bool MAINPROCWINDOWS::Factorys_Ini()
   #endif
 
   #ifdef SND_ACTIVE
-  if(!SNDFACTORY::SetInstance(new SNDFACTORY_OPENAL())) return false;
+  if(!SNDFACTORY::SetInstance(new SNDWINDOWSFACTORY())) return false;
   #endif
 
   #ifdef GRP_ACTIVE
