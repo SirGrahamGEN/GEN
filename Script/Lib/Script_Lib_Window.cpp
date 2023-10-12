@@ -96,6 +96,9 @@ APPGRAPHICS*   SCRIPT_LIB_WINDOW::appgraphics = NULL;
 SCRIPT_LIB_WINDOW::SCRIPT_LIB_WINDOW() : SCRIPT_LIB(SCRIPT_LIB_NAME_WINDOW)
 {
   Clean();
+  
+  bmpfindCFG_difflimitpercent = 2;
+  bmpfindCFG_pixelmargin      = 10;
 }
 
 
@@ -134,6 +137,7 @@ bool SCRIPT_LIB_WINDOW::AddLibraryFunctions(SCRIPT* script)
 
   script->AddLibraryFunction(this, __L("Window_GetPosX")        , Call_Window_GetPosX);
   script->AddLibraryFunction(this, __L("Window_GetPosY")        , Call_Window_GetPosY);
+  script->AddLibraryFunction(this, __L("Window_SetBmpFindCFG")  , Call_Window_SetBmpFindCFG);
   script->AddLibraryFunction(this, __L("Window_SetFocus")       , Call_Window_SetFocus);
   script->AddLibraryFunction(this, __L("Window_SetPosition")    , Call_Window_SetPosition);
   script->AddLibraryFunction(this, __L("Window_Resize")         , Call_Window_Resize);
@@ -141,6 +145,70 @@ bool SCRIPT_LIB_WINDOW::AddLibraryFunctions(SCRIPT* script)
   script->AddLibraryFunction(this, __L("Window_Maximize")       , Call_Window_Maximize);
       
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE SCRIPT_LIB_WINDOW::BmpFindCFG_GetDiffLimitPercent()
+* @brief      BmpFindCFG_GetDiffLimitPercent
+* @ingroup    SCRIPT
+* 
+* @return     XBYTE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBYTE SCRIPT_LIB_WINDOW::BmpFindCFG_GetDiffLimitPercent()
+{
+  return bmpfindCFG_difflimitpercent;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SCRIPT_LIB_WINDOW::BmpFindCFG_SetDiffLimitPercent(XBYTE difflimitpercent)
+* @brief      BmpFindCFG_SetDiffLimitPercent
+* @ingroup    SCRIPT
+* 
+* @param[in]  difflimitpercent : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SCRIPT_LIB_WINDOW::BmpFindCFG_SetDiffLimitPercent(XBYTE difflimitpercent)
+{
+  bmpfindCFG_difflimitpercent = difflimitpercent;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE SCRIPT_LIB_WINDOW::BmpFindCFG_GetPixelMargin()
+* @brief      BmpFindCFG_GetPixelMargin
+* @ingroup    SCRIPT
+* 
+* @return     XBYTE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBYTE SCRIPT_LIB_WINDOW::BmpFindCFG_GetPixelMargin()
+{
+  return bmpfindCFG_pixelmargin;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SCRIPT_LIB_WINDOW::BmpFindCFG_SetPixelMargin(XBYTE pixelmargin)
+* @brief      BmpFindCFG_SetPixelMargin
+* @ingroup    SCRIPT
+* 
+* @param[in]  pixelmargin : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SCRIPT_LIB_WINDOW::BmpFindCFG_SetPixelMargin(XBYTE pixelmargin)
+{
+  bmpfindCFG_pixelmargin = pixelmargin;
 }
 
 
@@ -190,9 +258,12 @@ void SCRIPT_LIB_WINDOW::SetAppGraphics(APPGRAPHICS* _appgraphics)
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_WINDOW::Clean()
-{
-  windowsposx = 0;
-  windowsposy = 0;
+{ 
+  windowsposx                 = 0;
+  windowsposy                 = 0;
+
+  bmpfindCFG_difflimitpercent = 2;
+  bmpfindCFG_pixelmargin      = 10;
 
   #ifdef SCRIPT_LIB_WINDOWS_DEBUG
   appgraphics = NULL;
@@ -224,6 +295,8 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
   if(!script)       return;
   if(!params)       return;
   if(!returnvalue)  return;
+
+  SCRIPT_LIB_WINDOW* windows_library = (SCRIPT_LIB_WINDOW*)library;
 
   returnvalue->Set();
 
@@ -317,12 +390,12 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
                                               if(bitmapref)
                                                 {
                                                   int x = 0;
-                                                  int y = 0;                                              
+                                                  int y = 0;   
 
                                                   #ifdef SCRIPT_LIB_WINDOWS_DEBUG
-                                                  if(FindSubBitmap(bitmapscreen, bitmapref, x, y, 48))    
+                                                  if(FindSubBitmap(bitmapscreen, bitmapref, x, y, windows_library->BmpFindCFG_GetDiffLimitPercent(), windows_library->BmpFindCFG_GetPixelMargin()))    
                                                   #else                                                
-                                                  if(bitmapscreen->FindSubBitmap(bitmapref, x, y, 2))
+                                                  if(bitmapscreen->FindSubBitmap(bitmapref, x, y, windows_library->BmpFindCFG_GetDiffLimitPercent(), windows_library->BmpFindCFG_GetPixelMargin()))
                                                   #endif    
                                                     {
                                                       windowsposx += (x + (bitmapref->GetWidth() /2) + applist.Get(c)->GetWindowBorderWidth()); 
@@ -405,6 +478,54 @@ void Call_Window_GetPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
   (*returnvalue) = windowsposy;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void Call_Window_SetBmpFindCFG(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_Window_SetBmpFindCFG
+* @ingroup    SCRIPT
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void Call_Window_SetBmpFindCFG(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+{
+  if(!library)      return;
+  if(!script)       return;
+  if(!params)       return;
+  if(!returnvalue)  return;
+
+  SCRIPT_LIB_WINDOW* windows_library = (SCRIPT_LIB_WINDOW*)library;
+  bool               status = false; 
+
+  returnvalue->Set();
+
+  (*returnvalue) = status;
+
+  if(params->GetSize()<2)
+    {
+      script->HaveError(SCRIPT_ERRORCODE_INSUF_PARAMS);
+      return;
+    }
+
+  int bmpfindCFG_difflimitpercent = 0;
+  int bmpfindCFG_pixelmargin      = 0;
+
+  library->GetParamConverted(params->Get(0), bmpfindCFG_difflimitpercent);
+  library->GetParamConverted(params->Get(1), bmpfindCFG_pixelmargin);
+
+  windows_library->BmpFindCFG_SetDiffLimitPercent((XBYTE)bmpfindCFG_difflimitpercent);
+  windows_library->BmpFindCFG_SetPixelMargin((XBYTE)bmpfindCFG_pixelmargin);
+
+  status = true;
+
+  (*returnvalue) =  status;
+}
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -800,7 +921,45 @@ bool DifferencesPerCent(XDWORD ndiff, XDWORD max, int limit)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent)
+* @fn         bool IsSimilarPixel(XDWORD origin, XDWORD target, XBYTE margin)
+* @brief      sSimilarPixel
+* @ingroup    SCRIPT
+* 
+* @param[in]  origin : 
+* @param[in]  target : 
+* @param[in]  margin : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool IsSimilarPixel(XDWORD origin, XDWORD target, XBYTE margin)
+{
+  XBYTE* originRGBA = (XBYTE*)&origin;
+  XBYTE* targetRGBA = (XBYTE*)&target;  
+  bool   status     = false;
+
+  int ncomponent = 0;
+
+  for(int c=0; c<4; c++)
+    {
+      if(abs(originRGBA[c] - targetRGBA[c]) > margin)
+        {
+          ncomponent++;
+        }
+    }
+
+  if(!ncomponent) 
+    {
+      status = true;
+    }  
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent, XBYTE pixelmargin)
 * @brief      indSubBitmap
 * @ingroup    SCRIPT
 * 
@@ -809,11 +968,12 @@ bool DifferencesPerCent(XDWORD ndiff, XDWORD max, int limit)
 * @param[in]  x : 
 * @param[in]  y : 
 * @param[in]  difflimitpercent : 
+* @param[in]  pixelmargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent)
+bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent, XBYTE pixelmargin)
 {
   x = 0; 
   y = 0;
@@ -833,88 +993,86 @@ bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y
     {
       return false;
     }
-  
-  XDWORD  bytesperline_bmp  = bitmapscreen->GetBytesperPixel() * _bitmap->GetWidth();
-  XBYTE*  bufferbitmap      = _bitmap->GetBuffer();
-  bool    found             = true;
 
-  if(!bufferbitmap)
+  if(!_bitmap->GetBuffer())
     {
       return false;
     }
-
-  XDWORD pos_base = 0;
-  XDWORD pos_bmp  = 0;   
-  XDWORD ndiff    = 0;
-
-  for(; pos_base < (bitmapscreen->GetBufferSize() - bytesperline_bmp); pos_base++)
+  
+  XDWORD*   bufferscreen        = (XDWORD*)bitmapscreen->GetBuffer();
+  XDWORD*   bufferbitmap        = (XDWORD*)_bitmap->GetBuffer();
+  XDWORD    sizepìxel           = sizeof(XDWORD);
+  XDWORD    bufferscreensize    = (bitmapscreen->GetBufferSize() / sizepìxel);
+  XDWORD    bufferbmplinesize   = _bitmap->GetWidth();
+  XDWORD    ndiff               = 0;
+  bool      found               = false;
+  
+  for(XDWORD scrpos = 0; scrpos < bufferscreensize; scrpos++)
     {
       ndiff = 0;
-      for(XDWORD d=0; d < bytesperline_bmp; d++)
-        {
-          if(bitmapscreen->GetBuffer()[pos_base + d] != bufferbitmap[d])
-            {       
-              ndiff++;             
-            }
-           else
+      for(XDWORD bmppos = 0; bmppos < bufferbmplinesize; bmppos++)  
+        {    
+          if(bufferscreen[scrpos + bmppos] != bufferbitmap[bmppos])
             {
-              //bitmapscreen->GetBuffer()[pos_base + d] = 0x00;
-              //PutBitmap(0, 0, bitmapscreen);           
-            }
-        } 
-
-      found = DifferencesPerCent(ndiff, bytesperline_bmp, difflimitpercent);
-      if(found)
-        {          
-          XDWORD bytesperline_base = bitmapscreen->GetBytesperPixel() * bitmapscreen->GetWidth();
-
-          x =  (pos_base % bytesperline_base) / bitmapscreen->GetBytesperPixel();
-          y =  bitmapscreen->GetHeight() - (pos_base / bytesperline_base) - _bitmap->GetHeight();
-
-          XDWORD pos_base_tmp = pos_base; 
-
-          pos_bmp  = 0; 
-          
-          for(XDWORD line = 0; line < _bitmap->GetHeight(); line++)
-            { 
-              ndiff = 0;     
-                    
-              for(XDWORD d=0; d<bytesperline_bmp; d++)
+              if(!IsSimilarPixel(bufferscreen[scrpos + bmppos], bufferbitmap[bmppos], pixelmargin))
                 {
-                  if(bitmapscreen->GetBuffer()[pos_base_tmp + d] != bufferbitmap[pos_bmp])
-                    {
-                      ndiff++;
-                    }
-                   else
-                    {
-                      //bitmapscreen->GetBuffer()[pos_base_tmp + d] = 0x00;
-                      //PutBitmap(0, 0, bitmapscreen);
-                    }     
-
-                  pos_bmp++;
-                } 
-
-              found = DifferencesPerCent(ndiff, bytesperline_bmp, difflimitpercent);  
-              if(found)
-                {
-                  pos_base_tmp += bytesperline_base;                                   
+                  ndiff++;
                 }
-               else
-                {                 
-                  x = 0; 
-                  y = 0;
-
-                  break;  
-                }  
-            } 
-
-          if(found)
-            {
-              break;    
-            }       
+            }
         }
-    }
+               
+      found = DifferencesPerCent(ndiff, bufferbmplinesize, difflimitpercent);
+      if(found)
+        {
+          //FillLineDebug(bitmapscreen, bufferscreen, scrpos, bufferbmplinesize, 0xFF0000FF);
+          
+          found = false;
 
+          XDWORD srcpixelsline  = bitmapscreen->GetWidth();
+          XDWORD scrpos_tmp     = scrpos;
+          XDWORD bmppos_tmp     = bufferbmplinesize;
+         
+          x =  (scrpos % bitmapscreen->GetWidth());
+          y =  bitmapscreen->GetHeight() - (scrpos / srcpixelsline) - _bitmap->GetHeight();           
+
+          scrpos_tmp += srcpixelsline;              
+    
+          for(XDWORD line = 1; line < _bitmap->GetHeight(); line++)
+            {                                                   
+              ndiff = 0;
+              for(XDWORD bmppos = 0; bmppos < bufferbmplinesize; bmppos++)  
+                {    
+                  if(bufferscreen[scrpos_tmp + bmppos] != bufferbitmap[bmppos_tmp])
+                    {
+                      if(!IsSimilarPixel(bufferscreen[scrpos_tmp + bmppos], bufferbitmap[bmppos_tmp], pixelmargin))
+                        {
+                          ndiff++;
+                        }
+                    }  
+                  
+                  bmppos_tmp++;
+                }
+              
+              found = DifferencesPerCent(ndiff, bufferbmplinesize, difflimitpercent);              
+
+              if(!found)
+                {
+                  break;              
+                }
+
+              //FillLineDebug(bitmapscreen, bufferscreen, scrpos_tmp, bufferbmplinesize, 0xFF0000FF);
+
+              scrpos_tmp += srcpixelsline;
+
+            }
+
+          if(found)                  
+            {
+              break;
+            }              
+        }  
+    } 
+  
   if(!found)
     {
       x = 0;
@@ -942,12 +1100,11 @@ bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y
           screen->UpdateViewports();
         }      
     }
-
+ 
   delete _bitmap;
-
-  return found;
+  
+  return found;  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1024,6 +1181,33 @@ GRPBITMAP* GetBitmap(int x, int y, int sizex, int sizey)
   
   return bitmap;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void FillLineDebug(GRPBITMAP* bitmapscreen, XDWORD* bufferscreen, XDWORD scrpos, XDWORD linesize, XDWORD color)
+* @brief      illLineDebug
+* @ingroup    SCRIPT
+* 
+* @param[in]  bitmapscreen : 
+* @param[in]  bufferscreen : 
+* @param[in]  scrpos : 
+* @param[in]  linesize : 
+* @param[in]  color : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void FillLineDebug(GRPBITMAP* bitmapscreen, XDWORD*  bufferscreen, XDWORD scrpos, XDWORD linesize, XDWORD color)
+{
+  for(XDWORD c=scrpos; c<(scrpos + linesize); c++)
+    {
+      bufferscreen[c] = color; // 0xFF0000FF;
+    }
+
+  PutBitmap(0, 0, bitmapscreen);
+}
+
 
 
 #endif

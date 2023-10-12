@@ -83,14 +83,15 @@ class GRPBITMAP : public GRPPROPERTIES
     virtual bool                                          Crop                            (GRPRECTINT& rect);
 
     bool                                                  Compare                         (GRPBITMAP* bitmap);
-    bool                                                  FindSubBitmap                   (GRPBITMAP* ref, int& x, int& y, XBYTE difflimitpercent = 2);
-
+    bool                                                  FindSubBitmap                   (GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent = 2, XBYTE pixelmargin = 10);
+    
     XDWORD                                                GetHandle                       ();
     void                                                  SetHandle                       (XDWORD handle);
 
   protected:
 
     bool                                                  DifferencesPerCent              (XDWORD ndiff, XDWORD max, int limit);
+    bool                                                  IsSimilarPixel                  (XDWORD origin, XDWORD target, XBYTE margin);
 
     XBYTE*                                                buffer;
     int                                                   buffersize;

@@ -68,19 +68,28 @@ class APPGRAPHICS;
 class SCRIPT_LIB_WINDOW : public SCRIPT_LIB
 {
   public:
-                          SCRIPT_LIB_WINDOW             ();
-    virtual              ~SCRIPT_LIB_WINDOW             ();
+                          SCRIPT_LIB_WINDOW                     ();
+    virtual              ~SCRIPT_LIB_WINDOW                     ();
 
-    bool                  AddLibraryFunctions           (SCRIPT* script);
+    bool                  AddLibraryFunctions                   (SCRIPT* script);
+
+    XBYTE                 BmpFindCFG_GetDiffLimitPercent        ();
+    void                  BmpFindCFG_SetDiffLimitPercent        (XBYTE difflimitpercent);
+    XBYTE                 BmpFindCFG_GetPixelMargin             ();
+    void                  BmpFindCFG_SetPixelMargin             (XBYTE pixelmargin);
+
 
     #ifdef SCRIPT_LIB_WINDOWS_DEBUG
-    static APPGRAPHICS*   GetAppGraphics                ();
-    static void           SetAppGraphics                (APPGRAPHICS* appgraphics);
+    static APPGRAPHICS*   GetAppGraphics                        ();
+    static void           SetAppGraphics                        (APPGRAPHICS* appgraphics);
     #endif
 
   private:
 
-    void                  Clean                         ();
+    void                  Clean                                 ();
+
+    XBYTE                 bmpfindCFG_difflimitpercent;
+    XBYTE                 bmpfindCFG_pixelmargin;
 
     #ifdef SCRIPT_LIB_WINDOWS_DEBUG
     static APPGRAPHICS*   appgraphics;
@@ -96,6 +105,7 @@ class SCRIPT_LIB_WINDOW : public SCRIPT_LIB
 
 void        Call_Window_GetPosX           (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void        Call_Window_GetPosY           (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
+void        Call_Window_SetBmpFindCFG     (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void        Call_Window_SetFocus          (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void        Call_Window_SetPosition       (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
 void        Call_Window_Resize            (SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue);
@@ -105,9 +115,11 @@ void        Call_Window_Maximize          (SCRIPT_LIB* library, SCRIPT* script, 
 #ifdef SCRIPT_LIB_WINDOWS_DEBUG
 
 bool        DifferencesPerCent            (XDWORD ndiff, XDWORD max, int limit);
-bool        FindSubBitmap                 (GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent = 2);
+bool        IsSimilarPixel                (XDWORD origin, XDWORD target, XBYTE margin);
+bool        FindSubBitmap                 (GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent = 2, XBYTE pixelmargin = 25);
 bool        PutBitmap                     (int x, int y, GRPBITMAP* bitmap);
 GRPBITMAP*  GetBitmap                     (int x, int y, int sizex, int sizey);
+void        FillLineDebug                 (GRPBITMAP* bitmapscreen, XDWORD*  bufferscreen, XDWORD scrpos, XDWORD linesize, XDWORD color);
 
 #endif
 
