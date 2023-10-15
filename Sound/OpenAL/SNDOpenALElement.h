@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDFactory_XEvent.h
+* @file       SNDOpenALElement.h
 * 
-* @class      SNDFACTORY_XEVENT
-* @brief      Sound Factory eXtended event class
+* @class      SNDOPENALELEMENT
+* @brief      Sound OpenAL element class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,14 +26,16 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SNDFACTORY_XEVENT_H_
-#define _SNDFACTORY_XEVENT_H_
+#ifndef _SNDOPENALELEMENT_H_
+#define _SNDOPENALELEMENT_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XEvent.h"
-#include "XString.h"
+#include "XVector.h"
+#include "XPath.h"
+
+#include "SNDElement.h"
 
 #pragma endregion
 
@@ -41,12 +43,6 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-enum SNDFACTORY_XEVENT_TYPE
-{
-  SNDFACTORY_XEVENT_TYPE_UNKNOWN          = XEVENT_TYPE_SOUND ,
-  SNDFACTORY_XEVENT_TYPE_STOP                                 ,
-  SNDFACTORY_XEVENT_TYPE_PLAY                                 ,  
-};
 
 #pragma endregion
 
@@ -54,41 +50,47 @@ enum SNDFACTORY_XEVENT_TYPE
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SNDELEMENT;
-class SNDSOURCE;
-class SNDINSTANCE;
+class XFACTORY;
+class SNDOPENALBUFFER;
+class SNDOPENALSOURCE;
 
-class SNDFACTORY_XEVENT : public XEVENT
-{
+class SNDOPENALELEMENT : public SNDELEMENT
+{  
   public:
-                                SNDFACTORY_XEVENT       (XSUBJECT* subject, XDWORD type = SNDFACTORY_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_SOUND);
-    virtual                    ~SNDFACTORY_XEVENT       ();
-
-    SNDFACTORY_XEVENT_TYPE      GetType                 ();
-    void                        SetType                 (SNDFACTORY_XEVENT_TYPE type);
-        
-    XSTRING*                    GetID                   ();
-
-    SNDELEMENT*                 GetElement              ();
-    void                        SetElement              (SNDELEMENT* element);
+                                  SNDOPENALELEMENT                      (XPATH* xpath);
+    virtual                      ~SNDOPENALELEMENT                      ();
+   
+    bool                          GetLoop                               ();                              
+    void                          SetLoop                               (bool loop);
     
-    SNDSOURCE*                  GetSource               ();
-    void                        SetSource               (SNDSOURCE* source);    
+    void                          SetVolume                             (float volume);
+    float                         GetVolume                             ();
 
-    SNDINSTANCE*                GetInstance             ();
-    void                        SetInstance             (SNDINSTANCE* instance);
+    void                          SetPitch                              (float pitch);
+    float                         GetPitch                              ();
+
+    void                          SetFile                               (SNDFILE* file);
+
+
+    void                          AddSource                             (SNDOPENALSOURCE* source);
+    void                          SetSource                             (SNDOPENALSOURCE* source);                                  
+    SNDOPENALSOURCE*              GetSource                             ();
+
+    SNDOPENALBUFFER*              GetBuffer                             ();
+
+    void                          Queue                                 ();
     
-  protected:
-
-    SNDFACTORY_XEVENT_TYPE      type;
-    XSTRING                     ID;
-    SNDELEMENT*                 element;
-    SNDSOURCE*                  source;
-    SNDINSTANCE*                instance;
-
   private:
 
-    void                        Clean                   ();                              
+    void                          Clean                                 ();
+
+    SNDOPENALBUFFER*              buffer;
+
+    XVECTOR<SNDOPENALSOURCE*>     sources;
+    SNDOPENALSOURCE*              lastsource;
+
+    XPATH*                        xpath;
+    XSTRING                       ID;
 };
 
 #pragma endregion
@@ -102,4 +104,3 @@ class SNDFACTORY_XEVENT : public XEVENT
 
 
 #endif
-

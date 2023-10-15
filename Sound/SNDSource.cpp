@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDFactory.cpp
+* @file       SNDSource.cpp
 * 
-* @class      SNDFACTORY
-* @brief      Sound Factory class
+* @class      SNDSOURCE
+* @brief      Sound source class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,9 +37,9 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "SNDFactory.h"
+#include "SNDSource.h"
 
-#include "SNDFactory_XEvent.h"
+#include "SNDInstance.h"
 
 #include "XMemory_Control.h"
 
@@ -48,8 +48,6 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
-
-SNDFACTORY* SNDFACTORY::instance = NULL;
 
 #pragma endregion
 
@@ -60,25 +58,22 @@ SNDFACTORY* SNDFACTORY::instance = NULL;
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDFACTORY::SNDFACTORY()
+* @fn         SNDSOURCE::SNDSOURCE()
 * @brief      Constructor
 * @ingroup    SOUND
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDFACTORY::SNDFACTORY()
-{
-  Clean();
-
-  RegisterEvent(SNDFACTORY_XEVENT_TYPE_STOP);
-  RegisterEvent(SNDFACTORY_XEVENT_TYPE_PLAY);
+SNDSOURCE::SNDSOURCE()
+{ 
+  Clean();                          
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDFACTORY::~SNDFACTORY()
+* @fn         SNDSOURCE::~SNDSOURCE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
@@ -86,291 +81,168 @@ SNDFACTORY::SNDFACTORY()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDFACTORY::~SNDFACTORY()
-{
-  DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_STOP);
-  DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_PLAY);
-
-  Clean();
+SNDSOURCE::~SNDSOURCE()
+{ 
+  Clean();                          
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::GetIsInstanced()
-* @brief      GetIsInstanced
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::GetIsInstanced()
-{
-  return (instance!=NULL);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDFACTORY& SNDFACTORY::GetInstance()
-* @brief      GetInstance
-* @ingroup    SOUND
-* 
-* @return     SNDFACTORY& : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDFACTORY& SNDFACTORY::GetInstance()
-{
-  if(!instance) instance = new SNDFACTORY();
-
-  return (*instance);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::SetInstance(SNDFACTORY* _instance)
+* @fn         void SNDSOURCE::SetInstance(SNDINSTANCE* instance)
 * @brief      SetInstance
 * @ingroup    SOUND
 * 
-* @param[in]  _instance : 
+* @param[in]  instance : 
 * 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::SetInstance(SNDFACTORY* _instance)
-{
-  if(!_instance) return false;
-
-  instance = _instance;
-
-  return (instance)?true:false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::DelInstance()
-* @brief      DelInstance
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
+* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::DelInstance()
-{
-  if(!instance) return false;
-
-  delete instance;
-  instance = NULL;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         float SNDFACTORY::Volume_Get()
-* @brief      Volume_Get
-* @ingroup    SOUND
-* 
-* @return     float : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-float SNDFACTORY::Volume_Get()
+void SNDSOURCE::SetInstance(SNDINSTANCE* instance)
 { 
-  return 0.0f;                      
+  this->instance = instance;  
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::Volume_Set(float volume)
-* @brief      Volume_Set
+* @fn         SNDINSTANCE* SNDSOURCE::GetInstance()
+* @brief      GetInstance
 * @ingroup    SOUND
-* 
-* @param[in]  volume : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Volume_Set(float volume)
-{                                   
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XSTRING& ID, bool instream)
-* @brief      Element_Add
-* @ingroup    SOUND
-* 
-* @param[in]  xpathfile : 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XSTRING& ID, bool instream)
-{
-  return Element_Add(xpathfile, ID.Get(), instream);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XCHAR* ID, bool instream)
-* @brief      Element_Add
-* @ingroup    SOUND
-* 
-* @param[in]  xpathfile : 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XCHAR* ID, bool instream)
-{
-  return Element_Add(xpathfile.Get(), ID, instream);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Add(XCHAR* xpathfile, XCHAR* ID, bool instream)
-* @brief      Element_Add
-* @ingroup    SOUND
-* 
-* @param[in]  xpathfile : 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Add(XCHAR* pathfile, XCHAR* ID, bool instream)
-{
-  return NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Get(XSTRING& ID, bool instream)
-* @brief      Element_Get
-* @ingroup    SOUND
-* 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Get(XSTRING& ID, bool instream)
-{
-  return Element_Get(ID.Get(), instream);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Get(XCHAR* ID, bool instream)
-* @brief      Element_Get
-* @ingroup    SOUND
-* 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Get(XCHAR* ID, bool instream)
-{
-  return NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::Element_Del(SNDELEMENT* element)
-* @brief      Element_Del
-* @ingroup    SOUND
-* 
-* @param[in]  element : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Element_Del(SNDELEMENT* element)
-{
-  return false;
-}
-   
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDINSTANCE* SNDFACTORY::Sound_Play(SNDELEMENT* element)
-* @brief      Sound_Play
-* @ingroup    SOUND
-* 
-* @param[in]  element : 
 * 
 * @return     SNDINSTANCE* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDINSTANCE* SNDFACTORY::Sound_Play(SNDELEMENT* element)                                   
+SNDINSTANCE* SNDSOURCE::GetInstance()
 { 
-  return NULL;                      
+  return this->instance;         
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::Sound_Stop(SNDELEMENT* element)
-* @brief      Sound_Stop
+* @fn         bool SNDSOURCE::IsInstancePlaying()
+* @brief      IsInstancePlaying
 * @ingroup    SOUND
-* 
-* @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_Stop(SNDELEMENT* element)                                   
-{                                   
+bool SNDSOURCE::IsInstancePlaying()
+{
+  if(instance)
+    {
+      return instance->IsPlaying();
+    }
+
   return false;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDINSTANCE* SNDFACTORY::Sound_Pause(SNDELEMENT* element)
-* @brief      Sound_Pause
+* @fn         void SNDSOURCE::SetElement(SNDELEMENT* element)
+* @brief      SetElement
 * @ingroup    SOUND
 * 
 * @param[in]  element : 
 * 
-* @return     SNDINSTANCE* : 
+* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDINSTANCE* SNDFACTORY::Sound_Pause(SNDELEMENT* element)                                   
+void SNDSOURCE::SetElement(SNDELEMENT* element)           
 { 
-  return NULL;                      
+  this->element = element;          
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::Sound_IsAnyPlaying()
-* @brief      Sound_IsAnyPlaying
+* @fn         SNDELEMENT* SNDSOURCE::GetElement()
+* @brief      GetElement
+* @ingroup    SOUND
+* 
+* @return     SNDELEMENT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDELEMENT* SNDSOURCE::GetElement()                              
+{ 
+  return this->element;             
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDSOURCE::Stop()
+* @brief      Stop
+* @ingroup    SOUND
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDSOURCE::Stop()                              
+{
+                                   
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDSOURCE::Pause()
+* @brief      Pause
+* @ingroup    SOUND
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDSOURCE::Pause()
+{                                   
+
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDSOURCE::UnPause()
+* @brief      UnPause
+* @ingroup    SOUND
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDSOURCE::UnPause()                              
+{                                   
+
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDSOURCE::SetLoop(bool loop)
+* @brief      SetLoop
+* @ingroup    SOUND
+* 
+* @param[in]  loop : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDSOURCE::SetLoop(bool loop)                     
+{
+
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDSOURCE::IsPLaying()
+* @brief      IsPLaying
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_IsAnyPlaying()                                                      
+bool SNDSOURCE::IsPLaying()                              
 { 
   return false;                     
 }
@@ -378,55 +250,135 @@ bool SNDFACTORY::Sound_IsAnyPlaying()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::Sound_StopAll()
-* @brief      Sound_StopAll
+* @fn         bool SNDSOURCE::IsStopped()
+* @brief      IsStopped
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_StopAll()                                                      
+bool SNDSOURCE::IsStopped()                              
 { 
-  return false;
+  return false;                     
 }
-   
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::Sound_Note(float frecuency, float duration)
-* @brief      Sound_Note
+* @fn         bool SNDSOURCE::IsPaused()
+* @brief      IsPaused
 * @ingroup    SOUND
-* 
-* @param[in]  frecuency : 
-* @param[in]  duration : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_Note(float frecuency, float duration)
-{
-  return false;
+bool SNDSOURCE::IsPaused()                              
+{ 
+  return false;                     
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDFACTORY::Update()
-* @brief      Update
+* @fn         float SNDSOURCE::GetVolume()
+* @brief      GetVolume
 * @ingroup    SOUND
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float SNDSOURCE::GetVolume()
+{ 
+  return 0.0f;                      
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDSOURCE::SetVolume(float volume)
+* @brief      SetVolume
+* @ingroup    SOUND
+* 
+* @param[in]  volume : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDFACTORY::Update()
-{	
-	
+void SNDSOURCE::SetVolume(float volume)                  
+{ 
+
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDFACTORY::Clean()
+* @fn         void SNDSOURCE::SetPitch(float pitch)
+* @brief      SetPitch
+* @ingroup    SOUND
+* 
+* @param[in]  pitch : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDSOURCE::SetPitch(float pitch)                   
+{
+
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float SNDSOURCE::GetPitch()
+* @brief      GetPitch
+* @ingroup    SOUND
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float SNDSOURCE::GetPitch()                              
+{ 
+  return 0.0f;                      
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDSOURCE::SetSecondsOffset(float seconds)
+* @brief      SetSecondsOffset
+* @ingroup    SOUND
+* 
+* @param[in]  seconds : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDSOURCE::SetSecondsOffset(float seconds)                 
+{                                   
+
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDSOURCE::SetSamplesOffset(int samples)
+* @brief      SetSamplesOffset
+* @ingroup    SOUND
+* 
+* @param[in]  samples : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDSOURCE::SetSamplesOffset(int samples)                   
+{                                   
+
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDSOURCE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
@@ -434,11 +386,14 @@ void SNDFACTORY::Update()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDFACTORY::Clean()
+void SNDSOURCE::Clean()
 {
-  instance = NULL;
+  element   = NULL;
+  instance  = NULL;
 }
 
 
 #pragma endregion
+
+
 

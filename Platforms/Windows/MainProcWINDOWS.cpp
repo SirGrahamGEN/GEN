@@ -86,6 +86,7 @@
 
 #ifdef SND_ACTIVE
 #include "SNDWINDOWSFactory.h"
+#include "SNDFactory.h"
 #endif
 
 #ifdef DIO_ACTIVE

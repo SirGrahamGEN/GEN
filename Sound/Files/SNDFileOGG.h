@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDFactory_XEvent.h
+* @file       SNDFileOGG.h
 * 
-* @class      SNDFACTORY_XEVENT
-* @brief      Sound Factory eXtended event class
+* @class      SNDFILEOGG
+* @brief      Sound File OGG format class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,14 +26,13 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SNDFACTORY_XEVENT_H_
-#define _SNDFACTORY_XEVENT_H_
+#ifndef _SNDFILEOGG_H_
+#define _SNDFILEOGG_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XEvent.h"
-#include "XString.h"
+#include "SNDFile.h"
 
 #pragma endregion
 
@@ -41,12 +40,6 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-enum SNDFACTORY_XEVENT_TYPE
-{
-  SNDFACTORY_XEVENT_TYPE_UNKNOWN          = XEVENT_TYPE_SOUND ,
-  SNDFACTORY_XEVENT_TYPE_STOP                                 ,
-  SNDFACTORY_XEVENT_TYPE_PLAY                                 ,  
-};
 
 #pragma endregion
 
@@ -54,41 +47,22 @@ enum SNDFACTORY_XEVENT_TYPE
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SNDELEMENT;
-class SNDSOURCE;
-class SNDINSTANCE;
+struct stb_vorbis;
 
-class SNDFACTORY_XEVENT : public XEVENT
+class SNDFILEOGG : public SNDFILE
 {
   public:
-                                SNDFACTORY_XEVENT       (XSUBJECT* subject, XDWORD type = SNDFACTORY_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_SOUND);
-    virtual                    ~SNDFACTORY_XEVENT       ();
 
-    SNDFACTORY_XEVENT_TYPE      GetType                 ();
-    void                        SetType                 (SNDFACTORY_XEVENT_TYPE type);
-        
-    XSTRING*                    GetID                   ();
-
-    SNDELEMENT*                 GetElement              ();
-    void                        SetElement              (SNDELEMENT* element);
+                            SNDFILEOGG                      ();                             
+    virtual                ~SNDFILEOGG                      ();
+ 
+    bool                    LoadFile                        (XCHAR* path, XCHAR* ID, bool instream);
     
-    SNDSOURCE*                  GetSource               ();
-    void                        SetSource               (SNDSOURCE* source);    
-
-    SNDINSTANCE*                GetInstance             ();
-    void                        SetInstance             (SNDINSTANCE* instance);
-    
-  protected:
-
-    SNDFACTORY_XEVENT_TYPE      type;
-    XSTRING                     ID;
-    SNDELEMENT*                 element;
-    SNDSOURCE*                  source;
-    SNDINSTANCE*                instance;
-
   private:
 
-    void                        Clean                   ();                              
+    void                    Clean                           ();
+
+    stb_vorbis*             stream;
 };
 
 #pragma endregion

@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDFactory.cpp
+* @file       SNDElement.cpp
 * 
-* @class      SNDFACTORY
-* @brief      Sound Factory class
+* @class      SNDELEMENT
+* @brief      Sound Element class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,9 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "SNDFactory.h"
-
-#include "SNDFactory_XEvent.h"
+#include "SNDElement.h"
 
 #include "XMemory_Control.h"
 
@@ -49,8 +47,6 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
-SNDFACTORY* SNDFACTORY::instance = NULL;
-
 #pragma endregion
 
 
@@ -59,386 +55,284 @@ SNDFACTORY* SNDFACTORY::instance = NULL;
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDFACTORY::SNDFACTORY()
+*
+* @fn         SNDELEMENT::SNDELEMENT()
 * @brief      Constructor
 * @ingroup    SOUND
-* 
+*
 * @return     Does not return anything. 
-* 
+*
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDFACTORY::SNDFACTORY()
+SNDELEMENT::SNDELEMENT()
 {
   Clean();
 
-  RegisterEvent(SNDFACTORY_XEVENT_TYPE_STOP);
-  RegisterEvent(SNDFACTORY_XEVENT_TYPE_PLAY);
+  volume  = 1.0f;
+  pitch   = 1.0f;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDFACTORY::~SNDFACTORY()
+*
+* @fn         SNDELEMENT::~SNDELEMENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-* 
+*
 * @return     Does not return anything. 
-* 
+*
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDFACTORY::~SNDFACTORY()
+SNDELEMENT::~SNDELEMENT()
 {
-  DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_STOP);
-  DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_PLAY);
-
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::GetIsInstanced()
-* @brief      GetIsInstanced
+*
+* @fn         XSTRING* SNDELEMENT::GetID()
+* @brief      GetID
 * @ingroup    SOUND
-* 
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* SNDELEMENT::GetID()
+{
+  return &ID;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool SNDELEMENT::GetLoop()
+* @brief      GetLoop
+* @ingroup    SOUND
+*
 * @return     bool : true if is succesful. 
-* 
+*
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::GetIsInstanced()
-{
-  return (instance!=NULL);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDFACTORY& SNDFACTORY::GetInstance()
-* @brief      GetInstance
-* @ingroup    SOUND
-* 
-* @return     SNDFACTORY& : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDFACTORY& SNDFACTORY::GetInstance()
-{
-  if(!instance) instance = new SNDFACTORY();
-
-  return (*instance);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::SetInstance(SNDFACTORY* _instance)
-* @brief      SetInstance
-* @ingroup    SOUND
-* 
-* @param[in]  _instance : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::SetInstance(SNDFACTORY* _instance)
-{
-  if(!_instance) return false;
-
-  instance = _instance;
-
-  return (instance)?true:false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::DelInstance()
-* @brief      DelInstance
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::DelInstance()
-{
-  if(!instance) return false;
-
-  delete instance;
-  instance = NULL;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         float SNDFACTORY::Volume_Get()
-* @brief      Volume_Get
-* @ingroup    SOUND
-* 
-* @return     float : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-float SNDFACTORY::Volume_Get()
+bool SNDELEMENT::GetLoop()                              
 { 
-  return 0.0f;                      
+  return loop;                 
 }
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::Volume_Set(float volume)
-* @brief      Volume_Set
+*
+* @fn         void SNDELEMENT::SetLoop(bool loop)
+* @brief      SetLoop
 * @ingroup    SOUND
-* 
-* @param[in]  volume : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Volume_Set(float volume)
-{                                   
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XSTRING& ID, bool instream)
-* @brief      Element_Add
-* @ingroup    SOUND
-* 
-* @param[in]  xpathfile : 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XSTRING& ID, bool instream)
-{
-  return Element_Add(xpathfile, ID.Get(), instream);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XCHAR* ID, bool instream)
-* @brief      Element_Add
-* @ingroup    SOUND
-* 
-* @param[in]  xpathfile : 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XCHAR* ID, bool instream)
-{
-  return Element_Add(xpathfile.Get(), ID, instream);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Add(XCHAR* xpathfile, XCHAR* ID, bool instream)
-* @brief      Element_Add
-* @ingroup    SOUND
-* 
-* @param[in]  xpathfile : 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Add(XCHAR* pathfile, XCHAR* ID, bool instream)
-{
-  return NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Get(XSTRING& ID, bool instream)
-* @brief      Element_Get
-* @ingroup    SOUND
-* 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Get(XSTRING& ID, bool instream)
-{
-  return Element_Get(ID.Get(), instream);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Get(XCHAR* ID, bool instream)
-* @brief      Element_Get
-* @ingroup    SOUND
-* 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Get(XCHAR* ID, bool instream)
-{
-  return NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::Element_Del(SNDELEMENT* element)
-* @brief      Element_Del
-* @ingroup    SOUND
-* 
-* @param[in]  element : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Element_Del(SNDELEMENT* element)
-{
-  return false;
-}
-   
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDINSTANCE* SNDFACTORY::Sound_Play(SNDELEMENT* element)
-* @brief      Sound_Play
-* @ingroup    SOUND
-* 
-* @param[in]  element : 
-* 
-* @return     SNDINSTANCE* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDINSTANCE* SNDFACTORY::Sound_Play(SNDELEMENT* element)                                   
-{ 
-  return NULL;                      
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::Sound_Stop(SNDELEMENT* element)
-* @brief      Sound_Stop
-* @ingroup    SOUND
-* 
-* @param[in]  element : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_Stop(SNDELEMENT* element)                                   
-{                                   
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDINSTANCE* SNDFACTORY::Sound_Pause(SNDELEMENT* element)
-* @brief      Sound_Pause
-* @ingroup    SOUND
-* 
-* @param[in]  element : 
-* 
-* @return     SNDINSTANCE* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDINSTANCE* SNDFACTORY::Sound_Pause(SNDELEMENT* element)                                   
-{ 
-  return NULL;                      
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::Sound_IsAnyPlaying()
-* @brief      Sound_IsAnyPlaying
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_IsAnyPlaying()                                                      
-{ 
-  return false;                     
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::Sound_StopAll()
-* @brief      Sound_StopAll
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_StopAll()                                                      
-{ 
-  return false;
-}
-   
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::Sound_Note(float frecuency, float duration)
-* @brief      Sound_Note
-* @ingroup    SOUND
-* 
-* @param[in]  frecuency : 
-* @param[in]  duration : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_Note(float frecuency, float duration)
-{
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDFACTORY::Update()
-* @brief      Update
-* @ingroup    SOUND
-* 
+*
+* @param[in]  loop : 
+*
 * @return     void : does not return anything. 
-* 
+*
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDFACTORY::Update()
-{	
-	
+void SNDELEMENT::SetLoop(bool loop)
+{ 
+  this->loop = loop;          
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDFACTORY::Clean()
+*
+* @fn         float SNDELEMENT::GetVolume()
+* @brief      GetVolume
+* @ingroup    SOUND
+*
+* @return     float : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+float SNDELEMENT::GetVolume()                              
+{ 
+  return volume;             
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void SNDELEMENT::SetVolume(float volume)
+* @brief      SetVolume
+* @ingroup    SOUND
+*
+* @param[in]  volume : 
+*
+* @return     void : does not return anything. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDELEMENT::SetVolume(float volume)                  
+{ 
+  this->volume = volume;      
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         float SNDELEMENT::GetPitch()
+* @brief      GetPitch
+* @ingroup    SOUND
+*
+* @return     float : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+float SNDELEMENT::GetPitch()                              
+{ 
+  return pitch;               
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void SNDELEMENT::SetPitch(float pitch)
+* @brief      SetPitch
+* @ingroup    SOUND
+*
+* @param[in]  pitch : 
+*
+* @return     void : does not return anything. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDELEMENT::SetPitch(float pitch)                   
+{
+  this->pitch = pitch;        
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool SNDELEMENT::IsStream()
+* @brief      IsStream
+* @ingroup    SOUND
+*
+* @return     bool : true if is succesful. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDELEMENT::IsStream()                              
+{ 
+  return isstream;            
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         SNDFILE* SNDELEMENT::GetFile()
+* @brief      GetFile
+* @ingroup    SOUND
+*
+* @return     SNDFILE* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDFILE* SNDELEMENT::GetFile()
+{
+  return this->file;          
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void SNDELEMENT::SetFile(SNDFILE* file)
+* @brief      SetFile
+* @ingroup    SOUND
+*
+* @param[in]  file : 
+*
+* @return     void : does not return anything. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDELEMENT::SetFile(SNDFILE* file)                 
+{ 
+  this->file = file;          
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         float SNDELEMENT::GetDuration()
+* @brief      GetDuration
+* @ingroup    SOUND
+*
+* @return     float : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+float SNDELEMENT::GetDuration()                              
+{ 
+  return this->duration;      
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void SNDELEMENT::SetDuration(float duration)
+* @brief      SetDuration
+* @ingroup    SOUND
+*
+* @param[in]  duration : 
+*
+* @return     void : does not return anything. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDELEMENT::SetDuration(float duration)                
+{ 
+  this->duration = duration;  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int SNDELEMENT::GetSamples()
+* @brief      GetSamples
+* @ingroup    SOUND
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int SNDELEMENT::GetSamples()                              
+{ 
+  return this->samples;       
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void SNDELEMENT::SetSamples(int samples)
+* @brief      SetSamples
+* @ingroup    SOUND
+*
+* @param[in]  samples : 
+*
+* @return     void : does not return anything. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDELEMENT::SetSamples(int samples)                   
+{ 
+  this->samples = samples;    
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void SNDELEMENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-* 
+*
 * @return     void : does not return anything. 
-* 
+*
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDFACTORY::Clean()
+void SNDELEMENT::Clean()
 {
-  instance = NULL;
+  file      = NULL;
+
+  loop      = false;
+  volume    = 0.0f;
+  pitch     = 0.0f;
+  duration  = 0.0f;
+  samples   = 0;
+
+  isstream  = false;
 }
 
 
 #pragma endregion
+
 

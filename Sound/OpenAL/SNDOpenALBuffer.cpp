@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDWindowsFactory.cpp
+* @file       SNDOpenALBuffer.cpp
 * 
-* @class      SNDWINDOWSFACTORY
-* @brief      WINDOWS Sound Factory class
+* @class      SNDOPENALBUFFER
+* @brief      Sound OpenAL Buffer class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,12 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include <al.h>
-#include <alc.h>
-
-#include "SNDWINDOWSFactory.h"
-
-#include "SNDFactory_XEvent.h"
+#include "SNDOpenALBuffer.h"
 
 #include "XMemory_Control.h"
 
@@ -61,14 +56,14 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDWINDOWSFACTORY::SNDWINDOWSFACTORY()
+* @fn         SNDOPENALBUFFER::SNDOPENALBUFFER()
 * @brief      Constructor
 * @ingroup    SOUND
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDWINDOWSFACTORY::SNDWINDOWSFACTORY()
+SNDOPENALBUFFER::SNDOPENALBUFFER()
 {
   Clean();
 }
@@ -76,7 +71,7 @@ SNDWINDOWSFACTORY::SNDWINDOWSFACTORY()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDWINDOWSFACTORY::~SNDWINDOWSFACTORY()
+* @fn         SNDOPENALBUFFER::~SNDOPENALBUFFER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
@@ -84,15 +79,87 @@ SNDWINDOWSFACTORY::SNDWINDOWSFACTORY()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDWINDOWSFACTORY::~SNDWINDOWSFACTORY()
+SNDOPENALBUFFER::~SNDOPENALBUFFER()
 {
   Clean();
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         ALuint SNDOPENALBUFFER::GetHandle()
+* @brief      GetHandle
+* @ingroup    SOUND
+* 
+* @return     ALuint : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+ALuint SNDOPENALBUFFER::GetHandle()
+{ 
+  return buffer; 
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDWINDOWSFACTORY::Clean()
+* @fn         void SNDOPENALBUFFER::Generate()
+* @brief      Generate
+* @ingroup    SOUND
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALBUFFER::Generate()
+{
+  alGenBuffers(1, &buffer);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDOPENALBUFFER::Destroy()
+* @brief      Destroy
+* @ingroup    SOUND
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALBUFFER::Destroy()
+{
+  alDeleteBuffers(1, &buffer);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDOPENALBUFFER::Upload(XWORD channels, void* data, XDWORD size, XWORD freq)
+* @brief      Upload
+* @ingroup    SOUND
+* 
+* @param[in]  channels : 
+* @param[in]  data : 
+* @param[in]  size : 
+* @param[in]  freq : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALBUFFER::Upload(XWORD channels, void* data, XDWORD size, XWORD freq)
+{
+  ALenum format = AL_FORMAT_MONO16;
+
+  if(channels == 2)
+    {
+      format = AL_FORMAT_STEREO16;
+    }
+
+  alBufferData(buffer, format, data, size, freq);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDOPENALBUFFER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
@@ -100,9 +167,9 @@ SNDWINDOWSFACTORY::~SNDWINDOWSFACTORY()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDWINDOWSFACTORY::Clean()
+void SNDOPENALBUFFER::Clean()
 {
-  
+  buffer = 0;
 }
 
 

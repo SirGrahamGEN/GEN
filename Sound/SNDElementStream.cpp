@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDWindowsFactory.cpp
+* @file       SNDElementStream.cpp
 * 
-* @class      SNDWINDOWSFACTORY
-* @brief      WINDOWS Sound Factory class
+* @class      SNDELEMENTSTREAM
+* @brief      Sound Element Stream class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,12 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include <al.h>
-#include <alc.h>
-
-#include "SNDWINDOWSFactory.h"
-
-#include "SNDFactory_XEvent.h"
+#include "SNDElementStream.h"
 
 #include "XMemory_Control.h"
 
@@ -60,23 +55,24 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDWINDOWSFACTORY::SNDWINDOWSFACTORY()
-* @brief      Constructor
-* @ingroup    SOUND
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDWINDOWSFACTORY::SNDWINDOWSFACTORY()
-{
-  Clean();
+
+@fn         SNDELEMENTSTREAM::SNDELEMENTSTREAM()
+@brief      Constructor
+@ingroup    SOUND
+
+@return     Does not return anything. 
+
+--------------------------------------------------------------------------------------------------------------------*/
+SNDELEMENTSTREAM::SNDELEMENTSTREAM() : SNDELEMENT()
+{ 
+  Clean(); 
+  isstream = true;                       
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDWINDOWSFACTORY::~SNDWINDOWSFACTORY()
+* @fn         SNDELEMENTSTREAM::~SNDELEMENTSTREAM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
@@ -84,15 +80,81 @@ SNDWINDOWSFACTORY::SNDWINDOWSFACTORY()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDWINDOWSFACTORY::~SNDWINDOWSFACTORY()
-{
-  Clean();
+SNDELEMENTSTREAM::~SNDELEMENTSTREAM()
+{ 
+  Clean();                                        
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDWINDOWSFACTORY::Clean()
+* @fn         void SNDELEMENTSTREAM::SetAttributes(XWORD channels, XWORD freq)
+* @brief      SetAttributes
+* @ingroup    SOUND
+* 
+* @param[in]  channels : 
+* @param[in]  freq : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDELEMENTSTREAM::SetAttributes(XWORD channels, XWORD freq)
+{ 
+  this->channels  = channels; 
+  this->freq      = freq;   
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDELEMENTSTREAM::Play()
+* @brief      Play
+* @ingroup    SOUND
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDELEMENTSTREAM::Play()
+{                                                 
+
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDFILE* SNDELEMENTSTREAM::GetFile()
+* @brief      GetFile
+* @ingroup    SOUND
+* 
+* @return     SNDFILE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDFILE* SNDELEMENTSTREAM::GetFile()
+{ 
+  return file;                                    
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDELEMENTSTREAM::SetFile(SNDFILE* file)
+* @brief      SetFile
+* @ingroup    SOUND
+* 
+* @param[in]  file : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDELEMENTSTREAM::SetFile(SNDFILE* file)
+{ 
+  this->file = file;                              
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDELEMENTSTREAM::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
@@ -100,11 +162,12 @@ SNDWINDOWSFACTORY::~SNDWINDOWSFACTORY()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDWINDOWSFACTORY::Clean()
+void SNDELEMENTSTREAM::Clean()
 {
-  
+  channels  = 0;
+  freq      = 0;
+  file      = NULL;
 }
 
 
 #pragma endregion
-

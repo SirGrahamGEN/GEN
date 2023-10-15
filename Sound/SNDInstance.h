@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDFactory_XEvent.h
+* @file       SNDInstance.h
 * 
-* @class      SNDFACTORY_XEVENT
-* @brief      Sound Factory eXtended event class
+* @class      SNDINSTANCE
+* @brief      Sound instance of a playing sound class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,14 +26,17 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SNDFACTORY_XEVENT_H_
-#define _SNDFACTORY_XEVENT_H_
+#ifndef _SNDINSTANCE_H_
+#define _SNDINSTANCE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XEvent.h"
-#include "XString.h"
+#include "XBase.h"
+#include "XObserver.h"
+
+#include "SNDFactory.h"
+#include "SNDElement.h"
 
 #pragma endregion
 
@@ -41,12 +44,6 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-enum SNDFACTORY_XEVENT_TYPE
-{
-  SNDFACTORY_XEVENT_TYPE_UNKNOWN          = XEVENT_TYPE_SOUND ,
-  SNDFACTORY_XEVENT_TYPE_STOP                                 ,
-  SNDFACTORY_XEVENT_TYPE_PLAY                                 ,  
-};
 
 #pragma endregion
 
@@ -54,42 +51,53 @@ enum SNDFACTORY_XEVENT_TYPE
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SNDELEMENT;
 class SNDSOURCE;
-class SNDINSTANCE;
 
-class SNDFACTORY_XEVENT : public XEVENT
+class SNDINSTANCE : public XOBSERVER
 {
   public:
-                                SNDFACTORY_XEVENT       (XSUBJECT* subject, XDWORD type = SNDFACTORY_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_SOUND);
-    virtual                    ~SNDFACTORY_XEVENT       ();
+                          SNDINSTANCE                               (SNDSOURCE* source, SNDELEMENT* element);
+    virtual              ~SNDINSTANCE                               ();
 
-    SNDFACTORY_XEVENT_TYPE      GetType                 ();
-    void                        SetType                 (SNDFACTORY_XEVENT_TYPE type);
+    SNDSOURCE*            GetSource                                 ();
+    SNDELEMENT*           GetElement                                ();
+
+                          
+    bool                  IsPlaying                                 ();                         
+    bool                  IsPaused                                  ();
+                         
+    bool                  Stop                                      ();
+    
+    bool                  Pause                                     ();                          
+    bool                  UnPause                                   ();
+
+    float                 GetVolume                                 ();
+    void                  SetVolume                                 (float volume);
+
+    float                 GetPitch                                  ();
+                          
+    void                  SetPitch                                  (float pitch);
+                          
+    bool                  GetIsManaged                              ();
+    void                  SetIsManaged                              (bool ismanaged);
         
-    XSTRING*                    GetID                   ();
-
-    SNDELEMENT*                 GetElement              ();
-    void                        SetElement              (SNDELEMENT* element);
-    
-    SNDSOURCE*                  GetSource               ();
-    void                        SetSource               (SNDSOURCE* source);    
-
-    SNDINSTANCE*                GetInstance             ();
-    void                        SetInstance             (SNDINSTANCE* instance);
-    
+    void                  HandleEvent                               (XEVENT* xevent);
+                                                      
   protected:
 
-    SNDFACTORY_XEVENT_TYPE      type;
-    XSTRING                     ID;
-    SNDELEMENT*                 element;
-    SNDSOURCE*                  source;
-    SNDINSTANCE*                instance;
+    SNDSOURCE*            source;
+    SNDELEMENT*           element;
+
+    bool                  isplaying;
+    bool                  ispaused;
+
+    bool                  ismanaged;
 
   private:
 
-    void                        Clean                   ();                              
+    void                  Clean                                     ();                         
 };
+
 
 #pragma endregion
 

@@ -36,6 +36,8 @@
 #include "XPath.h"
 #include "XSubject.h"
 
+#include "SNDElement.h"
+
 #pragma endregion
 
 
@@ -65,11 +67,11 @@ class SNDFACTORY : public XSUBJECT
     static bool                       DelInstance                 ();
 
     virtual float                     Volume_Get                  ();
-    virtual bool                      Volume_Set                  (float volume);
+    virtual bool                      Volume_Set                  (float volume);    
 
     SNDELEMENT*                       Element_Add                 (XPATH& xpathfile, XSTRING& ID, bool instream = false);
     SNDELEMENT*                       Element_Add                 (XPATH& xpathfile, XCHAR* ID = NULL, bool instream = false);
-    virtual SNDELEMENT*               Element_Add                 (XCHAR* namefile, XCHAR* ID = NULL, bool instream = false);
+    virtual SNDELEMENT*               Element_Add                 (XCHAR* pathfile, XCHAR* ID = NULL, bool instream = false);
     SNDELEMENT*                       Element_Get                 (XSTRING& ID, bool instream = false);
     virtual SNDELEMENT*               Element_Get                 (XCHAR* ID, bool instream = false);
     virtual bool                      Element_Del                 (SNDELEMENT* element);
@@ -79,7 +81,7 @@ class SNDFACTORY : public XSUBJECT
     virtual SNDINSTANCE*              Sound_Pause                 (SNDELEMENT* element);
     virtual bool                      Sound_IsAnyPlaying          ();
     virtual bool                      Sound_StopAll               (); 
-    virtual bool                      Sound_Beep                  (float frecuency, float duration = 0.5f);  
+    virtual bool                      Sound_Note                  (float frecuency, float duration = 0.5f);  
        
 		virtual void			    						Update										  ();
 

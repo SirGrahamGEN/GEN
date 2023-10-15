@@ -33,7 +33,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "SNDFactory.h"
+#include "SNDOpenALFactory.h"
 
 #pragma endregion
 
@@ -52,29 +52,12 @@ class SNDELEMENT;
 class SNDINSTANCE;
 class SNDFILE;
 
-class SNDWINDOWSFACTORY : public SNDFACTORY
+class SNDWINDOWSFACTORY : public SNDOPENALFACTORY
 {
   public:
                                       SNDWINDOWSFACTORY           ();
     virtual                          ~SNDWINDOWSFACTORY           ();
-    
-    float                             Volume_Get                  ();
-    bool                              Volume_Set                  (float volume);
-
-    SNDELEMENT*                       Element_Add                 (XCHAR* namefile, XCHAR* ID = NULL, bool instream = false);
-    SNDELEMENT*                       Element_Get                 (XCHAR* namefile, bool instream = false);
-    bool                              Element_Del                 (SNDELEMENT* element);
-    
-    SNDINSTANCE*                      Sound_Play                  (SNDELEMENT* element);
-    bool                              Sound_Stop                  (SNDELEMENT* element);
-    SNDINSTANCE*                      Sound_Pause                 (SNDELEMENT* element);
-    bool                              Sound_IsAnyPlaying          ();
-    bool                              Sound_StopAll               (); 
-
-    bool                              Sound_Beep                  (float frecuency, float duration = 0.5f);  
-       
-		void			    						        Update										  ();
-
+        
   private:
 
     void                              Clean                       ();

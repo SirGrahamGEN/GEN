@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDFactory_XEvent.h
+* @file       SNDElement.h
 * 
-* @class      SNDFACTORY_XEVENT
-* @brief      Sound Factory eXtended event class
+* @class      SNDELEMENT
+* @brief      Sound Element class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,13 +26,13 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SNDFACTORY_XEVENT_H_
-#define _SNDFACTORY_XEVENT_H_
+#ifndef _SNDELEMENT_H_
+#define _SNDELEMENT_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XEvent.h"
+#include "XBase.h"
 #include "XString.h"
 
 #pragma endregion
@@ -41,11 +41,18 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-enum SNDFACTORY_XEVENT_TYPE
+enum SNDELEMENT_TYPE
 {
-  SNDFACTORY_XEVENT_TYPE_UNKNOWN          = XEVENT_TYPE_SOUND ,
-  SNDFACTORY_XEVENT_TYPE_STOP                                 ,
-  SNDFACTORY_XEVENT_TYPE_PLAY                                 ,  
+  SNDELEMENT_TYPE_UNKNOWN       = 0 ,
+  SNDELEMENT_TYPE_FILE              ,
+  SNDELEMENT_TYPE_NOTE              ,
+};
+
+enum SNDELEMENT_STATUS
+{
+  SNDELEMENT_STATUS_STOP        = 0 ,
+  SNDELEMENT_STATUS_PLAY            ,
+  SNDELEMENT_STATUS_PAUSE           ,
 };
 
 #pragma endregion
@@ -54,42 +61,54 @@ enum SNDFACTORY_XEVENT_TYPE
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SNDELEMENT;
-class SNDSOURCE;
-class SNDINSTANCE;
+class SNDFILE;
 
-class SNDFACTORY_XEVENT : public XEVENT
+class SNDELEMENT
 {
   public:
-                                SNDFACTORY_XEVENT       (XSUBJECT* subject, XDWORD type = SNDFACTORY_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_SOUND);
-    virtual                    ~SNDFACTORY_XEVENT       ();
+                              SNDELEMENT            ();
+    virtual                  ~SNDELEMENT            ();
 
-    SNDFACTORY_XEVENT_TYPE      GetType                 ();
-    void                        SetType                 (SNDFACTORY_XEVENT_TYPE type);
-        
-    XSTRING*                    GetID                   ();
-
-    SNDELEMENT*                 GetElement              ();
-    void                        SetElement              (SNDELEMENT* element);
+    XSTRING*                  GetID                 ();
     
-    SNDSOURCE*                  GetSource               ();
-    void                        SetSource               (SNDSOURCE* source);    
+    virtual bool              GetLoop               ();
+    virtual void              SetLoop               (bool loop);
+    
+    virtual float             GetVolume             ();
+    virtual void              SetVolume             (float volume);
+        
+    virtual float             GetPitch              ();
+    virtual void              SetPitch              (float pitch); 
+    
+    bool                      IsStream              ();
+    
+    SNDFILE*                  GetFile               ();
+    virtual void              SetFile               (SNDFILE* file);
+    
+    float                     GetDuration           ();
+    void                      SetDuration           (float duration);
 
-    SNDINSTANCE*                GetInstance             ();
-    void                        SetInstance             (SNDINSTANCE* instance);
+    int                       GetSamples            ();    
+    void                      SetSamples            (int samples);
     
   protected:
 
-    SNDFACTORY_XEVENT_TYPE      type;
-    XSTRING                     ID;
-    SNDELEMENT*                 element;
-    SNDSOURCE*                  source;
-    SNDINSTANCE*                instance;
+    XSTRING                   ID;
+    SNDFILE*                  file;
+
+    bool                      loop;
+    float                     volume;
+    float                     pitch;
+
+    float                     duration;
+    int                       samples;
+    bool                      isstream;
 
   private:
 
-    void                        Clean                   ();                              
+    void                      Clean                 ();
 };
+
 
 #pragma endregion
 

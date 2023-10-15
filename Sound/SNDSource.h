@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDFactory_XEvent.h
+* @file       SNDSource.h
 * 
-* @class      SNDFACTORY_XEVENT
-* @brief      Sound Factory eXtended event class
+* @class      SNDSOURCE
+* @brief      Sound source class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,14 +26,13 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SNDFACTORY_XEVENT_H_
-#define _SNDFACTORY_XEVENT_H_
+#ifndef _SNDSOURCE_H_
+#define _SNDSOURCE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XEvent.h"
-#include "XString.h"
+#include "XBase.h"
 
 #pragma endregion
 
@@ -41,12 +40,6 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-enum SNDFACTORY_XEVENT_TYPE
-{
-  SNDFACTORY_XEVENT_TYPE_UNKNOWN          = XEVENT_TYPE_SOUND ,
-  SNDFACTORY_XEVENT_TYPE_STOP                                 ,
-  SNDFACTORY_XEVENT_TYPE_PLAY                                 ,  
-};
 
 #pragma endregion
 
@@ -55,41 +48,51 @@ enum SNDFACTORY_XEVENT_TYPE
 #pragma region CLASS
 
 class SNDELEMENT;
-class SNDSOURCE;
 class SNDINSTANCE;
 
-class SNDFACTORY_XEVENT : public XEVENT
+class SNDSOURCE
 {
   public:
-                                SNDFACTORY_XEVENT       (XSUBJECT* subject, XDWORD type = SNDFACTORY_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_SOUND);
-    virtual                    ~SNDFACTORY_XEVENT       ();
+                                    SNDSOURCE                           ();
+    virtual                        ~SNDSOURCE                           ();
 
-    SNDFACTORY_XEVENT_TYPE      GetType                 ();
-    void                        SetType                 (SNDFACTORY_XEVENT_TYPE type);
-        
-    XSTRING*                    GetID                   ();
+    void                            SetInstance                         (SNDINSTANCE* instance);
+    SNDINSTANCE*                    GetInstance                         ();
+    bool                            IsInstancePlaying                   ();
 
-    SNDELEMENT*                 GetElement              ();
-    void                        SetElement              (SNDELEMENT* element);
+    virtual void                    SetElement                          (SNDELEMENT* element);
+    virtual SNDELEMENT*             GetElement                          ();
+   
+    virtual void                    Stop                                ();
+    virtual void                    Pause                               ();
+    virtual void                    UnPause                             ();
+
+    virtual void                    SetLoop                             (bool loop);
+
+    virtual bool                    IsPLaying                           ();
+    virtual bool                    IsStopped                           ();
+    virtual bool                    IsPaused                            ();
+ 
+    virtual float                   GetVolume                           ();
+    virtual void                    SetVolume                           (float volume);
+   
+    virtual void                    SetPitch                            (float pitch);
+    virtual float                   GetPitch                            ();
     
-    SNDSOURCE*                  GetSource               ();
-    void                        SetSource               (SNDSOURCE* source);    
-
-    SNDINSTANCE*                GetInstance             ();
-    void                        SetInstance             (SNDINSTANCE* instance);
-    
+    virtual void                    SetSecondsOffset                    (float seconds);
+    virtual void                    SetSamplesOffset                    (int samples);
+   
   protected:
 
-    SNDFACTORY_XEVENT_TYPE      type;
-    XSTRING                     ID;
-    SNDELEMENT*                 element;
-    SNDSOURCE*                  source;
-    SNDINSTANCE*                instance;
-
+    SNDINSTANCE*                    instance;
+    SNDELEMENT*                     element;
+    
   private:
 
-    void                        Clean                   ();                              
+    void                            Clean                               ();
+    
 };
+
 
 #pragma endregion
 

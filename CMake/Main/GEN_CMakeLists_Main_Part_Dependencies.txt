@@ -357,9 +357,9 @@ if(SCRIPT_FEATURE)
   if(SCRIPT_LIB_WINDOW_FEATURE)
 
     add_definitions("-DSCRIPT_LIB_WINDOW_ACTIVE")
-    option(GRP_FEATURE        "Graphics"                true)
-    option(GRP_2D_FEATURE     "Activate Graphics 2D"    true)
-    option(GRP_FILE_FEATURE   "Graphics File"           true)
+    option(GRP_FEATURE              "Graphics"                    true)
+    option(GRP_2D_FEATURE           "Activate Graphics 2D"        true)
+    option(GRP_BITMAP_FILE_FEATURE  "Graphics Files Bitmap Type"  true)
     
   endif()
 
@@ -514,6 +514,18 @@ endif()
 if(SND_FEATURE)
 
   add_definitions(-DSND_ACTIVE)
+
+  if(SND_FILE_OGG_FEATURE)
+
+    add_definitions(-DSND_FILE_OGG_ACTIVE)
+
+  endif()
+
+  if(SND_FILE_WAV_FEATURE)
+
+    add_definitions(-DSND_FILE_WAV_ACTIVE)
+
+  endif()
 
 endif()
 
