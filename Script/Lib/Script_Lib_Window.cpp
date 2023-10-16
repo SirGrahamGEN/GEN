@@ -1002,7 +1002,7 @@ bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y
   XDWORD*   bufferscreen        = (XDWORD*)bitmapscreen->GetBuffer();
   XDWORD*   bufferbitmap        = (XDWORD*)_bitmap->GetBuffer();
   XDWORD    sizepìxel           = sizeof(XDWORD);
-  XDWORD    bufferscreensize    = (bitmapscreen->GetBufferSize() / sizepìxel);
+  XDWORD    bufferscreensize    = (bitmapscreen->GetBufferSize() / sizepìxel) - _bitmap->GetWidth();
   XDWORD    bufferbmplinesize   = _bitmap->GetWidth();
   XDWORD    ndiff               = 0;
   bool      found               = false;
@@ -1018,13 +1018,17 @@ bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y
                 {
                   ndiff++;
                 }
+               else
+                {
+                  //FillLineDebug(bitmapscreen, bufferscreen, scrpos + bmppos, 1, 0xFF0000FF);
+                } 
             }
         }
                
       found = DifferencesPerCent(ndiff, bufferbmplinesize, difflimitpercent);
       if(found)
         {
-          //FillLineDebug(bitmapscreen, bufferscreen, scrpos, bufferbmplinesize, 0xFF0000FF);
+          // FillLineDebug(bitmapscreen, bufferscreen, scrpos, bufferbmplinesize, 0xFF0000FF);
           
           found = false;
 
@@ -1042,12 +1046,22 @@ bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y
               ndiff = 0;
               for(XDWORD bmppos = 0; bmppos < bufferbmplinesize; bmppos++)  
                 {    
+                  if(scrpos_tmp + bmppos >= bufferscreensize)
+                    {
+                      ndiff += difflimitpercent;       
+                      break;
+                    }
+
                   if(bufferscreen[scrpos_tmp + bmppos] != bufferbitmap[bmppos_tmp])
                     {
                       if(!IsSimilarPixel(bufferscreen[scrpos_tmp + bmppos], bufferbitmap[bmppos_tmp], pixelmargin))
                         {
                           ndiff++;
                         }
+                       else
+                        {
+                          // FillLineDebug(bitmapscreen, bufferscreen, scrpos_tmp + bmppos, 1, 0xFF0000FF);
+                        } 
                     }  
                   
                   bmppos_tmp++;
