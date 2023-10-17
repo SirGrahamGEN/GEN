@@ -1,6 +1,6 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDWindowsFactory.cpp
+* @file       SNDWINDOWSFactory.cpp
 * 
 * @class      SNDWINDOWSFACTORY
 * @brief      WINDOWS Sound Factory class

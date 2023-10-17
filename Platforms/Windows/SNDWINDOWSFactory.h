@@ -3,7 +3,7 @@
 * @file       SNDFactory.h
 * 
 * @class      SNDWINDOWSFACTORY
-* @brief      Sound Factory class
+* @brief      WINDOWS Sound Factory class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.

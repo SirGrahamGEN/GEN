@@ -3,6 +3,9 @@
 # Main Part: Add Sources Linux
 # --------------------------------------------------------------------
 
+
+list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/MainProcLINUX.cpp")
+
  
 if(GRP_FEATURE)  
 
@@ -41,7 +44,11 @@ if(INP_SIMULATE_FEATURE)
 endif()
 
 
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/MainProcLINUX.cpp")
+if(SND_FEATURE)
+  
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_PLATFORMS_LINUX}/SNDLINUXFactory.cpp")
+      
+endif()
 
 
 if(DIO_FEATURE)

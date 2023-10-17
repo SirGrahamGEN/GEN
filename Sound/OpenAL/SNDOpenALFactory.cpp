@@ -254,7 +254,9 @@ bool SNDOPENALFACTORY::Volume_Set(float mastervolume)
 SNDELEMENT* SNDOPENALFACTORY::Element_Add(XCHAR* pathfile, XCHAR* ID, bool instream)
 {
   XSTRING _ID;
-  XPATH   xpath = pathfile;
+  XPATH   xpath;
+
+  xpath = pathfile;
 
   if(!ID)
     {      
