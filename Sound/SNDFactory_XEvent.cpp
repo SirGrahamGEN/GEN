@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDElement.cpp
+* @file       SNDFactory_XEvent.cpp
 * 
-* @class      SNDELEMENT
-* @brief      Sound Element class
+* @class      SNDFACTORY_XEVENT
+* @brief      Sound Factory eXtended event class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,7 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "SNDElement.h"
+#include "SNDFactory_XEvent.h"
 
 #include "XMemory_Control.h"
 
@@ -55,284 +55,202 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDELEMENT::SNDELEMENT()
-* @brief      Constructor
-* @ingroup    SOUND
-*
-* @return     Does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT::SNDELEMENT()
+
+@fn         SNDFACTORY_XEVENT::SNDFACTORY_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
+@brief      Constructor
+@ingroup    SOUND
+
+@param[in]  XSUBJECT* : 
+@param[in]   XDWORD type : 
+@param[in]   XDWORD family : 
+
+@return     Does not return anything. 
+
+--------------------------------------------------------------------------------------------------------------------*/
+SNDFACTORY_XEVENT::SNDFACTORY_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();
-
-  volume  = 1.0f;
-  pitch   = 1.0f;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDELEMENT::~SNDELEMENT()
+* 
+* @fn         SNDFACTORY_XEVENT::~SNDFACTORY_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-*
+* 
 * @return     Does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT::~SNDELEMENT()
+SNDFACTORY_XEVENT::~SNDFACTORY_XEVENT()
 {
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XSTRING* SNDELEMENT::GetID()
+* 
+* @fn         SNDFACTORY_XEVENT_TYPE SNDFACTORY_XEVENT::GetType()
+* @brief      GetType
+* @ingroup    SOUND
+* 
+* @return     SNDFACTORY_XEVENT_TYPE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDFACTORY_XEVENT_TYPE SNDFACTORY_XEVENT::GetType()
+{ 
+  return type;                   
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDFACTORY_XEVENT::SetType(SNDFACTORY_XEVENT_TYPE type)
+* @brief      SetType
+* @ingroup    SOUND
+* 
+* @param[in]  type : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDFACTORY_XEVENT::SetType(SNDFACTORY_XEVENT_TYPE type)
+{ 
+  this->type = type;                   
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* SNDFACTORY_XEVENT::GetID()
 * @brief      GetID
 * @ingroup    SOUND
-*
+* 
 * @return     XSTRING* : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* SNDELEMENT::GetID()
-{
-  return &ID;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool SNDELEMENT::GetLoop()
-* @brief      GetLoop
-* @ingroup    SOUND
-*
-* @return     bool : true if is succesful. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDELEMENT::GetLoop()                              
+XSTRING* SNDFACTORY_XEVENT::GetID()
 { 
-  return loop;                 
+  return &ID;                
 }
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT::SetLoop(bool loop)
-* @brief      SetLoop
+* 
+* @fn         SNDELEMENT* SNDFACTORY_XEVENT::GetElement()
+* @brief      GetElement
 * @ingroup    SOUND
-*
-* @param[in]  loop : 
-*
+* 
+* @return     SNDELEMENT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDELEMENT* SNDFACTORY_XEVENT::GetElement()
+{ 
+  return this->element;          
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDFACTORY_XEVENT::SetElement(SNDELEMENT* sndelement)
+* @brief      SetElement
+* @ingroup    SOUND
+* 
+* @param[in]  sndelement : 
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT::SetLoop(bool loop)
+void SNDFACTORY_XEVENT::SetElement(SNDELEMENT* sndelement)
 { 
-  this->loop = loop;          
+  this->element = element;    
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDSOURCE* SNDFACTORY_XEVENT::GetSource()
+* @brief      GetSource
+* @ingroup    SOUND
+* 
+* @return     SNDSOURCE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDSOURCE* SNDFACTORY_XEVENT::GetSource()
+{ 
+  return this->source;           
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         float SNDELEMENT::GetVolume()
-* @brief      GetVolume
+* 
+* @fn         void SNDFACTORY_XEVENT::SetSource(SNDSOURCE* source)
+* @brief      SetSource
 * @ingroup    SOUND
-*
-* @return     float : 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-float SNDELEMENT::GetVolume()                              
-{ 
-  return volume;             
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT::SetVolume(float volume)
-* @brief      SetVolume
-* @ingroup    SOUND
-*
-* @param[in]  volume : 
-*
+* 
+* @param[in]  source : 
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT::SetVolume(float volume)                  
+void SNDFACTORY_XEVENT::SetSource(SNDSOURCE* source)
 { 
-  this->volume = volume;      
+  this->source = source;      
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         float SNDELEMENT::GetPitch()
-* @brief      GetPitch
+* 
+* @fn         SNDINSTANCE* SNDFACTORY_XEVENT::GetInstance()
+* @brief      GetInstance
 * @ingroup    SOUND
-*
-* @return     float : 
-*
+* 
+* @return     SNDINSTANCE* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-float SNDELEMENT::GetPitch()                              
+SNDINSTANCE* SNDFACTORY_XEVENT::GetInstance()
 { 
-  return pitch;               
+  return this->instance;         
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT::SetPitch(float pitch)
-* @brief      SetPitch
+* 
+* @fn         void SNDFACTORY_XEVENT::SetInstance(SNDINSTANCE* instance)
+* @brief      SetInstance
 * @ingroup    SOUND
-*
-* @param[in]  pitch : 
-*
+* 
+* @param[in]  instance : 
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT::SetPitch(float pitch)                   
-{
-  this->pitch = pitch;        
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool SNDELEMENT::IsStream()
-* @brief      IsStream
-* @ingroup    SOUND
-*
-* @return     bool : true if is succesful. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDELEMENT::IsStream()                              
+void SNDFACTORY_XEVENT::SetInstance(SNDINSTANCE* instance)
 { 
-  return isstream;            
+  this->instance = instance;  
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDFILE* SNDELEMENT::GetFile()
-* @brief      GetFile
-* @ingroup    SOUND
-*
-* @return     SNDFILE* : 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDFILE* SNDELEMENT::GetFile()
-{
-  return this->file;          
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT::SetFile(SNDFILE* file)
-* @brief      SetFile
-* @ingroup    SOUND
-*
-* @param[in]  file : 
-*
-* @return     void : does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT::SetFile(SNDFILE* file)                 
-{ 
-  this->file = file;          
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         float SNDELEMENT::GetDuration()
-* @brief      GetDuration
-* @ingroup    SOUND
-*
-* @return     float : 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-float SNDELEMENT::GetDuration()                              
-{ 
-  return this->duration;      
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT::SetDuration(float duration)
-* @brief      SetDuration
-* @ingroup    SOUND
-*
-* @param[in]  duration : 
-*
-* @return     void : does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT::SetDuration(float duration)                
-{ 
-  this->duration = duration;  
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int SNDELEMENT::GetSamples()
-* @brief      GetSamples
-* @ingroup    SOUND
-*
-* @return     int : 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-int SNDELEMENT::GetSamples()                              
-{ 
-  return this->samples;       
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT::SetSamples(int samples)
-* @brief      SetSamples
-* @ingroup    SOUND
-*
-* @param[in]  samples : 
-*
-* @return     void : does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT::SetSamples(int samples)                   
-{ 
-  this->samples = samples;    
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT::Clean()
+* 
+* @fn         void SNDFACTORY_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT::Clean()
+void SNDFACTORY_XEVENT::Clean()
 {
-  file      = NULL;
+  type       = SNDFACTORY_XEVENT_TYPE_UNKNOWN;
 
-  loop      = false;
-  volume    = 0.0f;
-  pitch     = 0.0f;
-  duration  = 0.0f;
-  samples   = 0;
-
-  isstream  = false;
+  element    = NULL;
+  source     = NULL;
+  instance   = NULL;
 }
 
 
 #pragma endregion
-
 

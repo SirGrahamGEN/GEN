@@ -1,58 +1,69 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       SNDSource.cpp
-*
+* 
 * @class      SNDSOURCE
 * @brief      Sound source class
 * @ingroup    SOUND
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "SNDInstance.h"
+#pragma region INCLUDES
 
 #include "SNDSource.h"
 
+#include "SNDInstance.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         SNDSOURCE::SNDSOURCE()
 * @brief      Constructor
 * @ingroup    SOUND
-*
+* 
 * @return     Does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDSOURCE::SNDSOURCE()
 { 
@@ -60,16 +71,15 @@ SNDSOURCE::SNDSOURCE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         SNDSOURCE::~SNDSOURCE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-*
+* 
 * @return     Does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDSOURCE::~SNDSOURCE()
 { 
@@ -77,17 +87,16 @@ SNDSOURCE::~SNDSOURCE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void SNDSOURCE::SetInstance(SNDINSTANCE* instance)
 * @brief      SetInstance
 * @ingroup    SOUND
-*
+* 
 * @param[in]  instance : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDSOURCE::SetInstance(SNDINSTANCE* instance)
 { 
@@ -95,15 +104,14 @@ void SNDSOURCE::SetInstance(SNDINSTANCE* instance)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         SNDINSTANCE* SNDSOURCE::GetInstance()
 * @brief      GetInstance
 * @ingroup    SOUND
-*
+* 
 * @return     SNDINSTANCE* : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDINSTANCE* SNDSOURCE::GetInstance()
 { 
@@ -111,15 +119,14 @@ SNDINSTANCE* SNDSOURCE::GetInstance()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SNDSOURCE::IsInstancePlaying()
 * @brief      IsInstancePlaying
 * @ingroup    SOUND
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDSOURCE::IsInstancePlaying()
 {
@@ -132,17 +139,16 @@ bool SNDSOURCE::IsInstancePlaying()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void SNDSOURCE::SetElement(SNDELEMENT* element)
 * @brief      SetElement
 * @ingroup    SOUND
-*
+* 
 * @param[in]  element : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDSOURCE::SetElement(SNDELEMENT* element)           
 { 
@@ -150,15 +156,14 @@ void SNDSOURCE::SetElement(SNDELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         SNDELEMENT* SNDSOURCE::GetElement()
 * @brief      GetElement
 * @ingroup    SOUND
-*
+* 
 * @return     SNDELEMENT* : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDELEMENT* SNDSOURCE::GetElement()                              
 { 
@@ -166,15 +171,14 @@ SNDELEMENT* SNDSOURCE::GetElement()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void SNDSOURCE::Stop()
 * @brief      Stop
 * @ingroup    SOUND
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDSOURCE::Stop()                              
 {
@@ -182,15 +186,14 @@ void SNDSOURCE::Stop()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void SNDSOURCE::Pause()
 * @brief      Pause
 * @ingroup    SOUND
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDSOURCE::Pause()
 {                                   
@@ -198,15 +201,14 @@ void SNDSOURCE::Pause()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void SNDSOURCE::UnPause()
 * @brief      UnPause
 * @ingroup    SOUND
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDSOURCE::UnPause()                              
 {                                   
@@ -214,17 +216,16 @@ void SNDSOURCE::UnPause()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void SNDSOURCE::SetLoop(bool loop)
 * @brief      SetLoop
 * @ingroup    SOUND
-*
+* 
 * @param[in]  loop : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDSOURCE::SetLoop(bool loop)                     
 {
@@ -232,15 +233,14 @@ void SNDSOURCE::SetLoop(bool loop)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SNDSOURCE::IsPLaying()
 * @brief      IsPLaying
 * @ingroup    SOUND
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDSOURCE::IsPLaying()                              
 { 
@@ -248,15 +248,14 @@ bool SNDSOURCE::IsPLaying()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SNDSOURCE::IsStopped()
 * @brief      IsStopped
 * @ingroup    SOUND
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDSOURCE::IsStopped()                              
 { 
@@ -264,15 +263,14 @@ bool SNDSOURCE::IsStopped()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SNDSOURCE::IsPaused()
 * @brief      IsPaused
 * @ingroup    SOUND
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDSOURCE::IsPaused()                              
 { 
@@ -280,33 +278,14 @@ bool SNDSOURCE::IsPaused()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE::SetVolume(float volume)
-* @brief      SetVolume
-* @ingroup    SOUND
-*
-* @param[in]  volume : 
-*
-* @return     void : does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE::SetVolume(float volume)                  
-{ 
-
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         float SNDSOURCE::GetVolume()
 * @brief      GetVolume
 * @ingroup    SOUND
-*
+* 
 * @return     float : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 float SNDSOURCE::GetVolume()
 { 
@@ -314,17 +293,33 @@ float SNDSOURCE::GetVolume()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDSOURCE::SetVolume(float volume)
+* @brief      SetVolume
+* @ingroup    SOUND
+* 
+* @param[in]  volume : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDSOURCE::SetVolume(float volume)                  
+{ 
+
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void SNDSOURCE::SetPitch(float pitch)
 * @brief      SetPitch
 * @ingroup    SOUND
-*
+* 
 * @param[in]  pitch : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDSOURCE::SetPitch(float pitch)                   
 {
@@ -332,15 +327,14 @@ void SNDSOURCE::SetPitch(float pitch)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         float SNDSOURCE::GetPitch()
 * @brief      GetPitch
 * @ingroup    SOUND
-*
+* 
 * @return     float : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 float SNDSOURCE::GetPitch()                              
 { 
@@ -348,17 +342,16 @@ float SNDSOURCE::GetPitch()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void SNDSOURCE::SetSecondsOffset(float seconds)
 * @brief      SetSecondsOffset
 * @ingroup    SOUND
-*
+* 
 * @param[in]  seconds : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDSOURCE::SetSecondsOffset(float seconds)                 
 {                                   
@@ -366,17 +359,16 @@ void SNDSOURCE::SetSecondsOffset(float seconds)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void SNDSOURCE::SetSamplesOffset(int samples)
 * @brief      SetSamplesOffset
 * @ingroup    SOUND
-*
+* 
 * @param[in]  samples : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDSOURCE::SetSamplesOffset(int samples)                   
 {                                   
@@ -384,16 +376,15 @@ void SNDSOURCE::SetSamplesOffset(int samples)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void SNDSOURCE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDSOURCE::Clean()
 {
@@ -401,6 +392,8 @@ void SNDSOURCE::Clean()
   instance  = NULL;
 }
 
+
+#pragma endregion
 
 
 

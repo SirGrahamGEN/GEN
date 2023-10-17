@@ -1,136 +1,287 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       SNDOpenALElement.cpp
-*
-* @class      SNDELEMENT_OPENAL
-* @brief      Sound Open AL element class
-* @ingroup    PLATFORM_COMMON
-*
+* 
+* @class      SNDOPENALELEMENT
+* @brief      Sound OpenAL element class
+* @ingroup    SOUND
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
-#include "SNDSource_OpenAL.h"
-#include "SNDBuffer_OpenAL.h"
-#include "SNDFileOGG.h"
+#include "SNDOpenALElement.h"
 
-#include "SNDElement_OpenAL.h"
+#include "SNDOpenALSource.h"
+#include "SNDOpenALBuffer.h"
+#include "SNDFile.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDELEMENT_OPENAL::SNDELEMENT_OPENAL(XPATH* xpath)
+* 
+* @fn         SNDOPENALELEMENT::SNDOPENALELEMENT(XPATH* xpath)
 * @brief      Constructor
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  XPATH* : 
-*
+* 
 * @return     Does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT_OPENAL::SNDELEMENT_OPENAL(XPATH* xpath)
+SNDOPENALELEMENT::SNDOPENALELEMENT(XPATH* xpath)
 {
   Clean();
 
+  buffer  = new SNDOPENALBUFFER();
+  if(buffer)
+    {
+      buffer->Generate();
+    }
 
-  buffer  = new SNDBUFFER_OPENAL();
-  buffer->Generate();
   volume  = 1.0f;
   pitch   = 1.0f;
+
   sources.SetIsMulti(false);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDELEMENT_OPENAL::~SNDELEMENT_OPENAL()
+* 
+* @fn         SNDOPENALELEMENT::~SNDOPENALELEMENT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     Does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT_OPENAL::~SNDELEMENT_OPENAL()
+SNDOPENALELEMENT::~SNDOPENALELEMENT()
 {
   if(buffer)
     {
       buffer->Destroy();
       delete buffer;
     }
+
   Clean();
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDOPENALELEMENT::GetLoop()
+* @brief      GetLoop
+* @ingroup    SOUND
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDOPENALELEMENT::GetLoop()
+{ 
+  return this->loop;      
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT_OPENAL::AddSource(SNDSOURCE_OPENAL* source)
-* @brief      AddSource
-* @ingroup    PLATFORM_COMMON
-*
-* @param[in]  source : 
-*
+* 
+* @fn         void SNDOPENALELEMENT::SetLoop(bool loop)
+* @brief      SetLoop
+* @ingroup    SOUND
+* 
+* @param[in]  loop : 
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT_OPENAL::AddSource(SNDSOURCE_OPENAL* source)
+void SNDOPENALELEMENT::SetLoop(bool loop)
+{
+  this->loop = loop;
+
+  SNDOPENALSOURCE* source = GetSource();
+
+  if(source)
+    {
+      source->SetLoop(loop);
+    }
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float SNDOPENALELEMENT::GetVolume()
+* @brief      GetVolume
+* @ingroup    SOUND
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float SNDOPENALELEMENT::GetVolume()
+{ 
+  return volume;          
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDOPENALELEMENT::SetVolume(float volume)
+* @brief      SetVolume
+* @ingroup    SOUND
+* 
+* @param[in]  volume : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALELEMENT::SetVolume(float volume)
+{
+  this->volume = volume;
+
+  SNDOPENALSOURCE* source = GetSource();
+
+  if(source)
+    {
+      source->SetVolume(volume);
+    }
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float SNDOPENALELEMENT::GetPitch()
+* @brief      GetPitch
+* @ingroup    SOUND
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float SNDOPENALELEMENT::GetPitch()
+{ 
+  return pitch;           
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDOPENALELEMENT::SetPitch(float pitch)
+* @brief      SetPitch
+* @ingroup    SOUND
+* 
+* @param[in]  pitch : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALELEMENT::SetPitch(float pitch)
+{
+  this->pitch = pitch;
+
+  SNDOPENALSOURCE* source = GetSource();
+
+  if(source)
+    {
+      source->SetPitch(pitch);
+    }
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDOPENALELEMENT::SetFile(SNDFILE* file)
+* @brief      SetFile
+* @ingroup    SOUND
+* 
+* @param[in]  file : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALELEMENT::SetFile(SNDFILE* file)
+{
+  this->file = file;
+
+  buffer->Upload(file->GetChannels(), file->GetData()->Get(), file->GetData()->GetSize(), file->GetSampleRate());
+
+  ID.Set(file->GetID()->Get());
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDOPENALELEMENT::AddSource(SNDOPENALSOURCE* source)
+* @brief      AddSource
+* @ingroup    SOUND
+* 
+* @param[in]  source : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALELEMENT::AddSource(SNDOPENALSOURCE* source)
 {
   sources.Add(source);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT_OPENAL::SetSource(SNDSOURCE_OPENAL* source)
+* 
+* @fn         void SNDOPENALELEMENT::SetSource(SNDOPENALSOURCE* source)
 * @brief      SetSource
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  source : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT_OPENAL::SetSource(SNDSOURCE_OPENAL* source)
+void SNDOPENALELEMENT::SetSource(SNDOPENALSOURCE* source)
 {
   if(source != NULL)
     {
       sources.Add(source);
       lastsource = source;
     }
-  else
+   else
     {
       XDWORD size = sources.GetSize();
       for(XDWORD i = 0; i < size; i++)
@@ -145,21 +296,21 @@ void SNDELEMENT_OPENAL::SetSource(SNDSOURCE_OPENAL* source)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDSOURCE_OPENAL* SNDELEMENT_OPENAL::GetSource()
+* 
+* @fn         SNDOPENALSOURCE* SNDOPENALELEMENT::GetSource()
 * @brief      GetSource
-* @ingroup    PLATFORM_COMMON
-*
-* @return     SNDSOURCE_OPENAL* : 
-*
+* @ingroup    SOUND
+* 
+* @return     SNDOPENALSOURCE* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDSOURCE_OPENAL* SNDELEMENT_OPENAL::GetSource()
+SNDOPENALSOURCE* SNDOPENALELEMENT::GetSource()
 {
-  SNDSOURCE_OPENAL* ret = NULL;
+  SNDOPENALSOURCE* ret = NULL;
 
   XDWORD size = sources.GetSize();
+
   for(XDWORD i = 0; i < size; i++)
     {
       if(sources.FastGet(i)->GetElement() == this)
@@ -172,196 +323,48 @@ SNDSOURCE_OPENAL* SNDELEMENT_OPENAL::GetSource()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool SNDELEMENT_OPENAL::GetLoop()
-* @brief      GetLoop
-* @ingroup    PLATFORM_COMMON
-*
-* @return     bool : true if is succesful. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDELEMENT_OPENAL::GetLoop()                              
-{ 
-  return this->loop;      
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT_OPENAL::SetLoop(bool loop)
-* @brief      SetLoop
-* @ingroup    PLATFORM_COMMON
-*
-* @param[in]  loop : 
-*
-* @return     void : does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT_OPENAL::SetLoop(bool loop)
-{
-  this->loop = loop;
-
-  SNDSOURCE_OPENAL* source = GetSource();
-
-  if(source)
-    {
-      source->SetLoop(loop);
-    }
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDBUFFER_OPENAL* SNDELEMENT_OPENAL::GetBuffer()
+* 
+* @fn         SNDOPENALBUFFER* SNDOPENALELEMENT::GetBuffer()
 * @brief      GetBuffer
-* @ingroup    PLATFORM_COMMON
-*
-* @return     SNDBUFFER_OPENAL* : 
-*
+* @ingroup    SOUND
+* 
+* @return     SNDOPENALBUFFER* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDBUFFER_OPENAL* SNDELEMENT_OPENAL::GetBuffer()                              
+SNDOPENALBUFFER* SNDOPENALELEMENT::GetBuffer()
 { 
   return this->buffer;    
 }
 
-
-    
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         float SNDELEMENT_OPENAL::GetVolume()
-* @brief      GetVolume
-* @ingroup    PLATFORM_COMMON
-*
-* @return     float : 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-float SNDELEMENT_OPENAL::GetVolume()                              
-{ 
-  return volume;          
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT_OPENAL::SetVolume(float volume)
-* @brief      SetVolume
-* @ingroup    PLATFORM_COMMON
-*
-* @param[in]  volume : 
-*
-* @return     void : does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT_OPENAL::SetVolume(float volume)
-{
-  this->volume = volume;
-
-  SNDSOURCE_OPENAL* source = GetSource();
-
-  if(source)
-    {
-      source->SetVolume(volume);
-    }
-}
-
-
-   
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         float SNDELEMENT_OPENAL::GetPitch()
-* @brief      GetPitch
-* @ingroup    PLATFORM_COMMON
-*
-* @return     float : 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-float SNDELEMENT_OPENAL::GetPitch()
-{ 
-  return pitch;           
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT_OPENAL::SetPitch(float pitch)
-* @brief      SetPitch
-* @ingroup    PLATFORM_COMMON
-*
-* @param[in]  pitch : 
-*
-* @return     void : does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT_OPENAL::SetPitch(float pitch)
-{
-  this->pitch = pitch;
-
-  SNDSOURCE_OPENAL* source = GetSource();
-
-  if(source)
-    {
-      source->SetPitch(pitch);
-    }
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT_OPENAL::SetFile(SNDFILE* file)
-* @brief      SetFile
-* @ingroup    PLATFORM_COMMON
-*
-* @param[in]  file : 
-*
-* @return     void : does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT_OPENAL::SetFile(SNDFILE* file)
-{
-  this->file = file;
-
-  buffer->Upload(file->GetChannels(), file->GetData()->Get(), file->GetData()->GetSize(), file->GetSampleRate());
-
-  ID.Set(file->GetID()->Get());
-}
-
-
  
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT_OPENAL::Queue()
+* 
+* @fn         void SNDOPENALELEMENT::Queue()
 * @brief      Queue
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT_OPENAL::Queue()
+void SNDOPENALELEMENT::Queue()
 {
   //GetSource()->Play(buffer);
   lastsource->Play(buffer);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDELEMENT_OPENAL::Clean()
+* 
+* @fn         void SNDOPENALELEMENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDELEMENT_OPENAL::Clean()
+void SNDOPENALELEMENT::Clean()
 {
   buffer    = NULL;
   loop      = false;
@@ -369,6 +372,8 @@ void SNDELEMENT_OPENAL::Clean()
   pitch     = 0.0f;
 }
 
+
+#pragma endregion
 
 
 

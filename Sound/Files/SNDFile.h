@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDElement.h
+* @file       SNDFile.h
 * 
-* @class      SNDELEMENT
-* @brief      Sound Element class
+* @class      SNDFILE
+* @brief      Sound File class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,14 +26,14 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SNDELEMENT_H_
-#define _SNDELEMENT_H_
+#ifndef _SNDFILE_H_
+#define _SNDFILE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XBase.h"
-#include "XString.h"
+#include "XFile.h"
+#include "XPath.h"
 
 #pragma endregion
 
@@ -41,19 +41,6 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-enum SNDELEMENT_TYPE
-{
-  SNDELEMENT_TYPE_UNKNOWN       = 0 ,
-  SNDELEMENT_TYPE_FILE              ,
-  SNDELEMENT_TYPE_NOTE              ,
-};
-
-enum SNDELEMENT_STATUS
-{
-  SNDELEMENT_STATUS_STOP        = 0 ,
-  SNDELEMENT_STATUS_PLAY            ,
-  SNDELEMENT_STATUS_PAUSE           ,
-};
 
 #pragma endregion
 
@@ -61,54 +48,46 @@ enum SNDELEMENT_STATUS
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SNDFILE;
-
-class SNDELEMENT
+class SNDFILE 
 {
   public:
-                              SNDELEMENT            ();
-    virtual                  ~SNDELEMENT            ();
 
-    XSTRING*                  GetID                 ();
+                                    SNDFILE                               ();    
+    virtual                        ~SNDFILE                               ();
     
-    virtual bool              GetLoop               ();
-    virtual void              SetLoop               (bool loop);
-    
-    virtual float             GetVolume             ();
-    virtual void              SetVolume             (float volume);
-        
-    virtual float             GetPitch              ();
-    virtual void              SetPitch              (float pitch); 
-    
-    bool                      IsStream              ();
-    
-    SNDFILE*                  GetFile               ();
-    virtual void              SetFile               (SNDFILE* file);
-    
-    float                     GetDuration           ();
-    void                      SetDuration           (float duration);
+    XSTRING*                        GetID                                 ();
 
-    int                       GetSamples            ();    
-    void                      SetSamples            (int samples);
+    XBUFFER*                        GetData                               ();
+    XWORD                           GetChannels                           ();
+    XDWORD                          GetNSamples                           ();
+    XDWORD                          GetSampleRate                         ();    
+    float                           GetDuration                           ();
+
+    virtual bool                    LoadFile                              (XCHAR* path , XCHAR* ID, bool instream);
+    bool                            LoadFile                              (XPATH& xpath, XCHAR* ID, bool instream);
+
+    bool                            WriteRaw                              (XCHAR* path, XCHAR* ID);
+    bool                            WriteRaw                              (XPATH& xpath, XCHAR* ID);
     
+    virtual bool                    Reset                                 ();
+
   protected:
+      
+    XSTRING                         ID;
+    bool                            isstream;
+   
+    XWORD                           channels;
+    XDWORD                          nsamples;
+    XDWORD                          samplerate;
+    float                           duration;   
 
-    XSTRING                   ID;
-    SNDFILE*                  file;
-
-    bool                      loop;
-    float                     volume;
-    float                     pitch;
-
-    float                     duration;
-    int                       samples;
-    bool                      isstream;
+    XBUFFER*                        xbuffer;
+    XBUFFER*                        xbufferdecodeddata;    
 
   private:
 
-    void                      Clean                 ();
+    void                            Clean                                 ();                                 
 };
-
 
 #pragma endregion
 
@@ -121,4 +100,3 @@ class SNDELEMENT
 
 
 #endif
-

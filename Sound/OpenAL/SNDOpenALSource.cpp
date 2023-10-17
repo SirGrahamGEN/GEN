@@ -1,133 +1,182 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       SNDSource_OpenAL.cpp
-*
-* @class      SNDSOURCE_OPENAL
-* @brief      Sound Open AL source class
-* @ingroup    PLATFORM_COMMON
-*
+* 
+* @file       SNDOpenALSource.cpp
+* 
+* @class      SNDOPENALSOURCE
+* @brief      Sound OpenAL source class
+* @ingroup    SOUND
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "SNDOpenALSource.h"
 
 #include "XTrace.h"
 
-#include "SNDFactory_OpenAL.h"
 #include "SNDInstance.h"
-#include "SNDBuffer_OpenAL.h"
-#include "SNDElement_OpenAL.h"
 
-#include "SNDSource_OpenAL.h"
+#include "SNDOpenALFactory.h"
+#include "SNDOpenALBuffer.h"
+#include "SNDOpenALElement.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::Stop()
-* @brief      Stop
-* @ingroup    PLATFORM_COMMON
-*
-* @return     void : does not return anything. 
-*
+* 
+* @fn         SNDOPENALSOURCE::SNDOPENALSOURCE()
+* @brief      Constructor
+* @ingroup    SOUND
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::Stop()
+SNDOPENALSOURCE::SNDOPENALSOURCE()
+{
+  Clean();
+
+  alGenSources(1    , &source);
+  alSourcef(source  , AL_PITCH, 1);
+  alSourcef(source  , AL_GAIN, 1);
+  alSource3f(source , AL_POSITION, 0, 0, 0);
+  alSource3f(source , AL_VELOCITY, 0, 0, 0);
+  alSourcei(source  , AL_LOOPING, AL_FALSE);
+//alSourcef(source  , AL_MAX_GAIN, 1000.0f);  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDOPENALSOURCE::~SNDOPENALSOURCE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    SOUND
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDOPENALSOURCE::~SNDOPENALSOURCE()
+{
+  alDeleteSources(1, &source);
+
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDOPENALSOURCE::Stop()
+* @brief      Stop
+* @ingroup    SOUND
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALSOURCE::Stop()
 {
   alSourceStop(source);
   isplaying = false;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::Pause()
+* 
+* @fn         void SNDOPENALSOURCE::Pause()
 * @brief      Pause
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::Pause()
+void SNDOPENALSOURCE::Pause()
 {
   alSourcePause(source);
   isplaying = true;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::UnPause()
+* 
+* @fn         void SNDOPENALSOURCE::UnPause()
 * @brief      UnPause
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::UnPause()
+void SNDOPENALSOURCE::UnPause()
 {
   alSourcePlay(source);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::SetLoop(bool loop)
+* 
+* @fn         void SNDOPENALSOURCE::SetLoop(bool loop)
 * @brief      SetLoop
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  loop : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::SetLoop(bool loop)
+void SNDOPENALSOURCE::SetLoop(bool loop)
 {
   alSourcei(source, AL_LOOPING, loop);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool SNDSOURCE_OPENAL::IsPLaying()
+* 
+* @fn         bool SNDOPENALSOURCE::IsPLaying()
 * @brief      IsPLaying
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDSOURCE_OPENAL::IsPLaying()
+bool SNDOPENALSOURCE::IsPLaying()
 {
   if(isplaying)
     {
@@ -160,17 +209,16 @@ bool SNDSOURCE_OPENAL::IsPLaying()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool SNDSOURCE_OPENAL::IsStopped()
+* 
+* @fn         bool SNDOPENALSOURCE::IsStopped()
 * @brief      IsStopped
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDSOURCE_OPENAL::IsStopped()
+bool SNDOPENALSOURCE::IsStopped()
 {
   ALint source_state;
   alGetSourcei(source, AL_SOURCE_STATE, &source_state);
@@ -179,17 +227,16 @@ bool SNDSOURCE_OPENAL::IsStopped()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool SNDSOURCE_OPENAL::IsPaused()
+* 
+* @fn         bool SNDOPENALSOURCE::IsPaused()
 * @brief      IsPaused
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDSOURCE_OPENAL::IsPaused()
+bool SNDOPENALSOURCE::IsPaused()
 {
   ALint source_state;
 
@@ -199,58 +246,52 @@ bool SNDSOURCE_OPENAL::IsPaused()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         float SNDSOURCE_OPENAL::GetVolume()
+* 
+* @fn         float SNDOPENALSOURCE::GetVolume()
 * @brief      GetVolume
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     float : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-float SNDSOURCE_OPENAL::GetVolume()
-{
-  
+float SNDOPENALSOURCE::GetVolume()
+{  
   float volume;
 
   alGetSourcef(source, AL_GAIN, &volume);
 
-  return volume /  GEN_SNDFACTORY.GetMasterVolume();  
+  return volume /  GEN_SNDFACTORY.Volume_Get();  
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::SetVolume(float volume)
+* 
+* @fn         void SNDOPENALSOURCE::SetVolume(float volume)
 * @brief      SetVolume
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  volume : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::SetVolume(float volume)
+void SNDOPENALSOURCE::SetVolume(float volume)
 {  
-  alSourcef(source, AL_GAIN, volume * GEN_SNDFACTORY.GetMasterVolume());
-  
+  alSourcef(source, AL_GAIN, volume * GEN_SNDFACTORY.Volume_Get()); 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         float SNDSOURCE_OPENAL::GetPitch()
+* 
+* @fn         float SNDOPENALSOURCE::GetPitch()
 * @brief      GetPitch
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     float : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-float SNDSOURCE_OPENAL::GetPitch()
+float SNDOPENALSOURCE::GetPitch()
 {
   float pitch;
 
@@ -260,71 +301,67 @@ float SNDSOURCE_OPENAL::GetPitch()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::SetPitch(float pitch)
+* 
+* @fn         void SNDOPENALSOURCE::SetPitch(float pitch)
 * @brief      SetPitch
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  pitch : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::SetPitch(float pitch)
+void SNDOPENALSOURCE::SetPitch(float pitch)
 {
   alSourcef(source, AL_PITCH, pitch);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDELEMENT* SNDSOURCE_OPENAL::GetElement()
+* 
+* @fn         SNDELEMENT* SNDOPENALSOURCE::GetElement()
 * @brief      GetElement
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     SNDELEMENT* : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDSOURCE_OPENAL::GetElement()                              
+SNDELEMENT* SNDOPENALSOURCE::GetElement()
 { 
   return this->element;     
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::SetElement(SNDELEMENT* element)
+* 
+* @fn         void SNDOPENALSOURCE::SetElement(SNDELEMENT* element)
 * @brief      SetElement
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  element : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::SetElement(SNDELEMENT* element)           
+void SNDOPENALSOURCE::SetElement(SNDELEMENT* element)
 { 
   this->element = element;  
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::SetSecondsOffset(float seconds)
+* 
+* @fn         void SNDOPENALSOURCE::SetSecondsOffset(float seconds)
 * @brief      SetSecondsOffset
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  seconds : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::SetSecondsOffset(float seconds)
+void SNDOPENALSOURCE::SetSecondsOffset(float seconds)
 {
   if(element)
     {
@@ -336,19 +373,18 @@ void SNDSOURCE_OPENAL::SetSecondsOffset(float seconds)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::SetSamplesOffset(int samples)
+* 
+* @fn         void SNDOPENALSOURCE::SetSamplesOffset(int samples)
 * @brief      SetSamplesOffset
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  samples : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::SetSamplesOffset(int samples)
+void SNDOPENALSOURCE::SetSamplesOffset(int samples)
 {
   if(element)
     {
@@ -362,127 +398,78 @@ void SNDSOURCE_OPENAL::SetSamplesOffset(int samples)
 }
 
 
-    
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::SetAquired(bool aquired)
+* 
+* @fn         void SNDOPENALSOURCE::SetAquired(bool aquired)
 * @brief      SetAquired
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  aquired : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::SetAquired(bool aquired)                  
+void SNDOPENALSOURCE::SetAquired(bool aquired)
 { 
   this->aquired = aquired;  
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool SNDSOURCE_OPENAL::IsAquired()
+* 
+* @fn         bool SNDOPENALSOURCE::IsAquired()
 * @brief      IsAquired
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDSOURCE_OPENAL::IsAquired()                              
+bool SNDOPENALSOURCE::IsAquired()
 { 
   return this->aquired;     
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::Aquire()
+* 
+* @fn         void SNDOPENALSOURCE::Aquire()
 * @brief      Aquire
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::Aquire()                            
+void SNDOPENALSOURCE::Aquire()
 { 
   this->aquired = true;     
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::Release()
+* 
+* @fn         void SNDOPENALSOURCE::Release()
 * @brief      Release
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::Release()                              
+void SNDOPENALSOURCE::Release()
 { 
   this->aquired = false;    
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDSOURCE_OPENAL::SNDSOURCE_OPENAL()
-* @brief      Constructor
-* @ingroup    PLATFORM_COMMON
-*
-* @return     Does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDSOURCE_OPENAL::SNDSOURCE_OPENAL()
-{
-  Clean();
-
-  alGenSources(1, &source);
-  alSourcef(source, AL_PITCH, 1);
-  alSourcef(source, AL_GAIN, 1);
-  alSource3f(source, AL_POSITION, 0, 0, 0);
-  alSource3f(source, AL_VELOCITY, 0, 0, 0);
-  alSourcei(source, AL_LOOPING, AL_FALSE);
-  //alSourcef(source, AL_MAX_GAIN, 1000.0f);  
-}
-
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDSOURCE_OPENAL::~SNDSOURCE_OPENAL()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    PLATFORM_COMMON
-*
-* @return     Does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDSOURCE_OPENAL::~SNDSOURCE_OPENAL()
-{
-  alDeleteSources(1, &source);
-
-  Clean();
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::Play()
+* 
+* @fn         void SNDOPENALSOURCE::Play()
 * @brief      Play
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::Play()
+void SNDOPENALSOURCE::Play()
 {
   if(!IsPLaying())
     {
@@ -492,23 +479,21 @@ void SNDSOURCE_OPENAL::Play()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::Play(SNDBUFFER_OPENAL* buffer)
+* 
+* @fn         void SNDOPENALSOURCE::Play(SNDOPENALBUFFER* buffer)
 * @brief      Play
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  buffer : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::Play(SNDBUFFER_OPENAL* buffer)
+void SNDOPENALSOURCE::Play(SNDOPENALBUFFER* buffer)
 {
   if(!IsPLaying())
-    {
-      
+    {     
       alSourcei(source, AL_BUFFER, buffer->buffer);
       alSourcePlay(source);
 
@@ -517,65 +502,57 @@ void SNDSOURCE_OPENAL::Play(SNDBUFFER_OPENAL* buffer)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::Queue(SSNDBUFFER_OPENAL* buffer)
+* 
+* @fn         void SNDOPENALSOURCE::Queue(SNDOPENALBUFFER* buffer)
 * @brief      Queue
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  buffer : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::Queue(SNDBUFFER_OPENAL* buffer)
+void SNDOPENALSOURCE::Queue(SNDOPENALBUFFER* buffer)
 {
   if(buffer)
-    {
-      
-      alSourceQueueBuffers(source, 1, &(buffer->buffer));
-      
+    {      
+      alSourceQueueBuffers(source, 1, &(buffer->buffer));      
       //bufferlist.Add(buffer);
     }
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::UnQueue(SNDBUFFER_OPENAL* buffer)
+* 
+* @fn         void SNDOPENALSOURCE::UnQueue(SNDOPENALBUFFER* buffer)
 * @brief      UnQueue
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  buffer : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::UnQueue(SNDBUFFER_OPENAL* buffer)
+void SNDOPENALSOURCE::UnQueue(SNDOPENALBUFFER* buffer)
 {
   alSourceStop(source);
 
   ALuint ID = 0;
-
   alSourceUnqueueBuffers(source, 1, &ID);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int SNDSOURCE_OPENAL::GetQueueLength()
+* 
+* @fn         int SNDOPENALSOURCE::GetQueueLength()
 * @brief      GetQueueLength
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     int : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-int SNDSOURCE_OPENAL::GetQueueLength()
+int SNDOPENALSOURCE::GetQueueLength()
 {
   int queue = 0;
   alGetSourcei(source, AL_BUFFERS_QUEUED, &queue);
@@ -583,17 +560,16 @@ int SNDSOURCE_OPENAL::GetQueueLength()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int SNDSOURCE_OPENAL::GetProcessedBuffers()
+* 
+* @fn         int SNDOPENALSOURCE::GetProcessedBuffers()
 * @brief      GetProcessedBuffers
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     int : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-int SNDSOURCE_OPENAL::GetProcessedBuffers()
+int SNDOPENALSOURCE::GetProcessedBuffers()
 {
   int processed = 0;
   alGetSourcei(source, AL_BUFFERS_PROCESSED, &processed);
@@ -601,19 +577,17 @@ int SNDSOURCE_OPENAL::GetProcessedBuffers()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSOURCE_OPENAL::Clean()
+* 
+* @fn         void SNDOPENALSOURCE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSOURCE_OPENAL::Clean()
+void SNDOPENALSOURCE::Clean()
 {
   source        = 0;
   element       = NULL;
@@ -621,3 +595,7 @@ void SNDSOURCE_OPENAL::Clean()
   isplaying     = false;
   aquired       = false;
 }
+
+
+#pragma endregion
+

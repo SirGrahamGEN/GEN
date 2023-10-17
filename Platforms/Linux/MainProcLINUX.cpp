@@ -94,8 +94,7 @@
 #endif
 
 #ifdef SND_ACTIVE
-#include "SNDFactory_OpenAL.h"
-#include "SNDFactory.h"
+#include "SNDLINUXFactory.h"
 #endif
 
 #ifdef DIO_ACTIVE
@@ -433,7 +432,7 @@ bool MAINPROCLINUX::Factorys_Ini()
   #endif
 
   #ifdef SND_ACTIVE
-  if(!SNDFACTORY::SetInstance(new SNDFACTORY_OPENAL())) return false;
+  if(!SNDFACTORY::SetInstance(new SNDLINUXFACTORY())) return false;
   #endif
 
   #ifdef GRP_ACTIVE

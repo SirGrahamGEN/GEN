@@ -4,15 +4,25 @@
 # --------------------------------------------------------------------
 
 
-include_directories(${INCLUDES_DIR})
+if(COMPILE_FOR_ESP32)
 
+  # idf_component_register(SRCS "hello_world_main.c"  INCLUDE_DIRS "")
 
-if("${APP_RESOURCE_FILE}" STREQUAL "")
-
-  add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
 
 else()
 
-  add_executable(${CMAKE_PROJECT_NAME} ${SOURCES} ${APP_RESOURCE_FILE})
+  include_directories(${INCLUDES_DIR})
+
+
+  if("${APP_RESOURCE_FILE}" STREQUAL "")
+
+    add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
+
+  else()
+
+    add_executable(${CMAKE_PROJECT_NAME} ${SOURCES} ${APP_RESOURCE_FILE})
+
+  endif()
 
 endif()
+

@@ -1,70 +1,76 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       SNDStreamInstance.cpp
-*
-* @class      SNDSTREAMINSTANCE
-* @brief      Sound Stream instance class
+* 
+* @file       SNDInstanceStream.cpp
+* 
+* @class      SNDINSTANCESTREAM
+* @brief      Sound Instance Stream class
 * @ingroup    SOUND
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "SNDInstanceStream.h"
 
 #include "XTrace.h"
 
-#include "SNDStreamElement.h"
-#include "SNDFile.h"
-#include "SNDCodec.h"
-
-#include "SNDStreamInstance.h"
+#include "SNDElementStream.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDSTREAMINSTANCE::SNDSTREAMINSTANCE(SNDSOURCE* source, SNDELEMENT* element) : SNDINSTANCE(source, element)
-* @brief      Constructor
-* @ingroup    SOUND
-*
-* @param[in]  SNDSOURCE* : 
-* @param[in]   SNDELEMENT* element) : SNDINSTANCE(source : 
-* @param[in]   element : 
-*
-* @return     Does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDSTREAMINSTANCE::SNDSTREAMINSTANCE(SNDSOURCE* source, SNDELEMENT* element) : SNDINSTANCE(source, element)
+
+@fn         SNDINSTANCESTREAM::SNDINSTANCESTREAM(SNDSOURCE* source, SNDELEMENT* element)
+@brief      Constructor
+@ingroup    SOUND
+
+@param[in]  SNDSOURCE* : 
+@param[in]  SNDELEMENT* element : 
+
+@return     Does not return anything. 
+
+--------------------------------------------------------------------------------------------------------------------*/
+SNDINSTANCESTREAM::SNDINSTANCESTREAM(SNDSOURCE* source, SNDELEMENT* element) : SNDINSTANCE(source, element)
 {
   Clean();
 
@@ -72,38 +78,33 @@ SNDSTREAMINSTANCE::SNDSTREAMINSTANCE(SNDSOURCE* source, SNDELEMENT* element) : S
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDSTREAMINSTANCE::~SNDSTREAMINSTANCE()
+* 
+* @fn         SNDINSTANCESTREAM::~SNDINSTANCESTREAM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-*
+* 
 * @return     Does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDSTREAMINSTANCE::~SNDSTREAMINSTANCE()
+SNDINSTANCESTREAM::~SNDINSTANCESTREAM()
 {
   Clean();
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool SNDSTREAMINSTANCE::Update()
+* 
+* @fn         bool SNDINSTANCESTREAM::Update()
 * @brief      Update
 * @ingroup    SOUND
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDSTREAMINSTANCE::Update()
+bool SNDINSTANCESTREAM::Update()
 {
-
   /*
   // buffer in here or in the constructor
   // in here, and don't start playing until the minimum amount has been buffered
@@ -174,26 +175,28 @@ bool SNDSTREAMINSTANCE::Update()
         }
     }
 
-*/
+  */
 
   return true;
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDSTREAMINSTANCE::Clean()
+* 
+* @fn         void SNDINSTANCESTREAM::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDSTREAMINSTANCE::Clean()
+void SNDINSTANCESTREAM::Clean()
 {
   buffered      = 0.0f;
   hasbuffered   = false;
 }
+
+
+#pragma endregion
+

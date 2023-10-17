@@ -1,145 +1,150 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       SNDBuffer_OpenAL.cpp
-*
-* @class      SNDBUFFER_OPENAL
-* @brief      Sound Open AL Buffer class
-* @ingroup    PLATFORM_COMMON
-*
+* 
+* @file       SNDOpenALBuffer.cpp
+* 
+* @class      SNDOPENALBUFFER
+* @brief      Sound OpenAL Buffer class
+* @ingroup    SOUND
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
-#include "SNDBuffer_OpenAL.h"
+#include "SNDOpenALBuffer.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDBUFFER_OPENAL::SNDBUFFER_OPENAL()
+* 
+* @fn         SNDOPENALBUFFER::SNDOPENALBUFFER()
 * @brief      Constructor
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     Does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDBUFFER_OPENAL::SNDBUFFER_OPENAL()
+SNDOPENALBUFFER::SNDOPENALBUFFER()
 {
   Clean();
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         SNDBUFFER_OPENAL::~SNDBUFFER_OPENAL()
+* 
+* @fn         SNDOPENALBUFFER::~SNDOPENALBUFFER()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     Does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDBUFFER_OPENAL::~SNDBUFFER_OPENAL()
+SNDOPENALBUFFER::~SNDOPENALBUFFER()
 {
   Clean();
 }
-
 
     
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         ALuint SNDBUFFER_OPENAL::GetHandle()
+* 
+* @fn         ALuint SNDOPENALBUFFER::GetHandle()
 * @brief      GetHandle
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     ALuint : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-ALuint SNDBUFFER_OPENAL::GetHandle()
+ALuint SNDOPENALBUFFER::GetHandle()
 { 
   return buffer; 
 }
 
- 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDBUFFER_OPENAL::Generate()
+* 
+* @fn         void SNDOPENALBUFFER::Generate()
 * @brief      Generate
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDBUFFER_OPENAL::Generate()
+void SNDOPENALBUFFER::Generate()
 {
   alGenBuffers(1, &buffer);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDBUFFER_OPENAL::Destroy()
+* 
+* @fn         void SNDOPENALBUFFER::Destroy()
 * @brief      Destroy
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDBUFFER_OPENAL::Destroy()
+void SNDOPENALBUFFER::Destroy()
 {
   alDeleteBuffers(1, &buffer);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDBUFFER_OPENAL::Upload(XWORD channels, void* data, XDWORD size, XWORD freq)
+* 
+* @fn         void SNDOPENALBUFFER::Upload(XWORD channels, void* data, XDWORD size, XWORD freq)
 * @brief      Upload
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @param[in]  channels : 
 * @param[in]  data : 
 * @param[in]  size : 
 * @param[in]  freq : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDBUFFER_OPENAL::Upload(XWORD channels, void* data, XDWORD size, XWORD freq)
+void SNDOPENALBUFFER::Upload(XWORD channels, void* data, XDWORD size, XWORD freq)
 {
   ALenum format = AL_FORMAT_MONO16;
 
@@ -152,21 +157,21 @@ void SNDBUFFER_OPENAL::Upload(XWORD channels, void* data, XDWORD size, XWORD fre
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void SNDBUFFER_OPENAL::Clean()
+* 
+* @fn         void SNDOPENALBUFFER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    PLATFORM_COMMON
-*
+* @ingroup    SOUND
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDBUFFER_OPENAL::Clean()
+void SNDOPENALBUFFER::Clean()
 {
   buffer = 0;
 }
 
+
+#pragma endregion
 
