@@ -1001,8 +1001,8 @@ bool FindSubBitmap(GRPBITMAP* bitmapscreen, GRPBITMAP* bitmapref, int& x, int& y
   
   XDWORD*   bufferscreen        = (XDWORD*)bitmapscreen->GetBuffer();
   XDWORD*   bufferbitmap        = (XDWORD*)_bitmap->GetBuffer();
-  XDWORD    sizepìxel           = sizeof(XDWORD);
-  XDWORD    bufferscreensize    = (bitmapscreen->GetBufferSize() / sizepìxel) - _bitmap->GetWidth();
+  XDWORD    sizepixel           = sizeof(XDWORD);
+  XDWORD    bufferscreensize    = (bitmapscreen->GetBufferSize() / sizepixel) - _bitmap->GetWidth();
   XDWORD    bufferbmplinesize   = _bitmap->GetWidth();
   XDWORD    ndiff               = 0;
   bool      found               = false;
