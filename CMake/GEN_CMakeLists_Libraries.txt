@@ -18,8 +18,7 @@ if(COMPILE_FOR_WINDOWS)
     if(GRP_FEATURE)
 
       set_target_properties(${CMAKE_PROJECT_NAME}  PROPERTIES LINK_FLAGS /SUBSYSTEM:WINDOWS )
-      # target_link_libraries(${CMAKE_PROJECT_NAME} shcore)
-
+      
     endif()
 
   endif()
@@ -56,8 +55,8 @@ if(COMPILE_FOR_WINDOWS)
 
   
   if(SND_FEATURE)  
-
-    target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
+ 
+    #target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
 
   endif()
 
@@ -113,7 +112,13 @@ if(COMPILE_FOR_LINUX)
   target_link_libraries(${CMAKE_PROJECT_NAME} pthread)  
   target_link_libraries(${CMAKE_PROJECT_NAME} rt)  
   target_link_libraries(${CMAKE_PROJECT_NAME} dl) 
-  target_link_libraries(${CMAKE_PROJECT_NAME} m)         
+  target_link_libraries(${CMAKE_PROJECT_NAME} m)     
+  
+  if(XSYSTEM_FEATURE)  
+
+    target_link_libraries(${CMAKE_PROJECT_NAME} asound)    
+
+  endif()
 
 
   if(DIO_STREAMUSB_FEATURE)
@@ -123,7 +128,7 @@ if(COMPILE_FOR_LINUX)
   endif()
 
 
-  if (DIO_STREAMBLUETOOTH_FEATURE OR DIO_STREAMBLUETOOTHLE_FEATURE)
+  if(DIO_STREAMBLUETOOTH_FEATURE OR DIO_STREAMBLUETOOTHLE_FEATURE)
 
     target_link_libraries(${CMAKE_PROJECT_NAME} bluetooth)
 
@@ -145,9 +150,9 @@ if(COMPILE_FOR_LINUX)
 
   
   if(SND_FEATURE)  
-
-    target_link_libraries(${CMAKE_PROJECT_NAME} asound)
-    target_link_libraries(${CMAKE_PROJECT_NAME} openal)
+     
+    #target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_LINX64_LIB})
+    #target_link_libraries(${CMAKE_PROJECT_NAME} openal)
 
   endif()  
 

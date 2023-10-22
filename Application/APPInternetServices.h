@@ -101,8 +101,10 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
   private:
 
     bool                            CheckInternetStatus             ();
+    
+    bool                            UpdateIPs                       (XSTRING& actualpublicIP);
+    bool                            UpdateDynDNSURLs                (XSTRING& actualpublicIP);
     bool                            AdjustTimerByNTP                (XVECTOR<XSTRING*>* servers);
-    bool                            UpdateIPs                       ();
 
     void                            HandleEvent_Scheduler           (XSCHEDULER_XEVENT* xevent);
     void                            HandleEvent                     (XEVENT* xevent);

@@ -403,7 +403,6 @@ if(SND_FEATURE)
 
     endif()
 
-
     if(SND_FILE_WAV_FEATURE)
 
       #list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SOUND}/SNDFileBase.cpp")  

@@ -732,8 +732,7 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
               xevent.SetInternetConnexionState(APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_RESTORE);
               xevent.SetInternetConnextionCut(connectioncut);
 
-              ChangeCadenceCheckInternet(false);
-              ForceCheckIPs();
+              ChangeCadenceCheckInternet(false);              
             }
            else
             {
@@ -744,8 +743,7 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
         {
           xevent.SetInternetConnexionState(APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_CUT);
 
-          ChangeCadenceCheckInternet(true);
-          DeactiveCheckIPs();
+          ChangeCadenceCheckInternet(true);          
         }              
     }
    else
@@ -757,6 +755,139 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
 
   return true;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPINTERNETSERVICES::UpdateIPs()
+* @brief      UpdateIPs
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
+{
+  XSTRING                       actualautomaticlocalIP;
+  DIOSTREAMIPLOCALENUMDEVICES*  enumdevices     = (DIOSTREAMIPLOCALENUMDEVICES*)GEN_DIOFACTORY.CreateStreamEnumDevices(DIOSTREAMENUMTYPE_IP_LOCAL);  
+  bool                          sendchangeevent = false;
+  bool                          status          = false;
+      
+  APPINTERNETSERVICES_XEVENT    xevent(this, APPINTERNETSERVICES_XEVENT_TYPE_CHANGEIP);  
+
+  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Local IP... "));       
+                                                                
+  if(enumdevices)
+    {
+      DIOSTREAMDEVICEIP* device = (DIOSTREAMDEVICEIP*)enumdevices->GetFirstActiveDevice();
+      if(device)  device->GetIP()->GetXString(actualautomaticlocalIP);
+
+      alllocalIP.Empty();
+
+      for(XDWORD c=0; c<enumdevices->GetDevices()->GetSize(); c++)
+        {
+          device = (DIOSTREAMDEVICEIP*)enumdevices->GetDevices()->Get(c);
+          if(device)
+            {
+              if((!device->GetIP()->IsEmpty()) && 
+                  (!device->GetIP()->IsAPIPA()) &&
+                  ((device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_ETHERNET) ||
+                   (device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_WIFI)     ||
+                   (device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_PPP)))
+                  {
+                    XSTRING locaIPstring;
+
+                    if(!alllocalIP.IsEmpty()) alllocalIP.Add(",");                                                                                      
+
+                    device->GetIP()->GetXString(locaIPstring); 
+                    alllocalIP.Add(locaIPstring.Get());
+
+                    status = true;                                                                                      
+                  }
+            }  
+        }    
+
+      GEN_DIOFACTORY.DeleteStreamEnumDevices(enumdevices);
+    }
+
+  APP_LOG_ENTRY(status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Local IP : [%s] "), actualautomaticlocalIP.Get());       
+
+  if(status)
+    {
+      DIOIP ip;
+      
+      status = false;
+
+      // Check Local IP changed
+      if(automaticlocalIP.Compare(actualautomaticlocalIP))
+        {                                                                      
+          xevent.SetIsChangeLocalIP(true);          
+          xevent.GetChangeLocalIP()->Set(actualautomaticlocalIP);
+
+          automaticlocalIP  = actualautomaticlocalIP;
+          sendchangeevent   = true;
+        }                                                                         
+      
+      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Public IP... "));                                                                    
+
+      if(scraperwebpublicIP->Get(ip, 5, NULL, false)) 
+        {
+          ip.GetXString(actualpublicIP);
+        }
+
+      if(!actualpublicIP.IsEmpty())
+        {
+          // Check Public IP changed
+          if(publicIP.Compare(actualpublicIP))
+            {
+              xevent.SetIsChangePublicIP(true);          
+              xevent.GetChangePublicIP()->Set(actualpublicIP);
+
+              publicIP        = actualpublicIP;                                                                          
+              sendchangeevent = true;                          
+            }
+
+          status = true;    
+        }
+
+      APP_LOG_ENTRY(status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Public IP: [%s] (%s)"), actualpublicIP.Get(), sendchangeevent?__L("has changed"):__L("has not changed"));                                                                                                                    
+    }
+
+  if(sendchangeevent)
+    {
+      PostEvent(&xevent);                                                                      
+    }
+
+  return sendchangeevent;  
+}
+
+
+ #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPINTERNETSERVICES::UpdateDynDNSURLs()
+* @brief      UpdateDynDNSURLs
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPINTERNETSERVICES::UpdateDynDNSURLs(XSTRING& actualpublicIP)
+{
+  if(!dyndnsmanager) 
+    {
+      return false;
+    }
+                
+  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Update Dyndns URLs: [%s] "), actualpublicIP.Get());  
+
+  bool status = dyndnsmanager->AssingAll();
+
+  APP_LOG_ENTRY((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Update Dyndns URLs: [%s]"), actualpublicIP.Get());    
+
+  return status;
+}
+#endif               
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -832,114 +963,6 @@ bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool APPINTERNETSERVICES::UpdateIPs()
-* @brief      UpdateIPs
-* @ingroup    APPLICATION
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool APPINTERNETSERVICES::UpdateIPs()
-{
-  XSTRING                       actualautomaticlocalIP;
-  DIOSTREAMIPLOCALENUMDEVICES*  enumdevices     = (DIOSTREAMIPLOCALENUMDEVICES*)GEN_DIOFACTORY.CreateStreamEnumDevices(DIOSTREAMENUMTYPE_IP_LOCAL);
-  bool                          sendchangeevent = false;
-      
-
-  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Local IP... "));       
-                                                                
-  if(enumdevices)
-    {
-      DIOSTREAMDEVICEIP* device = (DIOSTREAMDEVICEIP*)enumdevices->GetFirstActiveDevice();
-      if(device)  device->GetIP()->GetXString(actualautomaticlocalIP);
-
-      alllocalIP.Empty();
-
-      for(XDWORD c=0; c<enumdevices->GetDevices()->GetSize(); c++)
-        {
-          device = (DIOSTREAMDEVICEIP*)enumdevices->GetDevices()->Get(c);
-          if(device)
-            {
-              if((!device->GetIP()->IsEmpty()) && 
-                  (!device->GetIP()->IsAPIPA()) &&
-                  ((device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_ETHERNET) ||
-                   (device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_WIFI)     ||
-                   (device->GetIPType() == DIOSTREAMIPDEVICE_TYPE_PPP)))
-                  {
-                    XSTRING locaIPstring;
-
-                    if(!alllocalIP.IsEmpty()) alllocalIP.Add(",");                                                                                      
-
-                    device->GetIP()->GetXString(locaIPstring); 
-                    alllocalIP.Add(locaIPstring.Get());                                                                                      
-                  }
-            }  
-        }    
-
-      GEN_DIOFACTORY.DeleteStreamEnumDevices(enumdevices);
-    }
-
-  APPINTERNETSERVICES_XEVENT xevent(this, APPINTERNETSERVICES_XEVENT_TYPE_CHANGEIP);  
-
-  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Local IP : [%s] "), actualautomaticlocalIP.Get());       
-
-  // Check Local IP changed
-  if(automaticlocalIP.Compare(actualautomaticlocalIP))
-    {                                                                      
-      xevent.SetIsChangeLocalIP(true);          
-      xevent.GetChangeLocalIP()->Set(actualautomaticlocalIP);
-
-      automaticlocalIP  = actualautomaticlocalIP;
-      sendchangeevent   = true;
-    }  
-                                                                  
-  if(haveinternetconnection)
-    {
-      DIOIP     ip;
-      XSTRING   actualpublicIP; 
-
-      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Public IP... "));                                                                    
-
-      if(scraperwebpublicIP->Get(ip, 5, NULL, false)) ip.GetXString(actualpublicIP);
-
-      if(!actualpublicIP.IsEmpty())
-        {
-          // Check Public IP changed
-          if(publicIP.Compare(actualpublicIP))
-            {
-              xevent.SetIsChangePublicIP(true);          
-              xevent.GetChangePublicIP()->Set(actualpublicIP);
-
-              publicIP        = actualpublicIP;                                                                          
-              sendchangeevent = true;
-
-              #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
-              if(dyndnsmanager) 
-                {
-                  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Update Dyndns URLs: [%s] "), actualpublicIP.Get());  
-
-                  bool status = dyndnsmanager->AssingAll();
-
-                  APP_LOG_ENTRY((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Update Dyndns URLs: [%s] (%s)"), actualpublicIP.Get(), xevent.IsChangePublicIP()?__L("Change"):__L("Not Change"));    
-                }
-              #endif                         
-            }
-        }
-
-      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Public IP: [%s] "), actualpublicIP.Get());                                                                                                                    
-    } 
-
-  if(sendchangeevent)
-    {
-      PostEvent(&xevent);                                                                      
-    }
-
-  return true;  
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 * @brief      Handle Event for the observer manager of this class
@@ -958,11 +981,21 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
       case APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET : CheckInternetStatus();                                                                  
                                                                 break;
 
-      case APPINTERNETSERVICES_TASKID_GETIPS                  : UpdateIPs();
+      case APPINTERNETSERVICES_TASKID_GETIPS                  : if(haveinternetconnection) 
+                                                                  {
+                                                                    XSTRING actualpublicIP;
 
-                                                                #ifdef XTRACE_ACTIVE                                                                   
-                                                                XTRACE_RESOLVEALLRESOURCES; 
-                                                                #endif    
+                                                                    if(UpdateIPs(actualpublicIP))
+                                                                      {  
+                                                                        #ifdef XTRACE_ACTIVE                                                                   
+                                                                        XTRACE_RESOLVEALLRESOURCES; 
+                                                                        #endif  
+
+                                                                        #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+                                                                        UpdateDynDNSURLs(actualpublicIP);
+                                                                        #endif
+                                                                      }
+                                                                  }
                                                                 break;
 
       case APPINTERNETSERVICES_TASKID_CHECKNTPDATETIME        : if(haveinternetconnection) 
