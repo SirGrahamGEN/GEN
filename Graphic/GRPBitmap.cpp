@@ -58,7 +58,6 @@
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP::GRPBITMAP(int width, int height, GRPPROPERTYMODE mode, bool isbufferinverse)
-
 {
   Clean();
 
@@ -358,120 +357,118 @@ bool GRPBITMAP::Compare(GRPBITMAP* bitmap)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmap, int& x, int& y, XBYTE difflimitpercent)
+* @fn         bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent, XBYTE pixelmargin)
 * @brief      FindSubBitmap
 * @ingroup    GRAPHIC
 * 
-* @param[in]  bitmap : 
+* @param[in]  bitmapref : 
 * @param[in]  x : 
 * @param[in]  y : 
 * @param[in]  difflimitpercent : 
+* @param[in]  pixelmargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmap, int& x, int& y, XBYTE difflimitpercent)
-{
+bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent, XBYTE pixelmargin)
+{   
   x = 0; 
   y = 0;
 
-  if(!bitmap)
+  if(!bitmapref)
     {
       return false;
     }
-
-  GRPBITMAP* _bitmap = bitmap->ConvertToMode(GetMode());
+  
+  GRPBITMAP* _bitmap = bitmapref->ConvertToMode(GetMode());
   if(!_bitmap)
     {
       return false;
     }
 
-  if(_bitmap->GetMode() != GetMode()) 
+  if(!_bitmap->GetBuffer())
     {
       return false;
-    }
-
-
-  XDWORD  bytesperline_bmp  = GetBytesperPixel() * _bitmap->GetWidth();
-  XBYTE*  bufferbitmap      = _bitmap->GetBuffer();
-  bool    found             = true;
-
-  if(!bufferbitmap)
-    {
-      return false;
-    }
-
-  XDWORD pos_base = 0;
-  XDWORD pos_bmp  = 0;   
-  XDWORD ndiff    = 0;
-
-  for(; pos_base < (buffersize - bytesperline_bmp); pos_base++)
-    {
-      ndiff = 0;
-      for(XDWORD d=0; d < bytesperline_bmp; d++)
-        {
-          if(buffer[pos_base + d] != bufferbitmap[d])
-            {       
-              ndiff++;             
-            }
-        } 
-
-      found = DifferencesPerCent(ndiff, bytesperline_bmp, difflimitpercent);
-      if(found)
-        {          
-          XDWORD bytesperline_base = GetBytesperPixel() * GetWidth();
-
-          x =  (pos_base % bytesperline_base) / GetBytesperPixel();
-          y =  GetHeight() - (pos_base / bytesperline_base) - _bitmap->GetHeight();
-
-          XDWORD pos_base_tmp = pos_base; 
-
-          pos_bmp  = 0; 
-          
-          for(XDWORD line = 0; line < _bitmap->GetHeight(); line++)
-            { 
-              ndiff = 0;     
-                    
-              for(XDWORD d=0; d<bytesperline_bmp; d++)
-                {
-                  if(buffer[pos_base_tmp + d] != bufferbitmap[pos_bmp])
-                    {
-                      ndiff++;
-                    }
-
-                  pos_bmp++;
-                } 
-
-              found = DifferencesPerCent(ndiff, bytesperline_bmp, difflimitpercent);  
-              if(found)
-                {
-                  pos_base_tmp += bytesperline_base;                                   
-                }
-               else
-                {                  
-                  x = 0; 
-                  y = 0;
-
-                  break;  
-                }  
-            } 
-
-          if(found)
-            {
-              break;    
-            }       
-        }
     }
   
-  delete _bitmap;
+  XDWORD*   bufferscreen        = (XDWORD*)buffer;
+  XDWORD*   bufferbitmap        = (XDWORD*)_bitmap->GetBuffer();
+  XDWORD    sizepixel           = sizeof(XDWORD);
+  XDWORD    bufferscreensize    = (GetBufferSize() / sizepixel);
+  XDWORD    bufferbmplinesize   = _bitmap->GetWidth();
+  XDWORD    ndiff               = 0;
+  bool      found               = false;
+  
+  for(XDWORD scrpos = 0; scrpos < bufferscreensize; scrpos++)
+    {
+      ndiff = 0;
+      for(XDWORD bmppos = 0; bmppos < bufferbmplinesize; bmppos++)  
+        {    
+          if(bufferscreen[scrpos + bmppos] != bufferbitmap[bmppos])
+            {
+              if(!IsSimilarPixel(bufferscreen[scrpos + bmppos], bufferbitmap[bmppos], pixelmargin))
+                {
+                  ndiff++;
+                }
+            }
+        }
+               
+      found = DifferencesPerCent(ndiff, bufferbmplinesize, difflimitpercent);
+      if(found)
+        {          
+          found = false;
 
+          XDWORD srcpixelsline  = GetWidth();
+          XDWORD scrpos_tmp     = scrpos;
+          XDWORD bmppos_tmp     = bufferbmplinesize;
+         
+          x =  (scrpos % GetWidth());
+          y =  GetHeight() - (scrpos / srcpixelsline) - _bitmap->GetHeight();           
+
+          scrpos_tmp += srcpixelsline;              
+    
+          for(XDWORD line = 1; line < _bitmap->GetHeight(); line++)
+            {                                                   
+              ndiff = 0;
+              for(XDWORD bmppos = 0; bmppos < bufferbmplinesize; bmppos++)  
+                {    
+                  if(bufferscreen[scrpos_tmp + bmppos] != bufferbitmap[bmppos_tmp])
+                    {
+                      if(!IsSimilarPixel(bufferscreen[scrpos_tmp + bmppos], bufferbitmap[bmppos_tmp], pixelmargin))
+                        {
+                          ndiff++;
+                        }
+                    }  
+                  
+                  bmppos_tmp++;
+                }
+              
+              found = DifferencesPerCent(ndiff, bufferbmplinesize, difflimitpercent);              
+
+              if(!found)
+                {
+                  break;              
+                }
+      
+              scrpos_tmp += srcpixelsline;
+            }
+
+          if(found)                  
+            {
+              break;
+            }              
+        }  
+    } 
+  
   if(!found)
     {
       x = 0;
       y = 0;
     }
-
-  return found;
+   
+  delete _bitmap;
+  
+  return found;  
 }
 
 
@@ -529,6 +526,44 @@ bool GRPBITMAP::DifferencesPerCent(XDWORD ndiff, XDWORD max, int limit)
 
   return true;
 } 
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPBITMAP::IsSimilarPixel(XDWORD origin, XDWORD target, XBYTE margin)
+* @brief      IsSimilarPixel
+* @ingroup    GRAPHIC
+* 
+* @param[in]  origin : 
+* @param[in]  target : 
+* @param[in]  margin : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPBITMAP::IsSimilarPixel(XDWORD origin, XDWORD target, XBYTE margin)
+{
+  XBYTE* originRGBA = (XBYTE*)&origin;
+  XBYTE* targetRGBA = (XBYTE*)&target;  
+  bool   status     = false;
+
+  int ncomponent = 0;
+
+  for(int c=0; c<4; c++)
+    {
+      if(abs(originRGBA[c] - targetRGBA[c]) > margin)
+        {
+          ncomponent++;
+        }
+    }
+
+  if(!ncomponent) 
+    {
+      status = true;
+    }  
+
+  return status;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
