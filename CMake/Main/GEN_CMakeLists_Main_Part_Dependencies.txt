@@ -515,6 +515,8 @@ if(SND_FEATURE)
 
   add_definitions(-DSND_ACTIVE)
 
+  add_definitions(-DAL_LIBTYPE_STATIC)
+
   if(SND_FILE_OGG_FEATURE)
 
     add_definitions(-DSND_FILE_OGG_ACTIVE)

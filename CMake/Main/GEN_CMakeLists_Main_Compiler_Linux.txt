@@ -12,6 +12,7 @@ endif()
 
 
 if(LINUX_VISUALSTUDIOCODEPAGE_FEATURE)  
+
   set(CMAKE_CXX_FLAGS "-finput-charset=CP1252")  
   
 endif()
@@ -30,6 +31,7 @@ endif()
 
 if(COMPILE_FOR_LINUX_PC_64)  
   
+  set(LINK_FLAGS "-Wl,--start-group")
 
 endif()
 

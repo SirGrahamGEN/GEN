@@ -56,7 +56,9 @@ if(COMPILE_FOR_WINDOWS)
   
   if(SND_FEATURE)  
  
-    #target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
+    target_link_libraries(${CMAKE_PROJECT_NAME} Winmm.lib)
+    #target_link_libraries(${CMAKE_PROJECT_NAME} ex-common.lib)
+    target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
 
   endif()
 
@@ -150,9 +152,9 @@ if(COMPILE_FOR_LINUX)
 
   
   if(SND_FEATURE)  
-     
-    #target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_LINX64_LIB})
-    #target_link_libraries(${CMAKE_PROJECT_NAME} openal)
+    
+    #target_link_libraries(${CMAKE_PROJECT_NAME} "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_LINX64_LIB}/libex-common.a") 
+    target_link_libraries(${CMAKE_PROJECT_NAME} "/mnt/d/Projects/GENFrameWork/ThirdPartyLibraries/openal-soft/Platforms/Linux/x64/libopenal.a")
 
   endif()  
 
