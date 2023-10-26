@@ -85,44 +85,6 @@
 SNDOPENALFACTORY::SNDOPENALFACTORY()
 {
   Clean();
-
-  GEN_XFACTORY_CREATE(streammutex, Create_Mutex())
-
-  device = alcOpenDevice("");
-  if(!device) 
-    {
-      return;
-    }
-    
-  ALCenum error;
-
-  context   = alcCreateContext(device, NULL);
-  error     = alGetError();
-
-  if(!alcMakeContextCurrent(context)) 
-    {
-      return;
-    }
-    
-  maxchannels = 32;
-
-  // Create 16 sources as who could possibly want more
-  sources.SetAddInLimit(16);
-  sources.Resize(maxchannels);
-
-  for(XDWORD i = 0; i < maxchannels; i++)
-    {
-      SNDOPENALSOURCE* src = new SNDOPENALSOURCE();
-      if(!src) return;
-        
-      sources.Set(i, src);
-    }
-
-  mastervolume = 1.0f;
-
-  // create the streaming thread
-  GEN_XFACTORY_CREATE(streamthread, CreateThread(XTHREADGROUPID_UNGROUP, __L("SNDOPENALFACTORY::SNDOPENALFACTORY"), SNDOPENALFACTORY::ThreadStreaming, this));
-  streamthread->Ini();
 }
 
 
@@ -138,6 +100,300 @@ SNDOPENALFACTORY::SNDOPENALFACTORY()
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDOPENALFACTORY::~SNDOPENALFACTORY()
 {
+  End();
+
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDOPENALFACTORY::Ini()
+* @brief      Ini
+* @ingroup    SOUND
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDOPENALFACTORY::Ini()
+{
+  GEN_XFACTORY_CREATE(streammutex, Create_Mutex())
+  if(!streammutex)
+    {
+      return false;
+    }
+
+  device = alcOpenDevice("");
+  if(!device) 
+    {
+      return false;
+    }
+    
+  ALCenum error;
+
+  context   = alcCreateContext(device, NULL);
+  error     = alGetError();
+
+  if(!alcMakeContextCurrent(context)) 
+    {
+      return false;
+    }
+    
+  maxchannels = 32;
+
+  for(XDWORD c=0; c<maxchannels; c++)
+    {
+      SNDOPENALSOURCE* source = new SNDOPENALSOURCE();
+      if(!source)  
+        {
+          break;
+        }
+        
+      sources.Add(source);
+    }
+
+  mastervolume = 1.0f;
+
+  // create the streaming thread
+  GEN_XFACTORY_CREATE(streamthread, CreateThread(XTHREADGROUPID_UNGROUP, __L("SNDOPENALFACTORY::SNDOPENALFACTORY"), SNDOPENALFACTORY::ThreadStreaming, this));
+  return streamthread->Ini();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDOPENALFACTORY::Update()
+* @brief      Update
+* @ingroup    SOUND
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDOPENALFACTORY::Update()
+{ 
+  for(int c=(sources.GetSize()-1); c>=0; c--)
+    {
+      SNDOPENALSOURCE* source = sources.Get(c);
+
+      // an element has exclusive access(probably because of streaming), ignore it
+      // but if it's aquired I can't really check when it finished!!
+
+      // need to unify both cases
+      if(source->IsAquired() && !source->IsInstancePlaying())
+        {
+          if(source->GetElement())
+            {
+              SNDOPENALELEMENTSTREAM* element = (SNDOPENALELEMENTSTREAM*)source->GetElement();
+
+              streammutex->Lock();
+              int proc = source->GetProcessedBuffers();
+              element->ClearBuffers();
+              ((SNDOPENALELEMENT*)source->GetElement())->SetSource(NULL);
+              proc = source->GetProcessedBuffers();
+
+
+              source->SetLoop(false);
+              source->SetPitch(1.0f);
+
+              // need to have stored the quaued buffers to unqueue them
+              //XLIST<SNDOPENALBUFFER*>::XITERATOR it;
+
+
+
+              //for(it = source->bufferlist.Begin(); it != source->bufferlist.End(); it++)
+              //  {
+              //    source->UnQueue(*it);
+              //    (*it)->Destroy();
+              //    delete (*it);
+              //  }
+
+              //source->bufferlist.DeleteAll();
+
+              source->Release();
+
+              if(source->GetElement())
+                {
+                  SNDFACTORY_XEVENT event(this, XEVENT_TYPE_SOUND, XEVENT_TYPE_SOUND);  // need to make a specific event type for this
+                  event.SetElement(element);
+
+                  event.SetInstance(source->GetInstance());
+                  event.SetElement(element);
+                  event.SetSource(NULL); // because it's NULL for element
+                  event.SetType(SNDFACTORY_XEVENT_TYPE_STOP);
+                  PostEvent(&event);
+
+                  if(source->GetInstance())
+                    {
+                      source->GetInstance()->HandleEvent(&event);    // direct call to avoid performance penalty
+                      source->SetInstance(NULL);
+                    }
+                }
+
+                source->SetElement(NULL);
+                source->Stop();
+
+                if(element->GetFile())
+                  {
+                    element->GetFile()->Reset();
+                  }
+
+                //// send an event telling which sound stopped playing
+                //SNDFACTORY_XEVENT* event = new SNDFACTORY_XEVENT(this, XEVENT_TYPE_SOUND, XEVENT_TYPE_SOUND);
+                //if(event)
+                //  {
+                //    event->SetSNDType(SNDFACTORY_XEVENT_TYPE_STOP);
+                //    event->SetSound(element->GetNameFile()->Get());
+                //    event->SetSNDElement(element);
+                //
+                //    PostEvent(event);
+                //
+                //    delete event;
+                //  }
+
+                streammutex->UnLock();
+            }
+
+          continue;
+        }
+
+      if(source->IsAquired())
+        {
+          continue;// need to detect when a streaming instance finishes !!
+        }
+
+      // !! important if element is a streamer we need to clear the stored buffers
+      if(!source->IsPLaying() && !source->IsAquired()) // also check if not aquired? can help with the checks, but update needs to know when a sound stopped to clean up
+      //if(!source->IsPLaying() && !source->IsInstancePlaying())
+        {
+          if(source->GetElement())
+            {
+              // check if element is a streamer
+
+              // we need to stop the source
+              source->SetLoop(false);
+              source->SetPitch(1.0f);
+              SNDELEMENT* element = source->GetElement();
+              if(element)
+                {
+                  //// clear up the completed queued buffers
+                  //if(element->IsStreamer())
+                  //  {
+                  //    // need to have stored the quaued buffers to unqueue them
+                  //    XLIST<SNDOPENALBUFFER*>::XITERATOR it;
+                  //
+                  //    for(it = source->bufferlist.Begin(); it != source->bufferlist.End(); it++)
+                  //      {
+                  //        source->UnQueue(*it);
+                  //        delete *it;
+                  //      }
+                  //
+                  //    source->bufferlist.DeleteAll();
+                  //
+                  //    source->Release();
+                  //  }
+
+                  ((SNDOPENALELEMENT*)source->GetElement())->SetSource(NULL);
+                }
+              if(source->GetElement())
+                {
+                  SNDFACTORY_XEVENT event(this, XEVENT_TYPE_SOUND, XEVENT_TYPE_SOUND);  // need to make a specific event type for this
+                  event.SetElement(element);
+                  if(source->GetInstance())
+                    {
+                      event.SetInstance(source->GetInstance());
+                      event.SetElement(element);
+                      event.SetSource(NULL);
+                      event.SetType(SNDFACTORY_XEVENT_TYPE_STOP);
+
+                      PostEvent(&event);
+
+                      if(source->GetInstance())
+                        {
+                          source->GetInstance()->HandleEvent(&event);    // direct call to avoid performance penalty
+
+
+                          delete source->GetInstance();
+                          source->SetInstance(NULL);
+                        }
+                    }
+                }
+
+              source->SetElement(NULL);
+              source->Stop();
+
+              //// send an event telling which sound stopped playing
+              //SNDFACTORY_XEVENT* event = new SNDFACTORY_XEVENT(this, XEVENT_TYPE_SOUND, XEVENT_TYPE_SOUND);
+              //if(event)
+              //  {
+              //    event->SetSNDType(SNDFACTORY_XEVENT_TYPE_STOP);
+              //    event->SetSound(element->GetNameFile()->Get());
+              //    event->SetSNDElement(element);
+              //
+              //    PostEvent(event);
+              //
+              //    delete event;
+              //  }
+            }
+        }
+    }
+
+
+  XDWORD size = deletequeue.GetSize();
+  for(XDWORD i = 0; i < size; i++)
+  {
+    SNDOPENALELEMENT* e = (SNDOPENALELEMENT*)deletequeue.FastGet(i);
+
+    if(e->IsStream())
+      {
+        streammutex->Lock();
+        XDWORD index = elementsstream.Find((SNDOPENALELEMENTSTREAM*)e);
+        if(index != NOTFOUND)
+          {
+            elementsstream.DeleteIndex(index);
+            delete e;
+          }
+        streammutex->UnLock();
+      }
+    else
+      {
+        XDWORD index = loadedfiles.Find(e);
+        if(index != NOTFOUND)
+          {
+            loadedfiles.DeleteIndex(index);
+            delete e;
+          }
+      }
+  }
+
+  deletequeue.DeleteAll();
+
+  //XDWORD totalstream = elementsstream.GetSize();
+  //for(XDWORD i = 0; i < totalstream; i++)
+  //  {
+  //    SNDOPENALELEMENTSTREAM* element = elementsstream.FastGet(i);
+  //    //SNDSTREAMINSTANCE* instance = elementsstream.FastGet(i); // WANT INSTANCES !!
+  //    SNDSTREAMINSTANCE* instance = (SNDSTREAMINSTANCE*)element->GetSource()->GetInstance();
+  //    if(instance)
+  //      {
+  //        instance->Update();
+  //      }
+  //  }  
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDOPENALFACTORY::End()
+* @brief      End
+* @ingroup    SOUND
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDOPENALFACTORY::End()
+{
   if(streamthread)
     {
       streamthread->End();
@@ -146,31 +402,25 @@ SNDOPENALFACTORY::~SNDOPENALFACTORY()
     }
   
   Sound_StopAll();
+  
+  loadedfiles.DeleteContents();
+  loadedfiles.DeleteAll();
 
-  // destroy all sources, elements
-  XDWORD elements = loadedfiles.GetSize();
-  for(XDWORD i = 0; i < elements; i++)
-    {
-      delete loadedfiles.Get(i);
-    }
-
-  XDWORD streamers = elementsstream.GetSize();
-  for(XDWORD i = 0; i < streamers; i++)
-    {
-      delete elementsstream.Get(i);
-    }
-
-  XDWORD sourcesnum = sources.GetSize();
-  for(XDWORD i = 0; i < sourcesnum; i++)
-    {
-      if(sources.Get(i)->GetInstance() != NULL)
+  elementsstream.DeleteContents();
+  elementsstream.DeleteAll();
+  
+  for(XDWORD c=0; c<sources.GetSize(); c++)
+    {      
+      SNDINSTANCE* instance = sources.Get(c)->GetInstance();
+      if(instance)
         {
-          delete sources.Get(i)->GetInstance();
-          sources.Get(i)->SetInstance(NULL);
-        }
-
-      delete sources.Get(i);
+          delete instance;
+          sources.Get(c)->SetInstance(NULL);
+        }      
     }
+
+  sources.DeleteContents();
+  sources.DeleteAll();
 
   alcMakeContextCurrent(NULL);
   alcDestroyContext(context);
@@ -182,7 +432,7 @@ SNDOPENALFACTORY::~SNDOPENALFACTORY()
       streammutex = NULL;
     }
 
-  Clean();
+  return true;
 }
 
 
@@ -786,9 +1036,12 @@ bool SNDOPENALFACTORY::Sound_StopAll()
 {
   playqueue.DeleteAll();
 
-  for(XDWORD c=0; c<maxchannels; c++)
+  for(XDWORD c=0; c<sources.GetSize(); c++)
     {
-      sources.Get(c)->Stop();
+      if(sources.Get(c)) 
+        {
+          sources.Get(c)->Stop();
+        }
     }
 
   return true;
@@ -841,227 +1094,6 @@ bool SNDOPENALFACTORY::Sound_Note(float frequency, float duration)
   alDeleteBuffers(1, &buffer);  
 
   return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDOPENALFACTORY::Update()
-* @brief      Update
-* @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALFACTORY::Update()
-{ 
-  for(int i = (maxchannels-1); i >= 0; i--)
-    {
-      SNDOPENALSOURCE* source = sources.Get(i);
-
-      // an element has exclusive access(probably because of streaming), ignore it
-      // but if it's aquired I can't really check when it finished!!
-
-      // need to unify both cases
-      if(source->IsAquired() && !source->IsInstancePlaying())
-        {
-          if(source->GetElement())
-            {
-              SNDOPENALELEMENTSTREAM* element = (SNDOPENALELEMENTSTREAM*)source->GetElement();
-
-              streammutex->Lock();
-              int proc = source->GetProcessedBuffers();
-              element->ClearBuffers();
-              ((SNDOPENALELEMENT*)source->GetElement())->SetSource(NULL);
-              proc = source->GetProcessedBuffers();
-
-
-              source->SetLoop(false);
-              source->SetPitch(1.0f);
-
-              // need to have stored the quaued buffers to unqueue them
-              //XLIST<SNDOPENALBUFFER*>::XITERATOR it;
-
-
-
-              //for(it = source->bufferlist.Begin(); it != source->bufferlist.End(); it++)
-              //  {
-              //    source->UnQueue(*it);
-              //    (*it)->Destroy();
-              //    delete (*it);
-              //  }
-
-              //source->bufferlist.DeleteAll();
-
-              source->Release();
-
-              if(source->GetElement())
-                {
-                  SNDFACTORY_XEVENT event(this, XEVENT_TYPE_SOUND, XEVENT_TYPE_SOUND);  // need to make a specific event type for this
-                  event.SetElement(element);
-
-                  event.SetInstance(source->GetInstance());
-                  event.SetElement(element);
-                  event.SetSource(NULL); // because it's NULL for element
-                  event.SetType(SNDFACTORY_XEVENT_TYPE_STOP);
-                  PostEvent(&event);
-
-                  if(source->GetInstance())
-                    {
-                      source->GetInstance()->HandleEvent(&event);    // direct call to avoid performance penalty
-                      source->SetInstance(NULL);
-                    }
-                }
-
-                source->SetElement(NULL);
-                source->Stop();
-
-                if(element->GetFile())
-                  {
-                    element->GetFile()->Reset();
-                  }
-
-                //// send an event telling which sound stopped playing
-                //SNDFACTORY_XEVENT* event = new SNDFACTORY_XEVENT(this, XEVENT_TYPE_SOUND, XEVENT_TYPE_SOUND);
-                //if(event)
-                //  {
-                //    event->SetSNDType(SNDFACTORY_XEVENT_TYPE_STOP);
-                //    event->SetSound(element->GetNameFile()->Get());
-                //    event->SetSNDElement(element);
-                //
-                //    PostEvent(event);
-                //
-                //    delete event;
-                //  }
-
-                streammutex->UnLock();
-            }
-
-          continue;
-        }
-
-      if(source->IsAquired())
-        {
-          continue;// need to detect when a streaming instance finishes !!
-        }
-
-      // !! important if element is a streamer we need to clear the stored buffers
-      if(!source->IsPLaying() && !source->IsAquired()) // also check if not aquired? can help with the checks, but update needs to know when a sound stopped to clean up
-      //if(!source->IsPLaying() && !source->IsInstancePlaying())
-        {
-          if(source->GetElement())
-            {
-              // check if element is a streamer
-
-              // we need to stop the source
-              source->SetLoop(false);
-              source->SetPitch(1.0f);
-              SNDELEMENT* element = source->GetElement();
-              if(element)
-                {
-                  //// clear up the completed queued buffers
-                  //if(element->IsStreamer())
-                  //  {
-                  //    // need to have stored the quaued buffers to unqueue them
-                  //    XLIST<SNDOPENALBUFFER*>::XITERATOR it;
-                  //
-                  //    for(it = source->bufferlist.Begin(); it != source->bufferlist.End(); it++)
-                  //      {
-                  //        source->UnQueue(*it);
-                  //        delete *it;
-                  //      }
-                  //
-                  //    source->bufferlist.DeleteAll();
-                  //
-                  //    source->Release();
-                  //  }
-
-                  ((SNDOPENALELEMENT*)source->GetElement())->SetSource(NULL);
-                }
-              if(source->GetElement())
-                {
-                  SNDFACTORY_XEVENT event(this, XEVENT_TYPE_SOUND, XEVENT_TYPE_SOUND);  // need to make a specific event type for this
-                  event.SetElement(element);
-                  if(source->GetInstance())
-                    {
-                      event.SetInstance(source->GetInstance());
-                      event.SetElement(element);
-                      event.SetSource(NULL);
-                      event.SetType(SNDFACTORY_XEVENT_TYPE_STOP);
-
-                      PostEvent(&event);
-
-                      if(source->GetInstance())
-                        {
-                          source->GetInstance()->HandleEvent(&event);    // direct call to avoid performance penalty
-
-
-                          delete source->GetInstance();
-                          source->SetInstance(NULL);
-                        }
-                    }
-                }
-
-              source->SetElement(NULL);
-              source->Stop();
-
-              //// send an event telling which sound stopped playing
-              //SNDFACTORY_XEVENT* event = new SNDFACTORY_XEVENT(this, XEVENT_TYPE_SOUND, XEVENT_TYPE_SOUND);
-              //if(event)
-              //  {
-              //    event->SetSNDType(SNDFACTORY_XEVENT_TYPE_STOP);
-              //    event->SetSound(element->GetNameFile()->Get());
-              //    event->SetSNDElement(element);
-              //
-              //    PostEvent(event);
-              //
-              //    delete event;
-              //  }
-            }
-        }
-    }
-
-
-  XDWORD size = deletequeue.GetSize();
-  for(XDWORD i = 0; i < size; i++)
-  {
-    SNDOPENALELEMENT* e = (SNDOPENALELEMENT*)deletequeue.FastGet(i);
-
-    if(e->IsStream())
-      {
-        streammutex->Lock();
-        XDWORD index = elementsstream.Find((SNDOPENALELEMENTSTREAM*)e);
-        if(index != NOTFOUND)
-          {
-            elementsstream.DeleteIndex(index);
-            delete e;
-          }
-        streammutex->UnLock();
-      }
-    else
-      {
-        XDWORD index = loadedfiles.Find(e);
-        if(index != NOTFOUND)
-          {
-            loadedfiles.DeleteIndex(index);
-            delete e;
-          }
-      }
-  }
-
-  deletequeue.DeleteAll();
-
-  //XDWORD totalstream = elementsstream.GetSize();
-  //for(XDWORD i = 0; i < totalstream; i++)
-  //  {
-  //    SNDOPENALELEMENTSTREAM* element = elementsstream.FastGet(i);
-  //    //SNDSTREAMINSTANCE* instance = elementsstream.FastGet(i); // WANT INSTANCES !!
-  //    SNDSTREAMINSTANCE* instance = (SNDSTREAMINSTANCE*)element->GetSource()->GetInstance();
-  //    if(instance)
-  //      {
-  //        instance->Update();
-  //      }
-  //  }  
 }
 
 

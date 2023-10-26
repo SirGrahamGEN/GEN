@@ -351,14 +351,14 @@ void SNDINSTANCE::HandleEvent(XEVENT* xevent)
           //isplaying = source->IsPLaying();
 
           isplaying = false;
-          ispaused = source->IsPaused();
+          ispaused  = source->IsPaused();
 
           if(!isplaying && ismanaged)
             {
-              //source->SetInstance(NULL); // this breaks element instance and my logic, need to find new ways to handle it
-
-              // abraham.
-              //sndsystem->MarkInstanceForDeletion(this);
+              if(source->GetInstance())
+                {
+                  //source->SetInstance(NULL);  
+                }                  
             }
         }
     }

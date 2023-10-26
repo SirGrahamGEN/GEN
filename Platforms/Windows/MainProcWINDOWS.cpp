@@ -1,39 +1,44 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       MainProcWINDOWS.cpp
-*
+* 
 * @class      MAINPROCWINDOWS
-* @brief      Main procedure WINDOWS class
+* @brief      WINDOWS Main procedure class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <winsock2.h>
+
 #include <float.h>
 #include <tchar.h>
 
@@ -45,6 +50,7 @@
 #ifdef GOOGLETEST_ACTIVE      
 #include "gtest/gtest.h"
 #endif
+#include "MainProcWINDOWS.h"
 
 #include "XWINDOWSFactory.h"
 #include "XWINDOWSTrace.h"
@@ -120,11 +126,13 @@
 #include "XTranslation.h"
 #include "XPublisher.h"
 
-#include "MainProcWINDOWS.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 #ifdef XTRACE_ACTIVE
 XWINDOWSTRACE           windowsdebugtrace;
@@ -132,8 +140,11 @@ XWINDOWSTRACE           windowsdebugtrace;
 MAINPROCWINDOWS         mainprocwindows;
 XSTRING*                allexceptiontext  = NULL;
 
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 DWORD WINAPI            Service_WorkerThread          (LPVOID lpParam);
 
@@ -141,10 +152,7 @@ bool                    Exception_Printf              (bool iserror, XCHAR* titl
 BOOL                    Exception_ConsoleHandler      (DWORD fdwctrltype);
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  MAINPROCWINDOWS                                                                                                   */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MAINPROCWINDOWS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -309,7 +317,6 @@ bool MAINPROCWINDOWS::Update()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCWINDOWS::End()
@@ -366,7 +373,6 @@ bool MAINPROCWINDOWS::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCWINDOWS::Factorys_Ini()
@@ -378,66 +384,118 @@ bool MAINPROCWINDOWS::End()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCWINDOWS::Factorys_Ini()
 {  
-  if(!XFACTORY::SetInstance(new XWINDOWSFACTORY())) return false;
+  if(!XFACTORY::SetInstance(new XWINDOWSFACTORY()))
+    {
+      return false;
+    }
   
   #ifdef XSYSTEM_ACTIVE  
-  if(!XSYSTEM::SetInstance(new XWINDOWSSYSTEM()))  return false;
+  if(!XSYSTEM::SetInstance(new XWINDOWSSYSTEM()))  
+    {
+      return false;
+    }
   XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
   #endif
   
   #ifdef XSLEEP_ACTIVE
-  if(!XSLEEP::SetInstance(new XWINDOWSSLEEP())) return false;
+  if(!XSLEEP::SetInstance(new XWINDOWSSLEEP())) 
+    {
+      return false;
+    }
   #endif
 
-  if(!XRAND::SetInstance(new XWINDOWSRAND())) return false;
+  if(!XRAND::SetInstance(new XWINDOWSRAND())) 
+    {
+      return false;
+    }
   
   #ifdef XPROCESSMANAGER_ACTIVE
-  if(!XPROCESSMANAGER::SetInstance(new XWINDOWSPROCESSMANAGER())) return false;
+  if(!XPROCESSMANAGER::SetInstance(new XWINDOWSPROCESSMANAGER())) 
+    {
+      return false;
+    }
   #endif
   
   #ifdef XSHAREDMEMORYMANAGER_ACTIVE
-  if(!XSHAREDMEMORYMANAGER::SetInstance(new XWINDOWSSHAREDMEMORYMANAGER())) return false;
+  if(!XSHAREDMEMORYMANAGER::SetInstance(new XWINDOWSSHAREDMEMORYMANAGER())) 
+    {
+      return false;
+    }
   #endif
 
   #ifdef XDRIVEIMAGE_ACTIVE
-  if(!XDRIVEIMAGE::SetInstance(new XWINDOWSDRIVEIMAGE())) return false;
+  if(!XDRIVEIMAGE::SetInstance(new XWINDOWSDRIVEIMAGE())) 
+    {
+      return false;
+    }
   #endif
 
   #ifdef XEEPROMMEMORYMANAGER_ACTIVE
-  if(!XEEPROMMEMORYMANAGER::SetInstance(new XWINDOWSEEPROMMEMORYMANAGER())) return false;
+  if(!XEEPROMMEMORYMANAGER::SetInstance(new XWINDOWSEEPROMMEMORYMANAGER())) 
+    {
+      return false;
+    }
   #endif
 
   #ifdef XTRACE_VIRTUALCLOCKTICK
   xtimerclock = new XTIMERCLOCK();
-  if(!xtimerclock) return false;
+  if(!xtimerclock) 
+    {
+      return false;
+    }
   #endif
 
   #ifdef INP_ACTIVE
-  if(!INPFACTORY::SetInstance(new INPWINDOWSFACTORY())) return false;  
+  if(!INPFACTORY::SetInstance(new INPWINDOWSFACTORY())) 
+    {
+      return false;  
+    }
   #endif
 
   #ifdef DIO_ACTIVE
-  if(!DIOFACTORY::SetInstance(new DIOWINDOWSFACTORY())) return false;
+  if(!DIOFACTORY::SetInstance(new DIOWINDOWSFACTORY())) 
+    {
+      return false;
+    }
   
     #ifdef DIO_GPIO_ACTIVE
+
       #ifdef DIO_GPIO_PCPARALLEL_ACTIVE
-      if(!DIOGPIO::SetInstance(new DIOWINDOWSGPIOPCPARALLEL())) return false;    
-      if(!DIOGPIO::GetInstance().Ini()) return false;
+      if(!DIOGPIO::SetInstance(new DIOWINDOWSGPIOPCPARALLEL())) 
+        {
+          return false;    
+        }
+
+      if(!DIOGPIO::GetInstance().Ini()) 
+        {
+          return false;
+        }
       #endif
+
     #endif
+
   #endif
 
   #ifdef SND_ACTIVE
-  if(!SNDFACTORY::SetInstance(new SNDWINDOWSFACTORY())) return false;
+  if(!SNDFACTORY::SetInstance(new SNDWINDOWSFACTORY())) 
+    {
+      return false;
+    }
+  if(!SNDFACTORY::GetInstance().Ini()) 
+    {
+      return false;
+    }
   #endif
 
   #ifdef GRP_ACTIVE
-  if(!GRPFACTORY::SetInstance(new GRPWINDOWSFACTORY())) return false;
+  if(!GRPFACTORY::SetInstance(new GRPWINDOWSFACTORY())) 
+    {
+      return false;
+    }
   #endif
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -456,24 +514,30 @@ bool MAINPROCWINDOWS::Factorys_End()
   GRPFACTORY::DelInstance();
   #endif
 
-  #ifdef SND_ACTIVE
-  SNDFACTORY::DelInstance();
-  #endif
-
-  #ifdef DIO_ACTIVE
-  #ifdef DIO_GPIO_ACTIVE
-  if(DIOGPIO::GetIsInstanced())
+  #ifdef SND_ACTIVE  
+  if(SNDFACTORY::GetIsInstanced())
     {
-      DIOGPIO::GetInstance().End();
-      DIOGPIO::DelInstance();
+      SNDFACTORY::GetInstance().End();
+      SNDFACTORY::DelInstance();
     }
   #endif
 
-  #ifdef DIO_STREAMUDP_ACTIVE
-  DIODNSRESOLVED::DelInstance();
-  #endif
+  #ifdef DIO_ACTIVE
 
-  DIOFACTORY::DelInstance();
+    #ifdef DIO_GPIO_ACTIVE
+    if(DIOGPIO::GetIsInstanced())
+      {
+        DIOGPIO::GetInstance().End();
+        DIOGPIO::DelInstance();
+      }
+    #endif
+
+    #ifdef DIO_STREAMUDP_ACTIVE
+    DIODNSRESOLVED::DelInstance();
+    #endif
+
+    DIOFACTORY::DelInstance();
+
   #endif
 
   #ifdef INP_ACTIVE
@@ -496,7 +560,6 @@ bool MAINPROCWINDOWS::Factorys_End()
   #ifdef XLOG_ACTIVE
   XLOG::DelInstance();
   #endif
-
 
   #ifdef XPROCESSMANAGER_ACTIVE
   XPROCESSMANAGER::DelInstance();
@@ -658,7 +721,6 @@ bool MAINPROCWINDOWS::IsRunningAsService()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCWINDOWS::Clean()
@@ -675,14 +737,13 @@ void MAINPROCWINDOWS::Clean()
 }
 
 
+#pragma endregion
+
+
+#pragma region CLASS_WINDOWSSERVICE
+
 
 #if !defined(APPMODE_LIBRARY_DINAMIC) 
-
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  WINDOWSSERVICE                                                                                                    */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -733,7 +794,6 @@ WINDOWSSERVICE::~WINDOWSSERVICE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         HANDLE WINDOWSSERVICE::GetHandleStoppedEvent()
@@ -749,7 +809,6 @@ HANDLE WINDOWSSERVICE::GetHandleStoppedEvent()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool WINDOWSSERVICE::MustRestartService()
@@ -763,7 +822,6 @@ bool WINDOWSSERVICE::MustRestartService()
 {
   return mustrestartservice;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -783,7 +841,6 @@ void WINDOWSSERVICE::SetMustRestartService(bool mustrestartservice)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WINDOWSSERVICE::On_Start(DWORD argc, XCHAR** args)
@@ -798,11 +855,8 @@ void WINDOWSSERVICE::SetMustRestartService(bool mustrestartservice)
 * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_Start(DWORD argc, XCHAR** args)
 {
-  //HANDLE hthread = 
-
   CreateThread(NULL, 0, Service_WorkerThread, this, 0, NULL);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -897,7 +951,6 @@ void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WINDOWSSERVICE::On_SessionChange(DWORD eventtype)
@@ -948,7 +1001,6 @@ void WINDOWSSERVICE::Clean()
   event_stopped       = NULL;
   mustrestartservice  = false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1021,20 +1073,17 @@ DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
 }
 
 
+#pragma endregion
 
+
+#pragma region MAINENTRYS
 
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*  Main entrys                                                                                                       */
-/*                                                                                                                    */
 /*  wmain    : Windows UNICODE entry  /CONSOLE mode                                                                   */
 /*  WinMain  : Windows entry          /WINDOWS mode                                                                   */
+/*  DllMain  : Windows DLL entry
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*
-int wmain(int argc, wchar_t* argv[]) 
-{   
-  return WinMain(GetModuleHandle(NULL), NULL, GetCommandLineA(), SW_SHOWNORMAL);
-}
-*/
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -1060,7 +1109,6 @@ int wmain(int argc, wchar_t* argv[])
 
   mainprocwindows.GetXPathExec()->Set(argv[0]);
   mainprocwindows.CreateParams(argc, argv);  
-
 
   if(!mainprocwindows.IsRunningAsService())
     {
@@ -1136,6 +1184,8 @@ int wmain(int argc, wchar_t* argv[])
 }
 
 
+#else
+
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinst, LPSTR cmdline, int cmdshow)
@@ -1200,12 +1250,6 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinst, LPSTR cmdline, int 
   return 0;
 }
 
-#else
-
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  WINDOWS DINAMIC LINK LIBRARY                                                                                      */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -1259,11 +1303,10 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
 #endif
 
 
+#pragma endregion
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  WINDOWS STACK WALKER                                                                                              */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma region WINDOWS_STACKWALKER
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1326,23 +1369,22 @@ void MAINPROCWINDOWSSTACKWALKER::OnCallstackEntry(CallstackEntryType eType, Call
 }
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  EXCEPCION FUNCTIONS                                                                                               */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+#pragma region EXECPTION_FUNTIONS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         BOOL Exception_ConsoleHandler(DWORD fdwctrltype)
-* @brief      Exception Console Handler
-* @note       INTERNAL
+* @brief      Exception_ConsoleHandler
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  fdwctrltype :
-*
-* @return     BOOL :
-*
+* 
+* @param[in]  fdwctrltype : 
+* 
+* @return     BOOL : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 BOOL Exception_ConsoleHandler(DWORD fdwctrltype)
 {
@@ -1395,19 +1437,17 @@ BOOL Exception_ConsoleHandler(DWORD fdwctrltype)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
-* @brief      Exception Filter
-* @note       INTERNAL
+* @brief      Exception_Filter
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  code :
-* @param[in]  _EXCEPTION_POINTERS* ep :
-*
-* @return     int :
-*
+* 
+* @param[in]  code : 
+* @param[in]  _EXCEPTION_POINTERS* ep : 
+* 
+* @return     int : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
 {
@@ -1583,20 +1623,19 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool Exception_Printf(bool iserror, XCHAR* title, XCHAR* mask, ...)
-* @brief      Exception Printf
+* @brief      Exception_Printf
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  iserror :
-* @param[in]  title :
-* @param[in]  mask :
-* @param[in]  ... :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  iserror : 
+* @param[in]  title : 
+* @param[in]  mask : 
+* @param[in]  ... : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool Exception_Printf(bool iserror, XCHAR* title, XCHAR* mask, ...)
 {
@@ -1642,4 +1681,8 @@ bool Exception_Printf(bool iserror, XCHAR* title, XCHAR* mask, ...)
 }
 
 
+#pragma endregion
+
+
+#pragma endregion
 

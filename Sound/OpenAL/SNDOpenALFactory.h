@@ -66,24 +66,27 @@ class SNDOPENALFACTORY : public SNDFACTORY
   public:
                                               SNDOPENALFACTORY          ();
     virtual                                  ~SNDOPENALFACTORY          ();
+    
+    bool                                      Ini                       ();
+    bool  		    						                Update								    ();
+    bool                                      End                       ();
 
-    virtual float                             Volume_Get                ();
-    virtual bool                              Volume_Set                (float mastervolume);    
+    float                                     Volume_Get                ();
+    bool                                      Volume_Set                (float mastervolume);    
 
-    virtual SNDELEMENT*                       Element_Add               (XCHAR* pathfile, XCHAR* ID = NULL, bool instream = false);
-    virtual SNDELEMENT*                       Element_Get               (XCHAR* ID, bool instream = false);
-    virtual bool                              Element_Del               (SNDELEMENT* element);
+    SNDELEMENT*                               Element_Add               (XCHAR* pathfile, XCHAR* ID = NULL, bool instream = false);
+    SNDELEMENT*                               Element_Get               (XCHAR* ID, bool instream = false);
+    bool                                      Element_Del               (SNDELEMENT* element);
         
-    virtual SNDINSTANCE*                      Sound_Play                (SNDELEMENT* element);
-    virtual bool                              Sound_Stop                (SNDELEMENT* element);
-    virtual SNDINSTANCE*                      Sound_Pause               (SNDELEMENT* element); 
-    virtual bool                              Sound_IsAnyPlaying        ();
-    virtual bool                              Sound_StopAll             ();
-    virtual bool                              Sound_Note                (float frecuency, float duration);
+    SNDINSTANCE*                              Sound_Play                (SNDELEMENT* element);
+    bool                                      Sound_Stop                (SNDELEMENT* element);
+    SNDINSTANCE*                              Sound_Pause               (SNDELEMENT* element); 
+    bool                                      Sound_IsAnyPlaying        ();
+    bool                                      Sound_StopAll             ();
+    bool                                      Sound_Note                (float frecuency, float duration);
    
-    virtual void                              Update                    ();
-
-    virtual SNDSTREAMELEMENT*                 GetStreamer               ();
+   
+    SNDSTREAMELEMENT*                         GetStreamer               ();
             
     static void                               ThreadStreaming           (void* param);
 

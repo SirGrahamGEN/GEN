@@ -42,6 +42,7 @@
 #include "XTrace.h"
 
 #include "SNDInstance.h"
+#include "SNDFactory_XEvent.h"
 
 #include "SNDOpenALFactory.h"
 #include "SNDOpenALBuffer.h"
@@ -191,14 +192,11 @@ bool SNDOPENALSOURCE::IsPLaying()
       if((oldisplaying == true) && (isplaying == false))
       {
         if(instance)
-          {
-            /*
-            SND_XEVENT  event(this, SND_XEVENT_TYPE_STOP);
+          {          
+            SNDFACTORY_XEVENT event(NULL, SNDFACTORY_XEVENT_TYPE_STOP);
 
-            event.SetType(SND_XEVENT_TYPE_STOP);
-
-            instance->HandleEvent(&event);
-            */
+            event.SetType(SNDFACTORY_XEVENT_TYPE_STOP);
+            instance->HandleEvent(&event);            
           }
       }
 

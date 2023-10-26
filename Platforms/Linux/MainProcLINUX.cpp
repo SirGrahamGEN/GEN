@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       MainProcLINUX.cpp
-*
+* 
 * @class      MAINPROCLINUX
-* @brief      Main procedure LINUX class
+* @brief      LINUX Main procedure class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "MainProcLINUX.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -143,12 +149,13 @@
 
 #include "APPBase.h"
 
-#include "MainProcLINUX.h"
-
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 #ifdef XTRACE_ACTIVE
 XLINUXTRACE           linuxdebugtrace;
@@ -158,9 +165,11 @@ MAINPROCLINUX         mainproclinux;
 bool                  libmainproclinux      = false;
 XSTRING               allexceptiontext;
 
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 void                  Signal_Ini                (void);
 static void           Signal_Handler            (int sig);
@@ -169,12 +178,7 @@ static inline void    Signal_PrintfStackTrace   (FILE *out = stderr, unsigned in
 bool                  Signal_RunLevel           (XCHAR& previous, XCHAR& actual);
 
 
-
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  MAINPROCLINUX                                                                                                     */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MAINPROCLINUX
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -192,7 +196,6 @@ MAINPROCLINUX::MAINPROCLINUX()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MAINPROCLINUX::~MAINPROCLINUX()
@@ -207,7 +210,6 @@ MAINPROCLINUX::~MAINPROCLINUX()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -262,7 +264,6 @@ bool MAINPROCLINUX::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicati
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCLINUX::Update()
@@ -300,8 +301,6 @@ bool MAINPROCLINUX::Update()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -356,7 +355,6 @@ bool MAINPROCLINUX::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCLINUX::Factorys_Ini()
@@ -368,80 +366,135 @@ bool MAINPROCLINUX::End()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCLINUX::Factorys_Ini()
 {
-  if(!XFACTORY::SetInstance(new XLINUXFACTORY())) return false;
+  if(!XFACTORY::SetInstance(new XLINUXFACTORY())) 
+    {
+      return false;
+    }
   
   #ifdef XSYSTEM_ACTIVE  
-  if(!XSYSTEM::SetInstance(new XLINUXSYSTEM())) return false;
+  if(!XSYSTEM::SetInstance(new XLINUXSYSTEM())) 
+    {
+      return false;
+    }
   XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
   #endif  
   
-  if(!XRAND::SetInstance(new XLINUXRAND())) return false;
+  if(!XRAND::SetInstance(new XLINUXRAND())) 
+    {
+      return false;
+    }
 
   #ifdef XSLEEP_ACTIVE
-  if(!XSLEEP::SetInstance(new XLINUXSLEEP())) return false;
+  if(!XSLEEP::SetInstance(new XLINUXSLEEP())) 
+    {
+      return false;
+    }
   #endif
     
   #ifdef XPROCESSMANAGER_ACTIVE
-  if(!XPROCESSMANAGER::SetInstance(new XLINUXPROCESSMANAGER())) return false;
+  if(!XPROCESSMANAGER::SetInstance(new XLINUXPROCESSMANAGER())) 
+    {
+      return false;
+    }
   #endif
   
   #ifdef XSHAREDMEMORYMANAGER_ACTIVE
-  if(!XSHAREDMEMORYMANAGER::SetInstance(new XLINUXSHAREDMEMORYMANAGER())) return false;  
+  if(!XSHAREDMEMORYMANAGER::SetInstance(new XLINUXSHAREDMEMORYMANAGER())) 
+    {
+      return false;  
+    }
   #endif
     
   #ifdef XDRIVEIMAGE_ACTIVE
-  if(!XDRIVEIMAGE::SetInstance(new XLINUXDRIVEIMAGE())) return false;
+  if(!XDRIVEIMAGE::SetInstance(new XLINUXDRIVEIMAGE())) 
+    {
+      return false;
+    }
   #endif
 
   #ifdef XEEPROMMEMORYMANAGER_ACTIVE
-  if(!XEEPROMMEMORYMANAGER::SetInstance(new XLINUXEEPROMMEMORYMANAGER())) return false;
+  if(!XEEPROMMEMORYMANAGER::SetInstance(new XLINUXEEPROMMEMORYMANAGER())) 
+    {
+      return false;
+    }
   #endif
 
   #ifdef XTRACE_VIRTUALCLOCKTICK
   xtimerclock = new XTIMERCLOCK();
-  if(!xtimerclock) return false;
+  if(!xtimerclock) 
+    {
+      return false;
+    }
   #endif
 
   #ifdef INP_ACTIVE
-  if(!INPFACTORY::SetInstance(new INPLINUXFACTORY())) return false;  
+  if(!INPFACTORY::SetInstance(new INPLINUXFACTORY())) 
+    {
+      return false;  
+    }
   #endif
 
   #ifdef DIO_ACTIVE
-  if(!DIOFACTORY::SetInstance(new DIOLINUXFACTORY())) return false;
+  if(!DIOFACTORY::SetInstance(new DIOLINUXFACTORY())) 
+    {
+      return false;
+    }
   
     #ifdef DIO_GPIO_ACTIVE
 
       #ifdef HW_PC
         #ifdef DIO_GPIO_PCPARALLEL_ACTIVE
-        if(!DIOGPIO::SetInstance(new DIOLINUXGPIOPCPARALLEL())) return false;
+        if(!DIOGPIO::SetInstance(new DIOLINUXGPIOPCPARALLEL())) 
+          {
+            return false;
+          }
         #endif
       #endif
 
       #ifdef HW_RASPBERRYPI
-      if(!DIOGPIO::SetInstance(new DIOLINUXGPIORASPBERRYPI())) return false;
+      if(!DIOGPIO::SetInstance(new DIOLINUXGPIORASPBERRYPI())) 
+        {
+          return false;
+        }
       #endif
 
       #if defined(HW_ARM) || defined(HW_ARM64)
-      if(!DIOGPIO::SetInstance(new DIOLINUXGPIOARM())) return false;
+      if(!DIOGPIO::SetInstance(new DIOLINUXGPIOARM())) 
+        {
+          return false;
+        }
       #endif
     
-    if(!DIOGPIO::GetInstance().Ini()) return false;
+    if(!DIOGPIO::GetInstance().Ini()) 
+      {
+        return false;
+      }
 
     #endif
 	
   #endif
 
   #ifdef SND_ACTIVE
-  if(!SNDFACTORY::SetInstance(new SNDLINUXFACTORY())) return false;
+  if(!SNDFACTORY::SetInstance(new SNDLINUXFACTORY())) 
+    {    
+      return false;
+    }
+
+  if(!SNDFACTORY::GetInstance().Ini()) 
+    {
+      return false;
+    }
   #endif
 
   #ifdef GRP_ACTIVE
-  if(!GRPFACTORY::SetInstance(new GRPLINUXFACTORY())) return false;
+  if(!GRPFACTORY::SetInstance(new GRPLINUXFACTORY())) 
+    {
+      return false;
+    }
   #endif
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -460,7 +513,11 @@ bool MAINPROCLINUX::Factorys_End()
   #endif
 
   #ifdef SND_ACTIVE
-  SNDFACTORY::DelInstance();
+  if(SNDFACTORY::GetIsInstanced())
+    {
+      SNDFACTORY::GetInstance().End();
+      SNDFACTORY::DelInstance();
+    }
   #endif
 
   #ifdef DIO_ACTIVE
@@ -562,10 +619,12 @@ void MAINPROCLINUX::Clean()
 }
 
 
+#pragma endregion
+
+
+#pragma region MAINENTRYS
 
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*  Main entrys                                                                                                       */
-/*                                                                                                                    */
 /*  main        : Linux normal entry                                                                                  */
 /*  LIBRARY_Ini :                                                                                                     */
 /*  LIBRARY_End : Linux Library entry (Construct / Destruct)                                                          */
@@ -728,9 +787,10 @@ static void LIBRARY_End(void)
 #endif
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  SIGNAL FUNCTIONS                                                                                                  */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
+
+
+#pragma region SIGNAL_FUNCTIONS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -790,8 +850,6 @@ void Signal_Ini(void)
     }
   
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -990,8 +1048,6 @@ static void Signal_Handler(int sig)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool Signal_Printf(bool iserror, XCHAR* title, XCHAR* mask, ...)
@@ -1046,7 +1102,6 @@ bool Signal_Printf(bool iserror, XCHAR* title, XCHAR* mask, ...)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1165,7 +1220,6 @@ static inline void Signal_PrintfStackTrace(FILE *out, unsigned int max_frames)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool Signal_RunLevel(XCHAR& previous, XCHAR& actual)
@@ -1207,5 +1261,9 @@ bool Signal_RunLevel(XCHAR& previous, XCHAR& actual)
 }
 
 
+#pragma endregion
+
+
+#pragma endregion
 
 

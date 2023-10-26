@@ -88,7 +88,6 @@ class SNDOPENALSOURCE : public SNDSOURCE
     void                        SetSecondsOffset                    (float seconds);
     void                        SetSamplesOffset                    (int samples);
 
-
     void                        SetAquired                          (bool aquired);
     bool                        IsAquired                           ();
 

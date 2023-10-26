@@ -66,6 +66,10 @@ class SNDFACTORY : public XSUBJECT
     static bool                       SetInstance                 (SNDFACTORY* instance);
     static bool                       DelInstance                 ();
 
+    virtual bool                      Ini                         ();
+    virtual bool  		    						Update										  ();
+    virtual bool                      End                         ();
+
     virtual float                     Volume_Get                  ();
     virtual bool                      Volume_Set                  (float volume);    
 
@@ -82,9 +86,7 @@ class SNDFACTORY : public XSUBJECT
     virtual bool                      Sound_IsAnyPlaying          ();
     virtual bool                      Sound_StopAll               (); 
     virtual bool                      Sound_Note                  (float frecuency, float duration = 0.5f);  
-       
-		virtual void			    						Update										  ();
-
+       		
   private:
 
     void                              Clean                       ();

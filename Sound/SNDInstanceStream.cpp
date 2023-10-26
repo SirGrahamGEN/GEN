@@ -105,7 +105,7 @@ SNDINSTANCESTREAM::~SNDINSTANCESTREAM()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDINSTANCESTREAM::Update()
 {
-  /*
+  /*  
   // buffer in here or in the constructor
   // in here, and don't start playing until the minimum amount has been buffered
   // also, need to check if framereader is EOS, as in that case we need to stopSND
