@@ -35,7 +35,7 @@
 #include "AL/al.h"
 #include "AL/alc.h"
 
-#include "XBase.h"
+#include "XBuffer.h"
 
 #pragma endregion
 
@@ -53,21 +53,27 @@
 class SNDOPENALBUFFER
 {
   public:
-                SNDOPENALBUFFER             ();       
-    virtual    ~SNDOPENALBUFFER             ();
+                    SNDOPENALBUFFER             ();       
+    virtual        ~SNDOPENALBUFFER             ();
     
-    void        Generate                    ();
-    void        Destroy                     ();
+    void            Create                      ();
+    void            Delete                      ();
 
-    void        Upload                      (XWORD channels, void* data, XDWORD size, XWORD freq);
+    ALuint          GetHandle                   ();
+    bool            SetHandle                   (ALuint handle);
 
-    ALuint      GetHandle                   ();
+    XBUFFER*        GetXBuffer                  ();
 
-    ALuint      buffer;
+    bool            GenerateNote                (float frequency, float duration);
+
+    bool            Assign                      (XWORD channels, XWORD frequency);
 
   private:
 
-    void        Clean                       ();    
+    void            Clean                       ();   
+    
+    ALuint          buffer;  
+    XBUFFER         xbuffer;
 };
 
 

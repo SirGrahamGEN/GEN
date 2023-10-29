@@ -40,6 +40,9 @@
 #include "SNDFile.h"
 
 #include "XFactory.h"
+#include "XFile.h"
+
+#include "SNDFileOGG.h"
 
 #include "XMemory_Control.h"
 
@@ -99,16 +102,100 @@ SNDFILE::~SNDFILE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* SNDFILE::GetID()
-* @brief      GetID
+* @fn         SNDFILE* SNDFILE::Create(XCHAR* path)
+* @brief      Create
 * @ingroup    SOUND
 * 
-* @return     XSTRING* : 
+* @param[in]  path : 
+* 
+* @return     SNDFILE* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* SNDFILE::GetID()
-{ 
-  return &ID;               
+SNDFILE* SNDFILE::Create(XCHAR* path)
+{
+  XPATH     xpath;
+  XSTRING   ext;
+  SNDFILE*  sndfile = NULL;
+
+  xpath = path;
+  if(xpath.IsEmpty())
+    {
+      return NULL;
+    }
+
+  xpath.GetExt(ext);
+  
+  if(!ext.Compare(__L(".ogg"), true))
+    {
+      sndfile = new SNDFILEOGG();  
+    }
+
+  if(sndfile)
+    {
+      XFILE* file = GEN_XFACTORY.Create_File();
+      if(file)
+        {
+          bool exist = file->Exist(xpath);
+          GEN_XFACTORY.Delete_File(file);
+
+          if(!exist)
+            {
+              delete sndfile;  
+              return NULL;
+            }
+        }
+
+      sndfile->GetPath()->Set(path);
+    }
+
+  return sndfile;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDFILE* SNDFILE::Create(XPATH& xpath)
+* @brief      Create
+* @ingroup    SOUND
+* 
+* @param[in]  xpath : 
+* 
+* @return     SNDFILE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDFILE* SNDFILE::Create(XPATH& xpath)
+{
+  return SNDFILE::Create(xpath.Get());
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDFILE_TYPE SNDFILE::GetType()
+* @brief      GetType
+* @ingroup    SOUND
+* 
+* @return     SNDFILE_TYPE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDFILE_TYPE SNDFILE::GetType()
+{
+  return type;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XPATH* SNDFILE::GetPath()
+* @brief      GetPath
+* @ingroup    SOUND
+* 
+* @return     XPATH* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XPATH* SNDFILE::GetPath()
+{
+  return &path;
 }
 
 
@@ -189,109 +276,16 @@ float SNDFILE::GetDuration()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFILE::LoadFile(XCHAR* path, XCHAR* name, bool isstream)
+* @fn         bool SNDFILE::LoadFile()
 * @brief      LoadFile
 * @ingroup    SOUND
-* 
-* @param[in]  path : 
-* @param[in]  name : 
-* @param[in]  isstream : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFILE::LoadFile(XCHAR* path, XCHAR* name, bool isstream)      
+bool SNDFILE::LoadFile()      
 { 
   return false;               
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFILE::LoadFile(XPATH& xpath, XCHAR* ID, bool isstream)
-* @brief      LoadFile
-* @ingroup    SOUND
-* 
-* @param[in]  xpath : 
-* @param[in]  ID : 
-* @param[in]  isstream : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFILE::LoadFile(XPATH& xpath, XCHAR* ID, bool isstream)     
-{ 
-  return LoadFile(xpath.Get(), ID, isstream);               
-}
-  
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFILE::WriteRaw(XCHAR* path, XCHAR* ID)
-* @brief      WriteRaw
-* @ingroup    SOUND
-* 
-* @param[in]  path : 
-* @param[in]  ID : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFILE::WriteRaw(XCHAR* path, XCHAR* ID)
-{
-  XFILE* GEN_XFACTORY_CREATE(xfile, Create_File())
-  if(!xfile) 
-    {
-      return false;
-    }
-    
-  if(!xfile->Open(path, false))
-    {
-      if(!xfile->Create(path))
-        {
-          delete(xfile);
-          return false;
-        }
-    }
-
-  bool status = xfile->Write(*xbufferdecodeddata);
-
-  xfile->Close();
-
-  return status;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFILE::WriteRaw(XPATH& xpath, XCHAR* ID)
-* @brief      WriteRaw
-* @ingroup    SOUND
-* 
-* @param[in]  xpath : 
-* @param[in]  ID : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFILE::WriteRaw(XPATH& xpath, XCHAR* ID)
-{
-  return WriteRaw(xpath.Get(), ID);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFILE::Reset()
-* @brief      Reset
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFILE::Reset()
-{ 
-  return true;                
 }
 
 
@@ -306,11 +300,9 @@ bool SNDFILE::Reset()
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDFILE::Clean()
-{
-  ID.Empty();
-  
-  isstream            = false;
-  
+{  
+  type                = SNDFILE_TYPE_UNKNOWN;
+
   channels            = 0;
   nsamples            = 0;
   samplerate          = 0;

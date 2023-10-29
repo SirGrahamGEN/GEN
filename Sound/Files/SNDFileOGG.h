@@ -56,7 +56,7 @@ class SNDFILEOGG : public SNDFILE
                             SNDFILEOGG                      ();                             
     virtual                ~SNDFILEOGG                      ();
  
-    bool                    LoadFile                        (XCHAR* path, XCHAR* ID, bool instream);
+    bool                    LoadFile                        ();
     
   private:
 

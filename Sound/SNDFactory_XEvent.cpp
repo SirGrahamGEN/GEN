@@ -120,117 +120,6 @@ void SNDFACTORY_XEVENT::SetType(SNDFACTORY_XEVENT_TYPE type)
   this->type = type;                   
 }
 
-    
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XSTRING* SNDFACTORY_XEVENT::GetID()
-* @brief      GetID
-* @ingroup    SOUND
-* 
-* @return     XSTRING* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* SNDFACTORY_XEVENT::GetID()
-{ 
-  return &ID;                
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY_XEVENT::GetElement()
-* @brief      GetElement
-* @ingroup    SOUND
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY_XEVENT::GetElement()
-{ 
-  return this->element;          
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDFACTORY_XEVENT::SetElement(SNDELEMENT* sndelement)
-* @brief      SetElement
-* @ingroup    SOUND
-* 
-* @param[in]  sndelement : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDFACTORY_XEVENT::SetElement(SNDELEMENT* sndelement)
-{ 
-  this->element = element;    
-}
-    
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDSOURCE* SNDFACTORY_XEVENT::GetSource()
-* @brief      GetSource
-* @ingroup    SOUND
-* 
-* @return     SNDSOURCE* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDSOURCE* SNDFACTORY_XEVENT::GetSource()
-{ 
-  return this->source;           
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDFACTORY_XEVENT::SetSource(SNDSOURCE* source)
-* @brief      SetSource
-* @ingroup    SOUND
-* 
-* @param[in]  source : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDFACTORY_XEVENT::SetSource(SNDSOURCE* source)
-{ 
-  this->source = source;      
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDINSTANCE* SNDFACTORY_XEVENT::GetInstance()
-* @brief      GetInstance
-* @ingroup    SOUND
-* 
-* @return     SNDINSTANCE* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDINSTANCE* SNDFACTORY_XEVENT::GetInstance()
-{ 
-  return this->instance;         
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDFACTORY_XEVENT::SetInstance(SNDINSTANCE* instance)
-* @brief      SetInstance
-* @ingroup    SOUND
-* 
-* @param[in]  instance : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDFACTORY_XEVENT::SetInstance(SNDINSTANCE* instance)
-{ 
-  this->instance = instance;  
-}
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -245,10 +134,6 @@ void SNDFACTORY_XEVENT::SetInstance(SNDINSTANCE* instance)
 void SNDFACTORY_XEVENT::Clean()
 {
   type       = SNDFACTORY_XEVENT_TYPE_UNKNOWN;
-
-  element    = NULL;
-  source     = NULL;
-  instance   = NULL;
 }
 
 

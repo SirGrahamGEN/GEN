@@ -36,8 +36,6 @@
 #include "XPath.h"
 #include "XSubject.h"
 
-#include "SNDElement.h"
-
 #pragma endregion
 
 
@@ -51,9 +49,8 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SNDELEMENT;
-class SNDINSTANCE;
-class SNDFILE;
+class SNDITEM;
+class SNDPLAYCFG;
 
 class SNDFACTORY : public XSUBJECT
 {
@@ -65,33 +62,35 @@ class SNDFACTORY : public XSUBJECT
     static SNDFACTORY&                GetInstance                 ();
     static bool                       SetInstance                 (SNDFACTORY* instance);
     static bool                       DelInstance                 ();
-
-    virtual bool                      Ini                         ();
-    virtual bool  		    						Update										  ();
-    virtual bool                      End                         ();
-
+    
+    virtual bool                      Ini                         ();    
+    virtual bool  		    						Update										  ();    
+    virtual bool                      End                         ();         
+        
     virtual float                     Volume_Get                  ();
     virtual bool                      Volume_Set                  (float volume);    
 
-    SNDELEMENT*                       Element_Add                 (XPATH& xpathfile, XSTRING& ID, bool instream = false);
-    SNDELEMENT*                       Element_Add                 (XPATH& xpathfile, XCHAR* ID = NULL, bool instream = false);
-    virtual SNDELEMENT*               Element_Add                 (XCHAR* pathfile, XCHAR* ID = NULL, bool instream = false);
-    SNDELEMENT*                       Element_Get                 (XSTRING& ID, bool instream = false);
-    virtual SNDELEMENT*               Element_Get                 (XCHAR* ID, bool instream = false);
-    virtual bool                      Element_Del                 (SNDELEMENT* element);
+    virtual bool                      Sound_Play                  (SNDITEM* item, SNDPLAYCFG* playCFG = NULL);
+    virtual bool                      Sound_Stop                  (SNDITEM* item);
+    virtual bool                      Sound_Pause                 (SNDITEM* item);
+    virtual bool                      Sound_StopAll               ();   
+ 
+    SNDITEM*                          CreateItem                  (XCHAR* path);  
+    SNDITEM*                          CreateItem                  (XPATH& xpath);     
+    SNDITEM*                          CreateItem                  (float frecuency, float duration = 0.5f);  
+
+    XVECTOR<SNDITEM*>*                GetItems                    ();
+    bool                              DeleteAllItems              ();
     
-    virtual SNDINSTANCE*              Sound_Play                  (SNDELEMENT* element);
-    virtual bool                      Sound_Stop                  (SNDELEMENT* element);
-    virtual SNDINSTANCE*              Sound_Pause                 (SNDELEMENT* element);
-    virtual bool                      Sound_IsAnyPlaying          ();
-    virtual bool                      Sound_StopAll               (); 
-    virtual bool                      Sound_Note                  (float frecuency, float duration = 0.5f);  
-       		
+    bool                              Sound_IsAnyPlaying          ();
+    bool                              Sound_IsAnyActive           ();
+                
   private:
 
     void                              Clean                       ();
 
     static SNDFACTORY*                instance;
+    XVECTOR<SNDITEM*>                 sounditems;
 };
 
 

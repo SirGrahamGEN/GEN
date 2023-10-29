@@ -71,6 +71,8 @@
 SNDFILEOGG::SNDFILEOGG() : SNDFILE()
 {
   Clean();
+
+  type = SNDFILE_TYPE_OGG;
 }
 
 
@@ -92,18 +94,14 @@ SNDFILEOGG::~SNDFILEOGG()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFILEOGG::LoadFile(XCHAR* path, XCHAR* ID, bool instream)
+* @fn         bool SNDFILEOGG::LoadFile()
 * @brief      LoadFile
 * @ingroup    SOUND
-* 
-* @param[in]  path : 
-* @param[in]  ID : 
-* @param[in]  instream : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFILEOGG::LoadFile(XCHAR* path, XCHAR* ID, bool instream)
+bool SNDFILEOGG::LoadFile()
 {
   XFILE* xfile = NULL;
 
@@ -162,7 +160,7 @@ bool SNDFILEOGG::LoadFile(XCHAR* path, XCHAR* ID, bool instream)
 
   duration = stb_vorbis_stream_length_in_seconds(stream);
 
-  xbufferdecodeddata=new XBUFFER(false);
+  xbufferdecodeddata = new XBUFFER(false);
   if(!xbufferdecodeddata)
     {
       return false;
@@ -175,8 +173,6 @@ bool SNDFILEOGG::LoadFile(XCHAR* path, XCHAR* ID, bool instream)
 
   // try to deallocate the allocacated memory
   stb_vorbis_close(stream);
-
-  this->ID.Set(ID);
 
   return true;
 }

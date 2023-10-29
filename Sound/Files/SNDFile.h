@@ -41,6 +41,11 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+enum SNDFILE_TYPE
+{
+  SNDFILE_TYPE_UNKNOWN     = 0  ,
+  SNDFILE_TYPE_OGG              ,  
+};
 
 #pragma endregion
 
@@ -54,28 +59,28 @@ class SNDFILE
 
                                     SNDFILE                               ();    
     virtual                        ~SNDFILE                               ();
-    
-    XSTRING*                        GetID                                 ();
 
+    static SNDFILE*                 Create                                (XCHAR* path);
+    static SNDFILE*                 Create                                (XPATH& xpath);
+
+    SNDFILE_TYPE                    GetType                               (); 
+
+    XPATH*                          GetPath                               (); 
+       
     XBUFFER*                        GetData                               ();
     XWORD                           GetChannels                           ();
     XDWORD                          GetNSamples                           ();
     XDWORD                          GetSampleRate                         ();    
     float                           GetDuration                           ();
 
-    virtual bool                    LoadFile                              (XCHAR* path , XCHAR* ID, bool instream);
-    bool                            LoadFile                              (XPATH& xpath, XCHAR* ID, bool instream);
-
-    bool                            WriteRaw                              (XCHAR* path, XCHAR* ID);
-    bool                            WriteRaw                              (XPATH& xpath, XCHAR* ID);
+    virtual bool                    LoadFile                              ();
     
-    virtual bool                    Reset                                 ();
-
   protected:
-      
-    XSTRING                         ID;
-    bool                            isstream;
-   
+
+    SNDFILE_TYPE                    type;   
+    
+    XPATH                           path;                               
+
     XWORD                           channels;
     XDWORD                          nsamples;
     XDWORD                          samplerate;

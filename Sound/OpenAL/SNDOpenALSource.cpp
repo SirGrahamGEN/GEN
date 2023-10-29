@@ -3,7 +3,7 @@
 * @file       SNDOpenALSource.cpp
 * 
 * @class      SNDOPENALSOURCE
-* @brief      Sound OpenAL source class
+* @brief      Sound OpenAL Source class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -41,12 +41,8 @@
 
 #include "XTrace.h"
 
-#include "SNDInstance.h"
 #include "SNDFactory_XEvent.h"
-
 #include "SNDOpenALFactory.h"
-#include "SNDOpenALBuffer.h"
-#include "SNDOpenALElement.h"
 
 #include "XMemory_Control.h"
 
@@ -82,7 +78,9 @@ SNDOPENALSOURCE::SNDOPENALSOURCE()
   alSource3f(source , AL_POSITION, 0, 0, 0);
   alSource3f(source , AL_VELOCITY, 0, 0, 0);
   alSourcei(source  , AL_LOOPING, AL_FALSE);
-//alSourcef(source  , AL_MAX_GAIN, 1000.0f);  
+//alSourcef(source  , AL_MAX_GAIN, 1000.0f); 
+
+  albuffer.Create();
 }
 
 
@@ -98,9 +96,26 @@ SNDOPENALSOURCE::SNDOPENALSOURCE()
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDOPENALSOURCE::~SNDOPENALSOURCE()
 {
-  alDeleteSources(1, &source);
+  alDeleteSources(1, &source); 
+
+  albuffer.Delete();
 
   Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDOPENALBUFFER* SNDOPENALSOURCE::GetBuffer()
+* @brief      GetBuffer
+* @ingroup    SOUND
+* 
+* @return     SNDOPENALBUFFER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDOPENALBUFFER* SNDOPENALSOURCE::GetBuffer()
+{
+  return &albuffer;
 }
 
 
@@ -153,23 +168,6 @@ void SNDOPENALSOURCE::UnPause()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALSOURCE::SetLoop(bool loop)
-* @brief      SetLoop
-* @ingroup    SOUND
-* 
-* @param[in]  loop : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALSOURCE::SetLoop(bool loop)
-{
-  alSourcei(source, AL_LOOPING, loop);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         bool SNDOPENALSOURCE::IsPLaying()
 * @brief      IsPLaying
 * @ingroup    SOUND
@@ -185,20 +183,20 @@ bool SNDOPENALSOURCE::IsPLaying()
 
       alGetSourcei(source, AL_SOURCE_STATE, &source_state);
 
-      bool oldisplaying = isplaying;
+      bool _isplaying = isplaying;
 
       isplaying = ((source_state == AL_PLAYING) || (source_state == AL_PAUSED));
 
-      if((oldisplaying == true) && (isplaying == false))
-      {
-        if(instance)
-          {          
-            SNDFACTORY_XEVENT event(NULL, SNDFACTORY_XEVENT_TYPE_STOP);
+      if((_isplaying == true) && (isplaying == false))
+        { 
+          /*               
+          SNDFACTORY_XEVENT event(NULL, SNDFACTORY_XEVENT_TYPE_STOP);
 
-            event.SetType(SNDFACTORY_XEVENT_TYPE_STOP);
-            instance->HandleEvent(&event);            
-          }
-      }
+          event.SetType(SNDFACTORY_XEVENT_TYPE_STOP);
+
+          PostEvent(this, event);                         
+          */
+        }
 
       return isplaying;
     }
@@ -246,6 +244,23 @@ bool SNDOPENALSOURCE::IsPaused()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         void SNDOPENALSOURCE::SetInLoop(bool inloop)
+* @brief      SetInLoop
+* @ingroup    SOUND
+* 
+* @param[in]  inloop : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALSOURCE::SetInLoop(bool inloop)
+{
+  alSourcei(source, AL_LOOPING, inloop);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         float SNDOPENALSOURCE::GetVolume()
 * @brief      GetVolume
 * @ingroup    SOUND
@@ -259,7 +274,7 @@ float SNDOPENALSOURCE::GetVolume()
 
   alGetSourcef(source, AL_GAIN, &volume);
 
-  return volume /  GEN_SNDFACTORY.Volume_Get();  
+  return volume / GEN_SNDFACTORY.Volume_Get();  
 }
 
 
@@ -318,38 +333,6 @@ void SNDOPENALSOURCE::SetPitch(float pitch)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDELEMENT* SNDOPENALSOURCE::GetElement()
-* @brief      GetElement
-* @ingroup    SOUND
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDOPENALSOURCE::GetElement()
-{ 
-  return this->element;     
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDOPENALSOURCE::SetElement(SNDELEMENT* element)
-* @brief      SetElement
-* @ingroup    SOUND
-* 
-* @param[in]  element : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALSOURCE::SetElement(SNDELEMENT* element)
-{ 
-  this->element = element;  
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         void SNDOPENALSOURCE::SetSecondsOffset(float seconds)
 * @brief      SetSecondsOffset
 * @ingroup    SOUND
@@ -361,6 +344,7 @@ void SNDOPENALSOURCE::SetElement(SNDELEMENT* element)
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::SetSecondsOffset(float seconds)
 {
+  /*
   if(element)
     {
       if(seconds <= element->GetDuration())
@@ -368,6 +352,7 @@ void SNDOPENALSOURCE::SetSecondsOffset(float seconds)
           alSourcef(source, AL_SEC_OFFSET, seconds);
         }
     }
+  */
 }
 
 
@@ -384,6 +369,7 @@ void SNDOPENALSOURCE::SetSecondsOffset(float seconds)
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::SetSamplesOffset(int samples)
 {
+  /*
   if(element)
     {
       if(samples > element->GetSamples())
@@ -393,6 +379,7 @@ void SNDOPENALSOURCE::SetSamplesOffset(int samples)
 
       alSourcei(source, AL_SAMPLE_OFFSET, samples);
     }
+  */
 }
 
 
@@ -470,29 +457,8 @@ void SNDOPENALSOURCE::Release()
 void SNDOPENALSOURCE::Play()
 {
   if(!IsPLaying())
-    {
-      alSourcePlay(source);
-      isplaying = true;
-    }
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDOPENALSOURCE::Play(SNDOPENALBUFFER* buffer)
-* @brief      Play
-* @ingroup    SOUND
-* 
-* @param[in]  buffer : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALSOURCE::Play(SNDOPENALBUFFER* buffer)
-{
-  if(!IsPLaying())
     {     
-      alSourcei(source, AL_BUFFER, buffer->buffer);
+      alSourcei(source, AL_BUFFER, albuffer.GetHandle());
       alSourcePlay(source);
 
       isplaying = true;      
@@ -511,13 +477,12 @@ void SNDOPENALSOURCE::Play(SNDOPENALBUFFER* buffer)
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALSOURCE::Queue(SNDOPENALBUFFER* buffer)
+void SNDOPENALSOURCE::Queue()
 {
-  if(buffer)
-    {      
-      alSourceQueueBuffers(source, 1, &(buffer->buffer));      
-      //bufferlist.Add(buffer);
-    }
+  ALuint handle = albuffer.GetHandle();
+  alSourceQueueBuffers(source, 1, &handle);             
+
+  albuffer.SetHandle(handle);
 }
 
 
@@ -532,7 +497,7 @@ void SNDOPENALSOURCE::Queue(SNDOPENALBUFFER* buffer)
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALSOURCE::UnQueue(SNDOPENALBUFFER* buffer)
+void SNDOPENALSOURCE::UnQueue()
 {
   alSourceStop(source);
 
@@ -588,8 +553,7 @@ int SNDOPENALSOURCE::GetProcessedBuffers()
 void SNDOPENALSOURCE::Clean()
 {
   source        = 0;
-  element       = NULL;
- 
+  
   isplaying     = false;
   aquired       = false;
 }

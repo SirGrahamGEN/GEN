@@ -50,16 +50,31 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class XFACTORY;
-class XPATHS;
-class SNDFACTORY;
-class SNDELEMENT;
-class SNDSOURCE;
-class SNDSTREAMELEMENT;
-class SNDINSTANCE;
+class SNDITEM;
 class SNDOPENALSOURCE;
-class SNDOPENALELEMENT;
-class SNDOPENALELEMENTSTREAM;
+
+class SNDOPENALPLAYITEM 
+{
+  public:
+                                              SNDOPENALPLAYITEM         ();
+    virtual                                  ~SNDOPENALPLAYITEM         ();
+
+    SNDITEM*                                  GetItem                   ();
+    void                                      SetItem                   (SNDITEM* item);
+
+    SNDOPENALSOURCE*                          GetSource                 ();
+    void                                      SetSource                 (SNDOPENALSOURCE* source);
+
+    bool                                      Delete                    ();
+
+  private:
+
+    void                                      Clean                     ();   
+
+    SNDITEM*                                  item;
+    SNDOPENALSOURCE*                          source;
+};
+
 
 class SNDOPENALFACTORY : public SNDFACTORY
 {
@@ -73,47 +88,33 @@ class SNDOPENALFACTORY : public SNDFACTORY
 
     float                                     Volume_Get                ();
     bool                                      Volume_Set                (float mastervolume);    
-
-    SNDELEMENT*                               Element_Add               (XCHAR* pathfile, XCHAR* ID = NULL, bool instream = false);
-    SNDELEMENT*                               Element_Get               (XCHAR* ID, bool instream = false);
-    bool                                      Element_Del               (SNDELEMENT* element);
-        
-    SNDINSTANCE*                              Sound_Play                (SNDELEMENT* element);
-    bool                                      Sound_Stop                (SNDELEMENT* element);
-    SNDINSTANCE*                              Sound_Pause               (SNDELEMENT* element); 
-    bool                                      Sound_IsAnyPlaying        ();
+    
+    bool                                      Sound_Play                (SNDITEM* item, SNDPLAYCFG* playCFG = NULL);
+    bool                                      Sound_Stop                (SNDITEM* item);
+    bool                                      Sound_Pause               (SNDITEM* item);     
     bool                                      Sound_StopAll             ();
-    bool                                      Sound_Note                (float frecuency, float duration);
-   
-   
-    SNDSTREAMELEMENT*                         GetStreamer               ();
-            
-    static void                               ThreadStreaming           (void* param);
 
-  protected:
+    XMUTEX*                                   GetPlayMutex              ();
+    XVECTOR<SNDOPENALPLAYITEM*>*              GetSoundPlayItems         ();
+      
+  private:
+
+    bool                                      Update_Note               (SNDOPENALPLAYITEM* playitem);
+    bool                                      Update_File               (SNDOPENALPLAYITEM* playitem);
+
+    static void                               ThreadPlay                (void* param);
+   
+    void                                      Clean                     ();  
 
     ALCdevice*                                device;
     ALCcontext*                               context;
     float                                     mastervolume;
-  
-  private:
-   
-    void                                      Clean                     ();
-
-    bool                                      isinit;
-   
-    XVECTOR<SNDOPENALSOURCE*>                 sources;
-    XVECTOR<SNDOPENALELEMENT* >               playqueue;
-
-    XVECTOR<SNDOPENALELEMENT*>                loadedfiles;
-    XVECTOR<SNDOPENALELEMENTSTREAM*>          elementsstream;
-
-    XVECTOR<SNDELEMENT*>                      deletequeue;
-
     XDWORD                                    maxchannels;
 
-    XTHREAD*                                  streamthread;
-    XMUTEX*                                   streammutex;                                               
+    XTHREAD*                                  playthread;
+    XMUTEX*                                   playmutex;  
+
+    XVECTOR<SNDOPENALPLAYITEM*>               soundplayitems;                                                  
 };
 
 #pragma endregion

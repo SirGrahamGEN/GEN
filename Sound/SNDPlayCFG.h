@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDInstanceStream.h
+* @file       SNDPlayCFG.h
 * 
-* @class      SNDINSTANCESTREAM
-* @brief      Sound Instance Stream class
+* @class      SNDPLAYCFG
+* @brief      Sound Play Configuration class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,13 +26,12 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SNDINSTANCESTREAM_H_
-#define _SNDINSTANCESTREAM_H_
+#ifndef _SNDPLAYCFG_H_
+#define _SNDPLAYCFG_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "SNDInstance.h"
 
 #pragma endregion
 
@@ -47,20 +46,31 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SNDINSTANCESTREAM : public SNDINSTANCE
+class SNDPLAYCFG
 {
   public:
-                          SNDINSTANCESTREAM             (SNDSOURCE* source, SNDELEMENT* element);
-    virtual              ~SNDINSTANCESTREAM             ();
+                            SNDPLAYCFG        ();
+    virtual                ~SNDPLAYCFG        ();
 
-    bool                  Update                        (); 
+    bool                    GetInLoop         ();  
+    void                    SetInLoop         (bool inloop);
+    
+    float                   GetVolume         ();
+    void                    SetVolume         (float volume);
+        
+    float                   GetPitch          ();
+    void                    SetPitch          (float pitch); 
+
+    bool                    CopyTo            (SNDPLAYCFG& playCFG);
+    bool                    CopyFrom          (SNDPLAYCFG& playCFG);
 
   private:
 
-    void                  Clean                         ();
-                         
-    float                 buffered;
-    bool                  hasbuffered;
+    void                    Clean             ();
+
+    bool                    inloop;
+    float                   volume;
+    float                   pitch;
 };
 
 #pragma endregion
@@ -74,3 +84,6 @@ class SNDINSTANCESTREAM : public SNDINSTANCE
 
 
 #endif
+
+
+

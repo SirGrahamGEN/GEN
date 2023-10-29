@@ -54,9 +54,6 @@ enum SNDFACTORY_XEVENT_TYPE
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SNDELEMENT;
-class SNDSOURCE;
-class SNDINSTANCE;
 
 class SNDFACTORY_XEVENT : public XEVENT
 {
@@ -66,26 +63,11 @@ class SNDFACTORY_XEVENT : public XEVENT
 
     SNDFACTORY_XEVENT_TYPE      GetType                 ();
     void                        SetType                 (SNDFACTORY_XEVENT_TYPE type);
-        
-    XSTRING*                    GetID                   ();
-
-    SNDELEMENT*                 GetElement              ();
-    void                        SetElement              (SNDELEMENT* element);
-    
-    SNDSOURCE*                  GetSource               ();
-    void                        SetSource               (SNDSOURCE* source);    
-
-    SNDINSTANCE*                GetInstance             ();
-    void                        SetInstance             (SNDINSTANCE* instance);
-    
+              
   protected:
 
     SNDFACTORY_XEVENT_TYPE      type;
-    XSTRING                     ID;
-    SNDELEMENT*                 element;
-    SNDSOURCE*                  source;
-    SNDINSTANCE*                instance;
-
+    
   private:
 
     void                        Clean                   ();                              

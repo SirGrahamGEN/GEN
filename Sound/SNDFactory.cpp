@@ -40,6 +40,9 @@
 #include "SNDFactory.h"
 
 #include "SNDFactory_XEvent.h"
+#include "SNDItem.h"
+#include "SNDFile.h"
+#include "SNDNote.h"
 
 #include "XMemory_Control.h"
 
@@ -90,6 +93,8 @@ SNDFACTORY::~SNDFACTORY()
 {
   DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_STOP);
   DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_PLAY);
+
+  End();
 
   Clean();
 }
@@ -209,7 +214,9 @@ bool SNDFACTORY::Update()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDFACTORY::End()
 {
-  return false;
+  DeleteAllItems();
+
+  return true;
 }
 
 
@@ -248,134 +255,35 @@ bool SNDFACTORY::Volume_Set(float volume)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XSTRING& ID, bool instream)
-* @brief      Element_Add
+* @fn         bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG)
+* @brief      Sound_Play
 * @ingroup    SOUND
 * 
-* @param[in]  xpathfile : 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XSTRING& ID, bool instream)
-{
-  return Element_Add(xpathfile, ID.Get(), instream);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XCHAR* ID, bool instream)
-* @brief      Element_Add
-* @ingroup    SOUND
-* 
-* @param[in]  xpathfile : 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Add(XPATH& xpathfile, XCHAR* ID, bool instream)
-{
-  return Element_Add(xpathfile.Get(), ID, instream);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Add(XCHAR* xpathfile, XCHAR* ID, bool instream)
-* @brief      Element_Add
-* @ingroup    SOUND
-* 
-* @param[in]  xpathfile : 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Add(XCHAR* pathfile, XCHAR* ID, bool instream)
-{
-  return NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Get(XSTRING& ID, bool instream)
-* @brief      Element_Get
-* @ingroup    SOUND
-* 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Get(XSTRING& ID, bool instream)
-{
-  return Element_Get(ID.Get(), instream);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDELEMENT* SNDFACTORY::Element_Get(XCHAR* ID, bool instream)
-* @brief      Element_Get
-* @ingroup    SOUND
-* 
-* @param[in]  ID : 
-* @param[in]  instream : 
-* 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDFACTORY::Element_Get(XCHAR* ID, bool instream)
-{
-  return NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::Element_Del(SNDELEMENT* element)
-* @brief      Element_Del
-* @ingroup    SOUND
-* 
-* @param[in]  element : 
+* @param[in]  item : 
+* @param[in]  playCFG : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Element_Del(SNDELEMENT* element)
-{
-  return false;
-}
-   
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDINSTANCE* SNDFACTORY::Sound_Play(SNDELEMENT* element)
-* @brief      Sound_Play
-* @ingroup    SOUND
-* 
-* @param[in]  element : 
-* 
-* @return     SNDINSTANCE* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDINSTANCE* SNDFACTORY::Sound_Play(SNDELEMENT* element)                                   
+bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG)                                   
 { 
-  return NULL;                      
+  if(!item)
+    {
+      return false;
+    }
+
+  if(playCFG)
+    {
+      item->SetPlayCFG((*playCFG));
+    }
+
+  return sounditems.Add(item);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::Sound_Stop(SNDELEMENT* element)
+* @fn         bool SNDFACTORY::Sound_Stop(SNDITEM* item)
 * @brief      Sound_Stop
 * @ingroup    SOUND
 * 
@@ -384,7 +292,7 @@ SNDINSTANCE* SNDFACTORY::Sound_Play(SNDELEMENT* element)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_Stop(SNDELEMENT* element)                                   
+bool SNDFACTORY::Sound_Stop(SNDITEM* item)                                   
 {                                   
   return false;
 }
@@ -392,33 +300,18 @@ bool SNDFACTORY::Sound_Stop(SNDELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDINSTANCE* SNDFACTORY::Sound_Pause(SNDELEMENT* element)
+* @fn         bool SNDFACTORY::Sound_Pause(SNDITEM* item)
 * @brief      Sound_Pause
 * @ingroup    SOUND
 * 
 * @param[in]  element : 
 * 
-* @return     SNDINSTANCE* : 
+* @return     bool : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDINSTANCE* SNDFACTORY::Sound_Pause(SNDELEMENT* element)                                   
+bool SNDFACTORY::Sound_Pause(SNDITEM* item)                                   
 { 
   return NULL;                      
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::Sound_IsAnyPlaying()
-* @brief      Sound_IsAnyPlaying
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_IsAnyPlaying()                                                      
-{ 
-  return false;                     
 }
 
 
@@ -435,23 +328,208 @@ bool SNDFACTORY::Sound_StopAll()
 { 
   return false;
 }
-   
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::Sound_Note(float frecuency, float duration)
-* @brief      Sound_Note
+* @fn         SNDITEM* SNDFACTORY::CreateItem(XCHAR* path)
+* @brief      CreateItem
+* @ingroup    SOUND
+* 
+* @param[in]  path : 
+* 
+* @return     SNDITEM* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDITEM* SNDFACTORY::CreateItem(XCHAR* path)  
+{
+  if(!path)
+    {
+      return NULL;
+    }
+
+  SNDITEM* item = new SNDITEM();
+  if(!item)
+    {
+      return NULL;
+    }
+
+  item->SetType(SNDITEM_TYPE_FILE);
+
+  item->GetID()->Set(path);
+  if(item->GetID()->IsEmpty())
+    {
+      return NULL;
+    }
+
+  SNDFILE* soundfile = SNDFILE::Create(path);
+  if(!soundfile)
+    {
+      delete item;
+      return NULL;
+    }
+
+  item->SetStatus(SNDITEM_STATUS_INI);
+  item->SetSoundFile(soundfile);
+  
+  return item;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDITEM* SNDFACTORY::CreateItem(XPATH& xpath)
+* @brief      CreateItem
+* @ingroup    SOUND
+* 
+* @param[in]  xpath : 
+* 
+* @return     SNDITEM* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDITEM* SNDFACTORY::CreateItem(XPATH& xpath)
+{
+  return CreateItem(xpath.Get());
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDITEM* SNDFACTORY::CreateItem(float frecuency, float duration)
+* @brief      CreateItem
 * @ingroup    SOUND
 * 
 * @param[in]  frecuency : 
 * @param[in]  duration : 
 * 
+* @return     SNDITEM* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDITEM* SNDFACTORY::CreateItem(float frecuency, float duration)
+{
+  if((!frecuency) || (!duration))
+    {
+      return NULL;
+    }
+
+  SNDITEM* item = new SNDITEM();
+  if(!item)
+    {
+      return NULL;
+    }
+
+  item->SetType(SNDITEM_TYPE_NOTE);
+
+  item->GetID()->Format(__L("frec: %f - time: %f"), frecuency, duration);
+
+  SNDNOTE* note = new SNDNOTE();
+  if(!note)
+    {
+      delete item;
+      return NULL;
+    }
+
+  note->SetFrequency(frecuency);
+  note->SetDuration(duration);
+
+  item->SetStatus(SNDITEM_STATUS_INI);
+  item->SetSoundNote(note);
+  
+  return item;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<SNDITEM*>* SNDFACTORY::GetItems()
+* @brief      GetItems
+* @ingroup    SOUND
+* 
+* @return     XVECTOR<SNDITEM*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<SNDITEM*>* SNDFACTORY::GetItems()
+{
+  return &sounditems;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDFACTORY::DeleteAllItems()
+* @brief      DeleteAllItems
+* @ingroup    SOUND
+* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_Note(float frecuency, float duration)
+bool SNDFACTORY::DeleteAllItems()
 {
-  return false;
+  if(sounditems.IsEmpty())
+    {
+      return false; 
+    }
+
+  sounditems.DeleteContents();
+  sounditems.DeleteAll();
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDFACTORY::Sound_IsAnyActive()
+* @brief      Sound_IsAnyActive
+* @ingroup    SOUND
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDFACTORY::Sound_IsAnyActive()
+{ 
+  XDWORD counter = 0;
+
+  for(XDWORD c=0; c<sounditems.GetSize(); c++)
+    {
+      SNDITEM* item = sounditems.Get(c);
+      if(item)
+        {
+          if(item->GetStatus() != SNDITEM_STATUS_END)       
+            {
+              counter++;
+            }
+        }
+    }
+
+  return counter?true:false;                     
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDFACTORY::Sound_IsAnyPlaying()
+* @brief      Sound_IsAnyPlaying
+* @ingroup    SOUND
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDFACTORY::Sound_IsAnyPlaying()
+{ 
+  for(XDWORD c=0; c<sounditems.GetSize(); c++)
+    {
+      SNDITEM* item = sounditems.Get(c);
+      if(item)
+        {
+          if(item->GetStatus() == SNDITEM_STATUS_PLAY)       
+            {
+              return true;
+            }
+        }
+    }
+
+  return false;                     
 }
 
 

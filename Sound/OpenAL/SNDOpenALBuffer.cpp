@@ -84,6 +84,40 @@ SNDOPENALBUFFER::~SNDOPENALBUFFER()
   Clean();
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDOPENALBUFFER::Create()
+* @brief      Create
+* @ingroup    SOUND
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALBUFFER::Create()
+{
+  alGenBuffers(1, &buffer);
+
+  xbuffer.Empty();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDOPENALBUFFER::Delete()
+* @brief      Delete
+* @ingroup    SOUND
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALBUFFER::Delete()
+{
+  alDeleteBuffers(1, &buffer);
+
+  xbuffer.Empty();
+}
+
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -102,49 +136,84 @@ ALuint SNDOPENALBUFFER::GetHandle()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALBUFFER::Generate()
-* @brief      Generate
+* @fn         bool SNDOPENALBUFFER::SetHandle(ALuint handle)
+* @brief      SetHandle
 * @ingroup    SOUND
 * 
-* @return     void : does not return anything. 
+* @param[in]  handle : 
+* 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALBUFFER::Generate()
+bool SNDOPENALBUFFER::SetHandle(ALuint handle)
 {
-  alGenBuffers(1, &buffer);
+  this->buffer = handle;
+
+  return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALBUFFER::Destroy()
-* @brief      Destroy
+* @fn         XBUFFER* SNDOPENALBUFFER::GetXBuffer()
+* @brief      GetXBuffer
 * @ingroup    SOUND
 * 
-* @return     void : does not return anything. 
+* @return     XBUFFER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALBUFFER::Destroy()
+XBUFFER* SNDOPENALBUFFER::GetXBuffer()
 {
-  alDeleteBuffers(1, &buffer);
+  return &xbuffer;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALBUFFER::Upload(XWORD channels, void* data, XDWORD size, XWORD freq)
-* @brief      Upload
+* @fn         bool SNDOPENALBUFFER::GenerateNote(float frequency, float duration)
+* @brief      GenerateNote
+* @ingroup    SOUND
+* 
+* @param[in]  frequency : 
+* @param[in]  duration : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDOPENALBUFFER::GenerateNote(float frequency, float duration)
+{
+  if(!frequency || !duration)
+    {
+      return false;
+    }
+
+  XDWORD  sample_rate = 10000;
+  size_t  size        = (size_t)(duration * sample_rate);
+
+  xbuffer.Empty();
+
+  for(unsigned c=0; c<size; c++)
+    {
+      xbuffer.Add((XWORD)(32760 * sin(2 * PI * c * frequency/sample_rate)));
+    }
+
+  return Assign(0, sample_rate);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDOPENALBUFFER::Assign(XWORD channels, XWORD frequency)
+* @brief      Assign
 * @ingroup    SOUND
 * 
 * @param[in]  channels : 
-* @param[in]  data : 
-* @param[in]  size : 
-* @param[in]  freq : 
+* @param[in]  frequency : 
 * 
-* @return     void : does not return anything. 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALBUFFER::Upload(XWORD channels, void* data, XDWORD size, XWORD freq)
+bool SNDOPENALBUFFER::Assign(XWORD channels, XWORD frequency)
 {
   ALenum format = AL_FORMAT_MONO16;
 
@@ -153,7 +222,9 @@ void SNDOPENALBUFFER::Upload(XWORD channels, void* data, XDWORD size, XWORD freq
       format = AL_FORMAT_STEREO16;
     }
 
-  alBufferData(buffer, format, data, size, freq);
+  alBufferData(buffer, format, (void*)xbuffer.Get(), (xbuffer.GetSize()/sizeof(XWORD)), frequency);
+
+  return true;
 }
 
 

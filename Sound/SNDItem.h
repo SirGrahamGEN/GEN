@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDElementStream.h
+* @file       SNDElement.h
 * 
-* @class      SNDELEMENTSTREAM
-* @brief      Sound Element Stream class
+* @class      SNDITEM
+* @brief      Sound Item class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,13 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SNDELEMENTSTREAM_H_
-#define _SNDELEMENTSTREAM_H_
+#ifndef _SNDITEM_H_
+#define _SNDITEM_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "SNDElement.h"
+#include "XBase.h"
+#include "XString.h"
+
+#include "SNDFile.h"
+#include "SNDNote.h"
+#include "SNDPlayCFG.h"
 
 #pragma endregion
 
@@ -40,6 +45,22 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+enum SNDITEM_TYPE
+{
+  SNDITEM_TYPE_UNKNOWN       = 0 , 
+  SNDITEM_TYPE_NOTE              ,
+  SNDITEM_TYPE_FILE              , 
+};
+
+enum SNDITEM_STATUS
+{
+  SNDITEM_STATUS_NONE        = 0 ,
+  SNDITEM_STATUS_INI             ,   
+  SNDITEM_STATUS_STOP            ,
+  SNDITEM_STATUS_PLAY            ,
+  SNDITEM_STATUS_PAUSE           ,  
+  SNDITEM_STATUS_END               
+};
 
 #pragma endregion
 
@@ -47,31 +68,44 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SNDFILE;
-
-class SNDELEMENTSTREAM : public SNDELEMENT
+class SNDITEM
 {
   public:
-                              SNDELEMENTSTREAM                          ();
-    virtual                  ~SNDELEMENTSTREAM                          ();
+                              SNDITEM               ();
+    virtual                  ~SNDITEM               ();
 
-    void                      SetAttributes                             (XWORD channels, XWORD freq);
+    SNDITEM_TYPE              GetType               ();
+    void                      SetType               (SNDITEM_TYPE type);
+    bool                      GetType               (XSTRING& typestr); 
 
-    virtual void              Play                                      ();
-    virtual void              AddData                                   (XDWORD size, void* data) = 0;
-
-    SNDFILE*                  GetFile                                   ();
-    void                      SetFile                                   (SNDFILE* file);
+    XSTRING*                  GetID                 ();
     
-  protected:
+    SNDITEM_STATUS            GetStatus             (); 
+    void                      SetStatus             (SNDITEM_STATUS status); 
+    bool                      GetStatus             (XSTRING& statusstr); 
 
-    XWORD                     channels;
-    XWORD                     freq;
+    SNDPLAYCFG*               GetPlayCFG            ();
+    bool                      SetPlayCFG            (SNDPLAYCFG& playCFG);
+    
+    SNDFILE*                  GetSoundFile          ();
+    void                      SetSoundFile          (SNDFILE* soundfile);
 
+    SNDNOTE*                  GetSoundNote          ();
+    void                      SetSoundNote          (SNDNOTE* soundnote);
+        
   private:
 
-    void                      Clean                                     ();
+    void                      Clean                 ();
+
+    SNDITEM_TYPE              type;
+    XSTRING                   ID;
+    SNDITEM_STATUS            status;
+    SNDPLAYCFG                playCFG;
+
+    SNDFILE*                  soundfile;
+    SNDNOTE*                  soundnote;
 };
+
 
 #pragma endregion
 
@@ -84,3 +118,4 @@ class SNDELEMENTSTREAM : public SNDELEMENT
 
 
 #endif
+

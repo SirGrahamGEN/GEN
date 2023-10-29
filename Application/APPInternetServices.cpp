@@ -400,9 +400,8 @@ bool APPINTERNETSERVICES::ChangeCadenceCheckInternet(bool faster)
   XSCHEDULERTASK* task = NULL; 
 
   xscheduler->GetMutexScheduler()->Lock();
-  task = xscheduler->Task_GetForID(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET);  
-  xscheduler->GetMutexScheduler()->UnLock();
-      
+
+  task = xscheduler->Task_GetForID(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET);        
   if(task) 
     {
       XDATETIME xdatetimecadence;
@@ -416,13 +415,15 @@ bool APPINTERNETSERVICES::ChangeCadenceCheckInternet(bool faster)
       xtimercadence.GetMeasureToDate(&xdatetimecadence);
 
       task->SetNCycles(XSCHEDULER_CYCLEFOREVER, &xdatetimecadence);
-      task->SetIsStartImmediatelyCycles(false);
-      task->SetIsActive(true);
+      task->SetIsStartImmediatelyCycles(true);
+      task->SetIsActive(true);      
 
-      return true;
+      task->ResetCondition();
     }
-          
-  return false;
+
+  xscheduler->GetMutexScheduler()->UnLock();       
+
+  return task?true:false;
 }
 
 
@@ -742,7 +743,6 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
        else
         {
           xevent.SetInternetConnexionState(APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_CUT);
-
           ChangeCadenceCheckInternet(true);          
         }              
     }

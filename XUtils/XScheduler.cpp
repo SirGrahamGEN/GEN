@@ -429,6 +429,8 @@ bool XSCHEDULERTASK::ResetCondition()
 
   xtimer->Reset();
 
+  ncyclesmade = 0;
+
   return true;
 }
 

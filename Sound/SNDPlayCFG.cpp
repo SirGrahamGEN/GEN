@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDOpenALElementStream.cpp
+* @file       SNDPlayCFG.cpp
 * 
-* @class      SNDOPENALELEMENTSTREAM
-* @brief      Sound OpenAL Element Stream class
+* @class      SNDPLAYCFG
+* @brief      Sound Play Configuration class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,14 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "SNDOpenALElementStream.h"
-
-#include "XTrace.h"
-
-#include "SNDOpenALBuffer.h"
-#include "SNDOpenALSource.h"
-#include "SNDFile.h"
-//#include "SNDCodec.h"
+#include "SNDPlayCFG.h"
 
 #include "XMemory_Control.h"
 
@@ -62,23 +55,26 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-
-@fn         SNDOPENALELEMENTSTREAM::SNDOPENALELEMENTSTREAM()
-@brief      Constructor
-@ingroup    SOUND
-
-@return     Does not return anything. 
-
---------------------------------------------------------------------------------------------------------------------*/
-SNDOPENALELEMENTSTREAM::SNDOPENALELEMENTSTREAM() : SNDELEMENTSTREAM()
+* 
+* @fn         SNDPLAYCFG::SNDPLAYCFG()
+* @brief      Constructor
+* @ingroup    SOUND
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDPLAYCFG::SNDPLAYCFG()
 {
   Clean();
+
+  volume    = -1.0f;
+  pitch     = -1.0f;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDOPENALELEMENTSTREAM::~SNDOPENALELEMENTSTREAM()
+* @fn         SNDPLAYCFG::~SNDPLAYCFG()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
@@ -86,158 +82,153 @@ SNDOPENALELEMENTSTREAM::SNDOPENALELEMENTSTREAM() : SNDELEMENTSTREAM()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDOPENALELEMENTSTREAM::~SNDOPENALELEMENTSTREAM()
+SNDPLAYCFG::~SNDPLAYCFG()
 {
-  if(file) delete file;
-    
-  ClearBuffers();
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALELEMENTSTREAM::Play()
-* @brief      Play
+* @fn         bool SNDPLAYCFG::GetInLoop()
+* @brief      GetInLoop
 * @ingroup    SOUND
 * 
-* @return     void : does not return anything. 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALELEMENTSTREAM::Play()
+bool SNDPLAYCFG::GetInLoop()
 {
-  if(!source)
-    {
-      return;
-    } 
-
-  source->Play();
+  return inloop;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALELEMENTSTREAM::AddData(XDWORD size, void* data)
-* @brief      AddData
+* @fn         void SNDPLAYCFG::SetInLoop(bool inloop)
+* @brief      SetInLoop
 * @ingroup    SOUND
 * 
-* @param[in]  size : 
-* @param[in]  data : 
+* @param[in]  inloop : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALELEMENTSTREAM::AddData(XDWORD size, void* data)
+void SNDPLAYCFG::SetInLoop(bool inloop)
 {
-  if(!size)
-    {
-      return;
-    }
-
-  SNDOPENALBUFFER* buffer = NULL;
-
-  buffer = new SNDOPENALBUFFER();
-  if(buffer)
-    {
-      buffer->Generate();
-
-      buffer->Upload(channels, data, size, freq);
-
-      duration += ((float)size) / (sizeof(short)*freq);
-
-      if(source)
-        {
-          source->Queue(buffer);
-          queuedbuffers.Add(buffer); // need to clean this up later(maybe in SNDOPENAL::Update if we know it's a streamer?)
-        }
-    }
+  this->inloop = inloop;
 }
 
-
+    
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALELEMENTSTREAM::SetFile(SNDFILE* file)
-* @brief      SetFile
+* @fn         float SNDPLAYCFG::GetVolume()
+* @brief      GetVolume
 * @ingroup    SOUND
 * 
-* @param[in]  file : 
-* 
-* @return     void : does not return anything. 
+* @return     float : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALELEMENTSTREAM::SetFile(SNDFILE* file)
+float SNDPLAYCFG::GetVolume()
 {
-  this->file = file;
-
-  ID.Set(file->GetID()->Get());
-
-  this->channels = file->GetChannels();
-  this->freq = file->GetSampleRate();
+  return volume;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALELEMENTSTREAM::ClearBuffers()
-* @brief      ClearBuffers
+* @fn         void SNDPLAYCFG::SetVolume(float volume)
+* @brief      SetVolume
 * @ingroup    SOUND
+* 
+* @param[in]  volume : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALELEMENTSTREAM::ClearBuffers()
+void SNDPLAYCFG::SetVolume(float volume)
 {
-  XLIST<SNDOPENALBUFFER*>::XITERATOR it;
-
-  for(it = queuedbuffers.Begin(); it != queuedbuffers.End(); it++)
-    {
-      SNDOPENALBUFFER* buffer = *it;
-
-      source->UnQueue(buffer);
-      buffer->Destroy();
-
-      delete buffer;
-    }
-
-  queuedbuffers.DeleteAll();
+  this->volume = volume;
 }
 
-
+        
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDOPENALSOURCE* SNDOPENALELEMENTSTREAM::GetSource()
-* @brief      GetSource
+* @fn         float SNDPLAYCFG::GetPitch()
+* @brief      GetPitch
 * @ingroup    SOUND
 * 
-* @return     SNDOPENALSOURCE* : 
+* @return     float : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDOPENALSOURCE* SNDOPENALELEMENTSTREAM::GetSource()
-{ 
-  return source;          
+float SNDPLAYCFG::GetPitch()
+{
+  return pitch;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALELEMENTSTREAM::SetSource(SNDOPENALSOURCE* source)
-* @brief      SetSource
+* @fn         void SNDPLAYCFG::SetPitch(float pitch)
+* @brief      SetPitch
 * @ingroup    SOUND
 * 
-* @param[in]  source : 
+* @param[in]  pitch : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALELEMENTSTREAM::SetSource(SNDOPENALSOURCE* source)
-{ 
-  this->source = source;  
+void SNDPLAYCFG::SetPitch(float pitch)
+{
+  this->pitch = pitch;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALELEMENTSTREAM::Clean()
+* @fn         bool SNDPLAYCFG::CopyTo(SNDPLAYCFG& playCFG)
+* @brief      CopyTo
+* @ingroup    SOUND
+* 
+* @param[in]  playCFG : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDPLAYCFG::CopyTo(SNDPLAYCFG& playCFG)
+{
+  playCFG.inloop  = inloop;
+  playCFG.volume  = volume;
+  playCFG.pitch   = pitch;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDPLAYCFG::CopyFrom(SNDPLAYCFG& playCFG)
+* @brief      CopyFrom
+* @ingroup    SOUND
+* 
+* @param[in]  playCFG : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDPLAYCFG::CopyFrom(SNDPLAYCFG& playCFG)
+{
+  inloop  = playCFG.inloop;
+  volume  = playCFG.volume;
+  pitch   = playCFG.pitch;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDPLAYCFG::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
@@ -245,11 +236,14 @@ void SNDOPENALELEMENTSTREAM::SetSource(SNDOPENALSOURCE* source)
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALELEMENTSTREAM::Clean()
+void SNDPLAYCFG::Clean()
 {
-  totalbuffers  = 0;
-  source        = NULL;
+  inloop    = false;
+  volume    = 0.0f;
+  pitch     = 0.0f;
 }
 
 
 #pragma endregion
+
+

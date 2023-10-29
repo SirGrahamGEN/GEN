@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDInstance.cpp
+* @file       SNDItem.cpp
 * 
-* @class      SNDINSTANCE
-* @brief      Sound instance of a playing sound class
+* @class      SNDITEM
+* @brief      Sound Item class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,11 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "SNDInstance.h"
-
-#include "SNDSource.h"
-#include "SNDElement.h"
-#include "SNDFactory_XEvent.h"
+#include "SNDItem.h"
 
 #include "XMemory_Control.h"
 
@@ -59,332 +55,305 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDINSTANCE::SNDINSTANCE(SNDSOURCE* source, SNDELEMENT* element)
+*
+* @fn         SNDITEM::SNDITEM()
 * @brief      Constructor
 * @ingroup    SOUND
-* 
-* @param[in]  SNDSOURCE* : 
-* @param[in]   SNDELEMENT* element : 
-* 
+*
 * @return     Does not return anything. 
-* 
+*
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDINSTANCE::SNDINSTANCE(SNDSOURCE* source, SNDELEMENT* element)
-
+SNDITEM::SNDITEM()
 {
   Clean();
-
-  this->source    = source;
-  this->element   = element;
-
-  ismanaged       = true;           // if managed it will mark itself for deletion
-  isplaying       = true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDINSTANCE::~SNDINSTANCE()
+*
+* @fn         SNDITEM::~SNDITEM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-* 
+*
 * @return     Does not return anything. 
-* 
+*
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDINSTANCE::~SNDINSTANCE()
+SNDITEM::~SNDITEM()
 {
+  if(soundfile)
+    {
+      delete soundfile;
+      soundfile = NULL;
+    }
+
+  if(soundnote)
+    {
+      delete soundnote;
+      soundnote = NULL;
+    }
+
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDSOURCE* SNDINSTANCE::GetSource()
-* @brief      GetSource
+* @fn         SNDITEM_TYPE SNDITEM::GetType()
+* @brief      GetType
 * @ingroup    SOUND
 * 
-* @return     SNDSOURCE* : 
+* @return     SNDITEM_TYPE : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDSOURCE* SNDINSTANCE::GetSource()
+SNDITEM_TYPE SNDITEM::GetType()
 {
-  return source;
+  return type;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDELEMENT* SNDINSTANCE::GetElement()
-* @brief      GetElement
+* @fn         void SNDITEM::SetType(SNDITEM_TYPE type)
+* @brief      SetType
 * @ingroup    SOUND
 * 
-* @return     SNDELEMENT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDELEMENT* SNDINSTANCE::GetElement()
-{
-  return element;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDINSTANCE::IsPlaying()
-* @brief      IsPlaying
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDINSTANCE::IsPlaying()
-{
-  return isplaying;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDINSTANCE::IsPaused()
-* @brief      IsPaused
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDINSTANCE::IsPaused()
-{
-  return ispaused;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDINSTANCE::Stop()
-* @brief      Stop
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDINSTANCE::Stop()
-{
-  if(isplaying)
-    {
-      source->Stop();
-    }
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDINSTANCE::Pause()
-* @brief      Pause
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDINSTANCE::Pause()
-{
-  if(ispaused && isplaying)
-    {
-      source->Pause();
-    }
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDINSTANCE::UnPause()
-* @brief      UnPause
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDINSTANCE::UnPause()
-{
-  if(!ispaused && isplaying)
-    {
-      source->UnPause();
-    }
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         float SNDINSTANCE::GetVolume()
-* @brief      GetVolume
-* @ingroup    SOUND
-* 
-* @return     float : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-float SNDINSTANCE::GetVolume()
-{
-  if(isplaying)
-    {
-      return source->GetVolume();
-    }
-
-  return 0.0f;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDINSTANCE::SetVolume(float volume)
-* @brief      SetVolume
-* @ingroup    SOUND
-* 
-* @param[in]  volume : 
+* @param[in]  type : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDINSTANCE::SetVolume(float volume)
+void SNDITEM::SetType(SNDITEM_TYPE type)
 {
-  if(isplaying)
-    {
-      source->SetVolume(volume);
-    }
+  this->type = type;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         float SNDINSTANCE::GetPitch()
-* @brief      GetPitch
+* @fn         bool SNDITEM::GetType(XSTRING& typestr)
+* @brief      GetType
 * @ingroup    SOUND
 * 
-* @return     float : 
+* @param[in]  typestr : 
+* 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-float SNDINSTANCE::GetPitch()
+bool SNDITEM::GetType(XSTRING& typestr)
 {
-  if(isplaying)
+  bool status = true;
+
+  typestr.Empty();
+
+  switch(type)
     {
-      return source->GetPitch();
+      case SNDITEM_TYPE_UNKNOWN : 
+                        default : status = false; break;
+
+      case SNDITEM_TYPE_FILE    : typestr = __L("File");    break;
+      case SNDITEM_TYPE_NOTE    : typestr = __L("Note");    break;
     }
 
-  return 0.0f;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDINSTANCE::SetPitch(float pitch)
-* @brief      SetPitch
-* @ingroup    SOUND
-* 
-* @param[in]  pitch : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDINSTANCE::SetPitch(float pitch)
-{
-  if(isplaying)
-    {
-      source->SetPitch(pitch);
-    }
+  return status;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SNDINSTANCE::GetIsManaged()
-* @brief      GetIsManaged
+* @fn         XSTRING* SNDITEM::GetID()
+* @brief      GetID
 * @ingroup    SOUND
 *
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* SNDITEM::GetID()
+{
+  return &ID;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDITEM_STATUS SNDITEM::GetStatus()
+* @brief      GetStatus
+* @ingroup    SOUND
+* 
+* @return     SNDITEM_STATUS : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDITEM_STATUS SNDITEM::GetStatus()
+{
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDITEM::SetStatus(SNDITEM_STATUS status)
+* @brief      SetStatus
+* @ingroup    SOUND
+* 
+* @param[in]  status : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDITEM::SetStatus(SNDITEM_STATUS status)
+{
+  this->status = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDITEM::GetStatus(XSTRING& statusstr)
+* @brief      GetStatus
+* @ingroup    SOUND
+* 
+* @param[in]  statusstr : 
+* 
 * @return     bool : true if is succesful. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDINSTANCE::GetIsManaged()
-{
-  return ismanaged;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDINSTANCE::SetIsManaged(bool ismanaged)
-* @brief      SetIsManaged
-* @ingroup    SOUND
-* 
-* @param[in]  ismanaged : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDINSTANCE::SetIsManaged(bool ismanaged)
+bool SNDITEM::GetStatus(XSTRING& statusstr)
 {
-  this->ismanaged = ismanaged;
-}
+  bool result = true;
 
+  statusstr.Empty();
 
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDINSTANCE::HandleEvent(XEVENT* xevent)
-* @brief      Handle Event for the observer manager of this class
-* @note       INTERNAL
-* @ingroup    SOUND
-* 
-* @param[in]  xevent : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDINSTANCE::HandleEvent(XEVENT* xevent)
-{
-  if(xevent->GetEventType() == XEVENT_TYPE_SOUND)
+  switch(status)
     {
-      SNDFACTORY_XEVENT* event = (SNDFACTORY_XEVENT*)xevent;
-
-      if(SNDFACTORY_XEVENT_TYPE_PLAY != event->GetType())
-        {
-          //isplaying = source->IsPLaying();
-
-          isplaying = false;
-          ispaused  = source->IsPaused();
-
-          if(!isplaying && ismanaged)
-            {
-              if(source->GetInstance())
-                {
-                  //source->SetInstance(NULL);  
-                }                  
-            }
-        }
+      case SNDITEM_STATUS_NONE    : statusstr = __L("None");    break;                        
+      case SNDITEM_STATUS_INI     : statusstr = __L("Ini");     break;             
+      case SNDITEM_STATUS_STOP    : statusstr = __L("Stop");    break;          
+      case SNDITEM_STATUS_PLAY    : statusstr = __L("Play");    break;         
+      case SNDITEM_STATUS_PAUSE   : statusstr = __L("Pause");   break;            
+      case SNDITEM_STATUS_END     : statusstr = __L("End");     break;  
+                         default  : result = false;             break;             
     }
+
+  return result;
 }
 
- 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDINSTANCE::Clean()
+* @fn         SNDPLAYCFG* SNDITEM::GetPlayCFG()
+* @brief      GetPlayCFG
+* @ingroup    SOUND
+* 
+* @return     SNDPLAYCFG* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDPLAYCFG* SNDITEM::GetPlayCFG()
+{
+  return &playCFG;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDITEM::SetPlayCFG(SNDPLAYCFG& playCFG)
+* @brief      SetPlayCFG
+* @ingroup    SOUND
+* 
+* @param[in]  playCFG : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDITEM::SetPlayCFG(SNDPLAYCFG& playCFG)
+{
+  return this->playCFG.CopyFrom(playCFG);  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDFILE* SNDITEM::GetSoundFile()
+* @brief      GetSoundFile
+* @ingroup    SOUND
+* 
+* @return     SNDFILE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDFILE* SNDITEM::GetSoundFile()
+{
+  return soundfile;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDITEM::SetSoundFile(SNDFILE* soundfile)
+* @brief      SetSoundFile
+* @ingroup    SOUND
+* 
+* @param[in]  soundfile : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDITEM::SetSoundFile(SNDFILE* soundfile)
+{
+  this->soundfile = soundfile;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDNOTE* SNDITEM::GetSoundNote()
+* @brief      GetSoundNote
+* @ingroup    SOUND
+* 
+* @return     SNDNOTE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDNOTE* SNDITEM::GetSoundNote()
+{
+  return soundnote;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDITEM::SetSoundNote(SNDNOTE* soundnote)
+* @brief      SetSoundNote
+* @ingroup    SOUND
+* 
+* @param[in]  soundnote : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDITEM::SetSoundNote(SNDNOTE* soundnote)
+{
+  this->soundnote = soundnote;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void SNDITEM::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-* 
+*
 * @return     void : does not return anything. 
-* 
+*
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDINSTANCE::Clean()
+void SNDITEM::Clean()
 {
-  source      = NULL;
-  element     = NULL;
+  type        = SNDITEM_TYPE_UNKNOWN;    
+  status      = SNDITEM_STATUS_NONE;
 
-  isplaying   = false;
-  ispaused    = false;
-  ismanaged   = false;
+  soundfile   = NULL;
+  soundnote   = NULL;
 }
 
 
 #pragma endregion
+
 

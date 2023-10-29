@@ -175,17 +175,18 @@ bool XFILECMPZIP::Open(XSTRING& password)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XFILECMPZIP::Create(XDWORD crcfile,zip_fileinfo* zfinfo,XCHAR* password)
+bool XFILECMPZIP::Create(XDWORD crcfile, zip_fileinfo* zfinfo, XCHAR* password)
 {
   int err;
   int opt_compress_level = Z_DEFAULT_COMPRESSION;
 
   if(!on) return false;
 
-  XSTRING _password(password);
+  XBUFFER namestr;  
+  XSTRING _password;
+  XBUFFER passwordstr; 
 
-  XBUFFER namestr; 
-  XBUFFER passwordstr;
+  _password = password;
   
   name.ConvertToASCII(namestr); 
   _password.ConvertToASCII(passwordstr);
@@ -196,7 +197,7 @@ bool XFILECMPZIP::Create(XDWORD crcfile,zip_fileinfo* zfinfo,XCHAR* password)
                                     ,(opt_compress_level != 0) ? Z_DEFLATED : 0
                                     , opt_compress_level,0
                                     , -MAX_WBITS, DEF_MEM_LEVEL, Z_DEFAULT_STRATEGY
-                                    , passwordstr.GetPtrChar()?passwordstr.GetPtrChar():NULL
+                                    , password?passwordstr.GetPtrChar():NULL
                                     , crcfile);
 
  

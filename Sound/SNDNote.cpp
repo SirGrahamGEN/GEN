@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDInstanceStream.cpp
+* @file       SNDNote.cpp
 * 
-* @class      SNDINSTANCESTREAM
-* @brief      Sound Instance Stream class
+* @class      SNDNOTE
+* @brief      Sound Note class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,11 +37,9 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "SNDInstanceStream.h"
+#include "SNDNote.h"
 
-#include "XTrace.h"
-
-#include "SNDElementStream.h"
+#include "XFactory.h"
 
 #include "XMemory_Control.h"
 
@@ -59,28 +57,25 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-
-@fn         SNDINSTANCESTREAM::SNDINSTANCESTREAM(SNDSOURCE* source, SNDELEMENT* element)
-@brief      Constructor
-@ingroup    SOUND
-
-@param[in]  SNDSOURCE* : 
-@param[in]  SNDELEMENT* element : 
-
-@return     Does not return anything. 
-
---------------------------------------------------------------------------------------------------------------------*/
-SNDINSTANCESTREAM::SNDINSTANCESTREAM(SNDSOURCE* source, SNDELEMENT* element) : SNDINSTANCE(source, element)
+* 
+* @fn         SNDNOTE::SNDNOTE()
+* @brief      Constructor
+* @ingroup    SOUND
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDNOTE::SNDNOTE()
 {
   Clean();
 
-  isplaying = true;
+  timerplay = GEN_XFACTORY.CreateTimer();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDINSTANCESTREAM::~SNDINSTANCESTREAM()
+* @fn         SNDNOTE::~SNDNOTE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
@@ -88,102 +83,103 @@ SNDINSTANCESTREAM::SNDINSTANCESTREAM(SNDSOURCE* source, SNDELEMENT* element) : S
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDINSTANCESTREAM::~SNDINSTANCESTREAM()
+SNDNOTE::~SNDNOTE()
 {
-  Clean();
+  if(timerplay)
+    {
+      GEN_XFACTORY.DeleteTimer(timerplay);
+    }
+
+  Clean();  
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDINSTANCESTREAM::Update()
-* @brief      Update
+* @fn         float SNDNOTE::GetFrequency()
+* @brief      GetFrequency
 * @ingroup    SOUND
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float SNDNOTE::GetFrequency()
+{
+  return frequency;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDNOTE::SetFrequency(float frequency)
+* @brief      SetFrequency
+* @ingroup    SOUND
+* 
+* @param[in]  frequency : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDINSTANCESTREAM::Update()
+bool SNDNOTE::SetFrequency(float frequency)
 {
-  /*  
-  // buffer in here or in the constructor
-  // in here, and don't start playing until the minimum amount has been buffered
-  // also, need to check if framereader is EOS, as in that case we need to stopSND
-  if(element)
-    {
-      if(element->GetFile())
-        {
-          if(element->GetFile()->GetFrameReader()->IsEndOfStream())
-            {
-              // need to comunicate that we stopped(but we didn't stop sounding!)
-              // need to detect when both the stream finished reading and when it finished playing!
-              isplaying = source->IsPLaying();
-            }
+  this->frequency = frequency;
 
-          if(buffered < 2.0f)
-            {
-              SNDFILE* file = element->GetFile();
+  return true;
+}
 
-              MEDIAFRAMEREADER* framereader = file->GetFrameReader();
-              SNDCODEC* codec = (SNDCODEC*)file->GetCodec();
+  
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float SNDNOTE::GetDuration()
+* @brief      GetDuration
+* @ingroup    SOUND
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float SNDNOTE::GetDuration()
+{
+  return duration;
+}
 
-              MEDIAPACKET packet;
-              framereader->ReadFrame(&packet);
-              XBUFFER output(false);
-              codec->DecodePacket(&output, &packet);
-              buffered += (float)packet.duration;
-
-              // queue the buffer in the source
-              SNDSTREAMELEMENT* streamelement = (SNDSTREAMELEMENT*)element;
-              streamelement->AddData(output.GetSize(), output.Get());
-            }
-          else
-            {
-              SNDSTREAMELEMENT* streamelement = (SNDSTREAMELEMENT*)element;
-
-              if(!hasbuffered)
-                {
-                  // tell play to the source(we just finished queuing the basic data)
-                  streamelement->Play();
-                  isplaying = true;
-                }
-
-              hasbuffered = true;
-
-              SNDFILE* file = element->GetFile();
-              MEDIAFRAMEREADER* framereader = file->GetFrameReader();
-              SNDCODEC* codec = (SNDCODEC*)file->GetCodec();
-
-              MEDIAPACKET packet;
-              framereader->ReadFrame(&packet);
-              XBUFFER output(false);
-              codec->DecodePacket(&output, &packet);
-              buffered += (float)packet.duration;
-
-              // queue the buffer in the source
-
-              streamelement->AddData(output.GetSize(), output.Get());
-            }
-        }
-      else
-        {
-          //if(element->duration
-          if(element->GetDuration() > 0)
-            {
-              isplaying = source->IsPLaying();
-            }
-        }
-    }
-
-  */
-
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float SNDNOTE::SetDuration(float duration)
+* @brief      SetDuration
+* @ingroup    SOUND
+* 
+* @param[in]  duration : 
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float SNDNOTE::SetDuration(float duration)
+{
+  this->duration = duration;
+  
   return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDINSTANCESTREAM::Clean()
+* @fn         XTIMER* SNDNOTE::GetTimerPlay()
+* @brief      GetTimerPlay
+* @ingroup    SOUND
+* 
+* @return     XTIMER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XTIMER* SNDNOTE::GetTimerPlay()
+{
+  return timerplay;  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDNOTE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
@@ -191,12 +187,15 @@ bool SNDINSTANCESTREAM::Update()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDINSTANCESTREAM::Clean()
+void SNDNOTE::Clean()
 {
-  buffered      = 0.0f;
-  hasbuffered   = false;
+  frequency   = 0.0f;
+  duration    = 0.0f;
+
+  timerplay   = NULL;
 }
 
 
 #pragma endregion
+
 

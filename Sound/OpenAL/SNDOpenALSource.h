@@ -37,9 +37,7 @@
 #include "AL/al.h"
 #include "AL/alc.h"
 
-#include "XList.h"
-
-#include "SNDSource.h"
+#include "SNDOpenALBuffer.h"
 
 #pragma endregion
 
@@ -54,37 +52,30 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SNDOPENALFACTORY;
-class SNDOPENALBUFFER;
-class SNDOPENALELEMENT;
-
-class SNDOPENALSOURCE : public SNDSOURCE
+class SNDOPENALSOURCE 
 {  
-  friend SNDOPENALFACTORY;
-
   public:                              
-                                SNDOPENALSOURCE                    ();
-    virtual                    ~SNDOPENALSOURCE                    ();
+                                SNDOPENALSOURCE                     ();
+    virtual                    ~SNDOPENALSOURCE                     ();
+    
+    SNDOPENALBUFFER*            GetBuffer                           ();
 
     void                        Stop                                ();
     void                        Pause                               ();
     void                        UnPause                             ();
 
-    void                        SetLoop                             (bool loop);
-
     bool                        IsPLaying                           ();
     bool                        IsStopped                           ();
     bool                        IsPaused                            ();
 
+    void                        SetInLoop                           (bool inloop);
+
     float                       GetVolume                           ();
     void                        SetVolume                           (float volume);
-    
+
     float                       GetPitch                            ();
     void                        SetPitch                            (float pitch);
-    
-    SNDELEMENT*                 GetElement                          ();
-    void                        SetElement                          (SNDELEMENT* element);
-    
+     
     void                        SetSecondsOffset                    (float seconds);
     void                        SetSamplesOffset                    (int samples);
 
@@ -95,9 +86,9 @@ class SNDOPENALSOURCE : public SNDSOURCE
     void                        Release                             ();  
 
     void                        Play                                ();
-    void                        Play                                (SNDOPENALBUFFER* buffer);
-    void                        Queue                               (SNDOPENALBUFFER* buffer);
-    void                        UnQueue                             (SNDOPENALBUFFER* buffer);
+
+    void                        Queue                               ();
+    void                        UnQueue                             ();
 
     int                         GetQueueLength                      ();
     int                         GetProcessedBuffers                 ();
@@ -105,11 +96,10 @@ class SNDOPENALSOURCE : public SNDSOURCE
   protected:
 
     ALuint                      source;
+    SNDOPENALBUFFER             albuffer;
     
     bool                        isplaying;
     bool                        aquired;
-
-    XLIST<SNDOPENALBUFFER*>     bufferlist;
     
   private:
   

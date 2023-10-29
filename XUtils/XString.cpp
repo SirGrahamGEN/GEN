@@ -3046,7 +3046,10 @@ bool XSTRING::ConvertFromFloat(float value, const XCHAR* mask)
 
   delete [] str;
 
-  DeleteLastZeros();
+  if(_mask.GetSize() == 2)
+    {
+      DeleteLastZeros();
+    }
 
   return true;
 }
@@ -3085,7 +3088,10 @@ bool XSTRING::ConvertFromDouble(double value, const XCHAR* mask)
 
   delete [] str;
 
-  DeleteLastZeros();
+  if(_mask.GetSize() == 2)
+    {
+      DeleteLastZeros();
+    }
 
   return true;
 }

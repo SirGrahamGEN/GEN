@@ -85,13 +85,14 @@ enum XTHREADGROUPID
   XTHREADGROUPID_DIOWEBSERVER                   ,
   XTHREADGROUPID_DIOATCMS                       ,
   XTHREADGROUPID_DIOALERTS                      ,
-  XTHREADGROUPID_DIOPCAP                        ,
+  XTHREADGROUPID_DIOPCAP                        , 
+  XTHREADGROUPID_DIONEOPIXEL                    ,
+  XTHREADGROUPID_DIOLINUXDBUS                   ,
   XTHREADGROUPID_VIDEO                          ,
   XTHREADGROUPID_GRPLOADER                      ,
   XTHREADGROUPID_GRPFRAMERATE                   ,
-  XTHREADGROUPID_DIONEOPIXEL                    ,
-  XTHREADGROUPID_DIOLINUXDBUS                   ,
-
+  XTHREADGROUPID_SOUND                          ,
+ 
   XTHREADGROUPID_APPOWNER
 };
 
