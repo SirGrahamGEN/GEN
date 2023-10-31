@@ -35,6 +35,8 @@
 #include "AL/al.h"
 #include "AL/alc.h"
 
+#include "XFSMachine.h"
+
 #include "SNDFactory.h"
 
 #pragma endregion
@@ -42,6 +44,31 @@
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
+
+enum SNDOPENALPLAYITEM_XFSMEVENTS
+{
+  SNDOPENALPLAYITEM_XFSMEVENT_NONE              = 0 ,
+  SNDOPENALPLAYITEM_XFSMEVENT_INI                   ,
+  SNDOPENALPLAYITEM_XFSMEVENT_PLAY                  ,
+  SNDOPENALPLAYITEM_XFSMEVENT_PAUSE                 ,
+  SNDOPENALPLAYITEM_XFSMEVENT_STOP                  ,
+  SNDOPENALPLAYITEM_XFSMEVENT_END                   ,
+
+  SNDOPENALPLAYITEM_LASTEVENT
+};
+
+
+enum DEVTESTSCONSOLEXFSMSTATES
+{
+  SNDOPENALPLAYITEM_XFSMSTATE_NONE              = 0 ,
+  SNDOPENALPLAYITEM_XFSMSTATE_INI                   ,
+  SNDOPENALPLAYITEM_XFSMSTATE_PLAY                  ,
+  SNDOPENALPLAYITEM_XFSMSTATE_PAUSE                 ,
+  SNDOPENALPLAYITEM_XFSMSTATE_STOP                  ,
+  SNDOPENALPLAYITEM_XFSMSTATE_END                   ,
+
+  SNDOPENALPLAYITEM_LASTSTATE
+};
 
 
 #pragma endregion
@@ -53,11 +80,13 @@
 class SNDITEM;
 class SNDOPENALSOURCE;
 
-class SNDOPENALPLAYITEM 
+class SNDOPENALPLAYITEM : public XFSMACHINE
 {
   public:
                                               SNDOPENALPLAYITEM         ();
     virtual                                  ~SNDOPENALPLAYITEM         ();
+
+    bool                                      IniFSMachine              ();
 
     SNDITEM*                                  GetItem                   ();
     void                                      SetItem                   (SNDITEM* item);
@@ -89,9 +118,9 @@ class SNDOPENALFACTORY : public SNDFACTORY
     float                                     Volume_Get                ();
     bool                                      Volume_Set                (float mastervolume);    
     
-    bool                                      Sound_Play                (SNDITEM* item, SNDPLAYCFG* playCFG = NULL);
-    bool                                      Sound_Stop                (SNDITEM* item);
-    bool                                      Sound_Pause               (SNDITEM* item);     
+    bool                                      Sound_Play                (SNDITEM* item, SNDPLAYCFG* playCFG = NULL, XDWORD ntimestoplay = 1);    
+    bool                                      Sound_Pause               (SNDITEM* item);   
+    bool                                      Sound_Stop                (SNDITEM* item);  
     bool                                      Sound_StopAll             ();
 
     XMUTEX*                                   GetPlayMutex              ();

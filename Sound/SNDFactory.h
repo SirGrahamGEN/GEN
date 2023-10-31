@@ -70,14 +70,14 @@ class SNDFACTORY : public XSUBJECT
     virtual float                     Volume_Get                  ();
     virtual bool                      Volume_Set                  (float volume);    
 
-    virtual bool                      Sound_Play                  (SNDITEM* item, SNDPLAYCFG* playCFG = NULL);
+    virtual bool                      Sound_Play                  (SNDITEM* item, SNDPLAYCFG* playCFG = NULL, XDWORD ntimestoplay = 1);
+    virtual bool                      Sound_Pause                 (SNDITEM* item);    
     virtual bool                      Sound_Stop                  (SNDITEM* item);
-    virtual bool                      Sound_Pause                 (SNDITEM* item);
     virtual bool                      Sound_StopAll               ();   
  
     SNDITEM*                          CreateItem                  (XCHAR* path);  
     SNDITEM*                          CreateItem                  (XPATH& xpath);     
-    SNDITEM*                          CreateItem                  (float frecuency, float duration = 0.5f);  
+    SNDITEM*                          CreateItem                  (XDWORD frecuency, XDWORD duration = 500);  
 
     XVECTOR<SNDITEM*>*                GetItems                    ();
     bool                              DeleteAllItems              ();

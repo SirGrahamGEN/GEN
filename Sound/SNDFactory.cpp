@@ -255,17 +255,18 @@ bool SNDFACTORY::Volume_Set(float volume)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG)
+* @fn         bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, XDWORD ntimestoplay)
 * @brief      Sound_Play
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
 * @param[in]  playCFG : 
+* @param[in]  ntimestoplay : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG)                                   
+bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, XDWORD ntimestoplay)                                   
 { 
   if(!item)
     {
@@ -277,24 +278,9 @@ bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG)
       item->SetPlayCFG((*playCFG));
     }
 
+  item->SetNTimesToPlay(ntimestoplay);
+
   return sounditems.Add(item);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::Sound_Stop(SNDITEM* item)
-* @brief      Sound_Stop
-* @ingroup    SOUND
-* 
-* @param[in]  element : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_Stop(SNDITEM* item)                                   
-{                                   
-  return false;
 }
 
 
@@ -312,6 +298,23 @@ bool SNDFACTORY::Sound_Stop(SNDITEM* item)
 bool SNDFACTORY::Sound_Pause(SNDITEM* item)                                   
 { 
   return NULL;                      
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDFACTORY::Sound_Stop(SNDITEM* item)
+* @brief      Sound_Stop
+* @ingroup    SOUND
+* 
+* @param[in]  element : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDFACTORY::Sound_Stop(SNDITEM* item)                                   
+{                                   
+  return false;
 }
 
 
@@ -395,7 +398,7 @@ SNDITEM* SNDFACTORY::CreateItem(XPATH& xpath)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDITEM* SNDFACTORY::CreateItem(float frecuency, float duration)
+* @fn         SNDITEM* SNDFACTORY::CreateItem(XDWORD frecuency, XDWORD duration)
 * @brief      CreateItem
 * @ingroup    SOUND
 * 
@@ -405,7 +408,7 @@ SNDITEM* SNDFACTORY::CreateItem(XPATH& xpath)
 * @return     SNDITEM* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDITEM* SNDFACTORY::CreateItem(float frecuency, float duration)
+SNDITEM* SNDFACTORY::CreateItem(XDWORD frecuency, XDWORD duration)
 {
   if((!frecuency) || (!duration))
     {
@@ -420,7 +423,7 @@ SNDITEM* SNDFACTORY::CreateItem(float frecuency, float duration)
 
   item->SetType(SNDITEM_TYPE_NOTE);
 
-  item->GetID()->Format(__L("frec: %f - time: %f"), frecuency, duration);
+  item->GetID()->Format(__L("frec: %d (Hz) - time: %d (msec)"), frecuency, duration);
 
   SNDNOTE* note = new SNDNOTE();
   if(!note)

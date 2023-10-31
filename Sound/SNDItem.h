@@ -55,10 +55,10 @@ enum SNDITEM_TYPE
 enum SNDITEM_STATUS
 {
   SNDITEM_STATUS_NONE        = 0 ,
-  SNDITEM_STATUS_INI             ,   
-  SNDITEM_STATUS_STOP            ,
+  SNDITEM_STATUS_INI             ,
   SNDITEM_STATUS_PLAY            ,
-  SNDITEM_STATUS_PAUSE           ,  
+  SNDITEM_STATUS_PAUSE           ,     
+  SNDITEM_STATUS_STOP            ,  
   SNDITEM_STATUS_END               
 };
 
@@ -71,39 +71,48 @@ enum SNDITEM_STATUS
 class SNDITEM
 {
   public:
-                              SNDITEM               ();
-    virtual                  ~SNDITEM               ();
+                              SNDITEM                 ();
+    virtual                  ~SNDITEM                 ();
 
-    SNDITEM_TYPE              GetType               ();
-    void                      SetType               (SNDITEM_TYPE type);
-    bool                      GetType               (XSTRING& typestr); 
+    SNDITEM_TYPE              GetType                 ();
+    void                      SetType                 (SNDITEM_TYPE type);
+    bool                      GetType                 (XSTRING& typestr); 
 
-    XSTRING*                  GetID                 ();
+    XSTRING*                  GetID                   ();
     
-    SNDITEM_STATUS            GetStatus             (); 
-    void                      SetStatus             (SNDITEM_STATUS status); 
-    bool                      GetStatus             (XSTRING& statusstr); 
+    SNDITEM_STATUS            GetStatus               (); 
+    void                      SetStatus               (SNDITEM_STATUS status); 
+    bool                      GetStatus               (XSTRING& statusstr); 
 
-    SNDPLAYCFG*               GetPlayCFG            ();
-    bool                      SetPlayCFG            (SNDPLAYCFG& playCFG);
+    XDWORD                    GetNTimesPlayed         ();
+    void                      AddOneNTimesPlayed      ();    
+
+    XDWORD                    GetNTimesToPlay         ();
+    void                      SetNTimesToPlay         (XDWORD ntimestoplay);
+
+    SNDPLAYCFG*               GetPlayCFG              ();
+    bool                      SetPlayCFG              (SNDPLAYCFG& playCFG);
     
-    SNDFILE*                  GetSoundFile          ();
-    void                      SetSoundFile          (SNDFILE* soundfile);
+    SNDFILE*                  GetSoundFile            ();
+    void                      SetSoundFile            (SNDFILE* soundfile);
 
-    SNDNOTE*                  GetSoundNote          ();
-    void                      SetSoundNote          (SNDNOTE* soundnote);
+    SNDNOTE*                  GetSoundNote            ();
+    void                      SetSoundNote            (SNDNOTE* soundnote);
         
   private:
 
-    void                      Clean                 ();
+    void                      Clean                   ();
 
     SNDITEM_TYPE              type;
     XSTRING                   ID;
     SNDITEM_STATUS            status;
     SNDPLAYCFG                playCFG;
 
+    XDWORD                    ntimesplayed;
+    XDWORD                    ntimestoplay;
+
     SNDFILE*                  soundfile;
-    SNDNOTE*                  soundnote;
+    SNDNOTE*                  soundnote; 
 };
 
 

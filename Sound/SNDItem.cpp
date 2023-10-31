@@ -240,6 +240,68 @@ bool SNDITEM::GetStatus(XSTRING& statusstr)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD SNDITEM::GetNTimesPlayed()
+* @brief      GetNTimesPlayed
+* @ingroup    SOUND
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD SNDITEM::GetNTimesPlayed()
+{
+  return ntimesplayed;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDITEM::AddOneNTimesPlayed()
+* @brief      AddOneNTimesPlayed
+* @ingroup    SOUND
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDITEM::AddOneNTimesPlayed()
+{
+  ntimesplayed++;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD SNDITEM::GetNTimesToPlay()
+* @brief      GetNTimesToPlay
+* @ingroup    SOUND
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD SNDITEM::GetNTimesToPlay()
+{
+  return ntimestoplay;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDITEM::SetNTimesToPlay(XDWORD ntimestoplay)
+* @brief      SetNTimesToPlay
+* @ingroup    SOUND
+* 
+* @param[in]  ntimestoplay : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDITEM::SetNTimesToPlay(XDWORD ntimestoplay)
+{
+  this->ntimestoplay = ntimestoplay;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         SNDPLAYCFG* SNDITEM::GetPlayCFG()
 * @brief      GetPlayCFG
 * @ingroup    SOUND
@@ -346,11 +408,14 @@ void SNDITEM::SetSoundNote(SNDNOTE* soundnote)
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDITEM::Clean()
 {
-  type        = SNDITEM_TYPE_UNKNOWN;    
-  status      = SNDITEM_STATUS_NONE;
+  type          = SNDITEM_TYPE_UNKNOWN;    
+  status        = SNDITEM_STATUS_NONE;
 
-  soundfile   = NULL;
-  soundnote   = NULL;
+  ntimesplayed  = 0;
+  ntimestoplay  = 0;
+
+  soundfile     = NULL;
+  soundnote     = NULL;
 }
 
 

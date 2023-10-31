@@ -61,151 +61,6 @@
 #pragma region CLASS_MEMBERS
 
 
-#pragma region CLASS_SNDPLAYITEM
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDOPENALPLAYITEM::SNDOPENALPLAYITEM()
-* @brief      Constructor
-* @ingroup    SOUND
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDOPENALPLAYITEM::SNDOPENALPLAYITEM()
-{
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDOPENALPLAYITEM::~SNDOPENALPLAYITEM()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    SOUND
-* 
-* @return     Does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDOPENALPLAYITEM::~SNDOPENALPLAYITEM()
-{
-  Delete();
-
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDITEM* SNDOPENALPLAYITEM::GetItem()
-* @brief      GetItem
-* @ingroup    SOUND
-* 
-* @return     SNDITEM* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDITEM* SNDOPENALPLAYITEM::GetItem()
-{
-  return item;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDOPENALPLAYITEM::SetItem(SNDITEM* item)
-* @brief      SetItem
-* @ingroup    SOUND
-* 
-* @param[in]  item : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALPLAYITEM::SetItem(SNDITEM* item)
-{
-  this->item = item;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         SNDOPENALSOURCE* SNDOPENALPLAYITEM::GetSource()
-* @brief      GetSource
-* @ingroup    SOUND
-* 
-* @return     SNDOPENALSOURCE* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-SNDOPENALSOURCE* SNDOPENALPLAYITEM::GetSource()
-{
-  return source;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDOPENALPLAYITEM::SetSource(SNDOPENALSOURCE* source)
-* @brief      SetSource
-* @ingroup    SOUND
-* 
-* @param[in]  source : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALPLAYITEM::SetSource(SNDOPENALSOURCE* source)
-{
-  this->source = source;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDOPENALPLAYITEM::Delete()
-* @brief      Delete
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDOPENALPLAYITEM::Delete()
-{
-  item = NULL;
-
-  if(source)
-    {
-      delete source;
-      source = NULL;
-    }   
-
-  return true;
-}
-  
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDOPENALPLAYITEM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALPLAYITEM::Clean()
-{
-  item      = NULL;
-  source    = NULL;
-}
-
-
-#pragma endregion
-
-
-#pragma region CLASS_SNDOPENALFACTORY
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDOPENALFACTORY::SNDOPENALFACTORY()
@@ -215,7 +70,7 @@ void SNDOPENALPLAYITEM::Clean()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDOPENALFACTORY::SNDOPENALFACTORY()
+SNDOPENALFACTORY::SNDOPENALFACTORY() 
 {
   Clean();
 }
@@ -231,7 +86,7 @@ SNDOPENALFACTORY::SNDOPENALFACTORY()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDOPENALFACTORY::~SNDOPENALFACTORY()
+SNDOPENALFACTORY::~SNDOPENALFACTORY() 
 {
   End();
 
@@ -281,7 +136,12 @@ bool SNDOPENALFACTORY::Ini()
       return false;
     }
 
-  return playthread->Ini();
+  if(!playthread->Ini())
+    {
+      return false;
+    }
+
+  return true;
 }
 
 
@@ -398,18 +258,20 @@ bool SNDOPENALFACTORY::Volume_Set(float mastervolume)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDINSTANCE* SNDOPENALFACTORY::Sound_Play(SNDITEM* item)
+* @fn         bool SNDOPENALFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, XDWORD ntimestoplay)
 * @brief      Sound_Play
 * @ingroup    SOUND
 * 
-* @param[in]  element : 
+* @param[in]  item : 
+* @param[in]  playCFG : 
+* @param[in]  ntimestoplay : 
 * 
-* @return     SNDINSTANCE* : 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDOPENALFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG)
+bool SNDOPENALFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, XDWORD ntimestoplay)
 {   
-  if(!SNDFACTORY::Sound_Play(item, playCFG))
+  if(!SNDFACTORY::Sound_Play(item, playCFG, ntimestoplay))
     {
       return false;
     }
@@ -422,36 +284,26 @@ bool SNDOPENALFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG)
   SNDOPENALSOURCE* source = new SNDOPENALSOURCE();
   if(!source)
     {
-      return NULL;
+      return false;
     }
 
   SNDOPENALPLAYITEM* soundplayitem = new SNDOPENALPLAYITEM();
   if(!soundplayitem) 
     {
       delete source;
-      return NULL;
+      return false;
     }
 
   soundplayitem->SetItem(item);
   soundplayitem->SetSource(source);  
 
-  return soundplayitems.Add(soundplayitem);
-}
+  if(!soundplayitems.Add(soundplayitem))
+    {
+      return false;
+    }
 
+  soundplayitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_INI);
 
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDOPENALFACTORY::Sound_Stop(SNDITEM* item)
-* @brief      Sound_Stop
-* @ingroup    SOUND
-* 
-* @param[in]  item : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDOPENALFACTORY::Sound_Stop(SNDITEM* item)
-{  
   return true;
 }
 
@@ -469,6 +321,23 @@ bool SNDOPENALFACTORY::Sound_Stop(SNDITEM* item)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Sound_Pause(SNDITEM* item)
 {
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDOPENALFACTORY::Sound_Stop(SNDITEM* item)
+* @brief      Sound_Stop
+* @ingroup    SOUND
+* 
+* @param[in]  item : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDOPENALFACTORY::Sound_Stop(SNDITEM* item)
+{  
   return true;
 }
 
@@ -536,20 +405,93 @@ bool SNDOPENALFACTORY::Update_Note(SNDOPENALPLAYITEM* playitem)
       return false; 
     }
 
-  SNDITEM*         item      = playitem->GetItem();
-  SNDOPENALSOURCE* source    = playitem->GetSource();
+  SNDITEM*         item   = playitem->GetItem();
+  SNDOPENALSOURCE* source = playitem->GetSource();
 
   if(!item || !source)
     {
       return false;
     }
 
-  SNDNOTE*         soundnote = item->GetSoundNote();
+  SNDNOTE* soundnote = item->GetSoundNote();
   if(!soundnote)
     {
       return false;
     }
+
+  if(playitem->GetEvent() == SNDOPENALPLAYITEM_XFSMEVENT_NONE) // Not new event
+    {
+      switch(playitem->GetCurrentState())
+        {
+          case SNDOPENALPLAYITEM_XFSMSTATE_NONE         : break;
+          case SNDOPENALPLAYITEM_XFSMSTATE_INI          : break;
+
+          case SNDOPENALPLAYITEM_XFSMSTATE_PLAY         : if(soundnote->GetTimerPlay()->GetMeasureMilliSeconds() >= soundnote->GetDuration())
+                                                            {
+                                                              if(!item->GetNTimesToPlay())
+                                                                {
+                                                                  playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_STOP);  
+                                                                }
+                                                               else
+                                                                {
+                                                                  item->SetNTimesToPlay(item->GetNTimesToPlay()-1);
+                                                                } 
+
+                                                              item->AddOneNTimesPlayed();
+                                                            }
+                                                          break;
+
+          case SNDOPENALPLAYITEM_XFSMSTATE_PAUSE        : break;
+
+          case SNDOPENALPLAYITEM_XFSMSTATE_STOP         : break;
+
+          case SNDOPENALPLAYITEM_XFSMSTATE_END          : break;
+        }
+    }
+   else //  New event
+    {
+      if(playitem->GetEvent() < SNDOPENALPLAYITEM_LASTEVENT)
+        {
+          playitem->CheckTransition();
+
+          switch(playitem->GetCurrentState())
+            {
+              case SNDOPENALPLAYITEM_XFSMSTATE_NONE     : break;
+
+              case SNDOPENALPLAYITEM_XFSMSTATE_INI      : soundnote->GetTimerPlay()->Reset();
+                                                          source->GetBuffer()->GenerateNote(soundnote->GetFrequency(), soundnote->GetDuration());     
+                                                          
+                                                          if(item->GetNTimesToPlay())
+                                                            {
+                                                              item->SetNTimesToPlay(item->GetNTimesToPlay()-1);
+                                                              playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_PLAY);                                                              
+                                                            }
+                                                          break;
+
+              case SNDOPENALPLAYITEM_XFSMSTATE_PLAY     : source->Play();
+                                                          item->SetStatus(SNDITEM_STATUS_PLAY);
+                                                          break;
+
+              case SNDOPENALPLAYITEM_XFSMSTATE_PAUSE    : break;
+
+              case SNDOPENALPLAYITEM_XFSMSTATE_STOP     : source->Stop(); 
+                                                          item->SetStatus(SNDITEM_STATUS_STOP);
+                                                          if(!item->GetNTimesToPlay())
+                                                            {
+                                                              playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_END);  
+                                                            }
+                                                          break;
+
+              case SNDOPENALPLAYITEM_XFSMSTATE_END      : source->GetBuffer()->Delete(); 
+                                                          item->SetStatus(SNDITEM_STATUS_END);
+                                                          break;
+            }
+        }
+    }
+
+
   
+  /*
   switch(item->GetStatus())
     {
       case SNDITEM_STATUS_NONE    : break;
@@ -559,7 +501,7 @@ bool SNDOPENALFACTORY::Update_Note(SNDOPENALPLAYITEM* playitem)
 
                                       source->Play();  
 
-                                      GEN_XSLEEP.MilliSeconds((int)(4*1000));
+                                      GEN_XSLEEP.MilliSeconds((int)(soundnote->GetDuration()*1000));
 
                                       source->Stop(); 
                                       source->GetBuffer()->Delete();
@@ -567,11 +509,14 @@ bool SNDOPENALFACTORY::Update_Note(SNDOPENALPLAYITEM* playitem)
                                     }
                                     break;
 
-      case SNDITEM_STATUS_STOP    : break;
-      case SNDITEM_STATUS_PLAY    : break;
+      case SNDITEM_STATUS_PLAY    : break;      
       case SNDITEM_STATUS_PAUSE   : break;
+      case SNDITEM_STATUS_STOP    : break;
+     
+
       case SNDITEM_STATUS_END     : break;
     }
+  */
   
   return true;
 }
@@ -636,9 +581,6 @@ void SNDOPENALFACTORY::Clean()
   playthread    = NULL;
   playmutex     = NULL;                                                    
 }
-
-
-#pragma endregion
 
 
 #pragma endregion

@@ -39,6 +39,8 @@
 
 #include "SNDOpenALBuffer.h"
 
+#include <math.h>
+
 #include "XMemory_Control.h"
 
 #pragma endregion
@@ -168,9 +170,10 @@ XBUFFER* SNDOPENALBUFFER::GetXBuffer()
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDOPENALBUFFER::GenerateNote(float frequency, float duration)
+* @fn         bool SNDOPENALBUFFER::GenerateNote(XDWORD frequency, XDWORD duration)
 * @brief      GenerateNote
 * @ingroup    SOUND
 * 
@@ -180,40 +183,42 @@ XBUFFER* SNDOPENALBUFFER::GetXBuffer()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDOPENALBUFFER::GenerateNote(float frequency, float duration)
+bool SNDOPENALBUFFER::GenerateNote(XDWORD frequency, XDWORD duration)
 {
   if(!frequency || !duration)
     {
       return false;
     }
 
-  XDWORD  sample_rate = 10000;
-  size_t  size        = (size_t)(duration * sample_rate);
+  XDWORD  samplerate  = 10000;
+  size_t  size        = (size_t)((duration/1000) * samplerate);
 
   xbuffer.Empty();
 
-  for(unsigned c=0; c<size; c++)
+  for(size_t c=0; c<size; c++)
     {
-      xbuffer.Add((XWORD)(32760 * sin(2 * PI * c * frequency/sample_rate)));
+      XWORD data = (XWORD)(32760 * sin(2 * PI * c * (frequency/samplerate)));
+      xbuffer.Add((XWORD)data);
     }
 
-  return Assign(0, sample_rate);
+  return Assign(1, size, samplerate);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDOPENALBUFFER::Assign(XWORD channels, XWORD frequency)
+* @fn         bool SNDOPENALBUFFER::Assign(XWORD channels, size_t size, XDWORD samplerate)
 * @brief      Assign
 * @ingroup    SOUND
 * 
 * @param[in]  channels : 
-* @param[in]  frequency : 
+* @param[in]  size : 
+* @param[in]  samplerate : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDOPENALBUFFER::Assign(XWORD channels, XWORD frequency)
+bool SNDOPENALBUFFER::Assign(XWORD channels, size_t size, XDWORD samplerate)
 {
   ALenum format = AL_FORMAT_MONO16;
 
@@ -222,7 +227,7 @@ bool SNDOPENALBUFFER::Assign(XWORD channels, XWORD frequency)
       format = AL_FORMAT_STEREO16;
     }
 
-  alBufferData(buffer, format, (void*)xbuffer.Get(), (xbuffer.GetSize()/sizeof(XWORD)), frequency);
+  alBufferData(buffer, format, (void*)xbuffer.Get(), size, samplerate);
 
   return true;
 }

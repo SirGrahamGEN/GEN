@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDNote.h
+* @file       SNDOpenALFactory.h
 * 
-* @class      SNDNOTE
-* @brief      Sound Note class
+* @class      SNDOPENALFACTORY
+* @brief      Sound OpenAL Play Item class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,20 +26,44 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SNDNOTE_H_
-#define _SNDNOTE_H_
+#ifndef _SNDOPENALFACTORY_H_
+#define _SNDOPENALFACTORY_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XTimer.h"
-#include "XBuffer.h"
+#include "XFSMachine.h"
 
 #pragma endregion
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
+
+enum SNDOPENALPLAYITEM_XFSMEVENTS
+{
+  SNDOPENALPLAYITEM_XFSMEVENT_NONE              = 0 ,
+  SNDOPENALPLAYITEM_XFSMEVENT_INI                   ,
+  SNDOPENALPLAYITEM_XFSMEVENT_PLAY                  ,
+  SNDOPENALPLAYITEM_XFSMEVENT_PAUSE                 ,
+  SNDOPENALPLAYITEM_XFSMEVENT_STOP                  ,
+  SNDOPENALPLAYITEM_XFSMEVENT_END                   ,
+
+  SNDOPENALPLAYITEM_LASTEVENT
+};
+
+
+enum DEVTESTSCONSOLEXFSMSTATES
+{
+  SNDOPENALPLAYITEM_XFSMSTATE_NONE              = 0 ,
+  SNDOPENALPLAYITEM_XFSMSTATE_INI                   ,
+  SNDOPENALPLAYITEM_XFSMSTATE_PLAY                  ,
+  SNDOPENALPLAYITEM_XFSMSTATE_PAUSE                 ,
+  SNDOPENALPLAYITEM_XFSMSTATE_STOP                  ,
+  SNDOPENALPLAYITEM_XFSMSTATE_END                   ,
+
+  SNDOPENALPLAYITEM_LASTSTATE
+};
 
 
 #pragma endregion
@@ -48,29 +72,33 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SNDNOTE
+class SNDITEM;
+class SNDOPENALSOURCE;
+
+class SNDOPENALPLAYITEM : public XFSMACHINE
 {
   public:
-                    SNDNOTE           ();
-    virtual        ~SNDNOTE           ();
+                                              SNDOPENALPLAYITEM         ();
+    virtual                                  ~SNDOPENALPLAYITEM         ();
 
-    XDWORD          GetFrequency      ();
-    bool            SetFrequency      (XDWORD frequency);
+    bool                                      IniFSMachine              ();
 
-    XDWORD          GetDuration       ();
-    XDWORD          SetDuration       (XDWORD duration);
+    SNDITEM*                                  GetItem                   ();
+    void                                      SetItem                   (SNDITEM* item);
 
-    XTIMER*         GetTimerPlay      ();   
+    SNDOPENALSOURCE*                          GetSource                 ();
+    void                                      SetSource                 (SNDOPENALSOURCE* source);
+
+    bool                                      Delete                    ();
 
   private:
 
-    void            Clean             ();
+    void                                      Clean                     ();   
 
-    XDWORD          frequency;
-    XDWORD          duration;
-
-    XTIMER*         timerplay;    
+    SNDITEM*                                  item;
+    SNDOPENALSOURCE*                          source;
 };
+
 
 #pragma endregion
 
@@ -83,6 +111,4 @@ class SNDNOTE
 
 
 #endif
-
-
 

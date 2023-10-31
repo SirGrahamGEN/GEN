@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDNote.cpp
+* @file       SNDOpenALFactory.cpp
 * 
-* @class      SNDNOTE
-* @brief      Sound Note class
+* @class      SNDOPENALFACTORY
+* @brief      Sound OpenAL Play Item class
 * @ingroup    SOUND
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,9 +37,11 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "SNDNote.h"
+#include "SNDOpenALPlayItem.h"
 
-#include "XFactory.h"
+#include "SNDOpenALSource.h"
+#include "SNDItem.h"
+#include "SNDPlayCFG.h"
 
 #include "XMemory_Control.h"
 
@@ -58,24 +60,24 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDNOTE::SNDNOTE()
+* @fn         SNDOPENALPLAYITEM::SNDOPENALPLAYITEM()
 * @brief      Constructor
 * @ingroup    SOUND
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDNOTE::SNDNOTE()
+SNDOPENALPLAYITEM::SNDOPENALPLAYITEM() : XFSMACHINE(0)
 {
   Clean();
 
-  timerplay = GEN_XFACTORY.CreateTimer();
+  IniFSMachine();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDNOTE::~SNDNOTE()
+* @fn         SNDOPENALPLAYITEM::~SNDOPENALPLAYITEM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
@@ -83,103 +85,157 @@ SNDNOTE::SNDNOTE()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDNOTE::~SNDNOTE()
+SNDOPENALPLAYITEM::~SNDOPENALPLAYITEM()
 {
-  if(timerplay)
-    {
-      GEN_XFACTORY.DeleteTimer(timerplay);
-    }
+  Delete();
 
-  Clean();  
+  Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDWORD SNDNOTE::GetFrequency()
-* @brief      GetFrequency
+* @fn         bool SNDOPENALPLAYITEM::IniFSMachine()
+* @brief      IniFSMachine
 * @ingroup    SOUND
-* 
-* @return     XDWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XDWORD SNDNOTE::GetFrequency()
-{
-  return frequency;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDNOTE::SetFrequency(XDWORD frequency)
-* @brief      SetFrequency
-* @ingroup    SOUND
-* 
-* @param[in]  frequency : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDNOTE::SetFrequency(XDWORD frequency)
+bool SNDOPENALPLAYITEM::IniFSMachine()
 {
-  this->frequency = frequency;
+  if(!AddState( SNDOPENALPLAYITEM_XFSMSTATE_NONE            ,
+                SNDOPENALPLAYITEM_XFSMEVENT_INI             , SNDOPENALPLAYITEM_XFSMSTATE_INI           ,
+                SNDOPENALPLAYITEM_XFSMEVENT_END             , SNDOPENALPLAYITEM_XFSMSTATE_END           ,
+                XFSMACHINESTATE_EVENTDEFEND)) return false;
+
+
+  if(!AddState( SNDOPENALPLAYITEM_XFSMSTATE_INI             ,
+                SNDOPENALPLAYITEM_XFSMEVENT_PLAY            , SNDOPENALPLAYITEM_XFSMSTATE_PLAY          ,
+                SNDOPENALPLAYITEM_XFSMEVENT_END             , SNDOPENALPLAYITEM_XFSMSTATE_END           ,
+                XFSMACHINESTATE_EVENTDEFEND)) return false;
+
+
+  if(!AddState( SNDOPENALPLAYITEM_XFSMSTATE_PLAY            ,
+                SNDOPENALPLAYITEM_XFSMEVENT_PAUSE           , SNDOPENALPLAYITEM_XFSMSTATE_PAUSE         ,                
+                SNDOPENALPLAYITEM_XFSMEVENT_STOP            , SNDOPENALPLAYITEM_XFSMSTATE_STOP          ,
+                SNDOPENALPLAYITEM_XFSMEVENT_END             , SNDOPENALPLAYITEM_XFSMSTATE_END           ,
+                XFSMACHINESTATE_EVENTDEFEND)) return false;
+
+  if(!AddState( SNDOPENALPLAYITEM_XFSMSTATE_PAUSE           ,
+                SNDOPENALPLAYITEM_XFSMEVENT_PLAY            , SNDOPENALPLAYITEM_XFSMSTATE_PLAY          ,                
+                SNDOPENALPLAYITEM_XFSMEVENT_STOP            , SNDOPENALPLAYITEM_XFSMSTATE_STOP          ,
+                SNDOPENALPLAYITEM_XFSMEVENT_END             , SNDOPENALPLAYITEM_XFSMSTATE_END           ,
+                XFSMACHINESTATE_EVENTDEFEND)) return false;
+
+
+  if(!AddState( SNDOPENALPLAYITEM_XFSMSTATE_STOP            ,
+                SNDOPENALPLAYITEM_XFSMEVENT_PLAY            , SNDOPENALPLAYITEM_XFSMSTATE_PLAY          ,                
+                SNDOPENALPLAYITEM_XFSMEVENT_PAUSE           , SNDOPENALPLAYITEM_XFSMSTATE_PAUSE         ,
+                SNDOPENALPLAYITEM_XFSMEVENT_END             , SNDOPENALPLAYITEM_XFSMSTATE_END           ,
+                XFSMACHINESTATE_EVENTDEFEND)) return false;
+
+
+  if(!AddState( SNDOPENALPLAYITEM_XFSMSTATE_END             ,
+                SNDOPENALPLAYITEM_XFSMEVENT_NONE            , SNDOPENALPLAYITEM_XFSMSTATE_NONE          ,
+                SNDOPENALPLAYITEM_XFSMEVENT_INI             , SNDOPENALPLAYITEM_XFSMSTATE_INI           ,
+                XFSMACHINESTATE_EVENTDEFEND)) return false;
 
   return true;
 }
 
-  
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDWORD SNDNOTE::GetDuration()
-* @brief      GetDuration
+* @fn         SNDITEM* SNDOPENALPLAYITEM::GetItem()
+* @brief      GetItem
 * @ingroup    SOUND
 * 
-* @return     XDWORD : 
+* @return     SNDITEM* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD SNDNOTE::GetDuration()
+SNDITEM* SNDOPENALPLAYITEM::GetItem()
 {
-  return duration;
+  return item;
 }
 
-    
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDWORD SNDNOTE::SetDuration(XDWORD duration)
-* @brief      SetDuration
+* @fn         void SNDOPENALPLAYITEM::SetItem(SNDITEM* item)
+* @brief      SetItem
 * @ingroup    SOUND
 * 
-* @param[in]  duration : 
+* @param[in]  item : 
 * 
-* @return     XDWORD : 
+* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD SNDNOTE::SetDuration(XDWORD duration)
+void SNDOPENALPLAYITEM::SetItem(SNDITEM* item)
 {
-  this->duration = duration;
-  
+  this->item = item;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDOPENALSOURCE* SNDOPENALPLAYITEM::GetSource()
+* @brief      GetSource
+* @ingroup    SOUND
+* 
+* @return     SNDOPENALSOURCE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDOPENALSOURCE* SNDOPENALPLAYITEM::GetSource()
+{
+  return source;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDOPENALPLAYITEM::SetSource(SNDOPENALSOURCE* source)
+* @brief      SetSource
+* @ingroup    SOUND
+* 
+* @param[in]  source : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALPLAYITEM::SetSource(SNDOPENALSOURCE* source)
+{
+  this->source = source;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDOPENALPLAYITEM::Delete()
+* @brief      Delete
+* @ingroup    SOUND
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDOPENALPLAYITEM::Delete()
+{
+  item = NULL;
+
+  if(source)
+    {
+      delete source;
+      source = NULL;
+    }   
+
   return true;
 }
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XTIMER* SNDNOTE::GetTimerPlay()
-* @brief      GetTimerPlay
-* @ingroup    SOUND
-* 
-* @return     XTIMER* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XTIMER* SNDNOTE::GetTimerPlay()
-{
-  return timerplay;  
-}
-
+  
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDNOTE::Clean()
+* @fn         void SNDOPENALPLAYITEM::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
@@ -187,15 +243,12 @@ XTIMER* SNDNOTE::GetTimerPlay()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDNOTE::Clean()
+void SNDOPENALPLAYITEM::Clean()
 {
-  frequency   = 0;
-  duration    = 0;
-
-  timerplay   = NULL;
+  item      = NULL;
+  source    = NULL;
 }
 
 
 #pragma endregion
-
 
