@@ -76,6 +76,8 @@ SNDFACTORY::SNDFACTORY()
 
   RegisterEvent(SNDFACTORY_XEVENT_TYPE_STOP);
   RegisterEvent(SNDFACTORY_XEVENT_TYPE_PLAY);
+
+  sounditems.SetIsMulti(false);
 }
 
 
@@ -280,7 +282,9 @@ bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, XDWORD ntimestop
 
   item->SetNTimesToPlay(ntimestoplay);
 
-  return sounditems.Add(item);
+  sounditems.Add(item);
+
+  return true;
 }
 
 
@@ -331,6 +335,41 @@ bool SNDFACTORY::Sound_StopAll()
 { 
   return false;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout)
+* @brief      Sound_WaitToEnd
+* @ingroup    SOUND
+* 
+* @param[in]  item : 
+* @param[in]  maxtimeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout)
+{
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDFACTORY::Sound_WaitAllToEnd(int maxtimeout)
+* @brief      Sound_WaitAllToEnd
+* @ingroup    SOUND
+* 
+* @param[in]  maxtimeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDFACTORY::Sound_WaitAllToEnd(int maxtimeout)
+{
+  return false;
+}  
 
 
 /**-------------------------------------------------------------------------------------------------------------------

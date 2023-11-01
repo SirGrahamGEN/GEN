@@ -191,13 +191,15 @@ bool SNDOPENALBUFFER::GenerateNote(XDWORD frequency, XDWORD duration)
     }
 
   XDWORD  samplerate  = 10000;
-  size_t  size        = (size_t)((duration/1000) * samplerate);
+  size_t  size        = (size_t)(((duration)/1000) * samplerate);
 
   xbuffer.Empty();
 
+  xbuffer.SetLocalHardwareUseLittleEndian(false);
+
   for(size_t c=0; c<size; c++)
     {
-      XWORD data = (XWORD)(32760 * sin(2 * PI * c * (frequency/samplerate)));
+      XWORD data = (short)(32760 * sin(2 * PI * c * frequency/samplerate));
       xbuffer.Add((XWORD)data);
     }
 

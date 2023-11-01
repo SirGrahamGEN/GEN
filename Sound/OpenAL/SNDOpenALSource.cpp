@@ -130,7 +130,7 @@ SNDOPENALBUFFER* SNDOPENALSOURCE::GetBuffer()
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::Stop()
 {
-  alSourceStop(source);
+  alSourceStopv(1, &source);
   isplaying = false;
 }
 
@@ -186,17 +186,6 @@ bool SNDOPENALSOURCE::IsPLaying()
       bool _isplaying = isplaying;
 
       isplaying = ((source_state == AL_PLAYING) || (source_state == AL_PAUSED));
-
-      if((_isplaying == true) && (isplaying == false))
-        { 
-          /*               
-          SNDFACTORY_XEVENT event(NULL, SNDFACTORY_XEVENT_TYPE_STOP);
-
-          event.SetType(SNDFACTORY_XEVENT_TYPE_STOP);
-
-          PostEvent(this, event);                         
-          */
-        }
 
       return isplaying;
     }

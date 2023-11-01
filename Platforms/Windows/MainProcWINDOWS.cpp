@@ -394,7 +394,7 @@ bool MAINPROCWINDOWS::Factorys_Ini()
     {
       return false;
     }
-  XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
+  XBUFFER::SetGlobalHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
   #endif
   
   #ifdef XSLEEP_ACTIVE

@@ -47,7 +47,7 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 
-bool XBUFFER::hardwareuselittleendian = true;
+bool XBUFFER::globalhardwareuselittleendian = true;
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
@@ -66,6 +66,8 @@ bool XBUFFER::hardwareuselittleendian = true;
 XBUFFER::XBUFFER(bool threadsafe)
 {
   Clean();
+
+  localhardwareuselittleendian = globalhardwareuselittleendian;
 
   if(threadsafe) 
     {
@@ -89,6 +91,8 @@ XBUFFER::XBUFFER(bool threadsafe)
 XBUFFER::XBUFFER(XDWORD size, bool threadsafe)
 {
   Clean();
+
+  localhardwareuselittleendian = globalhardwareuselittleendian;
 
   if(threadsafe) 
     {
@@ -114,6 +118,8 @@ XBUFFER::XBUFFER(XDWORD size, bool threadsafe)
 XBUFFER::XBUFFER(const XBUFFER& xbuffer)
 {
   Clean();
+
+  localhardwareuselittleendian = globalhardwareuselittleendian;
 
   GEN_XFACTORY_CREATE(xmutex, Create_Mutex())
 
@@ -409,7 +415,7 @@ bool XBUFFER::Add(bool data)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBUFFER::Add(XWORD data)
 {
-  if(hardwareuselittleendian) SWAPWORD(data);
+  if(localhardwareuselittleendian) SWAPWORD(data);
 
   return Add((XBYTE*)&data,sizeof(XWORD));
 }
@@ -428,7 +434,7 @@ bool XBUFFER::Add(XWORD data)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBUFFER::Add(XDWORD data)
 {
-  if(hardwareuselittleendian) SWAPDWORD(data);
+  if(localhardwareuselittleendian) SWAPDWORD(data);
 
   return Add((XBYTE*)&data, sizeof(XDWORD));
 }
@@ -447,7 +453,7 @@ bool XBUFFER::Add(XDWORD data)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBUFFER::Add(XQWORD data)
 {
-  if(hardwareuselittleendian) SWAPQWORD(data);
+  if(localhardwareuselittleendian) SWAPQWORD(data);
 
   return Add((XBYTE*)&data, sizeof(XQWORD));
 }
@@ -508,13 +514,13 @@ bool XBUFFER::Add(XSTRING& string, bool normalize)
       if(normalize)
         {
           XWORD data = (XWORD)string.Get()[c];
-          if(hardwareuselittleendian) SWAPWORD(data);
+          if(localhardwareuselittleendian) SWAPWORD(data);
           Add((XWORD)data);
         }
        else
         {
           XDWORD data = (XDWORD)string.Get()[c];
-          if(hardwareuselittleendian) SWAPDWORD(data);
+          if(localhardwareuselittleendian) SWAPDWORD(data);
           Add((XDWORD)data);
         }
     }
@@ -741,7 +747,7 @@ bool XBUFFER::Insert(bool data, int frompos)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBUFFER::Insert(XWORD data, int frompos)
 {
-  if(hardwareuselittleendian) SWAPWORD(data);
+  if(localhardwareuselittleendian) SWAPWORD(data);
 
   return Insert((XBYTE*)&data, sizeof(XWORD), frompos);
 }
@@ -761,7 +767,7 @@ bool XBUFFER::Insert(XWORD data, int frompos)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBUFFER::Insert(XDWORD data, int frompos)
 {
-  if(hardwareuselittleendian) SWAPDWORD(data);
+  if(localhardwareuselittleendian) SWAPDWORD(data);
 
   return Insert((XBYTE*)&data, sizeof(XDWORD), frompos);
 }
@@ -781,7 +787,7 @@ bool XBUFFER::Insert(XDWORD data, int frompos)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBUFFER::Insert(XQWORD data, int frompos)
 {
-  if(hardwareuselittleendian) SWAPQWORD(data);
+  if(localhardwareuselittleendian) SWAPQWORD(data);
 
   return Insert((XBYTE*)&data, sizeof(XQWORD), frompos);
 }
@@ -843,7 +849,7 @@ bool XBUFFER::Insert(XSTRING& string, int frompos)
     {
       XDWORD data = (XDWORD)string.Get()[c];
 
-      if(hardwareuselittleendian) SWAPDWORD(data);
+      if(localhardwareuselittleendian) SWAPDWORD(data);
 
       Insert((XDWORD)data, frompos+c);
     }
@@ -1057,7 +1063,7 @@ bool XBUFFER::Extract(XWORD& data, XDWORD ppos)
   XDWORD size = Extract((XBYTE*)&data, ppos, sizeof(XWORD));
   if(size!=sizeof(XWORD)) return false;
 
-  if(hardwareuselittleendian) SWAPWORD(data);
+  if(localhardwareuselittleendian) SWAPWORD(data);
 
   return true;
 }
@@ -1080,7 +1086,7 @@ bool XBUFFER::Extract(XDWORD& data, XDWORD ppos)
   XDWORD size = Extract((XBYTE*)&data, ppos, sizeof(XDWORD));
   if(size!=sizeof(XDWORD)) return false;
 
-  if(hardwareuselittleendian) SWAPDWORD(data);
+  if(localhardwareuselittleendian) SWAPDWORD(data);
 
   return true;
 }
@@ -1103,7 +1109,7 @@ bool XBUFFER::Extract(XQWORD& data, XDWORD ppos)
   XDWORD size = Extract((XBYTE*)&data, ppos, sizeof(XQWORD));
   if(size!=sizeof(XQWORD)) return false;
 
-  if(hardwareuselittleendian) SWAPQWORD(data);
+  if(localhardwareuselittleendian) SWAPQWORD(data);
 
   return true;
 }
@@ -1530,7 +1536,7 @@ bool XBUFFER::Get(XWORD& data, int frompos)
 {
   if(!Get((XBYTE*)&data,sizeof(XWORD), frompos)) return false;
 
-  if(hardwareuselittleendian) SWAPWORD(data);
+  if(localhardwareuselittleendian) SWAPWORD(data);
 
   return true;
 }
@@ -1552,7 +1558,7 @@ bool XBUFFER::Get(XDWORD& data, int frompos)
 {
   if(!Get((XBYTE*)&data, sizeof(XDWORD), frompos)) return false;
 
-  if(hardwareuselittleendian) SWAPDWORD(data);
+  if(localhardwareuselittleendian) SWAPDWORD(data);
 
   return true;
 }
@@ -1574,7 +1580,7 @@ bool XBUFFER::Get(XQWORD& data, int frompos)
 {
   if(!Get((XBYTE*)&data, sizeof(XQWORD), frompos)) return false;
 
-  if(hardwareuselittleendian) SWAPQWORD(data);
+  if(localhardwareuselittleendian) SWAPQWORD(data);
 
   return true;
 }
@@ -1644,7 +1650,7 @@ bool XBUFFER::Get(XSTRING& data, int psize, int frompos)
     {
       if(!Get(c, pos)) return false;
 
-      if(hardwareuselittleendian) SWAPDWORD(c);
+      if(localhardwareuselittleendian) SWAPDWORD(c);
 
       data.Add((XCHAR)c);
 
@@ -1870,7 +1876,7 @@ bool XBUFFER::Set(bool data, int topos)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBUFFER::Set(XWORD data, int topos)
 {
-  if(hardwareuselittleendian) SWAPWORD(data);
+  if(localhardwareuselittleendian) SWAPWORD(data);
 
   return Set((XBYTE*)&data, sizeof(XWORD), topos);
 }
@@ -1890,7 +1896,7 @@ bool XBUFFER::Set(XWORD data, int topos)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBUFFER::Set(XDWORD data, int topos)
 {
-  if(hardwareuselittleendian) SWAPDWORD(data);
+  if(localhardwareuselittleendian) SWAPDWORD(data);
 
   return Set((XBYTE*)&data, sizeof(XDWORD), topos);
 }
@@ -1910,7 +1916,7 @@ bool XBUFFER::Set(XDWORD data, int topos)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XBUFFER::Set(XQWORD data, int topos)
 {
-  if(hardwareuselittleendian) SWAPQWORD(data);
+  if(localhardwareuselittleendian) SWAPQWORD(data);
 
   return Set((XBYTE*)&data, sizeof(XQWORD), topos);
 }
@@ -1975,7 +1981,7 @@ bool XBUFFER::Set(XSTRING& data, int topos)
   for(XDWORD i = 0; i < data.GetSize(); i++)
     {
       XDWORD _data = data[i];
-      if(hardwareuselittleendian) SWAPDWORD(_data);
+      if(localhardwareuselittleendian) SWAPDWORD(_data);
       tmp[i] = _data;
     }
 
@@ -2488,6 +2494,8 @@ bool XBUFFER::CopyFrom(XBUFFER& buffer)
 {
   Empty();
 
+  localhardwareuselittleendian = buffer.GetLocalHardwareUseLittleEndian();
+  
   return Add(buffer.Get(), buffer.GetSize());
 }
 
@@ -2506,6 +2514,8 @@ bool XBUFFER::CopyFrom(XBUFFER& buffer)
 bool XBUFFER::CopyTo(XBUFFER& buffer)
 {
   buffer.Empty();
+
+  buffer.SetLocalHardwareUseLittleEndian(localhardwareuselittleendian);
     
   return buffer.Add(Get(), GetSize());
 }
@@ -3020,35 +3030,66 @@ XQWORD XBUFFER::DecodeBCDLong(XDWORD ppos,XDWORD psize)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XBUFFER::GetHardwareUseLittleEndian()
-* @brief      GetHardwareUseLittleEndian
+* 
+* @fn         bool XBUFFER::GetGlobalHardwareUseLittleEndian()
+* @brief      GetGlobalHardwareUseLittleEndian
 * @ingroup    XUTILS
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XBUFFER::GetHardwareUseLittleEndian()
+bool XBUFFER::GetGlobalHardwareUseLittleEndian()
 {
- return  XBUFFER::hardwareuselittleendian;
+ return  XBUFFER::globalhardwareuselittleendian;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XBUFFER::SetHardwareUseLittleEndian(bool hardwareuselittleendian)
-* @brief      Set Hardware Use Little Endian
-              Use static solution to eliminate depends of XSYSTEM
+* 
+* @fn         void XBUFFER::SetGlobalHardwareUseLittleEndian(bool globalhardwareuselittleendian)
+* @brief      SetGlobalHardwareUseLittleEndian
 * @ingroup    XUTILS
-*
-* @param[in]  hardwareuselittleendian : true little endian
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  globalhardwareuselittleendian : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XBUFFER::SetHardwareUseLittleEndian(bool hardwareuselittleendian)
+void XBUFFER::SetGlobalHardwareUseLittleEndian(bool globalhardwareuselittleendian)
 {
-  XBUFFER::hardwareuselittleendian = hardwareuselittleendian;
+  XBUFFER::globalhardwareuselittleendian = globalhardwareuselittleendian;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBUFFER::GetLocalHardwareUseLittleEndian()
+* @brief      GetLocalHardwareUseLittleEndian
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBUFFER::GetLocalHardwareUseLittleEndian()
+{
+  return localhardwareuselittleendian;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XBUFFER::SetLocalHardwareUseLittleEndian(bool localhardwareuselittleendian)
+* @brief      SetLocalHardwareUseLittleEndian
+* @ingroup    XUTILS
+* 
+* @param[in]  localhardwareuselittleendian : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XBUFFER::SetLocalHardwareUseLittleEndian(bool localhardwareuselittleendian)
+{
+  this->localhardwareuselittleendian = localhardwareuselittleendian;
 }
 
 
@@ -3478,4 +3519,6 @@ void XBUFFER::Clean()
   paddingsize         = 0;
 
   xmutex              = NULL;
+
+  localhardwareuselittleendian = false;
 }

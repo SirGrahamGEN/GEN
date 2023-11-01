@@ -376,7 +376,7 @@ bool MAINPROCLINUX::Factorys_Ini()
     {
       return false;
     }
-  XBUFFER::SetHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
+  XBUFFER::SetGlobalHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
   #endif  
   
   if(!XRAND::SetInstance(new XLINUXRAND())) 

@@ -105,19 +105,29 @@ SNDOPENALFACTORY::~SNDOPENALFACTORY()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Ini()
 {
-  device = alcOpenDevice("");
+  device = alcOpenDevice(NULL);
   if(!device) 
     {
       return false;
     }
     
+  
   ALCenum error;
+  
+  context = alcCreateContext(device, NULL);
+  error   = alcGetError(device);
 
-  context   = alcCreateContext(device, NULL);
-  error     = alGetError();
-
-  if(!alcMakeContextCurrent(context)) 
+  if(!context || (error != ALC_NO_ERROR))
     {
+      alcCloseDevice(device);
+      return false;
+    }
+
+  alcMakeContextCurrent(context);
+  error = alcGetError(device);
+  if(!context || (error != ALC_NO_ERROR))
+    {
+      alcCloseDevice(device);
       return false;
     }
 
@@ -214,8 +224,18 @@ bool SNDOPENALFACTORY::End()
     }
 
   alcMakeContextCurrent(NULL);
-  alcDestroyContext(context);
-  alcCloseDevice(device);
+
+  if(context)
+    {
+      alcDestroyContext(context);
+      context = NULL;
+    }
+
+  if(device)
+    {
+      alcCloseDevice(device);
+      device = NULL;
+    }
 
   soundplayitems.DeleteContents();
   soundplayitems.DeleteAll();
@@ -359,6 +379,41 @@ bool SNDOPENALFACTORY::Sound_StopAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool SNDOPENALFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout)
+* @brief      Sound_WaitToEnd
+* @ingroup    SOUND
+* 
+* @param[in]  item : 
+* @param[in]  maxtimeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDOPENALFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout)
+{
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDOPENALFACTORY::Sound_WaitAllToEnd(int maxtimeout)
+* @brief      Sound_WaitAllToEnd
+* @ingroup    SOUND
+* 
+* @param[in]  maxtimeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDOPENALFACTORY::Sound_WaitAllToEnd(int maxtimeout)
+{
+  return false;
+}  
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XMUTEX* SNDOPENALFACTORY::GetPlayMutex()
 * @brief      GetPlayMutex
 * @ingroup    SOUND
@@ -426,19 +481,20 @@ bool SNDOPENALFACTORY::Update_Note(SNDOPENALPLAYITEM* playitem)
           case SNDOPENALPLAYITEM_XFSMSTATE_NONE         : break;
           case SNDOPENALPLAYITEM_XFSMSTATE_INI          : break;
 
-          case SNDOPENALPLAYITEM_XFSMSTATE_PLAY         : if(soundnote->GetTimerPlay()->GetMeasureMilliSeconds() >= soundnote->GetDuration())
-                                                            {
-                                                              if(!item->GetNTimesToPlay())
-                                                                {
-                                                                  playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_STOP);  
-                                                                }
-                                                               else
-                                                                {
-                                                                  item->SetNTimesToPlay(item->GetNTimesToPlay()-1);
-                                                                } 
-
-                                                              item->AddOneNTimesPlayed();
-                                                            }
+          case SNDOPENALPLAYITEM_XFSMSTATE_PLAY         : { XQWORD millisecond = soundnote->GetTimerPlay()->GetMeasureMilliSeconds();
+                                                            if(millisecond >= (soundnote->GetDuration()*2) || !source->IsPLaying())
+                                                              {
+                                                                if(!item->GetNTimesToPlay())
+                                                                  {
+                                                                    playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_STOP); 
+                                                                    item->AddOneNTimesPlayed();  
+                                                                  }
+                                                                 else
+                                                                  {
+                                                                    item->SetNTimesToPlay(item->GetNTimesToPlay()-1);
+                                                                  }                                                              
+                                                              }
+                                                          }
                                                           break;
 
           case SNDOPENALPLAYITEM_XFSMSTATE_PAUSE        : break;
@@ -458,8 +514,7 @@ bool SNDOPENALFACTORY::Update_Note(SNDOPENALPLAYITEM* playitem)
             {
               case SNDOPENALPLAYITEM_XFSMSTATE_NONE     : break;
 
-              case SNDOPENALPLAYITEM_XFSMSTATE_INI      : soundnote->GetTimerPlay()->Reset();
-                                                          source->GetBuffer()->GenerateNote(soundnote->GetFrequency(), soundnote->GetDuration());     
+              case SNDOPENALPLAYITEM_XFSMSTATE_INI      : source->GetBuffer()->GenerateNote(soundnote->GetFrequency(), (soundnote->GetDuration()*2));     
                                                           
                                                           if(item->GetNTimesToPlay())
                                                             {
@@ -468,7 +523,8 @@ bool SNDOPENALFACTORY::Update_Note(SNDOPENALPLAYITEM* playitem)
                                                             }
                                                           break;
 
-              case SNDOPENALPLAYITEM_XFSMSTATE_PLAY     : source->Play();
+              case SNDOPENALPLAYITEM_XFSMSTATE_PLAY     : soundnote->GetTimerPlay()->Reset();
+                                                          source->Play();
                                                           item->SetStatus(SNDITEM_STATUS_PLAY);
                                                           break;
 
@@ -482,41 +538,23 @@ bool SNDOPENALFACTORY::Update_Note(SNDOPENALPLAYITEM* playitem)
                                                             }
                                                           break;
 
-              case SNDOPENALPLAYITEM_XFSMSTATE_END      : source->GetBuffer()->Delete(); 
+              case SNDOPENALPLAYITEM_XFSMSTATE_END      : if(playmutex)
+                                                            {
+                                                              playmutex->Lock();
+                                                            } 
+                                                          
+                                                          soundplayitems.Delete(playitem);
+                                                          delete playitem;
+
+                                                          if(playmutex)
+                                                            {
+                                                              playmutex->Lock();
+                                                            }
                                                           item->SetStatus(SNDITEM_STATUS_END);
                                                           break;
             }
         }
     }
-
-
-  
-  /*
-  switch(item->GetStatus())
-    {
-      case SNDITEM_STATUS_NONE    : break;
-
-      case SNDITEM_STATUS_INI     : { soundnote->GetTimerPlay()->Reset();
-                                      source->GetBuffer()->GenerateNote(soundnote->GetFrequency(), soundnote->GetDuration());                                     
-
-                                      source->Play();  
-
-                                      GEN_XSLEEP.MilliSeconds((int)(soundnote->GetDuration()*1000));
-
-                                      source->Stop(); 
-                                      source->GetBuffer()->Delete();
-
-                                    }
-                                    break;
-
-      case SNDITEM_STATUS_PLAY    : break;      
-      case SNDITEM_STATUS_PAUSE   : break;
-      case SNDITEM_STATUS_STOP    : break;
-     
-
-      case SNDITEM_STATUS_END     : break;
-    }
-  */
   
   return true;
 }

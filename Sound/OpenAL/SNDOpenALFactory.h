@@ -122,6 +122,8 @@ class SNDOPENALFACTORY : public SNDFACTORY
     bool                                      Sound_Pause               (SNDITEM* item);   
     bool                                      Sound_Stop                (SNDITEM* item);  
     bool                                      Sound_StopAll             ();
+    bool                                      Sound_WaitToEnd           (SNDITEM* item, int maxtimeout = -1);  
+    bool                                      Sound_WaitAllToEnd        (int maxtimeout = -1);  
 
     XMUTEX*                                   GetPlayMutex              ();
     XVECTOR<SNDOPENALPLAYITEM*>*              GetSoundPlayItems         ();

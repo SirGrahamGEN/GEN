@@ -73,7 +73,9 @@ class SNDFACTORY : public XSUBJECT
     virtual bool                      Sound_Play                  (SNDITEM* item, SNDPLAYCFG* playCFG = NULL, XDWORD ntimestoplay = 1);
     virtual bool                      Sound_Pause                 (SNDITEM* item);    
     virtual bool                      Sound_Stop                  (SNDITEM* item);
-    virtual bool                      Sound_StopAll               ();   
+    virtual bool                      Sound_StopAll               ();  
+    virtual bool                      Sound_WaitToEnd             (SNDITEM* item, int maxtimeout = -1);  
+    virtual bool                      Sound_WaitAllToEnd          (int maxtimeout = -1);  
  
     SNDITEM*                          CreateItem                  (XCHAR* path);  
     SNDITEM*                          CreateItem                  (XPATH& xpath);     
