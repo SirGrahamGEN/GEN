@@ -32,7 +32,6 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XTimer.h"
 #include "XBuffer.h"
 
 #pragma endregion
@@ -59,17 +58,13 @@ class SNDNOTE
 
     XDWORD          GetDuration       ();
     XDWORD          SetDuration       (XDWORD duration);
-
-    XTIMER*         GetTimerPlay      ();   
-
+    
   private:
 
     void            Clean             ();
 
     XDWORD          frequency;
     XDWORD          duration;
-
-    XTIMER*         timerplay;    
 };
 
 #pragma endregion

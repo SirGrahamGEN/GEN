@@ -39,6 +39,8 @@
 
 #include "SNDOpenALBuffer.h"
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 #include "XMemory_Control.h"
@@ -170,40 +172,37 @@ XBUFFER* SNDOPENALBUFFER::GetXBuffer()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDOPENALBUFFER::GenerateNote(XDWORD frequency, XDWORD duration)
+* @fn         XDWORD SNDOPENALBUFFER::GenerateNote(XDWORD frequency, XDWORD duration, XDWORD samplerate)
 * @brief      GenerateNote
 * @ingroup    SOUND
 * 
 * @param[in]  frequency : 
 * @param[in]  duration : 
+* @param[in]  samplerate : 
 * 
-* @return     bool : true if is succesful. 
+* @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDOPENALBUFFER::GenerateNote(XDWORD frequency, XDWORD duration)
+XDWORD SNDOPENALBUFFER::GenerateNote(XDWORD frequency, XDWORD duration, XDWORD samplerate)
 {
   if(!frequency || !duration)
     {
       return false;
     }
 
-  XDWORD  samplerate  = 10000;
-  size_t  size        = (size_t)(((duration)/1000) * samplerate);
-
-  xbuffer.Empty();
-
+  XDWORD size = (XDWORD)((duration/1000) * samplerate);  
+  
   xbuffer.SetLocalHardwareUseLittleEndian(false);
 
-  for(size_t c=0; c<size; c++)
-    {
+  for(XDWORD c=0; c<size; c++)
+    {      
       XWORD data = (short)(32760 * sin(2 * PI * c * frequency/samplerate));
-      xbuffer.Add((XWORD)data);
+      xbuffer.Add((XWORD)data);                     
     }
 
-  return Assign(1, size, samplerate);
+  return size;
 }
 
 

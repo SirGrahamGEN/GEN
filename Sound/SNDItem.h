@@ -68,6 +68,8 @@ enum SNDITEM_STATUS
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+class XTIMER;
+
 class SNDITEM
 {
   public:
@@ -87,8 +89,16 @@ class SNDITEM
     XDWORD                    GetNTimesPlayed         ();
     void                      AddOneNTimesPlayed      ();    
 
-    XDWORD                    GetNTimesToPlay         ();
-    void                      SetNTimesToPlay         (XDWORD ntimestoplay);
+    int                       GetNTimesToPlay         ();
+    void                      SetNTimesToPlay         (int ntimestoplay);
+
+    int                       GetCounterPlay          ();
+    void                      SetCounterPlay          (int counterplay);
+
+    XDWORD                    GetPlayingTime          ();        
+    void                      SetPlayingTime          (XDWORD playingtime);       
+
+    XTIMER*                   GetTimerPlay            ();    
 
     SNDPLAYCFG*               GetPlayCFG              ();
     bool                      SetPlayCFG              (SNDPLAYCFG& playCFG);
@@ -106,10 +116,16 @@ class SNDITEM
     SNDITEM_TYPE              type;
     XSTRING                   ID;
     SNDITEM_STATUS            status;
+    
+    XDWORD                    ntimesplayed;
+    int                       ntimestoplay;
+    int                       counterplay;
+
     SNDPLAYCFG                playCFG;
 
-    XDWORD                    ntimesplayed;
-    XDWORD                    ntimestoplay;
+    XTIMER*                   timerplay;  
+
+    XDWORD                    playingtime;
 
     SNDFILE*                  soundfile;
     SNDNOTE*                  soundnote; 

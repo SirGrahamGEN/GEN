@@ -76,6 +76,10 @@ class SNDOPENALSOURCE
     float                       GetPitch                            ();
     void                        SetPitch                            (float pitch);
      
+    void                        Play                                ();
+    void                        ResetPlay                           ();
+
+
     void                        SetSecondsOffset                    (float seconds);
     void                        SetSamplesOffset                    (int samples);
 
@@ -84,8 +88,6 @@ class SNDOPENALSOURCE
 
     void                        Aquire                              ();
     void                        Release                             ();  
-
-    void                        Play                                ();
 
     void                        Queue                               ();
     void                        UnQueue                             ();

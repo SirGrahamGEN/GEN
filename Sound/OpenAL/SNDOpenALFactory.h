@@ -118,12 +118,14 @@ class SNDOPENALFACTORY : public SNDFACTORY
     float                                     Volume_Get                ();
     bool                                      Volume_Set                (float mastervolume);    
     
-    bool                                      Sound_Play                (SNDITEM* item, SNDPLAYCFG* playCFG = NULL, XDWORD ntimestoplay = 1);    
+    bool                                      Sound_Play                (SNDITEM* item, SNDPLAYCFG* playCFG = NULL, int ntimestoplay = 1);    
     bool                                      Sound_Pause               (SNDITEM* item);   
     bool                                      Sound_Stop                (SNDITEM* item);  
     bool                                      Sound_StopAll             ();
-    bool                                      Sound_WaitToEnd           (SNDITEM* item, int maxtimeout = -1);  
-    bool                                      Sound_WaitAllToEnd        (int maxtimeout = -1);  
+    bool                                      Sound_WaitToEnd           (SNDITEM* item, int maxtimeout = SNDFACTORY_MAXTIMEOUT_INFINITE, SNDFACTORY_WAITFUNCTION waitfunction = NULL);  
+    bool                                      Sound_WaitAllToEnd        (int maxtimeout = SNDFACTORY_MAXTIMEOUT_INFINITE, SNDFACTORY_WAITFUNCTION waitfunction = NULL);  
+
+    bool                                      DeleteAllItems            ();
 
     XMUTEX*                                   GetPlayMutex              ();
     XVECTOR<SNDOPENALPLAYITEM*>*              GetSoundPlayItems         ();

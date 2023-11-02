@@ -51,9 +51,6 @@ class SNDPLAYCFG
   public:
                             SNDPLAYCFG        ();
     virtual                ~SNDPLAYCFG        ();
-
-    bool                    GetInLoop         ();  
-    void                    SetInLoop         (bool inloop);
     
     float                   GetVolume         ();
     void                    SetVolume         (float volume);
@@ -68,7 +65,6 @@ class SNDPLAYCFG
 
     void                    Clean             ();
 
-    bool                    inloop;
     float                   volume;
     float                   pitch;
 };

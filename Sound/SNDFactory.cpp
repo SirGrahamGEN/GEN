@@ -257,7 +257,7 @@ bool SNDFACTORY::Volume_Set(float volume)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, XDWORD ntimestoplay)
+* @fn         bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimestoplay)
 * @brief      Sound_Play
 * @ingroup    SOUND
 * 
@@ -268,7 +268,7 @@ bool SNDFACTORY::Volume_Set(float volume)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, XDWORD ntimestoplay)                                   
+bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimestoplay)                                   
 { 
   if(!item)
     {
@@ -317,7 +317,7 @@ bool SNDFACTORY::Sound_Pause(SNDITEM* item)
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDFACTORY::Sound_Stop(SNDITEM* item)                                   
-{                                   
+{                                     
   return false;
 }
 
@@ -339,17 +339,18 @@ bool SNDFACTORY::Sound_StopAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout)
+* @fn         bool SNDFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout, SNDFACTORY_WAITFUNCTION waitfunction)
 * @brief      Sound_WaitToEnd
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
 * @param[in]  maxtimeout : 
+* @param[in]  waitfunction : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout)
+bool SNDFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout, SNDFACTORY_WAITFUNCTION waitfunction)
 {
   return false;
 }
@@ -357,16 +358,17 @@ bool SNDFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::Sound_WaitAllToEnd(int maxtimeout)
+* @fn         bool SNDFACTORY::Sound_WaitAllToEnd(int maxtimeout, SNDFACTORY_WAITFUNCTION waitfunction)
 * @brief      Sound_WaitAllToEnd
 * @ingroup    SOUND
 * 
 * @param[in]  maxtimeout : 
+* @param[in]  waitfunction : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Sound_WaitAllToEnd(int maxtimeout)
+bool SNDFACTORY::Sound_WaitAllToEnd(int maxtimeout, SNDFACTORY_WAITFUNCTION waitfunction)
 {
   return false;
 }  

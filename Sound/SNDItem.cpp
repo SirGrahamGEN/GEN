@@ -39,6 +39,9 @@
 
 #include "SNDItem.h"
 
+#include "XFactory.h"
+#include "XTimer.h"
+
 #include "XMemory_Control.h"
 
 #pragma endregion
@@ -66,6 +69,8 @@
 SNDITEM::SNDITEM()
 {
   Clean();
+
+  timerplay = GEN_XFACTORY.CreateTimer();
 }
 
 
@@ -91,6 +96,11 @@ SNDITEM::~SNDITEM()
     {
       delete soundnote;
       soundnote = NULL;
+    }
+
+  if(timerplay)
+    {
+      GEN_XFACTORY.DeleteTimer(timerplay);
     }
 
   Clean();
@@ -270,14 +280,14 @@ void SNDITEM::AddOneNTimesPlayed()
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDWORD SNDITEM::GetNTimesToPlay()
+* @fn         int SNDITEM::GetNTimesToPlay()
 * @brief      GetNTimesToPlay
 * @ingroup    SOUND
 * 
-* @return     XDWORD : 
+* @return     int : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD SNDITEM::GetNTimesToPlay()
+int SNDITEM::GetNTimesToPlay()
 {
   return ntimestoplay;
 }
@@ -285,7 +295,7 @@ XDWORD SNDITEM::GetNTimesToPlay()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDITEM::SetNTimesToPlay(XDWORD ntimestoplay)
+* @fn         void SNDITEM::SetNTimesToPlay(int ntimestoplay)
 * @brief      SetNTimesToPlay
 * @ingroup    SOUND
 * 
@@ -294,9 +304,88 @@ XDWORD SNDITEM::GetNTimesToPlay()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDITEM::SetNTimesToPlay(XDWORD ntimestoplay)
+void SNDITEM::SetNTimesToPlay(int ntimestoplay)
 {
-  this->ntimestoplay = ntimestoplay;
+  this->ntimestoplay = ntimestoplay;  
+}
+ 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int SNDITEM::GetCounterPlay()
+* @brief      GetCounterPlay
+* @ingroup    SOUND
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int SNDITEM::GetCounterPlay()
+{
+  return counterplay;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDITEM::SetCounterPlay(int counterplay)
+* @brief      SetCounterPlay
+* @ingroup    SOUND
+* 
+* @param[in]  counterplay : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDITEM::SetCounterPlay(int counterplay)
+{
+  this->counterplay = counterplay;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD SNDITEM::GetPlayingTime()
+* @brief      GetPlayingTime
+* @ingroup    SOUND
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD SNDITEM::GetPlayingTime()
+{
+  return playingtime;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDITEM::SetPlayingTime(XDWORD playingtime)
+* @brief      SetPlayingTime
+* @ingroup    SOUND
+* 
+* @param[in]  playingtime : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDITEM::SetPlayingTime(XDWORD playingtime)
+{
+  this->playingtime = playingtime;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XTIMER* SNDITEM::GetTimerPlay()
+* @brief      GetTimerPlay
+* @ingroup    SOUND
+* 
+* @return     XTIMER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XTIMER* SNDITEM::GetTimerPlay()
+{
+  return timerplay;
 }
 
 
@@ -408,14 +497,19 @@ void SNDITEM::SetSoundNote(SNDNOTE* soundnote)
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDITEM::Clean()
 {
-  type          = SNDITEM_TYPE_UNKNOWN;    
-  status        = SNDITEM_STATUS_NONE;
+  type            = SNDITEM_TYPE_UNKNOWN;    
+  status          = SNDITEM_STATUS_NONE;
 
-  ntimesplayed  = 0;
-  ntimestoplay  = 0;
+  ntimesplayed    = 0;
+  ntimestoplay    = 0;
+  counterplay     = 0;
 
-  soundfile     = NULL;
-  soundnote     = NULL;
+  timerplay       = NULL;
+
+  playingtime     = 0;
+
+  soundfile       = NULL;
+  soundnote       = NULL;
 }
 
 

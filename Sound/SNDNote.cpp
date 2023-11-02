@@ -68,8 +68,6 @@
 SNDNOTE::SNDNOTE()
 {
   Clean();
-
-  timerplay = GEN_XFACTORY.CreateTimer();
 }
 
 
@@ -85,11 +83,6 @@ SNDNOTE::SNDNOTE()
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDNOTE::~SNDNOTE()
 {
-  if(timerplay)
-    {
-      GEN_XFACTORY.DeleteTimer(timerplay);
-    }
-
   Clean();  
 }
 
@@ -164,21 +157,6 @@ XDWORD SNDNOTE::SetDuration(XDWORD duration)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XTIMER* SNDNOTE::GetTimerPlay()
-* @brief      GetTimerPlay
-* @ingroup    SOUND
-* 
-* @return     XTIMER* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XTIMER* SNDNOTE::GetTimerPlay()
-{
-  return timerplay;  
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         void SNDNOTE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -191,8 +169,6 @@ void SNDNOTE::Clean()
 {
   frequency   = 0;
   duration    = 0;
-
-  timerplay   = NULL;
 }
 
 

@@ -322,6 +322,42 @@ void SNDOPENALSOURCE::SetPitch(float pitch)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         void SNDOPENALSOURCE::Play()
+* @brief      Play
+* @ingroup    SOUND
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALSOURCE::Play()
+{
+  if(!IsPLaying())
+    {     
+      alSourcei(source, AL_BUFFER, albuffer.GetHandle());
+      alSourcePlay(source);
+
+      isplaying = true;      
+    }
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDOPENALSOURCE::ResetPlay()
+* @brief      ResetPlay
+* @ingroup    SOUND
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDOPENALSOURCE::ResetPlay()
+{
+  alSourcef(source, AL_SEC_OFFSET, 0.0f);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void SNDOPENALSOURCE::SetSecondsOffset(float seconds)
 * @brief      SetSecondsOffset
 * @ingroup    SOUND
@@ -431,27 +467,6 @@ void SNDOPENALSOURCE::Aquire()
 void SNDOPENALSOURCE::Release()
 { 
   this->aquired = false;    
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDOPENALSOURCE::Play()
-* @brief      Play
-* @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALSOURCE::Play()
-{
-  if(!IsPLaying())
-    {     
-      alSourcei(source, AL_BUFFER, albuffer.GetHandle());
-      alSourcePlay(source);
-
-      isplaying = true;      
-    }
 }
 
 

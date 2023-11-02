@@ -42,6 +42,11 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+#define SNDFACTORY_MAXTIMEOUT_INFINITE     0
+#define SNDFACTORY_INLOOP                 -1
+
+class SNDITEM;
+typedef bool (*SNDFACTORY_WAITFUNCTION)(SNDITEM* item);
 
 #pragma endregion
 
@@ -49,7 +54,6 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class SNDITEM;
 class SNDPLAYCFG;
 
 class SNDFACTORY : public XSUBJECT
@@ -70,20 +74,21 @@ class SNDFACTORY : public XSUBJECT
     virtual float                     Volume_Get                  ();
     virtual bool                      Volume_Set                  (float volume);    
 
-    virtual bool                      Sound_Play                  (SNDITEM* item, SNDPLAYCFG* playCFG = NULL, XDWORD ntimestoplay = 1);
+    virtual bool                      Sound_Play                  (SNDITEM* item, SNDPLAYCFG* playCFG = NULL, int ntimestoplay = 1);
     virtual bool                      Sound_Pause                 (SNDITEM* item);    
     virtual bool                      Sound_Stop                  (SNDITEM* item);
     virtual bool                      Sound_StopAll               ();  
-    virtual bool                      Sound_WaitToEnd             (SNDITEM* item, int maxtimeout = -1);  
-    virtual bool                      Sound_WaitAllToEnd          (int maxtimeout = -1);  
+    virtual bool                      Sound_WaitToEnd             (SNDITEM* item, int maxtimeout = SNDFACTORY_MAXTIMEOUT_INFINITE, SNDFACTORY_WAITFUNCTION waitfunction = NULL);  
+    virtual bool                      Sound_WaitAllToEnd          (int maxtimeout = SNDFACTORY_MAXTIMEOUT_INFINITE, SNDFACTORY_WAITFUNCTION waitfunction = NULL); 
+
+    virtual bool                      DeleteAllItems              (); 
  
     SNDITEM*                          CreateItem                  (XCHAR* path);  
     SNDITEM*                          CreateItem                  (XPATH& xpath);     
-    SNDITEM*                          CreateItem                  (XDWORD frecuency, XDWORD duration = 500);  
+    SNDITEM*                          CreateItem                  (XDWORD frecuency, XDWORD duration);  
 
     XVECTOR<SNDITEM*>*                GetItems                    ();
-    bool                              DeleteAllItems              ();
-    
+        
     bool                              Sound_IsAnyPlaying          ();
     bool                              Sound_IsAnyActive           ();
                 

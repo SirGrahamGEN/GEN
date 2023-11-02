@@ -87,38 +87,6 @@ SNDPLAYCFG::~SNDPLAYCFG()
   Clean();
 }
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDPLAYCFG::GetInLoop()
-* @brief      GetInLoop
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDPLAYCFG::GetInLoop()
-{
-  return inloop;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void SNDPLAYCFG::SetInLoop(bool inloop)
-* @brief      SetInLoop
-* @ingroup    SOUND
-* 
-* @param[in]  inloop : 
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void SNDPLAYCFG::SetInLoop(bool inloop)
-{
-  this->inloop = inloop;
-}
-
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -197,7 +165,6 @@ void SNDPLAYCFG::SetPitch(float pitch)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDPLAYCFG::CopyTo(SNDPLAYCFG& playCFG)
 {
-  playCFG.inloop  = inloop;
   playCFG.volume  = volume;
   playCFG.pitch   = pitch;
 
@@ -218,7 +185,6 @@ bool SNDPLAYCFG::CopyTo(SNDPLAYCFG& playCFG)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDPLAYCFG::CopyFrom(SNDPLAYCFG& playCFG)
 {
-  inloop  = playCFG.inloop;
   volume  = playCFG.volume;
   pitch   = playCFG.pitch;
 
@@ -238,7 +204,6 @@ bool SNDPLAYCFG::CopyFrom(SNDPLAYCFG& playCFG)
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDPLAYCFG::Clean()
 {
-  inloop    = false;
   volume    = 0.0f;
   pitch     = 0.0f;
 }

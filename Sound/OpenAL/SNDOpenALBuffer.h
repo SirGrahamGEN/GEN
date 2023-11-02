@@ -65,6 +65,7 @@ class SNDOPENALBUFFER
     XBUFFER*        GetXBuffer                  ();
 
     bool            GenerateNote                (XDWORD frequency, XDWORD duration);
+    XDWORD          GenerateNote                (XDWORD frequency, XDWORD duration, XDWORD samplerate);
 
     bool            Assign                      (XWORD channels, size_t size, XDWORD samplerate);
 
