@@ -42,9 +42,9 @@
 
 #define VERSION_NAME         "GEN FrameWork"
 #define VERSION_VERSION      0
-#define VERSION_SUBVERSION   16
+#define VERSION_SUBVERSION   17
 #define VERSION_SUBERROR     0
-#define VERSION_CODENAME     "Dayan 4"
+#define VERSION_CODENAME     "Brillante J2"
 
 #pragma endregion
 
