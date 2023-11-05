@@ -138,7 +138,7 @@ if(COMPILE_WITH_GCC)
 
   if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 5)
 
-    message(STATUS "[Google Test 1.10.0]")
+    message(STATUS "[GEN use Google Test 1.10.0]")
     set(GEN_DIRECTORY_THIRDPARTYLIBRARIES_GOOGLETEST           "${GEN_DIRECTORY_THIRDPARTYLIBRARIES}/GoogleTest_1.10.0/googletest")
     
   endif()
