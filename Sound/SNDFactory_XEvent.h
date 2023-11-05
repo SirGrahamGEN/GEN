@@ -43,9 +43,12 @@
 
 enum SNDFACTORY_XEVENT_TYPE
 {
-  SNDFACTORY_XEVENT_TYPE_UNKNOWN          = XEVENT_TYPE_SOUND ,
-  SNDFACTORY_XEVENT_TYPE_STOP                                 ,
-  SNDFACTORY_XEVENT_TYPE_PLAY                                 ,  
+  SNDFACTORY_XEVENT_TYPE_UNKNOWN                = XEVENT_TYPE_SOUND ,
+  SNDFACTORY_XEVENT_TYPE_SOUND_INI                                  ,  
+  SNDFACTORY_XEVENT_TYPE_SOUND_PLAY                                 ,
+  SNDFACTORY_XEVENT_TYPE_SOUND_PAUSE                                ,
+  SNDFACTORY_XEVENT_TYPE_SOUND_STOP                                 ,  
+  SNDFACTORY_XEVENT_TYPE_SOUND_END                                  ,
 };
 
 #pragma endregion
@@ -54,6 +57,7 @@ enum SNDFACTORY_XEVENT_TYPE
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+class SNDITEM;
 
 class SNDFACTORY_XEVENT : public XEVENT
 {
@@ -61,16 +65,14 @@ class SNDFACTORY_XEVENT : public XEVENT
                                 SNDFACTORY_XEVENT       (XSUBJECT* subject, XDWORD type = SNDFACTORY_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_SOUND);
     virtual                    ~SNDFACTORY_XEVENT       ();
 
-    SNDFACTORY_XEVENT_TYPE      GetType                 ();
-    void                        SetType                 (SNDFACTORY_XEVENT_TYPE type);
-              
-  protected:
-
-    SNDFACTORY_XEVENT_TYPE      type;
-    
+    SNDITEM*                    GetItem                 ();
+    void                        SetItem                 (SNDITEM* item);
+                  
   private:
 
-    void                        Clean                   ();                              
+    void                        Clean                   ();           
+
+    SNDITEM*                    item;                   
 };
 
 #pragma endregion

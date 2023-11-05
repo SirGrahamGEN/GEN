@@ -88,36 +88,35 @@ SNDFACTORY_XEVENT::~SNDFACTORY_XEVENT()
   Clean();
 }
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDFACTORY_XEVENT_TYPE SNDFACTORY_XEVENT::GetType()
-* @brief      GetType
+* @fn         SNDITEM* SNDFACTORY_XEVENT::GetItem()
+* @brief      GetItem
 * @ingroup    SOUND
 * 
-* @return     SNDFACTORY_XEVENT_TYPE : 
+* @return     SNDITEM* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SNDFACTORY_XEVENT_TYPE SNDFACTORY_XEVENT::GetType()
-{ 
-  return type;                   
+SNDITEM* SNDFACTORY_XEVENT::GetItem()
+{
+  return item;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDFACTORY_XEVENT::SetType(SNDFACTORY_XEVENT_TYPE type)
-* @brief      SetType
+* @fn         void SNDFACTORY_XEVENT::SetItem(SNDITEM* item)
+* @brief      SetItem
 * @ingroup    SOUND
 * 
-* @param[in]  type : 
+* @param[in]  item : 
 * 
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDFACTORY_XEVENT::SetType(SNDFACTORY_XEVENT_TYPE type)
-{ 
-  this->type = type;                   
+void SNDFACTORY_XEVENT::SetItem(SNDITEM* item)
+{
+  this->item = item;
 }
 
 
@@ -133,7 +132,7 @@ void SNDFACTORY_XEVENT::SetType(SNDFACTORY_XEVENT_TYPE type)
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDFACTORY_XEVENT::Clean()
 {
-  type       = SNDFACTORY_XEVENT_TYPE_UNKNOWN;
+  item   = NULL;
 }
 
 

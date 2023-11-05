@@ -250,26 +250,32 @@ void SNDOPENALSOURCE::SetInLoop(bool inloop)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         float SNDOPENALSOURCE::GetVolume()
+* @fn         int SNDOPENALSOURCE::GetVolume()
 * @brief      GetVolume
 * @ingroup    SOUND
 * 
-* @return     float : 
+* @return     int : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-float SNDOPENALSOURCE::GetVolume()
+int SNDOPENALSOURCE::GetVolume()
 {  
-  float volume;
+  float fvolume = 0.0f;
+  int   rvolume = 0;
+  int   volume  = 0;
 
-  alGetSourcef(source, AL_GAIN, &volume);
+  alGetSourcef(source, AL_GAIN, &fvolume);
 
-  return volume / GEN_SNDFACTORY.Volume_Get();  
+  volume = (int)(fvolume * 100);
+
+  rvolume = (volume * GEN_SNDFACTORY.MasterVolume_Get())/100;
+
+  return rvolume;  
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALSOURCE::SetVolume(float volume)
+* @fn         void SNDOPENALSOURCE::SetVolume(int volume)
 * @brief      SetVolume
 * @ingroup    SOUND
 * 
@@ -278,9 +284,14 @@ float SNDOPENALSOURCE::GetVolume()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDOPENALSOURCE::SetVolume(float volume)
+bool SNDOPENALSOURCE::SetVolume(int volume)
 {  
-  alSourcef(source, AL_GAIN, volume * GEN_SNDFACTORY.Volume_Get()); 
+  int   rvolume = (volume * GEN_SNDFACTORY.MasterVolume_Get())/100;
+  float fvolume = (rvolume /100.0f);
+
+  alSourcef(source, AL_GAIN, fvolume); 
+
+  return true;
 }
 
 

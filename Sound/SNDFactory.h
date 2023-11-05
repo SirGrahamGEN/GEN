@@ -42,6 +42,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+#define SNDFACTORY_UNDEFINED              -1
 #define SNDFACTORY_MAXTIMEOUT_INFINITE     0
 #define SNDFACTORY_INLOOP                 -1
 
@@ -70,19 +71,23 @@ class SNDFACTORY : public XSUBJECT
     virtual bool                      Ini                         ();    
     virtual bool  		    						Update										  ();    
     virtual bool                      End                         ();         
-        
-    virtual float                     Volume_Get                  ();
-    virtual bool                      Volume_Set                  (float volume);    
-
+  
     virtual bool                      Sound_Play                  (SNDITEM* item, SNDPLAYCFG* playCFG = NULL, int ntimestoplay = 1);
     virtual bool                      Sound_Pause                 (SNDITEM* item);    
-    virtual bool                      Sound_Stop                  (SNDITEM* item);
+    virtual bool                      Sound_Stop                  (SNDITEM* item);   
     virtual bool                      Sound_StopAll               ();  
     virtual bool                      Sound_WaitToEnd             (SNDITEM* item, int maxtimeout = SNDFACTORY_MAXTIMEOUT_INFINITE, SNDFACTORY_WAITFUNCTION waitfunction = NULL);  
     virtual bool                      Sound_WaitAllToEnd          (int maxtimeout = SNDFACTORY_MAXTIMEOUT_INFINITE, SNDFACTORY_WAITFUNCTION waitfunction = NULL); 
+    virtual int                       Sound_GetVolume             (SNDITEM* item);
+    virtual bool                      Sound_SetVolume             (SNDITEM* item, int volume);   
+    virtual float                     Sound_GetPitch              (SNDITEM* item);
+    virtual bool                      Sound_SetPitch              (SNDITEM* item, float pitch);   
 
     virtual bool                      DeleteAllItems              (); 
- 
+        
+    int                               MasterVolume_Get            ();
+    bool                              MasterVolume_Set            (int volume);   
+
     SNDITEM*                          CreateItem                  (XCHAR* path);  
     SNDITEM*                          CreateItem                  (XPATH& xpath);     
     SNDITEM*                          CreateItem                  (XDWORD frecuency, XDWORD duration);  
@@ -97,6 +102,8 @@ class SNDFACTORY : public XSUBJECT
     void                              Clean                       ();
 
     static SNDFACTORY*                instance;
+    int                               mastervolume;
+
     XVECTOR<SNDITEM*>                 sounditems;
 };
 

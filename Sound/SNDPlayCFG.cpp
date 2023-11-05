@@ -39,6 +39,8 @@
 
 #include "SNDPlayCFG.h"
 
+#include "SNDFactory.h"
+
 #include "XMemory_Control.h"
 
 #pragma endregion
@@ -67,8 +69,8 @@ SNDPLAYCFG::SNDPLAYCFG()
 {
   Clean();
 
-  volume    = -1.0f;
-  pitch     = -1.0f;
+  volume    = SNDFACTORY_UNDEFINED;
+  pitch     = SNDFACTORY_UNDEFINED;
 }
 
 
@@ -87,17 +89,18 @@ SNDPLAYCFG::~SNDPLAYCFG()
   Clean();
 }
 
-    
+   
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         float SNDPLAYCFG::GetVolume()
+* @fn         int SNDPLAYCFG::GetVolume()
 * @brief      GetVolume
 * @ingroup    SOUND
 * 
-* @return     float : 
+* @return     int : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-float SNDPLAYCFG::GetVolume()
+int SNDPLAYCFG::GetVolume()
 {
   return volume;
 }
@@ -105,7 +108,7 @@ float SNDPLAYCFG::GetVolume()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDPLAYCFG::SetVolume(float volume)
+* @fn         void SNDPLAYCFG::SetVolume(int volume)
 * @brief      SetVolume
 * @ingroup    SOUND
 * 
@@ -114,7 +117,7 @@ float SNDPLAYCFG::GetVolume()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SNDPLAYCFG::SetVolume(float volume)
+void SNDPLAYCFG::SetVolume(int volume)
 {
   this->volume = volume;
 }
@@ -204,8 +207,8 @@ bool SNDPLAYCFG::CopyFrom(SNDPLAYCFG& playCFG)
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDPLAYCFG::Clean()
 {
-  volume    = 0.0f;
-  pitch     = 0.0f;
+  volume    = 0;
+  pitch     = 0;
 }
 
 

@@ -71,7 +71,7 @@ class SNDFILE
     XWORD                           GetChannels                           ();
     XDWORD                          GetNSamples                           ();
     XDWORD                          GetSampleRate                         ();    
-    float                           GetDuration                           ();
+    XDWORD                          GetDuration                           ();
 
     virtual bool                    LoadFile                              ();
     
@@ -84,7 +84,7 @@ class SNDFILE
     XWORD                           channels;
     XDWORD                          nsamples;
     XDWORD                          samplerate;
-    float                           duration;   
+    XDWORD                          duration;   
 
     XBUFFER*                        xbuffer;
     XBUFFER*                        xbufferdecodeddata;    

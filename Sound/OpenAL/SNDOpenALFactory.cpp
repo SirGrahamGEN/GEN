@@ -43,6 +43,7 @@
 #include "XSleep.h"
 #include "XTimer.h"
 
+#include "SNDFactory_XEvent.h"
 #include "SNDOpenALSource.h"
 #include "SNDItem.h"
 #include "SNDPlayCFG.h"
@@ -176,15 +177,186 @@ bool SNDOPENALFACTORY::Update()
       SNDOPENALPLAYITEM* playitem = soundplayitems.Get(c);
       if(playitem)
         {
-          SNDITEM* item = playitem->GetItem();          
-          if(item)
+          SNDITEM*         item   = playitem->GetItem();  
+          SNDOPENALSOURCE* source = playitem->GetSource();        
+          if(item && source)            
             {  
+              SNDNOTE* soundnote = NULL;
+              SNDFILE* soundfile = NULL;
+
               switch(item->GetType())
                 {
                   case SNDITEM_TYPE_UNKNOWN : break;
-                  case SNDITEM_TYPE_NOTE    : Update_Note(playitem); break;
-                  case SNDITEM_TYPE_FILE    : Update_File(playitem); break;              
+
+                  case SNDITEM_TYPE_NOTE    : soundnote = playitem->GetItem()->GetSoundNote();
+                                              break;
+
+                  case SNDITEM_TYPE_FILE    : soundfile = playitem->GetItem()->GetSoundFile();
+                                              break;              
                 }
+              
+              if(!soundnote && !soundfile)
+                {
+                  continue;
+                }
+
+              if(playitem->GetEvent() == SNDOPENALPLAYITEM_XFSMEVENT_NONE) // Not new event
+                {
+                  switch(playitem->GetCurrentState())
+                    {
+                      case SNDOPENALPLAYITEM_XFSMSTATE_NONE         : break;
+                      case SNDOPENALPLAYITEM_XFSMSTATE_INI          : break;
+
+                      case SNDOPENALPLAYITEM_XFSMSTATE_PLAY         : { XQWORD  millisecond = item->GetTimerPlay()->GetMeasureMilliSeconds();
+                                                                        bool    outoftime   = false;                                                                       
+
+                                                                        item->SetPlayingTime((XDWORD)item->GetPlayingTime() + (XDWORD)millisecond);
+                                                                        item->SetCurrentPlayingTime((XDWORD)item->GetCurrentPlayingTime() + (XDWORD)millisecond);
+
+                                                                        item->GetTimerPlay()->Reset();
+
+                                                                        if(item->GetNTimesToPlay() == SNDFACTORY_INLOOP)
+                                                                          {
+                                                                            if(!source->IsPLaying())
+                                                                              {
+                                                                                outoftime = true;  
+                                                                              }
+                                                                          }
+                                                                          else     
+                                                                          { 
+                                                                            if(item->GetCurrentPlayingTime() >= (item->GetDuration()))
+                                                                              {
+                                                                                outoftime = true;    
+                                                                              }
+                                                                          }                                                             
+
+                                                                        if(outoftime)
+                                                                          {
+                                                                            item->SetCurrentPlayingTime(0);  
+                                                                          
+                                                                            if(!item->GetCounterPlay())
+                                                                              {
+                                                                                playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_STOP); 
+                                                                                item->AddOneNTimesPlayed();  
+                                                                              }
+                                                                              else
+                                                                              {
+                                                                                item->SetCounterPlay(item->GetCounterPlay()-1);
+
+                                                                                item->GetTimerPlay()->Reset();
+
+                                                                                source->ResetPlay();
+                                                                                source->Play();
+                                                                              }                                                              
+                                                                          }
+                                                                      }
+                                                                      break;
+
+                      case SNDOPENALPLAYITEM_XFSMSTATE_PAUSE        : break;
+
+                      case SNDOPENALPLAYITEM_XFSMSTATE_STOP         : break;
+
+                      case SNDOPENALPLAYITEM_XFSMSTATE_END          : break;
+                    }
+                }
+               else //  New event
+                {
+                  if(playitem->GetEvent() < SNDOPENALPLAYITEM_LASTEVENT)
+                    {
+                      playitem->CheckTransition();
+
+                      switch(playitem->GetCurrentState())
+                        {
+                          case SNDOPENALPLAYITEM_XFSMSTATE_NONE     : break;
+
+                          case SNDOPENALPLAYITEM_XFSMSTATE_INI      : {  switch(item->GetType())
+                                                                          {
+                                                                            case SNDITEM_TYPE_UNKNOWN : break;
+
+                                                                            case SNDITEM_TYPE_NOTE    : GenerateBuffer(playitem, soundnote);
+                                                                                                        break;
+
+                                                                            case SNDITEM_TYPE_FILE    : GenerateBuffer(playitem, soundfile);
+                                                                                                        break;              
+                                                                          }   
+
+                                                                        if(item->GetNTimesToPlay())
+                                                                          {     
+                                                                            item->SetCounterPlay(item->GetNTimesToPlay()-1);                                                                
+                                                                            playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_PLAY);                                                              
+                                                                          }
+
+                                                                        SNDFACTORY_XEVENT xevent(this, SNDFACTORY_XEVENT_TYPE_SOUND_INI);      
+                                                                        xevent.SetItem(item);
+                                                                        PostEvent(&xevent); 
+                                                                      }
+                                                                      break;
+
+                          case SNDOPENALPLAYITEM_XFSMSTATE_PLAY     : { item->GetTimerPlay()->Reset();
+                                                                        source->Play();
+                                                                        item->SetStatus(SNDITEM_STATUS_PLAY);
+
+                                                                        SNDFACTORY_XEVENT xevent(this, SNDFACTORY_XEVENT_TYPE_SOUND_PLAY);      
+                                                                        xevent.SetItem(item);
+                                                                        PostEvent(&xevent); 
+                                                                      }
+                                                                      break;
+
+                          case SNDOPENALPLAYITEM_XFSMSTATE_PAUSE    : { source->Pause();
+                                                                        item->SetStatus(SNDITEM_STATUS_PAUSE);
+                                                                        
+                                                                        SNDFACTORY_XEVENT xevent(this, SNDFACTORY_XEVENT_TYPE_SOUND_PAUSE);      
+                                                                        xevent.SetItem(item);
+                                                                        PostEvent(&xevent); 
+                                                                      }
+                                                                      break;
+
+                          case SNDOPENALPLAYITEM_XFSMSTATE_STOP     : { source->Stop(); 
+
+                                                                        item->SetStatus(SNDITEM_STATUS_STOP);
+
+                                                                        if(item->GetNTimesToPlay() == SNDFACTORY_INLOOP)
+                                                                          {
+                                                                            playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_END);                                                        
+                                                                          }
+                                                                          else
+                                                                          {     
+                                                                            if(!item->GetCounterPlay())
+                                                                              {
+                                                                                playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_END);  
+                                                                              }
+                                                                          }
+
+                                                                        SNDFACTORY_XEVENT xevent(this, SNDFACTORY_XEVENT_TYPE_SOUND_STOP);      
+                                                                        xevent.SetItem(item);
+                                                                        PostEvent(&xevent); 
+
+                                                                      }
+                                                                      break;
+
+                            case SNDOPENALPLAYITEM_XFSMSTATE_END    : { if(playmutex)
+                                                                          {
+                                                                            playmutex->Lock();
+                                                                          } 
+                                                          
+                                                                        soundplayitems.Delete(playitem);
+                                                                        delete playitem;
+
+                                                                        if(playmutex)
+                                                                          {
+                                                                            playmutex->UnLock();
+                                                                          }
+
+                                                                        item->SetStatus(SNDITEM_STATUS_END);
+
+                                                                        SNDFACTORY_XEVENT xevent(this, SNDFACTORY_XEVENT_TYPE_SOUND_END);      
+                                                                        xevent.SetItem(item);
+                                                                        PostEvent(&xevent); 
+                                                                      }
+                                                                      break;
+                        }
+                    }
+                }              
             }
         }
     }
@@ -248,38 +420,6 @@ bool SNDOPENALFACTORY::End()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         float SNDOPENALFACTORY::Volume_Get()
-* @brief      Volume_Get
-* @ingroup    SOUND
-* 
-* @return     float : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-float SNDOPENALFACTORY::Volume_Get()
-{ 
-  return 0;                
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDOPENALFACTORY::Volume_Set(float mastervolume)
-* @brief      Volume_Set
-* @ingroup    SOUND
-* 
-* @param[in]  mastervolume : 
-* s
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDOPENALFACTORY::Volume_Set(float mastervolume)
-{    
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         bool SNDOPENALFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimestoplay)
 * @brief      Sound_Play
 * @ingroup    SOUND
@@ -324,12 +464,12 @@ bool SNDOPENALFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimes
       return false;
     }  
 
-  if(!item->GetPlayCFG()->GetVolume())
+  if(item->GetPlayCFG()->GetVolume() != SNDFACTORY_UNDEFINED)
     {
       source->SetVolume(item->GetPlayCFG()->GetVolume());
     }
 
-  if(!item->GetPlayCFG()->GetPitch())
+  if(item->GetPlayCFG()->GetPitch() != SNDFACTORY_UNDEFINED)
     {
       source->SetPitch(item->GetPlayCFG()->GetPitch());
     }
@@ -450,7 +590,7 @@ bool SNDOPENALFACTORY::Sound_Stop(SNDITEM* item)
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Sound_StopAll()
-{  
+{   
   for(XDWORD c=0; c<soundplayitems.GetSize(); c++)
     {
       SNDOPENALPLAYITEM* playitem = soundplayitems.Get(c);
@@ -604,6 +744,117 @@ bool SNDOPENALFACTORY::Sound_WaitAllToEnd(int maxtimeout, SNDFACTORY_WAITFUNCTIO
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         int SNDOPENALFACTORY::Sound_GetVolume(SNDITEM* item)
+* @brief      Sound_GetVolume
+* @ingroup    SOUND
+* 
+* @param[in]  item : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int SNDOPENALFACTORY::Sound_GetVolume(SNDITEM* item)
+{
+  SNDOPENALPLAYITEM* playitem =  GetPlayItemFromItem(item);
+  if(playitem)
+    {
+      SNDOPENALSOURCE* source = playitem->GetSource();
+      if(source)
+        {
+          return source->GetVolume();
+        }    
+    }
+
+  return SNDFACTORY_UNDEFINED;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDOPENALFACTORY::Sound_SetVolume(SNDITEM* item, int volume)
+* @brief      Sound_SetVolume
+* @ingroup    SOUND
+* 
+* @param[in]  item : 
+* @param[in]  volume : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDOPENALFACTORY::Sound_SetVolume(SNDITEM* item, int volume)
+{
+  SNDOPENALPLAYITEM* playitem =  GetPlayItemFromItem(item);
+  if(playitem)
+    {
+      SNDOPENALSOURCE* source = playitem->GetSource();
+      if(source)
+        {
+          return source->SetVolume(volume);
+        }    
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float SNDOPENALFACTORY::Sound_GetPitch(SNDITEM* item)
+* @brief      Sound_GetPitch
+* @ingroup    SOUND
+* 
+* @param[in]  item : 
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float SNDOPENALFACTORY::Sound_GetPitch(SNDITEM* item)
+{
+  SNDOPENALPLAYITEM* playitem =  GetPlayItemFromItem(item);
+  if(playitem)
+    {
+      SNDOPENALSOURCE* source = playitem->GetSource();
+      if(source)
+        {
+          return source->GetPitch();
+        }    
+    }
+
+  return SNDFACTORY_UNDEFINED;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDOPENALFACTORY::Sound_SetPitch(SNDITEM* item, float pitch)
+* @brief      Sound_SetPitch
+* @ingroup    SOUND
+* 
+* @param[in]  item : 
+* @param[in]  pitch : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDOPENALFACTORY::Sound_SetPitch(SNDITEM* item, float pitch)
+{
+  SNDOPENALPLAYITEM* playitem =  GetPlayItemFromItem(item);
+  if(playitem)
+    {
+      SNDOPENALSOURCE* source = playitem->GetSource();
+      if(source)
+        {
+          source->SetPitch(pitch);
+          return true;
+        }    
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool SNDOPENALFACTORY::DeleteAllItems()
 * @brief      DeleteAllItems
 * @ingroup    SOUND
@@ -654,333 +905,106 @@ XVECTOR<SNDOPENALPLAYITEM*>* SNDOPENALFACTORY::GetSoundPlayItems()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDOPENALFACTORY::Update_Note(SNDOPENALPLAYITEM* playitem)
-* @brief      Update_Note
+* @fn         SNDOPENALPLAYITEM* SNDOPENALFACTORY::GetPlayItemFromItem(SNDITEM* item)
+* @brief      GetPlayItemFromItem
+* @ingroup    SOUND
+* 
+* @param[in]  item : 
+* 
+* @return     SNDOPENALPLAYITEM* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDOPENALPLAYITEM* SNDOPENALFACTORY::GetPlayItemFromItem(SNDITEM* item)
+{ 
+  for(XDWORD c=0; c<soundplayitems.GetSize(); c++)
+    {
+      SNDOPENALPLAYITEM* playitem = soundplayitems.Get(c);
+      if(playitem)
+        {
+          SNDITEM* _item = playitem->GetItem();          
+          if(item == _item)
+            {  
+              return playitem;
+            }
+        }
+    }
+
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDNOTE* soundnote)
+* @brief      GenerateBuffer
 * @ingroup    SOUND
 * 
 * @param[in]  playitem : 
+* @param[in]  soundnote : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDOPENALFACTORY::Update_Note(SNDOPENALPLAYITEM* playitem)
+bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDNOTE* soundnote)
 {
-  if(!playitem)
-    {
-      return false; 
-    }
-
-  SNDITEM*         item   = playitem->GetItem();
-  SNDOPENALSOURCE* source = playitem->GetSource();
-
-  if(!item || !source)
+  if(!playitem || !soundnote)
     {
       return false;
     }
 
-  SNDNOTE* soundnote = item->GetSoundNote();
-  if(!soundnote)
+  XDWORD           samplerate = 10000;
+  XDWORD           size       = 0;
+  SNDOPENALSOURCE* source     = playitem->GetSource();
+
+  if(!source)
     {
       return false;
-    }
+    }  
 
-  if(playitem->GetEvent() == SNDOPENALPLAYITEM_XFSMEVENT_NONE) // Not new event
-    {
-      switch(playitem->GetCurrentState())
-        {
-          case SNDOPENALPLAYITEM_XFSMSTATE_NONE         : break;
-          case SNDOPENALPLAYITEM_XFSMSTATE_INI          : break;
+  source->GetBuffer()->GetXBuffer()->Empty();
 
-          case SNDOPENALPLAYITEM_XFSMSTATE_PLAY         : { XQWORD  millisecond = item->GetTimerPlay()->GetMeasureMilliSeconds();
-                                                            bool    outoftime   = false;                                                                       
-
-                                                            item->SetPlayingTime((XDWORD)item->GetPlayingTime() + (XDWORD)millisecond);
-
-                                                            item->GetTimerPlay()->Reset();
-
-                                                            if(item->GetNTimesToPlay() == SNDFACTORY_INLOOP)
-                                                              {
-                                                                if(!source->IsPLaying())
-                                                                  {
-                                                                    outoftime = true;  
-                                                                  }
-                                                              }
-                                                             else     
-                                                              { 
-                                                                if(item->GetPlayingTime() >= (soundnote->GetDuration()))
-                                                                  {
-                                                                    outoftime = true;    
-                                                                  }
-                                                              }                                                             
-
-                                                            if(outoftime)
-                                                              {
-                                                                if(!item->GetCounterPlay())
-                                                                  {
-                                                                    playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_STOP); 
-                                                                    item->AddOneNTimesPlayed();  
-                                                                  }
-                                                                 else
-                                                                  {
-                                                                    item->SetCounterPlay(item->GetCounterPlay()-1);
-
-                                                                    item->GetTimerPlay()->Reset();
-
-                                                                    source->ResetPlay();
-                                                                    source->Play();
-                                                                  }                                                              
-                                                              }
-                                                          }
-                                                          break;
-
-          case SNDOPENALPLAYITEM_XFSMSTATE_PAUSE        : break;
-
-          case SNDOPENALPLAYITEM_XFSMSTATE_STOP         : break;
-
-          case SNDOPENALPLAYITEM_XFSMSTATE_END          : break;
-        }
-    }
-   else //  New event
-    {
-      if(playitem->GetEvent() < SNDOPENALPLAYITEM_LASTEVENT)
-        {
-          playitem->CheckTransition();
-
-          switch(playitem->GetCurrentState())
-            {
-              case SNDOPENALPLAYITEM_XFSMSTATE_NONE     : break;
-
-              case SNDOPENALPLAYITEM_XFSMSTATE_INI      : { XDWORD samplerate = 10000;
-                                                            XDWORD size       = 0;
-
-                                                            source->GetBuffer()->GetXBuffer()->Empty();
-
-                                                            size += source->GetBuffer()->GenerateNote(soundnote->GetFrequency(), soundnote->GetDuration()*2, samplerate);
-                                                            size += source->GetBuffer()->GenerateNote(soundnote->GetFrequency(), 2000, samplerate);
+  size += source->GetBuffer()->GenerateNote(soundnote->GetFrequency(), soundnote->GetDuration()*2, samplerate);
+  size += source->GetBuffer()->GenerateNote(soundnote->GetFrequency(), 2000, samplerate);
                                                             
-                                                            source->GetBuffer()->Assign(1, size, samplerate);
+  source->GetBuffer()->Assign(1, size, samplerate);
 
-                                                            if(item->GetNTimesToPlay())
-                                                              {     
-                                                                item->SetCounterPlay(0);                                                                
-                                                                playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_PLAY);                                                              
-                                                              }
-                                                          }
-                                                          break;
-
-              case SNDOPENALPLAYITEM_XFSMSTATE_PLAY     : item->GetTimerPlay()->Reset();
-                                                          source->Play();
-                                                          item->SetStatus(SNDITEM_STATUS_PLAY);
-                                                          break;
-
-              case SNDOPENALPLAYITEM_XFSMSTATE_PAUSE    : source->Pause();
-                                                          item->SetStatus(SNDITEM_STATUS_PAUSE);
-                                                          break;
-
-              case SNDOPENALPLAYITEM_XFSMSTATE_STOP     : source->Stop(); 
-
-                                                          item->SetStatus(SNDITEM_STATUS_STOP);
-
-                                                          if(item->GetNTimesToPlay() == SNDFACTORY_INLOOP)
-                                                            {
-                                                              playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_END);                                                        
-                                                            }
-                                                           else
-                                                            {     
-                                                              if(!item->GetCounterPlay())
-                                                                {
-                                                                  playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_END);  
-                                                                }
-                                                            }
-                                                          break;
-
-              case SNDOPENALPLAYITEM_XFSMSTATE_END      : if(playmutex)
-                                                            {
-                                                              playmutex->Lock();
-                                                            } 
-                                                          
-                                                          soundplayitems.Delete(playitem);
-                                                          delete playitem;
-
-                                                          if(playmutex)
-                                                            {
-                                                              playmutex->Lock();
-                                                            }
-
-                                                          item->SetStatus(SNDITEM_STATUS_END);
-                                                          break;
-            }
-        }
-    }
-  
   return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDOPENALFACTORY::Update_File(SNDOPENALPLAYITEM* playitem)
-* @brief      Update_File
+* @fn         bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDFILE* soundfile)
+* @brief      GenerateBuffer
 * @ingroup    SOUND
 * 
 * @param[in]  playitem : 
+* @param[in]  soundfile : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SNDOPENALFACTORY::Update_File(SNDOPENALPLAYITEM* playitem)
+bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDFILE* soundfile)
 {
- if(!playitem)
-    {
-      return false; 
-    }
-
-  SNDITEM*         item   = playitem->GetItem();
-  SNDOPENALSOURCE* source = playitem->GetSource();
-
-  if(!item || !source)
+  if(!playitem || !soundfile)
     {
       return false;
     }
 
-  SNDFILE* soundfile = item->GetSoundFile();
-  if(!soundfile)
+  XDWORD           size       = 0;
+  SNDOPENALSOURCE* source     = playitem->GetSource();
+
+  if(!soundfile->LoadFile())
     {
       return false;
     }
 
-  if(playitem->GetEvent() == SNDOPENALPLAYITEM_XFSMEVENT_NONE) // Not new event
-    {
-      switch(playitem->GetCurrentState())
-        {
-          case SNDOPENALPLAYITEM_XFSMSTATE_NONE         : break;
-          case SNDOPENALPLAYITEM_XFSMSTATE_INI          : break;
+  source->GetBuffer()->GetXBuffer()->Add(soundfile->GetData());
 
-          case SNDOPENALPLAYITEM_XFSMSTATE_PLAY         : { XQWORD  millisecond = item->GetTimerPlay()->GetMeasureMilliSeconds();
-                                                            bool    outoftime   = false;                                                                       
+  source->GetBuffer()->Assign(soundfile->GetChannels(), soundfile->GetData()->GetSize(), soundfile->GetSampleRate());
 
-                                                            item->SetPlayingTime((XDWORD)item->GetPlayingTime() + (XDWORD)millisecond);
-
-                                                            item->GetTimerPlay()->Reset();
-
-                                                            if(item->GetNTimesToPlay() == SNDFACTORY_INLOOP)
-                                                              {
-                                                                if(!source->IsPLaying())
-                                                                  {
-                                                                    outoftime = true;  
-                                                                  }
-                                                              }
-                                                             else     
-                                                              { 
-                                                                if(item->GetPlayingTime() >= (soundfile->GetDuration()))
-                                                                  {
-                                                                    outoftime = true;    
-                                                                  }
-                                                              }                                                             
-
-                                                            if(outoftime)
-                                                              {
-                                                                if(!item->GetCounterPlay())
-                                                                  {
-                                                                    playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_STOP); 
-                                                                    item->AddOneNTimesPlayed();  
-                                                                  }
-                                                                 else
-                                                                  {
-                                                                    item->SetCounterPlay(item->GetCounterPlay()-1);
-
-                                                                    item->GetTimerPlay()->Reset();
-
-                                                                    source->ResetPlay();
-                                                                    source->Play();
-                                                                  }                                                              
-                                                              }
-                                                          }
-                                                          break;
-
-          case SNDOPENALPLAYITEM_XFSMSTATE_PAUSE        : break;
-
-          case SNDOPENALPLAYITEM_XFSMSTATE_STOP         : break;
-
-          case SNDOPENALPLAYITEM_XFSMSTATE_END          : break;
-        }
-    }
-   else //  New event
-    {
-      if(playitem->GetEvent() < SNDOPENALPLAYITEM_LASTEVENT)
-        {
-          playitem->CheckTransition();
-
-          switch(playitem->GetCurrentState())
-            {
-              case SNDOPENALPLAYITEM_XFSMSTATE_NONE     : break;
-
-              case SNDOPENALPLAYITEM_XFSMSTATE_INI      : { XDWORD samplerate = 10000;
-                                                            XDWORD size       = 0;
-
-                                                            source->GetBuffer()->GetXBuffer()->Empty();
-
-                                                            //size += source->GetBuffer()->GenerateNote(soundnote->GetFrequency(), soundnote->GetDuration()*2, samplerate);
-                                                            //size += source->GetBuffer()->GenerateNote(soundnote->GetFrequency(), 2000, samplerate);
-                                                            
-                                                            source->GetBuffer()->Assign(1, size, samplerate);
-
-                                                            if(item->GetNTimesToPlay())
-                                                              {     
-                                                                item->SetCounterPlay(0);                                                                
-                                                                playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_PLAY);                                                              
-                                                              }
-                                                          }
-                                                          break;
-
-              case SNDOPENALPLAYITEM_XFSMSTATE_PLAY     : item->GetTimerPlay()->Reset();
-                                                          source->Play();
-                                                          item->SetStatus(SNDITEM_STATUS_PLAY);
-                                                          break;
-
-              case SNDOPENALPLAYITEM_XFSMSTATE_PAUSE    : source->Pause();
-                                                          item->SetStatus(SNDITEM_STATUS_PAUSE);
-                                                          break;
-
-              case SNDOPENALPLAYITEM_XFSMSTATE_STOP     : source->Stop(); 
-
-                                                          item->SetStatus(SNDITEM_STATUS_STOP);
-
-                                                          if(item->GetNTimesToPlay() == SNDFACTORY_INLOOP)
-                                                            {
-                                                              playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_END);                                                        
-                                                            }
-                                                           else
-                                                            {     
-                                                              if(!item->GetCounterPlay())
-                                                                {
-                                                                  playitem->SetEvent(SNDOPENALPLAYITEM_XFSMEVENT_END);  
-                                                                }
-                                                            }
-                                                          break;
-
-              case SNDOPENALPLAYITEM_XFSMSTATE_END      : if(playmutex)
-                                                            {
-                                                              playmutex->Lock();
-                                                            } 
-                                                          
-                                                          soundplayitems.Delete(playitem);
-                                                          delete playitem;
-
-                                                          if(playmutex)
-                                                            {
-                                                              playmutex->Lock();
-                                                            }
-
-                                                          item->SetStatus(SNDITEM_STATUS_END);
-                                                          break;
-            }
-        }
-    }
-  
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

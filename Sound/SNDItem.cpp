@@ -376,6 +376,39 @@ void SNDITEM::SetPlayingTime(XDWORD playingtime)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD SNDITEM::GetCurrentPlayingTime()
+* @brief      GetCurrentPlayingTime
+* @ingroup    SOUND
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD SNDITEM::GetCurrentPlayingTime()
+{
+  return currentplayingtime;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDITEM::SetCurrentPlayingTime(XDWORD currentplayingtime)
+* @brief      SetCurrentPlayingTime
+* @ingroup    SOUND
+* 
+* @param[in]  currentplayingtime : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDITEM::SetCurrentPlayingTime(XDWORD currentplayingtime)
+{
+  this->currentplayingtime = currentplayingtime;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XTIMER* SNDITEM::GetTimerPlay()
 * @brief      GetTimerPlay
 * @ingroup    SOUND
@@ -388,6 +421,39 @@ XTIMER* SNDITEM::GetTimerPlay()
   return timerplay;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD SNDITEM::GetDuration()
+* @brief      GetDuration
+* @ingroup    SOUND
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD SNDITEM::GetDuration()
+{
+  XDWORD duration = 0;
+
+  switch(type)
+    {
+      case SNDITEM_TYPE_UNKNOWN   : break;
+
+      case SNDITEM_TYPE_NOTE      : if(soundnote)
+                                      {
+                                        duration = soundnote->GetDuration();
+                                      }
+                                    break;
+
+      case SNDITEM_TYPE_FILE      : if(soundfile)
+                                      {
+                                        duration = soundfile->GetDuration();
+                                      }
+                                    break;
+    }
+
+  return duration;
+}
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 

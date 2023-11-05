@@ -96,9 +96,14 @@ class SNDITEM
     void                      SetCounterPlay          (int counterplay);
 
     XDWORD                    GetPlayingTime          ();        
-    void                      SetPlayingTime          (XDWORD playingtime);       
+    void                      SetPlayingTime          (XDWORD playingtime);   
 
-    XTIMER*                   GetTimerPlay            ();    
+    XDWORD                    GetCurrentPlayingTime   ();        
+    void                      SetCurrentPlayingTime   (XDWORD currentplayingtime);           
+
+    XTIMER*                   GetTimerPlay            ();  
+
+    XDWORD                    GetDuration             ();  
 
     SNDPLAYCFG*               GetPlayCFG              ();
     bool                      SetPlayCFG              (SNDPLAYCFG& playCFG);
@@ -126,6 +131,7 @@ class SNDITEM
     XTIMER*                   timerplay;  
 
     XDWORD                    playingtime;
+    XDWORD                    currentplayingtime;
 
     SNDFILE*                  soundfile;
     SNDNOTE*                  soundnote; 

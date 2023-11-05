@@ -39,7 +39,6 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-
 #pragma endregion
 
 
@@ -52,8 +51,8 @@ class SNDPLAYCFG
                             SNDPLAYCFG        ();
     virtual                ~SNDPLAYCFG        ();
     
-    float                   GetVolume         ();
-    void                    SetVolume         (float volume);
+    int                     GetVolume         ();
+    void                    SetVolume         (int volume);
         
     float                   GetPitch          ();
     void                    SetPitch          (float pitch); 
@@ -65,7 +64,7 @@ class SNDPLAYCFG
 
     void                    Clean             ();
 
-    float                   volume;
+    int                     volume;
     float                   pitch;
 };
 

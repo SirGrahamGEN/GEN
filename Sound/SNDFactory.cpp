@@ -39,6 +39,8 @@
 
 #include "SNDFactory.h"
 
+#include "XSystem.h"
+
 #include "SNDFactory_XEvent.h"
 #include "SNDItem.h"
 #include "SNDFile.h"
@@ -74,10 +76,15 @@ SNDFACTORY::SNDFACTORY()
 {
   Clean();
 
-  RegisterEvent(SNDFACTORY_XEVENT_TYPE_STOP);
-  RegisterEvent(SNDFACTORY_XEVENT_TYPE_PLAY);
+  RegisterEvent(SNDFACTORY_XEVENT_TYPE_SOUND_INI);
+  RegisterEvent(SNDFACTORY_XEVENT_TYPE_SOUND_PLAY);
+  RegisterEvent(SNDFACTORY_XEVENT_TYPE_SOUND_PAUSE);
+  RegisterEvent(SNDFACTORY_XEVENT_TYPE_SOUND_STOP);
+  RegisterEvent(SNDFACTORY_XEVENT_TYPE_SOUND_END);
 
   sounditems.SetIsMulti(false);
+
+  mastervolume = 100;
 }
 
 
@@ -93,10 +100,13 @@ SNDFACTORY::SNDFACTORY()
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDFACTORY::~SNDFACTORY()
 {
-  DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_STOP);
-  DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_PLAY);
+  End(); 
 
-  End();
+  DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_SOUND_INI);
+  DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_SOUND_PLAY);
+  DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_SOUND_PAUSE);
+  DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_SOUND_STOP);
+  DeRegisterEvent(SNDFACTORY_XEVENT_TYPE_SOUND_END);
 
   Clean();
 }
@@ -222,39 +232,6 @@ bool SNDFACTORY::End()
 }
 
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         float SNDFACTORY::Volume_Get()
-* @brief      Volume_Get
-* @ingroup    SOUND
-* 
-* @return     float : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-float SNDFACTORY::Volume_Get()
-{ 
-  return 0.0f;                      
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool SNDFACTORY::Volume_Set(float volume)
-* @brief      Volume_Set
-* @ingroup    SOUND
-* 
-* @param[in]  volume : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::Volume_Set(float volume)
-{                                   
-  return false;
-}
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimestoplay)
@@ -282,7 +259,13 @@ bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimestoplay
 
   item->SetNTimesToPlay(ntimestoplay);
 
-  sounditems.Add(item);
+  if(item->GetStatus() != SNDITEM_STATUS_PAUSE)   
+    {
+      item->SetPlayingTime(0);
+      item->SetCurrentPlayingTime(0);
+    }
+
+  item->SetStatus(SNDITEM_STATUS_INI);
 
   return true;
 }
@@ -376,6 +359,133 @@ bool SNDFACTORY::Sound_WaitAllToEnd(int maxtimeout, SNDFACTORY_WAITFUNCTION wait
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         int SNDFACTORY::Sound_GetVolume(SNDITEM* item)
+* @brief      Sound_GetVolume
+* @ingroup    SOUND
+* 
+* @param[in]  item : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int SNDFACTORY::Sound_GetVolume(SNDITEM* item)
+{
+  return SNDFACTORY_UNDEFINED;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDFACTORY::Sound_SetVolume(SNDITEM* item, int volume)
+* @brief      Sound_SetVolume
+* @ingroup    SOUND
+* 
+* @param[in]  item : 
+* @param[in]  volume : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDFACTORY::Sound_SetVolume(SNDITEM* item, int volume)
+{
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float SNDFACTORY::Sound_GetPitch(SNDITEM* item)
+* @brief      Sound_GetPitch
+* @ingroup    SOUND
+* 
+* @param[in]  item : 
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float SNDFACTORY::Sound_GetPitch(SNDITEM* item)
+{
+  return SNDFACTORY_UNDEFINED;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDFACTORY::Sound_SetPitch(SNDITEM* item, float pitch)
+* @brief      Sound_SetPitch
+* @ingroup    SOUND
+* 
+* @param[in]  item : 
+* @param[in]  pitch : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDFACTORY::Sound_SetPitch(SNDITEM* item, float pitch)
+{
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDFACTORY::DeleteAllItems()
+* @brief      DeleteAllItems
+* @ingroup    SOUND
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDFACTORY::DeleteAllItems()
+{
+  if(sounditems.IsEmpty())
+    {
+      return false; 
+    }
+
+  sounditems.DeleteContents();
+  sounditems.DeleteAll();
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int SNDFACTORY::MasterVolume_Get()
+* @brief      MasterVolume_Get
+* @ingroup    SOUND
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int SNDFACTORY::MasterVolume_Get()
+{ 
+  return mastervolume;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SNDFACTORY::MasterVolume_Set(int volume)
+* @brief      MasterVolume_Set
+* @ingroup    SOUND
+* 
+* @param[in]  volume : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDFACTORY::MasterVolume_Set(int volume)
+{   
+  this->mastervolume = volume;
+                                
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         SNDITEM* SNDFACTORY::CreateItem(XCHAR* path)
 * @brief      CreateItem
 * @ingroup    SOUND
@@ -400,7 +510,14 @@ SNDITEM* SNDFACTORY::CreateItem(XCHAR* path)
 
   item->SetType(SNDITEM_TYPE_FILE);
 
-  item->GetID()->Set(path);
+  XPATH     xpath;
+  XSTRING   ID;
+
+  xpath = path;
+
+  xpath.GetNamefileExt(ID);
+
+  item->GetID()->Set(ID);
   if(item->GetID()->IsEmpty())
     {
       return NULL;
@@ -413,8 +530,10 @@ SNDITEM* SNDFACTORY::CreateItem(XCHAR* path)
       return NULL;
     }
 
-  item->SetStatus(SNDITEM_STATUS_INI);
+  item->SetStatus(SNDITEM_STATUS_NONE);
   item->SetSoundFile(soundfile);
+
+  sounditems.Add(item);
   
   return item;
 }
@@ -476,8 +595,10 @@ SNDITEM* SNDFACTORY::CreateItem(XDWORD frecuency, XDWORD duration)
   note->SetFrequency(frecuency);
   note->SetDuration(duration);
 
-  item->SetStatus(SNDITEM_STATUS_INI);
+  item->SetStatus(SNDITEM_STATUS_NONE);
   item->SetSoundNote(note);
+
+  sounditems.Add(item);
   
   return item;
 }
@@ -500,29 +621,6 @@ XVECTOR<SNDITEM*>* SNDFACTORY::GetItems()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SNDFACTORY::DeleteAllItems()
-* @brief      DeleteAllItems
-* @ingroup    SOUND
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SNDFACTORY::DeleteAllItems()
-{
-  if(sounditems.IsEmpty())
-    {
-      return false; 
-    }
-
-  sounditems.DeleteContents();
-  sounditems.DeleteAll();
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         bool SNDFACTORY::Sound_IsAnyActive()
 * @brief      Sound_IsAnyActive
 * @ingroup    SOUND
@@ -539,7 +637,8 @@ bool SNDFACTORY::Sound_IsAnyActive()
       SNDITEM* item = sounditems.Get(c);
       if(item)
         {
-          if(item->GetStatus() != SNDITEM_STATUS_END)       
+          if((item->GetStatus() != SNDITEM_STATUS_END) && 
+             (item->GetStatus() != SNDITEM_STATUS_NONE))
             {
               counter++;
             }
@@ -589,7 +688,9 @@ bool SNDFACTORY::Sound_IsAnyPlaying()
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDFACTORY::Clean()
 {
-  instance = NULL;
+  instance     = NULL;
+
+  mastervolume = 0;
 }
 
 

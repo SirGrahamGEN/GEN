@@ -261,14 +261,14 @@ XDWORD SNDFILE::GetSampleRate()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         float SNDFILE::GetDuration()
+* @fn         XDWORD SNDFILE::GetDuration()
 * @brief      GetDuration
 * @ingroup    SOUND
 * 
-* @return     float : 
+* @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-float SNDFILE::GetDuration()
+XDWORD SNDFILE::GetDuration()
 { 
   return duration;            
 }
@@ -306,7 +306,7 @@ void SNDFILE::Clean()
   channels            = 0;
   nsamples            = 0;
   samplerate          = 0;
-  duration            = 0.0f;
+  duration            = 0;
   
   xbuffer             = NULL;
   xbufferdecodeddata  = NULL;

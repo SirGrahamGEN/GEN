@@ -158,7 +158,7 @@ bool SNDFILEOGG::LoadFile()
   samplerate = info.sample_rate;
   nsamples = stb_vorbis_stream_length_in_samples(stream)*channels; // this product is possibly redundant
 
-  duration = stb_vorbis_stream_length_in_seconds(stream);
+  duration = (int)(stb_vorbis_stream_length_in_seconds(stream)*1000);
 
   xbufferdecodeddata = new XBUFFER(false);
   if(!xbufferdecodeddata)

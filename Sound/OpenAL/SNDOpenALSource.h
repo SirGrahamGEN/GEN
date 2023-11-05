@@ -70,8 +70,8 @@ class SNDOPENALSOURCE
 
     void                        SetInLoop                           (bool inloop);
 
-    float                       GetVolume                           ();
-    void                        SetVolume                           (float volume);
+    int                         GetVolume                           ();
+    bool                        SetVolume                           (int volume);
 
     float                       GetPitch                            ();
     void                        SetPitch                            (float pitch);
@@ -79,6 +79,8 @@ class SNDOPENALSOURCE
     void                        Play                                ();
     void                        ResetPlay                           ();
 
+
+    // In revision
 
     void                        SetSecondsOffset                    (float seconds);
     void                        SetSamplesOffset                    (int samples);
@@ -94,6 +96,8 @@ class SNDOPENALSOURCE
 
     int                         GetQueueLength                      ();
     int                         GetProcessedBuffers                 ();
+
+
 
   protected:
 

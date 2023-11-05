@@ -78,6 +78,8 @@ enum DEVTESTSCONSOLEXFSMSTATES
 #pragma region CLASS
 
 class SNDITEM;
+class SNDNOTE;
+class SNDFILE;
 class SNDOPENALSOURCE;
 
 class SNDOPENALPLAYITEM : public XFSMACHINE
@@ -114,9 +116,6 @@ class SNDOPENALFACTORY : public SNDFACTORY
     bool                                      Ini                       ();
     bool  		    						                Update								    ();
     bool                                      End                       ();
-
-    float                                     Volume_Get                ();
-    bool                                      Volume_Set                (float mastervolume);    
     
     bool                                      Sound_Play                (SNDITEM* item, SNDPLAYCFG* playCFG = NULL, int ntimestoplay = 1);    
     bool                                      Sound_Pause               (SNDITEM* item);   
@@ -124,6 +123,10 @@ class SNDOPENALFACTORY : public SNDFACTORY
     bool                                      Sound_StopAll             ();
     bool                                      Sound_WaitToEnd           (SNDITEM* item, int maxtimeout = SNDFACTORY_MAXTIMEOUT_INFINITE, SNDFACTORY_WAITFUNCTION waitfunction = NULL);  
     bool                                      Sound_WaitAllToEnd        (int maxtimeout = SNDFACTORY_MAXTIMEOUT_INFINITE, SNDFACTORY_WAITFUNCTION waitfunction = NULL);  
+    int                                       Sound_GetVolume           (SNDITEM* item);
+    bool                                      Sound_SetVolume           (SNDITEM* item, int volume);   
+    float                                     Sound_GetPitch            (SNDITEM* item);
+    bool                                      Sound_SetPitch            (SNDITEM* item, float pitch);   
 
     bool                                      DeleteAllItems            ();
 
@@ -132,8 +135,10 @@ class SNDOPENALFACTORY : public SNDFACTORY
       
   private:
 
-    bool                                      Update_Note               (SNDOPENALPLAYITEM* playitem);
-    bool                                      Update_File               (SNDOPENALPLAYITEM* playitem);
+    SNDOPENALPLAYITEM*                        GetPlayItemFromItem       (SNDITEM* item);    
+
+    bool                                      GenerateBuffer            (SNDOPENALPLAYITEM* playitem, SNDNOTE* soundnote);
+    bool                                      GenerateBuffer            (SNDOPENALPLAYITEM* playitem, SNDFILE* soundfile);
 
     static void                               ThreadPlay                (void* param);
    
