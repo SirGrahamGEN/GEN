@@ -43,6 +43,7 @@
 #include "XFile.h"
 
 #include "SNDFileOGG.h"
+#include "SNDFileWAV.h"
 
 #include "XMemory_Control.h"
 
@@ -128,6 +129,11 @@ SNDFILE* SNDFILE::Create(XCHAR* path)
   if(!ext.Compare(__L(".ogg"), true))
     {
       sndfile = new SNDFILEOGG();  
+    }
+
+  if(!ext.Compare(__L(".wav"), true))
+    {
+      sndfile = new SNDFILEWAV();  
     }
 
   if(sndfile)

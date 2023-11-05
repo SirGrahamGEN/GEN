@@ -149,15 +149,18 @@ class DIOCHECKTCPIPCONNECTIONS
 
     void                                    Setup                                  (int timeconnectionchecks = DIOCHECKTCPIPCONNECTIONS_DEFAULTTIMECONNECTIONCHECKS, bool validsomeisconnected = false, bool dispersionmode = false);
 
+    
+
     bool                                    Connection_Add                         (XCHAR* url, XDWORD& ID);
     bool                                    Connection_Add                         (XSTRING& url, XDWORD& ID);
     bool                                    Connection_Add                         (DIOURL& url, XDWORD& ID);
 
-
+    
     DIOCHECKTCPIPCONNECTION*                Connection_GetByID                     (XDWORD ID);
     bool                                    Connection_IsActive                    (XDWORD ID, bool& isactive);
     bool                                    Connection_DeleteByID                  (XDWORD ID);
 
+    XMUTEX*                                 Connections_GetMutex                   ();
     bool                                    Connections_IsAllChecked               ();
     bool                                    Connections_IsSomeChecked              ();
     bool                                    Connections_WaitToAllChecked           (int timeout);

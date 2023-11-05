@@ -400,9 +400,8 @@ if(SND_FEATURE)
 
     if(SND_FILE_WAV_FEATURE)
 
-      #list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SOUND}/SNDFileBase.cpp")  
-      #list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SOUND}/SNDFileWAV.cpp")  
-      #option(XFILE_RIFF_FEATURE "XFile RIFF format" true)
+      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_SOUND_FILES}/SNDFileWAV.cpp")  
+      option(XFILE_RIFF_FEATURE "XFile RIFF format" true)
 
     endif()
 

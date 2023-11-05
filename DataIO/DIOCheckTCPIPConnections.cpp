@@ -884,6 +884,20 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_DeleteByID(XDWORD ID)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XMUTEX* DIOCHECKTCPIPCONNECTIONS::Connections_GetMutex()
+* @brief      Connections_GetMutex
+* @ingroup    DATAIO
+* 
+* @return     XMUTEX* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XMUTEX* DIOCHECKTCPIPCONNECTIONS::Connections_GetMutex()
+{
+  return xmutexconnections;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *

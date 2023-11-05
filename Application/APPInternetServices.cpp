@@ -976,6 +976,11 @@ bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 {
+  if(checkinternetconnection)
+    {
+      checkinternetconnection->GetCheckConnections()->Connections_GetMutex()->Lock();
+    }
+
   switch(event->GetTask()->GetID())
     {
       case APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET : CheckInternetStatus();                                                                  
@@ -1004,6 +1009,13 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
                                                                  }
                                                                 break;
     }
+
+  
+  if(checkinternetconnection)
+    {
+      checkinternetconnection->GetCheckConnections()->Connections_GetMutex()->UnLock();
+    }
+
 }
 
 
