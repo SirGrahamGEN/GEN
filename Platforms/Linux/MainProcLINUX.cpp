@@ -37,8 +37,6 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "MainProcLINUX.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -65,6 +63,8 @@
 #ifdef GOOGLETEST_ACTIVE      
 #include "gtest/gtest.h"
 #endif
+
+#include "MainProcLINUX.h"
 
 #include "XLINUXFactory.h"
 #include "XLINUXRand.h"

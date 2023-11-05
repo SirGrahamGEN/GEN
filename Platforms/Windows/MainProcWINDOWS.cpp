@@ -740,10 +740,10 @@ void MAINPROCWINDOWS::Clean()
 #pragma endregion
 
 
-#pragma region CLASS_WINDOWSSERVICE
-
-
 #if !defined(APPMODE_LIBRARY_DINAMIC) 
+
+
+#pragma region CLASS_WINDOWSSERVICE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1184,8 +1184,6 @@ int wmain(int argc, wchar_t* argv[])
 }
 
 
-#else
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinst, LPSTR cmdline, int cmdshow)
@@ -1249,6 +1247,9 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinst, LPSTR cmdline, int 
 
   return 0;
 }
+
+
+#else
 
 
 /**-------------------------------------------------------------------------------------------------------------------
