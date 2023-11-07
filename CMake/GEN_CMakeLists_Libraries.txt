@@ -1,4 +1,5 @@
 # --------------------------------------------------------------------
+# --------------------------------------------------------------------
 # GEN_CMakeLists_Libraries.txt
 # Libraries of GEN 
 # --------------------------------------------------------------------
@@ -57,8 +58,39 @@ if(COMPILE_FOR_WINDOWS)
   if(SND_FEATURE)  
  
     target_link_libraries(${CMAKE_PROJECT_NAME} Winmm.lib)
-    #target_link_libraries(${CMAKE_PROJECT_NAME} ex-common.lib)
-    target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
+    
+    if(COMPILE_FOR_WINDOWS_PC_32)
+    
+      target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_WINX32_LIB})
+
+      if(DEBUG_FEATURE)      
+      
+        target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32d.lib)
+        
+      else()
+      
+        target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
+        
+      endif()
+      
+    endif()
+    
+    if(COMPILE_FOR_WINDOWS_PC_64)
+    
+      target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_WINX64_LIB})
+
+      if(DEBUG_FEATURE)      
+      
+        target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32d.lib)
+        
+      else()
+      
+        target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
+        
+      endif()
+      
+    endif()
+    
 
   endif()
 
@@ -109,7 +141,6 @@ if(COMPILE_FOR_LINUX)
 
   endif() 
 
-  
   target_link_libraries(${CMAKE_PROJECT_NAME} stdc++)  
   target_link_libraries(${CMAKE_PROJECT_NAME} pthread)  
   target_link_libraries(${CMAKE_PROJECT_NAME} rt)  
@@ -145,7 +176,7 @@ if(COMPILE_FOR_LINUX)
 
 
   if(DIO_PCAP_FEATURE)   
-
+ 
     target_link_libraries(${CMAKE_PROJECT_NAME} pcap)
 
   endif()
@@ -153,8 +184,17 @@ if(COMPILE_FOR_LINUX)
   
   if(SND_FEATURE)  
     
-    #target_link_libraries(${CMAKE_PROJECT_NAME} "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_LINX64_LIB}/libex-common.a") 
-    target_link_libraries(${CMAKE_PROJECT_NAME} "/mnt/d/Projects/GENFrameWork/ThirdPartyLibraries/openal-soft/Platforms/Linux/x64/libopenal.a")
+    target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_LINX64_LIB})
+
+    if(DEBUG_FEATURE)      
+    
+      target_link_libraries(${CMAKE_PROJECT_NAME} libopenald.a)
+      
+    else()
+    
+      target_link_libraries(${CMAKE_PROJECT_NAME} libopenal.a)
+      
+    endif()
 
   endif()  
 
