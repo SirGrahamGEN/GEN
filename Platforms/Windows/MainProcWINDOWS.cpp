@@ -39,8 +39,8 @@
 
 #include <winsock2.h>
 
-#include <float.h>
-#include <tchar.h>
+//#include <float.h>
+//#include <tchar.h>
 
 #pragma warning(push)
 #pragma warning (disable : 4091)
@@ -50,6 +50,7 @@
 #ifdef GOOGLETEST_ACTIVE      
 #include "gtest/gtest.h"
 #endif
+
 #include "MainProcWINDOWS.h"
 
 #include "XWINDOWSFactory.h"
@@ -129,7 +130,6 @@
 #include "XMemory_Control.h"
 
 #pragma endregion
-
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
@@ -1310,6 +1310,9 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
 #pragma region WINDOWS_STACKWALKER
 
 
+#ifdef WINDOWS_STACKWALKER_ACTIVE
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCWINDOWSSTACKWALKER::OnSymInit(LPCSTR szSearchPath, DWORD symOptions, LPCSTR szUserName)
@@ -1328,7 +1331,6 @@ void MAINPROCWINDOWSSTACKWALKER::OnSymInit(LPCSTR szSearchPath, DWORD symOptions
 {
   Exception_Printf(true, NULL, __L("Stack trace: "));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1368,6 +1370,9 @@ void MAINPROCWINDOWSSTACKWALKER::OnCallstackEntry(CallstackEntryType eType, Call
       Exception_Printf(true, NULL, __L("%08X  %-48s (%6d) %-64s"), (LPVOID) entry.offset, name.Get(), entry.lineNumber, linefilename.Get());
     }
 }
+
+
+#endif
 
 
 #pragma endregion
@@ -1589,7 +1594,9 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
       case EXCEPTION_INVALID_HANDLE           :
       case EXCEPTION_NONCONTINUABLE_EXCEPTION :
       case EXCEPTION_PRIV_INSTRUCTION         :
-      case EXCEPTION_STACK_OVERFLOW           : {
+      case EXCEPTION_STACK_OVERFLOW           : { 
+                                                  #ifdef WINDOWS_STACKWALKER_ACTIVE
+
                                                   MAINPROCWINDOWSSTACKWALKER stackwalker;
                                                   stackwalker.ShowCallstack(GetCurrentThread(), ep->ContextRecord);
 
@@ -1609,7 +1616,7 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
                                                   if(app) exit(APPBASE_EXITTYPE_BY_SERIOUSERROR);
                                                   #endif
 
-
+                                                  #endif 
                                                 }
                                                 break;
     }

@@ -32,7 +32,9 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#ifdef WINDOWS_STACKWALKER_ACTIVE
 #include <StackWalker.h>
+#endif
 
 #include "XWINDOWSServiceBase.h"
 
@@ -121,7 +123,7 @@ class WINDOWSSERVICE : public XWINDOWSSERVICEBASE
 
 #endif
 
-
+#ifdef WINDOWS_STACKWALKER_ACTIVE
 class MAINPROCWINDOWSSTACKWALKER : public StackWalker
 {
   public:
@@ -131,7 +133,7 @@ class MAINPROCWINDOWSSTACKWALKER : public StackWalker
     virtual void                    OnCallstackEntry                  (CallstackEntryType eType, CallstackEntry &entry);
     virtual void                    OnDbgHelpErr                      (LPCSTR szFuncName, DWORD gle, DWORD64 addr)                                                                                  {    }
 };
-
+#endif
 
 #pragma endregion
 

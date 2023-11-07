@@ -262,8 +262,12 @@ endif()
 
 if(COMPILE_FOR_WINDOWS)
 
-  remove_definitions(-DUNICODE)
-  list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_STACKWALKER}/StackWalker.cpp")
+  if(WINDOWS_STACKWALKER_FEATURE)
+
+    remove_definitions(-DUNICODE)   
+    list(APPEND SOURCES "${GEN_DIRECTORY_THIRDPARTYLIBRARIES_STACKWALKER}/StackWalker.cpp")
+
+  endif()
 
 endif()
 
