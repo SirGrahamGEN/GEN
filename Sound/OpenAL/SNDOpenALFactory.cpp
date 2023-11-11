@@ -994,11 +994,6 @@ bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDFILE* soun
   XDWORD           size       = 0;
   SNDOPENALSOURCE* source     = playitem->GetSource();
 
-  if(!soundfile->LoadFile())
-    {
-      return false;
-    }
-
   source->GetBuffer()->GetXBuffer()->Add(soundfile->GetData());
 
   source->GetBuffer()->Assign(soundfile->GetChannels(), soundfile->GetData()->GetSize(), soundfile->GetSampleRate());

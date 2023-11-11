@@ -152,6 +152,14 @@ SNDFILE* SNDFILE::Create(XCHAR* path)
         }
 
       sndfile->GetPath()->Set(path);
+
+      if(!sndfile->LoadFile())
+        {
+          delete sndfile;  
+          return NULL;
+        }
+
+
     }
 
   return sndfile;
