@@ -36,7 +36,7 @@
 
 #include "DIOFactory.h"
 #include "DIOURL.h"
-#include "DIODNSResolved.h"
+#include "DIODNSResolver.h"
 #include "DIOStreamEnumDevices.h"
 
 #include "DIOStreamDeviceIP.h"
@@ -270,14 +270,14 @@ void XTRACE_TARGET::SetPort(XWORD port)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XTRACE_TARGET::ResolvedIPTarget()
-* @brief      Resolved IP of target aim = URL -> IP
+* @fn         bool XTRACE_TARGET::IPTarget()
+* @brief       IP of target aim = URL -> IP
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XTRACE_TARGET::ResolvedIPTarget()
+bool XTRACE_TARGET::IPTarget()
 {
   if(type != XTRACE_TYPE_NET) return false;
 
@@ -295,7 +295,7 @@ bool XTRACE_TARGET::ResolvedIPTarget()
     {          
       #ifndef XTRACE_NOINTERNET
 
-      GEN_DIODNSRESOLVED.ResolveURL(_aim.Get(), _IP);
+      GEN_DIODNSRESOLVER.ResolveURL(_aim.Get(), _IP);
       _IP.GetXString(_IPstring);
 
       #else
@@ -1066,7 +1066,7 @@ bool XTRACE::SetTarget(int index, XTRACE_TYPE type, XCHAR* aim)
 
       targets[index].SetAim(url.Get());
       targets[index].SetPort(port);
-      targets[index].ResolvedIPTarget();
+      targets[index].IPTarget();
 
       if(targets[index].GetNETHandle()) CloseHandleNet(&targets[index]);
       GetHandleNet(&targets[index]);
@@ -2483,7 +2483,7 @@ bool XTRACE::ResolveAllNetTargets(bool& changed)
 
           IP = targets[c].GetIP();
 
-          targets[c].ResolvedIPTarget();
+          targets[c].IPTarget();
 
           if(IP.Compare(targets[c].GetIP())) changed = true;
 

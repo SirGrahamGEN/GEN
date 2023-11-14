@@ -227,8 +227,8 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_DeleteAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOWEBSERVER_PLUGIN::ResolvedPageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
-* @brief      ResolvedPageExtension
+* @fn         bool DIOWEBSERVER_PLUGIN::PageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
+* @brief      PageExtension
 * @ingroup    DATAIO
 *
 * @param[in]  pathfile :
@@ -240,7 +240,7 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_DeleteAll()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOWEBSERVER_PLUGIN::ResolvedPageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
+bool DIOWEBSERVER_PLUGIN::PageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
 {
   return false;
 }

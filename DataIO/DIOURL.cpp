@@ -35,7 +35,7 @@
 
 #include "XBuffer.h"
 
-#include "DIODNSResolved.h"
+#include "DIODNSResolver.h"
 
 #include "DIOURL.h"
 
@@ -303,14 +303,14 @@ bool DIOURL::GetHTTPResource(XSTRING& resource)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOURL::IsAURLResolved()
-* @brief      IsAURLResolved
+* @fn         bool DIOURL::IsAURL()
+* @brief      IsAURL
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOURL::IsAURLResolved()
+bool DIOURL::IsAURL()
 {
   for(XDWORD c=0; c<size; c++)
     {
@@ -367,7 +367,7 @@ bool DIOURL::ResolveURL(XSTRING& IPstring)
   DIOIP IP;
   bool  status = false;
  
-  status = GEN_DIODNSRESOLVED.ResolveURL(Get(), IP, DIODNSPROTOCOL_TYPEQUERY_A);
+  status = GEN_DIODNSRESOLVER.ResolveURL(Get(), IP, DIODNSPROTOCOL_TYPEQUERY_A);
   if(status)  IP.GetXString(IPstring);
 
   return status;
@@ -414,7 +414,7 @@ bool DIOURL::IsLocalAddress()
 {
   DIOIP IP;
 
-  if(!IsAURLResolved())
+  if(!IsAURL())
     {
       ResolveURL(IP);
 

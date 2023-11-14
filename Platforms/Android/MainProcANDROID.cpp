@@ -65,7 +65,7 @@
 #endif
 
 #ifdef DIO_ACTIVE
-#include "DIODNSResolved.h"
+#include "DIODNSResolver.h"
 #include "DIOANDROIDFactory.h"
   #ifdef DIO_ALERTS_ACTIVE
   #include "DIOAlerts.h"
@@ -1198,7 +1198,7 @@ bool MAINPROCANDROID::Factorys_End()
   #endif
 	
 	#ifdef DIO_STREAMUDP_ACTIVE
-	DIODNSRESOLVED::DelInstance();
+	DIODNSRESOLVER::DelInstance();
 	#endif 
 	
   DIOFACTORY::DelInstance();

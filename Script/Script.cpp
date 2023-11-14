@@ -76,6 +76,7 @@
 #include "Script_Lib_CFG.h"
 #include "Script_Lib_Window.h"
 #include "Script_Lib_InputSimulate.h"
+#include "Script_Lib_DevTest.h"
 
 #include "XMemory_Control.h"
 
@@ -916,6 +917,11 @@ bool SCRIPT::AddInternalLibraries()
           case 13 :
                     #ifdef SCRIPT_LIB_INPUTSIMULATE_ACTIVE
                     lib = new SCRIPT_LIB_INPUTSIMULATE();        
+                    #endif
+                    break;
+          case 14 :
+                    #ifdef SCRIPT_LIB_DEVTEST_ACTIVE
+                    lib = new SCRIPT_LIB_DEVTEST();        
                     #endif
                     break;
         } 

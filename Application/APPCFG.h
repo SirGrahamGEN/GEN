@@ -98,11 +98,11 @@
 #define APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE_AUTO             25
 
 
-#ifdef APP_CFG_DNSRESOLVED_ACTIVE
+#ifdef APP_CFG_DNSRESOLVER_ACTIVE
 
-#define APP_CFG_SECTION_DNSRESOLVED                                               __L("dns resolved")
-#define APP_CFG_DNSRESOLVED_HOSTRESOLVED                                          __L("host_resolved")
-#define APP_CFG_DNSRESOLVED_DNSSERVER                                             __L("dns_server")
+#define APP_CFG_SECTION_DNSRESOLVER                                               __L("dns resolved")
+#define APP_CFG_DNSRESOLVER_HOSTRESOLVED                                          __L("host_resolved")
+#define APP_CFG_DNSRESOLVER_DNSSERVER                                             __L("dns_server")
 
 #endif
 
@@ -280,10 +280,10 @@ class APPCFG
     XSTRING*             InternetServices_GetUpdateTimeNTPServer                  (int index);
     int                  InternetServices_GetUpdateTimeNTPMeridianDifference      ();
     bool                 InternetServices_GetUpdateTimeNTPUseDayLightSaving       ();
-    #ifdef APP_CFG_DNSRESOLVED_ACTIVE
-    bool                 DNSResolved_GetHostResolved                              (int index, XSTRING& host, XSTRING& IPresolved);
-    XSTRING*             DNSResolved_GetDNSserver                                 (int index);
-    bool                 SetAutomaticDNSResolved                                  ();
+    #ifdef APP_CFG_DNSRESOLVER_ACTIVE
+    bool                 DNSResolver_GetHost                              (int index, XSTRING& host, XSTRING& IPresolved);
+    XSTRING*             DNSResolver_GetDNSserver                                 (int index);
+    bool                 SetAutomaticDNSResolver                                  ();
     #endif
     #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
     XVECTOR<XSTRING*>*   DNSManager_GetURLs                                       ();      
@@ -394,7 +394,7 @@ class APPCFG
     XVECTOR<XSTRING*>    internetservices_updatetimentpservers;    
     int                  internetservices_updatetimentpmeridiandifference;
     bool                 internetservices_updatetimentpusedaylightsaving;
-    #ifdef APP_CFG_DNSRESOLVED_ACTIVE
+    #ifdef APP_CFG_DNSRESOLVER_ACTIVE
     int                  nhostsresolved; 
     XVECTOR<XSTRING*>    hostsresolved;
     int                  nDNSservers;

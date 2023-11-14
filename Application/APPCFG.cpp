@@ -43,7 +43,7 @@
 
 #include "XTrace.h"
 #include "XLog.h"
-#include "DIODNSResolved.h"
+#include "DIODNSResolver.h"
 
 #include "XMemory_Control.h"
 
@@ -168,15 +168,15 @@ bool APPCFG::DoVariableMapping()
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE          , &internetservices_updatetimentpmeridiandifference             , __L("Internet update meridian difference")                                , APP_CFG_DEFAULT_REMARK_COLUMN);
   AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMENTPUSEDAYLIGHTSAVING           , &internetservices_updatetimentpusedaylightsaving              , __L("Internet update time day light saving")                              , APP_CFG_DEFAULT_REMARK_COLUMN);
 
-  #ifdef APP_CFG_DNSRESOLVED_ACTIVE
-  AddRemark(APP_CFG_SECTION_DNSRESOLVED, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
-  AddRemark(APP_CFG_SECTION_DNSRESOLVED, __L(" DNS resolved section of configuration"), 0, 2); 
+  #ifdef APP_CFG_DNSRESOLVER_ACTIVE
+  AddRemark(APP_CFG_SECTION_DNSRESOLVER, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APP_CFG_SECTION_DNSRESOLVER, __L(" DNS resolved section of configuration"), 0, 2); 
 
-  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DNSRESOLVED, APP_CFG_DNSRESOLVED_HOSTRESOLVED, __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DNSRESOLVER, APP_CFG_DNSRESOLVER_HOSTRESOLVED, __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
                                                                                                                                     , hostsresolved
-                                                                                                                                    , nhostsresolved                                                                  , __L("Host resolved for DNS Resolved")                                     , APP_CFG_DEFAULT_REMARK_COLUMN);
-  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DNSRESOLVED, APP_CFG_DNSRESOLVED_DNSSERVER   , __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
-                                                                                                                                    , DNSservers, nDNSservers                                                         , __L("Server for DNS Resolved")                                            , APP_CFG_DEFAULT_REMARK_COLUMN);
+                                                                                                                                    , nhostsresolved                                                                  , __L("Host resolved for DNS ")                                     , APP_CFG_DEFAULT_REMARK_COLUMN);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APP_CFG_SECTION_DNSRESOLVER, APP_CFG_DNSRESOLVER_DNSSERVER   , __L("%02d"), 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
+                                                                                                                                    , DNSservers, nDNSservers                                                         , __L("Server for DNS ")                                            , APP_CFG_DEFAULT_REMARK_COLUMN);
   #endif
 
   #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
@@ -404,7 +404,7 @@ bool APPCFG::End()
   internetservices_updatetimentpservers.DeleteContents();
   internetservices_updatetimentpservers.DeleteAll();
 
-  #ifdef APP_CFG_DNSRESOLVED_ACTIVE
+  #ifdef APP_CFG_DNSRESOLVER_ACTIVE
   hostsresolved.DeleteContents();
   hostsresolved.DeleteAll();
   DNSservers.DeleteContents();
@@ -791,12 +791,12 @@ bool APPCFG::InternetServices_GetUpdateTimeNTPUseDayLightSaving()
 }
 
 
-#ifdef APP_CFG_DNSRESOLVED_ACTIVE
+#ifdef APP_CFG_DNSRESOLVER_ACTIVE
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool APPCFG::DNSResolved_GetHostResolved(int index, XSTRING& host, XSTRING& IPresolved)
-* @brief      DNSResolved_GetHostResolved
+* @fn         bool APPCFG::DNSResolver_GetHost(int index, XSTRING& host, XSTRING& IPresolved)
+* @brief      DNSResolver_GetHost
 * @ingroup    APPLICATION
 *
 * @param[in]  index :
@@ -806,7 +806,7 @@ bool APPCFG::InternetServices_GetUpdateTimeNTPUseDayLightSaving()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool APPCFG::DNSResolved_GetHostResolved(int index, XSTRING& host, XSTRING& IPresolved)
+bool APPCFG::DNSResolver_GetHost(int index, XSTRING& host, XSTRING& IPresolved)
 {
   if(index < 0)                       return false;
   if(index >= hostsresolved.GetSize()) return false;
@@ -825,8 +825,8 @@ bool APPCFG::DNSResolved_GetHostResolved(int index, XSTRING& host, XSTRING& IPre
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTRING* APPCFG::DNSResolved_GetDNSserver(int index)
-* @brief      DNSResolved_GetDNSserver
+* @fn         XSTRING* APPCFG::DNSResolver_GetDNSserver(int index)
+* @brief      DNSResolver_GetDNSserver
 * @ingroup    APPLICATION
 *
 * @param[in]  index :
@@ -834,7 +834,7 @@ bool APPCFG::DNSResolved_GetHostResolved(int index, XSTRING& host, XSTRING& IPre
 * @return     XSTRING* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* APPCFG::DNSResolved_GetDNSserver(int index)
+XSTRING* APPCFG::DNSResolver_GetDNSserver(int index)
 {
   if(index < 0)                       return NULL;
   if(index >= DNSservers.GetSize())   return NULL;
@@ -847,32 +847,32 @@ XSTRING* APPCFG::DNSResolved_GetDNSserver(int index)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool APPCFG::SetAutomaticDNSResolved()
-* @brief      SetAutomaticDNSResolved
+* @fn         bool APPCFG::SetAutomaticDNSResolver()
+* @brief      SetAutomaticDNSResolver
 * @ingroup    APPLICATION
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool APPCFG::SetAutomaticDNSResolved()
+bool APPCFG::SetAutomaticDNSResolver()
 {
   for(XDWORD c=0; c<nhostsresolved; c++)
     {
       XSTRING  host;
       XSTRING  IPresolved;
 
-      if(DNSResolved_GetHostResolved(c, host, IPresolved))
+      if(DNSResolver_GetHost(c, host, IPresolved))
         {
-          GEN_DIODNSRESOLVED.HostResolved_Add(host, IPresolved);
+          GEN_DIODNSRESOLVER.Host_Add(host, IPresolved);
         }
     }
 
   for(XDWORD c=0; c<nDNSservers; c++)
     {
-      XSTRING* dnsserver = DNSResolved_GetDNSserver(c);
+      XSTRING* dnsserver = DNSResolver_GetDNSserver(c);
       if(dnsserver)
         {
-          GEN_DIODNSRESOLVED.DNSServer_AddDNSServer(dnsserver->Get());
+          GEN_DIODNSRESOLVER.DNSServer_AddDNSServer(dnsserver->Get());
         }
     }
 
@@ -1800,7 +1800,7 @@ void APPCFG::Clean()
   internetservices_nupdatetimentpservers            = 0;
   internetservices_updatetimentpmeridiandifference  = 0;
   internetservices_updatetimentpusedaylightsaving   = false;
-  #ifdef APP_CFG_DNSRESOLVED_ACTIVE
+  #ifdef APP_CFG_DNSRESOLVER_ACTIVE
   nhostsresolved = 0; 
   nDNSservers    = 0;  
   #endif

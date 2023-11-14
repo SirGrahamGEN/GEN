@@ -104,7 +104,7 @@
 #endif
 
 #ifdef DIO_ACTIVE
-#include "DIODNSResolved.h"
+#include "DIODNSResolver.h"
 #include "DIOLINUXFactory.h"
 
   #ifdef DIO_GPIO_ACTIVE
@@ -530,7 +530,7 @@ bool MAINPROCLINUX::Factorys_End()
   #endif
 
   #ifdef DIO_STREAMUDP_ACTIVE
-  DIODNSRESOLVED::DelInstance();
+  DIODNSRESOLVER::DelInstance();
   #endif
 
   DIOFACTORY::DelInstance();

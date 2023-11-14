@@ -66,6 +66,7 @@ enum XTHREADGROUPID
   XTHREADGROUPID_XTIMERCLOCK                    ,
   XTHREADGROUPID_SCHEDULER                      ,
   XTHREADGROUPID_SCRIPT                         ,
+  XTHREADGROUPID_DIODNSRESOLVED                 ,
   XTHREADGROUPID_DIOSTREAM                      ,
   XTHREADGROUPID_DIOSTREAMUART                  ,
   XTHREADGROUPID_DIOSTREAMUDP                   ,

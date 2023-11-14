@@ -48,7 +48,7 @@ add_definitions(${GEN_MACRO})
 set(GEN_MACRO  "-DGEN_DIOGPIO=DIOGPIO::GetInstance()")
 add_definitions(${GEN_MACRO})
 
-set(GEN_MACRO  "-DGEN_DIODNSRESOLVED=DIODNSRESOLVED::GetInstance()")
+set(GEN_MACRO  "-DGEN_DIODNSRESOLVER=DIODNSRESOLVER::GetInstance()")
 add_definitions(${GEN_MACRO})
 
 set(GEN_MACRO  "-DGEN_DIOALERTS=DIOALERTS::GetInstance()")

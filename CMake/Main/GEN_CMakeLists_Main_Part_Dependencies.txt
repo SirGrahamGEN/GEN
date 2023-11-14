@@ -169,7 +169,7 @@ if(APP_CFG_REMOTEFILE_FEATURE               OR
    APP_CFG_WEBSERVER_FEATURE                OR
    APP_CFG_CHECKRESOURCESHARDWARE_FEATURE   OR
    APP_CFG_LOCATION_FEATURE                 OR
-   APP_CFG_DNSRESOLVED_FEATURE              OR
+   APP_CFG_DNSRESOLVER_FEATURE              OR
    APP_CFG_ALERTS_FEATURE                   OR
    APP_CFG_APPUPDATE_FEATURE)
  
@@ -264,9 +264,9 @@ if(APP_CFG_REMOTEFILE_FEATURE               OR
   endif()
 
 
-  if(APP_CFG_DNSRESOLVED_FEATURE)
+  if(APP_CFG_DNSRESOLVER_FEATURE)
 
-    add_definitions(-DAPP_CFG_DNSRESOLVED_ACTIVE)
+    add_definitions(-DAPP_CFG_DNSRESOLVER_ACTIVE)
     option(XFILE_CFG_FEATURE "XFile Config format" true)
 
   endif()
@@ -376,6 +376,13 @@ if(SCRIPT_FEATURE)
     add_definitions("-DSCRIPT_LIB_INPUTSIMULATE_ACTIVE")
     option(INP_FEATURE            "Inputs"            true)
     option(INP_SIMULATE_FEATURE   "Inputs Simulate"   true) 
+    
+  endif()
+  
+  
+  if(SCRIPT_LIB_DEVTEST_FEATURE)
+
+    add_definitions("-DSCRIPT_LIB_DEVTEST_ACTIVE")
     
   endif()
 
@@ -548,7 +555,7 @@ if(XTRACE_FEATURE)
   if((COMPILE_FOR_WINDOWS) OR (COMPILE_FOR_LINUX) OR (COMPILE_FOR_ANDROID))
   
     option(DIO_FEATURE              "Data Input/Output" true)
-    option(DIO_DNSRESOLVED_FEATURE  "DNS Resolved"      true)
+    option(DIO_DNSRESOLVER_FEATURE  "DNS Resolver"      true)
     option(DIO_WEBCLIENT_FEATURE    "Web Client"        true)
     option(DIO_SCRAPERWEB_FEATURE   "Scraper Web"       true)
 	
@@ -564,7 +571,7 @@ if(DIO_FEATURE)
 
   add_definitions(-DDIO_ACTIVE)
 
-  option(DIO_DNSRESOLVED_FEATURE            "DNS Resolved"            true)
+  option(DIO_DNSRESOLVER_FEATURE            "DNS Resolver"            true)
   option(DIO_WEBCLIENT_FEATURE              "Web Client"              true)
   option(DIO_SCRAPERWEB_FEATURE             "Scraper Web"             true)
   option(DIO_NOTIFICATIONS_MANAGER_FEATURE  "Notifications Manager"   true)
@@ -586,9 +593,9 @@ if(DIO_FEATURE)
   endif()
 
 
-  if(DIO_DNSRESOLVED_FEATURE)
+  if(DIO_DNSRESOLVER_FEATURE)
 
-    add_definitions(-DDIO_DNSRESOLVED_ACTIVE)
+    add_definitions(-DDIO_DNSRESOLVER_ACTIVE)
     option(DIO_STREAMUDP_FEATURE "Stream UDP" true)
 
   endif()

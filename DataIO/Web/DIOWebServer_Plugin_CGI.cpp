@@ -113,8 +113,8 @@ bool DIOWEBSERVER_PLUGIN_CGI::Config(XPATH* pathCGIinterpreter, XCHAR* nameexec)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOWEBSERVER_PLUGIN_CGI::ResolvedPageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
-* @brief      ResolvedPageExtension
+* @fn         bool DIOWEBSERVER_PLUGIN_CGI::PageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
+* @brief      PageExtension
 * @ingroup    DATAIO
 *
 * @param[in]  pathfile :
@@ -126,7 +126,7 @@ bool DIOWEBSERVER_PLUGIN_CGI::Config(XPATH* pathCGIinterpreter, XCHAR* nameexec)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOWEBSERVER_PLUGIN_CGI::ResolvedPageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
+bool DIOWEBSERVER_PLUGIN_CGI::PageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
 {
   if(!request)      return false;
   if(!querystrings) return false;

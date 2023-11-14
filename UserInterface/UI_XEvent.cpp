@@ -272,8 +272,8 @@ XSTRING* UI_XEVENT::GetMaskTextValue()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* UI_XEVENT::GetMaskTextResolved()
-* @brief      GetMaskTextResolved
+* @fn         XSTRING* UI_XEVENT::GetMaskText()
+* @brief      GetMaskText
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 

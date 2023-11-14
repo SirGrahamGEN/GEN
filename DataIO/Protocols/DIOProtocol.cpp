@@ -2140,7 +2140,7 @@ bool DIOPROTOCOL::Command(XDWORD type, XBUFFER& xbuffer, int timeout)
 
           if(!status)
             {
-             XTRACE_PRINTCOLOR((status?1:4), __L("DIOPROTOCOL %s Resolved : %08X %08X %02d %-35s (%8d)  %s") , GetDIOStream()->GetConfig()->IsServer()?__L("Server  "):__L("Client  ")
+             XTRACE_PRINTCOLOR((status?1:4), __L("DIOPROTOCOL %s  : %08X %08X %02d %-35s (%8d)  %s") , GetDIOStream()->GetConfig()->IsServer()?__L("Server  "):__L("Client  ")
                                                                                                               , this
                                                                                                               , ID
                                                                                                               , type

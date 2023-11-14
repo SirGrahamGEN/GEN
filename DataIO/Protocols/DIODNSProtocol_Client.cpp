@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       DIODNSPROTOCOL.cpp
-*
-* @class      DIODNSPROTOCOL
-* @brief      Data Input/Output Domain Network System (DNS) protocol class
+* 
+* @file       DIODNSProtocol_Client.cpp
+* 
+* @class      DIODNSPROTOCOL_CLIENT
+* @brief      Data Input/Output Domain Network System (DNS) protocol Client class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIODNSProtocol_Client.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,27 +52,31 @@
 #include "DIOStreamUDPConfig.h"
 #include "DIOStreamUDP.h"
 
-#include "DIODNSProtocol.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIODNSPROTOCOL::DIODNSPROTOCOL()
+* 
+* @fn         DIODNSPROTOCOLCLIENT::DIODNSPROTOCOLCLIENT()
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIODNSPROTOCOL::DIODNSPROTOCOL()
+DIODNSPROTOCOLCLIENT::DIODNSPROTOCOLCLIENT()
 {
   Clean();
 
@@ -75,10 +85,9 @@ DIODNSPROTOCOL::DIODNSPROTOCOL()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIODNSPROTOCOL::~DIODNSPROTOCOL()
+* @fn         DIODNSPROTOCOLCLIENT::~DIODNSPROTOCOL()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
@@ -86,7 +95,7 @@ DIODNSPROTOCOL::DIODNSPROTOCOL()
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIODNSPROTOCOL::~DIODNSPROTOCOL()
+DIODNSPROTOCOLCLIENT::~DIODNSPROTOCOLCLIENT()
 {
   if(diostreamudpcfg)
     {
@@ -104,10 +113,9 @@ DIODNSPROTOCOL::~DIODNSPROTOCOL()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIODNSPROTOCOL::SetServer(DIOIP& serverIP, XWORD serverport)
+* @fn         bool DIODNSPROTOCOLCLIENT::SetServer(DIOIP& serverIP, XWORD serverport)
 * @brief      SetServer
 * @ingroup    DATAIO
 *
@@ -117,7 +125,7 @@ DIODNSPROTOCOL::~DIODNSPROTOCOL()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIODNSPROTOCOL::SetServer(DIOIP& serverIP, XWORD serverport)
+bool DIODNSPROTOCOLCLIENT::SetServer(DIOIP& serverIP, XWORD serverport)
 {
   if(!serverIP.Get()) return false;
 
@@ -129,10 +137,9 @@ bool DIODNSPROTOCOL::SetServer(DIOIP& serverIP, XWORD serverport)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIODNSPROTOCOL::SetServer(XCHAR* serverIP, XWORD serverport)
+* @fn         bool DIODNSPROTOCOLCLIENT::SetServer(XCHAR* serverIP, XWORD serverport)
 * @brief      SetServer
 * @ingroup    DATAIO
 *
@@ -142,7 +149,7 @@ bool DIODNSPROTOCOL::SetServer(DIOIP& serverIP, XWORD serverport)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIODNSPROTOCOL::SetServer(XCHAR* serverIP, XWORD serverport)
+bool DIODNSPROTOCOLCLIENT::SetServer(XCHAR* serverIP, XWORD serverport)
 {
   if(!serverIP) return false;
 
@@ -154,10 +161,9 @@ bool DIODNSPROTOCOL::SetServer(XCHAR* serverIP, XWORD serverport)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIODNSPROTOCOL::SetServer(XSTRING& serverIP, XWORD serverport)
+* @fn         bool DIODNSPROTOCOLCLIENT::SetServer(XSTRING& serverIP, XWORD serverport)
 * @brief      SetServer
 * @ingroup    DATAIO
 *
@@ -167,16 +173,15 @@ bool DIODNSPROTOCOL::SetServer(XCHAR* serverIP, XWORD serverport)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIODNSPROTOCOL::SetServer(XSTRING& serverIP, XWORD serverport)
+bool DIODNSPROTOCOLCLIENT::SetServer(XSTRING& serverIP, XWORD serverport)
 {
   return SetServer(serverIP.Get(), serverport);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
+* @fn         bool DIODNSPROTOCOLCLIENT::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 * @brief      ResolveURL
 * @ingroup    DATAIO
 *
@@ -188,7 +193,7 @@ bool DIODNSPROTOCOL::SetServer(XSTRING& serverIP, XWORD serverport)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
+bool DIODNSPROTOCOLCLIENT::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 {
   if(!diostreamudpcfg)  return false;
 
@@ -197,7 +202,7 @@ bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 
   url = URL;
 
-  if(url.IsAURLResolved())
+  if(url.IsAURL())
     {
       IPresolved.Set(url);
       return true;
@@ -333,10 +338,9 @@ bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIODNSPROTOCOL::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
+* @fn         bool DIODNSPROTOCOLCLIENT::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 * @brief      ResolveURL
 * @ingroup    DATAIO
 *
@@ -348,16 +352,15 @@ bool DIODNSPROTOCOL::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIODNSPROTOCOL::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
+bool DIODNSPROTOCOLCLIENT::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 {
   return ResolveURL(URL.Get(), IPresolved, querytype, timeout);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIODNSPROTOCOL::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
+* @fn         bool DIODNSPROTOCOLCLIENT::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 * @brief      ResolveURL
 * @ingroup    DATAIO
 *
@@ -369,16 +372,15 @@ bool DIODNSPROTOCOL::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, X
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIODNSPROTOCOL::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype,  XDWORD timeout)
+bool DIODNSPROTOCOLCLIENT::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype,  XDWORD timeout)
 {
   return ResolveURL(URL.Get(), IPresolved, querytype, timeout);
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIODNSPROTOCOL::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& target)
+* @fn         bool DIODNSPROTOCOLCLIENT::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& target)
 * @brief      ChangetoDNSNameFormat
 * @ingroup    DATAIO
 *
@@ -388,7 +390,7 @@ bool DIODNSPROTOCOL::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype, 
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIODNSPROTOCOL::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& target)
+bool DIODNSPROTOCOLCLIENT::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& target)
 {
   XSTRING _origin = origin;
   XCHAR*  _target;
@@ -422,10 +424,9 @@ bool DIODNSPROTOCOL::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& target)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XBYTE* DIODNSPROTOCOL::GetBufferName(XBYTE* reader,XBYTE* buffer,int* count)
+* @fn         XBYTE* DIODNSPROTOCOLCLIENT::GetBufferName(XBYTE* reader,XBYTE* buffer,int* count)
 * @brief      GetBufferName
 * @ingroup    DATAIO
 *
@@ -436,7 +437,7 @@ bool DIODNSPROTOCOL::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& target)
 * @return     XBYTE* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XBYTE* DIODNSPROTOCOL::GetBufferName(XBYTE* reader, XBYTE* buffer,int* count)
+XBYTE* DIODNSPROTOCOLCLIENT::GetBufferName(XBYTE* reader, XBYTE* buffer,int* count)
 {
   XBYTE*  name;
   XDWORD  p       = 0;
@@ -498,10 +499,9 @@ XBYTE* DIODNSPROTOCOL::GetBufferName(XBYTE* reader, XBYTE* buffer,int* count)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void DIODNSPROTOCOL::Clean()
+* @fn         void DIODNSPROTOCOLCLIENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
@@ -509,10 +509,14 @@ XBYTE* DIODNSPROTOCOL::GetBufferName(XBYTE* reader, XBYTE* buffer,int* count)
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIODNSPROTOCOL::Clean()
+void DIODNSPROTOCOLCLIENT::Clean()
 {
   diostreamudpcfg = NULL;
   diostreamudp    = NULL;
 
   serverport      = 0;
 }
+
+
+#pragma endregion
+

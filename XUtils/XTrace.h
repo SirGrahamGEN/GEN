@@ -298,7 +298,7 @@ class XTRACE_TARGET
     XWORD                           GetPort                           ();
     void                            SetPort                           (XWORD port);
 
-    bool                            ResolvedIPTarget                  ();
+    bool                            IPTarget                  ();
 
     char*                           GetIP                             ();
 

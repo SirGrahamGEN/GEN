@@ -69,7 +69,7 @@ class DIOURL : public XSTRING
     bool                      GetHTTPServer                     (XSTRING& server, XSTRING& login, XSTRING& password);
     bool                      GetHTTPResource                   (XSTRING& resource);
 
-    bool                      IsAURLResolved                    ();
+    bool                      IsAURL                    ();
 
     bool                      ResolveURL                        ();
     bool                      ResolveURL                        (XSTRING& IP);

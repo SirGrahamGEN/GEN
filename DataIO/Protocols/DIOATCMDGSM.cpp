@@ -474,8 +474,8 @@ DIOATCMD_ERROR DIOATCMDGSM::GetIMSI(XSTRING& IMSI, int timeout)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOATCMD_ERROR DIOATCMDGSM::PIN_IsResolved(bool& isresolved, int timeout)
-* @brief      PIN_IsResolved
+* @fn         DIOATCMD_ERROR DIOATCMDGSM::PIN_Is(bool& isresolved, int timeout)
+* @brief      PIN_Is
 * @ingroup    DATAIO
 *
 * @param[in]  isresolved : 
@@ -484,7 +484,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetIMSI(XSTRING& IMSI, int timeout)
 * @return     DIOATCMD_ERROR : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-DIOATCMD_ERROR DIOATCMDGSM::PIN_IsResolved(bool& isresolved, int timeout)
+DIOATCMD_ERROR DIOATCMDGSM::PIN_Is(bool& isresolved, int timeout)
 {
   isresolved = false;
 
@@ -535,7 +535,7 @@ DIOATCMD_ERROR DIOATCMDGSM::PIN_Enter(XCHAR* PIN, bool& isenter, int timeout)
   error = WaitToProcessAnswer(timeout);   
   if(error!=DIOATCMD_ERROR_NONE) return error;
 
-  error = PIN_IsResolved(isenter, timeout);
+  error = PIN_Is(isenter, timeout);
 
   DeleteAllAnswers();
 

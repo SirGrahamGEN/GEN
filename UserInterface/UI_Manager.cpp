@@ -1675,12 +1675,12 @@ bool UI_MANAGER::SendEvent(UI_XEVENT_TYPE event, ...)
                                                                 if(maskvalue)  xevent.GetMaskTextValue()->Set(maskvalue->Get());
 
                                                                 /*
-                                                                ChangeAutomaticLiteralText((UI_ELEMENT_TEXT*)element, maskvalue, xevent.GetMaskTextResolved());
+                                                                ChangeAutomaticLiteralText((UI_ELEMENT_TEXT*)element, maskvalue, xevent.GetMaskText());
                                                                 
-                                                                if(!xevent.GetMaskTextResolved()->IsEmpty())
+                                                                if(!xevent.GetMaskText()->IsEmpty())
                                                                   {
                                                                     XSTRING* maskresolve = (XSTRING*)va_arg(arg, void*);
-                                                                    if(maskresolve) maskresolve->Set(xevent.GetMaskTextResolved()->Get()); 
+                                                                    if(maskresolve) maskresolve->Set(xevent.GetMaskText()->Get()); 
                                                                     postevent = false;
                                                                   }
                                                                  else   

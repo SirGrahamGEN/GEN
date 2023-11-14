@@ -543,7 +543,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
                   DIOWEBHEADER_RESULT    headerresult = DIOWEBHEADER_RESULT_OK;
                   XSTRING                result;
 
-                  status = plugin->ResolvedPageExtension(xpathfile, request, &querystring, headerresult, result);
+                  status = plugin->PageExtension(xpathfile, request, &querystring, headerresult, result);
                   if(status)
                     {
                       XSTRING head;

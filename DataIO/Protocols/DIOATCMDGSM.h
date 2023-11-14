@@ -111,7 +111,7 @@ class DIOATCMDGSM  : public DIOATCMDS
     DIOATCMD_ERROR          IsAvailableServiceGSM         (bool& available, int timeout = DIOATCMDS_TIMEOUT);
     DIOATCMD_ERROR          GetIMSI                       (XSTRING& IMSI, int timeout = DIOATCMDS_TIMEOUT);
 
-    DIOATCMD_ERROR          PIN_IsResolved                (bool& isresolved, int timeout = DIOATCMDS_TIMEOUT);
+    DIOATCMD_ERROR          PIN_Is                (bool& isresolved, int timeout = DIOATCMDS_TIMEOUT);
     DIOATCMD_ERROR          PIN_Enter                     (XCHAR* PIN, bool& isenter, int timeout = DIOATCMDS_TIMEOUT);
     DIOATCMD_ERROR          PIN_Activate                  (XCHAR* PIN, bool activate, int timeout = DIOATCMDS_TIMEOUT);
  

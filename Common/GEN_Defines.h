@@ -111,8 +111,8 @@
 #define GEN_DIOGPIO                       DIOGPIO::GetInstance()
 #endif
 
-#ifndef GEN_DIODNSRESOLVED
-#define GEN_DIODNSRESOLVED                DIODNSRESOLVED::GetInstance()
+#ifndef GEN_DIODNSRESOLVER
+#define GEN_DIODNSRESOLVER                DIODNSRESOLVER::GetInstance()
 #endif
 
 #ifndef GEN_DIOALERTS

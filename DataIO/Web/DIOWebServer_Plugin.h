@@ -60,7 +60,7 @@ class DIOWEBSERVER_PLUGIN
     bool                                  PageExtension_IsContent       (XSTRING& ext);
     bool                                  PageExtension_DeleteAll       ();
 
-    virtual bool                          ResolvedPageExtension         (XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result);
+    virtual bool                          PageExtension         (XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result);
 
     bool                                  SeparedResult                 (XSTRING& result, XSTRING& head, XSTRING& data);
 
