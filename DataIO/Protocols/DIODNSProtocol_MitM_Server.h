@@ -34,6 +34,9 @@ SOFTWARE.
 
 #include "XSubject.h"
 
+#include "DIOStreamUDPConfig.h"
+#include "DIODNSResolver.h"
+
 #pragma endregion
 
 
@@ -49,25 +52,43 @@ SOFTWARE.
 
 class XTHREAD;
 class XMUTEX;  
+class DIOSTREAMUDP;
 
 class DIODNSPROTOCOL_MITM_SERVER : public XSUBJECT
 {
   public:
-                          DIODNSPROTOCOL_MITM_SERVER      ();
-    virtual              ~DIODNSPROTOCOL_MITM_SERVER      ();
+                                        DIODNSPROTOCOL_MITM_SERVER      ();
+    virtual                            ~DIODNSPROTOCOL_MITM_SERVER      ();
 
-    bool                  Ini                             ();
-    
-    bool                  End                             ();
+    bool                                Ini                             ();
+    bool                                Activate                        (bool active);   
+    bool                                Update                          ();
+    bool                                End                             ();
+
+    bool                                AddDNSServer                    (XCHAR* server, XWORD port = DIODNSPROTOCOL_DEFAULTPORT);
+    bool                                AddDNSServer                    (XSTRING& server, XWORD port = DIODNSPROTOCOL_DEFAULTPORT);
+    bool                                AddDNSServer                    (XBYTE* serverIP, XWORD port = DIODNSPROTOCOL_DEFAULTPORT);
+    bool                                AddDNSServer                    (DIOIP& serverIP, XWORD port = DIODNSPROTOCOL_DEFAULTPORT);
+
+    bool                                DeleteAllDNSServers             ();
+
+    XMUTEX*                             GetServerMutex                  ();  
  
   private:
 
-    static void           ThreadServer                    (void* param);
+    bool                                Detour                          (DIODNSRESOLVER_DNSSERVER* DNSserver, XBUFFER& sendbuffer, XBUFFER& receivedbuffer);
 
-    void                  Clean                           ();
+    static void                         ThreadServer                    (void* param);
 
-    XTHREAD*              serverthread;
-    XMUTEX*               servermutex;  
+    void                                Clean                           ();
+
+    XTHREAD*                            serverthread;
+    XMUTEX*                             servermutex;  
+
+    DIOSTREAMUDPCONFIG                  diostreamudpcfg;
+		DIOSTREAMUDP*				                diostreamudp;
+
+    XVECTOR<DIODNSRESOLVER_DNSSERVER*>  dnsservers;
 };
 
 #pragma endregion

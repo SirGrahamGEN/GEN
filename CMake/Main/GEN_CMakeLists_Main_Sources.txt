@@ -443,7 +443,9 @@ if(DIO_FEATURE)
   if(DIO_DNSPROTOCOL_MITM_SERVER)
     
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_PROTOCOLS}/DIODNSProtocol_MitM_Server.cpp")
-    option(DIO_DNSRESOLVER_FEATURE "DNS Resolver" true)
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_PROTOCOLS}/DIODNSProtocol_MitM_Server_XEvent.cpp")
+     option(DIO_STREAMUDP_FEATURE   "Stream UDP"      true)   
+    option(DIO_DNSRESOLVER_FEATURE  "DNS Resolver"    true)
 
   endif()
 

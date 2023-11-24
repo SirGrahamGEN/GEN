@@ -182,19 +182,32 @@ if(COMPILE_FOR_LINUX)
   endif()
 
   
-  if(SND_FEATURE)  
-    
-    target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_LINX64_LIB})
+  if(SND_FEATURE)      
 
-    if(DEBUG_FEATURE)      
-    
-      target_link_libraries(${CMAKE_PROJECT_NAME} libopenald.a)
+    if(COMPILE_FOR_LINUX_PC_64)
       
-    else()
-    
-      target_link_libraries(${CMAKE_PROJECT_NAME} libopenal.a)
-      
+      target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_LINX64_LIB})
+
     endif()
+
+  
+    if((COMPILE_FOR_LINUX_ARM_64) OR (COMPILE_FOR_LINUX_ARM_RPI_64))   
+
+      target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_ARM64_LIB})    
+     
+    endif() 
+ 
+    target_link_libraries(${CMAKE_PROJECT_NAME} libopenal.a)
+
+   #if(DEBUG_FEATURE)      
+       
+   #  target_link_libraries(${CMAKE_PROJECT_NAME} libopenald.a)  
+            
+   # else()
+    
+   #  target_link_libraries(${CMAKE_PROJECT_NAME} libopenal.a)
+      
+   # endif()
 
   endif()  
 
