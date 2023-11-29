@@ -5,12 +5,12 @@
 
 
 
-#if(NOT GEN_DETECT_PLATFORM_COMPILER)
+if(NOT GEN_DETECT_PLATFORM_COMPILER)
   
   # Compile Selection
   include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Platform-Compiler.txt") 
 
-#endif()
+endif()
 
 
 # Warnings control

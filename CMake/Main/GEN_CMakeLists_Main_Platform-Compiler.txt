@@ -34,7 +34,9 @@
 # COMPILE_WITH_CLANG              "Compile CLang (front-end of LLVM)"
 
 
-option(DETECT_PLATFORM_COMPILER   "Detect Platform Compiler"    true)
+# --------------------------------------------------------------------
+
+option(GEN_DETECT_PLATFORM_COMPILER   "Detect Platform Compiler"    true)
 
 # --- CACHE COMPILER ------------------------------------------------
 
