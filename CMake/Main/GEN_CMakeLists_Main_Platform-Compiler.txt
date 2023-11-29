@@ -34,8 +34,7 @@
 # COMPILE_WITH_CLANG              "Compile CLang (front-end of LLVM)"
 
 
-# --------------------------------------------------------------------
-
+option(DETECT_PLATFORM_COMPILER   "Detect Platform Compiler"    true)
 
 # --- CACHE COMPILER ------------------------------------------------
 
@@ -184,6 +183,7 @@ endif()
 if(("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC"))
 
   add_definitions(-DCOMPILER_MSVC)
+
   option(COMPILE_WITH_MSVC "Compile with Microsoft Compiler (MSVC)" true)
   message(STATUS "[GEN Select for compile: Microsoft Compiler (MSVC)]")
 

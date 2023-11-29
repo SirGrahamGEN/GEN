@@ -54,43 +54,10 @@ if(COMPILE_FOR_WINDOWS)
 
   endif()  
 
-  
-  if(SND_FEATURE)  
- 
+
+  if(SND_FEATURE)      
+
     target_link_libraries(${CMAKE_PROJECT_NAME} Winmm.lib)
-    
-    if(COMPILE_FOR_WINDOWS_PC_32)
-    
-      target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_WINX32_LIB})
-
-      if(DEBUG_FEATURE)      
-      
-        target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32d.lib)
-        
-      else()
-      
-        target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
-        
-      endif()
-      
-    endif()
-    
-    if(COMPILE_FOR_WINDOWS_PC_64)
-    
-      target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_WINX64_LIB})
-
-      if(DEBUG_FEATURE)      
-      
-        target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32d.lib)
-        
-      else()
-      
-        target_link_libraries(${CMAKE_PROJECT_NAME} OpenAL32.lib)
-        
-      endif()
-      
-    endif()
-    
 
   endif()
 
@@ -180,36 +147,6 @@ if(COMPILE_FOR_LINUX)
     target_link_libraries(${CMAKE_PROJECT_NAME} pcap)
 
   endif()
-
-  
-  if(SND_FEATURE)      
-
-    if(COMPILE_FOR_LINUX_PC_64)
-      
-      target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_LINX64_LIB})
-
-    endif()
-
-  
-    if((COMPILE_FOR_LINUX_ARM_64) OR (COMPILE_FOR_LINUX_ARM_RPI_64))   
-
-      target_link_directories(${CMAKE_PROJECT_NAME} PUBLIC ${GEN_DIRECTORY_THIRDPARTYLIBRARIES_OPENAL_ARM64_LIB})    
-     
-    endif() 
- 
-    target_link_libraries(${CMAKE_PROJECT_NAME} libopenal.a)
-
-   #if(DEBUG_FEATURE)      
-       
-   #  target_link_libraries(${CMAKE_PROJECT_NAME} libopenald.a)  
-            
-   # else()
-    
-   #  target_link_libraries(${CMAKE_PROJECT_NAME} libopenal.a)
-      
-   # endif()
-
-  endif()  
 
 
   if(DATABASES_SQL_MYSQL_FEATURE)

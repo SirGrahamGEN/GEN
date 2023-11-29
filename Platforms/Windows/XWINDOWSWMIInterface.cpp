@@ -34,11 +34,12 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #define _WIN32_DCOM
+
 #include <iostream>
 #include <comdef.h>
-using namespace std;
 #include <Wbemidl.h>
 #include <Propvarutil.h>
+
 #include "XTrace.h"
 
 #include "XWINDOWSRegistryManager.h"
@@ -47,6 +48,7 @@ using namespace std;
 
 #include "XMemory_Control.h"
 
+using namespace std;
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 

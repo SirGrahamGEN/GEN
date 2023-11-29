@@ -107,11 +107,11 @@ XBYTE* XWINDOWSSHAREDMEMORYMANAGER::Create(XCHAR* ID, XDWORD size, bool ispublic
   if(ispublic)
     {
       SECURITY_ATTRIBUTES  attributes;
-      wchar_t*             sdd = L"D:"
-                                 L"(D;OICI;GA;;;BG)"      // Deny guests
-                                 L"(D;OICI;GA;;;AN)"      // Deny anonymous
-                                 L"(A;OICI;GRGWGX;;;AU)"  // Allow read, write and execute for Users
-                                 L"(A;OICI;GA;;;BA)";     // Allow all for Administrators
+      wchar_t              sdd[71] = L"D:"
+                                     L"(D;OICI;GA;;;BG)"      // Deny guests
+                                     L"(D;OICI;GA;;;AN)"      // Deny anonymous
+                                     L"(A;OICI;GRGWGX;;;AU)"  // Allow read, write and execute for Users
+                                     L"(A;OICI;GA;;;BA)";     // Allow all for Administrators
 
 
       ZeroMemory(&attributes, sizeof(attributes));

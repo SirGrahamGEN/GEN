@@ -9,23 +9,18 @@
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
-  list(APPEND WARNINGS_WINDOWS "/wd4018")                              # warning C4018: '>': signed/unsigned mismatch
-  list(APPEND WARNINGS_WINDOWS "/wd4091")                              # warning C4091: 'typedef ': ignored on left of 'xxx' when no variable is declared
-  list(APPEND WARNINGS_WINDOWS "/wd4595")                              # warning C4595: 'xxx': non-member operator new or delete functions may not be declared inline
-  list(APPEND WARNINGS_WINDOWS "/wd4996")                              # warning C4996: 'xxx': was declared deprecated
-  list(APPEND WARNINGS_WINDOWS "/wd4624")                              # warning C4624: 'xxx' destructor was implicitly defined as deleted
+  add_compile_options(/wd4018)                              # warning C4018: '>': signed/unsigned mismatch
+  add_compile_options(/wd4091)                              # warning C4091: 'typedef ': ignored on left of 'xxx' when no variable is declared
+  add_compile_options(/wd4595)                              # warning C4595: 'xxx': non-member operator new or delete functions may not be declared inline
+  add_compile_options(/wd4996)                              # warning C4996: 'xxx': was declared deprecated
+  add_compile_options(/wd4624)                              # warning C4624: 'xxx' destructor was implicitly defined as deleted
     
   if(APPMODE_WINDOWS_DINAMIC)
-  
-    list(APPEND WARNINGS_WINDOWS "/wd4251")                            # warning C4251: needs to have dll-interface to be used by clients of class 'xxxxxxxx'
-    
+    add_compile_options(/wd4251)                            # warning C4251: needs to have dll-interface to be used by clients of class 'xxxxxxxx'
   endif()
 
- #list(APPEND WARNINGS_WINDOWS "/wd4172")                              # warning C4172: returning address of local variable or temporary: var 
-  list(APPEND WARNINGS_WINDOWS "/wd5033")                              # warning C5033: 'register' is no longer a supported storage class
-  
-  add_compile_options(${WARNINGS_WINDOWS})    
-    
+ #add_compile_options(/wd4172)                              # warning C4172: returning address of local variable or temporary: var
+
 endif()
 
 
@@ -34,10 +29,8 @@ endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
-  list(APPEND WARNINGS_LINUX "-Wreturn-local-addr")                    # warning: reference to local variable ‘var’ returned [-Wreturn-local-addr] 
-  list(APPEND WARNINGS_LINUX "-Wno-deprecated")                        # warning: Eliminate warning of functions deprecated
-  
-  add_compile_options(${WARNINGS_LINUX})                  
+ #add_compile_options(-Wreturn-local-addr)                  # warning: reference to local variable ‘var’ returned [-Wreturn-local-addr]
+  add_compile_options(-Wno-deprecated)                      # warning: Eliminate warning of functions deprecated
   
 endif()
 
@@ -65,7 +58,6 @@ if(COMPILE_WITH_CLANG)
  #list(APPEND WARNINGS_CLANG "-ferror-limit=1000")
   
   add_compile_options(${WARNINGS_CLANG})  
-  
- #message(STATUS "[GEN Warnings CLANG deactivated: ${WARNINGS_CLANG} ]")
+  message(STATUS "[GEN Warnings CLANG deactivated: ${WARNINGS_CLANG} ]")
 
 endif()

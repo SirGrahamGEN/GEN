@@ -4,7 +4,8 @@
 # --------------------------------------------------------------------
 
 
-set(CMAKE_CXX_STANDARD 14)
+
+set(CMAKE_CXX_STANDARD 17)
 
 add_definitions(-DUNICODE)
 
@@ -313,6 +314,14 @@ if(USERINTERFACE_FEATURE)
   option(XFILE_ZIP_FEATURE    "XFile Zip format"    true)  
  
 endif()
+
+
+# --------------------------------------------------------------------
+# Sound
+
+if(SND_FEATURE)  
+
+endif()  
 
 
 # --------------------------------------------------------------------
