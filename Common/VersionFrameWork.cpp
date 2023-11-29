@@ -1,8 +1,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       Version.cpp
+* @file       VersionFrameWork.cpp
 * 
-* @class      VERSION
+* @class      VERSIONFRAMEWORKFRAMEWORK
 * @brief      Version of framework
 * @ingroup    PLATFORM_COMMON
 * 
@@ -37,7 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "Version.h"
+#include "VersionFramework.h"
 
 #include "XFactory.h"
 #include "XDateTime.h"
@@ -50,7 +50,7 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
-VERSION* VERSION::instance = NULL;
+VERSIONFRAMEWORK* VERSIONFRAMEWORK::instance = NULL;
 
 #pragma endregion
 
@@ -61,14 +61,14 @@ VERSION* VERSION::instance = NULL;
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool VERSION::GetIsInstanced()
+* @fn         bool VERSIONFRAMEWORK::GetIsInstanced()
 * @brief      GetIsInstanced
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool VERSION::GetIsInstanced()
+bool VERSIONFRAMEWORK::GetIsInstanced()
 {
   return instance!=NULL;
 }
@@ -76,16 +76,16 @@ bool VERSION::GetIsInstanced()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         VERSION& VERSION::GetInstance()
+* @fn         VERSIONFRAMEWORK& VERSIONFRAMEWORK::GetInstance()
 * @brief      GetInstance
 * @ingroup    XUTILS
 *
-* @return     VERSION& :
+* @return     VERSIONFRAMEWORK& :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-VERSION& VERSION::GetInstance()
+VERSIONFRAMEWORK& VERSIONFRAMEWORK::GetInstance()
 {
-  if(!instance) instance = new VERSION();
+  if(!instance) instance = new VERSIONFRAMEWORK();
 
   return (*instance);
 }
@@ -93,14 +93,14 @@ VERSION& VERSION::GetInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool VERSION::DelInstance()
+* @fn         bool VERSIONFRAMEWORK::DelInstance()
 * @brief      DelInstance
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool VERSION::DelInstance()
+bool VERSIONFRAMEWORK::DelInstance()
 {
   if(instance)
     {
@@ -116,14 +116,14 @@ bool VERSION::DelInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* VERSION::GetName()
+* @fn         XSTRING* VERSIONFRAMEWORK::GetName()
 * @brief      GetName
 * @ingroup    PLATFORM_COMMON
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* VERSION::GetName()
+XSTRING* VERSIONFRAMEWORK::GetName()
 {
   return &name;
 }
@@ -131,16 +131,16 @@ XSTRING* VERSION::GetName()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* VERSION::GetVersion()
+* @fn         XSTRING* VERSIONFRAMEWORK::GetVersion()
 * @brief      GetVersion
 * @ingroup    PLATFORM_COMMON
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* VERSION::GetVersion()
+XSTRING* VERSIONFRAMEWORK::GetVersion()
 {
-  version.Format(__L("%d.%d.%d"), VERSION_VERSION, VERSION_SUBVERSION, VERSION_SUBERROR);
+  version.Format(__L("%d.%d.%d"), VERSIONFRAMEWORK_VERSION, VERSIONFRAMEWORK_SUBVERSION, VERSIONFRAMEWORK_SUBERROR);
 
   return &version;
 }
@@ -148,7 +148,7 @@ XSTRING* VERSION::GetVersion()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void VERSION::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& suberror)
+* @fn         void VERSIONFRAMEWORK::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& suberror)
 * @brief      GetVersion
 * @ingroup    PLATFORM_COMMON
 * 
@@ -159,24 +159,24 @@ XSTRING* VERSION::GetVersion()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void VERSION::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& suberror)
+void VERSIONFRAMEWORK::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& suberror)
 {
-  version       = VERSION_VERSION;
-  subversion    = VERSION_SUBVERSION;
-  suberror      = VERSION_SUBERROR;
+  version       = VERSIONFRAMEWORK_VERSION;
+  subversion    = VERSIONFRAMEWORK_SUBVERSION;
+  suberror      = VERSIONFRAMEWORK_SUBERROR;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* VERSION::GetCodeName()
+* @fn         XSTRING* VERSIONFRAMEWORK::GetCodeName()
 * @brief      GetCodeName
 * @ingroup    PLATFORM_COMMON
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* VERSION::GetCodeName()
+XSTRING* VERSIONFRAMEWORK::GetCodeName()
 {
   return &codename;
 }
@@ -184,7 +184,7 @@ XSTRING* VERSION::GetCodeName()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void VERSION::GetAppVersion(XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror)
+* @fn         void VERSIONFRAMEWORK::GetAppVersion(XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror)
 * @brief      GetAppVersion
 * @ingroup    PLATFORM_COMMON
 * 
@@ -195,7 +195,7 @@ XSTRING* VERSION::GetCodeName()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void VERSION::GetAppVersion(XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror)
+void VERSIONFRAMEWORK::GetAppVersion(XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror)
 {
   app_version       = this->app_version;
   app_subversion    = this->app_subversion;
@@ -205,14 +205,14 @@ void VERSION::GetAppVersion(XDWORD& app_version, XDWORD& app_subversion, XDWORD&
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* VERSION::GetAppOwner()
+* @fn         XSTRING* VERSIONFRAMEWORK::GetAppOwner()
 * @brief      GetAppOwner
 * @ingroup    PLATFORM_COMMON
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* VERSION::GetAppOwner()
+XSTRING* VERSIONFRAMEWORK::GetAppOwner()
 {
   return &app_ower;
 }
@@ -220,14 +220,14 @@ XSTRING* VERSION::GetAppOwner()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDWORD VERSION::GetAppCreationYear()
+* @fn         XDWORD VERSIONFRAMEWORK::GetAppCreationYear()
 * @brief      GetAppCreationYear
 * @ingroup    PLATFORM_COMMON
 * 
 * @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD VERSION::GetAppCreationYear()
+XDWORD VERSIONFRAMEWORK::GetAppCreationYear()
 {
   return app_creationyear;
 }
@@ -235,14 +235,14 @@ XDWORD VERSION::GetAppCreationYear()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* VERSION::GetAppTitle()
+* @fn         XSTRING* VERSIONFRAMEWORK::GetAppTitle()
 * @brief      GetAppTitle
 * @ingroup    PLATFORM_COMMON
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* VERSION::GetAppTitle()
+XSTRING* VERSIONFRAMEWORK::GetAppTitle()
 {
   return &app_titlestr;
 }
@@ -250,14 +250,14 @@ XSTRING* VERSION::GetAppTitle()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* VERSION::GetAppVersion()
+* @fn         XSTRING* VERSIONFRAMEWORK::GetAppVersion()
 * @brief      GetAppVersion
 * @ingroup    PLATFORM_COMMON
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* VERSION::GetAppVersion()
+XSTRING* VERSIONFRAMEWORK::GetAppVersion()
 {
   return &app_versionstr;
 }
@@ -265,7 +265,7 @@ XSTRING* VERSION::GetAppVersion()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool VERSION::GetAppVersionStatus(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& statusstr)
+* @fn         bool VERSIONFRAMEWORK::GetAppVersionStatus(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& statusstr)
 * @brief      GetAppVersionStatus
 * @ingroup    PLATFORM_COMMON
 * 
@@ -277,7 +277,7 @@ XSTRING* VERSION::GetAppVersion()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool VERSION::GetAppVersionStatus(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& statusstr)
+bool VERSIONFRAMEWORK::GetAppVersionStatus(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& statusstr)
 {
   statusstr.Empty();
 
@@ -294,7 +294,7 @@ bool VERSION::GetAppVersionStatus(XDWORD app_version, XDWORD app_subversion, XDW
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool VERSION::GetAppVersion(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& versionstr)
+* @fn         bool VERSIONFRAMEWORK::GetAppVersion(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& versionstr)
 * @brief      GetAppVersion
 * @ingroup    PLATFORM_COMMON
 * 
@@ -306,7 +306,7 @@ bool VERSION::GetAppVersionStatus(XDWORD app_version, XDWORD app_subversion, XDW
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool VERSION::GetAppVersion(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& versionstr)
+bool VERSIONFRAMEWORK::GetAppVersion(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& versionstr)
 {
   XSTRING statusstr;
 
@@ -327,7 +327,7 @@ bool VERSION::GetAppVersion(XDWORD app_version, XDWORD app_subversion, XDWORD ap
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void VERSION::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror,XCHAR* app_owner, XDWORD app_creationyear)
+* @fn         void VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror,XCHAR* app_owner, XDWORD app_creationyear)
 * @brief      SetAppVersion
 * @ingroup    PLATFORM_COMMON
 * 
@@ -341,7 +341,7 @@ bool VERSION::GetAppVersion(XDWORD app_version, XDWORD app_subversion, XDWORD ap
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool VERSION::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XCHAR* app_owner, XDWORD app_creationyear)
+bool VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XCHAR* app_owner, XDWORD app_creationyear)
 {
   app_titlestr.Empty();
   app_versionstr.Empty();
@@ -375,26 +375,26 @@ bool VERSION::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subv
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         VERSION::VERSION()
+* @fn         VERSIONFRAMEWORK::VERSIONFRAMEWORK()
 * @brief      Constructor
 * @ingroup    PLATFORM_COMMON
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-VERSION::VERSION()
+VERSIONFRAMEWORK::VERSIONFRAMEWORK()
 {
   Clean();
 
-  name      = VERSION_NAME; 
-  codename  = VERSION_CODENAME; 
-  version.Format(__L("%d.%d.%d"), VERSION_VERSION, VERSION_SUBVERSION, VERSION_SUBERROR);
+  name      = VERSIONFRAMEWORK_NAME; 
+  codename  = VERSIONFRAMEWORK_CODENAME; 
+  version.Format(__L("%d.%d.%d"), VERSIONFRAMEWORK_VERSION, VERSIONFRAMEWORK_SUBVERSION, VERSIONFRAMEWORK_SUBERROR);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         VERSION::~VERSION()
+* @fn         VERSIONFRAMEWORK::~VERSIONFRAMEWORK()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_COMMON
@@ -402,7 +402,7 @@ VERSION::VERSION()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-VERSION::~VERSION()
+VERSIONFRAMEWORK::~VERSIONFRAMEWORK()
 {
   Clean();
 }
@@ -410,7 +410,7 @@ VERSION::~VERSION()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void VERSION::Clean()
+* @fn         void VERSIONFRAMEWORK::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_COMMON
@@ -418,7 +418,7 @@ VERSION::~VERSION()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void VERSION::Clean()
+void VERSIONFRAMEWORK::Clean()
 {
   name.Empty();   
   version.Empty();         

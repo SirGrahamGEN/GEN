@@ -37,7 +37,7 @@
 #include "XFileTXT.h"
 #include "XTrace.h"
 
-#include "Version.h"
+#include "VersionFrameWork.h"
 
 #include "DIOStreamTCPIPConfig.h"
 #include "DIOStreamTCPIP.h"

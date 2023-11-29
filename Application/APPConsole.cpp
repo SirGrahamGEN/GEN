@@ -39,7 +39,7 @@
 
 #include "APPConsole.h"
 
-#include "Version.h"
+#include "VersionFrameWork.h"
 
 #include "XFactory.h"
 #include "XConsole.h"

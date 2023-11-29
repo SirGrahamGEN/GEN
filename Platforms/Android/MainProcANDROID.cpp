@@ -72,7 +72,7 @@
   #endif
 #endif
 
-#include "Version.h"
+#include "VersionFrameWork.h"
 
 #include "XPathsManager.h"
 #include "XThreadCollected.h"

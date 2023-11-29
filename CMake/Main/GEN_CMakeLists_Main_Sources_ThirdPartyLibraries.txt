@@ -275,10 +275,7 @@ endif()
 if(GOOGLETEST_FEATURE)    
 
   add_definitions(-DGOOGLETEST_ACTIVE) 
-
-  # GoogleTest requires at least C++14
-  set(CMAKE_CXX_STANDARD 14)
-
+  
   enable_testing()
 
   include(GoogleTest)    

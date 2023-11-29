@@ -127,7 +127,7 @@
 // --- Common -------------------------------------------------------------------------------------
 
 #ifndef GEN_VERSION
-#define GEN_VERSION                       VERSION::GetInstance()
+#define GEN_VERSION                       VERSIONFRAMEWORK::GetInstance()
 #endif
 
 #ifndef GEN_SET_VERSION
@@ -135,7 +135,7 @@
 #endif
 
 #ifndef GEN_VERSION_CLEAN
-#define GEN_VERSION_CLEAN                 VERSION::GetInstance().Clean();
+#define GEN_VERSION_CLEAN                 VERSIONFRAMEWORK::GetInstance().Clean();
 #endif
 
 // --- Graphics Manager ---------------------------------------------------------------------------

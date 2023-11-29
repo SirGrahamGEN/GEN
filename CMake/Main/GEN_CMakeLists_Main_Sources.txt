@@ -4,7 +4,7 @@
 # --------------------------------------------------------------------
 
 
-list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_COMMON}/Version.cpp")
+list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_COMMON}/VersionFrameWork.cpp")
 list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_MAINPROC}/MainProc.cpp")
 
 
