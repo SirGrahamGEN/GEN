@@ -22,7 +22,7 @@ if(COMPILE_WITH_MSVC)
    
   if(APPMODE_WINDOWS_DINAMIC)
 
-    set(WARNING_TO_BOTH "${WARNING_TO_BOTH} /w4251")                            # warning C4251: needs to have dll-interface to be used by clients of class 'xxxxxxxx'
+    set(WARNING_TO_BOTH "${WARNING_TO_BOTH} /wd4251")                            # warning C4251: needs to have dll-interface to be used by clients of class 'xxxxxxxx'
 
   endif()
 
