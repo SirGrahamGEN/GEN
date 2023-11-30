@@ -263,10 +263,10 @@ endif()
 
 if(SND_FEATURE)  
   
+  set(CMAKE_CXX_STANDARD 17)
+
   if(COMPILE_FOR_WINDOWS)  
-
-    set(CMAKE_CXX_STANDARD 17)
-
+ 
     add_definitions(-DWIN32)
     add_definitions(-D_WIN32)
     add_definitions(-D_WINDOWS)
