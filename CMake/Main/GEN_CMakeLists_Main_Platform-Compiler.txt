@@ -16,10 +16,11 @@
 
 # COMPILE_FOR_LINUX               "Compile to Linux General"
 # COMPILE_FOR_LINUX_PC_64         "Compile to Linux PC 64"
-# COMPILE_FOR_LINUX_RPI           "Compile to Linux Rapsberry Pi"
-# COMPILE_FOR_LINUX_RPI_64        "Compile to Linux Rapsberry Pi 64"
+
 # COMPILE_FOR_LINUX_ARM           "Compile to Linux ARM"
 # COMPILE_FOR_LINUX_ARM_64        "Compile to Linux ARM 64"
+# COMPILE_FOR_LINUX_ARM_RPI       "Compile to Linux ARM Rapsberry Pi"
+# COMPILE_FOR_LINUX_ARM_RPI_64    "Compile to Linux ARM Rapsberry Pi 64"  
 
 # COMPILE_FOR_ANDROID             "Compile to Android General"
 
@@ -36,7 +37,7 @@
 
 # --------------------------------------------------------------------
 
-option(GEN_DETECT_PLATFORM_COMPILER   "Detect Platform Compiler"    true)
+#option(GEN_DETECT_PLATFORM_COMPILER   "Detect Platform Compiler"    true)
 
 # --- CACHE COMPILER ------------------------------------------------
 

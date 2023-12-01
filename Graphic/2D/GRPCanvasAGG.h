@@ -508,11 +508,12 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                       AGG_SOLIDFILL_END
                                                                                     }
 
-                                                                                  if(linewidth <= 1.0)
+                                                                                  if((linewidth <= 1.0f) && (linewidth))
                                                                                     {
                                                                                       renderer_primitives->ellipse((int)x, (int)y, (int)rx, (int)ry);
                                                                                     }
-                                                                                   else
+                                                                                   
+                                                                                  if(linewidth > 1.0f)
                                                                                     {
                                                                                       AGG_OUTLINE_INI
 

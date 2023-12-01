@@ -4,13 +4,10 @@
 # --------------------------------------------------------------------
 
 
+message(STATUS "--------------------------------------------------------------------")
 
-if(NOT GEN_DETECT_PLATFORM_COMPILER)
-  
-  # Compile Selection
-  include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Platform-Compiler.txt") 
-
-endif()
+# Compile Selection
+include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Platform-Compiler.txt") 
 
 
 # Warnings control
@@ -118,3 +115,7 @@ if(COMPILE_FOR_ESP32)
   include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Compiler_ESP32.txt")           
 
 endif()
+
+
+message(STATUS "--------------------------------------------------------------------")
+

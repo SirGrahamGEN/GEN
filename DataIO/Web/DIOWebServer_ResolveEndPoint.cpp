@@ -105,12 +105,15 @@ bool DIOWEBSERVER_RESOLVEENDPOINT::Update()
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_RESOLVEENDPOINT::CreateResponse(XSTRING* response)
-{  
+{ 
+  bool status = false;
+
+  /*
   XSERIALIZATIONMETHOD* serializationmethod;
   XFILEJSON             xfileJSON;      
   XSTRING               alllines;
-  bool                  status = false;
-
+  
+  
   serializationmethod = XSERIALIZABLE::CreateInstance(xfileJSON);
 
   InitSerialize(serializationmethod);
@@ -123,6 +126,7 @@ bool DIOWEBSERVER_RESOLVEENDPOINT::CreateResponse(XSTRING* response)
     }
 
   delete serializationmethod;
+  */
   
   return status;
 }

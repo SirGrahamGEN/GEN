@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRPBitmapSequence.cpp
-*
+* 
 * @class      GRPBITMAPSEQUENCE
 * @brief      Graphics Bitmap Sequence class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "GRPBitmapSequence.h"
 
 #include "XFactory.h"
 #include "XTimer.h"
@@ -39,13 +45,21 @@
 #include "GRPRect.h"
 #include "GRPBitmap.h"
 
-#include "GRPBitmapSequence.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+#pragma region CLASS_BITMAPFRAME
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -80,7 +94,6 @@ GRPBITMAPFRAME::~GRPBITMAPFRAME()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAPFRAME::GetBitmap()
@@ -94,7 +107,6 @@ GRPBITMAP* GRPBITMAPFRAME::GetBitmap()
 {
   return bitmap;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -112,7 +124,6 @@ int GRPBITMAPFRAME::GetAjustX()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPFRAME::GetAjustY()
@@ -126,7 +137,6 @@ int GRPBITMAPFRAME::GetAjustY()
 {
   return ajusty;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -146,7 +156,6 @@ void GRPBITMAPFRAME::SetBitmap(GRPBITMAP* bitmap)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFRAME::SetAjustX(int x)
@@ -164,7 +173,6 @@ void GRPBITMAPFRAME::SetAjustX(int ajustx)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFRAME::SetAjustY(int y)
@@ -180,7 +188,6 @@ void GRPBITMAPFRAME::SetAjustY(int ajusty)
 {
   this->ajusty = ajusty;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -201,12 +208,10 @@ void GRPBITMAPFRAME::Clean()
 }
 
 
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* GRPBITMAPSEQUENCE()
-*
-* --------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+#pragma region CLASS_GRPBITMAPSEQUENCE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -228,8 +233,6 @@ GRPBITMAPSEQUENCE::GRPBITMAPSEQUENCE()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPSEQUENCE::~GRPBITMAPSEQUENCE()
@@ -248,7 +251,6 @@ GRPBITMAPSEQUENCE::~GRPBITMAPSEQUENCE()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -279,7 +281,6 @@ bool GRPBITMAPSEQUENCE::AddFrame(GRPBITMAP* bitmap, int ajustx, int ajusty)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPSEQUENCE::DelAllSequence(bool full)
@@ -303,7 +304,6 @@ bool GRPBITMAPSEQUENCE::DelAllSequence(bool full)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFRAME* GRPBITMAPSEQUENCE::GetActualFrame()
@@ -319,8 +319,6 @@ GRPBITMAPFRAME* GRPBITMAPSEQUENCE::GetActualFrame()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPSEQUENCE::GetActualFrameIndex()
@@ -334,7 +332,6 @@ int GRPBITMAPSEQUENCE::GetActualFrameIndex()
 {
   return frameindex;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -355,7 +352,6 @@ GRPBITMAPFRAME* GRPBITMAPSEQUENCE::GetFrame(XWORD nframe)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPSEQUENCE::GetNFrames()
@@ -369,7 +365,6 @@ int GRPBITMAPSEQUENCE::GetNFrames()
 {
   return frames.GetSize();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -387,7 +382,6 @@ int GRPBITMAPSEQUENCE::GetNLoops()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPSEQUENCE::GetNLoopsMade()
@@ -401,7 +395,6 @@ int GRPBITMAPSEQUENCE::GetNLoopsMade()
 {
   return nloopsmade;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -423,7 +416,6 @@ bool GRPBITMAPSEQUENCE::SetNLoops(int nloops)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPSEQUENCE::SetNLoopsMade(int nloopsmade)
@@ -441,7 +433,6 @@ bool GRPBITMAPSEQUENCE::SetNLoopsMade(int nloopsmade)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -463,9 +454,8 @@ bool GRPBITMAPSEQUENCE::AjustAllSequence(int ajustx, int ajusty)
   for(XDWORD c=0;c<frames.GetSize();c++)
     {
       GRPBITMAPFRAME* frame = (GRPBITMAPFRAME*)frames.Get(c);
-
       if(frame)
-        {
+        {        
           frame->SetAjustX(ajustx);
           frame->SetAjustY(ajusty);
         }
@@ -474,7 +464,6 @@ bool GRPBITMAPSEQUENCE::AjustAllSequence(int ajustx, int ajusty)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -512,8 +501,6 @@ GRPBITMAPFRAME* GRPBITMAPSEQUENCE::Play(int nloops, bool ajusttimeauto, bool rev
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPSEQUENCE::Stop()
@@ -540,7 +527,6 @@ bool GRPBITMAPSEQUENCE::Stop()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPSEQUENCE::Pause()
@@ -561,7 +547,6 @@ bool GRPBITMAPSEQUENCE::Pause()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPSEQUENCE::Finished()
@@ -580,7 +565,6 @@ bool GRPBITMAPSEQUENCE::Finished()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -615,7 +599,6 @@ bool GRPBITMAPSEQUENCE::IsEndSequence()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -665,8 +648,6 @@ GRPBITMAPFRAME* GRPBITMAPSEQUENCE::Update()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPSEQUENCE::AjustTime(int framebysec)
@@ -689,6 +670,77 @@ bool GRPBITMAPSEQUENCE::AjustTime(int framebysec)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPBITMAPSEQUENCE* GRPBITMAPSEQUENCE::Copy()
+* @brief      Copy
+* @ingroup    GRAPHIC
+* 
+* @return     GRPBITMAPSEQUENCE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPBITMAPSEQUENCE* GRPBITMAPSEQUENCE::Copy()
+{
+  GRPBITMAPSEQUENCE* sequence = new GRPBITMAPSEQUENCE();
+  if(!sequence)
+    {
+      return NULL;
+    }
+
+  for(XDWORD c=0; c<frames.GetSize(); c++)
+    {
+      GRPBITMAPFRAME* frame = frames.Get(c);
+      if(frame)
+        {
+          GRPBITMAP* bitmap = frame->GetBitmap()->Clone();
+          if(bitmap)
+            {
+              sequence->AddFrame(bitmap, frame->GetAjustX(), frame->GetAjustY());
+            }
+        }
+    }
+
+  return sequence;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPBITMAPSEQUENCE::Flip(bool horizontal)
+* @brief      Flip
+* @ingroup    GRAPHIC
+* 
+* @param[in]  horizontal : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPBITMAPSEQUENCE::Flip(bool horizontal)
+{
+  bool status = true;
+
+  for(XDWORD c=0; c<frames.GetSize(); c++)
+    {
+      GRPBITMAPFRAME* frame = frames.Get(c);
+      if(frame)
+        {
+          GRPBITMAP* bitmap = frame->GetBitmap();
+          if(bitmap)
+            {
+              if(horizontal)
+                {
+                  bitmap->FlipHorizontal();
+                }
+               else
+                {
+                  bitmap->FlipVertical();
+                }
+            }
+        }
+    }
+
+  return status;
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -716,4 +768,14 @@ void GRPBITMAPSEQUENCE::Clean()
 
   reverse       = false;
 }
+
+
+#pragma endregion
+
+
+
+#pragma endregion
+
+
+
 
