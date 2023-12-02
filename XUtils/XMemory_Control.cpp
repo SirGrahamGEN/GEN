@@ -1,40 +1,45 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XMemory_Control.cpp
-*
+* 
 * @class      XMEMORY_CONTROL
 * @brief      eXtended Memory Control class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #ifdef XMEMORY_CONTROL_ACTIVE
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XMemory_Control.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -43,25 +48,29 @@
 #include "XString.h"
 #include "XTrace.h"
 
-#include "XMemory_Control.h"
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 XMEMORY_CONTROL XMemory_Control;
 
-/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XMEMORY_CONTROL::XMEMORY_CONTROL()
 * @brief      Constructor
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XMEMORY_CONTROL::XMEMORY_CONTROL()
 {
@@ -89,16 +98,17 @@ XMEMORY_CONTROL::XMEMORY_CONTROL()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XMEMORY_CONTROL::~XMEMORY_CONTROL()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XMEMORY_CONTROL::~XMEMORY_CONTROL()
+
 {
   isactive = false;
 
@@ -125,13 +135,13 @@ XMEMORY_CONTROL::~XMEMORY_CONTROL()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XMEMORY_CONTROL::IsActive()
 * @brief      IsActive
 * @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XMEMORY_CONTROL::IsActive()
 {
@@ -204,7 +214,6 @@ void* XMEMORY_CONTROL::Assign(XDWORD size, char* pathfile, int line)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMEMORY_CONTROL::Free(void* ptr)
@@ -240,7 +249,6 @@ void XMEMORY_CONTROL::Free(void* ptr)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMEMORY_CONTROL::FreeAll()
@@ -264,7 +272,6 @@ bool XMEMORY_CONTROL::FreeAll()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XMEMORY_CONTROL::GetMemoryUsed()
@@ -280,7 +287,6 @@ XDWORD XMEMORY_CONTROL::GetUsed()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XMEMORY_CONTROL::GetMemoryNAssigns()
@@ -294,7 +300,6 @@ XDWORD XMEMORY_CONTROL::GetNAssigns()
 {
   return nassigns;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -384,7 +389,6 @@ bool XMEMORY_CONTROL::DisplayAll(bool displaydata)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMEMORY_CONTROL::Lock()
@@ -408,7 +412,6 @@ bool XMEMORY_CONTROL::Lock()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -436,8 +439,6 @@ bool XMEMORY_CONTROL::UnLock()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XMEMORY_CONTROL::CRC32ForByte(XDWORD ini)
@@ -458,7 +459,6 @@ XDWORD XMEMORY_CONTROL::CRC32ForByte(XDWORD ini)
 
   return ini ^ (XDWORD)0xFF000000L;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -493,7 +493,6 @@ XDWORD XMEMORY_CONTROL::CRC32(XBYTE* data, XWORD size)
 
   return crc;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -543,7 +542,6 @@ bool XMEMORY_CONTROL::RegisterAssign(void* ptr, XDWORD size, char* pathfile, int
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMEMORY_CONTROL::DeRegisterAssign(void* ptr, XDWORD& size)
@@ -576,7 +574,6 @@ bool XMEMORY_CONTROL::DeRegisterAssign(void* ptr, XDWORD& size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMEMORY_CONTROL::ResizeAssignList(XDWORD newnregisterelements)
@@ -604,7 +601,6 @@ bool XMEMORY_CONTROL::ResizeAssignList()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -676,7 +672,6 @@ bool XMEMORY_CONTROL::SearchAssignIndex(bool free, void* ptr, XDWORD& index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMEMORY_CONTROL::Clean()
@@ -707,6 +702,7 @@ void XMEMORY_CONTROL::Clean()
 
 
 #undef new
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -784,7 +780,6 @@ void operator delete(void* ptr) throw ()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void operator delete[] (void* ptr) noexcept
@@ -809,8 +804,7 @@ void operator delete[] (void* ptr) throw ()
 }
 
 
-#define new new(__FILE__, __LINE__)
-
+#define new new(GEN_MODULE_EXEC, GEN_LINE_EXEC)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -833,5 +827,10 @@ void* ReAlloc(void* assign, size_t size)
 }
 
 
+#pragma endregion
+
 
 #endif
+
+
+

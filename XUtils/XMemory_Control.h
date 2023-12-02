@@ -153,6 +153,7 @@ class XMEMORY_CONTROL
 
 extern XMEMORY_CONTROL XMemory_Control;
 
+
 void* operator new      (size_t size, char const* namefile, int line);
 void* operator new[]    (size_t size, char const* namefile, int line);
 void  operator delete   (void* ptr) throw ();

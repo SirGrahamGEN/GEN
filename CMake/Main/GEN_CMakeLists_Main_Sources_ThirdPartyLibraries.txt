@@ -257,7 +257,7 @@ endif()
 
 if(SND_FEATURE)  
   
-  set(CMAKE_CXX_STANDARD 17)
+  # set(CMAKE_CXX_STANDARD 17)
 
   add_definitions(-DAL_LIBTYPE_STATIC)
   add_definitions(-DAL_BUILD_LIBRARY)
@@ -469,7 +469,7 @@ if(GOOGLETEST_FEATURE)
   add_definitions(-DGOOGLETEST_ACTIVE) 
 
   # GoogleTest requires at least C++14
-  set(CMAKE_CXX_STANDARD 14)
+  # set(CMAKE_CXX_STANDARD 14)
 
   enable_testing()
 
