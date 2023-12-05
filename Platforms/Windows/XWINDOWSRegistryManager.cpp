@@ -312,40 +312,46 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
   if(type == REG_NONE)
     {
       switch(data.GetType())
-        {
-          case XVARIANT_TYPE_NULL            :
-          case XVARIANT_TYPE_BOOLEAN         :          
-          case XVARIANT_TYPE_DOUBLEINTEGER   :
-          case XVARIANT_TYPE_FLOAT           :
+        {    
+          case XVARIANT_TYPE_SHORT            :
+          case XVARIANT_TYPE_WORD             :
+          case XVARIANT_TYPE_INTEGER          :
+          case XVARIANT_TYPE_DWORD            : type = REG_DWORD;
+                                                status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)data.GetData(), (DWORD)data.GetSize());
+                                                break;  
 
-          case XVARIANT_TYPE_DATE            :
-          case XVARIANT_TYPE_TIME            :
-          case XVARIANT_TYPE_DATETIME        :
-          case XVARIANT_TYPE_BUFFER          : break;
+          case XVARIANT_TYPE_DOUBLEINTEGER    : 
+          case XVARIANT_TYPE_QWORD            : type = REG_QWORD;
+                                                status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)data.GetData(), (DWORD)data.GetSize());
+                                                break;
+          case XVARIANT_TYPE_NULL             :  
+          case XVARIANT_TYPE_BOOLEAN          : 
+          case XVARIANT_TYPE_FLOAT            :
+          case XVARIANT_TYPE_DOUBLE           :   
+          case XVARIANT_TYPE_DATE             :
+          case XVARIANT_TYPE_TIME             :  
+          case XVARIANT_TYPE_DATETIME         : 
+          case XVARIANT_TYPE_POINTER          : type = REG_NONE; 
+                                                status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)data.GetData(), (DWORD)data.GetSize());
+                                                break;
 
-          case XVARIANT_TYPE_INTEGER         : type = REG_DWORD;
-                                               break;
-
-          case XVARIANT_TYPE_DOUBLE          : type = REG_QWORD;
-                                               break;
-
-          case XVARIANT_TYPE_STRING          :
-          case XVARIANT_TYPE_CHAR            :
-          case XVARIANT_TYPE_XCHAR           : type = REG_SZ;
-                                               break;
+          case XVARIANT_TYPE_CHAR             :
+          case XVARIANT_TYPE_XCHAR            :
+          case XVARIANT_TYPE_STRING           : { XSTRING* string =  (XSTRING*)data.GetData();
+                                                  type = REG_SZ;
+                                                  status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)(string->Get()), (DWORD)string->GetSize()*sizeof(XCHAR));
+                                                }
+                                                break;
+        
+          case XVARIANT_TYPE_BUFFER           : { XBUFFER* buffer =  (XBUFFER*)data.GetData();
+                                                  type = REG_BINARY;
+                                                  status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)buffer->Get(), (DWORD)buffer->GetSize());
+                                                 }
+                                                break;           
        }
     }
 
-  if(data.GetType() == XVARIANT_TYPE_STRING)
-    {
-      XSTRING* string =  (XSTRING*)data.GetData();
-      status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)(string->Get()), (DWORD)string->GetSize()*sizeof(XCHAR));
-    }
-   else
-    {
-      status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)data.GetData(), (DWORD)data.GetSize());
-    }
-
+  
   if(status != ERROR_SUCCESS) return false;
 
   return true;

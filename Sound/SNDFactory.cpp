@@ -234,6 +234,21 @@ bool SNDFACTORY::End()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool SNDFACTORY::IsSoundActive()
+* @brief      IsSoundActive
+* @ingroup    SOUND
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SNDFACTORY::IsSoundActive()
+{
+  return soundactive;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimestoplay)
 * @brief      Sound_Play
 * @ingroup    SOUND
@@ -247,6 +262,11 @@ bool SNDFACTORY::End()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimestoplay)                                   
 { 
+  if(!soundactive)
+    {
+      return false;
+    }
+
   if(!item)
     {
       return false;
@@ -497,6 +517,11 @@ bool SNDFACTORY::MasterVolume_Set(int volume)
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDITEM* SNDFACTORY::CreateItem(XCHAR* path)  
 {
+  if(!soundactive)
+    {
+      return NULL;
+    }
+
   if(!path)
     {
       return NULL;
@@ -570,6 +595,11 @@ SNDITEM* SNDFACTORY::CreateItem(XPATH& xpath)
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDITEM* SNDFACTORY::CreateItem(XDWORD frecuency, XDWORD duration)
 {
+  if(!soundactive)
+    {
+      return NULL;
+    }
+
   if((!frecuency) || (!duration))
     {
       return NULL;
@@ -630,6 +660,11 @@ XVECTOR<SNDITEM*>* SNDFACTORY::GetItems()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDFACTORY::Sound_IsAnyActive()
 { 
+  if(!soundactive)
+    {
+      return false;
+    }
+
   XDWORD counter = 0;
 
   for(XDWORD c=0; c<sounditems.GetSize(); c++)
@@ -660,6 +695,11 @@ bool SNDFACTORY::Sound_IsAnyActive()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDFACTORY::Sound_IsAnyPlaying()
 { 
+  if(!soundactive)
+    {
+      return false;
+    }
+
   for(XDWORD c=0; c<sounditems.GetSize(); c++)
     {
       SNDITEM* item = sounditems.Get(c);
@@ -690,6 +730,7 @@ void SNDFACTORY::Clean()
 {
   instance     = NULL;
 
+  soundactive  = false;
   mastervolume = 0;
 }
 

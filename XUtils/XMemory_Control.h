@@ -72,6 +72,11 @@
 #define XMEMORY_CONTROL_ACTIVATED               XMemory_Control.Activate(true);
 #define XMEMORY_CONTROL_DEACTIVATED             XMemory_Control.Activate(false);
 
+
+#define XMEMORY_CONTROL_PRE_ACTIVATED           
+
+#define XMEMORY_CONTROL_PRE_DEACTIVATED
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XMUTEX;
@@ -184,6 +189,7 @@ void* ReAlloc           (void* assign, size_t size);
 #define XMEMORY_CONTROL_DEACTIVATED
 
 #endif
+
 
 #endif
 

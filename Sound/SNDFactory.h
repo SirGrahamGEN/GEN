@@ -70,7 +70,9 @@ class SNDFACTORY : public XSUBJECT
     
     virtual bool                      Ini                         ();    
     virtual bool  		    						Update										  ();    
-    virtual bool                      End                         ();         
+    virtual bool                      End                         (); 
+
+    bool                              IsSoundActive               ();         
   
     virtual bool                      Sound_Play                  (SNDITEM* item, SNDPLAYCFG* playCFG = NULL, int ntimestoplay = 1);
     virtual bool                      Sound_Pause                 (SNDITEM* item);    
@@ -96,14 +98,19 @@ class SNDFACTORY : public XSUBJECT
         
     bool                              Sound_IsAnyPlaying          ();
     bool                              Sound_IsAnyActive           ();
+
+  protected: 
+
+    bool                              soundactive;
                 
   private:
 
     void                              Clean                       ();
 
     static SNDFACTORY*                instance;
-    int                               mastervolume;
 
+    
+    int                               mastervolume;
     XVECTOR<SNDITEM*>                 sounditems;
 };
 

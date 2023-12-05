@@ -482,7 +482,7 @@ bool MAINPROCLINUX::Factorys_Ini()
 
   if(!SNDFACTORY::GetInstance().Ini()) 
     {
-      return false;
+      // return false;
     }
   #endif
 

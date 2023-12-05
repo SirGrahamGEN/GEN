@@ -37,7 +37,9 @@
 
 # --------------------------------------------------------------------
 
-#option(GEN_DETECT_PLATFORM_COMPILER   "Detect Platform Compiler"    true)
+message(STATUS "--------------------------------------------------------------------")
+
+option(GEN_DETECT_PLATFORM_COMPILER   "Detect Platform Compiler"    true)
 
 # --- CACHE COMPILER ------------------------------------------------
 

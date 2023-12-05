@@ -152,6 +152,8 @@ bool SNDOPENALFACTORY::Ini()
       return false;
     }
 
+  soundactive = true;
+  
   return true;
 }
 
@@ -167,6 +169,11 @@ bool SNDOPENALFACTORY::Ini()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Update()
 {  
+  if(!soundactive)
+    {
+      return false;
+    }
+
   if(playmutex)
     {
       playmutex->Lock();
@@ -381,6 +388,11 @@ bool SNDOPENALFACTORY::Update()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::End()
 {  
+  if(!soundactive)
+    {
+      return false;
+    }
+
   Sound_StopAll();
 
   if(playthread)
@@ -433,6 +445,11 @@ bool SNDOPENALFACTORY::End()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimestoplay)
 {   
+  if(!soundactive)
+    {
+      return false;
+    }
+
   if(!SNDFACTORY::Sound_Play(item, playCFG, ntimestoplay))
     {
       return false;
@@ -503,6 +520,11 @@ bool SNDOPENALFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimes
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Sound_Pause(SNDITEM* item)
 {
+  if(!soundactive)
+    {
+      return false;
+    }
+
   if(!item)
     {
       return false;
@@ -553,6 +575,11 @@ bool SNDOPENALFACTORY::Sound_Pause(SNDITEM* item)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Sound_Stop(SNDITEM* item)
 {  
+  if(!soundactive)
+    {
+      return false;
+    }
+
   if(!item)
     {
       return false;
@@ -591,6 +618,11 @@ bool SNDOPENALFACTORY::Sound_Stop(SNDITEM* item)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Sound_StopAll()
 {   
+  if(!soundactive)
+    {
+      return false;
+    }
+
   for(XDWORD c=0; c<soundplayitems.GetSize(); c++)
     {
       SNDOPENALPLAYITEM* playitem = soundplayitems.Get(c);
@@ -623,6 +655,11 @@ bool SNDOPENALFACTORY::Sound_StopAll()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout, SNDFACTORY_WAITFUNCTION waitfunction)
 {
+  if(!soundactive)
+    {
+      return false;
+    }
+
   if(!item)
     {
       return false;
@@ -692,6 +729,11 @@ bool SNDOPENALFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout, SNDFACTORY
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Sound_WaitAllToEnd(int maxtimeout, SNDFACTORY_WAITFUNCTION waitfunction)
 {
+  if(!soundactive)
+    {
+      return false;
+    }
+
   XTIMER* timeout = NULL;
   bool    status  =  true;
   
@@ -755,6 +797,11 @@ bool SNDOPENALFACTORY::Sound_WaitAllToEnd(int maxtimeout, SNDFACTORY_WAITFUNCTIO
 * --------------------------------------------------------------------------------------------------------------------*/
 int SNDOPENALFACTORY::Sound_GetVolume(SNDITEM* item)
 {
+  if(!soundactive)
+    {
+      return false;
+    }
+
   SNDOPENALPLAYITEM* playitem =  GetPlayItemFromItem(item);
   if(playitem)
     {
@@ -783,6 +830,11 @@ int SNDOPENALFACTORY::Sound_GetVolume(SNDITEM* item)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Sound_SetVolume(SNDITEM* item, int volume)
 {
+  if(!soundactive)
+    {
+      return false;
+    }
+
   SNDOPENALPLAYITEM* playitem =  GetPlayItemFromItem(item);
   if(playitem)
     {
@@ -810,6 +862,11 @@ bool SNDOPENALFACTORY::Sound_SetVolume(SNDITEM* item, int volume)
 * --------------------------------------------------------------------------------------------------------------------*/
 float SNDOPENALFACTORY::Sound_GetPitch(SNDITEM* item)
 {
+  if(!soundactive)
+    {
+      return false;
+    }
+
   SNDOPENALPLAYITEM* playitem =  GetPlayItemFromItem(item);
   if(playitem)
     {
@@ -838,6 +895,11 @@ float SNDOPENALFACTORY::Sound_GetPitch(SNDITEM* item)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Sound_SetPitch(SNDITEM* item, float pitch)
 {
+  if(!soundactive)
+    {
+      return false;
+    }
+
   SNDOPENALPLAYITEM* playitem =  GetPlayItemFromItem(item);
   if(playitem)
     {
@@ -864,6 +926,11 @@ bool SNDOPENALFACTORY::Sound_SetPitch(SNDITEM* item, float pitch)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::DeleteAllItems()
 {
+  if(!soundactive)
+    {
+      return false;
+    }
+
   Sound_StopAll();
 
   Sound_WaitAllToEnd(3000);  
@@ -916,6 +983,11 @@ XVECTOR<SNDOPENALPLAYITEM*>* SNDOPENALFACTORY::GetSoundPlayItems()
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDOPENALPLAYITEM* SNDOPENALFACTORY::GetPlayItemFromItem(SNDITEM* item)
 { 
+  if(!soundactive)
+    {
+      return NULL;
+    }
+
   for(XDWORD c=0; c<soundplayitems.GetSize(); c++)
     {
       SNDOPENALPLAYITEM* playitem = soundplayitems.Get(c);
@@ -947,6 +1019,11 @@ SNDOPENALPLAYITEM* SNDOPENALFACTORY::GetPlayItemFromItem(SNDITEM* item)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDNOTE* soundnote)
 {
+  if(!soundactive)
+    {
+      return false;
+    }
+
   if(!playitem || !soundnote)
     {
       return false;
@@ -986,6 +1063,11 @@ bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDNOTE* soun
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDFILE* soundfile)
 {
+  if(!soundactive)
+    {
+      return false;
+    }
+
   if(!playitem || !soundfile)
     {
       return false;
@@ -1014,11 +1096,14 @@ bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDFILE* soun
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALFACTORY::ThreadPlay(void* param)
-{
+{  
   SNDOPENALFACTORY* sndopenal = (SNDOPENALFACTORY*)param;
   if(!sndopenal) return;  
 
-  sndopenal->Update();
+  if(sndopenal->IsSoundActive())
+    {
+      sndopenal->Update();
+    }
 }
 
 
