@@ -285,6 +285,8 @@ bool CIPHERAES::Uncipher(XBYTE* input, XDWORD size)
 
     }
 
+  result->Padding_Delete();
+
   return status;
 }
 

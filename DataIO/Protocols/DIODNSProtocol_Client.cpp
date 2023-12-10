@@ -1,3 +1,4 @@
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @file       DIODNSProtocol_Client.cpp
@@ -195,10 +196,16 @@ bool DIODNSPROTOCOLCLIENT::SetServer(XSTRING& serverIP, XWORD serverport)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSPROTOCOLCLIENT::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 {
+  #define ASK_ID 0x55AA
+
+
   if(!diostreamudpcfg)  return false;
 
-  DIOURL url;
-  bool   status = false;
+  DIOURL  url;  
+  XSTRING serverIPDNSstring;
+  XBUFFER askbuffer;
+  XBUFFER answerbuffer;
+  bool    status = false;
 
   url = URL;
 
@@ -208,126 +215,118 @@ bool DIODNSPROTOCOLCLIENT::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int queryty
       return true;
     }
 
-  XSTRING serverIPDNSstring;
-  XBUFFER buffer;
-
   serverIP.GetXString(serverIPDNSstring);
 
   diostreamudpcfg->SetMode(DIOSTREAMMODE_CLIENT);
   diostreamudpcfg->SetIsUsedDatagrams(false);
   diostreamudpcfg->GetRemoteURL()->Set(serverIPDNSstring);
-
-  if(!serverport)
-          diostreamudpcfg->SetRemotePort(DIODNSPROTOCOL_DEFAULTPORT);
-    else  diostreamudpcfg->SetRemotePort(serverport);
-
+  diostreamudpcfg->SetRemotePort(serverport?serverport:DIODNSPROTOCOL_DEFAULTPORT);
+  
   if(diostreamudp->Open())
     {
-      DIODNSPROTOCOL_HEADER headerDNS;
-
-      headerDNS.id           = (XWORD)0x55AA55AA;
-      headerDNS.qr           = 0;  //  This is a query
-      headerDNS.opcode       = 0;  //  This is a standard query
-      headerDNS.aa           = 0;  //  Not Authoritative
-      headerDNS.tc           = 0;  //  This message is not truncated
-      headerDNS.rd           = 1;  //  Recursion Desired
-      headerDNS.ra           = 0;  //  Recursion not available! hey we dont have it (lol)
-      headerDNS.z            = 0;
-      headerDNS.ad           = 0;
-      headerDNS.cd           = 0;
-      headerDNS.rcode        = 0;
-      headerDNS.q_count      = SwapWORD(1);  // htons(1); //we have only 1 question
-      headerDNS.ans_count    = 0;
-      headerDNS.auth_count   = 0;
-      headerDNS.add_count    = 0;
-
-      buffer.Add((XBYTE*)&headerDNS, sizeof(DIODNSPROTOCOL_HEADER));
-
-      XSTRING                   origin;
-      XSTRING                   target;
+      DIODNSPROTOCOL_HEADER     askheaderDNS; 
+      XSTRING                   askURL;
+      XBUFFER                   EncodedURL;
       DIODNSPROTOCOL_QUESTION   question;
-      int                       sizeask;
 
-      origin.Set(URL);
+      askheaderDNS.id           = ASK_ID;
+      askheaderDNS.qr           = 0;  //  This is a query
+      askheaderDNS.opcode       = 0;  //  This is a standard query
+      askheaderDNS.aa           = 0;  //  Not Authoritative
+      askheaderDNS.tc           = 0;  //  This message is not truncated
+      askheaderDNS.rd           = 1;  //  Recursion Desired
+      askheaderDNS.ra           = 0;  //  Recursion not available! hey we dont have it (lol)
+      askheaderDNS.z            = 0;
+      askheaderDNS.ad           = 0;
+      askheaderDNS.cd           = 0;
+      askheaderDNS.rcode        = 0;
+      askheaderDNS.q_count      = SwapWORD(1);  // htons(1); //we have only 1 question
+      askheaderDNS.ans_count    = 0;
+      askheaderDNS.auth_count   = 0;
+      askheaderDNS.add_count    = 0;
 
-      ChangetoDNSNameFormat(origin, target);
-
-      XBUFFER chartarget;
+      askbuffer.Add((XBYTE*)&askheaderDNS, sizeof(DIODNSPROTOCOL_HEADER));
       
-      target.ConvertToASCII(chartarget);      
-      buffer.Add((XBYTE*)chartarget.Get(), target.GetSize()+1);
-      
+      askURL.Set(URL);
+      EncodeDNSFormat(askURL, EncodedURL);
+      askbuffer.Add(EncodedURL);
+   
       question.qtype  = SwapWORD(querytype);   // htons(querytype);
       question.qclass = SwapWORD(1);           // htons(1);
 
-      buffer.Add((XBYTE*)&question, sizeof(DIODNSPROTOCOL_QUESTION));
+      askbuffer.Add((XBYTE*)&question, sizeof(DIODNSPROTOCOL_QUESTION));
 
-      sizeask = buffer.GetSize();
-
-      status = diostreamudp->Write(buffer);
-      if(status) status = diostreamudp->WaitToFlushOutXBuffer(3);
+      status = diostreamudp->Write(askbuffer);
+      if(status) 
+        {
+          status = diostreamudp->WaitToFlushOutXBuffer(3);
+        }
 
       if(status)
         {
-          buffer.Empty();
-          buffer.Resize(65535);
+          answerbuffer.Empty();
+          answerbuffer.Resize(65535);
 
-          status = diostreamudp->WaitToFilledReadingBuffer(sizeask, 5);
-          if(status) status = diostreamudp->Read(buffer);
+          status = diostreamudp->WaitToFilledReadingBuffer(sizeof(DIODNSPROTOCOL_HEADER) + sizeof(RES_RECORD), timeout);
+          if(status) 
+            {
+              status = diostreamudp->Read(answerbuffer);
+            }
         }
 
       if(status)
         {
           status = false;
 
-          DIODNSPROTOCOL_HEADER* headerDNSanswer = (DIODNSPROTOCOL_HEADER*)buffer.Get();
-          if(headerDNSanswer)
+          DIODNSPROTOCOL_HEADER* answerheaderDNS = (DIODNSPROTOCOL_HEADER*)answerbuffer.Get();
+          if(answerheaderDNS)
             {
-            //int questions_count             = SwapWORD(headerDNSanswer->q_count);        // ntohs(headerDNSanswer->q_count);
-              int answers_count               = SwapWORD(headerDNSanswer->ans_count);      // ntohs(headerDNSanswer->ans_count);
-            //int authoritativeservers_count  = SwapWORD(headerDNSanswer->auth_count);     // ntohs(headerDNSanswer->auth_count);
-            //int additionalrecords_count     = SwapWORD(headerDNSanswer->add_count);      // ntohs(headerDNSanswer->add_count);
-
-              //XBYTE* reader = &buffer.Get()[sizeask];
-              int    stop   = 0;
-
-              for(int i=0; i<answers_count; i++)
+              if(answerheaderDNS->id == ASK_ID)
                 {
-                  RES_RECORD* result = new RES_RECORD();
-                  if(result)
+                  int answerscount = SwapWORD(answerheaderDNS->ans_count);   
+                 
+                  for(int c=0; c<answerscount; c++)
                     {
-                      XBYTE* reader = &buffer.Get()[sizeask];
-
-                      result->name  = GetBufferName(reader, buffer.Get(), &stop);
-                      reader += stop;
-
-                      result->resource = (DIODNSPROTOCOL_R_DATA*)reader;
-                      reader += sizeof(DIODNSPROTOCOL_R_DATA);
-
-                      if(SwapWORD(result->resource->type) == 1)
+                      RES_RECORD* result = new RES_RECORD();
+                      if(result)
                         {
-                          IPresolved.Set((XBYTE*)reader);
-                          reader = reader +  SwapWORD(result->resource->data_len);  // ntohs(result->resource->data_len);
-                          status = true;
-                        }
-                        else
-                        {
-                          result->rdata = GetBufferName(reader, buffer.Get(), &stop);
+                          XBYTE* reader = &answerbuffer.Get()[askbuffer.GetSize()];
+                          int    type;
+                          int    stop   = 0;
+
+                          result->name  = GetBufferName(reader, answerbuffer.Get(), &stop);
                           reader += stop;
 
-                          XSTRING URLmore;
+                          result->resource = (DIODNSPROTOCOL_R_DATA*)reader;
+                          reader += sizeof(DIODNSPROTOCOL_R_DATA);
 
-                          URLmore = (char*)result->rdata;
+                          type = SwapWORD(result->resource->type);
 
-                          status = ResolveURL((XCHAR*)URLmore.Get(), IPresolved, querytype, timeout);
+                          if(type == 1)
+                            {
+                              IPresolved.Set((XBYTE*)reader);
+                              reader = reader +  SwapWORD(result->resource->data_len);  // ntohs(result->resource->data_len);
+                              status = true;
+                            }
+                            else
+                            {
+                              result->rdata = GetBufferName(reader, answerbuffer.Get(), &stop);
+                              reader += stop;
+
+                              XSTRING URLmore;
+
+                              URLmore = (char*)result->rdata;
+
+                              status = ResolveURL((XCHAR*)URLmore.Get(), IPresolved, querytype, timeout);
+                            }
+
+                          free(result->name);
+                          delete result;
+
+                          if(status) break;                                               
                         }
-
-                      free(result->name);
-                      delete result;
-
-                      if(status) break;
-                    }
-                }              
+                    }  
+                }            
             }
         }
 
@@ -379,48 +378,127 @@ bool DIODNSPROTOCOLCLIENT::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int query
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIODNSPROTOCOLCLIENT::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& target)
-* @brief      ChangetoDNSNameFormat
+* 
+* @fn         bool DIODNSPROTOCOLCLIENT::EncodeDNSFormat(XSTRING& URL, char* EncodedURL)
+* @brief      EncodeDNSFormat
 * @ingroup    DATAIO
-*
-* @param[in]  origin :
-* @param[in]  target :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  URL : 
+* @param[in]  EncodedURL : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIODNSPROTOCOLCLIENT::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& target)
+bool DIODNSPROTOCOLCLIENT::EncodeDNSFormat(XSTRING& URL, XBUFFER& EncodedURL) 
 {
-  XSTRING _origin = origin;
-  XCHAR*  _target;
-  int     lock    = 0;
+  int subsize = 0;
 
-  target.Empty();
-  target.AdjustSize(_MAXSTR);
-
-  _target = target.Get();
-
-  _origin.Add(__C('.'));
-
-  for(int c=0; c<(int)_origin.GetSize(); c++)
+  if(URL.IsEmpty())
     {
-      if(_origin.Get()[c] == __C('.'))
+      return false;
+    }
+  
+  for(int c=0; c<URL.GetSize(); c++)
+    {
+      for(int d=c; d<URL.GetSize(); d++)
         {
-          *_target++ = c-lock;
-
-          for( ;lock<c; lock++)
+          if(URL.Get()[d] != __C('.'))
             {
-              *_target++ = _origin.Get()[lock];
+              subsize++;  
             }
-
-          lock++;
+           else 
+            {
+              break;
+            } 
         }
+
+      EncodedURL.Add((XBYTE)subsize);
+
+      for(int d=0; d<subsize; d++)
+        {
+          EncodedURL.Add((XBYTE)URL.Get()[c]);
+          c++;
+        }  
+
+      subsize = 0;
     }
 
-  target.AdjustSize();
-
+  EncodedURL.Add((XBYTE)0x00);
+   
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIODNSPROTOCOLCLIENT::DecodeDNSFormat(XBUFFER& EncodedURL, XSTRING& DecodedURL)
+* @brief      DecodeDNSFormat
+* @ingroup    DATAIO
+* 
+* @param[in]  EncodedURL : 
+* @param[in]  DecodedURL : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIODNSPROTOCOLCLIENT::DecodeDNSFormat(XBUFFER& EncodedURL, XSTRING& URL) 
+{ 
+  URL.Empty();
+
+  int size  = EncodedURL.GetSize();
+  if(!size)
+    {
+      return false;
+    }
+  
+  int c=0;
+  while(c < size)
+    {
+      int count = EncodedURL.Get()[c];
+
+      if(!count)
+        {
+          break;
+        }
+
+      c++;
+
+      for(int d=0; d<count; d++) 
+        {
+          URL.Add(EncodedURL.Get()[c]);
+          c++;
+        }
+
+      if(EncodedURL.Get()[c])
+        {
+          URL.Add(__C('.'));              
+        }
+    }  
+  
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIODNSPROTOCOLCLIENT::DecodeDNSFormat(XBYTE* EncodedURL, XSTRING& URL)
+* @brief      DecodeDNSFormat
+* @ingroup    DATAIO
+* 
+* @param[in]  EncodedURL : 
+* @param[in]  URL : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIODNSPROTOCOLCLIENT::DecodeDNSFormat(XBYTE* EncodedURL, XSTRING& URL)
+{
+  XBUFFER _EncodedURL;
+  int     size = strlen((char*)EncodedURL);
+
+  _EncodedURL.Add(EncodedURL, size);
+  
+  return DecodeDNSFormat(_EncodedURL, URL); 
 }
 
 
@@ -437,7 +515,7 @@ bool DIODNSPROTOCOLCLIENT::ChangetoDNSNameFormat(XSTRING& origin, XSTRING& targe
 * @return     XBYTE* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XBYTE* DIODNSPROTOCOLCLIENT::GetBufferName(XBYTE* reader, XBYTE* buffer,int* count)
+XBYTE* DIODNSPROTOCOLCLIENT::GetBufferName(XBYTE* reader, XBYTE* buffer, int* count)
 {
   XBYTE*  name;
   XDWORD  p       = 0;

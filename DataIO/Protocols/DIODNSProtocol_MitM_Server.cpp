@@ -39,12 +39,14 @@
 
 #include "DIODNSProtocol_MitM_Server.h"
 
-#include "DIOFactory.h"
-#include "DIODNSProtocol_MitM_Server_XEvent.h"
-#include "DIOStreamUDP.h"
-
 #include "XFactory.h"
 #include "XSleep.h"
+#include "XTrace.h"
+
+#include "DIOFactory.h"
+#include "DIOStreamUDP.h"
+#include "DIODNSProtocol_Client.h"
+#include "DIODNSProtocol_MitM_Server_XEvent.h"
 
 #include "XMemory_Control.h"
 
@@ -106,6 +108,7 @@ DIODNSPROTOCOL_MITM_SERVER::~DIODNSPROTOCOL_MITM_SERVER()
 bool DIODNSPROTOCOL_MITM_SERVER::Ini()
 {
   RegisterEvent(DIODNSPROTOCOL_MITM_SERVER_XEVENT_TYPE_ASKDNS);
+  RegisterEvent(DIODNSPROTOCOL_MITM_SERVER_XEVENT_TYPE_ANSWERDNS);
 
   servermutex = GEN_XFACTORY.Create_Mutex();
   if(!servermutex)
@@ -118,7 +121,7 @@ bool DIODNSPROTOCOL_MITM_SERVER::Ini()
   diostreamudpcfg.SetMode(DIOSTREAMMODE_SERVER);
   diostreamudpcfg.GetRemoteURL()->Set(__L("localhost"));  
   diostreamudpcfg.SetRemotePort(DIODNSPROTOCOL_DEFAULTPORT);  
-  diostreamudpcfg.SetIsUsedDatagrams(true);
+  diostreamudpcfg.SetIsUsedDatagrams(false);
   
 	diostreamudp = (DIOSTREAMUDP*)GEN_DIOFACTORY.CreateStreamIO(&diostreamudpcfg);
   if(!diostreamudp)
@@ -131,8 +134,8 @@ bool DIODNSPROTOCOL_MITM_SERVER::Ini()
 
   AddDNSServer(__L("8.8.8.8"));
   AddDNSServer(__L("8.8.4.4"));
-  AddDNSServer(__L("64.6.64.6"));
-  AddDNSServer(__L("64.6.65.6"));
+  //AddDNSServer(__L("64.6.64.6"));
+  //AddDNSServer(__L("64.6.65.6"));
   
   serverthread = GEN_XFACTORY.CreateThread(XTHREADGROUPID_DIODNSRESOLVED, __L("DIODNSPROTOCOL_MITM_SERVER::Ini"), DIODNSPROTOCOL_MITM_SERVER::ThreadServer, this);  
   if(!serverthread)
@@ -198,6 +201,7 @@ bool DIODNSPROTOCOL_MITM_SERVER::Activate(bool active)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
+/*
 bool DIODNSPROTOCOL_MITM_SERVER::Update()
 { 
   if(!diostreamudp)
@@ -205,53 +209,147 @@ bool DIODNSPROTOCOL_MITM_SERVER::Update()
       return false;
     }
 
-  XSTRING  address;
-  XWORD    port;
-  XBUFFER  data;
-  bool     status = false;
-
-  if(!diostreamudp->ReadDatagram(address, port, data))
+  if(diostreamudp->GetInXBuffer()->GetSize() < (sizeof(DIODNSPROTOCOL_HEADER) + 1 + sizeof(DIODNSPROTOCOL_QUESTION)))
     {
       return false;
     }
       
-  DIODNSPROTOCOL_HEADER*    header    = NULL;    
-  char*                     nameURL   = NULL;     
+  DIODNSPROTOCOL_HEADER*    header    = NULL;      
+  DIODNSPROTOCOL_QUESTION*  question  = NULL; 
   XSTRING                   nameURLstr;     
-  DIODNSPROTOCOL_QUESTION*  question  = NULL;
   XBUFFER                   sendbuffer;
-  XBUFFER                   receivedbuffer;
-          
-  header      = (DIODNSPROTOCOL_HEADER*)data.Get();
-  nameURL     = (char*)data.Get() + sizeof(DIODNSPROTOCOL_HEADER);   
-  nameURLstr  = nameURL;
-  question    = (DIODNSPROTOCOL_QUESTION*)data.Get() + sizeof(DIODNSPROTOCOL_HEADER) + nameURLstr.GetSize()+1;
+  XBUFFER                   receivedbuffer[2];    
+  XBYTE*                    reader    = NULL;
+  XBYTE*                    nameURL   = NULL;
+  int                       stop      = 0;    
+  bool                      status    = false;
 
-  sendbuffer.Add((XBYTE*)header, sizeof(DIODNSPROTOCOL_HEADER)); 
-  sendbuffer.Add((XBYTE*)nameURL, nameURLstr.GetSize()+1);   
-  sendbuffer.Add((XBYTE*)question, sizeof(DIODNSPROTOCOL_QUESTION));   
+  receivedbuffer[0].Empty();
+  receivedbuffer[0].Resize(65535);
 
-  DIODNSPROTOCOL_MITM_SERVER_XEVENT xevent(this, DIODNSPROTOCOL_MITM_SERVER_XEVENT_TYPE_ASKDNS);
-  xevent.GetOriginIP()->Set(address);
-  xevent.GetAskedBuffer()->CopyFrom(data);
-  PostEvent(&xevent);
+  diostreamudp->Read(receivedbuffer[0]);
 
-  for(XDWORD c=0; c<dnsservers.GetSize(); c++)
-    {
-      DIODNSRESOLVER_DNSSERVER* DNSserver = dnsservers.Get(c);
-      if(DNSserver)
+  if(receivedbuffer[0].GetSize() >=  (sizeof(DIODNSPROTOCOL_HEADER) + 1 + sizeof(DIODNSPROTOCOL_QUESTION)))
+    {        
+      reader  = &receivedbuffer[0].Get()[sizeof(DIODNSPROTOCOL_HEADER)];
+      nameURL =  DIODNSPROTOCOLCLIENT::GetBufferName(reader, receivedbuffer[0].Get(), &stop);
+         
+      header      = (DIODNSPROTOCOL_HEADER*)receivedbuffer[0].Get();
+      nameURLstr.Set((char*)nameURL);
+      question    = (DIODNSPROTOCOL_QUESTION*)receivedbuffer[0].Get() + sizeof(DIODNSPROTOCOL_HEADER) + nameURLstr.GetSize() + 1;
+  
+      delete nameURL;
+      nameURL = NULL;
+
+      DIODNSPROTOCOL_MITM_SERVER_XEVENT xevent(this, DIODNSPROTOCOL_MITM_SERVER_XEVENT_TYPE_ASKDNS);
+      xevent.GetAskedURL()->Set(nameURLstr);
+      xevent.GetAskedBuffer()->CopyFrom(receivedbuffer[0]);
+
+      PostEvent(&xevent);
+
+      for(XDWORD c=0; c<dnsservers.GetSize(); c++)
         {
-          if(Detour(DNSserver, sendbuffer, receivedbuffer))
+          DIODNSRESOLVER_DNSSERVER* DNSserver = dnsservers.Get(c);
+          if(DNSserver)
             {
-              if(diostreamudp->WriteDatagram(address, port, receivedbuffer))                        
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[DSN MitM Server] %d server..."), c);      
+
+              status = Detour(DNSserver, receivedbuffer[0], receivedbuffer[1]);
+              if(status)
                 {
-                  status = true;
-                  break;
+                  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[DSN MitM Server] Buffer receiver"));      
+                  XTRACE_PRINTDATABLOCKCOLOR(XTRACE_COLOR_BLUE, receivedbuffer[1]);     
+
+                  status = diostreamudp->Write(receivedbuffer[1]);
+                  if(status)                        
+                    {
+                      status = diostreamudp->WaitToFlushOutXBuffer(3);                        
+                      if(status) 
+                        {
+                          DIODNSPROTOCOL_MITM_SERVER_XEVENT xevent(this, DIODNSPROTOCOL_MITM_SERVER_XEVENT_TYPE_ANSWERDNS);
+                          xevent.GetAskedURL()->Set(nameURLstr);
+                          xevent.GetAskedBuffer()->CopyFrom(receivedbuffer[0]);
+                          xevent.GetAnsweredBuffer()->CopyFrom(receivedbuffer[1]);
+
+                          PostEvent(&xevent);
+
+                          status = true;
+                          break;
+                        } 
+                       else
+                        {
+                          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DSN MitM Server] Error to Write answer buffer"));      
+                        }                          
+                    }
+                   else
+                    {
+                      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DSN MitM Server] Error to Write answer"));      
+                    }     
                 }
-            }        
+               else
+                {
+                  XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DSN MitM Server] Error to Detour"));      
+                }        
+            }
         }
     }
-    
+   else
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DSN MitM Server] Error Read Original buffer"));      
+    }
+     
+  return status;
+}
+*/
+
+
+bool DIODNSPROTOCOL_MITM_SERVER::Update()
+{ 
+  XBUFFER                   receivedbuffer[2]; 
+  DIODNSPROTOCOL_HEADER*    header    = NULL;        
+  DIODNSPROTOCOL_QUESTION*  question  = NULL; 
+  XWORD                     askcount  = 0;
+  XBYTE*                    reader    = NULL;  
+  int                       stop      = 0;       
+  bool                      status    = false;
+
+  if(!diostreamudp)
+    {
+      return false;
+    }
+
+  if(diostreamudp->GetInXBuffer()->GetSize() >= sizeof(DIODNSPROTOCOL_HEADER))
+    {
+      return false;
+    }  
+
+  receivedbuffer[0].Empty();
+  receivedbuffer[0].Resize(65535);
+
+  XDWORD sizeread = diostreamudp->Read(receivedbuffer[0]);
+  if(!sizeread)
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DSN MitM Server] Error to Read header"));      
+      return false;
+    }  
+  
+  header    = (DIODNSPROTOCOL_HEADER*)receivedbuffer[0].Get();
+  askcount  = SwapWORD(header->q_count);
+      
+  reader  = &receivedbuffer[0].Get()[sizeof(DIODNSPROTOCOL_HEADER)];
+
+  for(XWORD c=0; c<askcount; c++)
+    {
+      XBYTE*  nameURL = NULL;
+      XSTRING nameURLstr;  
+
+      nameURL     =  DIODNSPROTOCOLCLIENT::GetBufferName(reader, receivedbuffer[0].Get(), &stop);
+      nameURLstr.Set((char*)nameURL);
+      question    = (DIODNSPROTOCOL_QUESTION*)receivedbuffer[0].Get() + sizeof(DIODNSPROTOCOL_HEADER) + nameURLstr.GetSize() + 1;
+
+    }
+
+     
   return status;
 }
 
@@ -268,6 +366,7 @@ bool DIODNSPROTOCOL_MITM_SERVER::Update()
 bool DIODNSPROTOCOL_MITM_SERVER::End()
 {
   DeRegisterEvent(DIODNSPROTOCOL_MITM_SERVER_XEVENT_TYPE_ASKDNS);
+  DeRegisterEvent(DIODNSPROTOCOL_MITM_SERVER_XEVENT_TYPE_ANSWERDNS);
 
   if(serverthread)
     {
@@ -467,31 +566,50 @@ bool DIODNSPROTOCOL_MITM_SERVER::Detour(DIODNSRESOLVER_DNSSERVER* DNSserver, XBU
   DIOSTREAMUDPCONFIG   dioudpcfg;
 	DIOSTREAMUDP*				 dioudp;
   XSTRING              remoteIP; 
-  bool                 status = false;
+  int                  serverport = 0;
+  bool                 status     = false;
 
   DNSserver->GetIP()->GetXString(remoteIP);
 
   dioudpcfg.SetMode(DIOSTREAMMODE_CLIENT);
-  dioudpcfg.SetIsUsedDatagrams(true);
+  dioudpcfg.SetIsUsedDatagrams(false);
+  dioudpcfg.GetRemoteURL()->Set(remoteIP);
+
+  serverport = DNSserver->GetPort();
+
+  if(!serverport)
+    {
+      dioudpcfg.SetRemotePort(DIODNSPROTOCOL_DEFAULTPORT);
+    }
+   else  
+    {
+      dioudpcfg.SetRemotePort(serverport);
+    }
+
   
 	dioudp = (DIOSTREAMUDP*)GEN_DIOFACTORY.CreateStreamIO(&dioudpcfg);
   if(dioudp)
     {
       if(dioudp->Open())
-        {          
-          if(dioudp->WaitToConnected(100))
-            {            
-              dioudp->WriteDatagram(remoteIP, DNSserver->GetPort(), sendbuffer);
-
-              if(dioudp->WaitToFilledReadingBuffer(DIOSTREAM_SOMETHINGTOREAD, 300))
-                {
-                  XSTRING  address; 
-                  XWORD    port;
-      
-                  status = dioudp->ReadDatagram(address, port, receivedbuffer);   
-                }
+        {                   
+          status = dioudp->Write(sendbuffer);
+          if(status) 
+            {
+              status = diostreamudp->WaitToFlushOutXBuffer(3);
             }
 
+          if(status)
+            {
+              receivedbuffer.Empty();
+              receivedbuffer.Resize(65535);
+              
+              status = diostreamudp->WaitToFilledReadingBuffer(sizeof(DIODNSPROTOCOL_HEADER), 2);
+              if(status) 
+                {
+                  status = diostreamudp->Read(receivedbuffer);
+                }
+            }
+          
           dioudp->Close();
         }
 

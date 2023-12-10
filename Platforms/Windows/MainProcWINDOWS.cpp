@@ -1081,7 +1081,7 @@ DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*  wmain    : Windows UNICODE entry  /CONSOLE mode                                                                   */
 /*  WinMain  : Windows entry          /WINDOWS mode                                                                   */
-/*  DllMain  : Windows DLL entry
+/*  DllMain  : Windows DLL entry                                                                                      */
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 

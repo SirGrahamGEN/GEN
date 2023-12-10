@@ -777,7 +777,7 @@ void DIOPROTOCOLCLI::ReceivedCommandManager()
             }
            else
             {
-              if((character >= 0x20) && (character < 0x80)) laststringreceived.Add(character);
+              if((character >= 0x20) && (character <= 0x7F)) laststringreceived.Add(character);
             }
         }
     }

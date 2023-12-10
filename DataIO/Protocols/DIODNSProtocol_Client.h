@@ -52,15 +52,14 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+
 class XTIMER;
 class DIOSTREAMUDPCONFIG;
 class DIOSTREAMUDP;
 
-
 class DIODNSPROTOCOLCLIENT
 {
   public:
-
                                             DIODNSPROTOCOLCLIENT            ();
     virtual                                ~DIODNSPROTOCOLCLIENT            ();
 
@@ -72,10 +71,13 @@ class DIODNSPROTOCOLCLIENT
     bool                                    ResolveURL                      (DIOURL& URL, DIOIP& IPresolved, int querytype = DIODNSPROTOCOL_TYPEQUERY_A, XDWORD timeout = DIODNSPROTOCOL_DEFAULTTIMEOUT);
     bool                                    ResolveURL                      (XSTRING& URL, DIOIP& IPresolved, int querytype = DIODNSPROTOCOL_TYPEQUERY_A, XDWORD timeout = DIODNSPROTOCOL_DEFAULTTIMEOUT);
 
-  private:
+    static bool                             EncodeDNSFormat                 (XSTRING& URL, XBUFFER& EncodedURL);
+    static bool                             DecodeDNSFormat                 (XBUFFER& EncodedURL, XSTRING& URL);
+    static bool                             DecodeDNSFormat                 (XBYTE* EncodedURL, XSTRING& URL); 
 
-    bool                                    ChangetoDNSNameFormat           (XSTRING& origin, XSTRING& target);
-    XBYTE*                                  GetBufferName                   (XBYTE* reader,XBYTE* buffer,int* count);
+    static XBYTE*                           GetBufferName                   (XBYTE* reader, XBYTE* buffer,int* count);
+
+  private:
 
     void                                    Clean                           ();
 
@@ -85,6 +87,7 @@ class DIODNSPROTOCOLCLIENT
     DIOIP                                   serverIP;
     XWORD                                   serverport;
 };
+
 
 #pragma endregion
 
@@ -97,4 +100,3 @@ class DIODNSPROTOCOLCLIENT
 
 
 #endif
-

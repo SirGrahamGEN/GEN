@@ -307,7 +307,7 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
 {
   if(handlekey == NULL) return false;
 
-  LSTATUS status;
+  LSTATUS status = ERROR_SUCCESS;
 
   if(type == REG_NONE)
     {

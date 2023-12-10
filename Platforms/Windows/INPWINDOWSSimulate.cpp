@@ -37,7 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "INPWindowsSimulate.h"
+#include "INPWINDOWSSimulate.h"
 
 #include <Windows.h>
 
@@ -415,11 +415,12 @@ bool INPWINDOWSSIMULATE::Key_ClickByText(XCHAR* text, int pressuretimeinterval)
           case __C('\\')  : 
           case __C('"')   :       
 
-          case __C('¿')   : 
-          case __C('¡')   : 
-          case __C('ñ')   : 
-          case __C('Ñ')   :   
-          case __C('·')   : Key_ClickByLiteral(literal.Get(), pressuretimeinterval);                            
+          case 0xBF       : // __C('¿')   : 
+          case 0xA1       : // __C('¡')   : 
+          case 0xF1       : // __C('ñ')   : 
+          case 0xD1       : //__C('Ñ')    :    
+          case 0xB7       : //__C('·')    :
+                            Key_ClickByLiteral(literal.Get(), pressuretimeinterval);                            
                             break;                           
         }
     }

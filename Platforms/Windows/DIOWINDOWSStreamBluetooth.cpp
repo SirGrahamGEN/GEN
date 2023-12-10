@@ -317,7 +317,8 @@ bool DIOWINDOWSSTREAMBLUETOOTH::SDP_RegisterService(bool reg,char* service_name,
   csaddr.iProtocol                  = BTHPROTO_RFCOMM;
 
   WSAQUERYSET   service;
-  GUID          serviceID = { 0x00001101, 0x0000, 0x1000, 0x80, 0x00, 0x00, 0x80, 0x5F, 0x9B, 0x34, 0xFB }; //SerialPortServiceClass_UUID;
+  GUID          serviceID = { 0x00001101, 0x0000, 0x1000, { 0x80, 0x00, 0x00, 0x80, 0x5F, 0x9B, 0x34, 0xFB } }; //SerialPortServiceClass_UUID;
+
   memset(&service, 0, sizeof(service));
 
   XSTRING stringservicename(service_name);

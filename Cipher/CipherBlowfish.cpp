@@ -451,7 +451,6 @@ bool CIPHERBLOWFISH::Uncipher(XBYTE* input,XDWORD size)
 
   CIPHERBLOWFISH_CONTEXT  ctx;
   XBYTE                   iv[16];
-//int                     sizecipher = size;
 
   memset(iv,0,16);
   if(inivector && inivector->GetSize()>=8) memcpy(iv, inivector->Get(), 16);
@@ -489,6 +488,8 @@ bool CIPHERBLOWFISH::Uncipher(XBYTE* input,XDWORD size)
                                         break;
 
     }
+
+  result->Padding_Delete();
 
   return status;
 }

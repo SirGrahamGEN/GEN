@@ -412,7 +412,7 @@ bool XBER::SetINTEGER(XDWORD integer)
     }
 
   tagtype = XBER_TAGTYPE_INTEGER;
-  size    = size;
+  this->size = size;
 
   return true;
 }
@@ -490,7 +490,7 @@ bool XBER::SetBITSTRING(XBYTE* buffer, XDWORD size)
   data.Add(buffer, size);
 
   tagtype = XBER_TAGTYPE_BIT_STRING;
-  size    = size;
+  this->size    = size;
 
   return true;
 }
@@ -579,7 +579,7 @@ bool XBER::SetOCTETSTRING(XBYTE* buffer, XDWORD size)
   data.Add(buffer, size);
 
   tagtype = XBER_TAGTYPE_OCTET_STRING;
-  size    = size;
+  this->size    = size;
 
   return true;
 }
