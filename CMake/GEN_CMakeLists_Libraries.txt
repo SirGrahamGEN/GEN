@@ -5,7 +5,7 @@
 
 
 
-set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES ${DEFAULT_TARGET_PROPS})
+# set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES ${DEFAULT_TARGET_PROPS})
 
 # --------------------------------------------------------------------
 # Windows

@@ -4,14 +4,14 @@
 # --------------------------------------------------------------------
 
 
-if(NOT GEN_DETECT_PLATFORM_COMPILER)
+#if(NOT GEN_DETECT_PLATFORM_COMPILER)
 
   # Compile Selection
   include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Platform-Compiler.txt") 
  
-endif()
+#endif()
 
-option(GEN_DETECT_PLATFORM_COMPILER   "Detect Platform Compiler"    false)
+#option(GEN_DETECT_PLATFORM_COMPILER   "Detect Platform Compiler"    false)
 
 # Warnings control
 include("${GEN_DIRECTORY}/GEN/CMake/Main/GEN_CMakeLists_Main_Warnings.txt") 
