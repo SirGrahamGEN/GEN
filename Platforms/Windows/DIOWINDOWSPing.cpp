@@ -3,9 +3,9 @@
 * @file       DIOWINDOWSPing.cpp
 * 
 * @class      DIOWINDOWSPING
-* @brief      Data Input/Output WINDOWS Ping class
+* @brief      WINDOWS Data Input/Output Ping class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,20 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
-#include <winsock2.h>
-#include <windows.h>
-#include <ws2tcpip.h>
-#include <iphlpapi.h>
-#include <icmpapi.h>
+#include "DIOWINDOWSPing.h"
 
 #include "HashCRC32.h"
 
@@ -49,32 +49,34 @@
 
 #include "DIOPing_XEvent.h"
 
-#include "DIOWINDOWSPing.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOWINDOWSPING::DIOWINDOWSPING() : DIOPING()
+* @fn         DIOWINDOWSPING::DIOWINDOWSPING() 
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  ) : 
-* 
+*  
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSPING::DIOWINDOWSPING() : DIOPING()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -83,31 +85,30 @@ DIOWINDOWSPING::DIOWINDOWSPING() : DIOPING()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSPING::~DIOWINDOWSPING()
 {
   Clean();
 }
 
 
-
-#ifdef DIOPING_USEWINDOWDLL
+#ifdef DIOPING_NATIVE_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodreply)
 * @brief      Do
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @param[in]  nretries : 
 * @param[in]  timebetweenchecks : 
 * @param[in]  exitfirstgoodreply : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodreply)
 {
   typedef struct
@@ -258,3 +259,23 @@ bool DIOWINDOWSPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirs
 }
 
 #endif
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSPING::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOWINDOWSPING::Clean()
+{
+
+}
+
+
+#pragma endregion
+

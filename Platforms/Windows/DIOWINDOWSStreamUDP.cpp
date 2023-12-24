@@ -357,11 +357,17 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                 {
                                                                   if(diostream->config->IsUsedDatagrams())
                                                                     {
-                                                                      if(diostream->GetFirstDatagram(true) != DIOSTREAMUDP_NOTFOUND) FD_SET(diostream->handle, &write_flags);
+                                                                      if(diostream->GetFirstDatagram(true) != DIOSTREAMUDP_NOTFOUND) 
+                                                                        {
+                                                                          FD_SET(diostream->handle, &write_flags);
+                                                                        }
                                                                     }
                                                                    else
                                                                     {
-                                                                      if(diostream->outbuffer->GetSize()) FD_SET(diostream->handle, &write_flags);
+                                                                      if(diostream->outbuffer->GetSize()) 
+                                                                        {
+                                                                          FD_SET(diostream->handle, &write_flags);
+                                                                        }
                                                                     }
                                                                 }
 
@@ -410,8 +416,13 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                       port =  ntohs(origin_addr.sin_port);
 
                                                                       if(diostream->config->IsUsedDatagrams())
-                                                                              diostream->AddDatagram(false, address.Get(), port, (XBYTE*)buffer, size);
-                                                                         else diostream->inbuffer->Add(buffer, size);
+                                                                        {
+                                                                          diostream->AddDatagram(false, address.Get(), port, (XBYTE*)buffer, size);
+                                                                        }
+                                                                       else 
+                                                                        {
+                                                                          diostream->inbuffer->Add(buffer, size);
+                                                                        }
                                                                     }
                                                                    else
                                                                     {
@@ -460,8 +471,7 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                                   inet_pton(target_addr.sin_family, charstr.GetPtrChar(), &target_addr.sin_addr.s_addr);
                                                                                   #else
                                                                                   target_addr.sin_addr.s_addr   = inet_addr(charstr.GetPtrChar());
-                                                                                  #endif
-                                                                                  
+                                                                                  #endif                                                                                  
                                                                                 }
 
                                                                               target_addr.sin_port  = htons(datagram->GetPort()?datagram->GetPort():diostream->config->GetRemotePort());
@@ -486,7 +496,7 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                         }
                                                                     }
                                                                    else
-                                                                    {
+                                                                    {                                                                      
                                                                       int esize = diostream->outbuffer->GetSize();
                                                                       if(esize>DIOSTREAM_MAXBUFFER) esize = DIOSTREAM_MAXBUFFER;
 
@@ -504,37 +514,52 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                           if(diostream->config->IsBroadcastModeActive())
                                                                             {
                                                                               target_addr.sin_addr.s_addr = htonl(INADDR_BROADCAST);
+
+                                                                              target_addr.sin_port  = htons(diostream->config->GetRemotePort());
+
+                                                                              diostream->outbuffer->SetBlocked(true);
+                                                                              size = sendto(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0, (sockaddr*)&target_addr, size_addr);
+                                                                              diostream->outbuffer->SetBlocked(false);
                                                                             }
                                                                            else
                                                                             {
                                                                               tmpremoteaddress = diostream->remoteaddress.Get();
                                                                               
-                                                                              XBUFFER charstr;
+                                                                              if(!tmpremoteaddress.IsEmpty())
+                                                                                {
+                                                                                  XBUFFER charstr;
                                                                               
-                                                                              tmpremoteaddress.ConvertToASCII(charstr);
+                                                                                  tmpremoteaddress.ConvertToASCII(charstr);
                                                                                                                                                             
-                                                                              #ifndef BUILDER
-                                                                              inet_pton(target_addr.sin_family, charstr.GetPtrChar(), &target_addr.sin_addr.s_addr);
-                                                                              #else
-                                                                              target_addr.sin_addr.s_addr   = inet_addr(charstr.GetPtrChar());
-                                                                              #endif                                                                              
+                                                                                  #ifndef BUILDER
+                                                                                  inet_pton(target_addr.sin_family, charstr.GetPtrChar(), &target_addr.sin_addr.s_addr);
+                                                                                  #else
+                                                                                  target_addr.sin_addr.s_addr   = inet_addr(charstr.GetPtrChar());
+                                                                                  #endif                                                                              
+
+                                                                                  target_addr.sin_port  = htons(diostream->config->GetRemotePort());
+
+                                                                                  diostream->outbuffer->SetBlocked(true);
+                                                                                  size = sendto(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0, (sockaddr*)&target_addr, size_addr);
+                                                                                  diostream->outbuffer->SetBlocked(false);
+                                                                                }
+                                                                               else
+                                                                                {
+                                                                                  diostream->outbuffer->SetBlocked(true);
+                                                                                  size = send(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0);
+                                                                                  diostream->outbuffer->SetBlocked(true);
+                                                                                }
                                                                             }
-
-                                                                          target_addr.sin_port  = htons(diostream->config->GetRemotePort());
-
-                                                                          diostream->outbuffer->SetBlocked(true);
-                                                                          size = sendto(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0, (sockaddr*)&target_addr, size_addr);
-                                                                          diostream->outbuffer->SetBlocked(false);
+                                                                          
+                                                                          if(esize)
+                                                                            {
+                                                                              diostream->outbuffer->Extract(NULL, 0 , esize);
+                                                                            }
 
                                                                           if(size == SOCKET_ERROR)
                                                                             {
                                                                               diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
                                                                               break;
-                                                                            }
-
-                                                                          if(size)
-                                                                            {
-                                                                              diostream->outbuffer->Extract(NULL, 0 , esize);
                                                                             }
 
                                                                         }
@@ -596,11 +621,17 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                       }
 
                                                                     loc_addr.sin_port = htons(diostream->config->GetRemotePort());
+                                                                    
+                                                                    const int enable = 1;
+                                                                    if(setsockopt(diostream->handle, SOL_SOCKET, SO_REUSEADDR, (const char*)&enable, sizeof(int)) < 0)
+                                                                      {
+                                                                        int error = WSAGetLastError();
+                                                                      }
 
                                                                     if(bind(diostream->handle, (LPSOCKADDR)&loc_addr, sizeof(SOCKADDR_IN)) == SOCKET_ERROR)
                                                                       {
 
-                                                                        //int error = WSAGetLastError();
+                                                                        int error = WSAGetLastError();
 
                                                                         diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
                                                                         break;

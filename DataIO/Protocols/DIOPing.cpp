@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOPing.cpp
-*
+* 
 * @class      DIOPING
 * @brief      Data Input/Output Ping class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOPing.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -48,31 +54,32 @@
 
 #include "DIOPing_XEvent.h"
 
-#include "DIOPing.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* DIOPINGREPLY                                                                                                        */
-/* --------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOPINGREPLY
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOPINGREPLY::DIOPINGREPLY()
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPINGREPLY::DIOPINGREPLY()
 {
@@ -80,33 +87,30 @@ DIOPINGREPLY::DIOPINGREPLY()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOPINGREPLY::~DIOPINGREPLY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPINGREPLY::~DIOPINGREPLY()
-
 {
   Clean();
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XDWORD DIOPINGREPLY::GetSequence()
 * @brief      GetSequence
 * @ingroup    DATAIO
-*
-* @return     XDWORD :
-*
+* 
+* @return     XDWORD : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOPINGREPLY::GetSequence()
 {
@@ -114,17 +118,16 @@ XDWORD DIOPINGREPLY::GetSequence()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOPINGREPLY::SetSequence(XDWORD sequence)
 * @brief      SetSequence
 * @ingroup    DATAIO
-*
-* @param[in]  sequence :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  sequence : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPINGREPLY::SetSequence(XDWORD sequence)
 {
@@ -132,15 +135,14 @@ void DIOPINGREPLY::SetSequence(XDWORD sequence)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XSTRING* DIOPINGREPLY::GetFromIP()
 * @brief      GetFromIP
 * @ingroup    DATAIO
-*
-* @return     XSTRING* :
-*
+* 
+* @return     XSTRING* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOPINGREPLY::GetFromIP()
 {
@@ -148,16 +150,14 @@ XSTRING* DIOPINGREPLY::GetFromIP()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XDWORD DIOPINGREPLY::GetSizeRequest()
 * @brief      GetSizeRequest
 * @ingroup    DATAIO
-*
-* @return     XDWORD :
-*
+* 
+* @return     XDWORD : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOPINGREPLY::GetSizeRequest()
 {
@@ -165,17 +165,16 @@ XDWORD DIOPINGREPLY::GetSizeRequest()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOPINGREPLY::SetSizeRequest(XDWORD sizerequest)
 * @brief      SetSizeRequest
 * @ingroup    DATAIO
-*
-* @param[in]  sizerequest :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  sizerequest : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPINGREPLY::SetSizeRequest(XDWORD sizerequest)
 {
@@ -183,15 +182,14 @@ void DIOPINGREPLY::SetSizeRequest(XDWORD sizerequest)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XDWORD DIOPINGREPLY::GetTimeElapsed()
 * @brief      GetTimeElapsed
 * @ingroup    DATAIO
-*
-* @return     XDWORD :
-*
+* 
+* @return     XDWORD : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOPINGREPLY::GetTimeElapsed()
 {
@@ -199,17 +197,16 @@ XDWORD DIOPINGREPLY::GetTimeElapsed()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOPINGREPLY::SetTimeElapsed(XDWORD timeelapsed)
 * @brief      SetTimeElapsed
 * @ingroup    DATAIO
-*
-* @param[in]  timeelapsed :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  timeelapsed : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPINGREPLY::SetTimeElapsed(XDWORD timeelapsed)
 {
@@ -217,15 +214,14 @@ void DIOPINGREPLY::SetTimeElapsed(XDWORD timeelapsed)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XBYTE DIOPINGREPLY::GetTTL()
 * @brief      GetTTL
 * @ingroup    DATAIO
-*
-* @return     XBYTE :
-*
+* 
+* @return     XBYTE : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOPINGREPLY::GetTTL()
 {
@@ -233,17 +229,16 @@ XBYTE DIOPINGREPLY::GetTTL()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOPINGREPLY::SetTTL(XBYTE TTL)
 * @brief      SetTTL
 * @ingroup    DATAIO
-*
-* @param[in]  TTL :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  TTL : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPINGREPLY::SetTTL(XBYTE TTL)
 {
@@ -251,16 +246,15 @@ void DIOPINGREPLY::SetTTL(XBYTE TTL)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOPINGREPLY::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
-*
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPINGREPLY::Clean()
 {
@@ -274,21 +268,20 @@ void DIOPINGREPLY::Clean()
 }
 
 
+#pragma endregion
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* DIOPING                                                                                                             */
-/* --------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_DIOPING
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOPING::DIOPING()
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPING::DIOPING()
 {
@@ -321,16 +314,15 @@ DIOPING::DIOPING()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOPING::~DIOPING()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPING::~DIOPING()
 {
@@ -348,15 +340,14 @@ DIOPING::~DIOPING()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOURL* DIOPING::GetTarget()
 * @brief      GetTarget
 * @ingroup    DATAIO
-*
-* @return     DIOURL* :
-*
+* 
+* @return     DIOURL* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL* DIOPING::GetTarget()
 {
@@ -364,18 +355,17 @@ DIOURL* DIOPING::GetTarget()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOPING::Set(XCHAR* urltarget , XCHAR* IPLocal)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @param[in]  urltarget :
-* @param[in]  IPLocal :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  urltarget : 
+* @param[in]  IPLocal : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPING::Set(XCHAR* urltarget , XCHAR* IPLocal)
 {
@@ -387,18 +377,17 @@ bool DIOPING::Set(XCHAR* urltarget , XCHAR* IPLocal)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOPING::Set(DIOURL& urltarget, XCHAR* IPLocal)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @param[in]  urltarget :
-* @param[in]  IPLocal :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  urltarget : 
+* @param[in]  IPLocal : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPING::Set(DIOURL& urltarget, XCHAR* IPLocal)
 {
@@ -406,19 +395,18 @@ bool DIOPING::Set(DIOURL& urltarget, XCHAR* IPLocal)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodreply)
 * @brief      Do
 * @ingroup    DATAIO
-*
-* @param[in]  nretries :
-* @param[in]  timebetweenchecks :
-* @param[in]  exitfirstgoodreply :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  nretries : 
+* @param[in]  timebetweenchecks : 
+* @param[in]  exitfirstgoodreply : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodreply)
 {
@@ -502,7 +490,7 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
 
       if(!status)
         {
-          // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: not write packet! %s"), targetIP.Get());
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: not write packet! %s"), targetIP.Get());
           break;
         }
 
@@ -511,7 +499,7 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
           status = diostreamICMP->WaitToFilledReadingBuffer(sizeof(DIOPING_ECHOREPLY), 1);
           if(!status)
             {
-              // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: not ready packet! %s"), targetIP.Get());
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: not ready packet! %s"), targetIP.Get());
               if(exitfirstgoodreply)  nloop = 0;  else nloop--;
               break;
             }
@@ -519,14 +507,14 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
           status = diostreamICMP->ReadDatagram(address, xbuffer);
           if(!status)
             {
-              // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: not read packet! %s"), targetIP.Get());
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: not read packet! %s"), targetIP.Get());
               if(exitfirstgoodreply)  nloop = 0;  else nloop--;
               break;
             }
 
           if(xbuffer.GetSize() < sizeof(DIOPING_ECHOREPLY))
             {
-              // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: invalid size packet! %s, "), targetIP.Get());
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: invalid size packet! %s, "), targetIP.Get());
               continue;
             }
 
@@ -571,7 +559,7 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
                               xevent.SetPingReply((DIOPINGREPLY*)replys.Get(replys.GetSize()-1));
                               PostEvent(&xevent);
 
-                              // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Ping: received! %s %s (elapsed time %d)"), fromIP.Get(), targetIP.Get(), elapsed);
+                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Ping: received! %s %s (elapsed time %d)"), fromIP.Get(), targetIP.Get(), elapsed);
 
                               if(exitfirstgoodreply)
                                 {
@@ -586,28 +574,28 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
                             }
                            else
                             {
-                              // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: application ID not equal! %s %s"), fromIP.Get(), targetIP.Get());
+                              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: application ID not equal! %s %s"), fromIP.Get(), targetIP.Get());
                             }
                         }
                        else
                         {
-                          // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: not IP equal! %s %s"), fromIP.Get(), targetIP.Get());
+                          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: not IP equal! %s %s"), fromIP.Get(), targetIP.Get());
                         }
 
                     }
                    else
                     {
-                      // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: error Checksum! %s "), targetIP.Get());
+                      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: error Checksum! %s "), targetIP.Get());
                     }
                 }
                else
                 {
-                  // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: error CRC! %s "), targetIP.Get());
+                  XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: error CRC! %s "), targetIP.Get());
                 }
             }
            else
             {
-              // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: Is not reply packet! %s "), targetIP.Get());
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: Is not reply packet! %s "), targetIP.Get());
             }
         }
    }
@@ -617,26 +605,23 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
 
   bool status = WasConnected();
 
-
   if(!status)
     {
      // XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("Ping to [%s]: %s"), targetIP.Get(), (status?__L("Ok."): __L("ERROR!")));
     }
 
-
   return status;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOPING::WasConnected()
 * @brief      WasConnected
 * @ingroup    DATAIO
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPING::WasConnected()
 {
@@ -652,15 +637,14 @@ bool DIOPING::WasConnected()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XVECTOR<DIOPINGREPLY*>* DIOPING::GetReplys()
 * @brief      GetReplys
 * @ingroup    DATAIO
-*
-* @return     XVECTOR<DIOPINGREPLY*>* :
-*
+* 
+* @return     XVECTOR<DIOPINGREPLY*>* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<DIOPINGREPLY*>* DIOPING::GetReplys()
 {
@@ -668,15 +652,14 @@ XVECTOR<DIOPINGREPLY*>* DIOPING::GetReplys()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XDWORD DIOPING::CalculateMeanTime()
 * @brief      CalculateMeanTime
 * @ingroup    DATAIO
-*
-* @return     XDWORD :
-*
+* 
+* @return     XDWORD : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOPING::CalculateMeanTime()
 {
@@ -706,15 +689,14 @@ XDWORD DIOPING::CalculateMeanTime()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOPING::DeleteAllReplys()
 * @brief      DeleteAllReplys
 * @ingroup    DATAIO
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPING::DeleteAllReplys()
 {
@@ -738,21 +720,20 @@ bool DIOPING::DeleteAllReplys()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOPING::AddReply(XWORD sequence, XCHAR* fromIP, XDWORD sizerequest, XDWORD timeelapsed, XBYTE TTL)
 * @brief      AddReply
 * @ingroup    DATAIO
-*
-* @param[in]  sequence :
-* @param[in]  fromIP :
-* @param[in]  sizerequest :
-* @param[in]  timeelapsed :
-* @param[in]  TTL :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  sequence : 
+* @param[in]  fromIP : 
+* @param[in]  sizerequest : 
+* @param[in]  timeelapsed : 
+* @param[in]  TTL : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPING::AddReply(XWORD sequence, XCHAR* fromIP, XDWORD sizerequest, XDWORD timeelapsed, XBYTE TTL)
 {
@@ -782,18 +763,17 @@ bool DIOPING::AddReply(XWORD sequence, XCHAR* fromIP, XDWORD sizerequest, XDWORD
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XWORD DIOPING::CalculeCheckSum(XWORD*addr, int len)
+* 
+* @fn         XWORD DIOPING::CalculeCheckSum(XWORD* addr, int len)
 * @brief      CalculeCheckSum
 * @ingroup    DATAIO
-*
-* @param[in]  addr :
-* @param[in]  len :
-*
-* @return     XWORD :
-*
+* 
+* @param[in]  addr : 
+* @param[in]  len : 
+* 
+* @return     XWORD : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOPING::CalculeCheckSum(XWORD* addr, int len)
 {
@@ -834,16 +814,15 @@ XWORD DIOPING::CalculeCheckSum(XWORD* addr, int len)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOPING::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
-*
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPING::Clean()
 {
@@ -860,3 +839,9 @@ void DIOPING::Clean()
   nretries            = 0;
   timebetweenchecks   = 0;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion

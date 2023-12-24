@@ -1,21 +1,43 @@
-/*------------------------------------------------------------------------------------------
-//  DIOLINUXPING.CPP
-//
-//  Data IO LINUX Ping class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 30/08/2012 9:14:11
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOLINUXPing.cpp
+* 
+* @class      DIOLINUXPING
+* @brief      LINUX Data IO Ping class
+* @ingroup    PLATFORM_LINUX
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXPing.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -54,73 +76,70 @@
 
 #include "DIOPing_XEvent.h"
 
-#include "DIOLINUXPing.h"
-
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+#pragma endregion
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+#pragma endregion
 
 
 
-/*-------------------------------------------------------------------
-//  DIOLINUXPING::DIOLINUXPING
-*/
-/**
-//
-//  Class Constructor DIOLINUXPING
-//
-//  ""
-//  @version      30/03/2016 12:55:40
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXPING::DIOLINUXPING()
+* @brief      Constructor
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXPING::DIOLINUXPING()
 {
   Clean();
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXPING::~DIOLINUXPING
-*/
-/**
-//
-//   Class Destructor DIOLINUXPING
-//
-//  ""
-//  @version      30/03/2016 12:55:33
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXPING::~DIOLINUXPING()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXPING::~DIOLINUXPING()
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXPING::Do
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      31/03/2016 10:38:44
-//
-//  @return       bool :
-//
-//  @param        nretries :
-//  @param        timebetweenchecks :
-//  @param        exitfirstgoodreply :
-*/
-/*-----------------------------------------------------------------*/
+#ifdef DIOPING_NATIVE_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodreply)
+* @brief      Do
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  nretries : 
+* @param[in]  timebetweenchecks : 
+* @param[in]  exitfirstgoodreply : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodreply)
 {
   #define DIOPING_DEFAULTTIMEOUT 3
@@ -189,7 +208,7 @@ bool DIOLINUXPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstg
       XDWORD size = sendto(handle,(char*)&echorequest, sizeof(DIOPING_ECHOREQUEST), 0, (sockaddr*)&targetaddr, sizeof(struct sockaddr_in));
       if(size != sizeof(DIOPING_ECHOREQUEST))
         {
-         XTRACE_PRINTCOLOR(4, __L("Ping: not write packet! %s"), targetIP.Get());
+          XTRACE_PRINTCOLOR(4, __L("Ping: not write packet! %s"), targetIP.Get());
           break;
         }
 
@@ -290,5 +309,21 @@ bool DIOLINUXPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstg
 
   return status;
 }
+#endif
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXPING::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOLINUXPING::Clean()
+{
+
+}
 

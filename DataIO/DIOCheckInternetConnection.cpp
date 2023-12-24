@@ -213,7 +213,7 @@ bool DIOCHECKINTERNETCONNECTION::Check()
   bool        isinternetactive    = false;
   static bool isinternetactiveold = false;
 
-  if(checkconnections) isinternetactive = checkconnections->Connections_SomeIsConnected();
+  isinternetactive = checkconnections->Connections_SomeIsConnected();
 
   if(isinternetactiveold != isinternetactive)
     {

@@ -318,7 +318,7 @@ bool DIODNSPROTOCOL_MITM_SERVER::Update()
       return false;
     }
 
-  if(diostreamudp->GetInXBuffer()->GetSize() >= sizeof(DIODNSPROTOCOL_HEADER))
+  if(diostreamudp->GetInXBuffer()->GetSize() < sizeof(DIODNSPROTOCOL_HEADER))
     {
       return false;
     }  
@@ -337,18 +337,71 @@ bool DIODNSPROTOCOL_MITM_SERVER::Update()
   askcount  = SwapWORD(header->q_count);
       
   reader  = &receivedbuffer[0].Get()[sizeof(DIODNSPROTOCOL_HEADER)];
+ 
+  XSTRING nameURLstr;  
 
   for(XWORD c=0; c<askcount; c++)
     {
       XBYTE*  nameURL = NULL;
-      XSTRING nameURLstr;  
-
+     
       nameURL     =  DIODNSPROTOCOLCLIENT::GetBufferName(reader, receivedbuffer[0].Get(), &stop);
       nameURLstr.Set((char*)nameURL);
-      question    = (DIODNSPROTOCOL_QUESTION*)receivedbuffer[0].Get() + sizeof(DIODNSPROTOCOL_HEADER) + nameURLstr.GetSize() + 1;
+      
+      DIODNSPROTOCOL_MITM_SERVER_XEVENT xevent(this, DIODNSPROTOCOL_MITM_SERVER_XEVENT_TYPE_ASKDNS);
+      xevent.GetAskedURL()->Set(nameURLstr);
+      xevent.GetAskedBuffer()->CopyFrom(receivedbuffer[0]);
 
+      PostEvent(&xevent);
+      
+      reader     += stop;
+      question    = (DIODNSPROTOCOL_QUESTION*)reader;
     }
 
+  for(XDWORD c=0; c<dnsservers.GetSize(); c++)
+    {
+      DIODNSRESOLVER_DNSSERVER* DNSserver = dnsservers.Get(c);
+      if(DNSserver)
+        {
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[DSN MitM Server] %d server..."), c);      
+
+          status = Detour(DNSserver, receivedbuffer[0], receivedbuffer[1]);
+          if(status)
+            {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[DSN MitM Server] Buffer receiver"));      
+              XTRACE_PRINTDATABLOCKCOLOR(XTRACE_COLOR_BLUE, receivedbuffer[1]); 
+
+              break;          
+            }
+           else
+            {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DSN MitM Server] Error to Detour"));      
+            }                 
+        }    
+    }
+
+  status = diostreamudp->Write(receivedbuffer[1]);
+  if(status)                        
+    {
+      //status = diostreamudp->WaitToFlushOutXBuffer(3);                        
+      if(status) 
+        {
+          DIODNSPROTOCOL_MITM_SERVER_XEVENT xevent(this, DIODNSPROTOCOL_MITM_SERVER_XEVENT_TYPE_ANSWERDNS);
+          xevent.GetAskedURL()->Set(nameURLstr);
+          xevent.GetAnsweredBuffer()->CopyFrom(receivedbuffer[1]);
+
+          PostEvent(&xevent);
+
+          status = true;
+        } 
+       else
+        {
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DSN MitM Server] Error to Write answer buffer"));      
+        }                          
+    }
+   else
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DSN MitM Server] Error to Write answer"));      
+    }     
      
   return status;
 }
@@ -564,7 +617,7 @@ bool DIODNSPROTOCOL_MITM_SERVER::Detour(DIODNSRESOLVER_DNSSERVER* DNSserver, XBU
     }
 
   DIOSTREAMUDPCONFIG   dioudpcfg;
-	DIOSTREAMUDP*				 dioudp;
+	DIOSTREAMUDP*				 dioudp     = NULL;
   XSTRING              remoteIP; 
   int                  serverport = 0;
   bool                 status     = false;

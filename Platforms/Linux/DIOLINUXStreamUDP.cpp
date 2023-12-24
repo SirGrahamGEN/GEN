@@ -376,11 +376,17 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                             {
                                                               if(diostream->config->IsUsedDatagrams())
                                                                 {
-                                                                  if(diostream->GetFirstDatagram(true) != DIOSTREAMUDP_NOTFOUND) FD_SET(diostream->handle, &write_flags);
+                                                                  if(diostream->GetFirstDatagram(true) != DIOSTREAMUDP_NOTFOUND) 
+                                                                    {
+                                                                      FD_SET(diostream->handle, &write_flags);
+                                                                    }
                                                                 }
                                                                else
                                                                 {
-                                                                  if(diostream->outbuffer->GetSize()) FD_SET(diostream->handle, &write_flags);
+                                                                  if(diostream->outbuffer->GetSize()) 
+                                                                    {
+                                                                      FD_SET(diostream->handle, &write_flags);
+                                                                    }
                                                                 }
                                                             }
 
@@ -472,8 +478,13 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                            else
                                                                             {
                                                                               if(datagram->GetAddress()->IsEmpty())
-                                                                                      tmpremoteaddress = diostream->remoteaddress.Get();
-                                                                                else  tmpremoteaddress = datagram->GetAddress()->Get();
+                                                                                {
+                                                                                  tmpremoteaddress = diostream->remoteaddress.Get();
+                                                                                }
+                                                                               else  
+                                                                                { 
+                                                                                  tmpremoteaddress = datagram->GetAddress()->Get();
+                                                                                }
 
                                                                               XBUFFER charstr;
                                                                               
@@ -483,7 +494,6 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                             }
 
                                                                           target_addr.sin_port  = htons(datagram->GetPort()?datagram->GetPort():diostream->config->GetRemotePort());
-
                                                                           size = sendto(diostream->handle,(char*)datagram->GetData()->Get(), datagram->GetData()->GetSize(), 0, (sockaddr*)&target_addr, size_addr);
 
                                                                           //XTRACE_PRINTCOLOR(1, __L("Write UDP to [%s] (%d)"), tmpremoteaddress.Get(), size);
@@ -497,8 +507,13 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                           if(size)
                                                                             {
                                                                               if(diostream->config->IsUsedDatagrams())
-                                                                                   diostream->DeleteDatagram(indexdatagram);
-                                                                              else diostream->outbuffer->Extract(NULL, 0 , datagram->GetData()->GetSize());
+                                                                                {
+                                                                                  diostream->DeleteDatagram(indexdatagram);
+                                                                                }
+                                                                               else 
+                                                                                { 
+                                                                                  diostream->outbuffer->Extract(NULL, 0 , datagram->GetData()->GetSize());
+                                                                                }
                                                                             }
                                                                         }
                                                                     }
@@ -522,23 +537,38 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                       if(diostream->config->IsBroadcastModeActive())
                                                                         {
                                                                           target_addr.sin_addr.s_addr = htonl(INADDR_BROADCAST);
+
+                                                                          target_addr.sin_port  = htons(diostream->config->GetRemotePort());
+
+                                                                          diostream->outbuffer->SetBlocked(true);
+                                                                          size = sendto(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0, (sockaddr*)&target_addr, size_addr);
+                                                                          diostream->outbuffer->SetBlocked(false);
                                                                         }
                                                                        else
                                                                         {
                                                                           tmpremoteaddress = diostream->remoteaddress.Get();
                                                                           
-                                                                          XBUFFER charstr;
+                                                                          if(!tmpremoteaddress.IsEmpty())
+                                                                            {    
+                                                                              XBUFFER charstr;
                                                                           
-                                                                          tmpremoteaddress.ConvertToASCII(charstr);                                                                          
-                                                                          target_addr.sin_addr.s_addr   = inet_addr(charstr.GetPtrChar());                                                                          
+                                                                              tmpremoteaddress.ConvertToASCII(charstr);                                                                          
+                                                                              target_addr.sin_addr.s_addr   = inet_addr(charstr.GetPtrChar());     
+                                                                          
+                                                                              target_addr.sin_port  = htons(diostream->config->GetRemotePort());
+
+                                                                              diostream->outbuffer->SetBlocked(true);
+                                                                              size = sendto(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0, (sockaddr*)&target_addr, size_addr);
+                                                                              diostream->outbuffer->SetBlocked(false);                                                                     
+                                                                            }
+                                                                           else
+                                                                            {
+                                                                              diostream->outbuffer->SetBlocked(true);                                                                              
+                                                                              size = send(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0);
+                                                                              diostream->outbuffer->SetBlocked(false);   
+                                                                            }   
                                                                         }
-
-                                                                      target_addr.sin_port  = htons(diostream->config->GetRemotePort());
-
-                                                                      diostream->outbuffer->SetBlocked(true);
-                                                                      size = sendto(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0, (sockaddr*)&target_addr, size_addr);
-                                                                      diostream->outbuffer->SetBlocked(false);
-
+                                                                   
                                                                       if(size == -1)
                                                                         {
                                                                           diostream->SetEvent(DIOLINUXUDPFSMEVENT_DISCONNECTING);

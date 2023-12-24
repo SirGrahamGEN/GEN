@@ -1,66 +1,78 @@
-//------------------------------------------------------------------------------------------
-//  DIOWINDOWSSTREAMICMP.CPP
-//
-//  WINDOWS Data Input/Output Stream ICMP class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSStreamICMP.cpp
+* 
+* @class      DIOWINDOWSSTREAMICMP
+* @brief      WINDOWS Data Input/Output Stream ICMP class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMICMP_ACTIVE)
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
-#include <winsock2.h>
-#include <windows.h>
-#include <ws2tcpip.h>
-#include <iphlpapi.h>
-
+#include "DIOWINDOWSStreamICMP.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
 #include "XTrace.h"
-#include "XThreadCollected.h"
 
 #include "DIOIP.h"
 #include "DIOURL.h"
 #include "DIOStreamXEvent.h"
 #include "DIOStreamICMPConfig.h"
 
-#include "DIOWINDOWSStreamICMP.h"
-
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMICMP::DIOWINDOWSSTREAMICMP
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 7:42:19
-//
-//  @return       void :
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+
+@fn         DIOWINDOWSSTREAMICMP::DIOWINDOWSSTREAMICMP()
+@brief      Constructor
+@ingroup    PLATFORM_WINDOWS
+
+@return     Does not return anything. 
+
+--------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMICMP::DIOWINDOWSSTREAMICMP() : DIOSTREAMICMP(), XFSMACHINE(0)
 {
   Clean();
@@ -608,4 +620,8 @@ void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
     }
 }
 
+#pragma endregion
+
+
 #endif
+

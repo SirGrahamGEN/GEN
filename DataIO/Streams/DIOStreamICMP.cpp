@@ -1,59 +1,67 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOStreamICMP.cpp
-*
+* 
 * @class      DIOSTREAMICMP
 * @brief      Data Input/Output Stream ICMP class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOStreamICMP.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
 #include "XThread.h"
 
 #include "DIOFactory.h"
-#include "DIOStreamUDPConfig.h"
 
-#include "DIOStreamICMP.h"
+#include "DIOStreamUDPConfig.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
-
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOSTREAMICMPDATAGRAM                                                                                              */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOSTREAMICMPDATAGRAM
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -71,7 +79,6 @@ DIOSTREAMICMPDATAGRAM::DIOSTREAMICMPDATAGRAM()
 
   data = new XBUFFER();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -92,7 +99,6 @@ DIOSTREAMICMPDATAGRAM::~DIOSTREAMICMPDATAGRAM()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMPDATAGRAM::IsToSend()
@@ -106,7 +112,6 @@ bool DIOSTREAMICMPDATAGRAM::IsToSend()
 {
   return istosend;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -126,7 +131,6 @@ void DIOSTREAMICMPDATAGRAM::SetIsToSend(bool istosend)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSTREAMICMPDATAGRAM::GetAddress()
@@ -140,7 +144,6 @@ XSTRING* DIOSTREAMICMPDATAGRAM::GetAddress()
 {
   return &address;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -163,7 +166,6 @@ bool DIOSTREAMICMPDATAGRAM::SetAddress(XCHAR* address)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMPDATAGRAM::SetAddress(XSTRING& address)
@@ -181,7 +183,6 @@ bool DIOSTREAMICMPDATAGRAM::SetAddress(XSTRING& address)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* DIOSTREAMICMPDATAGRAM::GetData()
@@ -195,7 +196,6 @@ XBUFFER* DIOSTREAMICMPDATAGRAM::GetData()
 {
   return data;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -220,7 +220,6 @@ bool DIOSTREAMICMPDATAGRAM::SetData(XBYTE* data,XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMICMPDATAGRAM::SetData(XBUFFER& data)
@@ -236,7 +235,6 @@ void DIOSTREAMICMPDATAGRAM::SetData(XBUFFER& data)
 {
   SetData(data.Get(), data.GetSize());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -257,12 +255,10 @@ void DIOSTREAMICMPDATAGRAM::Clean()
 }
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOSTREAMICMP                                                                                                      */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
 
+#pragma region CLASS_DIOSTREAMICMP
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -281,7 +277,6 @@ DIOSTREAMICMP::DIOSTREAMICMP() : DIOSTREAM()
   GEN_XFACTORY_CREATE(datagramsmutex, Create_Mutex())
   host           = new DIOURL();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -306,7 +301,6 @@ DIOSTREAMICMP::~DIOSTREAMICMP()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMICMP::GetConfig()
@@ -320,7 +314,6 @@ DIOSTREAMCONFIG* DIOSTREAMICMP::GetConfig()
 {
   return (DIOSTREAMCONFIG*)config;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -341,7 +334,6 @@ bool DIOSTREAMICMP::SetConfig(DIOSTREAMCONFIG* config)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -388,7 +380,6 @@ XDWORD DIOSTREAMICMP::Read(XBYTE* buffer, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAMICMP::Write(XBYTE* buffer, XDWORD size)
@@ -413,7 +404,6 @@ XDWORD DIOSTREAMICMP::Write(XBYTE* buffer, XDWORD size)
 
   return size;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -454,7 +444,6 @@ bool DIOSTREAMICMP::ReadDatagram(XSTRING& address, XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBYTE* buffer, XDWORD size)
@@ -478,7 +467,6 @@ bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBYTE* buffer, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBUFFER& xbuffer)
@@ -497,7 +485,6 @@ bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::ResetXBuffers()
@@ -513,7 +500,6 @@ bool DIOSTREAMICMP::ResetXBuffers()
 
   return DeleteAllDatagrams();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -543,10 +529,8 @@ bool DIOSTREAMICMP::ResetInXBuffer()
         } else index++;
     }
 
-
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -580,7 +564,6 @@ bool DIOSTREAMICMP::ResetOutXBuffer()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL* DIOSTREAMICMP::GetHost()
@@ -596,7 +579,6 @@ DIOURL* DIOSTREAMICMP::GetHost()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOSTREAMICMPDATAGRAM*>* DIOSTREAMICMP::GetDatagramsVector()
@@ -610,7 +592,6 @@ XVECTOR<DIOSTREAMICMPDATAGRAM*>* DIOSTREAMICMP::GetDatagramsVector()
 {
   return &datagrams;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -636,7 +617,6 @@ bool DIOSTREAMICMP::DeleteAllDatagrams()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -676,7 +656,6 @@ bool DIOSTREAMICMP::AddDatagram(bool istosend, XCHAR* address, XBYTE* data, XDWO
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::AddDatagram(bool istosend, XSTRING& address, XBYTE* data,XDWORD size)
@@ -697,7 +676,6 @@ bool DIOSTREAMICMP::AddDatagram(bool istosend, XSTRING& address, XBYTE* data,XDW
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMICMPDATAGRAM* DIOSTREAMICMP::GetDatagram(int index)
@@ -713,7 +691,6 @@ DIOSTREAMICMPDATAGRAM* DIOSTREAMICMP::GetDatagram(int index)
 {
   return (DIOSTREAMICMPDATAGRAM*)datagrams.Get(index);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -752,7 +729,6 @@ int DIOSTREAMICMP::GetFirstDatagram(bool tosend)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::DeleteDatagram(int index)
@@ -781,7 +757,6 @@ bool DIOSTREAMICMP::DeleteDatagram(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMICMP::Clean()
@@ -798,3 +773,12 @@ void DIOSTREAMICMP::Clean()
   host            = NULL;
   datagramsmutex  = NULL;
 }
+
+
+#pragma endregion
+
+
+
+#pragma endregion
+
+

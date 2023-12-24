@@ -3,9 +3,9 @@
 * @file       DIOWINDOWSPing.h
 * 
 * @class      DIOWINDOWSPING
-* @brief      Data Input/Output WINDOWS Ping class
+* @brief      WINDOWS Data Input/Output Ping class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,44 +24,63 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOWINDOWSPING_H_
 #define _DIOWINDOWSPING_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include <winsock2.h>
+#include <windows.h>
+#include <ws2tcpip.h>
+#include <iphlpapi.h>
+#include <icmpapi.h>
 
 #include "DIOPing.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 
-
-class DIOWINDOWSPING  : public  DIOPING
+class DIOWINDOWSPING : public DIOPING
 {
   public:
 
                                   DIOWINDOWSPING              ();
     virtual                      ~DIOWINDOWSPING              ();
 
-    #ifdef DIOPING_USEWINDOWDLL
+    #ifdef DIOPING_NATIVE_ACTIVE
     bool                          Do                          (XDWORD nretries = DIOPING_DEFAULTNRETRYS, XDWORD timebetweenchecks = DIOPING_DEFAULTTIMEBETWEENCHECKS, bool exitfirstgoodreply = false);
     #endif
 
   private:
 
-    void                          Clean                       ()
-                                  {
-
-                                  }
-
+    void                          Clean                       ();
+                         
 };
 
+#pragma endregion
 
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+
 

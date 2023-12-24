@@ -1,23 +1,44 @@
-//------------------------------------------------------------------------------------------
-//  DIOLINUXSTREAMICMP.CPP
-//
-//  LINUX Data Input/Output Stream ICMP class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOLINUXStreamICMP.cpp
+* 
+* @class      DIOLINUXSTREAMICMP
+* @brief      LINUX Data Input/Output Stream ICMP class
+* @ingroup    PLATFORM_LINUX
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMICMP_ACTIVE)
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXStreamICMP.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -56,44 +77,41 @@
 #include "DIOStreamICMPConfig.h"
 #include "DIOStreamICMP.h"
 
-
-#include "DIOLINUXStreamICMP.h"
-
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMICMP::DIOLINUXSTREAMICMP
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 23:10:30
-//
-//  @return
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMICMP::DIOLINUXSTREAMICMP()
+* @brief      Constructor
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMICMP::DIOLINUXSTREAMICMP() : DIOSTREAMICMP() , XFSMACHINE(0)
 {
   Clean();
 
   AddState( DIOLINUXICMPFSMSTATE_NONE                 ,
-            DIOLINUXICMPFSMEVENT_GETTINGCONNECTION     , DIOLINUXICMPFSMSTATE_GETTINGCONNECTION  ,
+            DIOLINUXICMPFSMEVENT_GETTINGCONNECTION    , DIOLINUXICMPFSMSTATE_GETTINGCONNECTION  ,
             DIOLINUXICMPFSMEVENT_CONNECTED            , DIOLINUXICMPFSMSTATE_CONNECTED         ,
             DIOLINUXICMPFSMEVENT_DISCONNECTING        , DIOLINUXICMPFSMSTATE_DISCONNECTING     ,
             XFSMACHINESTATE_EVENTDEFEND);
 
-  AddState( DIOLINUXICMPFSMSTATE_GETTINGCONNECTION     ,
+  AddState( DIOLINUXICMPFSMSTATE_GETTINGCONNECTION    ,
             DIOLINUXICMPFSMEVENT_CONNECTED            , DIOLINUXICMPFSMSTATE_CONNECTED         ,
             DIOLINUXICMPFSMEVENT_WAITINGTOREAD        , DIOLINUXICMPFSMSTATE_WAITINGTOREAD     ,
             DIOLINUXICMPFSMEVENT_SENDINGDATA          , DIOLINUXICMPFSMSTATE_SENDINGDATA       ,
@@ -101,21 +119,21 @@ DIOLINUXSTREAMICMP::DIOLINUXSTREAMICMP() : DIOSTREAMICMP() , XFSMACHINE(0)
             XFSMACHINESTATE_EVENTDEFEND);
 
   AddState( DIOLINUXICMPFSMSTATE_CONNECTED            ,
-            DIOLINUXICMPFSMEVENT_GETTINGCONNECTION     , DIOLINUXICMPFSMSTATE_GETTINGCONNECTION,
+            DIOLINUXICMPFSMEVENT_GETTINGCONNECTION    , DIOLINUXICMPFSMSTATE_GETTINGCONNECTION,
             DIOLINUXICMPFSMEVENT_WAITINGTOREAD        , DIOLINUXICMPFSMSTATE_WAITINGTOREAD     ,
             DIOLINUXICMPFSMEVENT_SENDINGDATA          , DIOLINUXICMPFSMSTATE_SENDINGDATA       ,
             DIOLINUXICMPFSMEVENT_DISCONNECTING        , DIOLINUXICMPFSMSTATE_DISCONNECTING     ,
             XFSMACHINESTATE_EVENTDEFEND);
 
   AddState( DIOLINUXICMPFSMSTATE_WAITINGTOREAD        ,
-            DIOLINUXICMPFSMEVENT_GETTINGCONNECTION     , DIOLINUXICMPFSMSTATE_GETTINGCONNECTION  ,
+            DIOLINUXICMPFSMEVENT_GETTINGCONNECTION    , DIOLINUXICMPFSMSTATE_GETTINGCONNECTION  ,
             DIOLINUXICMPFSMEVENT_CONNECTED            , DIOLINUXICMPFSMSTATE_CONNECTED         ,
             DIOLINUXICMPFSMEVENT_SENDINGDATA          , DIOLINUXICMPFSMSTATE_SENDINGDATA       ,
             DIOLINUXICMPFSMEVENT_DISCONNECTING        , DIOLINUXICMPFSMSTATE_DISCONNECTING     ,
             XFSMACHINESTATE_EVENTDEFEND);
 
   AddState( DIOLINUXICMPFSMSTATE_DISCONNECTING        ,
-            DIOLINUXICMPFSMEVENT_GETTINGCONNECTION     , DIOLINUXICMPFSMSTATE_GETTINGCONNECTION  ,
+            DIOLINUXICMPFSMEVENT_GETTINGCONNECTION    , DIOLINUXICMPFSMSTATE_GETTINGCONNECTION  ,
             DIOLINUXICMPFSMEVENT_CONNECTED            , DIOLINUXICMPFSMSTATE_CONNECTED         ,
             DIOLINUXICMPFSMEVENT_WAITINGTOREAD        , DIOLINUXICMPFSMSTATE_WAITINGTOREAD     ,
             DIOLINUXICMPFSMEVENT_SENDINGDATA          , DIOLINUXICMPFSMSTATE_SENDINGDATA       ,
@@ -125,17 +143,16 @@ DIOLINUXSTREAMICMP::DIOLINUXSTREAMICMP() : DIOSTREAMICMP() , XFSMACHINE(0)
 }
 
 
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMICMP::~DIOLINUXSTREAMICMP
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMICMP::~DIOLINUXSTREAMICMP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMICMP::~DIOLINUXSTREAMICMP()
 {
   if(threadconnection)
@@ -147,18 +164,15 @@ DIOLINUXSTREAMICMP::~DIOLINUXSTREAMICMP()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMICMP::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMICMP::Open()
+* @brief      Open
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMICMP::Open()
 {
   if(!threadconnection)  return false;
@@ -178,18 +192,15 @@ bool DIOLINUXSTREAMICMP::Open()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMICMP::Disconnect
-*/
-/**
-//
-//
-//  ""
-//  @version      01/12/2010 23:10:56
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMICMP::Disconnect()
+* @brief      Disconnect
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMICMP::Disconnect()
 {
   if((GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
@@ -207,17 +218,15 @@ bool DIOLINUXSTREAMICMP::Disconnect()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMICMP::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMICMP::Close()
+* @brief      Close
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMICMP::Close()
 {
   if(!threadconnection) return false;
@@ -235,19 +244,17 @@ bool DIOLINUXSTREAMICMP::Close()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMICMP::IsReadyConnect
-/**
-//
-//
-//  ""
-//  @version      08/03/2006 15:36:59
-//
-//  @return       int :
-//  @param        sock :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOLINUXSTREAMICMP::IsReadyConnect(int socket)
+* @brief      IsReadyConnect
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  socket : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOLINUXSTREAMICMP::IsReadyConnect(int socket)
 {
   struct timeval  tv;
@@ -291,39 +298,17 @@ int DIOLINUXSTREAMICMP::IsReadyConnect(int socket)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMICMP::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
-void DIOLINUXSTREAMICMP::Clean()
-{
-  threadconnection   = NULL;
-  status            = DIOSTREAMSTATUS_DISCONNECTED;
-  handle            = -1;
-}
-
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMICMP::ThreadRunFunction
-/**
-//
-//
-//  ""
-//  @version      06/03/2006 15:44:00
-//
-//  @return       void :
-//  @param        data :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMICMP::ThreadRunFunction(void* thread)
+* @brief      ThreadRunFunction
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  thread : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMICMP::ThreadRunFunction(void* thread)
 {
   DIOLINUXSTREAMICMP* diostream = (DIOLINUXSTREAMICMP*)thread;
@@ -569,6 +554,27 @@ void DIOLINUXSTREAMICMP::ThreadRunFunction(void* thread)
     }
 }
 
-#endif
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMICMP::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOLINUXSTREAMICMP::Clean()
+{
+  threadconnection   = NULL;
+  status            = DIOSTREAMSTATUS_DISCONNECTED;
+  handle            = -1;
+}
+
+
+#pragma endregion
+
+
+#endif
 

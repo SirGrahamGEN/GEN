@@ -1,35 +1,36 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOPing.h
-*
+* 
 * @class      DIOPING
 * @brief      Data Input/Output Ping class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOPING_H_
 #define _DIOPING_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
 #include "XVector.h"
@@ -39,7 +40,11 @@
 #include "DIOURL.h"
 #include "DIOStreamICMPConfig.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define DIOPING_DEFAULTNRETRYS              3
 #define DIOPING_DEFAULTTIMEBETWEENCHECKS    500       // Milliseconds
@@ -47,6 +52,12 @@
 #define DIOPING_ICMP_ECHOREPLY              0
 #define DIOPING_ICMP_ECHOREQ                8
 #define DIOPING_REQ_TICKETSIZE              32        // Echo Request Data size
+
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 
 typedef struct
@@ -59,14 +70,12 @@ typedef struct
 } DIOPING_ADDR_BYTE;
 
 
-
 typedef struct
 {
   XWORD s_w1;
   XWORD s_w2;
 
 } DIOPING_ADDR_WORD;
-
 
 
 typedef struct
@@ -80,7 +89,6 @@ typedef struct
     } INADDR_UNION;
 
 } DIOPING_INADDR;
-
 
 
 // IP Header -- RFC 791
@@ -134,8 +142,6 @@ typedef struct
 } DIOPING_ECHOREPLY;
 
 
-
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 class XTIMER;
 class XPUBLISHER;
@@ -220,10 +226,15 @@ class DIOPING :  public XSUBJECT
 };
 
 
-
+#pragma endregion
 
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 
