@@ -127,6 +127,11 @@
 
   #endif
 
+  #ifdef DIO_PING_ACTIVE
+  #include "DIOLINUXPing.h"
+  #include "DIOPing.h"
+  #endif
+
   #ifdef DIO_ALERTS_ACTIVE
   #include "DIOAlerts.h"
   #endif
@@ -471,6 +476,13 @@ bool MAINPROCLINUX::Factorys_Ini()
       }
 
     #endif
+
+    #ifdef DIO_PING_ACTIVE    
+    if(!DIOPING::SetInstance(new DIOLINUXPING())) 
+      {
+        return false;
+      }    
+    #endif
 	
   #endif
 
@@ -521,17 +533,21 @@ bool MAINPROCLINUX::Factorys_End()
   #endif
 
   #ifdef DIO_ACTIVE
-  #ifdef DIO_GPIO_ACTIVE
-  if(DIOGPIO::GetIsInstanced())
-    {
-      DIOGPIO::GetInstance().End();
-      DIOGPIO::DelInstance();
-    }
-  #endif
+    #ifdef DIO_GPIO_ACTIVE
+    if(DIOGPIO::GetIsInstanced())
+      {
+        DIOGPIO::GetInstance().End();
+        DIOGPIO::DelInstance();
+      }
+    #endif
 
-  #ifdef DIO_STREAMUDP_ACTIVE
-  DIODNSRESOLVER::DelInstance();
-  #endif
+    #ifdef DIO_STREAMUDP_ACTIVE
+    DIODNSRESOLVER::DelInstance();
+    #endif
+
+    #ifdef DIO_PING_ACTIVE    
+    DIOPING::DelInstance();      
+    #endif
 
   DIOFACTORY::DelInstance();
   #endif

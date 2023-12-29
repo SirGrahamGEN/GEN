@@ -56,11 +56,6 @@ class DIOLINUXFACTORY : public DIOFACTORY
     virtual bool                          DeleteWifiManagerMode       (DIOWIFIMANAGERMODE* wifimanagermode);
     #endif
 
-    #ifdef DIO_PING_ACTIVE
-    DIOPING*                              CreatePing                  ();
-    bool                                  DeletePing                  (DIOPING* ping);
-    #endif
-
     #ifdef DIO_PCAP_ACTIVE
     virtual DIOPCAP*                      CreatePCap                  ();
     virtual bool                          DeletePCap                  (DIOPCAP* pcap);

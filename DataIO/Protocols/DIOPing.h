@@ -188,6 +188,11 @@ class DIOPING :  public XSUBJECT
                                   DIOPING                     ();
     virtual                      ~DIOPING                     ();
 
+    static bool                   GetIsInstanced              ();
+    static DIOPING&               GetInstance                 ();
+    static bool                   SetInstance                 (DIOPING* instance);
+    static bool                   DelInstance                 ();
+
     DIOURL*                       GetTarget                   ();
 
     bool                          Set                         (XCHAR* urltarget , XCHAR* IPLocal = NULL);
@@ -214,6 +219,8 @@ class DIOPING :  public XSUBJECT
     DIOURL*                       urltarget;
     XSTRING                       IPLocal;
 
+    XMUTEX*                       xmutexping;
+
     XVECTOR<DIOPINGREPLY*>        replys;
     XMUTEX*                       xmutexreplys;
 
@@ -223,6 +230,8 @@ class DIOPING :  public XSUBJECT
   private:
 
     void                          Clean                       ();
+
+    static DIOPING*               instance;
 };
 
 

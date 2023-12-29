@@ -185,7 +185,7 @@ class DIOCHECKTCPIPCONNECTIONS
 
     XTIMER*                                 xtimerfortimeconnectionchecks;
     bool                                    ischecktimeconnections;
-    DIOPING*                                ping;
+    
     XMUTEX*                                 xmutexconnections;
     XVECTOR<DIOCHECKTCPIPCONNECTION*>       connections;
     XTHREADCOLLECTED*                       threadcheckconnections;

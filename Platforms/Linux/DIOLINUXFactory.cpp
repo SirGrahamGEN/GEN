@@ -315,15 +315,6 @@ DELETEFUNC(DIOLINUXFACTORY, DIOWIFIMANAGERMODE  , DIOLINUXWIFIMANAGERMODE    , D
 
 
 
-#ifdef DIO_PING_ACTIVE
-
-CREATEFUNC(DIOLINUXFACTORY, DIOPING   , DIOLINUXPING    , CreatePing)
-DELETEFUNC(DIOLINUXFACTORY, DIOPING   , DIOLINUXPING    , DeletePing)
-
-#endif
-
-
-
 #ifdef DIO_PCAP_ACTIVE
 
 CREATEFUNC(DIOLINUXFACTORY, DIOPCAP   , DIOLINUXPCAP    , CreatePCap)
@@ -333,9 +324,7 @@ DELETEFUNC(DIOLINUXFACTORY, DIOPCAP   , DIOLINUXPCAP    , DeletePCap)
 
 
 
-
 #ifdef DIO_LEDNEOPIXELWS2812B_ACTIVE 
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 

@@ -285,46 +285,6 @@ bool DIOFACTORY::DeleteWifiManagerMode(DIOWIFIMANAGERMODE* wifimanagermode)
 
 
 
-#ifdef DIO_PING_ACTIVE
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOPING* DIOFACTORY::CreatePing()
-* @brief      Create Ping
-* @note       VIRTUAL
-* @ingroup    DATAIO
-*
-* @return     DIOPING* : ping class created
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOPING* DIOFACTORY::CreatePing()
-{
-  return NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOFACTORY::DeletePing(DIOPING* ping)
-* @brief      Delete Ping
-* @note       VIRTUAL
-* @ingroup    DATAIO
-*
-* @param[in]  ping : ping to delete
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOFACTORY::DeletePing(DIOPING* ping)
-{
-  return false;
-}
-
-#endif
-
-
-
-
 #ifdef DIO_PCAP_ACTIVE
 
 /**-------------------------------------------------------------------------------------------------------------------

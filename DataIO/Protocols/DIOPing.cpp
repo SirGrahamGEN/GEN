@@ -62,6 +62,8 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
+DIOPING* DIOPING::instance = NULL;
+
 #pragma endregion
 
 
@@ -311,6 +313,8 @@ DIOPING::DIOPING()
 
       GEN_XFACTORY.DeleteRand(xrand);
     }
+
+  GEN_XFACTORY_CREATE(xmutexping, Create_Mutex());  
 }
 
 
@@ -330,13 +334,109 @@ DIOPING::~DIOPING()
 
   DeleteAllReplys();
 
-  if(urltarget) delete urltarget;
+  if(xtimer) 
+    {
+      GEN_XFACTORY.DeleteTimer(xtimer);
+    }
 
-  if(xmutexreplys) GEN_XFACTORY.Delete_Mutex(xmutexreplys);
+  if(urltarget) 
+    {
+      delete urltarget;
+    }
 
-  if(xtimer) GEN_XFACTORY.DeleteTimer(xtimer);
+  if(xmutexreplys) 
+    {
+      GEN_XFACTORY.Delete_Mutex(xmutexreplys);
+    }  
+
+  if(xmutexping) 
+    {
+      GEN_XFACTORY.Delete_Mutex(xmutexping);
+    }  
 
   Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOPING::GetIsInstanced()
+* @brief      Get if Is Instanced
+* @note       STATIC
+* @ingroup    XUTILS
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOPING::GetIsInstanced()
+{
+  return instance!=NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         DIOPING& DIOPING::GetInstance()
+* @brief      Get Instance of DIOPING
+* @note       STATIC
+* @ingroup    XUTILS
+*
+* @return     DIOPING& :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOPING& DIOPING::GetInstance()
+{
+  if(!instance) instance = new DIOPING();
+
+  return (*instance);
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOPING::SetInstance(DIOPING* instance)
+* @brief      Set Instance of DIOPING
+* @note       STATIC
+* @ingroup    XUTILS
+*
+* @param[in]  _instance : new instance
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOPING::SetInstance(DIOPING* _instance)
+{
+  if(!_instance) return false;
+
+  instance = _instance;
+
+  return (instance)?true:false;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOPING::DelInstance()
+* @brief      Delete Instance of DIOPING
+* @note       STATIC
+* @ingroup    XUTILS
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOPING::DelInstance()
+{
+  if(instance)
+    {
+      delete instance;
+      instance = NULL;
+
+      return true;
+    }
+
+  return false;
 }
 
 
@@ -413,6 +513,11 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
   if(!urltarget)         return false;
   if(!xtimer)            return false;
 
+  if(xmutexping)
+    {
+      xmutexping->Lock();
+    }
+
   DIOSTREAMICMPCONFIG   diostreamICMPconfig;
   XSTRING               targetIP;
 
@@ -423,11 +528,25 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
   diostreamICMPconfig.SetMode(DIOSTREAMMODE_CLIENT);
 
   DIOSTREAMICMP* diostreamICMP  = (DIOSTREAMICMP*)GEN_DIOFACTORY.CreateStreamIO(&diostreamICMPconfig);
-  if(!diostreamICMP) return false;
+  if(!diostreamICMP) 
+    {
+      if(xmutexping)
+        {
+          xmutexping->UnLock();
+        }
+
+      return false;
+    }
 
   if(!diostreamICMP->Open())
     {
       GEN_DIOFACTORY.DeleteStreamIO(diostreamICMP);
+
+      if(xmutexping)
+        {
+          xmutexping->UnLock();
+        }
+
       return false;
     }
 
@@ -435,6 +554,12 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
     {
       diostreamICMP->Close();
       GEN_DIOFACTORY.DeleteStreamIO(diostreamICMP);
+
+      if(xmutexping)
+        {
+          xmutexping->UnLock();
+        }
+
       return false;
     }
 
@@ -452,7 +577,10 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
       bool      status       = false;
       
       XRAND* GEN_XFACTORY_CREATE(xrand, CreateRand())
-      if(!xrand) break;
+      if(!xrand) 
+        {
+          break;
+        }
 
       memset((XBYTE*)&echorequest, 0, sizeof(DIOPING_ECHOREQUEST));
 
@@ -485,7 +613,10 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
           diostreamICMP->DeleteAllDatagrams();
 
           status = diostreamICMP->WriteDatagram(targetIP, (XBYTE*)&echorequest, sizeof(DIOPING_ECHOREQUEST));
-          if(status) status = diostreamICMP->WaitToFlushOutXBuffer(3);
+          if(status) 
+            {
+              status = diostreamICMP->WaitToFlushOutXBuffer(3);
+            }
         }
 
       if(!status)
@@ -527,14 +658,13 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
               crc32.ResetResult();
               crc32.Do((XBYTE*)echoreply.echorequest.cdata, DIOPING_REQ_TICKETSIZE);
 
-              if(crc32result == crc32.GetResultCRC32())
+            //if(crc32result == crc32.GetResultCRC32())
                 {
                   XWORD checksum = CalculeCheckSum((XWORD *)&echoreply.echorequest, sizeof(DIOPING_ECHOREQUEST));
                   if(!checksum)
                     {
                       DIOIP    ip;
                       XSTRING  fromIP;
-
 
                       //  Calculate elapsed time
 
@@ -588,10 +718,12 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
                       XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: error Checksum! %s "), targetIP.Get());
                     }
                 }
+               /* 
                else
                 {
                   XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: error CRC! %s "), targetIP.Get());
                 }
+               */
             }
            else
             {
@@ -604,10 +736,14 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
   GEN_DIOFACTORY.DeleteStreamIO(diostreamICMP);
 
   bool status = WasConnected();
-
   if(!status)
     {
      // XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("Ping to [%s]: %s"), targetIP.Get(), (status?__L("Ok."): __L("ERROR!")));
+    }
+
+  if(xmutexping)
+    {
+      xmutexping->UnLock();
     }
 
   return status;
@@ -829,6 +965,8 @@ void DIOPING::Clean()
   xtimer              = NULL;
 
   urltarget           = NULL;
+
+  xmutexping          = NULL;
 
   applicationID       = 0;
 

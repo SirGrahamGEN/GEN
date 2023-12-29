@@ -593,9 +593,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Ini(int timeconnectionchecks, bool validsomeiscon
   GEN_XFACTORY_CREATE(xtimerfortimeconnectionchecks, CreateTimer())
   if(!xtimerfortimeconnectionchecks) return false;
       
-  ping = GEN_DIOFACTORY.CreatePing();
-  if(!ping) return false;
-
   GEN_XFACTORY_CREATE(xmutexconnections, Create_Mutex())
   if(!xmutexconnections) return false;
 
@@ -1144,13 +1141,7 @@ bool DIOCHECKTCPIPCONNECTIONS::End()
       GEN_XFACTORY.Delete_Mutex(xmutexconnections);
       xmutexconnections = NULL;
     }
-
-  if(ping)
-    {
-      GEN_DIOFACTORY.DeletePing(ping);
-      ping = NULL;
-    }
-
+ 
   if(xtimerfortimeconnectionchecks)
     {
       GEN_XFACTORY.DeleteTimer(xtimerfortimeconnectionchecks);
@@ -1179,7 +1170,6 @@ void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
   DIOCHECKTCPIPCONNECTIONS* checkconnections = (DIOCHECKTCPIPCONNECTIONS*)param;
   if(!checkconnections) return;
 
-  if(!checkconnections->ping)                             return;
   if(!checkconnections->xmutexconnections)                return;
   if(!checkconnections->xtimerfortimeconnectionchecks)    return;
 
@@ -1201,16 +1191,16 @@ void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
         {
           checkconnections->xmutexconnections->Lock();
 
-          checkconnections->ping->Set(checkconnection->GetURL()->Get());
+          GEN_DIOPING.Set(checkconnection->GetURL()->Get());
 
-          bool connexionstatus = checkconnections->ping->Do(DIOCHECKTCPIPCONNECTIONS_DEFAULTNCHECKSFOREVERYCONNECTION, DIOCHECKTCPIPCONNECTIONS_DEFAULTTIMERCONNECTIONCHECK, checkconnections->validsomeisconnected);
+          bool connexionstatus = GEN_DIOPING.Do(DIOCHECKTCPIPCONNECTIONS_DEFAULTNCHECKSFOREVERYCONNECTION, DIOCHECKTCPIPCONNECTIONS_DEFAULTTIMERCONNECTIONCHECK, checkconnections->validsomeisconnected);
           if(connexionstatus != checkconnection->IsConnected()) checkconnection->ResetTimeConnexionStatus();
 
           checkconnection->SetIsConnected(connexionstatus);
           checkconnection->IncNChecks();
 
           if(checkconnection->IsConnected())
-                 checkconnection->SetElapsedTime(checkconnections->ping->CalculateMeanTime());
+                 checkconnection->SetElapsedTime(GEN_DIOPING.CalculateMeanTime());
             else checkconnection->SetElapsedTime(0);
 
           index++;
@@ -1243,16 +1233,16 @@ void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
           DIOCHECKTCPIPCONNECTION* checkconnection = checkconnections->connections.Get(c);
           if(checkconnection)
             {
-              checkconnections->ping->Set(checkconnection->GetURL()->Get());
+              GEN_DIOPING.Set(checkconnection->GetURL()->Get());
 
-              bool connexionstatus = checkconnections->ping->Do(DIOCHECKTCPIPCONNECTIONS_DEFAULTNCHECKSFOREVERYCONNECTION, DIOCHECKTCPIPCONNECTIONS_DEFAULTTIMERCONNECTIONCHECK, checkconnections->validsomeisconnected);
+              bool connexionstatus = GEN_DIOPING.Do(DIOCHECKTCPIPCONNECTIONS_DEFAULTNCHECKSFOREVERYCONNECTION, DIOCHECKTCPIPCONNECTIONS_DEFAULTTIMERCONNECTIONCHECK, checkconnections->validsomeisconnected);
               if(connexionstatus != checkconnection->IsConnected()) checkconnection->ResetTimeConnexionStatus();
 
               checkconnection->SetIsConnected(connexionstatus);
               checkconnection->IncNChecks();
 
               if(checkconnection->IsConnected())
-                      checkconnection->SetElapsedTime(checkconnections->ping->CalculateMeanTime());
+                      checkconnection->SetElapsedTime(GEN_DIOPING.CalculateMeanTime());
                 else checkconnection->SetElapsedTime(0);
 
               if((checkconnections->validsomeisconnected) && (checkconnection->IsConnected())) break;
@@ -1298,7 +1288,7 @@ void DIOCHECKTCPIPCONNECTIONS::Clean()
 
   xtimerfortimeconnectionchecks       = NULL;
   ischecktimeconnections              = false;
-  ping                                = NULL;
+
   xmutexconnections                   = NULL;
   threadcheckconnections              = NULL;
 }

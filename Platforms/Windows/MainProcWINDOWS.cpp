@@ -106,6 +106,11 @@
     #endif   
   #endif
 
+  #ifdef DIO_PING_ACTIVE
+  #include "DIOWINDOWSPing.h"
+  #include "DIOPing.h"
+  #endif
+
   #ifdef DIO_ALERTS_ACTIVE
   #include "DIOAlerts.h"
   #endif
@@ -474,6 +479,13 @@ bool MAINPROCWINDOWS::Factorys_Ini()
 
     #endif
 
+    #ifdef DIO_PING_ACTIVE    
+    if(!DIOPING::SetInstance(new DIOWINDOWSPING())) 
+      {
+        return false;
+      }    
+    #endif
+
   #endif
 
   #ifdef SND_ACTIVE
@@ -534,6 +546,10 @@ bool MAINPROCWINDOWS::Factorys_End()
 
     #ifdef DIO_STREAMUDP_ACTIVE
     DIODNSRESOLVER::DelInstance();
+    #endif
+
+    #ifdef DIO_PING_ACTIVE    
+    DIOPING::DelInstance();      
     #endif
 
     DIOFACTORY::DelInstance();
