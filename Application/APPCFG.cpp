@@ -158,6 +158,7 @@ bool APPCFG::DoVariableMapping()
   AddRemark(APP_CFG_SECTION_INTERNETSERVICES, __L(" Internet services section of configuration"), 0, 2);
 
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_CHECKINTERNETSTATUSCADENCE               , &internetservices_checkinternetstatuscadence                  , __L("Internet connection status cadence")                                 , APP_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_DONOTLETINTERNETCONNECTIONMATTER         , &internetservices_donotletinternetconnectionmatter            , __L("Do not let Internet connection matter")                              , APP_CFG_DEFAULT_REMARK_COLUMN); 
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_CHECKIPSCHANGECADENCE                    , &internetservices_checkipschangecadence                       , __L("Internet IP Change Cadence")                                         , APP_CFG_DEFAULT_REMARK_COLUMN);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_INTERNETSERVICES          , APP_CFG_INTERNETSERVICES_UPDATETIMEBYNTPCADENCE                   , &internetservices_updatetimebyntpcadence                      , __L("Internet update time by NTP cadence")                                , APP_CFG_DEFAULT_REMARK_COLUMN);
 
@@ -338,6 +339,7 @@ bool APPCFG::DoDefault()
 
   #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
   internetservices_checkinternetstatuscadence       = 30;
+  internetservices_donotletinternetconnectionmatter = false;
   internetservices_checkipschangecadence            = 60;
   internetservices_updatetimebyntpcadence           = 4;
   internetservices_updatetimentpservers.Get(0)->Set(__L("1.es.pool.ntp.org")); 
@@ -693,6 +695,21 @@ XSTRING* APPCFG::CheckResourcesHardware_GetCPUUsageProcessName()
 int APPCFG::InternetServices_GetCheckInternetStatusCadence()
 {
   return internetservices_checkinternetstatuscadence;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPCFG::InternetServices_DoNotLetInternetConnectionMatter()
+* @brief      InternetServices_DoNotLetInternetConnectionMatter
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPCFG::InternetServices_DoNotLetInternetConnectionMatter()
+{
+  return internetservices_donotletinternetconnectionmatter;
 }
 
 
@@ -1795,6 +1812,7 @@ void APPCFG::Clean()
 
   #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
   internetservices_checkinternetstatuscadence       = 0;
+  internetservices_donotletinternetconnectionmatter = false;
   internetservices_checkipschangecadence            = 0;
   internetservices_updatetimebyntpcadence           = 0;
   internetservices_nupdatetimentpservers            = 0;

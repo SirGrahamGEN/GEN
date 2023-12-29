@@ -702,6 +702,37 @@ bool APPINTERNETSERVICES::End()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPINTERNETSERVICES::CheckInternetConnection()
+* @brief      CheckInternetConnection
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPINTERNETSERVICES::CheckInternetConnection()
+{
+  bool donotletinternetconnectionmatter = true;
+
+  if(cfg)
+    {
+      donotletinternetconnectionmatter = cfg->InternetServices_DoNotLetInternetConnectionMatter();
+    }
+
+  if(donotletinternetconnectionmatter)
+    {
+      return true;
+    }
+   else
+    {
+      return haveinternetconnection;
+    }
+    
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPINTERNETSERVICES::CheckInternetStatus()
 * @brief      CheckInternetStatus
@@ -986,7 +1017,7 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
       case APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET : CheckInternetStatus();                                                                  
                                                                 break;
 
-      case APPINTERNETSERVICES_TASKID_GETIPS                  : if(haveinternetconnection) 
+      case APPINTERNETSERVICES_TASKID_GETIPS                  : if(CheckInternetConnection()) 
                                                                   {
                                                                     XSTRING actualpublicIP;
 
@@ -1003,7 +1034,7 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
                                                                   }
                                                                 break;
 
-      case APPINTERNETSERVICES_TASKID_CHECKNTPDATETIME        : if(haveinternetconnection) 
+      case APPINTERNETSERVICES_TASKID_CHECKNTPDATETIME        : if(CheckInternetConnection()) 
                                                                  {
                                                                    AdjustTimerByNTP(&NTPservers);                                                                  
                                                                  }

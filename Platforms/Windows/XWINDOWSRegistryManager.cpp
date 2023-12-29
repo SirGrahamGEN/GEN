@@ -194,20 +194,19 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XCHAR* name, XVARIANT& data)
                                               data = databuffer;
                                               break;
 
-      case REG_DWORD                        : { // 32-bit number
-                                                XDWORD _data = 0;
+      case REG_DWORD                        :  
+    //case REG_DWORD_LITTLE_ENDIAN          : // 32-bit number (same as REG_DWORD) 
+                                              { XDWORD _data = 0;
+
                                                 databuffer.Get(_data);
+                                                SWAPDWORD(_data);
                                                 data = _data;
                                               }
                                               break;
 
-    //case REG_DWORD_LITTLE_ENDIAN          : // 32-bit number (same as REG_DWORD)
-                                              //break;
-
-      case REG_DWORD_BIG_ENDIAN             : { // 32-bit number
-                                                XDWORD _data = 0;
+      case REG_DWORD_BIG_ENDIAN             : { XDWORD _data = 0;
                                                 databuffer.Get(_data);
-                                                SWAPDWORD(_data);
+                                                //SWAPDWORD(_data);
                                                 data = _data;
                                               }
                                               break;
@@ -227,14 +226,17 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XCHAR* name, XVARIANT& data)
 
       case REG_RESOURCE_REQUIREMENTS_LIST   : break;
 
-      case REG_QWORD                        : { // 64-bit number
-                                                XQWORD _data = 0;
+      case REG_QWORD                        :  
+    //case REG_QWORD_LITTLE_ENDIAN          : // 64-bit number (same as REG_QWORD)
+                                              { XQWORD _data = 0;
+
                                                 databuffer.Get(_data);
+                                                SWAPQWORD(_data);
                                                 data = _data;
                                               }
                                               break;
 
-  //  case REG_QWORD_LITTLE_ENDIAN          : // 64-bit number (same as REG_QWORD)
+ 
 
                                     default : return false;
 

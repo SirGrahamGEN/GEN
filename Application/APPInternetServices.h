@@ -100,6 +100,7 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
 
   private:
 
+    bool                            CheckInternetConnection         ();
     bool                            CheckInternetStatus             ();
     
     bool                            UpdateIPs                       (XSTRING& actualpublicIP);

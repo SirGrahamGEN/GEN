@@ -89,6 +89,7 @@
 
 #define APP_CFG_SECTION_INTERNETSERVICES                                          __L("internet services")
 #define APP_CFG_INTERNETSERVICES_CHECKINTERNETSTATUSCADENCE                       __L("checkinternetstatuscadenceseconds")
+#define APP_CFG_INTERNETSERVICES_DONOTLETINTERNETCONNECTIONMATTER                 __L("donotletinternetconnectionmatter")  
 #define APP_CFG_INTERNETSERVICES_CHECKIPSCHANGECADENCE                            __L("checkipschangecadenceminutes")
 #define APP_CFG_INTERNETSERVICES_UPDATETIMEBYNTPCADENCE                           __L("updatetimebyntpcadencehours")
 #define APP_CFG_INTERNETSERVICES_UPDATETIMENTPSERVER                              __L("updatetimentpserver")
@@ -274,6 +275,7 @@ class APPCFG
 
     #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
     int                  InternetServices_GetCheckInternetStatusCadence           ();
+    bool                 InternetServices_DoNotLetInternetConnectionMatter        ();
     int                  InternetServices_GetCheckIPsChangeCadence                ();
     int                  InternetServices_GetUpdateTimeByNTPCadence               ();
     XVECTOR<XSTRING*>*   InternetServices_GetUpdateTimeNTPServers                 (); 
@@ -388,6 +390,7 @@ class APPCFG
 
     #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
     int                  internetservices_checkinternetstatuscadence;
+    bool                 internetservices_donotletinternetconnectionmatter;
     int                  internetservices_checkipschangecadence;
     int                  internetservices_updatetimebyntpcadence;
     int                  internetservices_nupdatetimentpservers;
