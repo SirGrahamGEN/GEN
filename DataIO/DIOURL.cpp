@@ -1,50 +1,61 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOURL.cpp
-*
+* 
 * @class      DIOURL
 * @brief      Data Input/Output URL class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOURL.h"
 
 #include "XBuffer.h"
 
 #include "DIODNSResolver.h"
 
-#include "DIOURL.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -62,7 +73,6 @@ DIOURL::DIOURL()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::~DIOURL()
@@ -77,7 +87,6 @@ DIOURL::~DIOURL()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -97,7 +106,6 @@ DIOURL::DIOURL(XDWORD size) : XSTRING(size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::DIOURL(const char* url)
@@ -115,7 +123,6 @@ DIOURL::DIOURL(const char* url) : XSTRING(url)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::DIOURL(const XCHAR* url)
@@ -131,7 +138,6 @@ DIOURL::DIOURL(const XCHAR* url) : XSTRING(url)
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -152,7 +158,6 @@ DIOURL::DIOURL(const XCHAR* url,XDWORD size) : XSTRING(url, size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::DIOURL(DIOURL& url)
@@ -168,7 +173,6 @@ DIOURL::DIOURL(DIOURL& url) : XSTRING(url)
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -188,7 +192,6 @@ DIOURL::DIOURL(XSTRING& url) : XSTRING(url)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::DIOURL(XWORD* url)
@@ -204,7 +207,6 @@ DIOURL::DIOURL(XWORD* url) : XSTRING(url)
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -261,7 +263,6 @@ bool DIOURL::GetHTTPServer(XSTRING& server, XSTRING& login, XSTRING& password)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::GetHTTPResource(XSTRING& resource)
@@ -300,7 +301,6 @@ bool DIOURL::GetHTTPResource(XSTRING& resource)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::IsAURL()
@@ -326,7 +326,6 @@ bool DIOURL::IsAURL()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::ResolveURL()
@@ -346,7 +345,6 @@ bool DIOURL::ResolveURL()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -374,7 +372,6 @@ bool DIOURL::ResolveURL(XSTRING& IPstring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::ResolveURL(DIOIP& IP)
@@ -400,7 +397,6 @@ bool DIOURL::ResolveURL(DIOIP& IP)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::IsLocalAddress()
@@ -422,7 +418,6 @@ bool DIOURL::IsLocalAddress()
 
   return IP.IsLocal();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -464,7 +459,6 @@ bool DIOURL::Slash_Add()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::Slash_Normalize()
@@ -489,7 +483,6 @@ bool DIOURL::Slash_Normalize()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -517,7 +510,6 @@ bool DIOURL::Slash_Delete()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::IsUnsafeChar(XCHAR character)
@@ -541,7 +533,6 @@ bool DIOURL::IsUnsafeChar(XCHAR character)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -568,7 +559,6 @@ bool DIOURL::EncodeUnsafeChar(XCHAR character, XSTRING& encodechar)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -622,7 +612,6 @@ bool DIOURL::EncodeUnsafeCharsFromString(XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::EncodeUnsafeCharsFromString(const char* string)
@@ -642,7 +631,6 @@ bool DIOURL::EncodeUnsafeCharsFromString(const char* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::EncodeUnsafeCharsFromString(const XCHAR* string)
@@ -660,7 +648,6 @@ bool DIOURL::EncodeUnsafeCharsFromString(const XCHAR* string)
 
   return EncodeUnsafeCharsFromString(string2);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -714,7 +701,6 @@ bool DIOURL::EncodeUnsafeCharsFromBuffer(XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::EncodeUnsafeChars()
@@ -735,7 +721,6 @@ bool DIOURL::EncodeUnsafeChars()
   return true;
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -797,7 +782,6 @@ bool DIOURL::DecodeUnsafeCharsToString(XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::DecodeUnsafeChars()
@@ -821,7 +805,6 @@ bool DIOURL::DecodeUnsafeChars()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::Normalize()
@@ -843,7 +826,6 @@ bool DIOURL::Normalize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::HaveHTTPID()
@@ -860,7 +842,6 @@ bool DIOURL::HaveHTTPID()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -886,8 +867,6 @@ bool DIOURL::AddHTTPID()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -926,7 +905,6 @@ bool DIOURL::DeleteHTTPID()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -998,8 +976,6 @@ bool DIOURL::GetFileName(XSTRING& filename)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOURL::Clean()
@@ -1015,3 +991,5 @@ void DIOURL::Clean()
 
 }
 
+
+#pragma endregion

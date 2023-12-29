@@ -663,7 +663,14 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                       {
                                                                         if(diostream->config->GetRemoteURL()->GetSize()) 
                                                                           {
-                                                                            diostream->config->GetRemoteURL()->ResolveURL(diostream->remoteaddress);
+                                                                            if(diostream->config->GetRemoteURL()->IsAURL())
+                                                                              {
+                                                                                diostream->config->GetRemoteURL()->ResolveURL(diostream->remoteaddress);
+                                                                              }
+                                                                             else
+                                                                              {
+                                                                                 diostream->remoteaddress = diostream->config->GetRemoteURL()->Get();
+                                                                              }
                                                                           }
                                                                       }
                                                                   }
